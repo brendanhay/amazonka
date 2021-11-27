@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Account.DeleteAlternateContact</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified alternate contact from an Amazon Web Services</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- For complete details about how to use the alternate contact operations,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html Access or updating the alternate contacts&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Account.DeleteAlternateContact</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact"><span class="hs-identifier">DeleteAlternateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#newDeleteAlternateContact"><span class="hs-identifier">newDeleteAlternateContact</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#deleteAlternateContact_accountId"><span class="hs-identifier">deleteAlternateContact_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#deleteAlternateContact_alternateContactType"><span class="hs-identifier">deleteAlternateContact_alternateContactType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContactResponse"><span class="hs-identifier">DeleteAlternateContactResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#newDeleteAlternateContactResponse"><span class="hs-identifier">newDeleteAlternateContactResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Account.Types.html"><span class="hs-identifier">Amazonka.Account.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteAlternateContact' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679140568"><span id="local-6989586621679140569"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlternateContact"><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact"><span class="hs-identifier hs-var">DeleteAlternateContact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlternateContact%27"><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact%27"><span class="hs-identifier hs-var">DeleteAlternateContact'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the 12 digit account ID number of the Amazon Web Services</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- account that you want to access or modify with this operation.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- If you do not specify this parameter, it defaults to the Amazon Web</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Services account of the identity used to call the operation.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- To use this parameter, the caller must be an identity in the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account organization\'s management account&gt;</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- or a delegated administrator account, and the specified account ID must</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- be a member account in the same organization. The organization must have</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html all features enabled&gt;,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- and the organization must have</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-trusted-access.html trusted access&gt;</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- enabled for the Account Management service, and optionally a</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-delegated-admin.html delegated admin&gt;</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- account assigned.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- The management account can\'t specify its own @AccountId@; it must call</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- the operation in standalone context by not including the @AccountId@</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- To call this operation on an account that is not a member of an</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- organization, then don\'t specify this parameter, and call the operation</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- using an identity belonging to the account whose contacts you wish to</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- retrieve or modify.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AaccountId%3ADeleteAlternateContact%27"><span class="annot"><span class="annottext">DeleteAlternateContact -&gt; Maybe Text
+</span><a href="Amazonka.Account.DeleteAlternateContact.html#%24sel%3AaccountId%3ADeleteAlternateContact%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | Specifies which of the alternate contacts to delete.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AalternateContactType%3ADeleteAlternateContact%27"><span class="annot"><span class="annottext">DeleteAlternateContact -&gt; AlternateContactType
+</span><a href="Amazonka.Account.DeleteAlternateContact.html#%24sel%3AalternateContactType%3ADeleteAlternateContact%27"><span class="hs-identifier hs-var hs-var">alternateContactType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Account.Types.AlternateContactType.html#AlternateContactType"><span class="hs-identifier hs-type">AlternateContactType</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679140561"><span id="local-6989586621679140563"><span class="annot"><span class="annottext">DeleteAlternateContact -&gt; DeleteAlternateContact -&gt; Bool
+(DeleteAlternateContact -&gt; DeleteAlternateContact -&gt; Bool)
+-&gt; (DeleteAlternateContact -&gt; DeleteAlternateContact -&gt; Bool)
+-&gt; Eq DeleteAlternateContact
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAlternateContact -&gt; DeleteAlternateContact -&gt; Bool
+$c/= :: DeleteAlternateContact -&gt; DeleteAlternateContact -&gt; Bool
+== :: DeleteAlternateContact -&gt; DeleteAlternateContact -&gt; Bool
+$c== :: DeleteAlternateContact -&gt; DeleteAlternateContact -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679140552"><span id="local-6989586621679140554"><span id="local-6989586621679140556"><span id="local-6989586621679140558"><span class="annot"><span class="annottext">ReadPrec [DeleteAlternateContact]
+ReadPrec DeleteAlternateContact
+Int -&gt; ReadS DeleteAlternateContact
+ReadS [DeleteAlternateContact]
+(Int -&gt; ReadS DeleteAlternateContact)
+-&gt; ReadS [DeleteAlternateContact]
+-&gt; ReadPrec DeleteAlternateContact
+-&gt; ReadPrec [DeleteAlternateContact]
+-&gt; Read DeleteAlternateContact
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAlternateContact]
+$creadListPrec :: ReadPrec [DeleteAlternateContact]
+readPrec :: ReadPrec DeleteAlternateContact
+$creadPrec :: ReadPrec DeleteAlternateContact
+readList :: ReadS [DeleteAlternateContact]
+$creadList :: ReadS [DeleteAlternateContact]
+readsPrec :: Int -&gt; ReadS DeleteAlternateContact
+$creadsPrec :: Int -&gt; ReadS DeleteAlternateContact
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679140545"><span id="local-6989586621679140547"><span id="local-6989586621679140549"><span class="annot"><span class="annottext">Int -&gt; DeleteAlternateContact -&gt; ShowS
+[DeleteAlternateContact] -&gt; ShowS
+DeleteAlternateContact -&gt; String
+(Int -&gt; DeleteAlternateContact -&gt; ShowS)
+-&gt; (DeleteAlternateContact -&gt; String)
+-&gt; ([DeleteAlternateContact] -&gt; ShowS)
+-&gt; Show DeleteAlternateContact
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAlternateContact] -&gt; ShowS
+$cshowList :: [DeleteAlternateContact] -&gt; ShowS
+show :: DeleteAlternateContact -&gt; String
+$cshow :: DeleteAlternateContact -&gt; String
+showsPrec :: Int -&gt; DeleteAlternateContact -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAlternateContact -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteAlternateContact -&gt; Rep DeleteAlternateContact x)
+-&gt; (forall x.
+    Rep DeleteAlternateContact x -&gt; DeleteAlternateContact)
+-&gt; Generic DeleteAlternateContact
+forall x. Rep DeleteAlternateContact x -&gt; DeleteAlternateContact
+forall x. DeleteAlternateContact -&gt; Rep DeleteAlternateContact x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteAlternateContact x -&gt; DeleteAlternateContact
+$cfrom :: forall x. DeleteAlternateContact -&gt; Rep DeleteAlternateContact x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'DeleteAlternateContact' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'accountId', 'deleteAlternateContact_accountId' - Specifies the 12 digit account ID number of the Amazon Web Services</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- account that you want to access or modify with this operation.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- If you do not specify this parameter, it defaults to the Amazon Web</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Services account of the identity used to call the operation.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- To use this parameter, the caller must be an identity in the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account organization\'s management account&gt;</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- or a delegated administrator account, and the specified account ID must</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- be a member account in the same organization. The organization must have</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html all features enabled&gt;,</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- and the organization must have</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-trusted-access.html trusted access&gt;</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- enabled for the Account Management service, and optionally a</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-delegated-admin.html delegated admin&gt;</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- account assigned.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- The management account can\'t specify its own @AccountId@; it must call</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- the operation in standalone context by not including the @AccountId@</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- To call this operation on an account that is not a member of an</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- organization, then don\'t specify this parameter, and call the operation</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- using an identity belonging to the account whose contacts you wish to</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- retrieve or modify.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'alternateContactType', 'deleteAlternateContact_alternateContactType' - Specifies which of the alternate contacts to delete.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#newDeleteAlternateContact"><span class="hs-identifier hs-type">newDeleteAlternateContact</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'alternateContactType'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.Account.Types.AlternateContactType.html#AlternateContactType"><span class="hs-identifier hs-type">AlternateContactType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact"><span class="hs-identifier hs-type">DeleteAlternateContact</span></a></span><span>
+</span><span id="line-123"></span><span id="newDeleteAlternateContact"><span class="annot"><span class="annottext">newDeleteAlternateContact :: AlternateContactType -&gt; DeleteAlternateContact
+</span><a href="Amazonka.Account.DeleteAlternateContact.html#newDeleteAlternateContact"><span class="hs-identifier hs-var hs-var">newDeleteAlternateContact</span></a></span></span><span> </span><span id="local-6989586621679140540"><span class="annot"><span class="annottext">AlternateContactType
+</span><a href="#local-6989586621679140540"><span class="hs-identifier hs-var">pAlternateContactType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="annottext">DeleteAlternateContact' :: Maybe Text -&gt; AlternateContactType -&gt; DeleteAlternateContact
+</span><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact%27"><span class="hs-identifier hs-type">DeleteAlternateContact'</span></a></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:DeleteAlternateContact' :: Maybe Text
+</span><a href="Amazonka.Account.DeleteAlternateContact.html#%24sel%3AaccountId%3ADeleteAlternateContact%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:alternateContactType:DeleteAlternateContact' :: AlternateContactType
+</span><a href="Amazonka.Account.DeleteAlternateContact.html#%24sel%3AalternateContactType%3ADeleteAlternateContact%27"><span class="hs-identifier hs-var">alternateContactType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AlternateContactType
+</span><a href="#local-6989586621679140540"><span class="hs-identifier hs-var">pAlternateContactType_</span></a></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | Specifies the 12 digit account ID number of the Amazon Web Services</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- account that you want to access or modify with this operation.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- If you do not specify this parameter, it defaults to the Amazon Web</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Services account of the identity used to call the operation.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- To use this parameter, the caller must be an identity in the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account organization\'s management account&gt;</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- or a delegated administrator account, and the specified account ID must</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- be a member account in the same organization. The organization must have</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html all features enabled&gt;,</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- and the organization must have</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-trusted-access.html trusted access&gt;</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- enabled for the Account Management service, and optionally a</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-delegated-admin.html delegated admin&gt;</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- account assigned.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The management account can\'t specify its own @AccountId@; it must call</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- the operation in standalone context by not including the @AccountId@</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- To call this operation on an account that is not a member of an</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- organization, then don\'t specify this parameter, and call the operation</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- using an identity belonging to the account whose contacts you wish to</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- retrieve or modify.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#deleteAlternateContact_accountId"><span class="hs-identifier hs-type">deleteAlternateContact_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact"><span class="hs-identifier hs-type">DeleteAlternateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="deleteAlternateContact_accountId"><span class="annot"><span class="annottext">deleteAlternateContact_accountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteAlternateContact -&gt; f DeleteAlternateContact
+</span><a href="Amazonka.Account.DeleteAlternateContact.html#deleteAlternateContact_accountId"><span class="hs-identifier hs-var hs-var">deleteAlternateContact_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAlternateContact -&gt; Maybe Text)
+-&gt; (DeleteAlternateContact -&gt; Maybe Text -&gt; DeleteAlternateContact)
+-&gt; Lens
+     DeleteAlternateContact
+     DeleteAlternateContact
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact%27"><span class="hs-identifier hs-type">DeleteAlternateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679140537"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:DeleteAlternateContact' :: DeleteAlternateContact -&gt; Maybe Text
+</span><a href="#local-6989586621679140537"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679140537"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679140536"><span class="annot"><span class="annottext">s :: DeleteAlternateContact
+</span><a href="#local-6989586621679140536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact%27"><span class="hs-identifier hs-type">DeleteAlternateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679140535"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679140535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlternateContact
+</span><a href="#local-6989586621679140536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DeleteAlternateContact' :: Maybe Text
+</span><a href="Amazonka.Account.DeleteAlternateContact.html#%24sel%3AaccountId%3ADeleteAlternateContact%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679140535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact"><span class="hs-identifier hs-type">DeleteAlternateContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | Specifies which of the alternate contacts to delete.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#deleteAlternateContact_alternateContactType"><span class="hs-identifier hs-type">deleteAlternateContact_alternateContactType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact"><span class="hs-identifier hs-type">DeleteAlternateContact</span></a></span><span> </span><span class="annot"><a href="Amazonka.Account.Types.AlternateContactType.html#AlternateContactType"><span class="hs-identifier hs-type">AlternateContactType</span></a></span><span>
+</span><span id="line-160"></span><span id="deleteAlternateContact_alternateContactType"><span class="annot"><span class="annottext">deleteAlternateContact_alternateContactType :: (AlternateContactType -&gt; f AlternateContactType)
+-&gt; DeleteAlternateContact -&gt; f DeleteAlternateContact
+</span><a href="Amazonka.Account.DeleteAlternateContact.html#deleteAlternateContact_alternateContactType"><span class="hs-identifier hs-var hs-var">deleteAlternateContact_alternateContactType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAlternateContact -&gt; AlternateContactType)
+-&gt; (DeleteAlternateContact
+    -&gt; AlternateContactType -&gt; DeleteAlternateContact)
+-&gt; Lens
+     DeleteAlternateContact
+     DeleteAlternateContact
+     AlternateContactType
+     AlternateContactType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact%27"><span class="hs-identifier hs-type">DeleteAlternateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679140534"><span class="annot"><span class="annottext">AlternateContactType
+alternateContactType :: AlternateContactType
+$sel:alternateContactType:DeleteAlternateContact' :: DeleteAlternateContact -&gt; AlternateContactType
+</span><a href="#local-6989586621679140534"><span class="hs-identifier hs-var hs-var">alternateContactType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlternateContactType
+</span><a href="#local-6989586621679140534"><span class="hs-identifier hs-var">alternateContactType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679140533"><span class="annot"><span class="annottext">s :: DeleteAlternateContact
+</span><a href="#local-6989586621679140533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact%27"><span class="hs-identifier hs-type">DeleteAlternateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679140532"><span class="annot"><span class="annottext">AlternateContactType
+</span><a href="#local-6989586621679140532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlternateContact
+</span><a href="#local-6989586621679140533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alternateContactType:DeleteAlternateContact' :: AlternateContactType
+</span><a href="Amazonka.Account.DeleteAlternateContact.html#%24sel%3AalternateContactType%3ADeleteAlternateContact%27"><span class="hs-identifier hs-var">alternateContactType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AlternateContactType
+</span><a href="#local-6989586621679140532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact"><span class="hs-identifier hs-type">DeleteAlternateContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact"><span class="hs-identifier hs-type">DeleteAlternateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-164"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact"><span class="hs-identifier hs-type">DeleteAlternateContact</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContactResponse"><span class="hs-identifier hs-type">DeleteAlternateContactResponse</span></a></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679140528"><span class="annot"><span class="annottext">request :: DeleteAlternateContact -&gt; Request DeleteAlternateContact
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAlternateContact -&gt; Request DeleteAlternateContact
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Account.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679140524"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteAlternateContact
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteAlternateContact)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteAlternateContact
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteAlternateContact
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteAlternateContact)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DeleteAlternateContact
+DeleteAlternateContactResponse
+</span><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContactResponse%27"><span class="hs-identifier hs-var">DeleteAlternateContactResponse'</span></a></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679140517"><span id="local-6989586621679140519"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact"><span class="hs-identifier hs-type">DeleteAlternateContact</span></a></span></span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679140514"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact"><span class="hs-identifier hs-type">DeleteAlternateContact</span></a></span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact"><span class="hs-identifier hs-type">DeleteAlternateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679140510"><span class="annot"><span class="annottext">toHeaders :: DeleteAlternateContact -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteAlternateContact -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-179"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-181"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-182"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679140500"><span id="local-6989586621679140502"><span id="local-6989586621679140504"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact"><span class="hs-identifier hs-type">DeleteAlternateContact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679140498"><span class="annot"><span class="annottext">toJSON :: DeleteAlternateContact -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact%27"><span class="hs-identifier hs-type">DeleteAlternateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679140495"><span id="local-6989586621679140496"><span class="annot"><span class="annottext">Maybe Text
+AlternateContactType
+alternateContactType :: AlternateContactType
+accountId :: Maybe Text
+$sel:alternateContactType:DeleteAlternateContact' :: DeleteAlternateContact -&gt; AlternateContactType
+$sel:accountId:DeleteAlternateContact' :: DeleteAlternateContact -&gt; Maybe Text
+</span><a href="#local-6989586621679140495"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679140496"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-192"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AlternateContactType&quot;</span></span><span>
+</span><span id="line-193"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; AlternateContactType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AlternateContactType
+</span><a href="#local-6989586621679140495"><span class="hs-identifier hs-var">alternateContactType</span></a></span><span>
+</span><span id="line-194"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact"><span class="hs-identifier hs-type">DeleteAlternateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679140488"><span class="annot"><span class="annottext">toPath :: DeleteAlternateContact -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteAlternateContact -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/deleteAlternateContact&quot;</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContact"><span class="hs-identifier hs-type">DeleteAlternateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679140484"><span class="annot"><span class="annottext">toQuery :: DeleteAlternateContact -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteAlternateContact -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | /See:/ 'newDeleteAlternateContactResponse' smart constructor.</span><span>
+</span><span id="line-205"></span><span id="local-6989586621679140481"><span id="local-6989586621679140482"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlternateContactResponse"><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContactResponse"><span class="hs-identifier hs-var">DeleteAlternateContactResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlternateContactResponse%27"><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContactResponse%27"><span class="hs-identifier hs-var">DeleteAlternateContactResponse'</span></a></span></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679140477"><span id="local-6989586621679140479"><span class="annot"><span class="annottext">DeleteAlternateContactResponse
+-&gt; DeleteAlternateContactResponse -&gt; Bool
+(DeleteAlternateContactResponse
+ -&gt; DeleteAlternateContactResponse -&gt; Bool)
+-&gt; (DeleteAlternateContactResponse
+    -&gt; DeleteAlternateContactResponse -&gt; Bool)
+-&gt; Eq DeleteAlternateContactResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAlternateContactResponse
+-&gt; DeleteAlternateContactResponse -&gt; Bool
+$c/= :: DeleteAlternateContactResponse
+-&gt; DeleteAlternateContactResponse -&gt; Bool
+== :: DeleteAlternateContactResponse
+-&gt; DeleteAlternateContactResponse -&gt; Bool
+$c== :: DeleteAlternateContactResponse
+-&gt; DeleteAlternateContactResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679140469"><span id="local-6989586621679140471"><span id="local-6989586621679140473"><span id="local-6989586621679140475"><span class="annot"><span class="annottext">ReadPrec [DeleteAlternateContactResponse]
+ReadPrec DeleteAlternateContactResponse
+Int -&gt; ReadS DeleteAlternateContactResponse
+ReadS [DeleteAlternateContactResponse]
+(Int -&gt; ReadS DeleteAlternateContactResponse)
+-&gt; ReadS [DeleteAlternateContactResponse]
+-&gt; ReadPrec DeleteAlternateContactResponse
+-&gt; ReadPrec [DeleteAlternateContactResponse]
+-&gt; Read DeleteAlternateContactResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAlternateContactResponse]
+$creadListPrec :: ReadPrec [DeleteAlternateContactResponse]
+readPrec :: ReadPrec DeleteAlternateContactResponse
+$creadPrec :: ReadPrec DeleteAlternateContactResponse
+readList :: ReadS [DeleteAlternateContactResponse]
+$creadList :: ReadS [DeleteAlternateContactResponse]
+readsPrec :: Int -&gt; ReadS DeleteAlternateContactResponse
+$creadsPrec :: Int -&gt; ReadS DeleteAlternateContactResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679140463"><span id="local-6989586621679140465"><span id="local-6989586621679140467"><span class="annot"><span class="annottext">Int -&gt; DeleteAlternateContactResponse -&gt; ShowS
+[DeleteAlternateContactResponse] -&gt; ShowS
+DeleteAlternateContactResponse -&gt; String
+(Int -&gt; DeleteAlternateContactResponse -&gt; ShowS)
+-&gt; (DeleteAlternateContactResponse -&gt; String)
+-&gt; ([DeleteAlternateContactResponse] -&gt; ShowS)
+-&gt; Show DeleteAlternateContactResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAlternateContactResponse] -&gt; ShowS
+$cshowList :: [DeleteAlternateContactResponse] -&gt; ShowS
+show :: DeleteAlternateContactResponse -&gt; String
+$cshow :: DeleteAlternateContactResponse -&gt; String
+showsPrec :: Int -&gt; DeleteAlternateContactResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAlternateContactResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteAlternateContactResponse
+ -&gt; Rep DeleteAlternateContactResponse x)
+-&gt; (forall x.
+    Rep DeleteAlternateContactResponse x
+    -&gt; DeleteAlternateContactResponse)
+-&gt; Generic DeleteAlternateContactResponse
+forall x.
+Rep DeleteAlternateContactResponse x
+-&gt; DeleteAlternateContactResponse
+forall x.
+DeleteAlternateContactResponse
+-&gt; Rep DeleteAlternateContactResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteAlternateContactResponse x
+-&gt; DeleteAlternateContactResponse
+$cfrom :: forall x.
+DeleteAlternateContactResponse
+-&gt; Rep DeleteAlternateContactResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- Create a value of 'DeleteAlternateContactResponse' with all optional fields omitted.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#newDeleteAlternateContactResponse"><span class="hs-identifier hs-type">newDeleteAlternateContactResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContactResponse"><span class="hs-identifier hs-type">DeleteAlternateContactResponse</span></a></span><span>
+</span><span id="line-216"></span><span id="newDeleteAlternateContactResponse"><span class="annot"><span class="annottext">newDeleteAlternateContactResponse :: DeleteAlternateContactResponse
+</span><a href="Amazonka.Account.DeleteAlternateContact.html#newDeleteAlternateContactResponse"><span class="hs-identifier hs-var hs-var">newDeleteAlternateContactResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">DeleteAlternateContactResponse
+</span><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContactResponse%27"><span class="hs-identifier hs-var">DeleteAlternateContactResponse'</span></a></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679140459"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Amazonka.Account.DeleteAlternateContact.html#DeleteAlternateContactResponse"><span class="hs-identifier hs-type">DeleteAlternateContactResponse</span></a></span></span><span>
+</span><span id="line-222"></span></pre></body></html>

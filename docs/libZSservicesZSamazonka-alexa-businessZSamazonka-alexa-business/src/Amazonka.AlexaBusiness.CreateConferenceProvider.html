@@ -1,0 +1,763 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AlexaBusiness.CreateConferenceProvider</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds a new conference provider under the user\'s AWS account.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AlexaBusiness.CreateConferenceProvider</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier">CreateConferenceProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#newCreateConferenceProvider"><span class="hs-identifier">newCreateConferenceProvider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_pSTNDialIn"><span class="hs-identifier">createConferenceProvider_pSTNDialIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_clientRequestToken"><span class="hs-identifier">createConferenceProvider_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_iPDialIn"><span class="hs-identifier">createConferenceProvider_iPDialIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_tags"><span class="hs-identifier">createConferenceProvider_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_conferenceProviderName"><span class="hs-identifier">createConferenceProvider_conferenceProviderName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_conferenceProviderType"><span class="hs-identifier">createConferenceProvider_conferenceProviderType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_meetingSetting"><span class="hs-identifier">createConferenceProvider_meetingSetting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse"><span class="hs-identifier">CreateConferenceProviderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#newCreateConferenceProviderResponse"><span class="hs-identifier">newCreateConferenceProviderResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProviderResponse_conferenceProviderArn"><span class="hs-identifier">createConferenceProviderResponse_conferenceProviderArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProviderResponse_httpStatus"><span class="hs-identifier">createConferenceProviderResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.html"><span class="hs-identifier">Amazonka.AlexaBusiness.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newCreateConferenceProvider' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679392243"><span id="local-6989586621679392244"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateConferenceProvider"><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-var">CreateConferenceProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateConferenceProvider%27"><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-var">CreateConferenceProvider'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The information for PSTN conferencing.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3ApSTNDialIn%3ACreateConferenceProvider%27"><span class="annot"><span class="annottext">CreateConferenceProvider -&gt; Maybe PSTNDialIn
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3ApSTNDialIn%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var hs-var">pSTNDialIn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.PSTNDialIn.html#PSTNDialIn"><span class="hs-identifier hs-type">PSTNDialIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The request token of the client.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateConferenceProvider%27"><span class="annot"><span class="annottext">CreateConferenceProvider -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AclientRequestToken%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The IP endpoint and protocol for calling.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AiPDialIn%3ACreateConferenceProvider%27"><span class="annot"><span class="annottext">CreateConferenceProvider -&gt; Maybe IPDialIn
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AiPDialIn%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var hs-var">iPDialIn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.IPDialIn.html#IPDialIn"><span class="hs-identifier hs-type">IPDialIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The tags to be added to the specified resource. Do not provide system</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- tags.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Atags%3ACreateConferenceProvider%27"><span class="annot"><span class="annottext">CreateConferenceProvider -&gt; Maybe [Tag]
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3Atags%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The name of the conference provider.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AconferenceProviderName%3ACreateConferenceProvider%27"><span class="annot"><span class="annottext">CreateConferenceProvider -&gt; Text
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AconferenceProviderName%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var hs-var">conferenceProviderName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Represents a type within a list of predefined types.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AconferenceProviderType%3ACreateConferenceProvider%27"><span class="annot"><span class="annottext">CreateConferenceProvider -&gt; ConferenceProviderType
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AconferenceProviderType%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var hs-var">conferenceProviderType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The meeting settings for the conference provider.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AmeetingSetting%3ACreateConferenceProvider%27"><span class="annot"><span class="annottext">CreateConferenceProvider -&gt; MeetingSetting
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AmeetingSetting%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var hs-var">meetingSetting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392231"><span id="local-6989586621679392233"><span class="annot"><span class="annottext">CreateConferenceProvider -&gt; CreateConferenceProvider -&gt; Bool
+(CreateConferenceProvider -&gt; CreateConferenceProvider -&gt; Bool)
+-&gt; (CreateConferenceProvider -&gt; CreateConferenceProvider -&gt; Bool)
+-&gt; Eq CreateConferenceProvider
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateConferenceProvider -&gt; CreateConferenceProvider -&gt; Bool
+$c/= :: CreateConferenceProvider -&gt; CreateConferenceProvider -&gt; Bool
+== :: CreateConferenceProvider -&gt; CreateConferenceProvider -&gt; Bool
+$c== :: CreateConferenceProvider -&gt; CreateConferenceProvider -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392222"><span id="local-6989586621679392224"><span id="local-6989586621679392226"><span id="local-6989586621679392228"><span class="annot"><span class="annottext">ReadPrec [CreateConferenceProvider]
+ReadPrec CreateConferenceProvider
+Int -&gt; ReadS CreateConferenceProvider
+ReadS [CreateConferenceProvider]
+(Int -&gt; ReadS CreateConferenceProvider)
+-&gt; ReadS [CreateConferenceProvider]
+-&gt; ReadPrec CreateConferenceProvider
+-&gt; ReadPrec [CreateConferenceProvider]
+-&gt; Read CreateConferenceProvider
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateConferenceProvider]
+$creadListPrec :: ReadPrec [CreateConferenceProvider]
+readPrec :: ReadPrec CreateConferenceProvider
+$creadPrec :: ReadPrec CreateConferenceProvider
+readList :: ReadS [CreateConferenceProvider]
+$creadList :: ReadS [CreateConferenceProvider]
+readsPrec :: Int -&gt; ReadS CreateConferenceProvider
+$creadsPrec :: Int -&gt; ReadS CreateConferenceProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392215"><span id="local-6989586621679392217"><span id="local-6989586621679392219"><span class="annot"><span class="annottext">Int -&gt; CreateConferenceProvider -&gt; ShowS
+[CreateConferenceProvider] -&gt; ShowS
+CreateConferenceProvider -&gt; String
+(Int -&gt; CreateConferenceProvider -&gt; ShowS)
+-&gt; (CreateConferenceProvider -&gt; String)
+-&gt; ([CreateConferenceProvider] -&gt; ShowS)
+-&gt; Show CreateConferenceProvider
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateConferenceProvider] -&gt; ShowS
+$cshowList :: [CreateConferenceProvider] -&gt; ShowS
+show :: CreateConferenceProvider -&gt; String
+$cshow :: CreateConferenceProvider -&gt; String
+showsPrec :: Int -&gt; CreateConferenceProvider -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateConferenceProvider -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateConferenceProvider -&gt; Rep CreateConferenceProvider x)
+-&gt; (forall x.
+    Rep CreateConferenceProvider x -&gt; CreateConferenceProvider)
+-&gt; Generic CreateConferenceProvider
+forall x.
+Rep CreateConferenceProvider x -&gt; CreateConferenceProvider
+forall x.
+CreateConferenceProvider -&gt; Rep CreateConferenceProvider x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateConferenceProvider x -&gt; CreateConferenceProvider
+$cfrom :: forall x.
+CreateConferenceProvider -&gt; Rep CreateConferenceProvider x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'CreateConferenceProvider' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'pSTNDialIn', 'createConferenceProvider_pSTNDialIn' - The information for PSTN conferencing.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'clientRequestToken', 'createConferenceProvider_clientRequestToken' - The request token of the client.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'iPDialIn', 'createConferenceProvider_iPDialIn' - The IP endpoint and protocol for calling.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'tags', 'createConferenceProvider_tags' - The tags to be added to the specified resource. Do not provide system</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- tags.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'conferenceProviderName', 'createConferenceProvider_conferenceProviderName' - The name of the conference provider.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'conferenceProviderType', 'createConferenceProvider_conferenceProviderType' - Represents a type within a list of predefined types.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'meetingSetting', 'createConferenceProvider_meetingSetting' - The meeting settings for the conference provider.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#newCreateConferenceProvider"><span class="hs-identifier hs-type">newCreateConferenceProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'conferenceProviderName'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'conferenceProviderType'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'meetingSetting'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span>
+</span><span id="line-105"></span><span id="newCreateConferenceProvider"><span class="annot"><span class="annottext">newCreateConferenceProvider :: Text
+-&gt; ConferenceProviderType
+-&gt; MeetingSetting
+-&gt; CreateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#newCreateConferenceProvider"><span class="hs-identifier hs-var hs-var">newCreateConferenceProvider</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679392210"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392210"><span class="hs-identifier hs-var">pConferenceProviderName_</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679392209"><span class="annot"><span class="annottext">ConferenceProviderType
+</span><a href="#local-6989586621679392209"><span class="hs-identifier hs-var">pConferenceProviderType_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679392208"><span class="annot"><span class="annottext">MeetingSetting
+</span><a href="#local-6989586621679392208"><span class="hs-identifier hs-var">pMeetingSetting_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">CreateConferenceProvider' :: Maybe PSTNDialIn
+-&gt; Maybe Text
+-&gt; Maybe IPDialIn
+-&gt; Maybe [Tag]
+-&gt; Text
+-&gt; ConferenceProviderType
+-&gt; MeetingSetting
+-&gt; CreateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pSTNDialIn:CreateConferenceProvider' :: Maybe PSTNDialIn
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3ApSTNDialIn%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var">pSTNDialIn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe PSTNDialIn
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateConferenceProvider' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AclientRequestToken%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:iPDialIn:CreateConferenceProvider' :: Maybe IPDialIn
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AiPDialIn%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var">iPDialIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IPDialIn
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateConferenceProvider' :: Maybe [Tag]
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3Atags%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:conferenceProviderName:CreateConferenceProvider' :: Text
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AconferenceProviderName%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var">conferenceProviderName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392210"><span class="hs-identifier hs-var">pConferenceProviderName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:conferenceProviderType:CreateConferenceProvider' :: ConferenceProviderType
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AconferenceProviderType%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var">conferenceProviderType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConferenceProviderType
+</span><a href="#local-6989586621679392209"><span class="hs-identifier hs-var">pConferenceProviderType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:meetingSetting:CreateConferenceProvider' :: MeetingSetting
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AmeetingSetting%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var">meetingSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MeetingSetting
+</span><a href="#local-6989586621679392208"><span class="hs-identifier hs-var">pMeetingSetting_</span></a></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The information for PSTN conferencing.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_pSTNDialIn"><span class="hs-identifier hs-type">createConferenceProvider_pSTNDialIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.PSTNDialIn.html#PSTNDialIn"><span class="hs-identifier hs-type">PSTNDialIn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="createConferenceProvider_pSTNDialIn"><span class="annot"><span class="annottext">createConferenceProvider_pSTNDialIn :: (Maybe PSTNDialIn -&gt; f (Maybe PSTNDialIn))
+-&gt; CreateConferenceProvider -&gt; f CreateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_pSTNDialIn"><span class="hs-identifier hs-var hs-var">createConferenceProvider_pSTNDialIn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConferenceProvider -&gt; Maybe PSTNDialIn)
+-&gt; (CreateConferenceProvider
+    -&gt; Maybe PSTNDialIn -&gt; CreateConferenceProvider)
+-&gt; Lens
+     CreateConferenceProvider
+     CreateConferenceProvider
+     (Maybe PSTNDialIn)
+     (Maybe PSTNDialIn)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392205"><span class="annot"><span class="annottext">Maybe PSTNDialIn
+pSTNDialIn :: Maybe PSTNDialIn
+$sel:pSTNDialIn:CreateConferenceProvider' :: CreateConferenceProvider -&gt; Maybe PSTNDialIn
+</span><a href="#local-6989586621679392205"><span class="hs-identifier hs-var hs-var">pSTNDialIn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PSTNDialIn
+</span><a href="#local-6989586621679392205"><span class="hs-identifier hs-var">pSTNDialIn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392204"><span class="annot"><span class="annottext">s :: CreateConferenceProvider
+</span><a href="#local-6989586621679392204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392203"><span class="annot"><span class="annottext">Maybe PSTNDialIn
+</span><a href="#local-6989586621679392203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConferenceProvider
+</span><a href="#local-6989586621679392204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pSTNDialIn:CreateConferenceProvider' :: Maybe PSTNDialIn
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3ApSTNDialIn%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var">pSTNDialIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PSTNDialIn
+</span><a href="#local-6989586621679392203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The request token of the client.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_clientRequestToken"><span class="hs-identifier hs-type">createConferenceProvider_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="createConferenceProvider_clientRequestToken"><span class="annot"><span class="annottext">createConferenceProvider_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateConferenceProvider -&gt; f CreateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_clientRequestToken"><span class="hs-identifier hs-var hs-var">createConferenceProvider_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConferenceProvider -&gt; Maybe Text)
+-&gt; (CreateConferenceProvider
+    -&gt; Maybe Text -&gt; CreateConferenceProvider)
+-&gt; Lens
+     CreateConferenceProvider
+     CreateConferenceProvider
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392202"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:CreateConferenceProvider' :: CreateConferenceProvider -&gt; Maybe Text
+</span><a href="#local-6989586621679392202"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392202"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392201"><span class="annot"><span class="annottext">s :: CreateConferenceProvider
+</span><a href="#local-6989586621679392201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392200"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConferenceProvider
+</span><a href="#local-6989586621679392201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateConferenceProvider' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AclientRequestToken%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The IP endpoint and protocol for calling.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_iPDialIn"><span class="hs-identifier hs-type">createConferenceProvider_iPDialIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.IPDialIn.html#IPDialIn"><span class="hs-identifier hs-type">IPDialIn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="createConferenceProvider_iPDialIn"><span class="annot"><span class="annottext">createConferenceProvider_iPDialIn :: (Maybe IPDialIn -&gt; f (Maybe IPDialIn))
+-&gt; CreateConferenceProvider -&gt; f CreateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_iPDialIn"><span class="hs-identifier hs-var hs-var">createConferenceProvider_iPDialIn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConferenceProvider -&gt; Maybe IPDialIn)
+-&gt; (CreateConferenceProvider
+    -&gt; Maybe IPDialIn -&gt; CreateConferenceProvider)
+-&gt; Lens
+     CreateConferenceProvider
+     CreateConferenceProvider
+     (Maybe IPDialIn)
+     (Maybe IPDialIn)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392199"><span class="annot"><span class="annottext">Maybe IPDialIn
+iPDialIn :: Maybe IPDialIn
+$sel:iPDialIn:CreateConferenceProvider' :: CreateConferenceProvider -&gt; Maybe IPDialIn
+</span><a href="#local-6989586621679392199"><span class="hs-identifier hs-var hs-var">iPDialIn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IPDialIn
+</span><a href="#local-6989586621679392199"><span class="hs-identifier hs-var">iPDialIn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392198"><span class="annot"><span class="annottext">s :: CreateConferenceProvider
+</span><a href="#local-6989586621679392198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392197"><span class="annot"><span class="annottext">Maybe IPDialIn
+</span><a href="#local-6989586621679392197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConferenceProvider
+</span><a href="#local-6989586621679392198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPDialIn:CreateConferenceProvider' :: Maybe IPDialIn
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AiPDialIn%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var">iPDialIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IPDialIn
+</span><a href="#local-6989586621679392197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The tags to be added to the specified resource. Do not provide system</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- tags.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_tags"><span class="hs-identifier hs-type">createConferenceProvider_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="createConferenceProvider_tags"><span class="annot"><span class="annottext">createConferenceProvider_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateConferenceProvider -&gt; f CreateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_tags"><span class="hs-identifier hs-var hs-var">createConferenceProvider_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConferenceProvider -&gt; Maybe [Tag])
+-&gt; (CreateConferenceProvider
+    -&gt; Maybe [Tag] -&gt; CreateConferenceProvider)
+-&gt; Lens
+     CreateConferenceProvider
+     CreateConferenceProvider
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392196"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateConferenceProvider' :: CreateConferenceProvider -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679392196"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679392196"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392195"><span class="annot"><span class="annottext">s :: CreateConferenceProvider
+</span><a href="#local-6989586621679392195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392194"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679392194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConferenceProvider
+</span><a href="#local-6989586621679392195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateConferenceProvider' :: Maybe [Tag]
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3Atags%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679392194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateConferenceProvider -&gt; f CreateConferenceProvider)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateConferenceProvider
+-&gt; f CreateConferenceProvider
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The name of the conference provider.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_conferenceProviderName"><span class="hs-identifier hs-type">createConferenceProvider_conferenceProviderName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-139"></span><span id="createConferenceProvider_conferenceProviderName"><span class="annot"><span class="annottext">createConferenceProvider_conferenceProviderName :: (Text -&gt; f Text)
+-&gt; CreateConferenceProvider -&gt; f CreateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_conferenceProviderName"><span class="hs-identifier hs-var hs-var">createConferenceProvider_conferenceProviderName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConferenceProvider -&gt; Text)
+-&gt; (CreateConferenceProvider -&gt; Text -&gt; CreateConferenceProvider)
+-&gt; Lens CreateConferenceProvider CreateConferenceProvider Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392190"><span class="annot"><span class="annottext">Text
+conferenceProviderName :: Text
+$sel:conferenceProviderName:CreateConferenceProvider' :: CreateConferenceProvider -&gt; Text
+</span><a href="#local-6989586621679392190"><span class="hs-identifier hs-var hs-var">conferenceProviderName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392190"><span class="hs-identifier hs-var">conferenceProviderName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392189"><span class="annot"><span class="annottext">s :: CreateConferenceProvider
+</span><a href="#local-6989586621679392189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392188"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConferenceProvider
+</span><a href="#local-6989586621679392189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conferenceProviderName:CreateConferenceProvider' :: Text
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AconferenceProviderName%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var">conferenceProviderName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | Represents a type within a list of predefined types.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_conferenceProviderType"><span class="hs-identifier hs-type">createConferenceProvider_conferenceProviderType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span>
+</span><span id="line-143"></span><span id="createConferenceProvider_conferenceProviderType"><span class="annot"><span class="annottext">createConferenceProvider_conferenceProviderType :: (ConferenceProviderType -&gt; f ConferenceProviderType)
+-&gt; CreateConferenceProvider -&gt; f CreateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_conferenceProviderType"><span class="hs-identifier hs-var hs-var">createConferenceProvider_conferenceProviderType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConferenceProvider -&gt; ConferenceProviderType)
+-&gt; (CreateConferenceProvider
+    -&gt; ConferenceProviderType -&gt; CreateConferenceProvider)
+-&gt; Lens
+     CreateConferenceProvider
+     CreateConferenceProvider
+     ConferenceProviderType
+     ConferenceProviderType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392187"><span class="annot"><span class="annottext">ConferenceProviderType
+conferenceProviderType :: ConferenceProviderType
+$sel:conferenceProviderType:CreateConferenceProvider' :: CreateConferenceProvider -&gt; ConferenceProviderType
+</span><a href="#local-6989586621679392187"><span class="hs-identifier hs-var hs-var">conferenceProviderType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConferenceProviderType
+</span><a href="#local-6989586621679392187"><span class="hs-identifier hs-var">conferenceProviderType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392186"><span class="annot"><span class="annottext">s :: CreateConferenceProvider
+</span><a href="#local-6989586621679392186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392185"><span class="annot"><span class="annottext">ConferenceProviderType
+</span><a href="#local-6989586621679392185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConferenceProvider
+</span><a href="#local-6989586621679392186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conferenceProviderType:CreateConferenceProvider' :: ConferenceProviderType
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AconferenceProviderType%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var">conferenceProviderType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConferenceProviderType
+</span><a href="#local-6989586621679392185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The meeting settings for the conference provider.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_meetingSetting"><span class="hs-identifier hs-type">createConferenceProvider_meetingSetting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span><span>
+</span><span id="line-147"></span><span id="createConferenceProvider_meetingSetting"><span class="annot"><span class="annottext">createConferenceProvider_meetingSetting :: (MeetingSetting -&gt; f MeetingSetting)
+-&gt; CreateConferenceProvider -&gt; f CreateConferenceProvider
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProvider_meetingSetting"><span class="hs-identifier hs-var hs-var">createConferenceProvider_meetingSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConferenceProvider -&gt; MeetingSetting)
+-&gt; (CreateConferenceProvider
+    -&gt; MeetingSetting -&gt; CreateConferenceProvider)
+-&gt; Lens
+     CreateConferenceProvider
+     CreateConferenceProvider
+     MeetingSetting
+     MeetingSetting
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392184"><span class="annot"><span class="annottext">MeetingSetting
+meetingSetting :: MeetingSetting
+$sel:meetingSetting:CreateConferenceProvider' :: CreateConferenceProvider -&gt; MeetingSetting
+</span><a href="#local-6989586621679392184"><span class="hs-identifier hs-var hs-var">meetingSetting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MeetingSetting
+</span><a href="#local-6989586621679392184"><span class="hs-identifier hs-var">meetingSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392183"><span class="annot"><span class="annottext">s :: CreateConferenceProvider
+</span><a href="#local-6989586621679392183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392182"><span class="annot"><span class="annottext">MeetingSetting
+</span><a href="#local-6989586621679392182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConferenceProvider
+</span><a href="#local-6989586621679392183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meetingSetting:CreateConferenceProvider' :: MeetingSetting
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AmeetingSetting%3ACreateConferenceProvider%27"><span class="hs-identifier hs-var">meetingSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MeetingSetting
+</span><a href="#local-6989586621679392182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-151"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse"><span class="hs-identifier hs-type">CreateConferenceProviderResponse</span></a></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679392178"><span class="annot"><span class="annottext">request :: CreateConferenceProvider -&gt; Request CreateConferenceProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateConferenceProvider -&gt; Request CreateConferenceProvider
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679392174"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateConferenceProvider
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateConferenceProvider)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateConferenceProvider))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateConferenceProvider
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateConferenceProvider)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679392171"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392171"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679392170"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679392170"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679392169"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392169"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateConferenceProviderResponse
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse%27"><span class="hs-identifier hs-var">CreateConferenceProviderResponse'</span></a></span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateConferenceProviderResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateConferenceProviderResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConferenceProviderArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateConferenceProviderResponse)
+-&gt; Either String Int
+-&gt; Either String CreateConferenceProviderResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392171"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392161"><span id="local-6989586621679392163"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392158"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679392154"><span class="annot"><span class="annottext">toHeaders :: CreateConferenceProvider -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateConferenceProvider -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AlexaForBusiness.CreateConferenceProvider&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-173"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-176"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-177"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392144"><span id="local-6989586621679392146"><span id="local-6989586621679392148"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679392142"><span class="annot"><span class="annottext">toJSON :: CreateConferenceProvider -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider%27"><span class="hs-identifier hs-type">CreateConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392134"><span id="local-6989586621679392135"><span id="local-6989586621679392136"><span id="local-6989586621679392137"><span id="local-6989586621679392138"><span id="local-6989586621679392139"><span id="local-6989586621679392140"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+Maybe IPDialIn
+Maybe PSTNDialIn
+Text
+ConferenceProviderType
+MeetingSetting
+meetingSetting :: MeetingSetting
+conferenceProviderType :: ConferenceProviderType
+conferenceProviderName :: Text
+tags :: Maybe [Tag]
+iPDialIn :: Maybe IPDialIn
+clientRequestToken :: Maybe Text
+pSTNDialIn :: Maybe PSTNDialIn
+$sel:meetingSetting:CreateConferenceProvider' :: CreateConferenceProvider -&gt; MeetingSetting
+$sel:conferenceProviderType:CreateConferenceProvider' :: CreateConferenceProvider -&gt; ConferenceProviderType
+$sel:conferenceProviderName:CreateConferenceProvider' :: CreateConferenceProvider -&gt; Text
+$sel:tags:CreateConferenceProvider' :: CreateConferenceProvider -&gt; Maybe [Tag]
+$sel:iPDialIn:CreateConferenceProvider' :: CreateConferenceProvider -&gt; Maybe IPDialIn
+$sel:clientRequestToken:CreateConferenceProvider' :: CreateConferenceProvider -&gt; Maybe Text
+$sel:pSTNDialIn:CreateConferenceProvider' :: CreateConferenceProvider -&gt; Maybe PSTNDialIn
+</span><a href="#local-6989586621679392134"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-185"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PSTNDialIn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PSTNDialIn -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PSTNDialIn -&gt; Pair) -&gt; Maybe PSTNDialIn -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PSTNDialIn
+</span><a href="#local-6989586621679392140"><span class="hs-identifier hs-var">pSTNDialIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392139"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IPDialIn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IPDialIn -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(IPDialIn -&gt; Pair) -&gt; Maybe IPDialIn -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IPDialIn
+</span><a href="#local-6989586621679392138"><span class="hs-identifier hs-var">iPDialIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679392137"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-191"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConferenceProviderName&quot;</span></span><span>
+</span><span id="line-192"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392136"><span class="hs-identifier hs-var">conferenceProviderName</span></a></span><span>
+</span><span id="line-193"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-195"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConferenceProviderType&quot;</span></span><span>
+</span><span id="line-196"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ConferenceProviderType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ConferenceProviderType
+</span><a href="#local-6989586621679392135"><span class="hs-identifier hs-var">conferenceProviderType</span></a></span><span>
+</span><span id="line-197"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-199"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MeetingSetting&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MeetingSetting -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MeetingSetting
+</span><a href="#local-6989586621679392134"><span class="hs-identifier hs-var">meetingSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679392128"><span class="annot"><span class="annottext">toPath :: CreateConferenceProvider -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateConferenceProvider -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProvider"><span class="hs-identifier hs-type">CreateConferenceProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679392124"><span class="annot"><span class="annottext">toQuery :: CreateConferenceProvider -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateConferenceProvider -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | /See:/ 'newCreateConferenceProviderResponse' smart constructor.</span><span>
+</span><span id="line-210"></span><span id="local-6989586621679392121"><span id="local-6989586621679392122"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateConferenceProviderResponse"><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse"><span class="hs-identifier hs-var">CreateConferenceProviderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateConferenceProviderResponse%27"><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse%27"><span class="hs-identifier hs-var">CreateConferenceProviderResponse'</span></a></span></span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the newly-created conference provider.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AconferenceProviderArn%3ACreateConferenceProviderResponse%27"><span class="annot"><span class="annottext">CreateConferenceProviderResponse -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AconferenceProviderArn%3ACreateConferenceProviderResponse%27"><span class="hs-identifier hs-var hs-var">conferenceProviderArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateConferenceProviderResponse%27"><span class="annot"><span class="annottext">CreateConferenceProviderResponse -&gt; Int
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AhttpStatus%3ACreateConferenceProviderResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392115"><span id="local-6989586621679392117"><span class="annot"><span class="annottext">CreateConferenceProviderResponse
+-&gt; CreateConferenceProviderResponse -&gt; Bool
+(CreateConferenceProviderResponse
+ -&gt; CreateConferenceProviderResponse -&gt; Bool)
+-&gt; (CreateConferenceProviderResponse
+    -&gt; CreateConferenceProviderResponse -&gt; Bool)
+-&gt; Eq CreateConferenceProviderResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateConferenceProviderResponse
+-&gt; CreateConferenceProviderResponse -&gt; Bool
+$c/= :: CreateConferenceProviderResponse
+-&gt; CreateConferenceProviderResponse -&gt; Bool
+== :: CreateConferenceProviderResponse
+-&gt; CreateConferenceProviderResponse -&gt; Bool
+$c== :: CreateConferenceProviderResponse
+-&gt; CreateConferenceProviderResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392107"><span id="local-6989586621679392109"><span id="local-6989586621679392111"><span id="local-6989586621679392113"><span class="annot"><span class="annottext">ReadPrec [CreateConferenceProviderResponse]
+ReadPrec CreateConferenceProviderResponse
+Int -&gt; ReadS CreateConferenceProviderResponse
+ReadS [CreateConferenceProviderResponse]
+(Int -&gt; ReadS CreateConferenceProviderResponse)
+-&gt; ReadS [CreateConferenceProviderResponse]
+-&gt; ReadPrec CreateConferenceProviderResponse
+-&gt; ReadPrec [CreateConferenceProviderResponse]
+-&gt; Read CreateConferenceProviderResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateConferenceProviderResponse]
+$creadListPrec :: ReadPrec [CreateConferenceProviderResponse]
+readPrec :: ReadPrec CreateConferenceProviderResponse
+$creadPrec :: ReadPrec CreateConferenceProviderResponse
+readList :: ReadS [CreateConferenceProviderResponse]
+$creadList :: ReadS [CreateConferenceProviderResponse]
+readsPrec :: Int -&gt; ReadS CreateConferenceProviderResponse
+$creadsPrec :: Int -&gt; ReadS CreateConferenceProviderResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392101"><span id="local-6989586621679392103"><span id="local-6989586621679392105"><span class="annot"><span class="annottext">Int -&gt; CreateConferenceProviderResponse -&gt; ShowS
+[CreateConferenceProviderResponse] -&gt; ShowS
+CreateConferenceProviderResponse -&gt; String
+(Int -&gt; CreateConferenceProviderResponse -&gt; ShowS)
+-&gt; (CreateConferenceProviderResponse -&gt; String)
+-&gt; ([CreateConferenceProviderResponse] -&gt; ShowS)
+-&gt; Show CreateConferenceProviderResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateConferenceProviderResponse] -&gt; ShowS
+$cshowList :: [CreateConferenceProviderResponse] -&gt; ShowS
+show :: CreateConferenceProviderResponse -&gt; String
+$cshow :: CreateConferenceProviderResponse -&gt; String
+showsPrec :: Int -&gt; CreateConferenceProviderResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateConferenceProviderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateConferenceProviderResponse
+ -&gt; Rep CreateConferenceProviderResponse x)
+-&gt; (forall x.
+    Rep CreateConferenceProviderResponse x
+    -&gt; CreateConferenceProviderResponse)
+-&gt; Generic CreateConferenceProviderResponse
+forall x.
+Rep CreateConferenceProviderResponse x
+-&gt; CreateConferenceProviderResponse
+forall x.
+CreateConferenceProviderResponse
+-&gt; Rep CreateConferenceProviderResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateConferenceProviderResponse x
+-&gt; CreateConferenceProviderResponse
+$cfrom :: forall x.
+CreateConferenceProviderResponse
+-&gt; Rep CreateConferenceProviderResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Create a value of 'CreateConferenceProviderResponse' with all optional fields omitted.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'conferenceProviderArn', 'createConferenceProviderResponse_conferenceProviderArn' - The ARN of the newly-created conference provider.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'httpStatus', 'createConferenceProviderResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#newCreateConferenceProviderResponse"><span class="hs-identifier hs-type">newCreateConferenceProviderResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse"><span class="hs-identifier hs-type">CreateConferenceProviderResponse</span></a></span><span>
+</span><span id="line-233"></span><span id="newCreateConferenceProviderResponse"><span class="annot"><span class="annottext">newCreateConferenceProviderResponse :: Int -&gt; CreateConferenceProviderResponse
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#newCreateConferenceProviderResponse"><span class="hs-identifier hs-var hs-var">newCreateConferenceProviderResponse</span></a></span></span><span> </span><span id="local-6989586621679392098"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392098"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><span class="annottext">CreateConferenceProviderResponse' :: Maybe Text -&gt; Int -&gt; CreateConferenceProviderResponse
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse%27"><span class="hs-identifier hs-type">CreateConferenceProviderResponse'</span></a></span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:conferenceProviderArn:CreateConferenceProviderResponse' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AconferenceProviderArn%3ACreateConferenceProviderResponse%27"><span class="hs-identifier hs-var">conferenceProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateConferenceProviderResponse' :: Int
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AhttpStatus%3ACreateConferenceProviderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392098"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The ARN of the newly-created conference provider.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProviderResponse_conferenceProviderArn"><span class="hs-identifier hs-type">createConferenceProviderResponse_conferenceProviderArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse"><span class="hs-identifier hs-type">CreateConferenceProviderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="createConferenceProviderResponse_conferenceProviderArn"><span class="annot"><span class="annottext">createConferenceProviderResponse_conferenceProviderArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateConferenceProviderResponse
+-&gt; f CreateConferenceProviderResponse
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProviderResponse_conferenceProviderArn"><span class="hs-identifier hs-var hs-var">createConferenceProviderResponse_conferenceProviderArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConferenceProviderResponse -&gt; Maybe Text)
+-&gt; (CreateConferenceProviderResponse
+    -&gt; Maybe Text -&gt; CreateConferenceProviderResponse)
+-&gt; Lens
+     CreateConferenceProviderResponse
+     CreateConferenceProviderResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse%27"><span class="hs-identifier hs-type">CreateConferenceProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392097"><span class="annot"><span class="annottext">Maybe Text
+conferenceProviderArn :: Maybe Text
+$sel:conferenceProviderArn:CreateConferenceProviderResponse' :: CreateConferenceProviderResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679392097"><span class="hs-identifier hs-var hs-var">conferenceProviderArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392097"><span class="hs-identifier hs-var">conferenceProviderArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392096"><span class="annot"><span class="annottext">s :: CreateConferenceProviderResponse
+</span><a href="#local-6989586621679392096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse%27"><span class="hs-identifier hs-type">CreateConferenceProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392095"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConferenceProviderResponse
+</span><a href="#local-6989586621679392096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conferenceProviderArn:CreateConferenceProviderResponse' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AconferenceProviderArn%3ACreateConferenceProviderResponse%27"><span class="hs-identifier hs-var">conferenceProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse"><span class="hs-identifier hs-type">CreateConferenceProviderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProviderResponse_httpStatus"><span class="hs-identifier hs-type">createConferenceProviderResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse"><span class="hs-identifier hs-type">CreateConferenceProviderResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-246"></span><span id="createConferenceProviderResponse_httpStatus"><span class="annot"><span class="annottext">createConferenceProviderResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateConferenceProviderResponse
+-&gt; f CreateConferenceProviderResponse
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#createConferenceProviderResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createConferenceProviderResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConferenceProviderResponse -&gt; Int)
+-&gt; (CreateConferenceProviderResponse
+    -&gt; Int -&gt; CreateConferenceProviderResponse)
+-&gt; Lens
+     CreateConferenceProviderResponse
+     CreateConferenceProviderResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse%27"><span class="hs-identifier hs-type">CreateConferenceProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392094"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateConferenceProviderResponse' :: CreateConferenceProviderResponse -&gt; Int
+</span><a href="#local-6989586621679392094"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392094"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392093"><span class="annot"><span class="annottext">s :: CreateConferenceProviderResponse
+</span><a href="#local-6989586621679392093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse%27"><span class="hs-identifier hs-type">CreateConferenceProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392092"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConferenceProviderResponse
+</span><a href="#local-6989586621679392093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateConferenceProviderResponse' :: Int
+</span><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#%24sel%3AhttpStatus%3ACreateConferenceProviderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse"><span class="hs-identifier hs-type">CreateConferenceProviderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679392090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.CreateConferenceProvider.html#CreateConferenceProviderResponse"><span class="hs-identifier hs-type">CreateConferenceProviderResponse</span></a></span></span><span>
+</span><span id="line-251"></span></pre></body></html>

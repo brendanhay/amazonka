@@ -5,61 +5,61 @@
 @version 2.0
 
 
-module Network.AWS.Polly.Types.Engine
+module Amazonka.Polly.Types.Engine
 newtype Engine
 Engine' :: Text -> Engine
 [fromEngine] :: Engine -> Text
 pattern Engine_Neural :: Engine
 pattern Engine_Standard :: Engine
-instance Network.AWS.Data.XML.ToXML Network.AWS.Polly.Types.Engine.Engine
-instance Network.AWS.Data.XML.FromXML Network.AWS.Polly.Types.Engine.Engine
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Polly.Types.Engine.Engine
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Polly.Types.Engine.Engine
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Polly.Types.Engine.Engine
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Polly.Types.Engine.Engine
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.Types.Engine.Engine
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Polly.Types.Engine.Engine
-instance Network.AWS.Data.Log.ToLog Network.AWS.Polly.Types.Engine.Engine
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Polly.Types.Engine.Engine
-instance Network.AWS.Data.Text.ToText Network.AWS.Polly.Types.Engine.Engine
-instance Network.AWS.Data.Text.FromText Network.AWS.Polly.Types.Engine.Engine
-instance Control.DeepSeq.NFData Network.AWS.Polly.Types.Engine.Engine
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.Types.Engine.Engine
-instance GHC.Generics.Generic Network.AWS.Polly.Types.Engine.Engine
-instance GHC.Classes.Ord Network.AWS.Polly.Types.Engine.Engine
-instance GHC.Classes.Eq Network.AWS.Polly.Types.Engine.Engine
-instance GHC.Read.Read Network.AWS.Polly.Types.Engine.Engine
-instance GHC.Show.Show Network.AWS.Polly.Types.Engine.Engine
+instance Amazonka.Data.XML.ToXML Amazonka.Polly.Types.Engine.Engine
+instance Amazonka.Data.XML.FromXML Amazonka.Polly.Types.Engine.Engine
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Polly.Types.Engine.Engine
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Polly.Types.Engine.Engine
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Polly.Types.Engine.Engine
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Polly.Types.Engine.Engine
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.Types.Engine.Engine
+instance Amazonka.Data.Headers.ToHeader Amazonka.Polly.Types.Engine.Engine
+instance Amazonka.Data.Log.ToLog Amazonka.Polly.Types.Engine.Engine
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Polly.Types.Engine.Engine
+instance Amazonka.Data.Text.ToText Amazonka.Polly.Types.Engine.Engine
+instance Amazonka.Data.Text.FromText Amazonka.Polly.Types.Engine.Engine
+instance Control.DeepSeq.NFData Amazonka.Polly.Types.Engine.Engine
+instance Data.Hashable.Class.Hashable Amazonka.Polly.Types.Engine.Engine
+instance GHC.Generics.Generic Amazonka.Polly.Types.Engine.Engine
+instance GHC.Classes.Ord Amazonka.Polly.Types.Engine.Engine
+instance GHC.Classes.Eq Amazonka.Polly.Types.Engine.Engine
+instance GHC.Read.Read Amazonka.Polly.Types.Engine.Engine
+instance GHC.Show.Show Amazonka.Polly.Types.Engine.Engine
 
 
-module Network.AWS.Polly.Types.Gender
+module Amazonka.Polly.Types.Gender
 newtype Gender
 Gender' :: Text -> Gender
 [fromGender] :: Gender -> Text
 pattern Gender_Female :: Gender
 pattern Gender_Male :: Gender
-instance Network.AWS.Data.XML.ToXML Network.AWS.Polly.Types.Gender.Gender
-instance Network.AWS.Data.XML.FromXML Network.AWS.Polly.Types.Gender.Gender
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Polly.Types.Gender.Gender
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Polly.Types.Gender.Gender
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Polly.Types.Gender.Gender
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Polly.Types.Gender.Gender
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.Types.Gender.Gender
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Polly.Types.Gender.Gender
-instance Network.AWS.Data.Log.ToLog Network.AWS.Polly.Types.Gender.Gender
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Polly.Types.Gender.Gender
-instance Network.AWS.Data.Text.ToText Network.AWS.Polly.Types.Gender.Gender
-instance Network.AWS.Data.Text.FromText Network.AWS.Polly.Types.Gender.Gender
-instance Control.DeepSeq.NFData Network.AWS.Polly.Types.Gender.Gender
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.Types.Gender.Gender
-instance GHC.Generics.Generic Network.AWS.Polly.Types.Gender.Gender
-instance GHC.Classes.Ord Network.AWS.Polly.Types.Gender.Gender
-instance GHC.Classes.Eq Network.AWS.Polly.Types.Gender.Gender
-instance GHC.Read.Read Network.AWS.Polly.Types.Gender.Gender
-instance GHC.Show.Show Network.AWS.Polly.Types.Gender.Gender
+instance Amazonka.Data.XML.ToXML Amazonka.Polly.Types.Gender.Gender
+instance Amazonka.Data.XML.FromXML Amazonka.Polly.Types.Gender.Gender
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Polly.Types.Gender.Gender
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Polly.Types.Gender.Gender
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Polly.Types.Gender.Gender
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Polly.Types.Gender.Gender
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.Types.Gender.Gender
+instance Amazonka.Data.Headers.ToHeader Amazonka.Polly.Types.Gender.Gender
+instance Amazonka.Data.Log.ToLog Amazonka.Polly.Types.Gender.Gender
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Polly.Types.Gender.Gender
+instance Amazonka.Data.Text.ToText Amazonka.Polly.Types.Gender.Gender
+instance Amazonka.Data.Text.FromText Amazonka.Polly.Types.Gender.Gender
+instance Control.DeepSeq.NFData Amazonka.Polly.Types.Gender.Gender
+instance Data.Hashable.Class.Hashable Amazonka.Polly.Types.Gender.Gender
+instance GHC.Generics.Generic Amazonka.Polly.Types.Gender.Gender
+instance GHC.Classes.Ord Amazonka.Polly.Types.Gender.Gender
+instance GHC.Classes.Eq Amazonka.Polly.Types.Gender.Gender
+instance GHC.Read.Read Amazonka.Polly.Types.Gender.Gender
+instance GHC.Show.Show Amazonka.Polly.Types.Gender.Gender
 
 
-module Network.AWS.Polly.Types.LanguageCode
+module Amazonka.Polly.Types.LanguageCode
 newtype LanguageCode
 LanguageCode' :: Text -> LanguageCode
 [fromLanguageCode] :: LanguageCode -> Text
@@ -94,28 +94,28 @@ pattern LanguageCode_Ro_RO :: LanguageCode
 pattern LanguageCode_Ru_RU :: LanguageCode
 pattern LanguageCode_Sv_SE :: LanguageCode
 pattern LanguageCode_Tr_TR :: LanguageCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance Network.AWS.Data.Text.ToText Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance Network.AWS.Data.Text.FromText Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance Control.DeepSeq.NFData Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance GHC.Generics.Generic Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance GHC.Classes.Ord Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance GHC.Classes.Eq Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance GHC.Read.Read Network.AWS.Polly.Types.LanguageCode.LanguageCode
-instance GHC.Show.Show Network.AWS.Polly.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.XML.ToXML Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.XML.FromXML Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.Log.ToLog Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.Text.ToText Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance Amazonka.Data.Text.FromText Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance Control.DeepSeq.NFData Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance Data.Hashable.Class.Hashable Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance GHC.Generics.Generic Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance GHC.Classes.Ord Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance GHC.Classes.Eq Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance GHC.Read.Read Amazonka.Polly.Types.LanguageCode.LanguageCode
+instance GHC.Show.Show Amazonka.Polly.Types.LanguageCode.LanguageCode
 
 
-module Network.AWS.Polly.Types.Lexicon
+module Amazonka.Polly.Types.Lexicon
 
 -- | Provides lexicon name and lexicon content in string format. For more
 --   information, see <a>Pronunciation Lexicon Specification (PLS) Version
@@ -152,15 +152,15 @@ lexicon_content :: Lens' Lexicon (Maybe Text)
 
 -- | Name of the lexicon.
 lexicon_name :: Lens' Lexicon (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Polly.Types.Lexicon.Lexicon
-instance GHC.Show.Show Network.AWS.Polly.Types.Lexicon.Lexicon
-instance GHC.Classes.Eq Network.AWS.Polly.Types.Lexicon.Lexicon
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Polly.Types.Lexicon.Lexicon
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.Types.Lexicon.Lexicon
-instance Control.DeepSeq.NFData Network.AWS.Polly.Types.Lexicon.Lexicon
+instance GHC.Generics.Generic Amazonka.Polly.Types.Lexicon.Lexicon
+instance GHC.Show.Show Amazonka.Polly.Types.Lexicon.Lexicon
+instance GHC.Classes.Eq Amazonka.Polly.Types.Lexicon.Lexicon
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Polly.Types.Lexicon.Lexicon
+instance Data.Hashable.Class.Hashable Amazonka.Polly.Types.Lexicon.Lexicon
+instance Control.DeepSeq.NFData Amazonka.Polly.Types.Lexicon.Lexicon
 
 
-module Network.AWS.Polly.Types.LexiconAttributes
+module Amazonka.Polly.Types.LexiconAttributes
 
 -- | Contains metadata describing the lexicon such as the number of
 --   lexemes, language code, and so on. For more information, see
@@ -246,16 +246,16 @@ lexiconAttributes_alphabet :: Lens' LexiconAttributes (Maybe Text)
 
 -- | Date lexicon was last modified (a timestamp value).
 lexiconAttributes_lastModified :: Lens' LexiconAttributes (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.Polly.Types.LexiconAttributes.LexiconAttributes
-instance GHC.Show.Show Network.AWS.Polly.Types.LexiconAttributes.LexiconAttributes
-instance GHC.Read.Read Network.AWS.Polly.Types.LexiconAttributes.LexiconAttributes
-instance GHC.Classes.Eq Network.AWS.Polly.Types.LexiconAttributes.LexiconAttributes
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Polly.Types.LexiconAttributes.LexiconAttributes
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.Types.LexiconAttributes.LexiconAttributes
-instance Control.DeepSeq.NFData Network.AWS.Polly.Types.LexiconAttributes.LexiconAttributes
+instance GHC.Generics.Generic Amazonka.Polly.Types.LexiconAttributes.LexiconAttributes
+instance GHC.Show.Show Amazonka.Polly.Types.LexiconAttributes.LexiconAttributes
+instance GHC.Read.Read Amazonka.Polly.Types.LexiconAttributes.LexiconAttributes
+instance GHC.Classes.Eq Amazonka.Polly.Types.LexiconAttributes.LexiconAttributes
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Polly.Types.LexiconAttributes.LexiconAttributes
+instance Data.Hashable.Class.Hashable Amazonka.Polly.Types.LexiconAttributes.LexiconAttributes
+instance Control.DeepSeq.NFData Amazonka.Polly.Types.LexiconAttributes.LexiconAttributes
 
 
-module Network.AWS.Polly.Types.LexiconDescription
+module Amazonka.Polly.Types.LexiconDescription
 
 -- | Describes the content of the lexicon.
 --   
@@ -290,16 +290,16 @@ lexiconDescription_attributes :: Lens' LexiconDescription (Maybe LexiconAttribut
 
 -- | Name of the lexicon.
 lexiconDescription_name :: Lens' LexiconDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Polly.Types.LexiconDescription.LexiconDescription
-instance GHC.Show.Show Network.AWS.Polly.Types.LexiconDescription.LexiconDescription
-instance GHC.Read.Read Network.AWS.Polly.Types.LexiconDescription.LexiconDescription
-instance GHC.Classes.Eq Network.AWS.Polly.Types.LexiconDescription.LexiconDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Polly.Types.LexiconDescription.LexiconDescription
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.Types.LexiconDescription.LexiconDescription
-instance Control.DeepSeq.NFData Network.AWS.Polly.Types.LexiconDescription.LexiconDescription
+instance GHC.Generics.Generic Amazonka.Polly.Types.LexiconDescription.LexiconDescription
+instance GHC.Show.Show Amazonka.Polly.Types.LexiconDescription.LexiconDescription
+instance GHC.Read.Read Amazonka.Polly.Types.LexiconDescription.LexiconDescription
+instance GHC.Classes.Eq Amazonka.Polly.Types.LexiconDescription.LexiconDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Polly.Types.LexiconDescription.LexiconDescription
+instance Data.Hashable.Class.Hashable Amazonka.Polly.Types.LexiconDescription.LexiconDescription
+instance Control.DeepSeq.NFData Amazonka.Polly.Types.LexiconDescription.LexiconDescription
 
 
-module Network.AWS.Polly.Types.OutputFormat
+module Amazonka.Polly.Types.OutputFormat
 newtype OutputFormat
 OutputFormat' :: Text -> OutputFormat
 [fromOutputFormat] :: OutputFormat -> Text
@@ -307,28 +307,28 @@ pattern OutputFormat_Json :: OutputFormat
 pattern OutputFormat_Mp3 :: OutputFormat
 pattern OutputFormat_Ogg_vorbis :: OutputFormat
 pattern OutputFormat_Pcm :: OutputFormat
-instance Network.AWS.Data.XML.ToXML Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance Network.AWS.Data.XML.FromXML Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance Network.AWS.Data.Log.ToLog Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance Network.AWS.Data.Text.ToText Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance Network.AWS.Data.Text.FromText Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance Control.DeepSeq.NFData Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance GHC.Generics.Generic Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance GHC.Classes.Ord Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance GHC.Classes.Eq Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance GHC.Read.Read Network.AWS.Polly.Types.OutputFormat.OutputFormat
-instance GHC.Show.Show Network.AWS.Polly.Types.OutputFormat.OutputFormat
+instance Amazonka.Data.XML.ToXML Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance Amazonka.Data.XML.FromXML Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance Amazonka.Data.Headers.ToHeader Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance Amazonka.Data.Log.ToLog Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance Amazonka.Data.Text.ToText Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance Amazonka.Data.Text.FromText Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance Control.DeepSeq.NFData Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance Data.Hashable.Class.Hashable Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance GHC.Generics.Generic Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance GHC.Classes.Ord Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance GHC.Classes.Eq Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance GHC.Read.Read Amazonka.Polly.Types.OutputFormat.OutputFormat
+instance GHC.Show.Show Amazonka.Polly.Types.OutputFormat.OutputFormat
 
 
-module Network.AWS.Polly.Types.SpeechMarkType
+module Amazonka.Polly.Types.SpeechMarkType
 newtype SpeechMarkType
 SpeechMarkType' :: Text -> SpeechMarkType
 [fromSpeechMarkType] :: SpeechMarkType -> Text
@@ -336,28 +336,28 @@ pattern SpeechMarkType_Sentence :: SpeechMarkType
 pattern SpeechMarkType_Ssml :: SpeechMarkType
 pattern SpeechMarkType_Viseme :: SpeechMarkType
 pattern SpeechMarkType_Word :: SpeechMarkType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance Network.AWS.Data.Text.ToText Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance Network.AWS.Data.Text.FromText Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance Control.DeepSeq.NFData Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance GHC.Generics.Generic Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance GHC.Classes.Ord Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance GHC.Classes.Eq Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance GHC.Read.Read Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
-instance GHC.Show.Show Network.AWS.Polly.Types.SpeechMarkType.SpeechMarkType
+instance Amazonka.Data.XML.ToXML Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance Amazonka.Data.XML.FromXML Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance Amazonka.Data.Log.ToLog Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance Amazonka.Data.Text.ToText Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance Amazonka.Data.Text.FromText Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance Control.DeepSeq.NFData Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance Data.Hashable.Class.Hashable Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance GHC.Generics.Generic Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance GHC.Classes.Ord Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance GHC.Classes.Eq Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance GHC.Read.Read Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
+instance GHC.Show.Show Amazonka.Polly.Types.SpeechMarkType.SpeechMarkType
 
 
-module Network.AWS.Polly.Types.TaskStatus
+module Amazonka.Polly.Types.TaskStatus
 newtype TaskStatus
 TaskStatus' :: Text -> TaskStatus
 [fromTaskStatus] :: TaskStatus -> Text
@@ -365,55 +365,55 @@ pattern TaskStatus_Completed :: TaskStatus
 pattern TaskStatus_Failed :: TaskStatus
 pattern TaskStatus_InProgress :: TaskStatus
 pattern TaskStatus_Scheduled :: TaskStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance Control.DeepSeq.NFData Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance GHC.Generics.Generic Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance GHC.Classes.Ord Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance GHC.Classes.Eq Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance GHC.Read.Read Network.AWS.Polly.Types.TaskStatus.TaskStatus
-instance GHC.Show.Show Network.AWS.Polly.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.Text.ToText Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance Amazonka.Data.Text.FromText Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance Control.DeepSeq.NFData Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance Data.Hashable.Class.Hashable Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance GHC.Generics.Generic Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance GHC.Classes.Ord Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance GHC.Classes.Eq Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance GHC.Read.Read Amazonka.Polly.Types.TaskStatus.TaskStatus
+instance GHC.Show.Show Amazonka.Polly.Types.TaskStatus.TaskStatus
 
 
-module Network.AWS.Polly.Types.TextType
+module Amazonka.Polly.Types.TextType
 newtype TextType
 TextType' :: Text -> TextType
 [fromTextType] :: TextType -> Text
 pattern TextType_Ssml :: TextType
 pattern TextType_Text :: TextType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Polly.Types.TextType.TextType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Polly.Types.TextType.TextType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Polly.Types.TextType.TextType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Polly.Types.TextType.TextType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Polly.Types.TextType.TextType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Polly.Types.TextType.TextType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.Types.TextType.TextType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Polly.Types.TextType.TextType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Polly.Types.TextType.TextType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Polly.Types.TextType.TextType
-instance Network.AWS.Data.Text.ToText Network.AWS.Polly.Types.TextType.TextType
-instance Network.AWS.Data.Text.FromText Network.AWS.Polly.Types.TextType.TextType
-instance Control.DeepSeq.NFData Network.AWS.Polly.Types.TextType.TextType
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.Types.TextType.TextType
-instance GHC.Generics.Generic Network.AWS.Polly.Types.TextType.TextType
-instance GHC.Classes.Ord Network.AWS.Polly.Types.TextType.TextType
-instance GHC.Classes.Eq Network.AWS.Polly.Types.TextType.TextType
-instance GHC.Read.Read Network.AWS.Polly.Types.TextType.TextType
-instance GHC.Show.Show Network.AWS.Polly.Types.TextType.TextType
+instance Amazonka.Data.XML.ToXML Amazonka.Polly.Types.TextType.TextType
+instance Amazonka.Data.XML.FromXML Amazonka.Polly.Types.TextType.TextType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Polly.Types.TextType.TextType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Polly.Types.TextType.TextType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Polly.Types.TextType.TextType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Polly.Types.TextType.TextType
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.Types.TextType.TextType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Polly.Types.TextType.TextType
+instance Amazonka.Data.Log.ToLog Amazonka.Polly.Types.TextType.TextType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Polly.Types.TextType.TextType
+instance Amazonka.Data.Text.ToText Amazonka.Polly.Types.TextType.TextType
+instance Amazonka.Data.Text.FromText Amazonka.Polly.Types.TextType.TextType
+instance Control.DeepSeq.NFData Amazonka.Polly.Types.TextType.TextType
+instance Data.Hashable.Class.Hashable Amazonka.Polly.Types.TextType.TextType
+instance GHC.Generics.Generic Amazonka.Polly.Types.TextType.TextType
+instance GHC.Classes.Ord Amazonka.Polly.Types.TextType.TextType
+instance GHC.Classes.Eq Amazonka.Polly.Types.TextType.TextType
+instance GHC.Read.Read Amazonka.Polly.Types.TextType.TextType
+instance GHC.Show.Show Amazonka.Polly.Types.TextType.TextType
 
 
-module Network.AWS.Polly.Types.VoiceId
+module Amazonka.Polly.Types.VoiceId
 newtype VoiceId
 VoiceId' :: Text -> VoiceId
 [fromVoiceId] :: VoiceId -> Text
@@ -482,28 +482,28 @@ pattern VoiceId_Vicki :: VoiceId
 pattern VoiceId_Vitoria :: VoiceId
 pattern VoiceId_Zeina :: VoiceId
 pattern VoiceId_Zhiyu :: VoiceId
-instance Network.AWS.Data.XML.ToXML Network.AWS.Polly.Types.VoiceId.VoiceId
-instance Network.AWS.Data.XML.FromXML Network.AWS.Polly.Types.VoiceId.VoiceId
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Polly.Types.VoiceId.VoiceId
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Polly.Types.VoiceId.VoiceId
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Polly.Types.VoiceId.VoiceId
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Polly.Types.VoiceId.VoiceId
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.Types.VoiceId.VoiceId
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Polly.Types.VoiceId.VoiceId
-instance Network.AWS.Data.Log.ToLog Network.AWS.Polly.Types.VoiceId.VoiceId
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Polly.Types.VoiceId.VoiceId
-instance Network.AWS.Data.Text.ToText Network.AWS.Polly.Types.VoiceId.VoiceId
-instance Network.AWS.Data.Text.FromText Network.AWS.Polly.Types.VoiceId.VoiceId
-instance Control.DeepSeq.NFData Network.AWS.Polly.Types.VoiceId.VoiceId
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.Types.VoiceId.VoiceId
-instance GHC.Generics.Generic Network.AWS.Polly.Types.VoiceId.VoiceId
-instance GHC.Classes.Ord Network.AWS.Polly.Types.VoiceId.VoiceId
-instance GHC.Classes.Eq Network.AWS.Polly.Types.VoiceId.VoiceId
-instance GHC.Read.Read Network.AWS.Polly.Types.VoiceId.VoiceId
-instance GHC.Show.Show Network.AWS.Polly.Types.VoiceId.VoiceId
+instance Amazonka.Data.XML.ToXML Amazonka.Polly.Types.VoiceId.VoiceId
+instance Amazonka.Data.XML.FromXML Amazonka.Polly.Types.VoiceId.VoiceId
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Polly.Types.VoiceId.VoiceId
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Polly.Types.VoiceId.VoiceId
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Polly.Types.VoiceId.VoiceId
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Polly.Types.VoiceId.VoiceId
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.Types.VoiceId.VoiceId
+instance Amazonka.Data.Headers.ToHeader Amazonka.Polly.Types.VoiceId.VoiceId
+instance Amazonka.Data.Log.ToLog Amazonka.Polly.Types.VoiceId.VoiceId
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Polly.Types.VoiceId.VoiceId
+instance Amazonka.Data.Text.ToText Amazonka.Polly.Types.VoiceId.VoiceId
+instance Amazonka.Data.Text.FromText Amazonka.Polly.Types.VoiceId.VoiceId
+instance Control.DeepSeq.NFData Amazonka.Polly.Types.VoiceId.VoiceId
+instance Data.Hashable.Class.Hashable Amazonka.Polly.Types.VoiceId.VoiceId
+instance GHC.Generics.Generic Amazonka.Polly.Types.VoiceId.VoiceId
+instance GHC.Classes.Ord Amazonka.Polly.Types.VoiceId.VoiceId
+instance GHC.Classes.Eq Amazonka.Polly.Types.VoiceId.VoiceId
+instance GHC.Read.Read Amazonka.Polly.Types.VoiceId.VoiceId
+instance GHC.Show.Show Amazonka.Polly.Types.VoiceId.VoiceId
 
 
-module Network.AWS.Polly.Types.Voice
+module Amazonka.Polly.Types.Voice
 
 -- | Description of the voice.
 --   
@@ -608,16 +608,16 @@ voice_additionalLanguageCodes :: Lens' Voice (Maybe [LanguageCode])
 -- | Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
 --   are supported by a given voice.
 voice_supportedEngines :: Lens' Voice (Maybe [Engine])
-instance GHC.Generics.Generic Network.AWS.Polly.Types.Voice.Voice
-instance GHC.Show.Show Network.AWS.Polly.Types.Voice.Voice
-instance GHC.Read.Read Network.AWS.Polly.Types.Voice.Voice
-instance GHC.Classes.Eq Network.AWS.Polly.Types.Voice.Voice
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Polly.Types.Voice.Voice
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.Types.Voice.Voice
-instance Control.DeepSeq.NFData Network.AWS.Polly.Types.Voice.Voice
+instance GHC.Generics.Generic Amazonka.Polly.Types.Voice.Voice
+instance GHC.Show.Show Amazonka.Polly.Types.Voice.Voice
+instance GHC.Read.Read Amazonka.Polly.Types.Voice.Voice
+instance GHC.Classes.Eq Amazonka.Polly.Types.Voice.Voice
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Polly.Types.Voice.Voice
+instance Data.Hashable.Class.Hashable Amazonka.Polly.Types.Voice.Voice
+instance Control.DeepSeq.NFData Amazonka.Polly.Types.Voice.Voice
 
 
-module Network.AWS.Polly.Types.SynthesisTask
+module Amazonka.Polly.Types.SynthesisTask
 
 -- | SynthesisTask object that provides information about a speech
 --   synthesis task.
@@ -854,16 +854,16 @@ synthesisTask_taskStatus :: Lens' SynthesisTask (Maybe TaskStatus)
 
 -- | Pathway for the output speech file.
 synthesisTask_outputUri :: Lens' SynthesisTask (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Polly.Types.SynthesisTask.SynthesisTask
-instance GHC.Show.Show Network.AWS.Polly.Types.SynthesisTask.SynthesisTask
-instance GHC.Read.Read Network.AWS.Polly.Types.SynthesisTask.SynthesisTask
-instance GHC.Classes.Eq Network.AWS.Polly.Types.SynthesisTask.SynthesisTask
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Polly.Types.SynthesisTask.SynthesisTask
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.Types.SynthesisTask.SynthesisTask
-instance Control.DeepSeq.NFData Network.AWS.Polly.Types.SynthesisTask.SynthesisTask
+instance GHC.Generics.Generic Amazonka.Polly.Types.SynthesisTask.SynthesisTask
+instance GHC.Show.Show Amazonka.Polly.Types.SynthesisTask.SynthesisTask
+instance GHC.Read.Read Amazonka.Polly.Types.SynthesisTask.SynthesisTask
+instance GHC.Classes.Eq Amazonka.Polly.Types.SynthesisTask.SynthesisTask
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Polly.Types.SynthesisTask.SynthesisTask
+instance Data.Hashable.Class.Hashable Amazonka.Polly.Types.SynthesisTask.SynthesisTask
+instance Control.DeepSeq.NFData Amazonka.Polly.Types.SynthesisTask.SynthesisTask
 
 
-module Network.AWS.Polly.Types
+module Amazonka.Polly.Types
 
 -- | API version <tt>2016-06-10</tt> of the Amazon Polly SDK configuration.
 defaultService :: Service
@@ -1594,7 +1594,7 @@ voice_supportedEngines :: Lens' Voice (Maybe [Engine])
 --   be available with all the voices (for example, Cyrillic might not be
 --   read at all by English voices) unless phoneme mapping is used. For
 --   more information, see <a>How it Works</a>.
-module Network.AWS.Polly.SynthesizeSpeech
+module Amazonka.Polly.SynthesizeSpeech
 
 -- | <i>See:</i> <a>newSynthesizeSpeech</a> smart constructor.
 data SynthesizeSpeech
@@ -1941,19 +1941,19 @@ synthesizeSpeechResponse_httpStatus :: Lens' SynthesizeSpeechResponse Int
 
 -- | Stream containing the synthesized speech.
 synthesizeSpeechResponse_audioStream :: Lens' SynthesizeSpeechResponse ResponseBody
-instance GHC.Generics.Generic Network.AWS.Polly.SynthesizeSpeech.SynthesizeSpeech
-instance GHC.Show.Show Network.AWS.Polly.SynthesizeSpeech.SynthesizeSpeech
-instance GHC.Read.Read Network.AWS.Polly.SynthesizeSpeech.SynthesizeSpeech
-instance GHC.Classes.Eq Network.AWS.Polly.SynthesizeSpeech.SynthesizeSpeech
-instance GHC.Generics.Generic Network.AWS.Polly.SynthesizeSpeech.SynthesizeSpeechResponse
-instance GHC.Show.Show Network.AWS.Polly.SynthesizeSpeech.SynthesizeSpeechResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Polly.SynthesizeSpeech.SynthesizeSpeech
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.SynthesizeSpeech.SynthesizeSpeech
-instance Control.DeepSeq.NFData Network.AWS.Polly.SynthesizeSpeech.SynthesizeSpeech
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Polly.SynthesizeSpeech.SynthesizeSpeech
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Polly.SynthesizeSpeech.SynthesizeSpeech
-instance Network.AWS.Data.Path.ToPath Network.AWS.Polly.SynthesizeSpeech.SynthesizeSpeech
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.SynthesizeSpeech.SynthesizeSpeech
+instance GHC.Generics.Generic Amazonka.Polly.SynthesizeSpeech.SynthesizeSpeech
+instance GHC.Show.Show Amazonka.Polly.SynthesizeSpeech.SynthesizeSpeech
+instance GHC.Read.Read Amazonka.Polly.SynthesizeSpeech.SynthesizeSpeech
+instance GHC.Classes.Eq Amazonka.Polly.SynthesizeSpeech.SynthesizeSpeech
+instance GHC.Generics.Generic Amazonka.Polly.SynthesizeSpeech.SynthesizeSpeechResponse
+instance GHC.Show.Show Amazonka.Polly.SynthesizeSpeech.SynthesizeSpeechResponse
+instance Amazonka.Types.AWSRequest Amazonka.Polly.SynthesizeSpeech.SynthesizeSpeech
+instance Data.Hashable.Class.Hashable Amazonka.Polly.SynthesizeSpeech.SynthesizeSpeech
+instance Control.DeepSeq.NFData Amazonka.Polly.SynthesizeSpeech.SynthesizeSpeech
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Polly.SynthesizeSpeech.SynthesizeSpeech
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Polly.SynthesizeSpeech.SynthesizeSpeech
+instance Amazonka.Data.Path.ToPath Amazonka.Polly.SynthesizeSpeech.SynthesizeSpeech
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.SynthesizeSpeech.SynthesizeSpeech
 
 
 -- | Allows the creation of an asynchronous synthesis task, by starting a
@@ -1966,7 +1966,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.SynthesizeSpeech.Synth
 --   will include an identifier of this task as well as the current status.
 --   The <tt>SpeechSynthesisTask</tt> object is available for 72 hours
 --   after starting the asynchronous synthesis task.
-module Network.AWS.Polly.StartSpeechSynthesisTask
+module Amazonka.Polly.StartSpeechSynthesisTask
 
 -- | <i>See:</i> <a>newStartSpeechSynthesisTask</a> smart constructor.
 data StartSpeechSynthesisTask
@@ -2214,22 +2214,22 @@ startSpeechSynthesisTaskResponse_synthesisTask :: Lens' StartSpeechSynthesisTask
 
 -- | The response's http status code.
 startSpeechSynthesisTaskResponse_httpStatus :: Lens' StartSpeechSynthesisTaskResponse Int
-instance GHC.Generics.Generic Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
-instance GHC.Show.Show Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
-instance GHC.Read.Read Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
-instance GHC.Classes.Eq Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
-instance GHC.Generics.Generic Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTaskResponse
-instance GHC.Show.Show Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTaskResponse
-instance GHC.Read.Read Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTaskResponse
-instance GHC.Classes.Eq Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTaskResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
-instance Control.DeepSeq.NFData Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTaskResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
-instance Control.DeepSeq.NFData Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
-instance Network.AWS.Data.Path.ToPath Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
+instance GHC.Generics.Generic Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
+instance GHC.Show.Show Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
+instance GHC.Read.Read Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
+instance GHC.Classes.Eq Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
+instance GHC.Generics.Generic Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTaskResponse
+instance GHC.Show.Show Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTaskResponse
+instance GHC.Read.Read Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTaskResponse
+instance GHC.Classes.Eq Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTaskResponse
+instance Amazonka.Types.AWSRequest Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
+instance Control.DeepSeq.NFData Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTaskResponse
+instance Data.Hashable.Class.Hashable Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
+instance Control.DeepSeq.NFData Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
+instance Amazonka.Data.Path.ToPath Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.StartSpeechSynthesisTask.StartSpeechSynthesisTask
 
 
 -- | Stores a pronunciation lexicon in an Amazon Web Services Region. If a
@@ -2239,7 +2239,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.StartSpeechSynthesisTa
 --   available to the SynthesizeSpeech operation.
 --   
 --   For more information, see <a>Managing Lexicons</a>.
-module Network.AWS.Polly.PutLexicon
+module Amazonka.Polly.PutLexicon
 
 -- | <i>See:</i> <a>newPutLexicon</a> smart constructor.
 data PutLexicon
@@ -2301,21 +2301,21 @@ newPutLexiconResponse :: Int -> PutLexiconResponse
 
 -- | The response's http status code.
 putLexiconResponse_httpStatus :: Lens' PutLexiconResponse Int
-instance GHC.Generics.Generic Network.AWS.Polly.PutLexicon.PutLexicon
-instance GHC.Show.Show Network.AWS.Polly.PutLexicon.PutLexicon
-instance GHC.Classes.Eq Network.AWS.Polly.PutLexicon.PutLexicon
-instance GHC.Generics.Generic Network.AWS.Polly.PutLexicon.PutLexiconResponse
-instance GHC.Show.Show Network.AWS.Polly.PutLexicon.PutLexiconResponse
-instance GHC.Read.Read Network.AWS.Polly.PutLexicon.PutLexiconResponse
-instance GHC.Classes.Eq Network.AWS.Polly.PutLexicon.PutLexiconResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Polly.PutLexicon.PutLexicon
-instance Control.DeepSeq.NFData Network.AWS.Polly.PutLexicon.PutLexiconResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.PutLexicon.PutLexicon
-instance Control.DeepSeq.NFData Network.AWS.Polly.PutLexicon.PutLexicon
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Polly.PutLexicon.PutLexicon
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Polly.PutLexicon.PutLexicon
-instance Network.AWS.Data.Path.ToPath Network.AWS.Polly.PutLexicon.PutLexicon
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.PutLexicon.PutLexicon
+instance GHC.Generics.Generic Amazonka.Polly.PutLexicon.PutLexicon
+instance GHC.Show.Show Amazonka.Polly.PutLexicon.PutLexicon
+instance GHC.Classes.Eq Amazonka.Polly.PutLexicon.PutLexicon
+instance GHC.Generics.Generic Amazonka.Polly.PutLexicon.PutLexiconResponse
+instance GHC.Show.Show Amazonka.Polly.PutLexicon.PutLexiconResponse
+instance GHC.Read.Read Amazonka.Polly.PutLexicon.PutLexiconResponse
+instance GHC.Classes.Eq Amazonka.Polly.PutLexicon.PutLexiconResponse
+instance Amazonka.Types.AWSRequest Amazonka.Polly.PutLexicon.PutLexicon
+instance Control.DeepSeq.NFData Amazonka.Polly.PutLexicon.PutLexiconResponse
+instance Data.Hashable.Class.Hashable Amazonka.Polly.PutLexicon.PutLexicon
+instance Control.DeepSeq.NFData Amazonka.Polly.PutLexicon.PutLexicon
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Polly.PutLexicon.PutLexicon
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Polly.PutLexicon.PutLexicon
+instance Amazonka.Data.Path.ToPath Amazonka.Polly.PutLexicon.PutLexicon
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.PutLexicon.PutLexicon
 
 
 -- | Returns a list of SpeechSynthesisTask objects ordered by their
@@ -2323,7 +2323,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.PutLexicon.PutLexicon
 --   for example, allowing users to list only tasks that are completed.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Polly.ListSpeechSynthesisTasks
+module Amazonka.Polly.ListSpeechSynthesisTasks
 
 -- | <i>See:</i> <a>newListSpeechSynthesisTasks</a> smart constructor.
 data ListSpeechSynthesisTasks
@@ -2427,29 +2427,29 @@ listSpeechSynthesisTasksResponse_synthesisTasks :: Lens' ListSpeechSynthesisTask
 
 -- | The response's http status code.
 listSpeechSynthesisTasksResponse_httpStatus :: Lens' ListSpeechSynthesisTasksResponse Int
-instance GHC.Generics.Generic Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
-instance GHC.Show.Show Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
-instance GHC.Read.Read Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
-instance GHC.Classes.Eq Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
-instance GHC.Generics.Generic Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasksResponse
-instance GHC.Show.Show Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasksResponse
-instance GHC.Read.Read Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasksResponse
-instance GHC.Classes.Eq Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasksResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
-instance Control.DeepSeq.NFData Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasksResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
-instance Control.DeepSeq.NFData Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
-instance Network.AWS.Data.Path.ToPath Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
+instance GHC.Generics.Generic Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
+instance GHC.Show.Show Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
+instance GHC.Read.Read Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
+instance GHC.Classes.Eq Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
+instance GHC.Generics.Generic Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasksResponse
+instance GHC.Show.Show Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasksResponse
+instance GHC.Read.Read Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasksResponse
+instance GHC.Classes.Eq Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasksResponse
+instance Amazonka.Types.AWSRequest Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
+instance Control.DeepSeq.NFData Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasksResponse
+instance Amazonka.Pager.AWSPager Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
+instance Data.Hashable.Class.Hashable Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
+instance Control.DeepSeq.NFData Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
+instance Amazonka.Data.Path.ToPath Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.ListSpeechSynthesisTasks.ListSpeechSynthesisTasks
 
 
 -- | Returns a list of pronunciation lexicons stored in an Amazon Web
 --   Services Region. For more information, see <a>Managing Lexicons</a>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Polly.ListLexicons
+module Amazonka.Polly.ListLexicons
 
 -- | <i>See:</i> <a>newListLexicons</a> smart constructor.
 data ListLexicons
@@ -2528,29 +2528,29 @@ listLexiconsResponse_nextToken :: Lens' ListLexiconsResponse (Maybe Text)
 
 -- | The response's http status code.
 listLexiconsResponse_httpStatus :: Lens' ListLexiconsResponse Int
-instance GHC.Generics.Generic Network.AWS.Polly.ListLexicons.ListLexicons
-instance GHC.Show.Show Network.AWS.Polly.ListLexicons.ListLexicons
-instance GHC.Read.Read Network.AWS.Polly.ListLexicons.ListLexicons
-instance GHC.Classes.Eq Network.AWS.Polly.ListLexicons.ListLexicons
-instance GHC.Generics.Generic Network.AWS.Polly.ListLexicons.ListLexiconsResponse
-instance GHC.Show.Show Network.AWS.Polly.ListLexicons.ListLexiconsResponse
-instance GHC.Read.Read Network.AWS.Polly.ListLexicons.ListLexiconsResponse
-instance GHC.Classes.Eq Network.AWS.Polly.ListLexicons.ListLexiconsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Polly.ListLexicons.ListLexicons
-instance Control.DeepSeq.NFData Network.AWS.Polly.ListLexicons.ListLexiconsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Polly.ListLexicons.ListLexicons
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.ListLexicons.ListLexicons
-instance Control.DeepSeq.NFData Network.AWS.Polly.ListLexicons.ListLexicons
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Polly.ListLexicons.ListLexicons
-instance Network.AWS.Data.Path.ToPath Network.AWS.Polly.ListLexicons.ListLexicons
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.ListLexicons.ListLexicons
+instance GHC.Generics.Generic Amazonka.Polly.ListLexicons.ListLexicons
+instance GHC.Show.Show Amazonka.Polly.ListLexicons.ListLexicons
+instance GHC.Read.Read Amazonka.Polly.ListLexicons.ListLexicons
+instance GHC.Classes.Eq Amazonka.Polly.ListLexicons.ListLexicons
+instance GHC.Generics.Generic Amazonka.Polly.ListLexicons.ListLexiconsResponse
+instance GHC.Show.Show Amazonka.Polly.ListLexicons.ListLexiconsResponse
+instance GHC.Read.Read Amazonka.Polly.ListLexicons.ListLexiconsResponse
+instance GHC.Classes.Eq Amazonka.Polly.ListLexicons.ListLexiconsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Polly.ListLexicons.ListLexicons
+instance Control.DeepSeq.NFData Amazonka.Polly.ListLexicons.ListLexiconsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Polly.ListLexicons.ListLexicons
+instance Data.Hashable.Class.Hashable Amazonka.Polly.ListLexicons.ListLexicons
+instance Control.DeepSeq.NFData Amazonka.Polly.ListLexicons.ListLexicons
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Polly.ListLexicons.ListLexicons
+instance Amazonka.Data.Path.ToPath Amazonka.Polly.ListLexicons.ListLexicons
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.ListLexicons.ListLexicons
 
 
 -- | Retrieves a specific SpeechSynthesisTask object based on its TaskID.
 --   This object contains information about the given speech synthesis
 --   task, including the status of the task, and a link to the S3 bucket
 --   containing the output of the task.
-module Network.AWS.Polly.GetSpeechSynthesisTask
+module Amazonka.Polly.GetSpeechSynthesisTask
 
 -- | <i>See:</i> <a>newGetSpeechSynthesisTask</a> smart constructor.
 data GetSpeechSynthesisTask
@@ -2613,27 +2613,27 @@ getSpeechSynthesisTaskResponse_synthesisTask :: Lens' GetSpeechSynthesisTaskResp
 
 -- | The response's http status code.
 getSpeechSynthesisTaskResponse_httpStatus :: Lens' GetSpeechSynthesisTaskResponse Int
-instance GHC.Generics.Generic Network.AWS.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
-instance GHC.Show.Show Network.AWS.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
-instance GHC.Read.Read Network.AWS.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
-instance GHC.Classes.Eq Network.AWS.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
-instance GHC.Generics.Generic Network.AWS.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTaskResponse
-instance GHC.Show.Show Network.AWS.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTaskResponse
-instance GHC.Read.Read Network.AWS.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTaskResponse
-instance GHC.Classes.Eq Network.AWS.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTaskResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
-instance Control.DeepSeq.NFData Network.AWS.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTaskResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
-instance Control.DeepSeq.NFData Network.AWS.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
-instance Network.AWS.Data.Path.ToPath Network.AWS.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
+instance GHC.Generics.Generic Amazonka.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
+instance GHC.Show.Show Amazonka.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
+instance GHC.Read.Read Amazonka.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
+instance GHC.Classes.Eq Amazonka.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
+instance GHC.Generics.Generic Amazonka.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTaskResponse
+instance GHC.Show.Show Amazonka.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTaskResponse
+instance GHC.Read.Read Amazonka.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTaskResponse
+instance GHC.Classes.Eq Amazonka.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTaskResponse
+instance Amazonka.Types.AWSRequest Amazonka.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
+instance Control.DeepSeq.NFData Amazonka.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTaskResponse
+instance Data.Hashable.Class.Hashable Amazonka.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
+instance Control.DeepSeq.NFData Amazonka.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
+instance Amazonka.Data.Path.ToPath Amazonka.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.GetSpeechSynthesisTask.GetSpeechSynthesisTask
 
 
 -- | Returns the content of the specified pronunciation lexicon stored in
 --   an Amazon Web Services Region. For more information, see <a>Managing
 --   Lexicons</a>.
-module Network.AWS.Polly.GetLexicon
+module Amazonka.Polly.GetLexicon
 
 -- | <i>See:</i> <a>newGetLexicon</a> smart constructor.
 data GetLexicon
@@ -2707,20 +2707,20 @@ getLexiconResponse_lexicon :: Lens' GetLexiconResponse (Maybe Lexicon)
 
 -- | The response's http status code.
 getLexiconResponse_httpStatus :: Lens' GetLexiconResponse Int
-instance GHC.Generics.Generic Network.AWS.Polly.GetLexicon.GetLexicon
-instance GHC.Show.Show Network.AWS.Polly.GetLexicon.GetLexicon
-instance GHC.Read.Read Network.AWS.Polly.GetLexicon.GetLexicon
-instance GHC.Classes.Eq Network.AWS.Polly.GetLexicon.GetLexicon
-instance GHC.Generics.Generic Network.AWS.Polly.GetLexicon.GetLexiconResponse
-instance GHC.Show.Show Network.AWS.Polly.GetLexicon.GetLexiconResponse
-instance GHC.Classes.Eq Network.AWS.Polly.GetLexicon.GetLexiconResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Polly.GetLexicon.GetLexicon
-instance Control.DeepSeq.NFData Network.AWS.Polly.GetLexicon.GetLexiconResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.GetLexicon.GetLexicon
-instance Control.DeepSeq.NFData Network.AWS.Polly.GetLexicon.GetLexicon
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Polly.GetLexicon.GetLexicon
-instance Network.AWS.Data.Path.ToPath Network.AWS.Polly.GetLexicon.GetLexicon
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.GetLexicon.GetLexicon
+instance GHC.Generics.Generic Amazonka.Polly.GetLexicon.GetLexicon
+instance GHC.Show.Show Amazonka.Polly.GetLexicon.GetLexicon
+instance GHC.Read.Read Amazonka.Polly.GetLexicon.GetLexicon
+instance GHC.Classes.Eq Amazonka.Polly.GetLexicon.GetLexicon
+instance GHC.Generics.Generic Amazonka.Polly.GetLexicon.GetLexiconResponse
+instance GHC.Show.Show Amazonka.Polly.GetLexicon.GetLexiconResponse
+instance GHC.Classes.Eq Amazonka.Polly.GetLexicon.GetLexiconResponse
+instance Amazonka.Types.AWSRequest Amazonka.Polly.GetLexicon.GetLexicon
+instance Control.DeepSeq.NFData Amazonka.Polly.GetLexicon.GetLexiconResponse
+instance Data.Hashable.Class.Hashable Amazonka.Polly.GetLexicon.GetLexicon
+instance Control.DeepSeq.NFData Amazonka.Polly.GetLexicon.GetLexicon
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Polly.GetLexicon.GetLexicon
+instance Amazonka.Data.Path.ToPath Amazonka.Polly.GetLexicon.GetLexicon
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.GetLexicon.GetLexicon
 
 
 -- | Returns the list of voices that are available for use when requesting
@@ -2745,7 +2745,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.GetLexicon.GetLexicon
 --   <tt>polly:DescribeVoices</tt> action.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Polly.DescribeVoices
+module Amazonka.Polly.DescribeVoices
 
 -- | <i>See:</i> <a>newDescribeVoices</a> smart constructor.
 data DescribeVoices
@@ -2879,22 +2879,22 @@ describeVoicesResponse_voices :: Lens' DescribeVoicesResponse (Maybe [Voice])
 
 -- | The response's http status code.
 describeVoicesResponse_httpStatus :: Lens' DescribeVoicesResponse Int
-instance GHC.Generics.Generic Network.AWS.Polly.DescribeVoices.DescribeVoices
-instance GHC.Show.Show Network.AWS.Polly.DescribeVoices.DescribeVoices
-instance GHC.Read.Read Network.AWS.Polly.DescribeVoices.DescribeVoices
-instance GHC.Classes.Eq Network.AWS.Polly.DescribeVoices.DescribeVoices
-instance GHC.Generics.Generic Network.AWS.Polly.DescribeVoices.DescribeVoicesResponse
-instance GHC.Show.Show Network.AWS.Polly.DescribeVoices.DescribeVoicesResponse
-instance GHC.Read.Read Network.AWS.Polly.DescribeVoices.DescribeVoicesResponse
-instance GHC.Classes.Eq Network.AWS.Polly.DescribeVoices.DescribeVoicesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Polly.DescribeVoices.DescribeVoices
-instance Control.DeepSeq.NFData Network.AWS.Polly.DescribeVoices.DescribeVoicesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Polly.DescribeVoices.DescribeVoices
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.DescribeVoices.DescribeVoices
-instance Control.DeepSeq.NFData Network.AWS.Polly.DescribeVoices.DescribeVoices
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Polly.DescribeVoices.DescribeVoices
-instance Network.AWS.Data.Path.ToPath Network.AWS.Polly.DescribeVoices.DescribeVoices
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.DescribeVoices.DescribeVoices
+instance GHC.Generics.Generic Amazonka.Polly.DescribeVoices.DescribeVoices
+instance GHC.Show.Show Amazonka.Polly.DescribeVoices.DescribeVoices
+instance GHC.Read.Read Amazonka.Polly.DescribeVoices.DescribeVoices
+instance GHC.Classes.Eq Amazonka.Polly.DescribeVoices.DescribeVoices
+instance GHC.Generics.Generic Amazonka.Polly.DescribeVoices.DescribeVoicesResponse
+instance GHC.Show.Show Amazonka.Polly.DescribeVoices.DescribeVoicesResponse
+instance GHC.Read.Read Amazonka.Polly.DescribeVoices.DescribeVoicesResponse
+instance GHC.Classes.Eq Amazonka.Polly.DescribeVoices.DescribeVoicesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Polly.DescribeVoices.DescribeVoices
+instance Control.DeepSeq.NFData Amazonka.Polly.DescribeVoices.DescribeVoicesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Polly.DescribeVoices.DescribeVoices
+instance Data.Hashable.Class.Hashable Amazonka.Polly.DescribeVoices.DescribeVoices
+instance Control.DeepSeq.NFData Amazonka.Polly.DescribeVoices.DescribeVoices
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Polly.DescribeVoices.DescribeVoices
+instance Amazonka.Data.Path.ToPath Amazonka.Polly.DescribeVoices.DescribeVoices
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.DescribeVoices.DescribeVoices
 
 
 -- | Deletes the specified pronunciation lexicon stored in an Amazon Web
@@ -2903,7 +2903,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.DescribeVoices.Describ
 --   <tt>GetLexicon</tt> or <tt>ListLexicon</tt> APIs.
 --   
 --   For more information, see <a>Managing Lexicons</a>.
-module Network.AWS.Polly.DeleteLexicon
+module Amazonka.Polly.DeleteLexicon
 
 -- | <i>See:</i> <a>newDeleteLexicon</a> smart constructor.
 data DeleteLexicon
@@ -2953,24 +2953,24 @@ newDeleteLexiconResponse :: Int -> DeleteLexiconResponse
 
 -- | The response's http status code.
 deleteLexiconResponse_httpStatus :: Lens' DeleteLexiconResponse Int
-instance GHC.Generics.Generic Network.AWS.Polly.DeleteLexicon.DeleteLexicon
-instance GHC.Show.Show Network.AWS.Polly.DeleteLexicon.DeleteLexicon
-instance GHC.Read.Read Network.AWS.Polly.DeleteLexicon.DeleteLexicon
-instance GHC.Classes.Eq Network.AWS.Polly.DeleteLexicon.DeleteLexicon
-instance GHC.Generics.Generic Network.AWS.Polly.DeleteLexicon.DeleteLexiconResponse
-instance GHC.Show.Show Network.AWS.Polly.DeleteLexicon.DeleteLexiconResponse
-instance GHC.Read.Read Network.AWS.Polly.DeleteLexicon.DeleteLexiconResponse
-instance GHC.Classes.Eq Network.AWS.Polly.DeleteLexicon.DeleteLexiconResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Polly.DeleteLexicon.DeleteLexicon
-instance Control.DeepSeq.NFData Network.AWS.Polly.DeleteLexicon.DeleteLexiconResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Polly.DeleteLexicon.DeleteLexicon
-instance Control.DeepSeq.NFData Network.AWS.Polly.DeleteLexicon.DeleteLexicon
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Polly.DeleteLexicon.DeleteLexicon
-instance Network.AWS.Data.Path.ToPath Network.AWS.Polly.DeleteLexicon.DeleteLexicon
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.DeleteLexicon.DeleteLexicon
+instance GHC.Generics.Generic Amazonka.Polly.DeleteLexicon.DeleteLexicon
+instance GHC.Show.Show Amazonka.Polly.DeleteLexicon.DeleteLexicon
+instance GHC.Read.Read Amazonka.Polly.DeleteLexicon.DeleteLexicon
+instance GHC.Classes.Eq Amazonka.Polly.DeleteLexicon.DeleteLexicon
+instance GHC.Generics.Generic Amazonka.Polly.DeleteLexicon.DeleteLexiconResponse
+instance GHC.Show.Show Amazonka.Polly.DeleteLexicon.DeleteLexiconResponse
+instance GHC.Read.Read Amazonka.Polly.DeleteLexicon.DeleteLexiconResponse
+instance GHC.Classes.Eq Amazonka.Polly.DeleteLexicon.DeleteLexiconResponse
+instance Amazonka.Types.AWSRequest Amazonka.Polly.DeleteLexicon.DeleteLexicon
+instance Control.DeepSeq.NFData Amazonka.Polly.DeleteLexicon.DeleteLexiconResponse
+instance Data.Hashable.Class.Hashable Amazonka.Polly.DeleteLexicon.DeleteLexicon
+instance Control.DeepSeq.NFData Amazonka.Polly.DeleteLexicon.DeleteLexicon
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Polly.DeleteLexicon.DeleteLexicon
+instance Amazonka.Data.Path.ToPath Amazonka.Polly.DeleteLexicon.DeleteLexicon
+instance Amazonka.Data.Query.ToQuery Amazonka.Polly.DeleteLexicon.DeleteLexicon
 
 
-module Network.AWS.Polly.Lens
+module Amazonka.Polly.Lens
 
 -- | Name of the lexicon.
 getLexicon_name :: Lens' GetLexicon Text
@@ -3396,7 +3396,7 @@ voice_additionalLanguageCodes :: Lens' Voice (Maybe [LanguageCode])
 voice_supportedEngines :: Lens' Voice (Maybe [Engine])
 
 
-module Network.AWS.Polly.Waiters
+module Amazonka.Polly.Waiters
 
 
 -- | Derived from API version <tt>2016-06-10</tt> of the AWS service
@@ -3409,7 +3409,7 @@ module Network.AWS.Polly.Waiters
 --   high-quality speech from plain text and Speech Synthesis Markup
 --   Language (SSML), along with managing pronunciations lexicons that
 --   enable you to get the best results for your application domain.
-module Network.AWS.Polly
+module Amazonka.Polly
 
 -- | API version <tt>2016-06-10</tt> of the Amazon Polly SDK configuration.
 defaultService :: Service

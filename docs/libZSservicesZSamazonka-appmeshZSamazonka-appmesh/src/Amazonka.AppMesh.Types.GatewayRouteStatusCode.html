@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.GatewayRouteStatusCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.GatewayRouteStatusCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode"><span class="hs-identifier">GatewayRouteStatusCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode_ACTIVE"><span class="hs-identifier">GatewayRouteStatusCode_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode_DELETED"><span class="hs-identifier">GatewayRouteStatusCode_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode_INACTIVE"><span class="hs-identifier">GatewayRouteStatusCode_INACTIVE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679324618"><span id="local-6989586621679324619"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GatewayRouteStatusCode"><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode"><span class="hs-identifier hs-var">GatewayRouteStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GatewayRouteStatusCode%27"><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode%27"><span class="hs-identifier hs-var">GatewayRouteStatusCode'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGatewayRouteStatusCode"><span class="annot"><span class="annottext">GatewayRouteStatusCode -&gt; Text
+</span><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#fromGatewayRouteStatusCode"><span class="hs-identifier hs-var hs-var">fromGatewayRouteStatusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324610"><span id="local-6989586621679324612"><span id="local-6989586621679324614"><span class="annot"><span class="annottext">Int -&gt; GatewayRouteStatusCode -&gt; ShowS
+[GatewayRouteStatusCode] -&gt; ShowS
+GatewayRouteStatusCode -&gt; String
+(Int -&gt; GatewayRouteStatusCode -&gt; ShowS)
+-&gt; (GatewayRouteStatusCode -&gt; String)
+-&gt; ([GatewayRouteStatusCode] -&gt; ShowS)
+-&gt; Show GatewayRouteStatusCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GatewayRouteStatusCode] -&gt; ShowS
+$cshowList :: [GatewayRouteStatusCode] -&gt; ShowS
+show :: GatewayRouteStatusCode -&gt; String
+$cshow :: GatewayRouteStatusCode -&gt; String
+showsPrec :: Int -&gt; GatewayRouteStatusCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; GatewayRouteStatusCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679324601"><span id="local-6989586621679324603"><span id="local-6989586621679324605"><span id="local-6989586621679324607"><span class="annot"><span class="annottext">ReadPrec [GatewayRouteStatusCode]
+ReadPrec GatewayRouteStatusCode
+Int -&gt; ReadS GatewayRouteStatusCode
+ReadS [GatewayRouteStatusCode]
+(Int -&gt; ReadS GatewayRouteStatusCode)
+-&gt; ReadS [GatewayRouteStatusCode]
+-&gt; ReadPrec GatewayRouteStatusCode
+-&gt; ReadPrec [GatewayRouteStatusCode]
+-&gt; Read GatewayRouteStatusCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GatewayRouteStatusCode]
+$creadListPrec :: ReadPrec [GatewayRouteStatusCode]
+readPrec :: ReadPrec GatewayRouteStatusCode
+$creadPrec :: ReadPrec GatewayRouteStatusCode
+readList :: ReadS [GatewayRouteStatusCode]
+$creadList :: ReadS [GatewayRouteStatusCode]
+readsPrec :: Int -&gt; ReadS GatewayRouteStatusCode
+$creadsPrec :: Int -&gt; ReadS GatewayRouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679324596"><span id="local-6989586621679324598"><span class="annot"><span class="annottext">GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool
+(GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool)
+-&gt; (GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool)
+-&gt; Eq GatewayRouteStatusCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool
+$c/= :: GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool
+== :: GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool
+$c== :: GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679324580"><span id="local-6989586621679324582"><span id="local-6989586621679324584"><span id="local-6989586621679324586"><span id="local-6989586621679324588"><span id="local-6989586621679324590"><span id="local-6989586621679324592"><span class="annot"><span class="annottext">Eq GatewayRouteStatusCode
+Eq GatewayRouteStatusCode
+-&gt; (GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Ordering)
+-&gt; (GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool)
+-&gt; (GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool)
+-&gt; (GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool)
+-&gt; (GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool)
+-&gt; (GatewayRouteStatusCode
+    -&gt; GatewayRouteStatusCode -&gt; GatewayRouteStatusCode)
+-&gt; (GatewayRouteStatusCode
+    -&gt; GatewayRouteStatusCode -&gt; GatewayRouteStatusCode)
+-&gt; Ord GatewayRouteStatusCode
+GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool
+GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Ordering
+GatewayRouteStatusCode
+-&gt; GatewayRouteStatusCode -&gt; GatewayRouteStatusCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: GatewayRouteStatusCode
+-&gt; GatewayRouteStatusCode -&gt; GatewayRouteStatusCode
+$cmin :: GatewayRouteStatusCode
+-&gt; GatewayRouteStatusCode -&gt; GatewayRouteStatusCode
+max :: GatewayRouteStatusCode
+-&gt; GatewayRouteStatusCode -&gt; GatewayRouteStatusCode
+$cmax :: GatewayRouteStatusCode
+-&gt; GatewayRouteStatusCode -&gt; GatewayRouteStatusCode
+&gt;= :: GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool
+$c&gt;= :: GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool
+&gt; :: GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool
+$c&gt; :: GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool
+&lt;= :: GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool
+$c&lt;= :: GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool
+&lt; :: GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool
+$c&lt; :: GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Bool
+compare :: GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Ordering
+$ccompare :: GatewayRouteStatusCode -&gt; GatewayRouteStatusCode -&gt; Ordering
+$cp1Ord :: Eq GatewayRouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. GatewayRouteStatusCode -&gt; Rep GatewayRouteStatusCode x)
+-&gt; (forall x.
+    Rep GatewayRouteStatusCode x -&gt; GatewayRouteStatusCode)
+-&gt; Generic GatewayRouteStatusCode
+forall x. Rep GatewayRouteStatusCode x -&gt; GatewayRouteStatusCode
+forall x. GatewayRouteStatusCode -&gt; Rep GatewayRouteStatusCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GatewayRouteStatusCode x -&gt; GatewayRouteStatusCode
+$cfrom :: forall x. GatewayRouteStatusCode -&gt; Rep GatewayRouteStatusCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324572"><span id="local-6989586621679324574"><span class="annot"><span class="annottext">Int -&gt; GatewayRouteStatusCode -&gt; Int
+GatewayRouteStatusCode -&gt; Int
+(Int -&gt; GatewayRouteStatusCode -&gt; Int)
+-&gt; (GatewayRouteStatusCode -&gt; Int)
+-&gt; Hashable GatewayRouteStatusCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: GatewayRouteStatusCode -&gt; Int
+$chash :: GatewayRouteStatusCode -&gt; Int
+hashWithSalt :: Int -&gt; GatewayRouteStatusCode -&gt; Int
+$chashWithSalt :: Int -&gt; GatewayRouteStatusCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679324569"><span class="annot"><span class="annottext">GatewayRouteStatusCode -&gt; ()
+(GatewayRouteStatusCode -&gt; ()) -&gt; NFData GatewayRouteStatusCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: GatewayRouteStatusCode -&gt; ()
+$crnf :: GatewayRouteStatusCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679324566"><span class="annot"><span class="annottext">Text -&gt; Either String GatewayRouteStatusCode
+(Text -&gt; Either String GatewayRouteStatusCode)
+-&gt; FromText GatewayRouteStatusCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String GatewayRouteStatusCode
+$cfromText :: Text -&gt; Either String GatewayRouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679324563"><span class="annot"><span class="annottext">GatewayRouteStatusCode -&gt; Text
+(GatewayRouteStatusCode -&gt; Text) -&gt; ToText GatewayRouteStatusCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: GatewayRouteStatusCode -&gt; Text
+$ctoText :: GatewayRouteStatusCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679324560"><span class="annot"><span class="annottext">GatewayRouteStatusCode -&gt; ByteString
+(GatewayRouteStatusCode -&gt; ByteString)
+-&gt; ToByteString GatewayRouteStatusCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: GatewayRouteStatusCode -&gt; ByteString
+$ctoBS :: GatewayRouteStatusCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679324557"><span class="annot"><span class="annottext">GatewayRouteStatusCode -&gt; ByteStringBuilder
+(GatewayRouteStatusCode -&gt; ByteStringBuilder)
+-&gt; ToLog GatewayRouteStatusCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: GatewayRouteStatusCode -&gt; ByteStringBuilder
+$cbuild :: GatewayRouteStatusCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679324554"><span class="annot"><span class="annottext">HeaderName -&gt; GatewayRouteStatusCode -&gt; [Header]
+(HeaderName -&gt; GatewayRouteStatusCode -&gt; [Header])
+-&gt; ToHeader GatewayRouteStatusCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; GatewayRouteStatusCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; GatewayRouteStatusCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679324551"><span class="annot"><span class="annottext">GatewayRouteStatusCode -&gt; QueryString
+(GatewayRouteStatusCode -&gt; QueryString)
+-&gt; ToQuery GatewayRouteStatusCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: GatewayRouteStatusCode -&gt; QueryString
+$ctoQuery :: GatewayRouteStatusCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679324546"><span id="local-6989586621679324548"><span class="annot"><span class="annottext">Value -&gt; Parser [GatewayRouteStatusCode]
+Value -&gt; Parser GatewayRouteStatusCode
+(Value -&gt; Parser GatewayRouteStatusCode)
+-&gt; (Value -&gt; Parser [GatewayRouteStatusCode])
+-&gt; FromJSON GatewayRouteStatusCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [GatewayRouteStatusCode]
+$cparseJSONList :: Value -&gt; Parser [GatewayRouteStatusCode]
+parseJSON :: Value -&gt; Parser GatewayRouteStatusCode
+$cparseJSON :: Value -&gt; Parser GatewayRouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679324541"><span id="local-6989586621679324543"><span class="annot"><span class="annottext">FromJSONKeyFunction [GatewayRouteStatusCode]
+FromJSONKeyFunction GatewayRouteStatusCode
+FromJSONKeyFunction GatewayRouteStatusCode
+-&gt; FromJSONKeyFunction [GatewayRouteStatusCode]
+-&gt; FromJSONKey GatewayRouteStatusCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [GatewayRouteStatusCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [GatewayRouteStatusCode]
+fromJSONKey :: FromJSONKeyFunction GatewayRouteStatusCode
+$cfromJSONKey :: FromJSONKeyFunction GatewayRouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679324532"><span id="local-6989586621679324534"><span id="local-6989586621679324536"><span id="local-6989586621679324538"><span class="annot"><span class="annottext">[GatewayRouteStatusCode] -&gt; Encoding
+[GatewayRouteStatusCode] -&gt; Value
+GatewayRouteStatusCode -&gt; Encoding
+GatewayRouteStatusCode -&gt; Value
+(GatewayRouteStatusCode -&gt; Value)
+-&gt; (GatewayRouteStatusCode -&gt; Encoding)
+-&gt; ([GatewayRouteStatusCode] -&gt; Value)
+-&gt; ([GatewayRouteStatusCode] -&gt; Encoding)
+-&gt; ToJSON GatewayRouteStatusCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [GatewayRouteStatusCode] -&gt; Encoding
+$ctoEncodingList :: [GatewayRouteStatusCode] -&gt; Encoding
+toJSONList :: [GatewayRouteStatusCode] -&gt; Value
+$ctoJSONList :: [GatewayRouteStatusCode] -&gt; Value
+toEncoding :: GatewayRouteStatusCode -&gt; Encoding
+$ctoEncoding :: GatewayRouteStatusCode -&gt; Encoding
+toJSON :: GatewayRouteStatusCode -&gt; Value
+$ctoJSON :: GatewayRouteStatusCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679324527"><span id="local-6989586621679324529"><span class="annot"><span class="annottext">ToJSONKeyFunction [GatewayRouteStatusCode]
+ToJSONKeyFunction GatewayRouteStatusCode
+ToJSONKeyFunction GatewayRouteStatusCode
+-&gt; ToJSONKeyFunction [GatewayRouteStatusCode]
+-&gt; ToJSONKey GatewayRouteStatusCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [GatewayRouteStatusCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [GatewayRouteStatusCode]
+toJSONKey :: ToJSONKeyFunction GatewayRouteStatusCode
+$ctoJSONKey :: ToJSONKeyFunction GatewayRouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679324524"><span class="annot"><span class="annottext">[Node] -&gt; Either String GatewayRouteStatusCode
+([Node] -&gt; Either String GatewayRouteStatusCode)
+-&gt; FromXML GatewayRouteStatusCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String GatewayRouteStatusCode
+$cparseXML :: [Node] -&gt; Either String GatewayRouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679324521"><span class="annot"><span class="annottext">GatewayRouteStatusCode -&gt; XML
+(GatewayRouteStatusCode -&gt; XML) -&gt; ToXML GatewayRouteStatusCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: GatewayRouteStatusCode -&gt; XML
+$ctoXML :: GatewayRouteStatusCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode_ACTIVE"><span class="hs-identifier hs-type">GatewayRouteStatusCode_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode"><span class="hs-identifier hs-type">GatewayRouteStatusCode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGatewayRouteStatusCode_ACTIVE"><span id="%24mGatewayRouteStatusCode_ACTIVE"><span id="GatewayRouteStatusCode_ACTIVE"><span class="annot"><span class="annottext">$bGatewayRouteStatusCode_ACTIVE :: GatewayRouteStatusCode
+$mGatewayRouteStatusCode_ACTIVE :: forall r.
+GatewayRouteStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#%24bGatewayRouteStatusCode_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">GatewayRouteStatusCode_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode%27"><span class="hs-identifier hs-type">GatewayRouteStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode_DELETED"><span class="hs-identifier hs-type">GatewayRouteStatusCode_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode"><span class="hs-identifier hs-type">GatewayRouteStatusCode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGatewayRouteStatusCode_DELETED"><span id="%24mGatewayRouteStatusCode_DELETED"><span id="GatewayRouteStatusCode_DELETED"><span class="annot"><span class="annottext">$bGatewayRouteStatusCode_DELETED :: GatewayRouteStatusCode
+$mGatewayRouteStatusCode_DELETED :: forall r.
+GatewayRouteStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#%24bGatewayRouteStatusCode_DELETED"><span class="hs-identifier hs-var hs-var hs-var">GatewayRouteStatusCode_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode%27"><span class="hs-identifier hs-type">GatewayRouteStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode_INACTIVE"><span class="hs-identifier hs-type">GatewayRouteStatusCode_INACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode"><span class="hs-identifier hs-type">GatewayRouteStatusCode</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGatewayRouteStatusCode_INACTIVE"><span id="%24mGatewayRouteStatusCode_INACTIVE"><span id="GatewayRouteStatusCode_INACTIVE"><span class="annot"><span class="annottext">$bGatewayRouteStatusCode_INACTIVE :: GatewayRouteStatusCode
+$mGatewayRouteStatusCode_INACTIVE :: forall r.
+GatewayRouteStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#%24bGatewayRouteStatusCode_INACTIVE"><span class="hs-identifier hs-var hs-var hs-var">GatewayRouteStatusCode_INACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode%27"><span class="hs-identifier hs-type">GatewayRouteStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INACTIVE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode_ACTIVE"><span class="hs-pragma hs-type">GatewayRouteStatusCode_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode_DELETED"><span class="hs-pragma hs-type">GatewayRouteStatusCode_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode_INACTIVE"><span class="hs-pragma hs-type">GatewayRouteStatusCode_INACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteStatusCode.html#GatewayRouteStatusCode%27"><span class="hs-pragma hs-type">GatewayRouteStatusCode'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

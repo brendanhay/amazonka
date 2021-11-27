@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Route53RecoveryReadiness.Types.TargetResource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53RecoveryReadiness.Types.TargetResource</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.NLBResource.html"><span class="hs-identifier">Amazonka.Route53RecoveryReadiness.Types.NLBResource</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord.html"><span class="hs-identifier">Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The target resource the R53 record points to</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTargetResource' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679200056"><span id="local-6989586621679200057"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetResource"><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource"><span class="hs-identifier hs-var">TargetResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetResource%27"><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource%27"><span class="hs-identifier hs-var">TargetResource'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Ar53Resource%3ATargetResource%27"><span class="annot"><span class="annottext">TargetResource -&gt; Maybe R53ResourceRecord
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#%24sel%3Ar53Resource%3ATargetResource%27"><span class="hs-identifier hs-var hs-var">r53Resource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord.html#R53ResourceRecord"><span class="hs-identifier hs-type">R53ResourceRecord</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AnLBResource%3ATargetResource%27"><span class="annot"><span class="annottext">TargetResource -&gt; Maybe NLBResource
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#%24sel%3AnLBResource%3ATargetResource%27"><span class="hs-identifier hs-var hs-var">nLBResource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.NLBResource.html#NLBResource"><span class="hs-identifier hs-type">NLBResource</span></a></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200049"><span id="local-6989586621679200051"><span class="annot"><span class="annottext">TargetResource -&gt; TargetResource -&gt; Bool
+(TargetResource -&gt; TargetResource -&gt; Bool)
+-&gt; (TargetResource -&gt; TargetResource -&gt; Bool) -&gt; Eq TargetResource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TargetResource -&gt; TargetResource -&gt; Bool
+$c/= :: TargetResource -&gt; TargetResource -&gt; Bool
+== :: TargetResource -&gt; TargetResource -&gt; Bool
+$c== :: TargetResource -&gt; TargetResource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200040"><span id="local-6989586621679200042"><span id="local-6989586621679200044"><span id="local-6989586621679200046"><span class="annot"><span class="annottext">ReadPrec [TargetResource]
+ReadPrec TargetResource
+Int -&gt; ReadS TargetResource
+ReadS [TargetResource]
+(Int -&gt; ReadS TargetResource)
+-&gt; ReadS [TargetResource]
+-&gt; ReadPrec TargetResource
+-&gt; ReadPrec [TargetResource]
+-&gt; Read TargetResource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TargetResource]
+$creadListPrec :: ReadPrec [TargetResource]
+readPrec :: ReadPrec TargetResource
+$creadPrec :: ReadPrec TargetResource
+readList :: ReadS [TargetResource]
+$creadList :: ReadS [TargetResource]
+readsPrec :: Int -&gt; ReadS TargetResource
+$creadsPrec :: Int -&gt; ReadS TargetResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200033"><span id="local-6989586621679200035"><span id="local-6989586621679200037"><span class="annot"><span class="annottext">Int -&gt; TargetResource -&gt; ShowS
+[TargetResource] -&gt; ShowS
+TargetResource -&gt; String
+(Int -&gt; TargetResource -&gt; ShowS)
+-&gt; (TargetResource -&gt; String)
+-&gt; ([TargetResource] -&gt; ShowS)
+-&gt; Show TargetResource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TargetResource] -&gt; ShowS
+$cshowList :: [TargetResource] -&gt; ShowS
+show :: TargetResource -&gt; String
+$cshow :: TargetResource -&gt; String
+showsPrec :: Int -&gt; TargetResource -&gt; ShowS
+$cshowsPrec :: Int -&gt; TargetResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TargetResource -&gt; Rep TargetResource x)
+-&gt; (forall x. Rep TargetResource x -&gt; TargetResource)
+-&gt; Generic TargetResource
+forall x. Rep TargetResource x -&gt; TargetResource
+forall x. TargetResource -&gt; Rep TargetResource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TargetResource x -&gt; TargetResource
+$cfrom :: forall x. TargetResource -&gt; Rep TargetResource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'TargetResource' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'r53Resource', 'targetResource_r53Resource' - Undocumented member.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'nLBResource', 'targetResource_nLBResource' - Undocumented member.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#newTargetResource"><span class="hs-identifier hs-type">newTargetResource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource"><span class="hs-identifier hs-type">TargetResource</span></a></span><span>
+</span><span id="line-50"></span><span id="newTargetResource"><span class="annot"><span class="annottext">newTargetResource :: TargetResource
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#newTargetResource"><span class="hs-identifier hs-var hs-var">newTargetResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">TargetResource' :: Maybe R53ResourceRecord -&gt; Maybe NLBResource -&gt; TargetResource
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource%27"><span class="hs-identifier hs-type">TargetResource'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:r53Resource:TargetResource' :: Maybe R53ResourceRecord
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#%24sel%3Ar53Resource%3ATargetResource%27"><span class="hs-identifier hs-var">r53Resource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe R53ResourceRecord
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:nLBResource:TargetResource' :: Maybe NLBResource
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#%24sel%3AnLBResource%3ATargetResource%27"><span class="hs-identifier hs-var">nLBResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NLBResource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#targetResource_r53Resource"><span class="hs-identifier hs-type">targetResource_r53Resource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource"><span class="hs-identifier hs-type">TargetResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord.html#R53ResourceRecord"><span class="hs-identifier hs-type">R53ResourceRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="targetResource_r53Resource"><span class="annot"><span class="annottext">targetResource_r53Resource :: (Maybe R53ResourceRecord -&gt; f (Maybe R53ResourceRecord))
+-&gt; TargetResource -&gt; f TargetResource
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#targetResource_r53Resource"><span class="hs-identifier hs-var hs-var">targetResource_r53Resource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetResource -&gt; Maybe R53ResourceRecord)
+-&gt; (TargetResource -&gt; Maybe R53ResourceRecord -&gt; TargetResource)
+-&gt; Lens
+     TargetResource
+     TargetResource
+     (Maybe R53ResourceRecord)
+     (Maybe R53ResourceRecord)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource%27"><span class="hs-identifier hs-type">TargetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200024"><span class="annot"><span class="annottext">Maybe R53ResourceRecord
+r53Resource :: Maybe R53ResourceRecord
+$sel:r53Resource:TargetResource' :: TargetResource -&gt; Maybe R53ResourceRecord
+</span><a href="#local-6989586621679200024"><span class="hs-identifier hs-var hs-var">r53Resource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe R53ResourceRecord
+</span><a href="#local-6989586621679200024"><span class="hs-identifier hs-var">r53Resource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200023"><span class="annot"><span class="annottext">s :: TargetResource
+</span><a href="#local-6989586621679200023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource%27"><span class="hs-identifier hs-type">TargetResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200022"><span class="annot"><span class="annottext">Maybe R53ResourceRecord
+</span><a href="#local-6989586621679200022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetResource
+</span><a href="#local-6989586621679200023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:r53Resource:TargetResource' :: Maybe R53ResourceRecord
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#%24sel%3Ar53Resource%3ATargetResource%27"><span class="hs-identifier hs-var">r53Resource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe R53ResourceRecord
+</span><a href="#local-6989586621679200022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource"><span class="hs-identifier hs-type">TargetResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#targetResource_nLBResource"><span class="hs-identifier hs-type">targetResource_nLBResource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource"><span class="hs-identifier hs-type">TargetResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.NLBResource.html#NLBResource"><span class="hs-identifier hs-type">NLBResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="targetResource_nLBResource"><span class="annot"><span class="annottext">targetResource_nLBResource :: (Maybe NLBResource -&gt; f (Maybe NLBResource))
+-&gt; TargetResource -&gt; f TargetResource
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#targetResource_nLBResource"><span class="hs-identifier hs-var hs-var">targetResource_nLBResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetResource -&gt; Maybe NLBResource)
+-&gt; (TargetResource -&gt; Maybe NLBResource -&gt; TargetResource)
+-&gt; Lens
+     TargetResource
+     TargetResource
+     (Maybe NLBResource)
+     (Maybe NLBResource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource%27"><span class="hs-identifier hs-type">TargetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200020"><span class="annot"><span class="annottext">Maybe NLBResource
+nLBResource :: Maybe NLBResource
+$sel:nLBResource:TargetResource' :: TargetResource -&gt; Maybe NLBResource
+</span><a href="#local-6989586621679200020"><span class="hs-identifier hs-var hs-var">nLBResource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NLBResource
+</span><a href="#local-6989586621679200020"><span class="hs-identifier hs-var">nLBResource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200019"><span class="annot"><span class="annottext">s :: TargetResource
+</span><a href="#local-6989586621679200019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource%27"><span class="hs-identifier hs-type">TargetResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200018"><span class="annot"><span class="annottext">Maybe NLBResource
+</span><a href="#local-6989586621679200018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetResource
+</span><a href="#local-6989586621679200019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nLBResource:TargetResource' :: Maybe NLBResource
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#%24sel%3AnLBResource%3ATargetResource%27"><span class="hs-identifier hs-var">nLBResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NLBResource
+</span><a href="#local-6989586621679200018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource"><span class="hs-identifier hs-type">TargetResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200015"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource"><span class="hs-identifier hs-type">TargetResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679200013"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TargetResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TargetResource)
+-&gt; Value
+-&gt; Parser TargetResource
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TargetResource&quot;</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200010"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200010"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe R53ResourceRecord -&gt; Maybe NLBResource -&gt; TargetResource
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource%27"><span class="hs-identifier hs-var">TargetResource'</span></a></span><span>
+</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe R53ResourceRecord -&gt; Maybe NLBResource -&gt; TargetResource)
+-&gt; Parser (Maybe R53ResourceRecord)
+-&gt; Parser (Maybe NLBResource -&gt; TargetResource)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200010"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe R53ResourceRecord)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;r53Resource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe NLBResource -&gt; TargetResource)
+-&gt; Parser (Maybe NLBResource) -&gt; Parser TargetResource
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200010"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NLBResource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nLBResource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200004"><span id="local-6989586621679200006"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource"><span class="hs-identifier hs-type">TargetResource</span></a></span></span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200001"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource"><span class="hs-identifier hs-type">TargetResource</span></a></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199993"><span id="local-6989586621679199995"><span id="local-6989586621679199997"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource"><span class="hs-identifier hs-type">TargetResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679199991"><span class="annot"><span class="annottext">toJSON :: TargetResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.TargetResource.html#TargetResource%27"><span class="hs-identifier hs-type">TargetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199988"><span id="local-6989586621679199989"><span class="annot"><span class="annottext">Maybe NLBResource
+Maybe R53ResourceRecord
+nLBResource :: Maybe NLBResource
+r53Resource :: Maybe R53ResourceRecord
+$sel:nLBResource:TargetResource' :: TargetResource -&gt; Maybe NLBResource
+$sel:r53Resource:TargetResource' :: TargetResource -&gt; Maybe R53ResourceRecord
+</span><a href="#local-6989586621679199988"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-82"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;r53Resource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; R53ResourceRecord -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(R53ResourceRecord -&gt; Pair)
+-&gt; Maybe R53ResourceRecord -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe R53ResourceRecord
+</span><a href="#local-6989586621679199989"><span class="hs-identifier hs-var">r53Resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nLBResource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NLBResource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NLBResource -&gt; Pair) -&gt; Maybe NLBResource -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NLBResource
+</span><a href="#local-6989586621679199988"><span class="hs-identifier hs-var">nLBResource</span></a></span><span>
+</span><span id="line-84"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span></pre></body></html>

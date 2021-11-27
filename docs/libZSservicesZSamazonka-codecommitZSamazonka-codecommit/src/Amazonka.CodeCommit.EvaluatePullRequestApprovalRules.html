@@ -1,0 +1,564 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeCommit.EvaluatePullRequestApprovalRules</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Evaluates whether a pull request has met all the conditions specified in</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- its associated approval rules.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeCommit.EvaluatePullRequestApprovalRules</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules"><span class="hs-identifier">EvaluatePullRequestApprovalRules</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#newEvaluatePullRequestApprovalRules"><span class="hs-identifier">newEvaluatePullRequestApprovalRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#evaluatePullRequestApprovalRules_pullRequestId"><span class="hs-identifier">evaluatePullRequestApprovalRules_pullRequestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#evaluatePullRequestApprovalRules_revisionId"><span class="hs-identifier">evaluatePullRequestApprovalRules_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse"><span class="hs-identifier">EvaluatePullRequestApprovalRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#newEvaluatePullRequestApprovalRulesResponse"><span class="hs-identifier">newEvaluatePullRequestApprovalRulesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#evaluatePullRequestApprovalRulesResponse_httpStatus"><span class="hs-identifier">evaluatePullRequestApprovalRulesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#evaluatePullRequestApprovalRulesResponse_evaluation"><span class="hs-identifier">evaluatePullRequestApprovalRulesResponse_evaluation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.html"><span class="hs-identifier">Amazonka.CodeCommit.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newEvaluatePullRequestApprovalRules' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679367367"><span id="local-6989586621679367368"></span></span><span class="hs-keyword">data</span><span> </span><span id="EvaluatePullRequestApprovalRules"><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules"><span class="hs-identifier hs-var">EvaluatePullRequestApprovalRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EvaluatePullRequestApprovalRules%27"><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules%27"><span class="hs-identifier hs-var">EvaluatePullRequestApprovalRules'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The system-generated ID of the pull request you want to evaluate.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3ApullRequestId%3AEvaluatePullRequestApprovalRules%27"><span class="annot"><span class="annottext">EvaluatePullRequestApprovalRules -&gt; Text
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#%24sel%3ApullRequestId%3AEvaluatePullRequestApprovalRules%27"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The system-generated ID for the pull request revision. To retrieve the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- most recent revision ID for a pull request, use GetPullRequest.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3ArevisionId%3AEvaluatePullRequestApprovalRules%27"><span class="annot"><span class="annottext">EvaluatePullRequestApprovalRules -&gt; Text
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#%24sel%3ArevisionId%3AEvaluatePullRequestApprovalRules%27"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367360"><span id="local-6989586621679367362"><span class="annot"><span class="annottext">EvaluatePullRequestApprovalRules
+-&gt; EvaluatePullRequestApprovalRules -&gt; Bool
+(EvaluatePullRequestApprovalRules
+ -&gt; EvaluatePullRequestApprovalRules -&gt; Bool)
+-&gt; (EvaluatePullRequestApprovalRules
+    -&gt; EvaluatePullRequestApprovalRules -&gt; Bool)
+-&gt; Eq EvaluatePullRequestApprovalRules
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EvaluatePullRequestApprovalRules
+-&gt; EvaluatePullRequestApprovalRules -&gt; Bool
+$c/= :: EvaluatePullRequestApprovalRules
+-&gt; EvaluatePullRequestApprovalRules -&gt; Bool
+== :: EvaluatePullRequestApprovalRules
+-&gt; EvaluatePullRequestApprovalRules -&gt; Bool
+$c== :: EvaluatePullRequestApprovalRules
+-&gt; EvaluatePullRequestApprovalRules -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367351"><span id="local-6989586621679367353"><span id="local-6989586621679367355"><span id="local-6989586621679367357"><span class="annot"><span class="annottext">ReadPrec [EvaluatePullRequestApprovalRules]
+ReadPrec EvaluatePullRequestApprovalRules
+Int -&gt; ReadS EvaluatePullRequestApprovalRules
+ReadS [EvaluatePullRequestApprovalRules]
+(Int -&gt; ReadS EvaluatePullRequestApprovalRules)
+-&gt; ReadS [EvaluatePullRequestApprovalRules]
+-&gt; ReadPrec EvaluatePullRequestApprovalRules
+-&gt; ReadPrec [EvaluatePullRequestApprovalRules]
+-&gt; Read EvaluatePullRequestApprovalRules
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EvaluatePullRequestApprovalRules]
+$creadListPrec :: ReadPrec [EvaluatePullRequestApprovalRules]
+readPrec :: ReadPrec EvaluatePullRequestApprovalRules
+$creadPrec :: ReadPrec EvaluatePullRequestApprovalRules
+readList :: ReadS [EvaluatePullRequestApprovalRules]
+$creadList :: ReadS [EvaluatePullRequestApprovalRules]
+readsPrec :: Int -&gt; ReadS EvaluatePullRequestApprovalRules
+$creadsPrec :: Int -&gt; ReadS EvaluatePullRequestApprovalRules
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367344"><span id="local-6989586621679367346"><span id="local-6989586621679367348"><span class="annot"><span class="annottext">Int -&gt; EvaluatePullRequestApprovalRules -&gt; ShowS
+[EvaluatePullRequestApprovalRules] -&gt; ShowS
+EvaluatePullRequestApprovalRules -&gt; String
+(Int -&gt; EvaluatePullRequestApprovalRules -&gt; ShowS)
+-&gt; (EvaluatePullRequestApprovalRules -&gt; String)
+-&gt; ([EvaluatePullRequestApprovalRules] -&gt; ShowS)
+-&gt; Show EvaluatePullRequestApprovalRules
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EvaluatePullRequestApprovalRules] -&gt; ShowS
+$cshowList :: [EvaluatePullRequestApprovalRules] -&gt; ShowS
+show :: EvaluatePullRequestApprovalRules -&gt; String
+$cshow :: EvaluatePullRequestApprovalRules -&gt; String
+showsPrec :: Int -&gt; EvaluatePullRequestApprovalRules -&gt; ShowS
+$cshowsPrec :: Int -&gt; EvaluatePullRequestApprovalRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ EvaluatePullRequestApprovalRules
+ -&gt; Rep EvaluatePullRequestApprovalRules x)
+-&gt; (forall x.
+    Rep EvaluatePullRequestApprovalRules x
+    -&gt; EvaluatePullRequestApprovalRules)
+-&gt; Generic EvaluatePullRequestApprovalRules
+forall x.
+Rep EvaluatePullRequestApprovalRules x
+-&gt; EvaluatePullRequestApprovalRules
+forall x.
+EvaluatePullRequestApprovalRules
+-&gt; Rep EvaluatePullRequestApprovalRules x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep EvaluatePullRequestApprovalRules x
+-&gt; EvaluatePullRequestApprovalRules
+$cfrom :: forall x.
+EvaluatePullRequestApprovalRules
+-&gt; Rep EvaluatePullRequestApprovalRules x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'EvaluatePullRequestApprovalRules' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'pullRequestId', 'evaluatePullRequestApprovalRules_pullRequestId' - The system-generated ID of the pull request you want to evaluate.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'revisionId', 'evaluatePullRequestApprovalRules_revisionId' - The system-generated ID for the pull request revision. To retrieve the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- most recent revision ID for a pull request, use GetPullRequest.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#newEvaluatePullRequestApprovalRules"><span class="hs-identifier hs-type">newEvaluatePullRequestApprovalRules</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'pullRequestId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'revisionId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules</span></a></span><span>
+</span><span id="line-79"></span><span id="newEvaluatePullRequestApprovalRules"><span class="annot"><span class="annottext">newEvaluatePullRequestApprovalRules :: Text -&gt; Text -&gt; EvaluatePullRequestApprovalRules
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#newEvaluatePullRequestApprovalRules"><span class="hs-identifier hs-var hs-var">newEvaluatePullRequestApprovalRules</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679367339"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367339"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679367338"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367338"><span class="hs-identifier hs-var">pRevisionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">EvaluatePullRequestApprovalRules' :: Text -&gt; Text -&gt; EvaluatePullRequestApprovalRules
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules%27"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules'</span></a></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pullRequestId:EvaluatePullRequestApprovalRules' :: Text
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#%24sel%3ApullRequestId%3AEvaluatePullRequestApprovalRules%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367339"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:revisionId:EvaluatePullRequestApprovalRules' :: Text
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#%24sel%3ArevisionId%3AEvaluatePullRequestApprovalRules%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367338"><span class="hs-identifier hs-var">pRevisionId_</span></a></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The system-generated ID of the pull request you want to evaluate.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#evaluatePullRequestApprovalRules_pullRequestId"><span class="hs-identifier hs-type">evaluatePullRequestApprovalRules_pullRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="evaluatePullRequestApprovalRules_pullRequestId"><span class="annot"><span class="annottext">evaluatePullRequestApprovalRules_pullRequestId :: (Text -&gt; f Text)
+-&gt; EvaluatePullRequestApprovalRules
+-&gt; f EvaluatePullRequestApprovalRules
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#evaluatePullRequestApprovalRules_pullRequestId"><span class="hs-identifier hs-var hs-var">evaluatePullRequestApprovalRules_pullRequestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EvaluatePullRequestApprovalRules -&gt; Text)
+-&gt; (EvaluatePullRequestApprovalRules
+    -&gt; Text -&gt; EvaluatePullRequestApprovalRules)
+-&gt; Lens
+     EvaluatePullRequestApprovalRules
+     EvaluatePullRequestApprovalRules
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules%27"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367335"><span class="annot"><span class="annottext">Text
+pullRequestId :: Text
+$sel:pullRequestId:EvaluatePullRequestApprovalRules' :: EvaluatePullRequestApprovalRules -&gt; Text
+</span><a href="#local-6989586621679367335"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367335"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367334"><span class="annot"><span class="annottext">s :: EvaluatePullRequestApprovalRules
+</span><a href="#local-6989586621679367334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules%27"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367333"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluatePullRequestApprovalRules
+</span><a href="#local-6989586621679367334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestId:EvaluatePullRequestApprovalRules' :: Text
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#%24sel%3ApullRequestId%3AEvaluatePullRequestApprovalRules%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The system-generated ID for the pull request revision. To retrieve the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- most recent revision ID for a pull request, use GetPullRequest.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#evaluatePullRequestApprovalRules_revisionId"><span class="hs-identifier hs-type">evaluatePullRequestApprovalRules_revisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="evaluatePullRequestApprovalRules_revisionId"><span class="annot"><span class="annottext">evaluatePullRequestApprovalRules_revisionId :: (Text -&gt; f Text)
+-&gt; EvaluatePullRequestApprovalRules
+-&gt; f EvaluatePullRequestApprovalRules
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#evaluatePullRequestApprovalRules_revisionId"><span class="hs-identifier hs-var hs-var">evaluatePullRequestApprovalRules_revisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EvaluatePullRequestApprovalRules -&gt; Text)
+-&gt; (EvaluatePullRequestApprovalRules
+    -&gt; Text -&gt; EvaluatePullRequestApprovalRules)
+-&gt; Lens
+     EvaluatePullRequestApprovalRules
+     EvaluatePullRequestApprovalRules
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules%27"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367332"><span class="annot"><span class="annottext">Text
+revisionId :: Text
+$sel:revisionId:EvaluatePullRequestApprovalRules' :: EvaluatePullRequestApprovalRules -&gt; Text
+</span><a href="#local-6989586621679367332"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367332"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367331"><span class="annot"><span class="annottext">s :: EvaluatePullRequestApprovalRules
+</span><a href="#local-6989586621679367331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules%27"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367330"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluatePullRequestApprovalRules
+</span><a href="#local-6989586621679367331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:EvaluatePullRequestApprovalRules' :: Text
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#%24sel%3ArevisionId%3AEvaluatePullRequestApprovalRules%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRulesResponse</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679367326"><span class="annot"><span class="annottext">request :: EvaluatePullRequestApprovalRules
+-&gt; Request EvaluatePullRequestApprovalRules
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; EvaluatePullRequestApprovalRules
+-&gt; Request EvaluatePullRequestApprovalRules
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679367322"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy EvaluatePullRequestApprovalRules
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse EvaluatePullRequestApprovalRules)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse EvaluatePullRequestApprovalRules))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy EvaluatePullRequestApprovalRules
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse EvaluatePullRequestApprovalRules)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367319"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367319"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679367318"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679367318"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679367317"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367317"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Evaluation -&gt; EvaluatePullRequestApprovalRulesResponse
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-var">EvaluatePullRequestApprovalRulesResponse'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Evaluation -&gt; EvaluatePullRequestApprovalRulesResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (Evaluation -&gt; EvaluatePullRequestApprovalRulesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367319"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Evaluation -&gt; EvaluatePullRequestApprovalRulesResponse)
+-&gt; Either String Evaluation
+-&gt; Either String EvaluatePullRequestApprovalRulesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Evaluation
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;evaluation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679367309"><span id="local-6989586621679367311"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679367306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679367302"><span class="annot"><span class="annottext">toHeaders :: EvaluatePullRequestApprovalRules -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; EvaluatePullRequestApprovalRules -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeCommit_20150413.EvaluatePullRequestApprovalRules&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-131"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-135"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367292"><span id="local-6989586621679367294"><span id="local-6989586621679367296"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679367290"><span class="annot"><span class="annottext">toJSON :: EvaluatePullRequestApprovalRules -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules%27"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367287"><span id="local-6989586621679367288"><span class="annot"><span class="annottext">Text
+revisionId :: Text
+pullRequestId :: Text
+$sel:revisionId:EvaluatePullRequestApprovalRules' :: EvaluatePullRequestApprovalRules -&gt; Text
+$sel:pullRequestId:EvaluatePullRequestApprovalRules' :: EvaluatePullRequestApprovalRules -&gt; Text
+</span><a href="#local-6989586621679367287"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-144"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pullRequestId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367288"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;revisionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367287"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679367281"><span class="annot"><span class="annottext">toPath :: EvaluatePullRequestApprovalRules -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EvaluatePullRequestApprovalRules -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRules"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRules</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679367277"><span class="annot"><span class="annottext">toQuery :: EvaluatePullRequestApprovalRules -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; EvaluatePullRequestApprovalRules -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newEvaluatePullRequestApprovalRulesResponse' smart constructor.</span><span>
+</span><span id="line-159"></span><span id="local-6989586621679367274"><span id="local-6989586621679367275"></span></span><span class="hs-keyword">data</span><span> </span><span id="EvaluatePullRequestApprovalRulesResponse"><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse"><span class="hs-identifier hs-var">EvaluatePullRequestApprovalRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EvaluatePullRequestApprovalRulesResponse%27"><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-var">EvaluatePullRequestApprovalRulesResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AhttpStatus%3AEvaluatePullRequestApprovalRulesResponse%27"><span class="annot"><span class="annottext">EvaluatePullRequestApprovalRulesResponse -&gt; Int
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#%24sel%3AhttpStatus%3AEvaluatePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The result of the evaluation, including the names of the rules whose</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- conditions have been met (if any), the names of the rules whose</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- conditions have not been met (if any), whether the pull request is in</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- the approved state, and whether the pull request approval rule has been</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- set aside by an override.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3Aevaluation%3AEvaluatePullRequestApprovalRulesResponse%27"><span class="annot"><span class="annottext">EvaluatePullRequestApprovalRulesResponse -&gt; Evaluation
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#%24sel%3Aevaluation%3AEvaluatePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-var hs-var">evaluation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367268"><span id="local-6989586621679367270"><span class="annot"><span class="annottext">EvaluatePullRequestApprovalRulesResponse
+-&gt; EvaluatePullRequestApprovalRulesResponse -&gt; Bool
+(EvaluatePullRequestApprovalRulesResponse
+ -&gt; EvaluatePullRequestApprovalRulesResponse -&gt; Bool)
+-&gt; (EvaluatePullRequestApprovalRulesResponse
+    -&gt; EvaluatePullRequestApprovalRulesResponse -&gt; Bool)
+-&gt; Eq EvaluatePullRequestApprovalRulesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EvaluatePullRequestApprovalRulesResponse
+-&gt; EvaluatePullRequestApprovalRulesResponse -&gt; Bool
+$c/= :: EvaluatePullRequestApprovalRulesResponse
+-&gt; EvaluatePullRequestApprovalRulesResponse -&gt; Bool
+== :: EvaluatePullRequestApprovalRulesResponse
+-&gt; EvaluatePullRequestApprovalRulesResponse -&gt; Bool
+$c== :: EvaluatePullRequestApprovalRulesResponse
+-&gt; EvaluatePullRequestApprovalRulesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367260"><span id="local-6989586621679367262"><span id="local-6989586621679367264"><span id="local-6989586621679367266"><span class="annot"><span class="annottext">ReadPrec [EvaluatePullRequestApprovalRulesResponse]
+ReadPrec EvaluatePullRequestApprovalRulesResponse
+Int -&gt; ReadS EvaluatePullRequestApprovalRulesResponse
+ReadS [EvaluatePullRequestApprovalRulesResponse]
+(Int -&gt; ReadS EvaluatePullRequestApprovalRulesResponse)
+-&gt; ReadS [EvaluatePullRequestApprovalRulesResponse]
+-&gt; ReadPrec EvaluatePullRequestApprovalRulesResponse
+-&gt; ReadPrec [EvaluatePullRequestApprovalRulesResponse]
+-&gt; Read EvaluatePullRequestApprovalRulesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EvaluatePullRequestApprovalRulesResponse]
+$creadListPrec :: ReadPrec [EvaluatePullRequestApprovalRulesResponse]
+readPrec :: ReadPrec EvaluatePullRequestApprovalRulesResponse
+$creadPrec :: ReadPrec EvaluatePullRequestApprovalRulesResponse
+readList :: ReadS [EvaluatePullRequestApprovalRulesResponse]
+$creadList :: ReadS [EvaluatePullRequestApprovalRulesResponse]
+readsPrec :: Int -&gt; ReadS EvaluatePullRequestApprovalRulesResponse
+$creadsPrec :: Int -&gt; ReadS EvaluatePullRequestApprovalRulesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367254"><span id="local-6989586621679367256"><span id="local-6989586621679367258"><span class="annot"><span class="annottext">Int -&gt; EvaluatePullRequestApprovalRulesResponse -&gt; ShowS
+[EvaluatePullRequestApprovalRulesResponse] -&gt; ShowS
+EvaluatePullRequestApprovalRulesResponse -&gt; String
+(Int -&gt; EvaluatePullRequestApprovalRulesResponse -&gt; ShowS)
+-&gt; (EvaluatePullRequestApprovalRulesResponse -&gt; String)
+-&gt; ([EvaluatePullRequestApprovalRulesResponse] -&gt; ShowS)
+-&gt; Show EvaluatePullRequestApprovalRulesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EvaluatePullRequestApprovalRulesResponse] -&gt; ShowS
+$cshowList :: [EvaluatePullRequestApprovalRulesResponse] -&gt; ShowS
+show :: EvaluatePullRequestApprovalRulesResponse -&gt; String
+$cshow :: EvaluatePullRequestApprovalRulesResponse -&gt; String
+showsPrec :: Int -&gt; EvaluatePullRequestApprovalRulesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; EvaluatePullRequestApprovalRulesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ EvaluatePullRequestApprovalRulesResponse
+ -&gt; Rep EvaluatePullRequestApprovalRulesResponse x)
+-&gt; (forall x.
+    Rep EvaluatePullRequestApprovalRulesResponse x
+    -&gt; EvaluatePullRequestApprovalRulesResponse)
+-&gt; Generic EvaluatePullRequestApprovalRulesResponse
+forall x.
+Rep EvaluatePullRequestApprovalRulesResponse x
+-&gt; EvaluatePullRequestApprovalRulesResponse
+forall x.
+EvaluatePullRequestApprovalRulesResponse
+-&gt; Rep EvaluatePullRequestApprovalRulesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep EvaluatePullRequestApprovalRulesResponse x
+-&gt; EvaluatePullRequestApprovalRulesResponse
+$cfrom :: forall x.
+EvaluatePullRequestApprovalRulesResponse
+-&gt; Rep EvaluatePullRequestApprovalRulesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Create a value of 'EvaluatePullRequestApprovalRulesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'httpStatus', 'evaluatePullRequestApprovalRulesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'evaluation', 'evaluatePullRequestApprovalRulesResponse_evaluation' - The result of the evaluation, including the names of the rules whose</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- conditions have been met (if any), the names of the rules whose</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- conditions have not been met (if any), whether the pull request is in</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- the approved state, and whether the pull request approval rule has been</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- set aside by an override.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#newEvaluatePullRequestApprovalRulesResponse"><span class="hs-identifier hs-type">newEvaluatePullRequestApprovalRulesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-comment">-- | 'evaluation'</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><a href="Amazonka.CodeCommit.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRulesResponse</span></a></span><span>
+</span><span id="line-192"></span><span id="newEvaluatePullRequestApprovalRulesResponse"><span class="annot"><span class="annottext">newEvaluatePullRequestApprovalRulesResponse :: Int -&gt; Evaluation -&gt; EvaluatePullRequestApprovalRulesResponse
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#newEvaluatePullRequestApprovalRulesResponse"><span class="hs-identifier hs-var hs-var">newEvaluatePullRequestApprovalRulesResponse</span></a></span></span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679367251"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367251"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679367250"><span class="annot"><span class="annottext">Evaluation
+</span><a href="#local-6989586621679367250"><span class="hs-identifier hs-var">pEvaluation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">EvaluatePullRequestApprovalRulesResponse' :: Int -&gt; Evaluation -&gt; EvaluatePullRequestApprovalRulesResponse
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRulesResponse'</span></a></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:EvaluatePullRequestApprovalRulesResponse' :: Int
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#%24sel%3AhttpStatus%3AEvaluatePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367251"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">$sel:evaluation:EvaluatePullRequestApprovalRulesResponse' :: Evaluation
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#%24sel%3Aevaluation%3AEvaluatePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-var">evaluation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Evaluation
+</span><a href="#local-6989586621679367250"><span class="hs-identifier hs-var">pEvaluation_</span></a></span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#evaluatePullRequestApprovalRulesResponse_httpStatus"><span class="hs-identifier hs-type">evaluatePullRequestApprovalRulesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRulesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-203"></span><span id="evaluatePullRequestApprovalRulesResponse_httpStatus"><span class="annot"><span class="annottext">evaluatePullRequestApprovalRulesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; EvaluatePullRequestApprovalRulesResponse
+-&gt; f EvaluatePullRequestApprovalRulesResponse
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#evaluatePullRequestApprovalRulesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">evaluatePullRequestApprovalRulesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EvaluatePullRequestApprovalRulesResponse -&gt; Int)
+-&gt; (EvaluatePullRequestApprovalRulesResponse
+    -&gt; Int -&gt; EvaluatePullRequestApprovalRulesResponse)
+-&gt; Lens
+     EvaluatePullRequestApprovalRulesResponse
+     EvaluatePullRequestApprovalRulesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367249"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:EvaluatePullRequestApprovalRulesResponse' :: EvaluatePullRequestApprovalRulesResponse -&gt; Int
+</span><a href="#local-6989586621679367249"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367249"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367248"><span class="annot"><span class="annottext">s :: EvaluatePullRequestApprovalRulesResponse
+</span><a href="#local-6989586621679367248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367247"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluatePullRequestApprovalRulesResponse
+</span><a href="#local-6989586621679367248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EvaluatePullRequestApprovalRulesResponse' :: Int
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#%24sel%3AhttpStatus%3AEvaluatePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The result of the evaluation, including the names of the rules whose</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- conditions have been met (if any), the names of the rules whose</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- conditions have not been met (if any), whether the pull request is in</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- the approved state, and whether the pull request approval rule has been</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- set aside by an override.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#evaluatePullRequestApprovalRulesResponse_evaluation"><span class="hs-identifier hs-type">evaluatePullRequestApprovalRulesResponse_evaluation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRulesResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span>
+</span><span id="line-211"></span><span id="evaluatePullRequestApprovalRulesResponse_evaluation"><span class="annot"><span class="annottext">evaluatePullRequestApprovalRulesResponse_evaluation :: (Evaluation -&gt; f Evaluation)
+-&gt; EvaluatePullRequestApprovalRulesResponse
+-&gt; f EvaluatePullRequestApprovalRulesResponse
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#evaluatePullRequestApprovalRulesResponse_evaluation"><span class="hs-identifier hs-var hs-var">evaluatePullRequestApprovalRulesResponse_evaluation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EvaluatePullRequestApprovalRulesResponse -&gt; Evaluation)
+-&gt; (EvaluatePullRequestApprovalRulesResponse
+    -&gt; Evaluation -&gt; EvaluatePullRequestApprovalRulesResponse)
+-&gt; Lens
+     EvaluatePullRequestApprovalRulesResponse
+     EvaluatePullRequestApprovalRulesResponse
+     Evaluation
+     Evaluation
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367246"><span class="annot"><span class="annottext">Evaluation
+evaluation :: Evaluation
+$sel:evaluation:EvaluatePullRequestApprovalRulesResponse' :: EvaluatePullRequestApprovalRulesResponse -&gt; Evaluation
+</span><a href="#local-6989586621679367246"><span class="hs-identifier hs-var hs-var">evaluation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evaluation
+</span><a href="#local-6989586621679367246"><span class="hs-identifier hs-var">evaluation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367245"><span class="annot"><span class="annottext">s :: EvaluatePullRequestApprovalRulesResponse
+</span><a href="#local-6989586621679367245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367244"><span class="annot"><span class="annottext">Evaluation
+</span><a href="#local-6989586621679367244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluatePullRequestApprovalRulesResponse
+</span><a href="#local-6989586621679367245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluation:EvaluatePullRequestApprovalRulesResponse' :: Evaluation
+</span><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#%24sel%3Aevaluation%3AEvaluatePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-var">evaluation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Evaluation
+</span><a href="#local-6989586621679367244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679367242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.EvaluatePullRequestApprovalRules.html#EvaluatePullRequestApprovalRulesResponse"><span class="hs-identifier hs-type">EvaluatePullRequestApprovalRulesResponse</span></a></span></span><span>
+</span><span id="line-216"></span></pre></body></html>

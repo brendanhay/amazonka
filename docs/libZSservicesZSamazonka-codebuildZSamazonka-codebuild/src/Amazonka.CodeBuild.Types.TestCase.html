@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeBuild.Types.TestCase</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeBuild.Types.TestCase</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information about a test case created using a framework such as NUnit or</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Cucumber. A test case might be a unit test or a configuration test.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTestCase' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679379432"><span id="local-6989586621679379433"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestCase"><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-var">TestCase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestCase%27"><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-var">TestCase'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of nanoseconds it took to run this test case.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdurationInNanoSeconds%3ATestCase%27"><span class="annot"><span class="annottext">TestCase -&gt; Maybe Integer
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3AdurationInNanoSeconds%3ATestCase%27"><span class="hs-identifier hs-var hs-var">durationInNanoSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The status returned by the test case after it was run. Valid statuses</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- are @SUCCEEDED@, @FAILED@, @ERROR@, @SKIPPED@, and @UNKNOWN@.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3ATestCase%27"><span class="annot"><span class="annottext">TestCase -&gt; Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3Astatus%3ATestCase%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The date and time a test case expires. A test case expires 30 days after</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- it is created. An expired test case is not available to view in</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- CodeBuild.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aexpired%3ATestCase%27"><span class="annot"><span class="annottext">TestCase -&gt; Maybe POSIX
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3Aexpired%3ATestCase%27"><span class="hs-identifier hs-var hs-var">expired</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A string that is applied to a series of related test cases. CodeBuild</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- generates the prefix. The prefix depends on the framework used to</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- generate the tests.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aprefix%3ATestCase%27"><span class="annot"><span class="annottext">TestCase -&gt; Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3Aprefix%3ATestCase%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the test case.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aname%3ATestCase%27"><span class="annot"><span class="annottext">TestCase -&gt; Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3Aname%3ATestCase%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The path to the raw data file that contains the test result.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AtestRawDataPath%3ATestCase%27"><span class="annot"><span class="annottext">TestCase -&gt; Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3AtestRawDataPath%3ATestCase%27"><span class="hs-identifier hs-var hs-var">testRawDataPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | A message associated with a test case. For example, an error message or</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- stack trace.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Amessage%3ATestCase%27"><span class="annot"><span class="annottext">TestCase -&gt; Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3Amessage%3ATestCase%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The ARN of the report to which the test case belongs.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AreportArn%3ATestCase%27"><span class="annot"><span class="annottext">TestCase -&gt; Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3AreportArn%3ATestCase%27"><span class="hs-identifier hs-var hs-var">reportArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379419"><span id="local-6989586621679379421"><span class="annot"><span class="annottext">TestCase -&gt; TestCase -&gt; Bool
+(TestCase -&gt; TestCase -&gt; Bool)
+-&gt; (TestCase -&gt; TestCase -&gt; Bool) -&gt; Eq TestCase
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TestCase -&gt; TestCase -&gt; Bool
+$c/= :: TestCase -&gt; TestCase -&gt; Bool
+== :: TestCase -&gt; TestCase -&gt; Bool
+$c== :: TestCase -&gt; TestCase -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379410"><span id="local-6989586621679379412"><span id="local-6989586621679379414"><span id="local-6989586621679379416"><span class="annot"><span class="annottext">ReadPrec [TestCase]
+ReadPrec TestCase
+Int -&gt; ReadS TestCase
+ReadS [TestCase]
+(Int -&gt; ReadS TestCase)
+-&gt; ReadS [TestCase]
+-&gt; ReadPrec TestCase
+-&gt; ReadPrec [TestCase]
+-&gt; Read TestCase
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TestCase]
+$creadListPrec :: ReadPrec [TestCase]
+readPrec :: ReadPrec TestCase
+$creadPrec :: ReadPrec TestCase
+readList :: ReadS [TestCase]
+$creadList :: ReadS [TestCase]
+readsPrec :: Int -&gt; ReadS TestCase
+$creadsPrec :: Int -&gt; ReadS TestCase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379403"><span id="local-6989586621679379405"><span id="local-6989586621679379407"><span class="annot"><span class="annottext">Int -&gt; TestCase -&gt; ShowS
+[TestCase] -&gt; ShowS
+TestCase -&gt; String
+(Int -&gt; TestCase -&gt; ShowS)
+-&gt; (TestCase -&gt; String) -&gt; ([TestCase] -&gt; ShowS) -&gt; Show TestCase
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TestCase] -&gt; ShowS
+$cshowList :: [TestCase] -&gt; ShowS
+show :: TestCase -&gt; String
+$cshow :: TestCase -&gt; String
+showsPrec :: Int -&gt; TestCase -&gt; ShowS
+$cshowsPrec :: Int -&gt; TestCase -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TestCase -&gt; Rep TestCase x)
+-&gt; (forall x. Rep TestCase x -&gt; TestCase) -&gt; Generic TestCase
+forall x. Rep TestCase x -&gt; TestCase
+forall x. TestCase -&gt; Rep TestCase x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TestCase x -&gt; TestCase
+$cfrom :: forall x. TestCase -&gt; Rep TestCase x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'TestCase' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'durationInNanoSeconds', 'testCase_durationInNanoSeconds' - The number of nanoseconds it took to run this test case.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'status', 'testCase_status' - The status returned by the test case after it was run. Valid statuses</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- are @SUCCEEDED@, @FAILED@, @ERROR@, @SKIPPED@, and @UNKNOWN@.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'expired', 'testCase_expired' - The date and time a test case expires. A test case expires 30 days after</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- it is created. An expired test case is not available to view in</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- CodeBuild.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'prefix', 'testCase_prefix' - A string that is applied to a series of related test cases. CodeBuild</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- generates the prefix. The prefix depends on the framework used to</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- generate the tests.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'name', 'testCase_name' - The name of the test case.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'testRawDataPath', 'testCase_testRawDataPath' - The path to the raw data file that contains the test result.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'message', 'testCase_message' - A message associated with a test case. For example, an error message or</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- stack trace.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'reportArn', 'testCase_reportArn' - The ARN of the report to which the test case belongs.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#newTestCase"><span class="hs-identifier hs-type">newTestCase</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span>
+</span><span id="line-87"></span><span id="newTestCase"><span class="annot"><span class="annottext">newTestCase :: TestCase
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#newTestCase"><span class="hs-identifier hs-var hs-var">newTestCase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">TestCase' :: Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; TestCase
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:durationInNanoSeconds:TestCase' :: Maybe Integer
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3AdurationInNanoSeconds%3ATestCase%27"><span class="hs-identifier hs-var">durationInNanoSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:TestCase' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3Astatus%3ATestCase%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:expired:TestCase' :: Maybe POSIX
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3Aexpired%3ATestCase%27"><span class="hs-identifier hs-var">expired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefix:TestCase' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3Aprefix%3ATestCase%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:TestCase' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3Aname%3ATestCase%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:testRawDataPath:TestCase' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3AtestRawDataPath%3ATestCase%27"><span class="hs-identifier hs-var">testRawDataPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:TestCase' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3Amessage%3ATestCase%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:reportArn:TestCase' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3AreportArn%3ATestCase%27"><span class="hs-identifier hs-var">reportArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The number of nanoseconds it took to run this test case.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_durationInNanoSeconds"><span class="hs-identifier hs-type">testCase_durationInNanoSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="testCase_durationInNanoSeconds"><span class="annot"><span class="annottext">testCase_durationInNanoSeconds :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; TestCase -&gt; f TestCase
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_durationInNanoSeconds"><span class="hs-identifier hs-var hs-var">testCase_durationInNanoSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestCase -&gt; Maybe Integer)
+-&gt; (TestCase -&gt; Maybe Integer -&gt; TestCase)
+-&gt; Lens TestCase TestCase (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379394"><span class="annot"><span class="annottext">Maybe Integer
+durationInNanoSeconds :: Maybe Integer
+$sel:durationInNanoSeconds:TestCase' :: TestCase -&gt; Maybe Integer
+</span><a href="#local-6989586621679379394"><span class="hs-identifier hs-var hs-var">durationInNanoSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679379394"><span class="hs-identifier hs-var">durationInNanoSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379393"><span class="annot"><span class="annottext">s :: TestCase
+</span><a href="#local-6989586621679379393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379392"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679379392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestCase
+</span><a href="#local-6989586621679379393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInNanoSeconds:TestCase' :: Maybe Integer
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3AdurationInNanoSeconds%3ATestCase%27"><span class="hs-identifier hs-var">durationInNanoSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679379392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The status returned by the test case after it was run. Valid statuses</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- are @SUCCEEDED@, @FAILED@, @ERROR@, @SKIPPED@, and @UNKNOWN@.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_status"><span class="hs-identifier hs-type">testCase_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="testCase_status"><span class="annot"><span class="annottext">testCase_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TestCase -&gt; f TestCase
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_status"><span class="hs-identifier hs-var hs-var">testCase_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestCase -&gt; Maybe Text)
+-&gt; (TestCase -&gt; Maybe Text -&gt; TestCase)
+-&gt; Lens TestCase TestCase (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379390"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:TestCase' :: TestCase -&gt; Maybe Text
+</span><a href="#local-6989586621679379390"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379390"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379389"><span class="annot"><span class="annottext">s :: TestCase
+</span><a href="#local-6989586621679379389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379388"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestCase
+</span><a href="#local-6989586621679379389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:TestCase' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3Astatus%3ATestCase%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The date and time a test case expires. A test case expires 30 days after</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- it is created. An expired test case is not available to view in</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- CodeBuild.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_expired"><span class="hs-identifier hs-type">testCase_expired</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="testCase_expired"><span class="annot"><span class="annottext">testCase_expired :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; TestCase -&gt; f TestCase
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_expired"><span class="hs-identifier hs-var hs-var">testCase_expired</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestCase -&gt; Maybe POSIX)
+-&gt; (TestCase -&gt; Maybe POSIX -&gt; TestCase)
+-&gt; Lens TestCase TestCase (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379386"><span class="annot"><span class="annottext">Maybe POSIX
+expired :: Maybe POSIX
+$sel:expired:TestCase' :: TestCase -&gt; Maybe POSIX
+</span><a href="#local-6989586621679379386"><span class="hs-identifier hs-var hs-var">expired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679379386"><span class="hs-identifier hs-var">expired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379385"><span class="annot"><span class="annottext">s :: TestCase
+</span><a href="#local-6989586621679379385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379384"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679379384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestCase
+</span><a href="#local-6989586621679379385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expired:TestCase' :: Maybe POSIX
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3Aexpired%3ATestCase%27"><span class="hs-identifier hs-var">expired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679379384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; TestCase -&gt; f TestCase)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TestCase
+-&gt; f TestCase
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | A string that is applied to a series of related test cases. CodeBuild</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- generates the prefix. The prefix depends on the framework used to</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- generate the tests.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_prefix"><span class="hs-identifier hs-type">testCase_prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="testCase_prefix"><span class="annot"><span class="annottext">testCase_prefix :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TestCase -&gt; f TestCase
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_prefix"><span class="hs-identifier hs-var hs-var">testCase_prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestCase -&gt; Maybe Text)
+-&gt; (TestCase -&gt; Maybe Text -&gt; TestCase)
+-&gt; Lens TestCase TestCase (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379379"><span class="annot"><span class="annottext">Maybe Text
+prefix :: Maybe Text
+$sel:prefix:TestCase' :: TestCase -&gt; Maybe Text
+</span><a href="#local-6989586621679379379"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379379"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379378"><span class="annot"><span class="annottext">s :: TestCase
+</span><a href="#local-6989586621679379378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379377"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestCase
+</span><a href="#local-6989586621679379378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:TestCase' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3Aprefix%3ATestCase%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The name of the test case.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_name"><span class="hs-identifier hs-type">testCase_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="testCase_name"><span class="annot"><span class="annottext">testCase_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TestCase -&gt; f TestCase
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_name"><span class="hs-identifier hs-var hs-var">testCase_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestCase -&gt; Maybe Text)
+-&gt; (TestCase -&gt; Maybe Text -&gt; TestCase)
+-&gt; Lens TestCase TestCase (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379375"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:TestCase' :: TestCase -&gt; Maybe Text
+</span><a href="#local-6989586621679379375"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379375"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379374"><span class="annot"><span class="annottext">s :: TestCase
+</span><a href="#local-6989586621679379374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379373"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestCase
+</span><a href="#local-6989586621679379374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:TestCase' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3Aname%3ATestCase%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The path to the raw data file that contains the test result.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_testRawDataPath"><span class="hs-identifier hs-type">testCase_testRawDataPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="testCase_testRawDataPath"><span class="annot"><span class="annottext">testCase_testRawDataPath :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TestCase -&gt; f TestCase
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_testRawDataPath"><span class="hs-identifier hs-var hs-var">testCase_testRawDataPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestCase -&gt; Maybe Text)
+-&gt; (TestCase -&gt; Maybe Text -&gt; TestCase)
+-&gt; Lens TestCase TestCase (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379371"><span class="annot"><span class="annottext">Maybe Text
+testRawDataPath :: Maybe Text
+$sel:testRawDataPath:TestCase' :: TestCase -&gt; Maybe Text
+</span><a href="#local-6989586621679379371"><span class="hs-identifier hs-var hs-var">testRawDataPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379371"><span class="hs-identifier hs-var">testRawDataPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379370"><span class="annot"><span class="annottext">s :: TestCase
+</span><a href="#local-6989586621679379370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379369"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestCase
+</span><a href="#local-6989586621679379370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testRawDataPath:TestCase' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3AtestRawDataPath%3ATestCase%27"><span class="hs-identifier hs-var">testRawDataPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | A message associated with a test case. For example, an error message or</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- stack trace.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_message"><span class="hs-identifier hs-type">testCase_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="testCase_message"><span class="annot"><span class="annottext">testCase_message :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TestCase -&gt; f TestCase
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_message"><span class="hs-identifier hs-var hs-var">testCase_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestCase -&gt; Maybe Text)
+-&gt; (TestCase -&gt; Maybe Text -&gt; TestCase)
+-&gt; Lens TestCase TestCase (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379367"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:TestCase' :: TestCase -&gt; Maybe Text
+</span><a href="#local-6989586621679379367"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379367"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379366"><span class="annot"><span class="annottext">s :: TestCase
+</span><a href="#local-6989586621679379366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379365"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestCase
+</span><a href="#local-6989586621679379366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:TestCase' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3Amessage%3ATestCase%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The ARN of the report to which the test case belongs.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_reportArn"><span class="hs-identifier hs-type">testCase_reportArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="testCase_reportArn"><span class="annot"><span class="annottext">testCase_reportArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TestCase -&gt; f TestCase
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#testCase_reportArn"><span class="hs-identifier hs-var hs-var">testCase_reportArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestCase -&gt; Maybe Text)
+-&gt; (TestCase -&gt; Maybe Text -&gt; TestCase)
+-&gt; Lens TestCase TestCase (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379363"><span class="annot"><span class="annottext">Maybe Text
+reportArn :: Maybe Text
+$sel:reportArn:TestCase' :: TestCase -&gt; Maybe Text
+</span><a href="#local-6989586621679379363"><span class="hs-identifier hs-var hs-var">reportArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379363"><span class="hs-identifier hs-var">reportArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379362"><span class="annot"><span class="annottext">s :: TestCase
+</span><a href="#local-6989586621679379362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-type">TestCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379361"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestCase
+</span><a href="#local-6989586621679379362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportArn:TestCase' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#%24sel%3AreportArn%3ATestCase%27"><span class="hs-identifier hs-var">reportArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379358"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679379356"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TestCase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser TestCase) -&gt; Value -&gt; Parser TestCase
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TestCase&quot;</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679379353"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379353"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; TestCase
+</span><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase%27"><span class="hs-identifier hs-var">TestCase'</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; TestCase)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TestCase)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;durationInNanoSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TestCase)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TestCase)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TestCase)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TestCase)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;expired&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TestCase)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; TestCase)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;prefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; TestCase)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; TestCase)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; TestCase)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; TestCase)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;testRawDataPath&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; TestCase)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; TestCase)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; TestCase)
+-&gt; Parser (Maybe Text) -&gt; Parser TestCase
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reportArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379347"><span id="local-6989586621679379349"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379344"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.TestCase.html#TestCase"><span class="hs-identifier hs-type">TestCase</span></a></span></span><span>
+</span><span id="line-156"></span></pre></body></html>

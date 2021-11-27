@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisVideo.Types.ChannelInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisVideo.Types.ChannelInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelType.html"><span class="hs-identifier">Amazonka.KinesisVideo.Types.ChannelType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterConfiguration.html"><span class="hs-identifier">Amazonka.KinesisVideo.Types.SingleMasterConfiguration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.StreamStatus.html"><span class="hs-identifier">Amazonka.KinesisVideo.Types.StreamStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | A structure that encapsulates a signaling channel\'s metadata and</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- properties.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newChannelInfo' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679176479"><span id="local-6989586621679176480"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelInfo"><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-var">ChannelInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelInfo%27"><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-var">ChannelInfo'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time at which the signaling channel was created.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreationTime%3AChannelInfo%27"><span class="annot"><span class="annottext">ChannelInfo -&gt; Maybe POSIX
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AcreationTime%3AChannelInfo%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Current status of the signaling channel.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AchannelStatus%3AChannelInfo%27"><span class="annot"><span class="annottext">ChannelInfo -&gt; Maybe StreamStatus
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AchannelStatus%3AChannelInfo%27"><span class="hs-identifier hs-var hs-var">channelStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.StreamStatus.html#StreamStatus"><span class="hs-identifier hs-type">StreamStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the signaling channel.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AchannelARN%3AChannelInfo%27"><span class="annot"><span class="annottext">ChannelInfo -&gt; Maybe Text
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AchannelARN%3AChannelInfo%27"><span class="hs-identifier hs-var hs-var">channelARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A structure that contains the configuration for the @SINGLE_MASTER@</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- channel type.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsingleMasterConfiguration%3AChannelInfo%27"><span class="annot"><span class="annottext">ChannelInfo -&gt; Maybe SingleMasterConfiguration
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AsingleMasterConfiguration%3AChannelInfo%27"><span class="hs-identifier hs-var hs-var">singleMasterConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterConfiguration.html#SingleMasterConfiguration"><span class="hs-identifier hs-type">SingleMasterConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the signaling channel.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AchannelName%3AChannelInfo%27"><span class="annot"><span class="annottext">ChannelInfo -&gt; Maybe Text
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AchannelName%3AChannelInfo%27"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The current version of the signaling channel.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aversion%3AChannelInfo%27"><span class="annot"><span class="annottext">ChannelInfo -&gt; Maybe Text
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3Aversion%3AChannelInfo%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The type of the signaling channel.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AchannelType%3AChannelInfo%27"><span class="annot"><span class="annottext">ChannelInfo -&gt; Maybe ChannelType
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AchannelType%3AChannelInfo%27"><span class="hs-identifier hs-var hs-var">channelType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176467"><span id="local-6989586621679176469"><span class="annot"><span class="annottext">ChannelInfo -&gt; ChannelInfo -&gt; Bool
+(ChannelInfo -&gt; ChannelInfo -&gt; Bool)
+-&gt; (ChannelInfo -&gt; ChannelInfo -&gt; Bool) -&gt; Eq ChannelInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChannelInfo -&gt; ChannelInfo -&gt; Bool
+$c/= :: ChannelInfo -&gt; ChannelInfo -&gt; Bool
+== :: ChannelInfo -&gt; ChannelInfo -&gt; Bool
+$c== :: ChannelInfo -&gt; ChannelInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176458"><span id="local-6989586621679176460"><span id="local-6989586621679176462"><span id="local-6989586621679176464"><span class="annot"><span class="annottext">ReadPrec [ChannelInfo]
+ReadPrec ChannelInfo
+Int -&gt; ReadS ChannelInfo
+ReadS [ChannelInfo]
+(Int -&gt; ReadS ChannelInfo)
+-&gt; ReadS [ChannelInfo]
+-&gt; ReadPrec ChannelInfo
+-&gt; ReadPrec [ChannelInfo]
+-&gt; Read ChannelInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChannelInfo]
+$creadListPrec :: ReadPrec [ChannelInfo]
+readPrec :: ReadPrec ChannelInfo
+$creadPrec :: ReadPrec ChannelInfo
+readList :: ReadS [ChannelInfo]
+$creadList :: ReadS [ChannelInfo]
+readsPrec :: Int -&gt; ReadS ChannelInfo
+$creadsPrec :: Int -&gt; ReadS ChannelInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176451"><span id="local-6989586621679176453"><span id="local-6989586621679176455"><span class="annot"><span class="annottext">Int -&gt; ChannelInfo -&gt; ShowS
+[ChannelInfo] -&gt; ShowS
+ChannelInfo -&gt; String
+(Int -&gt; ChannelInfo -&gt; ShowS)
+-&gt; (ChannelInfo -&gt; String)
+-&gt; ([ChannelInfo] -&gt; ShowS)
+-&gt; Show ChannelInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChannelInfo] -&gt; ShowS
+$cshowList :: [ChannelInfo] -&gt; ShowS
+show :: ChannelInfo -&gt; String
+$cshow :: ChannelInfo -&gt; String
+showsPrec :: Int -&gt; ChannelInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChannelInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ChannelInfo -&gt; Rep ChannelInfo x)
+-&gt; (forall x. Rep ChannelInfo x -&gt; ChannelInfo)
+-&gt; Generic ChannelInfo
+forall x. Rep ChannelInfo x -&gt; ChannelInfo
+forall x. ChannelInfo -&gt; Rep ChannelInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ChannelInfo x -&gt; ChannelInfo
+$cfrom :: forall x. ChannelInfo -&gt; Rep ChannelInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'ChannelInfo' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'creationTime', 'channelInfo_creationTime' - The time at which the signaling channel was created.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'channelStatus', 'channelInfo_channelStatus' - Current status of the signaling channel.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'channelARN', 'channelInfo_channelARN' - The Amazon Resource Name (ARN) of the signaling channel.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'singleMasterConfiguration', 'channelInfo_singleMasterConfiguration' - A structure that contains the configuration for the @SINGLE_MASTER@</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- channel type.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'channelName', 'channelInfo_channelName' - The name of the signaling channel.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'version', 'channelInfo_version' - The current version of the signaling channel.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'channelType', 'channelInfo_channelType' - The type of the signaling channel.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#newChannelInfo"><span class="hs-identifier hs-type">newChannelInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span>
+</span><span id="line-76"></span><span id="newChannelInfo"><span class="annot"><span class="annottext">newChannelInfo :: ChannelInfo
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#newChannelInfo"><span class="hs-identifier hs-var hs-var">newChannelInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">ChannelInfo' :: Maybe POSIX
+-&gt; Maybe StreamStatus
+-&gt; Maybe Text
+-&gt; Maybe SingleMasterConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ChannelType
+-&gt; ChannelInfo
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-type">ChannelInfo'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:ChannelInfo' :: Maybe POSIX
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AcreationTime%3AChannelInfo%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelStatus:ChannelInfo' :: Maybe StreamStatus
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AchannelStatus%3AChannelInfo%27"><span class="hs-identifier hs-var">channelStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelARN:ChannelInfo' :: Maybe Text
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AchannelARN%3AChannelInfo%27"><span class="hs-identifier hs-var">channelARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:singleMasterConfiguration:ChannelInfo' :: Maybe SingleMasterConfiguration
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AsingleMasterConfiguration%3AChannelInfo%27"><span class="hs-identifier hs-var">singleMasterConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SingleMasterConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelName:ChannelInfo' :: Maybe Text
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AchannelName%3AChannelInfo%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:ChannelInfo' :: Maybe Text
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3Aversion%3AChannelInfo%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelType:ChannelInfo' :: Maybe ChannelType
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AchannelType%3AChannelInfo%27"><span class="hs-identifier hs-var">channelType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The time at which the signaling channel was created.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#channelInfo_creationTime"><span class="hs-identifier hs-type">channelInfo_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="channelInfo_creationTime"><span class="annot"><span class="annottext">channelInfo_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ChannelInfo -&gt; f ChannelInfo
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#channelInfo_creationTime"><span class="hs-identifier hs-var hs-var">channelInfo_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelInfo -&gt; Maybe POSIX)
+-&gt; (ChannelInfo -&gt; Maybe POSIX -&gt; ChannelInfo)
+-&gt; Lens ChannelInfo ChannelInfo (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-type">ChannelInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176442"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:ChannelInfo' :: ChannelInfo -&gt; Maybe POSIX
+</span><a href="#local-6989586621679176442"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679176442"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176441"><span class="annot"><span class="annottext">s :: ChannelInfo
+</span><a href="#local-6989586621679176441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-type">ChannelInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176440"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679176440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelInfo
+</span><a href="#local-6989586621679176441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ChannelInfo' :: Maybe POSIX
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AcreationTime%3AChannelInfo%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679176440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ChannelInfo -&gt; f ChannelInfo)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ChannelInfo
+-&gt; f ChannelInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Current status of the signaling channel.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#channelInfo_channelStatus"><span class="hs-identifier hs-type">channelInfo_channelStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.StreamStatus.html#StreamStatus"><span class="hs-identifier hs-type">StreamStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="channelInfo_channelStatus"><span class="annot"><span class="annottext">channelInfo_channelStatus :: (Maybe StreamStatus -&gt; f (Maybe StreamStatus))
+-&gt; ChannelInfo -&gt; f ChannelInfo
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#channelInfo_channelStatus"><span class="hs-identifier hs-var hs-var">channelInfo_channelStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelInfo -&gt; Maybe StreamStatus)
+-&gt; (ChannelInfo -&gt; Maybe StreamStatus -&gt; ChannelInfo)
+-&gt; Lens
+     ChannelInfo ChannelInfo (Maybe StreamStatus) (Maybe StreamStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-type">ChannelInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176435"><span class="annot"><span class="annottext">Maybe StreamStatus
+channelStatus :: Maybe StreamStatus
+$sel:channelStatus:ChannelInfo' :: ChannelInfo -&gt; Maybe StreamStatus
+</span><a href="#local-6989586621679176435"><span class="hs-identifier hs-var hs-var">channelStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamStatus
+</span><a href="#local-6989586621679176435"><span class="hs-identifier hs-var">channelStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176434"><span class="annot"><span class="annottext">s :: ChannelInfo
+</span><a href="#local-6989586621679176434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-type">ChannelInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176433"><span class="annot"><span class="annottext">Maybe StreamStatus
+</span><a href="#local-6989586621679176433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelInfo
+</span><a href="#local-6989586621679176434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelStatus:ChannelInfo' :: Maybe StreamStatus
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AchannelStatus%3AChannelInfo%27"><span class="hs-identifier hs-var">channelStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamStatus
+</span><a href="#local-6989586621679176433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the signaling channel.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#channelInfo_channelARN"><span class="hs-identifier hs-type">channelInfo_channelARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="channelInfo_channelARN"><span class="annot"><span class="annottext">channelInfo_channelARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ChannelInfo -&gt; f ChannelInfo
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#channelInfo_channelARN"><span class="hs-identifier hs-var hs-var">channelInfo_channelARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelInfo -&gt; Maybe Text)
+-&gt; (ChannelInfo -&gt; Maybe Text -&gt; ChannelInfo)
+-&gt; Lens ChannelInfo ChannelInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-type">ChannelInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176431"><span class="annot"><span class="annottext">Maybe Text
+channelARN :: Maybe Text
+$sel:channelARN:ChannelInfo' :: ChannelInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679176431"><span class="hs-identifier hs-var hs-var">channelARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176431"><span class="hs-identifier hs-var">channelARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176430"><span class="annot"><span class="annottext">s :: ChannelInfo
+</span><a href="#local-6989586621679176430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-type">ChannelInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176429"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelInfo
+</span><a href="#local-6989586621679176430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelARN:ChannelInfo' :: Maybe Text
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AchannelARN%3AChannelInfo%27"><span class="hs-identifier hs-var">channelARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | A structure that contains the configuration for the @SINGLE_MASTER@</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- channel type.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#channelInfo_singleMasterConfiguration"><span class="hs-identifier hs-type">channelInfo_singleMasterConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.SingleMasterConfiguration.html#SingleMasterConfiguration"><span class="hs-identifier hs-type">SingleMasterConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="channelInfo_singleMasterConfiguration"><span class="annot"><span class="annottext">channelInfo_singleMasterConfiguration :: (Maybe SingleMasterConfiguration
+ -&gt; f (Maybe SingleMasterConfiguration))
+-&gt; ChannelInfo -&gt; f ChannelInfo
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#channelInfo_singleMasterConfiguration"><span class="hs-identifier hs-var hs-var">channelInfo_singleMasterConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelInfo -&gt; Maybe SingleMasterConfiguration)
+-&gt; (ChannelInfo -&gt; Maybe SingleMasterConfiguration -&gt; ChannelInfo)
+-&gt; Lens
+     ChannelInfo
+     ChannelInfo
+     (Maybe SingleMasterConfiguration)
+     (Maybe SingleMasterConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-type">ChannelInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176427"><span class="annot"><span class="annottext">Maybe SingleMasterConfiguration
+singleMasterConfiguration :: Maybe SingleMasterConfiguration
+$sel:singleMasterConfiguration:ChannelInfo' :: ChannelInfo -&gt; Maybe SingleMasterConfiguration
+</span><a href="#local-6989586621679176427"><span class="hs-identifier hs-var hs-var">singleMasterConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SingleMasterConfiguration
+</span><a href="#local-6989586621679176427"><span class="hs-identifier hs-var">singleMasterConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176426"><span class="annot"><span class="annottext">s :: ChannelInfo
+</span><a href="#local-6989586621679176426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-type">ChannelInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176425"><span class="annot"><span class="annottext">Maybe SingleMasterConfiguration
+</span><a href="#local-6989586621679176425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelInfo
+</span><a href="#local-6989586621679176426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:singleMasterConfiguration:ChannelInfo' :: Maybe SingleMasterConfiguration
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AsingleMasterConfiguration%3AChannelInfo%27"><span class="hs-identifier hs-var">singleMasterConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SingleMasterConfiguration
+</span><a href="#local-6989586621679176425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The name of the signaling channel.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#channelInfo_channelName"><span class="hs-identifier hs-type">channelInfo_channelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="channelInfo_channelName"><span class="annot"><span class="annottext">channelInfo_channelName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ChannelInfo -&gt; f ChannelInfo
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#channelInfo_channelName"><span class="hs-identifier hs-var hs-var">channelInfo_channelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelInfo -&gt; Maybe Text)
+-&gt; (ChannelInfo -&gt; Maybe Text -&gt; ChannelInfo)
+-&gt; Lens ChannelInfo ChannelInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-type">ChannelInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176423"><span class="annot"><span class="annottext">Maybe Text
+channelName :: Maybe Text
+$sel:channelName:ChannelInfo' :: ChannelInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679176423"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176423"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176422"><span class="annot"><span class="annottext">s :: ChannelInfo
+</span><a href="#local-6989586621679176422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-type">ChannelInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176421"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelInfo
+</span><a href="#local-6989586621679176422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:ChannelInfo' :: Maybe Text
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AchannelName%3AChannelInfo%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The current version of the signaling channel.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#channelInfo_version"><span class="hs-identifier hs-type">channelInfo_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="channelInfo_version"><span class="annot"><span class="annottext">channelInfo_version :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ChannelInfo -&gt; f ChannelInfo
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#channelInfo_version"><span class="hs-identifier hs-var hs-var">channelInfo_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelInfo -&gt; Maybe Text)
+-&gt; (ChannelInfo -&gt; Maybe Text -&gt; ChannelInfo)
+-&gt; Lens ChannelInfo ChannelInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-type">ChannelInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176419"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:ChannelInfo' :: ChannelInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679176419"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176419"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176418"><span class="annot"><span class="annottext">s :: ChannelInfo
+</span><a href="#local-6989586621679176418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-type">ChannelInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176417"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelInfo
+</span><a href="#local-6989586621679176418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:ChannelInfo' :: Maybe Text
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3Aversion%3AChannelInfo%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The type of the signaling channel.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#channelInfo_channelType"><span class="hs-identifier hs-type">channelInfo_channelType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="channelInfo_channelType"><span class="annot"><span class="annottext">channelInfo_channelType :: (Maybe ChannelType -&gt; f (Maybe ChannelType))
+-&gt; ChannelInfo -&gt; f ChannelInfo
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#channelInfo_channelType"><span class="hs-identifier hs-var hs-var">channelInfo_channelType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelInfo -&gt; Maybe ChannelType)
+-&gt; (ChannelInfo -&gt; Maybe ChannelType -&gt; ChannelInfo)
+-&gt; Lens
+     ChannelInfo ChannelInfo (Maybe ChannelType) (Maybe ChannelType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-type">ChannelInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176415"><span class="annot"><span class="annottext">Maybe ChannelType
+channelType :: Maybe ChannelType
+$sel:channelType:ChannelInfo' :: ChannelInfo -&gt; Maybe ChannelType
+</span><a href="#local-6989586621679176415"><span class="hs-identifier hs-var hs-var">channelType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelType
+</span><a href="#local-6989586621679176415"><span class="hs-identifier hs-var">channelType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176414"><span class="annot"><span class="annottext">s :: ChannelInfo
+</span><a href="#local-6989586621679176414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-type">ChannelInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176413"><span class="annot"><span class="annottext">Maybe ChannelType
+</span><a href="#local-6989586621679176413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelInfo
+</span><a href="#local-6989586621679176414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelType:ChannelInfo' :: Maybe ChannelType
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#%24sel%3AchannelType%3AChannelInfo%27"><span class="hs-identifier hs-var">channelType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelType
+</span><a href="#local-6989586621679176413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176410"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679176408"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChannelInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ChannelInfo) -&gt; Value -&gt; Parser ChannelInfo
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ChannelInfo&quot;</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176405"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176405"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe StreamStatus
+-&gt; Maybe Text
+-&gt; Maybe SingleMasterConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ChannelType
+-&gt; ChannelInfo
+</span><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo%27"><span class="hs-identifier hs-var">ChannelInfo'</span></a></span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe StreamStatus
+ -&gt; Maybe Text
+ -&gt; Maybe SingleMasterConfiguration
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ChannelType
+ -&gt; ChannelInfo)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe StreamStatus
+      -&gt; Maybe Text
+      -&gt; Maybe SingleMasterConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChannelType
+      -&gt; ChannelInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe StreamStatus
+   -&gt; Maybe Text
+   -&gt; Maybe SingleMasterConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChannelType
+   -&gt; ChannelInfo)
+-&gt; Parser (Maybe StreamStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe SingleMasterConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChannelType
+      -&gt; ChannelInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StreamStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe SingleMasterConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChannelType
+   -&gt; ChannelInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe SingleMasterConfiguration
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe ChannelType -&gt; ChannelInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SingleMasterConfiguration
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe ChannelType -&gt; ChannelInfo)
+-&gt; Parser (Maybe SingleMasterConfiguration)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe ChannelType -&gt; ChannelInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SingleMasterConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SingleMasterConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe ChannelType -&gt; ChannelInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe ChannelType -&gt; ChannelInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe ChannelType -&gt; ChannelInfo)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe ChannelType -&gt; ChannelInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ChannelType -&gt; ChannelInfo)
+-&gt; Parser (Maybe ChannelType) -&gt; Parser ChannelInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176399"><span id="local-6989586621679176401"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176396"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span></span><span>
+</span><span id="line-134"></span></pre></body></html>

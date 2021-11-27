@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.AudioSelectorSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.AudioSelectorSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioHlsRenditionSelection.html"><span class="hs-identifier">Amazonka.MediaLive.Types.AudioHlsRenditionSelection</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelection.html"><span class="hs-identifier">Amazonka.MediaLive.Types.AudioLanguageSelection</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioPidSelection.html"><span class="hs-identifier">Amazonka.MediaLive.Types.AudioPidSelection</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioTrackSelection.html"><span class="hs-identifier">Amazonka.MediaLive.Types.AudioTrackSelection</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Audio Selector Settings</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAudioSelectorSettings' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679866569"><span id="local-6989586621679866570"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioSelectorSettings"><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings"><span class="hs-identifier hs-var">AudioSelectorSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioSelectorSettings%27"><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings%27"><span class="hs-identifier hs-var">AudioSelectorSettings'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AaudioLanguageSelection%3AAudioSelectorSettings%27"><span class="annot"><span class="annottext">AudioSelectorSettings -&gt; Maybe AudioLanguageSelection
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#%24sel%3AaudioLanguageSelection%3AAudioSelectorSettings%27"><span class="hs-identifier hs-var hs-var">audioLanguageSelection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-type">AudioLanguageSelection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AaudioTrackSelection%3AAudioSelectorSettings%27"><span class="annot"><span class="annottext">AudioSelectorSettings -&gt; Maybe AudioTrackSelection
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#%24sel%3AaudioTrackSelection%3AAudioSelectorSettings%27"><span class="hs-identifier hs-var hs-var">audioTrackSelection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection"><span class="hs-identifier hs-type">AudioTrackSelection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AaudioHlsRenditionSelection%3AAudioSelectorSettings%27"><span class="annot"><span class="annottext">AudioSelectorSettings -&gt; Maybe AudioHlsRenditionSelection
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#%24sel%3AaudioHlsRenditionSelection%3AAudioSelectorSettings%27"><span class="hs-identifier hs-var hs-var">audioHlsRenditionSelection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioHlsRenditionSelection.html#AudioHlsRenditionSelection"><span class="hs-identifier hs-type">AudioHlsRenditionSelection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AaudioPidSelection%3AAudioSelectorSettings%27"><span class="annot"><span class="annottext">AudioSelectorSettings -&gt; Maybe AudioPidSelection
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#%24sel%3AaudioPidSelection%3AAudioSelectorSettings%27"><span class="hs-identifier hs-var hs-var">audioPidSelection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioPidSelection.html#AudioPidSelection"><span class="hs-identifier hs-type">AudioPidSelection</span></a></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679866560"><span id="local-6989586621679866562"><span class="annot"><span class="annottext">AudioSelectorSettings -&gt; AudioSelectorSettings -&gt; Bool
+(AudioSelectorSettings -&gt; AudioSelectorSettings -&gt; Bool)
+-&gt; (AudioSelectorSettings -&gt; AudioSelectorSettings -&gt; Bool)
+-&gt; Eq AudioSelectorSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AudioSelectorSettings -&gt; AudioSelectorSettings -&gt; Bool
+$c/= :: AudioSelectorSettings -&gt; AudioSelectorSettings -&gt; Bool
+== :: AudioSelectorSettings -&gt; AudioSelectorSettings -&gt; Bool
+$c== :: AudioSelectorSettings -&gt; AudioSelectorSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679866551"><span id="local-6989586621679866553"><span id="local-6989586621679866555"><span id="local-6989586621679866557"><span class="annot"><span class="annottext">ReadPrec [AudioSelectorSettings]
+ReadPrec AudioSelectorSettings
+Int -&gt; ReadS AudioSelectorSettings
+ReadS [AudioSelectorSettings]
+(Int -&gt; ReadS AudioSelectorSettings)
+-&gt; ReadS [AudioSelectorSettings]
+-&gt; ReadPrec AudioSelectorSettings
+-&gt; ReadPrec [AudioSelectorSettings]
+-&gt; Read AudioSelectorSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AudioSelectorSettings]
+$creadListPrec :: ReadPrec [AudioSelectorSettings]
+readPrec :: ReadPrec AudioSelectorSettings
+$creadPrec :: ReadPrec AudioSelectorSettings
+readList :: ReadS [AudioSelectorSettings]
+$creadList :: ReadS [AudioSelectorSettings]
+readsPrec :: Int -&gt; ReadS AudioSelectorSettings
+$creadsPrec :: Int -&gt; ReadS AudioSelectorSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679866544"><span id="local-6989586621679866546"><span id="local-6989586621679866548"><span class="annot"><span class="annottext">Int -&gt; AudioSelectorSettings -&gt; ShowS
+[AudioSelectorSettings] -&gt; ShowS
+AudioSelectorSettings -&gt; String
+(Int -&gt; AudioSelectorSettings -&gt; ShowS)
+-&gt; (AudioSelectorSettings -&gt; String)
+-&gt; ([AudioSelectorSettings] -&gt; ShowS)
+-&gt; Show AudioSelectorSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AudioSelectorSettings] -&gt; ShowS
+$cshowList :: [AudioSelectorSettings] -&gt; ShowS
+show :: AudioSelectorSettings -&gt; String
+$cshow :: AudioSelectorSettings -&gt; String
+showsPrec :: Int -&gt; AudioSelectorSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; AudioSelectorSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AudioSelectorSettings -&gt; Rep AudioSelectorSettings x)
+-&gt; (forall x. Rep AudioSelectorSettings x -&gt; AudioSelectorSettings)
+-&gt; Generic AudioSelectorSettings
+forall x. Rep AudioSelectorSettings x -&gt; AudioSelectorSettings
+forall x. AudioSelectorSettings -&gt; Rep AudioSelectorSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AudioSelectorSettings x -&gt; AudioSelectorSettings
+$cfrom :: forall x. AudioSelectorSettings -&gt; Rep AudioSelectorSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'AudioSelectorSettings' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'audioLanguageSelection', 'audioSelectorSettings_audioLanguageSelection' - Undocumented member.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'audioTrackSelection', 'audioSelectorSettings_audioTrackSelection' - Undocumented member.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'audioHlsRenditionSelection', 'audioSelectorSettings_audioHlsRenditionSelection' - Undocumented member.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'audioPidSelection', 'audioSelectorSettings_audioPidSelection' - Undocumented member.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#newAudioSelectorSettings"><span class="hs-identifier hs-type">newAudioSelectorSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings"><span class="hs-identifier hs-type">AudioSelectorSettings</span></a></span><span>
+</span><span id="line-58"></span><span id="newAudioSelectorSettings"><span class="annot"><span class="annottext">newAudioSelectorSettings :: AudioSelectorSettings
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#newAudioSelectorSettings"><span class="hs-identifier hs-var hs-var">newAudioSelectorSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">AudioSelectorSettings' :: Maybe AudioLanguageSelection
+-&gt; Maybe AudioTrackSelection
+-&gt; Maybe AudioHlsRenditionSelection
+-&gt; Maybe AudioPidSelection
+-&gt; AudioSelectorSettings
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings%27"><span class="hs-identifier hs-type">AudioSelectorSettings'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:audioLanguageSelection:AudioSelectorSettings' :: Maybe AudioLanguageSelection
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#%24sel%3AaudioLanguageSelection%3AAudioSelectorSettings%27"><span class="hs-identifier hs-var">audioLanguageSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe AudioLanguageSelection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:audioTrackSelection:AudioSelectorSettings' :: Maybe AudioTrackSelection
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#%24sel%3AaudioTrackSelection%3AAudioSelectorSettings%27"><span class="hs-identifier hs-var">audioTrackSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioTrackSelection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:audioHlsRenditionSelection:AudioSelectorSettings' :: Maybe AudioHlsRenditionSelection
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#%24sel%3AaudioHlsRenditionSelection%3AAudioSelectorSettings%27"><span class="hs-identifier hs-var">audioHlsRenditionSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioHlsRenditionSelection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:audioPidSelection:AudioSelectorSettings' :: Maybe AudioPidSelection
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#%24sel%3AaudioPidSelection%3AAudioSelectorSettings%27"><span class="hs-identifier hs-var">audioPidSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioPidSelection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#audioSelectorSettings_audioLanguageSelection"><span class="hs-identifier hs-type">audioSelectorSettings_audioLanguageSelection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings"><span class="hs-identifier hs-type">AudioSelectorSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-type">AudioLanguageSelection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="audioSelectorSettings_audioLanguageSelection"><span class="annot"><span class="annottext">audioSelectorSettings_audioLanguageSelection :: (Maybe AudioLanguageSelection -&gt; f (Maybe AudioLanguageSelection))
+-&gt; AudioSelectorSettings -&gt; f AudioSelectorSettings
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#audioSelectorSettings_audioLanguageSelection"><span class="hs-identifier hs-var hs-var">audioSelectorSettings_audioLanguageSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioSelectorSettings -&gt; Maybe AudioLanguageSelection)
+-&gt; (AudioSelectorSettings
+    -&gt; Maybe AudioLanguageSelection -&gt; AudioSelectorSettings)
+-&gt; Lens
+     AudioSelectorSettings
+     AudioSelectorSettings
+     (Maybe AudioLanguageSelection)
+     (Maybe AudioLanguageSelection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings%27"><span class="hs-identifier hs-type">AudioSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679866535"><span class="annot"><span class="annottext">Maybe AudioLanguageSelection
+audioLanguageSelection :: Maybe AudioLanguageSelection
+$sel:audioLanguageSelection:AudioSelectorSettings' :: AudioSelectorSettings -&gt; Maybe AudioLanguageSelection
+</span><a href="#local-6989586621679866535"><span class="hs-identifier hs-var hs-var">audioLanguageSelection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioLanguageSelection
+</span><a href="#local-6989586621679866535"><span class="hs-identifier hs-var">audioLanguageSelection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679866534"><span class="annot"><span class="annottext">s :: AudioSelectorSettings
+</span><a href="#local-6989586621679866534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings%27"><span class="hs-identifier hs-type">AudioSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679866533"><span class="annot"><span class="annottext">Maybe AudioLanguageSelection
+</span><a href="#local-6989586621679866533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioSelectorSettings
+</span><a href="#local-6989586621679866534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioLanguageSelection:AudioSelectorSettings' :: Maybe AudioLanguageSelection
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#%24sel%3AaudioLanguageSelection%3AAudioSelectorSettings%27"><span class="hs-identifier hs-var">audioLanguageSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioLanguageSelection
+</span><a href="#local-6989586621679866533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings"><span class="hs-identifier hs-type">AudioSelectorSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#audioSelectorSettings_audioTrackSelection"><span class="hs-identifier hs-type">audioSelectorSettings_audioTrackSelection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings"><span class="hs-identifier hs-type">AudioSelectorSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection"><span class="hs-identifier hs-type">AudioTrackSelection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="audioSelectorSettings_audioTrackSelection"><span class="annot"><span class="annottext">audioSelectorSettings_audioTrackSelection :: (Maybe AudioTrackSelection -&gt; f (Maybe AudioTrackSelection))
+-&gt; AudioSelectorSettings -&gt; f AudioSelectorSettings
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#audioSelectorSettings_audioTrackSelection"><span class="hs-identifier hs-var hs-var">audioSelectorSettings_audioTrackSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioSelectorSettings -&gt; Maybe AudioTrackSelection)
+-&gt; (AudioSelectorSettings
+    -&gt; Maybe AudioTrackSelection -&gt; AudioSelectorSettings)
+-&gt; Lens
+     AudioSelectorSettings
+     AudioSelectorSettings
+     (Maybe AudioTrackSelection)
+     (Maybe AudioTrackSelection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings%27"><span class="hs-identifier hs-type">AudioSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679866531"><span class="annot"><span class="annottext">Maybe AudioTrackSelection
+audioTrackSelection :: Maybe AudioTrackSelection
+$sel:audioTrackSelection:AudioSelectorSettings' :: AudioSelectorSettings -&gt; Maybe AudioTrackSelection
+</span><a href="#local-6989586621679866531"><span class="hs-identifier hs-var hs-var">audioTrackSelection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioTrackSelection
+</span><a href="#local-6989586621679866531"><span class="hs-identifier hs-var">audioTrackSelection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679866530"><span class="annot"><span class="annottext">s :: AudioSelectorSettings
+</span><a href="#local-6989586621679866530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings%27"><span class="hs-identifier hs-type">AudioSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679866529"><span class="annot"><span class="annottext">Maybe AudioTrackSelection
+</span><a href="#local-6989586621679866529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioSelectorSettings
+</span><a href="#local-6989586621679866530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioTrackSelection:AudioSelectorSettings' :: Maybe AudioTrackSelection
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#%24sel%3AaudioTrackSelection%3AAudioSelectorSettings%27"><span class="hs-identifier hs-var">audioTrackSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioTrackSelection
+</span><a href="#local-6989586621679866529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings"><span class="hs-identifier hs-type">AudioSelectorSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#audioSelectorSettings_audioHlsRenditionSelection"><span class="hs-identifier hs-type">audioSelectorSettings_audioHlsRenditionSelection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings"><span class="hs-identifier hs-type">AudioSelectorSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioHlsRenditionSelection.html#AudioHlsRenditionSelection"><span class="hs-identifier hs-type">AudioHlsRenditionSelection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="audioSelectorSettings_audioHlsRenditionSelection"><span class="annot"><span class="annottext">audioSelectorSettings_audioHlsRenditionSelection :: (Maybe AudioHlsRenditionSelection
+ -&gt; f (Maybe AudioHlsRenditionSelection))
+-&gt; AudioSelectorSettings -&gt; f AudioSelectorSettings
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#audioSelectorSettings_audioHlsRenditionSelection"><span class="hs-identifier hs-var hs-var">audioSelectorSettings_audioHlsRenditionSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioSelectorSettings -&gt; Maybe AudioHlsRenditionSelection)
+-&gt; (AudioSelectorSettings
+    -&gt; Maybe AudioHlsRenditionSelection -&gt; AudioSelectorSettings)
+-&gt; Lens
+     AudioSelectorSettings
+     AudioSelectorSettings
+     (Maybe AudioHlsRenditionSelection)
+     (Maybe AudioHlsRenditionSelection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings%27"><span class="hs-identifier hs-type">AudioSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679866527"><span class="annot"><span class="annottext">Maybe AudioHlsRenditionSelection
+audioHlsRenditionSelection :: Maybe AudioHlsRenditionSelection
+$sel:audioHlsRenditionSelection:AudioSelectorSettings' :: AudioSelectorSettings -&gt; Maybe AudioHlsRenditionSelection
+</span><a href="#local-6989586621679866527"><span class="hs-identifier hs-var hs-var">audioHlsRenditionSelection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioHlsRenditionSelection
+</span><a href="#local-6989586621679866527"><span class="hs-identifier hs-var">audioHlsRenditionSelection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679866526"><span class="annot"><span class="annottext">s :: AudioSelectorSettings
+</span><a href="#local-6989586621679866526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings%27"><span class="hs-identifier hs-type">AudioSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679866525"><span class="annot"><span class="annottext">Maybe AudioHlsRenditionSelection
+</span><a href="#local-6989586621679866525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioSelectorSettings
+</span><a href="#local-6989586621679866526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioHlsRenditionSelection:AudioSelectorSettings' :: Maybe AudioHlsRenditionSelection
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#%24sel%3AaudioHlsRenditionSelection%3AAudioSelectorSettings%27"><span class="hs-identifier hs-var">audioHlsRenditionSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioHlsRenditionSelection
+</span><a href="#local-6989586621679866525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings"><span class="hs-identifier hs-type">AudioSelectorSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#audioSelectorSettings_audioPidSelection"><span class="hs-identifier hs-type">audioSelectorSettings_audioPidSelection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings"><span class="hs-identifier hs-type">AudioSelectorSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioPidSelection.html#AudioPidSelection"><span class="hs-identifier hs-type">AudioPidSelection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="audioSelectorSettings_audioPidSelection"><span class="annot"><span class="annottext">audioSelectorSettings_audioPidSelection :: (Maybe AudioPidSelection -&gt; f (Maybe AudioPidSelection))
+-&gt; AudioSelectorSettings -&gt; f AudioSelectorSettings
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#audioSelectorSettings_audioPidSelection"><span class="hs-identifier hs-var hs-var">audioSelectorSettings_audioPidSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioSelectorSettings -&gt; Maybe AudioPidSelection)
+-&gt; (AudioSelectorSettings
+    -&gt; Maybe AudioPidSelection -&gt; AudioSelectorSettings)
+-&gt; Lens
+     AudioSelectorSettings
+     AudioSelectorSettings
+     (Maybe AudioPidSelection)
+     (Maybe AudioPidSelection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings%27"><span class="hs-identifier hs-type">AudioSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679866523"><span class="annot"><span class="annottext">Maybe AudioPidSelection
+audioPidSelection :: Maybe AudioPidSelection
+$sel:audioPidSelection:AudioSelectorSettings' :: AudioSelectorSettings -&gt; Maybe AudioPidSelection
+</span><a href="#local-6989586621679866523"><span class="hs-identifier hs-var hs-var">audioPidSelection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioPidSelection
+</span><a href="#local-6989586621679866523"><span class="hs-identifier hs-var">audioPidSelection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679866522"><span class="annot"><span class="annottext">s :: AudioSelectorSettings
+</span><a href="#local-6989586621679866522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings%27"><span class="hs-identifier hs-type">AudioSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679866521"><span class="annot"><span class="annottext">Maybe AudioPidSelection
+</span><a href="#local-6989586621679866521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioSelectorSettings
+</span><a href="#local-6989586621679866522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioPidSelection:AudioSelectorSettings' :: Maybe AudioPidSelection
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#%24sel%3AaudioPidSelection%3AAudioSelectorSettings%27"><span class="hs-identifier hs-var">audioPidSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioPidSelection
+</span><a href="#local-6989586621679866521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings"><span class="hs-identifier hs-type">AudioSelectorSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679866518"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings"><span class="hs-identifier hs-type">AudioSelectorSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679866516"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioSelectorSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AudioSelectorSettings)
+-&gt; Value
+-&gt; Parser AudioSelectorSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AudioSelectorSettings&quot;</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679866513"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679866513"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe AudioLanguageSelection
+-&gt; Maybe AudioTrackSelection
+-&gt; Maybe AudioHlsRenditionSelection
+-&gt; Maybe AudioPidSelection
+-&gt; AudioSelectorSettings
+</span><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings%27"><span class="hs-identifier hs-var">AudioSelectorSettings'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AudioLanguageSelection
+ -&gt; Maybe AudioTrackSelection
+ -&gt; Maybe AudioHlsRenditionSelection
+ -&gt; Maybe AudioPidSelection
+ -&gt; AudioSelectorSettings)
+-&gt; Parser (Maybe AudioLanguageSelection)
+-&gt; Parser
+     (Maybe AudioTrackSelection
+      -&gt; Maybe AudioHlsRenditionSelection
+      -&gt; Maybe AudioPidSelection
+      -&gt; AudioSelectorSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679866513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioLanguageSelection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioLanguageSelection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AudioTrackSelection
+   -&gt; Maybe AudioHlsRenditionSelection
+   -&gt; Maybe AudioPidSelection
+   -&gt; AudioSelectorSettings)
+-&gt; Parser (Maybe AudioTrackSelection)
+-&gt; Parser
+     (Maybe AudioHlsRenditionSelection
+      -&gt; Maybe AudioPidSelection -&gt; AudioSelectorSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679866513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioTrackSelection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioTrackSelection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AudioHlsRenditionSelection
+   -&gt; Maybe AudioPidSelection -&gt; AudioSelectorSettings)
+-&gt; Parser (Maybe AudioHlsRenditionSelection)
+-&gt; Parser (Maybe AudioPidSelection -&gt; AudioSelectorSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679866513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioHlsRenditionSelection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioHlsRenditionSelection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AudioPidSelection -&gt; AudioSelectorSettings)
+-&gt; Parser (Maybe AudioPidSelection) -&gt; Parser AudioSelectorSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679866513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioPidSelection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioPidSelection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679866507"><span id="local-6989586621679866509"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings"><span class="hs-identifier hs-type">AudioSelectorSettings</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679866504"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings"><span class="hs-identifier hs-type">AudioSelectorSettings</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679866496"><span id="local-6989586621679866498"><span id="local-6989586621679866500"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings"><span class="hs-identifier hs-type">AudioSelectorSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679866494"><span class="annot"><span class="annottext">toJSON :: AudioSelectorSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioSelectorSettings.html#AudioSelectorSettings%27"><span class="hs-identifier hs-type">AudioSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679866489"><span id="local-6989586621679866490"><span id="local-6989586621679866491"><span id="local-6989586621679866492"><span class="annot"><span class="annottext">Maybe AudioHlsRenditionSelection
+Maybe AudioLanguageSelection
+Maybe AudioPidSelection
+Maybe AudioTrackSelection
+audioPidSelection :: Maybe AudioPidSelection
+audioHlsRenditionSelection :: Maybe AudioHlsRenditionSelection
+audioTrackSelection :: Maybe AudioTrackSelection
+audioLanguageSelection :: Maybe AudioLanguageSelection
+$sel:audioPidSelection:AudioSelectorSettings' :: AudioSelectorSettings -&gt; Maybe AudioPidSelection
+$sel:audioHlsRenditionSelection:AudioSelectorSettings' :: AudioSelectorSettings -&gt; Maybe AudioHlsRenditionSelection
+$sel:audioTrackSelection:AudioSelectorSettings' :: AudioSelectorSettings -&gt; Maybe AudioTrackSelection
+$sel:audioLanguageSelection:AudioSelectorSettings' :: AudioSelectorSettings -&gt; Maybe AudioLanguageSelection
+</span><a href="#local-6989586621679866489"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioLanguageSelection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AudioLanguageSelection -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">(AudioLanguageSelection -&gt; Pair)
+-&gt; Maybe AudioLanguageSelection -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioLanguageSelection
+</span><a href="#local-6989586621679866492"><span class="hs-identifier hs-var">audioLanguageSelection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioTrackSelection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AudioTrackSelection -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">(AudioTrackSelection -&gt; Pair)
+-&gt; Maybe AudioTrackSelection -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioTrackSelection
+</span><a href="#local-6989586621679866491"><span class="hs-identifier hs-var">audioTrackSelection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioHlsRenditionSelection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AudioHlsRenditionSelection -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">(AudioHlsRenditionSelection -&gt; Pair)
+-&gt; Maybe AudioHlsRenditionSelection -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioHlsRenditionSelection
+</span><a href="#local-6989586621679866490"><span class="hs-identifier hs-var">audioHlsRenditionSelection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioPidSelection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AudioPidSelection -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">(AudioPidSelection -&gt; Pair)
+-&gt; Maybe AudioPidSelection -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioPidSelection
+</span><a href="#local-6989586621679866489"><span class="hs-identifier hs-var">audioPidSelection</span></a></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span></pre></body></html>

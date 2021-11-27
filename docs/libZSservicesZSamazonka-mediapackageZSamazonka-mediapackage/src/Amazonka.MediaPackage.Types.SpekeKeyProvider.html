@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaPackage.Types.SpekeKeyProvider</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaPackage.Types.SpekeKeyProvider</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.EncryptionContractConfiguration.html"><span class="hs-identifier">Amazonka.MediaPackage.Types.EncryptionContractConfiguration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A configuration for accessing an external Secure Packager and Encoder</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Key Exchange (SPEKE) service that will provide encryption keys.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSpekeKeyProvider' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679237851"><span id="local-6989586621679237852"></span></span><span class="hs-keyword">data</span><span> </span><span id="SpekeKeyProvider"><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-var">SpekeKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SpekeKeyProvider%27"><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-var">SpekeKeyProvider'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AencryptionContractConfiguration%3ASpekeKeyProvider%27"><span class="annot"><span class="annottext">SpekeKeyProvider -&gt; Maybe EncryptionContractConfiguration
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3AencryptionContractConfiguration%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var hs-var">encryptionContractConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.EncryptionContractConfiguration.html#EncryptionContractConfiguration"><span class="hs-identifier hs-type">EncryptionContractConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | An Amazon Resource Name (ARN) of a Certificate Manager certificate that</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- MediaPackage will use for enforcing secure end-to-end data transfer with</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the key provider service.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcertificateArn%3ASpekeKeyProvider%27"><span class="annot"><span class="annottext">SpekeKeyProvider -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3AcertificateArn%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The resource ID to include in key requests.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AresourceId%3ASpekeKeyProvider%27"><span class="annot"><span class="annottext">SpekeKeyProvider -&gt; Text
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3AresourceId%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The system IDs to include in key requests.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsystemIds%3ASpekeKeyProvider%27"><span class="annot"><span class="annottext">SpekeKeyProvider -&gt; [Text]
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3AsystemIds%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var hs-var">systemIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The URL of the external key provider service.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aurl%3ASpekeKeyProvider%27"><span class="annot"><span class="annottext">SpekeKeyProvider -&gt; Text
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3Aurl%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | An Amazon Resource Name (ARN) of an IAM role that AWS Elemental</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- MediaPackage will assume when accessing the key provider service.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AroleArn%3ASpekeKeyProvider%27"><span class="annot"><span class="annottext">SpekeKeyProvider -&gt; Text
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3AroleArn%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237840"><span id="local-6989586621679237842"><span class="annot"><span class="annottext">SpekeKeyProvider -&gt; SpekeKeyProvider -&gt; Bool
+(SpekeKeyProvider -&gt; SpekeKeyProvider -&gt; Bool)
+-&gt; (SpekeKeyProvider -&gt; SpekeKeyProvider -&gt; Bool)
+-&gt; Eq SpekeKeyProvider
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SpekeKeyProvider -&gt; SpekeKeyProvider -&gt; Bool
+$c/= :: SpekeKeyProvider -&gt; SpekeKeyProvider -&gt; Bool
+== :: SpekeKeyProvider -&gt; SpekeKeyProvider -&gt; Bool
+$c== :: SpekeKeyProvider -&gt; SpekeKeyProvider -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237831"><span id="local-6989586621679237833"><span id="local-6989586621679237835"><span id="local-6989586621679237837"><span class="annot"><span class="annottext">ReadPrec [SpekeKeyProvider]
+ReadPrec SpekeKeyProvider
+Int -&gt; ReadS SpekeKeyProvider
+ReadS [SpekeKeyProvider]
+(Int -&gt; ReadS SpekeKeyProvider)
+-&gt; ReadS [SpekeKeyProvider]
+-&gt; ReadPrec SpekeKeyProvider
+-&gt; ReadPrec [SpekeKeyProvider]
+-&gt; Read SpekeKeyProvider
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SpekeKeyProvider]
+$creadListPrec :: ReadPrec [SpekeKeyProvider]
+readPrec :: ReadPrec SpekeKeyProvider
+$creadPrec :: ReadPrec SpekeKeyProvider
+readList :: ReadS [SpekeKeyProvider]
+$creadList :: ReadS [SpekeKeyProvider]
+readsPrec :: Int -&gt; ReadS SpekeKeyProvider
+$creadsPrec :: Int -&gt; ReadS SpekeKeyProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237824"><span id="local-6989586621679237826"><span id="local-6989586621679237828"><span class="annot"><span class="annottext">Int -&gt; SpekeKeyProvider -&gt; ShowS
+[SpekeKeyProvider] -&gt; ShowS
+SpekeKeyProvider -&gt; String
+(Int -&gt; SpekeKeyProvider -&gt; ShowS)
+-&gt; (SpekeKeyProvider -&gt; String)
+-&gt; ([SpekeKeyProvider] -&gt; ShowS)
+-&gt; Show SpekeKeyProvider
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SpekeKeyProvider] -&gt; ShowS
+$cshowList :: [SpekeKeyProvider] -&gt; ShowS
+show :: SpekeKeyProvider -&gt; String
+$cshow :: SpekeKeyProvider -&gt; String
+showsPrec :: Int -&gt; SpekeKeyProvider -&gt; ShowS
+$cshowsPrec :: Int -&gt; SpekeKeyProvider -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SpekeKeyProvider -&gt; Rep SpekeKeyProvider x)
+-&gt; (forall x. Rep SpekeKeyProvider x -&gt; SpekeKeyProvider)
+-&gt; Generic SpekeKeyProvider
+forall x. Rep SpekeKeyProvider x -&gt; SpekeKeyProvider
+forall x. SpekeKeyProvider -&gt; Rep SpekeKeyProvider x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SpekeKeyProvider x -&gt; SpekeKeyProvider
+$cfrom :: forall x. SpekeKeyProvider -&gt; Rep SpekeKeyProvider x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'SpekeKeyProvider' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'encryptionContractConfiguration', 'spekeKeyProvider_encryptionContractConfiguration' - Undocumented member.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'certificateArn', 'spekeKeyProvider_certificateArn' - An Amazon Resource Name (ARN) of a Certificate Manager certificate that</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- MediaPackage will use for enforcing secure end-to-end data transfer with</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- the key provider service.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'resourceId', 'spekeKeyProvider_resourceId' - The resource ID to include in key requests.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'systemIds', 'spekeKeyProvider_systemIds' - The system IDs to include in key requests.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'url', 'spekeKeyProvider_url' - The URL of the external key provider service.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'roleArn', 'spekeKeyProvider_roleArn' - An Amazon Resource Name (ARN) of an IAM role that AWS Elemental</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- MediaPackage will assume when accessing the key provider service.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#newSpekeKeyProvider"><span class="hs-identifier hs-type">newSpekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'resourceId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'url'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span>
+</span><span id="line-79"></span><span id="newSpekeKeyProvider"><span class="annot"><span class="annottext">newSpekeKeyProvider :: Text -&gt; Text -&gt; Text -&gt; SpekeKeyProvider
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#newSpekeKeyProvider"><span class="hs-identifier hs-var hs-var">newSpekeKeyProvider</span></a></span></span><span> </span><span id="local-6989586621679237818"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237818"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span id="local-6989586621679237817"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237817"><span class="hs-identifier hs-var">pUrl_</span></a></span></span><span> </span><span id="local-6989586621679237816"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237816"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">SpekeKeyProvider' :: Maybe EncryptionContractConfiguration
+-&gt; Maybe Text -&gt; Text -&gt; [Text] -&gt; Text -&gt; Text -&gt; SpekeKeyProvider
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-type">SpekeKeyProvider'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryptionContractConfiguration:SpekeKeyProvider' :: Maybe EncryptionContractConfiguration
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3AencryptionContractConfiguration%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var">encryptionContractConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe EncryptionContractConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateArn:SpekeKeyProvider' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3AcertificateArn%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceId:SpekeKeyProvider' :: Text
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3AresourceId%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237818"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:systemIds:SpekeKeyProvider' :: [Text]
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3AsystemIds%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var">systemIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:SpekeKeyProvider' :: Text
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3Aurl%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237817"><span class="hs-identifier hs-var">pUrl_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:SpekeKeyProvider' :: Text
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3AroleArn%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237816"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#spekeKeyProvider_encryptionContractConfiguration"><span class="hs-identifier hs-type">spekeKeyProvider_encryptionContractConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.EncryptionContractConfiguration.html#EncryptionContractConfiguration"><span class="hs-identifier hs-type">EncryptionContractConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="spekeKeyProvider_encryptionContractConfiguration"><span class="annot"><span class="annottext">spekeKeyProvider_encryptionContractConfiguration :: (Maybe EncryptionContractConfiguration
+ -&gt; f (Maybe EncryptionContractConfiguration))
+-&gt; SpekeKeyProvider -&gt; f SpekeKeyProvider
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#spekeKeyProvider_encryptionContractConfiguration"><span class="hs-identifier hs-var hs-var">spekeKeyProvider_encryptionContractConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SpekeKeyProvider -&gt; Maybe EncryptionContractConfiguration)
+-&gt; (SpekeKeyProvider
+    -&gt; Maybe EncryptionContractConfiguration -&gt; SpekeKeyProvider)
+-&gt; Lens
+     SpekeKeyProvider
+     SpekeKeyProvider
+     (Maybe EncryptionContractConfiguration)
+     (Maybe EncryptionContractConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-type">SpekeKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237812"><span class="annot"><span class="annottext">Maybe EncryptionContractConfiguration
+encryptionContractConfiguration :: Maybe EncryptionContractConfiguration
+$sel:encryptionContractConfiguration:SpekeKeyProvider' :: SpekeKeyProvider -&gt; Maybe EncryptionContractConfiguration
+</span><a href="#local-6989586621679237812"><span class="hs-identifier hs-var hs-var">encryptionContractConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionContractConfiguration
+</span><a href="#local-6989586621679237812"><span class="hs-identifier hs-var">encryptionContractConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237811"><span class="annot"><span class="annottext">s :: SpekeKeyProvider
+</span><a href="#local-6989586621679237811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-type">SpekeKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237810"><span class="annot"><span class="annottext">Maybe EncryptionContractConfiguration
+</span><a href="#local-6989586621679237810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpekeKeyProvider
+</span><a href="#local-6989586621679237811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionContractConfiguration:SpekeKeyProvider' :: Maybe EncryptionContractConfiguration
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3AencryptionContractConfiguration%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var">encryptionContractConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionContractConfiguration
+</span><a href="#local-6989586621679237810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | An Amazon Resource Name (ARN) of a Certificate Manager certificate that</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- MediaPackage will use for enforcing secure end-to-end data transfer with</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- the key provider service.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#spekeKeyProvider_certificateArn"><span class="hs-identifier hs-type">spekeKeyProvider_certificateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="spekeKeyProvider_certificateArn"><span class="annot"><span class="annottext">spekeKeyProvider_certificateArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SpekeKeyProvider -&gt; f SpekeKeyProvider
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#spekeKeyProvider_certificateArn"><span class="hs-identifier hs-var hs-var">spekeKeyProvider_certificateArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SpekeKeyProvider -&gt; Maybe Text)
+-&gt; (SpekeKeyProvider -&gt; Maybe Text -&gt; SpekeKeyProvider)
+-&gt; Lens SpekeKeyProvider SpekeKeyProvider (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-type">SpekeKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237808"><span class="annot"><span class="annottext">Maybe Text
+certificateArn :: Maybe Text
+$sel:certificateArn:SpekeKeyProvider' :: SpekeKeyProvider -&gt; Maybe Text
+</span><a href="#local-6989586621679237808"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237808"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237807"><span class="annot"><span class="annottext">s :: SpekeKeyProvider
+</span><a href="#local-6989586621679237807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-type">SpekeKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237806"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpekeKeyProvider
+</span><a href="#local-6989586621679237807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:SpekeKeyProvider' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3AcertificateArn%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The resource ID to include in key requests.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#spekeKeyProvider_resourceId"><span class="hs-identifier hs-type">spekeKeyProvider_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span id="spekeKeyProvider_resourceId"><span class="annot"><span class="annottext">spekeKeyProvider_resourceId :: (Text -&gt; f Text) -&gt; SpekeKeyProvider -&gt; f SpekeKeyProvider
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#spekeKeyProvider_resourceId"><span class="hs-identifier hs-var hs-var">spekeKeyProvider_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SpekeKeyProvider -&gt; Text)
+-&gt; (SpekeKeyProvider -&gt; Text -&gt; SpekeKeyProvider)
+-&gt; Lens SpekeKeyProvider SpekeKeyProvider Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-type">SpekeKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237804"><span class="annot"><span class="annottext">Text
+resourceId :: Text
+$sel:resourceId:SpekeKeyProvider' :: SpekeKeyProvider -&gt; Text
+</span><a href="#local-6989586621679237804"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237804"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237803"><span class="annot"><span class="annottext">s :: SpekeKeyProvider
+</span><a href="#local-6989586621679237803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-type">SpekeKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237802"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpekeKeyProvider
+</span><a href="#local-6989586621679237803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:SpekeKeyProvider' :: Text
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3AresourceId%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The system IDs to include in key requests.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#spekeKeyProvider_systemIds"><span class="hs-identifier hs-type">spekeKeyProvider_systemIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span id="spekeKeyProvider_systemIds"><span class="annot"><span class="annottext">spekeKeyProvider_systemIds :: ([Text] -&gt; f [Text]) -&gt; SpekeKeyProvider -&gt; f SpekeKeyProvider
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#spekeKeyProvider_systemIds"><span class="hs-identifier hs-var hs-var">spekeKeyProvider_systemIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SpekeKeyProvider -&gt; [Text])
+-&gt; (SpekeKeyProvider -&gt; [Text] -&gt; SpekeKeyProvider)
+-&gt; Lens SpekeKeyProvider SpekeKeyProvider [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-type">SpekeKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237800"><span class="annot"><span class="annottext">[Text]
+systemIds :: [Text]
+$sel:systemIds:SpekeKeyProvider' :: SpekeKeyProvider -&gt; [Text]
+</span><a href="#local-6989586621679237800"><span class="hs-identifier hs-var hs-var">systemIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679237800"><span class="hs-identifier hs-var">systemIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237799"><span class="annot"><span class="annottext">s :: SpekeKeyProvider
+</span><a href="#local-6989586621679237799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-type">SpekeKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237798"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679237798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpekeKeyProvider
+</span><a href="#local-6989586621679237799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:systemIds:SpekeKeyProvider' :: [Text]
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3AsystemIds%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var">systemIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679237798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; SpekeKeyProvider -&gt; f SpekeKeyProvider)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; SpekeKeyProvider
+-&gt; f SpekeKeyProvider
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The URL of the external key provider service.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#spekeKeyProvider_url"><span class="hs-identifier hs-type">spekeKeyProvider_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span id="spekeKeyProvider_url"><span class="annot"><span class="annottext">spekeKeyProvider_url :: (Text -&gt; f Text) -&gt; SpekeKeyProvider -&gt; f SpekeKeyProvider
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#spekeKeyProvider_url"><span class="hs-identifier hs-var hs-var">spekeKeyProvider_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SpekeKeyProvider -&gt; Text)
+-&gt; (SpekeKeyProvider -&gt; Text -&gt; SpekeKeyProvider)
+-&gt; Lens SpekeKeyProvider SpekeKeyProvider Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-type">SpekeKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237794"><span class="annot"><span class="annottext">Text
+url :: Text
+$sel:url:SpekeKeyProvider' :: SpekeKeyProvider -&gt; Text
+</span><a href="#local-6989586621679237794"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237794"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237793"><span class="annot"><span class="annottext">s :: SpekeKeyProvider
+</span><a href="#local-6989586621679237793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-type">SpekeKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237792"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpekeKeyProvider
+</span><a href="#local-6989586621679237793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:SpekeKeyProvider' :: Text
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3Aurl%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | An Amazon Resource Name (ARN) of an IAM role that AWS Elemental</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- MediaPackage will assume when accessing the key provider service.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#spekeKeyProvider_roleArn"><span class="hs-identifier hs-type">spekeKeyProvider_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="spekeKeyProvider_roleArn"><span class="annot"><span class="annottext">spekeKeyProvider_roleArn :: (Text -&gt; f Text) -&gt; SpekeKeyProvider -&gt; f SpekeKeyProvider
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#spekeKeyProvider_roleArn"><span class="hs-identifier hs-var hs-var">spekeKeyProvider_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SpekeKeyProvider -&gt; Text)
+-&gt; (SpekeKeyProvider -&gt; Text -&gt; SpekeKeyProvider)
+-&gt; Lens SpekeKeyProvider SpekeKeyProvider Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-type">SpekeKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237790"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:SpekeKeyProvider' :: SpekeKeyProvider -&gt; Text
+</span><a href="#local-6989586621679237790"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237790"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237789"><span class="annot"><span class="annottext">s :: SpekeKeyProvider
+</span><a href="#local-6989586621679237789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-type">SpekeKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237788"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpekeKeyProvider
+</span><a href="#local-6989586621679237789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:SpekeKeyProvider' :: Text
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#%24sel%3AroleArn%3ASpekeKeyProvider%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237785"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679237783"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SpekeKeyProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SpekeKeyProvider)
+-&gt; Value
+-&gt; Parser SpekeKeyProvider
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SpekeKeyProvider&quot;</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237780"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237780"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe EncryptionContractConfiguration
+-&gt; Maybe Text -&gt; Text -&gt; [Text] -&gt; Text -&gt; Text -&gt; SpekeKeyProvider
+</span><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-var">SpekeKeyProvider'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EncryptionContractConfiguration
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; [Text]
+ -&gt; Text
+ -&gt; Text
+ -&gt; SpekeKeyProvider)
+-&gt; Parser (Maybe EncryptionContractConfiguration)
+-&gt; Parser
+     (Maybe Text -&gt; Text -&gt; [Text] -&gt; Text -&gt; Text -&gt; SpekeKeyProvider)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionContractConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryptionContractConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Text -&gt; [Text] -&gt; Text -&gt; Text -&gt; SpekeKeyProvider)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; [Text] -&gt; Text -&gt; Text -&gt; SpekeKeyProvider)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificateArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; [Text] -&gt; Text -&gt; Text -&gt; SpekeKeyProvider)
+-&gt; Parser Text
+-&gt; Parser ([Text] -&gt; Text -&gt; Text -&gt; SpekeKeyProvider)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Text] -&gt; Text -&gt; Text -&gt; SpekeKeyProvider)
+-&gt; Parser [Text] -&gt; Parser (Text -&gt; Text -&gt; SpekeKeyProvider)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;systemIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; SpekeKeyProvider)
+-&gt; Parser Text -&gt; Parser (Text -&gt; SpekeKeyProvider)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;url&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; SpekeKeyProvider)
+-&gt; Parser Text -&gt; Parser SpekeKeyProvider
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237772"><span id="local-6989586621679237774"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237769"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237761"><span id="local-6989586621679237763"><span id="local-6989586621679237765"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679237759"><span class="annot"><span class="annottext">toJSON :: SpekeKeyProvider -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider%27"><span class="hs-identifier hs-type">SpekeKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237752"><span id="local-6989586621679237753"><span id="local-6989586621679237754"><span id="local-6989586621679237755"><span id="local-6989586621679237756"><span id="local-6989586621679237757"><span class="annot"><span class="annottext">[Text]
+Maybe Text
+Maybe EncryptionContractConfiguration
+Text
+roleArn :: Text
+url :: Text
+systemIds :: [Text]
+resourceId :: Text
+certificateArn :: Maybe Text
+encryptionContractConfiguration :: Maybe EncryptionContractConfiguration
+$sel:roleArn:SpekeKeyProvider' :: SpekeKeyProvider -&gt; Text
+$sel:url:SpekeKeyProvider' :: SpekeKeyProvider -&gt; Text
+$sel:systemIds:SpekeKeyProvider' :: SpekeKeyProvider -&gt; [Text]
+$sel:resourceId:SpekeKeyProvider' :: SpekeKeyProvider -&gt; Text
+$sel:certificateArn:SpekeKeyProvider' :: SpekeKeyProvider -&gt; Maybe Text
+$sel:encryptionContractConfiguration:SpekeKeyProvider' :: SpekeKeyProvider -&gt; Maybe EncryptionContractConfiguration
+</span><a href="#local-6989586621679237752"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryptionContractConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionContractConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">(EncryptionContractConfiguration -&gt; Pair)
+-&gt; Maybe EncryptionContractConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionContractConfiguration
+</span><a href="#local-6989586621679237757"><span class="hs-identifier hs-var">encryptionContractConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237756"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237755"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;systemIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679237754"><span class="hs-identifier hs-var">systemIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;url&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237753"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237752"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span></pre></body></html>

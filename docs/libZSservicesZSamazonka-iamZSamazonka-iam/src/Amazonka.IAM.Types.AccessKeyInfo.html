@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IAM.Types.AccessKeyInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IAM.Types.AccessKeyInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.StatusType.html"><span class="hs-identifier">Amazonka.IAM.Types.StatusType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about an Amazon Web Services access key.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This data type is used as a response element in the CreateAccessKey and</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- ListAccessKeys operations.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- The @SecretAccessKey@ value is returned only in response to</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- CreateAccessKey. You can get a secret access key only when you first</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- create an access key; you cannot recover the secret access key later. If</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- you lose a secret access key, you must create a new access key.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newAccessKeyInfo' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679431481"><span id="local-6989586621679431482"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessKeyInfo"><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-var">AccessKeyInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessKeyInfo%27"><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo%27"><span class="hs-identifier hs-var">AccessKeyInfo'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date when the access key was created.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcreateDate%3AAccessKeyInfo%27"><span class="annot"><span class="annottext">AccessKeyInfo -&gt; Maybe ISO8601
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#%24sel%3AcreateDate%3AAccessKeyInfo%27"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the IAM user that the access key is associated with.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AuserName%3AAccessKeyInfo%27"><span class="annot"><span class="annottext">AccessKeyInfo -&gt; Text
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#%24sel%3AuserName%3AAccessKeyInfo%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID for this access key.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AaccessKeyId%3AAccessKeyInfo%27"><span class="annot"><span class="annottext">AccessKeyInfo -&gt; AccessKey
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#%24sel%3AaccessKeyId%3AAccessKeyInfo%27"><span class="hs-identifier hs-var hs-var">accessKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AccessKey</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The status of the access key. @Active@ means that the key is valid for</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- API calls, while @Inactive@ means it is not.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Astatus%3AAccessKeyInfo%27"><span class="annot"><span class="annottext">AccessKeyInfo -&gt; StatusType
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#%24sel%3Astatus%3AAccessKeyInfo%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.StatusType.html#StatusType"><span class="hs-identifier hs-type">StatusType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The secret key used to sign requests.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AsecretAccessKey%3AAccessKeyInfo%27"><span class="annot"><span class="annottext">AccessKeyInfo -&gt; Sensitive Text
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#%24sel%3AsecretAccessKey%3AAccessKeyInfo%27"><span class="hs-identifier hs-var hs-var">secretAccessKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431471"><span id="local-6989586621679431473"><span class="annot"><span class="annottext">AccessKeyInfo -&gt; AccessKeyInfo -&gt; Bool
+(AccessKeyInfo -&gt; AccessKeyInfo -&gt; Bool)
+-&gt; (AccessKeyInfo -&gt; AccessKeyInfo -&gt; Bool) -&gt; Eq AccessKeyInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AccessKeyInfo -&gt; AccessKeyInfo -&gt; Bool
+$c/= :: AccessKeyInfo -&gt; AccessKeyInfo -&gt; Bool
+== :: AccessKeyInfo -&gt; AccessKeyInfo -&gt; Bool
+$c== :: AccessKeyInfo -&gt; AccessKeyInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431464"><span id="local-6989586621679431466"><span id="local-6989586621679431468"><span class="annot"><span class="annottext">Int -&gt; AccessKeyInfo -&gt; ShowS
+[AccessKeyInfo] -&gt; ShowS
+AccessKeyInfo -&gt; String
+(Int -&gt; AccessKeyInfo -&gt; ShowS)
+-&gt; (AccessKeyInfo -&gt; String)
+-&gt; ([AccessKeyInfo] -&gt; ShowS)
+-&gt; Show AccessKeyInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AccessKeyInfo] -&gt; ShowS
+$cshowList :: [AccessKeyInfo] -&gt; ShowS
+show :: AccessKeyInfo -&gt; String
+$cshow :: AccessKeyInfo -&gt; String
+showsPrec :: Int -&gt; AccessKeyInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; AccessKeyInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AccessKeyInfo -&gt; Rep AccessKeyInfo x)
+-&gt; (forall x. Rep AccessKeyInfo x -&gt; AccessKeyInfo)
+-&gt; Generic AccessKeyInfo
+forall x. Rep AccessKeyInfo x -&gt; AccessKeyInfo
+forall x. AccessKeyInfo -&gt; Rep AccessKeyInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AccessKeyInfo x -&gt; AccessKeyInfo
+$cfrom :: forall x. AccessKeyInfo -&gt; Rep AccessKeyInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'AccessKeyInfo' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'createDate', 'accessKeyInfo_createDate' - The date when the access key was created.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'userName', 'accessKeyInfo_userName' - The name of the IAM user that the access key is associated with.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'accessKeyId', 'accessKeyInfo_accessKeyId' - The ID for this access key.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'status', 'accessKeyInfo_status' - The status of the access key. @Active@ means that the key is valid for</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- API calls, while @Inactive@ means it is not.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'secretAccessKey', 'accessKeyInfo_secretAccessKey' - The secret key used to sign requests.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#newAccessKeyInfo"><span class="hs-identifier hs-type">newAccessKeyInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'userName'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'accessKeyId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AccessKey</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.StatusType.html#StatusType"><span class="hs-identifier hs-type">StatusType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'secretAccessKey'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span><span>
+</span><span id="line-81"></span><span id="newAccessKeyInfo"><span class="annot"><span class="annottext">newAccessKeyInfo :: Text -&gt; AccessKey -&gt; StatusType -&gt; Text -&gt; AccessKeyInfo
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#newAccessKeyInfo"><span class="hs-identifier hs-var hs-var">newAccessKeyInfo</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679431458"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431458"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679431457"><span class="annot"><span class="annottext">AccessKey
+</span><a href="#local-6989586621679431457"><span class="hs-identifier hs-var">pAccessKeyId_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679431456"><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679431456"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679431455"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431455"><span class="hs-identifier hs-var">pSecretAccessKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">AccessKeyInfo' :: Maybe ISO8601
+-&gt; Text
+-&gt; AccessKey
+-&gt; StatusType
+-&gt; Sensitive Text
+-&gt; AccessKeyInfo
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo%27"><span class="hs-identifier hs-type">AccessKeyInfo'</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createDate:AccessKeyInfo' :: Maybe ISO8601
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#%24sel%3AcreateDate%3AAccessKeyInfo%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:userName:AccessKeyInfo' :: Text
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#%24sel%3AuserName%3AAccessKeyInfo%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431458"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:accessKeyId:AccessKeyInfo' :: AccessKey
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#%24sel%3AaccessKeyId%3AAccessKeyInfo%27"><span class="hs-identifier hs-var">accessKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccessKey
+</span><a href="#local-6989586621679431457"><span class="hs-identifier hs-var">pAccessKeyId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:AccessKeyInfo' :: StatusType
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#%24sel%3Astatus%3AAccessKeyInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679431456"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:secretAccessKey:AccessKeyInfo' :: Sensitive Text
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#%24sel%3AsecretAccessKey%3AAccessKeyInfo%27"><span class="hs-identifier hs-var">secretAccessKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431455"><span class="hs-identifier hs-var">pSecretAccessKey_</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The date when the access key was created.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#accessKeyInfo_createDate"><span class="hs-identifier hs-type">accessKeyInfo_createDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="accessKeyInfo_createDate"><span class="annot"><span class="annottext">accessKeyInfo_createDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AccessKeyInfo -&gt; f AccessKeyInfo
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#accessKeyInfo_createDate"><span class="hs-identifier hs-var hs-var">accessKeyInfo_createDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessKeyInfo -&gt; Maybe ISO8601)
+-&gt; (AccessKeyInfo -&gt; Maybe ISO8601 -&gt; AccessKeyInfo)
+-&gt; Lens AccessKeyInfo AccessKeyInfo (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo%27"><span class="hs-identifier hs-type">AccessKeyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431449"><span class="annot"><span class="annottext">Maybe ISO8601
+createDate :: Maybe ISO8601
+$sel:createDate:AccessKeyInfo' :: AccessKeyInfo -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679431449"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679431449"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431448"><span class="annot"><span class="annottext">s :: AccessKeyInfo
+</span><a href="#local-6989586621679431448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo%27"><span class="hs-identifier hs-type">AccessKeyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431447"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679431447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKeyInfo
+</span><a href="#local-6989586621679431448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:AccessKeyInfo' :: Maybe ISO8601
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#%24sel%3AcreateDate%3AAccessKeyInfo%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679431447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; AccessKeyInfo -&gt; f AccessKeyInfo)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AccessKeyInfo
+-&gt; f AccessKeyInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The name of the IAM user that the access key is associated with.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#accessKeyInfo_userName"><span class="hs-identifier hs-type">accessKeyInfo_userName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="accessKeyInfo_userName"><span class="annot"><span class="annottext">accessKeyInfo_userName :: (Text -&gt; f Text) -&gt; AccessKeyInfo -&gt; f AccessKeyInfo
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#accessKeyInfo_userName"><span class="hs-identifier hs-var hs-var">accessKeyInfo_userName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessKeyInfo -&gt; Text)
+-&gt; (AccessKeyInfo -&gt; Text -&gt; AccessKeyInfo)
+-&gt; Lens AccessKeyInfo AccessKeyInfo Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo%27"><span class="hs-identifier hs-type">AccessKeyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431442"><span class="annot"><span class="annottext">Text
+userName :: Text
+$sel:userName:AccessKeyInfo' :: AccessKeyInfo -&gt; Text
+</span><a href="#local-6989586621679431442"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431442"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431441"><span class="annot"><span class="annottext">s :: AccessKeyInfo
+</span><a href="#local-6989586621679431441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo%27"><span class="hs-identifier hs-type">AccessKeyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431440"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKeyInfo
+</span><a href="#local-6989586621679431441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:AccessKeyInfo' :: Text
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#%24sel%3AuserName%3AAccessKeyInfo%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The ID for this access key.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#accessKeyInfo_accessKeyId"><span class="hs-identifier hs-type">accessKeyInfo_accessKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AccessKey</span></span><span>
+</span><span id="line-105"></span><span id="accessKeyInfo_accessKeyId"><span class="annot"><span class="annottext">accessKeyInfo_accessKeyId :: (AccessKey -&gt; f AccessKey) -&gt; AccessKeyInfo -&gt; f AccessKeyInfo
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#accessKeyInfo_accessKeyId"><span class="hs-identifier hs-var hs-var">accessKeyInfo_accessKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessKeyInfo -&gt; AccessKey)
+-&gt; (AccessKeyInfo -&gt; AccessKey -&gt; AccessKeyInfo)
+-&gt; Lens AccessKeyInfo AccessKeyInfo AccessKey AccessKey
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo%27"><span class="hs-identifier hs-type">AccessKeyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431438"><span class="annot"><span class="annottext">AccessKey
+accessKeyId :: AccessKey
+$sel:accessKeyId:AccessKeyInfo' :: AccessKeyInfo -&gt; AccessKey
+</span><a href="#local-6989586621679431438"><span class="hs-identifier hs-var hs-var">accessKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKey
+</span><a href="#local-6989586621679431438"><span class="hs-identifier hs-var">accessKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431437"><span class="annot"><span class="annottext">s :: AccessKeyInfo
+</span><a href="#local-6989586621679431437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo%27"><span class="hs-identifier hs-type">AccessKeyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431436"><span class="annot"><span class="annottext">AccessKey
+</span><a href="#local-6989586621679431436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKeyInfo
+</span><a href="#local-6989586621679431437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessKeyId:AccessKeyInfo' :: AccessKey
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#%24sel%3AaccessKeyId%3AAccessKeyInfo%27"><span class="hs-identifier hs-var">accessKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccessKey
+</span><a href="#local-6989586621679431436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The status of the access key. @Active@ means that the key is valid for</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- API calls, while @Inactive@ means it is not.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#accessKeyInfo_status"><span class="hs-identifier hs-type">accessKeyInfo_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.StatusType.html#StatusType"><span class="hs-identifier hs-type">StatusType</span></a></span><span>
+</span><span id="line-110"></span><span id="accessKeyInfo_status"><span class="annot"><span class="annottext">accessKeyInfo_status :: (StatusType -&gt; f StatusType) -&gt; AccessKeyInfo -&gt; f AccessKeyInfo
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#accessKeyInfo_status"><span class="hs-identifier hs-var hs-var">accessKeyInfo_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessKeyInfo -&gt; StatusType)
+-&gt; (AccessKeyInfo -&gt; StatusType -&gt; AccessKeyInfo)
+-&gt; Lens AccessKeyInfo AccessKeyInfo StatusType StatusType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo%27"><span class="hs-identifier hs-type">AccessKeyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431434"><span class="annot"><span class="annottext">StatusType
+status :: StatusType
+$sel:status:AccessKeyInfo' :: AccessKeyInfo -&gt; StatusType
+</span><a href="#local-6989586621679431434"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679431434"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431433"><span class="annot"><span class="annottext">s :: AccessKeyInfo
+</span><a href="#local-6989586621679431433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo%27"><span class="hs-identifier hs-type">AccessKeyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431432"><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679431432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKeyInfo
+</span><a href="#local-6989586621679431433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AccessKeyInfo' :: StatusType
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#%24sel%3Astatus%3AAccessKeyInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679431432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The secret key used to sign requests.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#accessKeyInfo_secretAccessKey"><span class="hs-identifier hs-type">accessKeyInfo_secretAccessKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="accessKeyInfo_secretAccessKey"><span class="annot"><span class="annottext">accessKeyInfo_secretAccessKey :: (Text -&gt; f Text) -&gt; AccessKeyInfo -&gt; f AccessKeyInfo
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#accessKeyInfo_secretAccessKey"><span class="hs-identifier hs-var hs-var">accessKeyInfo_secretAccessKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessKeyInfo -&gt; Sensitive Text)
+-&gt; (AccessKeyInfo -&gt; Sensitive Text -&gt; AccessKeyInfo)
+-&gt; Lens
+     AccessKeyInfo AccessKeyInfo (Sensitive Text) (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo%27"><span class="hs-identifier hs-type">AccessKeyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431430"><span class="annot"><span class="annottext">Sensitive Text
+secretAccessKey :: Sensitive Text
+$sel:secretAccessKey:AccessKeyInfo' :: AccessKeyInfo -&gt; Sensitive Text
+</span><a href="#local-6989586621679431430"><span class="hs-identifier hs-var hs-var">secretAccessKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679431430"><span class="hs-identifier hs-var">secretAccessKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431429"><span class="annot"><span class="annottext">s :: AccessKeyInfo
+</span><a href="#local-6989586621679431429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo%27"><span class="hs-identifier hs-type">AccessKeyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431428"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679431428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKeyInfo
+</span><a href="#local-6989586621679431429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretAccessKey:AccessKeyInfo' :: Sensitive Text
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#%24sel%3AsecretAccessKey%3AAccessKeyInfo%27"><span class="hs-identifier hs-var">secretAccessKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679431428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; AccessKeyInfo -&gt; f AccessKeyInfo)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; AccessKeyInfo
+-&gt; f AccessKeyInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679431425"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AccessKeyInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679431423"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679431423"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
+-&gt; Text
+-&gt; AccessKey
+-&gt; StatusType
+-&gt; Sensitive Text
+-&gt; AccessKeyInfo
+</span><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo%27"><span class="hs-identifier hs-var">AccessKeyInfo'</span></a></span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
+ -&gt; Text
+ -&gt; AccessKey
+ -&gt; StatusType
+ -&gt; Sensitive Text
+ -&gt; AccessKeyInfo)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Text
+      -&gt; AccessKey -&gt; StatusType -&gt; Sensitive Text -&gt; AccessKeyInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679431423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; AccessKey -&gt; StatusType -&gt; Sensitive Text -&gt; AccessKeyInfo)
+-&gt; Either String Text
+-&gt; Either
+     String (AccessKey -&gt; StatusType -&gt; Sensitive Text -&gt; AccessKeyInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679431423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (AccessKey -&gt; StatusType -&gt; Sensitive Text -&gt; AccessKeyInfo)
+-&gt; Either String AccessKey
+-&gt; Either String (StatusType -&gt; Sensitive Text -&gt; AccessKeyInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679431423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String AccessKey
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccessKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either String (StatusType -&gt; Sensitive Text -&gt; AccessKeyInfo)
+-&gt; Either String StatusType
+-&gt; Either String (Sensitive Text -&gt; AccessKeyInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679431423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String StatusType
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">Either String (Sensitive Text -&gt; AccessKeyInfo)
+-&gt; Either String (Sensitive Text) -&gt; Either String AccessKeyInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679431423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Sensitive Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretAccessKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431416"><span id="local-6989586621679431418"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431413"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span></span><span>
+</span><span id="line-128"></span></pre></body></html>

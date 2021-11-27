@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Chime.GetBot</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves details for the specified bot, such as bot email address, bot</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- type, status, and display name.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.GetBot</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot"><span class="hs-identifier">GetBot</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#newGetBot"><span class="hs-identifier">newGetBot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#getBot_accountId"><span class="hs-identifier">getBot_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#getBot_botId"><span class="hs-identifier">getBot_botId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBotResponse"><span class="hs-identifier">GetBotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#newGetBotResponse"><span class="hs-identifier">newGetBotResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#getBotResponse_bot"><span class="hs-identifier">getBotResponse_bot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#getBotResponse_httpStatus"><span class="hs-identifier">getBotResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.html"><span class="hs-identifier">Amazonka.Chime.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetBot' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679542172"><span id="local-6989586621679542173"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBot"><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot"><span class="hs-identifier hs-var">GetBot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBot%27"><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot%27"><span class="hs-identifier hs-var">GetBot'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AaccountId%3AGetBot%27"><span class="annot"><span class="annottext">GetBot -&gt; Text
+</span><a href="Amazonka.Chime.GetBot.html#%24sel%3AaccountId%3AGetBot%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The bot ID.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AbotId%3AGetBot%27"><span class="annot"><span class="annottext">GetBot -&gt; Text
+</span><a href="Amazonka.Chime.GetBot.html#%24sel%3AbotId%3AGetBot%27"><span class="hs-identifier hs-var hs-var">botId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679542165"><span id="local-6989586621679542167"><span class="annot"><span class="annottext">GetBot -&gt; GetBot -&gt; Bool
+(GetBot -&gt; GetBot -&gt; Bool)
+-&gt; (GetBot -&gt; GetBot -&gt; Bool) -&gt; Eq GetBot
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBot -&gt; GetBot -&gt; Bool
+$c/= :: GetBot -&gt; GetBot -&gt; Bool
+== :: GetBot -&gt; GetBot -&gt; Bool
+$c== :: GetBot -&gt; GetBot -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679542156"><span id="local-6989586621679542158"><span id="local-6989586621679542160"><span id="local-6989586621679542162"><span class="annot"><span class="annottext">ReadPrec [GetBot]
+ReadPrec GetBot
+Int -&gt; ReadS GetBot
+ReadS [GetBot]
+(Int -&gt; ReadS GetBot)
+-&gt; ReadS [GetBot]
+-&gt; ReadPrec GetBot
+-&gt; ReadPrec [GetBot]
+-&gt; Read GetBot
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBot]
+$creadListPrec :: ReadPrec [GetBot]
+readPrec :: ReadPrec GetBot
+$creadPrec :: ReadPrec GetBot
+readList :: ReadS [GetBot]
+$creadList :: ReadS [GetBot]
+readsPrec :: Int -&gt; ReadS GetBot
+$creadsPrec :: Int -&gt; ReadS GetBot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679542149"><span id="local-6989586621679542151"><span id="local-6989586621679542153"><span class="annot"><span class="annottext">Int -&gt; GetBot -&gt; ShowS
+[GetBot] -&gt; ShowS
+GetBot -&gt; String
+(Int -&gt; GetBot -&gt; ShowS)
+-&gt; (GetBot -&gt; String) -&gt; ([GetBot] -&gt; ShowS) -&gt; Show GetBot
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBot] -&gt; ShowS
+$cshowList :: [GetBot] -&gt; ShowS
+show :: GetBot -&gt; String
+$cshow :: GetBot -&gt; String
+showsPrec :: Int -&gt; GetBot -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetBot -&gt; Rep GetBot x)
+-&gt; (forall x. Rep GetBot x -&gt; GetBot) -&gt; Generic GetBot
+forall x. Rep GetBot x -&gt; GetBot
+forall x. GetBot -&gt; Rep GetBot x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetBot x -&gt; GetBot
+$cfrom :: forall x. GetBot -&gt; Rep GetBot x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'GetBot' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'accountId', 'getBot_accountId' - The Amazon Chime account ID.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'botId', 'getBot_botId' - The bot ID.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.Chime.GetBot.html#newGetBot"><span class="hs-identifier hs-type">newGetBot</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'botId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot"><span class="hs-identifier hs-type">GetBot</span></a></span><span>
+</span><span id="line-77"></span><span id="newGetBot"><span class="annot"><span class="annottext">newGetBot :: Text -&gt; Text -&gt; GetBot
+</span><a href="Amazonka.Chime.GetBot.html#newGetBot"><span class="hs-identifier hs-var hs-var">newGetBot</span></a></span></span><span> </span><span id="local-6989586621679542144"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679542144"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679542143"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679542143"><span class="hs-identifier hs-var">pBotId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">GetBot' :: Text -&gt; Text -&gt; GetBot
+</span><a href="Amazonka.Chime.GetBot.html#GetBot%27"><span class="hs-identifier hs-type">GetBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:GetBot' :: Text
+</span><a href="Amazonka.Chime.GetBot.html#%24sel%3AaccountId%3AGetBot%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679542144"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:botId:GetBot' :: Text
+</span><a href="Amazonka.Chime.GetBot.html#%24sel%3AbotId%3AGetBot%27"><span class="hs-identifier hs-var">botId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679542143"><span class="hs-identifier hs-var">pBotId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.Chime.GetBot.html#getBot_accountId"><span class="hs-identifier hs-type">getBot_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot"><span class="hs-identifier hs-type">GetBot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="getBot_accountId"><span class="annot"><span class="annottext">getBot_accountId :: (Text -&gt; f Text) -&gt; GetBot -&gt; f GetBot
+</span><a href="Amazonka.Chime.GetBot.html#getBot_accountId"><span class="hs-identifier hs-var hs-var">getBot_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBot -&gt; Text)
+-&gt; (GetBot -&gt; Text -&gt; GetBot) -&gt; Lens GetBot GetBot Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot%27"><span class="hs-identifier hs-type">GetBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679542140"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:GetBot' :: GetBot -&gt; Text
+</span><a href="#local-6989586621679542140"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679542140"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679542139"><span class="annot"><span class="annottext">s :: GetBot
+</span><a href="#local-6989586621679542139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot%27"><span class="hs-identifier hs-type">GetBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679542138"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679542138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBot
+</span><a href="#local-6989586621679542139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:GetBot' :: Text
+</span><a href="Amazonka.Chime.GetBot.html#%24sel%3AaccountId%3AGetBot%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679542138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot"><span class="hs-identifier hs-type">GetBot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The bot ID.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.Chime.GetBot.html#getBot_botId"><span class="hs-identifier hs-type">getBot_botId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot"><span class="hs-identifier hs-type">GetBot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="getBot_botId"><span class="annot"><span class="annottext">getBot_botId :: (Text -&gt; f Text) -&gt; GetBot -&gt; f GetBot
+</span><a href="Amazonka.Chime.GetBot.html#getBot_botId"><span class="hs-identifier hs-var hs-var">getBot_botId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBot -&gt; Text)
+-&gt; (GetBot -&gt; Text -&gt; GetBot) -&gt; Lens GetBot GetBot Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot%27"><span class="hs-identifier hs-type">GetBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679542137"><span class="annot"><span class="annottext">Text
+botId :: Text
+$sel:botId:GetBot' :: GetBot -&gt; Text
+</span><a href="#local-6989586621679542137"><span class="hs-identifier hs-var hs-var">botId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679542137"><span class="hs-identifier hs-var">botId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679542136"><span class="annot"><span class="annottext">s :: GetBot
+</span><a href="#local-6989586621679542136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot%27"><span class="hs-identifier hs-type">GetBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679542135"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679542135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBot
+</span><a href="#local-6989586621679542136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:botId:GetBot' :: Text
+</span><a href="Amazonka.Chime.GetBot.html#%24sel%3AbotId%3AGetBot%27"><span class="hs-identifier hs-var">botId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679542135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot"><span class="hs-identifier hs-type">GetBot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot"><span class="hs-identifier hs-type">GetBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot"><span class="hs-identifier hs-type">GetBot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBotResponse"><span class="hs-identifier hs-type">GetBotResponse</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679542131"><span class="annot"><span class="annottext">request :: GetBot -&gt; Request GetBot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetBot -&gt; Request GetBot
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679542127"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetBot
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetBot)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse GetBot))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetBot
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetBot)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679542124"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679542124"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679542123"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679542123"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679542122"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679542122"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bot -&gt; Int -&gt; GetBotResponse
+</span><a href="Amazonka.Chime.GetBot.html#GetBotResponse%27"><span class="hs-identifier hs-var">GetBotResponse'</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bot -&gt; Int -&gt; GetBotResponse)
+-&gt; Either String (Maybe Bot)
+-&gt; Either String (Int -&gt; GetBotResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679542122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bot)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Bot&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetBotResponse)
+-&gt; Either String Int -&gt; Either String GetBotResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679542124"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679542114"><span id="local-6989586621679542116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot"><span class="hs-identifier hs-type">GetBot</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679542111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot"><span class="hs-identifier hs-type">GetBot</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot"><span class="hs-identifier hs-type">GetBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679542107"><span class="annot"><span class="annottext">toHeaders :: GetBot -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetBot -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot"><span class="hs-identifier hs-type">GetBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679542102"><span class="annot"><span class="annottext">toPath :: GetBot -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot%27"><span class="hs-identifier hs-type">GetBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679542099"><span id="local-6989586621679542100"><span class="annot"><span class="annottext">Text
+botId :: Text
+accountId :: Text
+$sel:botId:GetBot' :: GetBot -&gt; Text
+$sel:accountId:GetBot' :: GetBot -&gt; Text
+</span><a href="#local-6989586621679542099"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679542100"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/bots/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679542099"><span class="hs-identifier hs-var">botId</span></a></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBot"><span class="hs-identifier hs-type">GetBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679542095"><span class="annot"><span class="annottext">toQuery :: GetBot -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBot -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newGetBotResponse' smart constructor.</span><span>
+</span><span id="line-119"></span><span id="local-6989586621679542092"><span id="local-6989586621679542093"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBotResponse"><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBotResponse"><span class="hs-identifier hs-var">GetBotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBotResponse%27"><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBotResponse%27"><span class="hs-identifier hs-var">GetBotResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The chat bot details.</span><span>
+</span><span id="line-121"></span><span>    </span><span id="%24sel%3Abot%3AGetBotResponse%27"><span class="annot"><span class="annottext">GetBotResponse -&gt; Maybe Bot
+</span><a href="Amazonka.Chime.GetBot.html#%24sel%3Abot%3AGetBotResponse%27"><span class="hs-identifier hs-var hs-var">bot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Bot.html#Bot"><span class="hs-identifier hs-type">Bot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBotResponse%27"><span class="annot"><span class="annottext">GetBotResponse -&gt; Int
+</span><a href="Amazonka.Chime.GetBot.html#%24sel%3AhttpStatus%3AGetBotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679542086"><span id="local-6989586621679542088"><span class="annot"><span class="annottext">GetBotResponse -&gt; GetBotResponse -&gt; Bool
+(GetBotResponse -&gt; GetBotResponse -&gt; Bool)
+-&gt; (GetBotResponse -&gt; GetBotResponse -&gt; Bool) -&gt; Eq GetBotResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBotResponse -&gt; GetBotResponse -&gt; Bool
+$c/= :: GetBotResponse -&gt; GetBotResponse -&gt; Bool
+== :: GetBotResponse -&gt; GetBotResponse -&gt; Bool
+$c== :: GetBotResponse -&gt; GetBotResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679542080"><span id="local-6989586621679542082"><span id="local-6989586621679542084"><span class="annot"><span class="annottext">Int -&gt; GetBotResponse -&gt; ShowS
+[GetBotResponse] -&gt; ShowS
+GetBotResponse -&gt; String
+(Int -&gt; GetBotResponse -&gt; ShowS)
+-&gt; (GetBotResponse -&gt; String)
+-&gt; ([GetBotResponse] -&gt; ShowS)
+-&gt; Show GetBotResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBotResponse] -&gt; ShowS
+$cshowList :: [GetBotResponse] -&gt; ShowS
+show :: GetBotResponse -&gt; String
+$cshow :: GetBotResponse -&gt; String
+showsPrec :: Int -&gt; GetBotResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetBotResponse -&gt; Rep GetBotResponse x)
+-&gt; (forall x. Rep GetBotResponse x -&gt; GetBotResponse)
+-&gt; Generic GetBotResponse
+forall x. Rep GetBotResponse x -&gt; GetBotResponse
+forall x. GetBotResponse -&gt; Rep GetBotResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetBotResponse x -&gt; GetBotResponse
+$cfrom :: forall x. GetBotResponse -&gt; Rep GetBotResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Create a value of 'GetBotResponse' with all optional fields omitted.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'bot', 'getBotResponse_bot' - The chat bot details.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'httpStatus', 'getBotResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.Chime.GetBot.html#newGetBotResponse"><span class="hs-identifier hs-type">newGetBotResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBotResponse"><span class="hs-identifier hs-type">GetBotResponse</span></a></span><span>
+</span><span id="line-142"></span><span id="newGetBotResponse"><span class="annot"><span class="annottext">newGetBotResponse :: Int -&gt; GetBotResponse
+</span><a href="Amazonka.Chime.GetBot.html#newGetBotResponse"><span class="hs-identifier hs-var hs-var">newGetBotResponse</span></a></span></span><span> </span><span id="local-6989586621679542077"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679542077"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">GetBotResponse' :: Maybe Bot -&gt; Int -&gt; GetBotResponse
+</span><a href="Amazonka.Chime.GetBot.html#GetBotResponse%27"><span class="hs-identifier hs-type">GetBotResponse'</span></a></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bot:GetBotResponse' :: Maybe Bot
+</span><a href="Amazonka.Chime.GetBot.html#%24sel%3Abot%3AGetBotResponse%27"><span class="hs-identifier hs-var">bot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bot
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBotResponse' :: Int
+</span><a href="Amazonka.Chime.GetBot.html#%24sel%3AhttpStatus%3AGetBotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679542077"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The chat bot details.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.Chime.GetBot.html#getBotResponse_bot"><span class="hs-identifier hs-type">getBotResponse_bot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBotResponse"><span class="hs-identifier hs-type">GetBotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Bot.html#Bot"><span class="hs-identifier hs-type">Bot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="getBotResponse_bot"><span class="annot"><span class="annottext">getBotResponse_bot :: (Maybe Bot -&gt; f (Maybe Bot)) -&gt; GetBotResponse -&gt; f GetBotResponse
+</span><a href="Amazonka.Chime.GetBot.html#getBotResponse_bot"><span class="hs-identifier hs-var hs-var">getBotResponse_bot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotResponse -&gt; Maybe Bot)
+-&gt; (GetBotResponse -&gt; Maybe Bot -&gt; GetBotResponse)
+-&gt; Lens GetBotResponse GetBotResponse (Maybe Bot) (Maybe Bot)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBotResponse%27"><span class="hs-identifier hs-type">GetBotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679542076"><span class="annot"><span class="annottext">Maybe Bot
+bot :: Maybe Bot
+$sel:bot:GetBotResponse' :: GetBotResponse -&gt; Maybe Bot
+</span><a href="#local-6989586621679542076"><span class="hs-identifier hs-var hs-var">bot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bot
+</span><a href="#local-6989586621679542076"><span class="hs-identifier hs-var">bot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679542075"><span class="annot"><span class="annottext">s :: GetBotResponse
+</span><a href="#local-6989586621679542075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBotResponse%27"><span class="hs-identifier hs-type">GetBotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679542074"><span class="annot"><span class="annottext">Maybe Bot
+</span><a href="#local-6989586621679542074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotResponse
+</span><a href="#local-6989586621679542075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bot:GetBotResponse' :: Maybe Bot
+</span><a href="Amazonka.Chime.GetBot.html#%24sel%3Abot%3AGetBotResponse%27"><span class="hs-identifier hs-var">bot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bot
+</span><a href="#local-6989586621679542074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBotResponse"><span class="hs-identifier hs-type">GetBotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.Chime.GetBot.html#getBotResponse_httpStatus"><span class="hs-identifier hs-type">getBotResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBotResponse"><span class="hs-identifier hs-type">GetBotResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span id="getBotResponse_httpStatus"><span class="annot"><span class="annottext">getBotResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetBotResponse -&gt; f GetBotResponse
+</span><a href="Amazonka.Chime.GetBot.html#getBotResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getBotResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotResponse -&gt; Int)
+-&gt; (GetBotResponse -&gt; Int -&gt; GetBotResponse)
+-&gt; Lens GetBotResponse GetBotResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBotResponse%27"><span class="hs-identifier hs-type">GetBotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679542073"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetBotResponse' :: GetBotResponse -&gt; Int
+</span><a href="#local-6989586621679542073"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679542073"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679542072"><span class="annot"><span class="annottext">s :: GetBotResponse
+</span><a href="#local-6989586621679542072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBotResponse%27"><span class="hs-identifier hs-type">GetBotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679542071"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679542071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotResponse
+</span><a href="#local-6989586621679542072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBotResponse' :: Int
+</span><a href="Amazonka.Chime.GetBot.html#%24sel%3AhttpStatus%3AGetBotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679542071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBotResponse"><span class="hs-identifier hs-type">GetBotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679542069"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetBot.html#GetBotResponse"><span class="hs-identifier hs-type">GetBotResponse</span></a></span></span><span>
+</span><span id="line-157"></span></pre></body></html>

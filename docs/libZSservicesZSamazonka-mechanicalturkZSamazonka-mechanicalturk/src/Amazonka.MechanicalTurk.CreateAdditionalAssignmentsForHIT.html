@@ -1,0 +1,588 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- The @CreateAdditionalAssignmentsForHIT@ operation increases the maximum</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- number of assignments of an existing HIT.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- To extend the maximum number of assignments, specify the number of</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- additional assignments.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- -   HITs created with fewer than 10 assignments cannot be extended to</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--     have 10 or more assignments. Attempting to add assignments in a way</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--     that brings the total number of assignments for a HIT from fewer</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     than 10 assignments to 10 or more assignments will result in an</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     @AWS.MechanicalTurk.InvalidMaximumAssignmentsIncrease@ exception.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   HITs that were created before July 22, 2015 cannot be extended.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     Attempting to extend HITs that were created before July 22, 2015</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     will result in an @AWS.MechanicalTurk.HITTooOldForExtension@</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     exception.</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier">CreateAdditionalAssignmentsForHIT</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#newCreateAdditionalAssignmentsForHIT"><span class="hs-identifier">newCreateAdditionalAssignmentsForHIT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#createAdditionalAssignmentsForHIT_uniqueRequestToken"><span class="hs-identifier">createAdditionalAssignmentsForHIT_uniqueRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#createAdditionalAssignmentsForHIT_hITId"><span class="hs-identifier">createAdditionalAssignmentsForHIT_hITId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments"><span class="hs-identifier">createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHITResponse"><span class="hs-identifier">CreateAdditionalAssignmentsForHITResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#newCreateAdditionalAssignmentsForHITResponse"><span class="hs-identifier">newCreateAdditionalAssignmentsForHITResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#createAdditionalAssignmentsForHITResponse_httpStatus"><span class="hs-identifier">createAdditionalAssignmentsForHITResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.html"><span class="hs-identifier">Amazonka.MechanicalTurk.Types</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newCreateAdditionalAssignmentsForHIT' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679254433"><span id="local-6989586621679254434"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAdditionalAssignmentsForHIT"><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-var">CreateAdditionalAssignmentsForHIT</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAdditionalAssignmentsForHIT%27"><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-var">CreateAdditionalAssignmentsForHIT'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for this request, which allows you to retry the call</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- on error without extending the HIT multiple times. This is useful in</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- cases such as network timeouts where it is unclear whether or not the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- call succeeded on the server. If the extend HIT already exists in the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- system from a previous call using the same @UniqueRequestToken@,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- subsequent calls will return an error with a message containing the</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- request ID.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AuniqueRequestToken%3ACreateAdditionalAssignmentsForHIT%27"><span class="annot"><span class="annottext">CreateAdditionalAssignmentsForHIT -&gt; Maybe Text
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#%24sel%3AuniqueRequestToken%3ACreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-var hs-var">uniqueRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The ID of the HIT to extend.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AhITId%3ACreateAdditionalAssignmentsForHIT%27"><span class="annot"><span class="annottext">CreateAdditionalAssignmentsForHIT -&gt; Text
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#%24sel%3AhITId%3ACreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-var hs-var">hITId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The number of additional assignments to request for this HIT.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AnumberOfAdditionalAssignments%3ACreateAdditionalAssignmentsForHIT%27"><span class="annot"><span class="annottext">CreateAdditionalAssignmentsForHIT -&gt; Int
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#%24sel%3AnumberOfAdditionalAssignments%3ACreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-var hs-var">numberOfAdditionalAssignments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254425"><span id="local-6989586621679254427"><span class="annot"><span class="annottext">CreateAdditionalAssignmentsForHIT
+-&gt; CreateAdditionalAssignmentsForHIT -&gt; Bool
+(CreateAdditionalAssignmentsForHIT
+ -&gt; CreateAdditionalAssignmentsForHIT -&gt; Bool)
+-&gt; (CreateAdditionalAssignmentsForHIT
+    -&gt; CreateAdditionalAssignmentsForHIT -&gt; Bool)
+-&gt; Eq CreateAdditionalAssignmentsForHIT
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAdditionalAssignmentsForHIT
+-&gt; CreateAdditionalAssignmentsForHIT -&gt; Bool
+$c/= :: CreateAdditionalAssignmentsForHIT
+-&gt; CreateAdditionalAssignmentsForHIT -&gt; Bool
+== :: CreateAdditionalAssignmentsForHIT
+-&gt; CreateAdditionalAssignmentsForHIT -&gt; Bool
+$c== :: CreateAdditionalAssignmentsForHIT
+-&gt; CreateAdditionalAssignmentsForHIT -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254416"><span id="local-6989586621679254418"><span id="local-6989586621679254420"><span id="local-6989586621679254422"><span class="annot"><span class="annottext">ReadPrec [CreateAdditionalAssignmentsForHIT]
+ReadPrec CreateAdditionalAssignmentsForHIT
+Int -&gt; ReadS CreateAdditionalAssignmentsForHIT
+ReadS [CreateAdditionalAssignmentsForHIT]
+(Int -&gt; ReadS CreateAdditionalAssignmentsForHIT)
+-&gt; ReadS [CreateAdditionalAssignmentsForHIT]
+-&gt; ReadPrec CreateAdditionalAssignmentsForHIT
+-&gt; ReadPrec [CreateAdditionalAssignmentsForHIT]
+-&gt; Read CreateAdditionalAssignmentsForHIT
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateAdditionalAssignmentsForHIT]
+$creadListPrec :: ReadPrec [CreateAdditionalAssignmentsForHIT]
+readPrec :: ReadPrec CreateAdditionalAssignmentsForHIT
+$creadPrec :: ReadPrec CreateAdditionalAssignmentsForHIT
+readList :: ReadS [CreateAdditionalAssignmentsForHIT]
+$creadList :: ReadS [CreateAdditionalAssignmentsForHIT]
+readsPrec :: Int -&gt; ReadS CreateAdditionalAssignmentsForHIT
+$creadsPrec :: Int -&gt; ReadS CreateAdditionalAssignmentsForHIT
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254409"><span id="local-6989586621679254411"><span id="local-6989586621679254413"><span class="annot"><span class="annottext">Int -&gt; CreateAdditionalAssignmentsForHIT -&gt; ShowS
+[CreateAdditionalAssignmentsForHIT] -&gt; ShowS
+CreateAdditionalAssignmentsForHIT -&gt; String
+(Int -&gt; CreateAdditionalAssignmentsForHIT -&gt; ShowS)
+-&gt; (CreateAdditionalAssignmentsForHIT -&gt; String)
+-&gt; ([CreateAdditionalAssignmentsForHIT] -&gt; ShowS)
+-&gt; Show CreateAdditionalAssignmentsForHIT
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAdditionalAssignmentsForHIT] -&gt; ShowS
+$cshowList :: [CreateAdditionalAssignmentsForHIT] -&gt; ShowS
+show :: CreateAdditionalAssignmentsForHIT -&gt; String
+$cshow :: CreateAdditionalAssignmentsForHIT -&gt; String
+showsPrec :: Int -&gt; CreateAdditionalAssignmentsForHIT -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAdditionalAssignmentsForHIT -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateAdditionalAssignmentsForHIT
+ -&gt; Rep CreateAdditionalAssignmentsForHIT x)
+-&gt; (forall x.
+    Rep CreateAdditionalAssignmentsForHIT x
+    -&gt; CreateAdditionalAssignmentsForHIT)
+-&gt; Generic CreateAdditionalAssignmentsForHIT
+forall x.
+Rep CreateAdditionalAssignmentsForHIT x
+-&gt; CreateAdditionalAssignmentsForHIT
+forall x.
+CreateAdditionalAssignmentsForHIT
+-&gt; Rep CreateAdditionalAssignmentsForHIT x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateAdditionalAssignmentsForHIT x
+-&gt; CreateAdditionalAssignmentsForHIT
+$cfrom :: forall x.
+CreateAdditionalAssignmentsForHIT
+-&gt; Rep CreateAdditionalAssignmentsForHIT x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Create a value of 'CreateAdditionalAssignmentsForHIT' with all optional fields omitted.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'uniqueRequestToken', 'createAdditionalAssignmentsForHIT_uniqueRequestToken' - A unique identifier for this request, which allows you to retry the call</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- on error without extending the HIT multiple times. This is useful in</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- cases such as network timeouts where it is unclear whether or not the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- call succeeded on the server. If the extend HIT already exists in the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- system from a previous call using the same @UniqueRequestToken@,</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- subsequent calls will return an error with a message containing the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- request ID.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'hITId', 'createAdditionalAssignmentsForHIT_hITId' - The ID of the HIT to extend.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'numberOfAdditionalAssignments', 'createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments' - The number of additional assignments to request for this HIT.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#newCreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">newCreateAdditionalAssignmentsForHIT</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'hITId'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'numberOfAdditionalAssignments'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT</span></a></span><span>
+</span><span id="line-107"></span><span id="newCreateAdditionalAssignmentsForHIT"><span class="annot"><span class="annottext">newCreateAdditionalAssignmentsForHIT :: Text -&gt; Int -&gt; CreateAdditionalAssignmentsForHIT
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#newCreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-var hs-var">newCreateAdditionalAssignmentsForHIT</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679254404"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254404"><span class="hs-identifier hs-var">pHITId_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679254403"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254403"><span class="hs-identifier hs-var">pNumberOfAdditionalAssignments_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">CreateAdditionalAssignmentsForHIT' :: Maybe Text -&gt; Text -&gt; Int -&gt; CreateAdditionalAssignmentsForHIT
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT'</span></a></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:uniqueRequestToken:CreateAdditionalAssignmentsForHIT' :: Maybe Text
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#%24sel%3AuniqueRequestToken%3ACreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-var">uniqueRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:hITId:CreateAdditionalAssignmentsForHIT' :: Text
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#%24sel%3AhITId%3ACreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-var">hITId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254404"><span class="hs-identifier hs-var">pHITId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:numberOfAdditionalAssignments:CreateAdditionalAssignmentsForHIT' :: Int
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#%24sel%3AnumberOfAdditionalAssignments%3ACreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-var">numberOfAdditionalAssignments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254403"><span class="hs-identifier hs-var">pNumberOfAdditionalAssignments_</span></a></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | A unique identifier for this request, which allows you to retry the call</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- on error without extending the HIT multiple times. This is useful in</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- cases such as network timeouts where it is unclear whether or not the</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- call succeeded on the server. If the extend HIT already exists in the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- system from a previous call using the same @UniqueRequestToken@,</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- subsequent calls will return an error with a message containing the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- request ID.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#createAdditionalAssignmentsForHIT_uniqueRequestToken"><span class="hs-identifier hs-type">createAdditionalAssignmentsForHIT_uniqueRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="createAdditionalAssignmentsForHIT_uniqueRequestToken"><span class="annot"><span class="annottext">createAdditionalAssignmentsForHIT_uniqueRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateAdditionalAssignmentsForHIT
+-&gt; f CreateAdditionalAssignmentsForHIT
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#createAdditionalAssignmentsForHIT_uniqueRequestToken"><span class="hs-identifier hs-var hs-var">createAdditionalAssignmentsForHIT_uniqueRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAdditionalAssignmentsForHIT -&gt; Maybe Text)
+-&gt; (CreateAdditionalAssignmentsForHIT
+    -&gt; Maybe Text -&gt; CreateAdditionalAssignmentsForHIT)
+-&gt; Lens
+     CreateAdditionalAssignmentsForHIT
+     CreateAdditionalAssignmentsForHIT
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254400"><span class="annot"><span class="annottext">Maybe Text
+uniqueRequestToken :: Maybe Text
+$sel:uniqueRequestToken:CreateAdditionalAssignmentsForHIT' :: CreateAdditionalAssignmentsForHIT -&gt; Maybe Text
+</span><a href="#local-6989586621679254400"><span class="hs-identifier hs-var hs-var">uniqueRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254400"><span class="hs-identifier hs-var">uniqueRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254399"><span class="annot"><span class="annottext">s :: CreateAdditionalAssignmentsForHIT
+</span><a href="#local-6989586621679254399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254398"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAdditionalAssignmentsForHIT
+</span><a href="#local-6989586621679254399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uniqueRequestToken:CreateAdditionalAssignmentsForHIT' :: Maybe Text
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#%24sel%3AuniqueRequestToken%3ACreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-var">uniqueRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The ID of the HIT to extend.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#createAdditionalAssignmentsForHIT_hITId"><span class="hs-identifier hs-type">createAdditionalAssignmentsForHIT_hITId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="createAdditionalAssignmentsForHIT_hITId"><span class="annot"><span class="annottext">createAdditionalAssignmentsForHIT_hITId :: (Text -&gt; f Text)
+-&gt; CreateAdditionalAssignmentsForHIT
+-&gt; f CreateAdditionalAssignmentsForHIT
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#createAdditionalAssignmentsForHIT_hITId"><span class="hs-identifier hs-var hs-var">createAdditionalAssignmentsForHIT_hITId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAdditionalAssignmentsForHIT -&gt; Text)
+-&gt; (CreateAdditionalAssignmentsForHIT
+    -&gt; Text -&gt; CreateAdditionalAssignmentsForHIT)
+-&gt; Lens
+     CreateAdditionalAssignmentsForHIT
+     CreateAdditionalAssignmentsForHIT
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254397"><span class="annot"><span class="annottext">Text
+hITId :: Text
+$sel:hITId:CreateAdditionalAssignmentsForHIT' :: CreateAdditionalAssignmentsForHIT -&gt; Text
+</span><a href="#local-6989586621679254397"><span class="hs-identifier hs-var hs-var">hITId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254397"><span class="hs-identifier hs-var">hITId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254396"><span class="annot"><span class="annottext">s :: CreateAdditionalAssignmentsForHIT
+</span><a href="#local-6989586621679254396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254395"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAdditionalAssignmentsForHIT
+</span><a href="#local-6989586621679254396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITId:CreateAdditionalAssignmentsForHIT' :: Text
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#%24sel%3AhITId%3ACreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-var">hITId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The number of additional assignments to request for this HIT.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments"><span class="hs-identifier hs-type">createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-134"></span><span id="createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments"><span class="annot"><span class="annottext">createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments :: (Int -&gt; f Int)
+-&gt; CreateAdditionalAssignmentsForHIT
+-&gt; f CreateAdditionalAssignmentsForHIT
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments"><span class="hs-identifier hs-var hs-var">createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAdditionalAssignmentsForHIT -&gt; Int)
+-&gt; (CreateAdditionalAssignmentsForHIT
+    -&gt; Int -&gt; CreateAdditionalAssignmentsForHIT)
+-&gt; Lens
+     CreateAdditionalAssignmentsForHIT
+     CreateAdditionalAssignmentsForHIT
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254394"><span class="annot"><span class="annottext">Int
+numberOfAdditionalAssignments :: Int
+$sel:numberOfAdditionalAssignments:CreateAdditionalAssignmentsForHIT' :: CreateAdditionalAssignmentsForHIT -&gt; Int
+</span><a href="#local-6989586621679254394"><span class="hs-identifier hs-var hs-var">numberOfAdditionalAssignments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254394"><span class="hs-identifier hs-var">numberOfAdditionalAssignments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254393"><span class="annot"><span class="annottext">s :: CreateAdditionalAssignmentsForHIT
+</span><a href="#local-6989586621679254393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254392"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAdditionalAssignmentsForHIT
+</span><a href="#local-6989586621679254393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfAdditionalAssignments:CreateAdditionalAssignmentsForHIT' :: Int
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#%24sel%3AnumberOfAdditionalAssignments%3ACreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-var">numberOfAdditionalAssignments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHITResponse"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHITResponse</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679254388"><span class="annot"><span class="annottext">request :: CreateAdditionalAssignmentsForHIT
+-&gt; Request CreateAdditionalAssignmentsForHIT
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateAdditionalAssignmentsForHIT
+-&gt; Request CreateAdditionalAssignmentsForHIT
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MechanicalTurk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679254384"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateAdditionalAssignmentsForHIT
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateAdditionalAssignmentsForHIT)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse CreateAdditionalAssignmentsForHIT))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateAdditionalAssignmentsForHIT
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateAdditionalAssignmentsForHIT)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254381"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254381"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679254380"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679254380"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679254379"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679254379"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateAdditionalAssignmentsForHITResponse
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHITResponse%27"><span class="hs-identifier hs-var">CreateAdditionalAssignmentsForHITResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateAdditionalAssignmentsForHITResponse)
+-&gt; Either String Int
+-&gt; Either String CreateAdditionalAssignmentsForHITResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254381"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679254372"><span id="local-6989586621679254374"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679254369"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT</span></a></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT</span></a></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679254365"><span class="annot"><span class="annottext">toHeaders :: CreateAdditionalAssignmentsForHIT -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; CreateAdditionalAssignmentsForHIT -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-169"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-173"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679254355"><span id="local-6989586621679254357"><span id="local-6989586621679254359"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT</span></a></span></span></span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679254353"><span class="annot"><span class="annottext">toJSON :: CreateAdditionalAssignmentsForHIT -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT%27"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254349"><span id="local-6989586621679254350"><span id="local-6989586621679254351"><span class="annot"><span class="annottext">Int
+Maybe Text
+Text
+numberOfAdditionalAssignments :: Int
+hITId :: Text
+uniqueRequestToken :: Maybe Text
+$sel:numberOfAdditionalAssignments:CreateAdditionalAssignmentsForHIT' :: CreateAdditionalAssignmentsForHIT -&gt; Int
+$sel:hITId:CreateAdditionalAssignmentsForHIT' :: CreateAdditionalAssignmentsForHIT -&gt; Text
+$sel:uniqueRequestToken:CreateAdditionalAssignmentsForHIT' :: CreateAdditionalAssignmentsForHIT -&gt; Maybe Text
+</span><a href="#local-6989586621679254349"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-184"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UniqueRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254351"><span class="hs-identifier hs-var">uniqueRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HITId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254350"><span class="hs-identifier hs-var">hITId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-188"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumberOfAdditionalAssignments&quot;</span></span><span>
+</span><span id="line-189"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254349"><span class="hs-identifier hs-var">numberOfAdditionalAssignments</span></a></span><span>
+</span><span id="line-190"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT</span></a></span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679254343"><span class="annot"><span class="annottext">toPath :: CreateAdditionalAssignmentsForHIT -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateAdditionalAssignmentsForHIT -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHIT"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHIT</span></a></span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679254339"><span class="annot"><span class="annottext">toQuery :: CreateAdditionalAssignmentsForHIT -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateAdditionalAssignmentsForHIT -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | /See:/ 'newCreateAdditionalAssignmentsForHITResponse' smart constructor.</span><span>
+</span><span id="line-207"></span><span id="local-6989586621679254336"><span id="local-6989586621679254337"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAdditionalAssignmentsForHITResponse"><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHITResponse"><span class="hs-identifier hs-var">CreateAdditionalAssignmentsForHITResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAdditionalAssignmentsForHITResponse%27"><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHITResponse%27"><span class="hs-identifier hs-var">CreateAdditionalAssignmentsForHITResponse'</span></a></span></span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateAdditionalAssignmentsForHITResponse%27"><span class="annot"><span class="annottext">CreateAdditionalAssignmentsForHITResponse -&gt; Int
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#%24sel%3AhttpStatus%3ACreateAdditionalAssignmentsForHITResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254331"><span id="local-6989586621679254333"><span class="annot"><span class="annottext">CreateAdditionalAssignmentsForHITResponse
+-&gt; CreateAdditionalAssignmentsForHITResponse -&gt; Bool
+(CreateAdditionalAssignmentsForHITResponse
+ -&gt; CreateAdditionalAssignmentsForHITResponse -&gt; Bool)
+-&gt; (CreateAdditionalAssignmentsForHITResponse
+    -&gt; CreateAdditionalAssignmentsForHITResponse -&gt; Bool)
+-&gt; Eq CreateAdditionalAssignmentsForHITResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAdditionalAssignmentsForHITResponse
+-&gt; CreateAdditionalAssignmentsForHITResponse -&gt; Bool
+$c/= :: CreateAdditionalAssignmentsForHITResponse
+-&gt; CreateAdditionalAssignmentsForHITResponse -&gt; Bool
+== :: CreateAdditionalAssignmentsForHITResponse
+-&gt; CreateAdditionalAssignmentsForHITResponse -&gt; Bool
+$c== :: CreateAdditionalAssignmentsForHITResponse
+-&gt; CreateAdditionalAssignmentsForHITResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254323"><span id="local-6989586621679254325"><span id="local-6989586621679254327"><span id="local-6989586621679254329"><span class="annot"><span class="annottext">ReadPrec [CreateAdditionalAssignmentsForHITResponse]
+ReadPrec CreateAdditionalAssignmentsForHITResponse
+Int -&gt; ReadS CreateAdditionalAssignmentsForHITResponse
+ReadS [CreateAdditionalAssignmentsForHITResponse]
+(Int -&gt; ReadS CreateAdditionalAssignmentsForHITResponse)
+-&gt; ReadS [CreateAdditionalAssignmentsForHITResponse]
+-&gt; ReadPrec CreateAdditionalAssignmentsForHITResponse
+-&gt; ReadPrec [CreateAdditionalAssignmentsForHITResponse]
+-&gt; Read CreateAdditionalAssignmentsForHITResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateAdditionalAssignmentsForHITResponse]
+$creadListPrec :: ReadPrec [CreateAdditionalAssignmentsForHITResponse]
+readPrec :: ReadPrec CreateAdditionalAssignmentsForHITResponse
+$creadPrec :: ReadPrec CreateAdditionalAssignmentsForHITResponse
+readList :: ReadS [CreateAdditionalAssignmentsForHITResponse]
+$creadList :: ReadS [CreateAdditionalAssignmentsForHITResponse]
+readsPrec :: Int -&gt; ReadS CreateAdditionalAssignmentsForHITResponse
+$creadsPrec :: Int -&gt; ReadS CreateAdditionalAssignmentsForHITResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254317"><span id="local-6989586621679254319"><span id="local-6989586621679254321"><span class="annot"><span class="annottext">Int -&gt; CreateAdditionalAssignmentsForHITResponse -&gt; ShowS
+[CreateAdditionalAssignmentsForHITResponse] -&gt; ShowS
+CreateAdditionalAssignmentsForHITResponse -&gt; String
+(Int -&gt; CreateAdditionalAssignmentsForHITResponse -&gt; ShowS)
+-&gt; (CreateAdditionalAssignmentsForHITResponse -&gt; String)
+-&gt; ([CreateAdditionalAssignmentsForHITResponse] -&gt; ShowS)
+-&gt; Show CreateAdditionalAssignmentsForHITResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAdditionalAssignmentsForHITResponse] -&gt; ShowS
+$cshowList :: [CreateAdditionalAssignmentsForHITResponse] -&gt; ShowS
+show :: CreateAdditionalAssignmentsForHITResponse -&gt; String
+$cshow :: CreateAdditionalAssignmentsForHITResponse -&gt; String
+showsPrec :: Int -&gt; CreateAdditionalAssignmentsForHITResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAdditionalAssignmentsForHITResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateAdditionalAssignmentsForHITResponse
+ -&gt; Rep CreateAdditionalAssignmentsForHITResponse x)
+-&gt; (forall x.
+    Rep CreateAdditionalAssignmentsForHITResponse x
+    -&gt; CreateAdditionalAssignmentsForHITResponse)
+-&gt; Generic CreateAdditionalAssignmentsForHITResponse
+forall x.
+Rep CreateAdditionalAssignmentsForHITResponse x
+-&gt; CreateAdditionalAssignmentsForHITResponse
+forall x.
+CreateAdditionalAssignmentsForHITResponse
+-&gt; Rep CreateAdditionalAssignmentsForHITResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateAdditionalAssignmentsForHITResponse x
+-&gt; CreateAdditionalAssignmentsForHITResponse
+$cfrom :: forall x.
+CreateAdditionalAssignmentsForHITResponse
+-&gt; Rep CreateAdditionalAssignmentsForHITResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- Create a value of 'CreateAdditionalAssignmentsForHITResponse' with all optional fields omitted.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'httpStatus', 'createAdditionalAssignmentsForHITResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#newCreateAdditionalAssignmentsForHITResponse"><span class="hs-identifier hs-type">newCreateAdditionalAssignmentsForHITResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHITResponse"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHITResponse</span></a></span><span>
+</span><span id="line-226"></span><span id="newCreateAdditionalAssignmentsForHITResponse"><span class="annot"><span class="annottext">newCreateAdditionalAssignmentsForHITResponse :: Int -&gt; CreateAdditionalAssignmentsForHITResponse
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#newCreateAdditionalAssignmentsForHITResponse"><span class="hs-identifier hs-var hs-var">newCreateAdditionalAssignmentsForHITResponse</span></a></span></span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679254314"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254314"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">CreateAdditionalAssignmentsForHITResponse' :: Int -&gt; CreateAdditionalAssignmentsForHITResponse
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHITResponse%27"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHITResponse'</span></a></span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAdditionalAssignmentsForHITResponse' :: Int
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#%24sel%3AhttpStatus%3ACreateAdditionalAssignmentsForHITResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254314"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#createAdditionalAssignmentsForHITResponse_httpStatus"><span class="hs-identifier hs-type">createAdditionalAssignmentsForHITResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHITResponse"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHITResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-235"></span><span id="createAdditionalAssignmentsForHITResponse_httpStatus"><span class="annot"><span class="annottext">createAdditionalAssignmentsForHITResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateAdditionalAssignmentsForHITResponse
+-&gt; f CreateAdditionalAssignmentsForHITResponse
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#createAdditionalAssignmentsForHITResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createAdditionalAssignmentsForHITResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAdditionalAssignmentsForHITResponse -&gt; Int)
+-&gt; (CreateAdditionalAssignmentsForHITResponse
+    -&gt; Int -&gt; CreateAdditionalAssignmentsForHITResponse)
+-&gt; Lens
+     CreateAdditionalAssignmentsForHITResponse
+     CreateAdditionalAssignmentsForHITResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHITResponse%27"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254313"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateAdditionalAssignmentsForHITResponse' :: CreateAdditionalAssignmentsForHITResponse -&gt; Int
+</span><a href="#local-6989586621679254313"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254313"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254312"><span class="annot"><span class="annottext">s :: CreateAdditionalAssignmentsForHITResponse
+</span><a href="#local-6989586621679254312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHITResponse%27"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254311"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAdditionalAssignmentsForHITResponse
+</span><a href="#local-6989586621679254312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAdditionalAssignmentsForHITResponse' :: Int
+</span><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#%24sel%3AhttpStatus%3ACreateAdditionalAssignmentsForHITResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHITResponse"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHITResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679254309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT.html#CreateAdditionalAssignmentsForHITResponse"><span class="hs-identifier hs-type">CreateAdditionalAssignmentsForHITResponse</span></a></span></span><span>
+</span><span id="line-240"></span></pre></body></html>

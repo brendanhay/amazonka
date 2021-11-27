@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Chime.Types.NumberSelectionBehavior</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.Types.NumberSelectionBehavior</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#NumberSelectionBehavior"><span class="hs-identifier">NumberSelectionBehavior</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#NumberSelectionBehavior_AvoidSticky"><span class="hs-identifier">NumberSelectionBehavior_AvoidSticky</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#NumberSelectionBehavior_PreferSticky"><span class="hs-identifier">NumberSelectionBehavior_PreferSticky</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679513208"><span id="local-6989586621679513209"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NumberSelectionBehavior"><span class="annot"><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#NumberSelectionBehavior"><span class="hs-identifier hs-var">NumberSelectionBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NumberSelectionBehavior%27"><span class="annot"><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#NumberSelectionBehavior%27"><span class="hs-identifier hs-var">NumberSelectionBehavior'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNumberSelectionBehavior"><span class="annot"><span class="annottext">NumberSelectionBehavior -&gt; Text
+</span><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#fromNumberSelectionBehavior"><span class="hs-identifier hs-var hs-var">fromNumberSelectionBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679513200"><span id="local-6989586621679513202"><span id="local-6989586621679513204"><span class="annot"><span class="annottext">Int -&gt; NumberSelectionBehavior -&gt; ShowS
+[NumberSelectionBehavior] -&gt; ShowS
+NumberSelectionBehavior -&gt; String
+(Int -&gt; NumberSelectionBehavior -&gt; ShowS)
+-&gt; (NumberSelectionBehavior -&gt; String)
+-&gt; ([NumberSelectionBehavior] -&gt; ShowS)
+-&gt; Show NumberSelectionBehavior
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NumberSelectionBehavior] -&gt; ShowS
+$cshowList :: [NumberSelectionBehavior] -&gt; ShowS
+show :: NumberSelectionBehavior -&gt; String
+$cshow :: NumberSelectionBehavior -&gt; String
+showsPrec :: Int -&gt; NumberSelectionBehavior -&gt; ShowS
+$cshowsPrec :: Int -&gt; NumberSelectionBehavior -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679513191"><span id="local-6989586621679513193"><span id="local-6989586621679513195"><span id="local-6989586621679513197"><span class="annot"><span class="annottext">ReadPrec [NumberSelectionBehavior]
+ReadPrec NumberSelectionBehavior
+Int -&gt; ReadS NumberSelectionBehavior
+ReadS [NumberSelectionBehavior]
+(Int -&gt; ReadS NumberSelectionBehavior)
+-&gt; ReadS [NumberSelectionBehavior]
+-&gt; ReadPrec NumberSelectionBehavior
+-&gt; ReadPrec [NumberSelectionBehavior]
+-&gt; Read NumberSelectionBehavior
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NumberSelectionBehavior]
+$creadListPrec :: ReadPrec [NumberSelectionBehavior]
+readPrec :: ReadPrec NumberSelectionBehavior
+$creadPrec :: ReadPrec NumberSelectionBehavior
+readList :: ReadS [NumberSelectionBehavior]
+$creadList :: ReadS [NumberSelectionBehavior]
+readsPrec :: Int -&gt; ReadS NumberSelectionBehavior
+$creadsPrec :: Int -&gt; ReadS NumberSelectionBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679513186"><span id="local-6989586621679513188"><span class="annot"><span class="annottext">NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool
+(NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool)
+-&gt; (NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool)
+-&gt; Eq NumberSelectionBehavior
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool
+$c/= :: NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool
+== :: NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool
+$c== :: NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679513170"><span id="local-6989586621679513172"><span id="local-6989586621679513174"><span id="local-6989586621679513176"><span id="local-6989586621679513178"><span id="local-6989586621679513180"><span id="local-6989586621679513182"><span class="annot"><span class="annottext">Eq NumberSelectionBehavior
+Eq NumberSelectionBehavior
+-&gt; (NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Ordering)
+-&gt; (NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool)
+-&gt; (NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool)
+-&gt; (NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool)
+-&gt; (NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool)
+-&gt; (NumberSelectionBehavior
+    -&gt; NumberSelectionBehavior -&gt; NumberSelectionBehavior)
+-&gt; (NumberSelectionBehavior
+    -&gt; NumberSelectionBehavior -&gt; NumberSelectionBehavior)
+-&gt; Ord NumberSelectionBehavior
+NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool
+NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Ordering
+NumberSelectionBehavior
+-&gt; NumberSelectionBehavior -&gt; NumberSelectionBehavior
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NumberSelectionBehavior
+-&gt; NumberSelectionBehavior -&gt; NumberSelectionBehavior
+$cmin :: NumberSelectionBehavior
+-&gt; NumberSelectionBehavior -&gt; NumberSelectionBehavior
+max :: NumberSelectionBehavior
+-&gt; NumberSelectionBehavior -&gt; NumberSelectionBehavior
+$cmax :: NumberSelectionBehavior
+-&gt; NumberSelectionBehavior -&gt; NumberSelectionBehavior
+&gt;= :: NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool
+$c&gt;= :: NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool
+&gt; :: NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool
+$c&gt; :: NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool
+&lt;= :: NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool
+$c&lt;= :: NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool
+&lt; :: NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool
+$c&lt; :: NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Bool
+compare :: NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Ordering
+$ccompare :: NumberSelectionBehavior -&gt; NumberSelectionBehavior -&gt; Ordering
+$cp1Ord :: Eq NumberSelectionBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ NumberSelectionBehavior -&gt; Rep NumberSelectionBehavior x)
+-&gt; (forall x.
+    Rep NumberSelectionBehavior x -&gt; NumberSelectionBehavior)
+-&gt; Generic NumberSelectionBehavior
+forall x. Rep NumberSelectionBehavior x -&gt; NumberSelectionBehavior
+forall x. NumberSelectionBehavior -&gt; Rep NumberSelectionBehavior x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NumberSelectionBehavior x -&gt; NumberSelectionBehavior
+$cfrom :: forall x. NumberSelectionBehavior -&gt; Rep NumberSelectionBehavior x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679513162"><span id="local-6989586621679513164"><span class="annot"><span class="annottext">Int -&gt; NumberSelectionBehavior -&gt; Int
+NumberSelectionBehavior -&gt; Int
+(Int -&gt; NumberSelectionBehavior -&gt; Int)
+-&gt; (NumberSelectionBehavior -&gt; Int)
+-&gt; Hashable NumberSelectionBehavior
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NumberSelectionBehavior -&gt; Int
+$chash :: NumberSelectionBehavior -&gt; Int
+hashWithSalt :: Int -&gt; NumberSelectionBehavior -&gt; Int
+$chashWithSalt :: Int -&gt; NumberSelectionBehavior -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679513159"><span class="annot"><span class="annottext">NumberSelectionBehavior -&gt; ()
+(NumberSelectionBehavior -&gt; ()) -&gt; NFData NumberSelectionBehavior
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NumberSelectionBehavior -&gt; ()
+$crnf :: NumberSelectionBehavior -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679513156"><span class="annot"><span class="annottext">Text -&gt; Either String NumberSelectionBehavior
+(Text -&gt; Either String NumberSelectionBehavior)
+-&gt; FromText NumberSelectionBehavior
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NumberSelectionBehavior
+$cfromText :: Text -&gt; Either String NumberSelectionBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679513153"><span class="annot"><span class="annottext">NumberSelectionBehavior -&gt; Text
+(NumberSelectionBehavior -&gt; Text) -&gt; ToText NumberSelectionBehavior
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NumberSelectionBehavior -&gt; Text
+$ctoText :: NumberSelectionBehavior -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679513150"><span class="annot"><span class="annottext">NumberSelectionBehavior -&gt; ByteString
+(NumberSelectionBehavior -&gt; ByteString)
+-&gt; ToByteString NumberSelectionBehavior
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NumberSelectionBehavior -&gt; ByteString
+$ctoBS :: NumberSelectionBehavior -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679513147"><span class="annot"><span class="annottext">NumberSelectionBehavior -&gt; ByteStringBuilder
+(NumberSelectionBehavior -&gt; ByteStringBuilder)
+-&gt; ToLog NumberSelectionBehavior
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NumberSelectionBehavior -&gt; ByteStringBuilder
+$cbuild :: NumberSelectionBehavior -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679513144"><span class="annot"><span class="annottext">HeaderName -&gt; NumberSelectionBehavior -&gt; [Header]
+(HeaderName -&gt; NumberSelectionBehavior -&gt; [Header])
+-&gt; ToHeader NumberSelectionBehavior
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NumberSelectionBehavior -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NumberSelectionBehavior -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679513141"><span class="annot"><span class="annottext">NumberSelectionBehavior -&gt; QueryString
+(NumberSelectionBehavior -&gt; QueryString)
+-&gt; ToQuery NumberSelectionBehavior
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NumberSelectionBehavior -&gt; QueryString
+$ctoQuery :: NumberSelectionBehavior -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679513136"><span id="local-6989586621679513138"><span class="annot"><span class="annottext">Value -&gt; Parser [NumberSelectionBehavior]
+Value -&gt; Parser NumberSelectionBehavior
+(Value -&gt; Parser NumberSelectionBehavior)
+-&gt; (Value -&gt; Parser [NumberSelectionBehavior])
+-&gt; FromJSON NumberSelectionBehavior
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NumberSelectionBehavior]
+$cparseJSONList :: Value -&gt; Parser [NumberSelectionBehavior]
+parseJSON :: Value -&gt; Parser NumberSelectionBehavior
+$cparseJSON :: Value -&gt; Parser NumberSelectionBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679513131"><span id="local-6989586621679513133"><span class="annot"><span class="annottext">FromJSONKeyFunction [NumberSelectionBehavior]
+FromJSONKeyFunction NumberSelectionBehavior
+FromJSONKeyFunction NumberSelectionBehavior
+-&gt; FromJSONKeyFunction [NumberSelectionBehavior]
+-&gt; FromJSONKey NumberSelectionBehavior
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NumberSelectionBehavior]
+$cfromJSONKeyList :: FromJSONKeyFunction [NumberSelectionBehavior]
+fromJSONKey :: FromJSONKeyFunction NumberSelectionBehavior
+$cfromJSONKey :: FromJSONKeyFunction NumberSelectionBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679513122"><span id="local-6989586621679513124"><span id="local-6989586621679513126"><span id="local-6989586621679513128"><span class="annot"><span class="annottext">[NumberSelectionBehavior] -&gt; Encoding
+[NumberSelectionBehavior] -&gt; Value
+NumberSelectionBehavior -&gt; Encoding
+NumberSelectionBehavior -&gt; Value
+(NumberSelectionBehavior -&gt; Value)
+-&gt; (NumberSelectionBehavior -&gt; Encoding)
+-&gt; ([NumberSelectionBehavior] -&gt; Value)
+-&gt; ([NumberSelectionBehavior] -&gt; Encoding)
+-&gt; ToJSON NumberSelectionBehavior
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NumberSelectionBehavior] -&gt; Encoding
+$ctoEncodingList :: [NumberSelectionBehavior] -&gt; Encoding
+toJSONList :: [NumberSelectionBehavior] -&gt; Value
+$ctoJSONList :: [NumberSelectionBehavior] -&gt; Value
+toEncoding :: NumberSelectionBehavior -&gt; Encoding
+$ctoEncoding :: NumberSelectionBehavior -&gt; Encoding
+toJSON :: NumberSelectionBehavior -&gt; Value
+$ctoJSON :: NumberSelectionBehavior -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679513117"><span id="local-6989586621679513119"><span class="annot"><span class="annottext">ToJSONKeyFunction [NumberSelectionBehavior]
+ToJSONKeyFunction NumberSelectionBehavior
+ToJSONKeyFunction NumberSelectionBehavior
+-&gt; ToJSONKeyFunction [NumberSelectionBehavior]
+-&gt; ToJSONKey NumberSelectionBehavior
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NumberSelectionBehavior]
+$ctoJSONKeyList :: ToJSONKeyFunction [NumberSelectionBehavior]
+toJSONKey :: ToJSONKeyFunction NumberSelectionBehavior
+$ctoJSONKey :: ToJSONKeyFunction NumberSelectionBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679513114"><span class="annot"><span class="annottext">[Node] -&gt; Either String NumberSelectionBehavior
+([Node] -&gt; Either String NumberSelectionBehavior)
+-&gt; FromXML NumberSelectionBehavior
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NumberSelectionBehavior
+$cparseXML :: [Node] -&gt; Either String NumberSelectionBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679513111"><span class="annot"><span class="annottext">NumberSelectionBehavior -&gt; XML
+(NumberSelectionBehavior -&gt; XML) -&gt; ToXML NumberSelectionBehavior
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NumberSelectionBehavior -&gt; XML
+$ctoXML :: NumberSelectionBehavior -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#NumberSelectionBehavior_AvoidSticky"><span class="hs-identifier hs-type">NumberSelectionBehavior_AvoidSticky</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#NumberSelectionBehavior"><span class="hs-identifier hs-type">NumberSelectionBehavior</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNumberSelectionBehavior_AvoidSticky"><span id="%24mNumberSelectionBehavior_AvoidSticky"><span id="NumberSelectionBehavior_AvoidSticky"><span class="annot"><span class="annottext">$bNumberSelectionBehavior_AvoidSticky :: NumberSelectionBehavior
+$mNumberSelectionBehavior_AvoidSticky :: forall r.
+NumberSelectionBehavior -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#%24bNumberSelectionBehavior_AvoidSticky"><span class="hs-identifier hs-var hs-var hs-var">NumberSelectionBehavior_AvoidSticky</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#NumberSelectionBehavior%27"><span class="hs-identifier hs-type">NumberSelectionBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AvoidSticky&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#NumberSelectionBehavior_PreferSticky"><span class="hs-identifier hs-type">NumberSelectionBehavior_PreferSticky</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#NumberSelectionBehavior"><span class="hs-identifier hs-type">NumberSelectionBehavior</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNumberSelectionBehavior_PreferSticky"><span id="%24mNumberSelectionBehavior_PreferSticky"><span id="NumberSelectionBehavior_PreferSticky"><span class="annot"><span class="annottext">$bNumberSelectionBehavior_PreferSticky :: NumberSelectionBehavior
+$mNumberSelectionBehavior_PreferSticky :: forall r.
+NumberSelectionBehavior -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#%24bNumberSelectionBehavior_PreferSticky"><span class="hs-identifier hs-var hs-var hs-var">NumberSelectionBehavior_PreferSticky</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#NumberSelectionBehavior%27"><span class="hs-identifier hs-type">NumberSelectionBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PreferSticky&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#NumberSelectionBehavior_AvoidSticky"><span class="hs-pragma hs-type">NumberSelectionBehavior_AvoidSticky</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#NumberSelectionBehavior_PreferSticky"><span class="hs-pragma hs-type">NumberSelectionBehavior_PreferSticky</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.NumberSelectionBehavior.html#NumberSelectionBehavior%27"><span class="hs-pragma hs-type">NumberSelectionBehavior'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

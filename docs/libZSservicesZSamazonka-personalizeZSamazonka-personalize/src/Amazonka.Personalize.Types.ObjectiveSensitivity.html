@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Personalize.Types.ObjectiveSensitivity</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Personalize.Types.ObjectiveSensitivity</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity"><span class="hs-identifier">ObjectiveSensitivity</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity_HIGH"><span class="hs-identifier">ObjectiveSensitivity_HIGH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity_LOW"><span class="hs-identifier">ObjectiveSensitivity_LOW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity_MEDIUM"><span class="hs-identifier">ObjectiveSensitivity_MEDIUM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity_OFF"><span class="hs-identifier">ObjectiveSensitivity_OFF</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679271823"><span id="local-6989586621679271824"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectiveSensitivity"><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity"><span class="hs-identifier hs-var">ObjectiveSensitivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectiveSensitivity%27"><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity%27"><span class="hs-identifier hs-var">ObjectiveSensitivity'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromObjectiveSensitivity"><span class="annot"><span class="annottext">ObjectiveSensitivity -&gt; Text
+</span><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#fromObjectiveSensitivity"><span class="hs-identifier hs-var hs-var">fromObjectiveSensitivity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271815"><span id="local-6989586621679271817"><span id="local-6989586621679271819"><span class="annot"><span class="annottext">Int -&gt; ObjectiveSensitivity -&gt; ShowS
+[ObjectiveSensitivity] -&gt; ShowS
+ObjectiveSensitivity -&gt; String
+(Int -&gt; ObjectiveSensitivity -&gt; ShowS)
+-&gt; (ObjectiveSensitivity -&gt; String)
+-&gt; ([ObjectiveSensitivity] -&gt; ShowS)
+-&gt; Show ObjectiveSensitivity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ObjectiveSensitivity] -&gt; ShowS
+$cshowList :: [ObjectiveSensitivity] -&gt; ShowS
+show :: ObjectiveSensitivity -&gt; String
+$cshow :: ObjectiveSensitivity -&gt; String
+showsPrec :: Int -&gt; ObjectiveSensitivity -&gt; ShowS
+$cshowsPrec :: Int -&gt; ObjectiveSensitivity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679271806"><span id="local-6989586621679271808"><span id="local-6989586621679271810"><span id="local-6989586621679271812"><span class="annot"><span class="annottext">ReadPrec [ObjectiveSensitivity]
+ReadPrec ObjectiveSensitivity
+Int -&gt; ReadS ObjectiveSensitivity
+ReadS [ObjectiveSensitivity]
+(Int -&gt; ReadS ObjectiveSensitivity)
+-&gt; ReadS [ObjectiveSensitivity]
+-&gt; ReadPrec ObjectiveSensitivity
+-&gt; ReadPrec [ObjectiveSensitivity]
+-&gt; Read ObjectiveSensitivity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ObjectiveSensitivity]
+$creadListPrec :: ReadPrec [ObjectiveSensitivity]
+readPrec :: ReadPrec ObjectiveSensitivity
+$creadPrec :: ReadPrec ObjectiveSensitivity
+readList :: ReadS [ObjectiveSensitivity]
+$creadList :: ReadS [ObjectiveSensitivity]
+readsPrec :: Int -&gt; ReadS ObjectiveSensitivity
+$creadsPrec :: Int -&gt; ReadS ObjectiveSensitivity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679271801"><span id="local-6989586621679271803"><span class="annot"><span class="annottext">ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool
+(ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool)
+-&gt; (ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool)
+-&gt; Eq ObjectiveSensitivity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool
+$c/= :: ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool
+== :: ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool
+$c== :: ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679271785"><span id="local-6989586621679271787"><span id="local-6989586621679271789"><span id="local-6989586621679271791"><span id="local-6989586621679271793"><span id="local-6989586621679271795"><span id="local-6989586621679271797"><span class="annot"><span class="annottext">Eq ObjectiveSensitivity
+Eq ObjectiveSensitivity
+-&gt; (ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Ordering)
+-&gt; (ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool)
+-&gt; (ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool)
+-&gt; (ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool)
+-&gt; (ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool)
+-&gt; (ObjectiveSensitivity
+    -&gt; ObjectiveSensitivity -&gt; ObjectiveSensitivity)
+-&gt; (ObjectiveSensitivity
+    -&gt; ObjectiveSensitivity -&gt; ObjectiveSensitivity)
+-&gt; Ord ObjectiveSensitivity
+ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool
+ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Ordering
+ObjectiveSensitivity
+-&gt; ObjectiveSensitivity -&gt; ObjectiveSensitivity
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ObjectiveSensitivity
+-&gt; ObjectiveSensitivity -&gt; ObjectiveSensitivity
+$cmin :: ObjectiveSensitivity
+-&gt; ObjectiveSensitivity -&gt; ObjectiveSensitivity
+max :: ObjectiveSensitivity
+-&gt; ObjectiveSensitivity -&gt; ObjectiveSensitivity
+$cmax :: ObjectiveSensitivity
+-&gt; ObjectiveSensitivity -&gt; ObjectiveSensitivity
+&gt;= :: ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool
+$c&gt;= :: ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool
+&gt; :: ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool
+$c&gt; :: ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool
+&lt;= :: ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool
+$c&lt;= :: ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool
+&lt; :: ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool
+$c&lt; :: ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Bool
+compare :: ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Ordering
+$ccompare :: ObjectiveSensitivity -&gt; ObjectiveSensitivity -&gt; Ordering
+$cp1Ord :: Eq ObjectiveSensitivity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ObjectiveSensitivity -&gt; Rep ObjectiveSensitivity x)
+-&gt; (forall x. Rep ObjectiveSensitivity x -&gt; ObjectiveSensitivity)
+-&gt; Generic ObjectiveSensitivity
+forall x. Rep ObjectiveSensitivity x -&gt; ObjectiveSensitivity
+forall x. ObjectiveSensitivity -&gt; Rep ObjectiveSensitivity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ObjectiveSensitivity x -&gt; ObjectiveSensitivity
+$cfrom :: forall x. ObjectiveSensitivity -&gt; Rep ObjectiveSensitivity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271777"><span id="local-6989586621679271779"><span class="annot"><span class="annottext">Int -&gt; ObjectiveSensitivity -&gt; Int
+ObjectiveSensitivity -&gt; Int
+(Int -&gt; ObjectiveSensitivity -&gt; Int)
+-&gt; (ObjectiveSensitivity -&gt; Int) -&gt; Hashable ObjectiveSensitivity
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ObjectiveSensitivity -&gt; Int
+$chash :: ObjectiveSensitivity -&gt; Int
+hashWithSalt :: Int -&gt; ObjectiveSensitivity -&gt; Int
+$chashWithSalt :: Int -&gt; ObjectiveSensitivity -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679271774"><span class="annot"><span class="annottext">ObjectiveSensitivity -&gt; ()
+(ObjectiveSensitivity -&gt; ()) -&gt; NFData ObjectiveSensitivity
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ObjectiveSensitivity -&gt; ()
+$crnf :: ObjectiveSensitivity -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679271771"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectiveSensitivity
+(Text -&gt; Either String ObjectiveSensitivity)
+-&gt; FromText ObjectiveSensitivity
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ObjectiveSensitivity
+$cfromText :: Text -&gt; Either String ObjectiveSensitivity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679271768"><span class="annot"><span class="annottext">ObjectiveSensitivity -&gt; Text
+(ObjectiveSensitivity -&gt; Text) -&gt; ToText ObjectiveSensitivity
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ObjectiveSensitivity -&gt; Text
+$ctoText :: ObjectiveSensitivity -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679271765"><span class="annot"><span class="annottext">ObjectiveSensitivity -&gt; ByteString
+(ObjectiveSensitivity -&gt; ByteString)
+-&gt; ToByteString ObjectiveSensitivity
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ObjectiveSensitivity -&gt; ByteString
+$ctoBS :: ObjectiveSensitivity -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679271762"><span class="annot"><span class="annottext">ObjectiveSensitivity -&gt; ByteStringBuilder
+(ObjectiveSensitivity -&gt; ByteStringBuilder)
+-&gt; ToLog ObjectiveSensitivity
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ObjectiveSensitivity -&gt; ByteStringBuilder
+$cbuild :: ObjectiveSensitivity -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679271759"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectiveSensitivity -&gt; [Header]
+(HeaderName -&gt; ObjectiveSensitivity -&gt; [Header])
+-&gt; ToHeader ObjectiveSensitivity
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ObjectiveSensitivity -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ObjectiveSensitivity -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679271756"><span class="annot"><span class="annottext">ObjectiveSensitivity -&gt; QueryString
+(ObjectiveSensitivity -&gt; QueryString)
+-&gt; ToQuery ObjectiveSensitivity
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ObjectiveSensitivity -&gt; QueryString
+$ctoQuery :: ObjectiveSensitivity -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679271751"><span id="local-6989586621679271753"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectiveSensitivity]
+Value -&gt; Parser ObjectiveSensitivity
+(Value -&gt; Parser ObjectiveSensitivity)
+-&gt; (Value -&gt; Parser [ObjectiveSensitivity])
+-&gt; FromJSON ObjectiveSensitivity
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ObjectiveSensitivity]
+$cparseJSONList :: Value -&gt; Parser [ObjectiveSensitivity]
+parseJSON :: Value -&gt; Parser ObjectiveSensitivity
+$cparseJSON :: Value -&gt; Parser ObjectiveSensitivity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679271746"><span id="local-6989586621679271748"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectiveSensitivity]
+FromJSONKeyFunction ObjectiveSensitivity
+FromJSONKeyFunction ObjectiveSensitivity
+-&gt; FromJSONKeyFunction [ObjectiveSensitivity]
+-&gt; FromJSONKey ObjectiveSensitivity
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ObjectiveSensitivity]
+$cfromJSONKeyList :: FromJSONKeyFunction [ObjectiveSensitivity]
+fromJSONKey :: FromJSONKeyFunction ObjectiveSensitivity
+$cfromJSONKey :: FromJSONKeyFunction ObjectiveSensitivity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679271737"><span id="local-6989586621679271739"><span id="local-6989586621679271741"><span id="local-6989586621679271743"><span class="annot"><span class="annottext">[ObjectiveSensitivity] -&gt; Encoding
+[ObjectiveSensitivity] -&gt; Value
+ObjectiveSensitivity -&gt; Encoding
+ObjectiveSensitivity -&gt; Value
+(ObjectiveSensitivity -&gt; Value)
+-&gt; (ObjectiveSensitivity -&gt; Encoding)
+-&gt; ([ObjectiveSensitivity] -&gt; Value)
+-&gt; ([ObjectiveSensitivity] -&gt; Encoding)
+-&gt; ToJSON ObjectiveSensitivity
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ObjectiveSensitivity] -&gt; Encoding
+$ctoEncodingList :: [ObjectiveSensitivity] -&gt; Encoding
+toJSONList :: [ObjectiveSensitivity] -&gt; Value
+$ctoJSONList :: [ObjectiveSensitivity] -&gt; Value
+toEncoding :: ObjectiveSensitivity -&gt; Encoding
+$ctoEncoding :: ObjectiveSensitivity -&gt; Encoding
+toJSON :: ObjectiveSensitivity -&gt; Value
+$ctoJSON :: ObjectiveSensitivity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679271732"><span id="local-6989586621679271734"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectiveSensitivity]
+ToJSONKeyFunction ObjectiveSensitivity
+ToJSONKeyFunction ObjectiveSensitivity
+-&gt; ToJSONKeyFunction [ObjectiveSensitivity]
+-&gt; ToJSONKey ObjectiveSensitivity
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ObjectiveSensitivity]
+$ctoJSONKeyList :: ToJSONKeyFunction [ObjectiveSensitivity]
+toJSONKey :: ToJSONKeyFunction ObjectiveSensitivity
+$ctoJSONKey :: ToJSONKeyFunction ObjectiveSensitivity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679271729"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectiveSensitivity
+([Node] -&gt; Either String ObjectiveSensitivity)
+-&gt; FromXML ObjectiveSensitivity
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ObjectiveSensitivity
+$cparseXML :: [Node] -&gt; Either String ObjectiveSensitivity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679271726"><span class="annot"><span class="annottext">ObjectiveSensitivity -&gt; XML
+(ObjectiveSensitivity -&gt; XML) -&gt; ToXML ObjectiveSensitivity
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ObjectiveSensitivity -&gt; XML
+$ctoXML :: ObjectiveSensitivity -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity_HIGH"><span class="hs-identifier hs-type">ObjectiveSensitivity_HIGH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity"><span class="hs-identifier hs-type">ObjectiveSensitivity</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bObjectiveSensitivity_HIGH"><span id="%24mObjectiveSensitivity_HIGH"><span id="ObjectiveSensitivity_HIGH"><span class="annot"><span class="annottext">$bObjectiveSensitivity_HIGH :: ObjectiveSensitivity
+$mObjectiveSensitivity_HIGH :: forall r. ObjectiveSensitivity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#%24bObjectiveSensitivity_HIGH"><span class="hs-identifier hs-var hs-var hs-var">ObjectiveSensitivity_HIGH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity%27"><span class="hs-identifier hs-type">ObjectiveSensitivity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HIGH&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity_LOW"><span class="hs-identifier hs-type">ObjectiveSensitivity_LOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity"><span class="hs-identifier hs-type">ObjectiveSensitivity</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bObjectiveSensitivity_LOW"><span id="%24mObjectiveSensitivity_LOW"><span id="ObjectiveSensitivity_LOW"><span class="annot"><span class="annottext">$bObjectiveSensitivity_LOW :: ObjectiveSensitivity
+$mObjectiveSensitivity_LOW :: forall r. ObjectiveSensitivity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#%24bObjectiveSensitivity_LOW"><span class="hs-identifier hs-var hs-var hs-var">ObjectiveSensitivity_LOW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity%27"><span class="hs-identifier hs-type">ObjectiveSensitivity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LOW&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity_MEDIUM"><span class="hs-identifier hs-type">ObjectiveSensitivity_MEDIUM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity"><span class="hs-identifier hs-type">ObjectiveSensitivity</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bObjectiveSensitivity_MEDIUM"><span id="%24mObjectiveSensitivity_MEDIUM"><span id="ObjectiveSensitivity_MEDIUM"><span class="annot"><span class="annottext">$bObjectiveSensitivity_MEDIUM :: ObjectiveSensitivity
+$mObjectiveSensitivity_MEDIUM :: forall r. ObjectiveSensitivity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#%24bObjectiveSensitivity_MEDIUM"><span class="hs-identifier hs-var hs-var hs-var">ObjectiveSensitivity_MEDIUM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity%27"><span class="hs-identifier hs-type">ObjectiveSensitivity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MEDIUM&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity_OFF"><span class="hs-identifier hs-type">ObjectiveSensitivity_OFF</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity"><span class="hs-identifier hs-type">ObjectiveSensitivity</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bObjectiveSensitivity_OFF"><span id="%24mObjectiveSensitivity_OFF"><span id="ObjectiveSensitivity_OFF"><span class="annot"><span class="annottext">$bObjectiveSensitivity_OFF :: ObjectiveSensitivity
+$mObjectiveSensitivity_OFF :: forall r. ObjectiveSensitivity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#%24bObjectiveSensitivity_OFF"><span class="hs-identifier hs-var hs-var hs-var">ObjectiveSensitivity_OFF</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity%27"><span class="hs-identifier hs-type">ObjectiveSensitivity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OFF&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity_HIGH"><span class="hs-pragma hs-type">ObjectiveSensitivity_HIGH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity_LOW"><span class="hs-pragma hs-type">ObjectiveSensitivity_LOW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity_MEDIUM"><span class="hs-pragma hs-type">ObjectiveSensitivity_MEDIUM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity_OFF"><span class="hs-pragma hs-type">ObjectiveSensitivity_OFF</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Personalize.Types.ObjectiveSensitivity.html#ObjectiveSensitivity%27"><span class="hs-pragma hs-type">ObjectiveSensitivity'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

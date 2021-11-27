@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ComputeOptimizer.Types.FindingReasonCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.FindingReasonCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#FindingReasonCode"><span class="hs-identifier">FindingReasonCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#FindingReasonCode_MemoryOverprovisioned"><span class="hs-identifier">FindingReasonCode_MemoryOverprovisioned</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#FindingReasonCode_MemoryUnderprovisioned"><span class="hs-identifier">FindingReasonCode_MemoryUnderprovisioned</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679237963"><span id="local-6989586621679237964"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FindingReasonCode"><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#FindingReasonCode"><span class="hs-identifier hs-var">FindingReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingReasonCode%27"><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#FindingReasonCode%27"><span class="hs-identifier hs-var">FindingReasonCode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFindingReasonCode"><span class="annot"><span class="annottext">FindingReasonCode -&gt; Text
+</span><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#fromFindingReasonCode"><span class="hs-identifier hs-var hs-var">fromFindingReasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237955"><span id="local-6989586621679237957"><span id="local-6989586621679237959"><span class="annot"><span class="annottext">Int -&gt; FindingReasonCode -&gt; ShowS
+[FindingReasonCode] -&gt; ShowS
+FindingReasonCode -&gt; String
+(Int -&gt; FindingReasonCode -&gt; ShowS)
+-&gt; (FindingReasonCode -&gt; String)
+-&gt; ([FindingReasonCode] -&gt; ShowS)
+-&gt; Show FindingReasonCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FindingReasonCode] -&gt; ShowS
+$cshowList :: [FindingReasonCode] -&gt; ShowS
+show :: FindingReasonCode -&gt; String
+$cshow :: FindingReasonCode -&gt; String
+showsPrec :: Int -&gt; FindingReasonCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; FindingReasonCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679237946"><span id="local-6989586621679237948"><span id="local-6989586621679237950"><span id="local-6989586621679237952"><span class="annot"><span class="annottext">ReadPrec [FindingReasonCode]
+ReadPrec FindingReasonCode
+Int -&gt; ReadS FindingReasonCode
+ReadS [FindingReasonCode]
+(Int -&gt; ReadS FindingReasonCode)
+-&gt; ReadS [FindingReasonCode]
+-&gt; ReadPrec FindingReasonCode
+-&gt; ReadPrec [FindingReasonCode]
+-&gt; Read FindingReasonCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FindingReasonCode]
+$creadListPrec :: ReadPrec [FindingReasonCode]
+readPrec :: ReadPrec FindingReasonCode
+$creadPrec :: ReadPrec FindingReasonCode
+readList :: ReadS [FindingReasonCode]
+$creadList :: ReadS [FindingReasonCode]
+readsPrec :: Int -&gt; ReadS FindingReasonCode
+$creadsPrec :: Int -&gt; ReadS FindingReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679237941"><span id="local-6989586621679237943"><span class="annot"><span class="annottext">FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
+(FindingReasonCode -&gt; FindingReasonCode -&gt; Bool)
+-&gt; (FindingReasonCode -&gt; FindingReasonCode -&gt; Bool)
+-&gt; Eq FindingReasonCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
+$c/= :: FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
+== :: FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
+$c== :: FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679237925"><span id="local-6989586621679237927"><span id="local-6989586621679237929"><span id="local-6989586621679237931"><span id="local-6989586621679237933"><span id="local-6989586621679237935"><span id="local-6989586621679237937"><span class="annot"><span class="annottext">Eq FindingReasonCode
+Eq FindingReasonCode
+-&gt; (FindingReasonCode -&gt; FindingReasonCode -&gt; Ordering)
+-&gt; (FindingReasonCode -&gt; FindingReasonCode -&gt; Bool)
+-&gt; (FindingReasonCode -&gt; FindingReasonCode -&gt; Bool)
+-&gt; (FindingReasonCode -&gt; FindingReasonCode -&gt; Bool)
+-&gt; (FindingReasonCode -&gt; FindingReasonCode -&gt; Bool)
+-&gt; (FindingReasonCode -&gt; FindingReasonCode -&gt; FindingReasonCode)
+-&gt; (FindingReasonCode -&gt; FindingReasonCode -&gt; FindingReasonCode)
+-&gt; Ord FindingReasonCode
+FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
+FindingReasonCode -&gt; FindingReasonCode -&gt; Ordering
+FindingReasonCode -&gt; FindingReasonCode -&gt; FindingReasonCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FindingReasonCode -&gt; FindingReasonCode -&gt; FindingReasonCode
+$cmin :: FindingReasonCode -&gt; FindingReasonCode -&gt; FindingReasonCode
+max :: FindingReasonCode -&gt; FindingReasonCode -&gt; FindingReasonCode
+$cmax :: FindingReasonCode -&gt; FindingReasonCode -&gt; FindingReasonCode
+&gt;= :: FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
+$c&gt;= :: FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
+&gt; :: FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
+$c&gt; :: FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
+&lt;= :: FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
+$c&lt;= :: FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
+&lt; :: FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
+$c&lt; :: FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
+compare :: FindingReasonCode -&gt; FindingReasonCode -&gt; Ordering
+$ccompare :: FindingReasonCode -&gt; FindingReasonCode -&gt; Ordering
+$cp1Ord :: Eq FindingReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FindingReasonCode -&gt; Rep FindingReasonCode x)
+-&gt; (forall x. Rep FindingReasonCode x -&gt; FindingReasonCode)
+-&gt; Generic FindingReasonCode
+forall x. Rep FindingReasonCode x -&gt; FindingReasonCode
+forall x. FindingReasonCode -&gt; Rep FindingReasonCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FindingReasonCode x -&gt; FindingReasonCode
+$cfrom :: forall x. FindingReasonCode -&gt; Rep FindingReasonCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237917"><span id="local-6989586621679237919"><span class="annot"><span class="annottext">Int -&gt; FindingReasonCode -&gt; Int
+FindingReasonCode -&gt; Int
+(Int -&gt; FindingReasonCode -&gt; Int)
+-&gt; (FindingReasonCode -&gt; Int) -&gt; Hashable FindingReasonCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FindingReasonCode -&gt; Int
+$chash :: FindingReasonCode -&gt; Int
+hashWithSalt :: Int -&gt; FindingReasonCode -&gt; Int
+$chashWithSalt :: Int -&gt; FindingReasonCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679237914"><span class="annot"><span class="annottext">FindingReasonCode -&gt; ()
+(FindingReasonCode -&gt; ()) -&gt; NFData FindingReasonCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FindingReasonCode -&gt; ()
+$crnf :: FindingReasonCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679237911"><span class="annot"><span class="annottext">Text -&gt; Either String FindingReasonCode
+(Text -&gt; Either String FindingReasonCode)
+-&gt; FromText FindingReasonCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FindingReasonCode
+$cfromText :: Text -&gt; Either String FindingReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679237908"><span class="annot"><span class="annottext">FindingReasonCode -&gt; Text
+(FindingReasonCode -&gt; Text) -&gt; ToText FindingReasonCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FindingReasonCode -&gt; Text
+$ctoText :: FindingReasonCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679237905"><span class="annot"><span class="annottext">FindingReasonCode -&gt; ByteString
+(FindingReasonCode -&gt; ByteString) -&gt; ToByteString FindingReasonCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FindingReasonCode -&gt; ByteString
+$ctoBS :: FindingReasonCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679237902"><span class="annot"><span class="annottext">FindingReasonCode -&gt; ByteStringBuilder
+(FindingReasonCode -&gt; ByteStringBuilder) -&gt; ToLog FindingReasonCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FindingReasonCode -&gt; ByteStringBuilder
+$cbuild :: FindingReasonCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679237899"><span class="annot"><span class="annottext">HeaderName -&gt; FindingReasonCode -&gt; [Header]
+(HeaderName -&gt; FindingReasonCode -&gt; [Header])
+-&gt; ToHeader FindingReasonCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FindingReasonCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FindingReasonCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679237896"><span class="annot"><span class="annottext">FindingReasonCode -&gt; QueryString
+(FindingReasonCode -&gt; QueryString) -&gt; ToQuery FindingReasonCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FindingReasonCode -&gt; QueryString
+$ctoQuery :: FindingReasonCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679237891"><span id="local-6989586621679237893"><span class="annot"><span class="annottext">Value -&gt; Parser [FindingReasonCode]
+Value -&gt; Parser FindingReasonCode
+(Value -&gt; Parser FindingReasonCode)
+-&gt; (Value -&gt; Parser [FindingReasonCode])
+-&gt; FromJSON FindingReasonCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FindingReasonCode]
+$cparseJSONList :: Value -&gt; Parser [FindingReasonCode]
+parseJSON :: Value -&gt; Parser FindingReasonCode
+$cparseJSON :: Value -&gt; Parser FindingReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679237886"><span id="local-6989586621679237888"><span class="annot"><span class="annottext">FromJSONKeyFunction [FindingReasonCode]
+FromJSONKeyFunction FindingReasonCode
+FromJSONKeyFunction FindingReasonCode
+-&gt; FromJSONKeyFunction [FindingReasonCode]
+-&gt; FromJSONKey FindingReasonCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FindingReasonCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [FindingReasonCode]
+fromJSONKey :: FromJSONKeyFunction FindingReasonCode
+$cfromJSONKey :: FromJSONKeyFunction FindingReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679237877"><span id="local-6989586621679237879"><span id="local-6989586621679237881"><span id="local-6989586621679237883"><span class="annot"><span class="annottext">[FindingReasonCode] -&gt; Encoding
+[FindingReasonCode] -&gt; Value
+FindingReasonCode -&gt; Encoding
+FindingReasonCode -&gt; Value
+(FindingReasonCode -&gt; Value)
+-&gt; (FindingReasonCode -&gt; Encoding)
+-&gt; ([FindingReasonCode] -&gt; Value)
+-&gt; ([FindingReasonCode] -&gt; Encoding)
+-&gt; ToJSON FindingReasonCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FindingReasonCode] -&gt; Encoding
+$ctoEncodingList :: [FindingReasonCode] -&gt; Encoding
+toJSONList :: [FindingReasonCode] -&gt; Value
+$ctoJSONList :: [FindingReasonCode] -&gt; Value
+toEncoding :: FindingReasonCode -&gt; Encoding
+$ctoEncoding :: FindingReasonCode -&gt; Encoding
+toJSON :: FindingReasonCode -&gt; Value
+$ctoJSON :: FindingReasonCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679237872"><span id="local-6989586621679237874"><span class="annot"><span class="annottext">ToJSONKeyFunction [FindingReasonCode]
+ToJSONKeyFunction FindingReasonCode
+ToJSONKeyFunction FindingReasonCode
+-&gt; ToJSONKeyFunction [FindingReasonCode]
+-&gt; ToJSONKey FindingReasonCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FindingReasonCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [FindingReasonCode]
+toJSONKey :: ToJSONKeyFunction FindingReasonCode
+$ctoJSONKey :: ToJSONKeyFunction FindingReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679237869"><span class="annot"><span class="annottext">[Node] -&gt; Either String FindingReasonCode
+([Node] -&gt; Either String FindingReasonCode)
+-&gt; FromXML FindingReasonCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FindingReasonCode
+$cparseXML :: [Node] -&gt; Either String FindingReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679237866"><span class="annot"><span class="annottext">FindingReasonCode -&gt; XML
+(FindingReasonCode -&gt; XML) -&gt; ToXML FindingReasonCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FindingReasonCode -&gt; XML
+$ctoXML :: FindingReasonCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#FindingReasonCode_MemoryOverprovisioned"><span class="hs-identifier hs-type">FindingReasonCode_MemoryOverprovisioned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#FindingReasonCode"><span class="hs-identifier hs-type">FindingReasonCode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFindingReasonCode_MemoryOverprovisioned"><span id="%24mFindingReasonCode_MemoryOverprovisioned"><span id="FindingReasonCode_MemoryOverprovisioned"><span class="annot"><span class="annottext">$bFindingReasonCode_MemoryOverprovisioned :: FindingReasonCode
+$mFindingReasonCode_MemoryOverprovisioned :: forall r. FindingReasonCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#%24bFindingReasonCode_MemoryOverprovisioned"><span class="hs-identifier hs-var hs-var hs-var">FindingReasonCode_MemoryOverprovisioned</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#FindingReasonCode%27"><span class="hs-identifier hs-type">FindingReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MemoryOverprovisioned&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#FindingReasonCode_MemoryUnderprovisioned"><span class="hs-identifier hs-type">FindingReasonCode_MemoryUnderprovisioned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#FindingReasonCode"><span class="hs-identifier hs-type">FindingReasonCode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFindingReasonCode_MemoryUnderprovisioned"><span id="%24mFindingReasonCode_MemoryUnderprovisioned"><span id="FindingReasonCode_MemoryUnderprovisioned"><span class="annot"><span class="annottext">$bFindingReasonCode_MemoryUnderprovisioned :: FindingReasonCode
+$mFindingReasonCode_MemoryUnderprovisioned :: forall r. FindingReasonCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#%24bFindingReasonCode_MemoryUnderprovisioned"><span class="hs-identifier hs-var hs-var hs-var">FindingReasonCode_MemoryUnderprovisioned</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#FindingReasonCode%27"><span class="hs-identifier hs-type">FindingReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MemoryUnderprovisioned&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#FindingReasonCode_MemoryOverprovisioned"><span class="hs-pragma hs-type">FindingReasonCode_MemoryOverprovisioned</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#FindingReasonCode_MemoryUnderprovisioned"><span class="hs-pragma hs-type">FindingReasonCode_MemoryUnderprovisioned</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FindingReasonCode.html#FindingReasonCode%27"><span class="hs-pragma hs-type">FindingReasonCode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

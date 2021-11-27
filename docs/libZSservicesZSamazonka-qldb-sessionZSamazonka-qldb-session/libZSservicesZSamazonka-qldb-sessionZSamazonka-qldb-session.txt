@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.QLDBSession.Types.AbortTransactionRequest
+module Amazonka.QLDBSession.Types.AbortTransactionRequest
 
 -- | Contains the details of the transaction to abort.
 --   
@@ -19,16 +19,16 @@ AbortTransactionRequest' :: AbortTransactionRequest
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newAbortTransactionRequest :: AbortTransactionRequest
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.AbortTransactionRequest.AbortTransactionRequest
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.AbortTransactionRequest.AbortTransactionRequest
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.AbortTransactionRequest.AbortTransactionRequest
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.AbortTransactionRequest.AbortTransactionRequest
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.AbortTransactionRequest.AbortTransactionRequest
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.AbortTransactionRequest.AbortTransactionRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDBSession.Types.AbortTransactionRequest.AbortTransactionRequest
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.AbortTransactionRequest.AbortTransactionRequest
+instance GHC.Show.Show Amazonka.QLDBSession.Types.AbortTransactionRequest.AbortTransactionRequest
+instance GHC.Read.Read Amazonka.QLDBSession.Types.AbortTransactionRequest.AbortTransactionRequest
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.AbortTransactionRequest.AbortTransactionRequest
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.AbortTransactionRequest.AbortTransactionRequest
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.AbortTransactionRequest.AbortTransactionRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDBSession.Types.AbortTransactionRequest.AbortTransactionRequest
 
 
-module Network.AWS.QLDBSession.Types.CommitTransactionRequest
+module Amazonka.QLDBSession.Types.CommitTransactionRequest
 
 -- | Contains the details of the transaction to commit.
 --   
@@ -101,16 +101,16 @@ commitTransactionRequest_transactionId :: Lens' CommitTransactionRequest Text
 --   deserialisation. -- This <tt>Lens</tt> accepts and returns only raw
 --   unencoded data.
 commitTransactionRequest_commitDigest :: Lens' CommitTransactionRequest ByteString
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.CommitTransactionRequest.CommitTransactionRequest
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.CommitTransactionRequest.CommitTransactionRequest
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.CommitTransactionRequest.CommitTransactionRequest
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.CommitTransactionRequest.CommitTransactionRequest
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.CommitTransactionRequest.CommitTransactionRequest
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.CommitTransactionRequest.CommitTransactionRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDBSession.Types.CommitTransactionRequest.CommitTransactionRequest
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.CommitTransactionRequest.CommitTransactionRequest
+instance GHC.Show.Show Amazonka.QLDBSession.Types.CommitTransactionRequest.CommitTransactionRequest
+instance GHC.Read.Read Amazonka.QLDBSession.Types.CommitTransactionRequest.CommitTransactionRequest
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.CommitTransactionRequest.CommitTransactionRequest
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.CommitTransactionRequest.CommitTransactionRequest
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.CommitTransactionRequest.CommitTransactionRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDBSession.Types.CommitTransactionRequest.CommitTransactionRequest
 
 
-module Network.AWS.QLDBSession.Types.EndSessionRequest
+module Amazonka.QLDBSession.Types.EndSessionRequest
 
 -- | Specifies a request to end the session.
 --   
@@ -124,16 +124,16 @@ EndSessionRequest' :: EndSessionRequest
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newEndSessionRequest :: EndSessionRequest
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.EndSessionRequest.EndSessionRequest
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.EndSessionRequest.EndSessionRequest
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.EndSessionRequest.EndSessionRequest
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.EndSessionRequest.EndSessionRequest
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.EndSessionRequest.EndSessionRequest
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.EndSessionRequest.EndSessionRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDBSession.Types.EndSessionRequest.EndSessionRequest
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.EndSessionRequest.EndSessionRequest
+instance GHC.Show.Show Amazonka.QLDBSession.Types.EndSessionRequest.EndSessionRequest
+instance GHC.Read.Read Amazonka.QLDBSession.Types.EndSessionRequest.EndSessionRequest
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.EndSessionRequest.EndSessionRequest
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.EndSessionRequest.EndSessionRequest
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.EndSessionRequest.EndSessionRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDBSession.Types.EndSessionRequest.EndSessionRequest
 
 
-module Network.AWS.QLDBSession.Types.FetchPageRequest
+module Amazonka.QLDBSession.Types.FetchPageRequest
 
 -- | Specifies the details of the page to be fetched.
 --   
@@ -170,16 +170,16 @@ fetchPageRequest_transactionId :: Lens' FetchPageRequest Text
 
 -- | Specifies the next page token of the page to be fetched.
 fetchPageRequest_nextPageToken :: Lens' FetchPageRequest Text
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.FetchPageRequest.FetchPageRequest
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.FetchPageRequest.FetchPageRequest
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.FetchPageRequest.FetchPageRequest
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.FetchPageRequest.FetchPageRequest
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.FetchPageRequest.FetchPageRequest
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.FetchPageRequest.FetchPageRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDBSession.Types.FetchPageRequest.FetchPageRequest
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.FetchPageRequest.FetchPageRequest
+instance GHC.Show.Show Amazonka.QLDBSession.Types.FetchPageRequest.FetchPageRequest
+instance GHC.Read.Read Amazonka.QLDBSession.Types.FetchPageRequest.FetchPageRequest
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.FetchPageRequest.FetchPageRequest
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.FetchPageRequest.FetchPageRequest
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.FetchPageRequest.FetchPageRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDBSession.Types.FetchPageRequest.FetchPageRequest
 
 
-module Network.AWS.QLDBSession.Types.IOUsage
+module Amazonka.QLDBSession.Types.IOUsage
 
 -- | Contains I/O usage metrics for a command that was invoked.
 --   
@@ -213,16 +213,16 @@ iOUsage_readIOs :: Lens' IOUsage (Maybe Integer)
 
 -- | The number of write I/O requests that the command made.
 iOUsage_writeIOs :: Lens' IOUsage (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.IOUsage.IOUsage
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.IOUsage.IOUsage
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.IOUsage.IOUsage
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.IOUsage.IOUsage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDBSession.Types.IOUsage.IOUsage
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.IOUsage.IOUsage
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.IOUsage.IOUsage
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.IOUsage.IOUsage
+instance GHC.Show.Show Amazonka.QLDBSession.Types.IOUsage.IOUsage
+instance GHC.Read.Read Amazonka.QLDBSession.Types.IOUsage.IOUsage
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.IOUsage.IOUsage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDBSession.Types.IOUsage.IOUsage
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.IOUsage.IOUsage
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.IOUsage.IOUsage
 
 
-module Network.AWS.QLDBSession.Types.StartSessionRequest
+module Amazonka.QLDBSession.Types.StartSessionRequest
 
 -- | Specifies a request to start a new session.
 --   
@@ -249,16 +249,16 @@ newStartSessionRequest :: Text -> StartSessionRequest
 
 -- | The name of the ledger to start a new session against.
 startSessionRequest_ledgerName :: Lens' StartSessionRequest Text
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.StartSessionRequest.StartSessionRequest
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.StartSessionRequest.StartSessionRequest
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.StartSessionRequest.StartSessionRequest
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.StartSessionRequest.StartSessionRequest
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.StartSessionRequest.StartSessionRequest
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.StartSessionRequest.StartSessionRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDBSession.Types.StartSessionRequest.StartSessionRequest
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.StartSessionRequest.StartSessionRequest
+instance GHC.Show.Show Amazonka.QLDBSession.Types.StartSessionRequest.StartSessionRequest
+instance GHC.Read.Read Amazonka.QLDBSession.Types.StartSessionRequest.StartSessionRequest
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.StartSessionRequest.StartSessionRequest
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.StartSessionRequest.StartSessionRequest
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.StartSessionRequest.StartSessionRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDBSession.Types.StartSessionRequest.StartSessionRequest
 
 
-module Network.AWS.QLDBSession.Types.StartTransactionRequest
+module Amazonka.QLDBSession.Types.StartTransactionRequest
 
 -- | Specifies a request to start a transaction.
 --   
@@ -272,16 +272,16 @@ StartTransactionRequest' :: StartTransactionRequest
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newStartTransactionRequest :: StartTransactionRequest
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.StartTransactionRequest.StartTransactionRequest
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.StartTransactionRequest.StartTransactionRequest
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.StartTransactionRequest.StartTransactionRequest
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.StartTransactionRequest.StartTransactionRequest
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.StartTransactionRequest.StartTransactionRequest
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.StartTransactionRequest.StartTransactionRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDBSession.Types.StartTransactionRequest.StartTransactionRequest
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.StartTransactionRequest.StartTransactionRequest
+instance GHC.Show.Show Amazonka.QLDBSession.Types.StartTransactionRequest.StartTransactionRequest
+instance GHC.Read.Read Amazonka.QLDBSession.Types.StartTransactionRequest.StartTransactionRequest
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.StartTransactionRequest.StartTransactionRequest
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.StartTransactionRequest.StartTransactionRequest
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.StartTransactionRequest.StartTransactionRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDBSession.Types.StartTransactionRequest.StartTransactionRequest
 
 
-module Network.AWS.QLDBSession.Types.TimingInformation
+module Amazonka.QLDBSession.Types.TimingInformation
 
 -- | Contains server-side performance information for a command. Amazon
 --   QLDB captures timing information between the times when it receives
@@ -313,16 +313,16 @@ newTimingInformation :: TimingInformation
 -- | The amount of time that QLDB spent on processing the command, measured
 --   in milliseconds.
 timingInformation_processingTimeMilliseconds :: Lens' TimingInformation (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.TimingInformation.TimingInformation
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.TimingInformation.TimingInformation
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.TimingInformation.TimingInformation
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.TimingInformation.TimingInformation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDBSession.Types.TimingInformation.TimingInformation
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.TimingInformation.TimingInformation
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.TimingInformation.TimingInformation
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.TimingInformation.TimingInformation
+instance GHC.Show.Show Amazonka.QLDBSession.Types.TimingInformation.TimingInformation
+instance GHC.Read.Read Amazonka.QLDBSession.Types.TimingInformation.TimingInformation
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.TimingInformation.TimingInformation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDBSession.Types.TimingInformation.TimingInformation
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.TimingInformation.TimingInformation
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.TimingInformation.TimingInformation
 
 
-module Network.AWS.QLDBSession.Types.StartTransactionResult
+module Amazonka.QLDBSession.Types.StartTransactionResult
 
 -- | Contains the details of the started transaction.
 --   
@@ -359,16 +359,16 @@ startTransactionResult_timingInformation :: Lens' StartTransactionResult (Maybe 
 
 -- | The transaction ID of the started transaction.
 startTransactionResult_transactionId :: Lens' StartTransactionResult (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.StartTransactionResult.StartTransactionResult
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.StartTransactionResult.StartTransactionResult
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.StartTransactionResult.StartTransactionResult
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.StartTransactionResult.StartTransactionResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDBSession.Types.StartTransactionResult.StartTransactionResult
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.StartTransactionResult.StartTransactionResult
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.StartTransactionResult.StartTransactionResult
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.StartTransactionResult.StartTransactionResult
+instance GHC.Show.Show Amazonka.QLDBSession.Types.StartTransactionResult.StartTransactionResult
+instance GHC.Read.Read Amazonka.QLDBSession.Types.StartTransactionResult.StartTransactionResult
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.StartTransactionResult.StartTransactionResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDBSession.Types.StartTransactionResult.StartTransactionResult
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.StartTransactionResult.StartTransactionResult
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.StartTransactionResult.StartTransactionResult
 
 
-module Network.AWS.QLDBSession.Types.StartSessionResult
+module Amazonka.QLDBSession.Types.StartSessionResult
 
 -- | Contains the details of the started session.
 --   
@@ -410,16 +410,16 @@ startSessionResult_timingInformation :: Lens' StartSessionResult (Maybe TimingIn
 --   required for every subsequent command that is issued during the
 --   current session.
 startSessionResult_sessionToken :: Lens' StartSessionResult (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.StartSessionResult.StartSessionResult
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.StartSessionResult.StartSessionResult
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.StartSessionResult.StartSessionResult
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.StartSessionResult.StartSessionResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDBSession.Types.StartSessionResult.StartSessionResult
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.StartSessionResult.StartSessionResult
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.StartSessionResult.StartSessionResult
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.StartSessionResult.StartSessionResult
+instance GHC.Show.Show Amazonka.QLDBSession.Types.StartSessionResult.StartSessionResult
+instance GHC.Read.Read Amazonka.QLDBSession.Types.StartSessionResult.StartSessionResult
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.StartSessionResult.StartSessionResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDBSession.Types.StartSessionResult.StartSessionResult
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.StartSessionResult.StartSessionResult
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.StartSessionResult.StartSessionResult
 
 
-module Network.AWS.QLDBSession.Types.EndSessionResult
+module Amazonka.QLDBSession.Types.EndSessionResult
 
 -- | Contains the details of the ended session.
 --   
@@ -446,16 +446,16 @@ newEndSessionResult :: EndSessionResult
 
 -- | Contains server-side performance information for the command.
 endSessionResult_timingInformation :: Lens' EndSessionResult (Maybe TimingInformation)
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.EndSessionResult.EndSessionResult
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.EndSessionResult.EndSessionResult
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.EndSessionResult.EndSessionResult
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.EndSessionResult.EndSessionResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDBSession.Types.EndSessionResult.EndSessionResult
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.EndSessionResult.EndSessionResult
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.EndSessionResult.EndSessionResult
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.EndSessionResult.EndSessionResult
+instance GHC.Show.Show Amazonka.QLDBSession.Types.EndSessionResult.EndSessionResult
+instance GHC.Read.Read Amazonka.QLDBSession.Types.EndSessionResult.EndSessionResult
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.EndSessionResult.EndSessionResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDBSession.Types.EndSessionResult.EndSessionResult
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.EndSessionResult.EndSessionResult
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.EndSessionResult.EndSessionResult
 
 
-module Network.AWS.QLDBSession.Types.CommitTransactionResult
+module Amazonka.QLDBSession.Types.CommitTransactionResult
 
 -- | Contains the details of the committed transaction.
 --   
@@ -522,16 +522,16 @@ commitTransactionResult_commitDigest :: Lens' CommitTransactionResult (Maybe Byt
 
 -- | The transaction ID of the committed transaction.
 commitTransactionResult_transactionId :: Lens' CommitTransactionResult (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.CommitTransactionResult.CommitTransactionResult
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.CommitTransactionResult.CommitTransactionResult
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.CommitTransactionResult.CommitTransactionResult
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.CommitTransactionResult.CommitTransactionResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDBSession.Types.CommitTransactionResult.CommitTransactionResult
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.CommitTransactionResult.CommitTransactionResult
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.CommitTransactionResult.CommitTransactionResult
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.CommitTransactionResult.CommitTransactionResult
+instance GHC.Show.Show Amazonka.QLDBSession.Types.CommitTransactionResult.CommitTransactionResult
+instance GHC.Read.Read Amazonka.QLDBSession.Types.CommitTransactionResult.CommitTransactionResult
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.CommitTransactionResult.CommitTransactionResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDBSession.Types.CommitTransactionResult.CommitTransactionResult
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.CommitTransactionResult.CommitTransactionResult
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.CommitTransactionResult.CommitTransactionResult
 
 
-module Network.AWS.QLDBSession.Types.AbortTransactionResult
+module Amazonka.QLDBSession.Types.AbortTransactionResult
 
 -- | Contains the details of the aborted transaction.
 --   
@@ -558,16 +558,16 @@ newAbortTransactionResult :: AbortTransactionResult
 
 -- | Contains server-side performance information for the command.
 abortTransactionResult_timingInformation :: Lens' AbortTransactionResult (Maybe TimingInformation)
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.AbortTransactionResult.AbortTransactionResult
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.AbortTransactionResult.AbortTransactionResult
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.AbortTransactionResult.AbortTransactionResult
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.AbortTransactionResult.AbortTransactionResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDBSession.Types.AbortTransactionResult.AbortTransactionResult
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.AbortTransactionResult.AbortTransactionResult
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.AbortTransactionResult.AbortTransactionResult
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.AbortTransactionResult.AbortTransactionResult
+instance GHC.Show.Show Amazonka.QLDBSession.Types.AbortTransactionResult.AbortTransactionResult
+instance GHC.Read.Read Amazonka.QLDBSession.Types.AbortTransactionResult.AbortTransactionResult
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.AbortTransactionResult.AbortTransactionResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDBSession.Types.AbortTransactionResult.AbortTransactionResult
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.AbortTransactionResult.AbortTransactionResult
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.AbortTransactionResult.AbortTransactionResult
 
 
-module Network.AWS.QLDBSession.Types.ValueHolder
+module Amazonka.QLDBSession.Types.ValueHolder
 
 -- | A structure that can contain a value in multiple encoding formats.
 --   
@@ -615,17 +615,17 @@ valueHolder_ionText :: Lens' ValueHolder (Maybe Text)
 --   representation during deserialisation. -- This <tt>Lens</tt> accepts
 --   and returns only raw unencoded data.
 valueHolder_ionBinary :: Lens' ValueHolder (Maybe ByteString)
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.ValueHolder.ValueHolder
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.ValueHolder.ValueHolder
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.ValueHolder.ValueHolder
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.ValueHolder.ValueHolder
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDBSession.Types.ValueHolder.ValueHolder
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.ValueHolder.ValueHolder
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.ValueHolder.ValueHolder
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDBSession.Types.ValueHolder.ValueHolder
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.ValueHolder.ValueHolder
+instance GHC.Show.Show Amazonka.QLDBSession.Types.ValueHolder.ValueHolder
+instance GHC.Read.Read Amazonka.QLDBSession.Types.ValueHolder.ValueHolder
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.ValueHolder.ValueHolder
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDBSession.Types.ValueHolder.ValueHolder
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.ValueHolder.ValueHolder
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.ValueHolder.ValueHolder
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDBSession.Types.ValueHolder.ValueHolder
 
 
-module Network.AWS.QLDBSession.Types.Page
+module Amazonka.QLDBSession.Types.Page
 
 -- | Contains details of the fetched page.
 --   
@@ -659,16 +659,16 @@ page_nextPageToken :: Lens' Page (Maybe Text)
 
 -- | A structure that contains values in multiple encoding formats.
 page_values :: Lens' Page (Maybe [ValueHolder])
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.Page.Page
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.Page.Page
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.Page.Page
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.Page.Page
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDBSession.Types.Page.Page
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.Page.Page
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.Page.Page
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.Page.Page
+instance GHC.Show.Show Amazonka.QLDBSession.Types.Page.Page
+instance GHC.Read.Read Amazonka.QLDBSession.Types.Page.Page
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.Page.Page
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDBSession.Types.Page.Page
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.Page.Page
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.Page.Page
 
 
-module Network.AWS.QLDBSession.Types.FetchPageResult
+module Amazonka.QLDBSession.Types.FetchPageResult
 
 -- | Contains the page that was fetched.
 --   
@@ -714,16 +714,16 @@ fetchPageResult_consumedIOs :: Lens' FetchPageResult (Maybe IOUsage)
 
 -- | Contains details of the fetched page.
 fetchPageResult_page :: Lens' FetchPageResult (Maybe Page)
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.FetchPageResult.FetchPageResult
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.FetchPageResult.FetchPageResult
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.FetchPageResult.FetchPageResult
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.FetchPageResult.FetchPageResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDBSession.Types.FetchPageResult.FetchPageResult
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.FetchPageResult.FetchPageResult
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.FetchPageResult.FetchPageResult
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.FetchPageResult.FetchPageResult
+instance GHC.Show.Show Amazonka.QLDBSession.Types.FetchPageResult.FetchPageResult
+instance GHC.Read.Read Amazonka.QLDBSession.Types.FetchPageResult.FetchPageResult
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.FetchPageResult.FetchPageResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDBSession.Types.FetchPageResult.FetchPageResult
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.FetchPageResult.FetchPageResult
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.FetchPageResult.FetchPageResult
 
 
-module Network.AWS.QLDBSession.Types.ExecuteStatementResult
+module Amazonka.QLDBSession.Types.ExecuteStatementResult
 
 -- | Contains the details of the executed statement.
 --   
@@ -770,16 +770,16 @@ executeStatementResult_consumedIOs :: Lens' ExecuteStatementResult (Maybe IOUsag
 
 -- | Contains the details of the first fetched page.
 executeStatementResult_firstPage :: Lens' ExecuteStatementResult (Maybe Page)
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.ExecuteStatementResult.ExecuteStatementResult
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.ExecuteStatementResult.ExecuteStatementResult
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.ExecuteStatementResult.ExecuteStatementResult
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.ExecuteStatementResult.ExecuteStatementResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.QLDBSession.Types.ExecuteStatementResult.ExecuteStatementResult
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.ExecuteStatementResult.ExecuteStatementResult
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.ExecuteStatementResult.ExecuteStatementResult
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.ExecuteStatementResult.ExecuteStatementResult
+instance GHC.Show.Show Amazonka.QLDBSession.Types.ExecuteStatementResult.ExecuteStatementResult
+instance GHC.Read.Read Amazonka.QLDBSession.Types.ExecuteStatementResult.ExecuteStatementResult
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.ExecuteStatementResult.ExecuteStatementResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.QLDBSession.Types.ExecuteStatementResult.ExecuteStatementResult
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.ExecuteStatementResult.ExecuteStatementResult
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.ExecuteStatementResult.ExecuteStatementResult
 
 
-module Network.AWS.QLDBSession.Types.ExecuteStatementRequest
+module Amazonka.QLDBSession.Types.ExecuteStatementRequest
 
 -- | Specifies a request to execute a statement.
 --   
@@ -828,16 +828,16 @@ executeStatementRequest_transactionId :: Lens' ExecuteStatementRequest Text
 
 -- | Specifies the statement of the request.
 executeStatementRequest_statement :: Lens' ExecuteStatementRequest Text
-instance GHC.Generics.Generic Network.AWS.QLDBSession.Types.ExecuteStatementRequest.ExecuteStatementRequest
-instance GHC.Show.Show Network.AWS.QLDBSession.Types.ExecuteStatementRequest.ExecuteStatementRequest
-instance GHC.Read.Read Network.AWS.QLDBSession.Types.ExecuteStatementRequest.ExecuteStatementRequest
-instance GHC.Classes.Eq Network.AWS.QLDBSession.Types.ExecuteStatementRequest.ExecuteStatementRequest
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.Types.ExecuteStatementRequest.ExecuteStatementRequest
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.Types.ExecuteStatementRequest.ExecuteStatementRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDBSession.Types.ExecuteStatementRequest.ExecuteStatementRequest
+instance GHC.Generics.Generic Amazonka.QLDBSession.Types.ExecuteStatementRequest.ExecuteStatementRequest
+instance GHC.Show.Show Amazonka.QLDBSession.Types.ExecuteStatementRequest.ExecuteStatementRequest
+instance GHC.Read.Read Amazonka.QLDBSession.Types.ExecuteStatementRequest.ExecuteStatementRequest
+instance GHC.Classes.Eq Amazonka.QLDBSession.Types.ExecuteStatementRequest.ExecuteStatementRequest
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.Types.ExecuteStatementRequest.ExecuteStatementRequest
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.Types.ExecuteStatementRequest.ExecuteStatementRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDBSession.Types.ExecuteStatementRequest.ExecuteStatementRequest
 
 
-module Network.AWS.QLDBSession.Types
+module Amazonka.QLDBSession.Types
 
 -- | API version <tt>2019-07-11</tt> of the Amazon QLDB Session SDK
 --   configuration.
@@ -1537,7 +1537,7 @@ valueHolder_ionBinary :: Lens' ValueHolder (Maybe ByteString)
 --   the QLDB driver to interact with a ledger. For information, see
 --   <a>Accessing Amazon QLDB using the QLDB shell</a>.</li>
 --   </ul>
-module Network.AWS.QLDBSession.SendCommand
+module Amazonka.QLDBSession.SendCommand
 
 -- | <i>See:</i> <a>newSendCommand</a> smart constructor.
 data SendCommand
@@ -1745,25 +1745,25 @@ sendCommandResponse_startSession :: Lens' SendCommandResponse (Maybe StartSessio
 
 -- | The response's http status code.
 sendCommandResponse_httpStatus :: Lens' SendCommandResponse Int
-instance GHC.Generics.Generic Network.AWS.QLDBSession.SendCommand.SendCommand
-instance GHC.Show.Show Network.AWS.QLDBSession.SendCommand.SendCommand
-instance GHC.Read.Read Network.AWS.QLDBSession.SendCommand.SendCommand
-instance GHC.Classes.Eq Network.AWS.QLDBSession.SendCommand.SendCommand
-instance GHC.Generics.Generic Network.AWS.QLDBSession.SendCommand.SendCommandResponse
-instance GHC.Show.Show Network.AWS.QLDBSession.SendCommand.SendCommandResponse
-instance GHC.Read.Read Network.AWS.QLDBSession.SendCommand.SendCommandResponse
-instance GHC.Classes.Eq Network.AWS.QLDBSession.SendCommand.SendCommandResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDBSession.SendCommand.SendCommand
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.SendCommand.SendCommandResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDBSession.SendCommand.SendCommand
-instance Control.DeepSeq.NFData Network.AWS.QLDBSession.SendCommand.SendCommand
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDBSession.SendCommand.SendCommand
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDBSession.SendCommand.SendCommand
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDBSession.SendCommand.SendCommand
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDBSession.SendCommand.SendCommand
+instance GHC.Generics.Generic Amazonka.QLDBSession.SendCommand.SendCommand
+instance GHC.Show.Show Amazonka.QLDBSession.SendCommand.SendCommand
+instance GHC.Read.Read Amazonka.QLDBSession.SendCommand.SendCommand
+instance GHC.Classes.Eq Amazonka.QLDBSession.SendCommand.SendCommand
+instance GHC.Generics.Generic Amazonka.QLDBSession.SendCommand.SendCommandResponse
+instance GHC.Show.Show Amazonka.QLDBSession.SendCommand.SendCommandResponse
+instance GHC.Read.Read Amazonka.QLDBSession.SendCommand.SendCommandResponse
+instance GHC.Classes.Eq Amazonka.QLDBSession.SendCommand.SendCommandResponse
+instance Amazonka.Types.AWSRequest Amazonka.QLDBSession.SendCommand.SendCommand
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.SendCommand.SendCommandResponse
+instance Data.Hashable.Class.Hashable Amazonka.QLDBSession.SendCommand.SendCommand
+instance Control.DeepSeq.NFData Amazonka.QLDBSession.SendCommand.SendCommand
+instance Amazonka.Data.Headers.ToHeaders Amazonka.QLDBSession.SendCommand.SendCommand
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.QLDBSession.SendCommand.SendCommand
+instance Amazonka.Data.Path.ToPath Amazonka.QLDBSession.SendCommand.SendCommand
+instance Amazonka.Data.Query.ToQuery Amazonka.QLDBSession.SendCommand.SendCommand
 
 
-module Network.AWS.QLDBSession.Lens
+module Amazonka.QLDBSession.Lens
 
 -- | Command to fetch a page.
 sendCommand_fetchPage :: Lens' SendCommand (Maybe FetchPageRequest)
@@ -1944,7 +1944,7 @@ valueHolder_ionText :: Lens' ValueHolder (Maybe Text)
 valueHolder_ionBinary :: Lens' ValueHolder (Maybe ByteString)
 
 
-module Network.AWS.QLDBSession.Waiters
+module Amazonka.QLDBSession.Waiters
 
 
 -- | Derived from API version <tt>2019-07-11</tt> of the AWS service
@@ -1968,7 +1968,7 @@ module Network.AWS.QLDBSession.Waiters
 --   the QLDB driver to interact with a ledger. For information, see
 --   <a>Accessing Amazon QLDB using the QLDB shell</a>.</li>
 --   </ul>
-module Network.AWS.QLDBSession
+module Amazonka.QLDBSession
 
 -- | API version <tt>2019-07-11</tt> of the Amazon QLDB Session SDK
 --   configuration.

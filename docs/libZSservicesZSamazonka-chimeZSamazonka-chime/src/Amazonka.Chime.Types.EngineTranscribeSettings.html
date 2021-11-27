@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Chime.Types.EngineTranscribeSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.Types.EngineTranscribeSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.TranscribeLanguageCode.html"><span class="hs-identifier">Amazonka.Chime.Types.TranscribeLanguageCode</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.TranscribeRegion.html"><span class="hs-identifier">Amazonka.Chime.Types.TranscribeRegion</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.TranscribeVocabularyFilterMethod.html"><span class="hs-identifier">Amazonka.Chime.Types.TranscribeVocabularyFilterMethod</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Settings specific to the Amazon Transcribe engine.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEngineTranscribeSettings' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679521051"><span id="local-6989586621679521052"></span></span><span class="hs-keyword">data</span><span> </span><span id="EngineTranscribeSettings"><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings"><span class="hs-identifier hs-var">EngineTranscribeSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EngineTranscribeSettings%27"><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings%27"><span class="hs-identifier hs-var">EngineTranscribeSettings'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the vocabulary passed to Amazon Transcribe.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AvocabularyName%3AEngineTranscribeSettings%27"><span class="annot"><span class="annottext">EngineTranscribeSettings -&gt; Maybe Text
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#%24sel%3AvocabularyName%3AEngineTranscribeSettings%27"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the vocabulary filter passed to Amazon Transcribe.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AvocabularyFilterName%3AEngineTranscribeSettings%27"><span class="annot"><span class="annottext">EngineTranscribeSettings -&gt; Maybe Text
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#%24sel%3AvocabularyFilterName%3AEngineTranscribeSettings%27"><span class="hs-identifier hs-var hs-var">vocabularyFilterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The filtering method passed to Amazon Transcribe.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AvocabularyFilterMethod%3AEngineTranscribeSettings%27"><span class="annot"><span class="annottext">EngineTranscribeSettings -&gt; Maybe TranscribeVocabularyFilterMethod
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#%24sel%3AvocabularyFilterMethod%3AEngineTranscribeSettings%27"><span class="hs-identifier hs-var hs-var">vocabularyFilterMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.TranscribeVocabularyFilterMethod.html#TranscribeVocabularyFilterMethod"><span class="hs-identifier hs-type">TranscribeVocabularyFilterMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The AWS Region passed to Amazon Transcribe. If you don\'t specify a</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Region, Amazon Chime uses the meeting\'s Region.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aregion%3AEngineTranscribeSettings%27"><span class="annot"><span class="annottext">EngineTranscribeSettings -&gt; Maybe TranscribeRegion
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#%24sel%3Aregion%3AEngineTranscribeSettings%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.TranscribeRegion.html#TranscribeRegion"><span class="hs-identifier hs-type">TranscribeRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The language code specified for the Amazon Transcribe engine.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlanguageCode%3AEngineTranscribeSettings%27"><span class="annot"><span class="annottext">EngineTranscribeSettings -&gt; TranscribeLanguageCode
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#%24sel%3AlanguageCode%3AEngineTranscribeSettings%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.TranscribeLanguageCode.html#TranscribeLanguageCode"><span class="hs-identifier hs-type">TranscribeLanguageCode</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679521041"><span id="local-6989586621679521043"><span class="annot"><span class="annottext">EngineTranscribeSettings -&gt; EngineTranscribeSettings -&gt; Bool
+(EngineTranscribeSettings -&gt; EngineTranscribeSettings -&gt; Bool)
+-&gt; (EngineTranscribeSettings -&gt; EngineTranscribeSettings -&gt; Bool)
+-&gt; Eq EngineTranscribeSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EngineTranscribeSettings -&gt; EngineTranscribeSettings -&gt; Bool
+$c/= :: EngineTranscribeSettings -&gt; EngineTranscribeSettings -&gt; Bool
+== :: EngineTranscribeSettings -&gt; EngineTranscribeSettings -&gt; Bool
+$c== :: EngineTranscribeSettings -&gt; EngineTranscribeSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521032"><span id="local-6989586621679521034"><span id="local-6989586621679521036"><span id="local-6989586621679521038"><span class="annot"><span class="annottext">ReadPrec [EngineTranscribeSettings]
+ReadPrec EngineTranscribeSettings
+Int -&gt; ReadS EngineTranscribeSettings
+ReadS [EngineTranscribeSettings]
+(Int -&gt; ReadS EngineTranscribeSettings)
+-&gt; ReadS [EngineTranscribeSettings]
+-&gt; ReadPrec EngineTranscribeSettings
+-&gt; ReadPrec [EngineTranscribeSettings]
+-&gt; Read EngineTranscribeSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EngineTranscribeSettings]
+$creadListPrec :: ReadPrec [EngineTranscribeSettings]
+readPrec :: ReadPrec EngineTranscribeSettings
+$creadPrec :: ReadPrec EngineTranscribeSettings
+readList :: ReadS [EngineTranscribeSettings]
+$creadList :: ReadS [EngineTranscribeSettings]
+readsPrec :: Int -&gt; ReadS EngineTranscribeSettings
+$creadsPrec :: Int -&gt; ReadS EngineTranscribeSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521025"><span id="local-6989586621679521027"><span id="local-6989586621679521029"><span class="annot"><span class="annottext">Int -&gt; EngineTranscribeSettings -&gt; ShowS
+[EngineTranscribeSettings] -&gt; ShowS
+EngineTranscribeSettings -&gt; String
+(Int -&gt; EngineTranscribeSettings -&gt; ShowS)
+-&gt; (EngineTranscribeSettings -&gt; String)
+-&gt; ([EngineTranscribeSettings] -&gt; ShowS)
+-&gt; Show EngineTranscribeSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EngineTranscribeSettings] -&gt; ShowS
+$cshowList :: [EngineTranscribeSettings] -&gt; ShowS
+show :: EngineTranscribeSettings -&gt; String
+$cshow :: EngineTranscribeSettings -&gt; String
+showsPrec :: Int -&gt; EngineTranscribeSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; EngineTranscribeSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ EngineTranscribeSettings -&gt; Rep EngineTranscribeSettings x)
+-&gt; (forall x.
+    Rep EngineTranscribeSettings x -&gt; EngineTranscribeSettings)
+-&gt; Generic EngineTranscribeSettings
+forall x.
+Rep EngineTranscribeSettings x -&gt; EngineTranscribeSettings
+forall x.
+EngineTranscribeSettings -&gt; Rep EngineTranscribeSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep EngineTranscribeSettings x -&gt; EngineTranscribeSettings
+$cfrom :: forall x.
+EngineTranscribeSettings -&gt; Rep EngineTranscribeSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'EngineTranscribeSettings' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'vocabularyName', 'engineTranscribeSettings_vocabularyName' - The name of the vocabulary passed to Amazon Transcribe.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'vocabularyFilterName', 'engineTranscribeSettings_vocabularyFilterName' - The name of the vocabulary filter passed to Amazon Transcribe.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'vocabularyFilterMethod', 'engineTranscribeSettings_vocabularyFilterMethod' - The filtering method passed to Amazon Transcribe.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'region', 'engineTranscribeSettings_region' - The AWS Region passed to Amazon Transcribe. If you don\'t specify a</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Region, Amazon Chime uses the meeting\'s Region.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'languageCode', 'engineTranscribeSettings_languageCode' - The language code specified for the Amazon Transcribe engine.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#newEngineTranscribeSettings"><span class="hs-identifier hs-type">newEngineTranscribeSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'languageCode'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.TranscribeLanguageCode.html#TranscribeLanguageCode"><span class="hs-identifier hs-type">TranscribeLanguageCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings"><span class="hs-identifier hs-type">EngineTranscribeSettings</span></a></span><span>
+</span><span id="line-69"></span><span id="newEngineTranscribeSettings"><span class="annot"><span class="annottext">newEngineTranscribeSettings :: TranscribeLanguageCode -&gt; EngineTranscribeSettings
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#newEngineTranscribeSettings"><span class="hs-identifier hs-var hs-var">newEngineTranscribeSettings</span></a></span></span><span> </span><span id="local-6989586621679521019"><span class="annot"><span class="annottext">TranscribeLanguageCode
+</span><a href="#local-6989586621679521019"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">EngineTranscribeSettings' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe TranscribeVocabularyFilterMethod
+-&gt; Maybe TranscribeRegion
+-&gt; TranscribeLanguageCode
+-&gt; EngineTranscribeSettings
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings%27"><span class="hs-identifier hs-type">EngineTranscribeSettings'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vocabularyName:EngineTranscribeSettings' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#%24sel%3AvocabularyName%3AEngineTranscribeSettings%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyFilterName:EngineTranscribeSettings' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#%24sel%3AvocabularyFilterName%3AEngineTranscribeSettings%27"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyFilterMethod:EngineTranscribeSettings' :: Maybe TranscribeVocabularyFilterMethod
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#%24sel%3AvocabularyFilterMethod%3AEngineTranscribeSettings%27"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TranscribeVocabularyFilterMethod
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:region:EngineTranscribeSettings' :: Maybe TranscribeRegion
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#%24sel%3Aregion%3AEngineTranscribeSettings%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TranscribeRegion
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageCode:EngineTranscribeSettings' :: TranscribeLanguageCode
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#%24sel%3AlanguageCode%3AEngineTranscribeSettings%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TranscribeLanguageCode
+</span><a href="#local-6989586621679521019"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The name of the vocabulary passed to Amazon Transcribe.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#engineTranscribeSettings_vocabularyName"><span class="hs-identifier hs-type">engineTranscribeSettings_vocabularyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings"><span class="hs-identifier hs-type">EngineTranscribeSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="engineTranscribeSettings_vocabularyName"><span class="annot"><span class="annottext">engineTranscribeSettings_vocabularyName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EngineTranscribeSettings -&gt; f EngineTranscribeSettings
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#engineTranscribeSettings_vocabularyName"><span class="hs-identifier hs-var hs-var">engineTranscribeSettings_vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineTranscribeSettings -&gt; Maybe Text)
+-&gt; (EngineTranscribeSettings
+    -&gt; Maybe Text -&gt; EngineTranscribeSettings)
+-&gt; Lens
+     EngineTranscribeSettings
+     EngineTranscribeSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings%27"><span class="hs-identifier hs-type">EngineTranscribeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521015"><span class="annot"><span class="annottext">Maybe Text
+vocabularyName :: Maybe Text
+$sel:vocabularyName:EngineTranscribeSettings' :: EngineTranscribeSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679521015"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521015"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521014"><span class="annot"><span class="annottext">s :: EngineTranscribeSettings
+</span><a href="#local-6989586621679521014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings%27"><span class="hs-identifier hs-type">EngineTranscribeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521013"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineTranscribeSettings
+</span><a href="#local-6989586621679521014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:EngineTranscribeSettings' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#%24sel%3AvocabularyName%3AEngineTranscribeSettings%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings"><span class="hs-identifier hs-type">EngineTranscribeSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The name of the vocabulary filter passed to Amazon Transcribe.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#engineTranscribeSettings_vocabularyFilterName"><span class="hs-identifier hs-type">engineTranscribeSettings_vocabularyFilterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings"><span class="hs-identifier hs-type">EngineTranscribeSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="engineTranscribeSettings_vocabularyFilterName"><span class="annot"><span class="annottext">engineTranscribeSettings_vocabularyFilterName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EngineTranscribeSettings -&gt; f EngineTranscribeSettings
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#engineTranscribeSettings_vocabularyFilterName"><span class="hs-identifier hs-var hs-var">engineTranscribeSettings_vocabularyFilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineTranscribeSettings -&gt; Maybe Text)
+-&gt; (EngineTranscribeSettings
+    -&gt; Maybe Text -&gt; EngineTranscribeSettings)
+-&gt; Lens
+     EngineTranscribeSettings
+     EngineTranscribeSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings%27"><span class="hs-identifier hs-type">EngineTranscribeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521011"><span class="annot"><span class="annottext">Maybe Text
+vocabularyFilterName :: Maybe Text
+$sel:vocabularyFilterName:EngineTranscribeSettings' :: EngineTranscribeSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679521011"><span class="hs-identifier hs-var hs-var">vocabularyFilterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521011"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521010"><span class="annot"><span class="annottext">s :: EngineTranscribeSettings
+</span><a href="#local-6989586621679521010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings%27"><span class="hs-identifier hs-type">EngineTranscribeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521009"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineTranscribeSettings
+</span><a href="#local-6989586621679521010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyFilterName:EngineTranscribeSettings' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#%24sel%3AvocabularyFilterName%3AEngineTranscribeSettings%27"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings"><span class="hs-identifier hs-type">EngineTranscribeSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The filtering method passed to Amazon Transcribe.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#engineTranscribeSettings_vocabularyFilterMethod"><span class="hs-identifier hs-type">engineTranscribeSettings_vocabularyFilterMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings"><span class="hs-identifier hs-type">EngineTranscribeSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.TranscribeVocabularyFilterMethod.html#TranscribeVocabularyFilterMethod"><span class="hs-identifier hs-type">TranscribeVocabularyFilterMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="engineTranscribeSettings_vocabularyFilterMethod"><span class="annot"><span class="annottext">engineTranscribeSettings_vocabularyFilterMethod :: (Maybe TranscribeVocabularyFilterMethod
+ -&gt; f (Maybe TranscribeVocabularyFilterMethod))
+-&gt; EngineTranscribeSettings -&gt; f EngineTranscribeSettings
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#engineTranscribeSettings_vocabularyFilterMethod"><span class="hs-identifier hs-var hs-var">engineTranscribeSettings_vocabularyFilterMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineTranscribeSettings
+ -&gt; Maybe TranscribeVocabularyFilterMethod)
+-&gt; (EngineTranscribeSettings
+    -&gt; Maybe TranscribeVocabularyFilterMethod
+    -&gt; EngineTranscribeSettings)
+-&gt; Lens
+     EngineTranscribeSettings
+     EngineTranscribeSettings
+     (Maybe TranscribeVocabularyFilterMethod)
+     (Maybe TranscribeVocabularyFilterMethod)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings%27"><span class="hs-identifier hs-type">EngineTranscribeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521007"><span class="annot"><span class="annottext">Maybe TranscribeVocabularyFilterMethod
+vocabularyFilterMethod :: Maybe TranscribeVocabularyFilterMethod
+$sel:vocabularyFilterMethod:EngineTranscribeSettings' :: EngineTranscribeSettings -&gt; Maybe TranscribeVocabularyFilterMethod
+</span><a href="#local-6989586621679521007"><span class="hs-identifier hs-var hs-var">vocabularyFilterMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TranscribeVocabularyFilterMethod
+</span><a href="#local-6989586621679521007"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521006"><span class="annot"><span class="annottext">s :: EngineTranscribeSettings
+</span><a href="#local-6989586621679521006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings%27"><span class="hs-identifier hs-type">EngineTranscribeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521005"><span class="annot"><span class="annottext">Maybe TranscribeVocabularyFilterMethod
+</span><a href="#local-6989586621679521005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineTranscribeSettings
+</span><a href="#local-6989586621679521006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyFilterMethod:EngineTranscribeSettings' :: Maybe TranscribeVocabularyFilterMethod
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#%24sel%3AvocabularyFilterMethod%3AEngineTranscribeSettings%27"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TranscribeVocabularyFilterMethod
+</span><a href="#local-6989586621679521005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings"><span class="hs-identifier hs-type">EngineTranscribeSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The AWS Region passed to Amazon Transcribe. If you don\'t specify a</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Region, Amazon Chime uses the meeting\'s Region.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#engineTranscribeSettings_region"><span class="hs-identifier hs-type">engineTranscribeSettings_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings"><span class="hs-identifier hs-type">EngineTranscribeSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.TranscribeRegion.html#TranscribeRegion"><span class="hs-identifier hs-type">TranscribeRegion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="engineTranscribeSettings_region"><span class="annot"><span class="annottext">engineTranscribeSettings_region :: (Maybe TranscribeRegion -&gt; f (Maybe TranscribeRegion))
+-&gt; EngineTranscribeSettings -&gt; f EngineTranscribeSettings
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#engineTranscribeSettings_region"><span class="hs-identifier hs-var hs-var">engineTranscribeSettings_region</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineTranscribeSettings -&gt; Maybe TranscribeRegion)
+-&gt; (EngineTranscribeSettings
+    -&gt; Maybe TranscribeRegion -&gt; EngineTranscribeSettings)
+-&gt; Lens
+     EngineTranscribeSettings
+     EngineTranscribeSettings
+     (Maybe TranscribeRegion)
+     (Maybe TranscribeRegion)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings%27"><span class="hs-identifier hs-type">EngineTranscribeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521003"><span class="annot"><span class="annottext">Maybe TranscribeRegion
+region :: Maybe TranscribeRegion
+$sel:region:EngineTranscribeSettings' :: EngineTranscribeSettings -&gt; Maybe TranscribeRegion
+</span><a href="#local-6989586621679521003"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TranscribeRegion
+</span><a href="#local-6989586621679521003"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521002"><span class="annot"><span class="annottext">s :: EngineTranscribeSettings
+</span><a href="#local-6989586621679521002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings%27"><span class="hs-identifier hs-type">EngineTranscribeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521001"><span class="annot"><span class="annottext">Maybe TranscribeRegion
+</span><a href="#local-6989586621679521001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineTranscribeSettings
+</span><a href="#local-6989586621679521002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:EngineTranscribeSettings' :: Maybe TranscribeRegion
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#%24sel%3Aregion%3AEngineTranscribeSettings%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TranscribeRegion
+</span><a href="#local-6989586621679521001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings"><span class="hs-identifier hs-type">EngineTranscribeSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The language code specified for the Amazon Transcribe engine.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#engineTranscribeSettings_languageCode"><span class="hs-identifier hs-type">engineTranscribeSettings_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings"><span class="hs-identifier hs-type">EngineTranscribeSettings</span></a></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.TranscribeLanguageCode.html#TranscribeLanguageCode"><span class="hs-identifier hs-type">TranscribeLanguageCode</span></a></span><span>
+</span><span id="line-98"></span><span id="engineTranscribeSettings_languageCode"><span class="annot"><span class="annottext">engineTranscribeSettings_languageCode :: (TranscribeLanguageCode -&gt; f TranscribeLanguageCode)
+-&gt; EngineTranscribeSettings -&gt; f EngineTranscribeSettings
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#engineTranscribeSettings_languageCode"><span class="hs-identifier hs-var hs-var">engineTranscribeSettings_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineTranscribeSettings -&gt; TranscribeLanguageCode)
+-&gt; (EngineTranscribeSettings
+    -&gt; TranscribeLanguageCode -&gt; EngineTranscribeSettings)
+-&gt; Lens
+     EngineTranscribeSettings
+     EngineTranscribeSettings
+     TranscribeLanguageCode
+     TranscribeLanguageCode
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings%27"><span class="hs-identifier hs-type">EngineTranscribeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520999"><span class="annot"><span class="annottext">TranscribeLanguageCode
+languageCode :: TranscribeLanguageCode
+$sel:languageCode:EngineTranscribeSettings' :: EngineTranscribeSettings -&gt; TranscribeLanguageCode
+</span><a href="#local-6989586621679520999"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranscribeLanguageCode
+</span><a href="#local-6989586621679520999"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679520998"><span class="annot"><span class="annottext">s :: EngineTranscribeSettings
+</span><a href="#local-6989586621679520998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings%27"><span class="hs-identifier hs-type">EngineTranscribeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679520997"><span class="annot"><span class="annottext">TranscribeLanguageCode
+</span><a href="#local-6989586621679520997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineTranscribeSettings
+</span><a href="#local-6989586621679520998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:EngineTranscribeSettings' :: TranscribeLanguageCode
+</span><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#%24sel%3AlanguageCode%3AEngineTranscribeSettings%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TranscribeLanguageCode
+</span><a href="#local-6989586621679520997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings"><span class="hs-identifier hs-type">EngineTranscribeSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679520993"><span id="local-6989586621679520995"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings"><span class="hs-identifier hs-type">EngineTranscribeSettings</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679520990"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings"><span class="hs-identifier hs-type">EngineTranscribeSettings</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679520982"><span id="local-6989586621679520984"><span id="local-6989586621679520986"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings"><span class="hs-identifier hs-type">EngineTranscribeSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679520980"><span class="annot"><span class="annottext">toJSON :: EngineTranscribeSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EngineTranscribeSettings.html#EngineTranscribeSettings%27"><span class="hs-identifier hs-type">EngineTranscribeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520974"><span id="local-6989586621679520975"><span id="local-6989586621679520976"><span id="local-6989586621679520977"><span id="local-6989586621679520978"><span class="annot"><span class="annottext">Maybe Text
+Maybe TranscribeRegion
+Maybe TranscribeVocabularyFilterMethod
+TranscribeLanguageCode
+languageCode :: TranscribeLanguageCode
+region :: Maybe TranscribeRegion
+vocabularyFilterMethod :: Maybe TranscribeVocabularyFilterMethod
+vocabularyFilterName :: Maybe Text
+vocabularyName :: Maybe Text
+$sel:languageCode:EngineTranscribeSettings' :: EngineTranscribeSettings -&gt; TranscribeLanguageCode
+$sel:region:EngineTranscribeSettings' :: EngineTranscribeSettings -&gt; Maybe TranscribeRegion
+$sel:vocabularyFilterMethod:EngineTranscribeSettings' :: EngineTranscribeSettings -&gt; Maybe TranscribeVocabularyFilterMethod
+$sel:vocabularyFilterName:EngineTranscribeSettings' :: EngineTranscribeSettings -&gt; Maybe Text
+$sel:vocabularyName:EngineTranscribeSettings' :: EngineTranscribeSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679520974"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VocabularyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679520978"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VocabularyFilterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679520977"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VocabularyFilterMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TranscribeVocabularyFilterMethod -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(TranscribeVocabularyFilterMethod -&gt; Pair)
+-&gt; Maybe TranscribeVocabularyFilterMethod -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TranscribeVocabularyFilterMethod
+</span><a href="#local-6989586621679520976"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Region&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TranscribeRegion -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TranscribeRegion -&gt; Pair) -&gt; Maybe TranscribeRegion -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TranscribeRegion
+</span><a href="#local-6989586621679520975"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TranscribeLanguageCode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TranscribeLanguageCode
+</span><a href="#local-6989586621679520974"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span></pre></body></html>

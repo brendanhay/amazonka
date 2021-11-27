@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd"><span class="hs-identifier">VideoDescriptionRespondToAfd</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd_NONE"><span class="hs-identifier">VideoDescriptionRespondToAfd_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd_PASSTHROUGH"><span class="hs-identifier">VideoDescriptionRespondToAfd_PASSTHROUGH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd_RESPOND"><span class="hs-identifier">VideoDescriptionRespondToAfd_RESPOND</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Video Description Respond To Afd</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679929472"><span id="local-6989586621679929473"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VideoDescriptionRespondToAfd"><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd"><span class="hs-identifier hs-var">VideoDescriptionRespondToAfd</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoDescriptionRespondToAfd%27"><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd%27"><span class="hs-identifier hs-var">VideoDescriptionRespondToAfd'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVideoDescriptionRespondToAfd"><span class="annot"><span class="annottext">VideoDescriptionRespondToAfd -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#fromVideoDescriptionRespondToAfd"><span class="hs-identifier hs-var hs-var">fromVideoDescriptionRespondToAfd</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679929464"><span id="local-6989586621679929466"><span id="local-6989586621679929468"><span class="annot"><span class="annottext">Int -&gt; VideoDescriptionRespondToAfd -&gt; ShowS
+[VideoDescriptionRespondToAfd] -&gt; ShowS
+VideoDescriptionRespondToAfd -&gt; String
+(Int -&gt; VideoDescriptionRespondToAfd -&gt; ShowS)
+-&gt; (VideoDescriptionRespondToAfd -&gt; String)
+-&gt; ([VideoDescriptionRespondToAfd] -&gt; ShowS)
+-&gt; Show VideoDescriptionRespondToAfd
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VideoDescriptionRespondToAfd] -&gt; ShowS
+$cshowList :: [VideoDescriptionRespondToAfd] -&gt; ShowS
+show :: VideoDescriptionRespondToAfd -&gt; String
+$cshow :: VideoDescriptionRespondToAfd -&gt; String
+showsPrec :: Int -&gt; VideoDescriptionRespondToAfd -&gt; ShowS
+$cshowsPrec :: Int -&gt; VideoDescriptionRespondToAfd -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679929455"><span id="local-6989586621679929457"><span id="local-6989586621679929459"><span id="local-6989586621679929461"><span class="annot"><span class="annottext">ReadPrec [VideoDescriptionRespondToAfd]
+ReadPrec VideoDescriptionRespondToAfd
+Int -&gt; ReadS VideoDescriptionRespondToAfd
+ReadS [VideoDescriptionRespondToAfd]
+(Int -&gt; ReadS VideoDescriptionRespondToAfd)
+-&gt; ReadS [VideoDescriptionRespondToAfd]
+-&gt; ReadPrec VideoDescriptionRespondToAfd
+-&gt; ReadPrec [VideoDescriptionRespondToAfd]
+-&gt; Read VideoDescriptionRespondToAfd
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VideoDescriptionRespondToAfd]
+$creadListPrec :: ReadPrec [VideoDescriptionRespondToAfd]
+readPrec :: ReadPrec VideoDescriptionRespondToAfd
+$creadPrec :: ReadPrec VideoDescriptionRespondToAfd
+readList :: ReadS [VideoDescriptionRespondToAfd]
+$creadList :: ReadS [VideoDescriptionRespondToAfd]
+readsPrec :: Int -&gt; ReadS VideoDescriptionRespondToAfd
+$creadsPrec :: Int -&gt; ReadS VideoDescriptionRespondToAfd
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679929450"><span id="local-6989586621679929452"><span class="annot"><span class="annottext">VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Bool
+(VideoDescriptionRespondToAfd
+ -&gt; VideoDescriptionRespondToAfd -&gt; Bool)
+-&gt; (VideoDescriptionRespondToAfd
+    -&gt; VideoDescriptionRespondToAfd -&gt; Bool)
+-&gt; Eq VideoDescriptionRespondToAfd
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Bool
+$c/= :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Bool
+== :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Bool
+$c== :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679929434"><span id="local-6989586621679929436"><span id="local-6989586621679929438"><span id="local-6989586621679929440"><span id="local-6989586621679929442"><span id="local-6989586621679929444"><span id="local-6989586621679929446"><span class="annot"><span class="annottext">Eq VideoDescriptionRespondToAfd
+Eq VideoDescriptionRespondToAfd
+-&gt; (VideoDescriptionRespondToAfd
+    -&gt; VideoDescriptionRespondToAfd -&gt; Ordering)
+-&gt; (VideoDescriptionRespondToAfd
+    -&gt; VideoDescriptionRespondToAfd -&gt; Bool)
+-&gt; (VideoDescriptionRespondToAfd
+    -&gt; VideoDescriptionRespondToAfd -&gt; Bool)
+-&gt; (VideoDescriptionRespondToAfd
+    -&gt; VideoDescriptionRespondToAfd -&gt; Bool)
+-&gt; (VideoDescriptionRespondToAfd
+    -&gt; VideoDescriptionRespondToAfd -&gt; Bool)
+-&gt; (VideoDescriptionRespondToAfd
+    -&gt; VideoDescriptionRespondToAfd -&gt; VideoDescriptionRespondToAfd)
+-&gt; (VideoDescriptionRespondToAfd
+    -&gt; VideoDescriptionRespondToAfd -&gt; VideoDescriptionRespondToAfd)
+-&gt; Ord VideoDescriptionRespondToAfd
+VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Bool
+VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Ordering
+VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; VideoDescriptionRespondToAfd
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; VideoDescriptionRespondToAfd
+$cmin :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; VideoDescriptionRespondToAfd
+max :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; VideoDescriptionRespondToAfd
+$cmax :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; VideoDescriptionRespondToAfd
+&gt;= :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Bool
+$c&gt;= :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Bool
+&gt; :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Bool
+$c&gt; :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Bool
+&lt;= :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Bool
+$c&lt;= :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Bool
+&lt; :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Bool
+$c&lt; :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Bool
+compare :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Ordering
+$ccompare :: VideoDescriptionRespondToAfd
+-&gt; VideoDescriptionRespondToAfd -&gt; Ordering
+$cp1Ord :: Eq VideoDescriptionRespondToAfd
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ VideoDescriptionRespondToAfd -&gt; Rep VideoDescriptionRespondToAfd x)
+-&gt; (forall x.
+    Rep VideoDescriptionRespondToAfd x -&gt; VideoDescriptionRespondToAfd)
+-&gt; Generic VideoDescriptionRespondToAfd
+forall x.
+Rep VideoDescriptionRespondToAfd x -&gt; VideoDescriptionRespondToAfd
+forall x.
+VideoDescriptionRespondToAfd -&gt; Rep VideoDescriptionRespondToAfd x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep VideoDescriptionRespondToAfd x -&gt; VideoDescriptionRespondToAfd
+$cfrom :: forall x.
+VideoDescriptionRespondToAfd -&gt; Rep VideoDescriptionRespondToAfd x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679929426"><span id="local-6989586621679929428"><span class="annot"><span class="annottext">Int -&gt; VideoDescriptionRespondToAfd -&gt; Int
+VideoDescriptionRespondToAfd -&gt; Int
+(Int -&gt; VideoDescriptionRespondToAfd -&gt; Int)
+-&gt; (VideoDescriptionRespondToAfd -&gt; Int)
+-&gt; Hashable VideoDescriptionRespondToAfd
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: VideoDescriptionRespondToAfd -&gt; Int
+$chash :: VideoDescriptionRespondToAfd -&gt; Int
+hashWithSalt :: Int -&gt; VideoDescriptionRespondToAfd -&gt; Int
+$chashWithSalt :: Int -&gt; VideoDescriptionRespondToAfd -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679929423"><span class="annot"><span class="annottext">VideoDescriptionRespondToAfd -&gt; ()
+(VideoDescriptionRespondToAfd -&gt; ())
+-&gt; NFData VideoDescriptionRespondToAfd
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: VideoDescriptionRespondToAfd -&gt; ()
+$crnf :: VideoDescriptionRespondToAfd -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679929420"><span class="annot"><span class="annottext">Text -&gt; Either String VideoDescriptionRespondToAfd
+(Text -&gt; Either String VideoDescriptionRespondToAfd)
+-&gt; FromText VideoDescriptionRespondToAfd
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String VideoDescriptionRespondToAfd
+$cfromText :: Text -&gt; Either String VideoDescriptionRespondToAfd
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679929417"><span class="annot"><span class="annottext">VideoDescriptionRespondToAfd -&gt; Text
+(VideoDescriptionRespondToAfd -&gt; Text)
+-&gt; ToText VideoDescriptionRespondToAfd
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: VideoDescriptionRespondToAfd -&gt; Text
+$ctoText :: VideoDescriptionRespondToAfd -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679929414"><span class="annot"><span class="annottext">VideoDescriptionRespondToAfd -&gt; ByteString
+(VideoDescriptionRespondToAfd -&gt; ByteString)
+-&gt; ToByteString VideoDescriptionRespondToAfd
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: VideoDescriptionRespondToAfd -&gt; ByteString
+$ctoBS :: VideoDescriptionRespondToAfd -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679929411"><span class="annot"><span class="annottext">VideoDescriptionRespondToAfd -&gt; ByteStringBuilder
+(VideoDescriptionRespondToAfd -&gt; ByteStringBuilder)
+-&gt; ToLog VideoDescriptionRespondToAfd
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: VideoDescriptionRespondToAfd -&gt; ByteStringBuilder
+$cbuild :: VideoDescriptionRespondToAfd -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679929408"><span class="annot"><span class="annottext">HeaderName -&gt; VideoDescriptionRespondToAfd -&gt; [Header]
+(HeaderName -&gt; VideoDescriptionRespondToAfd -&gt; [Header])
+-&gt; ToHeader VideoDescriptionRespondToAfd
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; VideoDescriptionRespondToAfd -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; VideoDescriptionRespondToAfd -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679929405"><span class="annot"><span class="annottext">VideoDescriptionRespondToAfd -&gt; QueryString
+(VideoDescriptionRespondToAfd -&gt; QueryString)
+-&gt; ToQuery VideoDescriptionRespondToAfd
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: VideoDescriptionRespondToAfd -&gt; QueryString
+$ctoQuery :: VideoDescriptionRespondToAfd -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679929400"><span id="local-6989586621679929402"><span class="annot"><span class="annottext">Value -&gt; Parser [VideoDescriptionRespondToAfd]
+Value -&gt; Parser VideoDescriptionRespondToAfd
+(Value -&gt; Parser VideoDescriptionRespondToAfd)
+-&gt; (Value -&gt; Parser [VideoDescriptionRespondToAfd])
+-&gt; FromJSON VideoDescriptionRespondToAfd
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [VideoDescriptionRespondToAfd]
+$cparseJSONList :: Value -&gt; Parser [VideoDescriptionRespondToAfd]
+parseJSON :: Value -&gt; Parser VideoDescriptionRespondToAfd
+$cparseJSON :: Value -&gt; Parser VideoDescriptionRespondToAfd
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679929395"><span id="local-6989586621679929397"><span class="annot"><span class="annottext">FromJSONKeyFunction [VideoDescriptionRespondToAfd]
+FromJSONKeyFunction VideoDescriptionRespondToAfd
+FromJSONKeyFunction VideoDescriptionRespondToAfd
+-&gt; FromJSONKeyFunction [VideoDescriptionRespondToAfd]
+-&gt; FromJSONKey VideoDescriptionRespondToAfd
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [VideoDescriptionRespondToAfd]
+$cfromJSONKeyList :: FromJSONKeyFunction [VideoDescriptionRespondToAfd]
+fromJSONKey :: FromJSONKeyFunction VideoDescriptionRespondToAfd
+$cfromJSONKey :: FromJSONKeyFunction VideoDescriptionRespondToAfd
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679929386"><span id="local-6989586621679929388"><span id="local-6989586621679929390"><span id="local-6989586621679929392"><span class="annot"><span class="annottext">[VideoDescriptionRespondToAfd] -&gt; Encoding
+[VideoDescriptionRespondToAfd] -&gt; Value
+VideoDescriptionRespondToAfd -&gt; Encoding
+VideoDescriptionRespondToAfd -&gt; Value
+(VideoDescriptionRespondToAfd -&gt; Value)
+-&gt; (VideoDescriptionRespondToAfd -&gt; Encoding)
+-&gt; ([VideoDescriptionRespondToAfd] -&gt; Value)
+-&gt; ([VideoDescriptionRespondToAfd] -&gt; Encoding)
+-&gt; ToJSON VideoDescriptionRespondToAfd
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [VideoDescriptionRespondToAfd] -&gt; Encoding
+$ctoEncodingList :: [VideoDescriptionRespondToAfd] -&gt; Encoding
+toJSONList :: [VideoDescriptionRespondToAfd] -&gt; Value
+$ctoJSONList :: [VideoDescriptionRespondToAfd] -&gt; Value
+toEncoding :: VideoDescriptionRespondToAfd -&gt; Encoding
+$ctoEncoding :: VideoDescriptionRespondToAfd -&gt; Encoding
+toJSON :: VideoDescriptionRespondToAfd -&gt; Value
+$ctoJSON :: VideoDescriptionRespondToAfd -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679929381"><span id="local-6989586621679929383"><span class="annot"><span class="annottext">ToJSONKeyFunction [VideoDescriptionRespondToAfd]
+ToJSONKeyFunction VideoDescriptionRespondToAfd
+ToJSONKeyFunction VideoDescriptionRespondToAfd
+-&gt; ToJSONKeyFunction [VideoDescriptionRespondToAfd]
+-&gt; ToJSONKey VideoDescriptionRespondToAfd
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [VideoDescriptionRespondToAfd]
+$ctoJSONKeyList :: ToJSONKeyFunction [VideoDescriptionRespondToAfd]
+toJSONKey :: ToJSONKeyFunction VideoDescriptionRespondToAfd
+$ctoJSONKey :: ToJSONKeyFunction VideoDescriptionRespondToAfd
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679929378"><span class="annot"><span class="annottext">[Node] -&gt; Either String VideoDescriptionRespondToAfd
+([Node] -&gt; Either String VideoDescriptionRespondToAfd)
+-&gt; FromXML VideoDescriptionRespondToAfd
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String VideoDescriptionRespondToAfd
+$cparseXML :: [Node] -&gt; Either String VideoDescriptionRespondToAfd
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679929375"><span class="annot"><span class="annottext">VideoDescriptionRespondToAfd -&gt; XML
+(VideoDescriptionRespondToAfd -&gt; XML)
+-&gt; ToXML VideoDescriptionRespondToAfd
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: VideoDescriptionRespondToAfd -&gt; XML
+$ctoXML :: VideoDescriptionRespondToAfd -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd_NONE"><span class="hs-identifier hs-type">VideoDescriptionRespondToAfd_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd"><span class="hs-identifier hs-type">VideoDescriptionRespondToAfd</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVideoDescriptionRespondToAfd_NONE"><span id="%24mVideoDescriptionRespondToAfd_NONE"><span id="VideoDescriptionRespondToAfd_NONE"><span class="annot"><span class="annottext">$bVideoDescriptionRespondToAfd_NONE :: VideoDescriptionRespondToAfd
+$mVideoDescriptionRespondToAfd_NONE :: forall r.
+VideoDescriptionRespondToAfd -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#%24bVideoDescriptionRespondToAfd_NONE"><span class="hs-identifier hs-var hs-var hs-var">VideoDescriptionRespondToAfd_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd%27"><span class="hs-identifier hs-type">VideoDescriptionRespondToAfd'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd_PASSTHROUGH"><span class="hs-identifier hs-type">VideoDescriptionRespondToAfd_PASSTHROUGH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd"><span class="hs-identifier hs-type">VideoDescriptionRespondToAfd</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVideoDescriptionRespondToAfd_PASSTHROUGH"><span id="%24mVideoDescriptionRespondToAfd_PASSTHROUGH"><span id="VideoDescriptionRespondToAfd_PASSTHROUGH"><span class="annot"><span class="annottext">$bVideoDescriptionRespondToAfd_PASSTHROUGH :: VideoDescriptionRespondToAfd
+$mVideoDescriptionRespondToAfd_PASSTHROUGH :: forall r.
+VideoDescriptionRespondToAfd -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#%24bVideoDescriptionRespondToAfd_PASSTHROUGH"><span class="hs-identifier hs-var hs-var hs-var">VideoDescriptionRespondToAfd_PASSTHROUGH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd%27"><span class="hs-identifier hs-type">VideoDescriptionRespondToAfd'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PASSTHROUGH&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd_RESPOND"><span class="hs-identifier hs-type">VideoDescriptionRespondToAfd_RESPOND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd"><span class="hs-identifier hs-type">VideoDescriptionRespondToAfd</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVideoDescriptionRespondToAfd_RESPOND"><span id="%24mVideoDescriptionRespondToAfd_RESPOND"><span id="VideoDescriptionRespondToAfd_RESPOND"><span class="annot"><span class="annottext">$bVideoDescriptionRespondToAfd_RESPOND :: VideoDescriptionRespondToAfd
+$mVideoDescriptionRespondToAfd_RESPOND :: forall r.
+VideoDescriptionRespondToAfd -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#%24bVideoDescriptionRespondToAfd_RESPOND"><span class="hs-identifier hs-var hs-var hs-var">VideoDescriptionRespondToAfd_RESPOND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd%27"><span class="hs-identifier hs-type">VideoDescriptionRespondToAfd'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RESPOND&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd_NONE"><span class="hs-pragma hs-type">VideoDescriptionRespondToAfd_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd_PASSTHROUGH"><span class="hs-pragma hs-type">VideoDescriptionRespondToAfd_PASSTHROUGH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd_RESPOND"><span class="hs-pragma hs-type">VideoDescriptionRespondToAfd_RESPOND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd.html#VideoDescriptionRespondToAfd%27"><span class="hs-pragma hs-type">VideoDescriptionRespondToAfd'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

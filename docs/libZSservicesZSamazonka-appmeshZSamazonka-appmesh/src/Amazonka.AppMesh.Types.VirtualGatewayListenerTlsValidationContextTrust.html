@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContextFileTrust.html"><span class="hs-identifier">Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContextFileTrust</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContextSdsTrust.html"><span class="hs-identifier">Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContextSdsTrust</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | An object that represents a virtual gateway\'s listener\'s Transport</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Layer Security (TLS) validation context trust.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newVirtualGatewayListenerTlsValidationContextTrust' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679337156"><span id="local-6989586621679337157"></span></span><span class="hs-keyword">data</span><span> </span><span id="VirtualGatewayListenerTlsValidationContextTrust"><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust"><span class="hs-identifier hs-var">VirtualGatewayListenerTlsValidationContextTrust</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualGatewayListenerTlsValidationContextTrust%27"><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust%27"><span class="hs-identifier hs-var">VirtualGatewayListenerTlsValidationContextTrust'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A reference to an object that represents a virtual gateway\'s</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- listener\'s Transport Layer Security (TLS) Secret Discovery Service</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- validation context trust.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Asds%3AVirtualGatewayListenerTlsValidationContextTrust%27"><span class="annot"><span class="annottext">VirtualGatewayListenerTlsValidationContextTrust
+-&gt; Maybe VirtualGatewayTlsValidationContextSdsTrust
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#%24sel%3Asds%3AVirtualGatewayListenerTlsValidationContextTrust%27"><span class="hs-identifier hs-var hs-var">sds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContextSdsTrust.html#VirtualGatewayTlsValidationContextSdsTrust"><span class="hs-identifier hs-type">VirtualGatewayTlsValidationContextSdsTrust</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | An object that represents a Transport Layer Security (TLS) validation</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- context trust for a local file.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Afile%3AVirtualGatewayListenerTlsValidationContextTrust%27"><span class="annot"><span class="annottext">VirtualGatewayListenerTlsValidationContextTrust
+-&gt; Maybe VirtualGatewayTlsValidationContextFileTrust
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#%24sel%3Afile%3AVirtualGatewayListenerTlsValidationContextTrust%27"><span class="hs-identifier hs-var hs-var">file</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContextFileTrust.html#VirtualGatewayTlsValidationContextFileTrust"><span class="hs-identifier hs-type">VirtualGatewayTlsValidationContextFileTrust</span></a></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337149"><span id="local-6989586621679337151"><span class="annot"><span class="annottext">VirtualGatewayListenerTlsValidationContextTrust
+-&gt; VirtualGatewayListenerTlsValidationContextTrust -&gt; Bool
+(VirtualGatewayListenerTlsValidationContextTrust
+ -&gt; VirtualGatewayListenerTlsValidationContextTrust -&gt; Bool)
+-&gt; (VirtualGatewayListenerTlsValidationContextTrust
+    -&gt; VirtualGatewayListenerTlsValidationContextTrust -&gt; Bool)
+-&gt; Eq VirtualGatewayListenerTlsValidationContextTrust
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VirtualGatewayListenerTlsValidationContextTrust
+-&gt; VirtualGatewayListenerTlsValidationContextTrust -&gt; Bool
+$c/= :: VirtualGatewayListenerTlsValidationContextTrust
+-&gt; VirtualGatewayListenerTlsValidationContextTrust -&gt; Bool
+== :: VirtualGatewayListenerTlsValidationContextTrust
+-&gt; VirtualGatewayListenerTlsValidationContextTrust -&gt; Bool
+$c== :: VirtualGatewayListenerTlsValidationContextTrust
+-&gt; VirtualGatewayListenerTlsValidationContextTrust -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337140"><span id="local-6989586621679337142"><span id="local-6989586621679337144"><span id="local-6989586621679337146"><span class="annot"><span class="annottext">ReadPrec [VirtualGatewayListenerTlsValidationContextTrust]
+ReadPrec VirtualGatewayListenerTlsValidationContextTrust
+Int -&gt; ReadS VirtualGatewayListenerTlsValidationContextTrust
+ReadS [VirtualGatewayListenerTlsValidationContextTrust]
+(Int -&gt; ReadS VirtualGatewayListenerTlsValidationContextTrust)
+-&gt; ReadS [VirtualGatewayListenerTlsValidationContextTrust]
+-&gt; ReadPrec VirtualGatewayListenerTlsValidationContextTrust
+-&gt; ReadPrec [VirtualGatewayListenerTlsValidationContextTrust]
+-&gt; Read VirtualGatewayListenerTlsValidationContextTrust
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VirtualGatewayListenerTlsValidationContextTrust]
+$creadListPrec :: ReadPrec [VirtualGatewayListenerTlsValidationContextTrust]
+readPrec :: ReadPrec VirtualGatewayListenerTlsValidationContextTrust
+$creadPrec :: ReadPrec VirtualGatewayListenerTlsValidationContextTrust
+readList :: ReadS [VirtualGatewayListenerTlsValidationContextTrust]
+$creadList :: ReadS [VirtualGatewayListenerTlsValidationContextTrust]
+readsPrec :: Int -&gt; ReadS VirtualGatewayListenerTlsValidationContextTrust
+$creadsPrec :: Int -&gt; ReadS VirtualGatewayListenerTlsValidationContextTrust
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337133"><span id="local-6989586621679337135"><span id="local-6989586621679337137"><span class="annot"><span class="annottext">Int -&gt; VirtualGatewayListenerTlsValidationContextTrust -&gt; ShowS
+[VirtualGatewayListenerTlsValidationContextTrust] -&gt; ShowS
+VirtualGatewayListenerTlsValidationContextTrust -&gt; String
+(Int -&gt; VirtualGatewayListenerTlsValidationContextTrust -&gt; ShowS)
+-&gt; (VirtualGatewayListenerTlsValidationContextTrust -&gt; String)
+-&gt; ([VirtualGatewayListenerTlsValidationContextTrust] -&gt; ShowS)
+-&gt; Show VirtualGatewayListenerTlsValidationContextTrust
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VirtualGatewayListenerTlsValidationContextTrust] -&gt; ShowS
+$cshowList :: [VirtualGatewayListenerTlsValidationContextTrust] -&gt; ShowS
+show :: VirtualGatewayListenerTlsValidationContextTrust -&gt; String
+$cshow :: VirtualGatewayListenerTlsValidationContextTrust -&gt; String
+showsPrec :: Int -&gt; VirtualGatewayListenerTlsValidationContextTrust -&gt; ShowS
+$cshowsPrec :: Int -&gt; VirtualGatewayListenerTlsValidationContextTrust -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ VirtualGatewayListenerTlsValidationContextTrust
+ -&gt; Rep VirtualGatewayListenerTlsValidationContextTrust x)
+-&gt; (forall x.
+    Rep VirtualGatewayListenerTlsValidationContextTrust x
+    -&gt; VirtualGatewayListenerTlsValidationContextTrust)
+-&gt; Generic VirtualGatewayListenerTlsValidationContextTrust
+forall x.
+Rep VirtualGatewayListenerTlsValidationContextTrust x
+-&gt; VirtualGatewayListenerTlsValidationContextTrust
+forall x.
+VirtualGatewayListenerTlsValidationContextTrust
+-&gt; Rep VirtualGatewayListenerTlsValidationContextTrust x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep VirtualGatewayListenerTlsValidationContextTrust x
+-&gt; VirtualGatewayListenerTlsValidationContextTrust
+$cfrom :: forall x.
+VirtualGatewayListenerTlsValidationContextTrust
+-&gt; Rep VirtualGatewayListenerTlsValidationContextTrust x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'VirtualGatewayListenerTlsValidationContextTrust' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'sds', 'virtualGatewayListenerTlsValidationContextTrust_sds' - A reference to an object that represents a virtual gateway\'s</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- listener\'s Transport Layer Security (TLS) Secret Discovery Service</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- validation context trust.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'file', 'virtualGatewayListenerTlsValidationContextTrust_file' - An object that represents a Transport Layer Security (TLS) validation</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- context trust for a local file.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#newVirtualGatewayListenerTlsValidationContextTrust"><span class="hs-identifier hs-type">newVirtualGatewayListenerTlsValidationContextTrust</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsValidationContextTrust</span></a></span><span>
+</span><span id="line-59"></span><span id="newVirtualGatewayListenerTlsValidationContextTrust"><span class="annot"><span class="annottext">newVirtualGatewayListenerTlsValidationContextTrust :: VirtualGatewayListenerTlsValidationContextTrust
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#newVirtualGatewayListenerTlsValidationContextTrust"><span class="hs-identifier hs-var hs-var">newVirtualGatewayListenerTlsValidationContextTrust</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">VirtualGatewayListenerTlsValidationContextTrust' :: Maybe VirtualGatewayTlsValidationContextSdsTrust
+-&gt; Maybe VirtualGatewayTlsValidationContextFileTrust
+-&gt; VirtualGatewayListenerTlsValidationContextTrust
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust%27"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsValidationContextTrust'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sds:VirtualGatewayListenerTlsValidationContextTrust' :: Maybe VirtualGatewayTlsValidationContextSdsTrust
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#%24sel%3Asds%3AVirtualGatewayListenerTlsValidationContextTrust%27"><span class="hs-identifier hs-var">sds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe VirtualGatewayTlsValidationContextSdsTrust
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:file:VirtualGatewayListenerTlsValidationContextTrust' :: Maybe VirtualGatewayTlsValidationContextFileTrust
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#%24sel%3Afile%3AVirtualGatewayListenerTlsValidationContextTrust%27"><span class="hs-identifier hs-var">file</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayTlsValidationContextFileTrust
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | A reference to an object that represents a virtual gateway\'s</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- listener\'s Transport Layer Security (TLS) Secret Discovery Service</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- validation context trust.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#virtualGatewayListenerTlsValidationContextTrust_sds"><span class="hs-identifier hs-type">virtualGatewayListenerTlsValidationContextTrust_sds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsValidationContextTrust</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContextSdsTrust.html#VirtualGatewayTlsValidationContextSdsTrust"><span class="hs-identifier hs-type">VirtualGatewayTlsValidationContextSdsTrust</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="virtualGatewayListenerTlsValidationContextTrust_sds"><span class="annot"><span class="annottext">virtualGatewayListenerTlsValidationContextTrust_sds :: (Maybe VirtualGatewayTlsValidationContextSdsTrust
+ -&gt; f (Maybe VirtualGatewayTlsValidationContextSdsTrust))
+-&gt; VirtualGatewayListenerTlsValidationContextTrust
+-&gt; f VirtualGatewayListenerTlsValidationContextTrust
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#virtualGatewayListenerTlsValidationContextTrust_sds"><span class="hs-identifier hs-var hs-var">virtualGatewayListenerTlsValidationContextTrust_sds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayListenerTlsValidationContextTrust
+ -&gt; Maybe VirtualGatewayTlsValidationContextSdsTrust)
+-&gt; (VirtualGatewayListenerTlsValidationContextTrust
+    -&gt; Maybe VirtualGatewayTlsValidationContextSdsTrust
+    -&gt; VirtualGatewayListenerTlsValidationContextTrust)
+-&gt; Lens
+     VirtualGatewayListenerTlsValidationContextTrust
+     VirtualGatewayListenerTlsValidationContextTrust
+     (Maybe VirtualGatewayTlsValidationContextSdsTrust)
+     (Maybe VirtualGatewayTlsValidationContextSdsTrust)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust%27"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsValidationContextTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337124"><span class="annot"><span class="annottext">Maybe VirtualGatewayTlsValidationContextSdsTrust
+sds :: Maybe VirtualGatewayTlsValidationContextSdsTrust
+$sel:sds:VirtualGatewayListenerTlsValidationContextTrust' :: VirtualGatewayListenerTlsValidationContextTrust
+-&gt; Maybe VirtualGatewayTlsValidationContextSdsTrust
+</span><a href="#local-6989586621679337124"><span class="hs-identifier hs-var hs-var">sds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayTlsValidationContextSdsTrust
+</span><a href="#local-6989586621679337124"><span class="hs-identifier hs-var">sds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337123"><span class="annot"><span class="annottext">s :: VirtualGatewayListenerTlsValidationContextTrust
+</span><a href="#local-6989586621679337123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust%27"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsValidationContextTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337122"><span class="annot"><span class="annottext">Maybe VirtualGatewayTlsValidationContextSdsTrust
+</span><a href="#local-6989586621679337122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayListenerTlsValidationContextTrust
+</span><a href="#local-6989586621679337123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sds:VirtualGatewayListenerTlsValidationContextTrust' :: Maybe VirtualGatewayTlsValidationContextSdsTrust
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#%24sel%3Asds%3AVirtualGatewayListenerTlsValidationContextTrust%27"><span class="hs-identifier hs-var">sds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayTlsValidationContextSdsTrust
+</span><a href="#local-6989586621679337122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsValidationContextTrust</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | An object that represents a Transport Layer Security (TLS) validation</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- context trust for a local file.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#virtualGatewayListenerTlsValidationContextTrust_file"><span class="hs-identifier hs-type">virtualGatewayListenerTlsValidationContextTrust_file</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsValidationContextTrust</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContextFileTrust.html#VirtualGatewayTlsValidationContextFileTrust"><span class="hs-identifier hs-type">VirtualGatewayTlsValidationContextFileTrust</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="virtualGatewayListenerTlsValidationContextTrust_file"><span class="annot"><span class="annottext">virtualGatewayListenerTlsValidationContextTrust_file :: (Maybe VirtualGatewayTlsValidationContextFileTrust
+ -&gt; f (Maybe VirtualGatewayTlsValidationContextFileTrust))
+-&gt; VirtualGatewayListenerTlsValidationContextTrust
+-&gt; f VirtualGatewayListenerTlsValidationContextTrust
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#virtualGatewayListenerTlsValidationContextTrust_file"><span class="hs-identifier hs-var hs-var">virtualGatewayListenerTlsValidationContextTrust_file</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayListenerTlsValidationContextTrust
+ -&gt; Maybe VirtualGatewayTlsValidationContextFileTrust)
+-&gt; (VirtualGatewayListenerTlsValidationContextTrust
+    -&gt; Maybe VirtualGatewayTlsValidationContextFileTrust
+    -&gt; VirtualGatewayListenerTlsValidationContextTrust)
+-&gt; Lens
+     VirtualGatewayListenerTlsValidationContextTrust
+     VirtualGatewayListenerTlsValidationContextTrust
+     (Maybe VirtualGatewayTlsValidationContextFileTrust)
+     (Maybe VirtualGatewayTlsValidationContextFileTrust)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust%27"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsValidationContextTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337120"><span class="annot"><span class="annottext">Maybe VirtualGatewayTlsValidationContextFileTrust
+file :: Maybe VirtualGatewayTlsValidationContextFileTrust
+$sel:file:VirtualGatewayListenerTlsValidationContextTrust' :: VirtualGatewayListenerTlsValidationContextTrust
+-&gt; Maybe VirtualGatewayTlsValidationContextFileTrust
+</span><a href="#local-6989586621679337120"><span class="hs-identifier hs-var hs-var">file</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayTlsValidationContextFileTrust
+</span><a href="#local-6989586621679337120"><span class="hs-identifier hs-var">file</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337119"><span class="annot"><span class="annottext">s :: VirtualGatewayListenerTlsValidationContextTrust
+</span><a href="#local-6989586621679337119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust%27"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsValidationContextTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337118"><span class="annot"><span class="annottext">Maybe VirtualGatewayTlsValidationContextFileTrust
+</span><a href="#local-6989586621679337118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayListenerTlsValidationContextTrust
+</span><a href="#local-6989586621679337119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:file:VirtualGatewayListenerTlsValidationContextTrust' :: Maybe VirtualGatewayTlsValidationContextFileTrust
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#%24sel%3Afile%3AVirtualGatewayListenerTlsValidationContextTrust%27"><span class="hs-identifier hs-var">file</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayTlsValidationContextFileTrust
+</span><a href="#local-6989586621679337118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsValidationContextTrust</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679337115"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsValidationContextTrust</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679337113"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VirtualGatewayListenerTlsValidationContextTrust
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object
+    -&gt; Parser VirtualGatewayListenerTlsValidationContextTrust)
+-&gt; Value
+-&gt; Parser VirtualGatewayListenerTlsValidationContextTrust
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VirtualGatewayListenerTlsValidationContextTrust&quot;</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679337110"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337110"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe VirtualGatewayTlsValidationContextSdsTrust
+-&gt; Maybe VirtualGatewayTlsValidationContextFileTrust
+-&gt; VirtualGatewayListenerTlsValidationContextTrust
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust%27"><span class="hs-identifier hs-var">VirtualGatewayListenerTlsValidationContextTrust'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VirtualGatewayTlsValidationContextSdsTrust
+ -&gt; Maybe VirtualGatewayTlsValidationContextFileTrust
+ -&gt; VirtualGatewayListenerTlsValidationContextTrust)
+-&gt; Parser (Maybe VirtualGatewayTlsValidationContextSdsTrust)
+-&gt; Parser
+     (Maybe VirtualGatewayTlsValidationContextFileTrust
+      -&gt; VirtualGatewayListenerTlsValidationContextTrust)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe VirtualGatewayTlsValidationContextSdsTrust)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sds&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser
+  (Maybe VirtualGatewayTlsValidationContextFileTrust
+   -&gt; VirtualGatewayListenerTlsValidationContextTrust)
+-&gt; Parser (Maybe VirtualGatewayTlsValidationContextFileTrust)
+-&gt; Parser VirtualGatewayListenerTlsValidationContextTrust
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe VirtualGatewayTlsValidationContextFileTrust)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;file&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679337104"><span id="local-6989586621679337106"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsValidationContextTrust</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679337101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsValidationContextTrust</span></a></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679337093"><span id="local-6989586621679337095"><span id="local-6989586621679337097"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsValidationContextTrust</span></a></span></span></span></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679337091"><span class="annot"><span class="annottext">toJSON :: VirtualGatewayListenerTlsValidationContextTrust -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust.html#VirtualGatewayListenerTlsValidationContextTrust%27"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsValidationContextTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337088"><span id="local-6989586621679337089"><span class="annot"><span class="annottext">Maybe VirtualGatewayTlsValidationContextFileTrust
+Maybe VirtualGatewayTlsValidationContextSdsTrust
+file :: Maybe VirtualGatewayTlsValidationContextFileTrust
+sds :: Maybe VirtualGatewayTlsValidationContextSdsTrust
+$sel:file:VirtualGatewayListenerTlsValidationContextTrust' :: VirtualGatewayListenerTlsValidationContextTrust
+-&gt; Maybe VirtualGatewayTlsValidationContextFileTrust
+$sel:sds:VirtualGatewayListenerTlsValidationContextTrust' :: VirtualGatewayListenerTlsValidationContextTrust
+-&gt; Maybe VirtualGatewayTlsValidationContextSdsTrust
+</span><a href="#local-6989586621679337088"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-104"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-105"></span><span>            </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VirtualGatewayTlsValidationContextSdsTrust -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayTlsValidationContextSdsTrust -&gt; Pair)
+-&gt; Maybe VirtualGatewayTlsValidationContextSdsTrust -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayTlsValidationContextSdsTrust
+</span><a href="#local-6989586621679337089"><span class="hs-identifier hs-var">sds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;file&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VirtualGatewayTlsValidationContextFileTrust -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayTlsValidationContextFileTrust -&gt; Pair)
+-&gt; Maybe VirtualGatewayTlsValidationContextFileTrust -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayTlsValidationContextFileTrust
+</span><a href="#local-6989586621679337088"><span class="hs-identifier hs-var">file</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>        </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span></pre></body></html>

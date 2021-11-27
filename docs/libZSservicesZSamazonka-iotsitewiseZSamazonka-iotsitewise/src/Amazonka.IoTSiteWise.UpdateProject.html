@@ -1,0 +1,488 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTSiteWise.UpdateProject</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates an IoT SiteWise Monitor project.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTSiteWise.UpdateProject</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier">UpdateProject</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#newUpdateProject"><span class="hs-identifier">newUpdateProject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#updateProject_clientToken"><span class="hs-identifier">updateProject_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#updateProject_projectDescription"><span class="hs-identifier">updateProject_projectDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#updateProject_projectId"><span class="hs-identifier">updateProject_projectId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#updateProject_projectName"><span class="hs-identifier">updateProject_projectName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier">UpdateProjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#newUpdateProjectResponse"><span class="hs-identifier">newUpdateProjectResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#updateProjectResponse_httpStatus"><span class="hs-identifier">updateProjectResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.html"><span class="hs-identifier">Amazonka.IoTSiteWise.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdateProject' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679362549"><span id="local-6989586621679362550"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProject"><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-var">UpdateProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProject%27"><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-var">UpdateProject'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique case-sensitive identifier that you can provide to ensure the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- idempotency of the request. Don\'t reuse this client token if a new</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- idempotent request is required.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AclientToken%3AUpdateProject%27"><span class="annot"><span class="annottext">UpdateProject -&gt; Maybe Text
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#%24sel%3AclientToken%3AUpdateProject%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A new description for the project.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AprojectDescription%3AUpdateProject%27"><span class="annot"><span class="annottext">UpdateProject -&gt; Maybe Text
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#%24sel%3AprojectDescription%3AUpdateProject%27"><span class="hs-identifier hs-var hs-var">projectDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ID of the project to update.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AprojectId%3AUpdateProject%27"><span class="annot"><span class="annottext">UpdateProject -&gt; Text
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#%24sel%3AprojectId%3AUpdateProject%27"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | A new friendly name for the project.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AprojectName%3AUpdateProject%27"><span class="annot"><span class="annottext">UpdateProject -&gt; Text
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#%24sel%3AprojectName%3AUpdateProject%27"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679362540"><span id="local-6989586621679362542"><span class="annot"><span class="annottext">UpdateProject -&gt; UpdateProject -&gt; Bool
+(UpdateProject -&gt; UpdateProject -&gt; Bool)
+-&gt; (UpdateProject -&gt; UpdateProject -&gt; Bool) -&gt; Eq UpdateProject
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateProject -&gt; UpdateProject -&gt; Bool
+$c/= :: UpdateProject -&gt; UpdateProject -&gt; Bool
+== :: UpdateProject -&gt; UpdateProject -&gt; Bool
+$c== :: UpdateProject -&gt; UpdateProject -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362531"><span id="local-6989586621679362533"><span id="local-6989586621679362535"><span id="local-6989586621679362537"><span class="annot"><span class="annottext">ReadPrec [UpdateProject]
+ReadPrec UpdateProject
+Int -&gt; ReadS UpdateProject
+ReadS [UpdateProject]
+(Int -&gt; ReadS UpdateProject)
+-&gt; ReadS [UpdateProject]
+-&gt; ReadPrec UpdateProject
+-&gt; ReadPrec [UpdateProject]
+-&gt; Read UpdateProject
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateProject]
+$creadListPrec :: ReadPrec [UpdateProject]
+readPrec :: ReadPrec UpdateProject
+$creadPrec :: ReadPrec UpdateProject
+readList :: ReadS [UpdateProject]
+$creadList :: ReadS [UpdateProject]
+readsPrec :: Int -&gt; ReadS UpdateProject
+$creadsPrec :: Int -&gt; ReadS UpdateProject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362524"><span id="local-6989586621679362526"><span id="local-6989586621679362528"><span class="annot"><span class="annottext">Int -&gt; UpdateProject -&gt; ShowS
+[UpdateProject] -&gt; ShowS
+UpdateProject -&gt; String
+(Int -&gt; UpdateProject -&gt; ShowS)
+-&gt; (UpdateProject -&gt; String)
+-&gt; ([UpdateProject] -&gt; ShowS)
+-&gt; Show UpdateProject
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateProject] -&gt; ShowS
+$cshowList :: [UpdateProject] -&gt; ShowS
+show :: UpdateProject -&gt; String
+$cshow :: UpdateProject -&gt; String
+showsPrec :: Int -&gt; UpdateProject -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateProject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateProject -&gt; Rep UpdateProject x)
+-&gt; (forall x. Rep UpdateProject x -&gt; UpdateProject)
+-&gt; Generic UpdateProject
+forall x. Rep UpdateProject x -&gt; UpdateProject
+forall x. UpdateProject -&gt; Rep UpdateProject x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateProject x -&gt; UpdateProject
+$cfrom :: forall x. UpdateProject -&gt; Rep UpdateProject x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'UpdateProject' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'clientToken', 'updateProject_clientToken' - A unique case-sensitive identifier that you can provide to ensure the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- idempotency of the request. Don\'t reuse this client token if a new</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- idempotent request is required.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'projectDescription', 'updateProject_projectDescription' - A new description for the project.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'projectId', 'updateProject_projectId' - The ID of the project to update.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'projectName', 'updateProject_projectName' - A new friendly name for the project.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#newUpdateProject"><span class="hs-identifier hs-type">newUpdateProject</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'projectId'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'projectName'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span>
+</span><span id="line-89"></span><span id="newUpdateProject"><span class="annot"><span class="annottext">newUpdateProject :: Text -&gt; Text -&gt; UpdateProject
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#newUpdateProject"><span class="hs-identifier hs-var hs-var">newUpdateProject</span></a></span></span><span> </span><span id="local-6989586621679362519"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362519"><span class="hs-identifier hs-var">pProjectId_</span></a></span></span><span> </span><span id="local-6989586621679362518"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362518"><span class="hs-identifier hs-var">pProjectName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">UpdateProject' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; UpdateProject
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:UpdateProject' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#%24sel%3AclientToken%3AUpdateProject%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectDescription:UpdateProject' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#%24sel%3AprojectDescription%3AUpdateProject%27"><span class="hs-identifier hs-var">projectDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectId:UpdateProject' :: Text
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#%24sel%3AprojectId%3AUpdateProject%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362519"><span class="hs-identifier hs-var">pProjectId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectName:UpdateProject' :: Text
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#%24sel%3AprojectName%3AUpdateProject%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362518"><span class="hs-identifier hs-var">pProjectName_</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | A unique case-sensitive identifier that you can provide to ensure the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- idempotency of the request. Don\'t reuse this client token if a new</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- idempotent request is required.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#updateProject_clientToken"><span class="hs-identifier hs-type">updateProject_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="updateProject_clientToken"><span class="annot"><span class="annottext">updateProject_clientToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateProject -&gt; f UpdateProject
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#updateProject_clientToken"><span class="hs-identifier hs-var hs-var">updateProject_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProject -&gt; Maybe Text)
+-&gt; (UpdateProject -&gt; Maybe Text -&gt; UpdateProject)
+-&gt; Lens UpdateProject UpdateProject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362515"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:UpdateProject' :: UpdateProject -&gt; Maybe Text
+</span><a href="#local-6989586621679362515"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362515"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362514"><span class="annot"><span class="annottext">s :: UpdateProject
+</span><a href="#local-6989586621679362514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362513"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProject
+</span><a href="#local-6989586621679362514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:UpdateProject' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#%24sel%3AclientToken%3AUpdateProject%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | A new description for the project.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#updateProject_projectDescription"><span class="hs-identifier hs-type">updateProject_projectDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="updateProject_projectDescription"><span class="annot"><span class="annottext">updateProject_projectDescription :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateProject -&gt; f UpdateProject
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#updateProject_projectDescription"><span class="hs-identifier hs-var hs-var">updateProject_projectDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProject -&gt; Maybe Text)
+-&gt; (UpdateProject -&gt; Maybe Text -&gt; UpdateProject)
+-&gt; Lens UpdateProject UpdateProject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362512"><span class="annot"><span class="annottext">Maybe Text
+projectDescription :: Maybe Text
+$sel:projectDescription:UpdateProject' :: UpdateProject -&gt; Maybe Text
+</span><a href="#local-6989586621679362512"><span class="hs-identifier hs-var hs-var">projectDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362512"><span class="hs-identifier hs-var">projectDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362511"><span class="annot"><span class="annottext">s :: UpdateProject
+</span><a href="#local-6989586621679362511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362510"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProject
+</span><a href="#local-6989586621679362511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectDescription:UpdateProject' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#%24sel%3AprojectDescription%3AUpdateProject%27"><span class="hs-identifier hs-var">projectDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The ID of the project to update.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#updateProject_projectId"><span class="hs-identifier hs-type">updateProject_projectId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="updateProject_projectId"><span class="annot"><span class="annottext">updateProject_projectId :: (Text -&gt; f Text) -&gt; UpdateProject -&gt; f UpdateProject
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#updateProject_projectId"><span class="hs-identifier hs-var hs-var">updateProject_projectId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProject -&gt; Text)
+-&gt; (UpdateProject -&gt; Text -&gt; UpdateProject)
+-&gt; Lens UpdateProject UpdateProject Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362509"><span class="annot"><span class="annottext">Text
+projectId :: Text
+$sel:projectId:UpdateProject' :: UpdateProject -&gt; Text
+</span><a href="#local-6989586621679362509"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362509"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362508"><span class="annot"><span class="annottext">s :: UpdateProject
+</span><a href="#local-6989586621679362508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362507"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProject
+</span><a href="#local-6989586621679362508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:UpdateProject' :: Text
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#%24sel%3AprojectId%3AUpdateProject%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | A new friendly name for the project.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#updateProject_projectName"><span class="hs-identifier hs-type">updateProject_projectName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="updateProject_projectName"><span class="annot"><span class="annottext">updateProject_projectName :: (Text -&gt; f Text) -&gt; UpdateProject -&gt; f UpdateProject
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#updateProject_projectName"><span class="hs-identifier hs-var hs-var">updateProject_projectName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProject -&gt; Text)
+-&gt; (UpdateProject -&gt; Text -&gt; UpdateProject)
+-&gt; Lens UpdateProject UpdateProject Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362506"><span class="annot"><span class="annottext">Text
+projectName :: Text
+$sel:projectName:UpdateProject' :: UpdateProject -&gt; Text
+</span><a href="#local-6989586621679362506"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362506"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362505"><span class="annot"><span class="annottext">s :: UpdateProject
+</span><a href="#local-6989586621679362505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362504"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProject
+</span><a href="#local-6989586621679362505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:UpdateProject' :: Text
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#%24sel%3AprojectName%3AUpdateProject%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679362500"><span class="annot"><span class="annottext">request :: UpdateProject -&gt; Request UpdateProject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateProject -&gt; Request UpdateProject
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTSiteWise.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679362496"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateProject
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateProject)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UpdateProject))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateProject
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateProject)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679362493"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362493"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679362492"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679362492"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679362491"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679362491"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateProjectResponse
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-var">UpdateProjectResponse'</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateProjectResponse)
+-&gt; Either String Int -&gt; Either String UpdateProjectResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362493"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679362484"><span id="local-6989586621679362486"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679362481"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679362477"><span class="annot"><span class="annottext">toHeaders :: UpdateProject -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateProject -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-138"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679362467"><span id="local-6989586621679362469"><span id="local-6989586621679362471"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679362465"><span class="annot"><span class="annottext">toJSON :: UpdateProject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362460"><span id="local-6989586621679362461"><span id="local-6989586621679362462"><span id="local-6989586621679362463"><span class="annot"><span class="annottext">Maybe Text
+Text
+projectName :: Text
+projectId :: Text
+projectDescription :: Maybe Text
+clientToken :: Maybe Text
+$sel:projectName:UpdateProject' :: UpdateProject -&gt; Text
+$sel:projectId:UpdateProject' :: UpdateProject -&gt; Text
+$sel:projectDescription:UpdateProject' :: UpdateProject -&gt; Maybe Text
+$sel:clientToken:UpdateProject' :: UpdateProject -&gt; Maybe Text
+</span><a href="#local-6989586621679362460"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362463"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;projectDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362462"><span class="hs-identifier hs-var">projectDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;projectName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362460"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679362454"><span class="annot"><span class="annottext">toPath :: UpdateProject -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362449"><span id="local-6989586621679362450"><span id="local-6989586621679362451"><span id="local-6989586621679362452"><span class="annot"><span class="annottext">Maybe Text
+Text
+projectName :: Text
+projectId :: Text
+projectDescription :: Maybe Text
+clientToken :: Maybe Text
+$sel:projectName:UpdateProject' :: UpdateProject -&gt; Text
+$sel:projectId:UpdateProject' :: UpdateProject -&gt; Text
+$sel:projectDescription:UpdateProject' :: UpdateProject -&gt; Maybe Text
+$sel:clientToken:UpdateProject' :: UpdateProject -&gt; Maybe Text
+</span><a href="#local-6989586621679362449"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/projects/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362450"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679362445"><span class="annot"><span class="annottext">toQuery :: UpdateProject -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateProject -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | /See:/ 'newUpdateProjectResponse' smart constructor.</span><span>
+</span><span id="line-161"></span><span id="local-6989586621679362442"><span id="local-6989586621679362443"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProjectResponse"><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-var">UpdateProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProjectResponse%27"><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-var">UpdateProjectResponse'</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateProjectResponse%27"><span class="annot"><span class="annottext">UpdateProjectResponse -&gt; Int
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#%24sel%3AhttpStatus%3AUpdateProjectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679362437"><span id="local-6989586621679362439"><span class="annot"><span class="annottext">UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool
+(UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool)
+-&gt; (UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool)
+-&gt; Eq UpdateProjectResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool
+$c/= :: UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool
+== :: UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool
+$c== :: UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362429"><span id="local-6989586621679362431"><span id="local-6989586621679362433"><span id="local-6989586621679362435"><span class="annot"><span class="annottext">ReadPrec [UpdateProjectResponse]
+ReadPrec UpdateProjectResponse
+Int -&gt; ReadS UpdateProjectResponse
+ReadS [UpdateProjectResponse]
+(Int -&gt; ReadS UpdateProjectResponse)
+-&gt; ReadS [UpdateProjectResponse]
+-&gt; ReadPrec UpdateProjectResponse
+-&gt; ReadPrec [UpdateProjectResponse]
+-&gt; Read UpdateProjectResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateProjectResponse]
+$creadListPrec :: ReadPrec [UpdateProjectResponse]
+readPrec :: ReadPrec UpdateProjectResponse
+$creadPrec :: ReadPrec UpdateProjectResponse
+readList :: ReadS [UpdateProjectResponse]
+$creadList :: ReadS [UpdateProjectResponse]
+readsPrec :: Int -&gt; ReadS UpdateProjectResponse
+$creadsPrec :: Int -&gt; ReadS UpdateProjectResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362423"><span id="local-6989586621679362425"><span id="local-6989586621679362427"><span class="annot"><span class="annottext">Int -&gt; UpdateProjectResponse -&gt; ShowS
+[UpdateProjectResponse] -&gt; ShowS
+UpdateProjectResponse -&gt; String
+(Int -&gt; UpdateProjectResponse -&gt; ShowS)
+-&gt; (UpdateProjectResponse -&gt; String)
+-&gt; ([UpdateProjectResponse] -&gt; ShowS)
+-&gt; Show UpdateProjectResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateProjectResponse] -&gt; ShowS
+$cshowList :: [UpdateProjectResponse] -&gt; ShowS
+show :: UpdateProjectResponse -&gt; String
+$cshow :: UpdateProjectResponse -&gt; String
+showsPrec :: Int -&gt; UpdateProjectResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateProjectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateProjectResponse -&gt; Rep UpdateProjectResponse x)
+-&gt; (forall x. Rep UpdateProjectResponse x -&gt; UpdateProjectResponse)
+-&gt; Generic UpdateProjectResponse
+forall x. Rep UpdateProjectResponse x -&gt; UpdateProjectResponse
+forall x. UpdateProjectResponse -&gt; Rep UpdateProjectResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateProjectResponse x -&gt; UpdateProjectResponse
+$cfrom :: forall x. UpdateProjectResponse -&gt; Rep UpdateProjectResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Create a value of 'UpdateProjectResponse' with all optional fields omitted.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'httpStatus', 'updateProjectResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#newUpdateProjectResponse"><span class="hs-identifier hs-type">newUpdateProjectResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span>
+</span><span id="line-180"></span><span id="newUpdateProjectResponse"><span class="annot"><span class="annottext">newUpdateProjectResponse :: Int -&gt; UpdateProjectResponse
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#newUpdateProjectResponse"><span class="hs-identifier hs-var hs-var">newUpdateProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679362420"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362420"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">UpdateProjectResponse' :: Int -&gt; UpdateProjectResponse
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateProjectResponse' :: Int
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#%24sel%3AhttpStatus%3AUpdateProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362420"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#updateProjectResponse_httpStatus"><span class="hs-identifier hs-type">updateProjectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span id="updateProjectResponse_httpStatus"><span class="annot"><span class="annottext">updateProjectResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateProjectResponse -&gt; f UpdateProjectResponse
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#updateProjectResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateProjectResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProjectResponse -&gt; Int)
+-&gt; (UpdateProjectResponse -&gt; Int -&gt; UpdateProjectResponse)
+-&gt; Lens UpdateProjectResponse UpdateProjectResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362419"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateProjectResponse' :: UpdateProjectResponse -&gt; Int
+</span><a href="#local-6989586621679362419"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362419"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362418"><span class="annot"><span class="annottext">s :: UpdateProjectResponse
+</span><a href="#local-6989586621679362418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362417"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProjectResponse
+</span><a href="#local-6989586621679362418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateProjectResponse' :: Int
+</span><a href="Amazonka.IoTSiteWise.UpdateProject.html#%24sel%3AhttpStatus%3AUpdateProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679362415"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span></span><span>
+</span><span id="line-188"></span></pre></body></html>

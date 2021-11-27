@@ -1,0 +1,909 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.DescribeImage</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes a SageMaker image.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.DescribeImage</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage"><span class="hs-identifier">DescribeImage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#newDescribeImage"><span class="hs-identifier">newDescribeImage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImage_imageName"><span class="hs-identifier">describeImage_imageName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier">DescribeImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#newDescribeImageResponse"><span class="hs-identifier">newDescribeImageResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_creationTime"><span class="hs-identifier">describeImageResponse_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_failureReason"><span class="hs-identifier">describeImageResponse_failureReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_imageStatus"><span class="hs-identifier">describeImageResponse_imageStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_lastModifiedTime"><span class="hs-identifier">describeImageResponse_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_imageArn"><span class="hs-identifier">describeImageResponse_imageArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_displayName"><span class="hs-identifier">describeImageResponse_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_imageName"><span class="hs-identifier">describeImageResponse_imageName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_description"><span class="hs-identifier">describeImageResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_roleArn"><span class="hs-identifier">describeImageResponse_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_httpStatus"><span class="hs-identifier">describeImageResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeImage' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621680397835"><span id="local-6989586621680397836"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImage"><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage"><span class="hs-identifier hs-var">DescribeImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImage%27"><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage%27"><span class="hs-identifier hs-var">DescribeImage'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the image to describe.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AimageName%3ADescribeImage%27"><span class="annot"><span class="annottext">DescribeImage -&gt; Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AimageName%3ADescribeImage%27"><span class="hs-identifier hs-var hs-var">imageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680397829"><span id="local-6989586621680397831"><span class="annot"><span class="annottext">DescribeImage -&gt; DescribeImage -&gt; Bool
+(DescribeImage -&gt; DescribeImage -&gt; Bool)
+-&gt; (DescribeImage -&gt; DescribeImage -&gt; Bool) -&gt; Eq DescribeImage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeImage -&gt; DescribeImage -&gt; Bool
+$c/= :: DescribeImage -&gt; DescribeImage -&gt; Bool
+== :: DescribeImage -&gt; DescribeImage -&gt; Bool
+$c== :: DescribeImage -&gt; DescribeImage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680397820"><span id="local-6989586621680397822"><span id="local-6989586621680397824"><span id="local-6989586621680397826"><span class="annot"><span class="annottext">ReadPrec [DescribeImage]
+ReadPrec DescribeImage
+Int -&gt; ReadS DescribeImage
+ReadS [DescribeImage]
+(Int -&gt; ReadS DescribeImage)
+-&gt; ReadS [DescribeImage]
+-&gt; ReadPrec DescribeImage
+-&gt; ReadPrec [DescribeImage]
+-&gt; Read DescribeImage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeImage]
+$creadListPrec :: ReadPrec [DescribeImage]
+readPrec :: ReadPrec DescribeImage
+$creadPrec :: ReadPrec DescribeImage
+readList :: ReadS [DescribeImage]
+$creadList :: ReadS [DescribeImage]
+readsPrec :: Int -&gt; ReadS DescribeImage
+$creadsPrec :: Int -&gt; ReadS DescribeImage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680397813"><span id="local-6989586621680397815"><span id="local-6989586621680397817"><span class="annot"><span class="annottext">Int -&gt; DescribeImage -&gt; ShowS
+[DescribeImage] -&gt; ShowS
+DescribeImage -&gt; String
+(Int -&gt; DescribeImage -&gt; ShowS)
+-&gt; (DescribeImage -&gt; String)
+-&gt; ([DescribeImage] -&gt; ShowS)
+-&gt; Show DescribeImage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeImage] -&gt; ShowS
+$cshowList :: [DescribeImage] -&gt; ShowS
+show :: DescribeImage -&gt; String
+$cshow :: DescribeImage -&gt; String
+showsPrec :: Int -&gt; DescribeImage -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeImage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeImage -&gt; Rep DescribeImage x)
+-&gt; (forall x. Rep DescribeImage x -&gt; DescribeImage)
+-&gt; Generic DescribeImage
+forall x. Rep DescribeImage x -&gt; DescribeImage
+forall x. DescribeImage -&gt; Rep DescribeImage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeImage x -&gt; DescribeImage
+$cfrom :: forall x. DescribeImage -&gt; Rep DescribeImage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DescribeImage' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'imageName', 'describeImage_imageName' - The name of the image to describe.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#newDescribeImage"><span class="hs-identifier hs-type">newDescribeImage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'imageName'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage"><span class="hs-identifier hs-type">DescribeImage</span></a></span><span>
+</span><span id="line-77"></span><span id="newDescribeImage"><span class="annot"><span class="annottext">newDescribeImage :: Text -&gt; DescribeImage
+</span><a href="Amazonka.SageMaker.DescribeImage.html#newDescribeImage"><span class="hs-identifier hs-var hs-var">newDescribeImage</span></a></span></span><span> </span><span id="local-6989586621680397808"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680397808"><span class="hs-identifier hs-var">pImageName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DescribeImage' :: Text -&gt; DescribeImage
+</span><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage%27"><span class="hs-identifier hs-type">DescribeImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageName:DescribeImage' :: Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AimageName%3ADescribeImage%27"><span class="hs-identifier hs-var">imageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680397808"><span class="hs-identifier hs-var">pImageName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The name of the image to describe.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImage_imageName"><span class="hs-identifier hs-type">describeImage_imageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage"><span class="hs-identifier hs-type">DescribeImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="describeImage_imageName"><span class="annot"><span class="annottext">describeImage_imageName :: (Text -&gt; f Text) -&gt; DescribeImage -&gt; f DescribeImage
+</span><a href="Amazonka.SageMaker.DescribeImage.html#describeImage_imageName"><span class="hs-identifier hs-var hs-var">describeImage_imageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImage -&gt; Text)
+-&gt; (DescribeImage -&gt; Text -&gt; DescribeImage)
+-&gt; Lens DescribeImage DescribeImage Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage%27"><span class="hs-identifier hs-type">DescribeImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397805"><span class="annot"><span class="annottext">Text
+imageName :: Text
+$sel:imageName:DescribeImage' :: DescribeImage -&gt; Text
+</span><a href="#local-6989586621680397805"><span class="hs-identifier hs-var hs-var">imageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680397805"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397804"><span class="annot"><span class="annottext">s :: DescribeImage
+</span><a href="#local-6989586621680397804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage%27"><span class="hs-identifier hs-type">DescribeImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397803"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680397803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImage
+</span><a href="#local-6989586621680397804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageName:DescribeImage' :: Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AimageName%3ADescribeImage%27"><span class="hs-identifier hs-var">imageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680397803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage"><span class="hs-identifier hs-type">DescribeImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage"><span class="hs-identifier hs-type">DescribeImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage"><span class="hs-identifier hs-type">DescribeImage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621680397799"><span class="annot"><span class="annottext">request :: DescribeImage -&gt; Request DescribeImage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeImage -&gt; Request DescribeImage
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621680397795"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeImage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeImage)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeImage))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeImage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeImage)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680397792"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680397792"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680397791"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680397791"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680397790"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680397790"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ImageStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeImageResponse
+</span><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-var">DescribeImageResponse'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe ImageStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeImageResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ImageStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeImageResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680397790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ImageStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeImageResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ImageStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeImageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680397790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ImageStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeImageResponse)
+-&gt; Either String (Maybe ImageStatus)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeImageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680397790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ImageStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImageStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeImageResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeImageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680397790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeImageResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeImageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680397790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImageArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeImageResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeImageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680397790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeImageResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeImageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680397790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImageName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeImageResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeImageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680397790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeImageResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeImageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680397790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeImageResponse)
+-&gt; Either String Int -&gt; Either String DescribeImageResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680397792"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680397782"><span id="local-6989586621680397784"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage"><span class="hs-identifier hs-type">DescribeImage</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680397779"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage"><span class="hs-identifier hs-type">DescribeImage</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage"><span class="hs-identifier hs-type">DescribeImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621680397775"><span class="annot"><span class="annottext">toHeaders :: DescribeImage -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeImage -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.DescribeImage&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680397765"><span id="local-6989586621680397767"><span id="local-6989586621680397769"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage"><span class="hs-identifier hs-type">DescribeImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621680397763"><span class="annot"><span class="annottext">toJSON :: DescribeImage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage%27"><span class="hs-identifier hs-type">DescribeImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397761"><span class="annot"><span class="annottext">Text
+imageName :: Text
+$sel:imageName:DescribeImage' :: DescribeImage -&gt; Text
+</span><a href="#local-6989586621680397761"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImageName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680397761"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage"><span class="hs-identifier hs-type">DescribeImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621680397755"><span class="annot"><span class="annottext">toPath :: DescribeImage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeImage -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImage"><span class="hs-identifier hs-type">DescribeImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621680397751"><span class="annot"><span class="annottext">toQuery :: DescribeImage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeImage -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newDescribeImageResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621680397748"><span id="local-6989586621680397749"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImageResponse"><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-var">DescribeImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImageResponse%27"><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-var">DescribeImageResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When the image was created.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AcreationTime%3ADescribeImageResponse%27"><span class="annot"><span class="annottext">DescribeImageResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AcreationTime%3ADescribeImageResponse%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | When a create, update, or delete operation fails, the reason for the</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- failure.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AfailureReason%3ADescribeImageResponse%27"><span class="annot"><span class="annottext">DescribeImageResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AfailureReason%3ADescribeImageResponse%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The status of the image.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AimageStatus%3ADescribeImageResponse%27"><span class="annot"><span class="annottext">DescribeImageResponse -&gt; Maybe ImageStatus
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AimageStatus%3ADescribeImageResponse%27"><span class="hs-identifier hs-var hs-var">imageStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ImageStatus.html#ImageStatus"><span class="hs-identifier hs-type">ImageStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | When the image was last modified.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ADescribeImageResponse%27"><span class="annot"><span class="annottext">DescribeImageResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AlastModifiedTime%3ADescribeImageResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the image.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AimageArn%3ADescribeImageResponse%27"><span class="annot"><span class="annottext">DescribeImageResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AimageArn%3ADescribeImageResponse%27"><span class="hs-identifier hs-var hs-var">imageArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The name of the image as displayed.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AdisplayName%3ADescribeImageResponse%27"><span class="annot"><span class="annottext">DescribeImageResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AdisplayName%3ADescribeImageResponse%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The name of the image.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AimageName%3ADescribeImageResponse%27"><span class="annot"><span class="annottext">DescribeImageResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AimageName%3ADescribeImageResponse%27"><span class="hs-identifier hs-var hs-var">imageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The description of the image.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3Adescription%3ADescribeImageResponse%27"><span class="annot"><span class="annottext">DescribeImageResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3Adescription%3ADescribeImageResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role that enables Amazon</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- SageMaker to perform tasks on your behalf.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AroleArn%3ADescribeImageResponse%27"><span class="annot"><span class="annottext">DescribeImageResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AroleArn%3ADescribeImageResponse%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeImageResponse%27"><span class="annot"><span class="annottext">DescribeImageResponse -&gt; Int
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AhttpStatus%3ADescribeImageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680397734"><span id="local-6989586621680397736"><span class="annot"><span class="annottext">DescribeImageResponse -&gt; DescribeImageResponse -&gt; Bool
+(DescribeImageResponse -&gt; DescribeImageResponse -&gt; Bool)
+-&gt; (DescribeImageResponse -&gt; DescribeImageResponse -&gt; Bool)
+-&gt; Eq DescribeImageResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeImageResponse -&gt; DescribeImageResponse -&gt; Bool
+$c/= :: DescribeImageResponse -&gt; DescribeImageResponse -&gt; Bool
+== :: DescribeImageResponse -&gt; DescribeImageResponse -&gt; Bool
+$c== :: DescribeImageResponse -&gt; DescribeImageResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680397726"><span id="local-6989586621680397728"><span id="local-6989586621680397730"><span id="local-6989586621680397732"><span class="annot"><span class="annottext">ReadPrec [DescribeImageResponse]
+ReadPrec DescribeImageResponse
+Int -&gt; ReadS DescribeImageResponse
+ReadS [DescribeImageResponse]
+(Int -&gt; ReadS DescribeImageResponse)
+-&gt; ReadS [DescribeImageResponse]
+-&gt; ReadPrec DescribeImageResponse
+-&gt; ReadPrec [DescribeImageResponse]
+-&gt; Read DescribeImageResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeImageResponse]
+$creadListPrec :: ReadPrec [DescribeImageResponse]
+readPrec :: ReadPrec DescribeImageResponse
+$creadPrec :: ReadPrec DescribeImageResponse
+readList :: ReadS [DescribeImageResponse]
+$creadList :: ReadS [DescribeImageResponse]
+readsPrec :: Int -&gt; ReadS DescribeImageResponse
+$creadsPrec :: Int -&gt; ReadS DescribeImageResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680397720"><span id="local-6989586621680397722"><span id="local-6989586621680397724"><span class="annot"><span class="annottext">Int -&gt; DescribeImageResponse -&gt; ShowS
+[DescribeImageResponse] -&gt; ShowS
+DescribeImageResponse -&gt; String
+(Int -&gt; DescribeImageResponse -&gt; ShowS)
+-&gt; (DescribeImageResponse -&gt; String)
+-&gt; ([DescribeImageResponse] -&gt; ShowS)
+-&gt; Show DescribeImageResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeImageResponse] -&gt; ShowS
+$cshowList :: [DescribeImageResponse] -&gt; ShowS
+show :: DescribeImageResponse -&gt; String
+$cshow :: DescribeImageResponse -&gt; String
+showsPrec :: Int -&gt; DescribeImageResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeImageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeImageResponse -&gt; Rep DescribeImageResponse x)
+-&gt; (forall x. Rep DescribeImageResponse x -&gt; DescribeImageResponse)
+-&gt; Generic DescribeImageResponse
+forall x. Rep DescribeImageResponse x -&gt; DescribeImageResponse
+forall x. DescribeImageResponse -&gt; Rep DescribeImageResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeImageResponse x -&gt; DescribeImageResponse
+$cfrom :: forall x. DescribeImageResponse -&gt; Rep DescribeImageResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Create a value of 'DescribeImageResponse' with all optional fields omitted.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'creationTime', 'describeImageResponse_creationTime' - When the image was created.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'failureReason', 'describeImageResponse_failureReason' - When a create, update, or delete operation fails, the reason for the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- failure.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'imageStatus', 'describeImageResponse_imageStatus' - The status of the image.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'lastModifiedTime', 'describeImageResponse_lastModifiedTime' - When the image was last modified.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'imageArn', 'describeImageResponse_imageArn' - The Amazon Resource Name (ARN) of the image.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'displayName', 'describeImageResponse_displayName' - The name of the image as displayed.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'imageName', 'describeImageResponse_imageName' - The name of the image.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'description', 'describeImageResponse_description' - The description of the image.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'roleArn', 'describeImageResponse_roleArn' - The Amazon Resource Name (ARN) of the IAM role that enables Amazon</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- SageMaker to perform tasks on your behalf.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'httpStatus', 'describeImageResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#newDescribeImageResponse"><span class="hs-identifier hs-type">newDescribeImageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span>
+</span><span id="line-195"></span><span id="newDescribeImageResponse"><span class="annot"><span class="annottext">newDescribeImageResponse :: Int -&gt; DescribeImageResponse
+</span><a href="Amazonka.SageMaker.DescribeImage.html#newDescribeImageResponse"><span class="hs-identifier hs-var hs-var">newDescribeImageResponse</span></a></span></span><span> </span><span id="local-6989586621680397717"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680397717"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">DescribeImageResponse' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ImageStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeImageResponse
+</span><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:DescribeImageResponse' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AcreationTime%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureReason:DescribeImageResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AfailureReason%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageStatus:DescribeImageResponse' :: Maybe ImageStatus
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AimageStatus%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">imageStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DescribeImageResponse' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AlastModifiedTime%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageArn:DescribeImageResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AimageArn%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">imageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:DescribeImageResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AdisplayName%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageName:DescribeImageResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AimageName%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">imageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:DescribeImageResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3Adescription%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:DescribeImageResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AroleArn%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImageResponse' :: Int
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AhttpStatus%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680397717"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | When the image was created.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_creationTime"><span class="hs-identifier hs-type">describeImageResponse_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="describeImageResponse_creationTime"><span class="annot"><span class="annottext">describeImageResponse_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeImageResponse -&gt; f DescribeImageResponse
+</span><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_creationTime"><span class="hs-identifier hs-var hs-var">describeImageResponse_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageResponse -&gt; Maybe POSIX)
+-&gt; (DescribeImageResponse -&gt; Maybe POSIX -&gt; DescribeImageResponse)
+-&gt; Lens
+     DescribeImageResponse
+     DescribeImageResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397716"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:DescribeImageResponse' :: DescribeImageResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621680397716"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680397716"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397715"><span class="annot"><span class="annottext">s :: DescribeImageResponse
+</span><a href="#local-6989586621680397715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397714"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680397714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageResponse
+</span><a href="#local-6989586621680397715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DescribeImageResponse' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AcreationTime%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680397714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeImageResponse -&gt; f DescribeImageResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeImageResponse
+-&gt; f DescribeImageResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | When a create, update, or delete operation fails, the reason for the</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- failure.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_failureReason"><span class="hs-identifier hs-type">describeImageResponse_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="describeImageResponse_failureReason"><span class="annot"><span class="annottext">describeImageResponse_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeImageResponse -&gt; f DescribeImageResponse
+</span><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_failureReason"><span class="hs-identifier hs-var hs-var">describeImageResponse_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageResponse -&gt; Maybe Text)
+-&gt; (DescribeImageResponse -&gt; Maybe Text -&gt; DescribeImageResponse)
+-&gt; Lens
+     DescribeImageResponse
+     DescribeImageResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397710"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:DescribeImageResponse' :: DescribeImageResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680397710"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397710"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397709"><span class="annot"><span class="annottext">s :: DescribeImageResponse
+</span><a href="#local-6989586621680397709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397708"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageResponse
+</span><a href="#local-6989586621680397709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:DescribeImageResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AfailureReason%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The status of the image.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_imageStatus"><span class="hs-identifier hs-type">describeImageResponse_imageStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ImageStatus.html#ImageStatus"><span class="hs-identifier hs-type">ImageStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="describeImageResponse_imageStatus"><span class="annot"><span class="annottext">describeImageResponse_imageStatus :: (Maybe ImageStatus -&gt; f (Maybe ImageStatus))
+-&gt; DescribeImageResponse -&gt; f DescribeImageResponse
+</span><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_imageStatus"><span class="hs-identifier hs-var hs-var">describeImageResponse_imageStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageResponse -&gt; Maybe ImageStatus)
+-&gt; (DescribeImageResponse
+    -&gt; Maybe ImageStatus -&gt; DescribeImageResponse)
+-&gt; Lens
+     DescribeImageResponse
+     DescribeImageResponse
+     (Maybe ImageStatus)
+     (Maybe ImageStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397707"><span class="annot"><span class="annottext">Maybe ImageStatus
+imageStatus :: Maybe ImageStatus
+$sel:imageStatus:DescribeImageResponse' :: DescribeImageResponse -&gt; Maybe ImageStatus
+</span><a href="#local-6989586621680397707"><span class="hs-identifier hs-var hs-var">imageStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageStatus
+</span><a href="#local-6989586621680397707"><span class="hs-identifier hs-var">imageStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397706"><span class="annot"><span class="annottext">s :: DescribeImageResponse
+</span><a href="#local-6989586621680397706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397705"><span class="annot"><span class="annottext">Maybe ImageStatus
+</span><a href="#local-6989586621680397705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageResponse
+</span><a href="#local-6989586621680397706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageStatus:DescribeImageResponse' :: Maybe ImageStatus
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AimageStatus%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">imageStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageStatus
+</span><a href="#local-6989586621680397705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | When the image was last modified.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_lastModifiedTime"><span class="hs-identifier hs-type">describeImageResponse_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="describeImageResponse_lastModifiedTime"><span class="annot"><span class="annottext">describeImageResponse_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeImageResponse -&gt; f DescribeImageResponse
+</span><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_lastModifiedTime"><span class="hs-identifier hs-var hs-var">describeImageResponse_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageResponse -&gt; Maybe POSIX)
+-&gt; (DescribeImageResponse -&gt; Maybe POSIX -&gt; DescribeImageResponse)
+-&gt; Lens
+     DescribeImageResponse
+     DescribeImageResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397704"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTime :: Maybe POSIX
+$sel:lastModifiedTime:DescribeImageResponse' :: DescribeImageResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621680397704"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680397704"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397703"><span class="annot"><span class="annottext">s :: DescribeImageResponse
+</span><a href="#local-6989586621680397703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397702"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680397702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageResponse
+</span><a href="#local-6989586621680397703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DescribeImageResponse' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AlastModifiedTime%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680397702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeImageResponse -&gt; f DescribeImageResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeImageResponse
+-&gt; f DescribeImageResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the image.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_imageArn"><span class="hs-identifier hs-type">describeImageResponse_imageArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="describeImageResponse_imageArn"><span class="annot"><span class="annottext">describeImageResponse_imageArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeImageResponse -&gt; f DescribeImageResponse
+</span><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_imageArn"><span class="hs-identifier hs-var hs-var">describeImageResponse_imageArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageResponse -&gt; Maybe Text)
+-&gt; (DescribeImageResponse -&gt; Maybe Text -&gt; DescribeImageResponse)
+-&gt; Lens
+     DescribeImageResponse
+     DescribeImageResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397701"><span class="annot"><span class="annottext">Maybe Text
+imageArn :: Maybe Text
+$sel:imageArn:DescribeImageResponse' :: DescribeImageResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680397701"><span class="hs-identifier hs-var hs-var">imageArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397701"><span class="hs-identifier hs-var">imageArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397700"><span class="annot"><span class="annottext">s :: DescribeImageResponse
+</span><a href="#local-6989586621680397700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397699"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageResponse
+</span><a href="#local-6989586621680397700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageArn:DescribeImageResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AimageArn%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">imageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The name of the image as displayed.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_displayName"><span class="hs-identifier hs-type">describeImageResponse_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="describeImageResponse_displayName"><span class="annot"><span class="annottext">describeImageResponse_displayName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeImageResponse -&gt; f DescribeImageResponse
+</span><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_displayName"><span class="hs-identifier hs-var hs-var">describeImageResponse_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageResponse -&gt; Maybe Text)
+-&gt; (DescribeImageResponse -&gt; Maybe Text -&gt; DescribeImageResponse)
+-&gt; Lens
+     DescribeImageResponse
+     DescribeImageResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397698"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:DescribeImageResponse' :: DescribeImageResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680397698"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397698"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397697"><span class="annot"><span class="annottext">s :: DescribeImageResponse
+</span><a href="#local-6989586621680397697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397696"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageResponse
+</span><a href="#local-6989586621680397697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:DescribeImageResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AdisplayName%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The name of the image.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_imageName"><span class="hs-identifier hs-type">describeImageResponse_imageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="describeImageResponse_imageName"><span class="annot"><span class="annottext">describeImageResponse_imageName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeImageResponse -&gt; f DescribeImageResponse
+</span><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_imageName"><span class="hs-identifier hs-var hs-var">describeImageResponse_imageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageResponse -&gt; Maybe Text)
+-&gt; (DescribeImageResponse -&gt; Maybe Text -&gt; DescribeImageResponse)
+-&gt; Lens
+     DescribeImageResponse
+     DescribeImageResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397695"><span class="annot"><span class="annottext">Maybe Text
+imageName :: Maybe Text
+$sel:imageName:DescribeImageResponse' :: DescribeImageResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680397695"><span class="hs-identifier hs-var hs-var">imageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397695"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397694"><span class="annot"><span class="annottext">s :: DescribeImageResponse
+</span><a href="#local-6989586621680397694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397693"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageResponse
+</span><a href="#local-6989586621680397694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageName:DescribeImageResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AimageName%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">imageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | The description of the image.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_description"><span class="hs-identifier hs-type">describeImageResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="describeImageResponse_description"><span class="annot"><span class="annottext">describeImageResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeImageResponse -&gt; f DescribeImageResponse
+</span><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_description"><span class="hs-identifier hs-var hs-var">describeImageResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageResponse -&gt; Maybe Text)
+-&gt; (DescribeImageResponse -&gt; Maybe Text -&gt; DescribeImageResponse)
+-&gt; Lens
+     DescribeImageResponse
+     DescribeImageResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397692"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:DescribeImageResponse' :: DescribeImageResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680397692"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397692"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397691"><span class="annot"><span class="annottext">s :: DescribeImageResponse
+</span><a href="#local-6989586621680397691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397690"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageResponse
+</span><a href="#local-6989586621680397691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:DescribeImageResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3Adescription%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role that enables Amazon</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- SageMaker to perform tasks on your behalf.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_roleArn"><span class="hs-identifier hs-type">describeImageResponse_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="describeImageResponse_roleArn"><span class="annot"><span class="annottext">describeImageResponse_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeImageResponse -&gt; f DescribeImageResponse
+</span><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_roleArn"><span class="hs-identifier hs-var hs-var">describeImageResponse_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageResponse -&gt; Maybe Text)
+-&gt; (DescribeImageResponse -&gt; Maybe Text -&gt; DescribeImageResponse)
+-&gt; Lens
+     DescribeImageResponse
+     DescribeImageResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397689"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:DescribeImageResponse' :: DescribeImageResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680397689"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397689"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397688"><span class="annot"><span class="annottext">s :: DescribeImageResponse
+</span><a href="#local-6989586621680397688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397687"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageResponse
+</span><a href="#local-6989586621680397688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:DescribeImageResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AroleArn%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_httpStatus"><span class="hs-identifier hs-type">describeImageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-250"></span><span id="describeImageResponse_httpStatus"><span class="annot"><span class="annottext">describeImageResponse_httpStatus :: (Int -&gt; f Int) -&gt; DescribeImageResponse -&gt; f DescribeImageResponse
+</span><a href="Amazonka.SageMaker.DescribeImage.html#describeImageResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeImageResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageResponse -&gt; Int)
+-&gt; (DescribeImageResponse -&gt; Int -&gt; DescribeImageResponse)
+-&gt; Lens DescribeImageResponse DescribeImageResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397686"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeImageResponse' :: DescribeImageResponse -&gt; Int
+</span><a href="#local-6989586621680397686"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680397686"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397685"><span class="annot"><span class="annottext">s :: DescribeImageResponse
+</span><a href="#local-6989586621680397685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse%27"><span class="hs-identifier hs-type">DescribeImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397684"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680397684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageResponse
+</span><a href="#local-6989586621680397685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImageResponse' :: Int
+</span><a href="Amazonka.SageMaker.DescribeImage.html#%24sel%3AhttpStatus%3ADescribeImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680397684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680397682"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribeImage.html#DescribeImageResponse"><span class="hs-identifier hs-type">DescribeImageResponse</span></a></span></span><span>
+</span><span id="line-253"></span></pre></body></html>

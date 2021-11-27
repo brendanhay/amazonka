@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoT.Types.DetectMitigationActionsTaskTarget</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.Types.DetectMitigationActionsTaskTarget</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The target of a mitigation action task.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDetectMitigationActionsTaskTarget' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679782850"><span id="local-6989586621679782851"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectMitigationActionsTaskTarget"><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget"><span class="hs-identifier hs-var">DetectMitigationActionsTaskTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectMitigationActionsTaskTarget%27"><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var">DetectMitigationActionsTaskTarget'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifiers of the violations.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AviolationIds%3ADetectMitigationActionsTaskTarget%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskTarget -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#%24sel%3AviolationIds%3ADetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var hs-var">violationIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The name of the behavior.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AbehaviorName%3ADetectMitigationActionsTaskTarget%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskTarget -&gt; Maybe Text
+</span><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#%24sel%3AbehaviorName%3ADetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var hs-var">behaviorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the security profile.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsecurityProfileName%3ADetectMitigationActionsTaskTarget%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskTarget -&gt; Maybe Text
+</span><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#%24sel%3AsecurityProfileName%3ADetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var hs-var">securityProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679782842"><span id="local-6989586621679782844"><span class="annot"><span class="annottext">DetectMitigationActionsTaskTarget
+-&gt; DetectMitigationActionsTaskTarget -&gt; Bool
+(DetectMitigationActionsTaskTarget
+ -&gt; DetectMitigationActionsTaskTarget -&gt; Bool)
+-&gt; (DetectMitigationActionsTaskTarget
+    -&gt; DetectMitigationActionsTaskTarget -&gt; Bool)
+-&gt; Eq DetectMitigationActionsTaskTarget
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DetectMitigationActionsTaskTarget
+-&gt; DetectMitigationActionsTaskTarget -&gt; Bool
+$c/= :: DetectMitigationActionsTaskTarget
+-&gt; DetectMitigationActionsTaskTarget -&gt; Bool
+== :: DetectMitigationActionsTaskTarget
+-&gt; DetectMitigationActionsTaskTarget -&gt; Bool
+$c== :: DetectMitigationActionsTaskTarget
+-&gt; DetectMitigationActionsTaskTarget -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679782833"><span id="local-6989586621679782835"><span id="local-6989586621679782837"><span id="local-6989586621679782839"><span class="annot"><span class="annottext">ReadPrec [DetectMitigationActionsTaskTarget]
+ReadPrec DetectMitigationActionsTaskTarget
+Int -&gt; ReadS DetectMitigationActionsTaskTarget
+ReadS [DetectMitigationActionsTaskTarget]
+(Int -&gt; ReadS DetectMitigationActionsTaskTarget)
+-&gt; ReadS [DetectMitigationActionsTaskTarget]
+-&gt; ReadPrec DetectMitigationActionsTaskTarget
+-&gt; ReadPrec [DetectMitigationActionsTaskTarget]
+-&gt; Read DetectMitigationActionsTaskTarget
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DetectMitigationActionsTaskTarget]
+$creadListPrec :: ReadPrec [DetectMitigationActionsTaskTarget]
+readPrec :: ReadPrec DetectMitigationActionsTaskTarget
+$creadPrec :: ReadPrec DetectMitigationActionsTaskTarget
+readList :: ReadS [DetectMitigationActionsTaskTarget]
+$creadList :: ReadS [DetectMitigationActionsTaskTarget]
+readsPrec :: Int -&gt; ReadS DetectMitigationActionsTaskTarget
+$creadsPrec :: Int -&gt; ReadS DetectMitigationActionsTaskTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679782826"><span id="local-6989586621679782828"><span id="local-6989586621679782830"><span class="annot"><span class="annottext">Int -&gt; DetectMitigationActionsTaskTarget -&gt; ShowS
+[DetectMitigationActionsTaskTarget] -&gt; ShowS
+DetectMitigationActionsTaskTarget -&gt; String
+(Int -&gt; DetectMitigationActionsTaskTarget -&gt; ShowS)
+-&gt; (DetectMitigationActionsTaskTarget -&gt; String)
+-&gt; ([DetectMitigationActionsTaskTarget] -&gt; ShowS)
+-&gt; Show DetectMitigationActionsTaskTarget
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DetectMitigationActionsTaskTarget] -&gt; ShowS
+$cshowList :: [DetectMitigationActionsTaskTarget] -&gt; ShowS
+show :: DetectMitigationActionsTaskTarget -&gt; String
+$cshow :: DetectMitigationActionsTaskTarget -&gt; String
+showsPrec :: Int -&gt; DetectMitigationActionsTaskTarget -&gt; ShowS
+$cshowsPrec :: Int -&gt; DetectMitigationActionsTaskTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DetectMitigationActionsTaskTarget
+ -&gt; Rep DetectMitigationActionsTaskTarget x)
+-&gt; (forall x.
+    Rep DetectMitigationActionsTaskTarget x
+    -&gt; DetectMitigationActionsTaskTarget)
+-&gt; Generic DetectMitigationActionsTaskTarget
+forall x.
+Rep DetectMitigationActionsTaskTarget x
+-&gt; DetectMitigationActionsTaskTarget
+forall x.
+DetectMitigationActionsTaskTarget
+-&gt; Rep DetectMitigationActionsTaskTarget x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DetectMitigationActionsTaskTarget x
+-&gt; DetectMitigationActionsTaskTarget
+$cfrom :: forall x.
+DetectMitigationActionsTaskTarget
+-&gt; Rep DetectMitigationActionsTaskTarget x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'DetectMitigationActionsTaskTarget' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'violationIds', 'detectMitigationActionsTaskTarget_violationIds' - The unique identifiers of the violations.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'behaviorName', 'detectMitigationActionsTaskTarget_behaviorName' - The name of the behavior.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'securityProfileName', 'detectMitigationActionsTaskTarget_securityProfileName' - The name of the security profile.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#newDetectMitigationActionsTaskTarget"><span class="hs-identifier hs-type">newDetectMitigationActionsTaskTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget</span></a></span><span>
+</span><span id="line-54"></span><span id="newDetectMitigationActionsTaskTarget"><span class="annot"><span class="annottext">newDetectMitigationActionsTaskTarget :: DetectMitigationActionsTaskTarget
+</span><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#newDetectMitigationActionsTaskTarget"><span class="hs-identifier hs-var hs-var">newDetectMitigationActionsTaskTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskTarget' :: Maybe (NonEmpty Text)
+-&gt; Maybe Text -&gt; Maybe Text -&gt; DetectMitigationActionsTaskTarget
+</span><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:violationIds:DetectMitigationActionsTaskTarget' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#%24sel%3AviolationIds%3ADetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var">violationIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:behaviorName:DetectMitigationActionsTaskTarget' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#%24sel%3AbehaviorName%3ADetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var">behaviorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityProfileName:DetectMitigationActionsTaskTarget' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#%24sel%3AsecurityProfileName%3ADetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The unique identifiers of the violations.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#detectMitigationActionsTaskTarget_violationIds"><span class="hs-identifier hs-type">detectMitigationActionsTaskTarget_violationIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="detectMitigationActionsTaskTarget_violationIds"><span class="annot"><span class="annottext">detectMitigationActionsTaskTarget_violationIds :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; DetectMitigationActionsTaskTarget
+-&gt; f DetectMitigationActionsTaskTarget
+</span><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#detectMitigationActionsTaskTarget_violationIds"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskTarget_violationIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskTarget -&gt; Maybe (NonEmpty Text))
+-&gt; (DetectMitigationActionsTaskTarget
+    -&gt; Maybe (NonEmpty Text) -&gt; DetectMitigationActionsTaskTarget)
+-&gt; Lens
+     DetectMitigationActionsTaskTarget
+     DetectMitigationActionsTaskTarget
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679782817"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+violationIds :: Maybe (NonEmpty Text)
+$sel:violationIds:DetectMitigationActionsTaskTarget' :: DetectMitigationActionsTaskTarget -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679782817"><span class="hs-identifier hs-var hs-var">violationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679782817"><span class="hs-identifier hs-var">violationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679782816"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskTarget
+</span><a href="#local-6989586621679782816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679782815"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679782815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskTarget
+</span><a href="#local-6989586621679782816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationIds:DetectMitigationActionsTaskTarget' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#%24sel%3AviolationIds%3ADetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var">violationIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679782815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; DetectMitigationActionsTaskTarget
+ -&gt; f DetectMitigationActionsTaskTarget)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; DetectMitigationActionsTaskTarget
+-&gt; f DetectMitigationActionsTaskTarget
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The name of the behavior.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#detectMitigationActionsTaskTarget_behaviorName"><span class="hs-identifier hs-type">detectMitigationActionsTaskTarget_behaviorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="detectMitigationActionsTaskTarget_behaviorName"><span class="annot"><span class="annottext">detectMitigationActionsTaskTarget_behaviorName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DetectMitigationActionsTaskTarget
+-&gt; f DetectMitigationActionsTaskTarget
+</span><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#detectMitigationActionsTaskTarget_behaviorName"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskTarget_behaviorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskTarget -&gt; Maybe Text)
+-&gt; (DetectMitigationActionsTaskTarget
+    -&gt; Maybe Text -&gt; DetectMitigationActionsTaskTarget)
+-&gt; Lens
+     DetectMitigationActionsTaskTarget
+     DetectMitigationActionsTaskTarget
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679782810"><span class="annot"><span class="annottext">Maybe Text
+behaviorName :: Maybe Text
+$sel:behaviorName:DetectMitigationActionsTaskTarget' :: DetectMitigationActionsTaskTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679782810"><span class="hs-identifier hs-var hs-var">behaviorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679782810"><span class="hs-identifier hs-var">behaviorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679782809"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskTarget
+</span><a href="#local-6989586621679782809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679782808"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679782808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskTarget
+</span><a href="#local-6989586621679782809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:behaviorName:DetectMitigationActionsTaskTarget' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#%24sel%3AbehaviorName%3ADetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var">behaviorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679782808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The name of the security profile.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#detectMitigationActionsTaskTarget_securityProfileName"><span class="hs-identifier hs-type">detectMitigationActionsTaskTarget_securityProfileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="detectMitigationActionsTaskTarget_securityProfileName"><span class="annot"><span class="annottext">detectMitigationActionsTaskTarget_securityProfileName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DetectMitigationActionsTaskTarget
+-&gt; f DetectMitigationActionsTaskTarget
+</span><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#detectMitigationActionsTaskTarget_securityProfileName"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskTarget_securityProfileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskTarget -&gt; Maybe Text)
+-&gt; (DetectMitigationActionsTaskTarget
+    -&gt; Maybe Text -&gt; DetectMitigationActionsTaskTarget)
+-&gt; Lens
+     DetectMitigationActionsTaskTarget
+     DetectMitigationActionsTaskTarget
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679782806"><span class="annot"><span class="annottext">Maybe Text
+securityProfileName :: Maybe Text
+$sel:securityProfileName:DetectMitigationActionsTaskTarget' :: DetectMitigationActionsTaskTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679782806"><span class="hs-identifier hs-var hs-var">securityProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679782806"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679782805"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskTarget
+</span><a href="#local-6989586621679782805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679782804"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679782804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskTarget
+</span><a href="#local-6989586621679782805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileName:DetectMitigationActionsTaskTarget' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#%24sel%3AsecurityProfileName%3ADetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679782804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679782801"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679782799"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DetectMitigationActionsTaskTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DetectMitigationActionsTaskTarget)
+-&gt; Value
+-&gt; Parser DetectMitigationActionsTaskTarget
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DetectMitigationActionsTaskTarget&quot;</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679782796"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679782796"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+-&gt; Maybe Text -&gt; Maybe Text -&gt; DetectMitigationActionsTaskTarget
+</span><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var">DetectMitigationActionsTaskTarget'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text)
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; DetectMitigationActionsTaskTarget)
+-&gt; Parser (Maybe (NonEmpty Text))
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; DetectMitigationActionsTaskTarget)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679782796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;violationIds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; DetectMitigationActionsTaskTarget)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; DetectMitigationActionsTaskTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679782796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;behaviorName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DetectMitigationActionsTaskTarget)
+-&gt; Parser (Maybe Text) -&gt; Parser DetectMitigationActionsTaskTarget
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679782796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;securityProfileName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679782790"><span id="local-6989586621679782792"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679782787"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679782779"><span id="local-6989586621679782781"><span id="local-6989586621679782783"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget</span></a></span></span></span></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679782777"><span class="annot"><span class="annottext">toJSON :: DetectMitigationActionsTaskTarget -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679782773"><span id="local-6989586621679782774"><span id="local-6989586621679782775"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+Maybe Text
+securityProfileName :: Maybe Text
+behaviorName :: Maybe Text
+violationIds :: Maybe (NonEmpty Text)
+$sel:securityProfileName:DetectMitigationActionsTaskTarget' :: DetectMitigationActionsTaskTarget -&gt; Maybe Text
+$sel:behaviorName:DetectMitigationActionsTaskTarget' :: DetectMitigationActionsTaskTarget -&gt; Maybe Text
+$sel:violationIds:DetectMitigationActionsTaskTarget' :: DetectMitigationActionsTaskTarget -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679782773"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;violationIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679782775"><span class="hs-identifier hs-var">violationIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;behaviorName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679782774"><span class="hs-identifier hs-var">behaviorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;securityProfileName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679782773"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span></pre></body></html>

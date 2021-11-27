@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.Pi.Types.DataPoint
+module Amazonka.Pi.Types.DataPoint
 
 -- | A timestamp, and a single numerical value, which together represent a
 --   measurement at a particular point in time.
@@ -42,44 +42,44 @@ dataPoint_timestamp :: Lens' DataPoint UTCTime
 
 -- | The actual value associated with a particular <tt>Timestamp</tt>.
 dataPoint_value :: Lens' DataPoint Double
-instance GHC.Generics.Generic Network.AWS.Pi.Types.DataPoint.DataPoint
-instance GHC.Show.Show Network.AWS.Pi.Types.DataPoint.DataPoint
-instance GHC.Read.Read Network.AWS.Pi.Types.DataPoint.DataPoint
-instance GHC.Classes.Eq Network.AWS.Pi.Types.DataPoint.DataPoint
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Pi.Types.DataPoint.DataPoint
-instance Data.Hashable.Class.Hashable Network.AWS.Pi.Types.DataPoint.DataPoint
-instance Control.DeepSeq.NFData Network.AWS.Pi.Types.DataPoint.DataPoint
+instance GHC.Generics.Generic Amazonka.Pi.Types.DataPoint.DataPoint
+instance GHC.Show.Show Amazonka.Pi.Types.DataPoint.DataPoint
+instance GHC.Read.Read Amazonka.Pi.Types.DataPoint.DataPoint
+instance GHC.Classes.Eq Amazonka.Pi.Types.DataPoint.DataPoint
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Pi.Types.DataPoint.DataPoint
+instance Data.Hashable.Class.Hashable Amazonka.Pi.Types.DataPoint.DataPoint
+instance Control.DeepSeq.NFData Amazonka.Pi.Types.DataPoint.DataPoint
 
 
-module Network.AWS.Pi.Types.DetailStatus
+module Amazonka.Pi.Types.DetailStatus
 newtype DetailStatus
 DetailStatus' :: Text -> DetailStatus
 [fromDetailStatus] :: DetailStatus -> Text
 pattern DetailStatus_AVAILABLE :: DetailStatus
 pattern DetailStatus_PROCESSING :: DetailStatus
 pattern DetailStatus_UNAVAILABLE :: DetailStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance Control.DeepSeq.NFData Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance GHC.Generics.Generic Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance GHC.Classes.Ord Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance GHC.Classes.Eq Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance GHC.Read.Read Network.AWS.Pi.Types.DetailStatus.DetailStatus
-instance GHC.Show.Show Network.AWS.Pi.Types.DetailStatus.DetailStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance Amazonka.Data.Text.ToText Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance Amazonka.Data.Text.FromText Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance Control.DeepSeq.NFData Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance Data.Hashable.Class.Hashable Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance GHC.Generics.Generic Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance GHC.Classes.Ord Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance GHC.Classes.Eq Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance GHC.Read.Read Amazonka.Pi.Types.DetailStatus.DetailStatus
+instance GHC.Show.Show Amazonka.Pi.Types.DetailStatus.DetailStatus
 
 
-module Network.AWS.Pi.Types.DimensionGroup
+module Amazonka.Pi.Types.DimensionGroup
 
 -- | A logical grouping of Performance Insights metrics for a related
 --   subject area. For example, the <tt>db.sql</tt> dimension group
@@ -324,16 +324,16 @@ dimensionGroup_dimensions :: Lens' DimensionGroup (Maybe (NonEmpty Text))
 --   engines)</li>
 --   </ul>
 dimensionGroup_group :: Lens' DimensionGroup Text
-instance GHC.Generics.Generic Network.AWS.Pi.Types.DimensionGroup.DimensionGroup
-instance GHC.Show.Show Network.AWS.Pi.Types.DimensionGroup.DimensionGroup
-instance GHC.Read.Read Network.AWS.Pi.Types.DimensionGroup.DimensionGroup
-instance GHC.Classes.Eq Network.AWS.Pi.Types.DimensionGroup.DimensionGroup
-instance Data.Hashable.Class.Hashable Network.AWS.Pi.Types.DimensionGroup.DimensionGroup
-instance Control.DeepSeq.NFData Network.AWS.Pi.Types.DimensionGroup.DimensionGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Pi.Types.DimensionGroup.DimensionGroup
+instance GHC.Generics.Generic Amazonka.Pi.Types.DimensionGroup.DimensionGroup
+instance GHC.Show.Show Amazonka.Pi.Types.DimensionGroup.DimensionGroup
+instance GHC.Read.Read Amazonka.Pi.Types.DimensionGroup.DimensionGroup
+instance GHC.Classes.Eq Amazonka.Pi.Types.DimensionGroup.DimensionGroup
+instance Data.Hashable.Class.Hashable Amazonka.Pi.Types.DimensionGroup.DimensionGroup
+instance Control.DeepSeq.NFData Amazonka.Pi.Types.DimensionGroup.DimensionGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Pi.Types.DimensionGroup.DimensionGroup
 
 
-module Network.AWS.Pi.Types.DimensionKeyDescription
+module Amazonka.Pi.Types.DimensionKeyDescription
 
 -- | An array of descriptions and aggregated values for each dimension
 --   within a dimension group.
@@ -386,16 +386,16 @@ dimensionKeyDescription_total :: Lens' DimensionKeyDescription (Maybe Double)
 
 -- | A map of name-value pairs for the dimensions in the group.
 dimensionKeyDescription_dimensions :: Lens' DimensionKeyDescription (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.Pi.Types.DimensionKeyDescription.DimensionKeyDescription
-instance GHC.Show.Show Network.AWS.Pi.Types.DimensionKeyDescription.DimensionKeyDescription
-instance GHC.Read.Read Network.AWS.Pi.Types.DimensionKeyDescription.DimensionKeyDescription
-instance GHC.Classes.Eq Network.AWS.Pi.Types.DimensionKeyDescription.DimensionKeyDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Pi.Types.DimensionKeyDescription.DimensionKeyDescription
-instance Data.Hashable.Class.Hashable Network.AWS.Pi.Types.DimensionKeyDescription.DimensionKeyDescription
-instance Control.DeepSeq.NFData Network.AWS.Pi.Types.DimensionKeyDescription.DimensionKeyDescription
+instance GHC.Generics.Generic Amazonka.Pi.Types.DimensionKeyDescription.DimensionKeyDescription
+instance GHC.Show.Show Amazonka.Pi.Types.DimensionKeyDescription.DimensionKeyDescription
+instance GHC.Read.Read Amazonka.Pi.Types.DimensionKeyDescription.DimensionKeyDescription
+instance GHC.Classes.Eq Amazonka.Pi.Types.DimensionKeyDescription.DimensionKeyDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Pi.Types.DimensionKeyDescription.DimensionKeyDescription
+instance Data.Hashable.Class.Hashable Amazonka.Pi.Types.DimensionKeyDescription.DimensionKeyDescription
+instance Control.DeepSeq.NFData Amazonka.Pi.Types.DimensionKeyDescription.DimensionKeyDescription
 
 
-module Network.AWS.Pi.Types.DimensionKeyDetail
+module Amazonka.Pi.Types.DimensionKeyDetail
 
 -- | An object that describes the details for a specified dimension.
 --   
@@ -488,16 +488,16 @@ dimensionKeyDetail_dimension :: Lens' DimensionKeyDetail (Maybe Text)
 --   <tt>db.sql.statement</tt> dimension, this value is either the full or
 --   truncated SQL query, depending on the return status.
 dimensionKeyDetail_value :: Lens' DimensionKeyDetail (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Pi.Types.DimensionKeyDetail.DimensionKeyDetail
-instance GHC.Show.Show Network.AWS.Pi.Types.DimensionKeyDetail.DimensionKeyDetail
-instance GHC.Read.Read Network.AWS.Pi.Types.DimensionKeyDetail.DimensionKeyDetail
-instance GHC.Classes.Eq Network.AWS.Pi.Types.DimensionKeyDetail.DimensionKeyDetail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Pi.Types.DimensionKeyDetail.DimensionKeyDetail
-instance Data.Hashable.Class.Hashable Network.AWS.Pi.Types.DimensionKeyDetail.DimensionKeyDetail
-instance Control.DeepSeq.NFData Network.AWS.Pi.Types.DimensionKeyDetail.DimensionKeyDetail
+instance GHC.Generics.Generic Amazonka.Pi.Types.DimensionKeyDetail.DimensionKeyDetail
+instance GHC.Show.Show Amazonka.Pi.Types.DimensionKeyDetail.DimensionKeyDetail
+instance GHC.Read.Read Amazonka.Pi.Types.DimensionKeyDetail.DimensionKeyDetail
+instance GHC.Classes.Eq Amazonka.Pi.Types.DimensionKeyDetail.DimensionKeyDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Pi.Types.DimensionKeyDetail.DimensionKeyDetail
+instance Data.Hashable.Class.Hashable Amazonka.Pi.Types.DimensionKeyDetail.DimensionKeyDetail
+instance Control.DeepSeq.NFData Amazonka.Pi.Types.DimensionKeyDetail.DimensionKeyDetail
 
 
-module Network.AWS.Pi.Types.MetricQuery
+module Amazonka.Pi.Types.MetricQuery
 
 -- | A single query to be processed. You must provide the metric to query.
 --   If no other parameters are specified, Performance Insights returns all
@@ -638,16 +638,16 @@ metricQuery_filter :: Lens' MetricQuery (Maybe (HashMap Text Text))
 --   <tt>db.load.avg</tt>. For most use cases, you can query
 --   <tt>db.load.avg</tt> only.
 metricQuery_metric :: Lens' MetricQuery Text
-instance GHC.Generics.Generic Network.AWS.Pi.Types.MetricQuery.MetricQuery
-instance GHC.Show.Show Network.AWS.Pi.Types.MetricQuery.MetricQuery
-instance GHC.Read.Read Network.AWS.Pi.Types.MetricQuery.MetricQuery
-instance GHC.Classes.Eq Network.AWS.Pi.Types.MetricQuery.MetricQuery
-instance Data.Hashable.Class.Hashable Network.AWS.Pi.Types.MetricQuery.MetricQuery
-instance Control.DeepSeq.NFData Network.AWS.Pi.Types.MetricQuery.MetricQuery
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Pi.Types.MetricQuery.MetricQuery
+instance GHC.Generics.Generic Amazonka.Pi.Types.MetricQuery.MetricQuery
+instance GHC.Show.Show Amazonka.Pi.Types.MetricQuery.MetricQuery
+instance GHC.Read.Read Amazonka.Pi.Types.MetricQuery.MetricQuery
+instance GHC.Classes.Eq Amazonka.Pi.Types.MetricQuery.MetricQuery
+instance Data.Hashable.Class.Hashable Amazonka.Pi.Types.MetricQuery.MetricQuery
+instance Control.DeepSeq.NFData Amazonka.Pi.Types.MetricQuery.MetricQuery
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Pi.Types.MetricQuery.MetricQuery
 
 
-module Network.AWS.Pi.Types.ResponsePartitionKey
+module Amazonka.Pi.Types.ResponsePartitionKey
 
 -- | If <tt>PartitionBy</tt> was specified in a
 --   <tt>DescribeDimensionKeys</tt> request, the dimensions are returned in
@@ -676,16 +676,16 @@ newResponsePartitionKey :: ResponsePartitionKey
 
 -- | A dimension map that contains the dimension(s) for this partition.
 responsePartitionKey_dimensions :: Lens' ResponsePartitionKey (HashMap Text Text)
-instance GHC.Generics.Generic Network.AWS.Pi.Types.ResponsePartitionKey.ResponsePartitionKey
-instance GHC.Show.Show Network.AWS.Pi.Types.ResponsePartitionKey.ResponsePartitionKey
-instance GHC.Read.Read Network.AWS.Pi.Types.ResponsePartitionKey.ResponsePartitionKey
-instance GHC.Classes.Eq Network.AWS.Pi.Types.ResponsePartitionKey.ResponsePartitionKey
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Pi.Types.ResponsePartitionKey.ResponsePartitionKey
-instance Data.Hashable.Class.Hashable Network.AWS.Pi.Types.ResponsePartitionKey.ResponsePartitionKey
-instance Control.DeepSeq.NFData Network.AWS.Pi.Types.ResponsePartitionKey.ResponsePartitionKey
+instance GHC.Generics.Generic Amazonka.Pi.Types.ResponsePartitionKey.ResponsePartitionKey
+instance GHC.Show.Show Amazonka.Pi.Types.ResponsePartitionKey.ResponsePartitionKey
+instance GHC.Read.Read Amazonka.Pi.Types.ResponsePartitionKey.ResponsePartitionKey
+instance GHC.Classes.Eq Amazonka.Pi.Types.ResponsePartitionKey.ResponsePartitionKey
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Pi.Types.ResponsePartitionKey.ResponsePartitionKey
+instance Data.Hashable.Class.Hashable Amazonka.Pi.Types.ResponsePartitionKey.ResponsePartitionKey
+instance Control.DeepSeq.NFData Amazonka.Pi.Types.ResponsePartitionKey.ResponsePartitionKey
 
 
-module Network.AWS.Pi.Types.ResponseResourceMetricKey
+module Amazonka.Pi.Types.ResponseResourceMetricKey
 
 -- | An object describing a Performance Insights metric and one or more
 --   dimensions for that metric.
@@ -780,16 +780,16 @@ responseResourceMetricKey_dimensions :: Lens' ResponseResourceMetricKey (Maybe (
 --   <tt>db.load.avg</tt>. For most use cases, you can query
 --   <tt>db.load.avg</tt> only.
 responseResourceMetricKey_metric :: Lens' ResponseResourceMetricKey Text
-instance GHC.Generics.Generic Network.AWS.Pi.Types.ResponseResourceMetricKey.ResponseResourceMetricKey
-instance GHC.Show.Show Network.AWS.Pi.Types.ResponseResourceMetricKey.ResponseResourceMetricKey
-instance GHC.Read.Read Network.AWS.Pi.Types.ResponseResourceMetricKey.ResponseResourceMetricKey
-instance GHC.Classes.Eq Network.AWS.Pi.Types.ResponseResourceMetricKey.ResponseResourceMetricKey
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Pi.Types.ResponseResourceMetricKey.ResponseResourceMetricKey
-instance Data.Hashable.Class.Hashable Network.AWS.Pi.Types.ResponseResourceMetricKey.ResponseResourceMetricKey
-instance Control.DeepSeq.NFData Network.AWS.Pi.Types.ResponseResourceMetricKey.ResponseResourceMetricKey
+instance GHC.Generics.Generic Amazonka.Pi.Types.ResponseResourceMetricKey.ResponseResourceMetricKey
+instance GHC.Show.Show Amazonka.Pi.Types.ResponseResourceMetricKey.ResponseResourceMetricKey
+instance GHC.Read.Read Amazonka.Pi.Types.ResponseResourceMetricKey.ResponseResourceMetricKey
+instance GHC.Classes.Eq Amazonka.Pi.Types.ResponseResourceMetricKey.ResponseResourceMetricKey
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Pi.Types.ResponseResourceMetricKey.ResponseResourceMetricKey
+instance Data.Hashable.Class.Hashable Amazonka.Pi.Types.ResponseResourceMetricKey.ResponseResourceMetricKey
+instance Control.DeepSeq.NFData Amazonka.Pi.Types.ResponseResourceMetricKey.ResponseResourceMetricKey
 
 
-module Network.AWS.Pi.Types.MetricKeyDataPoints
+module Amazonka.Pi.Types.MetricKeyDataPoints
 
 -- | A time-ordered series of data points, corresponding to a dimension of
 --   a Performance Insights metric.
@@ -828,42 +828,42 @@ metricKeyDataPoints_dataPoints :: Lens' MetricKeyDataPoints (Maybe [DataPoint])
 
 -- | The dimension(s) to which the data points apply.
 metricKeyDataPoints_key :: Lens' MetricKeyDataPoints (Maybe ResponseResourceMetricKey)
-instance GHC.Generics.Generic Network.AWS.Pi.Types.MetricKeyDataPoints.MetricKeyDataPoints
-instance GHC.Show.Show Network.AWS.Pi.Types.MetricKeyDataPoints.MetricKeyDataPoints
-instance GHC.Read.Read Network.AWS.Pi.Types.MetricKeyDataPoints.MetricKeyDataPoints
-instance GHC.Classes.Eq Network.AWS.Pi.Types.MetricKeyDataPoints.MetricKeyDataPoints
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Pi.Types.MetricKeyDataPoints.MetricKeyDataPoints
-instance Data.Hashable.Class.Hashable Network.AWS.Pi.Types.MetricKeyDataPoints.MetricKeyDataPoints
-instance Control.DeepSeq.NFData Network.AWS.Pi.Types.MetricKeyDataPoints.MetricKeyDataPoints
+instance GHC.Generics.Generic Amazonka.Pi.Types.MetricKeyDataPoints.MetricKeyDataPoints
+instance GHC.Show.Show Amazonka.Pi.Types.MetricKeyDataPoints.MetricKeyDataPoints
+instance GHC.Read.Read Amazonka.Pi.Types.MetricKeyDataPoints.MetricKeyDataPoints
+instance GHC.Classes.Eq Amazonka.Pi.Types.MetricKeyDataPoints.MetricKeyDataPoints
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Pi.Types.MetricKeyDataPoints.MetricKeyDataPoints
+instance Data.Hashable.Class.Hashable Amazonka.Pi.Types.MetricKeyDataPoints.MetricKeyDataPoints
+instance Control.DeepSeq.NFData Amazonka.Pi.Types.MetricKeyDataPoints.MetricKeyDataPoints
 
 
-module Network.AWS.Pi.Types.ServiceType
+module Amazonka.Pi.Types.ServiceType
 newtype ServiceType
 ServiceType' :: Text -> ServiceType
 [fromServiceType] :: ServiceType -> Text
 pattern ServiceType_RDS :: ServiceType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Pi.Types.ServiceType.ServiceType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Pi.Types.ServiceType.ServiceType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Pi.Types.ServiceType.ServiceType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Pi.Types.ServiceType.ServiceType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Pi.Types.ServiceType.ServiceType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Pi.Types.ServiceType.ServiceType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Pi.Types.ServiceType.ServiceType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Pi.Types.ServiceType.ServiceType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Pi.Types.ServiceType.ServiceType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Pi.Types.ServiceType.ServiceType
-instance Network.AWS.Data.Text.ToText Network.AWS.Pi.Types.ServiceType.ServiceType
-instance Network.AWS.Data.Text.FromText Network.AWS.Pi.Types.ServiceType.ServiceType
-instance Control.DeepSeq.NFData Network.AWS.Pi.Types.ServiceType.ServiceType
-instance Data.Hashable.Class.Hashable Network.AWS.Pi.Types.ServiceType.ServiceType
-instance GHC.Generics.Generic Network.AWS.Pi.Types.ServiceType.ServiceType
-instance GHC.Classes.Ord Network.AWS.Pi.Types.ServiceType.ServiceType
-instance GHC.Classes.Eq Network.AWS.Pi.Types.ServiceType.ServiceType
-instance GHC.Read.Read Network.AWS.Pi.Types.ServiceType.ServiceType
-instance GHC.Show.Show Network.AWS.Pi.Types.ServiceType.ServiceType
+instance Amazonka.Data.XML.ToXML Amazonka.Pi.Types.ServiceType.ServiceType
+instance Amazonka.Data.XML.FromXML Amazonka.Pi.Types.ServiceType.ServiceType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Pi.Types.ServiceType.ServiceType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Pi.Types.ServiceType.ServiceType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Pi.Types.ServiceType.ServiceType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Pi.Types.ServiceType.ServiceType
+instance Amazonka.Data.Query.ToQuery Amazonka.Pi.Types.ServiceType.ServiceType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Pi.Types.ServiceType.ServiceType
+instance Amazonka.Data.Log.ToLog Amazonka.Pi.Types.ServiceType.ServiceType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Pi.Types.ServiceType.ServiceType
+instance Amazonka.Data.Text.ToText Amazonka.Pi.Types.ServiceType.ServiceType
+instance Amazonka.Data.Text.FromText Amazonka.Pi.Types.ServiceType.ServiceType
+instance Control.DeepSeq.NFData Amazonka.Pi.Types.ServiceType.ServiceType
+instance Data.Hashable.Class.Hashable Amazonka.Pi.Types.ServiceType.ServiceType
+instance GHC.Generics.Generic Amazonka.Pi.Types.ServiceType.ServiceType
+instance GHC.Classes.Ord Amazonka.Pi.Types.ServiceType.ServiceType
+instance GHC.Classes.Eq Amazonka.Pi.Types.ServiceType.ServiceType
+instance GHC.Read.Read Amazonka.Pi.Types.ServiceType.ServiceType
+instance GHC.Show.Show Amazonka.Pi.Types.ServiceType.ServiceType
 
 
-module Network.AWS.Pi.Types
+module Amazonka.Pi.Types
 
 -- | API version <tt>2018-02-27</tt> of the Amazon Performance Insights SDK
 --   configuration.
@@ -1621,7 +1621,7 @@ responseResourceMetricKey_metric :: Lens' ResponseResourceMetricKey Text
 --   Each response element returns a maximum of 500 bytes. For larger
 --   elements, such as SQL statements, only the first 500 bytes are
 --   returned.
-module Network.AWS.Pi.GetResourceMetrics
+module Amazonka.Pi.GetResourceMetrics
 
 -- | <i>See:</i> <a>newGetResourceMetrics</a> smart constructor.
 data GetResourceMetrics
@@ -1944,22 +1944,22 @@ getResourceMetricsResponse_nextToken :: Lens' GetResourceMetricsResponse (Maybe 
 
 -- | The response's http status code.
 getResourceMetricsResponse_httpStatus :: Lens' GetResourceMetricsResponse Int
-instance GHC.Generics.Generic Network.AWS.Pi.GetResourceMetrics.GetResourceMetrics
-instance GHC.Show.Show Network.AWS.Pi.GetResourceMetrics.GetResourceMetrics
-instance GHC.Read.Read Network.AWS.Pi.GetResourceMetrics.GetResourceMetrics
-instance GHC.Classes.Eq Network.AWS.Pi.GetResourceMetrics.GetResourceMetrics
-instance GHC.Generics.Generic Network.AWS.Pi.GetResourceMetrics.GetResourceMetricsResponse
-instance GHC.Show.Show Network.AWS.Pi.GetResourceMetrics.GetResourceMetricsResponse
-instance GHC.Read.Read Network.AWS.Pi.GetResourceMetrics.GetResourceMetricsResponse
-instance GHC.Classes.Eq Network.AWS.Pi.GetResourceMetrics.GetResourceMetricsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Pi.GetResourceMetrics.GetResourceMetrics
-instance Control.DeepSeq.NFData Network.AWS.Pi.GetResourceMetrics.GetResourceMetricsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Pi.GetResourceMetrics.GetResourceMetrics
-instance Control.DeepSeq.NFData Network.AWS.Pi.GetResourceMetrics.GetResourceMetrics
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Pi.GetResourceMetrics.GetResourceMetrics
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Pi.GetResourceMetrics.GetResourceMetrics
-instance Network.AWS.Data.Path.ToPath Network.AWS.Pi.GetResourceMetrics.GetResourceMetrics
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Pi.GetResourceMetrics.GetResourceMetrics
+instance GHC.Generics.Generic Amazonka.Pi.GetResourceMetrics.GetResourceMetrics
+instance GHC.Show.Show Amazonka.Pi.GetResourceMetrics.GetResourceMetrics
+instance GHC.Read.Read Amazonka.Pi.GetResourceMetrics.GetResourceMetrics
+instance GHC.Classes.Eq Amazonka.Pi.GetResourceMetrics.GetResourceMetrics
+instance GHC.Generics.Generic Amazonka.Pi.GetResourceMetrics.GetResourceMetricsResponse
+instance GHC.Show.Show Amazonka.Pi.GetResourceMetrics.GetResourceMetricsResponse
+instance GHC.Read.Read Amazonka.Pi.GetResourceMetrics.GetResourceMetricsResponse
+instance GHC.Classes.Eq Amazonka.Pi.GetResourceMetrics.GetResourceMetricsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Pi.GetResourceMetrics.GetResourceMetrics
+instance Control.DeepSeq.NFData Amazonka.Pi.GetResourceMetrics.GetResourceMetricsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Pi.GetResourceMetrics.GetResourceMetrics
+instance Control.DeepSeq.NFData Amazonka.Pi.GetResourceMetrics.GetResourceMetrics
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Pi.GetResourceMetrics.GetResourceMetrics
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Pi.GetResourceMetrics.GetResourceMetrics
+instance Amazonka.Data.Path.ToPath Amazonka.Pi.GetResourceMetrics.GetResourceMetrics
+instance Amazonka.Data.Query.ToQuery Amazonka.Pi.GetResourceMetrics.GetResourceMetrics
 
 
 -- | Get the attributes of the specified dimension group for a DB instance
@@ -1969,7 +1969,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Pi.GetResourceMetrics.GetRes
 --   operation is useful because <tt>GetResourceMetrics</tt> and
 --   <tt>DescribeDimensionKeys</tt> don't support retrieval of large SQL
 --   statement text.
-module Network.AWS.Pi.GetDimensionKeyDetails
+module Amazonka.Pi.GetDimensionKeyDetails
 
 -- | <i>See:</i> <a>newGetDimensionKeyDetails</a> smart constructor.
 data GetDimensionKeyDetails
@@ -2106,22 +2106,22 @@ getDimensionKeyDetailsResponse_dimensions :: Lens' GetDimensionKeyDetailsRespons
 
 -- | The response's http status code.
 getDimensionKeyDetailsResponse_httpStatus :: Lens' GetDimensionKeyDetailsResponse Int
-instance GHC.Generics.Generic Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
-instance GHC.Show.Show Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
-instance GHC.Read.Read Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
-instance GHC.Classes.Eq Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
-instance GHC.Generics.Generic Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetailsResponse
-instance GHC.Show.Show Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetailsResponse
-instance GHC.Read.Read Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetailsResponse
-instance GHC.Classes.Eq Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetailsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
-instance Control.DeepSeq.NFData Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetailsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
-instance Control.DeepSeq.NFData Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
-instance Network.AWS.Data.Path.ToPath Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
+instance GHC.Generics.Generic Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
+instance GHC.Show.Show Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
+instance GHC.Read.Read Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
+instance GHC.Classes.Eq Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
+instance GHC.Generics.Generic Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetailsResponse
+instance GHC.Show.Show Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetailsResponse
+instance GHC.Read.Read Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetailsResponse
+instance GHC.Classes.Eq Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetailsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
+instance Control.DeepSeq.NFData Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetailsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
+instance Control.DeepSeq.NFData Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
+instance Amazonka.Data.Path.ToPath Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
+instance Amazonka.Data.Query.ToQuery Amazonka.Pi.GetDimensionKeyDetails.GetDimensionKeyDetails
 
 
 -- | For a specific time period, retrieve the top <tt>N</tt> dimension keys
@@ -2130,7 +2130,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Pi.GetDimensionKeyDetails.Ge
 --   Each response element returns a maximum of 500 bytes. For larger
 --   elements, such as SQL statements, only the first 500 bytes are
 --   returned.
-module Network.AWS.Pi.DescribeDimensionKeys
+module Amazonka.Pi.DescribeDimensionKeys
 
 -- | <i>See:</i> <a>newDescribeDimensionKeys</a> smart constructor.
 data DescribeDimensionKeys
@@ -2561,25 +2561,25 @@ describeDimensionKeysResponse_partitionKeys :: Lens' DescribeDimensionKeysRespon
 
 -- | The response's http status code.
 describeDimensionKeysResponse_httpStatus :: Lens' DescribeDimensionKeysResponse Int
-instance GHC.Generics.Generic Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeys
-instance GHC.Show.Show Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeys
-instance GHC.Read.Read Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeys
-instance GHC.Classes.Eq Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeys
-instance GHC.Generics.Generic Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeysResponse
-instance GHC.Show.Show Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeysResponse
-instance GHC.Read.Read Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeysResponse
-instance GHC.Classes.Eq Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeysResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeys
-instance Control.DeepSeq.NFData Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeysResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeys
-instance Control.DeepSeq.NFData Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeys
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeys
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeys
-instance Network.AWS.Data.Path.ToPath Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeys
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Pi.DescribeDimensionKeys.DescribeDimensionKeys
+instance GHC.Generics.Generic Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeys
+instance GHC.Show.Show Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeys
+instance GHC.Read.Read Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeys
+instance GHC.Classes.Eq Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeys
+instance GHC.Generics.Generic Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeysResponse
+instance GHC.Show.Show Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeysResponse
+instance GHC.Read.Read Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeysResponse
+instance GHC.Classes.Eq Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeysResponse
+instance Amazonka.Types.AWSRequest Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeys
+instance Control.DeepSeq.NFData Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeysResponse
+instance Data.Hashable.Class.Hashable Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeys
+instance Control.DeepSeq.NFData Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeys
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeys
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeys
+instance Amazonka.Data.Path.ToPath Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeys
+instance Amazonka.Data.Query.ToQuery Amazonka.Pi.DescribeDimensionKeys.DescribeDimensionKeys
 
 
-module Network.AWS.Pi.Lens
+module Amazonka.Pi.Lens
 
 -- | A list of dimensions to retrieve the detail data for within the given
 --   dimension group. For the dimension group <tt>db.sql</tt>, specify
@@ -3030,7 +3030,7 @@ responseResourceMetricKey_dimensions :: Lens' ResponseResourceMetricKey (Maybe (
 responseResourceMetricKey_metric :: Lens' ResponseResourceMetricKey Text
 
 
-module Network.AWS.Pi.Waiters
+module Amazonka.Pi.Waiters
 
 
 -- | Derived from API version <tt>2018-02-27</tt> of the AWS service
@@ -3062,7 +3062,7 @@ module Network.AWS.Pi.Waiters
 --   <li>To learn more about Performance Insights and Amazon RDS DB
 --   instances, go to the <a>Amazon RDS User Guide</a>.</li>
 --   </ul>
-module Network.AWS.Pi
+module Amazonka.Pi
 
 -- | API version <tt>2018-02-27</tt> of the Amazon Performance Insights SDK
 --   configuration.

@@ -1,0 +1,670 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DirectoryService.DescribeLDAPSSettings</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the status of LDAP security for the specified directory.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DirectoryService.DescribeLDAPSSettings</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier">DescribeLDAPSSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#newDescribeLDAPSSettings"><span class="hs-identifier">newDescribeLDAPSSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettings_nextToken"><span class="hs-identifier">describeLDAPSSettings_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettings_limit"><span class="hs-identifier">describeLDAPSSettings_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettings_type"><span class="hs-identifier">describeLDAPSSettings_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettings_directoryId"><span class="hs-identifier">describeLDAPSSettings_directoryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse"><span class="hs-identifier">DescribeLDAPSSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#newDescribeLDAPSSettingsResponse"><span class="hs-identifier">newDescribeLDAPSSettingsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettingsResponse_lDAPSSettingsInfo"><span class="hs-identifier">describeLDAPSSettingsResponse_lDAPSSettingsInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettingsResponse_nextToken"><span class="hs-identifier">describeLDAPSSettingsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettingsResponse_httpStatus"><span class="hs-identifier">describeLDAPSSettingsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.html"><span class="hs-identifier">Amazonka.DirectoryService.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeLDAPSSettings' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679309646"><span id="local-6989586621679309647"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLDAPSSettings"><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-var">DescribeLDAPSSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLDAPSSettings%27"><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings%27"><span class="hs-identifier hs-var">DescribeLDAPSSettings'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of next token used for pagination.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeLDAPSSettings%27"><span class="annot"><span class="annottext">DescribeLDAPSSettings -&gt; Maybe Text
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3AnextToken%3ADescribeLDAPSSettings%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Specifies the number of items that should be displayed on one page.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeLDAPSSettings%27"><span class="annot"><span class="annottext">DescribeLDAPSSettings -&gt; Maybe Natural
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3Alimit%3ADescribeLDAPSSettings%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The type of LDAP security to enable. Currently only the value @Client@</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- is supported.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Atype%27%3ADescribeLDAPSSettings%27"><span class="annot"><span class="annottext">DescribeLDAPSSettings -&gt; Maybe LDAPSType
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3Atype%27%3ADescribeLDAPSSettings%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.LDAPSType.html#LDAPSType"><span class="hs-identifier hs-type">LDAPSType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The identifier of the directory.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AdirectoryId%3ADescribeLDAPSSettings%27"><span class="annot"><span class="annottext">DescribeLDAPSSettings -&gt; Text
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3AdirectoryId%3ADescribeLDAPSSettings%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309637"><span id="local-6989586621679309639"><span class="annot"><span class="annottext">DescribeLDAPSSettings -&gt; DescribeLDAPSSettings -&gt; Bool
+(DescribeLDAPSSettings -&gt; DescribeLDAPSSettings -&gt; Bool)
+-&gt; (DescribeLDAPSSettings -&gt; DescribeLDAPSSettings -&gt; Bool)
+-&gt; Eq DescribeLDAPSSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeLDAPSSettings -&gt; DescribeLDAPSSettings -&gt; Bool
+$c/= :: DescribeLDAPSSettings -&gt; DescribeLDAPSSettings -&gt; Bool
+== :: DescribeLDAPSSettings -&gt; DescribeLDAPSSettings -&gt; Bool
+$c== :: DescribeLDAPSSettings -&gt; DescribeLDAPSSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309628"><span id="local-6989586621679309630"><span id="local-6989586621679309632"><span id="local-6989586621679309634"><span class="annot"><span class="annottext">ReadPrec [DescribeLDAPSSettings]
+ReadPrec DescribeLDAPSSettings
+Int -&gt; ReadS DescribeLDAPSSettings
+ReadS [DescribeLDAPSSettings]
+(Int -&gt; ReadS DescribeLDAPSSettings)
+-&gt; ReadS [DescribeLDAPSSettings]
+-&gt; ReadPrec DescribeLDAPSSettings
+-&gt; ReadPrec [DescribeLDAPSSettings]
+-&gt; Read DescribeLDAPSSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeLDAPSSettings]
+$creadListPrec :: ReadPrec [DescribeLDAPSSettings]
+readPrec :: ReadPrec DescribeLDAPSSettings
+$creadPrec :: ReadPrec DescribeLDAPSSettings
+readList :: ReadS [DescribeLDAPSSettings]
+$creadList :: ReadS [DescribeLDAPSSettings]
+readsPrec :: Int -&gt; ReadS DescribeLDAPSSettings
+$creadsPrec :: Int -&gt; ReadS DescribeLDAPSSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309621"><span id="local-6989586621679309623"><span id="local-6989586621679309625"><span class="annot"><span class="annottext">Int -&gt; DescribeLDAPSSettings -&gt; ShowS
+[DescribeLDAPSSettings] -&gt; ShowS
+DescribeLDAPSSettings -&gt; String
+(Int -&gt; DescribeLDAPSSettings -&gt; ShowS)
+-&gt; (DescribeLDAPSSettings -&gt; String)
+-&gt; ([DescribeLDAPSSettings] -&gt; ShowS)
+-&gt; Show DescribeLDAPSSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeLDAPSSettings] -&gt; ShowS
+$cshowList :: [DescribeLDAPSSettings] -&gt; ShowS
+show :: DescribeLDAPSSettings -&gt; String
+$cshow :: DescribeLDAPSSettings -&gt; String
+showsPrec :: Int -&gt; DescribeLDAPSSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeLDAPSSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeLDAPSSettings -&gt; Rep DescribeLDAPSSettings x)
+-&gt; (forall x. Rep DescribeLDAPSSettings x -&gt; DescribeLDAPSSettings)
+-&gt; Generic DescribeLDAPSSettings
+forall x. Rep DescribeLDAPSSettings x -&gt; DescribeLDAPSSettings
+forall x. DescribeLDAPSSettings -&gt; Rep DescribeLDAPSSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeLDAPSSettings x -&gt; DescribeLDAPSSettings
+$cfrom :: forall x. DescribeLDAPSSettings -&gt; Rep DescribeLDAPSSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'DescribeLDAPSSettings' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'nextToken', 'describeLDAPSSettings_nextToken' - The type of next token used for pagination.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'limit', 'describeLDAPSSettings_limit' - Specifies the number of items that should be displayed on one page.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'type'', 'describeLDAPSSettings_type' - The type of LDAP security to enable. Currently only the value @Client@</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- is supported.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'directoryId', 'describeLDAPSSettings_directoryId' - The identifier of the directory.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#newDescribeLDAPSSettings"><span class="hs-identifier hs-type">newDescribeLDAPSSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'directoryId'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span><span>
+</span><span id="line-87"></span><span id="newDescribeLDAPSSettings"><span class="annot"><span class="annottext">newDescribeLDAPSSettings :: Text -&gt; DescribeLDAPSSettings
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#newDescribeLDAPSSettings"><span class="hs-identifier hs-var hs-var">newDescribeLDAPSSettings</span></a></span></span><span> </span><span id="local-6989586621679309616"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309616"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">DescribeLDAPSSettings' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe LDAPSType
+-&gt; Text
+-&gt; DescribeLDAPSSettings
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings%27"><span class="hs-identifier hs-type">DescribeLDAPSSettings'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeLDAPSSettings' :: Maybe Text
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3AnextToken%3ADescribeLDAPSSettings%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:DescribeLDAPSSettings' :: Maybe Natural
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3Alimit%3ADescribeLDAPSSettings%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':DescribeLDAPSSettings' :: Maybe LDAPSType
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3Atype%27%3ADescribeLDAPSSettings%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LDAPSType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryId:DescribeLDAPSSettings' :: Text
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3AdirectoryId%3ADescribeLDAPSSettings%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309616"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The type of next token used for pagination.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettings_nextToken"><span class="hs-identifier hs-type">describeLDAPSSettings_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="describeLDAPSSettings_nextToken"><span class="annot"><span class="annottext">describeLDAPSSettings_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeLDAPSSettings -&gt; f DescribeLDAPSSettings
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettings_nextToken"><span class="hs-identifier hs-var hs-var">describeLDAPSSettings_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLDAPSSettings -&gt; Maybe Text)
+-&gt; (DescribeLDAPSSettings -&gt; Maybe Text -&gt; DescribeLDAPSSettings)
+-&gt; Lens
+     DescribeLDAPSSettings
+     DescribeLDAPSSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings%27"><span class="hs-identifier hs-type">DescribeLDAPSSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309613"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeLDAPSSettings' :: DescribeLDAPSSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679309613"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309613"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309612"><span class="annot"><span class="annottext">s :: DescribeLDAPSSettings
+</span><a href="#local-6989586621679309612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings%27"><span class="hs-identifier hs-type">DescribeLDAPSSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309611"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLDAPSSettings
+</span><a href="#local-6989586621679309612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeLDAPSSettings' :: Maybe Text
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3AnextToken%3ADescribeLDAPSSettings%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | Specifies the number of items that should be displayed on one page.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettings_limit"><span class="hs-identifier hs-type">describeLDAPSSettings_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="describeLDAPSSettings_limit"><span class="annot"><span class="annottext">describeLDAPSSettings_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeLDAPSSettings -&gt; f DescribeLDAPSSettings
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettings_limit"><span class="hs-identifier hs-var hs-var">describeLDAPSSettings_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLDAPSSettings -&gt; Maybe Natural)
+-&gt; (DescribeLDAPSSettings
+    -&gt; Maybe Natural -&gt; DescribeLDAPSSettings)
+-&gt; Lens
+     DescribeLDAPSSettings
+     DescribeLDAPSSettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings%27"><span class="hs-identifier hs-type">DescribeLDAPSSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309610"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:DescribeLDAPSSettings' :: DescribeLDAPSSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679309610"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679309610"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309609"><span class="annot"><span class="annottext">s :: DescribeLDAPSSettings
+</span><a href="#local-6989586621679309609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings%27"><span class="hs-identifier hs-type">DescribeLDAPSSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309608"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679309608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLDAPSSettings
+</span><a href="#local-6989586621679309609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeLDAPSSettings' :: Maybe Natural
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3Alimit%3ADescribeLDAPSSettings%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679309608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The type of LDAP security to enable. Currently only the value @Client@</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- is supported.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettings_type"><span class="hs-identifier hs-type">describeLDAPSSettings_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.LDAPSType.html#LDAPSType"><span class="hs-identifier hs-type">LDAPSType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="describeLDAPSSettings_type"><span class="annot"><span class="annottext">describeLDAPSSettings_type :: (Maybe LDAPSType -&gt; f (Maybe LDAPSType))
+-&gt; DescribeLDAPSSettings -&gt; f DescribeLDAPSSettings
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettings_type"><span class="hs-identifier hs-var hs-var">describeLDAPSSettings_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLDAPSSettings -&gt; Maybe LDAPSType)
+-&gt; (DescribeLDAPSSettings
+    -&gt; Maybe LDAPSType -&gt; DescribeLDAPSSettings)
+-&gt; Lens
+     DescribeLDAPSSettings
+     DescribeLDAPSSettings
+     (Maybe LDAPSType)
+     (Maybe LDAPSType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings%27"><span class="hs-identifier hs-type">DescribeLDAPSSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309607"><span class="annot"><span class="annottext">Maybe LDAPSType
+type' :: Maybe LDAPSType
+$sel:type':DescribeLDAPSSettings' :: DescribeLDAPSSettings -&gt; Maybe LDAPSType
+</span><a href="#local-6989586621679309607"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LDAPSType
+</span><a href="#local-6989586621679309607"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309606"><span class="annot"><span class="annottext">s :: DescribeLDAPSSettings
+</span><a href="#local-6989586621679309606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings%27"><span class="hs-identifier hs-type">DescribeLDAPSSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309605"><span class="annot"><span class="annottext">Maybe LDAPSType
+</span><a href="#local-6989586621679309605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLDAPSSettings
+</span><a href="#local-6989586621679309606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DescribeLDAPSSettings' :: Maybe LDAPSType
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3Atype%27%3ADescribeLDAPSSettings%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LDAPSType
+</span><a href="#local-6989586621679309605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The identifier of the directory.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettings_directoryId"><span class="hs-identifier hs-type">describeLDAPSSettings_directoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span id="describeLDAPSSettings_directoryId"><span class="annot"><span class="annottext">describeLDAPSSettings_directoryId :: (Text -&gt; f Text)
+-&gt; DescribeLDAPSSettings -&gt; f DescribeLDAPSSettings
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettings_directoryId"><span class="hs-identifier hs-var hs-var">describeLDAPSSettings_directoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLDAPSSettings -&gt; Text)
+-&gt; (DescribeLDAPSSettings -&gt; Text -&gt; DescribeLDAPSSettings)
+-&gt; Lens DescribeLDAPSSettings DescribeLDAPSSettings Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings%27"><span class="hs-identifier hs-type">DescribeLDAPSSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309604"><span class="annot"><span class="annottext">Text
+directoryId :: Text
+$sel:directoryId:DescribeLDAPSSettings' :: DescribeLDAPSSettings -&gt; Text
+</span><a href="#local-6989586621679309604"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309604"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309603"><span class="annot"><span class="annottext">s :: DescribeLDAPSSettings
+</span><a href="#local-6989586621679309603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings%27"><span class="hs-identifier hs-type">DescribeLDAPSSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309602"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLDAPSSettings
+</span><a href="#local-6989586621679309603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:DescribeLDAPSSettings' :: Text
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3AdirectoryId%3ADescribeLDAPSSettings%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679309598"><span class="annot"><span class="annottext">request :: DescribeLDAPSSettings -&gt; Request DescribeLDAPSSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeLDAPSSettings -&gt; Request DescribeLDAPSSettings
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679309594"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeLDAPSSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeLDAPSSettings)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeLDAPSSettings))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeLDAPSSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeLDAPSSettings)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309591"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309591"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309590"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679309590"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309589"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309589"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe [LDAPSSettingInfo]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeLDAPSSettingsResponse
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-var">DescribeLDAPSSettingsResponse'</span></a></span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [LDAPSSettingInfo]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeLDAPSSettingsResponse)
+-&gt; Either String (Maybe [LDAPSSettingInfo])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeLDAPSSettingsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309589"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [LDAPSSettingInfo]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LDAPSSettingsInfo&quot;</span></span><span>
+</span><span id="line-122"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [LDAPSSettingInfo]))
+-&gt; Maybe [LDAPSSettingInfo]
+-&gt; Either String (Maybe [LDAPSSettingInfo])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LDAPSSettingInfo]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-123"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeLDAPSSettingsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeLDAPSSettingsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309589"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeLDAPSSettingsResponse)
+-&gt; Either String Int -&gt; Either String DescribeLDAPSSettingsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309591"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309580"><span id="local-6989586621679309582"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309577"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679309573"><span class="annot"><span class="annottext">toHeaders :: DescribeLDAPSSettings -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeLDAPSSettings -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DirectoryService_20150416.DescribeLDAPSSettings&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-139"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309563"><span id="local-6989586621679309565"><span id="local-6989586621679309567"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679309561"><span class="annot"><span class="annottext">toJSON :: DescribeLDAPSSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings%27"><span class="hs-identifier hs-type">DescribeLDAPSSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309556"><span id="local-6989586621679309557"><span id="local-6989586621679309558"><span id="local-6989586621679309559"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe LDAPSType
+Text
+directoryId :: Text
+type' :: Maybe LDAPSType
+limit :: Maybe Natural
+nextToken :: Maybe Text
+$sel:directoryId:DescribeLDAPSSettings' :: DescribeLDAPSSettings -&gt; Text
+$sel:type':DescribeLDAPSSettings' :: DescribeLDAPSSettings -&gt; Maybe LDAPSType
+$sel:limit:DescribeLDAPSSettings' :: DescribeLDAPSSettings -&gt; Maybe Natural
+$sel:nextToken:DescribeLDAPSSettings' :: DescribeLDAPSSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679309556"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309559"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679309558"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LDAPSType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LDAPSType -&gt; Pair) -&gt; Maybe LDAPSType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LDAPSType
+</span><a href="#local-6989586621679309557"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309556"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679309550"><span class="annot"><span class="annottext">toPath :: DescribeLDAPSSettings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeLDAPSSettings -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettings"><span class="hs-identifier hs-type">DescribeLDAPSSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679309546"><span class="annot"><span class="annottext">toQuery :: DescribeLDAPSSettings -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeLDAPSSettings -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newDescribeLDAPSSettingsResponse' smart constructor.</span><span>
+</span><span id="line-165"></span><span id="local-6989586621679309543"><span id="local-6989586621679309544"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLDAPSSettingsResponse"><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse"><span class="hs-identifier hs-var">DescribeLDAPSSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLDAPSSettingsResponse%27"><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-var">DescribeLDAPSSettingsResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about LDAP security for the specified directory, including</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- status of enablement, state last updated date time, and the reason for</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- the state.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AlDAPSSettingsInfo%3ADescribeLDAPSSettingsResponse%27"><span class="annot"><span class="annottext">DescribeLDAPSSettingsResponse -&gt; Maybe [LDAPSSettingInfo]
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3AlDAPSSettingsInfo%3ADescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-var hs-var">lDAPSSettingsInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DirectoryService.Types.LDAPSSettingInfo.html#LDAPSSettingInfo"><span class="hs-identifier hs-type">LDAPSSettingInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The next token used to retrieve the LDAPS settings if the number of</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- setting types exceeds page limit and there is another page.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeLDAPSSettingsResponse%27"><span class="annot"><span class="annottext">DescribeLDAPSSettingsResponse -&gt; Maybe Text
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3AnextToken%3ADescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeLDAPSSettingsResponse%27"><span class="annot"><span class="annottext">DescribeLDAPSSettingsResponse -&gt; Int
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3AhttpStatus%3ADescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309536"><span id="local-6989586621679309538"><span class="annot"><span class="annottext">DescribeLDAPSSettingsResponse
+-&gt; DescribeLDAPSSettingsResponse -&gt; Bool
+(DescribeLDAPSSettingsResponse
+ -&gt; DescribeLDAPSSettingsResponse -&gt; Bool)
+-&gt; (DescribeLDAPSSettingsResponse
+    -&gt; DescribeLDAPSSettingsResponse -&gt; Bool)
+-&gt; Eq DescribeLDAPSSettingsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeLDAPSSettingsResponse
+-&gt; DescribeLDAPSSettingsResponse -&gt; Bool
+$c/= :: DescribeLDAPSSettingsResponse
+-&gt; DescribeLDAPSSettingsResponse -&gt; Bool
+== :: DescribeLDAPSSettingsResponse
+-&gt; DescribeLDAPSSettingsResponse -&gt; Bool
+$c== :: DescribeLDAPSSettingsResponse
+-&gt; DescribeLDAPSSettingsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309528"><span id="local-6989586621679309530"><span id="local-6989586621679309532"><span id="local-6989586621679309534"><span class="annot"><span class="annottext">ReadPrec [DescribeLDAPSSettingsResponse]
+ReadPrec DescribeLDAPSSettingsResponse
+Int -&gt; ReadS DescribeLDAPSSettingsResponse
+ReadS [DescribeLDAPSSettingsResponse]
+(Int -&gt; ReadS DescribeLDAPSSettingsResponse)
+-&gt; ReadS [DescribeLDAPSSettingsResponse]
+-&gt; ReadPrec DescribeLDAPSSettingsResponse
+-&gt; ReadPrec [DescribeLDAPSSettingsResponse]
+-&gt; Read DescribeLDAPSSettingsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeLDAPSSettingsResponse]
+$creadListPrec :: ReadPrec [DescribeLDAPSSettingsResponse]
+readPrec :: ReadPrec DescribeLDAPSSettingsResponse
+$creadPrec :: ReadPrec DescribeLDAPSSettingsResponse
+readList :: ReadS [DescribeLDAPSSettingsResponse]
+$creadList :: ReadS [DescribeLDAPSSettingsResponse]
+readsPrec :: Int -&gt; ReadS DescribeLDAPSSettingsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeLDAPSSettingsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309522"><span id="local-6989586621679309524"><span id="local-6989586621679309526"><span class="annot"><span class="annottext">Int -&gt; DescribeLDAPSSettingsResponse -&gt; ShowS
+[DescribeLDAPSSettingsResponse] -&gt; ShowS
+DescribeLDAPSSettingsResponse -&gt; String
+(Int -&gt; DescribeLDAPSSettingsResponse -&gt; ShowS)
+-&gt; (DescribeLDAPSSettingsResponse -&gt; String)
+-&gt; ([DescribeLDAPSSettingsResponse] -&gt; ShowS)
+-&gt; Show DescribeLDAPSSettingsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeLDAPSSettingsResponse] -&gt; ShowS
+$cshowList :: [DescribeLDAPSSettingsResponse] -&gt; ShowS
+show :: DescribeLDAPSSettingsResponse -&gt; String
+$cshow :: DescribeLDAPSSettingsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeLDAPSSettingsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeLDAPSSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeLDAPSSettingsResponse
+ -&gt; Rep DescribeLDAPSSettingsResponse x)
+-&gt; (forall x.
+    Rep DescribeLDAPSSettingsResponse x
+    -&gt; DescribeLDAPSSettingsResponse)
+-&gt; Generic DescribeLDAPSSettingsResponse
+forall x.
+Rep DescribeLDAPSSettingsResponse x
+-&gt; DescribeLDAPSSettingsResponse
+forall x.
+DescribeLDAPSSettingsResponse
+-&gt; Rep DescribeLDAPSSettingsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeLDAPSSettingsResponse x
+-&gt; DescribeLDAPSSettingsResponse
+$cfrom :: forall x.
+DescribeLDAPSSettingsResponse
+-&gt; Rep DescribeLDAPSSettingsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Create a value of 'DescribeLDAPSSettingsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'lDAPSSettingsInfo', 'describeLDAPSSettingsResponse_lDAPSSettingsInfo' - Information about LDAP security for the specified directory, including</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- status of enablement, state last updated date time, and the reason for</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- the state.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'nextToken', 'describeLDAPSSettingsResponse_nextToken' - The next token used to retrieve the LDAPS settings if the number of</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- setting types exceeds page limit and there is another page.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'describeLDAPSSettingsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#newDescribeLDAPSSettingsResponse"><span class="hs-identifier hs-type">newDescribeLDAPSSettingsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newDescribeLDAPSSettingsResponse"><span class="annot"><span class="annottext">newDescribeLDAPSSettingsResponse :: Int -&gt; DescribeLDAPSSettingsResponse
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#newDescribeLDAPSSettingsResponse"><span class="hs-identifier hs-var hs-var">newDescribeLDAPSSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679309519"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309519"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">DescribeLDAPSSettingsResponse' :: Maybe [LDAPSSettingInfo]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeLDAPSSettingsResponse
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lDAPSSettingsInfo:DescribeLDAPSSettingsResponse' :: Maybe [LDAPSSettingInfo]
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3AlDAPSSettingsInfo%3ADescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-var">lDAPSSettingsInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Maybe [LDAPSSettingInfo]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeLDAPSSettingsResponse' :: Maybe Text
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3AnextToken%3ADescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLDAPSSettingsResponse' :: Int
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3AhttpStatus%3ADescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309519"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | Information about LDAP security for the specified directory, including</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- status of enablement, state last updated date time, and the reason for</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- the state.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettingsResponse_lDAPSSettingsInfo"><span class="hs-identifier hs-type">describeLDAPSSettingsResponse_lDAPSSettingsInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DirectoryService.Types.LDAPSSettingInfo.html#LDAPSSettingInfo"><span class="hs-identifier hs-type">LDAPSSettingInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="describeLDAPSSettingsResponse_lDAPSSettingsInfo"><span class="annot"><span class="annottext">describeLDAPSSettingsResponse_lDAPSSettingsInfo :: (Maybe [LDAPSSettingInfo] -&gt; f (Maybe [LDAPSSettingInfo]))
+-&gt; DescribeLDAPSSettingsResponse -&gt; f DescribeLDAPSSettingsResponse
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettingsResponse_lDAPSSettingsInfo"><span class="hs-identifier hs-var hs-var">describeLDAPSSettingsResponse_lDAPSSettingsInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLDAPSSettingsResponse -&gt; Maybe [LDAPSSettingInfo])
+-&gt; (DescribeLDAPSSettingsResponse
+    -&gt; Maybe [LDAPSSettingInfo] -&gt; DescribeLDAPSSettingsResponse)
+-&gt; Lens
+     DescribeLDAPSSettingsResponse
+     DescribeLDAPSSettingsResponse
+     (Maybe [LDAPSSettingInfo])
+     (Maybe [LDAPSSettingInfo])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309518"><span class="annot"><span class="annottext">Maybe [LDAPSSettingInfo]
+lDAPSSettingsInfo :: Maybe [LDAPSSettingInfo]
+$sel:lDAPSSettingsInfo:DescribeLDAPSSettingsResponse' :: DescribeLDAPSSettingsResponse -&gt; Maybe [LDAPSSettingInfo]
+</span><a href="#local-6989586621679309518"><span class="hs-identifier hs-var hs-var">lDAPSSettingsInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LDAPSSettingInfo]
+</span><a href="#local-6989586621679309518"><span class="hs-identifier hs-var">lDAPSSettingsInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309517"><span class="annot"><span class="annottext">s :: DescribeLDAPSSettingsResponse
+</span><a href="#local-6989586621679309517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309516"><span class="annot"><span class="annottext">Maybe [LDAPSSettingInfo]
+</span><a href="#local-6989586621679309516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLDAPSSettingsResponse
+</span><a href="#local-6989586621679309517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lDAPSSettingsInfo:DescribeLDAPSSettingsResponse' :: Maybe [LDAPSSettingInfo]
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3AlDAPSSettingsInfo%3ADescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-var">lDAPSSettingsInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LDAPSSettingInfo]
+</span><a href="#local-6989586621679309516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LDAPSSettingInfo] -&gt; f (Maybe [LDAPSSettingInfo]))
+ -&gt; DescribeLDAPSSettingsResponse
+ -&gt; f DescribeLDAPSSettingsResponse)
+-&gt; ((Maybe [LDAPSSettingInfo] -&gt; f (Maybe [LDAPSSettingInfo]))
+    -&gt; Maybe [LDAPSSettingInfo] -&gt; f (Maybe [LDAPSSettingInfo]))
+-&gt; (Maybe [LDAPSSettingInfo] -&gt; f (Maybe [LDAPSSettingInfo]))
+-&gt; DescribeLDAPSSettingsResponse
+-&gt; f DescribeLDAPSSettingsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LDAPSSettingInfo]
+  [LDAPSSettingInfo]
+  [LDAPSSettingInfo]
+  [LDAPSSettingInfo]
+-&gt; Iso
+     (Maybe [LDAPSSettingInfo])
+     (Maybe [LDAPSSettingInfo])
+     (Maybe [LDAPSSettingInfo])
+     (Maybe [LDAPSSettingInfo])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LDAPSSettingInfo]
+  [LDAPSSettingInfo]
+  [LDAPSSettingInfo]
+  [LDAPSSettingInfo]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The next token used to retrieve the LDAPS settings if the number of</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- setting types exceeds page limit and there is another page.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettingsResponse_nextToken"><span class="hs-identifier hs-type">describeLDAPSSettingsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="describeLDAPSSettingsResponse_nextToken"><span class="annot"><span class="annottext">describeLDAPSSettingsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeLDAPSSettingsResponse -&gt; f DescribeLDAPSSettingsResponse
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettingsResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeLDAPSSettingsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLDAPSSettingsResponse -&gt; Maybe Text)
+-&gt; (DescribeLDAPSSettingsResponse
+    -&gt; Maybe Text -&gt; DescribeLDAPSSettingsResponse)
+-&gt; Lens
+     DescribeLDAPSSettingsResponse
+     DescribeLDAPSSettingsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309512"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeLDAPSSettingsResponse' :: DescribeLDAPSSettingsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679309512"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309512"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309511"><span class="annot"><span class="annottext">s :: DescribeLDAPSSettingsResponse
+</span><a href="#local-6989586621679309511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309510"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLDAPSSettingsResponse
+</span><a href="#local-6989586621679309511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeLDAPSSettingsResponse' :: Maybe Text
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3AnextToken%3ADescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettingsResponse_httpStatus"><span class="hs-identifier hs-type">describeLDAPSSettingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-219"></span><span id="describeLDAPSSettingsResponse_httpStatus"><span class="annot"><span class="annottext">describeLDAPSSettingsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeLDAPSSettingsResponse -&gt; f DescribeLDAPSSettingsResponse
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#describeLDAPSSettingsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeLDAPSSettingsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLDAPSSettingsResponse -&gt; Int)
+-&gt; (DescribeLDAPSSettingsResponse
+    -&gt; Int -&gt; DescribeLDAPSSettingsResponse)
+-&gt; Lens
+     DescribeLDAPSSettingsResponse DescribeLDAPSSettingsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309509"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeLDAPSSettingsResponse' :: DescribeLDAPSSettingsResponse -&gt; Int
+</span><a href="#local-6989586621679309509"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309509"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309508"><span class="annot"><span class="annottext">s :: DescribeLDAPSSettingsResponse
+</span><a href="#local-6989586621679309508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309507"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLDAPSSettingsResponse
+</span><a href="#local-6989586621679309508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLDAPSSettingsResponse' :: Int
+</span><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#%24sel%3AhttpStatus%3ADescribeLDAPSSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309505"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.DescribeLDAPSSettings.html#DescribeLDAPSSettingsResponse"><span class="hs-identifier hs-type">DescribeLDAPSSettingsResponse</span></a></span></span><span>
+</span><span id="line-222"></span></pre></body></html>

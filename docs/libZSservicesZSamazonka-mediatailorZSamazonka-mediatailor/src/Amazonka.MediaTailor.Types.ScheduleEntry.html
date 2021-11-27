@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaTailor.Types.ScheduleEntry</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaTailor.Types.ScheduleEntry</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleAdBreak.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.ScheduleAdBreak</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntryType.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.ScheduleEntryType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The properties for a schedule.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newScheduleEntry' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679267302"><span id="local-6989586621679267303"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduleEntry"><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-var">ScheduleEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleEntry%27"><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-var">ScheduleEntry'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The schedule\'s ad break properties.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AscheduleAdBreaks%3AScheduleEntry%27"><span class="annot"><span class="annottext">ScheduleEntry -&gt; Maybe [ScheduleAdBreak]
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AscheduleAdBreaks%3AScheduleEntry%27"><span class="hs-identifier hs-var hs-var">scheduleAdBreaks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleAdBreak.html#ScheduleAdBreak"><span class="hs-identifier hs-type">ScheduleAdBreak</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The approximate duration of this program, in seconds.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AapproximateDurationSeconds%3AScheduleEntry%27"><span class="annot"><span class="annottext">ScheduleEntry -&gt; Maybe Integer
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AapproximateDurationSeconds%3AScheduleEntry%27"><span class="hs-identifier hs-var hs-var">approximateDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The approximate time that the program will start playing.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AapproximateStartTime%3AScheduleEntry%27"><span class="annot"><span class="annottext">ScheduleEntry -&gt; Maybe POSIX
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AapproximateStartTime%3AScheduleEntry%27"><span class="hs-identifier hs-var hs-var">approximateStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The type of schedule entry.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Valid values: PROGRAM or FILLER_SLATE.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AscheduleEntryType%3AScheduleEntry%27"><span class="annot"><span class="annottext">ScheduleEntry -&gt; Maybe ScheduleEntryType
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AscheduleEntryType%3AScheduleEntry%27"><span class="hs-identifier hs-var hs-var">scheduleEntryType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType"><span class="hs-identifier hs-type">ScheduleEntryType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the VOD source.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AvodSourceName%3AScheduleEntry%27"><span class="annot"><span class="annottext">ScheduleEntry -&gt; Text
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AvodSourceName%3AScheduleEntry%27"><span class="hs-identifier hs-var hs-var">vodSourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the channel that uses this schedule.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AchannelName%3AScheduleEntry%27"><span class="annot"><span class="annottext">ScheduleEntry -&gt; Text
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AchannelName%3AScheduleEntry%27"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the source location.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AsourceLocationName%3AScheduleEntry%27"><span class="annot"><span class="annottext">ScheduleEntry -&gt; Text
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AsourceLocationName%3AScheduleEntry%27"><span class="hs-identifier hs-var hs-var">sourceLocationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The ARN of the program.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aarn%3AScheduleEntry%27"><span class="annot"><span class="annottext">ScheduleEntry -&gt; Text
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3Aarn%3AScheduleEntry%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The name of the program.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AprogramName%3AScheduleEntry%27"><span class="annot"><span class="annottext">ScheduleEntry -&gt; Text
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AprogramName%3AScheduleEntry%27"><span class="hs-identifier hs-var hs-var">programName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267288"><span id="local-6989586621679267290"><span class="annot"><span class="annottext">ScheduleEntry -&gt; ScheduleEntry -&gt; Bool
+(ScheduleEntry -&gt; ScheduleEntry -&gt; Bool)
+-&gt; (ScheduleEntry -&gt; ScheduleEntry -&gt; Bool) -&gt; Eq ScheduleEntry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScheduleEntry -&gt; ScheduleEntry -&gt; Bool
+$c/= :: ScheduleEntry -&gt; ScheduleEntry -&gt; Bool
+== :: ScheduleEntry -&gt; ScheduleEntry -&gt; Bool
+$c== :: ScheduleEntry -&gt; ScheduleEntry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267279"><span id="local-6989586621679267281"><span id="local-6989586621679267283"><span id="local-6989586621679267285"><span class="annot"><span class="annottext">ReadPrec [ScheduleEntry]
+ReadPrec ScheduleEntry
+Int -&gt; ReadS ScheduleEntry
+ReadS [ScheduleEntry]
+(Int -&gt; ReadS ScheduleEntry)
+-&gt; ReadS [ScheduleEntry]
+-&gt; ReadPrec ScheduleEntry
+-&gt; ReadPrec [ScheduleEntry]
+-&gt; Read ScheduleEntry
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScheduleEntry]
+$creadListPrec :: ReadPrec [ScheduleEntry]
+readPrec :: ReadPrec ScheduleEntry
+$creadPrec :: ReadPrec ScheduleEntry
+readList :: ReadS [ScheduleEntry]
+$creadList :: ReadS [ScheduleEntry]
+readsPrec :: Int -&gt; ReadS ScheduleEntry
+$creadsPrec :: Int -&gt; ReadS ScheduleEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267272"><span id="local-6989586621679267274"><span id="local-6989586621679267276"><span class="annot"><span class="annottext">Int -&gt; ScheduleEntry -&gt; ShowS
+[ScheduleEntry] -&gt; ShowS
+ScheduleEntry -&gt; String
+(Int -&gt; ScheduleEntry -&gt; ShowS)
+-&gt; (ScheduleEntry -&gt; String)
+-&gt; ([ScheduleEntry] -&gt; ShowS)
+-&gt; Show ScheduleEntry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScheduleEntry] -&gt; ShowS
+$cshowList :: [ScheduleEntry] -&gt; ShowS
+show :: ScheduleEntry -&gt; String
+$cshow :: ScheduleEntry -&gt; String
+showsPrec :: Int -&gt; ScheduleEntry -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScheduleEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ScheduleEntry -&gt; Rep ScheduleEntry x)
+-&gt; (forall x. Rep ScheduleEntry x -&gt; ScheduleEntry)
+-&gt; Generic ScheduleEntry
+forall x. Rep ScheduleEntry x -&gt; ScheduleEntry
+forall x. ScheduleEntry -&gt; Rep ScheduleEntry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ScheduleEntry x -&gt; ScheduleEntry
+$cfrom :: forall x. ScheduleEntry -&gt; Rep ScheduleEntry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'ScheduleEntry' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'scheduleAdBreaks', 'scheduleEntry_scheduleAdBreaks' - The schedule\'s ad break properties.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'approximateDurationSeconds', 'scheduleEntry_approximateDurationSeconds' - The approximate duration of this program, in seconds.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'approximateStartTime', 'scheduleEntry_approximateStartTime' - The approximate time that the program will start playing.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'scheduleEntryType', 'scheduleEntry_scheduleEntryType' - The type of schedule entry.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Valid values: PROGRAM or FILLER_SLATE.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'vodSourceName', 'scheduleEntry_vodSourceName' - The name of the VOD source.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'channelName', 'scheduleEntry_channelName' - The name of the channel that uses this schedule.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'sourceLocationName', 'scheduleEntry_sourceLocationName' - The name of the source location.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'arn', 'scheduleEntry_arn' - The ARN of the program.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'programName', 'scheduleEntry_programName' - The name of the program.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#newScheduleEntry"><span class="hs-identifier hs-type">newScheduleEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'vodSourceName'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'channelName'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'sourceLocationName'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'programName'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span>
+</span><span id="line-94"></span><span id="newScheduleEntry"><span class="annot"><span class="annottext">newScheduleEntry :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; ScheduleEntry
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#newScheduleEntry"><span class="hs-identifier hs-var hs-var">newScheduleEntry</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679267266"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267266"><span class="hs-identifier hs-var">pVodSourceName_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679267265"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267265"><span class="hs-identifier hs-var">pChannelName_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679267264"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267264"><span class="hs-identifier hs-var">pSourceLocationName_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679267263"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267263"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679267262"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267262"><span class="hs-identifier hs-var">pProgramName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ScheduleEntry' :: Maybe [ScheduleAdBreak]
+-&gt; Maybe Integer
+-&gt; Maybe POSIX
+-&gt; Maybe ScheduleEntryType
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ScheduleEntry
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scheduleAdBreaks:ScheduleEntry' :: Maybe [ScheduleAdBreak]
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AscheduleAdBreaks%3AScheduleEntry%27"><span class="hs-identifier hs-var">scheduleAdBreaks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduleAdBreak]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:approximateDurationSeconds:ScheduleEntry' :: Maybe Integer
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AapproximateDurationSeconds%3AScheduleEntry%27"><span class="hs-identifier hs-var">approximateDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:approximateStartTime:ScheduleEntry' :: Maybe POSIX
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AapproximateStartTime%3AScheduleEntry%27"><span class="hs-identifier hs-var">approximateStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduleEntryType:ScheduleEntry' :: Maybe ScheduleEntryType
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AscheduleEntryType%3AScheduleEntry%27"><span class="hs-identifier hs-var">scheduleEntryType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduleEntryType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:vodSourceName:ScheduleEntry' :: Text
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AvodSourceName%3AScheduleEntry%27"><span class="hs-identifier hs-var">vodSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267266"><span class="hs-identifier hs-var">pVodSourceName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:channelName:ScheduleEntry' :: Text
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AchannelName%3AScheduleEntry%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267265"><span class="hs-identifier hs-var">pChannelName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceLocationName:ScheduleEntry' :: Text
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AsourceLocationName%3AScheduleEntry%27"><span class="hs-identifier hs-var">sourceLocationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267264"><span class="hs-identifier hs-var">pSourceLocationName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:ScheduleEntry' :: Text
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3Aarn%3AScheduleEntry%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267263"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:programName:ScheduleEntry' :: Text
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AprogramName%3AScheduleEntry%27"><span class="hs-identifier hs-var">programName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267262"><span class="hs-identifier hs-var">pProgramName_</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The schedule\'s ad break properties.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_scheduleAdBreaks"><span class="hs-identifier hs-type">scheduleEntry_scheduleAdBreaks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleAdBreak.html#ScheduleAdBreak"><span class="hs-identifier hs-type">ScheduleAdBreak</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="scheduleEntry_scheduleAdBreaks"><span class="annot"><span class="annottext">scheduleEntry_scheduleAdBreaks :: (Maybe [ScheduleAdBreak] -&gt; f (Maybe [ScheduleAdBreak]))
+-&gt; ScheduleEntry -&gt; f ScheduleEntry
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_scheduleAdBreaks"><span class="hs-identifier hs-var hs-var">scheduleEntry_scheduleAdBreaks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleEntry -&gt; Maybe [ScheduleAdBreak])
+-&gt; (ScheduleEntry -&gt; Maybe [ScheduleAdBreak] -&gt; ScheduleEntry)
+-&gt; Lens
+     ScheduleEntry
+     ScheduleEntry
+     (Maybe [ScheduleAdBreak])
+     (Maybe [ScheduleAdBreak])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267258"><span class="annot"><span class="annottext">Maybe [ScheduleAdBreak]
+scheduleAdBreaks :: Maybe [ScheduleAdBreak]
+$sel:scheduleAdBreaks:ScheduleEntry' :: ScheduleEntry -&gt; Maybe [ScheduleAdBreak]
+</span><a href="#local-6989586621679267258"><span class="hs-identifier hs-var hs-var">scheduleAdBreaks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduleAdBreak]
+</span><a href="#local-6989586621679267258"><span class="hs-identifier hs-var">scheduleAdBreaks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267257"><span class="annot"><span class="annottext">s :: ScheduleEntry
+</span><a href="#local-6989586621679267257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267256"><span class="annot"><span class="annottext">Maybe [ScheduleAdBreak]
+</span><a href="#local-6989586621679267256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleEntry
+</span><a href="#local-6989586621679267257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleAdBreaks:ScheduleEntry' :: Maybe [ScheduleAdBreak]
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AscheduleAdBreaks%3AScheduleEntry%27"><span class="hs-identifier hs-var">scheduleAdBreaks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduleAdBreak]
+</span><a href="#local-6989586621679267256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ScheduleAdBreak] -&gt; f (Maybe [ScheduleAdBreak]))
+ -&gt; ScheduleEntry -&gt; f ScheduleEntry)
+-&gt; ((Maybe [ScheduleAdBreak] -&gt; f (Maybe [ScheduleAdBreak]))
+    -&gt; Maybe [ScheduleAdBreak] -&gt; f (Maybe [ScheduleAdBreak]))
+-&gt; (Maybe [ScheduleAdBreak] -&gt; f (Maybe [ScheduleAdBreak]))
+-&gt; ScheduleEntry
+-&gt; f ScheduleEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ScheduleAdBreak]
+  [ScheduleAdBreak]
+  [ScheduleAdBreak]
+  [ScheduleAdBreak]
+-&gt; Iso
+     (Maybe [ScheduleAdBreak])
+     (Maybe [ScheduleAdBreak])
+     (Maybe [ScheduleAdBreak])
+     (Maybe [ScheduleAdBreak])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ScheduleAdBreak]
+  [ScheduleAdBreak]
+  [ScheduleAdBreak]
+  [ScheduleAdBreak]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The approximate duration of this program, in seconds.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_approximateDurationSeconds"><span class="hs-identifier hs-type">scheduleEntry_approximateDurationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="scheduleEntry_approximateDurationSeconds"><span class="annot"><span class="annottext">scheduleEntry_approximateDurationSeconds :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; ScheduleEntry -&gt; f ScheduleEntry
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_approximateDurationSeconds"><span class="hs-identifier hs-var hs-var">scheduleEntry_approximateDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleEntry -&gt; Maybe Integer)
+-&gt; (ScheduleEntry -&gt; Maybe Integer -&gt; ScheduleEntry)
+-&gt; Lens ScheduleEntry ScheduleEntry (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267251"><span class="annot"><span class="annottext">Maybe Integer
+approximateDurationSeconds :: Maybe Integer
+$sel:approximateDurationSeconds:ScheduleEntry' :: ScheduleEntry -&gt; Maybe Integer
+</span><a href="#local-6989586621679267251"><span class="hs-identifier hs-var hs-var">approximateDurationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679267251"><span class="hs-identifier hs-var">approximateDurationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267250"><span class="annot"><span class="annottext">s :: ScheduleEntry
+</span><a href="#local-6989586621679267250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267249"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679267249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleEntry
+</span><a href="#local-6989586621679267250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approximateDurationSeconds:ScheduleEntry' :: Maybe Integer
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AapproximateDurationSeconds%3AScheduleEntry%27"><span class="hs-identifier hs-var">approximateDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679267249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The approximate time that the program will start playing.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_approximateStartTime"><span class="hs-identifier hs-type">scheduleEntry_approximateStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="scheduleEntry_approximateStartTime"><span class="annot"><span class="annottext">scheduleEntry_approximateStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScheduleEntry -&gt; f ScheduleEntry
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_approximateStartTime"><span class="hs-identifier hs-var hs-var">scheduleEntry_approximateStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleEntry -&gt; Maybe POSIX)
+-&gt; (ScheduleEntry -&gt; Maybe POSIX -&gt; ScheduleEntry)
+-&gt; Lens ScheduleEntry ScheduleEntry (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267247"><span class="annot"><span class="annottext">Maybe POSIX
+approximateStartTime :: Maybe POSIX
+$sel:approximateStartTime:ScheduleEntry' :: ScheduleEntry -&gt; Maybe POSIX
+</span><a href="#local-6989586621679267247"><span class="hs-identifier hs-var hs-var">approximateStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679267247"><span class="hs-identifier hs-var">approximateStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267246"><span class="annot"><span class="annottext">s :: ScheduleEntry
+</span><a href="#local-6989586621679267246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267245"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679267245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleEntry
+</span><a href="#local-6989586621679267246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approximateStartTime:ScheduleEntry' :: Maybe POSIX
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AapproximateStartTime%3AScheduleEntry%27"><span class="hs-identifier hs-var">approximateStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679267245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ScheduleEntry -&gt; f ScheduleEntry)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScheduleEntry
+-&gt; f ScheduleEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The type of schedule entry.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Valid values: PROGRAM or FILLER_SLATE.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_scheduleEntryType"><span class="hs-identifier hs-type">scheduleEntry_scheduleEntryType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType"><span class="hs-identifier hs-type">ScheduleEntryType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="scheduleEntry_scheduleEntryType"><span class="annot"><span class="annottext">scheduleEntry_scheduleEntryType :: (Maybe ScheduleEntryType -&gt; f (Maybe ScheduleEntryType))
+-&gt; ScheduleEntry -&gt; f ScheduleEntry
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_scheduleEntryType"><span class="hs-identifier hs-var hs-var">scheduleEntry_scheduleEntryType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleEntry -&gt; Maybe ScheduleEntryType)
+-&gt; (ScheduleEntry -&gt; Maybe ScheduleEntryType -&gt; ScheduleEntry)
+-&gt; Lens
+     ScheduleEntry
+     ScheduleEntry
+     (Maybe ScheduleEntryType)
+     (Maybe ScheduleEntryType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267242"><span class="annot"><span class="annottext">Maybe ScheduleEntryType
+scheduleEntryType :: Maybe ScheduleEntryType
+$sel:scheduleEntryType:ScheduleEntry' :: ScheduleEntry -&gt; Maybe ScheduleEntryType
+</span><a href="#local-6989586621679267242"><span class="hs-identifier hs-var hs-var">scheduleEntryType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduleEntryType
+</span><a href="#local-6989586621679267242"><span class="hs-identifier hs-var">scheduleEntryType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267241"><span class="annot"><span class="annottext">s :: ScheduleEntry
+</span><a href="#local-6989586621679267241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267240"><span class="annot"><span class="annottext">Maybe ScheduleEntryType
+</span><a href="#local-6989586621679267240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleEntry
+</span><a href="#local-6989586621679267241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleEntryType:ScheduleEntry' :: Maybe ScheduleEntryType
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AscheduleEntryType%3AScheduleEntry%27"><span class="hs-identifier hs-var">scheduleEntryType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduleEntryType
+</span><a href="#local-6989586621679267240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The name of the VOD source.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_vodSourceName"><span class="hs-identifier hs-type">scheduleEntry_vodSourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-132"></span><span id="scheduleEntry_vodSourceName"><span class="annot"><span class="annottext">scheduleEntry_vodSourceName :: (Text -&gt; f Text) -&gt; ScheduleEntry -&gt; f ScheduleEntry
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_vodSourceName"><span class="hs-identifier hs-var hs-var">scheduleEntry_vodSourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleEntry -&gt; Text)
+-&gt; (ScheduleEntry -&gt; Text -&gt; ScheduleEntry)
+-&gt; Lens ScheduleEntry ScheduleEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267238"><span class="annot"><span class="annottext">Text
+vodSourceName :: Text
+$sel:vodSourceName:ScheduleEntry' :: ScheduleEntry -&gt; Text
+</span><a href="#local-6989586621679267238"><span class="hs-identifier hs-var hs-var">vodSourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267238"><span class="hs-identifier hs-var">vodSourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267237"><span class="annot"><span class="annottext">s :: ScheduleEntry
+</span><a href="#local-6989586621679267237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267236"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleEntry
+</span><a href="#local-6989586621679267237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vodSourceName:ScheduleEntry' :: Text
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AvodSourceName%3AScheduleEntry%27"><span class="hs-identifier hs-var">vodSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The name of the channel that uses this schedule.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_channelName"><span class="hs-identifier hs-type">scheduleEntry_channelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-136"></span><span id="scheduleEntry_channelName"><span class="annot"><span class="annottext">scheduleEntry_channelName :: (Text -&gt; f Text) -&gt; ScheduleEntry -&gt; f ScheduleEntry
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_channelName"><span class="hs-identifier hs-var hs-var">scheduleEntry_channelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleEntry -&gt; Text)
+-&gt; (ScheduleEntry -&gt; Text -&gt; ScheduleEntry)
+-&gt; Lens ScheduleEntry ScheduleEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267234"><span class="annot"><span class="annottext">Text
+channelName :: Text
+$sel:channelName:ScheduleEntry' :: ScheduleEntry -&gt; Text
+</span><a href="#local-6989586621679267234"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267234"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267233"><span class="annot"><span class="annottext">s :: ScheduleEntry
+</span><a href="#local-6989586621679267233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267232"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleEntry
+</span><a href="#local-6989586621679267233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:ScheduleEntry' :: Text
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AchannelName%3AScheduleEntry%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The name of the source location.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_sourceLocationName"><span class="hs-identifier hs-type">scheduleEntry_sourceLocationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-140"></span><span id="scheduleEntry_sourceLocationName"><span class="annot"><span class="annottext">scheduleEntry_sourceLocationName :: (Text -&gt; f Text) -&gt; ScheduleEntry -&gt; f ScheduleEntry
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_sourceLocationName"><span class="hs-identifier hs-var hs-var">scheduleEntry_sourceLocationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleEntry -&gt; Text)
+-&gt; (ScheduleEntry -&gt; Text -&gt; ScheduleEntry)
+-&gt; Lens ScheduleEntry ScheduleEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267230"><span class="annot"><span class="annottext">Text
+sourceLocationName :: Text
+$sel:sourceLocationName:ScheduleEntry' :: ScheduleEntry -&gt; Text
+</span><a href="#local-6989586621679267230"><span class="hs-identifier hs-var hs-var">sourceLocationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267230"><span class="hs-identifier hs-var">sourceLocationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267229"><span class="annot"><span class="annottext">s :: ScheduleEntry
+</span><a href="#local-6989586621679267229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267228"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleEntry
+</span><a href="#local-6989586621679267229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceLocationName:ScheduleEntry' :: Text
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AsourceLocationName%3AScheduleEntry%27"><span class="hs-identifier hs-var">sourceLocationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The ARN of the program.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_arn"><span class="hs-identifier hs-type">scheduleEntry_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-144"></span><span id="scheduleEntry_arn"><span class="annot"><span class="annottext">scheduleEntry_arn :: (Text -&gt; f Text) -&gt; ScheduleEntry -&gt; f ScheduleEntry
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_arn"><span class="hs-identifier hs-var hs-var">scheduleEntry_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleEntry -&gt; Text)
+-&gt; (ScheduleEntry -&gt; Text -&gt; ScheduleEntry)
+-&gt; Lens ScheduleEntry ScheduleEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267226"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:ScheduleEntry' :: ScheduleEntry -&gt; Text
+</span><a href="#local-6989586621679267226"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267226"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267225"><span class="annot"><span class="annottext">s :: ScheduleEntry
+</span><a href="#local-6989586621679267225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267224"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleEntry
+</span><a href="#local-6989586621679267225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ScheduleEntry' :: Text
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3Aarn%3AScheduleEntry%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The name of the program.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_programName"><span class="hs-identifier hs-type">scheduleEntry_programName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-148"></span><span id="scheduleEntry_programName"><span class="annot"><span class="annottext">scheduleEntry_programName :: (Text -&gt; f Text) -&gt; ScheduleEntry -&gt; f ScheduleEntry
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_programName"><span class="hs-identifier hs-var hs-var">scheduleEntry_programName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleEntry -&gt; Text)
+-&gt; (ScheduleEntry -&gt; Text -&gt; ScheduleEntry)
+-&gt; Lens ScheduleEntry ScheduleEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267222"><span class="annot"><span class="annottext">Text
+programName :: Text
+$sel:programName:ScheduleEntry' :: ScheduleEntry -&gt; Text
+</span><a href="#local-6989586621679267222"><span class="hs-identifier hs-var hs-var">programName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267222"><span class="hs-identifier hs-var">programName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267221"><span class="annot"><span class="annottext">s :: ScheduleEntry
+</span><a href="#local-6989586621679267221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-type">ScheduleEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267220"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleEntry
+</span><a href="#local-6989586621679267221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:programName:ScheduleEntry' :: Text
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#%24sel%3AprogramName%3AScheduleEntry%27"><span class="hs-identifier hs-var">programName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267217"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679267215"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ScheduleEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ScheduleEntry)
+-&gt; Value
+-&gt; Parser ScheduleEntry
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ScheduleEntry&quot;</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267212"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267212"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ScheduleAdBreak]
+-&gt; Maybe Integer
+-&gt; Maybe POSIX
+-&gt; Maybe ScheduleEntryType
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ScheduleEntry
+</span><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry%27"><span class="hs-identifier hs-var">ScheduleEntry'</span></a></span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ScheduleAdBreak]
+ -&gt; Maybe Integer
+ -&gt; Maybe POSIX
+ -&gt; Maybe ScheduleEntryType
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; ScheduleEntry)
+-&gt; Parser (Maybe [ScheduleAdBreak])
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe ScheduleEntryType
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ScheduleEntry)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ScheduleAdBreak]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScheduleAdBreaks&quot;</span></span><span>
+</span><span id="line-157"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ScheduleAdBreak]))
+-&gt; Maybe [ScheduleAdBreak] -&gt; Parser (Maybe [ScheduleAdBreak])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduleAdBreak]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-158"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe ScheduleEntryType
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ScheduleEntry)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe ScheduleEntryType
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ScheduleEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApproximateDurationSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe ScheduleEntryType
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ScheduleEntry)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ScheduleEntryType
+      -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; ScheduleEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApproximateStartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ScheduleEntryType
+   -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; ScheduleEntry)
+-&gt; Parser (Maybe ScheduleEntryType)
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; ScheduleEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ScheduleEntryType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScheduleEntryType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; ScheduleEntry)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; Text -&gt; ScheduleEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VodSourceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; Text -&gt; ScheduleEntry)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; ScheduleEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; ScheduleEntry)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; ScheduleEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceLocationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; ScheduleEntry)
+-&gt; Parser Text -&gt; Parser (Text -&gt; ScheduleEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ScheduleEntry)
+-&gt; Parser Text -&gt; Parser ScheduleEntry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProgramName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267204"><span id="local-6989586621679267206"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267201"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span></span><span>
+</span><span id="line-172"></span></pre></body></html>

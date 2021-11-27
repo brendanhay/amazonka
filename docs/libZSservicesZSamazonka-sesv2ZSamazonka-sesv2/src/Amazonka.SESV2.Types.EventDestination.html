@@ -1,0 +1,530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SESV2.Types.EventDestination</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SESV2.Types.EventDestination</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.CloudWatchDestination.html"><span class="hs-identifier">Amazonka.SESV2.Types.CloudWatchDestination</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventType.html"><span class="hs-identifier">Amazonka.SESV2.Types.EventType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.KinesisFirehoseDestination.html"><span class="hs-identifier">Amazonka.SESV2.Types.KinesisFirehoseDestination</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.PinpointDestination.html"><span class="hs-identifier">Amazonka.SESV2.Types.PinpointDestination</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.SnsDestination.html"><span class="hs-identifier">Amazonka.SESV2.Types.SnsDestination</span></a></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | In the Amazon SES API v2, /events/ include message sends, deliveries,</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- opens, clicks, bounces, complaints and delivery delays. /Event</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- destinations/ are places that you can send information about these</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- events to. For example, you can send event data to Amazon SNS to receive</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- notifications when you receive bounces or complaints, or you can use</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- storage.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newEventDestination' smart constructor.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621679331884"><span id="local-6989586621679331885"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventDestination"><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-var">EventDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventDestination%27"><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-var">EventDestination'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that defines an Amazon Pinpoint project destination for email</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- events. You can send email event data to a Amazon Pinpoint project to</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- view metrics using the Transactional Messaging dashboards that are built</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- in to Amazon Pinpoint. For more information, see</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html Transactional Messaging Charts&gt;</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- in the /Amazon Pinpoint User Guide/.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3ApinpointDestination%3AEventDestination%27"><span class="annot"><span class="annottext">EventDestination -&gt; Maybe PinpointDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3ApinpointDestination%3AEventDestination%27"><span class="hs-identifier hs-var hs-var">pinpointDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.PinpointDestination.html#PinpointDestination"><span class="hs-identifier hs-type">PinpointDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | If @true@, the event destination is enabled. When the event destination</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- is enabled, the specified event types are sent to the destinations in</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- this @EventDestinationDefinition@.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- If @false@, the event destination is disabled. When the event</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- destination is disabled, events aren\'t sent to the specified</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- destinations.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aenabled%3AEventDestination%27"><span class="annot"><span class="annottext">EventDestination -&gt; Maybe Bool
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3Aenabled%3AEventDestination%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | An object that defines an Amazon Kinesis Data Firehose destination for</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- email events. You can use Amazon Kinesis Data Firehose to stream data to</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- other services, such as Amazon S3 and Amazon Redshift.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AkinesisFirehoseDestination%3AEventDestination%27"><span class="annot"><span class="annottext">EventDestination -&gt; Maybe KinesisFirehoseDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3AkinesisFirehoseDestination%3AEventDestination%27"><span class="hs-identifier hs-var hs-var">kinesisFirehoseDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | An object that defines an Amazon CloudWatch destination for email</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- events. You can use Amazon CloudWatch to monitor and gain insights on</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- your email sending metrics.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AcloudWatchDestination%3AEventDestination%27"><span class="annot"><span class="annottext">EventDestination -&gt; Maybe CloudWatchDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3AcloudWatchDestination%3AEventDestination%27"><span class="hs-identifier hs-var hs-var">cloudWatchDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | An object that defines an Amazon SNS destination for email events. You</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- can use Amazon SNS to send notification when certain email events occur.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AsnsDestination%3AEventDestination%27"><span class="annot"><span class="annottext">EventDestination -&gt; Maybe SnsDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3AsnsDestination%3AEventDestination%27"><span class="hs-identifier hs-var hs-var">snsDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.SnsDestination.html#SnsDestination"><span class="hs-identifier hs-type">SnsDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A name that identifies the event destination.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Aname%3AEventDestination%27"><span class="annot"><span class="annottext">EventDestination -&gt; Text
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3Aname%3AEventDestination%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The types of events that Amazon SES sends to the specified event</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- destinations.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AmatchingEventTypes%3AEventDestination%27"><span class="annot"><span class="annottext">EventDestination -&gt; [EventType]
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3AmatchingEventTypes%3AEventDestination%27"><span class="hs-identifier hs-var hs-var">matchingEventTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SESV2.Types.EventType.html#EventType"><span class="hs-identifier hs-type">EventType</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331872"><span id="local-6989586621679331874"><span class="annot"><span class="annottext">EventDestination -&gt; EventDestination -&gt; Bool
+(EventDestination -&gt; EventDestination -&gt; Bool)
+-&gt; (EventDestination -&gt; EventDestination -&gt; Bool)
+-&gt; Eq EventDestination
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EventDestination -&gt; EventDestination -&gt; Bool
+$c/= :: EventDestination -&gt; EventDestination -&gt; Bool
+== :: EventDestination -&gt; EventDestination -&gt; Bool
+$c== :: EventDestination -&gt; EventDestination -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331863"><span id="local-6989586621679331865"><span id="local-6989586621679331867"><span id="local-6989586621679331869"><span class="annot"><span class="annottext">ReadPrec [EventDestination]
+ReadPrec EventDestination
+Int -&gt; ReadS EventDestination
+ReadS [EventDestination]
+(Int -&gt; ReadS EventDestination)
+-&gt; ReadS [EventDestination]
+-&gt; ReadPrec EventDestination
+-&gt; ReadPrec [EventDestination]
+-&gt; Read EventDestination
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EventDestination]
+$creadListPrec :: ReadPrec [EventDestination]
+readPrec :: ReadPrec EventDestination
+$creadPrec :: ReadPrec EventDestination
+readList :: ReadS [EventDestination]
+$creadList :: ReadS [EventDestination]
+readsPrec :: Int -&gt; ReadS EventDestination
+$creadsPrec :: Int -&gt; ReadS EventDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331856"><span id="local-6989586621679331858"><span id="local-6989586621679331860"><span class="annot"><span class="annottext">Int -&gt; EventDestination -&gt; ShowS
+[EventDestination] -&gt; ShowS
+EventDestination -&gt; String
+(Int -&gt; EventDestination -&gt; ShowS)
+-&gt; (EventDestination -&gt; String)
+-&gt; ([EventDestination] -&gt; ShowS)
+-&gt; Show EventDestination
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EventDestination] -&gt; ShowS
+$cshowList :: [EventDestination] -&gt; ShowS
+show :: EventDestination -&gt; String
+$cshow :: EventDestination -&gt; String
+showsPrec :: Int -&gt; EventDestination -&gt; ShowS
+$cshowsPrec :: Int -&gt; EventDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EventDestination -&gt; Rep EventDestination x)
+-&gt; (forall x. Rep EventDestination x -&gt; EventDestination)
+-&gt; Generic EventDestination
+forall x. Rep EventDestination x -&gt; EventDestination
+forall x. EventDestination -&gt; Rep EventDestination x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EventDestination x -&gt; EventDestination
+$cfrom :: forall x. EventDestination -&gt; Rep EventDestination x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'EventDestination' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'pinpointDestination', 'eventDestination_pinpointDestination' - An object that defines an Amazon Pinpoint project destination for email</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- events. You can send email event data to a Amazon Pinpoint project to</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- view metrics using the Transactional Messaging dashboards that are built</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- in to Amazon Pinpoint. For more information, see</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html Transactional Messaging Charts&gt;</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- in the /Amazon Pinpoint User Guide/.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'enabled', 'eventDestination_enabled' - If @true@, the event destination is enabled. When the event destination</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- is enabled, the specified event types are sent to the destinations in</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- this @EventDestinationDefinition@.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- If @false@, the event destination is disabled. When the event</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- destination is disabled, events aren\'t sent to the specified</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- destinations.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'kinesisFirehoseDestination', 'eventDestination_kinesisFirehoseDestination' - An object that defines an Amazon Kinesis Data Firehose destination for</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- email events. You can use Amazon Kinesis Data Firehose to stream data to</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- other services, such as Amazon S3 and Amazon Redshift.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'cloudWatchDestination', 'eventDestination_cloudWatchDestination' - An object that defines an Amazon CloudWatch destination for email</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- events. You can use Amazon CloudWatch to monitor and gain insights on</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- your email sending metrics.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'snsDestination', 'eventDestination_snsDestination' - An object that defines an Amazon SNS destination for email events. You</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- can use Amazon SNS to send notification when certain email events occur.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'name', 'eventDestination_name' - A name that identifies the event destination.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'matchingEventTypes', 'eventDestination_matchingEventTypes' - The types of events that Amazon SES sends to the specified event</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- destinations.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#newEventDestination"><span class="hs-identifier hs-type">newEventDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span>
+</span><span id="line-117"></span><span id="newEventDestination"><span class="annot"><span class="annottext">newEventDestination :: Text -&gt; EventDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#newEventDestination"><span class="hs-identifier hs-var hs-var">newEventDestination</span></a></span></span><span> </span><span id="local-6989586621679331850"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331850"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">EventDestination' :: Maybe PinpointDestination
+-&gt; Maybe Bool
+-&gt; Maybe KinesisFirehoseDestination
+-&gt; Maybe CloudWatchDestination
+-&gt; Maybe SnsDestination
+-&gt; Text
+-&gt; [EventType]
+-&gt; EventDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pinpointDestination:EventDestination' :: Maybe PinpointDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3ApinpointDestination%3AEventDestination%27"><span class="hs-identifier hs-var">pinpointDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Maybe PinpointDestination
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:EventDestination' :: Maybe Bool
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3Aenabled%3AEventDestination%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisFirehoseDestination:EventDestination' :: Maybe KinesisFirehoseDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3AkinesisFirehoseDestination%3AEventDestination%27"><span class="hs-identifier hs-var">kinesisFirehoseDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseDestination
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchDestination:EventDestination' :: Maybe CloudWatchDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3AcloudWatchDestination%3AEventDestination%27"><span class="hs-identifier hs-var">cloudWatchDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchDestination
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:snsDestination:EventDestination' :: Maybe SnsDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3AsnsDestination%3AEventDestination%27"><span class="hs-identifier hs-var">snsDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnsDestination
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:EventDestination' :: Text
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3Aname%3AEventDestination%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331850"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:matchingEventTypes:EventDestination' :: [EventType]
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3AmatchingEventTypes%3AEventDestination%27"><span class="hs-identifier hs-var">matchingEventTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EventType]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | An object that defines an Amazon Pinpoint project destination for email</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- events. You can send email event data to a Amazon Pinpoint project to</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- view metrics using the Transactional Messaging dashboards that are built</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- in to Amazon Pinpoint. For more information, see</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html Transactional Messaging Charts&gt;</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- in the /Amazon Pinpoint User Guide/.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#eventDestination_pinpointDestination"><span class="hs-identifier hs-type">eventDestination_pinpointDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.PinpointDestination.html#PinpointDestination"><span class="hs-identifier hs-type">PinpointDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="eventDestination_pinpointDestination"><span class="annot"><span class="annottext">eventDestination_pinpointDestination :: (Maybe PinpointDestination -&gt; f (Maybe PinpointDestination))
+-&gt; EventDestination -&gt; f EventDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#eventDestination_pinpointDestination"><span class="hs-identifier hs-var hs-var">eventDestination_pinpointDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventDestination -&gt; Maybe PinpointDestination)
+-&gt; (EventDestination
+    -&gt; Maybe PinpointDestination -&gt; EventDestination)
+-&gt; Lens
+     EventDestination
+     EventDestination
+     (Maybe PinpointDestination)
+     (Maybe PinpointDestination)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331846"><span class="annot"><span class="annottext">Maybe PinpointDestination
+pinpointDestination :: Maybe PinpointDestination
+$sel:pinpointDestination:EventDestination' :: EventDestination -&gt; Maybe PinpointDestination
+</span><a href="#local-6989586621679331846"><span class="hs-identifier hs-var hs-var">pinpointDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PinpointDestination
+</span><a href="#local-6989586621679331846"><span class="hs-identifier hs-var">pinpointDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331845"><span class="annot"><span class="annottext">s :: EventDestination
+</span><a href="#local-6989586621679331845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331844"><span class="annot"><span class="annottext">Maybe PinpointDestination
+</span><a href="#local-6989586621679331844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
+</span><a href="#local-6989586621679331845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pinpointDestination:EventDestination' :: Maybe PinpointDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3ApinpointDestination%3AEventDestination%27"><span class="hs-identifier hs-var">pinpointDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PinpointDestination
+</span><a href="#local-6989586621679331844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | If @true@, the event destination is enabled. When the event destination</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- is enabled, the specified event types are sent to the destinations in</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- this @EventDestinationDefinition@.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- If @false@, the event destination is disabled. When the event</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- destination is disabled, events aren\'t sent to the specified</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- destinations.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#eventDestination_enabled"><span class="hs-identifier hs-type">eventDestination_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="eventDestination_enabled"><span class="annot"><span class="annottext">eventDestination_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; EventDestination -&gt; f EventDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#eventDestination_enabled"><span class="hs-identifier hs-var hs-var">eventDestination_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventDestination -&gt; Maybe Bool)
+-&gt; (EventDestination -&gt; Maybe Bool -&gt; EventDestination)
+-&gt; Lens EventDestination EventDestination (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331842"><span class="annot"><span class="annottext">Maybe Bool
+enabled :: Maybe Bool
+$sel:enabled:EventDestination' :: EventDestination -&gt; Maybe Bool
+</span><a href="#local-6989586621679331842"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679331842"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331841"><span class="annot"><span class="annottext">s :: EventDestination
+</span><a href="#local-6989586621679331841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331840"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679331840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
+</span><a href="#local-6989586621679331841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:EventDestination' :: Maybe Bool
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3Aenabled%3AEventDestination%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679331840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | An object that defines an Amazon Kinesis Data Firehose destination for</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- email events. You can use Amazon Kinesis Data Firehose to stream data to</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- other services, such as Amazon S3 and Amazon Redshift.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#eventDestination_kinesisFirehoseDestination"><span class="hs-identifier hs-type">eventDestination_kinesisFirehoseDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="eventDestination_kinesisFirehoseDestination"><span class="annot"><span class="annottext">eventDestination_kinesisFirehoseDestination :: (Maybe KinesisFirehoseDestination
+ -&gt; f (Maybe KinesisFirehoseDestination))
+-&gt; EventDestination -&gt; f EventDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#eventDestination_kinesisFirehoseDestination"><span class="hs-identifier hs-var hs-var">eventDestination_kinesisFirehoseDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventDestination -&gt; Maybe KinesisFirehoseDestination)
+-&gt; (EventDestination
+    -&gt; Maybe KinesisFirehoseDestination -&gt; EventDestination)
+-&gt; Lens
+     EventDestination
+     EventDestination
+     (Maybe KinesisFirehoseDestination)
+     (Maybe KinesisFirehoseDestination)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331838"><span class="annot"><span class="annottext">Maybe KinesisFirehoseDestination
+kinesisFirehoseDestination :: Maybe KinesisFirehoseDestination
+$sel:kinesisFirehoseDestination:EventDestination' :: EventDestination -&gt; Maybe KinesisFirehoseDestination
+</span><a href="#local-6989586621679331838"><span class="hs-identifier hs-var hs-var">kinesisFirehoseDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseDestination
+</span><a href="#local-6989586621679331838"><span class="hs-identifier hs-var">kinesisFirehoseDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331837"><span class="annot"><span class="annottext">s :: EventDestination
+</span><a href="#local-6989586621679331837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331836"><span class="annot"><span class="annottext">Maybe KinesisFirehoseDestination
+</span><a href="#local-6989586621679331836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
+</span><a href="#local-6989586621679331837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisFirehoseDestination:EventDestination' :: Maybe KinesisFirehoseDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3AkinesisFirehoseDestination%3AEventDestination%27"><span class="hs-identifier hs-var">kinesisFirehoseDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseDestination
+</span><a href="#local-6989586621679331836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | An object that defines an Amazon CloudWatch destination for email</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- events. You can use Amazon CloudWatch to monitor and gain insights on</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- your email sending metrics.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#eventDestination_cloudWatchDestination"><span class="hs-identifier hs-type">eventDestination_cloudWatchDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="eventDestination_cloudWatchDestination"><span class="annot"><span class="annottext">eventDestination_cloudWatchDestination :: (Maybe CloudWatchDestination -&gt; f (Maybe CloudWatchDestination))
+-&gt; EventDestination -&gt; f EventDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#eventDestination_cloudWatchDestination"><span class="hs-identifier hs-var hs-var">eventDestination_cloudWatchDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventDestination -&gt; Maybe CloudWatchDestination)
+-&gt; (EventDestination
+    -&gt; Maybe CloudWatchDestination -&gt; EventDestination)
+-&gt; Lens
+     EventDestination
+     EventDestination
+     (Maybe CloudWatchDestination)
+     (Maybe CloudWatchDestination)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331834"><span class="annot"><span class="annottext">Maybe CloudWatchDestination
+cloudWatchDestination :: Maybe CloudWatchDestination
+$sel:cloudWatchDestination:EventDestination' :: EventDestination -&gt; Maybe CloudWatchDestination
+</span><a href="#local-6989586621679331834"><span class="hs-identifier hs-var hs-var">cloudWatchDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchDestination
+</span><a href="#local-6989586621679331834"><span class="hs-identifier hs-var">cloudWatchDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331833"><span class="annot"><span class="annottext">s :: EventDestination
+</span><a href="#local-6989586621679331833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331832"><span class="annot"><span class="annottext">Maybe CloudWatchDestination
+</span><a href="#local-6989586621679331832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
+</span><a href="#local-6989586621679331833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchDestination:EventDestination' :: Maybe CloudWatchDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3AcloudWatchDestination%3AEventDestination%27"><span class="hs-identifier hs-var">cloudWatchDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchDestination
+</span><a href="#local-6989586621679331832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | An object that defines an Amazon SNS destination for email events. You</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- can use Amazon SNS to send notification when certain email events occur.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#eventDestination_snsDestination"><span class="hs-identifier hs-type">eventDestination_snsDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.SnsDestination.html#SnsDestination"><span class="hs-identifier hs-type">SnsDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="eventDestination_snsDestination"><span class="annot"><span class="annottext">eventDestination_snsDestination :: (Maybe SnsDestination -&gt; f (Maybe SnsDestination))
+-&gt; EventDestination -&gt; f EventDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#eventDestination_snsDestination"><span class="hs-identifier hs-var hs-var">eventDestination_snsDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventDestination -&gt; Maybe SnsDestination)
+-&gt; (EventDestination -&gt; Maybe SnsDestination -&gt; EventDestination)
+-&gt; Lens
+     EventDestination
+     EventDestination
+     (Maybe SnsDestination)
+     (Maybe SnsDestination)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331830"><span class="annot"><span class="annottext">Maybe SnsDestination
+snsDestination :: Maybe SnsDestination
+$sel:snsDestination:EventDestination' :: EventDestination -&gt; Maybe SnsDestination
+</span><a href="#local-6989586621679331830"><span class="hs-identifier hs-var hs-var">snsDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SnsDestination
+</span><a href="#local-6989586621679331830"><span class="hs-identifier hs-var">snsDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331829"><span class="annot"><span class="annottext">s :: EventDestination
+</span><a href="#local-6989586621679331829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331828"><span class="annot"><span class="annottext">Maybe SnsDestination
+</span><a href="#local-6989586621679331828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
+</span><a href="#local-6989586621679331829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snsDestination:EventDestination' :: Maybe SnsDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3AsnsDestination%3AEventDestination%27"><span class="hs-identifier hs-var">snsDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnsDestination
+</span><a href="#local-6989586621679331828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | A name that identifies the event destination.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#eventDestination_name"><span class="hs-identifier hs-type">eventDestination_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-167"></span><span id="eventDestination_name"><span class="annot"><span class="annottext">eventDestination_name :: (Text -&gt; f Text) -&gt; EventDestination -&gt; f EventDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#eventDestination_name"><span class="hs-identifier hs-var hs-var">eventDestination_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventDestination -&gt; Text)
+-&gt; (EventDestination -&gt; Text -&gt; EventDestination)
+-&gt; Lens EventDestination EventDestination Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331826"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:EventDestination' :: EventDestination -&gt; Text
+</span><a href="#local-6989586621679331826"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331826"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331825"><span class="annot"><span class="annottext">s :: EventDestination
+</span><a href="#local-6989586621679331825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331824"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
+</span><a href="#local-6989586621679331825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:EventDestination' :: Text
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3Aname%3AEventDestination%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The types of events that Amazon SES sends to the specified event</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- destinations.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#eventDestination_matchingEventTypes"><span class="hs-identifier hs-type">eventDestination_matchingEventTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SESV2.Types.EventType.html#EventType"><span class="hs-identifier hs-type">EventType</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span id="eventDestination_matchingEventTypes"><span class="annot"><span class="annottext">eventDestination_matchingEventTypes :: ([EventType] -&gt; f [EventType])
+-&gt; EventDestination -&gt; f EventDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#eventDestination_matchingEventTypes"><span class="hs-identifier hs-var hs-var">eventDestination_matchingEventTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventDestination -&gt; [EventType])
+-&gt; (EventDestination -&gt; [EventType] -&gt; EventDestination)
+-&gt; Lens EventDestination EventDestination [EventType] [EventType]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331822"><span class="annot"><span class="annottext">[EventType]
+matchingEventTypes :: [EventType]
+$sel:matchingEventTypes:EventDestination' :: EventDestination -&gt; [EventType]
+</span><a href="#local-6989586621679331822"><span class="hs-identifier hs-var hs-var">matchingEventTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EventType]
+</span><a href="#local-6989586621679331822"><span class="hs-identifier hs-var">matchingEventTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331821"><span class="annot"><span class="annottext">s :: EventDestination
+</span><a href="#local-6989586621679331821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331820"><span class="annot"><span class="annottext">[EventType]
+</span><a href="#local-6989586621679331820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
+</span><a href="#local-6989586621679331821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchingEventTypes:EventDestination' :: [EventType]
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#%24sel%3AmatchingEventTypes%3AEventDestination%27"><span class="hs-identifier hs-var">matchingEventTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EventType]
+</span><a href="#local-6989586621679331820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EventType] -&gt; f [EventType])
+ -&gt; EventDestination -&gt; f EventDestination)
+-&gt; (([EventType] -&gt; f [EventType]) -&gt; [EventType] -&gt; f [EventType])
+-&gt; ([EventType] -&gt; f [EventType])
+-&gt; EventDestination
+-&gt; f EventDestination
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([EventType] -&gt; f [EventType]) -&gt; [EventType] -&gt; f [EventType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331815"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679331813"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EventDestination)
+-&gt; Value
+-&gt; Parser EventDestination
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EventDestination&quot;</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331810"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331810"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">Maybe PinpointDestination
+-&gt; Maybe Bool
+-&gt; Maybe KinesisFirehoseDestination
+-&gt; Maybe CloudWatchDestination
+-&gt; Maybe SnsDestination
+-&gt; Text
+-&gt; [EventType]
+-&gt; EventDestination
+</span><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-var">EventDestination'</span></a></span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PinpointDestination
+ -&gt; Maybe Bool
+ -&gt; Maybe KinesisFirehoseDestination
+ -&gt; Maybe CloudWatchDestination
+ -&gt; Maybe SnsDestination
+ -&gt; Text
+ -&gt; [EventType]
+ -&gt; EventDestination)
+-&gt; Parser (Maybe PinpointDestination)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe KinesisFirehoseDestination
+      -&gt; Maybe CloudWatchDestination
+      -&gt; Maybe SnsDestination
+      -&gt; Text
+      -&gt; [EventType]
+      -&gt; EventDestination)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PinpointDestination)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PinpointDestination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe KinesisFirehoseDestination
+   -&gt; Maybe CloudWatchDestination
+   -&gt; Maybe SnsDestination
+   -&gt; Text
+   -&gt; [EventType]
+   -&gt; EventDestination)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe KinesisFirehoseDestination
+      -&gt; Maybe CloudWatchDestination
+      -&gt; Maybe SnsDestination
+      -&gt; Text
+      -&gt; [EventType]
+      -&gt; EventDestination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe KinesisFirehoseDestination
+   -&gt; Maybe CloudWatchDestination
+   -&gt; Maybe SnsDestination
+   -&gt; Text
+   -&gt; [EventType]
+   -&gt; EventDestination)
+-&gt; Parser (Maybe KinesisFirehoseDestination)
+-&gt; Parser
+     (Maybe CloudWatchDestination
+      -&gt; Maybe SnsDestination -&gt; Text -&gt; [EventType] -&gt; EventDestination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KinesisFirehoseDestination)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KinesisFirehoseDestination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CloudWatchDestination
+   -&gt; Maybe SnsDestination -&gt; Text -&gt; [EventType] -&gt; EventDestination)
+-&gt; Parser (Maybe CloudWatchDestination)
+-&gt; Parser
+     (Maybe SnsDestination -&gt; Text -&gt; [EventType] -&gt; EventDestination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudWatchDestination)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudWatchDestination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SnsDestination -&gt; Text -&gt; [EventType] -&gt; EventDestination)
+-&gt; Parser (Maybe SnsDestination)
+-&gt; Parser (Text -&gt; [EventType] -&gt; EventDestination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SnsDestination)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SnsDestination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; [EventType] -&gt; EventDestination)
+-&gt; Parser Text -&gt; Parser ([EventType] -&gt; EventDestination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser ([EventType] -&gt; EventDestination)
+-&gt; Parser [EventType] -&gt; Parser EventDestination
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [EventType])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MatchingEventTypes&quot;</span></span><span>
+</span><span id="line-187"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe [EventType]) -&gt; [EventType] -&gt; Parser [EventType]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[EventType]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-188"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331802"><span id="local-6989586621679331804"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span></span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331799"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span></span><span>
+</span><span id="line-194"></span></pre></body></html>

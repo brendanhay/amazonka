@@ -1,0 +1,534 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.NetworkManager.UpdateSite</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the information for an existing site. To remove information for</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- any of the parameters, specify an empty string.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.NetworkManager.UpdateSite</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier">UpdateSite</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#newUpdateSite"><span class="hs-identifier">newUpdateSite</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#updateSite_location"><span class="hs-identifier">updateSite_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#updateSite_description"><span class="hs-identifier">updateSite_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#updateSite_globalNetworkId"><span class="hs-identifier">updateSite_globalNetworkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#updateSite_siteId"><span class="hs-identifier">updateSite_siteId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse"><span class="hs-identifier">UpdateSiteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#newUpdateSiteResponse"><span class="hs-identifier">newUpdateSiteResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#updateSiteResponse_site"><span class="hs-identifier">updateSiteResponse_site</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#updateSiteResponse_httpStatus"><span class="hs-identifier">updateSiteResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.html"><span class="hs-identifier">Amazonka.NetworkManager.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newUpdateSite' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679231767"><span id="local-6989586621679231768"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSite"><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-var">UpdateSite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSite%27"><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite%27"><span class="hs-identifier hs-var">UpdateSite'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The site location:</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- -   @Address@: The physical address of the site.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- -   @Latitude@: The latitude of the site.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- -   @Longitude@: The longitude of the site.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Alocation%3AUpdateSite%27"><span class="annot"><span class="annottext">UpdateSite -&gt; Maybe (Sensitive Location)
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3Alocation%3AUpdateSite%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A description of your site.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Length Constraints: Maximum length of 256 characters.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateSite%27"><span class="annot"><span class="annottext">UpdateSite -&gt; Maybe Text
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3Adescription%3AUpdateSite%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ID of the global network.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AglobalNetworkId%3AUpdateSite%27"><span class="annot"><span class="annottext">UpdateSite -&gt; Text
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3AglobalNetworkId%3AUpdateSite%27"><span class="hs-identifier hs-var hs-var">globalNetworkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The ID of your site.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AsiteId%3AUpdateSite%27"><span class="annot"><span class="annottext">UpdateSite -&gt; Text
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3AsiteId%3AUpdateSite%27"><span class="hs-identifier hs-var hs-var">siteId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231758"><span id="local-6989586621679231760"><span class="annot"><span class="annottext">UpdateSite -&gt; UpdateSite -&gt; Bool
+(UpdateSite -&gt; UpdateSite -&gt; Bool)
+-&gt; (UpdateSite -&gt; UpdateSite -&gt; Bool) -&gt; Eq UpdateSite
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSite -&gt; UpdateSite -&gt; Bool
+$c/= :: UpdateSite -&gt; UpdateSite -&gt; Bool
+== :: UpdateSite -&gt; UpdateSite -&gt; Bool
+$c== :: UpdateSite -&gt; UpdateSite -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231751"><span id="local-6989586621679231753"><span id="local-6989586621679231755"><span class="annot"><span class="annottext">Int -&gt; UpdateSite -&gt; ShowS
+[UpdateSite] -&gt; ShowS
+UpdateSite -&gt; String
+(Int -&gt; UpdateSite -&gt; ShowS)
+-&gt; (UpdateSite -&gt; String)
+-&gt; ([UpdateSite] -&gt; ShowS)
+-&gt; Show UpdateSite
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSite] -&gt; ShowS
+$cshowList :: [UpdateSite] -&gt; ShowS
+show :: UpdateSite -&gt; String
+$cshow :: UpdateSite -&gt; String
+showsPrec :: Int -&gt; UpdateSite -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSite -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateSite -&gt; Rep UpdateSite x)
+-&gt; (forall x. Rep UpdateSite x -&gt; UpdateSite) -&gt; Generic UpdateSite
+forall x. Rep UpdateSite x -&gt; UpdateSite
+forall x. UpdateSite -&gt; Rep UpdateSite x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateSite x -&gt; UpdateSite
+$cfrom :: forall x. UpdateSite -&gt; Rep UpdateSite x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'UpdateSite' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'location', 'updateSite_location' - The site location:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- -   @Address@: The physical address of the site.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- -   @Latitude@: The latitude of the site.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- -   @Longitude@: The longitude of the site.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'description', 'updateSite_description' - A description of your site.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Length Constraints: Maximum length of 256 characters.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'globalNetworkId', 'updateSite_globalNetworkId' - The ID of the global network.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'siteId', 'updateSite_siteId' - The ID of your site.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#newUpdateSite"><span class="hs-identifier hs-type">newUpdateSite</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'globalNetworkId'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'siteId'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span><span>
+</span><span id="line-103"></span><span id="newUpdateSite"><span class="annot"><span class="annottext">newUpdateSite :: Text -&gt; Text -&gt; UpdateSite
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#newUpdateSite"><span class="hs-identifier hs-var hs-var">newUpdateSite</span></a></span></span><span> </span><span id="local-6989586621679231746"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231746"><span class="hs-identifier hs-var">pGlobalNetworkId_</span></a></span></span><span> </span><span id="local-6989586621679231745"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231745"><span class="hs-identifier hs-var">pSiteId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">UpdateSite' :: Maybe (Sensitive Location)
+-&gt; Maybe Text -&gt; Text -&gt; Text -&gt; UpdateSite
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite%27"><span class="hs-identifier hs-type">UpdateSite'</span></a></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:location:UpdateSite' :: Maybe (Sensitive Location)
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3Alocation%3AUpdateSite%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Location)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateSite' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3Adescription%3AUpdateSite%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalNetworkId:UpdateSite' :: Text
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3AglobalNetworkId%3AUpdateSite%27"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231746"><span class="hs-identifier hs-var">pGlobalNetworkId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:siteId:UpdateSite' :: Text
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3AsiteId%3AUpdateSite%27"><span class="hs-identifier hs-var">siteId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231745"><span class="hs-identifier hs-var">pSiteId_</span></a></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The site location:</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   @Address@: The physical address of the site.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   @Latitude@: The latitude of the site.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   @Longitude@: The longitude of the site.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#updateSite_location"><span class="hs-identifier hs-type">updateSite_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="updateSite_location"><span class="annot"><span class="annottext">updateSite_location :: (Maybe Location -&gt; f (Maybe Location))
+-&gt; UpdateSite -&gt; f UpdateSite
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#updateSite_location"><span class="hs-identifier hs-var hs-var">updateSite_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSite -&gt; Maybe (Sensitive Location))
+-&gt; (UpdateSite -&gt; Maybe (Sensitive Location) -&gt; UpdateSite)
+-&gt; Lens
+     UpdateSite
+     UpdateSite
+     (Maybe (Sensitive Location))
+     (Maybe (Sensitive Location))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite%27"><span class="hs-identifier hs-type">UpdateSite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231742"><span class="annot"><span class="annottext">Maybe (Sensitive Location)
+location :: Maybe (Sensitive Location)
+$sel:location:UpdateSite' :: UpdateSite -&gt; Maybe (Sensitive Location)
+</span><a href="#local-6989586621679231742"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Location)
+</span><a href="#local-6989586621679231742"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231741"><span class="annot"><span class="annottext">s :: UpdateSite
+</span><a href="#local-6989586621679231741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite%27"><span class="hs-identifier hs-type">UpdateSite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231740"><span class="annot"><span class="annottext">Maybe (Sensitive Location)
+</span><a href="#local-6989586621679231740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSite
+</span><a href="#local-6989586621679231741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:UpdateSite' :: Maybe (Sensitive Location)
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3Alocation%3AUpdateSite%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Location)
+</span><a href="#local-6989586621679231740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Location) -&gt; f (Maybe (Sensitive Location)))
+ -&gt; UpdateSite -&gt; f UpdateSite)
+-&gt; ((Maybe Location -&gt; f (Maybe Location))
+    -&gt; Maybe (Sensitive Location) -&gt; f (Maybe (Sensitive Location)))
+-&gt; (Maybe Location -&gt; f (Maybe Location))
+-&gt; UpdateSite
+-&gt; f UpdateSite
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Location) (Sensitive Location) Location Location
+-&gt; Iso
+     (Maybe (Sensitive Location))
+     (Maybe (Sensitive Location))
+     (Maybe Location)
+     (Maybe Location)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Location) (Sensitive Location) Location Location
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | A description of your site.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Length Constraints: Maximum length of 256 characters.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#updateSite_description"><span class="hs-identifier hs-type">updateSite_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="updateSite_description"><span class="annot"><span class="annottext">updateSite_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateSite -&gt; f UpdateSite
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#updateSite_description"><span class="hs-identifier hs-var hs-var">updateSite_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSite -&gt; Maybe Text)
+-&gt; (UpdateSite -&gt; Maybe Text -&gt; UpdateSite)
+-&gt; Lens UpdateSite UpdateSite (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite%27"><span class="hs-identifier hs-type">UpdateSite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231736"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateSite' :: UpdateSite -&gt; Maybe Text
+</span><a href="#local-6989586621679231736"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231736"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231735"><span class="annot"><span class="annottext">s :: UpdateSite
+</span><a href="#local-6989586621679231735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite%27"><span class="hs-identifier hs-type">UpdateSite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231734"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSite
+</span><a href="#local-6989586621679231735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateSite' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3Adescription%3AUpdateSite%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The ID of the global network.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#updateSite_globalNetworkId"><span class="hs-identifier hs-type">updateSite_globalNetworkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-129"></span><span id="updateSite_globalNetworkId"><span class="annot"><span class="annottext">updateSite_globalNetworkId :: (Text -&gt; f Text) -&gt; UpdateSite -&gt; f UpdateSite
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#updateSite_globalNetworkId"><span class="hs-identifier hs-var hs-var">updateSite_globalNetworkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSite -&gt; Text)
+-&gt; (UpdateSite -&gt; Text -&gt; UpdateSite)
+-&gt; Lens UpdateSite UpdateSite Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite%27"><span class="hs-identifier hs-type">UpdateSite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231733"><span class="annot"><span class="annottext">Text
+globalNetworkId :: Text
+$sel:globalNetworkId:UpdateSite' :: UpdateSite -&gt; Text
+</span><a href="#local-6989586621679231733"><span class="hs-identifier hs-var hs-var">globalNetworkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231733"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231732"><span class="annot"><span class="annottext">s :: UpdateSite
+</span><a href="#local-6989586621679231732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite%27"><span class="hs-identifier hs-type">UpdateSite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231731"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSite
+</span><a href="#local-6989586621679231732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalNetworkId:UpdateSite' :: Text
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3AglobalNetworkId%3AUpdateSite%27"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The ID of your site.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#updateSite_siteId"><span class="hs-identifier hs-type">updateSite_siteId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-133"></span><span id="updateSite_siteId"><span class="annot"><span class="annottext">updateSite_siteId :: (Text -&gt; f Text) -&gt; UpdateSite -&gt; f UpdateSite
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#updateSite_siteId"><span class="hs-identifier hs-var hs-var">updateSite_siteId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSite -&gt; Text)
+-&gt; (UpdateSite -&gt; Text -&gt; UpdateSite)
+-&gt; Lens UpdateSite UpdateSite Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite%27"><span class="hs-identifier hs-type">UpdateSite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231730"><span class="annot"><span class="annottext">Text
+siteId :: Text
+$sel:siteId:UpdateSite' :: UpdateSite -&gt; Text
+</span><a href="#local-6989586621679231730"><span class="hs-identifier hs-var hs-var">siteId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231730"><span class="hs-identifier hs-var">siteId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231729"><span class="annot"><span class="annottext">s :: UpdateSite
+</span><a href="#local-6989586621679231729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite%27"><span class="hs-identifier hs-type">UpdateSite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231728"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSite
+</span><a href="#local-6989586621679231729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:siteId:UpdateSite' :: Text
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3AsiteId%3AUpdateSite%27"><span class="hs-identifier hs-var">siteId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse"><span class="hs-identifier hs-type">UpdateSiteResponse</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679231724"><span class="annot"><span class="annottext">request :: UpdateSite -&gt; Request UpdateSite
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateSite -&gt; Request UpdateSite
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679231720"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateSite
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateSite)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateSite))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateSite
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateSite)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231717"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231717"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679231716"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679231716"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679231715"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231715"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe Site -&gt; Int -&gt; UpdateSiteResponse
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse%27"><span class="hs-identifier hs-var">UpdateSiteResponse'</span></a></span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Site -&gt; Int -&gt; UpdateSiteResponse)
+-&gt; Either String (Maybe Site)
+-&gt; Either String (Int -&gt; UpdateSiteResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231715"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Site)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Site&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateSiteResponse)
+-&gt; Either String Int -&gt; Either String UpdateSiteResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231717"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231707"><span id="local-6989586621679231709"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679231700"><span class="annot"><span class="annottext">toHeaders :: UpdateSite -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateSite -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-157"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231690"><span id="local-6989586621679231692"><span id="local-6989586621679231694"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679231688"><span class="annot"><span class="annottext">toJSON :: UpdateSite -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite%27"><span class="hs-identifier hs-type">UpdateSite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231683"><span id="local-6989586621679231684"><span id="local-6989586621679231685"><span id="local-6989586621679231686"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Location)
+Text
+siteId :: Text
+globalNetworkId :: Text
+description :: Maybe Text
+location :: Maybe (Sensitive Location)
+$sel:siteId:UpdateSite' :: UpdateSite -&gt; Text
+$sel:globalNetworkId:UpdateSite' :: UpdateSite -&gt; Text
+$sel:description:UpdateSite' :: UpdateSite -&gt; Maybe Text
+$sel:location:UpdateSite' :: UpdateSite -&gt; Maybe (Sensitive Location)
+</span><a href="#local-6989586621679231683"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Location -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Location -&gt; Pair)
+-&gt; Maybe (Sensitive Location) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Location)
+</span><a href="#local-6989586621679231686"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231685"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679231677"><span class="annot"><span class="annottext">toPath :: UpdateSite -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite%27"><span class="hs-identifier hs-type">UpdateSite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231672"><span id="local-6989586621679231673"><span id="local-6989586621679231674"><span id="local-6989586621679231675"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Location)
+Text
+siteId :: Text
+globalNetworkId :: Text
+description :: Maybe Text
+location :: Maybe (Sensitive Location)
+$sel:siteId:UpdateSite' :: UpdateSite -&gt; Text
+$sel:globalNetworkId:UpdateSite' :: UpdateSite -&gt; Text
+$sel:description:UpdateSite' :: UpdateSite -&gt; Maybe Text
+$sel:location:UpdateSite' :: UpdateSite -&gt; Maybe (Sensitive Location)
+</span><a href="#local-6989586621679231672"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/global-networks/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231673"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/sites/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231672"><span class="hs-identifier hs-var">siteId</span></a></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSite"><span class="hs-identifier hs-type">UpdateSite</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679231668"><span class="annot"><span class="annottext">toQuery :: UpdateSite -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateSite -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newUpdateSiteResponse' smart constructor.</span><span>
+</span><span id="line-183"></span><span id="local-6989586621679231665"><span id="local-6989586621679231666"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSiteResponse"><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse"><span class="hs-identifier hs-var">UpdateSiteResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSiteResponse%27"><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse%27"><span class="hs-identifier hs-var">UpdateSiteResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the site.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3Asite%3AUpdateSiteResponse%27"><span class="annot"><span class="annottext">UpdateSiteResponse -&gt; Maybe Site
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3Asite%3AUpdateSiteResponse%27"><span class="hs-identifier hs-var hs-var">site</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Site.html#Site"><span class="hs-identifier hs-type">Site</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateSiteResponse%27"><span class="annot"><span class="annottext">UpdateSiteResponse -&gt; Int
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3AhttpStatus%3AUpdateSiteResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231659"><span id="local-6989586621679231661"><span class="annot"><span class="annottext">UpdateSiteResponse -&gt; UpdateSiteResponse -&gt; Bool
+(UpdateSiteResponse -&gt; UpdateSiteResponse -&gt; Bool)
+-&gt; (UpdateSiteResponse -&gt; UpdateSiteResponse -&gt; Bool)
+-&gt; Eq UpdateSiteResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSiteResponse -&gt; UpdateSiteResponse -&gt; Bool
+$c/= :: UpdateSiteResponse -&gt; UpdateSiteResponse -&gt; Bool
+== :: UpdateSiteResponse -&gt; UpdateSiteResponse -&gt; Bool
+$c== :: UpdateSiteResponse -&gt; UpdateSiteResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231653"><span id="local-6989586621679231655"><span id="local-6989586621679231657"><span class="annot"><span class="annottext">Int -&gt; UpdateSiteResponse -&gt; ShowS
+[UpdateSiteResponse] -&gt; ShowS
+UpdateSiteResponse -&gt; String
+(Int -&gt; UpdateSiteResponse -&gt; ShowS)
+-&gt; (UpdateSiteResponse -&gt; String)
+-&gt; ([UpdateSiteResponse] -&gt; ShowS)
+-&gt; Show UpdateSiteResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSiteResponse] -&gt; ShowS
+$cshowList :: [UpdateSiteResponse] -&gt; ShowS
+show :: UpdateSiteResponse -&gt; String
+$cshow :: UpdateSiteResponse -&gt; String
+showsPrec :: Int -&gt; UpdateSiteResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSiteResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateSiteResponse -&gt; Rep UpdateSiteResponse x)
+-&gt; (forall x. Rep UpdateSiteResponse x -&gt; UpdateSiteResponse)
+-&gt; Generic UpdateSiteResponse
+forall x. Rep UpdateSiteResponse x -&gt; UpdateSiteResponse
+forall x. UpdateSiteResponse -&gt; Rep UpdateSiteResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateSiteResponse x -&gt; UpdateSiteResponse
+$cfrom :: forall x. UpdateSiteResponse -&gt; Rep UpdateSiteResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Create a value of 'UpdateSiteResponse' with all optional fields omitted.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'site', 'updateSiteResponse_site' - Information about the site.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'httpStatus', 'updateSiteResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#newUpdateSiteResponse"><span class="hs-identifier hs-type">newUpdateSiteResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse"><span class="hs-identifier hs-type">UpdateSiteResponse</span></a></span><span>
+</span><span id="line-206"></span><span id="newUpdateSiteResponse"><span class="annot"><span class="annottext">newUpdateSiteResponse :: Int -&gt; UpdateSiteResponse
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#newUpdateSiteResponse"><span class="hs-identifier hs-var hs-var">newUpdateSiteResponse</span></a></span></span><span> </span><span id="local-6989586621679231650"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231650"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="annottext">UpdateSiteResponse' :: Maybe Site -&gt; Int -&gt; UpdateSiteResponse
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse%27"><span class="hs-identifier hs-type">UpdateSiteResponse'</span></a></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:site:UpdateSiteResponse' :: Maybe Site
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3Asite%3AUpdateSiteResponse%27"><span class="hs-identifier hs-var">site</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Site
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSiteResponse' :: Int
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3AhttpStatus%3AUpdateSiteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231650"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | Information about the site.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#updateSiteResponse_site"><span class="hs-identifier hs-type">updateSiteResponse_site</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse"><span class="hs-identifier hs-type">UpdateSiteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Site.html#Site"><span class="hs-identifier hs-type">Site</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="updateSiteResponse_site"><span class="annot"><span class="annottext">updateSiteResponse_site :: (Maybe Site -&gt; f (Maybe Site))
+-&gt; UpdateSiteResponse -&gt; f UpdateSiteResponse
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#updateSiteResponse_site"><span class="hs-identifier hs-var hs-var">updateSiteResponse_site</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSiteResponse -&gt; Maybe Site)
+-&gt; (UpdateSiteResponse -&gt; Maybe Site -&gt; UpdateSiteResponse)
+-&gt; Lens
+     UpdateSiteResponse UpdateSiteResponse (Maybe Site) (Maybe Site)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse%27"><span class="hs-identifier hs-type">UpdateSiteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231649"><span class="annot"><span class="annottext">Maybe Site
+site :: Maybe Site
+$sel:site:UpdateSiteResponse' :: UpdateSiteResponse -&gt; Maybe Site
+</span><a href="#local-6989586621679231649"><span class="hs-identifier hs-var hs-var">site</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Site
+</span><a href="#local-6989586621679231649"><span class="hs-identifier hs-var">site</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231648"><span class="annot"><span class="annottext">s :: UpdateSiteResponse
+</span><a href="#local-6989586621679231648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse%27"><span class="hs-identifier hs-type">UpdateSiteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231647"><span class="annot"><span class="annottext">Maybe Site
+</span><a href="#local-6989586621679231647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSiteResponse
+</span><a href="#local-6989586621679231648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:site:UpdateSiteResponse' :: Maybe Site
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3Asite%3AUpdateSiteResponse%27"><span class="hs-identifier hs-var">site</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Site
+</span><a href="#local-6989586621679231647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse"><span class="hs-identifier hs-type">UpdateSiteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#updateSiteResponse_httpStatus"><span class="hs-identifier hs-type">updateSiteResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse"><span class="hs-identifier hs-type">UpdateSiteResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-218"></span><span id="updateSiteResponse_httpStatus"><span class="annot"><span class="annottext">updateSiteResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateSiteResponse -&gt; f UpdateSiteResponse
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#updateSiteResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateSiteResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSiteResponse -&gt; Int)
+-&gt; (UpdateSiteResponse -&gt; Int -&gt; UpdateSiteResponse)
+-&gt; Lens UpdateSiteResponse UpdateSiteResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse%27"><span class="hs-identifier hs-type">UpdateSiteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231646"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateSiteResponse' :: UpdateSiteResponse -&gt; Int
+</span><a href="#local-6989586621679231646"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231646"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231645"><span class="annot"><span class="annottext">s :: UpdateSiteResponse
+</span><a href="#local-6989586621679231645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse%27"><span class="hs-identifier hs-type">UpdateSiteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231644"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSiteResponse
+</span><a href="#local-6989586621679231645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSiteResponse' :: Int
+</span><a href="Amazonka.NetworkManager.UpdateSite.html#%24sel%3AhttpStatus%3AUpdateSiteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse"><span class="hs-identifier hs-type">UpdateSiteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231642"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.UpdateSite.html#UpdateSiteResponse"><span class="hs-identifier hs-type">UpdateSiteResponse</span></a></span></span><span>
+</span><span id="line-221"></span></pre></body></html>

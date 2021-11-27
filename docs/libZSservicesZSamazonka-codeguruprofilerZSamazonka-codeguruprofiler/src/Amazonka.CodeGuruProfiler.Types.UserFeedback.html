@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeGuruProfiler.Types.UserFeedback</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeGuruProfiler.Types.UserFeedback</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html"><span class="hs-identifier">Amazonka.CodeGuruProfiler.Types.FeedbackType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Feedback that can be submitted for each instance of an anomaly by the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- user. Feedback is be used for improvements in generating recommendations</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- for the application.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newUserFeedback' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679200066"><span id="local-6989586621679200067"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserFeedback"><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#UserFeedback"><span class="hs-identifier hs-var">UserFeedback</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserFeedback%27"><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#UserFeedback%27"><span class="hs-identifier hs-var">UserFeedback'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional @Positive@ or @Negative@ feedback submitted by the user about</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- whether the recommendation is useful or not.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Atype%27%3AUserFeedback%27"><span class="annot"><span class="annottext">UserFeedback -&gt; FeedbackType
+</span><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#%24sel%3Atype%27%3AUserFeedback%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType"><span class="hs-identifier hs-type">FeedbackType</span></a></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200060"><span id="local-6989586621679200062"><span class="annot"><span class="annottext">UserFeedback -&gt; UserFeedback -&gt; Bool
+(UserFeedback -&gt; UserFeedback -&gt; Bool)
+-&gt; (UserFeedback -&gt; UserFeedback -&gt; Bool) -&gt; Eq UserFeedback
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UserFeedback -&gt; UserFeedback -&gt; Bool
+$c/= :: UserFeedback -&gt; UserFeedback -&gt; Bool
+== :: UserFeedback -&gt; UserFeedback -&gt; Bool
+$c== :: UserFeedback -&gt; UserFeedback -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200051"><span id="local-6989586621679200053"><span id="local-6989586621679200055"><span id="local-6989586621679200057"><span class="annot"><span class="annottext">ReadPrec [UserFeedback]
+ReadPrec UserFeedback
+Int -&gt; ReadS UserFeedback
+ReadS [UserFeedback]
+(Int -&gt; ReadS UserFeedback)
+-&gt; ReadS [UserFeedback]
+-&gt; ReadPrec UserFeedback
+-&gt; ReadPrec [UserFeedback]
+-&gt; Read UserFeedback
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UserFeedback]
+$creadListPrec :: ReadPrec [UserFeedback]
+readPrec :: ReadPrec UserFeedback
+$creadPrec :: ReadPrec UserFeedback
+readList :: ReadS [UserFeedback]
+$creadList :: ReadS [UserFeedback]
+readsPrec :: Int -&gt; ReadS UserFeedback
+$creadsPrec :: Int -&gt; ReadS UserFeedback
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200044"><span id="local-6989586621679200046"><span id="local-6989586621679200048"><span class="annot"><span class="annottext">Int -&gt; UserFeedback -&gt; ShowS
+[UserFeedback] -&gt; ShowS
+UserFeedback -&gt; String
+(Int -&gt; UserFeedback -&gt; ShowS)
+-&gt; (UserFeedback -&gt; String)
+-&gt; ([UserFeedback] -&gt; ShowS)
+-&gt; Show UserFeedback
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UserFeedback] -&gt; ShowS
+$cshowList :: [UserFeedback] -&gt; ShowS
+show :: UserFeedback -&gt; String
+$cshow :: UserFeedback -&gt; String
+showsPrec :: Int -&gt; UserFeedback -&gt; ShowS
+$cshowsPrec :: Int -&gt; UserFeedback -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UserFeedback -&gt; Rep UserFeedback x)
+-&gt; (forall x. Rep UserFeedback x -&gt; UserFeedback)
+-&gt; Generic UserFeedback
+forall x. Rep UserFeedback x -&gt; UserFeedback
+forall x. UserFeedback -&gt; Rep UserFeedback x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UserFeedback x -&gt; UserFeedback
+$cfrom :: forall x. UserFeedback -&gt; Rep UserFeedback x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'UserFeedback' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'type'', 'userFeedback_type' - Optional @Positive@ or @Negative@ feedback submitted by the user about</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- whether the recommendation is useful or not.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#newUserFeedback"><span class="hs-identifier hs-type">newUserFeedback</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType"><span class="hs-identifier hs-type">FeedbackType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#UserFeedback"><span class="hs-identifier hs-type">UserFeedback</span></a></span><span>
+</span><span id="line-53"></span><span id="newUserFeedback"><span class="annot"><span class="annottext">newUserFeedback :: FeedbackType -&gt; UserFeedback
+</span><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#newUserFeedback"><span class="hs-identifier hs-var hs-var">newUserFeedback</span></a></span></span><span> </span><span id="local-6989586621679200038"><span class="annot"><span class="annottext">FeedbackType
+</span><a href="#local-6989586621679200038"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">UserFeedback' :: FeedbackType -&gt; UserFeedback
+</span><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#UserFeedback%27"><span class="hs-identifier hs-type">UserFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':UserFeedback' :: FeedbackType
+</span><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#%24sel%3Atype%27%3AUserFeedback%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FeedbackType
+</span><a href="#local-6989586621679200038"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | Optional @Positive@ or @Negative@ feedback submitted by the user about</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- whether the recommendation is useful or not.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#userFeedback_type"><span class="hs-identifier hs-type">userFeedback_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#UserFeedback"><span class="hs-identifier hs-type">UserFeedback</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType"><span class="hs-identifier hs-type">FeedbackType</span></a></span><span>
+</span><span id="line-59"></span><span id="userFeedback_type"><span class="annot"><span class="annottext">userFeedback_type :: (FeedbackType -&gt; f FeedbackType) -&gt; UserFeedback -&gt; f UserFeedback
+</span><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#userFeedback_type"><span class="hs-identifier hs-var hs-var">userFeedback_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserFeedback -&gt; FeedbackType)
+-&gt; (UserFeedback -&gt; FeedbackType -&gt; UserFeedback)
+-&gt; Lens UserFeedback UserFeedback FeedbackType FeedbackType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#UserFeedback%27"><span class="hs-identifier hs-type">UserFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200034"><span class="annot"><span class="annottext">FeedbackType
+type' :: FeedbackType
+$sel:type':UserFeedback' :: UserFeedback -&gt; FeedbackType
+</span><a href="#local-6989586621679200034"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeedbackType
+</span><a href="#local-6989586621679200034"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200033"><span class="annot"><span class="annottext">s :: UserFeedback
+</span><a href="#local-6989586621679200033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#UserFeedback%27"><span class="hs-identifier hs-type">UserFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200032"><span class="annot"><span class="annottext">FeedbackType
+</span><a href="#local-6989586621679200032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserFeedback
+</span><a href="#local-6989586621679200033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':UserFeedback' :: FeedbackType
+</span><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#%24sel%3Atype%27%3AUserFeedback%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FeedbackType
+</span><a href="#local-6989586621679200032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#UserFeedback"><span class="hs-identifier hs-type">UserFeedback</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200029"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#UserFeedback"><span class="hs-identifier hs-type">UserFeedback</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679200027"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserFeedback
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser UserFeedback) -&gt; Value -&gt; Parser UserFeedback
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;UserFeedback&quot;</span></span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200024"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200024"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeedbackType -&gt; UserFeedback
+</span><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#UserFeedback%27"><span class="hs-identifier hs-var">UserFeedback'</span></a></span><span> </span><span class="annot"><span class="annottext">(FeedbackType -&gt; UserFeedback)
+-&gt; Parser FeedbackType -&gt; Parser UserFeedback
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FeedbackType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200018"><span id="local-6989586621679200020"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#UserFeedback"><span class="hs-identifier hs-type">UserFeedback</span></a></span></span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200015"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.UserFeedback.html#UserFeedback"><span class="hs-identifier hs-type">UserFeedback</span></a></span></span><span>
+</span><span id="line-70"></span></pre></body></html>

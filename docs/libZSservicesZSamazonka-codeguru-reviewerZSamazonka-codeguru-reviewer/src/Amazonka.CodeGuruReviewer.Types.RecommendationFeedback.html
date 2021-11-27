@@ -1,0 +1,500 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeGuruReviewer.Types.RecommendationFeedback</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeGuruReviewer.Types.RecommendationFeedback</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.Reaction.html"><span class="hs-identifier">Amazonka.CodeGuruReviewer.Types.Reaction</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about the recommendation feedback.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRecommendationFeedback' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679198982"><span id="local-6989586621679198983"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecommendationFeedback"><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-var">RecommendationFeedback</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecommendationFeedback%27"><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback%27"><span class="hs-identifier hs-var">RecommendationFeedback'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The recommendation ID that can be used to track the provided</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- recommendations. Later on it can be used to collect the feedback.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3ArecommendationId%3ARecommendationFeedback%27"><span class="annot"><span class="annottext">RecommendationFeedback -&gt; Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3ArecommendationId%3ARecommendationFeedback%27"><span class="hs-identifier hs-var hs-var">recommendationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the user that made the API call.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- The @UserId@ is an IAM principal that can be specified as an Amazon Web</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Services account ID or an Amazon Resource Name (ARN). For more</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying Specifying a Principal&gt;</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Identity and Access Management User Guide/.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AuserId%3ARecommendationFeedback%27"><span class="annot"><span class="annottext">RecommendationFeedback -&gt; Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3AuserId%3ARecommendationFeedback%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | List for storing reactions. Reactions are utf-8 text code for emojis.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- You can send an empty list to clear off all your feedback.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Areactions%3ARecommendationFeedback%27"><span class="annot"><span class="annottext">RecommendationFeedback -&gt; Maybe [Reaction]
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3Areactions%3ARecommendationFeedback%27"><span class="hs-identifier hs-var hs-var">reactions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.Reaction.html#Reaction"><span class="hs-identifier hs-type">Reaction</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview&gt;</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- object.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcodeReviewArn%3ARecommendationFeedback%27"><span class="annot"><span class="annottext">RecommendationFeedback -&gt; Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3AcodeReviewArn%3ARecommendationFeedback%27"><span class="hs-identifier hs-var hs-var">codeReviewArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The time at which the feedback was created.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AcreatedTimeStamp%3ARecommendationFeedback%27"><span class="annot"><span class="annottext">RecommendationFeedback -&gt; Maybe POSIX
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3AcreatedTimeStamp%3ARecommendationFeedback%27"><span class="hs-identifier hs-var hs-var">createdTimeStamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The time at which the feedback was last updated.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AlastUpdatedTimeStamp%3ARecommendationFeedback%27"><span class="annot"><span class="annottext">RecommendationFeedback -&gt; Maybe POSIX
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3AlastUpdatedTimeStamp%3ARecommendationFeedback%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTimeStamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198971"><span id="local-6989586621679198973"><span class="annot"><span class="annottext">RecommendationFeedback -&gt; RecommendationFeedback -&gt; Bool
+(RecommendationFeedback -&gt; RecommendationFeedback -&gt; Bool)
+-&gt; (RecommendationFeedback -&gt; RecommendationFeedback -&gt; Bool)
+-&gt; Eq RecommendationFeedback
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RecommendationFeedback -&gt; RecommendationFeedback -&gt; Bool
+$c/= :: RecommendationFeedback -&gt; RecommendationFeedback -&gt; Bool
+== :: RecommendationFeedback -&gt; RecommendationFeedback -&gt; Bool
+$c== :: RecommendationFeedback -&gt; RecommendationFeedback -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198962"><span id="local-6989586621679198964"><span id="local-6989586621679198966"><span id="local-6989586621679198968"><span class="annot"><span class="annottext">ReadPrec [RecommendationFeedback]
+ReadPrec RecommendationFeedback
+Int -&gt; ReadS RecommendationFeedback
+ReadS [RecommendationFeedback]
+(Int -&gt; ReadS RecommendationFeedback)
+-&gt; ReadS [RecommendationFeedback]
+-&gt; ReadPrec RecommendationFeedback
+-&gt; ReadPrec [RecommendationFeedback]
+-&gt; Read RecommendationFeedback
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RecommendationFeedback]
+$creadListPrec :: ReadPrec [RecommendationFeedback]
+readPrec :: ReadPrec RecommendationFeedback
+$creadPrec :: ReadPrec RecommendationFeedback
+readList :: ReadS [RecommendationFeedback]
+$creadList :: ReadS [RecommendationFeedback]
+readsPrec :: Int -&gt; ReadS RecommendationFeedback
+$creadsPrec :: Int -&gt; ReadS RecommendationFeedback
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198955"><span id="local-6989586621679198957"><span id="local-6989586621679198959"><span class="annot"><span class="annottext">Int -&gt; RecommendationFeedback -&gt; ShowS
+[RecommendationFeedback] -&gt; ShowS
+RecommendationFeedback -&gt; String
+(Int -&gt; RecommendationFeedback -&gt; ShowS)
+-&gt; (RecommendationFeedback -&gt; String)
+-&gt; ([RecommendationFeedback] -&gt; ShowS)
+-&gt; Show RecommendationFeedback
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RecommendationFeedback] -&gt; ShowS
+$cshowList :: [RecommendationFeedback] -&gt; ShowS
+show :: RecommendationFeedback -&gt; String
+$cshow :: RecommendationFeedback -&gt; String
+showsPrec :: Int -&gt; RecommendationFeedback -&gt; ShowS
+$cshowsPrec :: Int -&gt; RecommendationFeedback -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RecommendationFeedback -&gt; Rep RecommendationFeedback x)
+-&gt; (forall x.
+    Rep RecommendationFeedback x -&gt; RecommendationFeedback)
+-&gt; Generic RecommendationFeedback
+forall x. Rep RecommendationFeedback x -&gt; RecommendationFeedback
+forall x. RecommendationFeedback -&gt; Rep RecommendationFeedback x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RecommendationFeedback x -&gt; RecommendationFeedback
+$cfrom :: forall x. RecommendationFeedback -&gt; Rep RecommendationFeedback x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'RecommendationFeedback' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'recommendationId', 'recommendationFeedback_recommendationId' - The recommendation ID that can be used to track the provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- recommendations. Later on it can be used to collect the feedback.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'userId', 'recommendationFeedback_userId' - The ID of the user that made the API call.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The @UserId@ is an IAM principal that can be specified as an Amazon Web</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Services account ID or an Amazon Resource Name (ARN). For more</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying Specifying a Principal&gt;</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- in the /Amazon Web Services Identity and Access Management User Guide/.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'reactions', 'recommendationFeedback_reactions' - List for storing reactions. Reactions are utf-8 text code for emojis.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- You can send an empty list to clear off all your feedback.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'codeReviewArn', 'recommendationFeedback_codeReviewArn' - The Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview&gt;</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- object.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'createdTimeStamp', 'recommendationFeedback_createdTimeStamp' - The time at which the feedback was created.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'lastUpdatedTimeStamp', 'recommendationFeedback_lastUpdatedTimeStamp' - The time at which the feedback was last updated.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#newRecommendationFeedback"><span class="hs-identifier hs-type">newRecommendationFeedback</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span><span>
+</span><span id="line-87"></span><span id="newRecommendationFeedback"><span class="annot"><span class="annottext">newRecommendationFeedback :: RecommendationFeedback
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#newRecommendationFeedback"><span class="hs-identifier hs-var hs-var">newRecommendationFeedback</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">RecommendationFeedback' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Reaction]
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; RecommendationFeedback
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback%27"><span class="hs-identifier hs-type">RecommendationFeedback'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:recommendationId:RecommendationFeedback' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3ArecommendationId%3ARecommendationFeedback%27"><span class="hs-identifier hs-var">recommendationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:userId:RecommendationFeedback' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3AuserId%3ARecommendationFeedback%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:reactions:RecommendationFeedback' :: Maybe [Reaction]
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3Areactions%3ARecommendationFeedback%27"><span class="hs-identifier hs-var">reactions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Reaction]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:codeReviewArn:RecommendationFeedback' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3AcodeReviewArn%3ARecommendationFeedback%27"><span class="hs-identifier hs-var">codeReviewArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTimeStamp:RecommendationFeedback' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3AcreatedTimeStamp%3ARecommendationFeedback%27"><span class="hs-identifier hs-var">createdTimeStamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTimeStamp:RecommendationFeedback' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3AlastUpdatedTimeStamp%3ARecommendationFeedback%27"><span class="hs-identifier hs-var">lastUpdatedTimeStamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The recommendation ID that can be used to track the provided</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- recommendations. Later on it can be used to collect the feedback.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#recommendationFeedback_recommendationId"><span class="hs-identifier hs-type">recommendationFeedback_recommendationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="recommendationFeedback_recommendationId"><span class="annot"><span class="annottext">recommendationFeedback_recommendationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RecommendationFeedback -&gt; f RecommendationFeedback
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#recommendationFeedback_recommendationId"><span class="hs-identifier hs-var hs-var">recommendationFeedback_recommendationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecommendationFeedback -&gt; Maybe Text)
+-&gt; (RecommendationFeedback -&gt; Maybe Text -&gt; RecommendationFeedback)
+-&gt; Lens
+     RecommendationFeedback
+     RecommendationFeedback
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback%27"><span class="hs-identifier hs-type">RecommendationFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198946"><span class="annot"><span class="annottext">Maybe Text
+recommendationId :: Maybe Text
+$sel:recommendationId:RecommendationFeedback' :: RecommendationFeedback -&gt; Maybe Text
+</span><a href="#local-6989586621679198946"><span class="hs-identifier hs-var hs-var">recommendationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198946"><span class="hs-identifier hs-var">recommendationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198945"><span class="annot"><span class="annottext">s :: RecommendationFeedback
+</span><a href="#local-6989586621679198945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback%27"><span class="hs-identifier hs-type">RecommendationFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198944"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecommendationFeedback
+</span><a href="#local-6989586621679198945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recommendationId:RecommendationFeedback' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3ArecommendationId%3ARecommendationFeedback%27"><span class="hs-identifier hs-var">recommendationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The ID of the user that made the API call.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- The @UserId@ is an IAM principal that can be specified as an Amazon Web</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Services account ID or an Amazon Resource Name (ARN). For more</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying Specifying a Principal&gt;</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- in the /Amazon Web Services Identity and Access Management User Guide/.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#recommendationFeedback_userId"><span class="hs-identifier hs-type">recommendationFeedback_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="recommendationFeedback_userId"><span class="annot"><span class="annottext">recommendationFeedback_userId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RecommendationFeedback -&gt; f RecommendationFeedback
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#recommendationFeedback_userId"><span class="hs-identifier hs-var hs-var">recommendationFeedback_userId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecommendationFeedback -&gt; Maybe Text)
+-&gt; (RecommendationFeedback -&gt; Maybe Text -&gt; RecommendationFeedback)
+-&gt; Lens
+     RecommendationFeedback
+     RecommendationFeedback
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback%27"><span class="hs-identifier hs-type">RecommendationFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198942"><span class="annot"><span class="annottext">Maybe Text
+userId :: Maybe Text
+$sel:userId:RecommendationFeedback' :: RecommendationFeedback -&gt; Maybe Text
+</span><a href="#local-6989586621679198942"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198942"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198941"><span class="annot"><span class="annottext">s :: RecommendationFeedback
+</span><a href="#local-6989586621679198941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback%27"><span class="hs-identifier hs-type">RecommendationFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198940"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecommendationFeedback
+</span><a href="#local-6989586621679198941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:RecommendationFeedback' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3AuserId%3ARecommendationFeedback%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | List for storing reactions. Reactions are utf-8 text code for emojis.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- You can send an empty list to clear off all your feedback.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#recommendationFeedback_reactions"><span class="hs-identifier hs-type">recommendationFeedback_reactions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.Reaction.html#Reaction"><span class="hs-identifier hs-type">Reaction</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="recommendationFeedback_reactions"><span class="annot"><span class="annottext">recommendationFeedback_reactions :: (Maybe [Reaction] -&gt; f (Maybe [Reaction]))
+-&gt; RecommendationFeedback -&gt; f RecommendationFeedback
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#recommendationFeedback_reactions"><span class="hs-identifier hs-var hs-var">recommendationFeedback_reactions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecommendationFeedback -&gt; Maybe [Reaction])
+-&gt; (RecommendationFeedback
+    -&gt; Maybe [Reaction] -&gt; RecommendationFeedback)
+-&gt; Lens
+     RecommendationFeedback
+     RecommendationFeedback
+     (Maybe [Reaction])
+     (Maybe [Reaction])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback%27"><span class="hs-identifier hs-type">RecommendationFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198938"><span class="annot"><span class="annottext">Maybe [Reaction]
+reactions :: Maybe [Reaction]
+$sel:reactions:RecommendationFeedback' :: RecommendationFeedback -&gt; Maybe [Reaction]
+</span><a href="#local-6989586621679198938"><span class="hs-identifier hs-var hs-var">reactions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Reaction]
+</span><a href="#local-6989586621679198938"><span class="hs-identifier hs-var">reactions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198937"><span class="annot"><span class="annottext">s :: RecommendationFeedback
+</span><a href="#local-6989586621679198937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback%27"><span class="hs-identifier hs-type">RecommendationFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198936"><span class="annot"><span class="annottext">Maybe [Reaction]
+</span><a href="#local-6989586621679198936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecommendationFeedback
+</span><a href="#local-6989586621679198937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reactions:RecommendationFeedback' :: Maybe [Reaction]
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3Areactions%3ARecommendationFeedback%27"><span class="hs-identifier hs-var">reactions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Reaction]
+</span><a href="#local-6989586621679198936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Reaction] -&gt; f (Maybe [Reaction]))
+ -&gt; RecommendationFeedback -&gt; f RecommendationFeedback)
+-&gt; ((Maybe [Reaction] -&gt; f (Maybe [Reaction]))
+    -&gt; Maybe [Reaction] -&gt; f (Maybe [Reaction]))
+-&gt; (Maybe [Reaction] -&gt; f (Maybe [Reaction]))
+-&gt; RecommendationFeedback
+-&gt; f RecommendationFeedback
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Reaction] [Reaction] [Reaction] [Reaction]
+-&gt; Iso
+     (Maybe [Reaction])
+     (Maybe [Reaction])
+     (Maybe [Reaction])
+     (Maybe [Reaction])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Reaction] [Reaction] [Reaction] [Reaction]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview&gt;</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- object.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#recommendationFeedback_codeReviewArn"><span class="hs-identifier hs-type">recommendationFeedback_codeReviewArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="recommendationFeedback_codeReviewArn"><span class="annot"><span class="annottext">recommendationFeedback_codeReviewArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RecommendationFeedback -&gt; f RecommendationFeedback
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#recommendationFeedback_codeReviewArn"><span class="hs-identifier hs-var hs-var">recommendationFeedback_codeReviewArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecommendationFeedback -&gt; Maybe Text)
+-&gt; (RecommendationFeedback -&gt; Maybe Text -&gt; RecommendationFeedback)
+-&gt; Lens
+     RecommendationFeedback
+     RecommendationFeedback
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback%27"><span class="hs-identifier hs-type">RecommendationFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198931"><span class="annot"><span class="annottext">Maybe Text
+codeReviewArn :: Maybe Text
+$sel:codeReviewArn:RecommendationFeedback' :: RecommendationFeedback -&gt; Maybe Text
+</span><a href="#local-6989586621679198931"><span class="hs-identifier hs-var hs-var">codeReviewArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198931"><span class="hs-identifier hs-var">codeReviewArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198930"><span class="annot"><span class="annottext">s :: RecommendationFeedback
+</span><a href="#local-6989586621679198930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback%27"><span class="hs-identifier hs-type">RecommendationFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198929"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecommendationFeedback
+</span><a href="#local-6989586621679198930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeReviewArn:RecommendationFeedback' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3AcodeReviewArn%3ARecommendationFeedback%27"><span class="hs-identifier hs-var">codeReviewArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The time at which the feedback was created.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#recommendationFeedback_createdTimeStamp"><span class="hs-identifier hs-type">recommendationFeedback_createdTimeStamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="recommendationFeedback_createdTimeStamp"><span class="annot"><span class="annottext">recommendationFeedback_createdTimeStamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RecommendationFeedback -&gt; f RecommendationFeedback
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#recommendationFeedback_createdTimeStamp"><span class="hs-identifier hs-var hs-var">recommendationFeedback_createdTimeStamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecommendationFeedback -&gt; Maybe POSIX)
+-&gt; (RecommendationFeedback
+    -&gt; Maybe POSIX -&gt; RecommendationFeedback)
+-&gt; Lens
+     RecommendationFeedback
+     RecommendationFeedback
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback%27"><span class="hs-identifier hs-type">RecommendationFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198927"><span class="annot"><span class="annottext">Maybe POSIX
+createdTimeStamp :: Maybe POSIX
+$sel:createdTimeStamp:RecommendationFeedback' :: RecommendationFeedback -&gt; Maybe POSIX
+</span><a href="#local-6989586621679198927"><span class="hs-identifier hs-var hs-var">createdTimeStamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198927"><span class="hs-identifier hs-var">createdTimeStamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198926"><span class="annot"><span class="annottext">s :: RecommendationFeedback
+</span><a href="#local-6989586621679198926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback%27"><span class="hs-identifier hs-type">RecommendationFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198925"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecommendationFeedback
+</span><a href="#local-6989586621679198926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTimeStamp:RecommendationFeedback' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3AcreatedTimeStamp%3ARecommendationFeedback%27"><span class="hs-identifier hs-var">createdTimeStamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; RecommendationFeedback -&gt; f RecommendationFeedback)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RecommendationFeedback
+-&gt; f RecommendationFeedback
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The time at which the feedback was last updated.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#recommendationFeedback_lastUpdatedTimeStamp"><span class="hs-identifier hs-type">recommendationFeedback_lastUpdatedTimeStamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="recommendationFeedback_lastUpdatedTimeStamp"><span class="annot"><span class="annottext">recommendationFeedback_lastUpdatedTimeStamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RecommendationFeedback -&gt; f RecommendationFeedback
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#recommendationFeedback_lastUpdatedTimeStamp"><span class="hs-identifier hs-var hs-var">recommendationFeedback_lastUpdatedTimeStamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RecommendationFeedback -&gt; Maybe POSIX)
+-&gt; (RecommendationFeedback
+    -&gt; Maybe POSIX -&gt; RecommendationFeedback)
+-&gt; Lens
+     RecommendationFeedback
+     RecommendationFeedback
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback%27"><span class="hs-identifier hs-type">RecommendationFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198922"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedTimeStamp :: Maybe POSIX
+$sel:lastUpdatedTimeStamp:RecommendationFeedback' :: RecommendationFeedback -&gt; Maybe POSIX
+</span><a href="#local-6989586621679198922"><span class="hs-identifier hs-var hs-var">lastUpdatedTimeStamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198922"><span class="hs-identifier hs-var">lastUpdatedTimeStamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198921"><span class="annot"><span class="annottext">s :: RecommendationFeedback
+</span><a href="#local-6989586621679198921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback%27"><span class="hs-identifier hs-type">RecommendationFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198920"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecommendationFeedback
+</span><a href="#local-6989586621679198921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTimeStamp:RecommendationFeedback' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#%24sel%3AlastUpdatedTimeStamp%3ARecommendationFeedback%27"><span class="hs-identifier hs-var">lastUpdatedTimeStamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; RecommendationFeedback -&gt; f RecommendationFeedback)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RecommendationFeedback
+-&gt; f RecommendationFeedback
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198917"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679198915"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RecommendationFeedback
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RecommendationFeedback)
+-&gt; Value
+-&gt; Parser RecommendationFeedback
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RecommendationFeedback&quot;</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679198912"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198912"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Reaction]
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; RecommendationFeedback
+</span><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback%27"><span class="hs-identifier hs-var">RecommendationFeedback'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Reaction]
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; RecommendationFeedback)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Reaction]
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; RecommendationFeedback)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecommendationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Reaction]
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; RecommendationFeedback)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Reaction]
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; RecommendationFeedback)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Reaction]
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; RecommendationFeedback)
+-&gt; Parser (Maybe [Reaction])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; RecommendationFeedback)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Reaction]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Reactions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Reaction]))
+-&gt; Maybe [Reaction] -&gt; Parser (Maybe [Reaction])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Reaction]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; RecommendationFeedback)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; RecommendationFeedback)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CodeReviewArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; RecommendationFeedback)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe POSIX -&gt; RecommendationFeedback)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTimeStamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; RecommendationFeedback)
+-&gt; Parser (Maybe POSIX) -&gt; Parser RecommendationFeedback
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedTimeStamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198905"><span id="local-6989586621679198907"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198902"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.html#RecommendationFeedback"><span class="hs-identifier hs-type">RecommendationFeedback</span></a></span></span><span>
+</span><span id="line-149"></span></pre></body></html>

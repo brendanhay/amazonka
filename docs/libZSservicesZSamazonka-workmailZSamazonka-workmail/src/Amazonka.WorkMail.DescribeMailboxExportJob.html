@@ -1,0 +1,1251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WorkMail.DescribeMailboxExportJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the current status of a mailbox export job.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkMail.DescribeMailboxExportJob</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob"><span class="hs-identifier">DescribeMailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#newDescribeMailboxExportJob"><span class="hs-identifier">newDescribeMailboxExportJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJob_jobId"><span class="hs-identifier">describeMailboxExportJob_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJob_organizationId"><span class="hs-identifier">describeMailboxExportJob_organizationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier">DescribeMailboxExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#newDescribeMailboxExportJobResponse"><span class="hs-identifier">newDescribeMailboxExportJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_state"><span class="hs-identifier">describeMailboxExportJobResponse_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_kmsKeyArn"><span class="hs-identifier">describeMailboxExportJobResponse_kmsKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_startTime"><span class="hs-identifier">describeMailboxExportJobResponse_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_estimatedProgress"><span class="hs-identifier">describeMailboxExportJobResponse_estimatedProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_endTime"><span class="hs-identifier">describeMailboxExportJobResponse_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_s3Path"><span class="hs-identifier">describeMailboxExportJobResponse_s3Path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_s3Prefix"><span class="hs-identifier">describeMailboxExportJobResponse_s3Prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_entityId"><span class="hs-identifier">describeMailboxExportJobResponse_entityId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_description"><span class="hs-identifier">describeMailboxExportJobResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_errorInfo"><span class="hs-identifier">describeMailboxExportJobResponse_errorInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_s3BucketName"><span class="hs-identifier">describeMailboxExportJobResponse_s3BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_roleArn"><span class="hs-identifier">describeMailboxExportJobResponse_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_httpStatus"><span class="hs-identifier">describeMailboxExportJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.html"><span class="hs-identifier">Amazonka.WorkMail.Types</span></a></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newDescribeMailboxExportJob' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679291628"><span id="local-6989586621679291629"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeMailboxExportJob"><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob"><span class="hs-identifier hs-var">DescribeMailboxExportJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeMailboxExportJob%27"><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob%27"><span class="hs-identifier hs-var">DescribeMailboxExportJob'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The mailbox export job ID.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AjobId%3ADescribeMailboxExportJob%27"><span class="annot"><span class="annottext">DescribeMailboxExportJob -&gt; Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AjobId%3ADescribeMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The organization ID.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AorganizationId%3ADescribeMailboxExportJob%27"><span class="annot"><span class="annottext">DescribeMailboxExportJob -&gt; Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AorganizationId%3ADescribeMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291621"><span id="local-6989586621679291623"><span class="annot"><span class="annottext">DescribeMailboxExportJob -&gt; DescribeMailboxExportJob -&gt; Bool
+(DescribeMailboxExportJob -&gt; DescribeMailboxExportJob -&gt; Bool)
+-&gt; (DescribeMailboxExportJob -&gt; DescribeMailboxExportJob -&gt; Bool)
+-&gt; Eq DescribeMailboxExportJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeMailboxExportJob -&gt; DescribeMailboxExportJob -&gt; Bool
+$c/= :: DescribeMailboxExportJob -&gt; DescribeMailboxExportJob -&gt; Bool
+== :: DescribeMailboxExportJob -&gt; DescribeMailboxExportJob -&gt; Bool
+$c== :: DescribeMailboxExportJob -&gt; DescribeMailboxExportJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291612"><span id="local-6989586621679291614"><span id="local-6989586621679291616"><span id="local-6989586621679291618"><span class="annot"><span class="annottext">ReadPrec [DescribeMailboxExportJob]
+ReadPrec DescribeMailboxExportJob
+Int -&gt; ReadS DescribeMailboxExportJob
+ReadS [DescribeMailboxExportJob]
+(Int -&gt; ReadS DescribeMailboxExportJob)
+-&gt; ReadS [DescribeMailboxExportJob]
+-&gt; ReadPrec DescribeMailboxExportJob
+-&gt; ReadPrec [DescribeMailboxExportJob]
+-&gt; Read DescribeMailboxExportJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeMailboxExportJob]
+$creadListPrec :: ReadPrec [DescribeMailboxExportJob]
+readPrec :: ReadPrec DescribeMailboxExportJob
+$creadPrec :: ReadPrec DescribeMailboxExportJob
+readList :: ReadS [DescribeMailboxExportJob]
+$creadList :: ReadS [DescribeMailboxExportJob]
+readsPrec :: Int -&gt; ReadS DescribeMailboxExportJob
+$creadsPrec :: Int -&gt; ReadS DescribeMailboxExportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291605"><span id="local-6989586621679291607"><span id="local-6989586621679291609"><span class="annot"><span class="annottext">Int -&gt; DescribeMailboxExportJob -&gt; ShowS
+[DescribeMailboxExportJob] -&gt; ShowS
+DescribeMailboxExportJob -&gt; String
+(Int -&gt; DescribeMailboxExportJob -&gt; ShowS)
+-&gt; (DescribeMailboxExportJob -&gt; String)
+-&gt; ([DescribeMailboxExportJob] -&gt; ShowS)
+-&gt; Show DescribeMailboxExportJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeMailboxExportJob] -&gt; ShowS
+$cshowList :: [DescribeMailboxExportJob] -&gt; ShowS
+show :: DescribeMailboxExportJob -&gt; String
+$cshow :: DescribeMailboxExportJob -&gt; String
+showsPrec :: Int -&gt; DescribeMailboxExportJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeMailboxExportJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeMailboxExportJob -&gt; Rep DescribeMailboxExportJob x)
+-&gt; (forall x.
+    Rep DescribeMailboxExportJob x -&gt; DescribeMailboxExportJob)
+-&gt; Generic DescribeMailboxExportJob
+forall x.
+Rep DescribeMailboxExportJob x -&gt; DescribeMailboxExportJob
+forall x.
+DescribeMailboxExportJob -&gt; Rep DescribeMailboxExportJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeMailboxExportJob x -&gt; DescribeMailboxExportJob
+$cfrom :: forall x.
+DescribeMailboxExportJob -&gt; Rep DescribeMailboxExportJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'DescribeMailboxExportJob' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'jobId', 'describeMailboxExportJob_jobId' - The mailbox export job ID.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'organizationId', 'describeMailboxExportJob_organizationId' - The organization ID.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#newDescribeMailboxExportJob"><span class="hs-identifier hs-type">newDescribeMailboxExportJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'organizationId'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob"><span class="hs-identifier hs-type">DescribeMailboxExportJob</span></a></span><span>
+</span><span id="line-87"></span><span id="newDescribeMailboxExportJob"><span class="annot"><span class="annottext">newDescribeMailboxExportJob :: Text -&gt; Text -&gt; DescribeMailboxExportJob
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#newDescribeMailboxExportJob"><span class="hs-identifier hs-var hs-var">newDescribeMailboxExportJob</span></a></span></span><span> </span><span id="local-6989586621679291600"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291600"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span id="local-6989586621679291599"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291599"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">DescribeMailboxExportJob' :: Text -&gt; Text -&gt; DescribeMailboxExportJob
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob%27"><span class="hs-identifier hs-type">DescribeMailboxExportJob'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobId:DescribeMailboxExportJob' :: Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AjobId%3ADescribeMailboxExportJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291600"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationId:DescribeMailboxExportJob' :: Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AorganizationId%3ADescribeMailboxExportJob%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291599"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The mailbox export job ID.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJob_jobId"><span class="hs-identifier hs-type">describeMailboxExportJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob"><span class="hs-identifier hs-type">DescribeMailboxExportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="describeMailboxExportJob_jobId"><span class="annot"><span class="annottext">describeMailboxExportJob_jobId :: (Text -&gt; f Text)
+-&gt; DescribeMailboxExportJob -&gt; f DescribeMailboxExportJob
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJob_jobId"><span class="hs-identifier hs-var hs-var">describeMailboxExportJob_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMailboxExportJob -&gt; Text)
+-&gt; (DescribeMailboxExportJob -&gt; Text -&gt; DescribeMailboxExportJob)
+-&gt; Lens DescribeMailboxExportJob DescribeMailboxExportJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob%27"><span class="hs-identifier hs-type">DescribeMailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291596"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:DescribeMailboxExportJob' :: DescribeMailboxExportJob -&gt; Text
+</span><a href="#local-6989586621679291596"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291596"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291595"><span class="annot"><span class="annottext">s :: DescribeMailboxExportJob
+</span><a href="#local-6989586621679291595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob%27"><span class="hs-identifier hs-type">DescribeMailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291594"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMailboxExportJob
+</span><a href="#local-6989586621679291595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribeMailboxExportJob' :: Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AjobId%3ADescribeMailboxExportJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob"><span class="hs-identifier hs-type">DescribeMailboxExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The organization ID.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJob_organizationId"><span class="hs-identifier hs-type">describeMailboxExportJob_organizationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob"><span class="hs-identifier hs-type">DescribeMailboxExportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="describeMailboxExportJob_organizationId"><span class="annot"><span class="annottext">describeMailboxExportJob_organizationId :: (Text -&gt; f Text)
+-&gt; DescribeMailboxExportJob -&gt; f DescribeMailboxExportJob
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJob_organizationId"><span class="hs-identifier hs-var hs-var">describeMailboxExportJob_organizationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMailboxExportJob -&gt; Text)
+-&gt; (DescribeMailboxExportJob -&gt; Text -&gt; DescribeMailboxExportJob)
+-&gt; Lens DescribeMailboxExportJob DescribeMailboxExportJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob%27"><span class="hs-identifier hs-type">DescribeMailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291593"><span class="annot"><span class="annottext">Text
+organizationId :: Text
+$sel:organizationId:DescribeMailboxExportJob' :: DescribeMailboxExportJob -&gt; Text
+</span><a href="#local-6989586621679291593"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291593"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291592"><span class="annot"><span class="annottext">s :: DescribeMailboxExportJob
+</span><a href="#local-6989586621679291592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob%27"><span class="hs-identifier hs-type">DescribeMailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291591"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMailboxExportJob
+</span><a href="#local-6989586621679291592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:DescribeMailboxExportJob' :: Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AorganizationId%3ADescribeMailboxExportJob%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob"><span class="hs-identifier hs-type">DescribeMailboxExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob"><span class="hs-identifier hs-type">DescribeMailboxExportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob"><span class="hs-identifier hs-type">DescribeMailboxExportJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679291587"><span class="annot"><span class="annottext">request :: DescribeMailboxExportJob -&gt; Request DescribeMailboxExportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeMailboxExportJob -&gt; Request DescribeMailboxExportJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WorkMail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679291583"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeMailboxExportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeMailboxExportJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeMailboxExportJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeMailboxExportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeMailboxExportJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679291580"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291580"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679291579"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679291579"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679291578"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291578"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe MailboxExportJobState
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Natural
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">DescribeMailboxExportJobResponse'</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MailboxExportJobState
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Natural
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeMailboxExportJobResponse)
+-&gt; Either String (Maybe MailboxExportJobState)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Natural
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeMailboxExportJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MailboxExportJobState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Natural
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeMailboxExportJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Natural
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeMailboxExportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KmsKeyArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Natural
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeMailboxExportJobResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Natural
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeMailboxExportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Natural
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeMailboxExportJobResponse)
+-&gt; Either String (Maybe Natural)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeMailboxExportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EstimatedProgress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeMailboxExportJobResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeMailboxExportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeMailboxExportJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeMailboxExportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Path&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeMailboxExportJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeMailboxExportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Prefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeMailboxExportJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeMailboxExportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EntityId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeMailboxExportJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeMailboxExportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeMailboxExportJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Int -&gt; DescribeMailboxExportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Int -&gt; DescribeMailboxExportJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeMailboxExportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribeMailboxExportJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeMailboxExportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeMailboxExportJobResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeMailboxExportJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291580"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291570"><span id="local-6989586621679291572"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob"><span class="hs-identifier hs-type">DescribeMailboxExportJob</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob"><span class="hs-identifier hs-type">DescribeMailboxExportJob</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob"><span class="hs-identifier hs-type">DescribeMailboxExportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679291563"><span class="annot"><span class="annottext">toHeaders :: DescribeMailboxExportJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeMailboxExportJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkMailService.DescribeMailboxExportJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-140"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291553"><span id="local-6989586621679291555"><span id="local-6989586621679291557"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob"><span class="hs-identifier hs-type">DescribeMailboxExportJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679291551"><span class="annot"><span class="annottext">toJSON :: DescribeMailboxExportJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob%27"><span class="hs-identifier hs-type">DescribeMailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291548"><span id="local-6989586621679291549"><span class="annot"><span class="annottext">Text
+organizationId :: Text
+jobId :: Text
+$sel:organizationId:DescribeMailboxExportJob' :: DescribeMailboxExportJob -&gt; Text
+$sel:jobId:DescribeMailboxExportJob' :: DescribeMailboxExportJob -&gt; Text
+</span><a href="#local-6989586621679291548"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291549"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-150"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291548"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob"><span class="hs-identifier hs-type">DescribeMailboxExportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679291542"><span class="annot"><span class="annottext">toPath :: DescribeMailboxExportJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeMailboxExportJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJob"><span class="hs-identifier hs-type">DescribeMailboxExportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679291538"><span class="annot"><span class="annottext">toQuery :: DescribeMailboxExportJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeMailboxExportJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | /See:/ 'newDescribeMailboxExportJobResponse' smart constructor.</span><span>
+</span><span id="line-161"></span><span id="local-6989586621679291535"><span id="local-6989586621679291536"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeMailboxExportJobResponse"><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-var">DescribeMailboxExportJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeMailboxExportJobResponse%27"><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">DescribeMailboxExportJobResponse'</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the mailbox export job.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3Astate%3ADescribeMailboxExportJobResponse%27"><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse -&gt; Maybe MailboxExportJobState
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3Astate%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.MailboxExportJobState.html#MailboxExportJobState"><span class="hs-identifier hs-type">MailboxExportJobState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the symmetric AWS Key Management</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- Service (AWS KMS) key that encrypts the exported mailbox content.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AkmsKeyArn%3ADescribeMailboxExportJobResponse%27"><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AkmsKeyArn%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | The mailbox export job start timestamp.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AstartTime%3ADescribeMailboxExportJobResponse%27"><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AstartTime%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The estimated progress of the mailbox export job, in percentage points.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AestimatedProgress%3ADescribeMailboxExportJobResponse%27"><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse -&gt; Maybe Natural
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AestimatedProgress%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var hs-var">estimatedProgress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The mailbox export job end timestamp.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AendTime%3ADescribeMailboxExportJobResponse%27"><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AendTime%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The path to the S3 bucket and file that the mailbox export job is</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- exporting to.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3As3Path%3ADescribeMailboxExportJobResponse%27"><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3As3Path%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var hs-var">s3Path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | The S3 bucket prefix.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3As3Prefix%3ADescribeMailboxExportJobResponse%27"><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3As3Prefix%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var hs-var">s3Prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The identifier of the user or resource associated with the mailbox.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AentityId%3ADescribeMailboxExportJobResponse%27"><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AentityId%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var hs-var">entityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The mailbox export job description.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3Adescription%3ADescribeMailboxExportJobResponse%27"><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3Adescription%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | Error information for failed mailbox export jobs.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3AerrorInfo%3ADescribeMailboxExportJobResponse%27"><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AerrorInfo%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var hs-var">errorInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3As3BucketName%3ADescribeMailboxExportJobResponse%27"><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3As3BucketName%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The ARN of the AWS Identity and Access Management (IAM) role that grants</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- write permission to the Amazon Simple Storage Service (Amazon S3)</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- bucket.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3AroleArn%3ADescribeMailboxExportJobResponse%27"><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AroleArn%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeMailboxExportJobResponse%27"><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse -&gt; Int
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AhttpStatus%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291518"><span id="local-6989586621679291520"><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse
+-&gt; DescribeMailboxExportJobResponse -&gt; Bool
+(DescribeMailboxExportJobResponse
+ -&gt; DescribeMailboxExportJobResponse -&gt; Bool)
+-&gt; (DescribeMailboxExportJobResponse
+    -&gt; DescribeMailboxExportJobResponse -&gt; Bool)
+-&gt; Eq DescribeMailboxExportJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeMailboxExportJobResponse
+-&gt; DescribeMailboxExportJobResponse -&gt; Bool
+$c/= :: DescribeMailboxExportJobResponse
+-&gt; DescribeMailboxExportJobResponse -&gt; Bool
+== :: DescribeMailboxExportJobResponse
+-&gt; DescribeMailboxExportJobResponse -&gt; Bool
+$c== :: DescribeMailboxExportJobResponse
+-&gt; DescribeMailboxExportJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291510"><span id="local-6989586621679291512"><span id="local-6989586621679291514"><span id="local-6989586621679291516"><span class="annot"><span class="annottext">ReadPrec [DescribeMailboxExportJobResponse]
+ReadPrec DescribeMailboxExportJobResponse
+Int -&gt; ReadS DescribeMailboxExportJobResponse
+ReadS [DescribeMailboxExportJobResponse]
+(Int -&gt; ReadS DescribeMailboxExportJobResponse)
+-&gt; ReadS [DescribeMailboxExportJobResponse]
+-&gt; ReadPrec DescribeMailboxExportJobResponse
+-&gt; ReadPrec [DescribeMailboxExportJobResponse]
+-&gt; Read DescribeMailboxExportJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeMailboxExportJobResponse]
+$creadListPrec :: ReadPrec [DescribeMailboxExportJobResponse]
+readPrec :: ReadPrec DescribeMailboxExportJobResponse
+$creadPrec :: ReadPrec DescribeMailboxExportJobResponse
+readList :: ReadS [DescribeMailboxExportJobResponse]
+$creadList :: ReadS [DescribeMailboxExportJobResponse]
+readsPrec :: Int -&gt; ReadS DescribeMailboxExportJobResponse
+$creadsPrec :: Int -&gt; ReadS DescribeMailboxExportJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291504"><span id="local-6989586621679291506"><span id="local-6989586621679291508"><span class="annot"><span class="annottext">Int -&gt; DescribeMailboxExportJobResponse -&gt; ShowS
+[DescribeMailboxExportJobResponse] -&gt; ShowS
+DescribeMailboxExportJobResponse -&gt; String
+(Int -&gt; DescribeMailboxExportJobResponse -&gt; ShowS)
+-&gt; (DescribeMailboxExportJobResponse -&gt; String)
+-&gt; ([DescribeMailboxExportJobResponse] -&gt; ShowS)
+-&gt; Show DescribeMailboxExportJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeMailboxExportJobResponse] -&gt; ShowS
+$cshowList :: [DescribeMailboxExportJobResponse] -&gt; ShowS
+show :: DescribeMailboxExportJobResponse -&gt; String
+$cshow :: DescribeMailboxExportJobResponse -&gt; String
+showsPrec :: Int -&gt; DescribeMailboxExportJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeMailboxExportJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeMailboxExportJobResponse
+ -&gt; Rep DescribeMailboxExportJobResponse x)
+-&gt; (forall x.
+    Rep DescribeMailboxExportJobResponse x
+    -&gt; DescribeMailboxExportJobResponse)
+-&gt; Generic DescribeMailboxExportJobResponse
+forall x.
+Rep DescribeMailboxExportJobResponse x
+-&gt; DescribeMailboxExportJobResponse
+forall x.
+DescribeMailboxExportJobResponse
+-&gt; Rep DescribeMailboxExportJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeMailboxExportJobResponse x
+-&gt; DescribeMailboxExportJobResponse
+$cfrom :: forall x.
+DescribeMailboxExportJobResponse
+-&gt; Rep DescribeMailboxExportJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- Create a value of 'DescribeMailboxExportJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'state', 'describeMailboxExportJobResponse_state' - The state of the mailbox export job.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'kmsKeyArn', 'describeMailboxExportJobResponse_kmsKeyArn' - The Amazon Resource Name (ARN) of the symmetric AWS Key Management</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Service (AWS KMS) key that encrypts the exported mailbox content.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'startTime', 'describeMailboxExportJobResponse_startTime' - The mailbox export job start timestamp.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'estimatedProgress', 'describeMailboxExportJobResponse_estimatedProgress' - The estimated progress of the mailbox export job, in percentage points.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'endTime', 'describeMailboxExportJobResponse_endTime' - The mailbox export job end timestamp.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 's3Path', 'describeMailboxExportJobResponse_s3Path' - The path to the S3 bucket and file that the mailbox export job is</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- exporting to.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 's3Prefix', 'describeMailboxExportJobResponse_s3Prefix' - The S3 bucket prefix.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'entityId', 'describeMailboxExportJobResponse_entityId' - The identifier of the user or resource associated with the mailbox.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'description', 'describeMailboxExportJobResponse_description' - The mailbox export job description.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'errorInfo', 'describeMailboxExportJobResponse_errorInfo' - Error information for failed mailbox export jobs.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 's3BucketName', 'describeMailboxExportJobResponse_s3BucketName' - The name of the S3 bucket.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'roleArn', 'describeMailboxExportJobResponse_roleArn' - The ARN of the AWS Identity and Access Management (IAM) role that grants</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- write permission to the Amazon Simple Storage Service (Amazon S3)</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- bucket.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- 'httpStatus', 'describeMailboxExportJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#newDescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">newDescribeMailboxExportJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-235"></span><span>  </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span>
+</span><span id="line-236"></span><span id="newDescribeMailboxExportJobResponse"><span class="annot"><span class="annottext">newDescribeMailboxExportJobResponse :: Int -&gt; DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#newDescribeMailboxExportJobResponse"><span class="hs-identifier hs-var hs-var">newDescribeMailboxExportJobResponse</span></a></span></span><span> </span><span id="local-6989586621679291501"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291501"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>  </span><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse' :: Maybe MailboxExportJobState
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Natural
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:DescribeMailboxExportJobResponse' :: Maybe MailboxExportJobState
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3Astate%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">Maybe MailboxExportJobState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyArn:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AkmsKeyArn%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:DescribeMailboxExportJobResponse' :: Maybe POSIX
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AstartTime%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:estimatedProgress:DescribeMailboxExportJobResponse' :: Maybe Natural
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AestimatedProgress%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">estimatedProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:DescribeMailboxExportJobResponse' :: Maybe POSIX
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AendTime%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Path:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3As3Path%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">s3Path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Prefix:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3As3Prefix%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityId:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AentityId%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">entityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3Adescription%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorInfo:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AerrorInfo%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">errorInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BucketName:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3As3BucketName%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AroleArn%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeMailboxExportJobResponse' :: Int
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AhttpStatus%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291501"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The state of the mailbox export job.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_state"><span class="hs-identifier hs-type">describeMailboxExportJobResponse_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.Types.MailboxExportJobState.html#MailboxExportJobState"><span class="hs-identifier hs-type">MailboxExportJobState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="describeMailboxExportJobResponse_state"><span class="annot"><span class="annottext">describeMailboxExportJobResponse_state :: (Maybe MailboxExportJobState -&gt; f (Maybe MailboxExportJobState))
+-&gt; DescribeMailboxExportJobResponse
+-&gt; f DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_state"><span class="hs-identifier hs-var hs-var">describeMailboxExportJobResponse_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMailboxExportJobResponse -&gt; Maybe MailboxExportJobState)
+-&gt; (DescribeMailboxExportJobResponse
+    -&gt; Maybe MailboxExportJobState -&gt; DescribeMailboxExportJobResponse)
+-&gt; Lens
+     DescribeMailboxExportJobResponse
+     DescribeMailboxExportJobResponse
+     (Maybe MailboxExportJobState)
+     (Maybe MailboxExportJobState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291500"><span class="annot"><span class="annottext">Maybe MailboxExportJobState
+state :: Maybe MailboxExportJobState
+$sel:state:DescribeMailboxExportJobResponse' :: DescribeMailboxExportJobResponse -&gt; Maybe MailboxExportJobState
+</span><a href="#local-6989586621679291500"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MailboxExportJobState
+</span><a href="#local-6989586621679291500"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291499"><span class="annot"><span class="annottext">s :: DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291498"><span class="annot"><span class="annottext">Maybe MailboxExportJobState
+</span><a href="#local-6989586621679291498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:DescribeMailboxExportJobResponse' :: Maybe MailboxExportJobState
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3Astate%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MailboxExportJobState
+</span><a href="#local-6989586621679291498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the symmetric AWS Key Management</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- Service (AWS KMS) key that encrypts the exported mailbox content.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_kmsKeyArn"><span class="hs-identifier hs-type">describeMailboxExportJobResponse_kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="describeMailboxExportJobResponse_kmsKeyArn"><span class="annot"><span class="annottext">describeMailboxExportJobResponse_kmsKeyArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeMailboxExportJobResponse
+-&gt; f DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_kmsKeyArn"><span class="hs-identifier hs-var hs-var">describeMailboxExportJobResponse_kmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMailboxExportJobResponse -&gt; Maybe Text)
+-&gt; (DescribeMailboxExportJobResponse
+    -&gt; Maybe Text -&gt; DescribeMailboxExportJobResponse)
+-&gt; Lens
+     DescribeMailboxExportJobResponse
+     DescribeMailboxExportJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291497"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyArn :: Maybe Text
+$sel:kmsKeyArn:DescribeMailboxExportJobResponse' :: DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679291497"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291497"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291496"><span class="annot"><span class="annottext">s :: DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291495"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AkmsKeyArn%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The mailbox export job start timestamp.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_startTime"><span class="hs-identifier hs-type">describeMailboxExportJobResponse_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="describeMailboxExportJobResponse_startTime"><span class="annot"><span class="annottext">describeMailboxExportJobResponse_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeMailboxExportJobResponse
+-&gt; f DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_startTime"><span class="hs-identifier hs-var hs-var">describeMailboxExportJobResponse_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMailboxExportJobResponse -&gt; Maybe POSIX)
+-&gt; (DescribeMailboxExportJobResponse
+    -&gt; Maybe POSIX -&gt; DescribeMailboxExportJobResponse)
+-&gt; Lens
+     DescribeMailboxExportJobResponse
+     DescribeMailboxExportJobResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291494"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:DescribeMailboxExportJobResponse' :: DescribeMailboxExportJobResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679291494"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679291494"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291493"><span class="annot"><span class="annottext">s :: DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291492"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679291492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:DescribeMailboxExportJobResponse' :: Maybe POSIX
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AstartTime%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679291492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeMailboxExportJobResponse
+ -&gt; f DescribeMailboxExportJobResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeMailboxExportJobResponse
+-&gt; f DescribeMailboxExportJobResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The estimated progress of the mailbox export job, in percentage points.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_estimatedProgress"><span class="hs-identifier hs-type">describeMailboxExportJobResponse_estimatedProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span id="describeMailboxExportJobResponse_estimatedProgress"><span class="annot"><span class="annottext">describeMailboxExportJobResponse_estimatedProgress :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeMailboxExportJobResponse
+-&gt; f DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_estimatedProgress"><span class="hs-identifier hs-var hs-var">describeMailboxExportJobResponse_estimatedProgress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMailboxExportJobResponse -&gt; Maybe Natural)
+-&gt; (DescribeMailboxExportJobResponse
+    -&gt; Maybe Natural -&gt; DescribeMailboxExportJobResponse)
+-&gt; Lens
+     DescribeMailboxExportJobResponse
+     DescribeMailboxExportJobResponse
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291488"><span class="annot"><span class="annottext">Maybe Natural
+estimatedProgress :: Maybe Natural
+$sel:estimatedProgress:DescribeMailboxExportJobResponse' :: DescribeMailboxExportJobResponse -&gt; Maybe Natural
+</span><a href="#local-6989586621679291488"><span class="hs-identifier hs-var hs-var">estimatedProgress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679291488"><span class="hs-identifier hs-var">estimatedProgress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291487"><span class="annot"><span class="annottext">s :: DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291486"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679291486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:estimatedProgress:DescribeMailboxExportJobResponse' :: Maybe Natural
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AestimatedProgress%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">estimatedProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679291486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | The mailbox export job end timestamp.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_endTime"><span class="hs-identifier hs-type">describeMailboxExportJobResponse_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span id="describeMailboxExportJobResponse_endTime"><span class="annot"><span class="annottext">describeMailboxExportJobResponse_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeMailboxExportJobResponse
+-&gt; f DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_endTime"><span class="hs-identifier hs-var hs-var">describeMailboxExportJobResponse_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMailboxExportJobResponse -&gt; Maybe POSIX)
+-&gt; (DescribeMailboxExportJobResponse
+    -&gt; Maybe POSIX -&gt; DescribeMailboxExportJobResponse)
+-&gt; Lens
+     DescribeMailboxExportJobResponse
+     DescribeMailboxExportJobResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291485"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:DescribeMailboxExportJobResponse' :: DescribeMailboxExportJobResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679291485"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679291485"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291484"><span class="annot"><span class="annottext">s :: DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291483"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679291483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:DescribeMailboxExportJobResponse' :: Maybe POSIX
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AendTime%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679291483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeMailboxExportJobResponse
+ -&gt; f DescribeMailboxExportJobResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeMailboxExportJobResponse
+-&gt; f DescribeMailboxExportJobResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | The path to the S3 bucket and file that the mailbox export job is</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- exporting to.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_s3Path"><span class="hs-identifier hs-type">describeMailboxExportJobResponse_s3Path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="describeMailboxExportJobResponse_s3Path"><span class="annot"><span class="annottext">describeMailboxExportJobResponse_s3Path :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeMailboxExportJobResponse
+-&gt; f DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_s3Path"><span class="hs-identifier hs-var hs-var">describeMailboxExportJobResponse_s3Path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMailboxExportJobResponse -&gt; Maybe Text)
+-&gt; (DescribeMailboxExportJobResponse
+    -&gt; Maybe Text -&gt; DescribeMailboxExportJobResponse)
+-&gt; Lens
+     DescribeMailboxExportJobResponse
+     DescribeMailboxExportJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291482"><span class="annot"><span class="annottext">Maybe Text
+s3Path :: Maybe Text
+$sel:s3Path:DescribeMailboxExportJobResponse' :: DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679291482"><span class="hs-identifier hs-var hs-var">s3Path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291482"><span class="hs-identifier hs-var">s3Path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291481"><span class="annot"><span class="annottext">s :: DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291480"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Path:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3As3Path%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">s3Path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | The S3 bucket prefix.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_s3Prefix"><span class="hs-identifier hs-type">describeMailboxExportJobResponse_s3Prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span id="describeMailboxExportJobResponse_s3Prefix"><span class="annot"><span class="annottext">describeMailboxExportJobResponse_s3Prefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeMailboxExportJobResponse
+-&gt; f DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_s3Prefix"><span class="hs-identifier hs-var hs-var">describeMailboxExportJobResponse_s3Prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMailboxExportJobResponse -&gt; Maybe Text)
+-&gt; (DescribeMailboxExportJobResponse
+    -&gt; Maybe Text -&gt; DescribeMailboxExportJobResponse)
+-&gt; Lens
+     DescribeMailboxExportJobResponse
+     DescribeMailboxExportJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291479"><span class="annot"><span class="annottext">Maybe Text
+s3Prefix :: Maybe Text
+$sel:s3Prefix:DescribeMailboxExportJobResponse' :: DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679291479"><span class="hs-identifier hs-var hs-var">s3Prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291479"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291478"><span class="annot"><span class="annottext">s :: DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291477"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Prefix:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3As3Prefix%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | The identifier of the user or resource associated with the mailbox.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_entityId"><span class="hs-identifier hs-type">describeMailboxExportJobResponse_entityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="describeMailboxExportJobResponse_entityId"><span class="annot"><span class="annottext">describeMailboxExportJobResponse_entityId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeMailboxExportJobResponse
+-&gt; f DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_entityId"><span class="hs-identifier hs-var hs-var">describeMailboxExportJobResponse_entityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMailboxExportJobResponse -&gt; Maybe Text)
+-&gt; (DescribeMailboxExportJobResponse
+    -&gt; Maybe Text -&gt; DescribeMailboxExportJobResponse)
+-&gt; Lens
+     DescribeMailboxExportJobResponse
+     DescribeMailboxExportJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291476"><span class="annot"><span class="annottext">Maybe Text
+entityId :: Maybe Text
+$sel:entityId:DescribeMailboxExportJobResponse' :: DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679291476"><span class="hs-identifier hs-var hs-var">entityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291476"><span class="hs-identifier hs-var">entityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291475"><span class="annot"><span class="annottext">s :: DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291474"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityId:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AentityId%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">entityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The mailbox export job description.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_description"><span class="hs-identifier hs-type">describeMailboxExportJobResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span id="describeMailboxExportJobResponse_description"><span class="annot"><span class="annottext">describeMailboxExportJobResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeMailboxExportJobResponse
+-&gt; f DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_description"><span class="hs-identifier hs-var hs-var">describeMailboxExportJobResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMailboxExportJobResponse -&gt; Maybe Text)
+-&gt; (DescribeMailboxExportJobResponse
+    -&gt; Maybe Text -&gt; DescribeMailboxExportJobResponse)
+-&gt; Lens
+     DescribeMailboxExportJobResponse
+     DescribeMailboxExportJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291473"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:DescribeMailboxExportJobResponse' :: DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679291473"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291473"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291472"><span class="annot"><span class="annottext">s :: DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291471"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3Adescription%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | Error information for failed mailbox export jobs.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_errorInfo"><span class="hs-identifier hs-type">describeMailboxExportJobResponse_errorInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span id="describeMailboxExportJobResponse_errorInfo"><span class="annot"><span class="annottext">describeMailboxExportJobResponse_errorInfo :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeMailboxExportJobResponse
+-&gt; f DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_errorInfo"><span class="hs-identifier hs-var hs-var">describeMailboxExportJobResponse_errorInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMailboxExportJobResponse -&gt; Maybe Text)
+-&gt; (DescribeMailboxExportJobResponse
+    -&gt; Maybe Text -&gt; DescribeMailboxExportJobResponse)
+-&gt; Lens
+     DescribeMailboxExportJobResponse
+     DescribeMailboxExportJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291470"><span class="annot"><span class="annottext">Maybe Text
+errorInfo :: Maybe Text
+$sel:errorInfo:DescribeMailboxExportJobResponse' :: DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679291470"><span class="hs-identifier hs-var hs-var">errorInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291470"><span class="hs-identifier hs-var">errorInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291469"><span class="annot"><span class="annottext">s :: DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291468"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorInfo:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AerrorInfo%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">errorInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_s3BucketName"><span class="hs-identifier hs-type">describeMailboxExportJobResponse_s3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span id="describeMailboxExportJobResponse_s3BucketName"><span class="annot"><span class="annottext">describeMailboxExportJobResponse_s3BucketName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeMailboxExportJobResponse
+-&gt; f DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_s3BucketName"><span class="hs-identifier hs-var hs-var">describeMailboxExportJobResponse_s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMailboxExportJobResponse -&gt; Maybe Text)
+-&gt; (DescribeMailboxExportJobResponse
+    -&gt; Maybe Text -&gt; DescribeMailboxExportJobResponse)
+-&gt; Lens
+     DescribeMailboxExportJobResponse
+     DescribeMailboxExportJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291467"><span class="annot"><span class="annottext">Maybe Text
+s3BucketName :: Maybe Text
+$sel:s3BucketName:DescribeMailboxExportJobResponse' :: DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679291467"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291467"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291466"><span class="annot"><span class="annottext">s :: DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291465"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3As3BucketName%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | The ARN of the AWS Identity and Access Management (IAM) role that grants</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- write permission to the Amazon Simple Storage Service (Amazon S3)</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- bucket.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_roleArn"><span class="hs-identifier hs-type">describeMailboxExportJobResponse_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span id="describeMailboxExportJobResponse_roleArn"><span class="annot"><span class="annottext">describeMailboxExportJobResponse_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeMailboxExportJobResponse
+-&gt; f DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_roleArn"><span class="hs-identifier hs-var hs-var">describeMailboxExportJobResponse_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMailboxExportJobResponse -&gt; Maybe Text)
+-&gt; (DescribeMailboxExportJobResponse
+    -&gt; Maybe Text -&gt; DescribeMailboxExportJobResponse)
+-&gt; Lens
+     DescribeMailboxExportJobResponse
+     DescribeMailboxExportJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291464"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:DescribeMailboxExportJobResponse' :: DescribeMailboxExportJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679291464"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291464"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291463"><span class="annot"><span class="annottext">s :: DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291462"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:DescribeMailboxExportJobResponse' :: Maybe Text
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AroleArn%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-307"></span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_httpStatus"><span class="hs-identifier hs-type">describeMailboxExportJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-308"></span><span id="describeMailboxExportJobResponse_httpStatus"><span class="annot"><span class="annottext">describeMailboxExportJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeMailboxExportJobResponse
+-&gt; f DescribeMailboxExportJobResponse
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#describeMailboxExportJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeMailboxExportJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMailboxExportJobResponse -&gt; Int)
+-&gt; (DescribeMailboxExportJobResponse
+    -&gt; Int -&gt; DescribeMailboxExportJobResponse)
+-&gt; Lens
+     DescribeMailboxExportJobResponse
+     DescribeMailboxExportJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291461"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeMailboxExportJobResponse' :: DescribeMailboxExportJobResponse -&gt; Int
+</span><a href="#local-6989586621679291461"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291461"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291460"><span class="annot"><span class="annottext">s :: DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291459"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMailboxExportJobResponse
+</span><a href="#local-6989586621679291460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeMailboxExportJobResponse' :: Int
+</span><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#%24sel%3AhttpStatus%3ADescribeMailboxExportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-311"></span><span>  </span><span id="local-6989586621679291457"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><a href="Amazonka.WorkMail.DescribeMailboxExportJob.html#DescribeMailboxExportJobResponse"><span class="hs-identifier hs-type">DescribeMailboxExportJobResponse</span></a></span></span><span>
+</span><span id="line-313"></span></pre></body></html>

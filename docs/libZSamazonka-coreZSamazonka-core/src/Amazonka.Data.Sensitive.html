@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">-- |</span><span>
+</span><span id="line-2"></span><span class="hs-comment">-- Module      : Amazonka.Data.Sensitive</span><span>
+</span><span id="line-3"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Stability   : provisional</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-8"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Data.Sensitive</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-9"></span><span>
+</span><span id="line-10"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Data.Body.html"><span class="hs-identifier">Amazonka.Data.Body</span></a></span><span>
+</span><span id="line-11"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html"><span class="hs-identifier">Amazonka.Data.ByteString</span></a></span><span>
+</span><span id="line-12"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Data.Headers.html"><span class="hs-identifier">Amazonka.Data.Headers</span></a></span><span>
+</span><span id="line-13"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Data.JSON.html"><span class="hs-identifier">Amazonka.Data.JSON</span></a></span><span>
+</span><span id="line-14"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Data.Log.html"><span class="hs-identifier">Amazonka.Data.Log</span></a></span><span>
+</span><span id="line-15"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Data.Query.html"><span class="hs-identifier">Amazonka.Data.Query</span></a></span><span>
+</span><span id="line-16"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Data.Text.html"><span class="hs-identifier">Amazonka.Data.Text</span></a></span><span>
+</span><span id="line-17"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Data.XML.html"><span class="hs-identifier">Amazonka.Data.XML</span></a></span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lens.html"><span class="hs-identifier">Amazonka.Lens</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">iso</span></span><span class="hs-special">)</span><span>
+</span><span id="line-19"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Prelude.html"><span class="hs-identifier">Amazonka.Prelude</span></a></span><span>
+</span><span id="line-20"></span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- | /Note/: read . show /= isomorphic</span><span>
+</span><span id="line-22"></span><span id="local-6989586621679182733"><span id="local-6989586621679182734"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Sensitive"><span class="annot"><a href="Amazonka.Data.Sensitive.html#Sensitive"><span class="hs-identifier hs-var">Sensitive</span></a></span></span><span> </span><span id="local-6989586621679182736"><span class="annot"><a href="#local-6989586621679182736"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Sensitive"><span class="annot"><a href="Amazonka.Data.Sensitive.html#Sensitive"><span class="hs-identifier hs-var">Sensitive</span></a></span></span><span> </span><span class="hs-special">{</span><span id="%24sel%3AfromSensitive%3ASensitive"><span class="annot"><span class="annottext">Sensitive a -&gt; a
+</span><a href="Amazonka.Data.Sensitive.html#%24sel%3AfromSensitive%3ASensitive"><span class="hs-identifier hs-var hs-var">fromSensitive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679182736"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-23"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182727"><span id="local-6989586621679182729"><span class="annot"><span class="annottext">Sensitive a -&gt; Sensitive a -&gt; Bool
+(Sensitive a -&gt; Sensitive a -&gt; Bool)
+-&gt; (Sensitive a -&gt; Sensitive a -&gt; Bool) -&gt; Eq (Sensitive a)
+forall a. Eq a =&gt; Sensitive a -&gt; Sensitive a -&gt; Bool
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Sensitive a -&gt; Sensitive a -&gt; Bool
+$c/= :: forall a. Eq a =&gt; Sensitive a -&gt; Sensitive a -&gt; Bool
+== :: Sensitive a -&gt; Sensitive a -&gt; Bool
+$c== :: forall a. Eq a =&gt; Sensitive a -&gt; Sensitive a -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182711"><span id="local-6989586621679182713"><span id="local-6989586621679182715"><span id="local-6989586621679182717"><span id="local-6989586621679182719"><span id="local-6989586621679182721"><span id="local-6989586621679182723"><span class="annot"><span class="annottext">Eq (Sensitive a)
+Eq (Sensitive a)
+-&gt; (Sensitive a -&gt; Sensitive a -&gt; Ordering)
+-&gt; (Sensitive a -&gt; Sensitive a -&gt; Bool)
+-&gt; (Sensitive a -&gt; Sensitive a -&gt; Bool)
+-&gt; (Sensitive a -&gt; Sensitive a -&gt; Bool)
+-&gt; (Sensitive a -&gt; Sensitive a -&gt; Bool)
+-&gt; (Sensitive a -&gt; Sensitive a -&gt; Sensitive a)
+-&gt; (Sensitive a -&gt; Sensitive a -&gt; Sensitive a)
+-&gt; Ord (Sensitive a)
+Sensitive a -&gt; Sensitive a -&gt; Bool
+Sensitive a -&gt; Sensitive a -&gt; Ordering
+Sensitive a -&gt; Sensitive a -&gt; Sensitive a
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+forall a. Ord a =&gt; Eq (Sensitive a)
+forall a. Ord a =&gt; Sensitive a -&gt; Sensitive a -&gt; Bool
+forall a. Ord a =&gt; Sensitive a -&gt; Sensitive a -&gt; Ordering
+forall a. Ord a =&gt; Sensitive a -&gt; Sensitive a -&gt; Sensitive a
+min :: Sensitive a -&gt; Sensitive a -&gt; Sensitive a
+$cmin :: forall a. Ord a =&gt; Sensitive a -&gt; Sensitive a -&gt; Sensitive a
+max :: Sensitive a -&gt; Sensitive a -&gt; Sensitive a
+$cmax :: forall a. Ord a =&gt; Sensitive a -&gt; Sensitive a -&gt; Sensitive a
+&gt;= :: Sensitive a -&gt; Sensitive a -&gt; Bool
+$c&gt;= :: forall a. Ord a =&gt; Sensitive a -&gt; Sensitive a -&gt; Bool
+&gt; :: Sensitive a -&gt; Sensitive a -&gt; Bool
+$c&gt; :: forall a. Ord a =&gt; Sensitive a -&gt; Sensitive a -&gt; Bool
+&lt;= :: Sensitive a -&gt; Sensitive a -&gt; Bool
+$c&lt;= :: forall a. Ord a =&gt; Sensitive a -&gt; Sensitive a -&gt; Bool
+&lt; :: Sensitive a -&gt; Sensitive a -&gt; Bool
+$c&lt; :: forall a. Ord a =&gt; Sensitive a -&gt; Sensitive a -&gt; Bool
+compare :: Sensitive a -&gt; Sensitive a -&gt; Ordering
+$ccompare :: forall a. Ord a =&gt; Sensitive a -&gt; Sensitive a -&gt; Ordering
+$cp1Ord :: forall a. Ord a =&gt; Eq (Sensitive a)
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Sensitive a -&gt; Rep (Sensitive a) x)
+-&gt; (forall x. Rep (Sensitive a) x -&gt; Sensitive a)
+-&gt; Generic (Sensitive a)
+forall x. Rep (Sensitive a) x -&gt; Sensitive a
+forall x. Sensitive a -&gt; Rep (Sensitive a) x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+forall a x. Rep (Sensitive a) x -&gt; Sensitive a
+forall a x. Sensitive a -&gt; Rep (Sensitive a) x
+$cto :: forall a x. Rep (Sensitive a) x -&gt; Sensitive a
+$cfrom :: forall a x. Sensitive a -&gt; Rep (Sensitive a) x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-24"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-25"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182705"><span class="annot"><span class="annottext">String -&gt; Sensitive a
+(String -&gt; Sensitive a) -&gt; IsString (Sensitive a)
+forall a. IsString a =&gt; String -&gt; Sensitive a
+forall a. (String -&gt; a) -&gt; IsString a
+fromString :: String -&gt; Sensitive a
+$cfromString :: forall a. IsString a =&gt; String -&gt; Sensitive a
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">IsString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>      </span><span id="local-6989586621679182698"><span id="local-6989586621679182700"><span id="local-6989586621679182702"><span class="annot"><span class="annottext">b -&gt; Sensitive a -&gt; Sensitive a
+NonEmpty (Sensitive a) -&gt; Sensitive a
+Sensitive a -&gt; Sensitive a -&gt; Sensitive a
+(Sensitive a -&gt; Sensitive a -&gt; Sensitive a)
+-&gt; (NonEmpty (Sensitive a) -&gt; Sensitive a)
+-&gt; (forall b. Integral b =&gt; b -&gt; Sensitive a -&gt; Sensitive a)
+-&gt; Semigroup (Sensitive a)
+forall b. Integral b =&gt; b -&gt; Sensitive a -&gt; Sensitive a
+forall a. Semigroup a =&gt; NonEmpty (Sensitive a) -&gt; Sensitive a
+forall a. Semigroup a =&gt; Sensitive a -&gt; Sensitive a -&gt; Sensitive a
+forall a b.
+(Semigroup a, Integral b) =&gt;
+b -&gt; Sensitive a -&gt; Sensitive a
+forall a.
+(a -&gt; a -&gt; a)
+-&gt; (NonEmpty a -&gt; a)
+-&gt; (forall b. Integral b =&gt; b -&gt; a -&gt; a)
+-&gt; Semigroup a
+stimes :: b -&gt; Sensitive a -&gt; Sensitive a
+$cstimes :: forall a b.
+(Semigroup a, Integral b) =&gt;
+b -&gt; Sensitive a -&gt; Sensitive a
+sconcat :: NonEmpty (Sensitive a) -&gt; Sensitive a
+$csconcat :: forall a. Semigroup a =&gt; NonEmpty (Sensitive a) -&gt; Sensitive a
+&lt;&gt; :: Sensitive a -&gt; Sensitive a -&gt; Sensitive a
+$c&lt;&gt; :: forall a. Semigroup a =&gt; Sensitive a -&gt; Sensitive a -&gt; Sensitive a
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Semigroup</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>      </span><span id="local-6989586621679182690"><span id="local-6989586621679182692"><span id="local-6989586621679182694"><span class="annot"><span class="annottext">Semigroup (Sensitive a)
+Sensitive a
+Semigroup (Sensitive a)
+-&gt; Sensitive a
+-&gt; (Sensitive a -&gt; Sensitive a -&gt; Sensitive a)
+-&gt; ([Sensitive a] -&gt; Sensitive a)
+-&gt; Monoid (Sensitive a)
+[Sensitive a] -&gt; Sensitive a
+Sensitive a -&gt; Sensitive a -&gt; Sensitive a
+forall a.
+Semigroup a -&gt; a -&gt; (a -&gt; a -&gt; a) -&gt; ([a] -&gt; a) -&gt; Monoid a
+forall a. Monoid a =&gt; Semigroup (Sensitive a)
+forall a. Monoid a =&gt; Sensitive a
+forall a. Monoid a =&gt; [Sensitive a] -&gt; Sensitive a
+forall a. Monoid a =&gt; Sensitive a -&gt; Sensitive a -&gt; Sensitive a
+mconcat :: [Sensitive a] -&gt; Sensitive a
+$cmconcat :: forall a. Monoid a =&gt; [Sensitive a] -&gt; Sensitive a
+mappend :: Sensitive a -&gt; Sensitive a -&gt; Sensitive a
+$cmappend :: forall a. Monoid a =&gt; Sensitive a -&gt; Sensitive a -&gt; Sensitive a
+mempty :: Sensitive a
+$cmempty :: forall a. Monoid a =&gt; Sensitive a
+$cp1Monoid :: forall a. Monoid a =&gt; Semigroup (Sensitive a)
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Monoid</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>      </span><span id="local-6989586621679182687"><span class="annot"><span class="annottext">Sensitive a -&gt; ByteString
+(Sensitive a -&gt; ByteString) -&gt; ToByteString (Sensitive a)
+forall a. ToByteString a =&gt; Sensitive a -&gt; ByteString
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Sensitive a -&gt; ByteString
+$ctoBS :: forall a. ToByteString a =&gt; Sensitive a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#C%3AToByteString"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToByteString</span></a></span></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>      </span><span id="local-6989586621679182684"><span class="annot"><span class="annottext">Text -&gt; Either String (Sensitive a)
+(Text -&gt; Either String (Sensitive a)) -&gt; FromText (Sensitive a)
+forall a. FromText a =&gt; Text -&gt; Either String (Sensitive a)
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String (Sensitive a)
+$cfromText :: forall a. FromText a =&gt; Text -&gt; Either String (Sensitive a)
+</span><a href="Amazonka.Data.Text.html#C%3AFromText"><span class="hs-identifier hs-var hs-var hs-var hs-var">FromText</span></a></span></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>      </span><span id="local-6989586621679182681"><span class="annot"><span class="annottext">Sensitive a -&gt; Text
+(Sensitive a -&gt; Text) -&gt; ToText (Sensitive a)
+forall a. ToText a =&gt; Sensitive a -&gt; Text
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Sensitive a -&gt; Text
+$ctoText :: forall a. ToText a =&gt; Sensitive a -&gt; Text
+</span><a href="Amazonka.Data.Text.html#C%3AToText"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToText</span></a></span></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>      </span><span id="local-6989586621679182678"><span class="annot"><span class="annottext">[Node] -&gt; Either String (Sensitive a)
+([Node] -&gt; Either String (Sensitive a)) -&gt; FromXML (Sensitive a)
+forall a. FromXML a =&gt; [Node] -&gt; Either String (Sensitive a)
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String (Sensitive a)
+$cparseXML :: forall a. FromXML a =&gt; [Node] -&gt; Either String (Sensitive a)
+</span><a href="Amazonka.Data.XML.html#C%3AFromXML"><span class="hs-identifier hs-var hs-var hs-var hs-var">FromXML</span></a></span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>      </span><span id="local-6989586621679182675"><span class="annot"><span class="annottext">Sensitive a -&gt; XML
+(Sensitive a -&gt; XML) -&gt; ToXML (Sensitive a)
+forall a. ToXML a =&gt; Sensitive a -&gt; XML
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Sensitive a -&gt; XML
+$ctoXML :: forall a. ToXML a =&gt; Sensitive a -&gt; XML
+</span><a href="Amazonka.Data.XML.html#C%3AToXML"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToXML</span></a></span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>      </span><span id="local-6989586621679182672"><span class="annot"><span class="annottext">Sensitive a -&gt; QueryString
+(Sensitive a -&gt; QueryString) -&gt; ToQuery (Sensitive a)
+forall a. ToQuery a =&gt; Sensitive a -&gt; QueryString
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Sensitive a -&gt; QueryString
+$ctoQuery :: forall a. ToQuery a =&gt; Sensitive a -&gt; QueryString
+</span><a href="Amazonka.Data.Query.html#C%3AToQuery"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToQuery</span></a></span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>      </span><span id="local-6989586621679182663"><span id="local-6989586621679182665"><span id="local-6989586621679182667"><span id="local-6989586621679182669"><span class="annot"><span class="annottext">[Sensitive a] -&gt; Encoding
+[Sensitive a] -&gt; Value
+Sensitive a -&gt; Encoding
+Sensitive a -&gt; Value
+(Sensitive a -&gt; Value)
+-&gt; (Sensitive a -&gt; Encoding)
+-&gt; ([Sensitive a] -&gt; Value)
+-&gt; ([Sensitive a] -&gt; Encoding)
+-&gt; ToJSON (Sensitive a)
+forall a. ToJSON a =&gt; [Sensitive a] -&gt; Encoding
+forall a. ToJSON a =&gt; [Sensitive a] -&gt; Value
+forall a. ToJSON a =&gt; Sensitive a -&gt; Encoding
+forall a. ToJSON a =&gt; Sensitive a -&gt; Value
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Sensitive a] -&gt; Encoding
+$ctoEncodingList :: forall a. ToJSON a =&gt; [Sensitive a] -&gt; Encoding
+toJSONList :: [Sensitive a] -&gt; Value
+$ctoJSONList :: forall a. ToJSON a =&gt; [Sensitive a] -&gt; Value
+toEncoding :: Sensitive a -&gt; Encoding
+$ctoEncoding :: forall a. ToJSON a =&gt; Sensitive a -&gt; Encoding
+toJSON :: Sensitive a -&gt; Value
+$ctoJSON :: forall a. ToJSON a =&gt; Sensitive a -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679182658"><span id="local-6989586621679182660"><span class="annot"><span class="annottext">Value -&gt; Parser [Sensitive a]
+Value -&gt; Parser (Sensitive a)
+(Value -&gt; Parser (Sensitive a))
+-&gt; (Value -&gt; Parser [Sensitive a]) -&gt; FromJSON (Sensitive a)
+forall a. FromJSON a =&gt; Value -&gt; Parser [Sensitive a]
+forall a. FromJSON a =&gt; Value -&gt; Parser (Sensitive a)
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Sensitive a]
+$cparseJSONList :: forall a. FromJSON a =&gt; Value -&gt; Parser [Sensitive a]
+parseJSON :: Value -&gt; Parser (Sensitive a)
+$cparseJSON :: forall a. FromJSON a =&gt; Value -&gt; Parser (Sensitive a)
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679182655"><span class="annot"><span class="annottext">HeaderName -&gt; Sensitive a -&gt; [Header]
+(HeaderName -&gt; Sensitive a -&gt; [Header]) -&gt; ToHeader (Sensitive a)
+forall a. ToHeader a =&gt; HeaderName -&gt; Sensitive a -&gt; [Header]
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Sensitive a -&gt; [Header]
+$ctoHeader :: forall a. ToHeader a =&gt; HeaderName -&gt; Sensitive a -&gt; [Header]
+</span><a href="Amazonka.Data.Headers.html#C%3AToHeader"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToHeader</span></a></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679182652"><span class="annot"><span class="annottext">Sensitive a -&gt; RequestBody
+(Sensitive a -&gt; RequestBody) -&gt; ToBody (Sensitive a)
+forall a. ToBody a =&gt; Sensitive a -&gt; RequestBody
+forall a. (a -&gt; RequestBody) -&gt; ToBody a
+toBody :: Sensitive a -&gt; RequestBody
+$ctoBody :: forall a. ToBody a =&gt; Sensitive a -&gt; RequestBody
+</span><a href="Amazonka.Data.Body.html#C%3AToBody"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToBody</span></a></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679182647"><span id="local-6989586621679182649"><span class="annot"><span class="annottext">Int -&gt; Sensitive a -&gt; Int
+Sensitive a -&gt; Int
+(Int -&gt; Sensitive a -&gt; Int)
+-&gt; (Sensitive a -&gt; Int) -&gt; Hashable (Sensitive a)
+forall a. Hashable a =&gt; Int -&gt; Sensitive a -&gt; Int
+forall a. Hashable a =&gt; Sensitive a -&gt; Int
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Sensitive a -&gt; Int
+$chash :: forall a. Hashable a =&gt; Sensitive a -&gt; Int
+hashWithSalt :: Int -&gt; Sensitive a -&gt; Int
+$chashWithSalt :: forall a. Hashable a =&gt; Int -&gt; Sensitive a -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679182644"><span class="annot"><span class="annottext">Sensitive a -&gt; ()
+(Sensitive a -&gt; ()) -&gt; NFData (Sensitive a)
+forall a. NFData a =&gt; Sensitive a -&gt; ()
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Sensitive a -&gt; ()
+$crnf :: forall a. NFData a =&gt; Sensitive a -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679182637"><span id="local-6989586621679182639"><span id="local-6989586621679182641"><span class="annot"><span class="annottext">Int -&gt; [Item (Sensitive a)] -&gt; Sensitive a
+[Item (Sensitive a)] -&gt; Sensitive a
+Sensitive a -&gt; [Item (Sensitive a)]
+([Item (Sensitive a)] -&gt; Sensitive a)
+-&gt; (Int -&gt; [Item (Sensitive a)] -&gt; Sensitive a)
+-&gt; (Sensitive a -&gt; [Item (Sensitive a)])
+-&gt; IsList (Sensitive a)
+forall a. IsList a =&gt; Int -&gt; [Item (Sensitive a)] -&gt; Sensitive a
+forall a. IsList a =&gt; [Item (Sensitive a)] -&gt; Sensitive a
+forall a. IsList a =&gt; Sensitive a -&gt; [Item (Sensitive a)]
+forall l.
+([Item l] -&gt; l)
+-&gt; (Int -&gt; [Item l] -&gt; l) -&gt; (l -&gt; [Item l]) -&gt; IsList l
+toList :: Sensitive a -&gt; [Item (Sensitive a)]
+$ctoList :: forall a. IsList a =&gt; Sensitive a -&gt; [Item (Sensitive a)]
+fromListN :: Int -&gt; [Item (Sensitive a)] -&gt; Sensitive a
+$cfromListN :: forall a. IsList a =&gt; Int -&gt; [Item (Sensitive a)] -&gt; Sensitive a
+fromList :: [Item (Sensitive a)] -&gt; Sensitive a
+$cfromList :: forall a. IsList a =&gt; [Item (Sensitive a)] -&gt; Sensitive a
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">IsList</span></span></span></span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679182635"><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182630"><span id="local-6989586621679182633"><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Data.Sensitive.html#Sensitive"><span class="hs-identifier hs-type">Sensitive</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679182635"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>  </span><span id="local-6989586621679182628"><span class="annot"><span class="annottext">show :: Sensitive a -&gt; String
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">show</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; Sensitive a -&gt; String
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">const</span></span><span> </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;******&quot;</span></span></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679182625"><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Data.Sensitive.html#Sensitive"><span class="hs-identifier hs-type">Sensitive</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679182625"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>  </span><span id="local-6989586621679182622"><span class="annot"><span class="annottext">build :: Sensitive a -&gt; ByteStringBuilder
+</span><a href="Amazonka.Data.Log.html#build"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; Sensitive a -&gt; ByteStringBuilder
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">const</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;******&quot;</span></span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679182620"><span class="annot"><a href="Amazonka.Data.Sensitive.html#_Sensitive"><span class="hs-identifier hs-type">_Sensitive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Iso'</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Data.Sensitive.html#Sensitive"><span class="hs-identifier hs-type">Sensitive</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679182620"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679182620"><span class="hs-identifier hs-type">a</span></a></span></span><span>
+</span><span id="line-50"></span><span id="_Sensitive"><span class="annot"><span class="annottext">_Sensitive :: p a (f a) -&gt; p (Sensitive a) (f (Sensitive a))
+</span><a href="Amazonka.Data.Sensitive.html#_Sensitive"><span class="hs-identifier hs-var hs-var">_Sensitive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Sensitive a -&gt; a)
+-&gt; (a -&gt; Sensitive a) -&gt; Iso (Sensitive a) (Sensitive a) a a
+forall s a b t. (s -&gt; a) -&gt; (b -&gt; t) -&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">iso</span></span><span> </span><span class="annot"><span class="annottext">Sensitive a -&gt; a
+forall a. Sensitive a -&gt; a
+</span><a href="Amazonka.Data.Sensitive.html#%24sel%3AfromSensitive%3ASensitive"><span class="hs-identifier hs-var hs-var">fromSensitive</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; Sensitive a
+forall a. a -&gt; Sensitive a
+</span><a href="Amazonka.Data.Sensitive.html#Sensitive"><span class="hs-identifier hs-var">Sensitive</span></a></span><span>
+</span><span id="line-51"></span></pre></body></html>

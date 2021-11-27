@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.APIGateway.FlushStageAuthorizersCache</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Flushes all authorizer cache entries on a stage.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.APIGateway.FlushStageAuthorizersCache</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier">FlushStageAuthorizersCache</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#newFlushStageAuthorizersCache"><span class="hs-identifier">newFlushStageAuthorizersCache</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#flushStageAuthorizersCache_restApiId"><span class="hs-identifier">flushStageAuthorizersCache_restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#flushStageAuthorizersCache_stageName"><span class="hs-identifier">flushStageAuthorizersCache_stageName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse"><span class="hs-identifier">FlushStageAuthorizersCacheResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#newFlushStageAuthorizersCacheResponse"><span class="hs-identifier">newFlushStageAuthorizersCacheResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.html"><span class="hs-identifier">Amazonka.APIGateway.Types</span></a></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- | Request to flush authorizer cache entries on a specified stage.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- /See:/ 'newFlushStageAuthorizersCache' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679386265"><span id="local-6989586621679386266"></span></span><span class="hs-keyword">data</span><span> </span><span id="FlushStageAuthorizersCache"><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-var">FlushStageAuthorizersCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FlushStageAuthorizersCache%27"><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-var">FlushStageAuthorizersCache'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The string identifier of the associated RestApi.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3ArestApiId%3AFlushStageAuthorizersCache%27"><span class="annot"><span class="annottext">FlushStageAuthorizersCache -&gt; Text
+</span><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#%24sel%3ArestApiId%3AFlushStageAuthorizersCache%27"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The name of the stage to flush.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AstageName%3AFlushStageAuthorizersCache%27"><span class="annot"><span class="annottext">FlushStageAuthorizersCache -&gt; Text
+</span><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#%24sel%3AstageName%3AFlushStageAuthorizersCache%27"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386258"><span id="local-6989586621679386260"><span class="annot"><span class="annottext">FlushStageAuthorizersCache -&gt; FlushStageAuthorizersCache -&gt; Bool
+(FlushStageAuthorizersCache -&gt; FlushStageAuthorizersCache -&gt; Bool)
+-&gt; (FlushStageAuthorizersCache
+    -&gt; FlushStageAuthorizersCache -&gt; Bool)
+-&gt; Eq FlushStageAuthorizersCache
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FlushStageAuthorizersCache -&gt; FlushStageAuthorizersCache -&gt; Bool
+$c/= :: FlushStageAuthorizersCache -&gt; FlushStageAuthorizersCache -&gt; Bool
+== :: FlushStageAuthorizersCache -&gt; FlushStageAuthorizersCache -&gt; Bool
+$c== :: FlushStageAuthorizersCache -&gt; FlushStageAuthorizersCache -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386249"><span id="local-6989586621679386251"><span id="local-6989586621679386253"><span id="local-6989586621679386255"><span class="annot"><span class="annottext">ReadPrec [FlushStageAuthorizersCache]
+ReadPrec FlushStageAuthorizersCache
+Int -&gt; ReadS FlushStageAuthorizersCache
+ReadS [FlushStageAuthorizersCache]
+(Int -&gt; ReadS FlushStageAuthorizersCache)
+-&gt; ReadS [FlushStageAuthorizersCache]
+-&gt; ReadPrec FlushStageAuthorizersCache
+-&gt; ReadPrec [FlushStageAuthorizersCache]
+-&gt; Read FlushStageAuthorizersCache
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FlushStageAuthorizersCache]
+$creadListPrec :: ReadPrec [FlushStageAuthorizersCache]
+readPrec :: ReadPrec FlushStageAuthorizersCache
+$creadPrec :: ReadPrec FlushStageAuthorizersCache
+readList :: ReadS [FlushStageAuthorizersCache]
+$creadList :: ReadS [FlushStageAuthorizersCache]
+readsPrec :: Int -&gt; ReadS FlushStageAuthorizersCache
+$creadsPrec :: Int -&gt; ReadS FlushStageAuthorizersCache
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386242"><span id="local-6989586621679386244"><span id="local-6989586621679386246"><span class="annot"><span class="annottext">Int -&gt; FlushStageAuthorizersCache -&gt; ShowS
+[FlushStageAuthorizersCache] -&gt; ShowS
+FlushStageAuthorizersCache -&gt; String
+(Int -&gt; FlushStageAuthorizersCache -&gt; ShowS)
+-&gt; (FlushStageAuthorizersCache -&gt; String)
+-&gt; ([FlushStageAuthorizersCache] -&gt; ShowS)
+-&gt; Show FlushStageAuthorizersCache
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FlushStageAuthorizersCache] -&gt; ShowS
+$cshowList :: [FlushStageAuthorizersCache] -&gt; ShowS
+show :: FlushStageAuthorizersCache -&gt; String
+$cshow :: FlushStageAuthorizersCache -&gt; String
+showsPrec :: Int -&gt; FlushStageAuthorizersCache -&gt; ShowS
+$cshowsPrec :: Int -&gt; FlushStageAuthorizersCache -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ FlushStageAuthorizersCache -&gt; Rep FlushStageAuthorizersCache x)
+-&gt; (forall x.
+    Rep FlushStageAuthorizersCache x -&gt; FlushStageAuthorizersCache)
+-&gt; Generic FlushStageAuthorizersCache
+forall x.
+Rep FlushStageAuthorizersCache x -&gt; FlushStageAuthorizersCache
+forall x.
+FlushStageAuthorizersCache -&gt; Rep FlushStageAuthorizersCache x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FlushStageAuthorizersCache x -&gt; FlushStageAuthorizersCache
+$cfrom :: forall x.
+FlushStageAuthorizersCache -&gt; Rep FlushStageAuthorizersCache x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'FlushStageAuthorizersCache' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'restApiId', 'flushStageAuthorizersCache_restApiId' - The string identifier of the associated RestApi.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'stageName', 'flushStageAuthorizersCache_stageName' - The name of the stage to flush.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#newFlushStageAuthorizersCache"><span class="hs-identifier hs-type">newFlushStageAuthorizersCache</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'restApiId'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'stageName'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span>
+</span><span id="line-74"></span><span id="newFlushStageAuthorizersCache"><span class="annot"><span class="annottext">newFlushStageAuthorizersCache :: Text -&gt; Text -&gt; FlushStageAuthorizersCache
+</span><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#newFlushStageAuthorizersCache"><span class="hs-identifier hs-var hs-var">newFlushStageAuthorizersCache</span></a></span></span><span> </span><span id="local-6989586621679386237"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386237"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679386236"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386236"><span class="hs-identifier hs-var">pStageName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">FlushStageAuthorizersCache' :: Text -&gt; Text -&gt; FlushStageAuthorizersCache
+</span><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:restApiId:FlushStageAuthorizersCache' :: Text
+</span><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#%24sel%3ArestApiId%3AFlushStageAuthorizersCache%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386237"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:stageName:FlushStageAuthorizersCache' :: Text
+</span><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#%24sel%3AstageName%3AFlushStageAuthorizersCache%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386236"><span class="hs-identifier hs-var">pStageName_</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The string identifier of the associated RestApi.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#flushStageAuthorizersCache_restApiId"><span class="hs-identifier hs-type">flushStageAuthorizersCache_restApiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="flushStageAuthorizersCache_restApiId"><span class="annot"><span class="annottext">flushStageAuthorizersCache_restApiId :: (Text -&gt; f Text)
+-&gt; FlushStageAuthorizersCache -&gt; f FlushStageAuthorizersCache
+</span><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#flushStageAuthorizersCache_restApiId"><span class="hs-identifier hs-var hs-var">flushStageAuthorizersCache_restApiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FlushStageAuthorizersCache -&gt; Text)
+-&gt; (FlushStageAuthorizersCache
+    -&gt; Text -&gt; FlushStageAuthorizersCache)
+-&gt; Lens
+     FlushStageAuthorizersCache FlushStageAuthorizersCache Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386233"><span class="annot"><span class="annottext">Text
+restApiId :: Text
+$sel:restApiId:FlushStageAuthorizersCache' :: FlushStageAuthorizersCache -&gt; Text
+</span><a href="#local-6989586621679386233"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386233"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386232"><span class="annot"><span class="annottext">s :: FlushStageAuthorizersCache
+</span><a href="#local-6989586621679386232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386231"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlushStageAuthorizersCache
+</span><a href="#local-6989586621679386232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:FlushStageAuthorizersCache' :: Text
+</span><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#%24sel%3ArestApiId%3AFlushStageAuthorizersCache%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The name of the stage to flush.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#flushStageAuthorizersCache_stageName"><span class="hs-identifier hs-type">flushStageAuthorizersCache_stageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="flushStageAuthorizersCache_stageName"><span class="annot"><span class="annottext">flushStageAuthorizersCache_stageName :: (Text -&gt; f Text)
+-&gt; FlushStageAuthorizersCache -&gt; f FlushStageAuthorizersCache
+</span><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#flushStageAuthorizersCache_stageName"><span class="hs-identifier hs-var hs-var">flushStageAuthorizersCache_stageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FlushStageAuthorizersCache -&gt; Text)
+-&gt; (FlushStageAuthorizersCache
+    -&gt; Text -&gt; FlushStageAuthorizersCache)
+-&gt; Lens
+     FlushStageAuthorizersCache FlushStageAuthorizersCache Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386230"><span class="annot"><span class="annottext">Text
+stageName :: Text
+$sel:stageName:FlushStageAuthorizersCache' :: FlushStageAuthorizersCache -&gt; Text
+</span><a href="#local-6989586621679386230"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386230"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386229"><span class="annot"><span class="annottext">s :: FlushStageAuthorizersCache
+</span><a href="#local-6989586621679386229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386228"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlushStageAuthorizersCache
+</span><a href="#local-6989586621679386229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageName:FlushStageAuthorizersCache' :: Text
+</span><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#%24sel%3AstageName%3AFlushStageAuthorizersCache%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse"><span class="hs-identifier hs-type">FlushStageAuthorizersCacheResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679386224"><span class="annot"><span class="annottext">request :: FlushStageAuthorizersCache -&gt; Request FlushStageAuthorizersCache
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; FlushStageAuthorizersCache -&gt; Request FlushStageAuthorizersCache
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679386220"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy FlushStageAuthorizersCache
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse FlushStageAuthorizersCache)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse FlushStageAuthorizersCache
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy FlushStageAuthorizersCache
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse FlushStageAuthorizersCache)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse FlushStageAuthorizersCache
+FlushStageAuthorizersCacheResponse
+</span><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse%27"><span class="hs-identifier hs-var">FlushStageAuthorizersCacheResponse'</span></a></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386213"><span id="local-6989586621679386215"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386210"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679386206"><span class="annot"><span class="annottext">toHeaders :: FlushStageAuthorizersCache -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; FlushStageAuthorizersCache -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Accept&quot;</span></span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/json&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679386200"><span class="annot"><span class="annottext">toPath :: FlushStageAuthorizersCache -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386197"><span id="local-6989586621679386198"><span class="annot"><span class="annottext">Text
+stageName :: Text
+restApiId :: Text
+$sel:stageName:FlushStageAuthorizersCache' :: FlushStageAuthorizersCache -&gt; Text
+$sel:restApiId:FlushStageAuthorizersCache' :: FlushStageAuthorizersCache -&gt; Text
+</span><a href="#local-6989586621679386197"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/restapis/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386198"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/stages/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386197"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/cache/authorizers&quot;</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679386193"><span class="annot"><span class="annottext">toQuery :: FlushStageAuthorizersCache -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; FlushStageAuthorizersCache -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | /See:/ 'newFlushStageAuthorizersCacheResponse' smart constructor.</span><span>
+</span><span id="line-125"></span><span id="local-6989586621679386190"><span id="local-6989586621679386191"></span></span><span class="hs-keyword">data</span><span> </span><span id="FlushStageAuthorizersCacheResponse"><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse"><span class="hs-identifier hs-var">FlushStageAuthorizersCacheResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FlushStageAuthorizersCacheResponse%27"><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse%27"><span class="hs-identifier hs-var">FlushStageAuthorizersCacheResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386186"><span id="local-6989586621679386188"><span class="annot"><span class="annottext">FlushStageAuthorizersCacheResponse
+-&gt; FlushStageAuthorizersCacheResponse -&gt; Bool
+(FlushStageAuthorizersCacheResponse
+ -&gt; FlushStageAuthorizersCacheResponse -&gt; Bool)
+-&gt; (FlushStageAuthorizersCacheResponse
+    -&gt; FlushStageAuthorizersCacheResponse -&gt; Bool)
+-&gt; Eq FlushStageAuthorizersCacheResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FlushStageAuthorizersCacheResponse
+-&gt; FlushStageAuthorizersCacheResponse -&gt; Bool
+$c/= :: FlushStageAuthorizersCacheResponse
+-&gt; FlushStageAuthorizersCacheResponse -&gt; Bool
+== :: FlushStageAuthorizersCacheResponse
+-&gt; FlushStageAuthorizersCacheResponse -&gt; Bool
+$c== :: FlushStageAuthorizersCacheResponse
+-&gt; FlushStageAuthorizersCacheResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386178"><span id="local-6989586621679386180"><span id="local-6989586621679386182"><span id="local-6989586621679386184"><span class="annot"><span class="annottext">ReadPrec [FlushStageAuthorizersCacheResponse]
+ReadPrec FlushStageAuthorizersCacheResponse
+Int -&gt; ReadS FlushStageAuthorizersCacheResponse
+ReadS [FlushStageAuthorizersCacheResponse]
+(Int -&gt; ReadS FlushStageAuthorizersCacheResponse)
+-&gt; ReadS [FlushStageAuthorizersCacheResponse]
+-&gt; ReadPrec FlushStageAuthorizersCacheResponse
+-&gt; ReadPrec [FlushStageAuthorizersCacheResponse]
+-&gt; Read FlushStageAuthorizersCacheResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FlushStageAuthorizersCacheResponse]
+$creadListPrec :: ReadPrec [FlushStageAuthorizersCacheResponse]
+readPrec :: ReadPrec FlushStageAuthorizersCacheResponse
+$creadPrec :: ReadPrec FlushStageAuthorizersCacheResponse
+readList :: ReadS [FlushStageAuthorizersCacheResponse]
+$creadList :: ReadS [FlushStageAuthorizersCacheResponse]
+readsPrec :: Int -&gt; ReadS FlushStageAuthorizersCacheResponse
+$creadsPrec :: Int -&gt; ReadS FlushStageAuthorizersCacheResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386172"><span id="local-6989586621679386174"><span id="local-6989586621679386176"><span class="annot"><span class="annottext">Int -&gt; FlushStageAuthorizersCacheResponse -&gt; ShowS
+[FlushStageAuthorizersCacheResponse] -&gt; ShowS
+FlushStageAuthorizersCacheResponse -&gt; String
+(Int -&gt; FlushStageAuthorizersCacheResponse -&gt; ShowS)
+-&gt; (FlushStageAuthorizersCacheResponse -&gt; String)
+-&gt; ([FlushStageAuthorizersCacheResponse] -&gt; ShowS)
+-&gt; Show FlushStageAuthorizersCacheResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FlushStageAuthorizersCacheResponse] -&gt; ShowS
+$cshowList :: [FlushStageAuthorizersCacheResponse] -&gt; ShowS
+show :: FlushStageAuthorizersCacheResponse -&gt; String
+$cshow :: FlushStageAuthorizersCacheResponse -&gt; String
+showsPrec :: Int -&gt; FlushStageAuthorizersCacheResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; FlushStageAuthorizersCacheResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ FlushStageAuthorizersCacheResponse
+ -&gt; Rep FlushStageAuthorizersCacheResponse x)
+-&gt; (forall x.
+    Rep FlushStageAuthorizersCacheResponse x
+    -&gt; FlushStageAuthorizersCacheResponse)
+-&gt; Generic FlushStageAuthorizersCacheResponse
+forall x.
+Rep FlushStageAuthorizersCacheResponse x
+-&gt; FlushStageAuthorizersCacheResponse
+forall x.
+FlushStageAuthorizersCacheResponse
+-&gt; Rep FlushStageAuthorizersCacheResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FlushStageAuthorizersCacheResponse x
+-&gt; FlushStageAuthorizersCacheResponse
+$cfrom :: forall x.
+FlushStageAuthorizersCacheResponse
+-&gt; Rep FlushStageAuthorizersCacheResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Create a value of 'FlushStageAuthorizersCacheResponse' with all optional fields omitted.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#newFlushStageAuthorizersCacheResponse"><span class="hs-identifier hs-type">newFlushStageAuthorizersCacheResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse"><span class="hs-identifier hs-type">FlushStageAuthorizersCacheResponse</span></a></span><span>
+</span><span id="line-136"></span><span id="newFlushStageAuthorizersCacheResponse"><span class="annot"><span class="annottext">newFlushStageAuthorizersCacheResponse :: FlushStageAuthorizersCacheResponse
+</span><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#newFlushStageAuthorizersCacheResponse"><span class="hs-identifier hs-var hs-var">newFlushStageAuthorizersCacheResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">FlushStageAuthorizersCacheResponse
+</span><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse%27"><span class="hs-identifier hs-var">FlushStageAuthorizersCacheResponse'</span></a></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679386168"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse"><span class="hs-identifier hs-type">FlushStageAuthorizersCacheResponse</span></a></span></span><span>
+</span><span id="line-142"></span></pre></body></html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A configuration for CloudWatch monitoring. You can configure your jobs</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- to send log information to CloudWatch Logs.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCloudWatchMonitoringConfiguration' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679183102"><span id="local-6989586621679183103"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchMonitoringConfiguration"><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration"><span class="hs-identifier hs-var">CloudWatchMonitoringConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchMonitoringConfiguration%27"><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration%27"><span class="hs-identifier hs-var">CloudWatchMonitoringConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The specified name prefix for log streams.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlogStreamNamePrefix%3ACloudWatchMonitoringConfiguration%27"><span class="annot"><span class="annottext">CloudWatchMonitoringConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#%24sel%3AlogStreamNamePrefix%3ACloudWatchMonitoringConfiguration%27"><span class="hs-identifier hs-var hs-var">logStreamNamePrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the log group for log publishing.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlogGroupName%3ACloudWatchMonitoringConfiguration%27"><span class="annot"><span class="annottext">CloudWatchMonitoringConfiguration -&gt; Text
+</span><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#%24sel%3AlogGroupName%3ACloudWatchMonitoringConfiguration%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183095"><span id="local-6989586621679183097"><span class="annot"><span class="annottext">CloudWatchMonitoringConfiguration
+-&gt; CloudWatchMonitoringConfiguration -&gt; Bool
+(CloudWatchMonitoringConfiguration
+ -&gt; CloudWatchMonitoringConfiguration -&gt; Bool)
+-&gt; (CloudWatchMonitoringConfiguration
+    -&gt; CloudWatchMonitoringConfiguration -&gt; Bool)
+-&gt; Eq CloudWatchMonitoringConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CloudWatchMonitoringConfiguration
+-&gt; CloudWatchMonitoringConfiguration -&gt; Bool
+$c/= :: CloudWatchMonitoringConfiguration
+-&gt; CloudWatchMonitoringConfiguration -&gt; Bool
+== :: CloudWatchMonitoringConfiguration
+-&gt; CloudWatchMonitoringConfiguration -&gt; Bool
+$c== :: CloudWatchMonitoringConfiguration
+-&gt; CloudWatchMonitoringConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183086"><span id="local-6989586621679183088"><span id="local-6989586621679183090"><span id="local-6989586621679183092"><span class="annot"><span class="annottext">ReadPrec [CloudWatchMonitoringConfiguration]
+ReadPrec CloudWatchMonitoringConfiguration
+Int -&gt; ReadS CloudWatchMonitoringConfiguration
+ReadS [CloudWatchMonitoringConfiguration]
+(Int -&gt; ReadS CloudWatchMonitoringConfiguration)
+-&gt; ReadS [CloudWatchMonitoringConfiguration]
+-&gt; ReadPrec CloudWatchMonitoringConfiguration
+-&gt; ReadPrec [CloudWatchMonitoringConfiguration]
+-&gt; Read CloudWatchMonitoringConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CloudWatchMonitoringConfiguration]
+$creadListPrec :: ReadPrec [CloudWatchMonitoringConfiguration]
+readPrec :: ReadPrec CloudWatchMonitoringConfiguration
+$creadPrec :: ReadPrec CloudWatchMonitoringConfiguration
+readList :: ReadS [CloudWatchMonitoringConfiguration]
+$creadList :: ReadS [CloudWatchMonitoringConfiguration]
+readsPrec :: Int -&gt; ReadS CloudWatchMonitoringConfiguration
+$creadsPrec :: Int -&gt; ReadS CloudWatchMonitoringConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183079"><span id="local-6989586621679183081"><span id="local-6989586621679183083"><span class="annot"><span class="annottext">Int -&gt; CloudWatchMonitoringConfiguration -&gt; ShowS
+[CloudWatchMonitoringConfiguration] -&gt; ShowS
+CloudWatchMonitoringConfiguration -&gt; String
+(Int -&gt; CloudWatchMonitoringConfiguration -&gt; ShowS)
+-&gt; (CloudWatchMonitoringConfiguration -&gt; String)
+-&gt; ([CloudWatchMonitoringConfiguration] -&gt; ShowS)
+-&gt; Show CloudWatchMonitoringConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CloudWatchMonitoringConfiguration] -&gt; ShowS
+$cshowList :: [CloudWatchMonitoringConfiguration] -&gt; ShowS
+show :: CloudWatchMonitoringConfiguration -&gt; String
+$cshow :: CloudWatchMonitoringConfiguration -&gt; String
+showsPrec :: Int -&gt; CloudWatchMonitoringConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; CloudWatchMonitoringConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CloudWatchMonitoringConfiguration
+ -&gt; Rep CloudWatchMonitoringConfiguration x)
+-&gt; (forall x.
+    Rep CloudWatchMonitoringConfiguration x
+    -&gt; CloudWatchMonitoringConfiguration)
+-&gt; Generic CloudWatchMonitoringConfiguration
+forall x.
+Rep CloudWatchMonitoringConfiguration x
+-&gt; CloudWatchMonitoringConfiguration
+forall x.
+CloudWatchMonitoringConfiguration
+-&gt; Rep CloudWatchMonitoringConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CloudWatchMonitoringConfiguration x
+-&gt; CloudWatchMonitoringConfiguration
+$cfrom :: forall x.
+CloudWatchMonitoringConfiguration
+-&gt; Rep CloudWatchMonitoringConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'CloudWatchMonitoringConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'logStreamNamePrefix', 'cloudWatchMonitoringConfiguration_logStreamNamePrefix' - The specified name prefix for log streams.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'logGroupName', 'cloudWatchMonitoringConfiguration_logGroupName' - The name of the log group for log publishing.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#newCloudWatchMonitoringConfiguration"><span class="hs-identifier hs-type">newCloudWatchMonitoringConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-comment">-- | 'logGroupName'</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration"><span class="hs-identifier hs-type">CloudWatchMonitoringConfiguration</span></a></span><span>
+</span><span id="line-53"></span><span id="newCloudWatchMonitoringConfiguration"><span class="annot"><span class="annottext">newCloudWatchMonitoringConfiguration :: Text -&gt; CloudWatchMonitoringConfiguration
+</span><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#newCloudWatchMonitoringConfiguration"><span class="hs-identifier hs-var hs-var">newCloudWatchMonitoringConfiguration</span></a></span></span><span> </span><span id="local-6989586621679183073"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183073"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">CloudWatchMonitoringConfiguration' :: Maybe Text -&gt; Text -&gt; CloudWatchMonitoringConfiguration
+</span><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration%27"><span class="hs-identifier hs-type">CloudWatchMonitoringConfiguration'</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logStreamNamePrefix:CloudWatchMonitoringConfiguration' :: Maybe Text
+</span><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#%24sel%3AlogStreamNamePrefix%3ACloudWatchMonitoringConfiguration%27"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:CloudWatchMonitoringConfiguration' :: Text
+</span><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#%24sel%3AlogGroupName%3ACloudWatchMonitoringConfiguration%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183073"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The specified name prefix for log streams.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#cloudWatchMonitoringConfiguration_logStreamNamePrefix"><span class="hs-identifier hs-type">cloudWatchMonitoringConfiguration_logStreamNamePrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration"><span class="hs-identifier hs-type">CloudWatchMonitoringConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="cloudWatchMonitoringConfiguration_logStreamNamePrefix"><span class="annot"><span class="annottext">cloudWatchMonitoringConfiguration_logStreamNamePrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CloudWatchMonitoringConfiguration
+-&gt; f CloudWatchMonitoringConfiguration
+</span><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#cloudWatchMonitoringConfiguration_logStreamNamePrefix"><span class="hs-identifier hs-var hs-var">cloudWatchMonitoringConfiguration_logStreamNamePrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudWatchMonitoringConfiguration -&gt; Maybe Text)
+-&gt; (CloudWatchMonitoringConfiguration
+    -&gt; Maybe Text -&gt; CloudWatchMonitoringConfiguration)
+-&gt; Lens
+     CloudWatchMonitoringConfiguration
+     CloudWatchMonitoringConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration%27"><span class="hs-identifier hs-type">CloudWatchMonitoringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183069"><span class="annot"><span class="annottext">Maybe Text
+logStreamNamePrefix :: Maybe Text
+$sel:logStreamNamePrefix:CloudWatchMonitoringConfiguration' :: CloudWatchMonitoringConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679183069"><span class="hs-identifier hs-var hs-var">logStreamNamePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183069"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183068"><span class="annot"><span class="annottext">s :: CloudWatchMonitoringConfiguration
+</span><a href="#local-6989586621679183068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration%27"><span class="hs-identifier hs-type">CloudWatchMonitoringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183067"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchMonitoringConfiguration
+</span><a href="#local-6989586621679183068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreamNamePrefix:CloudWatchMonitoringConfiguration' :: Maybe Text
+</span><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#%24sel%3AlogStreamNamePrefix%3ACloudWatchMonitoringConfiguration%27"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration"><span class="hs-identifier hs-type">CloudWatchMonitoringConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The name of the log group for log publishing.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#cloudWatchMonitoringConfiguration_logGroupName"><span class="hs-identifier hs-type">cloudWatchMonitoringConfiguration_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration"><span class="hs-identifier hs-type">CloudWatchMonitoringConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span id="cloudWatchMonitoringConfiguration_logGroupName"><span class="annot"><span class="annottext">cloudWatchMonitoringConfiguration_logGroupName :: (Text -&gt; f Text)
+-&gt; CloudWatchMonitoringConfiguration
+-&gt; f CloudWatchMonitoringConfiguration
+</span><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#cloudWatchMonitoringConfiguration_logGroupName"><span class="hs-identifier hs-var hs-var">cloudWatchMonitoringConfiguration_logGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudWatchMonitoringConfiguration -&gt; Text)
+-&gt; (CloudWatchMonitoringConfiguration
+    -&gt; Text -&gt; CloudWatchMonitoringConfiguration)
+-&gt; Lens
+     CloudWatchMonitoringConfiguration
+     CloudWatchMonitoringConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration%27"><span class="hs-identifier hs-type">CloudWatchMonitoringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183065"><span class="annot"><span class="annottext">Text
+logGroupName :: Text
+$sel:logGroupName:CloudWatchMonitoringConfiguration' :: CloudWatchMonitoringConfiguration -&gt; Text
+</span><a href="#local-6989586621679183065"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183065"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183064"><span class="annot"><span class="annottext">s :: CloudWatchMonitoringConfiguration
+</span><a href="#local-6989586621679183064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration%27"><span class="hs-identifier hs-type">CloudWatchMonitoringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183063"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchMonitoringConfiguration
+</span><a href="#local-6989586621679183064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:CloudWatchMonitoringConfiguration' :: Text
+</span><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#%24sel%3AlogGroupName%3ACloudWatchMonitoringConfiguration%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration"><span class="hs-identifier hs-type">CloudWatchMonitoringConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679183060"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration"><span class="hs-identifier hs-type">CloudWatchMonitoringConfiguration</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679183058"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchMonitoringConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CloudWatchMonitoringConfiguration)
+-&gt; Value
+-&gt; Parser CloudWatchMonitoringConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CloudWatchMonitoringConfiguration&quot;</span></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183055"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679183055"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; CloudWatchMonitoringConfiguration
+</span><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration%27"><span class="hs-identifier hs-var">CloudWatchMonitoringConfiguration'</span></a></span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; CloudWatchMonitoringConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; CloudWatchMonitoringConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679183055"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logStreamNamePrefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; CloudWatchMonitoringConfiguration)
+-&gt; Parser Text -&gt; Parser CloudWatchMonitoringConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679183055"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679183048"><span id="local-6989586621679183050"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration"><span class="hs-identifier hs-type">CloudWatchMonitoringConfiguration</span></a></span></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679183045"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration"><span class="hs-identifier hs-type">CloudWatchMonitoringConfiguration</span></a></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679183037"><span id="local-6989586621679183039"><span id="local-6989586621679183041"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration"><span class="hs-identifier hs-type">CloudWatchMonitoringConfiguration</span></a></span></span></span></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679183035"><span class="annot"><span class="annottext">toJSON :: CloudWatchMonitoringConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.html#CloudWatchMonitoringConfiguration%27"><span class="hs-identifier hs-type">CloudWatchMonitoringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183032"><span id="local-6989586621679183033"><span class="annot"><span class="annottext">Maybe Text
+Text
+logGroupName :: Text
+logStreamNamePrefix :: Maybe Text
+$sel:logGroupName:CloudWatchMonitoringConfiguration' :: CloudWatchMonitoringConfiguration -&gt; Text
+$sel:logStreamNamePrefix:CloudWatchMonitoringConfiguration' :: CloudWatchMonitoringConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679183032"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-96"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logStreamNamePrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183033"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183032"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span></pre></body></html>

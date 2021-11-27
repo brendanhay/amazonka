@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.SQS.Types.BatchResultErrorEntry
+module Amazonka.SQS.Types.BatchResultErrorEntry
 
 -- | Gives a detailed description of the result of an action on each entry
 --   in the request.
@@ -64,16 +64,16 @@ batchResultErrorEntry_senderFault :: Lens' BatchResultErrorEntry Bool
 
 -- | An error code representing why the action failed on this entry.
 batchResultErrorEntry_code :: Lens' BatchResultErrorEntry Text
-instance GHC.Generics.Generic Network.AWS.SQS.Types.BatchResultErrorEntry.BatchResultErrorEntry
-instance GHC.Show.Show Network.AWS.SQS.Types.BatchResultErrorEntry.BatchResultErrorEntry
-instance GHC.Read.Read Network.AWS.SQS.Types.BatchResultErrorEntry.BatchResultErrorEntry
-instance GHC.Classes.Eq Network.AWS.SQS.Types.BatchResultErrorEntry.BatchResultErrorEntry
-instance Network.AWS.Data.XML.FromXML Network.AWS.SQS.Types.BatchResultErrorEntry.BatchResultErrorEntry
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.Types.BatchResultErrorEntry.BatchResultErrorEntry
-instance Control.DeepSeq.NFData Network.AWS.SQS.Types.BatchResultErrorEntry.BatchResultErrorEntry
+instance GHC.Generics.Generic Amazonka.SQS.Types.BatchResultErrorEntry.BatchResultErrorEntry
+instance GHC.Show.Show Amazonka.SQS.Types.BatchResultErrorEntry.BatchResultErrorEntry
+instance GHC.Read.Read Amazonka.SQS.Types.BatchResultErrorEntry.BatchResultErrorEntry
+instance GHC.Classes.Eq Amazonka.SQS.Types.BatchResultErrorEntry.BatchResultErrorEntry
+instance Amazonka.Data.XML.FromXML Amazonka.SQS.Types.BatchResultErrorEntry.BatchResultErrorEntry
+instance Data.Hashable.Class.Hashable Amazonka.SQS.Types.BatchResultErrorEntry.BatchResultErrorEntry
+instance Control.DeepSeq.NFData Amazonka.SQS.Types.BatchResultErrorEntry.BatchResultErrorEntry
 
 
-module Network.AWS.SQS.Types.ChangeMessageVisibilityBatchRequestEntry
+module Amazonka.SQS.Types.ChangeMessageVisibilityBatchRequestEntry
 
 -- | Encloses a receipt handle and an entry id for each message in <tt>
 --   ChangeMessageVisibilityBatch.</tt>
@@ -163,16 +163,16 @@ changeMessageVisibilityBatchRequestEntry_id :: Lens' ChangeMessageVisibilityBatc
 
 -- | A receipt handle.
 changeMessageVisibilityBatchRequestEntry_receiptHandle :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
-instance GHC.Generics.Generic Network.AWS.SQS.Types.ChangeMessageVisibilityBatchRequestEntry.ChangeMessageVisibilityBatchRequestEntry
-instance GHC.Show.Show Network.AWS.SQS.Types.ChangeMessageVisibilityBatchRequestEntry.ChangeMessageVisibilityBatchRequestEntry
-instance GHC.Read.Read Network.AWS.SQS.Types.ChangeMessageVisibilityBatchRequestEntry.ChangeMessageVisibilityBatchRequestEntry
-instance GHC.Classes.Eq Network.AWS.SQS.Types.ChangeMessageVisibilityBatchRequestEntry.ChangeMessageVisibilityBatchRequestEntry
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.Types.ChangeMessageVisibilityBatchRequestEntry.ChangeMessageVisibilityBatchRequestEntry
-instance Control.DeepSeq.NFData Network.AWS.SQS.Types.ChangeMessageVisibilityBatchRequestEntry.ChangeMessageVisibilityBatchRequestEntry
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.Types.ChangeMessageVisibilityBatchRequestEntry.ChangeMessageVisibilityBatchRequestEntry
+instance GHC.Generics.Generic Amazonka.SQS.Types.ChangeMessageVisibilityBatchRequestEntry.ChangeMessageVisibilityBatchRequestEntry
+instance GHC.Show.Show Amazonka.SQS.Types.ChangeMessageVisibilityBatchRequestEntry.ChangeMessageVisibilityBatchRequestEntry
+instance GHC.Read.Read Amazonka.SQS.Types.ChangeMessageVisibilityBatchRequestEntry.ChangeMessageVisibilityBatchRequestEntry
+instance GHC.Classes.Eq Amazonka.SQS.Types.ChangeMessageVisibilityBatchRequestEntry.ChangeMessageVisibilityBatchRequestEntry
+instance Data.Hashable.Class.Hashable Amazonka.SQS.Types.ChangeMessageVisibilityBatchRequestEntry.ChangeMessageVisibilityBatchRequestEntry
+instance Control.DeepSeq.NFData Amazonka.SQS.Types.ChangeMessageVisibilityBatchRequestEntry.ChangeMessageVisibilityBatchRequestEntry
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.Types.ChangeMessageVisibilityBatchRequestEntry.ChangeMessageVisibilityBatchRequestEntry
 
 
-module Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry
+module Amazonka.SQS.Types.ChangeMessageVisibilityBatchResultEntry
 
 -- | Encloses the <tt>Id</tt> of an entry in <tt>
 --   ChangeMessageVisibilityBatch.</tt>
@@ -203,16 +203,16 @@ newChangeMessageVisibilityBatchResultEntry :: Text -> ChangeMessageVisibilityBat
 -- | Represents a message whose visibility timeout has been changed
 --   successfully.
 changeMessageVisibilityBatchResultEntry_id :: Lens' ChangeMessageVisibilityBatchResultEntry Text
-instance GHC.Generics.Generic Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry.ChangeMessageVisibilityBatchResultEntry
-instance GHC.Show.Show Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry.ChangeMessageVisibilityBatchResultEntry
-instance GHC.Read.Read Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry.ChangeMessageVisibilityBatchResultEntry
-instance GHC.Classes.Eq Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry.ChangeMessageVisibilityBatchResultEntry
-instance Network.AWS.Data.XML.FromXML Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry.ChangeMessageVisibilityBatchResultEntry
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry.ChangeMessageVisibilityBatchResultEntry
-instance Control.DeepSeq.NFData Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry.ChangeMessageVisibilityBatchResultEntry
+instance GHC.Generics.Generic Amazonka.SQS.Types.ChangeMessageVisibilityBatchResultEntry.ChangeMessageVisibilityBatchResultEntry
+instance GHC.Show.Show Amazonka.SQS.Types.ChangeMessageVisibilityBatchResultEntry.ChangeMessageVisibilityBatchResultEntry
+instance GHC.Read.Read Amazonka.SQS.Types.ChangeMessageVisibilityBatchResultEntry.ChangeMessageVisibilityBatchResultEntry
+instance GHC.Classes.Eq Amazonka.SQS.Types.ChangeMessageVisibilityBatchResultEntry.ChangeMessageVisibilityBatchResultEntry
+instance Amazonka.Data.XML.FromXML Amazonka.SQS.Types.ChangeMessageVisibilityBatchResultEntry.ChangeMessageVisibilityBatchResultEntry
+instance Data.Hashable.Class.Hashable Amazonka.SQS.Types.ChangeMessageVisibilityBatchResultEntry.ChangeMessageVisibilityBatchResultEntry
+instance Control.DeepSeq.NFData Amazonka.SQS.Types.ChangeMessageVisibilityBatchResultEntry.ChangeMessageVisibilityBatchResultEntry
 
 
-module Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry
+module Amazonka.SQS.Types.DeleteMessageBatchRequestEntry
 
 -- | Encloses a receipt handle and an identifier for it.
 --   
@@ -273,16 +273,16 @@ deleteMessageBatchRequestEntry_id :: Lens' DeleteMessageBatchRequestEntry Text
 
 -- | A receipt handle.
 deleteMessageBatchRequestEntry_receiptHandle :: Lens' DeleteMessageBatchRequestEntry Text
-instance GHC.Generics.Generic Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.DeleteMessageBatchRequestEntry
-instance GHC.Show.Show Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.DeleteMessageBatchRequestEntry
-instance GHC.Read.Read Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.DeleteMessageBatchRequestEntry
-instance GHC.Classes.Eq Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.DeleteMessageBatchRequestEntry
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.DeleteMessageBatchRequestEntry
-instance Control.DeepSeq.NFData Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.DeleteMessageBatchRequestEntry
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.DeleteMessageBatchRequestEntry
+instance GHC.Generics.Generic Amazonka.SQS.Types.DeleteMessageBatchRequestEntry.DeleteMessageBatchRequestEntry
+instance GHC.Show.Show Amazonka.SQS.Types.DeleteMessageBatchRequestEntry.DeleteMessageBatchRequestEntry
+instance GHC.Read.Read Amazonka.SQS.Types.DeleteMessageBatchRequestEntry.DeleteMessageBatchRequestEntry
+instance GHC.Classes.Eq Amazonka.SQS.Types.DeleteMessageBatchRequestEntry.DeleteMessageBatchRequestEntry
+instance Data.Hashable.Class.Hashable Amazonka.SQS.Types.DeleteMessageBatchRequestEntry.DeleteMessageBatchRequestEntry
+instance Control.DeepSeq.NFData Amazonka.SQS.Types.DeleteMessageBatchRequestEntry.DeleteMessageBatchRequestEntry
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.Types.DeleteMessageBatchRequestEntry.DeleteMessageBatchRequestEntry
 
 
-module Network.AWS.SQS.Types.DeleteMessageBatchResultEntry
+module Amazonka.SQS.Types.DeleteMessageBatchResultEntry
 
 -- | Encloses the <tt>Id</tt> of an entry in <tt> DeleteMessageBatch.</tt>
 --   
@@ -309,16 +309,16 @@ newDeleteMessageBatchResultEntry :: Text -> DeleteMessageBatchResultEntry
 
 -- | Represents a successfully deleted message.
 deleteMessageBatchResultEntry_id :: Lens' DeleteMessageBatchResultEntry Text
-instance GHC.Generics.Generic Network.AWS.SQS.Types.DeleteMessageBatchResultEntry.DeleteMessageBatchResultEntry
-instance GHC.Show.Show Network.AWS.SQS.Types.DeleteMessageBatchResultEntry.DeleteMessageBatchResultEntry
-instance GHC.Read.Read Network.AWS.SQS.Types.DeleteMessageBatchResultEntry.DeleteMessageBatchResultEntry
-instance GHC.Classes.Eq Network.AWS.SQS.Types.DeleteMessageBatchResultEntry.DeleteMessageBatchResultEntry
-instance Network.AWS.Data.XML.FromXML Network.AWS.SQS.Types.DeleteMessageBatchResultEntry.DeleteMessageBatchResultEntry
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.Types.DeleteMessageBatchResultEntry.DeleteMessageBatchResultEntry
-instance Control.DeepSeq.NFData Network.AWS.SQS.Types.DeleteMessageBatchResultEntry.DeleteMessageBatchResultEntry
+instance GHC.Generics.Generic Amazonka.SQS.Types.DeleteMessageBatchResultEntry.DeleteMessageBatchResultEntry
+instance GHC.Show.Show Amazonka.SQS.Types.DeleteMessageBatchResultEntry.DeleteMessageBatchResultEntry
+instance GHC.Read.Read Amazonka.SQS.Types.DeleteMessageBatchResultEntry.DeleteMessageBatchResultEntry
+instance GHC.Classes.Eq Amazonka.SQS.Types.DeleteMessageBatchResultEntry.DeleteMessageBatchResultEntry
+instance Amazonka.Data.XML.FromXML Amazonka.SQS.Types.DeleteMessageBatchResultEntry.DeleteMessageBatchResultEntry
+instance Data.Hashable.Class.Hashable Amazonka.SQS.Types.DeleteMessageBatchResultEntry.DeleteMessageBatchResultEntry
+instance Control.DeepSeq.NFData Amazonka.SQS.Types.DeleteMessageBatchResultEntry.DeleteMessageBatchResultEntry
 
 
-module Network.AWS.SQS.Types.MessageAttribute
+module Amazonka.SQS.Types.MessageAttribute
 newtype MessageAttribute
 MessageAttribute' :: Text -> MessageAttribute
 [fromMessageAttribute] :: MessageAttribute -> Text
@@ -327,28 +327,28 @@ pattern MessageAttribute_ApproximateFirstReceiveTimestamp :: MessageAttribute
 pattern MessageAttribute_ApproximateReceiveCount :: MessageAttribute
 pattern MessageAttribute_SenderId :: MessageAttribute
 pattern MessageAttribute_SentTimestamp :: MessageAttribute
-instance Network.AWS.Data.XML.ToXML Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance Network.AWS.Data.XML.FromXML Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance Network.AWS.Data.Log.ToLog Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance Network.AWS.Data.Text.ToText Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance Network.AWS.Data.Text.FromText Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance Control.DeepSeq.NFData Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance GHC.Generics.Generic Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance GHC.Classes.Ord Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance GHC.Classes.Eq Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance GHC.Read.Read Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
-instance GHC.Show.Show Network.AWS.SQS.Types.MessageAttribute.MessageAttribute
+instance Amazonka.Data.XML.ToXML Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance Amazonka.Data.XML.FromXML Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance Amazonka.Data.Headers.ToHeader Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance Amazonka.Data.Log.ToLog Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance Amazonka.Data.Text.ToText Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance Amazonka.Data.Text.FromText Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance Control.DeepSeq.NFData Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance Data.Hashable.Class.Hashable Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance GHC.Generics.Generic Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance GHC.Classes.Ord Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance GHC.Classes.Eq Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance GHC.Read.Read Amazonka.SQS.Types.MessageAttribute.MessageAttribute
+instance GHC.Show.Show Amazonka.SQS.Types.MessageAttribute.MessageAttribute
 
 
-module Network.AWS.SQS.Types.MessageAttributeValue
+module Amazonka.SQS.Types.MessageAttributeValue
 
 -- | The user-specified message attribute value. For string data types, the
 --   <tt>Value</tt> attribute has the same restrictions on the content as
@@ -452,17 +452,17 @@ messageAttributeValue_binaryListValues :: Lens' MessageAttributeValue (Maybe [By
 --   You can also append custom labels. For more information, see <a>Amazon
 --   SQS Message Attributes</a> in the <i>Amazon SQS Developer Guide</i>.
 messageAttributeValue_dataType :: Lens' MessageAttributeValue Text
-instance GHC.Generics.Generic Network.AWS.SQS.Types.MessageAttributeValue.MessageAttributeValue
-instance GHC.Show.Show Network.AWS.SQS.Types.MessageAttributeValue.MessageAttributeValue
-instance GHC.Read.Read Network.AWS.SQS.Types.MessageAttributeValue.MessageAttributeValue
-instance GHC.Classes.Eq Network.AWS.SQS.Types.MessageAttributeValue.MessageAttributeValue
-instance Network.AWS.Data.XML.FromXML Network.AWS.SQS.Types.MessageAttributeValue.MessageAttributeValue
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.Types.MessageAttributeValue.MessageAttributeValue
-instance Control.DeepSeq.NFData Network.AWS.SQS.Types.MessageAttributeValue.MessageAttributeValue
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.Types.MessageAttributeValue.MessageAttributeValue
+instance GHC.Generics.Generic Amazonka.SQS.Types.MessageAttributeValue.MessageAttributeValue
+instance GHC.Show.Show Amazonka.SQS.Types.MessageAttributeValue.MessageAttributeValue
+instance GHC.Read.Read Amazonka.SQS.Types.MessageAttributeValue.MessageAttributeValue
+instance GHC.Classes.Eq Amazonka.SQS.Types.MessageAttributeValue.MessageAttributeValue
+instance Amazonka.Data.XML.FromXML Amazonka.SQS.Types.MessageAttributeValue.MessageAttributeValue
+instance Data.Hashable.Class.Hashable Amazonka.SQS.Types.MessageAttributeValue.MessageAttributeValue
+instance Control.DeepSeq.NFData Amazonka.SQS.Types.MessageAttributeValue.MessageAttributeValue
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.Types.MessageAttributeValue.MessageAttributeValue
 
 
-module Network.AWS.SQS.Types.Message
+module Amazonka.SQS.Types.Message
 
 -- | An Amazon SQS message.
 --   
@@ -615,42 +615,42 @@ message_messageId :: Lens' Message (Maybe Text)
 --   correctly. Amazon SQS URL-decodes the message before creating the MD5
 --   digest. For information about MD5, see <a>RFC1321</a>.
 message_mD5OfMessageAttributes :: Lens' Message (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SQS.Types.Message.Message
-instance GHC.Show.Show Network.AWS.SQS.Types.Message.Message
-instance GHC.Read.Read Network.AWS.SQS.Types.Message.Message
-instance GHC.Classes.Eq Network.AWS.SQS.Types.Message.Message
-instance Network.AWS.Data.XML.FromXML Network.AWS.SQS.Types.Message.Message
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.Types.Message.Message
-instance Control.DeepSeq.NFData Network.AWS.SQS.Types.Message.Message
+instance GHC.Generics.Generic Amazonka.SQS.Types.Message.Message
+instance GHC.Show.Show Amazonka.SQS.Types.Message.Message
+instance GHC.Read.Read Amazonka.SQS.Types.Message.Message
+instance GHC.Classes.Eq Amazonka.SQS.Types.Message.Message
+instance Amazonka.Data.XML.FromXML Amazonka.SQS.Types.Message.Message
+instance Data.Hashable.Class.Hashable Amazonka.SQS.Types.Message.Message
+instance Control.DeepSeq.NFData Amazonka.SQS.Types.Message.Message
 
 
-module Network.AWS.SQS.Types.MessageSystemAttributeNameForSends
+module Amazonka.SQS.Types.MessageSystemAttributeNameForSends
 newtype MessageSystemAttributeNameForSends
 MessageSystemAttributeNameForSends' :: Text -> MessageSystemAttributeNameForSends
 [fromMessageSystemAttributeNameForSends] :: MessageSystemAttributeNameForSends -> Text
 pattern MessageSystemAttributeNameForSends_AWSTraceHeader :: MessageSystemAttributeNameForSends
-instance Network.AWS.Data.XML.ToXML Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance Network.AWS.Data.XML.FromXML Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance Network.AWS.Data.Log.ToLog Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance Network.AWS.Data.Text.ToText Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance Network.AWS.Data.Text.FromText Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance Control.DeepSeq.NFData Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance GHC.Generics.Generic Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance GHC.Classes.Ord Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance GHC.Classes.Eq Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance GHC.Read.Read Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
-instance GHC.Show.Show Network.AWS.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance Amazonka.Data.XML.ToXML Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance Amazonka.Data.XML.FromXML Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance Amazonka.Data.Headers.ToHeader Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance Amazonka.Data.Log.ToLog Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance Amazonka.Data.Text.ToText Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance Amazonka.Data.Text.FromText Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance Control.DeepSeq.NFData Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance Data.Hashable.Class.Hashable Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance GHC.Generics.Generic Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance GHC.Classes.Ord Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance GHC.Classes.Eq Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance GHC.Read.Read Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
+instance GHC.Show.Show Amazonka.SQS.Types.MessageSystemAttributeNameForSends.MessageSystemAttributeNameForSends
 
 
-module Network.AWS.SQS.Types.MessageSystemAttributeValue
+module Amazonka.SQS.Types.MessageSystemAttributeValue
 
 -- | The user-specified message system attribute value. For string data
 --   types, the <tt>Value</tt> attribute has the same restrictions on the
@@ -754,16 +754,16 @@ messageSystemAttributeValue_binaryListValues :: Lens' MessageSystemAttributeValu
 --   You can also append custom labels. For more information, see <a>Amazon
 --   SQS Message Attributes</a> in the <i>Amazon SQS Developer Guide</i>.
 messageSystemAttributeValue_dataType :: Lens' MessageSystemAttributeValue Text
-instance GHC.Generics.Generic Network.AWS.SQS.Types.MessageSystemAttributeValue.MessageSystemAttributeValue
-instance GHC.Show.Show Network.AWS.SQS.Types.MessageSystemAttributeValue.MessageSystemAttributeValue
-instance GHC.Read.Read Network.AWS.SQS.Types.MessageSystemAttributeValue.MessageSystemAttributeValue
-instance GHC.Classes.Eq Network.AWS.SQS.Types.MessageSystemAttributeValue.MessageSystemAttributeValue
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.Types.MessageSystemAttributeValue.MessageSystemAttributeValue
-instance Control.DeepSeq.NFData Network.AWS.SQS.Types.MessageSystemAttributeValue.MessageSystemAttributeValue
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.Types.MessageSystemAttributeValue.MessageSystemAttributeValue
+instance GHC.Generics.Generic Amazonka.SQS.Types.MessageSystemAttributeValue.MessageSystemAttributeValue
+instance GHC.Show.Show Amazonka.SQS.Types.MessageSystemAttributeValue.MessageSystemAttributeValue
+instance GHC.Read.Read Amazonka.SQS.Types.MessageSystemAttributeValue.MessageSystemAttributeValue
+instance GHC.Classes.Eq Amazonka.SQS.Types.MessageSystemAttributeValue.MessageSystemAttributeValue
+instance Data.Hashable.Class.Hashable Amazonka.SQS.Types.MessageSystemAttributeValue.MessageSystemAttributeValue
+instance Control.DeepSeq.NFData Amazonka.SQS.Types.MessageSystemAttributeValue.MessageSystemAttributeValue
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.Types.MessageSystemAttributeValue.MessageSystemAttributeValue
 
 
-module Network.AWS.SQS.Types.QueueAttributeName
+module Amazonka.SQS.Types.QueueAttributeName
 newtype QueueAttributeName
 QueueAttributeName' :: Text -> QueueAttributeName
 [fromQueueAttributeName] :: QueueAttributeName -> Text
@@ -788,28 +788,28 @@ pattern QueueAttributeName_ReceiveMessageWaitTimeSeconds :: QueueAttributeName
 pattern QueueAttributeName_RedriveAllowPolicy :: QueueAttributeName
 pattern QueueAttributeName_RedrivePolicy :: QueueAttributeName
 pattern QueueAttributeName_VisibilityTimeout :: QueueAttributeName
-instance Network.AWS.Data.XML.ToXML Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance Network.AWS.Data.XML.FromXML Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance Network.AWS.Data.Log.ToLog Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance Network.AWS.Data.Text.ToText Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance Network.AWS.Data.Text.FromText Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance Control.DeepSeq.NFData Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance GHC.Generics.Generic Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance GHC.Classes.Ord Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance GHC.Classes.Eq Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance GHC.Read.Read Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
-instance GHC.Show.Show Network.AWS.SQS.Types.QueueAttributeName.QueueAttributeName
+instance Amazonka.Data.XML.ToXML Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance Amazonka.Data.XML.FromXML Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance Amazonka.Data.Headers.ToHeader Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance Amazonka.Data.Log.ToLog Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance Amazonka.Data.Text.ToText Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance Amazonka.Data.Text.FromText Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance Control.DeepSeq.NFData Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance Data.Hashable.Class.Hashable Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance GHC.Generics.Generic Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance GHC.Classes.Ord Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance GHC.Classes.Eq Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance GHC.Read.Read Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
+instance GHC.Show.Show Amazonka.SQS.Types.QueueAttributeName.QueueAttributeName
 
 
-module Network.AWS.SQS.Types.SendMessageBatchRequestEntry
+module Amazonka.SQS.Types.SendMessageBatchRequestEntry
 
 -- | Contains the details of a single Amazon SQS message along with an
 --   <tt>Id</tt>.
@@ -1223,16 +1223,16 @@ sendMessageBatchRequestEntry_id :: Lens' SendMessageBatchRequestEntry Text
 
 -- | The body of the message.
 sendMessageBatchRequestEntry_messageBody :: Lens' SendMessageBatchRequestEntry Text
-instance GHC.Generics.Generic Network.AWS.SQS.Types.SendMessageBatchRequestEntry.SendMessageBatchRequestEntry
-instance GHC.Show.Show Network.AWS.SQS.Types.SendMessageBatchRequestEntry.SendMessageBatchRequestEntry
-instance GHC.Read.Read Network.AWS.SQS.Types.SendMessageBatchRequestEntry.SendMessageBatchRequestEntry
-instance GHC.Classes.Eq Network.AWS.SQS.Types.SendMessageBatchRequestEntry.SendMessageBatchRequestEntry
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.Types.SendMessageBatchRequestEntry.SendMessageBatchRequestEntry
-instance Control.DeepSeq.NFData Network.AWS.SQS.Types.SendMessageBatchRequestEntry.SendMessageBatchRequestEntry
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.Types.SendMessageBatchRequestEntry.SendMessageBatchRequestEntry
+instance GHC.Generics.Generic Amazonka.SQS.Types.SendMessageBatchRequestEntry.SendMessageBatchRequestEntry
+instance GHC.Show.Show Amazonka.SQS.Types.SendMessageBatchRequestEntry.SendMessageBatchRequestEntry
+instance GHC.Read.Read Amazonka.SQS.Types.SendMessageBatchRequestEntry.SendMessageBatchRequestEntry
+instance GHC.Classes.Eq Amazonka.SQS.Types.SendMessageBatchRequestEntry.SendMessageBatchRequestEntry
+instance Data.Hashable.Class.Hashable Amazonka.SQS.Types.SendMessageBatchRequestEntry.SendMessageBatchRequestEntry
+instance Control.DeepSeq.NFData Amazonka.SQS.Types.SendMessageBatchRequestEntry.SendMessageBatchRequestEntry
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.Types.SendMessageBatchRequestEntry.SendMessageBatchRequestEntry
 
 
-module Network.AWS.SQS.Types.SendMessageBatchResultEntry
+module Amazonka.SQS.Types.SendMessageBatchResultEntry
 
 -- | Encloses a <tt>MessageId</tt> for a successfully-enqueued message in a
 --   <tt> SendMessageBatch.</tt>
@@ -1358,16 +1358,16 @@ sendMessageBatchResultEntry_messageId :: Lens' SendMessageBatchResultEntry Text
 --   correctly. Amazon SQS URL-decodes the message before creating the MD5
 --   digest. For information about MD5, see <a>RFC1321</a>.
 sendMessageBatchResultEntry_mD5OfMessageBody :: Lens' SendMessageBatchResultEntry Text
-instance GHC.Generics.Generic Network.AWS.SQS.Types.SendMessageBatchResultEntry.SendMessageBatchResultEntry
-instance GHC.Show.Show Network.AWS.SQS.Types.SendMessageBatchResultEntry.SendMessageBatchResultEntry
-instance GHC.Read.Read Network.AWS.SQS.Types.SendMessageBatchResultEntry.SendMessageBatchResultEntry
-instance GHC.Classes.Eq Network.AWS.SQS.Types.SendMessageBatchResultEntry.SendMessageBatchResultEntry
-instance Network.AWS.Data.XML.FromXML Network.AWS.SQS.Types.SendMessageBatchResultEntry.SendMessageBatchResultEntry
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.Types.SendMessageBatchResultEntry.SendMessageBatchResultEntry
-instance Control.DeepSeq.NFData Network.AWS.SQS.Types.SendMessageBatchResultEntry.SendMessageBatchResultEntry
+instance GHC.Generics.Generic Amazonka.SQS.Types.SendMessageBatchResultEntry.SendMessageBatchResultEntry
+instance GHC.Show.Show Amazonka.SQS.Types.SendMessageBatchResultEntry.SendMessageBatchResultEntry
+instance GHC.Read.Read Amazonka.SQS.Types.SendMessageBatchResultEntry.SendMessageBatchResultEntry
+instance GHC.Classes.Eq Amazonka.SQS.Types.SendMessageBatchResultEntry.SendMessageBatchResultEntry
+instance Amazonka.Data.XML.FromXML Amazonka.SQS.Types.SendMessageBatchResultEntry.SendMessageBatchResultEntry
+instance Data.Hashable.Class.Hashable Amazonka.SQS.Types.SendMessageBatchResultEntry.SendMessageBatchResultEntry
+instance Control.DeepSeq.NFData Amazonka.SQS.Types.SendMessageBatchResultEntry.SendMessageBatchResultEntry
 
 
-module Network.AWS.SQS.Types
+module Amazonka.SQS.Types
 
 -- | API version <tt>2012-11-05</tt> of the Amazon Simple Queue Service SDK
 --   configuration.
@@ -2647,7 +2647,7 @@ sendMessageBatchResultEntry_mD5OfMessageBody :: Lens' SendMessageBatchResultEntr
 --   Cross-account permissions don't apply to this action. For more
 --   information, see <a>Grant cross-account permissions to a role and a
 --   user name</a> in the <i>Amazon SQS Developer Guide</i>.
-module Network.AWS.SQS.TagQueue
+module Amazonka.SQS.TagQueue
 
 -- | <i>See:</i> <a>newTagQueue</a> smart constructor.
 data TagQueue
@@ -2690,21 +2690,21 @@ TagQueueResponse' :: TagQueueResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newTagQueueResponse :: TagQueueResponse
-instance GHC.Generics.Generic Network.AWS.SQS.TagQueue.TagQueue
-instance GHC.Show.Show Network.AWS.SQS.TagQueue.TagQueue
-instance GHC.Read.Read Network.AWS.SQS.TagQueue.TagQueue
-instance GHC.Classes.Eq Network.AWS.SQS.TagQueue.TagQueue
-instance GHC.Generics.Generic Network.AWS.SQS.TagQueue.TagQueueResponse
-instance GHC.Show.Show Network.AWS.SQS.TagQueue.TagQueueResponse
-instance GHC.Read.Read Network.AWS.SQS.TagQueue.TagQueueResponse
-instance GHC.Classes.Eq Network.AWS.SQS.TagQueue.TagQueueResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.TagQueue.TagQueue
-instance Control.DeepSeq.NFData Network.AWS.SQS.TagQueue.TagQueueResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.TagQueue.TagQueue
-instance Control.DeepSeq.NFData Network.AWS.SQS.TagQueue.TagQueue
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.TagQueue.TagQueue
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.TagQueue.TagQueue
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.TagQueue.TagQueue
+instance GHC.Generics.Generic Amazonka.SQS.TagQueue.TagQueue
+instance GHC.Show.Show Amazonka.SQS.TagQueue.TagQueue
+instance GHC.Read.Read Amazonka.SQS.TagQueue.TagQueue
+instance GHC.Classes.Eq Amazonka.SQS.TagQueue.TagQueue
+instance GHC.Generics.Generic Amazonka.SQS.TagQueue.TagQueueResponse
+instance GHC.Show.Show Amazonka.SQS.TagQueue.TagQueueResponse
+instance GHC.Read.Read Amazonka.SQS.TagQueue.TagQueueResponse
+instance GHC.Classes.Eq Amazonka.SQS.TagQueue.TagQueueResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.TagQueue.TagQueue
+instance Control.DeepSeq.NFData Amazonka.SQS.TagQueue.TagQueueResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.TagQueue.TagQueue
+instance Control.DeepSeq.NFData Amazonka.SQS.TagQueue.TagQueue
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.TagQueue.TagQueue
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.TagQueue.TagQueue
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.TagQueue.TagQueue
 
 
 -- | Sets the value of one or more queue attributes. When you change a
@@ -2724,7 +2724,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.TagQueue.TagQueue
 --   permission to the <tt>AddPermission</tt>, <tt>RemovePermission</tt>,
 --   and <tt>SetQueueAttributes</tt> actions in your IAM policy.</li>
 --   </ul>
-module Network.AWS.SQS.SetQueueAttributes
+module Amazonka.SQS.SetQueueAttributes
 
 -- | <i>See:</i> <a>newSetQueueAttributes</a> smart constructor.
 data SetQueueAttributes
@@ -3225,21 +3225,21 @@ SetQueueAttributesResponse' :: SetQueueAttributesResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newSetQueueAttributesResponse :: SetQueueAttributesResponse
-instance GHC.Generics.Generic Network.AWS.SQS.SetQueueAttributes.SetQueueAttributes
-instance GHC.Show.Show Network.AWS.SQS.SetQueueAttributes.SetQueueAttributes
-instance GHC.Read.Read Network.AWS.SQS.SetQueueAttributes.SetQueueAttributes
-instance GHC.Classes.Eq Network.AWS.SQS.SetQueueAttributes.SetQueueAttributes
-instance GHC.Generics.Generic Network.AWS.SQS.SetQueueAttributes.SetQueueAttributesResponse
-instance GHC.Show.Show Network.AWS.SQS.SetQueueAttributes.SetQueueAttributesResponse
-instance GHC.Read.Read Network.AWS.SQS.SetQueueAttributes.SetQueueAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SQS.SetQueueAttributes.SetQueueAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.SetQueueAttributes.SetQueueAttributes
-instance Control.DeepSeq.NFData Network.AWS.SQS.SetQueueAttributes.SetQueueAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.SetQueueAttributes.SetQueueAttributes
-instance Control.DeepSeq.NFData Network.AWS.SQS.SetQueueAttributes.SetQueueAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.SetQueueAttributes.SetQueueAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.SetQueueAttributes.SetQueueAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.SetQueueAttributes.SetQueueAttributes
+instance GHC.Generics.Generic Amazonka.SQS.SetQueueAttributes.SetQueueAttributes
+instance GHC.Show.Show Amazonka.SQS.SetQueueAttributes.SetQueueAttributes
+instance GHC.Read.Read Amazonka.SQS.SetQueueAttributes.SetQueueAttributes
+instance GHC.Classes.Eq Amazonka.SQS.SetQueueAttributes.SetQueueAttributes
+instance GHC.Generics.Generic Amazonka.SQS.SetQueueAttributes.SetQueueAttributesResponse
+instance GHC.Show.Show Amazonka.SQS.SetQueueAttributes.SetQueueAttributesResponse
+instance GHC.Read.Read Amazonka.SQS.SetQueueAttributes.SetQueueAttributesResponse
+instance GHC.Classes.Eq Amazonka.SQS.SetQueueAttributes.SetQueueAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.SetQueueAttributes.SetQueueAttributes
+instance Control.DeepSeq.NFData Amazonka.SQS.SetQueueAttributes.SetQueueAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.SetQueueAttributes.SetQueueAttributes
+instance Control.DeepSeq.NFData Amazonka.SQS.SetQueueAttributes.SetQueueAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.SetQueueAttributes.SetQueueAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.SetQueueAttributes.SetQueueAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.SetQueueAttributes.SetQueueAttributes
 
 
 -- | Delivers up to ten messages to the specified queue. This is a batch
@@ -3280,7 +3280,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.SetQueueAttributes.SetQu
 --   <pre>
 --   &amp;AttributeName.2=second
 --   </pre>
-module Network.AWS.SQS.SendMessageBatch
+module Amazonka.SQS.SendMessageBatch
 
 -- | <i>See:</i> <a>newSendMessageBatch</a> smart constructor.
 data SendMessageBatch
@@ -3371,21 +3371,21 @@ sendMessageBatchResponse_successful :: Lens' SendMessageBatchResponse [SendMessa
 -- | A list of <tt> BatchResultErrorEntry </tt> items with error details
 --   about each message that can't be enqueued.
 sendMessageBatchResponse_failed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
-instance GHC.Generics.Generic Network.AWS.SQS.SendMessageBatch.SendMessageBatch
-instance GHC.Show.Show Network.AWS.SQS.SendMessageBatch.SendMessageBatch
-instance GHC.Read.Read Network.AWS.SQS.SendMessageBatch.SendMessageBatch
-instance GHC.Classes.Eq Network.AWS.SQS.SendMessageBatch.SendMessageBatch
-instance GHC.Generics.Generic Network.AWS.SQS.SendMessageBatch.SendMessageBatchResponse
-instance GHC.Show.Show Network.AWS.SQS.SendMessageBatch.SendMessageBatchResponse
-instance GHC.Read.Read Network.AWS.SQS.SendMessageBatch.SendMessageBatchResponse
-instance GHC.Classes.Eq Network.AWS.SQS.SendMessageBatch.SendMessageBatchResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.SendMessageBatch.SendMessageBatch
-instance Control.DeepSeq.NFData Network.AWS.SQS.SendMessageBatch.SendMessageBatchResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.SendMessageBatch.SendMessageBatch
-instance Control.DeepSeq.NFData Network.AWS.SQS.SendMessageBatch.SendMessageBatch
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.SendMessageBatch.SendMessageBatch
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.SendMessageBatch.SendMessageBatch
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.SendMessageBatch.SendMessageBatch
+instance GHC.Generics.Generic Amazonka.SQS.SendMessageBatch.SendMessageBatch
+instance GHC.Show.Show Amazonka.SQS.SendMessageBatch.SendMessageBatch
+instance GHC.Read.Read Amazonka.SQS.SendMessageBatch.SendMessageBatch
+instance GHC.Classes.Eq Amazonka.SQS.SendMessageBatch.SendMessageBatch
+instance GHC.Generics.Generic Amazonka.SQS.SendMessageBatch.SendMessageBatchResponse
+instance GHC.Show.Show Amazonka.SQS.SendMessageBatch.SendMessageBatchResponse
+instance GHC.Read.Read Amazonka.SQS.SendMessageBatch.SendMessageBatchResponse
+instance GHC.Classes.Eq Amazonka.SQS.SendMessageBatch.SendMessageBatchResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.SendMessageBatch.SendMessageBatch
+instance Control.DeepSeq.NFData Amazonka.SQS.SendMessageBatch.SendMessageBatchResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.SendMessageBatch.SendMessageBatch
+instance Control.DeepSeq.NFData Amazonka.SQS.SendMessageBatch.SendMessageBatch
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.SendMessageBatch.SendMessageBatch
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.SendMessageBatch.SendMessageBatch
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.SendMessageBatch.SendMessageBatch
 
 
 -- | Delivers a message to the specified queue.
@@ -3399,7 +3399,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.SendMessageBatch.SendMes
 --   
 --   Any characters not included in this list will be rejected. For more
 --   information, see the <a>W3C specification for characters</a>.
-module Network.AWS.SQS.SendMessage
+module Amazonka.SQS.SendMessage
 
 -- | <i>See:</i> <a>newSendMessage</a> smart constructor.
 data SendMessage
@@ -3949,21 +3949,21 @@ sendMessageResponse_mD5OfMessageAttributes :: Lens' SendMessageResponse (Maybe T
 
 -- | The response's http status code.
 sendMessageResponse_httpStatus :: Lens' SendMessageResponse Int
-instance GHC.Generics.Generic Network.AWS.SQS.SendMessage.SendMessage
-instance GHC.Show.Show Network.AWS.SQS.SendMessage.SendMessage
-instance GHC.Read.Read Network.AWS.SQS.SendMessage.SendMessage
-instance GHC.Classes.Eq Network.AWS.SQS.SendMessage.SendMessage
-instance GHC.Generics.Generic Network.AWS.SQS.SendMessage.SendMessageResponse
-instance GHC.Show.Show Network.AWS.SQS.SendMessage.SendMessageResponse
-instance GHC.Read.Read Network.AWS.SQS.SendMessage.SendMessageResponse
-instance GHC.Classes.Eq Network.AWS.SQS.SendMessage.SendMessageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.SendMessage.SendMessage
-instance Control.DeepSeq.NFData Network.AWS.SQS.SendMessage.SendMessageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.SendMessage.SendMessage
-instance Control.DeepSeq.NFData Network.AWS.SQS.SendMessage.SendMessage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.SendMessage.SendMessage
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.SendMessage.SendMessage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.SendMessage.SendMessage
+instance GHC.Generics.Generic Amazonka.SQS.SendMessage.SendMessage
+instance GHC.Show.Show Amazonka.SQS.SendMessage.SendMessage
+instance GHC.Read.Read Amazonka.SQS.SendMessage.SendMessage
+instance GHC.Classes.Eq Amazonka.SQS.SendMessage.SendMessage
+instance GHC.Generics.Generic Amazonka.SQS.SendMessage.SendMessageResponse
+instance GHC.Show.Show Amazonka.SQS.SendMessage.SendMessageResponse
+instance GHC.Read.Read Amazonka.SQS.SendMessage.SendMessageResponse
+instance GHC.Classes.Eq Amazonka.SQS.SendMessage.SendMessageResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.SendMessage.SendMessage
+instance Control.DeepSeq.NFData Amazonka.SQS.SendMessage.SendMessageResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.SendMessage.SendMessage
+instance Control.DeepSeq.NFData Amazonka.SQS.SendMessage.SendMessage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.SendMessage.SendMessage
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.SendMessage.SendMessage
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.SendMessage.SendMessage
 
 
 -- | Revokes any permissions in the queue policy that matches the specified
@@ -3978,7 +3978,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.SendMessage.SendMessage
 --   permission to the <tt>AddPermission</tt>, <tt>RemovePermission</tt>,
 --   and <tt>SetQueueAttributes</tt> actions in your IAM policy.</li>
 --   </ul>
-module Network.AWS.SQS.RemovePermission
+module Amazonka.SQS.RemovePermission
 
 -- | <i>See:</i> <a>newRemovePermission</a> smart constructor.
 data RemovePermission
@@ -4032,21 +4032,21 @@ RemovePermissionResponse' :: RemovePermissionResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newRemovePermissionResponse :: RemovePermissionResponse
-instance GHC.Generics.Generic Network.AWS.SQS.RemovePermission.RemovePermission
-instance GHC.Show.Show Network.AWS.SQS.RemovePermission.RemovePermission
-instance GHC.Read.Read Network.AWS.SQS.RemovePermission.RemovePermission
-instance GHC.Classes.Eq Network.AWS.SQS.RemovePermission.RemovePermission
-instance GHC.Generics.Generic Network.AWS.SQS.RemovePermission.RemovePermissionResponse
-instance GHC.Show.Show Network.AWS.SQS.RemovePermission.RemovePermissionResponse
-instance GHC.Read.Read Network.AWS.SQS.RemovePermission.RemovePermissionResponse
-instance GHC.Classes.Eq Network.AWS.SQS.RemovePermission.RemovePermissionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.RemovePermission.RemovePermission
-instance Control.DeepSeq.NFData Network.AWS.SQS.RemovePermission.RemovePermissionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.RemovePermission.RemovePermission
-instance Control.DeepSeq.NFData Network.AWS.SQS.RemovePermission.RemovePermission
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.RemovePermission.RemovePermission
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.RemovePermission.RemovePermission
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.RemovePermission.RemovePermission
+instance GHC.Generics.Generic Amazonka.SQS.RemovePermission.RemovePermission
+instance GHC.Show.Show Amazonka.SQS.RemovePermission.RemovePermission
+instance GHC.Read.Read Amazonka.SQS.RemovePermission.RemovePermission
+instance GHC.Classes.Eq Amazonka.SQS.RemovePermission.RemovePermission
+instance GHC.Generics.Generic Amazonka.SQS.RemovePermission.RemovePermissionResponse
+instance GHC.Show.Show Amazonka.SQS.RemovePermission.RemovePermissionResponse
+instance GHC.Read.Read Amazonka.SQS.RemovePermission.RemovePermissionResponse
+instance GHC.Classes.Eq Amazonka.SQS.RemovePermission.RemovePermissionResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.RemovePermission.RemovePermission
+instance Control.DeepSeq.NFData Amazonka.SQS.RemovePermission.RemovePermissionResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.RemovePermission.RemovePermission
+instance Control.DeepSeq.NFData Amazonka.SQS.RemovePermission.RemovePermission
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.RemovePermission.RemovePermission
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.RemovePermission.RemovePermission
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.RemovePermission.RemovePermission
 
 
 -- | Retrieves one or more messages (up to 10), from the specified queue.
@@ -4095,7 +4095,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.RemovePermission.RemoveP
 --   In the future, new attributes might be added. If you write code that
 --   calls this action, we recommend that you structure your code so that
 --   it can handle new attributes gracefully.
-module Network.AWS.SQS.ReceiveMessage
+module Amazonka.SQS.ReceiveMessage
 
 -- | <i>See:</i> <a>newReceiveMessage</a> smart constructor.
 data ReceiveMessage
@@ -4551,21 +4551,21 @@ receiveMessageResponse_messages :: Lens' ReceiveMessageResponse (Maybe [Message]
 
 -- | The response's http status code.
 receiveMessageResponse_httpStatus :: Lens' ReceiveMessageResponse Int
-instance GHC.Generics.Generic Network.AWS.SQS.ReceiveMessage.ReceiveMessage
-instance GHC.Show.Show Network.AWS.SQS.ReceiveMessage.ReceiveMessage
-instance GHC.Read.Read Network.AWS.SQS.ReceiveMessage.ReceiveMessage
-instance GHC.Classes.Eq Network.AWS.SQS.ReceiveMessage.ReceiveMessage
-instance GHC.Generics.Generic Network.AWS.SQS.ReceiveMessage.ReceiveMessageResponse
-instance GHC.Show.Show Network.AWS.SQS.ReceiveMessage.ReceiveMessageResponse
-instance GHC.Read.Read Network.AWS.SQS.ReceiveMessage.ReceiveMessageResponse
-instance GHC.Classes.Eq Network.AWS.SQS.ReceiveMessage.ReceiveMessageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.ReceiveMessage.ReceiveMessage
-instance Control.DeepSeq.NFData Network.AWS.SQS.ReceiveMessage.ReceiveMessageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.ReceiveMessage.ReceiveMessage
-instance Control.DeepSeq.NFData Network.AWS.SQS.ReceiveMessage.ReceiveMessage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.ReceiveMessage.ReceiveMessage
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.ReceiveMessage.ReceiveMessage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.ReceiveMessage.ReceiveMessage
+instance GHC.Generics.Generic Amazonka.SQS.ReceiveMessage.ReceiveMessage
+instance GHC.Show.Show Amazonka.SQS.ReceiveMessage.ReceiveMessage
+instance GHC.Read.Read Amazonka.SQS.ReceiveMessage.ReceiveMessage
+instance GHC.Classes.Eq Amazonka.SQS.ReceiveMessage.ReceiveMessage
+instance GHC.Generics.Generic Amazonka.SQS.ReceiveMessage.ReceiveMessageResponse
+instance GHC.Show.Show Amazonka.SQS.ReceiveMessage.ReceiveMessageResponse
+instance GHC.Read.Read Amazonka.SQS.ReceiveMessage.ReceiveMessageResponse
+instance GHC.Classes.Eq Amazonka.SQS.ReceiveMessage.ReceiveMessageResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.ReceiveMessage.ReceiveMessage
+instance Control.DeepSeq.NFData Amazonka.SQS.ReceiveMessage.ReceiveMessageResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.ReceiveMessage.ReceiveMessage
+instance Control.DeepSeq.NFData Amazonka.SQS.ReceiveMessage.ReceiveMessage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.ReceiveMessage.ReceiveMessage
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.ReceiveMessage.ReceiveMessage
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.ReceiveMessage.ReceiveMessage
 
 
 -- | Deletes the messages in a queue specified by the <tt>QueueURL</tt>
@@ -4582,7 +4582,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.ReceiveMessage.ReceiveMe
 --   
 --   Messages sent to the queue <i>after</i> you call <tt>PurgeQueue</tt>
 --   might be deleted while the queue is being purged.
-module Network.AWS.SQS.PurgeQueue
+module Amazonka.SQS.PurgeQueue
 
 -- | <i>See:</i> <a>newPurgeQueue</a> smart constructor.
 data PurgeQueue
@@ -4625,21 +4625,21 @@ PurgeQueueResponse' :: PurgeQueueResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newPurgeQueueResponse :: PurgeQueueResponse
-instance GHC.Generics.Generic Network.AWS.SQS.PurgeQueue.PurgeQueue
-instance GHC.Show.Show Network.AWS.SQS.PurgeQueue.PurgeQueue
-instance GHC.Read.Read Network.AWS.SQS.PurgeQueue.PurgeQueue
-instance GHC.Classes.Eq Network.AWS.SQS.PurgeQueue.PurgeQueue
-instance GHC.Generics.Generic Network.AWS.SQS.PurgeQueue.PurgeQueueResponse
-instance GHC.Show.Show Network.AWS.SQS.PurgeQueue.PurgeQueueResponse
-instance GHC.Read.Read Network.AWS.SQS.PurgeQueue.PurgeQueueResponse
-instance GHC.Classes.Eq Network.AWS.SQS.PurgeQueue.PurgeQueueResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.PurgeQueue.PurgeQueue
-instance Control.DeepSeq.NFData Network.AWS.SQS.PurgeQueue.PurgeQueueResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.PurgeQueue.PurgeQueue
-instance Control.DeepSeq.NFData Network.AWS.SQS.PurgeQueue.PurgeQueue
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.PurgeQueue.PurgeQueue
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.PurgeQueue.PurgeQueue
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.PurgeQueue.PurgeQueue
+instance GHC.Generics.Generic Amazonka.SQS.PurgeQueue.PurgeQueue
+instance GHC.Show.Show Amazonka.SQS.PurgeQueue.PurgeQueue
+instance GHC.Read.Read Amazonka.SQS.PurgeQueue.PurgeQueue
+instance GHC.Classes.Eq Amazonka.SQS.PurgeQueue.PurgeQueue
+instance GHC.Generics.Generic Amazonka.SQS.PurgeQueue.PurgeQueueResponse
+instance GHC.Show.Show Amazonka.SQS.PurgeQueue.PurgeQueueResponse
+instance GHC.Read.Read Amazonka.SQS.PurgeQueue.PurgeQueueResponse
+instance GHC.Classes.Eq Amazonka.SQS.PurgeQueue.PurgeQueueResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.PurgeQueue.PurgeQueue
+instance Control.DeepSeq.NFData Amazonka.SQS.PurgeQueue.PurgeQueueResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.PurgeQueue.PurgeQueue
+instance Control.DeepSeq.NFData Amazonka.SQS.PurgeQueue.PurgeQueue
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.PurgeQueue.PurgeQueue
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.PurgeQueue.PurgeQueue
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.PurgeQueue.PurgeQueue
 
 
 -- | Returns a list of your queues in the current region. The response
@@ -4661,7 +4661,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.PurgeQueue.PurgeQueue
 --   user name</a> in the <i>Amazon SQS Developer Guide</i>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SQS.ListQueues
+module Amazonka.SQS.ListQueues
 
 -- | <i>See:</i> <a>newListQueues</a> smart constructor.
 data ListQueues
@@ -4772,22 +4772,22 @@ listQueuesResponse_nextToken :: Lens' ListQueuesResponse (Maybe Text)
 
 -- | The response's http status code.
 listQueuesResponse_httpStatus :: Lens' ListQueuesResponse Int
-instance GHC.Generics.Generic Network.AWS.SQS.ListQueues.ListQueues
-instance GHC.Show.Show Network.AWS.SQS.ListQueues.ListQueues
-instance GHC.Read.Read Network.AWS.SQS.ListQueues.ListQueues
-instance GHC.Classes.Eq Network.AWS.SQS.ListQueues.ListQueues
-instance GHC.Generics.Generic Network.AWS.SQS.ListQueues.ListQueuesResponse
-instance GHC.Show.Show Network.AWS.SQS.ListQueues.ListQueuesResponse
-instance GHC.Read.Read Network.AWS.SQS.ListQueues.ListQueuesResponse
-instance GHC.Classes.Eq Network.AWS.SQS.ListQueues.ListQueuesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.ListQueues.ListQueues
-instance Control.DeepSeq.NFData Network.AWS.SQS.ListQueues.ListQueuesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SQS.ListQueues.ListQueues
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.ListQueues.ListQueues
-instance Control.DeepSeq.NFData Network.AWS.SQS.ListQueues.ListQueues
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.ListQueues.ListQueues
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.ListQueues.ListQueues
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.ListQueues.ListQueues
+instance GHC.Generics.Generic Amazonka.SQS.ListQueues.ListQueues
+instance GHC.Show.Show Amazonka.SQS.ListQueues.ListQueues
+instance GHC.Read.Read Amazonka.SQS.ListQueues.ListQueues
+instance GHC.Classes.Eq Amazonka.SQS.ListQueues.ListQueues
+instance GHC.Generics.Generic Amazonka.SQS.ListQueues.ListQueuesResponse
+instance GHC.Show.Show Amazonka.SQS.ListQueues.ListQueuesResponse
+instance GHC.Read.Read Amazonka.SQS.ListQueues.ListQueuesResponse
+instance GHC.Classes.Eq Amazonka.SQS.ListQueues.ListQueuesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.ListQueues.ListQueues
+instance Control.DeepSeq.NFData Amazonka.SQS.ListQueues.ListQueuesResponse
+instance Amazonka.Pager.AWSPager Amazonka.SQS.ListQueues.ListQueues
+instance Data.Hashable.Class.Hashable Amazonka.SQS.ListQueues.ListQueues
+instance Control.DeepSeq.NFData Amazonka.SQS.ListQueues.ListQueues
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.ListQueues.ListQueues
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.ListQueues.ListQueues
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.ListQueues.ListQueues
 
 
 -- | List all cost allocation tags added to the specified Amazon SQS queue.
@@ -4797,7 +4797,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.ListQueues.ListQueues
 --   Cross-account permissions don't apply to this action. For more
 --   information, see <a>Grant cross-account permissions to a role and a
 --   user name</a> in the <i>Amazon SQS Developer Guide</i>.
-module Network.AWS.SQS.ListQueueTags
+module Amazonka.SQS.ListQueueTags
 
 -- | <i>See:</i> <a>newListQueueTags</a> smart constructor.
 data ListQueueTags
@@ -4855,21 +4855,21 @@ listQueueTagsResponse_tags :: Lens' ListQueueTagsResponse (Maybe (HashMap Text T
 
 -- | The response's http status code.
 listQueueTagsResponse_httpStatus :: Lens' ListQueueTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.SQS.ListQueueTags.ListQueueTags
-instance GHC.Show.Show Network.AWS.SQS.ListQueueTags.ListQueueTags
-instance GHC.Read.Read Network.AWS.SQS.ListQueueTags.ListQueueTags
-instance GHC.Classes.Eq Network.AWS.SQS.ListQueueTags.ListQueueTags
-instance GHC.Generics.Generic Network.AWS.SQS.ListQueueTags.ListQueueTagsResponse
-instance GHC.Show.Show Network.AWS.SQS.ListQueueTags.ListQueueTagsResponse
-instance GHC.Read.Read Network.AWS.SQS.ListQueueTags.ListQueueTagsResponse
-instance GHC.Classes.Eq Network.AWS.SQS.ListQueueTags.ListQueueTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.ListQueueTags.ListQueueTags
-instance Control.DeepSeq.NFData Network.AWS.SQS.ListQueueTags.ListQueueTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.ListQueueTags.ListQueueTags
-instance Control.DeepSeq.NFData Network.AWS.SQS.ListQueueTags.ListQueueTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.ListQueueTags.ListQueueTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.ListQueueTags.ListQueueTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.ListQueueTags.ListQueueTags
+instance GHC.Generics.Generic Amazonka.SQS.ListQueueTags.ListQueueTags
+instance GHC.Show.Show Amazonka.SQS.ListQueueTags.ListQueueTags
+instance GHC.Read.Read Amazonka.SQS.ListQueueTags.ListQueueTags
+instance GHC.Classes.Eq Amazonka.SQS.ListQueueTags.ListQueueTags
+instance GHC.Generics.Generic Amazonka.SQS.ListQueueTags.ListQueueTagsResponse
+instance GHC.Show.Show Amazonka.SQS.ListQueueTags.ListQueueTagsResponse
+instance GHC.Read.Read Amazonka.SQS.ListQueueTags.ListQueueTagsResponse
+instance GHC.Classes.Eq Amazonka.SQS.ListQueueTags.ListQueueTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.ListQueueTags.ListQueueTags
+instance Control.DeepSeq.NFData Amazonka.SQS.ListQueueTags.ListQueueTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.ListQueueTags.ListQueueTags
+instance Control.DeepSeq.NFData Amazonka.SQS.ListQueueTags.ListQueueTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.ListQueueTags.ListQueueTags
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.ListQueueTags.ListQueueTags
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.ListQueueTags.ListQueueTags
 
 
 -- | Returns a list of your queues that have the <tt>RedrivePolicy</tt>
@@ -4890,7 +4890,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.ListQueueTags.ListQueueT
 --   Guide</i>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SQS.ListDeadLetterSourceQueues
+module Amazonka.SQS.ListDeadLetterSourceQueues
 
 -- | <i>See:</i> <a>newListDeadLetterSourceQueues</a> smart constructor.
 data ListDeadLetterSourceQueues
@@ -5003,22 +5003,22 @@ listDeadLetterSourceQueuesResponse_httpStatus :: Lens' ListDeadLetterSourceQueue
 -- | A list of source queue URLs that have the <tt>RedrivePolicy</tt> queue
 --   attribute configured with a dead-letter queue.
 listDeadLetterSourceQueuesResponse_queueUrls :: Lens' ListDeadLetterSourceQueuesResponse [Text]
-instance GHC.Generics.Generic Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
-instance GHC.Show.Show Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
-instance GHC.Read.Read Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
-instance GHC.Classes.Eq Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
-instance GHC.Generics.Generic Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueuesResponse
-instance GHC.Show.Show Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueuesResponse
-instance GHC.Read.Read Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueuesResponse
-instance GHC.Classes.Eq Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueuesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
-instance Control.DeepSeq.NFData Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueuesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
-instance Control.DeepSeq.NFData Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
+instance GHC.Generics.Generic Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
+instance GHC.Show.Show Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
+instance GHC.Read.Read Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
+instance GHC.Classes.Eq Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
+instance GHC.Generics.Generic Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueuesResponse
+instance GHC.Show.Show Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueuesResponse
+instance GHC.Read.Read Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueuesResponse
+instance GHC.Classes.Eq Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueuesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
+instance Control.DeepSeq.NFData Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueuesResponse
+instance Amazonka.Pager.AWSPager Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
+instance Data.Hashable.Class.Hashable Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
+instance Control.DeepSeq.NFData Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.ListDeadLetterSourceQueues.ListDeadLetterSourceQueues
 
 
 -- | Returns the URL of an existing Amazon SQS queue.
@@ -5029,7 +5029,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.ListDeadLetterSourceQueu
 --   access the queue. For more information about shared queue access, see
 --   <tt> AddPermission </tt> or see <a>Allow Developers to Write Messages
 --   to a Shared Queue</a> in the <i>Amazon SQS Developer Guide</i>.
-module Network.AWS.SQS.GetQueueUrl
+module Amazonka.SQS.GetQueueUrl
 
 -- | <i>See:</i> <a>newGetQueueUrl</a> smart constructor.
 data GetQueueUrl
@@ -5110,28 +5110,28 @@ getQueueUrlResponse_httpStatus :: Lens' GetQueueUrlResponse Int
 
 -- | The URL of the queue.
 getQueueUrlResponse_queueUrl :: Lens' GetQueueUrlResponse Text
-instance GHC.Generics.Generic Network.AWS.SQS.GetQueueUrl.GetQueueUrl
-instance GHC.Show.Show Network.AWS.SQS.GetQueueUrl.GetQueueUrl
-instance GHC.Read.Read Network.AWS.SQS.GetQueueUrl.GetQueueUrl
-instance GHC.Classes.Eq Network.AWS.SQS.GetQueueUrl.GetQueueUrl
-instance GHC.Generics.Generic Network.AWS.SQS.GetQueueUrl.GetQueueUrlResponse
-instance GHC.Show.Show Network.AWS.SQS.GetQueueUrl.GetQueueUrlResponse
-instance GHC.Read.Read Network.AWS.SQS.GetQueueUrl.GetQueueUrlResponse
-instance GHC.Classes.Eq Network.AWS.SQS.GetQueueUrl.GetQueueUrlResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.GetQueueUrl.GetQueueUrl
-instance Control.DeepSeq.NFData Network.AWS.SQS.GetQueueUrl.GetQueueUrlResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.GetQueueUrl.GetQueueUrl
-instance Control.DeepSeq.NFData Network.AWS.SQS.GetQueueUrl.GetQueueUrl
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.GetQueueUrl.GetQueueUrl
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.GetQueueUrl.GetQueueUrl
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.GetQueueUrl.GetQueueUrl
+instance GHC.Generics.Generic Amazonka.SQS.GetQueueUrl.GetQueueUrl
+instance GHC.Show.Show Amazonka.SQS.GetQueueUrl.GetQueueUrl
+instance GHC.Read.Read Amazonka.SQS.GetQueueUrl.GetQueueUrl
+instance GHC.Classes.Eq Amazonka.SQS.GetQueueUrl.GetQueueUrl
+instance GHC.Generics.Generic Amazonka.SQS.GetQueueUrl.GetQueueUrlResponse
+instance GHC.Show.Show Amazonka.SQS.GetQueueUrl.GetQueueUrlResponse
+instance GHC.Read.Read Amazonka.SQS.GetQueueUrl.GetQueueUrlResponse
+instance GHC.Classes.Eq Amazonka.SQS.GetQueueUrl.GetQueueUrlResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.GetQueueUrl.GetQueueUrl
+instance Control.DeepSeq.NFData Amazonka.SQS.GetQueueUrl.GetQueueUrlResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.GetQueueUrl.GetQueueUrl
+instance Control.DeepSeq.NFData Amazonka.SQS.GetQueueUrl.GetQueueUrl
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.GetQueueUrl.GetQueueUrl
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.GetQueueUrl.GetQueueUrl
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.GetQueueUrl.GetQueueUrl
 
 
 -- | Gets attributes for the specified queue.
 --   
 --   To determine whether a queue is <a>FIFO</a>, you can check whether
 --   <tt>QueueName</tt> ends with the <tt>.fifo</tt> suffix.
-module Network.AWS.SQS.GetQueueAttributes
+module Amazonka.SQS.GetQueueAttributes
 
 -- | <i>See:</i> <a>newGetQueueAttributes</a> smart constructor.
 data GetQueueAttributes
@@ -5657,21 +5657,21 @@ getQueueAttributesResponse_attributes :: Lens' GetQueueAttributesResponse (Maybe
 
 -- | The response's http status code.
 getQueueAttributesResponse_httpStatus :: Lens' GetQueueAttributesResponse Int
-instance GHC.Generics.Generic Network.AWS.SQS.GetQueueAttributes.GetQueueAttributes
-instance GHC.Show.Show Network.AWS.SQS.GetQueueAttributes.GetQueueAttributes
-instance GHC.Read.Read Network.AWS.SQS.GetQueueAttributes.GetQueueAttributes
-instance GHC.Classes.Eq Network.AWS.SQS.GetQueueAttributes.GetQueueAttributes
-instance GHC.Generics.Generic Network.AWS.SQS.GetQueueAttributes.GetQueueAttributesResponse
-instance GHC.Show.Show Network.AWS.SQS.GetQueueAttributes.GetQueueAttributesResponse
-instance GHC.Read.Read Network.AWS.SQS.GetQueueAttributes.GetQueueAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SQS.GetQueueAttributes.GetQueueAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.GetQueueAttributes.GetQueueAttributes
-instance Control.DeepSeq.NFData Network.AWS.SQS.GetQueueAttributes.GetQueueAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.GetQueueAttributes.GetQueueAttributes
-instance Control.DeepSeq.NFData Network.AWS.SQS.GetQueueAttributes.GetQueueAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.GetQueueAttributes.GetQueueAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.GetQueueAttributes.GetQueueAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.GetQueueAttributes.GetQueueAttributes
+instance GHC.Generics.Generic Amazonka.SQS.GetQueueAttributes.GetQueueAttributes
+instance GHC.Show.Show Amazonka.SQS.GetQueueAttributes.GetQueueAttributes
+instance GHC.Read.Read Amazonka.SQS.GetQueueAttributes.GetQueueAttributes
+instance GHC.Classes.Eq Amazonka.SQS.GetQueueAttributes.GetQueueAttributes
+instance GHC.Generics.Generic Amazonka.SQS.GetQueueAttributes.GetQueueAttributesResponse
+instance GHC.Show.Show Amazonka.SQS.GetQueueAttributes.GetQueueAttributesResponse
+instance GHC.Read.Read Amazonka.SQS.GetQueueAttributes.GetQueueAttributesResponse
+instance GHC.Classes.Eq Amazonka.SQS.GetQueueAttributes.GetQueueAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.GetQueueAttributes.GetQueueAttributes
+instance Control.DeepSeq.NFData Amazonka.SQS.GetQueueAttributes.GetQueueAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.GetQueueAttributes.GetQueueAttributes
+instance Control.DeepSeq.NFData Amazonka.SQS.GetQueueAttributes.GetQueueAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.GetQueueAttributes.GetQueueAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.GetQueueAttributes.GetQueueAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.GetQueueAttributes.GetQueueAttributes
 
 
 -- | Deletes the queue specified by the <tt>QueueUrl</tt>, regardless of
@@ -5692,7 +5692,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.GetQueueAttributes.GetQu
 --   Cross-account permissions don't apply to this action. For more
 --   information, see <a>Grant cross-account permissions to a role and a
 --   user name</a> in the <i>Amazon SQS Developer Guide</i>.
-module Network.AWS.SQS.DeleteQueue
+module Amazonka.SQS.DeleteQueue
 
 -- | <i>See:</i> <a>newDeleteQueue</a> smart constructor.
 data DeleteQueue
@@ -5732,21 +5732,21 @@ DeleteQueueResponse' :: DeleteQueueResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteQueueResponse :: DeleteQueueResponse
-instance GHC.Generics.Generic Network.AWS.SQS.DeleteQueue.DeleteQueue
-instance GHC.Show.Show Network.AWS.SQS.DeleteQueue.DeleteQueue
-instance GHC.Read.Read Network.AWS.SQS.DeleteQueue.DeleteQueue
-instance GHC.Classes.Eq Network.AWS.SQS.DeleteQueue.DeleteQueue
-instance GHC.Generics.Generic Network.AWS.SQS.DeleteQueue.DeleteQueueResponse
-instance GHC.Show.Show Network.AWS.SQS.DeleteQueue.DeleteQueueResponse
-instance GHC.Read.Read Network.AWS.SQS.DeleteQueue.DeleteQueueResponse
-instance GHC.Classes.Eq Network.AWS.SQS.DeleteQueue.DeleteQueueResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.DeleteQueue.DeleteQueue
-instance Control.DeepSeq.NFData Network.AWS.SQS.DeleteQueue.DeleteQueueResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.DeleteQueue.DeleteQueue
-instance Control.DeepSeq.NFData Network.AWS.SQS.DeleteQueue.DeleteQueue
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.DeleteQueue.DeleteQueue
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.DeleteQueue.DeleteQueue
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.DeleteQueue.DeleteQueue
+instance GHC.Generics.Generic Amazonka.SQS.DeleteQueue.DeleteQueue
+instance GHC.Show.Show Amazonka.SQS.DeleteQueue.DeleteQueue
+instance GHC.Read.Read Amazonka.SQS.DeleteQueue.DeleteQueue
+instance GHC.Classes.Eq Amazonka.SQS.DeleteQueue.DeleteQueue
+instance GHC.Generics.Generic Amazonka.SQS.DeleteQueue.DeleteQueueResponse
+instance GHC.Show.Show Amazonka.SQS.DeleteQueue.DeleteQueueResponse
+instance GHC.Read.Read Amazonka.SQS.DeleteQueue.DeleteQueueResponse
+instance GHC.Classes.Eq Amazonka.SQS.DeleteQueue.DeleteQueueResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.DeleteQueue.DeleteQueue
+instance Control.DeepSeq.NFData Amazonka.SQS.DeleteQueue.DeleteQueueResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.DeleteQueue.DeleteQueue
+instance Control.DeepSeq.NFData Amazonka.SQS.DeleteQueue.DeleteQueue
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.DeleteQueue.DeleteQueue
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.DeleteQueue.DeleteQueue
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.DeleteQueue.DeleteQueue
 
 
 -- | Deletes up to ten messages from the specified queue. This is a batch
@@ -5769,7 +5769,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.DeleteQueue.DeleteQueue
 --   <pre>
 --   &amp;AttributeName.2=second
 --   </pre>
-module Network.AWS.SQS.DeleteMessageBatch
+module Amazonka.SQS.DeleteMessageBatch
 
 -- | <i>See:</i> <a>newDeleteMessageBatch</a> smart constructor.
 data DeleteMessageBatch
@@ -5858,21 +5858,21 @@ deleteMessageBatchResponse_successful :: Lens' DeleteMessageBatchResponse [Delet
 
 -- | A list of <tt> BatchResultErrorEntry </tt> items.
 deleteMessageBatchResponse_failed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
-instance GHC.Generics.Generic Network.AWS.SQS.DeleteMessageBatch.DeleteMessageBatch
-instance GHC.Show.Show Network.AWS.SQS.DeleteMessageBatch.DeleteMessageBatch
-instance GHC.Read.Read Network.AWS.SQS.DeleteMessageBatch.DeleteMessageBatch
-instance GHC.Classes.Eq Network.AWS.SQS.DeleteMessageBatch.DeleteMessageBatch
-instance GHC.Generics.Generic Network.AWS.SQS.DeleteMessageBatch.DeleteMessageBatchResponse
-instance GHC.Show.Show Network.AWS.SQS.DeleteMessageBatch.DeleteMessageBatchResponse
-instance GHC.Read.Read Network.AWS.SQS.DeleteMessageBatch.DeleteMessageBatchResponse
-instance GHC.Classes.Eq Network.AWS.SQS.DeleteMessageBatch.DeleteMessageBatchResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.DeleteMessageBatch.DeleteMessageBatch
-instance Control.DeepSeq.NFData Network.AWS.SQS.DeleteMessageBatch.DeleteMessageBatchResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.DeleteMessageBatch.DeleteMessageBatch
-instance Control.DeepSeq.NFData Network.AWS.SQS.DeleteMessageBatch.DeleteMessageBatch
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.DeleteMessageBatch.DeleteMessageBatch
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.DeleteMessageBatch.DeleteMessageBatch
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.DeleteMessageBatch.DeleteMessageBatch
+instance GHC.Generics.Generic Amazonka.SQS.DeleteMessageBatch.DeleteMessageBatch
+instance GHC.Show.Show Amazonka.SQS.DeleteMessageBatch.DeleteMessageBatch
+instance GHC.Read.Read Amazonka.SQS.DeleteMessageBatch.DeleteMessageBatch
+instance GHC.Classes.Eq Amazonka.SQS.DeleteMessageBatch.DeleteMessageBatch
+instance GHC.Generics.Generic Amazonka.SQS.DeleteMessageBatch.DeleteMessageBatchResponse
+instance GHC.Show.Show Amazonka.SQS.DeleteMessageBatch.DeleteMessageBatchResponse
+instance GHC.Read.Read Amazonka.SQS.DeleteMessageBatch.DeleteMessageBatchResponse
+instance GHC.Classes.Eq Amazonka.SQS.DeleteMessageBatch.DeleteMessageBatchResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.DeleteMessageBatch.DeleteMessageBatch
+instance Control.DeepSeq.NFData Amazonka.SQS.DeleteMessageBatch.DeleteMessageBatchResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.DeleteMessageBatch.DeleteMessageBatch
+instance Control.DeepSeq.NFData Amazonka.SQS.DeleteMessageBatch.DeleteMessageBatch
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.DeleteMessageBatch.DeleteMessageBatch
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.DeleteMessageBatch.DeleteMessageBatch
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.DeleteMessageBatch.DeleteMessageBatch
 
 
 -- | Deletes the specified message from the specified queue. To select the
@@ -5898,7 +5898,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.DeleteMessageBatch.Delet
 --   and might be returned to you during a subsequent receive request. You
 --   should ensure that your application is idempotent, so that receiving a
 --   message more than once does not cause issues.
-module Network.AWS.SQS.DeleteMessage
+module Amazonka.SQS.DeleteMessage
 
 -- | <i>See:</i> <a>newDeleteMessage</a> smart constructor.
 data DeleteMessage
@@ -5949,21 +5949,21 @@ DeleteMessageResponse' :: DeleteMessageResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteMessageResponse :: DeleteMessageResponse
-instance GHC.Generics.Generic Network.AWS.SQS.DeleteMessage.DeleteMessage
-instance GHC.Show.Show Network.AWS.SQS.DeleteMessage.DeleteMessage
-instance GHC.Read.Read Network.AWS.SQS.DeleteMessage.DeleteMessage
-instance GHC.Classes.Eq Network.AWS.SQS.DeleteMessage.DeleteMessage
-instance GHC.Generics.Generic Network.AWS.SQS.DeleteMessage.DeleteMessageResponse
-instance GHC.Show.Show Network.AWS.SQS.DeleteMessage.DeleteMessageResponse
-instance GHC.Read.Read Network.AWS.SQS.DeleteMessage.DeleteMessageResponse
-instance GHC.Classes.Eq Network.AWS.SQS.DeleteMessage.DeleteMessageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.DeleteMessage.DeleteMessage
-instance Control.DeepSeq.NFData Network.AWS.SQS.DeleteMessage.DeleteMessageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.DeleteMessage.DeleteMessage
-instance Control.DeepSeq.NFData Network.AWS.SQS.DeleteMessage.DeleteMessage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.DeleteMessage.DeleteMessage
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.DeleteMessage.DeleteMessage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.DeleteMessage.DeleteMessage
+instance GHC.Generics.Generic Amazonka.SQS.DeleteMessage.DeleteMessage
+instance GHC.Show.Show Amazonka.SQS.DeleteMessage.DeleteMessage
+instance GHC.Read.Read Amazonka.SQS.DeleteMessage.DeleteMessage
+instance GHC.Classes.Eq Amazonka.SQS.DeleteMessage.DeleteMessage
+instance GHC.Generics.Generic Amazonka.SQS.DeleteMessage.DeleteMessageResponse
+instance GHC.Show.Show Amazonka.SQS.DeleteMessage.DeleteMessageResponse
+instance GHC.Read.Read Amazonka.SQS.DeleteMessage.DeleteMessageResponse
+instance GHC.Classes.Eq Amazonka.SQS.DeleteMessage.DeleteMessageResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.DeleteMessage.DeleteMessage
+instance Control.DeepSeq.NFData Amazonka.SQS.DeleteMessage.DeleteMessageResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.DeleteMessage.DeleteMessage
+instance Control.DeepSeq.NFData Amazonka.SQS.DeleteMessage.DeleteMessage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.DeleteMessage.DeleteMessage
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.DeleteMessage.DeleteMessage
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.DeleteMessage.DeleteMessage
 
 
 -- | Creates a new standard or FIFO queue. You can pass one or more
@@ -6018,7 +6018,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.DeleteMessage.DeleteMess
 --   Cross-account permissions don't apply to this action. For more
 --   information, see <a>Grant cross-account permissions to a role and a
 --   user name</a> in the <i>Amazon SQS Developer Guide</i>.
-module Network.AWS.SQS.CreateQueue
+module Amazonka.SQS.CreateQueue
 
 -- | <i>See:</i> <a>newCreateQueue</a> smart constructor.
 data CreateQueue
@@ -6665,21 +6665,21 @@ createQueueResponse_queueUrl :: Lens' CreateQueueResponse (Maybe Text)
 
 -- | The response's http status code.
 createQueueResponse_httpStatus :: Lens' CreateQueueResponse Int
-instance GHC.Generics.Generic Network.AWS.SQS.CreateQueue.CreateQueue
-instance GHC.Show.Show Network.AWS.SQS.CreateQueue.CreateQueue
-instance GHC.Read.Read Network.AWS.SQS.CreateQueue.CreateQueue
-instance GHC.Classes.Eq Network.AWS.SQS.CreateQueue.CreateQueue
-instance GHC.Generics.Generic Network.AWS.SQS.CreateQueue.CreateQueueResponse
-instance GHC.Show.Show Network.AWS.SQS.CreateQueue.CreateQueueResponse
-instance GHC.Read.Read Network.AWS.SQS.CreateQueue.CreateQueueResponse
-instance GHC.Classes.Eq Network.AWS.SQS.CreateQueue.CreateQueueResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.CreateQueue.CreateQueue
-instance Control.DeepSeq.NFData Network.AWS.SQS.CreateQueue.CreateQueueResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.CreateQueue.CreateQueue
-instance Control.DeepSeq.NFData Network.AWS.SQS.CreateQueue.CreateQueue
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.CreateQueue.CreateQueue
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.CreateQueue.CreateQueue
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.CreateQueue.CreateQueue
+instance GHC.Generics.Generic Amazonka.SQS.CreateQueue.CreateQueue
+instance GHC.Show.Show Amazonka.SQS.CreateQueue.CreateQueue
+instance GHC.Read.Read Amazonka.SQS.CreateQueue.CreateQueue
+instance GHC.Classes.Eq Amazonka.SQS.CreateQueue.CreateQueue
+instance GHC.Generics.Generic Amazonka.SQS.CreateQueue.CreateQueueResponse
+instance GHC.Show.Show Amazonka.SQS.CreateQueue.CreateQueueResponse
+instance GHC.Read.Read Amazonka.SQS.CreateQueue.CreateQueueResponse
+instance GHC.Classes.Eq Amazonka.SQS.CreateQueue.CreateQueueResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.CreateQueue.CreateQueue
+instance Control.DeepSeq.NFData Amazonka.SQS.CreateQueue.CreateQueueResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.CreateQueue.CreateQueue
+instance Control.DeepSeq.NFData Amazonka.SQS.CreateQueue.CreateQueue
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.CreateQueue.CreateQueue
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.CreateQueue.CreateQueue
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.CreateQueue.CreateQueue
 
 
 -- | Changes the visibility timeout of multiple messages. This is a batch
@@ -6704,7 +6704,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.CreateQueue.CreateQueue
 --   <pre>
 --   &amp;AttributeName.2=second
 --   </pre>
-module Network.AWS.SQS.ChangeMessageVisibilityBatch
+module Amazonka.SQS.ChangeMessageVisibilityBatch
 
 -- | <i>See:</i> <a>newChangeMessageVisibilityBatch</a> smart constructor.
 data ChangeMessageVisibilityBatch
@@ -6798,21 +6798,21 @@ changeMessageVisibilityBatchResponse_successful :: Lens' ChangeMessageVisibility
 
 -- | A list of <tt> BatchResultErrorEntry </tt> items.
 changeMessageVisibilityBatchResponse_failed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
-instance GHC.Generics.Generic Network.AWS.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
-instance GHC.Show.Show Network.AWS.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
-instance GHC.Read.Read Network.AWS.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
-instance GHC.Classes.Eq Network.AWS.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
-instance GHC.Generics.Generic Network.AWS.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatchResponse
-instance GHC.Show.Show Network.AWS.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatchResponse
-instance GHC.Read.Read Network.AWS.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatchResponse
-instance GHC.Classes.Eq Network.AWS.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatchResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
-instance Control.DeepSeq.NFData Network.AWS.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatchResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
-instance Control.DeepSeq.NFData Network.AWS.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
+instance GHC.Generics.Generic Amazonka.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
+instance GHC.Show.Show Amazonka.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
+instance GHC.Read.Read Amazonka.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
+instance GHC.Classes.Eq Amazonka.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
+instance GHC.Generics.Generic Amazonka.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatchResponse
+instance GHC.Show.Show Amazonka.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatchResponse
+instance GHC.Read.Read Amazonka.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatchResponse
+instance GHC.Classes.Eq Amazonka.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatchResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
+instance Control.DeepSeq.NFData Amazonka.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatchResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
+instance Control.DeepSeq.NFData Amazonka.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.ChangeMessageVisibilityBatch.ChangeMessageVisibilityBatch
 
 
 -- | Changes the visibility timeout of a specified message in a queue to a
@@ -6872,7 +6872,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.ChangeMessageVisibilityB
 --   original timeout value (not to the value you set using the
 --   <tt>ChangeMessageVisibility</tt> action) the next time the message is
 --   received.
-module Network.AWS.SQS.ChangeMessageVisibility
+module Amazonka.SQS.ChangeMessageVisibility
 
 -- | <i>See:</i> <a>newChangeMessageVisibility</a> smart constructor.
 data ChangeMessageVisibility
@@ -6943,21 +6943,21 @@ ChangeMessageVisibilityResponse' :: ChangeMessageVisibilityResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newChangeMessageVisibilityResponse :: ChangeMessageVisibilityResponse
-instance GHC.Generics.Generic Network.AWS.SQS.ChangeMessageVisibility.ChangeMessageVisibility
-instance GHC.Show.Show Network.AWS.SQS.ChangeMessageVisibility.ChangeMessageVisibility
-instance GHC.Read.Read Network.AWS.SQS.ChangeMessageVisibility.ChangeMessageVisibility
-instance GHC.Classes.Eq Network.AWS.SQS.ChangeMessageVisibility.ChangeMessageVisibility
-instance GHC.Generics.Generic Network.AWS.SQS.ChangeMessageVisibility.ChangeMessageVisibilityResponse
-instance GHC.Show.Show Network.AWS.SQS.ChangeMessageVisibility.ChangeMessageVisibilityResponse
-instance GHC.Read.Read Network.AWS.SQS.ChangeMessageVisibility.ChangeMessageVisibilityResponse
-instance GHC.Classes.Eq Network.AWS.SQS.ChangeMessageVisibility.ChangeMessageVisibilityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.ChangeMessageVisibility.ChangeMessageVisibility
-instance Control.DeepSeq.NFData Network.AWS.SQS.ChangeMessageVisibility.ChangeMessageVisibilityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.ChangeMessageVisibility.ChangeMessageVisibility
-instance Control.DeepSeq.NFData Network.AWS.SQS.ChangeMessageVisibility.ChangeMessageVisibility
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.ChangeMessageVisibility.ChangeMessageVisibility
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.ChangeMessageVisibility.ChangeMessageVisibility
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.ChangeMessageVisibility.ChangeMessageVisibility
+instance GHC.Generics.Generic Amazonka.SQS.ChangeMessageVisibility.ChangeMessageVisibility
+instance GHC.Show.Show Amazonka.SQS.ChangeMessageVisibility.ChangeMessageVisibility
+instance GHC.Read.Read Amazonka.SQS.ChangeMessageVisibility.ChangeMessageVisibility
+instance GHC.Classes.Eq Amazonka.SQS.ChangeMessageVisibility.ChangeMessageVisibility
+instance GHC.Generics.Generic Amazonka.SQS.ChangeMessageVisibility.ChangeMessageVisibilityResponse
+instance GHC.Show.Show Amazonka.SQS.ChangeMessageVisibility.ChangeMessageVisibilityResponse
+instance GHC.Read.Read Amazonka.SQS.ChangeMessageVisibility.ChangeMessageVisibilityResponse
+instance GHC.Classes.Eq Amazonka.SQS.ChangeMessageVisibility.ChangeMessageVisibilityResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.ChangeMessageVisibility.ChangeMessageVisibility
+instance Control.DeepSeq.NFData Amazonka.SQS.ChangeMessageVisibility.ChangeMessageVisibilityResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.ChangeMessageVisibility.ChangeMessageVisibility
+instance Control.DeepSeq.NFData Amazonka.SQS.ChangeMessageVisibility.ChangeMessageVisibility
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.ChangeMessageVisibility.ChangeMessageVisibility
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.ChangeMessageVisibility.ChangeMessageVisibility
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.ChangeMessageVisibility.ChangeMessageVisibility
 
 
 -- | Adds a permission to a queue for a specific <a>principal</a>. This
@@ -6996,7 +6996,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.ChangeMessageVisibility.
 --   Cross-account permissions don't apply to this action. For more
 --   information, see <a>Grant cross-account permissions to a role and a
 --   user name</a> in the <i>Amazon SQS Developer Guide</i>.
-module Network.AWS.SQS.AddPermission
+module Amazonka.SQS.AddPermission
 
 -- | <i>See:</i> <a>newAddPermission</a> smart constructor.
 data AddPermission
@@ -7115,21 +7115,21 @@ AddPermissionResponse' :: AddPermissionResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newAddPermissionResponse :: AddPermissionResponse
-instance GHC.Generics.Generic Network.AWS.SQS.AddPermission.AddPermission
-instance GHC.Show.Show Network.AWS.SQS.AddPermission.AddPermission
-instance GHC.Read.Read Network.AWS.SQS.AddPermission.AddPermission
-instance GHC.Classes.Eq Network.AWS.SQS.AddPermission.AddPermission
-instance GHC.Generics.Generic Network.AWS.SQS.AddPermission.AddPermissionResponse
-instance GHC.Show.Show Network.AWS.SQS.AddPermission.AddPermissionResponse
-instance GHC.Read.Read Network.AWS.SQS.AddPermission.AddPermissionResponse
-instance GHC.Classes.Eq Network.AWS.SQS.AddPermission.AddPermissionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.AddPermission.AddPermission
-instance Control.DeepSeq.NFData Network.AWS.SQS.AddPermission.AddPermissionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.AddPermission.AddPermission
-instance Control.DeepSeq.NFData Network.AWS.SQS.AddPermission.AddPermission
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.AddPermission.AddPermission
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.AddPermission.AddPermission
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.AddPermission.AddPermission
+instance GHC.Generics.Generic Amazonka.SQS.AddPermission.AddPermission
+instance GHC.Show.Show Amazonka.SQS.AddPermission.AddPermission
+instance GHC.Read.Read Amazonka.SQS.AddPermission.AddPermission
+instance GHC.Classes.Eq Amazonka.SQS.AddPermission.AddPermission
+instance GHC.Generics.Generic Amazonka.SQS.AddPermission.AddPermissionResponse
+instance GHC.Show.Show Amazonka.SQS.AddPermission.AddPermissionResponse
+instance GHC.Read.Read Amazonka.SQS.AddPermission.AddPermissionResponse
+instance GHC.Classes.Eq Amazonka.SQS.AddPermission.AddPermissionResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.AddPermission.AddPermission
+instance Control.DeepSeq.NFData Amazonka.SQS.AddPermission.AddPermissionResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.AddPermission.AddPermission
+instance Control.DeepSeq.NFData Amazonka.SQS.AddPermission.AddPermission
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.AddPermission.AddPermission
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.AddPermission.AddPermission
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.AddPermission.AddPermission
 
 
 -- | Remove cost allocation tags from the specified Amazon SQS queue. For
@@ -7139,7 +7139,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.AddPermission.AddPermiss
 --   Cross-account permissions don't apply to this action. For more
 --   information, see <a>Grant cross-account permissions to a role and a
 --   user name</a> in the <i>Amazon SQS Developer Guide</i>.
-module Network.AWS.SQS.UntagQueue
+module Amazonka.SQS.UntagQueue
 
 -- | <i>See:</i> <a>newUntagQueue</a> smart constructor.
 data UntagQueue
@@ -7182,24 +7182,24 @@ UntagQueueResponse' :: UntagQueueResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUntagQueueResponse :: UntagQueueResponse
-instance GHC.Generics.Generic Network.AWS.SQS.UntagQueue.UntagQueue
-instance GHC.Show.Show Network.AWS.SQS.UntagQueue.UntagQueue
-instance GHC.Read.Read Network.AWS.SQS.UntagQueue.UntagQueue
-instance GHC.Classes.Eq Network.AWS.SQS.UntagQueue.UntagQueue
-instance GHC.Generics.Generic Network.AWS.SQS.UntagQueue.UntagQueueResponse
-instance GHC.Show.Show Network.AWS.SQS.UntagQueue.UntagQueueResponse
-instance GHC.Read.Read Network.AWS.SQS.UntagQueue.UntagQueueResponse
-instance GHC.Classes.Eq Network.AWS.SQS.UntagQueue.UntagQueueResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SQS.UntagQueue.UntagQueue
-instance Control.DeepSeq.NFData Network.AWS.SQS.UntagQueue.UntagQueueResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SQS.UntagQueue.UntagQueue
-instance Control.DeepSeq.NFData Network.AWS.SQS.UntagQueue.UntagQueue
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SQS.UntagQueue.UntagQueue
-instance Network.AWS.Data.Path.ToPath Network.AWS.SQS.UntagQueue.UntagQueue
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SQS.UntagQueue.UntagQueue
+instance GHC.Generics.Generic Amazonka.SQS.UntagQueue.UntagQueue
+instance GHC.Show.Show Amazonka.SQS.UntagQueue.UntagQueue
+instance GHC.Read.Read Amazonka.SQS.UntagQueue.UntagQueue
+instance GHC.Classes.Eq Amazonka.SQS.UntagQueue.UntagQueue
+instance GHC.Generics.Generic Amazonka.SQS.UntagQueue.UntagQueueResponse
+instance GHC.Show.Show Amazonka.SQS.UntagQueue.UntagQueueResponse
+instance GHC.Read.Read Amazonka.SQS.UntagQueue.UntagQueueResponse
+instance GHC.Classes.Eq Amazonka.SQS.UntagQueue.UntagQueueResponse
+instance Amazonka.Types.AWSRequest Amazonka.SQS.UntagQueue.UntagQueue
+instance Control.DeepSeq.NFData Amazonka.SQS.UntagQueue.UntagQueueResponse
+instance Data.Hashable.Class.Hashable Amazonka.SQS.UntagQueue.UntagQueue
+instance Control.DeepSeq.NFData Amazonka.SQS.UntagQueue.UntagQueue
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SQS.UntagQueue.UntagQueue
+instance Amazonka.Data.Path.ToPath Amazonka.SQS.UntagQueue.UntagQueue
+instance Amazonka.Data.Query.ToQuery Amazonka.SQS.UntagQueue.UntagQueue
 
 
-module Network.AWS.SQS.Lens
+module Amazonka.SQS.Lens
 
 -- | The account ID of the account that created the queue.
 getQueueUrl_queueOwnerAWSAccountId :: Lens' GetQueueUrl (Maybe Text)
@@ -8567,7 +8567,7 @@ sendMessageBatchResultEntry_messageId :: Lens' SendMessageBatchResultEntry Text
 sendMessageBatchResultEntry_mD5OfMessageBody :: Lens' SendMessageBatchResultEntry Text
 
 
-module Network.AWS.SQS.Waiters
+module Amazonka.SQS.Waiters
 
 
 -- | Derived from API version <tt>2012-11-05</tt> of the AWS service
@@ -8606,7 +8606,7 @@ module Network.AWS.SQS.Waiters
 --   <li><i>Amazon Web Services General Reference</i><ul><li><a>Regions and
 --   Endpoints</a></li></ul></li>
 --   </ul>
-module Network.AWS.SQS
+module Amazonka.SQS
 
 -- | API version <tt>2012-11-05</tt> of the Amazon Simple Queue Service SDK
 --   configuration.

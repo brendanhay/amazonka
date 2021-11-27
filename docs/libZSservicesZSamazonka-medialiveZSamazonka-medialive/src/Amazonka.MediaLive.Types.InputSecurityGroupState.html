@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.InputSecurityGroupState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.InputSecurityGroupState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState"><span class="hs-identifier">InputSecurityGroupState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState_DELETED"><span class="hs-identifier">InputSecurityGroupState_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState_IDLE"><span class="hs-identifier">InputSecurityGroupState_IDLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState_IN_USE"><span class="hs-identifier">InputSecurityGroupState_IN_USE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState_UPDATING"><span class="hs-identifier">InputSecurityGroupState_UPDATING</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Placeholder documentation for InputSecurityGroupState</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679896449"><span id="local-6989586621679896450"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputSecurityGroupState"><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState"><span class="hs-identifier hs-var">InputSecurityGroupState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputSecurityGroupState%27"><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState%27"><span class="hs-identifier hs-var">InputSecurityGroupState'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInputSecurityGroupState"><span class="annot"><span class="annottext">InputSecurityGroupState -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#fromInputSecurityGroupState"><span class="hs-identifier hs-var hs-var">fromInputSecurityGroupState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679896441"><span id="local-6989586621679896443"><span id="local-6989586621679896445"><span class="annot"><span class="annottext">Int -&gt; InputSecurityGroupState -&gt; ShowS
+[InputSecurityGroupState] -&gt; ShowS
+InputSecurityGroupState -&gt; String
+(Int -&gt; InputSecurityGroupState -&gt; ShowS)
+-&gt; (InputSecurityGroupState -&gt; String)
+-&gt; ([InputSecurityGroupState] -&gt; ShowS)
+-&gt; Show InputSecurityGroupState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InputSecurityGroupState] -&gt; ShowS
+$cshowList :: [InputSecurityGroupState] -&gt; ShowS
+show :: InputSecurityGroupState -&gt; String
+$cshow :: InputSecurityGroupState -&gt; String
+showsPrec :: Int -&gt; InputSecurityGroupState -&gt; ShowS
+$cshowsPrec :: Int -&gt; InputSecurityGroupState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679896432"><span id="local-6989586621679896434"><span id="local-6989586621679896436"><span id="local-6989586621679896438"><span class="annot"><span class="annottext">ReadPrec [InputSecurityGroupState]
+ReadPrec InputSecurityGroupState
+Int -&gt; ReadS InputSecurityGroupState
+ReadS [InputSecurityGroupState]
+(Int -&gt; ReadS InputSecurityGroupState)
+-&gt; ReadS [InputSecurityGroupState]
+-&gt; ReadPrec InputSecurityGroupState
+-&gt; ReadPrec [InputSecurityGroupState]
+-&gt; Read InputSecurityGroupState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InputSecurityGroupState]
+$creadListPrec :: ReadPrec [InputSecurityGroupState]
+readPrec :: ReadPrec InputSecurityGroupState
+$creadPrec :: ReadPrec InputSecurityGroupState
+readList :: ReadS [InputSecurityGroupState]
+$creadList :: ReadS [InputSecurityGroupState]
+readsPrec :: Int -&gt; ReadS InputSecurityGroupState
+$creadsPrec :: Int -&gt; ReadS InputSecurityGroupState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679896427"><span id="local-6989586621679896429"><span class="annot"><span class="annottext">InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool
+(InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool)
+-&gt; (InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool)
+-&gt; Eq InputSecurityGroupState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool
+$c/= :: InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool
+== :: InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool
+$c== :: InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679896411"><span id="local-6989586621679896413"><span id="local-6989586621679896415"><span id="local-6989586621679896417"><span id="local-6989586621679896419"><span id="local-6989586621679896421"><span id="local-6989586621679896423"><span class="annot"><span class="annottext">Eq InputSecurityGroupState
+Eq InputSecurityGroupState
+-&gt; (InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Ordering)
+-&gt; (InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool)
+-&gt; (InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool)
+-&gt; (InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool)
+-&gt; (InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool)
+-&gt; (InputSecurityGroupState
+    -&gt; InputSecurityGroupState -&gt; InputSecurityGroupState)
+-&gt; (InputSecurityGroupState
+    -&gt; InputSecurityGroupState -&gt; InputSecurityGroupState)
+-&gt; Ord InputSecurityGroupState
+InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool
+InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Ordering
+InputSecurityGroupState
+-&gt; InputSecurityGroupState -&gt; InputSecurityGroupState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InputSecurityGroupState
+-&gt; InputSecurityGroupState -&gt; InputSecurityGroupState
+$cmin :: InputSecurityGroupState
+-&gt; InputSecurityGroupState -&gt; InputSecurityGroupState
+max :: InputSecurityGroupState
+-&gt; InputSecurityGroupState -&gt; InputSecurityGroupState
+$cmax :: InputSecurityGroupState
+-&gt; InputSecurityGroupState -&gt; InputSecurityGroupState
+&gt;= :: InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool
+$c&gt;= :: InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool
+&gt; :: InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool
+$c&gt; :: InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool
+&lt;= :: InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool
+$c&lt;= :: InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool
+&lt; :: InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool
+$c&lt; :: InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Bool
+compare :: InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Ordering
+$ccompare :: InputSecurityGroupState -&gt; InputSecurityGroupState -&gt; Ordering
+$cp1Ord :: Eq InputSecurityGroupState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ InputSecurityGroupState -&gt; Rep InputSecurityGroupState x)
+-&gt; (forall x.
+    Rep InputSecurityGroupState x -&gt; InputSecurityGroupState)
+-&gt; Generic InputSecurityGroupState
+forall x. Rep InputSecurityGroupState x -&gt; InputSecurityGroupState
+forall x. InputSecurityGroupState -&gt; Rep InputSecurityGroupState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InputSecurityGroupState x -&gt; InputSecurityGroupState
+$cfrom :: forall x. InputSecurityGroupState -&gt; Rep InputSecurityGroupState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679896403"><span id="local-6989586621679896405"><span class="annot"><span class="annottext">Int -&gt; InputSecurityGroupState -&gt; Int
+InputSecurityGroupState -&gt; Int
+(Int -&gt; InputSecurityGroupState -&gt; Int)
+-&gt; (InputSecurityGroupState -&gt; Int)
+-&gt; Hashable InputSecurityGroupState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InputSecurityGroupState -&gt; Int
+$chash :: InputSecurityGroupState -&gt; Int
+hashWithSalt :: Int -&gt; InputSecurityGroupState -&gt; Int
+$chashWithSalt :: Int -&gt; InputSecurityGroupState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679896400"><span class="annot"><span class="annottext">InputSecurityGroupState -&gt; ()
+(InputSecurityGroupState -&gt; ()) -&gt; NFData InputSecurityGroupState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InputSecurityGroupState -&gt; ()
+$crnf :: InputSecurityGroupState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679896397"><span class="annot"><span class="annottext">Text -&gt; Either String InputSecurityGroupState
+(Text -&gt; Either String InputSecurityGroupState)
+-&gt; FromText InputSecurityGroupState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InputSecurityGroupState
+$cfromText :: Text -&gt; Either String InputSecurityGroupState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679896394"><span class="annot"><span class="annottext">InputSecurityGroupState -&gt; Text
+(InputSecurityGroupState -&gt; Text) -&gt; ToText InputSecurityGroupState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InputSecurityGroupState -&gt; Text
+$ctoText :: InputSecurityGroupState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679896391"><span class="annot"><span class="annottext">InputSecurityGroupState -&gt; ByteString
+(InputSecurityGroupState -&gt; ByteString)
+-&gt; ToByteString InputSecurityGroupState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InputSecurityGroupState -&gt; ByteString
+$ctoBS :: InputSecurityGroupState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679896388"><span class="annot"><span class="annottext">InputSecurityGroupState -&gt; ByteStringBuilder
+(InputSecurityGroupState -&gt; ByteStringBuilder)
+-&gt; ToLog InputSecurityGroupState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InputSecurityGroupState -&gt; ByteStringBuilder
+$cbuild :: InputSecurityGroupState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679896385"><span class="annot"><span class="annottext">HeaderName -&gt; InputSecurityGroupState -&gt; [Header]
+(HeaderName -&gt; InputSecurityGroupState -&gt; [Header])
+-&gt; ToHeader InputSecurityGroupState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InputSecurityGroupState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InputSecurityGroupState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679896382"><span class="annot"><span class="annottext">InputSecurityGroupState -&gt; QueryString
+(InputSecurityGroupState -&gt; QueryString)
+-&gt; ToQuery InputSecurityGroupState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InputSecurityGroupState -&gt; QueryString
+$ctoQuery :: InputSecurityGroupState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679896377"><span id="local-6989586621679896379"><span class="annot"><span class="annottext">Value -&gt; Parser [InputSecurityGroupState]
+Value -&gt; Parser InputSecurityGroupState
+(Value -&gt; Parser InputSecurityGroupState)
+-&gt; (Value -&gt; Parser [InputSecurityGroupState])
+-&gt; FromJSON InputSecurityGroupState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InputSecurityGroupState]
+$cparseJSONList :: Value -&gt; Parser [InputSecurityGroupState]
+parseJSON :: Value -&gt; Parser InputSecurityGroupState
+$cparseJSON :: Value -&gt; Parser InputSecurityGroupState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679896372"><span id="local-6989586621679896374"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputSecurityGroupState]
+FromJSONKeyFunction InputSecurityGroupState
+FromJSONKeyFunction InputSecurityGroupState
+-&gt; FromJSONKeyFunction [InputSecurityGroupState]
+-&gt; FromJSONKey InputSecurityGroupState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InputSecurityGroupState]
+$cfromJSONKeyList :: FromJSONKeyFunction [InputSecurityGroupState]
+fromJSONKey :: FromJSONKeyFunction InputSecurityGroupState
+$cfromJSONKey :: FromJSONKeyFunction InputSecurityGroupState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679896363"><span id="local-6989586621679896365"><span id="local-6989586621679896367"><span id="local-6989586621679896369"><span class="annot"><span class="annottext">[InputSecurityGroupState] -&gt; Encoding
+[InputSecurityGroupState] -&gt; Value
+InputSecurityGroupState -&gt; Encoding
+InputSecurityGroupState -&gt; Value
+(InputSecurityGroupState -&gt; Value)
+-&gt; (InputSecurityGroupState -&gt; Encoding)
+-&gt; ([InputSecurityGroupState] -&gt; Value)
+-&gt; ([InputSecurityGroupState] -&gt; Encoding)
+-&gt; ToJSON InputSecurityGroupState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InputSecurityGroupState] -&gt; Encoding
+$ctoEncodingList :: [InputSecurityGroupState] -&gt; Encoding
+toJSONList :: [InputSecurityGroupState] -&gt; Value
+$ctoJSONList :: [InputSecurityGroupState] -&gt; Value
+toEncoding :: InputSecurityGroupState -&gt; Encoding
+$ctoEncoding :: InputSecurityGroupState -&gt; Encoding
+toJSON :: InputSecurityGroupState -&gt; Value
+$ctoJSON :: InputSecurityGroupState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679896358"><span id="local-6989586621679896360"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputSecurityGroupState]
+ToJSONKeyFunction InputSecurityGroupState
+ToJSONKeyFunction InputSecurityGroupState
+-&gt; ToJSONKeyFunction [InputSecurityGroupState]
+-&gt; ToJSONKey InputSecurityGroupState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InputSecurityGroupState]
+$ctoJSONKeyList :: ToJSONKeyFunction [InputSecurityGroupState]
+toJSONKey :: ToJSONKeyFunction InputSecurityGroupState
+$ctoJSONKey :: ToJSONKeyFunction InputSecurityGroupState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679896355"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputSecurityGroupState
+([Node] -&gt; Either String InputSecurityGroupState)
+-&gt; FromXML InputSecurityGroupState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InputSecurityGroupState
+$cparseXML :: [Node] -&gt; Either String InputSecurityGroupState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679896352"><span class="annot"><span class="annottext">InputSecurityGroupState -&gt; XML
+(InputSecurityGroupState -&gt; XML) -&gt; ToXML InputSecurityGroupState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InputSecurityGroupState -&gt; XML
+$ctoXML :: InputSecurityGroupState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState_DELETED"><span class="hs-identifier hs-type">InputSecurityGroupState_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState"><span class="hs-identifier hs-type">InputSecurityGroupState</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputSecurityGroupState_DELETED"><span id="%24mInputSecurityGroupState_DELETED"><span id="InputSecurityGroupState_DELETED"><span class="annot"><span class="annottext">$bInputSecurityGroupState_DELETED :: InputSecurityGroupState
+$mInputSecurityGroupState_DELETED :: forall r.
+InputSecurityGroupState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#%24bInputSecurityGroupState_DELETED"><span class="hs-identifier hs-var hs-var hs-var">InputSecurityGroupState_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState%27"><span class="hs-identifier hs-type">InputSecurityGroupState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState_IDLE"><span class="hs-identifier hs-type">InputSecurityGroupState_IDLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState"><span class="hs-identifier hs-type">InputSecurityGroupState</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputSecurityGroupState_IDLE"><span id="%24mInputSecurityGroupState_IDLE"><span id="InputSecurityGroupState_IDLE"><span class="annot"><span class="annottext">$bInputSecurityGroupState_IDLE :: InputSecurityGroupState
+$mInputSecurityGroupState_IDLE :: forall r.
+InputSecurityGroupState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#%24bInputSecurityGroupState_IDLE"><span class="hs-identifier hs-var hs-var hs-var">InputSecurityGroupState_IDLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState%27"><span class="hs-identifier hs-type">InputSecurityGroupState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IDLE&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState_IN_USE"><span class="hs-identifier hs-type">InputSecurityGroupState_IN_USE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState"><span class="hs-identifier hs-type">InputSecurityGroupState</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputSecurityGroupState_IN_USE"><span id="%24mInputSecurityGroupState_IN_USE"><span id="InputSecurityGroupState_IN_USE"><span class="annot"><span class="annottext">$bInputSecurityGroupState_IN_USE :: InputSecurityGroupState
+$mInputSecurityGroupState_IN_USE :: forall r.
+InputSecurityGroupState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#%24bInputSecurityGroupState_IN_USE"><span class="hs-identifier hs-var hs-var hs-var">InputSecurityGroupState_IN_USE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState%27"><span class="hs-identifier hs-type">InputSecurityGroupState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_USE&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState_UPDATING"><span class="hs-identifier hs-type">InputSecurityGroupState_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState"><span class="hs-identifier hs-type">InputSecurityGroupState</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputSecurityGroupState_UPDATING"><span id="%24mInputSecurityGroupState_UPDATING"><span id="InputSecurityGroupState_UPDATING"><span class="annot"><span class="annottext">$bInputSecurityGroupState_UPDATING :: InputSecurityGroupState
+$mInputSecurityGroupState_UPDATING :: forall r.
+InputSecurityGroupState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#%24bInputSecurityGroupState_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">InputSecurityGroupState_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState%27"><span class="hs-identifier hs-type">InputSecurityGroupState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState_DELETED"><span class="hs-pragma hs-type">InputSecurityGroupState_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState_IDLE"><span class="hs-pragma hs-type">InputSecurityGroupState_IDLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState_IN_USE"><span class="hs-pragma hs-type">InputSecurityGroupState_IN_USE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState_UPDATING"><span class="hs-pragma hs-type">InputSecurityGroupState_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSecurityGroupState.html#InputSecurityGroupState%27"><span class="hs-pragma hs-type">InputSecurityGroupState'</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-82"></span></pre></body></html>

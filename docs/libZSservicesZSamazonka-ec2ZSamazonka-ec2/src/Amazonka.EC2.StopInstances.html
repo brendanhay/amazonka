@@ -1,0 +1,641 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.StopInstances</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Stops an Amazon EBS-backed instance.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You can use the Stop action to hibernate an instance if the instance is</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation enabled for hibernation&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- and it meets the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites hibernation prerequisites&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon EC2 User Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- We don\'t charge usage for a stopped instance, or data transfer fees;</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- however, your root partition Amazon EBS volume remains and continues to</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- persist your data, and you are charged for Amazon EBS volume usage.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Every time you start your instance, Amazon EC2 charges a one-minute</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- minimum for instance usage, and thereafter charges per second for</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- instance usage.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- You can\'t stop or hibernate instance store-backed instances. You can\'t</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- use the Stop action to hibernate Spot Instances, but you can specify</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- that Amazon EC2 should hibernate Spot Instances when they are</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- interrupted. For more information, see</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances Hibernating interrupted Spot Instances&gt;</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- in the /Amazon EC2 User Guide/.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- When you stop or hibernate an instance, we shut it down. You can restart</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- your instance at any time. Before stopping or hibernating an instance,</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- make sure it is in a state from which it can be restarted. Stopping an</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- instance does not preserve data stored in RAM, but hibernating an</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- instance does preserve data stored in RAM. If an instance cannot</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- hibernate successfully, a normal shutdown occurs.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Stopping and hibernating an instance is different to rebooting or</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- terminating it. For example, when you stop or hibernate an instance, the</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- root device and any other devices attached to the instance persist. When</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- you terminate an instance, the root device and any other devices</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- attached during the instance launch are automatically deleted. For more</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- information about the differences between rebooting, stopping,</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- hibernating, and terminating instances, see</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html Instance lifecycle&gt;</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- in the /Amazon EC2 User Guide/.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- When you stop an instance, we attempt to shut it down forcibly after a</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- short while. If your instance appears stuck in the stopping state after</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- a period of time, there may be an issue with the underlying host</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- computer. For more information, see</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html Troubleshooting stopping your instance&gt;</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- in the /Amazon EC2 User Guide/.</span><span>
+</span><span id="line-70"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.StopInstances</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier">StopInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#newStopInstances"><span class="hs-identifier">newStopInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#stopInstances_hibernate"><span class="hs-identifier">stopInstances_hibernate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#stopInstances_force"><span class="hs-identifier">stopInstances_force</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#stopInstances_dryRun"><span class="hs-identifier">stopInstances_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#stopInstances_instanceIds"><span class="hs-identifier">stopInstances_instanceIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse"><span class="hs-identifier">StopInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#newStopInstancesResponse"><span class="hs-identifier">newStopInstancesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#stopInstancesResponse_stoppingInstances"><span class="hs-identifier">stopInstancesResponse_stoppingInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#stopInstancesResponse_httpStatus"><span class="hs-identifier">stopInstancesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | /See:/ 'newStopInstances' smart constructor.</span><span>
+</span><span id="line-99"></span><span id="local-6989586621681201740"><span id="local-6989586621681201741"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopInstances"><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-var">StopInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopInstances%27"><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances%27"><span class="hs-identifier hs-var">StopInstances'</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Hibernates the instance if the instance was enabled for hibernation at</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- launch. If the instance cannot hibernate successfully, a normal shutdown</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- occurs. For more information, see</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance&gt;</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- in the /Amazon EC2 User Guide/.</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3Ahibernate%3AStopInstances%27"><span class="annot"><span class="annottext">StopInstances -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3Ahibernate%3AStopInstances%27"><span class="hs-identifier hs-var hs-var">hibernate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | Forces the instances to stop. The instances do not have an opportunity</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- to flush file system caches or file system metadata. If you use this</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- option, you must perform file system check and repair procedures. This</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- option is not recommended for Windows instances.</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3Aforce%3AStopInstances%27"><span class="annot"><span class="annottext">StopInstances -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3Aforce%3AStopInstances%27"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AdryRun%3AStopInstances%27"><span class="annot"><span class="annottext">StopInstances -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3AdryRun%3AStopInstances%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | The IDs of the instances.</span><span>
+</span><span id="line-121"></span><span>    </span><span id="%24sel%3AinstanceIds%3AStopInstances%27"><span class="annot"><span class="annottext">StopInstances -&gt; [Text]
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3AinstanceIds%3AStopInstances%27"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681201731"><span id="local-6989586621681201733"><span class="annot"><span class="annottext">StopInstances -&gt; StopInstances -&gt; Bool
+(StopInstances -&gt; StopInstances -&gt; Bool)
+-&gt; (StopInstances -&gt; StopInstances -&gt; Bool) -&gt; Eq StopInstances
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopInstances -&gt; StopInstances -&gt; Bool
+$c/= :: StopInstances -&gt; StopInstances -&gt; Bool
+== :: StopInstances -&gt; StopInstances -&gt; Bool
+$c== :: StopInstances -&gt; StopInstances -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681201722"><span id="local-6989586621681201724"><span id="local-6989586621681201726"><span id="local-6989586621681201728"><span class="annot"><span class="annottext">ReadPrec [StopInstances]
+ReadPrec StopInstances
+Int -&gt; ReadS StopInstances
+ReadS [StopInstances]
+(Int -&gt; ReadS StopInstances)
+-&gt; ReadS [StopInstances]
+-&gt; ReadPrec StopInstances
+-&gt; ReadPrec [StopInstances]
+-&gt; Read StopInstances
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopInstances]
+$creadListPrec :: ReadPrec [StopInstances]
+readPrec :: ReadPrec StopInstances
+$creadPrec :: ReadPrec StopInstances
+readList :: ReadS [StopInstances]
+$creadList :: ReadS [StopInstances]
+readsPrec :: Int -&gt; ReadS StopInstances
+$creadsPrec :: Int -&gt; ReadS StopInstances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681201715"><span id="local-6989586621681201717"><span id="local-6989586621681201719"><span class="annot"><span class="annottext">Int -&gt; StopInstances -&gt; ShowS
+[StopInstances] -&gt; ShowS
+StopInstances -&gt; String
+(Int -&gt; StopInstances -&gt; ShowS)
+-&gt; (StopInstances -&gt; String)
+-&gt; ([StopInstances] -&gt; ShowS)
+-&gt; Show StopInstances
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopInstances] -&gt; ShowS
+$cshowList :: [StopInstances] -&gt; ShowS
+show :: StopInstances -&gt; String
+$cshow :: StopInstances -&gt; String
+showsPrec :: Int -&gt; StopInstances -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopInstances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopInstances -&gt; Rep StopInstances x)
+-&gt; (forall x. Rep StopInstances x -&gt; StopInstances)
+-&gt; Generic StopInstances
+forall x. Rep StopInstances x -&gt; StopInstances
+forall x. StopInstances -&gt; Rep StopInstances x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopInstances x -&gt; StopInstances
+$cfrom :: forall x. StopInstances -&gt; Rep StopInstances x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Create a value of 'StopInstances' with all optional fields omitted.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'hibernate', 'stopInstances_hibernate' - Hibernates the instance if the instance was enabled for hibernation at</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- launch. If the instance cannot hibernate successfully, a normal shutdown</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- occurs. For more information, see</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance&gt;</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- in the /Amazon EC2 User Guide/.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'force', 'stopInstances_force' - Forces the instances to stop. The instances do not have an opportunity</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- to flush file system caches or file system metadata. If you use this</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- option, you must perform file system check and repair procedures. This</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- option is not recommended for Windows instances.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'dryRun', 'stopInstances_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'instanceIds', 'stopInstances_instanceIds' - The IDs of the instances.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#newStopInstances"><span class="hs-identifier hs-type">newStopInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span><span>
+</span><span id="line-156"></span><span id="newStopInstances"><span class="annot"><span class="annottext">newStopInstances :: StopInstances
+</span><a href="Amazonka.EC2.StopInstances.html#newStopInstances"><span class="hs-identifier hs-var hs-var">newStopInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">StopInstances' :: Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; [Text] -&gt; StopInstances
+</span><a href="Amazonka.EC2.StopInstances.html#StopInstances%27"><span class="hs-identifier hs-type">StopInstances'</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hibernate:StopInstances' :: Maybe Bool
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3Ahibernate%3AStopInstances%27"><span class="hs-identifier hs-var">hibernate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:force:StopInstances' :: Maybe Bool
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3Aforce%3AStopInstances%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:StopInstances' :: Maybe Bool
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3AdryRun%3AStopInstances%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceIds:StopInstances' :: [Text]
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3AinstanceIds%3AStopInstances%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Hibernates the instance if the instance was enabled for hibernation at</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- launch. If the instance cannot hibernate successfully, a normal shutdown</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- occurs. For more information, see</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance&gt;</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- in the /Amazon EC2 User Guide/.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#stopInstances_hibernate"><span class="hs-identifier hs-type">stopInstances_hibernate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="stopInstances_hibernate"><span class="annot"><span class="annottext">stopInstances_hibernate :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; StopInstances -&gt; f StopInstances
+</span><a href="Amazonka.EC2.StopInstances.html#stopInstances_hibernate"><span class="hs-identifier hs-var hs-var">stopInstances_hibernate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopInstances -&gt; Maybe Bool)
+-&gt; (StopInstances -&gt; Maybe Bool -&gt; StopInstances)
+-&gt; Lens StopInstances StopInstances (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances%27"><span class="hs-identifier hs-type">StopInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681201708"><span class="annot"><span class="annottext">Maybe Bool
+hibernate :: Maybe Bool
+$sel:hibernate:StopInstances' :: StopInstances -&gt; Maybe Bool
+</span><a href="#local-6989586621681201708"><span class="hs-identifier hs-var hs-var">hibernate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681201708"><span class="hs-identifier hs-var">hibernate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681201707"><span class="annot"><span class="annottext">s :: StopInstances
+</span><a href="#local-6989586621681201707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances%27"><span class="hs-identifier hs-type">StopInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681201706"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681201706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopInstances
+</span><a href="#local-6989586621681201707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hibernate:StopInstances' :: Maybe Bool
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3Ahibernate%3AStopInstances%27"><span class="hs-identifier hs-var">hibernate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681201706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | Forces the instances to stop. The instances do not have an opportunity</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- to flush file system caches or file system metadata. If you use this</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- option, you must perform file system check and repair procedures. This</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- option is not recommended for Windows instances.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#stopInstances_force"><span class="hs-identifier hs-type">stopInstances_force</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="stopInstances_force"><span class="annot"><span class="annottext">stopInstances_force :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; StopInstances -&gt; f StopInstances
+</span><a href="Amazonka.EC2.StopInstances.html#stopInstances_force"><span class="hs-identifier hs-var hs-var">stopInstances_force</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopInstances -&gt; Maybe Bool)
+-&gt; (StopInstances -&gt; Maybe Bool -&gt; StopInstances)
+-&gt; Lens StopInstances StopInstances (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances%27"><span class="hs-identifier hs-type">StopInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681201705"><span class="annot"><span class="annottext">Maybe Bool
+force :: Maybe Bool
+$sel:force:StopInstances' :: StopInstances -&gt; Maybe Bool
+</span><a href="#local-6989586621681201705"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681201705"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681201704"><span class="annot"><span class="annottext">s :: StopInstances
+</span><a href="#local-6989586621681201704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances%27"><span class="hs-identifier hs-type">StopInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681201703"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681201703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopInstances
+</span><a href="#local-6989586621681201704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:StopInstances' :: Maybe Bool
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3Aforce%3AStopInstances%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681201703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#stopInstances_dryRun"><span class="hs-identifier hs-type">stopInstances_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="stopInstances_dryRun"><span class="annot"><span class="annottext">stopInstances_dryRun :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; StopInstances -&gt; f StopInstances
+</span><a href="Amazonka.EC2.StopInstances.html#stopInstances_dryRun"><span class="hs-identifier hs-var hs-var">stopInstances_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopInstances -&gt; Maybe Bool)
+-&gt; (StopInstances -&gt; Maybe Bool -&gt; StopInstances)
+-&gt; Lens StopInstances StopInstances (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances%27"><span class="hs-identifier hs-type">StopInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681201702"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:StopInstances' :: StopInstances -&gt; Maybe Bool
+</span><a href="#local-6989586621681201702"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681201702"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681201701"><span class="annot"><span class="annottext">s :: StopInstances
+</span><a href="#local-6989586621681201701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances%27"><span class="hs-identifier hs-type">StopInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681201700"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681201700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopInstances
+</span><a href="#local-6989586621681201701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:StopInstances' :: Maybe Bool
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3AdryRun%3AStopInstances%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681201700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The IDs of the instances.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#stopInstances_instanceIds"><span class="hs-identifier hs-type">stopInstances_instanceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span id="stopInstances_instanceIds"><span class="annot"><span class="annottext">stopInstances_instanceIds :: ([Text] -&gt; f [Text]) -&gt; StopInstances -&gt; f StopInstances
+</span><a href="Amazonka.EC2.StopInstances.html#stopInstances_instanceIds"><span class="hs-identifier hs-var hs-var">stopInstances_instanceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopInstances -&gt; [Text])
+-&gt; (StopInstances -&gt; [Text] -&gt; StopInstances)
+-&gt; Lens StopInstances StopInstances [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances%27"><span class="hs-identifier hs-type">StopInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681201699"><span class="annot"><span class="annottext">[Text]
+instanceIds :: [Text]
+$sel:instanceIds:StopInstances' :: StopInstances -&gt; [Text]
+</span><a href="#local-6989586621681201699"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681201699"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681201698"><span class="annot"><span class="annottext">s :: StopInstances
+</span><a href="#local-6989586621681201698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances%27"><span class="hs-identifier hs-type">StopInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681201697"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681201697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopInstances
+</span><a href="#local-6989586621681201698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:StopInstances' :: [Text]
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3AinstanceIds%3AStopInstances%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681201697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; StopInstances -&gt; f StopInstances)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; StopInstances
+-&gt; f StopInstances
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-196"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse"><span class="hs-identifier hs-type">StopInstancesResponse</span></a></span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621681201691"><span class="annot"><span class="annottext">request :: StopInstances -&gt; Request StopInstances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopInstances -&gt; Request StopInstances
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621681201687"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StopInstances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopInstances)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse StopInstances))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StopInstances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopInstances)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681201684"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681201684"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681201683"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681201683"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681201682"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681201682"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">Maybe [InstanceStateChange] -&gt; Int -&gt; StopInstancesResponse
+</span><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse%27"><span class="hs-identifier hs-var">StopInstancesResponse'</span></a></span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [InstanceStateChange] -&gt; Int -&gt; StopInstancesResponse)
+-&gt; Either String (Maybe [InstanceStateChange])
+-&gt; Either String (Int -&gt; StopInstancesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681201682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instancesSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-204"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [InstanceStateChange]))
+-&gt; Either String (Maybe [InstanceStateChange])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [InstanceStateChange])
+-&gt; [Node] -&gt; Either String (Maybe [InstanceStateChange])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [InstanceStateChange]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StopInstancesResponse)
+-&gt; Either String Int -&gt; Either String StopInstancesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681201684"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681201671"><span id="local-6989586621681201673"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span></span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681201668"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621681201664"><span class="annot"><span class="annottext">toHeaders :: StopInstances -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopInstances -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621681201659"><span class="annot"><span class="annottext">toPath :: StopInstances -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopInstances -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances"><span class="hs-identifier hs-type">StopInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621681201655"><span class="annot"><span class="annottext">toQuery :: StopInstances -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstances%27"><span class="hs-identifier hs-type">StopInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681201650"><span id="local-6989586621681201651"><span id="local-6989586621681201652"><span id="local-6989586621681201653"><span class="annot"><span class="annottext">[Text]
+Maybe Bool
+instanceIds :: [Text]
+dryRun :: Maybe Bool
+force :: Maybe Bool
+hibernate :: Maybe Bool
+$sel:instanceIds:StopInstances' :: StopInstances -&gt; [Text]
+$sel:dryRun:StopInstances' :: StopInstances -&gt; Maybe Bool
+$sel:force:StopInstances' :: StopInstances -&gt; Maybe Bool
+$sel:hibernate:StopInstances' :: StopInstances -&gt; Maybe Bool
+</span><a href="#local-6989586621681201650"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StopInstances&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Hibernate&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681201653"><span class="hs-identifier hs-var">hibernate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Force&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681201652"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681201651"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681201650"><span class="hs-identifier hs-var">instanceIds</span></a></span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | /See:/ 'newStopInstancesResponse' smart constructor.</span><span>
+</span><span id="line-233"></span><span id="local-6989586621681201646"><span id="local-6989586621681201647"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopInstancesResponse"><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse"><span class="hs-identifier hs-var">StopInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopInstancesResponse%27"><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse%27"><span class="hs-identifier hs-var">StopInstancesResponse'</span></a></span></span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the stopped instances.</span><span>
+</span><span id="line-235"></span><span>    </span><span id="%24sel%3AstoppingInstances%3AStopInstancesResponse%27"><span class="annot"><span class="annottext">StopInstancesResponse -&gt; Maybe [InstanceStateChange]
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3AstoppingInstances%3AStopInstancesResponse%27"><span class="hs-identifier hs-var hs-var">stoppingInstances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.InstanceStateChange.html#InstanceStateChange"><span class="hs-identifier hs-type">InstanceStateChange</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-237"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopInstancesResponse%27"><span class="annot"><span class="annottext">StopInstancesResponse -&gt; Int
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3AhttpStatus%3AStopInstancesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-239"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681201640"><span id="local-6989586621681201642"><span class="annot"><span class="annottext">StopInstancesResponse -&gt; StopInstancesResponse -&gt; Bool
+(StopInstancesResponse -&gt; StopInstancesResponse -&gt; Bool)
+-&gt; (StopInstancesResponse -&gt; StopInstancesResponse -&gt; Bool)
+-&gt; Eq StopInstancesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopInstancesResponse -&gt; StopInstancesResponse -&gt; Bool
+$c/= :: StopInstancesResponse -&gt; StopInstancesResponse -&gt; Bool
+== :: StopInstancesResponse -&gt; StopInstancesResponse -&gt; Bool
+$c== :: StopInstancesResponse -&gt; StopInstancesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681201632"><span id="local-6989586621681201634"><span id="local-6989586621681201636"><span id="local-6989586621681201638"><span class="annot"><span class="annottext">ReadPrec [StopInstancesResponse]
+ReadPrec StopInstancesResponse
+Int -&gt; ReadS StopInstancesResponse
+ReadS [StopInstancesResponse]
+(Int -&gt; ReadS StopInstancesResponse)
+-&gt; ReadS [StopInstancesResponse]
+-&gt; ReadPrec StopInstancesResponse
+-&gt; ReadPrec [StopInstancesResponse]
+-&gt; Read StopInstancesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopInstancesResponse]
+$creadListPrec :: ReadPrec [StopInstancesResponse]
+readPrec :: ReadPrec StopInstancesResponse
+$creadPrec :: ReadPrec StopInstancesResponse
+readList :: ReadS [StopInstancesResponse]
+$creadList :: ReadS [StopInstancesResponse]
+readsPrec :: Int -&gt; ReadS StopInstancesResponse
+$creadsPrec :: Int -&gt; ReadS StopInstancesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681201626"><span id="local-6989586621681201628"><span id="local-6989586621681201630"><span class="annot"><span class="annottext">Int -&gt; StopInstancesResponse -&gt; ShowS
+[StopInstancesResponse] -&gt; ShowS
+StopInstancesResponse -&gt; String
+(Int -&gt; StopInstancesResponse -&gt; ShowS)
+-&gt; (StopInstancesResponse -&gt; String)
+-&gt; ([StopInstancesResponse] -&gt; ShowS)
+-&gt; Show StopInstancesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopInstancesResponse] -&gt; ShowS
+$cshowList :: [StopInstancesResponse] -&gt; ShowS
+show :: StopInstancesResponse -&gt; String
+$cshow :: StopInstancesResponse -&gt; String
+showsPrec :: Int -&gt; StopInstancesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopInstancesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopInstancesResponse -&gt; Rep StopInstancesResponse x)
+-&gt; (forall x. Rep StopInstancesResponse x -&gt; StopInstancesResponse)
+-&gt; Generic StopInstancesResponse
+forall x. Rep StopInstancesResponse x -&gt; StopInstancesResponse
+forall x. StopInstancesResponse -&gt; Rep StopInstancesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopInstancesResponse x -&gt; StopInstancesResponse
+$cfrom :: forall x. StopInstancesResponse -&gt; Rep StopInstancesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- Create a value of 'StopInstancesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- 'stoppingInstances', 'stopInstancesResponse_stoppingInstances' - Information about the stopped instances.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- 'httpStatus', 'stopInstancesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#newStopInstancesResponse"><span class="hs-identifier hs-type">newStopInstancesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-253"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-254"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-255"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse"><span class="hs-identifier hs-type">StopInstancesResponse</span></a></span><span>
+</span><span id="line-256"></span><span id="newStopInstancesResponse"><span class="annot"><span class="annottext">newStopInstancesResponse :: Int -&gt; StopInstancesResponse
+</span><a href="Amazonka.EC2.StopInstances.html#newStopInstancesResponse"><span class="hs-identifier hs-var hs-var">newStopInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621681201623"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681201623"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>  </span><span class="annot"><span class="annottext">StopInstancesResponse' :: Maybe [InstanceStateChange] -&gt; Int -&gt; StopInstancesResponse
+</span><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse%27"><span class="hs-identifier hs-type">StopInstancesResponse'</span></a></span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stoppingInstances:StopInstancesResponse' :: Maybe [InstanceStateChange]
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3AstoppingInstances%3AStopInstancesResponse%27"><span class="hs-identifier hs-var">stoppingInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>        </span><span class="annot"><span class="annottext">Maybe [InstanceStateChange]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopInstancesResponse' :: Int
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3AhttpStatus%3AStopInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681201623"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-261"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | Information about the stopped instances.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#stopInstancesResponse_stoppingInstances"><span class="hs-identifier hs-type">stopInstancesResponse_stoppingInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse"><span class="hs-identifier hs-type">StopInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.InstanceStateChange.html#InstanceStateChange"><span class="hs-identifier hs-type">InstanceStateChange</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="stopInstancesResponse_stoppingInstances"><span class="annot"><span class="annottext">stopInstancesResponse_stoppingInstances :: (Maybe [InstanceStateChange] -&gt; f (Maybe [InstanceStateChange]))
+-&gt; StopInstancesResponse -&gt; f StopInstancesResponse
+</span><a href="Amazonka.EC2.StopInstances.html#stopInstancesResponse_stoppingInstances"><span class="hs-identifier hs-var hs-var">stopInstancesResponse_stoppingInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopInstancesResponse -&gt; Maybe [InstanceStateChange])
+-&gt; (StopInstancesResponse
+    -&gt; Maybe [InstanceStateChange] -&gt; StopInstancesResponse)
+-&gt; Lens
+     StopInstancesResponse
+     StopInstancesResponse
+     (Maybe [InstanceStateChange])
+     (Maybe [InstanceStateChange])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse%27"><span class="hs-identifier hs-type">StopInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681201622"><span class="annot"><span class="annottext">Maybe [InstanceStateChange]
+stoppingInstances :: Maybe [InstanceStateChange]
+$sel:stoppingInstances:StopInstancesResponse' :: StopInstancesResponse -&gt; Maybe [InstanceStateChange]
+</span><a href="#local-6989586621681201622"><span class="hs-identifier hs-var hs-var">stoppingInstances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceStateChange]
+</span><a href="#local-6989586621681201622"><span class="hs-identifier hs-var">stoppingInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681201621"><span class="annot"><span class="annottext">s :: StopInstancesResponse
+</span><a href="#local-6989586621681201621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse%27"><span class="hs-identifier hs-type">StopInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681201620"><span class="annot"><span class="annottext">Maybe [InstanceStateChange]
+</span><a href="#local-6989586621681201620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopInstancesResponse
+</span><a href="#local-6989586621681201621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stoppingInstances:StopInstancesResponse' :: Maybe [InstanceStateChange]
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3AstoppingInstances%3AStopInstancesResponse%27"><span class="hs-identifier hs-var">stoppingInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceStateChange]
+</span><a href="#local-6989586621681201620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse"><span class="hs-identifier hs-type">StopInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceStateChange] -&gt; f (Maybe [InstanceStateChange]))
+ -&gt; StopInstancesResponse -&gt; f StopInstancesResponse)
+-&gt; ((Maybe [InstanceStateChange]
+     -&gt; f (Maybe [InstanceStateChange]))
+    -&gt; Maybe [InstanceStateChange] -&gt; f (Maybe [InstanceStateChange]))
+-&gt; (Maybe [InstanceStateChange] -&gt; f (Maybe [InstanceStateChange]))
+-&gt; StopInstancesResponse
+-&gt; f StopInstancesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceStateChange]
+  [InstanceStateChange]
+  [InstanceStateChange]
+  [InstanceStateChange]
+-&gt; Iso
+     (Maybe [InstanceStateChange])
+     (Maybe [InstanceStateChange])
+     (Maybe [InstanceStateChange])
+     (Maybe [InstanceStateChange])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceStateChange]
+  [InstanceStateChange]
+  [InstanceStateChange]
+  [InstanceStateChange]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#stopInstancesResponse_httpStatus"><span class="hs-identifier hs-type">stopInstancesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse"><span class="hs-identifier hs-type">StopInstancesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-269"></span><span id="stopInstancesResponse_httpStatus"><span class="annot"><span class="annottext">stopInstancesResponse_httpStatus :: (Int -&gt; f Int) -&gt; StopInstancesResponse -&gt; f StopInstancesResponse
+</span><a href="Amazonka.EC2.StopInstances.html#stopInstancesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">stopInstancesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopInstancesResponse -&gt; Int)
+-&gt; (StopInstancesResponse -&gt; Int -&gt; StopInstancesResponse)
+-&gt; Lens StopInstancesResponse StopInstancesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse%27"><span class="hs-identifier hs-type">StopInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681201618"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StopInstancesResponse' :: StopInstancesResponse -&gt; Int
+</span><a href="#local-6989586621681201618"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681201618"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681201617"><span class="annot"><span class="annottext">s :: StopInstancesResponse
+</span><a href="#local-6989586621681201617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse%27"><span class="hs-identifier hs-type">StopInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681201616"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681201616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopInstancesResponse
+</span><a href="#local-6989586621681201617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopInstancesResponse' :: Int
+</span><a href="Amazonka.EC2.StopInstances.html#%24sel%3AhttpStatus%3AStopInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681201616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse"><span class="hs-identifier hs-type">StopInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681201614"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.StopInstances.html#StopInstancesResponse"><span class="hs-identifier hs-type">StopInstancesResponse</span></a></span></span><span>
+</span><span id="line-272"></span></pre></body></html>

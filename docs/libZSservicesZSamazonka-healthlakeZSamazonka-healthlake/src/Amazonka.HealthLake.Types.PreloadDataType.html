@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.HealthLake.Types.PreloadDataType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.HealthLake.Types.PreloadDataType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.PreloadDataType.html#PreloadDataType"><span class="hs-identifier">PreloadDataType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.HealthLake.Types.PreloadDataType.html#PreloadDataType_SYNTHEA"><span class="hs-identifier">PreloadDataType_SYNTHEA</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679173700"><span id="local-6989586621679173701"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PreloadDataType"><span class="annot"><a href="Amazonka.HealthLake.Types.PreloadDataType.html#PreloadDataType"><span class="hs-identifier hs-var">PreloadDataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PreloadDataType%27"><span class="annot"><a href="Amazonka.HealthLake.Types.PreloadDataType.html#PreloadDataType%27"><span class="hs-identifier hs-var">PreloadDataType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPreloadDataType"><span class="annot"><span class="annottext">PreloadDataType -&gt; Text
+</span><a href="Amazonka.HealthLake.Types.PreloadDataType.html#fromPreloadDataType"><span class="hs-identifier hs-var hs-var">fromPreloadDataType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679173692"><span id="local-6989586621679173694"><span id="local-6989586621679173696"><span class="annot"><span class="annottext">Int -&gt; PreloadDataType -&gt; ShowS
+[PreloadDataType] -&gt; ShowS
+PreloadDataType -&gt; String
+(Int -&gt; PreloadDataType -&gt; ShowS)
+-&gt; (PreloadDataType -&gt; String)
+-&gt; ([PreloadDataType] -&gt; ShowS)
+-&gt; Show PreloadDataType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PreloadDataType] -&gt; ShowS
+$cshowList :: [PreloadDataType] -&gt; ShowS
+show :: PreloadDataType -&gt; String
+$cshow :: PreloadDataType -&gt; String
+showsPrec :: Int -&gt; PreloadDataType -&gt; ShowS
+$cshowsPrec :: Int -&gt; PreloadDataType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679173683"><span id="local-6989586621679173685"><span id="local-6989586621679173687"><span id="local-6989586621679173689"><span class="annot"><span class="annottext">ReadPrec [PreloadDataType]
+ReadPrec PreloadDataType
+Int -&gt; ReadS PreloadDataType
+ReadS [PreloadDataType]
+(Int -&gt; ReadS PreloadDataType)
+-&gt; ReadS [PreloadDataType]
+-&gt; ReadPrec PreloadDataType
+-&gt; ReadPrec [PreloadDataType]
+-&gt; Read PreloadDataType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PreloadDataType]
+$creadListPrec :: ReadPrec [PreloadDataType]
+readPrec :: ReadPrec PreloadDataType
+$creadPrec :: ReadPrec PreloadDataType
+readList :: ReadS [PreloadDataType]
+$creadList :: ReadS [PreloadDataType]
+readsPrec :: Int -&gt; ReadS PreloadDataType
+$creadsPrec :: Int -&gt; ReadS PreloadDataType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679173678"><span id="local-6989586621679173680"><span class="annot"><span class="annottext">PreloadDataType -&gt; PreloadDataType -&gt; Bool
+(PreloadDataType -&gt; PreloadDataType -&gt; Bool)
+-&gt; (PreloadDataType -&gt; PreloadDataType -&gt; Bool)
+-&gt; Eq PreloadDataType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PreloadDataType -&gt; PreloadDataType -&gt; Bool
+$c/= :: PreloadDataType -&gt; PreloadDataType -&gt; Bool
+== :: PreloadDataType -&gt; PreloadDataType -&gt; Bool
+$c== :: PreloadDataType -&gt; PreloadDataType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679173662"><span id="local-6989586621679173664"><span id="local-6989586621679173666"><span id="local-6989586621679173668"><span id="local-6989586621679173670"><span id="local-6989586621679173672"><span id="local-6989586621679173674"><span class="annot"><span class="annottext">Eq PreloadDataType
+Eq PreloadDataType
+-&gt; (PreloadDataType -&gt; PreloadDataType -&gt; Ordering)
+-&gt; (PreloadDataType -&gt; PreloadDataType -&gt; Bool)
+-&gt; (PreloadDataType -&gt; PreloadDataType -&gt; Bool)
+-&gt; (PreloadDataType -&gt; PreloadDataType -&gt; Bool)
+-&gt; (PreloadDataType -&gt; PreloadDataType -&gt; Bool)
+-&gt; (PreloadDataType -&gt; PreloadDataType -&gt; PreloadDataType)
+-&gt; (PreloadDataType -&gt; PreloadDataType -&gt; PreloadDataType)
+-&gt; Ord PreloadDataType
+PreloadDataType -&gt; PreloadDataType -&gt; Bool
+PreloadDataType -&gt; PreloadDataType -&gt; Ordering
+PreloadDataType -&gt; PreloadDataType -&gt; PreloadDataType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PreloadDataType -&gt; PreloadDataType -&gt; PreloadDataType
+$cmin :: PreloadDataType -&gt; PreloadDataType -&gt; PreloadDataType
+max :: PreloadDataType -&gt; PreloadDataType -&gt; PreloadDataType
+$cmax :: PreloadDataType -&gt; PreloadDataType -&gt; PreloadDataType
+&gt;= :: PreloadDataType -&gt; PreloadDataType -&gt; Bool
+$c&gt;= :: PreloadDataType -&gt; PreloadDataType -&gt; Bool
+&gt; :: PreloadDataType -&gt; PreloadDataType -&gt; Bool
+$c&gt; :: PreloadDataType -&gt; PreloadDataType -&gt; Bool
+&lt;= :: PreloadDataType -&gt; PreloadDataType -&gt; Bool
+$c&lt;= :: PreloadDataType -&gt; PreloadDataType -&gt; Bool
+&lt; :: PreloadDataType -&gt; PreloadDataType -&gt; Bool
+$c&lt; :: PreloadDataType -&gt; PreloadDataType -&gt; Bool
+compare :: PreloadDataType -&gt; PreloadDataType -&gt; Ordering
+$ccompare :: PreloadDataType -&gt; PreloadDataType -&gt; Ordering
+$cp1Ord :: Eq PreloadDataType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PreloadDataType -&gt; Rep PreloadDataType x)
+-&gt; (forall x. Rep PreloadDataType x -&gt; PreloadDataType)
+-&gt; Generic PreloadDataType
+forall x. Rep PreloadDataType x -&gt; PreloadDataType
+forall x. PreloadDataType -&gt; Rep PreloadDataType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PreloadDataType x -&gt; PreloadDataType
+$cfrom :: forall x. PreloadDataType -&gt; Rep PreloadDataType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679173654"><span id="local-6989586621679173656"><span class="annot"><span class="annottext">Int -&gt; PreloadDataType -&gt; Int
+PreloadDataType -&gt; Int
+(Int -&gt; PreloadDataType -&gt; Int)
+-&gt; (PreloadDataType -&gt; Int) -&gt; Hashable PreloadDataType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PreloadDataType -&gt; Int
+$chash :: PreloadDataType -&gt; Int
+hashWithSalt :: Int -&gt; PreloadDataType -&gt; Int
+$chashWithSalt :: Int -&gt; PreloadDataType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679173651"><span class="annot"><span class="annottext">PreloadDataType -&gt; ()
+(PreloadDataType -&gt; ()) -&gt; NFData PreloadDataType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PreloadDataType -&gt; ()
+$crnf :: PreloadDataType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679173648"><span class="annot"><span class="annottext">Text -&gt; Either String PreloadDataType
+(Text -&gt; Either String PreloadDataType) -&gt; FromText PreloadDataType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PreloadDataType
+$cfromText :: Text -&gt; Either String PreloadDataType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679173645"><span class="annot"><span class="annottext">PreloadDataType -&gt; Text
+(PreloadDataType -&gt; Text) -&gt; ToText PreloadDataType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PreloadDataType -&gt; Text
+$ctoText :: PreloadDataType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679173642"><span class="annot"><span class="annottext">PreloadDataType -&gt; ByteString
+(PreloadDataType -&gt; ByteString) -&gt; ToByteString PreloadDataType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PreloadDataType -&gt; ByteString
+$ctoBS :: PreloadDataType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679173639"><span class="annot"><span class="annottext">PreloadDataType -&gt; ByteStringBuilder
+(PreloadDataType -&gt; ByteStringBuilder) -&gt; ToLog PreloadDataType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PreloadDataType -&gt; ByteStringBuilder
+$cbuild :: PreloadDataType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679173636"><span class="annot"><span class="annottext">HeaderName -&gt; PreloadDataType -&gt; [Header]
+(HeaderName -&gt; PreloadDataType -&gt; [Header])
+-&gt; ToHeader PreloadDataType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PreloadDataType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PreloadDataType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679173633"><span class="annot"><span class="annottext">PreloadDataType -&gt; QueryString
+(PreloadDataType -&gt; QueryString) -&gt; ToQuery PreloadDataType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PreloadDataType -&gt; QueryString
+$ctoQuery :: PreloadDataType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679173628"><span id="local-6989586621679173630"><span class="annot"><span class="annottext">Value -&gt; Parser [PreloadDataType]
+Value -&gt; Parser PreloadDataType
+(Value -&gt; Parser PreloadDataType)
+-&gt; (Value -&gt; Parser [PreloadDataType]) -&gt; FromJSON PreloadDataType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PreloadDataType]
+$cparseJSONList :: Value -&gt; Parser [PreloadDataType]
+parseJSON :: Value -&gt; Parser PreloadDataType
+$cparseJSON :: Value -&gt; Parser PreloadDataType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679173623"><span id="local-6989586621679173625"><span class="annot"><span class="annottext">FromJSONKeyFunction [PreloadDataType]
+FromJSONKeyFunction PreloadDataType
+FromJSONKeyFunction PreloadDataType
+-&gt; FromJSONKeyFunction [PreloadDataType]
+-&gt; FromJSONKey PreloadDataType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PreloadDataType]
+$cfromJSONKeyList :: FromJSONKeyFunction [PreloadDataType]
+fromJSONKey :: FromJSONKeyFunction PreloadDataType
+$cfromJSONKey :: FromJSONKeyFunction PreloadDataType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679173614"><span id="local-6989586621679173616"><span id="local-6989586621679173618"><span id="local-6989586621679173620"><span class="annot"><span class="annottext">[PreloadDataType] -&gt; Encoding
+[PreloadDataType] -&gt; Value
+PreloadDataType -&gt; Encoding
+PreloadDataType -&gt; Value
+(PreloadDataType -&gt; Value)
+-&gt; (PreloadDataType -&gt; Encoding)
+-&gt; ([PreloadDataType] -&gt; Value)
+-&gt; ([PreloadDataType] -&gt; Encoding)
+-&gt; ToJSON PreloadDataType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PreloadDataType] -&gt; Encoding
+$ctoEncodingList :: [PreloadDataType] -&gt; Encoding
+toJSONList :: [PreloadDataType] -&gt; Value
+$ctoJSONList :: [PreloadDataType] -&gt; Value
+toEncoding :: PreloadDataType -&gt; Encoding
+$ctoEncoding :: PreloadDataType -&gt; Encoding
+toJSON :: PreloadDataType -&gt; Value
+$ctoJSON :: PreloadDataType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679173609"><span id="local-6989586621679173611"><span class="annot"><span class="annottext">ToJSONKeyFunction [PreloadDataType]
+ToJSONKeyFunction PreloadDataType
+ToJSONKeyFunction PreloadDataType
+-&gt; ToJSONKeyFunction [PreloadDataType] -&gt; ToJSONKey PreloadDataType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PreloadDataType]
+$ctoJSONKeyList :: ToJSONKeyFunction [PreloadDataType]
+toJSONKey :: ToJSONKeyFunction PreloadDataType
+$ctoJSONKey :: ToJSONKeyFunction PreloadDataType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679173606"><span class="annot"><span class="annottext">[Node] -&gt; Either String PreloadDataType
+([Node] -&gt; Either String PreloadDataType)
+-&gt; FromXML PreloadDataType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PreloadDataType
+$cparseXML :: [Node] -&gt; Either String PreloadDataType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679173603"><span class="annot"><span class="annottext">PreloadDataType -&gt; XML
+(PreloadDataType -&gt; XML) -&gt; ToXML PreloadDataType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PreloadDataType -&gt; XML
+$ctoXML :: PreloadDataType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.PreloadDataType.html#PreloadDataType_SYNTHEA"><span class="hs-identifier hs-type">PreloadDataType_SYNTHEA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.PreloadDataType.html#PreloadDataType"><span class="hs-identifier hs-type">PreloadDataType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPreloadDataType_SYNTHEA"><span id="%24mPreloadDataType_SYNTHEA"><span id="PreloadDataType_SYNTHEA"><span class="annot"><span class="annottext">$bPreloadDataType_SYNTHEA :: PreloadDataType
+$mPreloadDataType_SYNTHEA :: forall r. PreloadDataType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.HealthLake.Types.PreloadDataType.html#%24bPreloadDataType_SYNTHEA"><span class="hs-identifier hs-var hs-var hs-var">PreloadDataType_SYNTHEA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.PreloadDataType.html#PreloadDataType%27"><span class="hs-identifier hs-type">PreloadDataType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SYNTHEA&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.HealthLake.Types.PreloadDataType.html#PreloadDataType_SYNTHEA"><span class="hs-pragma hs-type">PreloadDataType_SYNTHEA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.HealthLake.Types.PreloadDataType.html#PreloadDataType%27"><span class="hs-pragma hs-type">PreloadDataType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

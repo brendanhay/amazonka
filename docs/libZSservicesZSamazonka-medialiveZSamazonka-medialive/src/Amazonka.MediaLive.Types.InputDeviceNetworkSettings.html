@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.InputDeviceNetworkSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.InputDeviceNetworkSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceIpScheme.html"><span class="hs-identifier">Amazonka.MediaLive.Types.InputDeviceIpScheme</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The network settings for the input device.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInputDeviceNetworkSettings' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679892107"><span id="local-6989586621679892108"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputDeviceNetworkSettings"><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-var">InputDeviceNetworkSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDeviceNetworkSettings%27"><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings%27"><span class="hs-identifier hs-var">InputDeviceNetworkSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IP address of the input device.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AipAddress%3AInputDeviceNetworkSettings%27"><span class="annot"><span class="annottext">InputDeviceNetworkSettings -&gt; Maybe Text
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#%24sel%3AipAddress%3AInputDeviceNetworkSettings%27"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The network gateway IP address.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Agateway%3AInputDeviceNetworkSettings%27"><span class="annot"><span class="annottext">InputDeviceNetworkSettings -&gt; Maybe Text
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#%24sel%3Agateway%3AInputDeviceNetworkSettings%27"><span class="hs-identifier hs-var hs-var">gateway</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The DNS addresses of the input device.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdnsAddresses%3AInputDeviceNetworkSettings%27"><span class="annot"><span class="annottext">InputDeviceNetworkSettings -&gt; Maybe [Text]
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#%24sel%3AdnsAddresses%3AInputDeviceNetworkSettings%27"><span class="hs-identifier hs-var hs-var">dnsAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specifies whether the input device has been configured (outside of</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- address.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AipScheme%3AInputDeviceNetworkSettings%27"><span class="annot"><span class="annottext">InputDeviceNetworkSettings -&gt; Maybe InputDeviceIpScheme
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#%24sel%3AipScheme%3AInputDeviceNetworkSettings%27"><span class="hs-identifier hs-var hs-var">ipScheme</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceIpScheme.html#InputDeviceIpScheme"><span class="hs-identifier hs-type">InputDeviceIpScheme</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The subnet mask of the input device.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsubnetMask%3AInputDeviceNetworkSettings%27"><span class="annot"><span class="annottext">InputDeviceNetworkSettings -&gt; Maybe Text
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#%24sel%3AsubnetMask%3AInputDeviceNetworkSettings%27"><span class="hs-identifier hs-var hs-var">subnetMask</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679892097"><span id="local-6989586621679892099"><span class="annot"><span class="annottext">InputDeviceNetworkSettings -&gt; InputDeviceNetworkSettings -&gt; Bool
+(InputDeviceNetworkSettings -&gt; InputDeviceNetworkSettings -&gt; Bool)
+-&gt; (InputDeviceNetworkSettings
+    -&gt; InputDeviceNetworkSettings -&gt; Bool)
+-&gt; Eq InputDeviceNetworkSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InputDeviceNetworkSettings -&gt; InputDeviceNetworkSettings -&gt; Bool
+$c/= :: InputDeviceNetworkSettings -&gt; InputDeviceNetworkSettings -&gt; Bool
+== :: InputDeviceNetworkSettings -&gt; InputDeviceNetworkSettings -&gt; Bool
+$c== :: InputDeviceNetworkSettings -&gt; InputDeviceNetworkSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679892088"><span id="local-6989586621679892090"><span id="local-6989586621679892092"><span id="local-6989586621679892094"><span class="annot"><span class="annottext">ReadPrec [InputDeviceNetworkSettings]
+ReadPrec InputDeviceNetworkSettings
+Int -&gt; ReadS InputDeviceNetworkSettings
+ReadS [InputDeviceNetworkSettings]
+(Int -&gt; ReadS InputDeviceNetworkSettings)
+-&gt; ReadS [InputDeviceNetworkSettings]
+-&gt; ReadPrec InputDeviceNetworkSettings
+-&gt; ReadPrec [InputDeviceNetworkSettings]
+-&gt; Read InputDeviceNetworkSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InputDeviceNetworkSettings]
+$creadListPrec :: ReadPrec [InputDeviceNetworkSettings]
+readPrec :: ReadPrec InputDeviceNetworkSettings
+$creadPrec :: ReadPrec InputDeviceNetworkSettings
+readList :: ReadS [InputDeviceNetworkSettings]
+$creadList :: ReadS [InputDeviceNetworkSettings]
+readsPrec :: Int -&gt; ReadS InputDeviceNetworkSettings
+$creadsPrec :: Int -&gt; ReadS InputDeviceNetworkSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679892081"><span id="local-6989586621679892083"><span id="local-6989586621679892085"><span class="annot"><span class="annottext">Int -&gt; InputDeviceNetworkSettings -&gt; ShowS
+[InputDeviceNetworkSettings] -&gt; ShowS
+InputDeviceNetworkSettings -&gt; String
+(Int -&gt; InputDeviceNetworkSettings -&gt; ShowS)
+-&gt; (InputDeviceNetworkSettings -&gt; String)
+-&gt; ([InputDeviceNetworkSettings] -&gt; ShowS)
+-&gt; Show InputDeviceNetworkSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InputDeviceNetworkSettings] -&gt; ShowS
+$cshowList :: [InputDeviceNetworkSettings] -&gt; ShowS
+show :: InputDeviceNetworkSettings -&gt; String
+$cshow :: InputDeviceNetworkSettings -&gt; String
+showsPrec :: Int -&gt; InputDeviceNetworkSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; InputDeviceNetworkSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ InputDeviceNetworkSettings -&gt; Rep InputDeviceNetworkSettings x)
+-&gt; (forall x.
+    Rep InputDeviceNetworkSettings x -&gt; InputDeviceNetworkSettings)
+-&gt; Generic InputDeviceNetworkSettings
+forall x.
+Rep InputDeviceNetworkSettings x -&gt; InputDeviceNetworkSettings
+forall x.
+InputDeviceNetworkSettings -&gt; Rep InputDeviceNetworkSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep InputDeviceNetworkSettings x -&gt; InputDeviceNetworkSettings
+$cfrom :: forall x.
+InputDeviceNetworkSettings -&gt; Rep InputDeviceNetworkSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'InputDeviceNetworkSettings' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'ipAddress', 'inputDeviceNetworkSettings_ipAddress' - The IP address of the input device.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'gateway', 'inputDeviceNetworkSettings_gateway' - The network gateway IP address.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'dnsAddresses', 'inputDeviceNetworkSettings_dnsAddresses' - The DNS addresses of the input device.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'ipScheme', 'inputDeviceNetworkSettings_ipScheme' - Specifies whether the input device has been configured (outside of</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- address.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'subnetMask', 'inputDeviceNetworkSettings_subnetMask' - The subnet mask of the input device.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#newInputDeviceNetworkSettings"><span class="hs-identifier hs-type">newInputDeviceNetworkSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span><span>
+</span><span id="line-67"></span><span id="newInputDeviceNetworkSettings"><span class="annot"><span class="annottext">newInputDeviceNetworkSettings :: InputDeviceNetworkSettings
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#newInputDeviceNetworkSettings"><span class="hs-identifier hs-var hs-var">newInputDeviceNetworkSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">InputDeviceNetworkSettings' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe InputDeviceIpScheme
+-&gt; Maybe Text
+-&gt; InputDeviceNetworkSettings
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings%27"><span class="hs-identifier hs-type">InputDeviceNetworkSettings'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ipAddress:InputDeviceNetworkSettings' :: Maybe Text
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#%24sel%3AipAddress%3AInputDeviceNetworkSettings%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:gateway:InputDeviceNetworkSettings' :: Maybe Text
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#%24sel%3Agateway%3AInputDeviceNetworkSettings%27"><span class="hs-identifier hs-var">gateway</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsAddresses:InputDeviceNetworkSettings' :: Maybe [Text]
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#%24sel%3AdnsAddresses%3AInputDeviceNetworkSettings%27"><span class="hs-identifier hs-var">dnsAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipScheme:InputDeviceNetworkSettings' :: Maybe InputDeviceIpScheme
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#%24sel%3AipScheme%3AInputDeviceNetworkSettings%27"><span class="hs-identifier hs-var">ipScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceIpScheme
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetMask:InputDeviceNetworkSettings' :: Maybe Text
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#%24sel%3AsubnetMask%3AInputDeviceNetworkSettings%27"><span class="hs-identifier hs-var">subnetMask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The IP address of the input device.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#inputDeviceNetworkSettings_ipAddress"><span class="hs-identifier hs-type">inputDeviceNetworkSettings_ipAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="inputDeviceNetworkSettings_ipAddress"><span class="annot"><span class="annottext">inputDeviceNetworkSettings_ipAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InputDeviceNetworkSettings -&gt; f InputDeviceNetworkSettings
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#inputDeviceNetworkSettings_ipAddress"><span class="hs-identifier hs-var hs-var">inputDeviceNetworkSettings_ipAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceNetworkSettings -&gt; Maybe Text)
+-&gt; (InputDeviceNetworkSettings
+    -&gt; Maybe Text -&gt; InputDeviceNetworkSettings)
+-&gt; Lens
+     InputDeviceNetworkSettings
+     InputDeviceNetworkSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings%27"><span class="hs-identifier hs-type">InputDeviceNetworkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679892072"><span class="annot"><span class="annottext">Maybe Text
+ipAddress :: Maybe Text
+$sel:ipAddress:InputDeviceNetworkSettings' :: InputDeviceNetworkSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679892072"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679892072"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679892071"><span class="annot"><span class="annottext">s :: InputDeviceNetworkSettings
+</span><a href="#local-6989586621679892071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings%27"><span class="hs-identifier hs-type">InputDeviceNetworkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679892070"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679892070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceNetworkSettings
+</span><a href="#local-6989586621679892071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:InputDeviceNetworkSettings' :: Maybe Text
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#%24sel%3AipAddress%3AInputDeviceNetworkSettings%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679892070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The network gateway IP address.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#inputDeviceNetworkSettings_gateway"><span class="hs-identifier hs-type">inputDeviceNetworkSettings_gateway</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="inputDeviceNetworkSettings_gateway"><span class="annot"><span class="annottext">inputDeviceNetworkSettings_gateway :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InputDeviceNetworkSettings -&gt; f InputDeviceNetworkSettings
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#inputDeviceNetworkSettings_gateway"><span class="hs-identifier hs-var hs-var">inputDeviceNetworkSettings_gateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceNetworkSettings -&gt; Maybe Text)
+-&gt; (InputDeviceNetworkSettings
+    -&gt; Maybe Text -&gt; InputDeviceNetworkSettings)
+-&gt; Lens
+     InputDeviceNetworkSettings
+     InputDeviceNetworkSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings%27"><span class="hs-identifier hs-type">InputDeviceNetworkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679892068"><span class="annot"><span class="annottext">Maybe Text
+gateway :: Maybe Text
+$sel:gateway:InputDeviceNetworkSettings' :: InputDeviceNetworkSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679892068"><span class="hs-identifier hs-var hs-var">gateway</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679892068"><span class="hs-identifier hs-var">gateway</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679892067"><span class="annot"><span class="annottext">s :: InputDeviceNetworkSettings
+</span><a href="#local-6989586621679892067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings%27"><span class="hs-identifier hs-type">InputDeviceNetworkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679892066"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679892066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceNetworkSettings
+</span><a href="#local-6989586621679892067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gateway:InputDeviceNetworkSettings' :: Maybe Text
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#%24sel%3Agateway%3AInputDeviceNetworkSettings%27"><span class="hs-identifier hs-var">gateway</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679892066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The DNS addresses of the input device.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#inputDeviceNetworkSettings_dnsAddresses"><span class="hs-identifier hs-type">inputDeviceNetworkSettings_dnsAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="inputDeviceNetworkSettings_dnsAddresses"><span class="annot"><span class="annottext">inputDeviceNetworkSettings_dnsAddresses :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; InputDeviceNetworkSettings -&gt; f InputDeviceNetworkSettings
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#inputDeviceNetworkSettings_dnsAddresses"><span class="hs-identifier hs-var hs-var">inputDeviceNetworkSettings_dnsAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceNetworkSettings -&gt; Maybe [Text])
+-&gt; (InputDeviceNetworkSettings
+    -&gt; Maybe [Text] -&gt; InputDeviceNetworkSettings)
+-&gt; Lens
+     InputDeviceNetworkSettings
+     InputDeviceNetworkSettings
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings%27"><span class="hs-identifier hs-type">InputDeviceNetworkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679892064"><span class="annot"><span class="annottext">Maybe [Text]
+dnsAddresses :: Maybe [Text]
+$sel:dnsAddresses:InputDeviceNetworkSettings' :: InputDeviceNetworkSettings -&gt; Maybe [Text]
+</span><a href="#local-6989586621679892064"><span class="hs-identifier hs-var hs-var">dnsAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679892064"><span class="hs-identifier hs-var">dnsAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679892063"><span class="annot"><span class="annottext">s :: InputDeviceNetworkSettings
+</span><a href="#local-6989586621679892063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings%27"><span class="hs-identifier hs-type">InputDeviceNetworkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679892062"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679892062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceNetworkSettings
+</span><a href="#local-6989586621679892063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsAddresses:InputDeviceNetworkSettings' :: Maybe [Text]
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#%24sel%3AdnsAddresses%3AInputDeviceNetworkSettings%27"><span class="hs-identifier hs-var">dnsAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679892062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; InputDeviceNetworkSettings -&gt; f InputDeviceNetworkSettings)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; InputDeviceNetworkSettings
+-&gt; f InputDeviceNetworkSettings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | Specifies whether the input device has been configured (outside of</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- address.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#inputDeviceNetworkSettings_ipScheme"><span class="hs-identifier hs-type">inputDeviceNetworkSettings_ipScheme</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceIpScheme.html#InputDeviceIpScheme"><span class="hs-identifier hs-type">InputDeviceIpScheme</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="inputDeviceNetworkSettings_ipScheme"><span class="annot"><span class="annottext">inputDeviceNetworkSettings_ipScheme :: (Maybe InputDeviceIpScheme -&gt; f (Maybe InputDeviceIpScheme))
+-&gt; InputDeviceNetworkSettings -&gt; f InputDeviceNetworkSettings
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#inputDeviceNetworkSettings_ipScheme"><span class="hs-identifier hs-var hs-var">inputDeviceNetworkSettings_ipScheme</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceNetworkSettings -&gt; Maybe InputDeviceIpScheme)
+-&gt; (InputDeviceNetworkSettings
+    -&gt; Maybe InputDeviceIpScheme -&gt; InputDeviceNetworkSettings)
+-&gt; Lens
+     InputDeviceNetworkSettings
+     InputDeviceNetworkSettings
+     (Maybe InputDeviceIpScheme)
+     (Maybe InputDeviceIpScheme)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings%27"><span class="hs-identifier hs-type">InputDeviceNetworkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679892057"><span class="annot"><span class="annottext">Maybe InputDeviceIpScheme
+ipScheme :: Maybe InputDeviceIpScheme
+$sel:ipScheme:InputDeviceNetworkSettings' :: InputDeviceNetworkSettings -&gt; Maybe InputDeviceIpScheme
+</span><a href="#local-6989586621679892057"><span class="hs-identifier hs-var hs-var">ipScheme</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceIpScheme
+</span><a href="#local-6989586621679892057"><span class="hs-identifier hs-var">ipScheme</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679892056"><span class="annot"><span class="annottext">s :: InputDeviceNetworkSettings
+</span><a href="#local-6989586621679892056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings%27"><span class="hs-identifier hs-type">InputDeviceNetworkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679892055"><span class="annot"><span class="annottext">Maybe InputDeviceIpScheme
+</span><a href="#local-6989586621679892055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceNetworkSettings
+</span><a href="#local-6989586621679892056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipScheme:InputDeviceNetworkSettings' :: Maybe InputDeviceIpScheme
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#%24sel%3AipScheme%3AInputDeviceNetworkSettings%27"><span class="hs-identifier hs-var">ipScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceIpScheme
+</span><a href="#local-6989586621679892055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The subnet mask of the input device.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#inputDeviceNetworkSettings_subnetMask"><span class="hs-identifier hs-type">inputDeviceNetworkSettings_subnetMask</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="inputDeviceNetworkSettings_subnetMask"><span class="annot"><span class="annottext">inputDeviceNetworkSettings_subnetMask :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InputDeviceNetworkSettings -&gt; f InputDeviceNetworkSettings
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#inputDeviceNetworkSettings_subnetMask"><span class="hs-identifier hs-var hs-var">inputDeviceNetworkSettings_subnetMask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceNetworkSettings -&gt; Maybe Text)
+-&gt; (InputDeviceNetworkSettings
+    -&gt; Maybe Text -&gt; InputDeviceNetworkSettings)
+-&gt; Lens
+     InputDeviceNetworkSettings
+     InputDeviceNetworkSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings%27"><span class="hs-identifier hs-type">InputDeviceNetworkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679892053"><span class="annot"><span class="annottext">Maybe Text
+subnetMask :: Maybe Text
+$sel:subnetMask:InputDeviceNetworkSettings' :: InputDeviceNetworkSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679892053"><span class="hs-identifier hs-var hs-var">subnetMask</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679892053"><span class="hs-identifier hs-var">subnetMask</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679892052"><span class="annot"><span class="annottext">s :: InputDeviceNetworkSettings
+</span><a href="#local-6989586621679892052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings%27"><span class="hs-identifier hs-type">InputDeviceNetworkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679892051"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679892051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceNetworkSettings
+</span><a href="#local-6989586621679892052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetMask:InputDeviceNetworkSettings' :: Maybe Text
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#%24sel%3AsubnetMask%3AInputDeviceNetworkSettings%27"><span class="hs-identifier hs-var">subnetMask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679892051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679892048"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679892046"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputDeviceNetworkSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InputDeviceNetworkSettings)
+-&gt; Value
+-&gt; Parser InputDeviceNetworkSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InputDeviceNetworkSettings&quot;</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679892043"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679892043"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe InputDeviceIpScheme
+-&gt; Maybe Text
+-&gt; InputDeviceNetworkSettings
+</span><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings%27"><span class="hs-identifier hs-var">InputDeviceNetworkSettings'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe InputDeviceIpScheme
+ -&gt; Maybe Text
+ -&gt; InputDeviceNetworkSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe InputDeviceIpScheme
+      -&gt; Maybe Text
+      -&gt; InputDeviceNetworkSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679892043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe InputDeviceIpScheme
+   -&gt; Maybe Text
+   -&gt; InputDeviceNetworkSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe InputDeviceIpScheme
+      -&gt; Maybe Text
+      -&gt; InputDeviceNetworkSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679892043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gateway&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe InputDeviceIpScheme
+   -&gt; Maybe Text
+   -&gt; InputDeviceNetworkSettings)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe InputDeviceIpScheme
+      -&gt; Maybe Text -&gt; InputDeviceNetworkSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679892043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dnsAddresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputDeviceIpScheme
+   -&gt; Maybe Text -&gt; InputDeviceNetworkSettings)
+-&gt; Parser (Maybe InputDeviceIpScheme)
+-&gt; Parser (Maybe Text -&gt; InputDeviceNetworkSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679892043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeviceIpScheme)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipScheme&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; InputDeviceNetworkSettings)
+-&gt; Parser (Maybe Text) -&gt; Parser InputDeviceNetworkSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679892043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;subnetMask&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679892036"><span id="local-6989586621679892038"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679892033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span></span><span>
+</span><span id="line-115"></span></pre></body></html>

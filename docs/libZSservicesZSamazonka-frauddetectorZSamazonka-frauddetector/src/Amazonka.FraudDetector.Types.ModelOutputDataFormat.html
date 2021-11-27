@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.FraudDetector.Types.ModelOutputDataFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FraudDetector.Types.ModelOutputDataFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#ModelOutputDataFormat"><span class="hs-identifier">ModelOutputDataFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#ModelOutputDataFormat_APPLICATION_JSONLINES"><span class="hs-identifier">ModelOutputDataFormat_APPLICATION_JSONLINES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#ModelOutputDataFormat_TEXT_CSV"><span class="hs-identifier">ModelOutputDataFormat_TEXT_CSV</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679305274"><span id="local-6989586621679305275"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModelOutputDataFormat"><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#ModelOutputDataFormat"><span class="hs-identifier hs-var">ModelOutputDataFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelOutputDataFormat%27"><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#ModelOutputDataFormat%27"><span class="hs-identifier hs-var">ModelOutputDataFormat'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromModelOutputDataFormat"><span class="annot"><span class="annottext">ModelOutputDataFormat -&gt; Text
+</span><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#fromModelOutputDataFormat"><span class="hs-identifier hs-var hs-var">fromModelOutputDataFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305266"><span id="local-6989586621679305268"><span id="local-6989586621679305270"><span class="annot"><span class="annottext">Int -&gt; ModelOutputDataFormat -&gt; ShowS
+[ModelOutputDataFormat] -&gt; ShowS
+ModelOutputDataFormat -&gt; String
+(Int -&gt; ModelOutputDataFormat -&gt; ShowS)
+-&gt; (ModelOutputDataFormat -&gt; String)
+-&gt; ([ModelOutputDataFormat] -&gt; ShowS)
+-&gt; Show ModelOutputDataFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModelOutputDataFormat] -&gt; ShowS
+$cshowList :: [ModelOutputDataFormat] -&gt; ShowS
+show :: ModelOutputDataFormat -&gt; String
+$cshow :: ModelOutputDataFormat -&gt; String
+showsPrec :: Int -&gt; ModelOutputDataFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModelOutputDataFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679305257"><span id="local-6989586621679305259"><span id="local-6989586621679305261"><span id="local-6989586621679305263"><span class="annot"><span class="annottext">ReadPrec [ModelOutputDataFormat]
+ReadPrec ModelOutputDataFormat
+Int -&gt; ReadS ModelOutputDataFormat
+ReadS [ModelOutputDataFormat]
+(Int -&gt; ReadS ModelOutputDataFormat)
+-&gt; ReadS [ModelOutputDataFormat]
+-&gt; ReadPrec ModelOutputDataFormat
+-&gt; ReadPrec [ModelOutputDataFormat]
+-&gt; Read ModelOutputDataFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModelOutputDataFormat]
+$creadListPrec :: ReadPrec [ModelOutputDataFormat]
+readPrec :: ReadPrec ModelOutputDataFormat
+$creadPrec :: ReadPrec ModelOutputDataFormat
+readList :: ReadS [ModelOutputDataFormat]
+$creadList :: ReadS [ModelOutputDataFormat]
+readsPrec :: Int -&gt; ReadS ModelOutputDataFormat
+$creadsPrec :: Int -&gt; ReadS ModelOutputDataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679305252"><span id="local-6989586621679305254"><span class="annot"><span class="annottext">ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool
+(ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool)
+-&gt; (ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool)
+-&gt; Eq ModelOutputDataFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool
+$c/= :: ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool
+== :: ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool
+$c== :: ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679305236"><span id="local-6989586621679305238"><span id="local-6989586621679305240"><span id="local-6989586621679305242"><span id="local-6989586621679305244"><span id="local-6989586621679305246"><span id="local-6989586621679305248"><span class="annot"><span class="annottext">Eq ModelOutputDataFormat
+Eq ModelOutputDataFormat
+-&gt; (ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Ordering)
+-&gt; (ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool)
+-&gt; (ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool)
+-&gt; (ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool)
+-&gt; (ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool)
+-&gt; (ModelOutputDataFormat
+    -&gt; ModelOutputDataFormat -&gt; ModelOutputDataFormat)
+-&gt; (ModelOutputDataFormat
+    -&gt; ModelOutputDataFormat -&gt; ModelOutputDataFormat)
+-&gt; Ord ModelOutputDataFormat
+ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool
+ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Ordering
+ModelOutputDataFormat
+-&gt; ModelOutputDataFormat -&gt; ModelOutputDataFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ModelOutputDataFormat
+-&gt; ModelOutputDataFormat -&gt; ModelOutputDataFormat
+$cmin :: ModelOutputDataFormat
+-&gt; ModelOutputDataFormat -&gt; ModelOutputDataFormat
+max :: ModelOutputDataFormat
+-&gt; ModelOutputDataFormat -&gt; ModelOutputDataFormat
+$cmax :: ModelOutputDataFormat
+-&gt; ModelOutputDataFormat -&gt; ModelOutputDataFormat
+&gt;= :: ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool
+$c&gt;= :: ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool
+&gt; :: ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool
+$c&gt; :: ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool
+&lt;= :: ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool
+$c&lt;= :: ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool
+&lt; :: ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool
+$c&lt; :: ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Bool
+compare :: ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Ordering
+$ccompare :: ModelOutputDataFormat -&gt; ModelOutputDataFormat -&gt; Ordering
+$cp1Ord :: Eq ModelOutputDataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ModelOutputDataFormat -&gt; Rep ModelOutputDataFormat x)
+-&gt; (forall x. Rep ModelOutputDataFormat x -&gt; ModelOutputDataFormat)
+-&gt; Generic ModelOutputDataFormat
+forall x. Rep ModelOutputDataFormat x -&gt; ModelOutputDataFormat
+forall x. ModelOutputDataFormat -&gt; Rep ModelOutputDataFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModelOutputDataFormat x -&gt; ModelOutputDataFormat
+$cfrom :: forall x. ModelOutputDataFormat -&gt; Rep ModelOutputDataFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305228"><span id="local-6989586621679305230"><span class="annot"><span class="annottext">Int -&gt; ModelOutputDataFormat -&gt; Int
+ModelOutputDataFormat -&gt; Int
+(Int -&gt; ModelOutputDataFormat -&gt; Int)
+-&gt; (ModelOutputDataFormat -&gt; Int) -&gt; Hashable ModelOutputDataFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ModelOutputDataFormat -&gt; Int
+$chash :: ModelOutputDataFormat -&gt; Int
+hashWithSalt :: Int -&gt; ModelOutputDataFormat -&gt; Int
+$chashWithSalt :: Int -&gt; ModelOutputDataFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679305225"><span class="annot"><span class="annottext">ModelOutputDataFormat -&gt; ()
+(ModelOutputDataFormat -&gt; ()) -&gt; NFData ModelOutputDataFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ModelOutputDataFormat -&gt; ()
+$crnf :: ModelOutputDataFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679305222"><span class="annot"><span class="annottext">Text -&gt; Either String ModelOutputDataFormat
+(Text -&gt; Either String ModelOutputDataFormat)
+-&gt; FromText ModelOutputDataFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ModelOutputDataFormat
+$cfromText :: Text -&gt; Either String ModelOutputDataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679305219"><span class="annot"><span class="annottext">ModelOutputDataFormat -&gt; Text
+(ModelOutputDataFormat -&gt; Text) -&gt; ToText ModelOutputDataFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ModelOutputDataFormat -&gt; Text
+$ctoText :: ModelOutputDataFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679305216"><span class="annot"><span class="annottext">ModelOutputDataFormat -&gt; ByteString
+(ModelOutputDataFormat -&gt; ByteString)
+-&gt; ToByteString ModelOutputDataFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ModelOutputDataFormat -&gt; ByteString
+$ctoBS :: ModelOutputDataFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679305213"><span class="annot"><span class="annottext">ModelOutputDataFormat -&gt; ByteStringBuilder
+(ModelOutputDataFormat -&gt; ByteStringBuilder)
+-&gt; ToLog ModelOutputDataFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ModelOutputDataFormat -&gt; ByteStringBuilder
+$cbuild :: ModelOutputDataFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679305210"><span class="annot"><span class="annottext">HeaderName -&gt; ModelOutputDataFormat -&gt; [Header]
+(HeaderName -&gt; ModelOutputDataFormat -&gt; [Header])
+-&gt; ToHeader ModelOutputDataFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ModelOutputDataFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ModelOutputDataFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679305207"><span class="annot"><span class="annottext">ModelOutputDataFormat -&gt; QueryString
+(ModelOutputDataFormat -&gt; QueryString)
+-&gt; ToQuery ModelOutputDataFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ModelOutputDataFormat -&gt; QueryString
+$ctoQuery :: ModelOutputDataFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679305202"><span id="local-6989586621679305204"><span class="annot"><span class="annottext">Value -&gt; Parser [ModelOutputDataFormat]
+Value -&gt; Parser ModelOutputDataFormat
+(Value -&gt; Parser ModelOutputDataFormat)
+-&gt; (Value -&gt; Parser [ModelOutputDataFormat])
+-&gt; FromJSON ModelOutputDataFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ModelOutputDataFormat]
+$cparseJSONList :: Value -&gt; Parser [ModelOutputDataFormat]
+parseJSON :: Value -&gt; Parser ModelOutputDataFormat
+$cparseJSON :: Value -&gt; Parser ModelOutputDataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679305197"><span id="local-6989586621679305199"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModelOutputDataFormat]
+FromJSONKeyFunction ModelOutputDataFormat
+FromJSONKeyFunction ModelOutputDataFormat
+-&gt; FromJSONKeyFunction [ModelOutputDataFormat]
+-&gt; FromJSONKey ModelOutputDataFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ModelOutputDataFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [ModelOutputDataFormat]
+fromJSONKey :: FromJSONKeyFunction ModelOutputDataFormat
+$cfromJSONKey :: FromJSONKeyFunction ModelOutputDataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679305188"><span id="local-6989586621679305190"><span id="local-6989586621679305192"><span id="local-6989586621679305194"><span class="annot"><span class="annottext">[ModelOutputDataFormat] -&gt; Encoding
+[ModelOutputDataFormat] -&gt; Value
+ModelOutputDataFormat -&gt; Encoding
+ModelOutputDataFormat -&gt; Value
+(ModelOutputDataFormat -&gt; Value)
+-&gt; (ModelOutputDataFormat -&gt; Encoding)
+-&gt; ([ModelOutputDataFormat] -&gt; Value)
+-&gt; ([ModelOutputDataFormat] -&gt; Encoding)
+-&gt; ToJSON ModelOutputDataFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ModelOutputDataFormat] -&gt; Encoding
+$ctoEncodingList :: [ModelOutputDataFormat] -&gt; Encoding
+toJSONList :: [ModelOutputDataFormat] -&gt; Value
+$ctoJSONList :: [ModelOutputDataFormat] -&gt; Value
+toEncoding :: ModelOutputDataFormat -&gt; Encoding
+$ctoEncoding :: ModelOutputDataFormat -&gt; Encoding
+toJSON :: ModelOutputDataFormat -&gt; Value
+$ctoJSON :: ModelOutputDataFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679305183"><span id="local-6989586621679305185"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModelOutputDataFormat]
+ToJSONKeyFunction ModelOutputDataFormat
+ToJSONKeyFunction ModelOutputDataFormat
+-&gt; ToJSONKeyFunction [ModelOutputDataFormat]
+-&gt; ToJSONKey ModelOutputDataFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ModelOutputDataFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [ModelOutputDataFormat]
+toJSONKey :: ToJSONKeyFunction ModelOutputDataFormat
+$ctoJSONKey :: ToJSONKeyFunction ModelOutputDataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679305180"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModelOutputDataFormat
+([Node] -&gt; Either String ModelOutputDataFormat)
+-&gt; FromXML ModelOutputDataFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ModelOutputDataFormat
+$cparseXML :: [Node] -&gt; Either String ModelOutputDataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679305177"><span class="annot"><span class="annottext">ModelOutputDataFormat -&gt; XML
+(ModelOutputDataFormat -&gt; XML) -&gt; ToXML ModelOutputDataFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ModelOutputDataFormat -&gt; XML
+$ctoXML :: ModelOutputDataFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#ModelOutputDataFormat_APPLICATION_JSONLINES"><span class="hs-identifier hs-type">ModelOutputDataFormat_APPLICATION_JSONLINES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#ModelOutputDataFormat"><span class="hs-identifier hs-type">ModelOutputDataFormat</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModelOutputDataFormat_APPLICATION_JSONLINES"><span id="%24mModelOutputDataFormat_APPLICATION_JSONLINES"><span id="ModelOutputDataFormat_APPLICATION_JSONLINES"><span class="annot"><span class="annottext">$bModelOutputDataFormat_APPLICATION_JSONLINES :: ModelOutputDataFormat
+$mModelOutputDataFormat_APPLICATION_JSONLINES :: forall r.
+ModelOutputDataFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#%24bModelOutputDataFormat_APPLICATION_JSONLINES"><span class="hs-identifier hs-var hs-var hs-var">ModelOutputDataFormat_APPLICATION_JSONLINES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#ModelOutputDataFormat%27"><span class="hs-identifier hs-type">ModelOutputDataFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;APPLICATION_JSONLINES&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#ModelOutputDataFormat_TEXT_CSV"><span class="hs-identifier hs-type">ModelOutputDataFormat_TEXT_CSV</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#ModelOutputDataFormat"><span class="hs-identifier hs-type">ModelOutputDataFormat</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModelOutputDataFormat_TEXT_CSV"><span id="%24mModelOutputDataFormat_TEXT_CSV"><span id="ModelOutputDataFormat_TEXT_CSV"><span class="annot"><span class="annottext">$bModelOutputDataFormat_TEXT_CSV :: ModelOutputDataFormat
+$mModelOutputDataFormat_TEXT_CSV :: forall r.
+ModelOutputDataFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#%24bModelOutputDataFormat_TEXT_CSV"><span class="hs-identifier hs-var hs-var hs-var">ModelOutputDataFormat_TEXT_CSV</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#ModelOutputDataFormat%27"><span class="hs-identifier hs-type">ModelOutputDataFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TEXT_CSV&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#ModelOutputDataFormat_APPLICATION_JSONLINES"><span class="hs-pragma hs-type">ModelOutputDataFormat_APPLICATION_JSONLINES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#ModelOutputDataFormat_TEXT_CSV"><span class="hs-pragma hs-type">ModelOutputDataFormat_TEXT_CSV</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#ModelOutputDataFormat%27"><span class="hs-pragma hs-type">ModelOutputDataFormat'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

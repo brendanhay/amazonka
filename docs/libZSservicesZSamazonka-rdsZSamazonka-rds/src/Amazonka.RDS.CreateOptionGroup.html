@@ -1,0 +1,697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RDS.CreateOptionGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new option group. You can create up to 20 option groups.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDS.CreateOptionGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier">CreateOptionGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#newCreateOptionGroup"><span class="hs-identifier">newCreateOptionGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroup_tags"><span class="hs-identifier">createOptionGroup_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroup_optionGroupName"><span class="hs-identifier">createOptionGroup_optionGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroup_engineName"><span class="hs-identifier">createOptionGroup_engineName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroup_majorEngineVersion"><span class="hs-identifier">createOptionGroup_majorEngineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroup_optionGroupDescription"><span class="hs-identifier">createOptionGroup_optionGroupDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier">CreateOptionGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#newCreateOptionGroupResponse"><span class="hs-identifier">newCreateOptionGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroupResponse_optionGroup"><span class="hs-identifier">createOptionGroupResponse_optionGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroupResponse_httpStatus"><span class="hs-identifier">createOptionGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.html"><span class="hs-identifier">Amazonka.RDS.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newCreateOptionGroup' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679799855"><span id="local-6989586621679799856"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOptionGroup"><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-var">CreateOptionGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOptionGroup%27"><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-var">CreateOptionGroup'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Tags to assign to the option group.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Atags%3ACreateOptionGroup%27"><span class="annot"><span class="annottext">CreateOptionGroup -&gt; Maybe [Tag]
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3Atags%3ACreateOptionGroup%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Specifies the name of the option group to be created.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   Must be 1 to 255 letters, numbers, or hyphens</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   First character must be a letter</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   Can\'t end with a hyphen or contain two consecutive hyphens</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Example: @myoptiongroup@</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AoptionGroupName%3ACreateOptionGroup%27"><span class="annot"><span class="annottext">CreateOptionGroup -&gt; Text
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AoptionGroupName%3ACreateOptionGroup%27"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Specifies the name of the engine that this option group should be</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- associated with.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Valid Values:</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   @mariadb@</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- -   @mysql@</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- -   @oracle-ee@</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- -   @oracle-ee-cdb@</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- -   @oracle-se2@</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- -   @oracle-se2-cdb@</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- -   @postgres@</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- -   @sqlserver-ee@</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   @sqlserver-se@</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- -   @sqlserver-ex@</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- -   @sqlserver-web@</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AengineName%3ACreateOptionGroup%27"><span class="annot"><span class="annottext">CreateOptionGroup -&gt; Text
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AengineName%3ACreateOptionGroup%27"><span class="hs-identifier hs-var hs-var">engineName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | Specifies the major version of the engine that this option group should</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- be associated with.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AmajorEngineVersion%3ACreateOptionGroup%27"><span class="annot"><span class="annottext">CreateOptionGroup -&gt; Text
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AmajorEngineVersion%3ACreateOptionGroup%27"><span class="hs-identifier hs-var hs-var">majorEngineVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The description of the option group.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AoptionGroupDescription%3ACreateOptionGroup%27"><span class="annot"><span class="annottext">CreateOptionGroup -&gt; Text
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AoptionGroupDescription%3ACreateOptionGroup%27"><span class="hs-identifier hs-var hs-var">optionGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799845"><span id="local-6989586621679799847"><span class="annot"><span class="annottext">CreateOptionGroup -&gt; CreateOptionGroup -&gt; Bool
+(CreateOptionGroup -&gt; CreateOptionGroup -&gt; Bool)
+-&gt; (CreateOptionGroup -&gt; CreateOptionGroup -&gt; Bool)
+-&gt; Eq CreateOptionGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateOptionGroup -&gt; CreateOptionGroup -&gt; Bool
+$c/= :: CreateOptionGroup -&gt; CreateOptionGroup -&gt; Bool
+== :: CreateOptionGroup -&gt; CreateOptionGroup -&gt; Bool
+$c== :: CreateOptionGroup -&gt; CreateOptionGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799836"><span id="local-6989586621679799838"><span id="local-6989586621679799840"><span id="local-6989586621679799842"><span class="annot"><span class="annottext">ReadPrec [CreateOptionGroup]
+ReadPrec CreateOptionGroup
+Int -&gt; ReadS CreateOptionGroup
+ReadS [CreateOptionGroup]
+(Int -&gt; ReadS CreateOptionGroup)
+-&gt; ReadS [CreateOptionGroup]
+-&gt; ReadPrec CreateOptionGroup
+-&gt; ReadPrec [CreateOptionGroup]
+-&gt; Read CreateOptionGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateOptionGroup]
+$creadListPrec :: ReadPrec [CreateOptionGroup]
+readPrec :: ReadPrec CreateOptionGroup
+$creadPrec :: ReadPrec CreateOptionGroup
+readList :: ReadS [CreateOptionGroup]
+$creadList :: ReadS [CreateOptionGroup]
+readsPrec :: Int -&gt; ReadS CreateOptionGroup
+$creadsPrec :: Int -&gt; ReadS CreateOptionGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799829"><span id="local-6989586621679799831"><span id="local-6989586621679799833"><span class="annot"><span class="annottext">Int -&gt; CreateOptionGroup -&gt; ShowS
+[CreateOptionGroup] -&gt; ShowS
+CreateOptionGroup -&gt; String
+(Int -&gt; CreateOptionGroup -&gt; ShowS)
+-&gt; (CreateOptionGroup -&gt; String)
+-&gt; ([CreateOptionGroup] -&gt; ShowS)
+-&gt; Show CreateOptionGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateOptionGroup] -&gt; ShowS
+$cshowList :: [CreateOptionGroup] -&gt; ShowS
+show :: CreateOptionGroup -&gt; String
+$cshow :: CreateOptionGroup -&gt; String
+showsPrec :: Int -&gt; CreateOptionGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateOptionGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateOptionGroup -&gt; Rep CreateOptionGroup x)
+-&gt; (forall x. Rep CreateOptionGroup x -&gt; CreateOptionGroup)
+-&gt; Generic CreateOptionGroup
+forall x. Rep CreateOptionGroup x -&gt; CreateOptionGroup
+forall x. CreateOptionGroup -&gt; Rep CreateOptionGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateOptionGroup x -&gt; CreateOptionGroup
+$cfrom :: forall x. CreateOptionGroup -&gt; Rep CreateOptionGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Create a value of 'CreateOptionGroup' with all optional fields omitted.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'tags', 'createOptionGroup_tags' - Tags to assign to the option group.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'optionGroupName', 'createOptionGroup_optionGroupName' - Specifies the name of the option group to be created.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   Must be 1 to 255 letters, numbers, or hyphens</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   First character must be a letter</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   Can\'t end with a hyphen or contain two consecutive hyphens</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Example: @myoptiongroup@</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'engineName', 'createOptionGroup_engineName' - Specifies the name of the engine that this option group should be</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- associated with.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Valid Values:</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- -   @mariadb@</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- -   @mysql@</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   @oracle-ee@</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   @oracle-ee-cdb@</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- -   @oracle-se2@</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- -   @oracle-se2-cdb@</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- -   @postgres@</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- -   @sqlserver-ee@</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- -   @sqlserver-se@</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   @sqlserver-ex@</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -   @sqlserver-web@</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'majorEngineVersion', 'createOptionGroup_majorEngineVersion' - Specifies the major version of the engine that this option group should</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- be associated with.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'optionGroupDescription', 'createOptionGroup_optionGroupDescription' - The description of the option group.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#newCreateOptionGroup"><span class="hs-identifier hs-type">newCreateOptionGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'optionGroupName'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-comment">-- | 'engineName'</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-comment">-- | 'majorEngineVersion'</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-comment">-- | 'optionGroupDescription'</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span>
+</span><span id="line-169"></span><span id="newCreateOptionGroup"><span class="annot"><span class="annottext">newCreateOptionGroup :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateOptionGroup
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#newCreateOptionGroup"><span class="hs-identifier hs-var hs-var">newCreateOptionGroup</span></a></span></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679799824"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799824"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679799823"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799823"><span class="hs-identifier hs-var">pEngineName_</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679799822"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799822"><span class="hs-identifier hs-var">pMajorEngineVersion_</span></a></span></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679799821"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799821"><span class="hs-identifier hs-var">pOptionGroupDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">CreateOptionGroup' :: Maybe [Tag] -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateOptionGroup
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateOptionGroup' :: Maybe [Tag]
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3Atags%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">$sel:optionGroupName:CreateOptionGroup' :: Text
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AoptionGroupName%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799824"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">$sel:engineName:CreateOptionGroup' :: Text
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AengineName%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">engineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799823"><span class="hs-identifier hs-var">pEngineName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">$sel:majorEngineVersion:CreateOptionGroup' :: Text
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AmajorEngineVersion%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">majorEngineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799822"><span class="hs-identifier hs-var">pMajorEngineVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">$sel:optionGroupDescription:CreateOptionGroup' :: Text
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AoptionGroupDescription%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">optionGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799821"><span class="hs-identifier hs-var">pOptionGroupDescription_</span></a></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | Tags to assign to the option group.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroup_tags"><span class="hs-identifier hs-type">createOptionGroup_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="createOptionGroup_tags"><span class="annot"><span class="annottext">createOptionGroup_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateOptionGroup -&gt; f CreateOptionGroup
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroup_tags"><span class="hs-identifier hs-var hs-var">createOptionGroup_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOptionGroup -&gt; Maybe [Tag])
+-&gt; (CreateOptionGroup -&gt; Maybe [Tag] -&gt; CreateOptionGroup)
+-&gt; Lens
+     CreateOptionGroup CreateOptionGroup (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799818"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateOptionGroup' :: CreateOptionGroup -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679799818"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679799818"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799817"><span class="annot"><span class="annottext">s :: CreateOptionGroup
+</span><a href="#local-6989586621679799817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799816"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679799816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroup
+</span><a href="#local-6989586621679799817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateOptionGroup' :: Maybe [Tag]
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3Atags%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679799816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateOptionGroup -&gt; f CreateOptionGroup)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateOptionGroup
+-&gt; f CreateOptionGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | Specifies the name of the option group to be created.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- -   Must be 1 to 255 letters, numbers, or hyphens</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   First character must be a letter</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- -   Can\'t end with a hyphen or contain two consecutive hyphens</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- Example: @myoptiongroup@</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroup_optionGroupName"><span class="hs-identifier hs-type">createOptionGroup_optionGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-198"></span><span id="createOptionGroup_optionGroupName"><span class="annot"><span class="annottext">createOptionGroup_optionGroupName :: (Text -&gt; f Text) -&gt; CreateOptionGroup -&gt; f CreateOptionGroup
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroup_optionGroupName"><span class="hs-identifier hs-var hs-var">createOptionGroup_optionGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOptionGroup -&gt; Text)
+-&gt; (CreateOptionGroup -&gt; Text -&gt; CreateOptionGroup)
+-&gt; Lens CreateOptionGroup CreateOptionGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799812"><span class="annot"><span class="annottext">Text
+optionGroupName :: Text
+$sel:optionGroupName:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
+</span><a href="#local-6989586621679799812"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799812"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799811"><span class="annot"><span class="annottext">s :: CreateOptionGroup
+</span><a href="#local-6989586621679799811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799810"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroup
+</span><a href="#local-6989586621679799811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroupName:CreateOptionGroup' :: Text
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AoptionGroupName%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | Specifies the name of the engine that this option group should be</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- associated with.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Valid Values:</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- -   @mariadb@</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- -   @mysql@</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- -   @oracle-ee@</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- -   @oracle-ee-cdb@</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- -   @oracle-se2@</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- -   @oracle-se2-cdb@</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- -   @postgres@</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- -   @sqlserver-ee@</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- -   @sqlserver-se@</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- -   @sqlserver-ex@</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- -   @sqlserver-web@</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroup_engineName"><span class="hs-identifier hs-type">createOptionGroup_engineName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-227"></span><span id="createOptionGroup_engineName"><span class="annot"><span class="annottext">createOptionGroup_engineName :: (Text -&gt; f Text) -&gt; CreateOptionGroup -&gt; f CreateOptionGroup
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroup_engineName"><span class="hs-identifier hs-var hs-var">createOptionGroup_engineName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOptionGroup -&gt; Text)
+-&gt; (CreateOptionGroup -&gt; Text -&gt; CreateOptionGroup)
+-&gt; Lens CreateOptionGroup CreateOptionGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799809"><span class="annot"><span class="annottext">Text
+engineName :: Text
+$sel:engineName:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
+</span><a href="#local-6989586621679799809"><span class="hs-identifier hs-var hs-var">engineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799809"><span class="hs-identifier hs-var">engineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799808"><span class="annot"><span class="annottext">s :: CreateOptionGroup
+</span><a href="#local-6989586621679799808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799807"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroup
+</span><a href="#local-6989586621679799808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineName:CreateOptionGroup' :: Text
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AengineName%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">engineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | Specifies the major version of the engine that this option group should</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- be associated with.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroup_majorEngineVersion"><span class="hs-identifier hs-type">createOptionGroup_majorEngineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-232"></span><span id="createOptionGroup_majorEngineVersion"><span class="annot"><span class="annottext">createOptionGroup_majorEngineVersion :: (Text -&gt; f Text) -&gt; CreateOptionGroup -&gt; f CreateOptionGroup
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroup_majorEngineVersion"><span class="hs-identifier hs-var hs-var">createOptionGroup_majorEngineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOptionGroup -&gt; Text)
+-&gt; (CreateOptionGroup -&gt; Text -&gt; CreateOptionGroup)
+-&gt; Lens CreateOptionGroup CreateOptionGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799806"><span class="annot"><span class="annottext">Text
+majorEngineVersion :: Text
+$sel:majorEngineVersion:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
+</span><a href="#local-6989586621679799806"><span class="hs-identifier hs-var hs-var">majorEngineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799806"><span class="hs-identifier hs-var">majorEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799805"><span class="annot"><span class="annottext">s :: CreateOptionGroup
+</span><a href="#local-6989586621679799805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799804"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroup
+</span><a href="#local-6989586621679799805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:majorEngineVersion:CreateOptionGroup' :: Text
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AmajorEngineVersion%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">majorEngineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The description of the option group.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroup_optionGroupDescription"><span class="hs-identifier hs-type">createOptionGroup_optionGroupDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-236"></span><span id="createOptionGroup_optionGroupDescription"><span class="annot"><span class="annottext">createOptionGroup_optionGroupDescription :: (Text -&gt; f Text) -&gt; CreateOptionGroup -&gt; f CreateOptionGroup
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroup_optionGroupDescription"><span class="hs-identifier hs-var hs-var">createOptionGroup_optionGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOptionGroup -&gt; Text)
+-&gt; (CreateOptionGroup -&gt; Text -&gt; CreateOptionGroup)
+-&gt; Lens CreateOptionGroup CreateOptionGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799803"><span class="annot"><span class="annottext">Text
+optionGroupDescription :: Text
+$sel:optionGroupDescription:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
+</span><a href="#local-6989586621679799803"><span class="hs-identifier hs-var hs-var">optionGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799803"><span class="hs-identifier hs-var">optionGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799802"><span class="annot"><span class="annottext">s :: CreateOptionGroup
+</span><a href="#local-6989586621679799802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799801"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroup
+</span><a href="#local-6989586621679799802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroupDescription:CreateOptionGroup' :: Text
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AoptionGroupDescription%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">optionGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-240"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679799797"><span class="annot"><span class="annottext">request :: CreateOptionGroup -&gt; Request CreateOptionGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateOptionGroup -&gt; Request CreateOptionGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679799793"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateOptionGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateOptionGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse CreateOptionGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateOptionGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateOptionGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateOptionGroupResult&quot;</span></span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799790"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799790"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679799789"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679799789"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679799788"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679799788"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">Maybe OptionGroup -&gt; Int -&gt; CreateOptionGroupResponse
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-var">CreateOptionGroupResponse'</span></a></span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OptionGroup -&gt; Int -&gt; CreateOptionGroupResponse)
+-&gt; Either String (Maybe OptionGroup)
+-&gt; Either String (Int -&gt; CreateOptionGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679799788"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe OptionGroup)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OptionGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateOptionGroupResponse)
+-&gt; Either String Int -&gt; Either String CreateOptionGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799790"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799780"><span id="local-6989586621679799782"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span></span></span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span></span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679799773"><span class="annot"><span class="annottext">toHeaders :: CreateOptionGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateOptionGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679799768"><span class="annot"><span class="annottext">toPath :: CreateOptionGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateOptionGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679799764"><span class="annot"><span class="annottext">toQuery :: CreateOptionGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799758"><span id="local-6989586621679799759"><span id="local-6989586621679799760"><span id="local-6989586621679799761"><span id="local-6989586621679799762"><span class="annot"><span class="annottext">Maybe [Tag]
+Text
+optionGroupDescription :: Text
+majorEngineVersion :: Text
+engineName :: Text
+optionGroupName :: Text
+tags :: Maybe [Tag]
+$sel:optionGroupDescription:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
+$sel:majorEngineVersion:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
+$sel:engineName:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
+$sel:optionGroupName:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
+$sel:tags:CreateOptionGroup' :: CreateOptionGroup -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679799758"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-265"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-266"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateOptionGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-268"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span>
+</span><span id="line-270"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-271"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Tag] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679799762"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OptionGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799761"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EngineName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799760"><span class="hs-identifier hs-var">engineName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MajorEngineVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799759"><span class="hs-identifier hs-var">majorEngineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OptionGroupDescription&quot;</span></span><span>
+</span><span id="line-276"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799758"><span class="hs-identifier hs-var">optionGroupDescription</span></a></span><span>
+</span><span id="line-277"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | /See:/ 'newCreateOptionGroupResponse' smart constructor.</span><span>
+</span><span id="line-280"></span><span id="local-6989586621679799754"><span id="local-6989586621679799755"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOptionGroupResponse"><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-var">CreateOptionGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOptionGroupResponse%27"><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-var">CreateOptionGroupResponse'</span></a></span></span><span>
+</span><span id="line-281"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AoptionGroup%3ACreateOptionGroupResponse%27"><span class="annot"><span class="annottext">CreateOptionGroupResponse -&gt; Maybe OptionGroup
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AoptionGroup%3ACreateOptionGroupResponse%27"><span class="hs-identifier hs-var hs-var">optionGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.OptionGroup.html#OptionGroup"><span class="hs-identifier hs-type">OptionGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-283"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateOptionGroupResponse%27"><span class="annot"><span class="annottext">CreateOptionGroupResponse -&gt; Int
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AhttpStatus%3ACreateOptionGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-284"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-285"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799748"><span id="local-6989586621679799750"><span class="annot"><span class="annottext">CreateOptionGroupResponse -&gt; CreateOptionGroupResponse -&gt; Bool
+(CreateOptionGroupResponse -&gt; CreateOptionGroupResponse -&gt; Bool)
+-&gt; (CreateOptionGroupResponse -&gt; CreateOptionGroupResponse -&gt; Bool)
+-&gt; Eq CreateOptionGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateOptionGroupResponse -&gt; CreateOptionGroupResponse -&gt; Bool
+$c/= :: CreateOptionGroupResponse -&gt; CreateOptionGroupResponse -&gt; Bool
+== :: CreateOptionGroupResponse -&gt; CreateOptionGroupResponse -&gt; Bool
+$c== :: CreateOptionGroupResponse -&gt; CreateOptionGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799740"><span id="local-6989586621679799742"><span id="local-6989586621679799744"><span id="local-6989586621679799746"><span class="annot"><span class="annottext">ReadPrec [CreateOptionGroupResponse]
+ReadPrec CreateOptionGroupResponse
+Int -&gt; ReadS CreateOptionGroupResponse
+ReadS [CreateOptionGroupResponse]
+(Int -&gt; ReadS CreateOptionGroupResponse)
+-&gt; ReadS [CreateOptionGroupResponse]
+-&gt; ReadPrec CreateOptionGroupResponse
+-&gt; ReadPrec [CreateOptionGroupResponse]
+-&gt; Read CreateOptionGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateOptionGroupResponse]
+$creadListPrec :: ReadPrec [CreateOptionGroupResponse]
+readPrec :: ReadPrec CreateOptionGroupResponse
+$creadPrec :: ReadPrec CreateOptionGroupResponse
+readList :: ReadS [CreateOptionGroupResponse]
+$creadList :: ReadS [CreateOptionGroupResponse]
+readsPrec :: Int -&gt; ReadS CreateOptionGroupResponse
+$creadsPrec :: Int -&gt; ReadS CreateOptionGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799734"><span id="local-6989586621679799736"><span id="local-6989586621679799738"><span class="annot"><span class="annottext">Int -&gt; CreateOptionGroupResponse -&gt; ShowS
+[CreateOptionGroupResponse] -&gt; ShowS
+CreateOptionGroupResponse -&gt; String
+(Int -&gt; CreateOptionGroupResponse -&gt; ShowS)
+-&gt; (CreateOptionGroupResponse -&gt; String)
+-&gt; ([CreateOptionGroupResponse] -&gt; ShowS)
+-&gt; Show CreateOptionGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateOptionGroupResponse] -&gt; ShowS
+$cshowList :: [CreateOptionGroupResponse] -&gt; ShowS
+show :: CreateOptionGroupResponse -&gt; String
+$cshow :: CreateOptionGroupResponse -&gt; String
+showsPrec :: Int -&gt; CreateOptionGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateOptionGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateOptionGroupResponse -&gt; Rep CreateOptionGroupResponse x)
+-&gt; (forall x.
+    Rep CreateOptionGroupResponse x -&gt; CreateOptionGroupResponse)
+-&gt; Generic CreateOptionGroupResponse
+forall x.
+Rep CreateOptionGroupResponse x -&gt; CreateOptionGroupResponse
+forall x.
+CreateOptionGroupResponse -&gt; Rep CreateOptionGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateOptionGroupResponse x -&gt; CreateOptionGroupResponse
+$cfrom :: forall x.
+CreateOptionGroupResponse -&gt; Rep CreateOptionGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- Create a value of 'CreateOptionGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- 'optionGroup', 'createOptionGroupResponse_optionGroup' - Undocumented member.</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- 'httpStatus', 'createOptionGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#newCreateOptionGroupResponse"><span class="hs-identifier hs-type">newCreateOptionGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-299"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-300"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-301"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span><span>
+</span><span id="line-302"></span><span id="newCreateOptionGroupResponse"><span class="annot"><span class="annottext">newCreateOptionGroupResponse :: Int -&gt; CreateOptionGroupResponse
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#newCreateOptionGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateOptionGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679799731"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799731"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-303"></span><span>  </span><span class="annot"><span class="annottext">CreateOptionGroupResponse' :: Maybe OptionGroup -&gt; Int -&gt; CreateOptionGroupResponse
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-type">CreateOptionGroupResponse'</span></a></span><span>
+</span><span id="line-304"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:optionGroup:CreateOptionGroupResponse' :: Maybe OptionGroup
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AoptionGroup%3ACreateOptionGroupResponse%27"><span class="hs-identifier hs-var">optionGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-305"></span><span>        </span><span class="annot"><span class="annottext">Maybe OptionGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateOptionGroupResponse' :: Int
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AhttpStatus%3ACreateOptionGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799731"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-307"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroupResponse_optionGroup"><span class="hs-identifier hs-type">createOptionGroupResponse_optionGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.OptionGroup.html#OptionGroup"><span class="hs-identifier hs-type">OptionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span id="createOptionGroupResponse_optionGroup"><span class="annot"><span class="annottext">createOptionGroupResponse_optionGroup :: (Maybe OptionGroup -&gt; f (Maybe OptionGroup))
+-&gt; CreateOptionGroupResponse -&gt; f CreateOptionGroupResponse
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroupResponse_optionGroup"><span class="hs-identifier hs-var hs-var">createOptionGroupResponse_optionGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOptionGroupResponse -&gt; Maybe OptionGroup)
+-&gt; (CreateOptionGroupResponse
+    -&gt; Maybe OptionGroup -&gt; CreateOptionGroupResponse)
+-&gt; Lens
+     CreateOptionGroupResponse
+     CreateOptionGroupResponse
+     (Maybe OptionGroup)
+     (Maybe OptionGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-type">CreateOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799730"><span class="annot"><span class="annottext">Maybe OptionGroup
+optionGroup :: Maybe OptionGroup
+$sel:optionGroup:CreateOptionGroupResponse' :: CreateOptionGroupResponse -&gt; Maybe OptionGroup
+</span><a href="#local-6989586621679799730"><span class="hs-identifier hs-var hs-var">optionGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OptionGroup
+</span><a href="#local-6989586621679799730"><span class="hs-identifier hs-var">optionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799729"><span class="annot"><span class="annottext">s :: CreateOptionGroupResponse
+</span><a href="#local-6989586621679799729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-type">CreateOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799728"><span class="annot"><span class="annottext">Maybe OptionGroup
+</span><a href="#local-6989586621679799728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroupResponse
+</span><a href="#local-6989586621679799729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroup:CreateOptionGroupResponse' :: Maybe OptionGroup
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AoptionGroup%3ACreateOptionGroupResponse%27"><span class="hs-identifier hs-var">optionGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OptionGroup
+</span><a href="#local-6989586621679799728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-314"></span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroupResponse_httpStatus"><span class="hs-identifier hs-type">createOptionGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-315"></span><span id="createOptionGroupResponse_httpStatus"><span class="annot"><span class="annottext">createOptionGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateOptionGroupResponse -&gt; f CreateOptionGroupResponse
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#createOptionGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createOptionGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateOptionGroupResponse -&gt; Int)
+-&gt; (CreateOptionGroupResponse -&gt; Int -&gt; CreateOptionGroupResponse)
+-&gt; Lens CreateOptionGroupResponse CreateOptionGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-type">CreateOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799727"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateOptionGroupResponse' :: CreateOptionGroupResponse -&gt; Int
+</span><a href="#local-6989586621679799727"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799727"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799726"><span class="annot"><span class="annottext">s :: CreateOptionGroupResponse
+</span><a href="#local-6989586621679799726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-type">CreateOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799725"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroupResponse
+</span><a href="#local-6989586621679799726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateOptionGroupResponse' :: Int
+</span><a href="Amazonka.RDS.CreateOptionGroup.html#%24sel%3AhttpStatus%3ACreateOptionGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799723"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span></span><span>
+</span><span id="line-318"></span></pre></body></html>

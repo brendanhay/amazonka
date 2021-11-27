@@ -1,0 +1,823 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoT.UpdateDimension</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the definition for a dimension. You cannot change the type of a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- dimension after it is created (you can delete it and recreate it).</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateDimension&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.UpdateDimension</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension"><span class="hs-identifier">UpdateDimension</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#newUpdateDimension"><span class="hs-identifier">newUpdateDimension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimension_name"><span class="hs-identifier">updateDimension_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimension_stringValues"><span class="hs-identifier">updateDimension_stringValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier">UpdateDimensionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#newUpdateDimensionResponse"><span class="hs-identifier">newUpdateDimensionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_lastModifiedDate"><span class="hs-identifier">updateDimensionResponse_lastModifiedDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_arn"><span class="hs-identifier">updateDimensionResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_stringValues"><span class="hs-identifier">updateDimensionResponse_stringValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_name"><span class="hs-identifier">updateDimensionResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_creationDate"><span class="hs-identifier">updateDimensionResponse_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_type"><span class="hs-identifier">updateDimensionResponse_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_httpStatus"><span class="hs-identifier">updateDimensionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.html"><span class="hs-identifier">Amazonka.IoT.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newUpdateDimension' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679859211"><span id="local-6989586621679859212"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDimension"><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension"><span class="hs-identifier hs-var">UpdateDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDimension%27"><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension%27"><span class="hs-identifier hs-var">UpdateDimension'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the dimension. Choose something that describes</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the type and value to make it easy to remember what it does.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aname%3AUpdateDimension%27"><span class="annot"><span class="annottext">UpdateDimension -&gt; Text
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3Aname%3AUpdateDimension%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Specifies the value or list of values for the dimension. For</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- topic (for example, \&quot;admin\/#\&quot;).</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AstringValues%3AUpdateDimension%27"><span class="annot"><span class="annottext">UpdateDimension -&gt; NonEmpty Text
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3AstringValues%3AUpdateDimension%27"><span class="hs-identifier hs-var hs-var">stringValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679859204"><span id="local-6989586621679859206"><span class="annot"><span class="annottext">UpdateDimension -&gt; UpdateDimension -&gt; Bool
+(UpdateDimension -&gt; UpdateDimension -&gt; Bool)
+-&gt; (UpdateDimension -&gt; UpdateDimension -&gt; Bool)
+-&gt; Eq UpdateDimension
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDimension -&gt; UpdateDimension -&gt; Bool
+$c/= :: UpdateDimension -&gt; UpdateDimension -&gt; Bool
+== :: UpdateDimension -&gt; UpdateDimension -&gt; Bool
+$c== :: UpdateDimension -&gt; UpdateDimension -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859195"><span id="local-6989586621679859197"><span id="local-6989586621679859199"><span id="local-6989586621679859201"><span class="annot"><span class="annottext">ReadPrec [UpdateDimension]
+ReadPrec UpdateDimension
+Int -&gt; ReadS UpdateDimension
+ReadS [UpdateDimension]
+(Int -&gt; ReadS UpdateDimension)
+-&gt; ReadS [UpdateDimension]
+-&gt; ReadPrec UpdateDimension
+-&gt; ReadPrec [UpdateDimension]
+-&gt; Read UpdateDimension
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDimension]
+$creadListPrec :: ReadPrec [UpdateDimension]
+readPrec :: ReadPrec UpdateDimension
+$creadPrec :: ReadPrec UpdateDimension
+readList :: ReadS [UpdateDimension]
+$creadList :: ReadS [UpdateDimension]
+readsPrec :: Int -&gt; ReadS UpdateDimension
+$creadsPrec :: Int -&gt; ReadS UpdateDimension
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859188"><span id="local-6989586621679859190"><span id="local-6989586621679859192"><span class="annot"><span class="annottext">Int -&gt; UpdateDimension -&gt; ShowS
+[UpdateDimension] -&gt; ShowS
+UpdateDimension -&gt; String
+(Int -&gt; UpdateDimension -&gt; ShowS)
+-&gt; (UpdateDimension -&gt; String)
+-&gt; ([UpdateDimension] -&gt; ShowS)
+-&gt; Show UpdateDimension
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDimension] -&gt; ShowS
+$cshowList :: [UpdateDimension] -&gt; ShowS
+show :: UpdateDimension -&gt; String
+$cshow :: UpdateDimension -&gt; String
+showsPrec :: Int -&gt; UpdateDimension -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDimension -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateDimension -&gt; Rep UpdateDimension x)
+-&gt; (forall x. Rep UpdateDimension x -&gt; UpdateDimension)
+-&gt; Generic UpdateDimension
+forall x. Rep UpdateDimension x -&gt; UpdateDimension
+forall x. UpdateDimension -&gt; Rep UpdateDimension x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateDimension x -&gt; UpdateDimension
+$cfrom :: forall x. UpdateDimension -&gt; Rep UpdateDimension x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'UpdateDimension' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'name', 'updateDimension_name' - A unique identifier for the dimension. Choose something that describes</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- the type and value to make it easy to remember what it does.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'stringValues', 'updateDimension_stringValues' - Specifies the value or list of values for the dimension. For</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- topic (for example, \&quot;admin\/#\&quot;).</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#newUpdateDimension"><span class="hs-identifier hs-type">newUpdateDimension</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'stringValues'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension"><span class="hs-identifier hs-type">UpdateDimension</span></a></span><span>
+</span><span id="line-92"></span><span id="newUpdateDimension"><span class="annot"><span class="annottext">newUpdateDimension :: Text -&gt; NonEmpty Text -&gt; UpdateDimension
+</span><a href="Amazonka.IoT.UpdateDimension.html#newUpdateDimension"><span class="hs-identifier hs-var hs-var">newUpdateDimension</span></a></span></span><span> </span><span id="local-6989586621679859183"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679859183"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679859182"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679859182"><span class="hs-identifier hs-var">pStringValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">UpdateDimension' :: Text -&gt; NonEmpty Text -&gt; UpdateDimension
+</span><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension%27"><span class="hs-identifier hs-type">UpdateDimension'</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:UpdateDimension' :: Text
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3Aname%3AUpdateDimension%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679859183"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:stringValues:UpdateDimension' :: NonEmpty Text
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3AstringValues%3AUpdateDimension%27"><span class="hs-identifier hs-var">stringValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679859182"><span class="hs-identifier hs-var">pStringValues_</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | A unique identifier for the dimension. Choose something that describes</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- the type and value to make it easy to remember what it does.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimension_name"><span class="hs-identifier hs-type">updateDimension_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension"><span class="hs-identifier hs-type">UpdateDimension</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="updateDimension_name"><span class="annot"><span class="annottext">updateDimension_name :: (Text -&gt; f Text) -&gt; UpdateDimension -&gt; f UpdateDimension
+</span><a href="Amazonka.IoT.UpdateDimension.html#updateDimension_name"><span class="hs-identifier hs-var hs-var">updateDimension_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDimension -&gt; Text)
+-&gt; (UpdateDimension -&gt; Text -&gt; UpdateDimension)
+-&gt; Lens UpdateDimension UpdateDimension Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension%27"><span class="hs-identifier hs-type">UpdateDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859177"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:UpdateDimension' :: UpdateDimension -&gt; Text
+</span><a href="#local-6989586621679859177"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679859177"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859176"><span class="annot"><span class="annottext">s :: UpdateDimension
+</span><a href="#local-6989586621679859176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension%27"><span class="hs-identifier hs-type">UpdateDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859175"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679859175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDimension
+</span><a href="#local-6989586621679859176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateDimension' :: Text
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3Aname%3AUpdateDimension%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679859175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension"><span class="hs-identifier hs-type">UpdateDimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Specifies the value or list of values for the dimension. For</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- topic (for example, \&quot;admin\/#\&quot;).</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimension_stringValues"><span class="hs-identifier hs-type">updateDimension_stringValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension"><span class="hs-identifier hs-type">UpdateDimension</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="updateDimension_stringValues"><span class="annot"><span class="annottext">updateDimension_stringValues :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; UpdateDimension -&gt; f UpdateDimension
+</span><a href="Amazonka.IoT.UpdateDimension.html#updateDimension_stringValues"><span class="hs-identifier hs-var hs-var">updateDimension_stringValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDimension -&gt; NonEmpty Text)
+-&gt; (UpdateDimension -&gt; NonEmpty Text -&gt; UpdateDimension)
+-&gt; Lens
+     UpdateDimension UpdateDimension (NonEmpty Text) (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension%27"><span class="hs-identifier hs-type">UpdateDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859174"><span class="annot"><span class="annottext">NonEmpty Text
+stringValues :: NonEmpty Text
+$sel:stringValues:UpdateDimension' :: UpdateDimension -&gt; NonEmpty Text
+</span><a href="#local-6989586621679859174"><span class="hs-identifier hs-var hs-var">stringValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679859174"><span class="hs-identifier hs-var">stringValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859173"><span class="annot"><span class="annottext">s :: UpdateDimension
+</span><a href="#local-6989586621679859173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension%27"><span class="hs-identifier hs-type">UpdateDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859172"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679859172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDimension
+</span><a href="#local-6989586621679859173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValues:UpdateDimension' :: NonEmpty Text
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3AstringValues%3AUpdateDimension%27"><span class="hs-identifier hs-var">stringValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679859172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension"><span class="hs-identifier hs-type">UpdateDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; UpdateDimension -&gt; f UpdateDimension)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; UpdateDimension
+-&gt; f UpdateDimension
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension"><span class="hs-identifier hs-type">UpdateDimension</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension"><span class="hs-identifier hs-type">UpdateDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679859167"><span class="annot"><span class="annottext">request :: UpdateDimension -&gt; Request UpdateDimension
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDimension -&gt; Request UpdateDimension
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679859163"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateDimension
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateDimension)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateDimension))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateDimension
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateDimension)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679859160"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679859160"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679859159"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679859159"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679859158"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679859158"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe DimensionType
+-&gt; Int
+-&gt; UpdateDimensionResponse
+</span><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-var">UpdateDimensionResponse'</span></a></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty Text)
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe DimensionType
+ -&gt; Int
+ -&gt; UpdateDimensionResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (NonEmpty Text)
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DimensionType
+      -&gt; Int
+      -&gt; UpdateDimensionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679859158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (NonEmpty Text)
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DimensionType
+   -&gt; Int
+   -&gt; UpdateDimensionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (NonEmpty Text)
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DimensionType
+      -&gt; Int
+      -&gt; UpdateDimensionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679859158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (NonEmpty Text)
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DimensionType
+   -&gt; Int
+   -&gt; UpdateDimensionResponse)
+-&gt; Either String (Maybe (NonEmpty Text))
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DimensionType
+      -&gt; Int
+      -&gt; UpdateDimensionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679859158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stringValues&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DimensionType
+   -&gt; Int
+   -&gt; UpdateDimensionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe DimensionType -&gt; Int -&gt; UpdateDimensionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679859158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe DimensionType -&gt; Int -&gt; UpdateDimensionResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String (Maybe DimensionType -&gt; Int -&gt; UpdateDimensionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679859158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe DimensionType -&gt; Int -&gt; UpdateDimensionResponse)
+-&gt; Either String (Maybe DimensionType)
+-&gt; Either String (Int -&gt; UpdateDimensionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679859158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DimensionType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateDimensionResponse)
+-&gt; Either String Int -&gt; Either String UpdateDimensionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679859160"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859150"><span id="local-6989586621679859152"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension"><span class="hs-identifier hs-type">UpdateDimension</span></a></span></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension"><span class="hs-identifier hs-type">UpdateDimension</span></a></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension"><span class="hs-identifier hs-type">UpdateDimension</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679859143"><span class="annot"><span class="annottext">toHeaders :: UpdateDimension -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDimension -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859134"><span id="local-6989586621679859136"><span id="local-6989586621679859138"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension"><span class="hs-identifier hs-type">UpdateDimension</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679859132"><span class="annot"><span class="annottext">toJSON :: UpdateDimension -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension%27"><span class="hs-identifier hs-type">UpdateDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859129"><span id="local-6989586621679859130"><span class="annot"><span class="annottext">NonEmpty Text
+Text
+stringValues :: NonEmpty Text
+name :: Text
+$sel:stringValues:UpdateDimension' :: UpdateDimension -&gt; NonEmpty Text
+$sel:name:UpdateDimension' :: UpdateDimension -&gt; Text
+</span><a href="#local-6989586621679859129"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stringValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679859129"><span class="hs-identifier hs-var">stringValues</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension"><span class="hs-identifier hs-type">UpdateDimension</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679859123"><span class="annot"><span class="annottext">toPath :: UpdateDimension -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension%27"><span class="hs-identifier hs-type">UpdateDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859120"><span id="local-6989586621679859121"><span class="annot"><span class="annottext">NonEmpty Text
+Text
+stringValues :: NonEmpty Text
+name :: Text
+$sel:stringValues:UpdateDimension' :: UpdateDimension -&gt; NonEmpty Text
+$sel:name:UpdateDimension' :: UpdateDimension -&gt; Text
+</span><a href="#local-6989586621679859120"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/dimensions/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679859121"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimension"><span class="hs-identifier hs-type">UpdateDimension</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679859116"><span class="annot"><span class="annottext">toQuery :: UpdateDimension -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDimension -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newUpdateDimensionResponse' smart constructor.</span><span>
+</span><span id="line-149"></span><span id="local-6989586621679859113"><span id="local-6989586621679859114"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDimensionResponse"><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-var">UpdateDimensionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDimensionResponse%27"><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-var">UpdateDimensionResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time, in milliseconds since epoch, when the dimension was</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- most recently updated.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3AUpdateDimensionResponse%27"><span class="annot"><span class="annottext">UpdateDimensionResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3AlastModifiedDate%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN)of the created dimension.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3Aarn%3AUpdateDimensionResponse%27"><span class="annot"><span class="annottext">UpdateDimensionResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3Aarn%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The value or list of values used to scope the dimension. For example,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- for topic filters, this is the pattern used to match the MQTT topic</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- name.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AstringValues%3AUpdateDimensionResponse%27"><span class="annot"><span class="annottext">UpdateDimensionResponse -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3AstringValues%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var hs-var">stringValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the dimension.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3Aname%3AUpdateDimensionResponse%27"><span class="annot"><span class="annottext">UpdateDimensionResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3Aname%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The date and time, in milliseconds since epoch, when the dimension was</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- initially created.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AcreationDate%3AUpdateDimensionResponse%27"><span class="annot"><span class="annottext">UpdateDimensionResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3AcreationDate%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The type of the dimension.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3Atype%27%3AUpdateDimensionResponse%27"><span class="annot"><span class="annottext">UpdateDimensionResponse -&gt; Maybe DimensionType
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3Atype%27%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.DimensionType.html#DimensionType"><span class="hs-identifier hs-type">DimensionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDimensionResponse%27"><span class="annot"><span class="annottext">UpdateDimensionResponse -&gt; Int
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3AhttpStatus%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679859102"><span id="local-6989586621679859104"><span class="annot"><span class="annottext">UpdateDimensionResponse -&gt; UpdateDimensionResponse -&gt; Bool
+(UpdateDimensionResponse -&gt; UpdateDimensionResponse -&gt; Bool)
+-&gt; (UpdateDimensionResponse -&gt; UpdateDimensionResponse -&gt; Bool)
+-&gt; Eq UpdateDimensionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDimensionResponse -&gt; UpdateDimensionResponse -&gt; Bool
+$c/= :: UpdateDimensionResponse -&gt; UpdateDimensionResponse -&gt; Bool
+== :: UpdateDimensionResponse -&gt; UpdateDimensionResponse -&gt; Bool
+$c== :: UpdateDimensionResponse -&gt; UpdateDimensionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859094"><span id="local-6989586621679859096"><span id="local-6989586621679859098"><span id="local-6989586621679859100"><span class="annot"><span class="annottext">ReadPrec [UpdateDimensionResponse]
+ReadPrec UpdateDimensionResponse
+Int -&gt; ReadS UpdateDimensionResponse
+ReadS [UpdateDimensionResponse]
+(Int -&gt; ReadS UpdateDimensionResponse)
+-&gt; ReadS [UpdateDimensionResponse]
+-&gt; ReadPrec UpdateDimensionResponse
+-&gt; ReadPrec [UpdateDimensionResponse]
+-&gt; Read UpdateDimensionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDimensionResponse]
+$creadListPrec :: ReadPrec [UpdateDimensionResponse]
+readPrec :: ReadPrec UpdateDimensionResponse
+$creadPrec :: ReadPrec UpdateDimensionResponse
+readList :: ReadS [UpdateDimensionResponse]
+$creadList :: ReadS [UpdateDimensionResponse]
+readsPrec :: Int -&gt; ReadS UpdateDimensionResponse
+$creadsPrec :: Int -&gt; ReadS UpdateDimensionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859088"><span id="local-6989586621679859090"><span id="local-6989586621679859092"><span class="annot"><span class="annottext">Int -&gt; UpdateDimensionResponse -&gt; ShowS
+[UpdateDimensionResponse] -&gt; ShowS
+UpdateDimensionResponse -&gt; String
+(Int -&gt; UpdateDimensionResponse -&gt; ShowS)
+-&gt; (UpdateDimensionResponse -&gt; String)
+-&gt; ([UpdateDimensionResponse] -&gt; ShowS)
+-&gt; Show UpdateDimensionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDimensionResponse] -&gt; ShowS
+$cshowList :: [UpdateDimensionResponse] -&gt; ShowS
+show :: UpdateDimensionResponse -&gt; String
+$cshow :: UpdateDimensionResponse -&gt; String
+showsPrec :: Int -&gt; UpdateDimensionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDimensionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateDimensionResponse -&gt; Rep UpdateDimensionResponse x)
+-&gt; (forall x.
+    Rep UpdateDimensionResponse x -&gt; UpdateDimensionResponse)
+-&gt; Generic UpdateDimensionResponse
+forall x. Rep UpdateDimensionResponse x -&gt; UpdateDimensionResponse
+forall x. UpdateDimensionResponse -&gt; Rep UpdateDimensionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateDimensionResponse x -&gt; UpdateDimensionResponse
+$cfrom :: forall x. UpdateDimensionResponse -&gt; Rep UpdateDimensionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Create a value of 'UpdateDimensionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'lastModifiedDate', 'updateDimensionResponse_lastModifiedDate' - The date and time, in milliseconds since epoch, when the dimension was</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- most recently updated.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'arn', 'updateDimensionResponse_arn' - The Amazon Resource Name (ARN)of the created dimension.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'stringValues', 'updateDimensionResponse_stringValues' - The value or list of values used to scope the dimension. For example,</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- for topic filters, this is the pattern used to match the MQTT topic</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- name.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'name', 'updateDimensionResponse_name' - A unique identifier for the dimension.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'creationDate', 'updateDimensionResponse_creationDate' - The date and time, in milliseconds since epoch, when the dimension was</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- initially created.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'type'', 'updateDimensionResponse_type' - The type of the dimension.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'httpStatus', 'updateDimensionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#newUpdateDimensionResponse"><span class="hs-identifier hs-type">newUpdateDimensionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span>
+</span><span id="line-200"></span><span id="newUpdateDimensionResponse"><span class="annot"><span class="annottext">newUpdateDimensionResponse :: Int -&gt; UpdateDimensionResponse
+</span><a href="Amazonka.IoT.UpdateDimension.html#newUpdateDimensionResponse"><span class="hs-identifier hs-var hs-var">newUpdateDimensionResponse</span></a></span></span><span> </span><span id="local-6989586621679859085"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679859085"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">UpdateDimensionResponse' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe DimensionType
+-&gt; Int
+-&gt; UpdateDimensionResponse
+</span><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-type">UpdateDimensionResponse'</span></a></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:UpdateDimensionResponse' :: Maybe POSIX
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3AlastModifiedDate%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:UpdateDimensionResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3Aarn%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:stringValues:UpdateDimensionResponse' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3AstringValues%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var">stringValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateDimensionResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3Aname%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:UpdateDimensionResponse' :: Maybe POSIX
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3AcreationDate%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':UpdateDimensionResponse' :: Maybe DimensionType
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3Atype%27%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDimensionResponse' :: Int
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3AhttpStatus%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679859085"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The date and time, in milliseconds since epoch, when the dimension was</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- most recently updated.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_lastModifiedDate"><span class="hs-identifier hs-type">updateDimensionResponse_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="updateDimensionResponse_lastModifiedDate"><span class="annot"><span class="annottext">updateDimensionResponse_lastModifiedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateDimensionResponse -&gt; f UpdateDimensionResponse
+</span><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_lastModifiedDate"><span class="hs-identifier hs-var hs-var">updateDimensionResponse_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDimensionResponse -&gt; Maybe POSIX)
+-&gt; (UpdateDimensionResponse
+    -&gt; Maybe POSIX -&gt; UpdateDimensionResponse)
+-&gt; Lens
+     UpdateDimensionResponse
+     UpdateDimensionResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-type">UpdateDimensionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859084"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedDate :: Maybe POSIX
+$sel:lastModifiedDate:UpdateDimensionResponse' :: UpdateDimensionResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679859084"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679859084"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859083"><span class="annot"><span class="annottext">s :: UpdateDimensionResponse
+</span><a href="#local-6989586621679859083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-type">UpdateDimensionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859082"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679859082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDimensionResponse
+</span><a href="#local-6989586621679859083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:UpdateDimensionResponse' :: Maybe POSIX
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3AlastModifiedDate%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679859082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; UpdateDimensionResponse -&gt; f UpdateDimensionResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateDimensionResponse
+-&gt; f UpdateDimensionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN)of the created dimension.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_arn"><span class="hs-identifier hs-type">updateDimensionResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="updateDimensionResponse_arn"><span class="annot"><span class="annottext">updateDimensionResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDimensionResponse -&gt; f UpdateDimensionResponse
+</span><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_arn"><span class="hs-identifier hs-var hs-var">updateDimensionResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDimensionResponse -&gt; Maybe Text)
+-&gt; (UpdateDimensionResponse
+    -&gt; Maybe Text -&gt; UpdateDimensionResponse)
+-&gt; Lens
+     UpdateDimensionResponse
+     UpdateDimensionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-type">UpdateDimensionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859079"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:UpdateDimensionResponse' :: UpdateDimensionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679859079"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679859079"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859078"><span class="annot"><span class="annottext">s :: UpdateDimensionResponse
+</span><a href="#local-6989586621679859078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-type">UpdateDimensionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859077"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679859077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDimensionResponse
+</span><a href="#local-6989586621679859078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UpdateDimensionResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3Aarn%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679859077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The value or list of values used to scope the dimension. For example,</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- for topic filters, this is the pattern used to match the MQTT topic</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- name.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_stringValues"><span class="hs-identifier hs-type">updateDimensionResponse_stringValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="updateDimensionResponse_stringValues"><span class="annot"><span class="annottext">updateDimensionResponse_stringValues :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; UpdateDimensionResponse -&gt; f UpdateDimensionResponse
+</span><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_stringValues"><span class="hs-identifier hs-var hs-var">updateDimensionResponse_stringValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDimensionResponse -&gt; Maybe (NonEmpty Text))
+-&gt; (UpdateDimensionResponse
+    -&gt; Maybe (NonEmpty Text) -&gt; UpdateDimensionResponse)
+-&gt; Lens
+     UpdateDimensionResponse
+     UpdateDimensionResponse
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-type">UpdateDimensionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859076"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+stringValues :: Maybe (NonEmpty Text)
+$sel:stringValues:UpdateDimensionResponse' :: UpdateDimensionResponse -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679859076"><span class="hs-identifier hs-var hs-var">stringValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679859076"><span class="hs-identifier hs-var">stringValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859075"><span class="annot"><span class="annottext">s :: UpdateDimensionResponse
+</span><a href="#local-6989586621679859075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-type">UpdateDimensionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859074"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679859074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDimensionResponse
+</span><a href="#local-6989586621679859075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValues:UpdateDimensionResponse' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3AstringValues%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var">stringValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679859074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; UpdateDimensionResponse -&gt; f UpdateDimensionResponse)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; UpdateDimensionResponse
+-&gt; f UpdateDimensionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | A unique identifier for the dimension.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_name"><span class="hs-identifier hs-type">updateDimensionResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="updateDimensionResponse_name"><span class="annot"><span class="annottext">updateDimensionResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDimensionResponse -&gt; f UpdateDimensionResponse
+</span><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_name"><span class="hs-identifier hs-var hs-var">updateDimensionResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDimensionResponse -&gt; Maybe Text)
+-&gt; (UpdateDimensionResponse
+    -&gt; Maybe Text -&gt; UpdateDimensionResponse)
+-&gt; Lens
+     UpdateDimensionResponse
+     UpdateDimensionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-type">UpdateDimensionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859073"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateDimensionResponse' :: UpdateDimensionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679859073"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679859073"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859072"><span class="annot"><span class="annottext">s :: UpdateDimensionResponse
+</span><a href="#local-6989586621679859072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-type">UpdateDimensionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859071"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679859071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDimensionResponse
+</span><a href="#local-6989586621679859072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateDimensionResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3Aname%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679859071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The date and time, in milliseconds since epoch, when the dimension was</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- initially created.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_creationDate"><span class="hs-identifier hs-type">updateDimensionResponse_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="updateDimensionResponse_creationDate"><span class="annot"><span class="annottext">updateDimensionResponse_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateDimensionResponse -&gt; f UpdateDimensionResponse
+</span><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_creationDate"><span class="hs-identifier hs-var hs-var">updateDimensionResponse_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDimensionResponse -&gt; Maybe POSIX)
+-&gt; (UpdateDimensionResponse
+    -&gt; Maybe POSIX -&gt; UpdateDimensionResponse)
+-&gt; Lens
+     UpdateDimensionResponse
+     UpdateDimensionResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-type">UpdateDimensionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859070"><span class="annot"><span class="annottext">Maybe POSIX
+creationDate :: Maybe POSIX
+$sel:creationDate:UpdateDimensionResponse' :: UpdateDimensionResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679859070"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679859070"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859069"><span class="annot"><span class="annottext">s :: UpdateDimensionResponse
+</span><a href="#local-6989586621679859069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-type">UpdateDimensionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859068"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679859068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDimensionResponse
+</span><a href="#local-6989586621679859069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:UpdateDimensionResponse' :: Maybe POSIX
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3AcreationDate%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679859068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; UpdateDimensionResponse -&gt; f UpdateDimensionResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateDimensionResponse
+-&gt; f UpdateDimensionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The type of the dimension.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_type"><span class="hs-identifier hs-type">updateDimensionResponse_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.DimensionType.html#DimensionType"><span class="hs-identifier hs-type">DimensionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="updateDimensionResponse_type"><span class="annot"><span class="annottext">updateDimensionResponse_type :: (Maybe DimensionType -&gt; f (Maybe DimensionType))
+-&gt; UpdateDimensionResponse -&gt; f UpdateDimensionResponse
+</span><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_type"><span class="hs-identifier hs-var hs-var">updateDimensionResponse_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDimensionResponse -&gt; Maybe DimensionType)
+-&gt; (UpdateDimensionResponse
+    -&gt; Maybe DimensionType -&gt; UpdateDimensionResponse)
+-&gt; Lens
+     UpdateDimensionResponse
+     UpdateDimensionResponse
+     (Maybe DimensionType)
+     (Maybe DimensionType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-type">UpdateDimensionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859067"><span class="annot"><span class="annottext">Maybe DimensionType
+type' :: Maybe DimensionType
+$sel:type':UpdateDimensionResponse' :: UpdateDimensionResponse -&gt; Maybe DimensionType
+</span><a href="#local-6989586621679859067"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionType
+</span><a href="#local-6989586621679859067"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859066"><span class="annot"><span class="annottext">s :: UpdateDimensionResponse
+</span><a href="#local-6989586621679859066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-type">UpdateDimensionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859065"><span class="annot"><span class="annottext">Maybe DimensionType
+</span><a href="#local-6989586621679859065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDimensionResponse
+</span><a href="#local-6989586621679859066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':UpdateDimensionResponse' :: Maybe DimensionType
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3Atype%27%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionType
+</span><a href="#local-6989586621679859065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_httpStatus"><span class="hs-identifier hs-type">updateDimensionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-242"></span><span id="updateDimensionResponse_httpStatus"><span class="annot"><span class="annottext">updateDimensionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateDimensionResponse -&gt; f UpdateDimensionResponse
+</span><a href="Amazonka.IoT.UpdateDimension.html#updateDimensionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateDimensionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDimensionResponse -&gt; Int)
+-&gt; (UpdateDimensionResponse -&gt; Int -&gt; UpdateDimensionResponse)
+-&gt; Lens UpdateDimensionResponse UpdateDimensionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-type">UpdateDimensionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859064"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateDimensionResponse' :: UpdateDimensionResponse -&gt; Int
+</span><a href="#local-6989586621679859064"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679859064"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859063"><span class="annot"><span class="annottext">s :: UpdateDimensionResponse
+</span><a href="#local-6989586621679859063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse%27"><span class="hs-identifier hs-type">UpdateDimensionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859062"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679859062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDimensionResponse
+</span><a href="#local-6989586621679859063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDimensionResponse' :: Int
+</span><a href="Amazonka.IoT.UpdateDimension.html#%24sel%3AhttpStatus%3AUpdateDimensionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679859062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859060"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.UpdateDimension.html#UpdateDimensionResponse"><span class="hs-identifier hs-type">UpdateDimensionResponse</span></a></span></span><span>
+</span><span id="line-245"></span></pre></body></html>

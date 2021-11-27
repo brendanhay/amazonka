@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.MpdCaptionContainerType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.MpdCaptionContainerType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType"><span class="hs-identifier">MpdCaptionContainerType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType_FRAGMENTED_MP4"><span class="hs-identifier">MpdCaptionContainerType_FRAGMENTED_MP4</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType_RAW"><span class="hs-identifier">MpdCaptionContainerType_RAW</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Use this setting only in DASH output groups that include sidecar TTML or</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- IMSC captions. You specify sidecar captions in a separate output from</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- your audio and video. Choose Raw (RAW) for captions in a single XML file</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- captions in XML format contained within fragmented MP4 files. This set</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- of fragmented MP4 files is separate from your video and audio fragmented</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- MP4 files.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679991373"><span id="local-6989586621679991374"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MpdCaptionContainerType"><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType"><span class="hs-identifier hs-var">MpdCaptionContainerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MpdCaptionContainerType%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType%27"><span class="hs-identifier hs-var">MpdCaptionContainerType'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpdCaptionContainerType"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#fromMpdCaptionContainerType"><span class="hs-identifier hs-var hs-var">fromMpdCaptionContainerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991365"><span id="local-6989586621679991367"><span id="local-6989586621679991369"><span class="annot"><span class="annottext">Int -&gt; MpdCaptionContainerType -&gt; ShowS
+[MpdCaptionContainerType] -&gt; ShowS
+MpdCaptionContainerType -&gt; String
+(Int -&gt; MpdCaptionContainerType -&gt; ShowS)
+-&gt; (MpdCaptionContainerType -&gt; String)
+-&gt; ([MpdCaptionContainerType] -&gt; ShowS)
+-&gt; Show MpdCaptionContainerType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MpdCaptionContainerType] -&gt; ShowS
+$cshowList :: [MpdCaptionContainerType] -&gt; ShowS
+show :: MpdCaptionContainerType -&gt; String
+$cshow :: MpdCaptionContainerType -&gt; String
+showsPrec :: Int -&gt; MpdCaptionContainerType -&gt; ShowS
+$cshowsPrec :: Int -&gt; MpdCaptionContainerType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679991356"><span id="local-6989586621679991358"><span id="local-6989586621679991360"><span id="local-6989586621679991362"><span class="annot"><span class="annottext">ReadPrec [MpdCaptionContainerType]
+ReadPrec MpdCaptionContainerType
+Int -&gt; ReadS MpdCaptionContainerType
+ReadS [MpdCaptionContainerType]
+(Int -&gt; ReadS MpdCaptionContainerType)
+-&gt; ReadS [MpdCaptionContainerType]
+-&gt; ReadPrec MpdCaptionContainerType
+-&gt; ReadPrec [MpdCaptionContainerType]
+-&gt; Read MpdCaptionContainerType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MpdCaptionContainerType]
+$creadListPrec :: ReadPrec [MpdCaptionContainerType]
+readPrec :: ReadPrec MpdCaptionContainerType
+$creadPrec :: ReadPrec MpdCaptionContainerType
+readList :: ReadS [MpdCaptionContainerType]
+$creadList :: ReadS [MpdCaptionContainerType]
+readsPrec :: Int -&gt; ReadS MpdCaptionContainerType
+$creadsPrec :: Int -&gt; ReadS MpdCaptionContainerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679991351"><span id="local-6989586621679991353"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
+(MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool)
+-&gt; (MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool)
+-&gt; Eq MpdCaptionContainerType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
+$c/= :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
+== :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
+$c== :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679991335"><span id="local-6989586621679991337"><span id="local-6989586621679991339"><span id="local-6989586621679991341"><span id="local-6989586621679991343"><span id="local-6989586621679991345"><span id="local-6989586621679991347"><span class="annot"><span class="annottext">Eq MpdCaptionContainerType
+Eq MpdCaptionContainerType
+-&gt; (MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Ordering)
+-&gt; (MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool)
+-&gt; (MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool)
+-&gt; (MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool)
+-&gt; (MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool)
+-&gt; (MpdCaptionContainerType
+    -&gt; MpdCaptionContainerType -&gt; MpdCaptionContainerType)
+-&gt; (MpdCaptionContainerType
+    -&gt; MpdCaptionContainerType -&gt; MpdCaptionContainerType)
+-&gt; Ord MpdCaptionContainerType
+MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
+MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Ordering
+MpdCaptionContainerType
+-&gt; MpdCaptionContainerType -&gt; MpdCaptionContainerType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MpdCaptionContainerType
+-&gt; MpdCaptionContainerType -&gt; MpdCaptionContainerType
+$cmin :: MpdCaptionContainerType
+-&gt; MpdCaptionContainerType -&gt; MpdCaptionContainerType
+max :: MpdCaptionContainerType
+-&gt; MpdCaptionContainerType -&gt; MpdCaptionContainerType
+$cmax :: MpdCaptionContainerType
+-&gt; MpdCaptionContainerType -&gt; MpdCaptionContainerType
+&gt;= :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
+$c&gt;= :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
+&gt; :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
+$c&gt; :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
+&lt;= :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
+$c&lt;= :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
+&lt; :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
+$c&lt; :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
+compare :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Ordering
+$ccompare :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Ordering
+$cp1Ord :: Eq MpdCaptionContainerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ MpdCaptionContainerType -&gt; Rep MpdCaptionContainerType x)
+-&gt; (forall x.
+    Rep MpdCaptionContainerType x -&gt; MpdCaptionContainerType)
+-&gt; Generic MpdCaptionContainerType
+forall x. Rep MpdCaptionContainerType x -&gt; MpdCaptionContainerType
+forall x. MpdCaptionContainerType -&gt; Rep MpdCaptionContainerType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MpdCaptionContainerType x -&gt; MpdCaptionContainerType
+$cfrom :: forall x. MpdCaptionContainerType -&gt; Rep MpdCaptionContainerType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991327"><span id="local-6989586621679991329"><span class="annot"><span class="annottext">Int -&gt; MpdCaptionContainerType -&gt; Int
+MpdCaptionContainerType -&gt; Int
+(Int -&gt; MpdCaptionContainerType -&gt; Int)
+-&gt; (MpdCaptionContainerType -&gt; Int)
+-&gt; Hashable MpdCaptionContainerType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MpdCaptionContainerType -&gt; Int
+$chash :: MpdCaptionContainerType -&gt; Int
+hashWithSalt :: Int -&gt; MpdCaptionContainerType -&gt; Int
+$chashWithSalt :: Int -&gt; MpdCaptionContainerType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679991324"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; ()
+(MpdCaptionContainerType -&gt; ()) -&gt; NFData MpdCaptionContainerType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MpdCaptionContainerType -&gt; ()
+$crnf :: MpdCaptionContainerType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679991321"><span class="annot"><span class="annottext">Text -&gt; Either String MpdCaptionContainerType
+(Text -&gt; Either String MpdCaptionContainerType)
+-&gt; FromText MpdCaptionContainerType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MpdCaptionContainerType
+$cfromText :: Text -&gt; Either String MpdCaptionContainerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679991318"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; Text
+(MpdCaptionContainerType -&gt; Text) -&gt; ToText MpdCaptionContainerType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MpdCaptionContainerType -&gt; Text
+$ctoText :: MpdCaptionContainerType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679991315"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; ByteString
+(MpdCaptionContainerType -&gt; ByteString)
+-&gt; ToByteString MpdCaptionContainerType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MpdCaptionContainerType -&gt; ByteString
+$ctoBS :: MpdCaptionContainerType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679991312"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; ByteStringBuilder
+(MpdCaptionContainerType -&gt; ByteStringBuilder)
+-&gt; ToLog MpdCaptionContainerType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MpdCaptionContainerType -&gt; ByteStringBuilder
+$cbuild :: MpdCaptionContainerType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679991309"><span class="annot"><span class="annottext">HeaderName -&gt; MpdCaptionContainerType -&gt; [Header]
+(HeaderName -&gt; MpdCaptionContainerType -&gt; [Header])
+-&gt; ToHeader MpdCaptionContainerType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MpdCaptionContainerType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MpdCaptionContainerType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679991306"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; QueryString
+(MpdCaptionContainerType -&gt; QueryString)
+-&gt; ToQuery MpdCaptionContainerType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MpdCaptionContainerType -&gt; QueryString
+$ctoQuery :: MpdCaptionContainerType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679991301"><span id="local-6989586621679991303"><span class="annot"><span class="annottext">Value -&gt; Parser [MpdCaptionContainerType]
+Value -&gt; Parser MpdCaptionContainerType
+(Value -&gt; Parser MpdCaptionContainerType)
+-&gt; (Value -&gt; Parser [MpdCaptionContainerType])
+-&gt; FromJSON MpdCaptionContainerType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MpdCaptionContainerType]
+$cparseJSONList :: Value -&gt; Parser [MpdCaptionContainerType]
+parseJSON :: Value -&gt; Parser MpdCaptionContainerType
+$cparseJSON :: Value -&gt; Parser MpdCaptionContainerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679991296"><span id="local-6989586621679991298"><span class="annot"><span class="annottext">FromJSONKeyFunction [MpdCaptionContainerType]
+FromJSONKeyFunction MpdCaptionContainerType
+FromJSONKeyFunction MpdCaptionContainerType
+-&gt; FromJSONKeyFunction [MpdCaptionContainerType]
+-&gt; FromJSONKey MpdCaptionContainerType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MpdCaptionContainerType]
+$cfromJSONKeyList :: FromJSONKeyFunction [MpdCaptionContainerType]
+fromJSONKey :: FromJSONKeyFunction MpdCaptionContainerType
+$cfromJSONKey :: FromJSONKeyFunction MpdCaptionContainerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679991287"><span id="local-6989586621679991289"><span id="local-6989586621679991291"><span id="local-6989586621679991293"><span class="annot"><span class="annottext">[MpdCaptionContainerType] -&gt; Encoding
+[MpdCaptionContainerType] -&gt; Value
+MpdCaptionContainerType -&gt; Encoding
+MpdCaptionContainerType -&gt; Value
+(MpdCaptionContainerType -&gt; Value)
+-&gt; (MpdCaptionContainerType -&gt; Encoding)
+-&gt; ([MpdCaptionContainerType] -&gt; Value)
+-&gt; ([MpdCaptionContainerType] -&gt; Encoding)
+-&gt; ToJSON MpdCaptionContainerType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MpdCaptionContainerType] -&gt; Encoding
+$ctoEncodingList :: [MpdCaptionContainerType] -&gt; Encoding
+toJSONList :: [MpdCaptionContainerType] -&gt; Value
+$ctoJSONList :: [MpdCaptionContainerType] -&gt; Value
+toEncoding :: MpdCaptionContainerType -&gt; Encoding
+$ctoEncoding :: MpdCaptionContainerType -&gt; Encoding
+toJSON :: MpdCaptionContainerType -&gt; Value
+$ctoJSON :: MpdCaptionContainerType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679991282"><span id="local-6989586621679991284"><span class="annot"><span class="annottext">ToJSONKeyFunction [MpdCaptionContainerType]
+ToJSONKeyFunction MpdCaptionContainerType
+ToJSONKeyFunction MpdCaptionContainerType
+-&gt; ToJSONKeyFunction [MpdCaptionContainerType]
+-&gt; ToJSONKey MpdCaptionContainerType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MpdCaptionContainerType]
+$ctoJSONKeyList :: ToJSONKeyFunction [MpdCaptionContainerType]
+toJSONKey :: ToJSONKeyFunction MpdCaptionContainerType
+$ctoJSONKey :: ToJSONKeyFunction MpdCaptionContainerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679991279"><span class="annot"><span class="annottext">[Node] -&gt; Either String MpdCaptionContainerType
+([Node] -&gt; Either String MpdCaptionContainerType)
+-&gt; FromXML MpdCaptionContainerType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MpdCaptionContainerType
+$cparseXML :: [Node] -&gt; Either String MpdCaptionContainerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679991276"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; XML
+(MpdCaptionContainerType -&gt; XML) -&gt; ToXML MpdCaptionContainerType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MpdCaptionContainerType -&gt; XML
+$ctoXML :: MpdCaptionContainerType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType_FRAGMENTED_MP4"><span class="hs-identifier hs-type">MpdCaptionContainerType_FRAGMENTED_MP4</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType"><span class="hs-identifier hs-type">MpdCaptionContainerType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMpdCaptionContainerType_FRAGMENTED_MP4"><span id="%24mMpdCaptionContainerType_FRAGMENTED_MP4"><span id="MpdCaptionContainerType_FRAGMENTED_MP4"><span class="annot"><span class="annottext">$bMpdCaptionContainerType_FRAGMENTED_MP4 :: MpdCaptionContainerType
+$mMpdCaptionContainerType_FRAGMENTED_MP4 :: forall r.
+MpdCaptionContainerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#%24bMpdCaptionContainerType_FRAGMENTED_MP4"><span class="hs-identifier hs-var hs-var hs-var">MpdCaptionContainerType_FRAGMENTED_MP4</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType%27"><span class="hs-identifier hs-type">MpdCaptionContainerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FRAGMENTED_MP4&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType_RAW"><span class="hs-identifier hs-type">MpdCaptionContainerType_RAW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType"><span class="hs-identifier hs-type">MpdCaptionContainerType</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMpdCaptionContainerType_RAW"><span id="%24mMpdCaptionContainerType_RAW"><span id="MpdCaptionContainerType_RAW"><span class="annot"><span class="annottext">$bMpdCaptionContainerType_RAW :: MpdCaptionContainerType
+$mMpdCaptionContainerType_RAW :: forall r.
+MpdCaptionContainerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#%24bMpdCaptionContainerType_RAW"><span class="hs-identifier hs-var hs-var hs-var">MpdCaptionContainerType_RAW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType%27"><span class="hs-identifier hs-type">MpdCaptionContainerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RAW&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType_FRAGMENTED_MP4"><span class="hs-pragma hs-type">MpdCaptionContainerType_FRAGMENTED_MP4</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType_RAW"><span class="hs-pragma hs-type">MpdCaptionContainerType_RAW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType%27"><span class="hs-pragma hs-type">MpdCaptionContainerType'</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-78"></span></pre></body></html>

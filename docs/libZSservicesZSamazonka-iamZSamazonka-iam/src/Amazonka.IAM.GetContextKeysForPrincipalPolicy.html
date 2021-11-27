@@ -1,0 +1,455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IAM.GetContextKeysForPrincipalPolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a list of all of the context keys referenced in all the IAM</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- policies that are attached to the specified IAM entity. The entity can</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- be an IAM user, group, or role. If you specify a user, then the request</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- also includes all of the policies attached to groups that the user is a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- member of.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- You can optionally include a list of one or more additional policies,</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- specified as strings. If you want to include /only/ a list of policies</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- by string, use GetContextKeysForCustomPolicy instead.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- __Note:__ This operation discloses information about the permissions</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- granted to other users. If you do not want users to see other user\'s</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- permissions, then consider allowing them to use</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- GetContextKeysForCustomPolicy instead.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Context keys are variables maintained by Amazon Web Services and its</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- services that provide details about the context of an API query request.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Context keys can be evaluated by testing against a value in an IAM</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- policy. Use GetContextKeysForPrincipalPolicy to understand what key</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- names and values you must supply when you call SimulatePrincipalPolicy.</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IAM.GetContextKeysForPrincipalPolicy</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy"><span class="hs-identifier">GetContextKeysForPrincipalPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#newGetContextKeysForPrincipalPolicy"><span class="hs-identifier">newGetContextKeysForPrincipalPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#getContextKeysForPrincipalPolicy_policyInputList"><span class="hs-identifier">getContextKeysForPrincipalPolicy_policyInputList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#getContextKeysForPrincipalPolicy_policySourceArn"><span class="hs-identifier">getContextKeysForPrincipalPolicy_policySourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse"><span class="hs-identifier">GetContextKeysForPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.Types.GetContextKeysForPolicyResponse.html#newGetContextKeysForPolicyResponse"><span class="hs-identifier">newGetContextKeysForPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.Types.GetContextKeysForPolicyResponse.html#getContextKeysForPolicyResponse_contextKeyNames"><span class="hs-identifier">getContextKeysForPolicyResponse_contextKeyNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.html"><span class="hs-identifier">Amazonka.IAM.Types</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newGetContextKeysForPrincipalPolicy' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621679451358"><span id="local-6989586621679451359"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContextKeysForPrincipalPolicy"><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy"><span class="hs-identifier hs-var">GetContextKeysForPrincipalPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContextKeysForPrincipalPolicy%27"><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy%27"><span class="hs-identifier hs-var">GetContextKeysForPrincipalPolicy'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional list of additional policies for which you want the list of</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- context keys that are referenced.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; used to validate</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- this parameter is a string of characters consisting of the following:</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   Any printable ASCII character ranging from the space character</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     (@\\u0020@) through the end of the ASCII character range</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   The printable characters in the Basic Latin and Latin-1 Supplement</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     character set (through @\\u00FF@)</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     carriage return (@\\u000D@)</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3ApolicyInputList%3AGetContextKeysForPrincipalPolicy%27"><span class="annot"><span class="annottext">GetContextKeysForPrincipalPolicy -&gt; Maybe [Text]
+</span><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#%24sel%3ApolicyInputList%3AGetContextKeysForPrincipalPolicy%27"><span class="hs-identifier hs-var hs-var">policyInputList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The ARN of a user, group, or role whose policies contain the context</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- keys that you want listed. If you specify a user, the list includes</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- context keys that are found in all policies that are attached to the</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- user. The list also includes all groups that the user is a member of. If</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- you pick a group or a role, then it includes only those context keys</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- that are found in policies attached to that entity. Note that all</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- parameters are shown in unencoded form here for clarity, but must be URL</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- encoded to be included as a part of a real HTML request.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)&gt;</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3ApolicySourceArn%3AGetContextKeysForPrincipalPolicy%27"><span class="annot"><span class="annottext">GetContextKeysForPrincipalPolicy -&gt; Text
+</span><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#%24sel%3ApolicySourceArn%3AGetContextKeysForPrincipalPolicy%27"><span class="hs-identifier hs-var hs-var">policySourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679451351"><span id="local-6989586621679451353"><span class="annot"><span class="annottext">GetContextKeysForPrincipalPolicy
+-&gt; GetContextKeysForPrincipalPolicy -&gt; Bool
+(GetContextKeysForPrincipalPolicy
+ -&gt; GetContextKeysForPrincipalPolicy -&gt; Bool)
+-&gt; (GetContextKeysForPrincipalPolicy
+    -&gt; GetContextKeysForPrincipalPolicy -&gt; Bool)
+-&gt; Eq GetContextKeysForPrincipalPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetContextKeysForPrincipalPolicy
+-&gt; GetContextKeysForPrincipalPolicy -&gt; Bool
+$c/= :: GetContextKeysForPrincipalPolicy
+-&gt; GetContextKeysForPrincipalPolicy -&gt; Bool
+== :: GetContextKeysForPrincipalPolicy
+-&gt; GetContextKeysForPrincipalPolicy -&gt; Bool
+$c== :: GetContextKeysForPrincipalPolicy
+-&gt; GetContextKeysForPrincipalPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451342"><span id="local-6989586621679451344"><span id="local-6989586621679451346"><span id="local-6989586621679451348"><span class="annot"><span class="annottext">ReadPrec [GetContextKeysForPrincipalPolicy]
+ReadPrec GetContextKeysForPrincipalPolicy
+Int -&gt; ReadS GetContextKeysForPrincipalPolicy
+ReadS [GetContextKeysForPrincipalPolicy]
+(Int -&gt; ReadS GetContextKeysForPrincipalPolicy)
+-&gt; ReadS [GetContextKeysForPrincipalPolicy]
+-&gt; ReadPrec GetContextKeysForPrincipalPolicy
+-&gt; ReadPrec [GetContextKeysForPrincipalPolicy]
+-&gt; Read GetContextKeysForPrincipalPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetContextKeysForPrincipalPolicy]
+$creadListPrec :: ReadPrec [GetContextKeysForPrincipalPolicy]
+readPrec :: ReadPrec GetContextKeysForPrincipalPolicy
+$creadPrec :: ReadPrec GetContextKeysForPrincipalPolicy
+readList :: ReadS [GetContextKeysForPrincipalPolicy]
+$creadList :: ReadS [GetContextKeysForPrincipalPolicy]
+readsPrec :: Int -&gt; ReadS GetContextKeysForPrincipalPolicy
+$creadsPrec :: Int -&gt; ReadS GetContextKeysForPrincipalPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451335"><span id="local-6989586621679451337"><span id="local-6989586621679451339"><span class="annot"><span class="annottext">Int -&gt; GetContextKeysForPrincipalPolicy -&gt; ShowS
+[GetContextKeysForPrincipalPolicy] -&gt; ShowS
+GetContextKeysForPrincipalPolicy -&gt; String
+(Int -&gt; GetContextKeysForPrincipalPolicy -&gt; ShowS)
+-&gt; (GetContextKeysForPrincipalPolicy -&gt; String)
+-&gt; ([GetContextKeysForPrincipalPolicy] -&gt; ShowS)
+-&gt; Show GetContextKeysForPrincipalPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetContextKeysForPrincipalPolicy] -&gt; ShowS
+$cshowList :: [GetContextKeysForPrincipalPolicy] -&gt; ShowS
+show :: GetContextKeysForPrincipalPolicy -&gt; String
+$cshow :: GetContextKeysForPrincipalPolicy -&gt; String
+showsPrec :: Int -&gt; GetContextKeysForPrincipalPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetContextKeysForPrincipalPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetContextKeysForPrincipalPolicy
+ -&gt; Rep GetContextKeysForPrincipalPolicy x)
+-&gt; (forall x.
+    Rep GetContextKeysForPrincipalPolicy x
+    -&gt; GetContextKeysForPrincipalPolicy)
+-&gt; Generic GetContextKeysForPrincipalPolicy
+forall x.
+Rep GetContextKeysForPrincipalPolicy x
+-&gt; GetContextKeysForPrincipalPolicy
+forall x.
+GetContextKeysForPrincipalPolicy
+-&gt; Rep GetContextKeysForPrincipalPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetContextKeysForPrincipalPolicy x
+-&gt; GetContextKeysForPrincipalPolicy
+$cfrom :: forall x.
+GetContextKeysForPrincipalPolicy
+-&gt; Rep GetContextKeysForPrincipalPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Create a value of 'GetContextKeysForPrincipalPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'policyInputList', 'getContextKeysForPrincipalPolicy_policyInputList' - An optional list of additional policies for which you want the list of</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- context keys that are referenced.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; used to validate</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- this parameter is a string of characters consisting of the following:</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   Any printable ASCII character ranging from the space character</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     (@\\u0020@) through the end of the ASCII character range</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   The printable characters in the Basic Latin and Latin-1 Supplement</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     character set (through @\\u00FF@)</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--     carriage return (@\\u000D@)</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'policySourceArn', 'getContextKeysForPrincipalPolicy_policySourceArn' - The ARN of a user, group, or role whose policies contain the context</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- keys that you want listed. If you specify a user, the list includes</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- context keys that are found in all policies that are attached to the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- user. The list also includes all groups that the user is a member of. If</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- you pick a group or a role, then it includes only those context keys</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- that are found in policies attached to that entity. Note that all</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- parameters are shown in unencoded form here for clarity, but must be URL</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- encoded to be included as a part of a real HTML request.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)&gt;</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#newGetContextKeysForPrincipalPolicy"><span class="hs-identifier hs-type">newGetContextKeysForPrincipalPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-comment">-- | 'policySourceArn'</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy</span></a></span><span>
+</span><span id="line-140"></span><span id="newGetContextKeysForPrincipalPolicy"><span class="annot"><span class="annottext">newGetContextKeysForPrincipalPolicy :: Text -&gt; GetContextKeysForPrincipalPolicy
+</span><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#newGetContextKeysForPrincipalPolicy"><span class="hs-identifier hs-var hs-var">newGetContextKeysForPrincipalPolicy</span></a></span></span><span> </span><span id="local-6989586621679451330"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451330"><span class="hs-identifier hs-var">pPolicySourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">GetContextKeysForPrincipalPolicy' :: Maybe [Text] -&gt; Text -&gt; GetContextKeysForPrincipalPolicy
+</span><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy%27"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy'</span></a></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyInputList:GetContextKeysForPrincipalPolicy' :: Maybe [Text]
+</span><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#%24sel%3ApolicyInputList%3AGetContextKeysForPrincipalPolicy%27"><span class="hs-identifier hs-var">policyInputList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:policySourceArn:GetContextKeysForPrincipalPolicy' :: Text
+</span><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#%24sel%3ApolicySourceArn%3AGetContextKeysForPrincipalPolicy%27"><span class="hs-identifier hs-var">policySourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451330"><span class="hs-identifier hs-var">pPolicySourceArn_</span></a></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | An optional list of additional policies for which you want the list of</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- context keys that are referenced.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; used to validate</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- this parameter is a string of characters consisting of the following:</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -   Any printable ASCII character ranging from the space character</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     (@\\u0020@) through the end of the ASCII character range</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   The printable characters in the Basic Latin and Latin-1 Supplement</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     character set (through @\\u00FF@)</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     carriage return (@\\u000D@)</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#getContextKeysForPrincipalPolicy_policyInputList"><span class="hs-identifier hs-type">getContextKeysForPrincipalPolicy_policyInputList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="getContextKeysForPrincipalPolicy_policyInputList"><span class="annot"><span class="annottext">getContextKeysForPrincipalPolicy_policyInputList :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetContextKeysForPrincipalPolicy
+-&gt; f GetContextKeysForPrincipalPolicy
+</span><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#getContextKeysForPrincipalPolicy_policyInputList"><span class="hs-identifier hs-var hs-var">getContextKeysForPrincipalPolicy_policyInputList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContextKeysForPrincipalPolicy -&gt; Maybe [Text])
+-&gt; (GetContextKeysForPrincipalPolicy
+    -&gt; Maybe [Text] -&gt; GetContextKeysForPrincipalPolicy)
+-&gt; Lens
+     GetContextKeysForPrincipalPolicy
+     GetContextKeysForPrincipalPolicy
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy%27"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451327"><span class="annot"><span class="annottext">Maybe [Text]
+policyInputList :: Maybe [Text]
+$sel:policyInputList:GetContextKeysForPrincipalPolicy' :: GetContextKeysForPrincipalPolicy -&gt; Maybe [Text]
+</span><a href="#local-6989586621679451327"><span class="hs-identifier hs-var hs-var">policyInputList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679451327"><span class="hs-identifier hs-var">policyInputList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451326"><span class="annot"><span class="annottext">s :: GetContextKeysForPrincipalPolicy
+</span><a href="#local-6989586621679451326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy%27"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451325"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679451325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContextKeysForPrincipalPolicy
+</span><a href="#local-6989586621679451326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyInputList:GetContextKeysForPrincipalPolicy' :: Maybe [Text]
+</span><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#%24sel%3ApolicyInputList%3AGetContextKeysForPrincipalPolicy%27"><span class="hs-identifier hs-var">policyInputList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679451325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetContextKeysForPrincipalPolicy
+ -&gt; f GetContextKeysForPrincipalPolicy)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetContextKeysForPrincipalPolicy
+-&gt; f GetContextKeysForPrincipalPolicy
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The ARN of a user, group, or role whose policies contain the context</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- keys that you want listed. If you specify a user, the list includes</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- context keys that are found in all policies that are attached to the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- user. The list also includes all groups that the user is a member of. If</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- you pick a group or a role, then it includes only those context keys</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- that are found in policies attached to that entity. Note that all</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- parameters are shown in unencoded form here for clarity, but must be URL</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- encoded to be included as a part of a real HTML request.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)&gt;</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#getContextKeysForPrincipalPolicy_policySourceArn"><span class="hs-identifier hs-type">getContextKeysForPrincipalPolicy_policySourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-177"></span><span id="getContextKeysForPrincipalPolicy_policySourceArn"><span class="annot"><span class="annottext">getContextKeysForPrincipalPolicy_policySourceArn :: (Text -&gt; f Text)
+-&gt; GetContextKeysForPrincipalPolicy
+-&gt; f GetContextKeysForPrincipalPolicy
+</span><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#getContextKeysForPrincipalPolicy_policySourceArn"><span class="hs-identifier hs-var hs-var">getContextKeysForPrincipalPolicy_policySourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContextKeysForPrincipalPolicy -&gt; Text)
+-&gt; (GetContextKeysForPrincipalPolicy
+    -&gt; Text -&gt; GetContextKeysForPrincipalPolicy)
+-&gt; Lens
+     GetContextKeysForPrincipalPolicy
+     GetContextKeysForPrincipalPolicy
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy%27"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451321"><span class="annot"><span class="annottext">Text
+policySourceArn :: Text
+$sel:policySourceArn:GetContextKeysForPrincipalPolicy' :: GetContextKeysForPrincipalPolicy -&gt; Text
+</span><a href="#local-6989586621679451321"><span class="hs-identifier hs-var hs-var">policySourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451321"><span class="hs-identifier hs-var">policySourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451320"><span class="annot"><span class="annottext">s :: GetContextKeysForPrincipalPolicy
+</span><a href="#local-6989586621679451320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy%27"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451319"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContextKeysForPrincipalPolicy
+</span><a href="#local-6989586621679451320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policySourceArn:GetContextKeysForPrincipalPolicy' :: Text
+</span><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#%24sel%3ApolicySourceArn%3AGetContextKeysForPrincipalPolicy%27"><span class="hs-identifier hs-var">policySourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy</span></a></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-184"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><a href="Amazonka.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse"><span class="hs-identifier hs-type">GetContextKeysForPolicyResponse</span></a></span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679451315"><span class="annot"><span class="annottext">request :: GetContextKeysForPrincipalPolicy
+-&gt; Request GetContextKeysForPrincipalPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetContextKeysForPrincipalPolicy
+-&gt; Request GetContextKeysForPrincipalPolicy
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679451311"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetContextKeysForPrincipalPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetContextKeysForPrincipalPolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse GetContextKeysForPrincipalPolicy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetContextKeysForPrincipalPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetContextKeysForPrincipalPolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GetContextKeysForPrincipalPolicyResult&quot;</span></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451308"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451308"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679451307"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679451307"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679451306"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679451306"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String GetContextKeysForPolicyResponse
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679451306"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679451301"><span id="local-6989586621679451303"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy</span></a></span></span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679451298"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy</span></a></span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy</span></a></span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679451294"><span class="annot"><span class="annottext">toHeaders :: GetContextKeysForPrincipalPolicy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetContextKeysForPrincipalPolicy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679451289"><span class="annot"><span class="annottext">toPath :: GetContextKeysForPrincipalPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetContextKeysForPrincipalPolicy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy</span></a></span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679451285"><span class="annot"><span class="annottext">toQuery :: GetContextKeysForPrincipalPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetContextKeysForPrincipalPolicy.html#GetContextKeysForPrincipalPolicy%27"><span class="hs-identifier hs-type">GetContextKeysForPrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451282"><span id="local-6989586621679451283"><span class="annot"><span class="annottext">Maybe [Text]
+Text
+policySourceArn :: Text
+policyInputList :: Maybe [Text]
+$sel:policySourceArn:GetContextKeysForPrincipalPolicy' :: GetContextKeysForPrincipalPolicy -&gt; Text
+$sel:policyInputList:GetContextKeysForPrincipalPolicy' :: GetContextKeysForPrincipalPolicy -&gt; Maybe [Text]
+</span><a href="#local-6989586621679451282"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GetContextKeysForPrincipalPolicy&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-217"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-218"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PolicyInputList&quot;</span></span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-224"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679451283"><span class="hs-identifier hs-var">policyInputList</span></a></span><span>
+</span><span id="line-225"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PolicySourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679451282"><span class="hs-identifier hs-var">policySourceArn</span></a></span><span>
+</span><span id="line-227"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-228"></span></pre></body></html>

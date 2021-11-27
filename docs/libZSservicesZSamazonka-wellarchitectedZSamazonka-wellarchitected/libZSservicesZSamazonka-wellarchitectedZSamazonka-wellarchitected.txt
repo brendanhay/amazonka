@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.WellArchitected.Types.AnswerReason
+module Amazonka.WellArchitected.Types.AnswerReason
 newtype AnswerReason
 AnswerReason' :: Text -> AnswerReason
 [fromAnswerReason] :: AnswerReason -> Text
@@ -14,28 +14,28 @@ pattern AnswerReason_BUSINESS_PRIORITIES :: AnswerReason
 pattern AnswerReason_NONE :: AnswerReason
 pattern AnswerReason_OTHER :: AnswerReason
 pattern AnswerReason_OUT_OF_SCOPE :: AnswerReason
-instance Network.AWS.Data.XML.ToXML Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance Network.AWS.Data.XML.FromXML Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance Network.AWS.Data.Log.ToLog Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance Network.AWS.Data.Text.ToText Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance Network.AWS.Data.Text.FromText Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance GHC.Classes.Ord Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.AnswerReason.AnswerReason
+instance Amazonka.Data.XML.ToXML Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance Amazonka.Data.XML.FromXML Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance Amazonka.Data.Headers.ToHeader Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance Amazonka.Data.Log.ToLog Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance Amazonka.Data.Text.ToText Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance Amazonka.Data.Text.FromText Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance GHC.Classes.Ord Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance GHC.Read.Read Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
+instance GHC.Show.Show Amazonka.WellArchitected.Types.AnswerReason.AnswerReason
 
 
-module Network.AWS.WellArchitected.Types.Choice
+module Amazonka.WellArchitected.Types.Choice
 
 -- | A choice available to answer question.
 --   
@@ -71,16 +71,16 @@ choice_description :: Lens' Choice (Maybe Text)
 
 -- | Undocumented member.
 choice_choiceId :: Lens' Choice (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.Choice.Choice
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.Choice.Choice
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.Choice.Choice
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.Choice.Choice
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.Choice.Choice
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.Choice.Choice
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.Choice.Choice
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.Choice.Choice
+instance GHC.Show.Show Amazonka.WellArchitected.Types.Choice.Choice
+instance GHC.Read.Read Amazonka.WellArchitected.Types.Choice.Choice
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.Choice.Choice
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.Choice.Choice
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.Choice.Choice
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.Choice.Choice
 
 
-module Network.AWS.WellArchitected.Types.ChoiceReason
+module Amazonka.WellArchitected.Types.ChoiceReason
 newtype ChoiceReason
 ChoiceReason' :: Text -> ChoiceReason
 [fromChoiceReason] :: ChoiceReason -> Text
@@ -89,56 +89,56 @@ pattern ChoiceReason_BUSINESS_PRIORITIES :: ChoiceReason
 pattern ChoiceReason_NONE :: ChoiceReason
 pattern ChoiceReason_OTHER :: ChoiceReason
 pattern ChoiceReason_OUT_OF_SCOPE :: ChoiceReason
-instance Network.AWS.Data.XML.ToXML Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance Network.AWS.Data.XML.FromXML Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance Network.AWS.Data.Log.ToLog Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance Network.AWS.Data.Text.ToText Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance Network.AWS.Data.Text.FromText Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance GHC.Classes.Ord Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance Amazonka.Data.XML.ToXML Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance Amazonka.Data.XML.FromXML Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance Amazonka.Data.Headers.ToHeader Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance Amazonka.Data.Log.ToLog Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance Amazonka.Data.Text.ToText Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance Amazonka.Data.Text.FromText Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance GHC.Classes.Ord Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance GHC.Read.Read Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
+instance GHC.Show.Show Amazonka.WellArchitected.Types.ChoiceReason.ChoiceReason
 
 
-module Network.AWS.WellArchitected.Types.ChoiceStatus
+module Amazonka.WellArchitected.Types.ChoiceStatus
 newtype ChoiceStatus
 ChoiceStatus' :: Text -> ChoiceStatus
 [fromChoiceStatus] :: ChoiceStatus -> Text
 pattern ChoiceStatus_NOT_APPLICABLE :: ChoiceStatus
 pattern ChoiceStatus_SELECTED :: ChoiceStatus
 pattern ChoiceStatus_UNSELECTED :: ChoiceStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance GHC.Classes.Ord Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance Amazonka.Data.XML.ToXML Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance Amazonka.Data.XML.FromXML Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance Amazonka.Data.Log.ToLog Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance Amazonka.Data.Text.ToText Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance Amazonka.Data.Text.FromText Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance GHC.Classes.Ord Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance GHC.Read.Read Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
+instance GHC.Show.Show Amazonka.WellArchitected.Types.ChoiceStatus.ChoiceStatus
 
 
-module Network.AWS.WellArchitected.Types.ChoiceAnswerSummary
+module Amazonka.WellArchitected.Types.ChoiceAnswerSummary
 
 -- | A choice summary that has been answered on a question in your
 --   workload.
@@ -184,16 +184,16 @@ choiceAnswerSummary_reason :: Lens' ChoiceAnswerSummary (Maybe ChoiceReason)
 
 -- | Undocumented member.
 choiceAnswerSummary_choiceId :: Lens' ChoiceAnswerSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.ChoiceAnswerSummary.ChoiceAnswerSummary
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.ChoiceAnswerSummary.ChoiceAnswerSummary
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.ChoiceAnswerSummary.ChoiceAnswerSummary
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.ChoiceAnswerSummary.ChoiceAnswerSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.ChoiceAnswerSummary.ChoiceAnswerSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.ChoiceAnswerSummary.ChoiceAnswerSummary
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.ChoiceAnswerSummary.ChoiceAnswerSummary
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.ChoiceAnswerSummary.ChoiceAnswerSummary
+instance GHC.Show.Show Amazonka.WellArchitected.Types.ChoiceAnswerSummary.ChoiceAnswerSummary
+instance GHC.Read.Read Amazonka.WellArchitected.Types.ChoiceAnswerSummary.ChoiceAnswerSummary
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.ChoiceAnswerSummary.ChoiceAnswerSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.ChoiceAnswerSummary.ChoiceAnswerSummary
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.ChoiceAnswerSummary.ChoiceAnswerSummary
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.ChoiceAnswerSummary.ChoiceAnswerSummary
 
 
-module Network.AWS.WellArchitected.Types.ChoiceAnswer
+module Amazonka.WellArchitected.Types.ChoiceAnswer
 
 -- | A choice that has been answered on a question in your workload.
 --   
@@ -246,16 +246,16 @@ choiceAnswer_notes :: Lens' ChoiceAnswer (Maybe Text)
 
 -- | Undocumented member.
 choiceAnswer_choiceId :: Lens' ChoiceAnswer (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.ChoiceAnswer.ChoiceAnswer
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.ChoiceAnswer.ChoiceAnswer
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.ChoiceAnswer.ChoiceAnswer
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.ChoiceAnswer.ChoiceAnswer
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.ChoiceAnswer.ChoiceAnswer
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.ChoiceAnswer.ChoiceAnswer
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.ChoiceAnswer.ChoiceAnswer
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.ChoiceAnswer.ChoiceAnswer
+instance GHC.Show.Show Amazonka.WellArchitected.Types.ChoiceAnswer.ChoiceAnswer
+instance GHC.Read.Read Amazonka.WellArchitected.Types.ChoiceAnswer.ChoiceAnswer
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.ChoiceAnswer.ChoiceAnswer
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.ChoiceAnswer.ChoiceAnswer
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.ChoiceAnswer.ChoiceAnswer
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.ChoiceAnswer.ChoiceAnswer
 
 
-module Network.AWS.WellArchitected.Types.ChoiceUpdate
+module Amazonka.WellArchitected.Types.ChoiceUpdate
 
 -- | A list of choices to be updated.
 --   
@@ -301,44 +301,44 @@ choiceUpdate_notes :: Lens' ChoiceUpdate (Maybe Text)
 
 -- | The status of a choice.
 choiceUpdate_status :: Lens' ChoiceUpdate ChoiceStatus
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.ChoiceUpdate.ChoiceUpdate
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.ChoiceUpdate.ChoiceUpdate
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.ChoiceUpdate.ChoiceUpdate
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.ChoiceUpdate.ChoiceUpdate
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.ChoiceUpdate.ChoiceUpdate
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.ChoiceUpdate.ChoiceUpdate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.Types.ChoiceUpdate.ChoiceUpdate
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.ChoiceUpdate.ChoiceUpdate
+instance GHC.Show.Show Amazonka.WellArchitected.Types.ChoiceUpdate.ChoiceUpdate
+instance GHC.Read.Read Amazonka.WellArchitected.Types.ChoiceUpdate.ChoiceUpdate
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.ChoiceUpdate.ChoiceUpdate
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.ChoiceUpdate.ChoiceUpdate
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.ChoiceUpdate.ChoiceUpdate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.Types.ChoiceUpdate.ChoiceUpdate
 
 
-module Network.AWS.WellArchitected.Types.DifferenceStatus
+module Amazonka.WellArchitected.Types.DifferenceStatus
 newtype DifferenceStatus
 DifferenceStatus' :: Text -> DifferenceStatus
 [fromDifferenceStatus] :: DifferenceStatus -> Text
 pattern DifferenceStatus_DELETED :: DifferenceStatus
 pattern DifferenceStatus_NEW :: DifferenceStatus
 pattern DifferenceStatus_UPDATED :: DifferenceStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance GHC.Classes.Ord Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance Amazonka.Data.XML.ToXML Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance Amazonka.Data.XML.FromXML Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance Amazonka.Data.Log.ToLog Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance Amazonka.Data.Text.ToText Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance Amazonka.Data.Text.FromText Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance GHC.Classes.Ord Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance GHC.Read.Read Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
+instance GHC.Show.Show Amazonka.WellArchitected.Types.DifferenceStatus.DifferenceStatus
 
 
-module Network.AWS.WellArchitected.Types.LensReviewReport
+module Amazonka.WellArchitected.Types.LensReviewReport
 
 -- | A report of a lens review.
 --   
@@ -369,44 +369,44 @@ lensReviewReport_lensAlias :: Lens' LensReviewReport (Maybe Text)
 
 -- | Undocumented member.
 lensReviewReport_base64String :: Lens' LensReviewReport (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.LensReviewReport.LensReviewReport
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.LensReviewReport.LensReviewReport
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.LensReviewReport.LensReviewReport
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.LensReviewReport.LensReviewReport
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.LensReviewReport.LensReviewReport
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.LensReviewReport.LensReviewReport
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.LensReviewReport.LensReviewReport
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.LensReviewReport.LensReviewReport
+instance GHC.Show.Show Amazonka.WellArchitected.Types.LensReviewReport.LensReviewReport
+instance GHC.Read.Read Amazonka.WellArchitected.Types.LensReviewReport.LensReviewReport
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.LensReviewReport.LensReviewReport
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.LensReviewReport.LensReviewReport
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.LensReviewReport.LensReviewReport
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.LensReviewReport.LensReviewReport
 
 
-module Network.AWS.WellArchitected.Types.LensStatus
+module Amazonka.WellArchitected.Types.LensStatus
 newtype LensStatus
 LensStatus' :: Text -> LensStatus
 [fromLensStatus] :: LensStatus -> Text
 pattern LensStatus_CURRENT :: LensStatus
 pattern LensStatus_DEPRECATED :: LensStatus
 pattern LensStatus_NOT_CURRENT :: LensStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance GHC.Classes.Ord Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.LensStatus.LensStatus
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.LensStatus.LensStatus
+instance Amazonka.Data.XML.ToXML Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance Amazonka.Data.XML.FromXML Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance Amazonka.Data.Log.ToLog Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance Amazonka.Data.Text.ToText Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance Amazonka.Data.Text.FromText Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance GHC.Classes.Ord Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance GHC.Read.Read Amazonka.WellArchitected.Types.LensStatus.LensStatus
+instance GHC.Show.Show Amazonka.WellArchitected.Types.LensStatus.LensStatus
 
 
-module Network.AWS.WellArchitected.Types.LensSummary
+module Amazonka.WellArchitected.Types.LensSummary
 
 -- | A lens summary of a lens.
 --   
@@ -452,16 +452,16 @@ lensSummary_lensVersion :: Lens' LensSummary (Maybe Text)
 
 -- | Undocumented member.
 lensSummary_description :: Lens' LensSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.LensSummary.LensSummary
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.LensSummary.LensSummary
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.LensSummary.LensSummary
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.LensSummary.LensSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.LensSummary.LensSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.LensSummary.LensSummary
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.LensSummary.LensSummary
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.LensSummary.LensSummary
+instance GHC.Show.Show Amazonka.WellArchitected.Types.LensSummary.LensSummary
+instance GHC.Read.Read Amazonka.WellArchitected.Types.LensSummary.LensSummary
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.LensSummary.LensSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.LensSummary.LensSummary
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.LensSummary.LensSummary
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.LensSummary.LensSummary
 
 
-module Network.AWS.WellArchitected.Types.LensUpgradeSummary
+module Amazonka.WellArchitected.Types.LensUpgradeSummary
 
 -- | Lens upgrade summary return object.
 --   
@@ -519,43 +519,43 @@ lensUpgradeSummary_workloadId :: Lens' LensUpgradeSummary (Maybe Text)
 
 -- | Undocumented member.
 lensUpgradeSummary_workloadName :: Lens' LensUpgradeSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.LensUpgradeSummary.LensUpgradeSummary
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.LensUpgradeSummary.LensUpgradeSummary
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.LensUpgradeSummary.LensUpgradeSummary
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.LensUpgradeSummary.LensUpgradeSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.LensUpgradeSummary.LensUpgradeSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.LensUpgradeSummary.LensUpgradeSummary
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.LensUpgradeSummary.LensUpgradeSummary
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.LensUpgradeSummary.LensUpgradeSummary
+instance GHC.Show.Show Amazonka.WellArchitected.Types.LensUpgradeSummary.LensUpgradeSummary
+instance GHC.Read.Read Amazonka.WellArchitected.Types.LensUpgradeSummary.LensUpgradeSummary
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.LensUpgradeSummary.LensUpgradeSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.LensUpgradeSummary.LensUpgradeSummary
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.LensUpgradeSummary.LensUpgradeSummary
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.LensUpgradeSummary.LensUpgradeSummary
 
 
-module Network.AWS.WellArchitected.Types.NotificationType
+module Amazonka.WellArchitected.Types.NotificationType
 newtype NotificationType
 NotificationType' :: Text -> NotificationType
 [fromNotificationType] :: NotificationType -> Text
 pattern NotificationType_LENS_VERSION_DEPRECATED :: NotificationType
 pattern NotificationType_LENS_VERSION_UPGRADED :: NotificationType
-instance Network.AWS.Data.XML.ToXML Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance Network.AWS.Data.XML.FromXML Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance Network.AWS.Data.Log.ToLog Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance Network.AWS.Data.Text.ToText Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance Network.AWS.Data.Text.FromText Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance GHC.Classes.Ord Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.NotificationType.NotificationType
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.NotificationType.NotificationType
+instance Amazonka.Data.XML.ToXML Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance Amazonka.Data.XML.FromXML Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance Amazonka.Data.Headers.ToHeader Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance Amazonka.Data.Log.ToLog Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance Amazonka.Data.Text.ToText Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance Amazonka.Data.Text.FromText Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance GHC.Classes.Ord Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance GHC.Read.Read Amazonka.WellArchitected.Types.NotificationType.NotificationType
+instance GHC.Show.Show Amazonka.WellArchitected.Types.NotificationType.NotificationType
 
 
-module Network.AWS.WellArchitected.Types.NotificationSummary
+module Amazonka.WellArchitected.Types.NotificationSummary
 
 -- | A notification summary return object.
 --   
@@ -591,16 +591,16 @@ notificationSummary_lensUpgradeSummary :: Lens' NotificationSummary (Maybe LensU
 
 -- | The type of notification.
 notificationSummary_type :: Lens' NotificationSummary (Maybe NotificationType)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.NotificationSummary.NotificationSummary
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.NotificationSummary.NotificationSummary
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.NotificationSummary.NotificationSummary
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.NotificationSummary.NotificationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.NotificationSummary.NotificationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.NotificationSummary.NotificationSummary
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.NotificationSummary.NotificationSummary
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.NotificationSummary.NotificationSummary
+instance GHC.Show.Show Amazonka.WellArchitected.Types.NotificationSummary.NotificationSummary
+instance GHC.Read.Read Amazonka.WellArchitected.Types.NotificationSummary.NotificationSummary
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.NotificationSummary.NotificationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.NotificationSummary.NotificationSummary
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.NotificationSummary.NotificationSummary
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.NotificationSummary.NotificationSummary
 
 
-module Network.AWS.WellArchitected.Types.PermissionType
+module Amazonka.WellArchitected.Types.PermissionType
 
 -- | Permission granted on a workload share.
 newtype PermissionType
@@ -608,28 +608,28 @@ PermissionType' :: Text -> PermissionType
 [fromPermissionType] :: PermissionType -> Text
 pattern PermissionType_CONTRIBUTOR :: PermissionType
 pattern PermissionType_READONLY :: PermissionType
-instance Network.AWS.Data.XML.ToXML Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance Network.AWS.Data.XML.FromXML Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance Network.AWS.Data.Log.ToLog Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance Network.AWS.Data.Text.ToText Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance Network.AWS.Data.Text.FromText Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance GHC.Classes.Ord Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.PermissionType.PermissionType
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.PermissionType.PermissionType
+instance Amazonka.Data.XML.ToXML Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance Amazonka.Data.XML.FromXML Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance Amazonka.Data.Headers.ToHeader Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance Amazonka.Data.Log.ToLog Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance Amazonka.Data.Text.ToText Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance Amazonka.Data.Text.FromText Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance GHC.Classes.Ord Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance GHC.Read.Read Amazonka.WellArchitected.Types.PermissionType.PermissionType
+instance GHC.Show.Show Amazonka.WellArchitected.Types.PermissionType.PermissionType
 
 
-module Network.AWS.WellArchitected.Types.QuestionDifference
+module Amazonka.WellArchitected.Types.QuestionDifference
 
 -- | A question difference return object.
 --   
@@ -670,16 +670,16 @@ questionDifference_differenceStatus :: Lens' QuestionDifference (Maybe Differenc
 
 -- | Undocumented member.
 questionDifference_questionId :: Lens' QuestionDifference (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.QuestionDifference.QuestionDifference
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.QuestionDifference.QuestionDifference
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.QuestionDifference.QuestionDifference
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.QuestionDifference.QuestionDifference
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.QuestionDifference.QuestionDifference
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.QuestionDifference.QuestionDifference
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.QuestionDifference.QuestionDifference
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.QuestionDifference.QuestionDifference
+instance GHC.Show.Show Amazonka.WellArchitected.Types.QuestionDifference.QuestionDifference
+instance GHC.Read.Read Amazonka.WellArchitected.Types.QuestionDifference.QuestionDifference
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.QuestionDifference.QuestionDifference
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.QuestionDifference.QuestionDifference
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.QuestionDifference.QuestionDifference
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.QuestionDifference.QuestionDifference
 
 
-module Network.AWS.WellArchitected.Types.PillarDifference
+module Amazonka.WellArchitected.Types.PillarDifference
 
 -- | A pillar difference return object.
 --   
@@ -723,16 +723,16 @@ pillarDifference_questionDifferences :: Lens' PillarDifference (Maybe [QuestionD
 
 -- | Indicates the type of change to the pillar.
 pillarDifference_differenceStatus :: Lens' PillarDifference (Maybe DifferenceStatus)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.PillarDifference.PillarDifference
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.PillarDifference.PillarDifference
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.PillarDifference.PillarDifference
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.PillarDifference.PillarDifference
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.PillarDifference.PillarDifference
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.PillarDifference.PillarDifference
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.PillarDifference.PillarDifference
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.PillarDifference.PillarDifference
+instance GHC.Show.Show Amazonka.WellArchitected.Types.PillarDifference.PillarDifference
+instance GHC.Read.Read Amazonka.WellArchitected.Types.PillarDifference.PillarDifference
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.PillarDifference.PillarDifference
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.PillarDifference.PillarDifference
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.PillarDifference.PillarDifference
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.PillarDifference.PillarDifference
 
 
-module Network.AWS.WellArchitected.Types.Risk
+module Amazonka.WellArchitected.Types.Risk
 
 -- | The risk for a given workload, lens review, pillar, or question.
 newtype Risk
@@ -743,28 +743,28 @@ pattern Risk_MEDIUM :: Risk
 pattern Risk_NONE :: Risk
 pattern Risk_NOT_APPLICABLE :: Risk
 pattern Risk_UNANSWERED :: Risk
-instance Network.AWS.Data.XML.ToXML Network.AWS.WellArchitected.Types.Risk.Risk
-instance Network.AWS.Data.XML.FromXML Network.AWS.WellArchitected.Types.Risk.Risk
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WellArchitected.Types.Risk.Risk
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.Types.Risk.Risk
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WellArchitected.Types.Risk.Risk
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.Risk.Risk
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.Types.Risk.Risk
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WellArchitected.Types.Risk.Risk
-instance Network.AWS.Data.Log.ToLog Network.AWS.WellArchitected.Types.Risk.Risk
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WellArchitected.Types.Risk.Risk
-instance Network.AWS.Data.Text.ToText Network.AWS.WellArchitected.Types.Risk.Risk
-instance Network.AWS.Data.Text.FromText Network.AWS.WellArchitected.Types.Risk.Risk
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.Risk.Risk
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.Risk.Risk
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.Risk.Risk
-instance GHC.Classes.Ord Network.AWS.WellArchitected.Types.Risk.Risk
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.Risk.Risk
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.Risk.Risk
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.Risk.Risk
+instance Amazonka.Data.XML.ToXML Amazonka.WellArchitected.Types.Risk.Risk
+instance Amazonka.Data.XML.FromXML Amazonka.WellArchitected.Types.Risk.Risk
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WellArchitected.Types.Risk.Risk
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.Types.Risk.Risk
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WellArchitected.Types.Risk.Risk
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.Risk.Risk
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.Types.Risk.Risk
+instance Amazonka.Data.Headers.ToHeader Amazonka.WellArchitected.Types.Risk.Risk
+instance Amazonka.Data.Log.ToLog Amazonka.WellArchitected.Types.Risk.Risk
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WellArchitected.Types.Risk.Risk
+instance Amazonka.Data.Text.ToText Amazonka.WellArchitected.Types.Risk.Risk
+instance Amazonka.Data.Text.FromText Amazonka.WellArchitected.Types.Risk.Risk
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.Risk.Risk
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.Risk.Risk
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.Risk.Risk
+instance GHC.Classes.Ord Amazonka.WellArchitected.Types.Risk.Risk
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.Risk.Risk
+instance GHC.Read.Read Amazonka.WellArchitected.Types.Risk.Risk
+instance GHC.Show.Show Amazonka.WellArchitected.Types.Risk.Risk
 
 
-module Network.AWS.WellArchitected.Types.PillarReviewSummary
+module Amazonka.WellArchitected.Types.PillarReviewSummary
 
 -- | A pillar review summary of a lens review.
 --   
@@ -809,16 +809,16 @@ pillarReviewSummary_riskCounts :: Lens' PillarReviewSummary (Maybe (HashMap Risk
 
 -- | Undocumented member.
 pillarReviewSummary_notes :: Lens' PillarReviewSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.PillarReviewSummary.PillarReviewSummary
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.PillarReviewSummary.PillarReviewSummary
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.PillarReviewSummary.PillarReviewSummary
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.PillarReviewSummary.PillarReviewSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.PillarReviewSummary.PillarReviewSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.PillarReviewSummary.PillarReviewSummary
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.PillarReviewSummary.PillarReviewSummary
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.PillarReviewSummary.PillarReviewSummary
+instance GHC.Show.Show Amazonka.WellArchitected.Types.PillarReviewSummary.PillarReviewSummary
+instance GHC.Read.Read Amazonka.WellArchitected.Types.PillarReviewSummary.PillarReviewSummary
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.PillarReviewSummary.PillarReviewSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.PillarReviewSummary.PillarReviewSummary
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.PillarReviewSummary.PillarReviewSummary
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.PillarReviewSummary.PillarReviewSummary
 
 
-module Network.AWS.WellArchitected.Types.LensReviewSummary
+module Amazonka.WellArchitected.Types.LensReviewSummary
 
 -- | A lens review summary of a workload.
 --   
@@ -881,16 +881,16 @@ lensReviewSummary_lensStatus :: Lens' LensReviewSummary (Maybe LensStatus)
 
 -- | The version of the lens.
 lensReviewSummary_lensVersion :: Lens' LensReviewSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.LensReviewSummary.LensReviewSummary
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.LensReviewSummary.LensReviewSummary
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.LensReviewSummary.LensReviewSummary
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.LensReviewSummary.LensReviewSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.LensReviewSummary.LensReviewSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.LensReviewSummary.LensReviewSummary
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.LensReviewSummary.LensReviewSummary
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.LensReviewSummary.LensReviewSummary
+instance GHC.Show.Show Amazonka.WellArchitected.Types.LensReviewSummary.LensReviewSummary
+instance GHC.Read.Read Amazonka.WellArchitected.Types.LensReviewSummary.LensReviewSummary
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.LensReviewSummary.LensReviewSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.LensReviewSummary.LensReviewSummary
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.LensReviewSummary.LensReviewSummary
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.LensReviewSummary.LensReviewSummary
 
 
-module Network.AWS.WellArchitected.Types.LensReview
+module Amazonka.WellArchitected.Types.LensReview
 
 -- | A lens review of a question.
 --   
@@ -973,16 +973,16 @@ lensReview_notes :: Lens' LensReview (Maybe Text)
 
 -- | The version of the lens.
 lensReview_lensVersion :: Lens' LensReview (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.LensReview.LensReview
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.LensReview.LensReview
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.LensReview.LensReview
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.LensReview.LensReview
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.LensReview.LensReview
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.LensReview.LensReview
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.LensReview.LensReview
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.LensReview.LensReview
+instance GHC.Show.Show Amazonka.WellArchitected.Types.LensReview.LensReview
+instance GHC.Read.Read Amazonka.WellArchitected.Types.LensReview.LensReview
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.LensReview.LensReview
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.LensReview.LensReview
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.LensReview.LensReview
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.LensReview.LensReview
 
 
-module Network.AWS.WellArchitected.Types.ImprovementSummary
+module Amazonka.WellArchitected.Types.ImprovementSummary
 
 -- | An improvement summary of a lens review in a workload.
 --   
@@ -1034,16 +1034,16 @@ improvementSummary_questionTitle :: Lens' ImprovementSummary (Maybe Text)
 
 -- | Undocumented member.
 improvementSummary_questionId :: Lens' ImprovementSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.ImprovementSummary.ImprovementSummary
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.ImprovementSummary.ImprovementSummary
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.ImprovementSummary.ImprovementSummary
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.ImprovementSummary.ImprovementSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.ImprovementSummary.ImprovementSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.ImprovementSummary.ImprovementSummary
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.ImprovementSummary.ImprovementSummary
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.ImprovementSummary.ImprovementSummary
+instance GHC.Show.Show Amazonka.WellArchitected.Types.ImprovementSummary.ImprovementSummary
+instance GHC.Read.Read Amazonka.WellArchitected.Types.ImprovementSummary.ImprovementSummary
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.ImprovementSummary.ImprovementSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.ImprovementSummary.ImprovementSummary
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.ImprovementSummary.ImprovementSummary
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.ImprovementSummary.ImprovementSummary
 
 
-module Network.AWS.WellArchitected.Types.AnswerSummary
+module Amazonka.WellArchitected.Types.AnswerSummary
 
 -- | An answer summary of a lens review in a workload.
 --   
@@ -1130,16 +1130,16 @@ answerSummary_choices :: Lens' AnswerSummary (Maybe [Choice])
 
 -- | Undocumented member.
 answerSummary_questionId :: Lens' AnswerSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.AnswerSummary.AnswerSummary
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.AnswerSummary.AnswerSummary
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.AnswerSummary.AnswerSummary
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.AnswerSummary.AnswerSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.AnswerSummary.AnswerSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.AnswerSummary.AnswerSummary
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.AnswerSummary.AnswerSummary
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.AnswerSummary.AnswerSummary
+instance GHC.Show.Show Amazonka.WellArchitected.Types.AnswerSummary.AnswerSummary
+instance GHC.Read.Read Amazonka.WellArchitected.Types.AnswerSummary.AnswerSummary
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.AnswerSummary.AnswerSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.AnswerSummary.AnswerSummary
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.AnswerSummary.AnswerSummary
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.AnswerSummary.AnswerSummary
 
 
-module Network.AWS.WellArchitected.Types.Answer
+module Amazonka.WellArchitected.Types.Answer
 
 -- | An answer of the question.
 --   
@@ -1248,16 +1248,16 @@ answer_questionId :: Lens' Answer (Maybe Text)
 
 -- | Undocumented member.
 answer_notes :: Lens' Answer (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.Answer.Answer
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.Answer.Answer
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.Answer.Answer
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.Answer.Answer
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.Answer.Answer
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.Answer.Answer
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.Answer.Answer
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.Answer.Answer
+instance GHC.Show.Show Amazonka.WellArchitected.Types.Answer.Answer
+instance GHC.Read.Read Amazonka.WellArchitected.Types.Answer.Answer
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.Answer.Answer
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.Answer.Answer
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.Answer.Answer
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.Answer.Answer
 
 
-module Network.AWS.WellArchitected.Types.ShareInvitation
+module Amazonka.WellArchitected.Types.ShareInvitation
 
 -- | The share invitation.
 --   
@@ -1291,16 +1291,16 @@ shareInvitation_workloadId :: Lens' ShareInvitation (Maybe Text)
 
 -- | The ID assigned to the share invitation.
 shareInvitation_shareInvitationId :: Lens' ShareInvitation (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.ShareInvitation.ShareInvitation
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.ShareInvitation.ShareInvitation
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.ShareInvitation.ShareInvitation
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.ShareInvitation.ShareInvitation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.ShareInvitation.ShareInvitation
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.ShareInvitation.ShareInvitation
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.ShareInvitation.ShareInvitation
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.ShareInvitation.ShareInvitation
+instance GHC.Show.Show Amazonka.WellArchitected.Types.ShareInvitation.ShareInvitation
+instance GHC.Read.Read Amazonka.WellArchitected.Types.ShareInvitation.ShareInvitation
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.ShareInvitation.ShareInvitation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.ShareInvitation.ShareInvitation
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.ShareInvitation.ShareInvitation
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.ShareInvitation.ShareInvitation
 
 
-module Network.AWS.WellArchitected.Types.ShareInvitationAction
+module Amazonka.WellArchitected.Types.ShareInvitationAction
 
 -- | Share invitation action taken by contributor.
 newtype ShareInvitationAction
@@ -1308,28 +1308,28 @@ ShareInvitationAction' :: Text -> ShareInvitationAction
 [fromShareInvitationAction] :: ShareInvitationAction -> Text
 pattern ShareInvitationAction_ACCEPT :: ShareInvitationAction
 pattern ShareInvitationAction_REJECT :: ShareInvitationAction
-instance Network.AWS.Data.XML.ToXML Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance Network.AWS.Data.XML.FromXML Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance Network.AWS.Data.Log.ToLog Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance Network.AWS.Data.Text.ToText Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance Network.AWS.Data.Text.FromText Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance GHC.Classes.Ord Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance Amazonka.Data.XML.ToXML Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance Amazonka.Data.XML.FromXML Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance Amazonka.Data.Headers.ToHeader Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance Amazonka.Data.Log.ToLog Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance Amazonka.Data.Text.ToText Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance Amazonka.Data.Text.FromText Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance GHC.Classes.Ord Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance GHC.Read.Read Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
+instance GHC.Show.Show Amazonka.WellArchitected.Types.ShareInvitationAction.ShareInvitationAction
 
 
-module Network.AWS.WellArchitected.Types.ShareInvitationSummary
+module Amazonka.WellArchitected.Types.ShareInvitationSummary
 
 -- | A share invitation summary return object.
 --   
@@ -1391,16 +1391,16 @@ shareInvitationSummary_workloadName :: Lens' ShareInvitationSummary (Maybe Text)
 
 -- | The ID assigned to the share invitation.
 shareInvitationSummary_shareInvitationId :: Lens' ShareInvitationSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.ShareInvitationSummary.ShareInvitationSummary
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.ShareInvitationSummary.ShareInvitationSummary
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.ShareInvitationSummary.ShareInvitationSummary
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.ShareInvitationSummary.ShareInvitationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.ShareInvitationSummary.ShareInvitationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.ShareInvitationSummary.ShareInvitationSummary
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.ShareInvitationSummary.ShareInvitationSummary
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.ShareInvitationSummary.ShareInvitationSummary
+instance GHC.Show.Show Amazonka.WellArchitected.Types.ShareInvitationSummary.ShareInvitationSummary
+instance GHC.Read.Read Amazonka.WellArchitected.Types.ShareInvitationSummary.ShareInvitationSummary
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.ShareInvitationSummary.ShareInvitationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.ShareInvitationSummary.ShareInvitationSummary
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.ShareInvitationSummary.ShareInvitationSummary
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.ShareInvitationSummary.ShareInvitationSummary
 
 
-module Network.AWS.WellArchitected.Types.ShareStatus
+module Amazonka.WellArchitected.Types.ShareStatus
 
 -- | The status of a workload share.
 newtype ShareStatus
@@ -1411,28 +1411,28 @@ pattern ShareStatus_EXPIRED :: ShareStatus
 pattern ShareStatus_PENDING :: ShareStatus
 pattern ShareStatus_REJECTED :: ShareStatus
 pattern ShareStatus_REVOKED :: ShareStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance GHC.Classes.Ord Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.ShareStatus.ShareStatus
+instance Amazonka.Data.XML.ToXML Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance Amazonka.Data.XML.FromXML Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance Amazonka.Data.Log.ToLog Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance Amazonka.Data.Text.ToText Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance Amazonka.Data.Text.FromText Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance GHC.Classes.Ord Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance GHC.Read.Read Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
+instance GHC.Show.Show Amazonka.WellArchitected.Types.ShareStatus.ShareStatus
 
 
-module Network.AWS.WellArchitected.Types.VersionDifferences
+module Amazonka.WellArchitected.Types.VersionDifferences
 
 -- | The differences between the base and latest versions of the lens.
 --   
@@ -1459,16 +1459,16 @@ newVersionDifferences :: VersionDifferences
 
 -- | The differences between the base and latest versions of the lens.
 versionDifferences_pillarDifferences :: Lens' VersionDifferences (Maybe [PillarDifference])
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.VersionDifferences.VersionDifferences
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.VersionDifferences.VersionDifferences
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.VersionDifferences.VersionDifferences
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.VersionDifferences.VersionDifferences
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.VersionDifferences.VersionDifferences
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.VersionDifferences.VersionDifferences
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.VersionDifferences.VersionDifferences
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.VersionDifferences.VersionDifferences
+instance GHC.Show.Show Amazonka.WellArchitected.Types.VersionDifferences.VersionDifferences
+instance GHC.Read.Read Amazonka.WellArchitected.Types.VersionDifferences.VersionDifferences
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.VersionDifferences.VersionDifferences
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.VersionDifferences.VersionDifferences
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.VersionDifferences.VersionDifferences
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.VersionDifferences.VersionDifferences
 
 
-module Network.AWS.WellArchitected.Types.WorkloadEnvironment
+module Amazonka.WellArchitected.Types.WorkloadEnvironment
 
 -- | The environment for the workload.
 newtype WorkloadEnvironment
@@ -1476,28 +1476,28 @@ WorkloadEnvironment' :: Text -> WorkloadEnvironment
 [fromWorkloadEnvironment] :: WorkloadEnvironment -> Text
 pattern WorkloadEnvironment_PREPRODUCTION :: WorkloadEnvironment
 pattern WorkloadEnvironment_PRODUCTION :: WorkloadEnvironment
-instance Network.AWS.Data.XML.ToXML Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance Network.AWS.Data.XML.FromXML Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance Network.AWS.Data.Log.ToLog Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance Network.AWS.Data.Text.ToText Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance Network.AWS.Data.Text.FromText Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance GHC.Classes.Ord Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance Amazonka.Data.XML.ToXML Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance Amazonka.Data.XML.FromXML Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance Amazonka.Data.Headers.ToHeader Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance Amazonka.Data.Log.ToLog Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance Amazonka.Data.Text.ToText Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance Amazonka.Data.Text.FromText Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance GHC.Classes.Ord Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance GHC.Read.Read Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
+instance GHC.Show.Show Amazonka.WellArchitected.Types.WorkloadEnvironment.WorkloadEnvironment
 
 
-module Network.AWS.WellArchitected.Types.WorkloadImprovementStatus
+module Amazonka.WellArchitected.Types.WorkloadImprovementStatus
 
 -- | The improvement status for a workload.
 newtype WorkloadImprovementStatus
@@ -1508,28 +1508,28 @@ pattern WorkloadImprovementStatus_IN_PROGRESS :: WorkloadImprovementStatus
 pattern WorkloadImprovementStatus_NOT_APPLICABLE :: WorkloadImprovementStatus
 pattern WorkloadImprovementStatus_NOT_STARTED :: WorkloadImprovementStatus
 pattern WorkloadImprovementStatus_RISK_ACKNOWLEDGED :: WorkloadImprovementStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance GHC.Classes.Ord Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance Amazonka.Data.XML.ToXML Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance Amazonka.Data.XML.FromXML Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance Amazonka.Data.Log.ToLog Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance Amazonka.Data.Text.ToText Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance Amazonka.Data.Text.FromText Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance GHC.Classes.Ord Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance GHC.Read.Read Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
+instance GHC.Show.Show Amazonka.WellArchitected.Types.WorkloadImprovementStatus.WorkloadImprovementStatus
 
 
-module Network.AWS.WellArchitected.Types.Workload
+module Amazonka.WellArchitected.Types.Workload
 
 -- | A workload return object.
 --   
@@ -1729,16 +1729,16 @@ workload_nonAwsRegions :: Lens' Workload (Maybe [Text])
 
 -- | The tags associated with the workload.
 workload_tags :: Lens' Workload (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.Workload.Workload
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.Workload.Workload
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.Workload.Workload
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.Workload.Workload
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.Workload.Workload
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.Workload.Workload
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.Workload.Workload
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.Workload.Workload
+instance GHC.Show.Show Amazonka.WellArchitected.Types.Workload.Workload
+instance GHC.Read.Read Amazonka.WellArchitected.Types.Workload.Workload
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.Workload.Workload
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.Workload.Workload
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.Workload.Workload
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.Workload.Workload
 
 
-module Network.AWS.WellArchitected.Types.Milestone
+module Amazonka.WellArchitected.Types.Milestone
 
 -- | A milestone return object.
 --   
@@ -1782,16 +1782,16 @@ milestone_milestoneName :: Lens' Milestone (Maybe Text)
 
 -- | Undocumented member.
 milestone_recordedAt :: Lens' Milestone (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.Milestone.Milestone
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.Milestone.Milestone
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.Milestone.Milestone
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.Milestone.Milestone
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.Milestone.Milestone
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.Milestone.Milestone
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.Milestone.Milestone
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.Milestone.Milestone
+instance GHC.Show.Show Amazonka.WellArchitected.Types.Milestone.Milestone
+instance GHC.Read.Read Amazonka.WellArchitected.Types.Milestone.Milestone
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.Milestone.Milestone
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.Milestone.Milestone
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.Milestone.Milestone
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.Milestone.Milestone
 
 
-module Network.AWS.WellArchitected.Types.WorkloadShare
+module Amazonka.WellArchitected.Types.WorkloadShare
 
 -- | A workload share return object.
 --   
@@ -1857,16 +1857,16 @@ workloadShare_workloadName :: Lens' WorkloadShare (Maybe Text)
 
 -- | Undocumented member.
 workloadShare_shareId :: Lens' WorkloadShare (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.WorkloadShare.WorkloadShare
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.WorkloadShare.WorkloadShare
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.WorkloadShare.WorkloadShare
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.WorkloadShare.WorkloadShare
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.WorkloadShare.WorkloadShare
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.WorkloadShare.WorkloadShare
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.WorkloadShare.WorkloadShare
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.WorkloadShare.WorkloadShare
+instance GHC.Show.Show Amazonka.WellArchitected.Types.WorkloadShare.WorkloadShare
+instance GHC.Read.Read Amazonka.WellArchitected.Types.WorkloadShare.WorkloadShare
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.WorkloadShare.WorkloadShare
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.WorkloadShare.WorkloadShare
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.WorkloadShare.WorkloadShare
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.WorkloadShare.WorkloadShare
 
 
-module Network.AWS.WellArchitected.Types.WorkloadShareSummary
+module Amazonka.WellArchitected.Types.WorkloadShareSummary
 
 -- | A workload share summary return object.
 --   
@@ -1911,16 +1911,16 @@ workloadShareSummary_permissionType :: Lens' WorkloadShareSummary (Maybe Permiss
 
 -- | Undocumented member.
 workloadShareSummary_shareId :: Lens' WorkloadShareSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.WorkloadShareSummary.WorkloadShareSummary
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.WorkloadShareSummary.WorkloadShareSummary
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.WorkloadShareSummary.WorkloadShareSummary
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.WorkloadShareSummary.WorkloadShareSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.WorkloadShareSummary.WorkloadShareSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.WorkloadShareSummary.WorkloadShareSummary
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.WorkloadShareSummary.WorkloadShareSummary
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.WorkloadShareSummary.WorkloadShareSummary
+instance GHC.Show.Show Amazonka.WellArchitected.Types.WorkloadShareSummary.WorkloadShareSummary
+instance GHC.Read.Read Amazonka.WellArchitected.Types.WorkloadShareSummary.WorkloadShareSummary
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.WorkloadShareSummary.WorkloadShareSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.WorkloadShareSummary.WorkloadShareSummary
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.WorkloadShareSummary.WorkloadShareSummary
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.WorkloadShareSummary.WorkloadShareSummary
 
 
-module Network.AWS.WellArchitected.Types.WorkloadSummary
+module Amazonka.WellArchitected.Types.WorkloadSummary
 
 -- | A workload summary return object.
 --   
@@ -1993,16 +1993,16 @@ workloadSummary_workloadName :: Lens' WorkloadSummary (Maybe Text)
 
 -- | Undocumented member.
 workloadSummary_updatedAt :: Lens' WorkloadSummary (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.WorkloadSummary.WorkloadSummary
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.WorkloadSummary.WorkloadSummary
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.WorkloadSummary.WorkloadSummary
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.WorkloadSummary.WorkloadSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.WorkloadSummary.WorkloadSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.WorkloadSummary.WorkloadSummary
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.WorkloadSummary.WorkloadSummary
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.WorkloadSummary.WorkloadSummary
+instance GHC.Show.Show Amazonka.WellArchitected.Types.WorkloadSummary.WorkloadSummary
+instance GHC.Read.Read Amazonka.WellArchitected.Types.WorkloadSummary.WorkloadSummary
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.WorkloadSummary.WorkloadSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.WorkloadSummary.WorkloadSummary
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.WorkloadSummary.WorkloadSummary
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.WorkloadSummary.WorkloadSummary
 
 
-module Network.AWS.WellArchitected.Types.MilestoneSummary
+module Amazonka.WellArchitected.Types.MilestoneSummary
 
 -- | A milestone summary return object.
 --   
@@ -2047,16 +2047,16 @@ milestoneSummary_recordedAt :: Lens' MilestoneSummary (Maybe UTCTime)
 
 -- | Undocumented member.
 milestoneSummary_workloadSummary :: Lens' MilestoneSummary (Maybe WorkloadSummary)
-instance GHC.Generics.Generic Network.AWS.WellArchitected.Types.MilestoneSummary.MilestoneSummary
-instance GHC.Show.Show Network.AWS.WellArchitected.Types.MilestoneSummary.MilestoneSummary
-instance GHC.Read.Read Network.AWS.WellArchitected.Types.MilestoneSummary.MilestoneSummary
-instance GHC.Classes.Eq Network.AWS.WellArchitected.Types.MilestoneSummary.MilestoneSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.WellArchitected.Types.MilestoneSummary.MilestoneSummary
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.Types.MilestoneSummary.MilestoneSummary
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.Types.MilestoneSummary.MilestoneSummary
+instance GHC.Generics.Generic Amazonka.WellArchitected.Types.MilestoneSummary.MilestoneSummary
+instance GHC.Show.Show Amazonka.WellArchitected.Types.MilestoneSummary.MilestoneSummary
+instance GHC.Read.Read Amazonka.WellArchitected.Types.MilestoneSummary.MilestoneSummary
+instance GHC.Classes.Eq Amazonka.WellArchitected.Types.MilestoneSummary.MilestoneSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.WellArchitected.Types.MilestoneSummary.MilestoneSummary
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.Types.MilestoneSummary.MilestoneSummary
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.Types.MilestoneSummary.MilestoneSummary
 
 
-module Network.AWS.WellArchitected.Types
+module Amazonka.WellArchitected.Types
 
 -- | API version <tt>2020-03-31</tt> of the Amazon Well-Architected Tool
 --   SDK configuration.
@@ -3622,7 +3622,7 @@ workloadSummary_updatedAt :: Lens' WorkloadSummary (Maybe UTCTime)
 
 
 -- | Adds one or more tags to the specified resource.
-module Network.AWS.WellArchitected.TagResource
+module Amazonka.WellArchitected.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -3676,26 +3676,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.WellArchitected.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.WellArchitected.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.WellArchitected.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.WellArchitected.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.WellArchitected.TagResource.TagResource
+instance GHC.Show.Show Amazonka.WellArchitected.TagResource.TagResource
+instance GHC.Read.Read Amazonka.WellArchitected.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.WellArchitected.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.WellArchitected.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.WellArchitected.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.WellArchitected.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.TagResource.TagResource
 
 
 -- | List workloads. Paginated.
-module Network.AWS.WellArchitected.ListWorkloads
+module Amazonka.WellArchitected.ListWorkloads
 
 -- | Input to list all workloads.
 --   
@@ -3775,26 +3775,26 @@ listWorkloadsResponse_nextToken :: Lens' ListWorkloadsResponse (Maybe Text)
 
 -- | The response's http status code.
 listWorkloadsResponse_httpStatus :: Lens' ListWorkloadsResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListWorkloads.ListWorkloads
-instance GHC.Show.Show Network.AWS.WellArchitected.ListWorkloads.ListWorkloads
-instance GHC.Read.Read Network.AWS.WellArchitected.ListWorkloads.ListWorkloads
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListWorkloads.ListWorkloads
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListWorkloads.ListWorkloadsResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.ListWorkloads.ListWorkloadsResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.ListWorkloads.ListWorkloadsResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListWorkloads.ListWorkloadsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.ListWorkloads.ListWorkloads
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListWorkloads.ListWorkloadsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.ListWorkloads.ListWorkloads
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListWorkloads.ListWorkloads
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.ListWorkloads.ListWorkloads
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.ListWorkloads.ListWorkloads
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.ListWorkloads.ListWorkloads
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.ListWorkloads.ListWorkloads
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListWorkloads.ListWorkloads
+instance GHC.Show.Show Amazonka.WellArchitected.ListWorkloads.ListWorkloads
+instance GHC.Read.Read Amazonka.WellArchitected.ListWorkloads.ListWorkloads
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListWorkloads.ListWorkloads
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListWorkloads.ListWorkloadsResponse
+instance GHC.Show.Show Amazonka.WellArchitected.ListWorkloads.ListWorkloadsResponse
+instance GHC.Read.Read Amazonka.WellArchitected.ListWorkloads.ListWorkloadsResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListWorkloads.ListWorkloadsResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.ListWorkloads.ListWorkloads
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListWorkloads.ListWorkloadsResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.ListWorkloads.ListWorkloads
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListWorkloads.ListWorkloads
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.ListWorkloads.ListWorkloads
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.ListWorkloads.ListWorkloads
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.ListWorkloads.ListWorkloads
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.ListWorkloads.ListWorkloads
 
 
 -- | List the workload shares associated with the workload.
-module Network.AWS.WellArchitected.ListWorkloadShares
+module Amazonka.WellArchitected.ListWorkloadShares
 
 -- | Input for List Workload Share
 --   
@@ -3893,25 +3893,25 @@ listWorkloadSharesResponse_workloadId :: Lens' ListWorkloadSharesResponse (Maybe
 
 -- | The response's http status code.
 listWorkloadSharesResponse_httpStatus :: Lens' ListWorkloadSharesResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListWorkloadShares.ListWorkloadShares
-instance GHC.Show.Show Network.AWS.WellArchitected.ListWorkloadShares.ListWorkloadShares
-instance GHC.Read.Read Network.AWS.WellArchitected.ListWorkloadShares.ListWorkloadShares
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListWorkloadShares.ListWorkloadShares
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListWorkloadShares.ListWorkloadSharesResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.ListWorkloadShares.ListWorkloadSharesResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.ListWorkloadShares.ListWorkloadSharesResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListWorkloadShares.ListWorkloadSharesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.ListWorkloadShares.ListWorkloadShares
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListWorkloadShares.ListWorkloadSharesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.ListWorkloadShares.ListWorkloadShares
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListWorkloadShares.ListWorkloadShares
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.ListWorkloadShares.ListWorkloadShares
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.ListWorkloadShares.ListWorkloadShares
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.ListWorkloadShares.ListWorkloadShares
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListWorkloadShares.ListWorkloadShares
+instance GHC.Show.Show Amazonka.WellArchitected.ListWorkloadShares.ListWorkloadShares
+instance GHC.Read.Read Amazonka.WellArchitected.ListWorkloadShares.ListWorkloadShares
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListWorkloadShares.ListWorkloadShares
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListWorkloadShares.ListWorkloadSharesResponse
+instance GHC.Show.Show Amazonka.WellArchitected.ListWorkloadShares.ListWorkloadSharesResponse
+instance GHC.Read.Read Amazonka.WellArchitected.ListWorkloadShares.ListWorkloadSharesResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListWorkloadShares.ListWorkloadSharesResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.ListWorkloadShares.ListWorkloadShares
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListWorkloadShares.ListWorkloadSharesResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.ListWorkloadShares.ListWorkloadShares
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListWorkloadShares.ListWorkloadShares
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.ListWorkloadShares.ListWorkloadShares
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.ListWorkloadShares.ListWorkloadShares
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.ListWorkloadShares.ListWorkloadShares
 
 
 -- | List the tags for a resource.
-module Network.AWS.WellArchitected.ListTagsForResource
+module Amazonka.WellArchitected.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -3966,25 +3966,25 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.WellArchitected.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.WellArchitected.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.WellArchitected.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.WellArchitected.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.WellArchitected.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.WellArchitected.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.ListTagsForResource.ListTagsForResource
 
 
 -- | List the workload invitations.
-module Network.AWS.WellArchitected.ListShareInvitations
+module Amazonka.WellArchitected.ListShareInvitations
 
 -- | Input for List Share Invitations
 --   
@@ -4068,25 +4068,25 @@ listShareInvitationsResponse_nextToken :: Lens' ListShareInvitationsResponse (Ma
 
 -- | The response's http status code.
 listShareInvitationsResponse_httpStatus :: Lens' ListShareInvitationsResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListShareInvitations.ListShareInvitations
-instance GHC.Show.Show Network.AWS.WellArchitected.ListShareInvitations.ListShareInvitations
-instance GHC.Read.Read Network.AWS.WellArchitected.ListShareInvitations.ListShareInvitations
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListShareInvitations.ListShareInvitations
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListShareInvitations.ListShareInvitationsResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.ListShareInvitations.ListShareInvitationsResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.ListShareInvitations.ListShareInvitationsResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListShareInvitations.ListShareInvitationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.ListShareInvitations.ListShareInvitations
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListShareInvitations.ListShareInvitationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.ListShareInvitations.ListShareInvitations
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListShareInvitations.ListShareInvitations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.ListShareInvitations.ListShareInvitations
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.ListShareInvitations.ListShareInvitations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.ListShareInvitations.ListShareInvitations
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListShareInvitations.ListShareInvitations
+instance GHC.Show.Show Amazonka.WellArchitected.ListShareInvitations.ListShareInvitations
+instance GHC.Read.Read Amazonka.WellArchitected.ListShareInvitations.ListShareInvitations
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListShareInvitations.ListShareInvitations
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListShareInvitations.ListShareInvitationsResponse
+instance GHC.Show.Show Amazonka.WellArchitected.ListShareInvitations.ListShareInvitationsResponse
+instance GHC.Read.Read Amazonka.WellArchitected.ListShareInvitations.ListShareInvitationsResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListShareInvitations.ListShareInvitationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.ListShareInvitations.ListShareInvitations
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListShareInvitations.ListShareInvitationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.ListShareInvitations.ListShareInvitations
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListShareInvitations.ListShareInvitations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.ListShareInvitations.ListShareInvitations
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.ListShareInvitations.ListShareInvitations
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.ListShareInvitations.ListShareInvitations
 
 
 -- | List lens notifications.
-module Network.AWS.WellArchitected.ListNotifications
+module Amazonka.WellArchitected.ListNotifications
 
 -- | <i>See:</i> <a>newListNotifications</a> smart constructor.
 data ListNotifications
@@ -4166,26 +4166,26 @@ listNotificationsResponse_nextToken :: Lens' ListNotificationsResponse (Maybe Te
 
 -- | The response's http status code.
 listNotificationsResponse_httpStatus :: Lens' ListNotificationsResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListNotifications.ListNotifications
-instance GHC.Show.Show Network.AWS.WellArchitected.ListNotifications.ListNotifications
-instance GHC.Read.Read Network.AWS.WellArchitected.ListNotifications.ListNotifications
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListNotifications.ListNotifications
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListNotifications.ListNotificationsResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.ListNotifications.ListNotificationsResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.ListNotifications.ListNotificationsResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListNotifications.ListNotificationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.ListNotifications.ListNotifications
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListNotifications.ListNotificationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.ListNotifications.ListNotifications
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListNotifications.ListNotifications
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.ListNotifications.ListNotifications
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.ListNotifications.ListNotifications
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.ListNotifications.ListNotifications
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.ListNotifications.ListNotifications
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListNotifications.ListNotifications
+instance GHC.Show.Show Amazonka.WellArchitected.ListNotifications.ListNotifications
+instance GHC.Read.Read Amazonka.WellArchitected.ListNotifications.ListNotifications
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListNotifications.ListNotifications
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListNotifications.ListNotificationsResponse
+instance GHC.Show.Show Amazonka.WellArchitected.ListNotifications.ListNotificationsResponse
+instance GHC.Read.Read Amazonka.WellArchitected.ListNotifications.ListNotificationsResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListNotifications.ListNotificationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.ListNotifications.ListNotifications
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListNotifications.ListNotificationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.ListNotifications.ListNotifications
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListNotifications.ListNotifications
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.ListNotifications.ListNotifications
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.ListNotifications.ListNotifications
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.ListNotifications.ListNotifications
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.ListNotifications.ListNotifications
 
 
 -- | List all milestones for an existing workload.
-module Network.AWS.WellArchitected.ListMilestones
+module Amazonka.WellArchitected.ListMilestones
 
 -- | Input to list all milestones for a workload.
 --   
@@ -4271,26 +4271,26 @@ listMilestonesResponse_workloadId :: Lens' ListMilestonesResponse (Maybe Text)
 
 -- | The response's http status code.
 listMilestonesResponse_httpStatus :: Lens' ListMilestonesResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListMilestones.ListMilestones
-instance GHC.Show.Show Network.AWS.WellArchitected.ListMilestones.ListMilestones
-instance GHC.Read.Read Network.AWS.WellArchitected.ListMilestones.ListMilestones
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListMilestones.ListMilestones
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListMilestones.ListMilestonesResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.ListMilestones.ListMilestonesResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.ListMilestones.ListMilestonesResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListMilestones.ListMilestonesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.ListMilestones.ListMilestones
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListMilestones.ListMilestonesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.ListMilestones.ListMilestones
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListMilestones.ListMilestones
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.ListMilestones.ListMilestones
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.ListMilestones.ListMilestones
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.ListMilestones.ListMilestones
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.ListMilestones.ListMilestones
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListMilestones.ListMilestones
+instance GHC.Show.Show Amazonka.WellArchitected.ListMilestones.ListMilestones
+instance GHC.Read.Read Amazonka.WellArchitected.ListMilestones.ListMilestones
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListMilestones.ListMilestones
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListMilestones.ListMilestonesResponse
+instance GHC.Show.Show Amazonka.WellArchitected.ListMilestones.ListMilestonesResponse
+instance GHC.Read.Read Amazonka.WellArchitected.ListMilestones.ListMilestonesResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListMilestones.ListMilestonesResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.ListMilestones.ListMilestones
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListMilestones.ListMilestonesResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.ListMilestones.ListMilestones
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListMilestones.ListMilestones
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.ListMilestones.ListMilestones
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.ListMilestones.ListMilestones
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.ListMilestones.ListMilestones
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.ListMilestones.ListMilestones
 
 
 -- | List the available lenses.
-module Network.AWS.WellArchitected.ListLenses
+module Amazonka.WellArchitected.ListLenses
 
 -- | Input to list lenses.
 --   
@@ -4360,25 +4360,25 @@ listLensesResponse_lensSummaries :: Lens' ListLensesResponse (Maybe [LensSummary
 
 -- | The response's http status code.
 listLensesResponse_httpStatus :: Lens' ListLensesResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListLenses.ListLenses
-instance GHC.Show.Show Network.AWS.WellArchitected.ListLenses.ListLenses
-instance GHC.Read.Read Network.AWS.WellArchitected.ListLenses.ListLenses
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListLenses.ListLenses
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListLenses.ListLensesResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.ListLenses.ListLensesResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.ListLenses.ListLensesResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListLenses.ListLensesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.ListLenses.ListLenses
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListLenses.ListLensesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.ListLenses.ListLenses
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListLenses.ListLenses
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.ListLenses.ListLenses
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.ListLenses.ListLenses
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.ListLenses.ListLenses
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListLenses.ListLenses
+instance GHC.Show.Show Amazonka.WellArchitected.ListLenses.ListLenses
+instance GHC.Read.Read Amazonka.WellArchitected.ListLenses.ListLenses
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListLenses.ListLenses
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListLenses.ListLensesResponse
+instance GHC.Show.Show Amazonka.WellArchitected.ListLenses.ListLensesResponse
+instance GHC.Read.Read Amazonka.WellArchitected.ListLenses.ListLensesResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListLenses.ListLensesResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.ListLenses.ListLenses
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListLenses.ListLensesResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.ListLenses.ListLenses
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListLenses.ListLenses
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.ListLenses.ListLenses
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.ListLenses.ListLenses
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.ListLenses.ListLenses
 
 
 -- | List lens reviews.
-module Network.AWS.WellArchitected.ListLensReviews
+module Amazonka.WellArchitected.ListLensReviews
 
 -- | Input to list lens reviews.
 --   
@@ -4478,25 +4478,25 @@ listLensReviewsResponse_workloadId :: Lens' ListLensReviewsResponse (Maybe Text)
 
 -- | The response's http status code.
 listLensReviewsResponse_httpStatus :: Lens' ListLensReviewsResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListLensReviews.ListLensReviews
-instance GHC.Show.Show Network.AWS.WellArchitected.ListLensReviews.ListLensReviews
-instance GHC.Read.Read Network.AWS.WellArchitected.ListLensReviews.ListLensReviews
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListLensReviews.ListLensReviews
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListLensReviews.ListLensReviewsResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.ListLensReviews.ListLensReviewsResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.ListLensReviews.ListLensReviewsResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListLensReviews.ListLensReviewsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.ListLensReviews.ListLensReviews
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListLensReviews.ListLensReviewsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.ListLensReviews.ListLensReviews
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListLensReviews.ListLensReviews
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.ListLensReviews.ListLensReviews
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.ListLensReviews.ListLensReviews
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.ListLensReviews.ListLensReviews
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListLensReviews.ListLensReviews
+instance GHC.Show.Show Amazonka.WellArchitected.ListLensReviews.ListLensReviews
+instance GHC.Read.Read Amazonka.WellArchitected.ListLensReviews.ListLensReviews
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListLensReviews.ListLensReviews
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListLensReviews.ListLensReviewsResponse
+instance GHC.Show.Show Amazonka.WellArchitected.ListLensReviews.ListLensReviewsResponse
+instance GHC.Read.Read Amazonka.WellArchitected.ListLensReviews.ListLensReviewsResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListLensReviews.ListLensReviewsResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.ListLensReviews.ListLensReviews
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListLensReviews.ListLensReviewsResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.ListLensReviews.ListLensReviews
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListLensReviews.ListLensReviews
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.ListLensReviews.ListLensReviews
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.ListLensReviews.ListLensReviews
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.ListLensReviews.ListLensReviews
 
 
 -- | List lens review improvements.
-module Network.AWS.WellArchitected.ListLensReviewImprovements
+module Amazonka.WellArchitected.ListLensReviewImprovements
 
 -- | Input to list lens review improvements.
 --   
@@ -4626,25 +4626,25 @@ listLensReviewImprovementsResponse_workloadId :: Lens' ListLensReviewImprovement
 
 -- | The response's http status code.
 listLensReviewImprovementsResponse_httpStatus :: Lens' ListLensReviewImprovementsResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
-instance GHC.Show.Show Network.AWS.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
-instance GHC.Read.Read Network.AWS.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovementsResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovementsResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovementsResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovementsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovementsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
+instance GHC.Show.Show Amazonka.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
+instance GHC.Read.Read Amazonka.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovementsResponse
+instance GHC.Show.Show Amazonka.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovementsResponse
+instance GHC.Read.Read Amazonka.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovementsResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovementsResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovementsResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.ListLensReviewImprovements.ListLensReviewImprovements
 
 
 -- | List of answers.
-module Network.AWS.WellArchitected.ListAnswers
+module Amazonka.WellArchitected.ListAnswers
 
 -- | Input to list answers.
 --   
@@ -4765,25 +4765,25 @@ listAnswersResponse_answerSummaries :: Lens' ListAnswersResponse (Maybe [AnswerS
 
 -- | The response's http status code.
 listAnswersResponse_httpStatus :: Lens' ListAnswersResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListAnswers.ListAnswers
-instance GHC.Show.Show Network.AWS.WellArchitected.ListAnswers.ListAnswers
-instance GHC.Read.Read Network.AWS.WellArchitected.ListAnswers.ListAnswers
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListAnswers.ListAnswers
-instance GHC.Generics.Generic Network.AWS.WellArchitected.ListAnswers.ListAnswersResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.ListAnswers.ListAnswersResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.ListAnswers.ListAnswersResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.ListAnswers.ListAnswersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.ListAnswers.ListAnswers
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListAnswers.ListAnswersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.ListAnswers.ListAnswers
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.ListAnswers.ListAnswers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.ListAnswers.ListAnswers
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.ListAnswers.ListAnswers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.ListAnswers.ListAnswers
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListAnswers.ListAnswers
+instance GHC.Show.Show Amazonka.WellArchitected.ListAnswers.ListAnswers
+instance GHC.Read.Read Amazonka.WellArchitected.ListAnswers.ListAnswers
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListAnswers.ListAnswers
+instance GHC.Generics.Generic Amazonka.WellArchitected.ListAnswers.ListAnswersResponse
+instance GHC.Show.Show Amazonka.WellArchitected.ListAnswers.ListAnswersResponse
+instance GHC.Read.Read Amazonka.WellArchitected.ListAnswers.ListAnswersResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.ListAnswers.ListAnswersResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.ListAnswers.ListAnswers
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListAnswers.ListAnswersResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.ListAnswers.ListAnswers
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.ListAnswers.ListAnswers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.ListAnswers.ListAnswers
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.ListAnswers.ListAnswers
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.ListAnswers.ListAnswers
 
 
 -- | Get an existing workload.
-module Network.AWS.WellArchitected.GetWorkload
+module Amazonka.WellArchitected.GetWorkload
 
 -- | Input to get a workload.
 --   
@@ -4839,25 +4839,25 @@ getWorkloadResponse_workload :: Lens' GetWorkloadResponse (Maybe Workload)
 
 -- | The response's http status code.
 getWorkloadResponse_httpStatus :: Lens' GetWorkloadResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.GetWorkload.GetWorkload
-instance GHC.Show.Show Network.AWS.WellArchitected.GetWorkload.GetWorkload
-instance GHC.Read.Read Network.AWS.WellArchitected.GetWorkload.GetWorkload
-instance GHC.Classes.Eq Network.AWS.WellArchitected.GetWorkload.GetWorkload
-instance GHC.Generics.Generic Network.AWS.WellArchitected.GetWorkload.GetWorkloadResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.GetWorkload.GetWorkloadResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.GetWorkload.GetWorkloadResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.GetWorkload.GetWorkloadResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.GetWorkload.GetWorkload
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.GetWorkload.GetWorkloadResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.GetWorkload.GetWorkload
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.GetWorkload.GetWorkload
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.GetWorkload.GetWorkload
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.GetWorkload.GetWorkload
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.GetWorkload.GetWorkload
+instance GHC.Generics.Generic Amazonka.WellArchitected.GetWorkload.GetWorkload
+instance GHC.Show.Show Amazonka.WellArchitected.GetWorkload.GetWorkload
+instance GHC.Read.Read Amazonka.WellArchitected.GetWorkload.GetWorkload
+instance GHC.Classes.Eq Amazonka.WellArchitected.GetWorkload.GetWorkload
+instance GHC.Generics.Generic Amazonka.WellArchitected.GetWorkload.GetWorkloadResponse
+instance GHC.Show.Show Amazonka.WellArchitected.GetWorkload.GetWorkloadResponse
+instance GHC.Read.Read Amazonka.WellArchitected.GetWorkload.GetWorkloadResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.GetWorkload.GetWorkloadResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.GetWorkload.GetWorkload
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.GetWorkload.GetWorkloadResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.GetWorkload.GetWorkload
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.GetWorkload.GetWorkload
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.GetWorkload.GetWorkload
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.GetWorkload.GetWorkload
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.GetWorkload.GetWorkload
 
 
 -- | Get a milestone for an existing workload.
-module Network.AWS.WellArchitected.GetMilestone
+module Amazonka.WellArchitected.GetMilestone
 
 -- | Input to get a milestone.
 --   
@@ -4928,25 +4928,25 @@ getMilestoneResponse_workloadId :: Lens' GetMilestoneResponse (Maybe Text)
 
 -- | The response's http status code.
 getMilestoneResponse_httpStatus :: Lens' GetMilestoneResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.GetMilestone.GetMilestone
-instance GHC.Show.Show Network.AWS.WellArchitected.GetMilestone.GetMilestone
-instance GHC.Read.Read Network.AWS.WellArchitected.GetMilestone.GetMilestone
-instance GHC.Classes.Eq Network.AWS.WellArchitected.GetMilestone.GetMilestone
-instance GHC.Generics.Generic Network.AWS.WellArchitected.GetMilestone.GetMilestoneResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.GetMilestone.GetMilestoneResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.GetMilestone.GetMilestoneResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.GetMilestone.GetMilestoneResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.GetMilestone.GetMilestone
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.GetMilestone.GetMilestoneResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.GetMilestone.GetMilestone
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.GetMilestone.GetMilestone
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.GetMilestone.GetMilestone
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.GetMilestone.GetMilestone
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.GetMilestone.GetMilestone
+instance GHC.Generics.Generic Amazonka.WellArchitected.GetMilestone.GetMilestone
+instance GHC.Show.Show Amazonka.WellArchitected.GetMilestone.GetMilestone
+instance GHC.Read.Read Amazonka.WellArchitected.GetMilestone.GetMilestone
+instance GHC.Classes.Eq Amazonka.WellArchitected.GetMilestone.GetMilestone
+instance GHC.Generics.Generic Amazonka.WellArchitected.GetMilestone.GetMilestoneResponse
+instance GHC.Show.Show Amazonka.WellArchitected.GetMilestone.GetMilestoneResponse
+instance GHC.Read.Read Amazonka.WellArchitected.GetMilestone.GetMilestoneResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.GetMilestone.GetMilestoneResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.GetMilestone.GetMilestone
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.GetMilestone.GetMilestoneResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.GetMilestone.GetMilestone
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.GetMilestone.GetMilestone
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.GetMilestone.GetMilestone
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.GetMilestone.GetMilestone
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.GetMilestone.GetMilestone
 
 
 -- | Get lens version differences.
-module Network.AWS.WellArchitected.GetLensVersionDifference
+module Amazonka.WellArchitected.GetLensVersionDifference
 
 -- | <i>See:</i> <a>newGetLensVersionDifference</a> smart constructor.
 data GetLensVersionDifference
@@ -5039,25 +5039,25 @@ getLensVersionDifferenceResponse_versionDifferences :: Lens' GetLensVersionDiffe
 
 -- | The response's http status code.
 getLensVersionDifferenceResponse_httpStatus :: Lens' GetLensVersionDifferenceResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
-instance GHC.Show.Show Network.AWS.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
-instance GHC.Read.Read Network.AWS.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
-instance GHC.Classes.Eq Network.AWS.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
-instance GHC.Generics.Generic Network.AWS.WellArchitected.GetLensVersionDifference.GetLensVersionDifferenceResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.GetLensVersionDifference.GetLensVersionDifferenceResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.GetLensVersionDifference.GetLensVersionDifferenceResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.GetLensVersionDifference.GetLensVersionDifferenceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.GetLensVersionDifference.GetLensVersionDifferenceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
+instance GHC.Generics.Generic Amazonka.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
+instance GHC.Show.Show Amazonka.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
+instance GHC.Read.Read Amazonka.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
+instance GHC.Classes.Eq Amazonka.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
+instance GHC.Generics.Generic Amazonka.WellArchitected.GetLensVersionDifference.GetLensVersionDifferenceResponse
+instance GHC.Show.Show Amazonka.WellArchitected.GetLensVersionDifference.GetLensVersionDifferenceResponse
+instance GHC.Read.Read Amazonka.WellArchitected.GetLensVersionDifference.GetLensVersionDifferenceResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.GetLensVersionDifference.GetLensVersionDifferenceResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.GetLensVersionDifference.GetLensVersionDifferenceResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.GetLensVersionDifference.GetLensVersionDifference
 
 
 -- | Get lens review report.
-module Network.AWS.WellArchitected.GetLensReviewReport
+module Amazonka.WellArchitected.GetLensReviewReport
 
 -- | Input to get lens review report.
 --   
@@ -5144,25 +5144,25 @@ getLensReviewReportResponse_lensReviewReport :: Lens' GetLensReviewReportRespons
 
 -- | The response's http status code.
 getLensReviewReportResponse_httpStatus :: Lens' GetLensReviewReportResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.GetLensReviewReport.GetLensReviewReport
-instance GHC.Show.Show Network.AWS.WellArchitected.GetLensReviewReport.GetLensReviewReport
-instance GHC.Read.Read Network.AWS.WellArchitected.GetLensReviewReport.GetLensReviewReport
-instance GHC.Classes.Eq Network.AWS.WellArchitected.GetLensReviewReport.GetLensReviewReport
-instance GHC.Generics.Generic Network.AWS.WellArchitected.GetLensReviewReport.GetLensReviewReportResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.GetLensReviewReport.GetLensReviewReportResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.GetLensReviewReport.GetLensReviewReportResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.GetLensReviewReport.GetLensReviewReportResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.GetLensReviewReport.GetLensReviewReport
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.GetLensReviewReport.GetLensReviewReportResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.GetLensReviewReport.GetLensReviewReport
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.GetLensReviewReport.GetLensReviewReport
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.GetLensReviewReport.GetLensReviewReport
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.GetLensReviewReport.GetLensReviewReport
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.GetLensReviewReport.GetLensReviewReport
+instance GHC.Generics.Generic Amazonka.WellArchitected.GetLensReviewReport.GetLensReviewReport
+instance GHC.Show.Show Amazonka.WellArchitected.GetLensReviewReport.GetLensReviewReport
+instance GHC.Read.Read Amazonka.WellArchitected.GetLensReviewReport.GetLensReviewReport
+instance GHC.Classes.Eq Amazonka.WellArchitected.GetLensReviewReport.GetLensReviewReport
+instance GHC.Generics.Generic Amazonka.WellArchitected.GetLensReviewReport.GetLensReviewReportResponse
+instance GHC.Show.Show Amazonka.WellArchitected.GetLensReviewReport.GetLensReviewReportResponse
+instance GHC.Read.Read Amazonka.WellArchitected.GetLensReviewReport.GetLensReviewReportResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.GetLensReviewReport.GetLensReviewReportResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.GetLensReviewReport.GetLensReviewReport
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.GetLensReviewReport.GetLensReviewReportResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.GetLensReviewReport.GetLensReviewReport
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.GetLensReviewReport.GetLensReviewReport
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.GetLensReviewReport.GetLensReviewReport
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.GetLensReviewReport.GetLensReviewReport
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.GetLensReviewReport.GetLensReviewReport
 
 
 -- | Get lens review.
-module Network.AWS.WellArchitected.GetLensReview
+module Amazonka.WellArchitected.GetLensReview
 
 -- | Input to get lens review.
 --   
@@ -5247,25 +5247,25 @@ getLensReviewResponse_lensReview :: Lens' GetLensReviewResponse (Maybe LensRevie
 
 -- | The response's http status code.
 getLensReviewResponse_httpStatus :: Lens' GetLensReviewResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.GetLensReview.GetLensReview
-instance GHC.Show.Show Network.AWS.WellArchitected.GetLensReview.GetLensReview
-instance GHC.Read.Read Network.AWS.WellArchitected.GetLensReview.GetLensReview
-instance GHC.Classes.Eq Network.AWS.WellArchitected.GetLensReview.GetLensReview
-instance GHC.Generics.Generic Network.AWS.WellArchitected.GetLensReview.GetLensReviewResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.GetLensReview.GetLensReviewResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.GetLensReview.GetLensReviewResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.GetLensReview.GetLensReviewResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.GetLensReview.GetLensReview
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.GetLensReview.GetLensReviewResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.GetLensReview.GetLensReview
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.GetLensReview.GetLensReview
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.GetLensReview.GetLensReview
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.GetLensReview.GetLensReview
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.GetLensReview.GetLensReview
+instance GHC.Generics.Generic Amazonka.WellArchitected.GetLensReview.GetLensReview
+instance GHC.Show.Show Amazonka.WellArchitected.GetLensReview.GetLensReview
+instance GHC.Read.Read Amazonka.WellArchitected.GetLensReview.GetLensReview
+instance GHC.Classes.Eq Amazonka.WellArchitected.GetLensReview.GetLensReview
+instance GHC.Generics.Generic Amazonka.WellArchitected.GetLensReview.GetLensReviewResponse
+instance GHC.Show.Show Amazonka.WellArchitected.GetLensReview.GetLensReviewResponse
+instance GHC.Read.Read Amazonka.WellArchitected.GetLensReview.GetLensReviewResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.GetLensReview.GetLensReviewResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.GetLensReview.GetLensReview
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.GetLensReview.GetLensReviewResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.GetLensReview.GetLensReview
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.GetLensReview.GetLensReview
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.GetLensReview.GetLensReview
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.GetLensReview.GetLensReview
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.GetLensReview.GetLensReview
 
 
 -- | Get the answer to a specific question in a workload review.
-module Network.AWS.WellArchitected.GetAnswer
+module Amazonka.WellArchitected.GetAnswer
 
 -- | Input to get answer.
 --   
@@ -5362,28 +5362,28 @@ getAnswerResponse_workloadId :: Lens' GetAnswerResponse (Maybe Text)
 
 -- | The response's http status code.
 getAnswerResponse_httpStatus :: Lens' GetAnswerResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.GetAnswer.GetAnswer
-instance GHC.Show.Show Network.AWS.WellArchitected.GetAnswer.GetAnswer
-instance GHC.Read.Read Network.AWS.WellArchitected.GetAnswer.GetAnswer
-instance GHC.Classes.Eq Network.AWS.WellArchitected.GetAnswer.GetAnswer
-instance GHC.Generics.Generic Network.AWS.WellArchitected.GetAnswer.GetAnswerResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.GetAnswer.GetAnswerResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.GetAnswer.GetAnswerResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.GetAnswer.GetAnswerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.GetAnswer.GetAnswer
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.GetAnswer.GetAnswerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.GetAnswer.GetAnswer
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.GetAnswer.GetAnswer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.GetAnswer.GetAnswer
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.GetAnswer.GetAnswer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.GetAnswer.GetAnswer
+instance GHC.Generics.Generic Amazonka.WellArchitected.GetAnswer.GetAnswer
+instance GHC.Show.Show Amazonka.WellArchitected.GetAnswer.GetAnswer
+instance GHC.Read.Read Amazonka.WellArchitected.GetAnswer.GetAnswer
+instance GHC.Classes.Eq Amazonka.WellArchitected.GetAnswer.GetAnswer
+instance GHC.Generics.Generic Amazonka.WellArchitected.GetAnswer.GetAnswerResponse
+instance GHC.Show.Show Amazonka.WellArchitected.GetAnswer.GetAnswerResponse
+instance GHC.Read.Read Amazonka.WellArchitected.GetAnswer.GetAnswerResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.GetAnswer.GetAnswerResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.GetAnswer.GetAnswer
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.GetAnswer.GetAnswerResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.GetAnswer.GetAnswer
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.GetAnswer.GetAnswer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.GetAnswer.GetAnswer
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.GetAnswer.GetAnswer
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.GetAnswer.GetAnswer
 
 
 -- | Disassociate a lens from a workload.
 --   
 --   The AWS Well-Architected Framework lens (<tt>wellarchitected</tt>)
 --   cannot be removed from a workload.
-module Network.AWS.WellArchitected.DisassociateLenses
+module Amazonka.WellArchitected.DisassociateLenses
 
 -- | Input to disassociate lens reviews.
 --   
@@ -5425,26 +5425,26 @@ DisassociateLensesResponse' :: DisassociateLensesResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDisassociateLensesResponse :: DisassociateLensesResponse
-instance GHC.Generics.Generic Network.AWS.WellArchitected.DisassociateLenses.DisassociateLenses
-instance GHC.Show.Show Network.AWS.WellArchitected.DisassociateLenses.DisassociateLenses
-instance GHC.Read.Read Network.AWS.WellArchitected.DisassociateLenses.DisassociateLenses
-instance GHC.Classes.Eq Network.AWS.WellArchitected.DisassociateLenses.DisassociateLenses
-instance GHC.Generics.Generic Network.AWS.WellArchitected.DisassociateLenses.DisassociateLensesResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.DisassociateLenses.DisassociateLensesResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.DisassociateLenses.DisassociateLensesResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.DisassociateLenses.DisassociateLensesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.DisassociateLenses.DisassociateLenses
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.DisassociateLenses.DisassociateLensesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.DisassociateLenses.DisassociateLenses
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.DisassociateLenses.DisassociateLenses
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.DisassociateLenses.DisassociateLenses
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.DisassociateLenses.DisassociateLenses
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.DisassociateLenses.DisassociateLenses
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.DisassociateLenses.DisassociateLenses
+instance GHC.Generics.Generic Amazonka.WellArchitected.DisassociateLenses.DisassociateLenses
+instance GHC.Show.Show Amazonka.WellArchitected.DisassociateLenses.DisassociateLenses
+instance GHC.Read.Read Amazonka.WellArchitected.DisassociateLenses.DisassociateLenses
+instance GHC.Classes.Eq Amazonka.WellArchitected.DisassociateLenses.DisassociateLenses
+instance GHC.Generics.Generic Amazonka.WellArchitected.DisassociateLenses.DisassociateLensesResponse
+instance GHC.Show.Show Amazonka.WellArchitected.DisassociateLenses.DisassociateLensesResponse
+instance GHC.Read.Read Amazonka.WellArchitected.DisassociateLenses.DisassociateLensesResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.DisassociateLenses.DisassociateLensesResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.DisassociateLenses.DisassociateLenses
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.DisassociateLenses.DisassociateLensesResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.DisassociateLenses.DisassociateLenses
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.DisassociateLenses.DisassociateLenses
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.DisassociateLenses.DisassociateLenses
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.DisassociateLenses.DisassociateLenses
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.DisassociateLenses.DisassociateLenses
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.DisassociateLenses.DisassociateLenses
 
 
 -- | Delete a workload share.
-module Network.AWS.WellArchitected.DeleteWorkloadShare
+module Amazonka.WellArchitected.DeleteWorkloadShare
 
 -- | Input for Delete Workload Share
 --   
@@ -5493,25 +5493,25 @@ DeleteWorkloadShareResponse' :: DeleteWorkloadShareResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteWorkloadShareResponse :: DeleteWorkloadShareResponse
-instance GHC.Generics.Generic Network.AWS.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
-instance GHC.Show.Show Network.AWS.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
-instance GHC.Read.Read Network.AWS.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
-instance GHC.Classes.Eq Network.AWS.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
-instance GHC.Generics.Generic Network.AWS.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShareResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShareResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShareResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShareResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShareResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
+instance GHC.Generics.Generic Amazonka.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
+instance GHC.Show.Show Amazonka.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
+instance GHC.Read.Read Amazonka.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
+instance GHC.Classes.Eq Amazonka.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
+instance GHC.Generics.Generic Amazonka.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShareResponse
+instance GHC.Show.Show Amazonka.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShareResponse
+instance GHC.Read.Read Amazonka.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShareResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShareResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShareResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.DeleteWorkloadShare.DeleteWorkloadShare
 
 
 -- | Delete an existing workload.
-module Network.AWS.WellArchitected.DeleteWorkload
+module Amazonka.WellArchitected.DeleteWorkload
 
 -- | Input for workload deletion.
 --   
@@ -5553,21 +5553,21 @@ DeleteWorkloadResponse' :: DeleteWorkloadResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteWorkloadResponse :: DeleteWorkloadResponse
-instance GHC.Generics.Generic Network.AWS.WellArchitected.DeleteWorkload.DeleteWorkload
-instance GHC.Show.Show Network.AWS.WellArchitected.DeleteWorkload.DeleteWorkload
-instance GHC.Read.Read Network.AWS.WellArchitected.DeleteWorkload.DeleteWorkload
-instance GHC.Classes.Eq Network.AWS.WellArchitected.DeleteWorkload.DeleteWorkload
-instance GHC.Generics.Generic Network.AWS.WellArchitected.DeleteWorkload.DeleteWorkloadResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.DeleteWorkload.DeleteWorkloadResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.DeleteWorkload.DeleteWorkloadResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.DeleteWorkload.DeleteWorkloadResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.DeleteWorkload.DeleteWorkload
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.DeleteWorkload.DeleteWorkloadResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.DeleteWorkload.DeleteWorkload
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.DeleteWorkload.DeleteWorkload
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.DeleteWorkload.DeleteWorkload
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.DeleteWorkload.DeleteWorkload
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.DeleteWorkload.DeleteWorkload
+instance GHC.Generics.Generic Amazonka.WellArchitected.DeleteWorkload.DeleteWorkload
+instance GHC.Show.Show Amazonka.WellArchitected.DeleteWorkload.DeleteWorkload
+instance GHC.Read.Read Amazonka.WellArchitected.DeleteWorkload.DeleteWorkload
+instance GHC.Classes.Eq Amazonka.WellArchitected.DeleteWorkload.DeleteWorkload
+instance GHC.Generics.Generic Amazonka.WellArchitected.DeleteWorkload.DeleteWorkloadResponse
+instance GHC.Show.Show Amazonka.WellArchitected.DeleteWorkload.DeleteWorkloadResponse
+instance GHC.Read.Read Amazonka.WellArchitected.DeleteWorkload.DeleteWorkloadResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.DeleteWorkload.DeleteWorkloadResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.DeleteWorkload.DeleteWorkload
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.DeleteWorkload.DeleteWorkloadResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.DeleteWorkload.DeleteWorkload
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.DeleteWorkload.DeleteWorkload
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.DeleteWorkload.DeleteWorkload
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.DeleteWorkload.DeleteWorkload
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.DeleteWorkload.DeleteWorkload
 
 
 -- | Create a workload share.
@@ -5578,7 +5578,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.DeleteWorklo
 --   
 --   For more information, see <a>Sharing a Workload</a> in the <i>AWS
 --   Well-Architected Tool User Guide</i>.
-module Network.AWS.WellArchitected.CreateWorkloadShare
+module Amazonka.WellArchitected.CreateWorkloadShare
 
 -- | Input for Create Workload Share
 --   
@@ -5663,22 +5663,22 @@ createWorkloadShareResponse_shareId :: Lens' CreateWorkloadShareResponse (Maybe 
 
 -- | The response's http status code.
 createWorkloadShareResponse_httpStatus :: Lens' CreateWorkloadShareResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
-instance GHC.Show.Show Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
-instance GHC.Read.Read Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
-instance GHC.Classes.Eq Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
-instance GHC.Generics.Generic Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShareResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShareResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShareResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShareResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShareResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
+instance GHC.Generics.Generic Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
+instance GHC.Show.Show Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
+instance GHC.Read.Read Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
+instance GHC.Classes.Eq Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
+instance GHC.Generics.Generic Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShareResponse
+instance GHC.Show.Show Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShareResponse
+instance GHC.Read.Read Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShareResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShareResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShareResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.CreateWorkloadShare.CreateWorkloadShare
 
 
 -- | Create a new workload.
@@ -5689,7 +5689,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.CreateWorklo
 --   
 --   For more information, see <a>Defining a Workload</a> in the <i>AWS
 --   Well-Architected Tool User Guide</i>.
-module Network.AWS.WellArchitected.CreateWorkload
+module Amazonka.WellArchitected.CreateWorkload
 
 -- | Input for workload creation.
 --   
@@ -5853,26 +5853,26 @@ createWorkloadResponse_workloadId :: Lens' CreateWorkloadResponse (Maybe Text)
 
 -- | The response's http status code.
 createWorkloadResponse_httpStatus :: Lens' CreateWorkloadResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.CreateWorkload.CreateWorkload
-instance GHC.Show.Show Network.AWS.WellArchitected.CreateWorkload.CreateWorkload
-instance GHC.Read.Read Network.AWS.WellArchitected.CreateWorkload.CreateWorkload
-instance GHC.Classes.Eq Network.AWS.WellArchitected.CreateWorkload.CreateWorkload
-instance GHC.Generics.Generic Network.AWS.WellArchitected.CreateWorkload.CreateWorkloadResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.CreateWorkload.CreateWorkloadResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.CreateWorkload.CreateWorkloadResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.CreateWorkload.CreateWorkloadResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.CreateWorkload.CreateWorkload
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.CreateWorkload.CreateWorkloadResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.CreateWorkload.CreateWorkload
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.CreateWorkload.CreateWorkload
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.CreateWorkload.CreateWorkload
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.CreateWorkload.CreateWorkload
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.CreateWorkload.CreateWorkload
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.CreateWorkload.CreateWorkload
+instance GHC.Generics.Generic Amazonka.WellArchitected.CreateWorkload.CreateWorkload
+instance GHC.Show.Show Amazonka.WellArchitected.CreateWorkload.CreateWorkload
+instance GHC.Read.Read Amazonka.WellArchitected.CreateWorkload.CreateWorkload
+instance GHC.Classes.Eq Amazonka.WellArchitected.CreateWorkload.CreateWorkload
+instance GHC.Generics.Generic Amazonka.WellArchitected.CreateWorkload.CreateWorkloadResponse
+instance GHC.Show.Show Amazonka.WellArchitected.CreateWorkload.CreateWorkloadResponse
+instance GHC.Read.Read Amazonka.WellArchitected.CreateWorkload.CreateWorkloadResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.CreateWorkload.CreateWorkloadResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.CreateWorkload.CreateWorkload
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.CreateWorkload.CreateWorkloadResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.CreateWorkload.CreateWorkload
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.CreateWorkload.CreateWorkload
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.CreateWorkload.CreateWorkload
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.CreateWorkload.CreateWorkload
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.CreateWorkload.CreateWorkload
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.CreateWorkload.CreateWorkload
 
 
 -- | Create a milestone for an existing workload.
-module Network.AWS.WellArchitected.CreateMilestone
+module Amazonka.WellArchitected.CreateMilestone
 
 -- | Input for milestone creation.
 --   
@@ -5950,26 +5950,26 @@ createMilestoneResponse_workloadId :: Lens' CreateMilestoneResponse (Maybe Text)
 
 -- | The response's http status code.
 createMilestoneResponse_httpStatus :: Lens' CreateMilestoneResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.CreateMilestone.CreateMilestone
-instance GHC.Show.Show Network.AWS.WellArchitected.CreateMilestone.CreateMilestone
-instance GHC.Read.Read Network.AWS.WellArchitected.CreateMilestone.CreateMilestone
-instance GHC.Classes.Eq Network.AWS.WellArchitected.CreateMilestone.CreateMilestone
-instance GHC.Generics.Generic Network.AWS.WellArchitected.CreateMilestone.CreateMilestoneResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.CreateMilestone.CreateMilestoneResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.CreateMilestone.CreateMilestoneResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.CreateMilestone.CreateMilestoneResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.CreateMilestone.CreateMilestone
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.CreateMilestone.CreateMilestoneResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.CreateMilestone.CreateMilestone
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.CreateMilestone.CreateMilestone
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.CreateMilestone.CreateMilestone
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.CreateMilestone.CreateMilestone
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.CreateMilestone.CreateMilestone
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.CreateMilestone.CreateMilestone
+instance GHC.Generics.Generic Amazonka.WellArchitected.CreateMilestone.CreateMilestone
+instance GHC.Show.Show Amazonka.WellArchitected.CreateMilestone.CreateMilestone
+instance GHC.Read.Read Amazonka.WellArchitected.CreateMilestone.CreateMilestone
+instance GHC.Classes.Eq Amazonka.WellArchitected.CreateMilestone.CreateMilestone
+instance GHC.Generics.Generic Amazonka.WellArchitected.CreateMilestone.CreateMilestoneResponse
+instance GHC.Show.Show Amazonka.WellArchitected.CreateMilestone.CreateMilestoneResponse
+instance GHC.Read.Read Amazonka.WellArchitected.CreateMilestone.CreateMilestoneResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.CreateMilestone.CreateMilestoneResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.CreateMilestone.CreateMilestone
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.CreateMilestone.CreateMilestoneResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.CreateMilestone.CreateMilestone
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.CreateMilestone.CreateMilestone
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.CreateMilestone.CreateMilestone
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.CreateMilestone.CreateMilestone
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.CreateMilestone.CreateMilestone
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.CreateMilestone.CreateMilestone
 
 
 -- | Associate a lens to a workload.
-module Network.AWS.WellArchitected.AssociateLenses
+module Amazonka.WellArchitected.AssociateLenses
 
 -- | Input to associate lens reviews.
 --   
@@ -6011,22 +6011,22 @@ AssociateLensesResponse' :: AssociateLensesResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newAssociateLensesResponse :: AssociateLensesResponse
-instance GHC.Generics.Generic Network.AWS.WellArchitected.AssociateLenses.AssociateLenses
-instance GHC.Show.Show Network.AWS.WellArchitected.AssociateLenses.AssociateLenses
-instance GHC.Read.Read Network.AWS.WellArchitected.AssociateLenses.AssociateLenses
-instance GHC.Classes.Eq Network.AWS.WellArchitected.AssociateLenses.AssociateLenses
-instance GHC.Generics.Generic Network.AWS.WellArchitected.AssociateLenses.AssociateLensesResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.AssociateLenses.AssociateLensesResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.AssociateLenses.AssociateLensesResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.AssociateLenses.AssociateLensesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.AssociateLenses.AssociateLenses
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.AssociateLenses.AssociateLensesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.AssociateLenses.AssociateLenses
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.AssociateLenses.AssociateLenses
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.AssociateLenses.AssociateLenses
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.AssociateLenses.AssociateLenses
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.AssociateLenses.AssociateLenses
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.AssociateLenses.AssociateLenses
+instance GHC.Generics.Generic Amazonka.WellArchitected.AssociateLenses.AssociateLenses
+instance GHC.Show.Show Amazonka.WellArchitected.AssociateLenses.AssociateLenses
+instance GHC.Read.Read Amazonka.WellArchitected.AssociateLenses.AssociateLenses
+instance GHC.Classes.Eq Amazonka.WellArchitected.AssociateLenses.AssociateLenses
+instance GHC.Generics.Generic Amazonka.WellArchitected.AssociateLenses.AssociateLensesResponse
+instance GHC.Show.Show Amazonka.WellArchitected.AssociateLenses.AssociateLensesResponse
+instance GHC.Read.Read Amazonka.WellArchitected.AssociateLenses.AssociateLensesResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.AssociateLenses.AssociateLensesResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.AssociateLenses.AssociateLenses
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.AssociateLenses.AssociateLensesResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.AssociateLenses.AssociateLenses
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.AssociateLenses.AssociateLenses
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.AssociateLenses.AssociateLenses
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.AssociateLenses.AssociateLenses
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.AssociateLenses.AssociateLenses
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.AssociateLenses.AssociateLenses
 
 
 -- | Deletes specified tags from a resource.
@@ -6037,7 +6037,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.AssociateLen
 --   <pre>
 --   DELETE /tags/WorkloadArn?tagKeys=key1&amp;tagKeys=key2
 --   </pre>
-module Network.AWS.WellArchitected.UntagResource
+module Amazonka.WellArchitected.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -6095,25 +6095,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.WellArchitected.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.WellArchitected.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.WellArchitected.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.WellArchitected.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.WellArchitected.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.WellArchitected.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.WellArchitected.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.WellArchitected.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.WellArchitected.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.WellArchitected.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.WellArchitected.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.UntagResource.UntagResource
 
 
 -- | Update the answer to a specific question in a workload review.
-module Network.AWS.WellArchitected.UpdateAnswer
+module Amazonka.WellArchitected.UpdateAnswer
 
 -- | Input to update answer.
 --   
@@ -6241,26 +6241,26 @@ updateAnswerResponse_workloadId :: Lens' UpdateAnswerResponse (Maybe Text)
 
 -- | The response's http status code.
 updateAnswerResponse_httpStatus :: Lens' UpdateAnswerResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswer
-instance GHC.Show.Show Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswer
-instance GHC.Read.Read Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswer
-instance GHC.Classes.Eq Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswer
-instance GHC.Generics.Generic Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswerResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswerResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswerResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswer
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswer
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswer
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.UpdateAnswer.UpdateAnswer
+instance GHC.Generics.Generic Amazonka.WellArchitected.UpdateAnswer.UpdateAnswer
+instance GHC.Show.Show Amazonka.WellArchitected.UpdateAnswer.UpdateAnswer
+instance GHC.Read.Read Amazonka.WellArchitected.UpdateAnswer.UpdateAnswer
+instance GHC.Classes.Eq Amazonka.WellArchitected.UpdateAnswer.UpdateAnswer
+instance GHC.Generics.Generic Amazonka.WellArchitected.UpdateAnswer.UpdateAnswerResponse
+instance GHC.Show.Show Amazonka.WellArchitected.UpdateAnswer.UpdateAnswerResponse
+instance GHC.Read.Read Amazonka.WellArchitected.UpdateAnswer.UpdateAnswerResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.UpdateAnswer.UpdateAnswerResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.UpdateAnswer.UpdateAnswer
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.UpdateAnswer.UpdateAnswerResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.UpdateAnswer.UpdateAnswer
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.UpdateAnswer.UpdateAnswer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.UpdateAnswer.UpdateAnswer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.UpdateAnswer.UpdateAnswer
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.UpdateAnswer.UpdateAnswer
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.UpdateAnswer.UpdateAnswer
 
 
 -- | Update lens review.
-module Network.AWS.WellArchitected.UpdateLensReview
+module Amazonka.WellArchitected.UpdateLensReview
 
 -- | Input for update lens review.
 --   
@@ -6345,26 +6345,26 @@ updateLensReviewResponse_lensReview :: Lens' UpdateLensReviewResponse (Maybe Len
 
 -- | The response's http status code.
 updateLensReviewResponse_httpStatus :: Lens' UpdateLensReviewResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReview
-instance GHC.Show.Show Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReview
-instance GHC.Read.Read Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReview
-instance GHC.Classes.Eq Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReview
-instance GHC.Generics.Generic Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReviewResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReviewResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReviewResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReviewResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReview
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReviewResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReview
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReview
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReview
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReview
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReview
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.UpdateLensReview.UpdateLensReview
+instance GHC.Generics.Generic Amazonka.WellArchitected.UpdateLensReview.UpdateLensReview
+instance GHC.Show.Show Amazonka.WellArchitected.UpdateLensReview.UpdateLensReview
+instance GHC.Read.Read Amazonka.WellArchitected.UpdateLensReview.UpdateLensReview
+instance GHC.Classes.Eq Amazonka.WellArchitected.UpdateLensReview.UpdateLensReview
+instance GHC.Generics.Generic Amazonka.WellArchitected.UpdateLensReview.UpdateLensReviewResponse
+instance GHC.Show.Show Amazonka.WellArchitected.UpdateLensReview.UpdateLensReviewResponse
+instance GHC.Read.Read Amazonka.WellArchitected.UpdateLensReview.UpdateLensReviewResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.UpdateLensReview.UpdateLensReviewResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.UpdateLensReview.UpdateLensReview
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.UpdateLensReview.UpdateLensReviewResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.UpdateLensReview.UpdateLensReview
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.UpdateLensReview.UpdateLensReview
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.UpdateLensReview.UpdateLensReview
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.UpdateLensReview.UpdateLensReview
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.UpdateLensReview.UpdateLensReview
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.UpdateLensReview.UpdateLensReview
 
 
 -- | Update a workload invitation.
-module Network.AWS.WellArchitected.UpdateShareInvitation
+module Amazonka.WellArchitected.UpdateShareInvitation
 
 -- | Input for Update Share Invitation
 --   
@@ -6433,26 +6433,26 @@ updateShareInvitationResponse_shareInvitation :: Lens' UpdateShareInvitationResp
 
 -- | The response's http status code.
 updateShareInvitationResponse_httpStatus :: Lens' UpdateShareInvitationResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
-instance GHC.Show.Show Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
-instance GHC.Read.Read Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
-instance GHC.Classes.Eq Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
-instance GHC.Generics.Generic Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitationResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitationResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitationResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
+instance GHC.Generics.Generic Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
+instance GHC.Show.Show Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
+instance GHC.Read.Read Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
+instance GHC.Classes.Eq Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
+instance GHC.Generics.Generic Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitationResponse
+instance GHC.Show.Show Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitationResponse
+instance GHC.Read.Read Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitationResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitationResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitationResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.UpdateShareInvitation.UpdateShareInvitation
 
 
 -- | Update an existing workload.
-module Network.AWS.WellArchitected.UpdateWorkload
+module Amazonka.WellArchitected.UpdateWorkload
 
 -- | Input to update a workload.
 --   
@@ -6625,26 +6625,26 @@ updateWorkloadResponse_workload :: Lens' UpdateWorkloadResponse (Maybe Workload)
 
 -- | The response's http status code.
 updateWorkloadResponse_httpStatus :: Lens' UpdateWorkloadResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkload
-instance GHC.Show.Show Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkload
-instance GHC.Read.Read Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkload
-instance GHC.Classes.Eq Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkload
-instance GHC.Generics.Generic Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkloadResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkloadResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkloadResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkloadResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkload
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkloadResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkload
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkload
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkload
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkload
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkload
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.UpdateWorkload.UpdateWorkload
+instance GHC.Generics.Generic Amazonka.WellArchitected.UpdateWorkload.UpdateWorkload
+instance GHC.Show.Show Amazonka.WellArchitected.UpdateWorkload.UpdateWorkload
+instance GHC.Read.Read Amazonka.WellArchitected.UpdateWorkload.UpdateWorkload
+instance GHC.Classes.Eq Amazonka.WellArchitected.UpdateWorkload.UpdateWorkload
+instance GHC.Generics.Generic Amazonka.WellArchitected.UpdateWorkload.UpdateWorkloadResponse
+instance GHC.Show.Show Amazonka.WellArchitected.UpdateWorkload.UpdateWorkloadResponse
+instance GHC.Read.Read Amazonka.WellArchitected.UpdateWorkload.UpdateWorkloadResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.UpdateWorkload.UpdateWorkloadResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.UpdateWorkload.UpdateWorkload
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.UpdateWorkload.UpdateWorkloadResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.UpdateWorkload.UpdateWorkload
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.UpdateWorkload.UpdateWorkload
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.UpdateWorkload.UpdateWorkload
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.UpdateWorkload.UpdateWorkload
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.UpdateWorkload.UpdateWorkload
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.UpdateWorkload.UpdateWorkload
 
 
 -- | Update a workload share.
-module Network.AWS.WellArchitected.UpdateWorkloadShare
+module Amazonka.WellArchitected.UpdateWorkloadShare
 
 -- | Input for Update Workload Share
 --   
@@ -6723,26 +6723,26 @@ updateWorkloadShareResponse_workloadId :: Lens' UpdateWorkloadShareResponse (May
 
 -- | The response's http status code.
 updateWorkloadShareResponse_httpStatus :: Lens' UpdateWorkloadShareResponse Int
-instance GHC.Generics.Generic Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
-instance GHC.Show.Show Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
-instance GHC.Read.Read Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
-instance GHC.Classes.Eq Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
-instance GHC.Generics.Generic Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShareResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShareResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShareResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShareResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShareResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
+instance GHC.Generics.Generic Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
+instance GHC.Show.Show Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
+instance GHC.Read.Read Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
+instance GHC.Classes.Eq Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
+instance GHC.Generics.Generic Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShareResponse
+instance GHC.Show.Show Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShareResponse
+instance GHC.Read.Read Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShareResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShareResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShareResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.UpdateWorkloadShare.UpdateWorkloadShare
 
 
 -- | Upgrade lens review.
-module Network.AWS.WellArchitected.UpgradeLensReview
+module Amazonka.WellArchitected.UpgradeLensReview
 
 -- | <i>See:</i> <a>newUpgradeLensReview</a> smart constructor.
 data UpgradeLensReview
@@ -6796,25 +6796,25 @@ UpgradeLensReviewResponse' :: UpgradeLensReviewResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUpgradeLensReviewResponse :: UpgradeLensReviewResponse
-instance GHC.Generics.Generic Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReview
-instance GHC.Show.Show Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReview
-instance GHC.Read.Read Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReview
-instance GHC.Classes.Eq Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReview
-instance GHC.Generics.Generic Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReviewResponse
-instance GHC.Show.Show Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReviewResponse
-instance GHC.Read.Read Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReviewResponse
-instance GHC.Classes.Eq Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReviewResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReview
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReviewResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReview
-instance Control.DeepSeq.NFData Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReview
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReview
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReview
-instance Network.AWS.Data.Path.ToPath Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReview
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WellArchitected.UpgradeLensReview.UpgradeLensReview
+instance GHC.Generics.Generic Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReview
+instance GHC.Show.Show Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReview
+instance GHC.Read.Read Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReview
+instance GHC.Classes.Eq Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReview
+instance GHC.Generics.Generic Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReviewResponse
+instance GHC.Show.Show Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReviewResponse
+instance GHC.Read.Read Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReviewResponse
+instance GHC.Classes.Eq Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReviewResponse
+instance Amazonka.Types.AWSRequest Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReview
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReviewResponse
+instance Data.Hashable.Class.Hashable Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReview
+instance Control.DeepSeq.NFData Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReview
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReview
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReview
+instance Amazonka.Data.Path.ToPath Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReview
+instance Amazonka.Data.Query.ToQuery Amazonka.WellArchitected.UpgradeLensReview.UpgradeLensReview
 
 
-module Network.AWS.WellArchitected.Lens
+module Amazonka.WellArchitected.Lens
 
 -- | Undocumented member.
 listNotifications_nextToken :: Lens' ListNotifications (Maybe Text)
@@ -7868,7 +7868,7 @@ workloadSummary_workloadName :: Lens' WorkloadSummary (Maybe Text)
 workloadSummary_updatedAt :: Lens' WorkloadSummary (Maybe UTCTime)
 
 
-module Network.AWS.WellArchitected.Waiters
+module Amazonka.WellArchitected.Waiters
 
 
 -- | Derived from API version <tt>2020-03-31</tt> of the AWS service
@@ -7881,7 +7881,7 @@ module Network.AWS.WellArchitected.Waiters
 --   Well-Architected Tool</a> in the <a>AWS Management Console</a>. For
 --   information about the AWS Well-Architected Tool, see the <a>AWS
 --   Well-Architected Tool User Guide</a>.
-module Network.AWS.WellArchitected
+module Amazonka.WellArchitected
 
 -- | API version <tt>2020-03-31</tt> of the Amazon Well-Architected Tool
 --   SDK configuration.

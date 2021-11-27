@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Attributes of an Ethereum node.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newNodeEthereumAttributes' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679217712"><span id="local-6989586621679217713"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeEthereumAttributes"><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes"><span class="hs-identifier hs-var">NodeEthereumAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeEthereumAttributes%27"><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes%27"><span class="hs-identifier hs-var">NodeEthereumAttributes'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- methods over HTTP connections from a client. Use this endpoint in client</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- code for smart contracts when using an HTTP connection. Connections to</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- this endpoint are authenticated using</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4&gt;.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AhttpEndpoint%3ANodeEthereumAttributes%27"><span class="annot"><span class="annottext">NodeEthereumAttributes -&gt; Maybe Text
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#%24sel%3AhttpEndpoint%3ANodeEthereumAttributes%27"><span class="hs-identifier hs-var hs-var">httpEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- methods over WebSockets connections from a client. Use this endpoint in</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- client code for smart contracts when using a WebSockets connection.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Connections to this endpoint are authenticated using</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4&gt;.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AwebSocketEndpoint%3ANodeEthereumAttributes%27"><span class="annot"><span class="annottext">NodeEthereumAttributes -&gt; Maybe Text
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#%24sel%3AwebSocketEndpoint%3ANodeEthereumAttributes%27"><span class="hs-identifier hs-var hs-var">webSocketEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217705"><span id="local-6989586621679217707"><span class="annot"><span class="annottext">NodeEthereumAttributes -&gt; NodeEthereumAttributes -&gt; Bool
+(NodeEthereumAttributes -&gt; NodeEthereumAttributes -&gt; Bool)
+-&gt; (NodeEthereumAttributes -&gt; NodeEthereumAttributes -&gt; Bool)
+-&gt; Eq NodeEthereumAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NodeEthereumAttributes -&gt; NodeEthereumAttributes -&gt; Bool
+$c/= :: NodeEthereumAttributes -&gt; NodeEthereumAttributes -&gt; Bool
+== :: NodeEthereumAttributes -&gt; NodeEthereumAttributes -&gt; Bool
+$c== :: NodeEthereumAttributes -&gt; NodeEthereumAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217696"><span id="local-6989586621679217698"><span id="local-6989586621679217700"><span id="local-6989586621679217702"><span class="annot"><span class="annottext">ReadPrec [NodeEthereumAttributes]
+ReadPrec NodeEthereumAttributes
+Int -&gt; ReadS NodeEthereumAttributes
+ReadS [NodeEthereumAttributes]
+(Int -&gt; ReadS NodeEthereumAttributes)
+-&gt; ReadS [NodeEthereumAttributes]
+-&gt; ReadPrec NodeEthereumAttributes
+-&gt; ReadPrec [NodeEthereumAttributes]
+-&gt; Read NodeEthereumAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NodeEthereumAttributes]
+$creadListPrec :: ReadPrec [NodeEthereumAttributes]
+readPrec :: ReadPrec NodeEthereumAttributes
+$creadPrec :: ReadPrec NodeEthereumAttributes
+readList :: ReadS [NodeEthereumAttributes]
+$creadList :: ReadS [NodeEthereumAttributes]
+readsPrec :: Int -&gt; ReadS NodeEthereumAttributes
+$creadsPrec :: Int -&gt; ReadS NodeEthereumAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217689"><span id="local-6989586621679217691"><span id="local-6989586621679217693"><span class="annot"><span class="annottext">Int -&gt; NodeEthereumAttributes -&gt; ShowS
+[NodeEthereumAttributes] -&gt; ShowS
+NodeEthereumAttributes -&gt; String
+(Int -&gt; NodeEthereumAttributes -&gt; ShowS)
+-&gt; (NodeEthereumAttributes -&gt; String)
+-&gt; ([NodeEthereumAttributes] -&gt; ShowS)
+-&gt; Show NodeEthereumAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NodeEthereumAttributes] -&gt; ShowS
+$cshowList :: [NodeEthereumAttributes] -&gt; ShowS
+show :: NodeEthereumAttributes -&gt; String
+$cshow :: NodeEthereumAttributes -&gt; String
+showsPrec :: Int -&gt; NodeEthereumAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; NodeEthereumAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NodeEthereumAttributes -&gt; Rep NodeEthereumAttributes x)
+-&gt; (forall x.
+    Rep NodeEthereumAttributes x -&gt; NodeEthereumAttributes)
+-&gt; Generic NodeEthereumAttributes
+forall x. Rep NodeEthereumAttributes x -&gt; NodeEthereumAttributes
+forall x. NodeEthereumAttributes -&gt; Rep NodeEthereumAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NodeEthereumAttributes x -&gt; NodeEthereumAttributes
+$cfrom :: forall x. NodeEthereumAttributes -&gt; Rep NodeEthereumAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'NodeEthereumAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'httpEndpoint', 'nodeEthereumAttributes_httpEndpoint' - The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- methods over HTTP connections from a client. Use this endpoint in client</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- code for smart contracts when using an HTTP connection. Connections to</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- this endpoint are authenticated using</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4&gt;.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'webSocketEndpoint', 'nodeEthereumAttributes_webSocketEndpoint' - The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- methods over WebSockets connections from a client. Use this endpoint in</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- client code for smart contracts when using a WebSockets connection.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Connections to this endpoint are authenticated using</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4&gt;.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#newNodeEthereumAttributes"><span class="hs-identifier hs-type">newNodeEthereumAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes"><span class="hs-identifier hs-type">NodeEthereumAttributes</span></a></span><span>
+</span><span id="line-66"></span><span id="newNodeEthereumAttributes"><span class="annot"><span class="annottext">newNodeEthereumAttributes :: NodeEthereumAttributes
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#newNodeEthereumAttributes"><span class="hs-identifier hs-var hs-var">newNodeEthereumAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">NodeEthereumAttributes' :: Maybe Text -&gt; Maybe Text -&gt; NodeEthereumAttributes
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes%27"><span class="hs-identifier hs-type">NodeEthereumAttributes'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpEndpoint:NodeEthereumAttributes' :: Maybe Text
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#%24sel%3AhttpEndpoint%3ANodeEthereumAttributes%27"><span class="hs-identifier hs-var">httpEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:webSocketEndpoint:NodeEthereumAttributes' :: Maybe Text
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#%24sel%3AwebSocketEndpoint%3ANodeEthereumAttributes%27"><span class="hs-identifier hs-var">webSocketEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- methods over HTTP connections from a client. Use this endpoint in client</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- code for smart contracts when using an HTTP connection. Connections to</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- this endpoint are authenticated using</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4&gt;.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#nodeEthereumAttributes_httpEndpoint"><span class="hs-identifier hs-type">nodeEthereumAttributes_httpEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes"><span class="hs-identifier hs-type">NodeEthereumAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="nodeEthereumAttributes_httpEndpoint"><span class="annot"><span class="annottext">nodeEthereumAttributes_httpEndpoint :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NodeEthereumAttributes -&gt; f NodeEthereumAttributes
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#nodeEthereumAttributes_httpEndpoint"><span class="hs-identifier hs-var hs-var">nodeEthereumAttributes_httpEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeEthereumAttributes -&gt; Maybe Text)
+-&gt; (NodeEthereumAttributes -&gt; Maybe Text -&gt; NodeEthereumAttributes)
+-&gt; Lens
+     NodeEthereumAttributes
+     NodeEthereumAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes%27"><span class="hs-identifier hs-type">NodeEthereumAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217680"><span class="annot"><span class="annottext">Maybe Text
+httpEndpoint :: Maybe Text
+$sel:httpEndpoint:NodeEthereumAttributes' :: NodeEthereumAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679217680"><span class="hs-identifier hs-var hs-var">httpEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217680"><span class="hs-identifier hs-var">httpEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217679"><span class="annot"><span class="annottext">s :: NodeEthereumAttributes
+</span><a href="#local-6989586621679217679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes%27"><span class="hs-identifier hs-type">NodeEthereumAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217678"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeEthereumAttributes
+</span><a href="#local-6989586621679217679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpEndpoint:NodeEthereumAttributes' :: Maybe Text
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#%24sel%3AhttpEndpoint%3ANodeEthereumAttributes%27"><span class="hs-identifier hs-var">httpEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes"><span class="hs-identifier hs-type">NodeEthereumAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- methods over WebSockets connections from a client. Use this endpoint in</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- client code for smart contracts when using a WebSockets connection.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Connections to this endpoint are authenticated using</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4&gt;.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#nodeEthereumAttributes_webSocketEndpoint"><span class="hs-identifier hs-type">nodeEthereumAttributes_webSocketEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes"><span class="hs-identifier hs-type">NodeEthereumAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="nodeEthereumAttributes_webSocketEndpoint"><span class="annot"><span class="annottext">nodeEthereumAttributes_webSocketEndpoint :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NodeEthereumAttributes -&gt; f NodeEthereumAttributes
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#nodeEthereumAttributes_webSocketEndpoint"><span class="hs-identifier hs-var hs-var">nodeEthereumAttributes_webSocketEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeEthereumAttributes -&gt; Maybe Text)
+-&gt; (NodeEthereumAttributes -&gt; Maybe Text -&gt; NodeEthereumAttributes)
+-&gt; Lens
+     NodeEthereumAttributes
+     NodeEthereumAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes%27"><span class="hs-identifier hs-type">NodeEthereumAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217676"><span class="annot"><span class="annottext">Maybe Text
+webSocketEndpoint :: Maybe Text
+$sel:webSocketEndpoint:NodeEthereumAttributes' :: NodeEthereumAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679217676"><span class="hs-identifier hs-var hs-var">webSocketEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217676"><span class="hs-identifier hs-var">webSocketEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217675"><span class="annot"><span class="annottext">s :: NodeEthereumAttributes
+</span><a href="#local-6989586621679217675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes%27"><span class="hs-identifier hs-type">NodeEthereumAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217674"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeEthereumAttributes
+</span><a href="#local-6989586621679217675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webSocketEndpoint:NodeEthereumAttributes' :: Maybe Text
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#%24sel%3AwebSocketEndpoint%3ANodeEthereumAttributes%27"><span class="hs-identifier hs-var">webSocketEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes"><span class="hs-identifier hs-type">NodeEthereumAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217671"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes"><span class="hs-identifier hs-type">NodeEthereumAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679217669"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NodeEthereumAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser NodeEthereumAttributes)
+-&gt; Value
+-&gt; Parser NodeEthereumAttributes
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NodeEthereumAttributes&quot;</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217666"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217666"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; NodeEthereumAttributes
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes%27"><span class="hs-identifier hs-var">NodeEthereumAttributes'</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; NodeEthereumAttributes)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; NodeEthereumAttributes)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217666"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HttpEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; NodeEthereumAttributes)
+-&gt; Parser (Maybe Text) -&gt; Parser NodeEthereumAttributes
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217666"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WebSocketEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217660"><span id="local-6989586621679217662"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes"><span class="hs-identifier hs-type">NodeEthereumAttributes</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217657"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes.html#NodeEthereumAttributes"><span class="hs-identifier hs-type">NodeEthereumAttributes</span></a></span></span><span>
+</span><span id="line-102"></span></pre></body></html>

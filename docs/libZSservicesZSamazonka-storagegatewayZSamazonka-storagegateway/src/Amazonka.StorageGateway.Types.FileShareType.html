@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.StorageGateway.Types.FileShareType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StorageGateway.Types.FileShareType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileShareType.html#FileShareType"><span class="hs-identifier">FileShareType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileShareType.html#FileShareType_NFS"><span class="hs-identifier">FileShareType_NFS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileShareType.html#FileShareType_SMB"><span class="hs-identifier">FileShareType_SMB</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The type of the file share.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679371536"><span id="local-6989586621679371537"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FileShareType"><span class="annot"><a href="Amazonka.StorageGateway.Types.FileShareType.html#FileShareType"><span class="hs-identifier hs-var">FileShareType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileShareType%27"><span class="annot"><a href="Amazonka.StorageGateway.Types.FileShareType.html#FileShareType%27"><span class="hs-identifier hs-var">FileShareType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFileShareType"><span class="annot"><span class="annottext">FileShareType -&gt; Text
+</span><a href="Amazonka.StorageGateway.Types.FileShareType.html#fromFileShareType"><span class="hs-identifier hs-var hs-var">fromFileShareType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371528"><span id="local-6989586621679371530"><span id="local-6989586621679371532"><span class="annot"><span class="annottext">Int -&gt; FileShareType -&gt; ShowS
+[FileShareType] -&gt; ShowS
+FileShareType -&gt; String
+(Int -&gt; FileShareType -&gt; ShowS)
+-&gt; (FileShareType -&gt; String)
+-&gt; ([FileShareType] -&gt; ShowS)
+-&gt; Show FileShareType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FileShareType] -&gt; ShowS
+$cshowList :: [FileShareType] -&gt; ShowS
+show :: FileShareType -&gt; String
+$cshow :: FileShareType -&gt; String
+showsPrec :: Int -&gt; FileShareType -&gt; ShowS
+$cshowsPrec :: Int -&gt; FileShareType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679371519"><span id="local-6989586621679371521"><span id="local-6989586621679371523"><span id="local-6989586621679371525"><span class="annot"><span class="annottext">ReadPrec [FileShareType]
+ReadPrec FileShareType
+Int -&gt; ReadS FileShareType
+ReadS [FileShareType]
+(Int -&gt; ReadS FileShareType)
+-&gt; ReadS [FileShareType]
+-&gt; ReadPrec FileShareType
+-&gt; ReadPrec [FileShareType]
+-&gt; Read FileShareType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FileShareType]
+$creadListPrec :: ReadPrec [FileShareType]
+readPrec :: ReadPrec FileShareType
+$creadPrec :: ReadPrec FileShareType
+readList :: ReadS [FileShareType]
+$creadList :: ReadS [FileShareType]
+readsPrec :: Int -&gt; ReadS FileShareType
+$creadsPrec :: Int -&gt; ReadS FileShareType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679371514"><span id="local-6989586621679371516"><span class="annot"><span class="annottext">FileShareType -&gt; FileShareType -&gt; Bool
+(FileShareType -&gt; FileShareType -&gt; Bool)
+-&gt; (FileShareType -&gt; FileShareType -&gt; Bool) -&gt; Eq FileShareType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FileShareType -&gt; FileShareType -&gt; Bool
+$c/= :: FileShareType -&gt; FileShareType -&gt; Bool
+== :: FileShareType -&gt; FileShareType -&gt; Bool
+$c== :: FileShareType -&gt; FileShareType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679371498"><span id="local-6989586621679371500"><span id="local-6989586621679371502"><span id="local-6989586621679371504"><span id="local-6989586621679371506"><span id="local-6989586621679371508"><span id="local-6989586621679371510"><span class="annot"><span class="annottext">Eq FileShareType
+Eq FileShareType
+-&gt; (FileShareType -&gt; FileShareType -&gt; Ordering)
+-&gt; (FileShareType -&gt; FileShareType -&gt; Bool)
+-&gt; (FileShareType -&gt; FileShareType -&gt; Bool)
+-&gt; (FileShareType -&gt; FileShareType -&gt; Bool)
+-&gt; (FileShareType -&gt; FileShareType -&gt; Bool)
+-&gt; (FileShareType -&gt; FileShareType -&gt; FileShareType)
+-&gt; (FileShareType -&gt; FileShareType -&gt; FileShareType)
+-&gt; Ord FileShareType
+FileShareType -&gt; FileShareType -&gt; Bool
+FileShareType -&gt; FileShareType -&gt; Ordering
+FileShareType -&gt; FileShareType -&gt; FileShareType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FileShareType -&gt; FileShareType -&gt; FileShareType
+$cmin :: FileShareType -&gt; FileShareType -&gt; FileShareType
+max :: FileShareType -&gt; FileShareType -&gt; FileShareType
+$cmax :: FileShareType -&gt; FileShareType -&gt; FileShareType
+&gt;= :: FileShareType -&gt; FileShareType -&gt; Bool
+$c&gt;= :: FileShareType -&gt; FileShareType -&gt; Bool
+&gt; :: FileShareType -&gt; FileShareType -&gt; Bool
+$c&gt; :: FileShareType -&gt; FileShareType -&gt; Bool
+&lt;= :: FileShareType -&gt; FileShareType -&gt; Bool
+$c&lt;= :: FileShareType -&gt; FileShareType -&gt; Bool
+&lt; :: FileShareType -&gt; FileShareType -&gt; Bool
+$c&lt; :: FileShareType -&gt; FileShareType -&gt; Bool
+compare :: FileShareType -&gt; FileShareType -&gt; Ordering
+$ccompare :: FileShareType -&gt; FileShareType -&gt; Ordering
+$cp1Ord :: Eq FileShareType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FileShareType -&gt; Rep FileShareType x)
+-&gt; (forall x. Rep FileShareType x -&gt; FileShareType)
+-&gt; Generic FileShareType
+forall x. Rep FileShareType x -&gt; FileShareType
+forall x. FileShareType -&gt; Rep FileShareType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FileShareType x -&gt; FileShareType
+$cfrom :: forall x. FileShareType -&gt; Rep FileShareType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371490"><span id="local-6989586621679371492"><span class="annot"><span class="annottext">Int -&gt; FileShareType -&gt; Int
+FileShareType -&gt; Int
+(Int -&gt; FileShareType -&gt; Int)
+-&gt; (FileShareType -&gt; Int) -&gt; Hashable FileShareType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FileShareType -&gt; Int
+$chash :: FileShareType -&gt; Int
+hashWithSalt :: Int -&gt; FileShareType -&gt; Int
+$chashWithSalt :: Int -&gt; FileShareType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679371487"><span class="annot"><span class="annottext">FileShareType -&gt; ()
+(FileShareType -&gt; ()) -&gt; NFData FileShareType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FileShareType -&gt; ()
+$crnf :: FileShareType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679371484"><span class="annot"><span class="annottext">Text -&gt; Either String FileShareType
+(Text -&gt; Either String FileShareType) -&gt; FromText FileShareType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FileShareType
+$cfromText :: Text -&gt; Either String FileShareType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679371481"><span class="annot"><span class="annottext">FileShareType -&gt; Text
+(FileShareType -&gt; Text) -&gt; ToText FileShareType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FileShareType -&gt; Text
+$ctoText :: FileShareType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679371478"><span class="annot"><span class="annottext">FileShareType -&gt; ByteString
+(FileShareType -&gt; ByteString) -&gt; ToByteString FileShareType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FileShareType -&gt; ByteString
+$ctoBS :: FileShareType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679371475"><span class="annot"><span class="annottext">FileShareType -&gt; ByteStringBuilder
+(FileShareType -&gt; ByteStringBuilder) -&gt; ToLog FileShareType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FileShareType -&gt; ByteStringBuilder
+$cbuild :: FileShareType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679371472"><span class="annot"><span class="annottext">HeaderName -&gt; FileShareType -&gt; [Header]
+(HeaderName -&gt; FileShareType -&gt; [Header]) -&gt; ToHeader FileShareType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FileShareType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FileShareType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679371469"><span class="annot"><span class="annottext">FileShareType -&gt; QueryString
+(FileShareType -&gt; QueryString) -&gt; ToQuery FileShareType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FileShareType -&gt; QueryString
+$ctoQuery :: FileShareType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679371464"><span id="local-6989586621679371466"><span class="annot"><span class="annottext">Value -&gt; Parser [FileShareType]
+Value -&gt; Parser FileShareType
+(Value -&gt; Parser FileShareType)
+-&gt; (Value -&gt; Parser [FileShareType]) -&gt; FromJSON FileShareType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FileShareType]
+$cparseJSONList :: Value -&gt; Parser [FileShareType]
+parseJSON :: Value -&gt; Parser FileShareType
+$cparseJSON :: Value -&gt; Parser FileShareType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679371459"><span id="local-6989586621679371461"><span class="annot"><span class="annottext">FromJSONKeyFunction [FileShareType]
+FromJSONKeyFunction FileShareType
+FromJSONKeyFunction FileShareType
+-&gt; FromJSONKeyFunction [FileShareType] -&gt; FromJSONKey FileShareType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FileShareType]
+$cfromJSONKeyList :: FromJSONKeyFunction [FileShareType]
+fromJSONKey :: FromJSONKeyFunction FileShareType
+$cfromJSONKey :: FromJSONKeyFunction FileShareType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679371450"><span id="local-6989586621679371452"><span id="local-6989586621679371454"><span id="local-6989586621679371456"><span class="annot"><span class="annottext">[FileShareType] -&gt; Encoding
+[FileShareType] -&gt; Value
+FileShareType -&gt; Encoding
+FileShareType -&gt; Value
+(FileShareType -&gt; Value)
+-&gt; (FileShareType -&gt; Encoding)
+-&gt; ([FileShareType] -&gt; Value)
+-&gt; ([FileShareType] -&gt; Encoding)
+-&gt; ToJSON FileShareType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FileShareType] -&gt; Encoding
+$ctoEncodingList :: [FileShareType] -&gt; Encoding
+toJSONList :: [FileShareType] -&gt; Value
+$ctoJSONList :: [FileShareType] -&gt; Value
+toEncoding :: FileShareType -&gt; Encoding
+$ctoEncoding :: FileShareType -&gt; Encoding
+toJSON :: FileShareType -&gt; Value
+$ctoJSON :: FileShareType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679371445"><span id="local-6989586621679371447"><span class="annot"><span class="annottext">ToJSONKeyFunction [FileShareType]
+ToJSONKeyFunction FileShareType
+ToJSONKeyFunction FileShareType
+-&gt; ToJSONKeyFunction [FileShareType] -&gt; ToJSONKey FileShareType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FileShareType]
+$ctoJSONKeyList :: ToJSONKeyFunction [FileShareType]
+toJSONKey :: ToJSONKeyFunction FileShareType
+$ctoJSONKey :: ToJSONKeyFunction FileShareType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679371442"><span class="annot"><span class="annottext">[Node] -&gt; Either String FileShareType
+([Node] -&gt; Either String FileShareType) -&gt; FromXML FileShareType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FileShareType
+$cparseXML :: [Node] -&gt; Either String FileShareType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679371439"><span class="annot"><span class="annottext">FileShareType -&gt; XML
+(FileShareType -&gt; XML) -&gt; ToXML FileShareType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FileShareType -&gt; XML
+$ctoXML :: FileShareType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileShareType.html#FileShareType_NFS"><span class="hs-identifier hs-type">FileShareType_NFS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileShareType.html#FileShareType"><span class="hs-identifier hs-type">FileShareType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileShareType_NFS"><span id="%24mFileShareType_NFS"><span id="FileShareType_NFS"><span class="annot"><span class="annottext">$bFileShareType_NFS :: FileShareType
+$mFileShareType_NFS :: forall r. FileShareType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StorageGateway.Types.FileShareType.html#%24bFileShareType_NFS"><span class="hs-identifier hs-var hs-var hs-var">FileShareType_NFS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileShareType.html#FileShareType%27"><span class="hs-identifier hs-type">FileShareType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NFS&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileShareType.html#FileShareType_SMB"><span class="hs-identifier hs-type">FileShareType_SMB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileShareType.html#FileShareType"><span class="hs-identifier hs-type">FileShareType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileShareType_SMB"><span id="%24mFileShareType_SMB"><span id="FileShareType_SMB"><span class="annot"><span class="annottext">$bFileShareType_SMB :: FileShareType
+$mFileShareType_SMB :: forall r. FileShareType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StorageGateway.Types.FileShareType.html#%24bFileShareType_SMB"><span class="hs-identifier hs-var hs-var hs-var">FileShareType_SMB</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileShareType.html#FileShareType%27"><span class="hs-identifier hs-type">FileShareType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SMB&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileShareType.html#FileShareType_NFS"><span class="hs-pragma hs-type">FileShareType_NFS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileShareType.html#FileShareType_SMB"><span class="hs-pragma hs-type">FileShareType_SMB</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.Types.FileShareType.html#FileShareType%27"><span class="hs-pragma hs-type">FileShareType'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

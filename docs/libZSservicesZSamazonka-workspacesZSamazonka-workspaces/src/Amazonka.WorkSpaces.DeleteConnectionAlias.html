@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WorkSpaces.DeleteConnectionAlias</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified connection alias. For more information, see</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html Cross-Region Redirection for Amazon WorkSpaces&gt;.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- __If you will no longer be using a fully qualified domain name (FQDN) as</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- the registration code for your WorkSpaces users, you must take certain</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- precautions to prevent potential security issues.__ For more</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html#cross-region-redirection-security-considerations Security Considerations if You Stop Using Cross-Region Redirection&gt;.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- To delete a connection alias that has been shared, the shared account</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- must first disassociate the connection alias from any directories it has</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- been associated with. Then you must unshare the connection alias from</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- the account it has been shared with. You can delete a connection alias</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- only after it is no longer shared with any accounts or associated with</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- any directories.</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkSpaces.DeleteConnectionAlias</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias"><span class="hs-identifier">DeleteConnectionAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#newDeleteConnectionAlias"><span class="hs-identifier">newDeleteConnectionAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#deleteConnectionAlias_aliasId"><span class="hs-identifier">deleteConnectionAlias_aliasId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAliasResponse"><span class="hs-identifier">DeleteConnectionAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#newDeleteConnectionAliasResponse"><span class="hs-identifier">newDeleteConnectionAliasResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#deleteConnectionAliasResponse_httpStatus"><span class="hs-identifier">deleteConnectionAliasResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.html"><span class="hs-identifier">Amazonka.WorkSpaces.Types</span></a></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newDeleteConnectionAlias' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679287026"><span id="local-6989586621679287027"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConnectionAlias"><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias"><span class="hs-identifier hs-var">DeleteConnectionAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConnectionAlias%27"><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias%27"><span class="hs-identifier hs-var">DeleteConnectionAlias'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the connection alias to delete.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AaliasId%3ADeleteConnectionAlias%27"><span class="annot"><span class="annottext">DeleteConnectionAlias -&gt; Text
+</span><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#%24sel%3AaliasId%3ADeleteConnectionAlias%27"><span class="hs-identifier hs-var hs-var">aliasId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287020"><span id="local-6989586621679287022"><span class="annot"><span class="annottext">DeleteConnectionAlias -&gt; DeleteConnectionAlias -&gt; Bool
+(DeleteConnectionAlias -&gt; DeleteConnectionAlias -&gt; Bool)
+-&gt; (DeleteConnectionAlias -&gt; DeleteConnectionAlias -&gt; Bool)
+-&gt; Eq DeleteConnectionAlias
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteConnectionAlias -&gt; DeleteConnectionAlias -&gt; Bool
+$c/= :: DeleteConnectionAlias -&gt; DeleteConnectionAlias -&gt; Bool
+== :: DeleteConnectionAlias -&gt; DeleteConnectionAlias -&gt; Bool
+$c== :: DeleteConnectionAlias -&gt; DeleteConnectionAlias -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287011"><span id="local-6989586621679287013"><span id="local-6989586621679287015"><span id="local-6989586621679287017"><span class="annot"><span class="annottext">ReadPrec [DeleteConnectionAlias]
+ReadPrec DeleteConnectionAlias
+Int -&gt; ReadS DeleteConnectionAlias
+ReadS [DeleteConnectionAlias]
+(Int -&gt; ReadS DeleteConnectionAlias)
+-&gt; ReadS [DeleteConnectionAlias]
+-&gt; ReadPrec DeleteConnectionAlias
+-&gt; ReadPrec [DeleteConnectionAlias]
+-&gt; Read DeleteConnectionAlias
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteConnectionAlias]
+$creadListPrec :: ReadPrec [DeleteConnectionAlias]
+readPrec :: ReadPrec DeleteConnectionAlias
+$creadPrec :: ReadPrec DeleteConnectionAlias
+readList :: ReadS [DeleteConnectionAlias]
+$creadList :: ReadS [DeleteConnectionAlias]
+readsPrec :: Int -&gt; ReadS DeleteConnectionAlias
+$creadsPrec :: Int -&gt; ReadS DeleteConnectionAlias
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287004"><span id="local-6989586621679287006"><span id="local-6989586621679287008"><span class="annot"><span class="annottext">Int -&gt; DeleteConnectionAlias -&gt; ShowS
+[DeleteConnectionAlias] -&gt; ShowS
+DeleteConnectionAlias -&gt; String
+(Int -&gt; DeleteConnectionAlias -&gt; ShowS)
+-&gt; (DeleteConnectionAlias -&gt; String)
+-&gt; ([DeleteConnectionAlias] -&gt; ShowS)
+-&gt; Show DeleteConnectionAlias
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteConnectionAlias] -&gt; ShowS
+$cshowList :: [DeleteConnectionAlias] -&gt; ShowS
+show :: DeleteConnectionAlias -&gt; String
+$cshow :: DeleteConnectionAlias -&gt; String
+showsPrec :: Int -&gt; DeleteConnectionAlias -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteConnectionAlias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteConnectionAlias -&gt; Rep DeleteConnectionAlias x)
+-&gt; (forall x. Rep DeleteConnectionAlias x -&gt; DeleteConnectionAlias)
+-&gt; Generic DeleteConnectionAlias
+forall x. Rep DeleteConnectionAlias x -&gt; DeleteConnectionAlias
+forall x. DeleteConnectionAlias -&gt; Rep DeleteConnectionAlias x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteConnectionAlias x -&gt; DeleteConnectionAlias
+$cfrom :: forall x. DeleteConnectionAlias -&gt; Rep DeleteConnectionAlias x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'DeleteConnectionAlias' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'aliasId', 'deleteConnectionAlias_aliasId' - The identifier of the connection alias to delete.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#newDeleteConnectionAlias"><span class="hs-identifier hs-type">newDeleteConnectionAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'aliasId'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias"><span class="hs-identifier hs-type">DeleteConnectionAlias</span></a></span><span>
+</span><span id="line-82"></span><span id="newDeleteConnectionAlias"><span class="annot"><span class="annottext">newDeleteConnectionAlias :: Text -&gt; DeleteConnectionAlias
+</span><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#newDeleteConnectionAlias"><span class="hs-identifier hs-var hs-var">newDeleteConnectionAlias</span></a></span></span><span> </span><span id="local-6989586621679286999"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286999"><span class="hs-identifier hs-var">pAliasId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">DeleteConnectionAlias' :: Text -&gt; DeleteConnectionAlias
+</span><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias%27"><span class="hs-identifier hs-type">DeleteConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasId:DeleteConnectionAlias' :: Text
+</span><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#%24sel%3AaliasId%3ADeleteConnectionAlias%27"><span class="hs-identifier hs-var">aliasId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286999"><span class="hs-identifier hs-var">pAliasId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The identifier of the connection alias to delete.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#deleteConnectionAlias_aliasId"><span class="hs-identifier hs-type">deleteConnectionAlias_aliasId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias"><span class="hs-identifier hs-type">DeleteConnectionAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="deleteConnectionAlias_aliasId"><span class="annot"><span class="annottext">deleteConnectionAlias_aliasId :: (Text -&gt; f Text)
+-&gt; DeleteConnectionAlias -&gt; f DeleteConnectionAlias
+</span><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#deleteConnectionAlias_aliasId"><span class="hs-identifier hs-var hs-var">deleteConnectionAlias_aliasId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteConnectionAlias -&gt; Text)
+-&gt; (DeleteConnectionAlias -&gt; Text -&gt; DeleteConnectionAlias)
+-&gt; Lens DeleteConnectionAlias DeleteConnectionAlias Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias%27"><span class="hs-identifier hs-type">DeleteConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286996"><span class="annot"><span class="annottext">Text
+aliasId :: Text
+$sel:aliasId:DeleteConnectionAlias' :: DeleteConnectionAlias -&gt; Text
+</span><a href="#local-6989586621679286996"><span class="hs-identifier hs-var hs-var">aliasId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286996"><span class="hs-identifier hs-var">aliasId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286995"><span class="annot"><span class="annottext">s :: DeleteConnectionAlias
+</span><a href="#local-6989586621679286995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias%27"><span class="hs-identifier hs-type">DeleteConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286994"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConnectionAlias
+</span><a href="#local-6989586621679286995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasId:DeleteConnectionAlias' :: Text
+</span><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#%24sel%3AaliasId%3ADeleteConnectionAlias%27"><span class="hs-identifier hs-var">aliasId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias"><span class="hs-identifier hs-type">DeleteConnectionAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias"><span class="hs-identifier hs-type">DeleteConnectionAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias"><span class="hs-identifier hs-type">DeleteConnectionAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAliasResponse"><span class="hs-identifier hs-type">DeleteConnectionAliasResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679286990"><span class="annot"><span class="annottext">request :: DeleteConnectionAlias -&gt; Request DeleteConnectionAlias
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteConnectionAlias -&gt; Request DeleteConnectionAlias
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679286986"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteConnectionAlias
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteConnectionAlias)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteConnectionAlias))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteConnectionAlias
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteConnectionAlias)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286983"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286983"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679286982"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679286982"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679286981"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679286981"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteConnectionAliasResponse
+</span><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAliasResponse%27"><span class="hs-identifier hs-var">DeleteConnectionAliasResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteConnectionAliasResponse)
+-&gt; Either String Int -&gt; Either String DeleteConnectionAliasResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286983"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286974"><span id="local-6989586621679286976"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias"><span class="hs-identifier hs-type">DeleteConnectionAlias</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286971"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias"><span class="hs-identifier hs-type">DeleteConnectionAlias</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias"><span class="hs-identifier hs-type">DeleteConnectionAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679286967"><span class="annot"><span class="annottext">toHeaders :: DeleteConnectionAlias -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteConnectionAlias -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkspacesService.DeleteConnectionAlias&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-112"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286957"><span id="local-6989586621679286959"><span id="local-6989586621679286961"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias"><span class="hs-identifier hs-type">DeleteConnectionAlias</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679286955"><span class="annot"><span class="annottext">toJSON :: DeleteConnectionAlias -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias%27"><span class="hs-identifier hs-type">DeleteConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286953"><span class="annot"><span class="annottext">Text
+aliasId :: Text
+$sel:aliasId:DeleteConnectionAlias' :: DeleteConnectionAlias -&gt; Text
+</span><a href="#local-6989586621679286953"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AliasId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286953"><span class="hs-identifier hs-var">aliasId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias"><span class="hs-identifier hs-type">DeleteConnectionAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679286947"><span class="annot"><span class="annottext">toPath :: DeleteConnectionAlias -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteConnectionAlias -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAlias"><span class="hs-identifier hs-type">DeleteConnectionAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679286943"><span class="annot"><span class="annottext">toQuery :: DeleteConnectionAlias -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteConnectionAlias -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newDeleteConnectionAliasResponse' smart constructor.</span><span>
+</span><span id="line-134"></span><span id="local-6989586621679286940"><span id="local-6989586621679286941"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConnectionAliasResponse"><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAliasResponse"><span class="hs-identifier hs-var">DeleteConnectionAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConnectionAliasResponse%27"><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAliasResponse%27"><span class="hs-identifier hs-var">DeleteConnectionAliasResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteConnectionAliasResponse%27"><span class="annot"><span class="annottext">DeleteConnectionAliasResponse -&gt; Int
+</span><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#%24sel%3AhttpStatus%3ADeleteConnectionAliasResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286935"><span id="local-6989586621679286937"><span class="annot"><span class="annottext">DeleteConnectionAliasResponse
+-&gt; DeleteConnectionAliasResponse -&gt; Bool
+(DeleteConnectionAliasResponse
+ -&gt; DeleteConnectionAliasResponse -&gt; Bool)
+-&gt; (DeleteConnectionAliasResponse
+    -&gt; DeleteConnectionAliasResponse -&gt; Bool)
+-&gt; Eq DeleteConnectionAliasResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteConnectionAliasResponse
+-&gt; DeleteConnectionAliasResponse -&gt; Bool
+$c/= :: DeleteConnectionAliasResponse
+-&gt; DeleteConnectionAliasResponse -&gt; Bool
+== :: DeleteConnectionAliasResponse
+-&gt; DeleteConnectionAliasResponse -&gt; Bool
+$c== :: DeleteConnectionAliasResponse
+-&gt; DeleteConnectionAliasResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286927"><span id="local-6989586621679286929"><span id="local-6989586621679286931"><span id="local-6989586621679286933"><span class="annot"><span class="annottext">ReadPrec [DeleteConnectionAliasResponse]
+ReadPrec DeleteConnectionAliasResponse
+Int -&gt; ReadS DeleteConnectionAliasResponse
+ReadS [DeleteConnectionAliasResponse]
+(Int -&gt; ReadS DeleteConnectionAliasResponse)
+-&gt; ReadS [DeleteConnectionAliasResponse]
+-&gt; ReadPrec DeleteConnectionAliasResponse
+-&gt; ReadPrec [DeleteConnectionAliasResponse]
+-&gt; Read DeleteConnectionAliasResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteConnectionAliasResponse]
+$creadListPrec :: ReadPrec [DeleteConnectionAliasResponse]
+readPrec :: ReadPrec DeleteConnectionAliasResponse
+$creadPrec :: ReadPrec DeleteConnectionAliasResponse
+readList :: ReadS [DeleteConnectionAliasResponse]
+$creadList :: ReadS [DeleteConnectionAliasResponse]
+readsPrec :: Int -&gt; ReadS DeleteConnectionAliasResponse
+$creadsPrec :: Int -&gt; ReadS DeleteConnectionAliasResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286921"><span id="local-6989586621679286923"><span id="local-6989586621679286925"><span class="annot"><span class="annottext">Int -&gt; DeleteConnectionAliasResponse -&gt; ShowS
+[DeleteConnectionAliasResponse] -&gt; ShowS
+DeleteConnectionAliasResponse -&gt; String
+(Int -&gt; DeleteConnectionAliasResponse -&gt; ShowS)
+-&gt; (DeleteConnectionAliasResponse -&gt; String)
+-&gt; ([DeleteConnectionAliasResponse] -&gt; ShowS)
+-&gt; Show DeleteConnectionAliasResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteConnectionAliasResponse] -&gt; ShowS
+$cshowList :: [DeleteConnectionAliasResponse] -&gt; ShowS
+show :: DeleteConnectionAliasResponse -&gt; String
+$cshow :: DeleteConnectionAliasResponse -&gt; String
+showsPrec :: Int -&gt; DeleteConnectionAliasResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteConnectionAliasResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteConnectionAliasResponse
+ -&gt; Rep DeleteConnectionAliasResponse x)
+-&gt; (forall x.
+    Rep DeleteConnectionAliasResponse x
+    -&gt; DeleteConnectionAliasResponse)
+-&gt; Generic DeleteConnectionAliasResponse
+forall x.
+Rep DeleteConnectionAliasResponse x
+-&gt; DeleteConnectionAliasResponse
+forall x.
+DeleteConnectionAliasResponse
+-&gt; Rep DeleteConnectionAliasResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteConnectionAliasResponse x
+-&gt; DeleteConnectionAliasResponse
+$cfrom :: forall x.
+DeleteConnectionAliasResponse
+-&gt; Rep DeleteConnectionAliasResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Create a value of 'DeleteConnectionAliasResponse' with all optional fields omitted.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'httpStatus', 'deleteConnectionAliasResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#newDeleteConnectionAliasResponse"><span class="hs-identifier hs-type">newDeleteConnectionAliasResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAliasResponse"><span class="hs-identifier hs-type">DeleteConnectionAliasResponse</span></a></span><span>
+</span><span id="line-153"></span><span id="newDeleteConnectionAliasResponse"><span class="annot"><span class="annottext">newDeleteConnectionAliasResponse :: Int -&gt; DeleteConnectionAliasResponse
+</span><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#newDeleteConnectionAliasResponse"><span class="hs-identifier hs-var hs-var">newDeleteConnectionAliasResponse</span></a></span></span><span> </span><span id="local-6989586621679286918"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286918"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">DeleteConnectionAliasResponse' :: Int -&gt; DeleteConnectionAliasResponse
+</span><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAliasResponse%27"><span class="hs-identifier hs-type">DeleteConnectionAliasResponse'</span></a></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteConnectionAliasResponse' :: Int
+</span><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#%24sel%3AhttpStatus%3ADeleteConnectionAliasResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286918"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#deleteConnectionAliasResponse_httpStatus"><span class="hs-identifier hs-type">deleteConnectionAliasResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAliasResponse"><span class="hs-identifier hs-type">DeleteConnectionAliasResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-161"></span><span id="deleteConnectionAliasResponse_httpStatus"><span class="annot"><span class="annottext">deleteConnectionAliasResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteConnectionAliasResponse -&gt; f DeleteConnectionAliasResponse
+</span><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#deleteConnectionAliasResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteConnectionAliasResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteConnectionAliasResponse -&gt; Int)
+-&gt; (DeleteConnectionAliasResponse
+    -&gt; Int -&gt; DeleteConnectionAliasResponse)
+-&gt; Lens
+     DeleteConnectionAliasResponse DeleteConnectionAliasResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAliasResponse%27"><span class="hs-identifier hs-type">DeleteConnectionAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286917"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteConnectionAliasResponse' :: DeleteConnectionAliasResponse -&gt; Int
+</span><a href="#local-6989586621679286917"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286917"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286916"><span class="annot"><span class="annottext">s :: DeleteConnectionAliasResponse
+</span><a href="#local-6989586621679286916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAliasResponse%27"><span class="hs-identifier hs-type">DeleteConnectionAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286915"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConnectionAliasResponse
+</span><a href="#local-6989586621679286916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteConnectionAliasResponse' :: Int
+</span><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#%24sel%3AhttpStatus%3ADeleteConnectionAliasResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAliasResponse"><span class="hs-identifier hs-type">DeleteConnectionAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286913"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.DeleteConnectionAlias.html#DeleteConnectionAliasResponse"><span class="hs-identifier hs-type">DeleteConnectionAliasResponse</span></a></span></span><span>
+</span><span id="line-164"></span></pre></body></html>

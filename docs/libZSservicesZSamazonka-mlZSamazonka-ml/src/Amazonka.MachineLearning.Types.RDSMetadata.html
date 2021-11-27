@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MachineLearning.Types.RDSMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MachineLearning.Types.RDSMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSDatabase.html"><span class="hs-identifier">Amazonka.MachineLearning.Types.RDSDatabase</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The datasource details that are specific to Amazon RDS.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRDSMetadata' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679251708"><span id="local-6989586621679251709"></span></span><span class="hs-keyword">data</span><span> </span><span id="RDSMetadata"><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-var">RDSMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RDSMetadata%27"><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata%27"><span class="hs-identifier hs-var">RDSMetadata'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The SQL query that is supplied during CreateDataSourceFromRDS. Returns</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- only if @Verbose@ is true in @GetDataSourceInput@.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AselectSqlQuery%3ARDSMetadata%27"><span class="annot"><span class="annottext">RDSMetadata -&gt; Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3AselectSqlQuery%3ARDSMetadata%27"><span class="hs-identifier hs-var hs-var">selectSqlQuery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the Data Pipeline instance that is used to carry to copy data</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- from Amazon RDS to Amazon S3. You can use the ID to find details about</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the instance in the Data Pipeline console.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdataPipelineId%3ARDSMetadata%27"><span class="annot"><span class="annottext">RDSMetadata -&gt; Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3AdataPipelineId%3ARDSMetadata%27"><span class="hs-identifier hs-var hs-var">dataPipelineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The database details required to connect to an Amazon RDS.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Adatabase%3ARDSMetadata%27"><span class="annot"><span class="annottext">RDSMetadata -&gt; Maybe RDSDatabase
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3Adatabase%3ARDSMetadata%27"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSDatabase.html#RDSDatabase"><span class="hs-identifier hs-type">RDSDatabase</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdatabaseUserName%3ARDSMetadata%27"><span class="annot"><span class="annottext">RDSMetadata -&gt; Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3AdatabaseUserName%3ARDSMetadata%27"><span class="hs-identifier hs-var hs-var">databaseUserName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- instance to carry out the copy task from Amazon RDS to Amazon S3. For</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates&gt;</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- for data pipelines.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AresourceRole%3ARDSMetadata%27"><span class="annot"><span class="annottext">RDSMetadata -&gt; Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3AresourceRole%3ARDSMetadata%27"><span class="hs-identifier hs-var hs-var">resourceRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The role (DataPipelineDefaultRole) assumed by the Data Pipeline service</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- to monitor the progress of the copy task from Amazon RDS to Amazon S3.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates&gt;</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- for data pipelines.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AserviceRole%3ARDSMetadata%27"><span class="annot"><span class="annottext">RDSMetadata -&gt; Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3AserviceRole%3ARDSMetadata%27"><span class="hs-identifier hs-var hs-var">serviceRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251697"><span id="local-6989586621679251699"><span class="annot"><span class="annottext">RDSMetadata -&gt; RDSMetadata -&gt; Bool
+(RDSMetadata -&gt; RDSMetadata -&gt; Bool)
+-&gt; (RDSMetadata -&gt; RDSMetadata -&gt; Bool) -&gt; Eq RDSMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RDSMetadata -&gt; RDSMetadata -&gt; Bool
+$c/= :: RDSMetadata -&gt; RDSMetadata -&gt; Bool
+== :: RDSMetadata -&gt; RDSMetadata -&gt; Bool
+$c== :: RDSMetadata -&gt; RDSMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251688"><span id="local-6989586621679251690"><span id="local-6989586621679251692"><span id="local-6989586621679251694"><span class="annot"><span class="annottext">ReadPrec [RDSMetadata]
+ReadPrec RDSMetadata
+Int -&gt; ReadS RDSMetadata
+ReadS [RDSMetadata]
+(Int -&gt; ReadS RDSMetadata)
+-&gt; ReadS [RDSMetadata]
+-&gt; ReadPrec RDSMetadata
+-&gt; ReadPrec [RDSMetadata]
+-&gt; Read RDSMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RDSMetadata]
+$creadListPrec :: ReadPrec [RDSMetadata]
+readPrec :: ReadPrec RDSMetadata
+$creadPrec :: ReadPrec RDSMetadata
+readList :: ReadS [RDSMetadata]
+$creadList :: ReadS [RDSMetadata]
+readsPrec :: Int -&gt; ReadS RDSMetadata
+$creadsPrec :: Int -&gt; ReadS RDSMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251681"><span id="local-6989586621679251683"><span id="local-6989586621679251685"><span class="annot"><span class="annottext">Int -&gt; RDSMetadata -&gt; ShowS
+[RDSMetadata] -&gt; ShowS
+RDSMetadata -&gt; String
+(Int -&gt; RDSMetadata -&gt; ShowS)
+-&gt; (RDSMetadata -&gt; String)
+-&gt; ([RDSMetadata] -&gt; ShowS)
+-&gt; Show RDSMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RDSMetadata] -&gt; ShowS
+$cshowList :: [RDSMetadata] -&gt; ShowS
+show :: RDSMetadata -&gt; String
+$cshow :: RDSMetadata -&gt; String
+showsPrec :: Int -&gt; RDSMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; RDSMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RDSMetadata -&gt; Rep RDSMetadata x)
+-&gt; (forall x. Rep RDSMetadata x -&gt; RDSMetadata)
+-&gt; Generic RDSMetadata
+forall x. Rep RDSMetadata x -&gt; RDSMetadata
+forall x. RDSMetadata -&gt; Rep RDSMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RDSMetadata x -&gt; RDSMetadata
+$cfrom :: forall x. RDSMetadata -&gt; Rep RDSMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'RDSMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'selectSqlQuery', 'rDSMetadata_selectSqlQuery' - The SQL query that is supplied during CreateDataSourceFromRDS. Returns</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- only if @Verbose@ is true in @GetDataSourceInput@.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'dataPipelineId', 'rDSMetadata_dataPipelineId' - The ID of the Data Pipeline instance that is used to carry to copy data</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- from Amazon RDS to Amazon S3. You can use the ID to find details about</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- the instance in the Data Pipeline console.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'database', 'rDSMetadata_database' - The database details required to connect to an Amazon RDS.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'databaseUserName', 'rDSMetadata_databaseUserName' - Undocumented member.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'resourceRole', 'rDSMetadata_resourceRole' - The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- instance to carry out the copy task from Amazon RDS to Amazon S3. For</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates&gt;</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for data pipelines.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'serviceRole', 'rDSMetadata_serviceRole' - The role (DataPipelineDefaultRole) assumed by the Data Pipeline service</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- to monitor the progress of the copy task from Amazon RDS to Amazon S3.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates&gt;</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for data pipelines.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#newRDSMetadata"><span class="hs-identifier hs-type">newRDSMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span><span>
+</span><span id="line-88"></span><span id="newRDSMetadata"><span class="annot"><span class="annottext">newRDSMetadata :: RDSMetadata
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#newRDSMetadata"><span class="hs-identifier hs-var hs-var">newRDSMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">RDSMetadata' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe RDSDatabase
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; RDSMetadata
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata%27"><span class="hs-identifier hs-type">RDSMetadata'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:selectSqlQuery:RDSMetadata' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3AselectSqlQuery%3ARDSMetadata%27"><span class="hs-identifier hs-var">selectSqlQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataPipelineId:RDSMetadata' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3AdataPipelineId%3ARDSMetadata%27"><span class="hs-identifier hs-var">dataPipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:database:RDSMetadata' :: Maybe RDSDatabase
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3Adatabase%3ARDSMetadata%27"><span class="hs-identifier hs-var">database</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RDSDatabase
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseUserName:RDSMetadata' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3AdatabaseUserName%3ARDSMetadata%27"><span class="hs-identifier hs-var">databaseUserName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceRole:RDSMetadata' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3AresourceRole%3ARDSMetadata%27"><span class="hs-identifier hs-var">resourceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceRole:RDSMetadata' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3AserviceRole%3ARDSMetadata%27"><span class="hs-identifier hs-var">serviceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The SQL query that is supplied during CreateDataSourceFromRDS. Returns</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- only if @Verbose@ is true in @GetDataSourceInput@.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#rDSMetadata_selectSqlQuery"><span class="hs-identifier hs-type">rDSMetadata_selectSqlQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="rDSMetadata_selectSqlQuery"><span class="annot"><span class="annottext">rDSMetadata_selectSqlQuery :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RDSMetadata -&gt; f RDSMetadata
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#rDSMetadata_selectSqlQuery"><span class="hs-identifier hs-var hs-var">rDSMetadata_selectSqlQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RDSMetadata -&gt; Maybe Text)
+-&gt; (RDSMetadata -&gt; Maybe Text -&gt; RDSMetadata)
+-&gt; Lens RDSMetadata RDSMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata%27"><span class="hs-identifier hs-type">RDSMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251672"><span class="annot"><span class="annottext">Maybe Text
+selectSqlQuery :: Maybe Text
+$sel:selectSqlQuery:RDSMetadata' :: RDSMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679251672"><span class="hs-identifier hs-var hs-var">selectSqlQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251672"><span class="hs-identifier hs-var">selectSqlQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251671"><span class="annot"><span class="annottext">s :: RDSMetadata
+</span><a href="#local-6989586621679251671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata%27"><span class="hs-identifier hs-type">RDSMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251670"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSMetadata
+</span><a href="#local-6989586621679251671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectSqlQuery:RDSMetadata' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3AselectSqlQuery%3ARDSMetadata%27"><span class="hs-identifier hs-var">selectSqlQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The ID of the Data Pipeline instance that is used to carry to copy data</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- from Amazon RDS to Amazon S3. You can use the ID to find details about</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- the instance in the Data Pipeline console.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#rDSMetadata_dataPipelineId"><span class="hs-identifier hs-type">rDSMetadata_dataPipelineId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="rDSMetadata_dataPipelineId"><span class="annot"><span class="annottext">rDSMetadata_dataPipelineId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RDSMetadata -&gt; f RDSMetadata
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#rDSMetadata_dataPipelineId"><span class="hs-identifier hs-var hs-var">rDSMetadata_dataPipelineId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RDSMetadata -&gt; Maybe Text)
+-&gt; (RDSMetadata -&gt; Maybe Text -&gt; RDSMetadata)
+-&gt; Lens RDSMetadata RDSMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata%27"><span class="hs-identifier hs-type">RDSMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251668"><span class="annot"><span class="annottext">Maybe Text
+dataPipelineId :: Maybe Text
+$sel:dataPipelineId:RDSMetadata' :: RDSMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679251668"><span class="hs-identifier hs-var hs-var">dataPipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251668"><span class="hs-identifier hs-var">dataPipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251667"><span class="annot"><span class="annottext">s :: RDSMetadata
+</span><a href="#local-6989586621679251667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata%27"><span class="hs-identifier hs-type">RDSMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251666"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSMetadata
+</span><a href="#local-6989586621679251667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataPipelineId:RDSMetadata' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3AdataPipelineId%3ARDSMetadata%27"><span class="hs-identifier hs-var">dataPipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The database details required to connect to an Amazon RDS.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#rDSMetadata_database"><span class="hs-identifier hs-type">rDSMetadata_database</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSDatabase.html#RDSDatabase"><span class="hs-identifier hs-type">RDSDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="rDSMetadata_database"><span class="annot"><span class="annottext">rDSMetadata_database :: (Maybe RDSDatabase -&gt; f (Maybe RDSDatabase))
+-&gt; RDSMetadata -&gt; f RDSMetadata
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#rDSMetadata_database"><span class="hs-identifier hs-var hs-var">rDSMetadata_database</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RDSMetadata -&gt; Maybe RDSDatabase)
+-&gt; (RDSMetadata -&gt; Maybe RDSDatabase -&gt; RDSMetadata)
+-&gt; Lens
+     RDSMetadata RDSMetadata (Maybe RDSDatabase) (Maybe RDSDatabase)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata%27"><span class="hs-identifier hs-type">RDSMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251664"><span class="annot"><span class="annottext">Maybe RDSDatabase
+database :: Maybe RDSDatabase
+$sel:database:RDSMetadata' :: RDSMetadata -&gt; Maybe RDSDatabase
+</span><a href="#local-6989586621679251664"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RDSDatabase
+</span><a href="#local-6989586621679251664"><span class="hs-identifier hs-var">database</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251663"><span class="annot"><span class="annottext">s :: RDSMetadata
+</span><a href="#local-6989586621679251663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata%27"><span class="hs-identifier hs-type">RDSMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251662"><span class="annot"><span class="annottext">Maybe RDSDatabase
+</span><a href="#local-6989586621679251662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSMetadata
+</span><a href="#local-6989586621679251663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:database:RDSMetadata' :: Maybe RDSDatabase
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3Adatabase%3ARDSMetadata%27"><span class="hs-identifier hs-var">database</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RDSDatabase
+</span><a href="#local-6989586621679251662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#rDSMetadata_databaseUserName"><span class="hs-identifier hs-type">rDSMetadata_databaseUserName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="rDSMetadata_databaseUserName"><span class="annot"><span class="annottext">rDSMetadata_databaseUserName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RDSMetadata -&gt; f RDSMetadata
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#rDSMetadata_databaseUserName"><span class="hs-identifier hs-var hs-var">rDSMetadata_databaseUserName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RDSMetadata -&gt; Maybe Text)
+-&gt; (RDSMetadata -&gt; Maybe Text -&gt; RDSMetadata)
+-&gt; Lens RDSMetadata RDSMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata%27"><span class="hs-identifier hs-type">RDSMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251660"><span class="annot"><span class="annottext">Maybe Text
+databaseUserName :: Maybe Text
+$sel:databaseUserName:RDSMetadata' :: RDSMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679251660"><span class="hs-identifier hs-var hs-var">databaseUserName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251660"><span class="hs-identifier hs-var">databaseUserName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251659"><span class="annot"><span class="annottext">s :: RDSMetadata
+</span><a href="#local-6989586621679251659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata%27"><span class="hs-identifier hs-type">RDSMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251658"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSMetadata
+</span><a href="#local-6989586621679251659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseUserName:RDSMetadata' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3AdatabaseUserName%3ARDSMetadata%27"><span class="hs-identifier hs-var">databaseUserName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- instance to carry out the copy task from Amazon RDS to Amazon S3. For</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates&gt;</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- for data pipelines.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#rDSMetadata_resourceRole"><span class="hs-identifier hs-type">rDSMetadata_resourceRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="rDSMetadata_resourceRole"><span class="annot"><span class="annottext">rDSMetadata_resourceRole :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RDSMetadata -&gt; f RDSMetadata
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#rDSMetadata_resourceRole"><span class="hs-identifier hs-var hs-var">rDSMetadata_resourceRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RDSMetadata -&gt; Maybe Text)
+-&gt; (RDSMetadata -&gt; Maybe Text -&gt; RDSMetadata)
+-&gt; Lens RDSMetadata RDSMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata%27"><span class="hs-identifier hs-type">RDSMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251656"><span class="annot"><span class="annottext">Maybe Text
+resourceRole :: Maybe Text
+$sel:resourceRole:RDSMetadata' :: RDSMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679251656"><span class="hs-identifier hs-var hs-var">resourceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251656"><span class="hs-identifier hs-var">resourceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251655"><span class="annot"><span class="annottext">s :: RDSMetadata
+</span><a href="#local-6989586621679251655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata%27"><span class="hs-identifier hs-type">RDSMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251654"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSMetadata
+</span><a href="#local-6989586621679251655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceRole:RDSMetadata' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3AresourceRole%3ARDSMetadata%27"><span class="hs-identifier hs-var">resourceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The role (DataPipelineDefaultRole) assumed by the Data Pipeline service</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- to monitor the progress of the copy task from Amazon RDS to Amazon S3.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates&gt;</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- for data pipelines.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#rDSMetadata_serviceRole"><span class="hs-identifier hs-type">rDSMetadata_serviceRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="rDSMetadata_serviceRole"><span class="annot"><span class="annottext">rDSMetadata_serviceRole :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RDSMetadata -&gt; f RDSMetadata
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#rDSMetadata_serviceRole"><span class="hs-identifier hs-var hs-var">rDSMetadata_serviceRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RDSMetadata -&gt; Maybe Text)
+-&gt; (RDSMetadata -&gt; Maybe Text -&gt; RDSMetadata)
+-&gt; Lens RDSMetadata RDSMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata%27"><span class="hs-identifier hs-type">RDSMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251652"><span class="annot"><span class="annottext">Maybe Text
+serviceRole :: Maybe Text
+$sel:serviceRole:RDSMetadata' :: RDSMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679251652"><span class="hs-identifier hs-var hs-var">serviceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251652"><span class="hs-identifier hs-var">serviceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251651"><span class="annot"><span class="annottext">s :: RDSMetadata
+</span><a href="#local-6989586621679251651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata%27"><span class="hs-identifier hs-type">RDSMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251650"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSMetadata
+</span><a href="#local-6989586621679251651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceRole:RDSMetadata' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#%24sel%3AserviceRole%3ARDSMetadata%27"><span class="hs-identifier hs-var">serviceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251647"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679251645"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RDSMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RDSMetadata) -&gt; Value -&gt; Parser RDSMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RDSMetadata&quot;</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251642"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251642"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe RDSDatabase
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; RDSMetadata
+</span><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata%27"><span class="hs-identifier hs-var">RDSMetadata'</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe RDSDatabase
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; RDSMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe RDSDatabase
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RDSMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SelectSqlQuery&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe RDSDatabase
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RDSMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe RDSDatabase
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RDSMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataPipelineId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RDSDatabase
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RDSMetadata)
+-&gt; Parser (Maybe RDSDatabase)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RDSMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RDSDatabase)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Database&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RDSMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; RDSMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseUserName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; RDSMetadata)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; RDSMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; RDSMetadata)
+-&gt; Parser (Maybe Text) -&gt; Parser RDSMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251636"><span id="local-6989586621679251638"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251633"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RDSMetadata.html#RDSMetadata"><span class="hs-identifier hs-type">RDSMetadata</span></a></span></span><span>
+</span><span id="line-150"></span></pre></body></html>

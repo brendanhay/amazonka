@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Firehose.StartDeliveryStreamEncryption</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Enables server-side encryption (SSE) for the delivery stream.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation is asynchronous. It returns immediately. When you invoke</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- it, Kinesis Data Firehose first sets the encryption status of the stream</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- to @ENABLING@, and then to @ENABLED@. The encryption status of a</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- delivery stream is the @Status@ property in</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- DeliveryStreamEncryptionConfiguration. If the operation fails, the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- encryption status changes to @ENABLING_FAILED@. You can continue to read</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- and write data to your delivery stream while the encryption status is</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @ENABLING@, but the data is not encrypted. It can take up to 5 seconds</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- after the encryption status changes to @ENABLED@ before all records</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- written to the delivery stream are encrypted. To find out whether a</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- record or a batch of records was encrypted, check the response elements</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- PutRecordOutput$Encrypted and PutRecordBatchOutput$Encrypted,</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- respectively.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- To check the encryption status of a delivery stream, use</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- DescribeDeliveryStream.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Even if encryption is currently enabled for a delivery stream, you can</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- still invoke this operation on it to change the ARN of the CMK or both</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- its type and ARN. If you invoke this method to change the CMK, and the</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- old CMK is of type @CUSTOMER_MANAGED_CMK@, Kinesis Data Firehose</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- schedules the grant it had on the old CMK for retirement. If the new CMK</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- is of type @CUSTOMER_MANAGED_CMK@, Kinesis Data Firehose creates a grant</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- that enables it to use the new CMK to encrypt and decrypt data and to</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- manage the grant.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- If a delivery stream already has encryption enabled and then you invoke</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- this operation to change the ARN of the CMK or both its type and ARN and</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- you get @ENABLING_FAILED@, this only means that the attempt to change</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- the CMK failed. In this case, encryption remains enabled with the old</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- CMK.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- If the encryption status of your delivery stream is @ENABLING_FAILED@,</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- you can invoke this operation again with a valid CMK. The CMK must be</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- enabled and the key policy mustn\'t explicitly deny the permission for</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Kinesis Data Firehose to invoke KMS encrypt and decrypt operations.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- You can enable SSE for a delivery stream only if it\'s a delivery stream</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- that uses @DirectPut@ as its source.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The @StartDeliveryStreamEncryption@ and @StopDeliveryStreamEncryption@</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- operations have a combined limit of 25 calls per delivery stream per 24</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- hours. For example, you reach the limit if you call</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- @StartDeliveryStreamEncryption@ 13 times and</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- @StopDeliveryStreamEncryption@ 12 times for the same delivery stream in</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- a 24-hour period.</span><span>
+</span><span id="line-71"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Firehose.StartDeliveryStreamEncryption</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption"><span class="hs-identifier">StartDeliveryStreamEncryption</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#newStartDeliveryStreamEncryption"><span class="hs-identifier">newStartDeliveryStreamEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#startDeliveryStreamEncryption_deliveryStreamEncryptionConfigurationInput"><span class="hs-identifier">startDeliveryStreamEncryption_deliveryStreamEncryptionConfigurationInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#startDeliveryStreamEncryption_deliveryStreamName"><span class="hs-identifier">startDeliveryStreamEncryption_deliveryStreamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryptionResponse"><span class="hs-identifier">StartDeliveryStreamEncryptionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#newStartDeliveryStreamEncryptionResponse"><span class="hs-identifier">newStartDeliveryStreamEncryptionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#startDeliveryStreamEncryptionResponse_httpStatus"><span class="hs-identifier">startDeliveryStreamEncryptionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.html"><span class="hs-identifier">Amazonka.Firehose.Types</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | /See:/ 'newStartDeliveryStreamEncryption' smart constructor.</span><span>
+</span><span id="line-97"></span><span id="local-6989586621679282511"><span id="local-6989586621679282512"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDeliveryStreamEncryption"><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption"><span class="hs-identifier hs-var">StartDeliveryStreamEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDeliveryStreamEncryption%27"><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption%27"><span class="hs-identifier hs-var">StartDeliveryStreamEncryption'</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- needed for Server-Side Encryption (SSE).</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AdeliveryStreamEncryptionConfigurationInput%3AStartDeliveryStreamEncryption%27"><span class="annot"><span class="annottext">StartDeliveryStreamEncryption
+-&gt; Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#%24sel%3AdeliveryStreamEncryptionConfigurationInput%3AStartDeliveryStreamEncryption%27"><span class="hs-identifier hs-var hs-var">deliveryStreamEncryptionConfigurationInput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The name of the delivery stream for which you want to enable server-side</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- encryption (SSE).</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AdeliveryStreamName%3AStartDeliveryStreamEncryption%27"><span class="annot"><span class="annottext">StartDeliveryStreamEncryption -&gt; Text
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#%24sel%3AdeliveryStreamName%3AStartDeliveryStreamEncryption%27"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282504"><span id="local-6989586621679282506"><span class="annot"><span class="annottext">StartDeliveryStreamEncryption
+-&gt; StartDeliveryStreamEncryption -&gt; Bool
+(StartDeliveryStreamEncryption
+ -&gt; StartDeliveryStreamEncryption -&gt; Bool)
+-&gt; (StartDeliveryStreamEncryption
+    -&gt; StartDeliveryStreamEncryption -&gt; Bool)
+-&gt; Eq StartDeliveryStreamEncryption
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartDeliveryStreamEncryption
+-&gt; StartDeliveryStreamEncryption -&gt; Bool
+$c/= :: StartDeliveryStreamEncryption
+-&gt; StartDeliveryStreamEncryption -&gt; Bool
+== :: StartDeliveryStreamEncryption
+-&gt; StartDeliveryStreamEncryption -&gt; Bool
+$c== :: StartDeliveryStreamEncryption
+-&gt; StartDeliveryStreamEncryption -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282495"><span id="local-6989586621679282497"><span id="local-6989586621679282499"><span id="local-6989586621679282501"><span class="annot"><span class="annottext">ReadPrec [StartDeliveryStreamEncryption]
+ReadPrec StartDeliveryStreamEncryption
+Int -&gt; ReadS StartDeliveryStreamEncryption
+ReadS [StartDeliveryStreamEncryption]
+(Int -&gt; ReadS StartDeliveryStreamEncryption)
+-&gt; ReadS [StartDeliveryStreamEncryption]
+-&gt; ReadPrec StartDeliveryStreamEncryption
+-&gt; ReadPrec [StartDeliveryStreamEncryption]
+-&gt; Read StartDeliveryStreamEncryption
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartDeliveryStreamEncryption]
+$creadListPrec :: ReadPrec [StartDeliveryStreamEncryption]
+readPrec :: ReadPrec StartDeliveryStreamEncryption
+$creadPrec :: ReadPrec StartDeliveryStreamEncryption
+readList :: ReadS [StartDeliveryStreamEncryption]
+$creadList :: ReadS [StartDeliveryStreamEncryption]
+readsPrec :: Int -&gt; ReadS StartDeliveryStreamEncryption
+$creadsPrec :: Int -&gt; ReadS StartDeliveryStreamEncryption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282488"><span id="local-6989586621679282490"><span id="local-6989586621679282492"><span class="annot"><span class="annottext">Int -&gt; StartDeliveryStreamEncryption -&gt; ShowS
+[StartDeliveryStreamEncryption] -&gt; ShowS
+StartDeliveryStreamEncryption -&gt; String
+(Int -&gt; StartDeliveryStreamEncryption -&gt; ShowS)
+-&gt; (StartDeliveryStreamEncryption -&gt; String)
+-&gt; ([StartDeliveryStreamEncryption] -&gt; ShowS)
+-&gt; Show StartDeliveryStreamEncryption
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartDeliveryStreamEncryption] -&gt; ShowS
+$cshowList :: [StartDeliveryStreamEncryption] -&gt; ShowS
+show :: StartDeliveryStreamEncryption -&gt; String
+$cshow :: StartDeliveryStreamEncryption -&gt; String
+showsPrec :: Int -&gt; StartDeliveryStreamEncryption -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartDeliveryStreamEncryption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartDeliveryStreamEncryption
+ -&gt; Rep StartDeliveryStreamEncryption x)
+-&gt; (forall x.
+    Rep StartDeliveryStreamEncryption x
+    -&gt; StartDeliveryStreamEncryption)
+-&gt; Generic StartDeliveryStreamEncryption
+forall x.
+Rep StartDeliveryStreamEncryption x
+-&gt; StartDeliveryStreamEncryption
+forall x.
+StartDeliveryStreamEncryption
+-&gt; Rep StartDeliveryStreamEncryption x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartDeliveryStreamEncryption x
+-&gt; StartDeliveryStreamEncryption
+$cfrom :: forall x.
+StartDeliveryStreamEncryption
+-&gt; Rep StartDeliveryStreamEncryption x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Create a value of 'StartDeliveryStreamEncryption' with all optional fields omitted.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'deliveryStreamEncryptionConfigurationInput', 'startDeliveryStreamEncryption_deliveryStreamEncryptionConfigurationInput' - Used to specify the type and Amazon Resource Name (ARN) of the KMS key</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- needed for Server-Side Encryption (SSE).</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'deliveryStreamName', 'startDeliveryStreamEncryption_deliveryStreamName' - The name of the delivery stream for which you want to enable server-side</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- encryption (SSE).</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#newStartDeliveryStreamEncryption"><span class="hs-identifier hs-type">newStartDeliveryStreamEncryption</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-comment">-- | 'deliveryStreamName'</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption</span></a></span><span>
+</span><span id="line-124"></span><span id="newStartDeliveryStreamEncryption"><span class="annot"><span class="annottext">newStartDeliveryStreamEncryption :: Text -&gt; StartDeliveryStreamEncryption
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#newStartDeliveryStreamEncryption"><span class="hs-identifier hs-var hs-var">newStartDeliveryStreamEncryption</span></a></span></span><span> </span><span id="local-6989586621679282483"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282483"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">StartDeliveryStreamEncryption' :: Maybe DeliveryStreamEncryptionConfigurationInput
+-&gt; Text -&gt; StartDeliveryStreamEncryption
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption%27"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption'</span></a></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deliveryStreamEncryptionConfigurationInput:StartDeliveryStreamEncryption' :: Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#%24sel%3AdeliveryStreamEncryptionConfigurationInput%3AStartDeliveryStreamEncryption%27"><span class="hs-identifier hs-var">deliveryStreamEncryptionConfigurationInput</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Maybe DeliveryStreamEncryptionConfigurationInput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:deliveryStreamName:StartDeliveryStreamEncryption' :: Text
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#%24sel%3AdeliveryStreamName%3AStartDeliveryStreamEncryption%27"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282483"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- needed for Server-Side Encryption (SSE).</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#startDeliveryStreamEncryption_deliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-type">startDeliveryStreamEncryption_deliveryStreamEncryptionConfigurationInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="startDeliveryStreamEncryption_deliveryStreamEncryptionConfigurationInput"><span class="annot"><span class="annottext">startDeliveryStreamEncryption_deliveryStreamEncryptionConfigurationInput :: (Maybe DeliveryStreamEncryptionConfigurationInput
+ -&gt; f (Maybe DeliveryStreamEncryptionConfigurationInput))
+-&gt; StartDeliveryStreamEncryption -&gt; f StartDeliveryStreamEncryption
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#startDeliveryStreamEncryption_deliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-var hs-var">startDeliveryStreamEncryption_deliveryStreamEncryptionConfigurationInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDeliveryStreamEncryption
+ -&gt; Maybe DeliveryStreamEncryptionConfigurationInput)
+-&gt; (StartDeliveryStreamEncryption
+    -&gt; Maybe DeliveryStreamEncryptionConfigurationInput
+    -&gt; StartDeliveryStreamEncryption)
+-&gt; Lens
+     StartDeliveryStreamEncryption
+     StartDeliveryStreamEncryption
+     (Maybe DeliveryStreamEncryptionConfigurationInput)
+     (Maybe DeliveryStreamEncryptionConfigurationInput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption%27"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282480"><span class="annot"><span class="annottext">Maybe DeliveryStreamEncryptionConfigurationInput
+deliveryStreamEncryptionConfigurationInput :: Maybe DeliveryStreamEncryptionConfigurationInput
+$sel:deliveryStreamEncryptionConfigurationInput:StartDeliveryStreamEncryption' :: StartDeliveryStreamEncryption
+-&gt; Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="#local-6989586621679282480"><span class="hs-identifier hs-var hs-var">deliveryStreamEncryptionConfigurationInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="#local-6989586621679282480"><span class="hs-identifier hs-var">deliveryStreamEncryptionConfigurationInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282479"><span class="annot"><span class="annottext">s :: StartDeliveryStreamEncryption
+</span><a href="#local-6989586621679282479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption%27"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282478"><span class="annot"><span class="annottext">Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="#local-6989586621679282478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDeliveryStreamEncryption
+</span><a href="#local-6989586621679282479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamEncryptionConfigurationInput:StartDeliveryStreamEncryption' :: Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#%24sel%3AdeliveryStreamEncryptionConfigurationInput%3AStartDeliveryStreamEncryption%27"><span class="hs-identifier hs-var">deliveryStreamEncryptionConfigurationInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="#local-6989586621679282478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The name of the delivery stream for which you want to enable server-side</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- encryption (SSE).</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#startDeliveryStreamEncryption_deliveryStreamName"><span class="hs-identifier hs-type">startDeliveryStreamEncryption_deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-139"></span><span id="startDeliveryStreamEncryption_deliveryStreamName"><span class="annot"><span class="annottext">startDeliveryStreamEncryption_deliveryStreamName :: (Text -&gt; f Text)
+-&gt; StartDeliveryStreamEncryption -&gt; f StartDeliveryStreamEncryption
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#startDeliveryStreamEncryption_deliveryStreamName"><span class="hs-identifier hs-var hs-var">startDeliveryStreamEncryption_deliveryStreamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDeliveryStreamEncryption -&gt; Text)
+-&gt; (StartDeliveryStreamEncryption
+    -&gt; Text -&gt; StartDeliveryStreamEncryption)
+-&gt; Lens
+     StartDeliveryStreamEncryption
+     StartDeliveryStreamEncryption
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption%27"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282477"><span class="annot"><span class="annottext">Text
+deliveryStreamName :: Text
+$sel:deliveryStreamName:StartDeliveryStreamEncryption' :: StartDeliveryStreamEncryption -&gt; Text
+</span><a href="#local-6989586621679282477"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282477"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282476"><span class="annot"><span class="annottext">s :: StartDeliveryStreamEncryption
+</span><a href="#local-6989586621679282476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption%27"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282475"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDeliveryStreamEncryption
+</span><a href="#local-6989586621679282476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamName:StartDeliveryStreamEncryption' :: Text
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#%24sel%3AdeliveryStreamName%3AStartDeliveryStreamEncryption%27"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-146"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-type">StartDeliveryStreamEncryptionResponse</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679282471"><span class="annot"><span class="annottext">request :: StartDeliveryStreamEncryption
+-&gt; Request StartDeliveryStreamEncryption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; StartDeliveryStreamEncryption
+-&gt; Request StartDeliveryStreamEncryption
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Firehose.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679282467"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartDeliveryStreamEncryption
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartDeliveryStreamEncryption)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse StartDeliveryStreamEncryption))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartDeliveryStreamEncryption
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartDeliveryStreamEncryption)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679282464"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282464"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679282463"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679282463"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679282462"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679282462"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StartDeliveryStreamEncryptionResponse
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-var">StartDeliveryStreamEncryptionResponse'</span></a></span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StartDeliveryStreamEncryptionResponse)
+-&gt; Either String Int
+-&gt; Either String StartDeliveryStreamEncryptionResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282464"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679282455"><span id="local-6989586621679282457"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption</span></a></span></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282452"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption</span></a></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679282448"><span class="annot"><span class="annottext">toHeaders :: StartDeliveryStreamEncryption -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartDeliveryStreamEncryption -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Firehose_20150804.StartDeliveryStreamEncryption&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-169"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-173"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282438"><span id="local-6989586621679282440"><span id="local-6989586621679282442"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679282436"><span class="annot"><span class="annottext">toJSON :: StartDeliveryStreamEncryption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption%27"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282433"><span id="local-6989586621679282434"><span class="annot"><span class="annottext">Maybe DeliveryStreamEncryptionConfigurationInput
+Text
+deliveryStreamName :: Text
+deliveryStreamEncryptionConfigurationInput :: Maybe DeliveryStreamEncryptionConfigurationInput
+$sel:deliveryStreamName:StartDeliveryStreamEncryption' :: StartDeliveryStreamEncryption -&gt; Text
+$sel:deliveryStreamEncryptionConfigurationInput:StartDeliveryStreamEncryption' :: StartDeliveryStreamEncryption
+-&gt; Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="#local-6989586621679282433"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryStreamEncryptionConfigurationInput&quot;</span></span><span>
+</span><span id="line-182"></span><span>                </span><span class="annot"><span class="annottext">Text -&gt; DeliveryStreamEncryptionConfigurationInput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span>
+</span><span id="line-183"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(DeliveryStreamEncryptionConfigurationInput -&gt; Pair)
+-&gt; Maybe DeliveryStreamEncryptionConfigurationInput -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStreamEncryptionConfigurationInput
+</span><a href="#local-6989586621679282434"><span class="hs-identifier hs-var">deliveryStreamEncryptionConfigurationInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-186"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryStreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282433"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679282427"><span class="annot"><span class="annottext">toPath :: StartDeliveryStreamEncryption -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartDeliveryStreamEncryption -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryption"><span class="hs-identifier hs-type">StartDeliveryStreamEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679282423"><span class="annot"><span class="annottext">toQuery :: StartDeliveryStreamEncryption -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartDeliveryStreamEncryption -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | /See:/ 'newStartDeliveryStreamEncryptionResponse' smart constructor.</span><span>
+</span><span id="line-197"></span><span id="local-6989586621679282420"><span id="local-6989586621679282421"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDeliveryStreamEncryptionResponse"><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-var">StartDeliveryStreamEncryptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDeliveryStreamEncryptionResponse%27"><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-var">StartDeliveryStreamEncryptionResponse'</span></a></span></span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartDeliveryStreamEncryptionResponse%27"><span class="annot"><span class="annottext">StartDeliveryStreamEncryptionResponse -&gt; Int
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#%24sel%3AhttpStatus%3AStartDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282415"><span id="local-6989586621679282417"><span class="annot"><span class="annottext">StartDeliveryStreamEncryptionResponse
+-&gt; StartDeliveryStreamEncryptionResponse -&gt; Bool
+(StartDeliveryStreamEncryptionResponse
+ -&gt; StartDeliveryStreamEncryptionResponse -&gt; Bool)
+-&gt; (StartDeliveryStreamEncryptionResponse
+    -&gt; StartDeliveryStreamEncryptionResponse -&gt; Bool)
+-&gt; Eq StartDeliveryStreamEncryptionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartDeliveryStreamEncryptionResponse
+-&gt; StartDeliveryStreamEncryptionResponse -&gt; Bool
+$c/= :: StartDeliveryStreamEncryptionResponse
+-&gt; StartDeliveryStreamEncryptionResponse -&gt; Bool
+== :: StartDeliveryStreamEncryptionResponse
+-&gt; StartDeliveryStreamEncryptionResponse -&gt; Bool
+$c== :: StartDeliveryStreamEncryptionResponse
+-&gt; StartDeliveryStreamEncryptionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282407"><span id="local-6989586621679282409"><span id="local-6989586621679282411"><span id="local-6989586621679282413"><span class="annot"><span class="annottext">ReadPrec [StartDeliveryStreamEncryptionResponse]
+ReadPrec StartDeliveryStreamEncryptionResponse
+Int -&gt; ReadS StartDeliveryStreamEncryptionResponse
+ReadS [StartDeliveryStreamEncryptionResponse]
+(Int -&gt; ReadS StartDeliveryStreamEncryptionResponse)
+-&gt; ReadS [StartDeliveryStreamEncryptionResponse]
+-&gt; ReadPrec StartDeliveryStreamEncryptionResponse
+-&gt; ReadPrec [StartDeliveryStreamEncryptionResponse]
+-&gt; Read StartDeliveryStreamEncryptionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartDeliveryStreamEncryptionResponse]
+$creadListPrec :: ReadPrec [StartDeliveryStreamEncryptionResponse]
+readPrec :: ReadPrec StartDeliveryStreamEncryptionResponse
+$creadPrec :: ReadPrec StartDeliveryStreamEncryptionResponse
+readList :: ReadS [StartDeliveryStreamEncryptionResponse]
+$creadList :: ReadS [StartDeliveryStreamEncryptionResponse]
+readsPrec :: Int -&gt; ReadS StartDeliveryStreamEncryptionResponse
+$creadsPrec :: Int -&gt; ReadS StartDeliveryStreamEncryptionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282401"><span id="local-6989586621679282403"><span id="local-6989586621679282405"><span class="annot"><span class="annottext">Int -&gt; StartDeliveryStreamEncryptionResponse -&gt; ShowS
+[StartDeliveryStreamEncryptionResponse] -&gt; ShowS
+StartDeliveryStreamEncryptionResponse -&gt; String
+(Int -&gt; StartDeliveryStreamEncryptionResponse -&gt; ShowS)
+-&gt; (StartDeliveryStreamEncryptionResponse -&gt; String)
+-&gt; ([StartDeliveryStreamEncryptionResponse] -&gt; ShowS)
+-&gt; Show StartDeliveryStreamEncryptionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartDeliveryStreamEncryptionResponse] -&gt; ShowS
+$cshowList :: [StartDeliveryStreamEncryptionResponse] -&gt; ShowS
+show :: StartDeliveryStreamEncryptionResponse -&gt; String
+$cshow :: StartDeliveryStreamEncryptionResponse -&gt; String
+showsPrec :: Int -&gt; StartDeliveryStreamEncryptionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartDeliveryStreamEncryptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartDeliveryStreamEncryptionResponse
+ -&gt; Rep StartDeliveryStreamEncryptionResponse x)
+-&gt; (forall x.
+    Rep StartDeliveryStreamEncryptionResponse x
+    -&gt; StartDeliveryStreamEncryptionResponse)
+-&gt; Generic StartDeliveryStreamEncryptionResponse
+forall x.
+Rep StartDeliveryStreamEncryptionResponse x
+-&gt; StartDeliveryStreamEncryptionResponse
+forall x.
+StartDeliveryStreamEncryptionResponse
+-&gt; Rep StartDeliveryStreamEncryptionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartDeliveryStreamEncryptionResponse x
+-&gt; StartDeliveryStreamEncryptionResponse
+$cfrom :: forall x.
+StartDeliveryStreamEncryptionResponse
+-&gt; Rep StartDeliveryStreamEncryptionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Create a value of 'StartDeliveryStreamEncryptionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'httpStatus', 'startDeliveryStreamEncryptionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#newStartDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-type">newStartDeliveryStreamEncryptionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-type">StartDeliveryStreamEncryptionResponse</span></a></span><span>
+</span><span id="line-216"></span><span id="newStartDeliveryStreamEncryptionResponse"><span class="annot"><span class="annottext">newStartDeliveryStreamEncryptionResponse :: Int -&gt; StartDeliveryStreamEncryptionResponse
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#newStartDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-var hs-var">newStartDeliveryStreamEncryptionResponse</span></a></span></span><span> </span><span id="local-6989586621679282398"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282398"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">StartDeliveryStreamEncryptionResponse' :: Int -&gt; StartDeliveryStreamEncryptionResponse
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-type">StartDeliveryStreamEncryptionResponse'</span></a></span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StartDeliveryStreamEncryptionResponse' :: Int
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#%24sel%3AhttpStatus%3AStartDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282398"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#startDeliveryStreamEncryptionResponse_httpStatus"><span class="hs-identifier hs-type">startDeliveryStreamEncryptionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-type">StartDeliveryStreamEncryptionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-224"></span><span id="startDeliveryStreamEncryptionResponse_httpStatus"><span class="annot"><span class="annottext">startDeliveryStreamEncryptionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartDeliveryStreamEncryptionResponse
+-&gt; f StartDeliveryStreamEncryptionResponse
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#startDeliveryStreamEncryptionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startDeliveryStreamEncryptionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDeliveryStreamEncryptionResponse -&gt; Int)
+-&gt; (StartDeliveryStreamEncryptionResponse
+    -&gt; Int -&gt; StartDeliveryStreamEncryptionResponse)
+-&gt; Lens
+     StartDeliveryStreamEncryptionResponse
+     StartDeliveryStreamEncryptionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-type">StartDeliveryStreamEncryptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282397"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartDeliveryStreamEncryptionResponse' :: StartDeliveryStreamEncryptionResponse -&gt; Int
+</span><a href="#local-6989586621679282397"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282397"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282396"><span class="annot"><span class="annottext">s :: StartDeliveryStreamEncryptionResponse
+</span><a href="#local-6989586621679282396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-type">StartDeliveryStreamEncryptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282395"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDeliveryStreamEncryptionResponse
+</span><a href="#local-6989586621679282396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartDeliveryStreamEncryptionResponse' :: Int
+</span><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#%24sel%3AhttpStatus%3AStartDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-type">StartDeliveryStreamEncryptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679282393"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.StartDeliveryStreamEncryption.html#StartDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-type">StartDeliveryStreamEncryptionResponse</span></a></span></span><span>
+</span><span id="line-229"></span></pre></body></html>

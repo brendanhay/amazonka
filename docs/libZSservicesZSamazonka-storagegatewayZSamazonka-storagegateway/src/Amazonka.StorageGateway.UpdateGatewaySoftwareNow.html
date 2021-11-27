@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.StorageGateway.UpdateGatewaySoftwareNow</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the gateway virtual machine (VM) software. The request</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- immediately triggers the software update.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- When you make this request, you get a @200 OK@ success response</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- immediately. However, it might take some time for the update to</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- complete. You can call DescribeGatewayInformation to verify the gateway</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- is in the @STATE_RUNNING@ state.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- A software update forces a system restart of your gateway. You can</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- minimize the chance of any disruption to your applications by increasing</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- your iSCSI Initiators\' timeouts. For more information about increasing</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- iSCSI Initiator timeouts for Windows and Linux, see</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings Customizing your Windows iSCSI settings&gt;</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing your Linux iSCSI settings&gt;,</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- respectively.</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StorageGateway.UpdateGatewaySoftwareNow</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow"><span class="hs-identifier">UpdateGatewaySoftwareNow</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#newUpdateGatewaySoftwareNow"><span class="hs-identifier">newUpdateGatewaySoftwareNow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#updateGatewaySoftwareNow_gatewayARN"><span class="hs-identifier">updateGatewaySoftwareNow_gatewayARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse"><span class="hs-identifier">UpdateGatewaySoftwareNowResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#newUpdateGatewaySoftwareNowResponse"><span class="hs-identifier">newUpdateGatewaySoftwareNowResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#updateGatewaySoftwareNowResponse_gatewayARN"><span class="hs-identifier">updateGatewaySoftwareNowResponse_gatewayARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#updateGatewaySoftwareNowResponse_httpStatus"><span class="hs-identifier">updateGatewaySoftwareNowResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.html"><span class="hs-identifier">Amazonka.StorageGateway.Types</span></a></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | A JSON object containing the Amazon Resource Name (ARN) of the gateway</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- to update.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- /See:/ 'newUpdateGatewaySoftwareNow' smart constructor.</span><span>
+</span><span id="line-68"></span><span id="local-6989586621679396713"><span id="local-6989586621679396714"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGatewaySoftwareNow"><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow"><span class="hs-identifier hs-var">UpdateGatewaySoftwareNow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGatewaySoftwareNow%27"><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow%27"><span class="hs-identifier hs-var">UpdateGatewaySoftwareNow'</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgatewayARN%3AUpdateGatewaySoftwareNow%27"><span class="annot"><span class="annottext">UpdateGatewaySoftwareNow -&gt; Text
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#%24sel%3AgatewayARN%3AUpdateGatewaySoftwareNow%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396707"><span id="local-6989586621679396709"><span class="annot"><span class="annottext">UpdateGatewaySoftwareNow -&gt; UpdateGatewaySoftwareNow -&gt; Bool
+(UpdateGatewaySoftwareNow -&gt; UpdateGatewaySoftwareNow -&gt; Bool)
+-&gt; (UpdateGatewaySoftwareNow -&gt; UpdateGatewaySoftwareNow -&gt; Bool)
+-&gt; Eq UpdateGatewaySoftwareNow
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateGatewaySoftwareNow -&gt; UpdateGatewaySoftwareNow -&gt; Bool
+$c/= :: UpdateGatewaySoftwareNow -&gt; UpdateGatewaySoftwareNow -&gt; Bool
+== :: UpdateGatewaySoftwareNow -&gt; UpdateGatewaySoftwareNow -&gt; Bool
+$c== :: UpdateGatewaySoftwareNow -&gt; UpdateGatewaySoftwareNow -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396698"><span id="local-6989586621679396700"><span id="local-6989586621679396702"><span id="local-6989586621679396704"><span class="annot"><span class="annottext">ReadPrec [UpdateGatewaySoftwareNow]
+ReadPrec UpdateGatewaySoftwareNow
+Int -&gt; ReadS UpdateGatewaySoftwareNow
+ReadS [UpdateGatewaySoftwareNow]
+(Int -&gt; ReadS UpdateGatewaySoftwareNow)
+-&gt; ReadS [UpdateGatewaySoftwareNow]
+-&gt; ReadPrec UpdateGatewaySoftwareNow
+-&gt; ReadPrec [UpdateGatewaySoftwareNow]
+-&gt; Read UpdateGatewaySoftwareNow
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateGatewaySoftwareNow]
+$creadListPrec :: ReadPrec [UpdateGatewaySoftwareNow]
+readPrec :: ReadPrec UpdateGatewaySoftwareNow
+$creadPrec :: ReadPrec UpdateGatewaySoftwareNow
+readList :: ReadS [UpdateGatewaySoftwareNow]
+$creadList :: ReadS [UpdateGatewaySoftwareNow]
+readsPrec :: Int -&gt; ReadS UpdateGatewaySoftwareNow
+$creadsPrec :: Int -&gt; ReadS UpdateGatewaySoftwareNow
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396691"><span id="local-6989586621679396693"><span id="local-6989586621679396695"><span class="annot"><span class="annottext">Int -&gt; UpdateGatewaySoftwareNow -&gt; ShowS
+[UpdateGatewaySoftwareNow] -&gt; ShowS
+UpdateGatewaySoftwareNow -&gt; String
+(Int -&gt; UpdateGatewaySoftwareNow -&gt; ShowS)
+-&gt; (UpdateGatewaySoftwareNow -&gt; String)
+-&gt; ([UpdateGatewaySoftwareNow] -&gt; ShowS)
+-&gt; Show UpdateGatewaySoftwareNow
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateGatewaySoftwareNow] -&gt; ShowS
+$cshowList :: [UpdateGatewaySoftwareNow] -&gt; ShowS
+show :: UpdateGatewaySoftwareNow -&gt; String
+$cshow :: UpdateGatewaySoftwareNow -&gt; String
+showsPrec :: Int -&gt; UpdateGatewaySoftwareNow -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateGatewaySoftwareNow -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateGatewaySoftwareNow -&gt; Rep UpdateGatewaySoftwareNow x)
+-&gt; (forall x.
+    Rep UpdateGatewaySoftwareNow x -&gt; UpdateGatewaySoftwareNow)
+-&gt; Generic UpdateGatewaySoftwareNow
+forall x.
+Rep UpdateGatewaySoftwareNow x -&gt; UpdateGatewaySoftwareNow
+forall x.
+UpdateGatewaySoftwareNow -&gt; Rep UpdateGatewaySoftwareNow x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateGatewaySoftwareNow x -&gt; UpdateGatewaySoftwareNow
+$cfrom :: forall x.
+UpdateGatewaySoftwareNow -&gt; Rep UpdateGatewaySoftwareNow x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'UpdateGatewaySoftwareNow' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'gatewayARN', 'updateGatewaySoftwareNow_gatewayARN' - Undocumented member.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#newUpdateGatewaySoftwareNow"><span class="hs-identifier hs-type">newUpdateGatewaySoftwareNow</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'gatewayARN'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNow</span></a></span><span>
+</span><span id="line-86"></span><span id="newUpdateGatewaySoftwareNow"><span class="annot"><span class="annottext">newUpdateGatewaySoftwareNow :: Text -&gt; UpdateGatewaySoftwareNow
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#newUpdateGatewaySoftwareNow"><span class="hs-identifier hs-var hs-var">newUpdateGatewaySoftwareNow</span></a></span></span><span> </span><span id="local-6989586621679396686"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396686"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">UpdateGatewaySoftwareNow' :: Text -&gt; UpdateGatewaySoftwareNow
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow%27"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNow'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gatewayARN:UpdateGatewaySoftwareNow' :: Text
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#%24sel%3AgatewayARN%3AUpdateGatewaySoftwareNow%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396686"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#updateGatewaySoftwareNow_gatewayARN"><span class="hs-identifier hs-type">updateGatewaySoftwareNow_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNow</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="updateGatewaySoftwareNow_gatewayARN"><span class="annot"><span class="annottext">updateGatewaySoftwareNow_gatewayARN :: (Text -&gt; f Text)
+-&gt; UpdateGatewaySoftwareNow -&gt; f UpdateGatewaySoftwareNow
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#updateGatewaySoftwareNow_gatewayARN"><span class="hs-identifier hs-var hs-var">updateGatewaySoftwareNow_gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGatewaySoftwareNow -&gt; Text)
+-&gt; (UpdateGatewaySoftwareNow -&gt; Text -&gt; UpdateGatewaySoftwareNow)
+-&gt; Lens UpdateGatewaySoftwareNow UpdateGatewaySoftwareNow Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow%27"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396683"><span class="annot"><span class="annottext">Text
+gatewayARN :: Text
+$sel:gatewayARN:UpdateGatewaySoftwareNow' :: UpdateGatewaySoftwareNow -&gt; Text
+</span><a href="#local-6989586621679396683"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396683"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396682"><span class="annot"><span class="annottext">s :: UpdateGatewaySoftwareNow
+</span><a href="#local-6989586621679396682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow%27"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396681"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewaySoftwareNow
+</span><a href="#local-6989586621679396682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:UpdateGatewaySoftwareNow' :: Text
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#%24sel%3AgatewayARN%3AUpdateGatewaySoftwareNow%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNow</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNow</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNowResponse</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679396677"><span class="annot"><span class="annottext">request :: UpdateGatewaySoftwareNow -&gt; Request UpdateGatewaySoftwareNow
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateGatewaySoftwareNow -&gt; Request UpdateGatewaySoftwareNow
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679396673"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateGatewaySoftwareNow
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateGatewaySoftwareNow)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateGatewaySoftwareNow))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateGatewaySoftwareNow
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateGatewaySoftwareNow)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679396670"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396670"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679396669"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679396669"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679396668"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679396668"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UpdateGatewaySoftwareNowResponse
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse%27"><span class="hs-identifier hs-var">UpdateGatewaySoftwareNowResponse'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UpdateGatewaySoftwareNowResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateGatewaySoftwareNowResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679396668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateGatewaySoftwareNowResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateGatewaySoftwareNowResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396670"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396660"><span id="local-6989586621679396662"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNow</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396657"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNow</span></a></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679396653"><span class="annot"><span class="annottext">toHeaders :: UpdateGatewaySoftwareNow -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateGatewaySoftwareNow -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StorageGateway_20130630.UpdateGatewaySoftwareNow&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-120"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396643"><span id="local-6989586621679396645"><span id="local-6989586621679396647"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNow</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679396641"><span class="annot"><span class="annottext">toJSON :: UpdateGatewaySoftwareNow -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow%27"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396639"><span class="annot"><span class="annottext">Text
+gatewayARN :: Text
+$sel:gatewayARN:UpdateGatewaySoftwareNow' :: UpdateGatewaySoftwareNow -&gt; Text
+</span><a href="#local-6989586621679396639"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396639"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679396633"><span class="annot"><span class="annottext">toPath :: UpdateGatewaySoftwareNow -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateGatewaySoftwareNow -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNow"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679396629"><span class="annot"><span class="annottext">toQuery :: UpdateGatewaySoftwareNow -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateGatewaySoftwareNow -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | A JSON object containing the Amazon Resource Name (ARN) of the gateway</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- that was updated.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- /See:/ 'newUpdateGatewaySoftwareNowResponse' smart constructor.</span><span>
+</span><span id="line-145"></span><span id="local-6989586621679396626"><span id="local-6989586621679396627"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGatewaySoftwareNowResponse"><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse"><span class="hs-identifier hs-var">UpdateGatewaySoftwareNowResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGatewaySoftwareNowResponse%27"><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse%27"><span class="hs-identifier hs-var">UpdateGatewaySoftwareNowResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgatewayARN%3AUpdateGatewaySoftwareNowResponse%27"><span class="annot"><span class="annottext">UpdateGatewaySoftwareNowResponse -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#%24sel%3AgatewayARN%3AUpdateGatewaySoftwareNowResponse%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateGatewaySoftwareNowResponse%27"><span class="annot"><span class="annottext">UpdateGatewaySoftwareNowResponse -&gt; Int
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#%24sel%3AhttpStatus%3AUpdateGatewaySoftwareNowResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396620"><span id="local-6989586621679396622"><span class="annot"><span class="annottext">UpdateGatewaySoftwareNowResponse
+-&gt; UpdateGatewaySoftwareNowResponse -&gt; Bool
+(UpdateGatewaySoftwareNowResponse
+ -&gt; UpdateGatewaySoftwareNowResponse -&gt; Bool)
+-&gt; (UpdateGatewaySoftwareNowResponse
+    -&gt; UpdateGatewaySoftwareNowResponse -&gt; Bool)
+-&gt; Eq UpdateGatewaySoftwareNowResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateGatewaySoftwareNowResponse
+-&gt; UpdateGatewaySoftwareNowResponse -&gt; Bool
+$c/= :: UpdateGatewaySoftwareNowResponse
+-&gt; UpdateGatewaySoftwareNowResponse -&gt; Bool
+== :: UpdateGatewaySoftwareNowResponse
+-&gt; UpdateGatewaySoftwareNowResponse -&gt; Bool
+$c== :: UpdateGatewaySoftwareNowResponse
+-&gt; UpdateGatewaySoftwareNowResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396612"><span id="local-6989586621679396614"><span id="local-6989586621679396616"><span id="local-6989586621679396618"><span class="annot"><span class="annottext">ReadPrec [UpdateGatewaySoftwareNowResponse]
+ReadPrec UpdateGatewaySoftwareNowResponse
+Int -&gt; ReadS UpdateGatewaySoftwareNowResponse
+ReadS [UpdateGatewaySoftwareNowResponse]
+(Int -&gt; ReadS UpdateGatewaySoftwareNowResponse)
+-&gt; ReadS [UpdateGatewaySoftwareNowResponse]
+-&gt; ReadPrec UpdateGatewaySoftwareNowResponse
+-&gt; ReadPrec [UpdateGatewaySoftwareNowResponse]
+-&gt; Read UpdateGatewaySoftwareNowResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateGatewaySoftwareNowResponse]
+$creadListPrec :: ReadPrec [UpdateGatewaySoftwareNowResponse]
+readPrec :: ReadPrec UpdateGatewaySoftwareNowResponse
+$creadPrec :: ReadPrec UpdateGatewaySoftwareNowResponse
+readList :: ReadS [UpdateGatewaySoftwareNowResponse]
+$creadList :: ReadS [UpdateGatewaySoftwareNowResponse]
+readsPrec :: Int -&gt; ReadS UpdateGatewaySoftwareNowResponse
+$creadsPrec :: Int -&gt; ReadS UpdateGatewaySoftwareNowResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396606"><span id="local-6989586621679396608"><span id="local-6989586621679396610"><span class="annot"><span class="annottext">Int -&gt; UpdateGatewaySoftwareNowResponse -&gt; ShowS
+[UpdateGatewaySoftwareNowResponse] -&gt; ShowS
+UpdateGatewaySoftwareNowResponse -&gt; String
+(Int -&gt; UpdateGatewaySoftwareNowResponse -&gt; ShowS)
+-&gt; (UpdateGatewaySoftwareNowResponse -&gt; String)
+-&gt; ([UpdateGatewaySoftwareNowResponse] -&gt; ShowS)
+-&gt; Show UpdateGatewaySoftwareNowResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateGatewaySoftwareNowResponse] -&gt; ShowS
+$cshowList :: [UpdateGatewaySoftwareNowResponse] -&gt; ShowS
+show :: UpdateGatewaySoftwareNowResponse -&gt; String
+$cshow :: UpdateGatewaySoftwareNowResponse -&gt; String
+showsPrec :: Int -&gt; UpdateGatewaySoftwareNowResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateGatewaySoftwareNowResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateGatewaySoftwareNowResponse
+ -&gt; Rep UpdateGatewaySoftwareNowResponse x)
+-&gt; (forall x.
+    Rep UpdateGatewaySoftwareNowResponse x
+    -&gt; UpdateGatewaySoftwareNowResponse)
+-&gt; Generic UpdateGatewaySoftwareNowResponse
+forall x.
+Rep UpdateGatewaySoftwareNowResponse x
+-&gt; UpdateGatewaySoftwareNowResponse
+forall x.
+UpdateGatewaySoftwareNowResponse
+-&gt; Rep UpdateGatewaySoftwareNowResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateGatewaySoftwareNowResponse x
+-&gt; UpdateGatewaySoftwareNowResponse
+$cfrom :: forall x.
+UpdateGatewaySoftwareNowResponse
+-&gt; Rep UpdateGatewaySoftwareNowResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Create a value of 'UpdateGatewaySoftwareNowResponse' with all optional fields omitted.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'gatewayARN', 'updateGatewaySoftwareNowResponse_gatewayARN' - Undocumented member.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'httpStatus', 'updateGatewaySoftwareNowResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#newUpdateGatewaySoftwareNowResponse"><span class="hs-identifier hs-type">newUpdateGatewaySoftwareNowResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNowResponse</span></a></span><span>
+</span><span id="line-167"></span><span id="newUpdateGatewaySoftwareNowResponse"><span class="annot"><span class="annottext">newUpdateGatewaySoftwareNowResponse :: Int -&gt; UpdateGatewaySoftwareNowResponse
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#newUpdateGatewaySoftwareNowResponse"><span class="hs-identifier hs-var hs-var">newUpdateGatewaySoftwareNowResponse</span></a></span></span><span> </span><span id="local-6989586621679396603"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396603"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">UpdateGatewaySoftwareNowResponse' :: Maybe Text -&gt; Int -&gt; UpdateGatewaySoftwareNowResponse
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse%27"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNowResponse'</span></a></span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gatewayARN:UpdateGatewaySoftwareNowResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#%24sel%3AgatewayARN%3AUpdateGatewaySoftwareNowResponse%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGatewaySoftwareNowResponse' :: Int
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#%24sel%3AhttpStatus%3AUpdateGatewaySoftwareNowResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396603"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#updateGatewaySoftwareNowResponse_gatewayARN"><span class="hs-identifier hs-type">updateGatewaySoftwareNowResponse_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNowResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="updateGatewaySoftwareNowResponse_gatewayARN"><span class="annot"><span class="annottext">updateGatewaySoftwareNowResponse_gatewayARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateGatewaySoftwareNowResponse
+-&gt; f UpdateGatewaySoftwareNowResponse
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#updateGatewaySoftwareNowResponse_gatewayARN"><span class="hs-identifier hs-var hs-var">updateGatewaySoftwareNowResponse_gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGatewaySoftwareNowResponse -&gt; Maybe Text)
+-&gt; (UpdateGatewaySoftwareNowResponse
+    -&gt; Maybe Text -&gt; UpdateGatewaySoftwareNowResponse)
+-&gt; Lens
+     UpdateGatewaySoftwareNowResponse
+     UpdateGatewaySoftwareNowResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse%27"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396602"><span class="annot"><span class="annottext">Maybe Text
+gatewayARN :: Maybe Text
+$sel:gatewayARN:UpdateGatewaySoftwareNowResponse' :: UpdateGatewaySoftwareNowResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679396602"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396602"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396601"><span class="annot"><span class="annottext">s :: UpdateGatewaySoftwareNowResponse
+</span><a href="#local-6989586621679396601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse%27"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396600"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewaySoftwareNowResponse
+</span><a href="#local-6989586621679396601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:UpdateGatewaySoftwareNowResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#%24sel%3AgatewayARN%3AUpdateGatewaySoftwareNowResponse%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNowResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#updateGatewaySoftwareNowResponse_httpStatus"><span class="hs-identifier hs-type">updateGatewaySoftwareNowResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNowResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-180"></span><span id="updateGatewaySoftwareNowResponse_httpStatus"><span class="annot"><span class="annottext">updateGatewaySoftwareNowResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateGatewaySoftwareNowResponse
+-&gt; f UpdateGatewaySoftwareNowResponse
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#updateGatewaySoftwareNowResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateGatewaySoftwareNowResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGatewaySoftwareNowResponse -&gt; Int)
+-&gt; (UpdateGatewaySoftwareNowResponse
+    -&gt; Int -&gt; UpdateGatewaySoftwareNowResponse)
+-&gt; Lens
+     UpdateGatewaySoftwareNowResponse
+     UpdateGatewaySoftwareNowResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse%27"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396599"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateGatewaySoftwareNowResponse' :: UpdateGatewaySoftwareNowResponse -&gt; Int
+</span><a href="#local-6989586621679396599"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396599"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396598"><span class="annot"><span class="annottext">s :: UpdateGatewaySoftwareNowResponse
+</span><a href="#local-6989586621679396598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse%27"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396597"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewaySoftwareNowResponse
+</span><a href="#local-6989586621679396598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGatewaySoftwareNowResponse' :: Int
+</span><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#%24sel%3AhttpStatus%3AUpdateGatewaySoftwareNowResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNowResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679396595"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.UpdateGatewaySoftwareNow.html#UpdateGatewaySoftwareNowResponse"><span class="hs-identifier hs-type">UpdateGatewaySoftwareNowResponse</span></a></span></span><span>
+</span><span id="line-185"></span></pre></body></html>

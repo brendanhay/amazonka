@@ -1,0 +1,933 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Route53Resolver.Types.ResolverEndpoint</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53Resolver.Types.ResolverEndpoint</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpointDirection.html"><span class="hs-identifier">Amazonka.Route53Resolver.Types.ResolverEndpointDirection</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpointStatus.html"><span class="hs-identifier">Amazonka.Route53Resolver.Types.ResolverEndpointStatus</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | In the response to a</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html CreateResolverEndpoint&gt;,</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteResolverEndpoint.html DeleteResolverEndpoint&gt;,</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint&gt;,</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html ListResolverEndpoints&gt;,</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- or</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverEndpoint.html UpdateResolverEndpoint&gt;</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- request, a complex type that contains settings for an existing inbound</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- or outbound Resolver endpoint.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newResolverEndpoint' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679284815"><span id="local-6989586621679284816"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResolverEndpoint"><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-var">ResolverEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolverEndpoint%27"><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-var">ResolverEndpoint'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time that the endpoint was created, in Unix time format and</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Coordinated Universal Time (UTC).</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcreationTime%3AResolverEndpoint%27"><span class="annot"><span class="annottext">ResolverEndpoint -&gt; Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AcreationTime%3AResolverEndpoint%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A code that specifies the current status of the Resolver endpoint. Valid</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- values include the following:</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @CREATING@: Resolver is creating and configuring one or more Amazon</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     VPC network interfaces for this endpoint.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   @OPERATIONAL@: The Amazon VPC network interfaces for this endpoint</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     are correctly configured and able to pass inbound or outbound DNS</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     queries between your network and Resolver.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   @UPDATING@: Resolver is associating or disassociating one or more</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     network interfaces with this endpoint.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   @AUTO_RECOVERING@: Resolver is trying to recover one or more of the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     network interfaces that are associated with this endpoint. During</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     the recovery process, the endpoint functions with limited capacity</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     because of the limit on the number of DNS queries per IP address</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     (per network interface). For the current limit, see</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-resolver Limits on Route 53 Resolver&gt;.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @ACTION_NEEDED@: This endpoint is unhealthy, and Resolver can\'t</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     automatically recover it. To resolve the problem, we recommend that</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     you check each IP address that you associated with the endpoint. For</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     each IP address that isn\'t available, add another IP address and</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     then delete the IP address that isn\'t available. (An endpoint must</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     always include at least two IP addresses.) A status of</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     @ACTION_NEEDED@ can have a variety of causes. Here are two common</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     causes:</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     -   One or more of the network interfaces that are associated with</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--         the endpoint were deleted using Amazon VPC.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     -   The network interface couldn\'t be created for some reason</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--         that\'s outside the control of Resolver.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- -   @DELETING@: Resolver is deleting this endpoint and the associated</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     network interfaces.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Astatus%3AResolverEndpoint%27"><span class="annot"><span class="annottext">ResolverEndpoint -&gt; Maybe ResolverEndpointStatus
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3Astatus%3AResolverEndpoint%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus"><span class="hs-identifier hs-type">ResolverEndpointStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The ID of one or more security groups that control access to this VPC.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- The security group must include one or more inbound rules (for inbound</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- endpoints) or outbound rules (for outbound endpoints). Inbound and</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- outbound rules must allow TCP and UDP access. For inbound access, open</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- port 53. For outbound access, open the port that you\'re using for DNS</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- queries on your network.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AsecurityGroupIds%3AResolverEndpoint%27"><span class="annot"><span class="annottext">ResolverEndpoint -&gt; Maybe [Text]
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AsecurityGroupIds%3AResolverEndpoint%27"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | Indicates whether the Resolver endpoint allows inbound or outbound DNS</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- queries:</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   @INBOUND@: allows DNS queries to your VPC from your network</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   @OUTBOUND@: allows DNS queries from your VPC to your network</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Adirection%3AResolverEndpoint%27"><span class="annot"><span class="annottext">ResolverEndpoint -&gt; Maybe ResolverEndpointDirection
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3Adirection%3AResolverEndpoint%27"><span class="hs-identifier hs-var hs-var">direction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection"><span class="hs-identifier hs-type">ResolverEndpointDirection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The ARN (Amazon Resource Name) for the Resolver endpoint.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3Aarn%3AResolverEndpoint%27"><span class="annot"><span class="annottext">ResolverEndpoint -&gt; Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3Aarn%3AResolverEndpoint%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | A unique string that identifies the request that created the Resolver</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- endpoint. The @CreatorRequestId@ allows failed requests to be retried</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- without the risk of running the operation twice.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AcreatorRequestId%3AResolverEndpoint%27"><span class="annot"><span class="annottext">ResolverEndpoint -&gt; Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AcreatorRequestId%3AResolverEndpoint%27"><span class="hs-identifier hs-var hs-var">creatorRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The date and time that the endpoint was last modified, in Unix time</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- format and Coordinated Universal Time (UTC).</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AmodificationTime%3AResolverEndpoint%27"><span class="annot"><span class="annottext">ResolverEndpoint -&gt; Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AmodificationTime%3AResolverEndpoint%27"><span class="hs-identifier hs-var hs-var">modificationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The number of IP addresses that the Resolver endpoint can use for DNS</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- queries.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AipAddressCount%3AResolverEndpoint%27"><span class="annot"><span class="annottext">ResolverEndpoint -&gt; Maybe Int
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AipAddressCount%3AResolverEndpoint%27"><span class="hs-identifier hs-var hs-var">ipAddressCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | A detailed description of the status of the Resolver endpoint.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AstatusMessage%3AResolverEndpoint%27"><span class="annot"><span class="annottext">ResolverEndpoint -&gt; Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AstatusMessage%3AResolverEndpoint%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The name that you assigned to the Resolver endpoint when you submitted a</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html CreateResolverEndpoint&gt;</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3Aname%3AResolverEndpoint%27"><span class="annot"><span class="annottext">ResolverEndpoint -&gt; Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3Aname%3AResolverEndpoint%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | The ID of the Resolver endpoint.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3Aid%3AResolverEndpoint%27"><span class="annot"><span class="annottext">ResolverEndpoint -&gt; Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3Aid%3AResolverEndpoint%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC that you want to create the Resolver endpoint in.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AhostVPCId%3AResolverEndpoint%27"><span class="annot"><span class="annottext">ResolverEndpoint -&gt; Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AhostVPCId%3AResolverEndpoint%27"><span class="hs-identifier hs-var hs-var">hostVPCId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284798"><span id="local-6989586621679284800"><span class="annot"><span class="annottext">ResolverEndpoint -&gt; ResolverEndpoint -&gt; Bool
+(ResolverEndpoint -&gt; ResolverEndpoint -&gt; Bool)
+-&gt; (ResolverEndpoint -&gt; ResolverEndpoint -&gt; Bool)
+-&gt; Eq ResolverEndpoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResolverEndpoint -&gt; ResolverEndpoint -&gt; Bool
+$c/= :: ResolverEndpoint -&gt; ResolverEndpoint -&gt; Bool
+== :: ResolverEndpoint -&gt; ResolverEndpoint -&gt; Bool
+$c== :: ResolverEndpoint -&gt; ResolverEndpoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284789"><span id="local-6989586621679284791"><span id="local-6989586621679284793"><span id="local-6989586621679284795"><span class="annot"><span class="annottext">ReadPrec [ResolverEndpoint]
+ReadPrec ResolverEndpoint
+Int -&gt; ReadS ResolverEndpoint
+ReadS [ResolverEndpoint]
+(Int -&gt; ReadS ResolverEndpoint)
+-&gt; ReadS [ResolverEndpoint]
+-&gt; ReadPrec ResolverEndpoint
+-&gt; ReadPrec [ResolverEndpoint]
+-&gt; Read ResolverEndpoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResolverEndpoint]
+$creadListPrec :: ReadPrec [ResolverEndpoint]
+readPrec :: ReadPrec ResolverEndpoint
+$creadPrec :: ReadPrec ResolverEndpoint
+readList :: ReadS [ResolverEndpoint]
+$creadList :: ReadS [ResolverEndpoint]
+readsPrec :: Int -&gt; ReadS ResolverEndpoint
+$creadsPrec :: Int -&gt; ReadS ResolverEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284782"><span id="local-6989586621679284784"><span id="local-6989586621679284786"><span class="annot"><span class="annottext">Int -&gt; ResolverEndpoint -&gt; ShowS
+[ResolverEndpoint] -&gt; ShowS
+ResolverEndpoint -&gt; String
+(Int -&gt; ResolverEndpoint -&gt; ShowS)
+-&gt; (ResolverEndpoint -&gt; String)
+-&gt; ([ResolverEndpoint] -&gt; ShowS)
+-&gt; Show ResolverEndpoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResolverEndpoint] -&gt; ShowS
+$cshowList :: [ResolverEndpoint] -&gt; ShowS
+show :: ResolverEndpoint -&gt; String
+$cshow :: ResolverEndpoint -&gt; String
+showsPrec :: Int -&gt; ResolverEndpoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResolverEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ResolverEndpoint -&gt; Rep ResolverEndpoint x)
+-&gt; (forall x. Rep ResolverEndpoint x -&gt; ResolverEndpoint)
+-&gt; Generic ResolverEndpoint
+forall x. Rep ResolverEndpoint x -&gt; ResolverEndpoint
+forall x. ResolverEndpoint -&gt; Rep ResolverEndpoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResolverEndpoint x -&gt; ResolverEndpoint
+$cfrom :: forall x. ResolverEndpoint -&gt; Rep ResolverEndpoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Create a value of 'ResolverEndpoint' with all optional fields omitted.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'creationTime', 'resolverEndpoint_creationTime' - The date and time that the endpoint was created, in Unix time format and</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Coordinated Universal Time (UTC).</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'status', 'resolverEndpoint_status' - A code that specifies the current status of the Resolver endpoint. Valid</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- values include the following:</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   @CREATING@: Resolver is creating and configuring one or more Amazon</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     VPC network interfaces for this endpoint.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   @OPERATIONAL@: The Amazon VPC network interfaces for this endpoint</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--     are correctly configured and able to pass inbound or outbound DNS</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--     queries between your network and Resolver.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- -   @UPDATING@: Resolver is associating or disassociating one or more</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--     network interfaces with this endpoint.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   @AUTO_RECOVERING@: Resolver is trying to recover one or more of the</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     network interfaces that are associated with this endpoint. During</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--     the recovery process, the endpoint functions with limited capacity</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--     because of the limit on the number of DNS queries per IP address</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--     (per network interface). For the current limit, see</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-resolver Limits on Route 53 Resolver&gt;.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   @ACTION_NEEDED@: This endpoint is unhealthy, and Resolver can\'t</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     automatically recover it. To resolve the problem, we recommend that</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     you check each IP address that you associated with the endpoint. For</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     each IP address that isn\'t available, add another IP address and</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     then delete the IP address that isn\'t available. (An endpoint must</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--     always include at least two IP addresses.) A status of</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     @ACTION_NEEDED@ can have a variety of causes. Here are two common</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     causes:</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     -   One or more of the network interfaces that are associated with</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--         the endpoint were deleted using Amazon VPC.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--     -   The network interface couldn\'t be created for some reason</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--         that\'s outside the control of Resolver.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- -   @DELETING@: Resolver is deleting this endpoint and the associated</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--     network interfaces.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'securityGroupIds', 'resolverEndpoint_securityGroupIds' - The ID of one or more security groups that control access to this VPC.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- The security group must include one or more inbound rules (for inbound</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- endpoints) or outbound rules (for outbound endpoints). Inbound and</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- outbound rules must allow TCP and UDP access. For inbound access, open</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- port 53. For outbound access, open the port that you\'re using for DNS</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- queries on your network.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'direction', 'resolverEndpoint_direction' - Indicates whether the Resolver endpoint allows inbound or outbound DNS</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- queries:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- -   @INBOUND@: allows DNS queries to your VPC from your network</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- -   @OUTBOUND@: allows DNS queries from your VPC to your network</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'arn', 'resolverEndpoint_arn' - The ARN (Amazon Resource Name) for the Resolver endpoint.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'creatorRequestId', 'resolverEndpoint_creatorRequestId' - A unique string that identifies the request that created the Resolver</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- endpoint. The @CreatorRequestId@ allows failed requests to be retried</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- without the risk of running the operation twice.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'modificationTime', 'resolverEndpoint_modificationTime' - The date and time that the endpoint was last modified, in Unix time</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- format and Coordinated Universal Time (UTC).</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'ipAddressCount', 'resolverEndpoint_ipAddressCount' - The number of IP addresses that the Resolver endpoint can use for DNS</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- queries.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'statusMessage', 'resolverEndpoint_statusMessage' - A detailed description of the status of the Resolver endpoint.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'name', 'resolverEndpoint_name' - The name that you assigned to the Resolver endpoint when you submitted a</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html CreateResolverEndpoint&gt;</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'id', 'resolverEndpoint_id' - The ID of the Resolver endpoint.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'hostVPCId', 'resolverEndpoint_hostVPCId' - The ID of the VPC that you want to create the Resolver endpoint in.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#newResolverEndpoint"><span class="hs-identifier hs-type">newResolverEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span>
+</span><span id="line-206"></span><span id="newResolverEndpoint"><span class="annot"><span class="annottext">newResolverEndpoint :: ResolverEndpoint
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#newResolverEndpoint"><span class="hs-identifier hs-var hs-var">newResolverEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="annottext">ResolverEndpoint' :: Maybe Text
+-&gt; Maybe ResolverEndpointStatus
+-&gt; Maybe [Text]
+-&gt; Maybe ResolverEndpointDirection
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ResolverEndpoint
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AcreationTime%3AResolverEndpoint%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ResolverEndpoint' :: Maybe ResolverEndpointStatus
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3Astatus%3AResolverEndpoint%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResolverEndpointStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityGroupIds:ResolverEndpoint' :: Maybe [Text]
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AsecurityGroupIds%3AResolverEndpoint%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:direction:ResolverEndpoint' :: Maybe ResolverEndpointDirection
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3Adirection%3AResolverEndpoint%27"><span class="hs-identifier hs-var">direction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResolverEndpointDirection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3Aarn%3AResolverEndpoint%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:creatorRequestId:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AcreatorRequestId%3AResolverEndpoint%27"><span class="hs-identifier hs-var">creatorRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:modificationTime:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AmodificationTime%3AResolverEndpoint%27"><span class="hs-identifier hs-var">modificationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipAddressCount:ResolverEndpoint' :: Maybe Int
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AipAddressCount%3AResolverEndpoint%27"><span class="hs-identifier hs-var">ipAddressCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusMessage:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AstatusMessage%3AResolverEndpoint%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3Aname%3AResolverEndpoint%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3Aid%3AResolverEndpoint%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostVPCId:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AhostVPCId%3AResolverEndpoint%27"><span class="hs-identifier hs-var">hostVPCId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The date and time that the endpoint was created, in Unix time format and</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- Coordinated Universal Time (UTC).</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_creationTime"><span class="hs-identifier hs-type">resolverEndpoint_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="resolverEndpoint_creationTime"><span class="annot"><span class="annottext">resolverEndpoint_creationTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResolverEndpoint -&gt; f ResolverEndpoint
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_creationTime"><span class="hs-identifier hs-var hs-var">resolverEndpoint_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResolverEndpoint -&gt; Maybe Text)
+-&gt; (ResolverEndpoint -&gt; Maybe Text -&gt; ResolverEndpoint)
+-&gt; Lens ResolverEndpoint ResolverEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284773"><span class="annot"><span class="annottext">Maybe Text
+creationTime :: Maybe Text
+$sel:creationTime:ResolverEndpoint' :: ResolverEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679284773"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284773"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284772"><span class="annot"><span class="annottext">s :: ResolverEndpoint
+</span><a href="#local-6989586621679284772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284771"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolverEndpoint
+</span><a href="#local-6989586621679284772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AcreationTime%3AResolverEndpoint%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | A code that specifies the current status of the Resolver endpoint. Valid</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- values include the following:</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- -   @CREATING@: Resolver is creating and configuring one or more Amazon</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--     VPC network interfaces for this endpoint.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- -   @OPERATIONAL@: The Amazon VPC network interfaces for this endpoint</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     are correctly configured and able to pass inbound or outbound DNS</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--     queries between your network and Resolver.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- -   @UPDATING@: Resolver is associating or disassociating one or more</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     network interfaces with this endpoint.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- -   @AUTO_RECOVERING@: Resolver is trying to recover one or more of the</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     network interfaces that are associated with this endpoint. During</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--     the recovery process, the endpoint functions with limited capacity</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--     because of the limit on the number of DNS queries per IP address</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--     (per network interface). For the current limit, see</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-resolver Limits on Route 53 Resolver&gt;.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- -   @ACTION_NEEDED@: This endpoint is unhealthy, and Resolver can\'t</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--     automatically recover it. To resolve the problem, we recommend that</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     you check each IP address that you associated with the endpoint. For</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--     each IP address that isn\'t available, add another IP address and</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     then delete the IP address that isn\'t available. (An endpoint must</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     always include at least two IP addresses.) A status of</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--     @ACTION_NEEDED@ can have a variety of causes. Here are two common</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--     causes:</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--     -   One or more of the network interfaces that are associated with</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--         the endpoint were deleted using Amazon VPC.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     -   The network interface couldn\'t be created for some reason</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--         that\'s outside the control of Resolver.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- -   @DELETING@: Resolver is deleting this endpoint and the associated</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--     network interfaces.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_status"><span class="hs-identifier hs-type">resolverEndpoint_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus"><span class="hs-identifier hs-type">ResolverEndpointStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="resolverEndpoint_status"><span class="annot"><span class="annottext">resolverEndpoint_status :: (Maybe ResolverEndpointStatus -&gt; f (Maybe ResolverEndpointStatus))
+-&gt; ResolverEndpoint -&gt; f ResolverEndpoint
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_status"><span class="hs-identifier hs-var hs-var">resolverEndpoint_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResolverEndpoint -&gt; Maybe ResolverEndpointStatus)
+-&gt; (ResolverEndpoint
+    -&gt; Maybe ResolverEndpointStatus -&gt; ResolverEndpoint)
+-&gt; Lens
+     ResolverEndpoint
+     ResolverEndpoint
+     (Maybe ResolverEndpointStatus)
+     (Maybe ResolverEndpointStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284769"><span class="annot"><span class="annottext">Maybe ResolverEndpointStatus
+status :: Maybe ResolverEndpointStatus
+$sel:status:ResolverEndpoint' :: ResolverEndpoint -&gt; Maybe ResolverEndpointStatus
+</span><a href="#local-6989586621679284769"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResolverEndpointStatus
+</span><a href="#local-6989586621679284769"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284768"><span class="annot"><span class="annottext">s :: ResolverEndpoint
+</span><a href="#local-6989586621679284768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284767"><span class="annot"><span class="annottext">Maybe ResolverEndpointStatus
+</span><a href="#local-6989586621679284767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolverEndpoint
+</span><a href="#local-6989586621679284768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ResolverEndpoint' :: Maybe ResolverEndpointStatus
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3Astatus%3AResolverEndpoint%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResolverEndpointStatus
+</span><a href="#local-6989586621679284767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The ID of one or more security groups that control access to this VPC.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- The security group must include one or more inbound rules (for inbound</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- endpoints) or outbound rules (for outbound endpoints). Inbound and</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- outbound rules must allow TCP and UDP access. For inbound access, open</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- port 53. For outbound access, open the port that you\'re using for DNS</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- queries on your network.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_securityGroupIds"><span class="hs-identifier hs-type">resolverEndpoint_securityGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="resolverEndpoint_securityGroupIds"><span class="annot"><span class="annottext">resolverEndpoint_securityGroupIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ResolverEndpoint -&gt; f ResolverEndpoint
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_securityGroupIds"><span class="hs-identifier hs-var hs-var">resolverEndpoint_securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResolverEndpoint -&gt; Maybe [Text])
+-&gt; (ResolverEndpoint -&gt; Maybe [Text] -&gt; ResolverEndpoint)
+-&gt; Lens
+     ResolverEndpoint ResolverEndpoint (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284765"><span class="annot"><span class="annottext">Maybe [Text]
+securityGroupIds :: Maybe [Text]
+$sel:securityGroupIds:ResolverEndpoint' :: ResolverEndpoint -&gt; Maybe [Text]
+</span><a href="#local-6989586621679284765"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284765"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284764"><span class="annot"><span class="annottext">s :: ResolverEndpoint
+</span><a href="#local-6989586621679284764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284763"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolverEndpoint
+</span><a href="#local-6989586621679284764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:ResolverEndpoint' :: Maybe [Text]
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AsecurityGroupIds%3AResolverEndpoint%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ResolverEndpoint -&gt; f ResolverEndpoint)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ResolverEndpoint
+-&gt; f ResolverEndpoint
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | Indicates whether the Resolver endpoint allows inbound or outbound DNS</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- queries:</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- -   @INBOUND@: allows DNS queries to your VPC from your network</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- -   @OUTBOUND@: allows DNS queries from your VPC to your network</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_direction"><span class="hs-identifier hs-type">resolverEndpoint_direction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection"><span class="hs-identifier hs-type">ResolverEndpointDirection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="resolverEndpoint_direction"><span class="annot"><span class="annottext">resolverEndpoint_direction :: (Maybe ResolverEndpointDirection
+ -&gt; f (Maybe ResolverEndpointDirection))
+-&gt; ResolverEndpoint -&gt; f ResolverEndpoint
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_direction"><span class="hs-identifier hs-var hs-var">resolverEndpoint_direction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResolverEndpoint -&gt; Maybe ResolverEndpointDirection)
+-&gt; (ResolverEndpoint
+    -&gt; Maybe ResolverEndpointDirection -&gt; ResolverEndpoint)
+-&gt; Lens
+     ResolverEndpoint
+     ResolverEndpoint
+     (Maybe ResolverEndpointDirection)
+     (Maybe ResolverEndpointDirection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284758"><span class="annot"><span class="annottext">Maybe ResolverEndpointDirection
+direction :: Maybe ResolverEndpointDirection
+$sel:direction:ResolverEndpoint' :: ResolverEndpoint -&gt; Maybe ResolverEndpointDirection
+</span><a href="#local-6989586621679284758"><span class="hs-identifier hs-var hs-var">direction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResolverEndpointDirection
+</span><a href="#local-6989586621679284758"><span class="hs-identifier hs-var">direction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284757"><span class="annot"><span class="annottext">s :: ResolverEndpoint
+</span><a href="#local-6989586621679284757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284756"><span class="annot"><span class="annottext">Maybe ResolverEndpointDirection
+</span><a href="#local-6989586621679284756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolverEndpoint
+</span><a href="#local-6989586621679284757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:direction:ResolverEndpoint' :: Maybe ResolverEndpointDirection
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3Adirection%3AResolverEndpoint%27"><span class="hs-identifier hs-var">direction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResolverEndpointDirection
+</span><a href="#local-6989586621679284756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The ARN (Amazon Resource Name) for the Resolver endpoint.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_arn"><span class="hs-identifier hs-type">resolverEndpoint_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="resolverEndpoint_arn"><span class="annot"><span class="annottext">resolverEndpoint_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResolverEndpoint -&gt; f ResolverEndpoint
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_arn"><span class="hs-identifier hs-var hs-var">resolverEndpoint_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResolverEndpoint -&gt; Maybe Text)
+-&gt; (ResolverEndpoint -&gt; Maybe Text -&gt; ResolverEndpoint)
+-&gt; Lens ResolverEndpoint ResolverEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284754"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:ResolverEndpoint' :: ResolverEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679284754"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284754"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284753"><span class="annot"><span class="annottext">s :: ResolverEndpoint
+</span><a href="#local-6989586621679284753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284752"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolverEndpoint
+</span><a href="#local-6989586621679284753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3Aarn%3AResolverEndpoint%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | A unique string that identifies the request that created the Resolver</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- endpoint. The @CreatorRequestId@ allows failed requests to be retried</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- without the risk of running the operation twice.</span><span>
+</span><span id="line-292"></span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_creatorRequestId"><span class="hs-identifier hs-type">resolverEndpoint_creatorRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span id="resolverEndpoint_creatorRequestId"><span class="annot"><span class="annottext">resolverEndpoint_creatorRequestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResolverEndpoint -&gt; f ResolverEndpoint
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_creatorRequestId"><span class="hs-identifier hs-var hs-var">resolverEndpoint_creatorRequestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResolverEndpoint -&gt; Maybe Text)
+-&gt; (ResolverEndpoint -&gt; Maybe Text -&gt; ResolverEndpoint)
+-&gt; Lens ResolverEndpoint ResolverEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284750"><span class="annot"><span class="annottext">Maybe Text
+creatorRequestId :: Maybe Text
+$sel:creatorRequestId:ResolverEndpoint' :: ResolverEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679284750"><span class="hs-identifier hs-var hs-var">creatorRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284750"><span class="hs-identifier hs-var">creatorRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284749"><span class="annot"><span class="annottext">s :: ResolverEndpoint
+</span><a href="#local-6989586621679284749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284748"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolverEndpoint
+</span><a href="#local-6989586621679284749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creatorRequestId:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AcreatorRequestId%3AResolverEndpoint%27"><span class="hs-identifier hs-var">creatorRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- | The date and time that the endpoint was last modified, in Unix time</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- format and Coordinated Universal Time (UTC).</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_modificationTime"><span class="hs-identifier hs-type">resolverEndpoint_modificationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span id="resolverEndpoint_modificationTime"><span class="annot"><span class="annottext">resolverEndpoint_modificationTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResolverEndpoint -&gt; f ResolverEndpoint
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_modificationTime"><span class="hs-identifier hs-var hs-var">resolverEndpoint_modificationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResolverEndpoint -&gt; Maybe Text)
+-&gt; (ResolverEndpoint -&gt; Maybe Text -&gt; ResolverEndpoint)
+-&gt; Lens ResolverEndpoint ResolverEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284746"><span class="annot"><span class="annottext">Maybe Text
+modificationTime :: Maybe Text
+$sel:modificationTime:ResolverEndpoint' :: ResolverEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679284746"><span class="hs-identifier hs-var hs-var">modificationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284746"><span class="hs-identifier hs-var">modificationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284745"><span class="annot"><span class="annottext">s :: ResolverEndpoint
+</span><a href="#local-6989586621679284745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284744"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolverEndpoint
+</span><a href="#local-6989586621679284745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modificationTime:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AmodificationTime%3AResolverEndpoint%27"><span class="hs-identifier hs-var">modificationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | The number of IP addresses that the Resolver endpoint can use for DNS</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- queries.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_ipAddressCount"><span class="hs-identifier hs-type">resolverEndpoint_ipAddressCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span id="resolverEndpoint_ipAddressCount"><span class="annot"><span class="annottext">resolverEndpoint_ipAddressCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ResolverEndpoint -&gt; f ResolverEndpoint
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_ipAddressCount"><span class="hs-identifier hs-var hs-var">resolverEndpoint_ipAddressCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResolverEndpoint -&gt; Maybe Int)
+-&gt; (ResolverEndpoint -&gt; Maybe Int -&gt; ResolverEndpoint)
+-&gt; Lens ResolverEndpoint ResolverEndpoint (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284742"><span class="annot"><span class="annottext">Maybe Int
+ipAddressCount :: Maybe Int
+$sel:ipAddressCount:ResolverEndpoint' :: ResolverEndpoint -&gt; Maybe Int
+</span><a href="#local-6989586621679284742"><span class="hs-identifier hs-var hs-var">ipAddressCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679284742"><span class="hs-identifier hs-var">ipAddressCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284741"><span class="annot"><span class="annottext">s :: ResolverEndpoint
+</span><a href="#local-6989586621679284741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284740"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679284740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolverEndpoint
+</span><a href="#local-6989586621679284741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressCount:ResolverEndpoint' :: Maybe Int
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AipAddressCount%3AResolverEndpoint%27"><span class="hs-identifier hs-var">ipAddressCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679284740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | A detailed description of the status of the Resolver endpoint.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_statusMessage"><span class="hs-identifier hs-type">resolverEndpoint_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span id="resolverEndpoint_statusMessage"><span class="annot"><span class="annottext">resolverEndpoint_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResolverEndpoint -&gt; f ResolverEndpoint
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_statusMessage"><span class="hs-identifier hs-var hs-var">resolverEndpoint_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResolverEndpoint -&gt; Maybe Text)
+-&gt; (ResolverEndpoint -&gt; Maybe Text -&gt; ResolverEndpoint)
+-&gt; Lens ResolverEndpoint ResolverEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284738"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:ResolverEndpoint' :: ResolverEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679284738"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284738"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284737"><span class="annot"><span class="annottext">s :: ResolverEndpoint
+</span><a href="#local-6989586621679284737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284736"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolverEndpoint
+</span><a href="#local-6989586621679284737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AstatusMessage%3AResolverEndpoint%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | The name that you assigned to the Resolver endpoint when you submitted a</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html CreateResolverEndpoint&gt;</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_name"><span class="hs-identifier hs-type">resolverEndpoint_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span id="resolverEndpoint_name"><span class="annot"><span class="annottext">resolverEndpoint_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResolverEndpoint -&gt; f ResolverEndpoint
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_name"><span class="hs-identifier hs-var hs-var">resolverEndpoint_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResolverEndpoint -&gt; Maybe Text)
+-&gt; (ResolverEndpoint -&gt; Maybe Text -&gt; ResolverEndpoint)
+-&gt; Lens ResolverEndpoint ResolverEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284734"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ResolverEndpoint' :: ResolverEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679284734"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284734"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284733"><span class="annot"><span class="annottext">s :: ResolverEndpoint
+</span><a href="#local-6989586621679284733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284732"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolverEndpoint
+</span><a href="#local-6989586621679284733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3Aname%3AResolverEndpoint%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | The ID of the Resolver endpoint.</span><span>
+</span><span id="line-316"></span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_id"><span class="hs-identifier hs-type">resolverEndpoint_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span id="resolverEndpoint_id"><span class="annot"><span class="annottext">resolverEndpoint_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResolverEndpoint -&gt; f ResolverEndpoint
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_id"><span class="hs-identifier hs-var hs-var">resolverEndpoint_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResolverEndpoint -&gt; Maybe Text)
+-&gt; (ResolverEndpoint -&gt; Maybe Text -&gt; ResolverEndpoint)
+-&gt; Lens ResolverEndpoint ResolverEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284730"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:ResolverEndpoint' :: ResolverEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679284730"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284730"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284729"><span class="annot"><span class="annottext">s :: ResolverEndpoint
+</span><a href="#local-6989586621679284729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284728"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolverEndpoint
+</span><a href="#local-6989586621679284729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3Aid%3AResolverEndpoint%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | The ID of the VPC that you want to create the Resolver endpoint in.</span><span>
+</span><span id="line-320"></span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_hostVPCId"><span class="hs-identifier hs-type">resolverEndpoint_hostVPCId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span><span id="resolverEndpoint_hostVPCId"><span class="annot"><span class="annottext">resolverEndpoint_hostVPCId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResolverEndpoint -&gt; f ResolverEndpoint
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#resolverEndpoint_hostVPCId"><span class="hs-identifier hs-var hs-var">resolverEndpoint_hostVPCId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResolverEndpoint -&gt; Maybe Text)
+-&gt; (ResolverEndpoint -&gt; Maybe Text -&gt; ResolverEndpoint)
+-&gt; Lens ResolverEndpoint ResolverEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284726"><span class="annot"><span class="annottext">Maybe Text
+hostVPCId :: Maybe Text
+$sel:hostVPCId:ResolverEndpoint' :: ResolverEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679284726"><span class="hs-identifier hs-var hs-var">hostVPCId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284726"><span class="hs-identifier hs-var">hostVPCId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284725"><span class="annot"><span class="annottext">s :: ResolverEndpoint
+</span><a href="#local-6989586621679284725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-type">ResolverEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284724"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolverEndpoint
+</span><a href="#local-6989586621679284725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostVPCId:ResolverEndpoint' :: Maybe Text
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#%24sel%3AhostVPCId%3AResolverEndpoint%27"><span class="hs-identifier hs-var">hostVPCId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span>
+</span><span id="line-323"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284721"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-324"></span><span>  </span><span id="local-6989586621679284719"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResolverEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-325"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ResolverEndpoint)
+-&gt; Value
+-&gt; Parser ResolverEndpoint
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-326"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ResolverEndpoint&quot;</span></span><span>
+</span><span id="line-327"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284716"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284716"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-328"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ResolverEndpointStatus
+-&gt; Maybe [Text]
+-&gt; Maybe ResolverEndpointDirection
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ResolverEndpoint
+</span><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint%27"><span class="hs-identifier hs-var">ResolverEndpoint'</span></a></span><span>
+</span><span id="line-329"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ResolverEndpointStatus
+ -&gt; Maybe [Text]
+ -&gt; Maybe ResolverEndpointDirection
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ResolverEndpoint)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ResolverEndpointStatus
+      -&gt; Maybe [Text]
+      -&gt; Maybe ResolverEndpointDirection
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ResolverEndpoint)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResolverEndpointStatus
+   -&gt; Maybe [Text]
+   -&gt; Maybe ResolverEndpointDirection
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ResolverEndpoint)
+-&gt; Parser (Maybe ResolverEndpointStatus)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe ResolverEndpointDirection
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ResolverEndpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResolverEndpointStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe ResolverEndpointDirection
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ResolverEndpoint)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe ResolverEndpointDirection
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ResolverEndpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecurityGroupIds&quot;</span></span><span>
+</span><span id="line-332"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-333"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResolverEndpointDirection
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ResolverEndpoint)
+-&gt; Parser (Maybe ResolverEndpointDirection)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ResolverEndpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResolverEndpointDirection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Direction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ResolverEndpoint)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ResolverEndpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ResolverEndpoint)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ResolverEndpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatorRequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ResolverEndpoint)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ResolverEndpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModificationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ResolverEndpoint)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ResolverEndpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpAddressCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ResolverEndpoint)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ResolverEndpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ResolverEndpoint)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ResolverEndpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ResolverEndpoint)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ResolverEndpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ResolverEndpoint)
+-&gt; Parser (Maybe Text) -&gt; Parser ResolverEndpoint
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HostVPCId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284709"><span id="local-6989586621679284711"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span></span></span><span>
+</span><span id="line-346"></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284706"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverEndpoint.html#ResolverEndpoint"><span class="hs-identifier hs-type">ResolverEndpoint</span></a></span></span><span>
+</span><span id="line-348"></span></pre></body></html>

@@ -1,0 +1,795 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Initiates a snapshot of a gateway from a volume recovery point. This</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- operation is only supported in the cached volume gateway type.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- A volume recovery point is a point in time at which all data of the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- volume is consistent and from which you can create a snapshot. To get a</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- list of volume recovery point for cached volume gateway, use</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- ListVolumeRecoveryPoints.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- In the @CreateSnapshotFromVolumeRecoveryPoint@ request, you identify the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- volume by providing its Amazon Resource Name (ARN). You must also</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- provide a description for the snapshot. When the gateway takes a</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- snapshot of the specified volume, the snapshot and its description</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- appear in the Storage Gateway console. In response, the gateway returns</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- you a snapshot ID. You can use this snapshot ID to check the snapshot</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- progress or later use it when you want to create a volume from a</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- snapshot.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- To list or delete a snapshot, you must use the Amazon EC2 API. For more</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html DescribeSnapshots&gt;</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- or</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSnapshot.html DeleteSnapshot&gt;</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud API Reference/.</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier">CreateSnapshotFromVolumeRecoveryPoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#newCreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier">newCreateSnapshotFromVolumeRecoveryPoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPoint_tags"><span class="hs-identifier">createSnapshotFromVolumeRecoveryPoint_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPoint_volumeARN"><span class="hs-identifier">createSnapshotFromVolumeRecoveryPoint_volumeARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPoint_snapshotDescription"><span class="hs-identifier">createSnapshotFromVolumeRecoveryPoint_snapshotDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier">CreateSnapshotFromVolumeRecoveryPointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#newCreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier">newCreateSnapshotFromVolumeRecoveryPointResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPointResponse_volumeRecoveryPointTime"><span class="hs-identifier">createSnapshotFromVolumeRecoveryPointResponse_volumeRecoveryPointTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPointResponse_volumeARN"><span class="hs-identifier">createSnapshotFromVolumeRecoveryPointResponse_volumeARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPointResponse_snapshotId"><span class="hs-identifier">createSnapshotFromVolumeRecoveryPointResponse_snapshotId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPointResponse_httpStatus"><span class="hs-identifier">createSnapshotFromVolumeRecoveryPointResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.html"><span class="hs-identifier">Amazonka.StorageGateway.Types</span></a></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | /See:/ 'newCreateSnapshotFromVolumeRecoveryPoint' smart constructor.</span><span>
+</span><span id="line-76"></span><span id="local-6989586621679391379"><span id="local-6989586621679391380"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSnapshotFromVolumeRecoveryPoint"><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-var">CreateSnapshotFromVolumeRecoveryPoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSnapshotFromVolumeRecoveryPoint%27"><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-var">CreateSnapshotFromVolumeRecoveryPoint'</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of up to 50 tags that can be assigned to a snapshot. Each tag is</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- a key-value pair.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Valid characters for key and value are letters, spaces, and numbers</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- representable in UTF-8 format, and the following special characters: + -</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- the maximum length for a tag\'s value is 256.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Atags%3ACreateSnapshotFromVolumeRecoveryPoint%27"><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPoint -&gt; Maybe [Tag]
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3Atags%3ACreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.StorageGateway.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- for specified VolumeARN.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AvolumeARN%3ACreateSnapshotFromVolumeRecoveryPoint%27"><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPoint -&gt; Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AvolumeARN%3ACreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | Textual description of the snapshot that appears in the Amazon EC2</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- console, Elastic Block Store snapshots panel in the __Description__</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- field, and in the Storage Gateway snapshot __Details__ pane,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- __Description__ field.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AsnapshotDescription%3ACreateSnapshotFromVolumeRecoveryPoint%27"><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPoint -&gt; Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AsnapshotDescription%3ACreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-var hs-var">snapshotDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391371"><span id="local-6989586621679391373"><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPoint
+-&gt; CreateSnapshotFromVolumeRecoveryPoint -&gt; Bool
+(CreateSnapshotFromVolumeRecoveryPoint
+ -&gt; CreateSnapshotFromVolumeRecoveryPoint -&gt; Bool)
+-&gt; (CreateSnapshotFromVolumeRecoveryPoint
+    -&gt; CreateSnapshotFromVolumeRecoveryPoint -&gt; Bool)
+-&gt; Eq CreateSnapshotFromVolumeRecoveryPoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSnapshotFromVolumeRecoveryPoint
+-&gt; CreateSnapshotFromVolumeRecoveryPoint -&gt; Bool
+$c/= :: CreateSnapshotFromVolumeRecoveryPoint
+-&gt; CreateSnapshotFromVolumeRecoveryPoint -&gt; Bool
+== :: CreateSnapshotFromVolumeRecoveryPoint
+-&gt; CreateSnapshotFromVolumeRecoveryPoint -&gt; Bool
+$c== :: CreateSnapshotFromVolumeRecoveryPoint
+-&gt; CreateSnapshotFromVolumeRecoveryPoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391362"><span id="local-6989586621679391364"><span id="local-6989586621679391366"><span id="local-6989586621679391368"><span class="annot"><span class="annottext">ReadPrec [CreateSnapshotFromVolumeRecoveryPoint]
+ReadPrec CreateSnapshotFromVolumeRecoveryPoint
+Int -&gt; ReadS CreateSnapshotFromVolumeRecoveryPoint
+ReadS [CreateSnapshotFromVolumeRecoveryPoint]
+(Int -&gt; ReadS CreateSnapshotFromVolumeRecoveryPoint)
+-&gt; ReadS [CreateSnapshotFromVolumeRecoveryPoint]
+-&gt; ReadPrec CreateSnapshotFromVolumeRecoveryPoint
+-&gt; ReadPrec [CreateSnapshotFromVolumeRecoveryPoint]
+-&gt; Read CreateSnapshotFromVolumeRecoveryPoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSnapshotFromVolumeRecoveryPoint]
+$creadListPrec :: ReadPrec [CreateSnapshotFromVolumeRecoveryPoint]
+readPrec :: ReadPrec CreateSnapshotFromVolumeRecoveryPoint
+$creadPrec :: ReadPrec CreateSnapshotFromVolumeRecoveryPoint
+readList :: ReadS [CreateSnapshotFromVolumeRecoveryPoint]
+$creadList :: ReadS [CreateSnapshotFromVolumeRecoveryPoint]
+readsPrec :: Int -&gt; ReadS CreateSnapshotFromVolumeRecoveryPoint
+$creadsPrec :: Int -&gt; ReadS CreateSnapshotFromVolumeRecoveryPoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391355"><span id="local-6989586621679391357"><span id="local-6989586621679391359"><span class="annot"><span class="annottext">Int -&gt; CreateSnapshotFromVolumeRecoveryPoint -&gt; ShowS
+[CreateSnapshotFromVolumeRecoveryPoint] -&gt; ShowS
+CreateSnapshotFromVolumeRecoveryPoint -&gt; String
+(Int -&gt; CreateSnapshotFromVolumeRecoveryPoint -&gt; ShowS)
+-&gt; (CreateSnapshotFromVolumeRecoveryPoint -&gt; String)
+-&gt; ([CreateSnapshotFromVolumeRecoveryPoint] -&gt; ShowS)
+-&gt; Show CreateSnapshotFromVolumeRecoveryPoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSnapshotFromVolumeRecoveryPoint] -&gt; ShowS
+$cshowList :: [CreateSnapshotFromVolumeRecoveryPoint] -&gt; ShowS
+show :: CreateSnapshotFromVolumeRecoveryPoint -&gt; String
+$cshow :: CreateSnapshotFromVolumeRecoveryPoint -&gt; String
+showsPrec :: Int -&gt; CreateSnapshotFromVolumeRecoveryPoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSnapshotFromVolumeRecoveryPoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateSnapshotFromVolumeRecoveryPoint
+ -&gt; Rep CreateSnapshotFromVolumeRecoveryPoint x)
+-&gt; (forall x.
+    Rep CreateSnapshotFromVolumeRecoveryPoint x
+    -&gt; CreateSnapshotFromVolumeRecoveryPoint)
+-&gt; Generic CreateSnapshotFromVolumeRecoveryPoint
+forall x.
+Rep CreateSnapshotFromVolumeRecoveryPoint x
+-&gt; CreateSnapshotFromVolumeRecoveryPoint
+forall x.
+CreateSnapshotFromVolumeRecoveryPoint
+-&gt; Rep CreateSnapshotFromVolumeRecoveryPoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateSnapshotFromVolumeRecoveryPoint x
+-&gt; CreateSnapshotFromVolumeRecoveryPoint
+$cfrom :: forall x.
+CreateSnapshotFromVolumeRecoveryPoint
+-&gt; Rep CreateSnapshotFromVolumeRecoveryPoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Create a value of 'CreateSnapshotFromVolumeRecoveryPoint' with all optional fields omitted.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'tags', 'createSnapshotFromVolumeRecoveryPoint_tags' - A list of up to 50 tags that can be assigned to a snapshot. Each tag is</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- a key-value pair.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Valid characters for key and value are letters, spaces, and numbers</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- representable in UTF-8 format, and the following special characters: + -</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- the maximum length for a tag\'s value is 256.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'volumeARN', 'createSnapshotFromVolumeRecoveryPoint_volumeARN' - The Amazon Resource Name (ARN) of the iSCSI volume target. Use the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- for specified VolumeARN.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'snapshotDescription', 'createSnapshotFromVolumeRecoveryPoint_snapshotDescription' - Textual description of the snapshot that appears in the Amazon EC2</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- console, Elastic Block Store snapshots panel in the __Description__</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- field, and in the Storage Gateway snapshot __Details__ pane,</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- __Description__ field.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#newCreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">newCreateSnapshotFromVolumeRecoveryPoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'volumeARN'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-comment">-- | 'snapshotDescription'</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint</span></a></span><span>
+</span><span id="line-127"></span><span id="newCreateSnapshotFromVolumeRecoveryPoint"><span class="annot"><span class="annottext">newCreateSnapshotFromVolumeRecoveryPoint :: Text -&gt; Text -&gt; CreateSnapshotFromVolumeRecoveryPoint
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#newCreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-var hs-var">newCreateSnapshotFromVolumeRecoveryPoint</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679391350"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391350"><span class="hs-identifier hs-var">pVolumeARN_</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679391349"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391349"><span class="hs-identifier hs-var">pSnapshotDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPoint' :: Maybe [Tag]
+-&gt; Text -&gt; Text -&gt; CreateSnapshotFromVolumeRecoveryPoint
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint'</span></a></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateSnapshotFromVolumeRecoveryPoint' :: Maybe [Tag]
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3Atags%3ACreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">$sel:volumeARN:CreateSnapshotFromVolumeRecoveryPoint' :: Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AvolumeARN%3ACreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391350"><span class="hs-identifier hs-var">pVolumeARN_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:snapshotDescription:CreateSnapshotFromVolumeRecoveryPoint' :: Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AsnapshotDescription%3ACreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-var">snapshotDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391349"><span class="hs-identifier hs-var">pSnapshotDescription_</span></a></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | A list of up to 50 tags that can be assigned to a snapshot. Each tag is</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- a key-value pair.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Valid characters for key and value are letters, spaces, and numbers</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- representable in UTF-8 format, and the following special characters: + -</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- the maximum length for a tag\'s value is 256.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPoint_tags"><span class="hs-identifier hs-type">createSnapshotFromVolumeRecoveryPoint_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.StorageGateway.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="createSnapshotFromVolumeRecoveryPoint_tags"><span class="annot"><span class="annottext">createSnapshotFromVolumeRecoveryPoint_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateSnapshotFromVolumeRecoveryPoint
+-&gt; f CreateSnapshotFromVolumeRecoveryPoint
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPoint_tags"><span class="hs-identifier hs-var hs-var">createSnapshotFromVolumeRecoveryPoint_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSnapshotFromVolumeRecoveryPoint -&gt; Maybe [Tag])
+-&gt; (CreateSnapshotFromVolumeRecoveryPoint
+    -&gt; Maybe [Tag] -&gt; CreateSnapshotFromVolumeRecoveryPoint)
+-&gt; Lens
+     CreateSnapshotFromVolumeRecoveryPoint
+     CreateSnapshotFromVolumeRecoveryPoint
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391346"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateSnapshotFromVolumeRecoveryPoint' :: CreateSnapshotFromVolumeRecoveryPoint -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679391346"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679391346"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391345"><span class="annot"><span class="annottext">s :: CreateSnapshotFromVolumeRecoveryPoint
+</span><a href="#local-6989586621679391345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391344"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679391344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPoint
+</span><a href="#local-6989586621679391345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateSnapshotFromVolumeRecoveryPoint' :: Maybe [Tag]
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3Atags%3ACreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679391344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateSnapshotFromVolumeRecoveryPoint
+ -&gt; f CreateSnapshotFromVolumeRecoveryPoint)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateSnapshotFromVolumeRecoveryPoint
+-&gt; f CreateSnapshotFromVolumeRecoveryPoint
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- for specified VolumeARN.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPoint_volumeARN"><span class="hs-identifier hs-type">createSnapshotFromVolumeRecoveryPoint_volumeARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-152"></span><span id="createSnapshotFromVolumeRecoveryPoint_volumeARN"><span class="annot"><span class="annottext">createSnapshotFromVolumeRecoveryPoint_volumeARN :: (Text -&gt; f Text)
+-&gt; CreateSnapshotFromVolumeRecoveryPoint
+-&gt; f CreateSnapshotFromVolumeRecoveryPoint
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPoint_volumeARN"><span class="hs-identifier hs-var hs-var">createSnapshotFromVolumeRecoveryPoint_volumeARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSnapshotFromVolumeRecoveryPoint -&gt; Text)
+-&gt; (CreateSnapshotFromVolumeRecoveryPoint
+    -&gt; Text -&gt; CreateSnapshotFromVolumeRecoveryPoint)
+-&gt; Lens
+     CreateSnapshotFromVolumeRecoveryPoint
+     CreateSnapshotFromVolumeRecoveryPoint
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391340"><span class="annot"><span class="annottext">Text
+volumeARN :: Text
+$sel:volumeARN:CreateSnapshotFromVolumeRecoveryPoint' :: CreateSnapshotFromVolumeRecoveryPoint -&gt; Text
+</span><a href="#local-6989586621679391340"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391340"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391339"><span class="annot"><span class="annottext">s :: CreateSnapshotFromVolumeRecoveryPoint
+</span><a href="#local-6989586621679391339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391338"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPoint
+</span><a href="#local-6989586621679391339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:CreateSnapshotFromVolumeRecoveryPoint' :: Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AvolumeARN%3ACreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | Textual description of the snapshot that appears in the Amazon EC2</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- console, Elastic Block Store snapshots panel in the __Description__</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- field, and in the Storage Gateway snapshot __Details__ pane,</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- __Description__ field.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPoint_snapshotDescription"><span class="hs-identifier hs-type">createSnapshotFromVolumeRecoveryPoint_snapshotDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-159"></span><span id="createSnapshotFromVolumeRecoveryPoint_snapshotDescription"><span class="annot"><span class="annottext">createSnapshotFromVolumeRecoveryPoint_snapshotDescription :: (Text -&gt; f Text)
+-&gt; CreateSnapshotFromVolumeRecoveryPoint
+-&gt; f CreateSnapshotFromVolumeRecoveryPoint
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPoint_snapshotDescription"><span class="hs-identifier hs-var hs-var">createSnapshotFromVolumeRecoveryPoint_snapshotDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSnapshotFromVolumeRecoveryPoint -&gt; Text)
+-&gt; (CreateSnapshotFromVolumeRecoveryPoint
+    -&gt; Text -&gt; CreateSnapshotFromVolumeRecoveryPoint)
+-&gt; Lens
+     CreateSnapshotFromVolumeRecoveryPoint
+     CreateSnapshotFromVolumeRecoveryPoint
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391337"><span class="annot"><span class="annottext">Text
+snapshotDescription :: Text
+$sel:snapshotDescription:CreateSnapshotFromVolumeRecoveryPoint' :: CreateSnapshotFromVolumeRecoveryPoint -&gt; Text
+</span><a href="#local-6989586621679391337"><span class="hs-identifier hs-var hs-var">snapshotDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391337"><span class="hs-identifier hs-var">snapshotDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391336"><span class="annot"><span class="annottext">s :: CreateSnapshotFromVolumeRecoveryPoint
+</span><a href="#local-6989586621679391336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391335"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPoint
+</span><a href="#local-6989586621679391336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotDescription:CreateSnapshotFromVolumeRecoveryPoint' :: Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AsnapshotDescription%3ACreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-var">snapshotDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-166"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679391331"><span class="annot"><span class="annottext">request :: CreateSnapshotFromVolumeRecoveryPoint
+-&gt; Request CreateSnapshotFromVolumeRecoveryPoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateSnapshotFromVolumeRecoveryPoint
+-&gt; Request CreateSnapshotFromVolumeRecoveryPoint
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679391327"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateSnapshotFromVolumeRecoveryPoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse CreateSnapshotFromVolumeRecoveryPoint)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse CreateSnapshotFromVolumeRecoveryPoint))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateSnapshotFromVolumeRecoveryPoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse CreateSnapshotFromVolumeRecoveryPoint)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679391324"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391324"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391323"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679391323"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391322"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391322"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; CreateSnapshotFromVolumeRecoveryPointResponse
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-var">CreateSnapshotFromVolumeRecoveryPointResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; CreateSnapshotFromVolumeRecoveryPointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; CreateSnapshotFromVolumeRecoveryPointResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeRecoveryPointTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; CreateSnapshotFromVolumeRecoveryPointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Int -&gt; CreateSnapshotFromVolumeRecoveryPointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Int -&gt; CreateSnapshotFromVolumeRecoveryPointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; CreateSnapshotFromVolumeRecoveryPointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SnapshotId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; CreateSnapshotFromVolumeRecoveryPointResponse)
+-&gt; Either String Int
+-&gt; Either String CreateSnapshotFromVolumeRecoveryPointResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391324"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679391314"><span id="local-6989586621679391316"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint</span></a></span></span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679391311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint</span></a></span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint</span></a></span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679391307"><span class="annot"><span class="annottext">toHeaders :: CreateSnapshotFromVolumeRecoveryPoint -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; CreateSnapshotFromVolumeRecoveryPoint -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-195"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-196"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-197"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-198"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-201"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-202"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679391297"><span id="local-6989586621679391299"><span id="local-6989586621679391301"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint</span></a></span></span></span></span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679391295"><span class="annot"><span class="annottext">toJSON :: CreateSnapshotFromVolumeRecoveryPoint -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391291"><span id="local-6989586621679391292"><span id="local-6989586621679391293"><span class="annot"><span class="annottext">Maybe [Tag]
+Text
+snapshotDescription :: Text
+volumeARN :: Text
+tags :: Maybe [Tag]
+$sel:snapshotDescription:CreateSnapshotFromVolumeRecoveryPoint' :: CreateSnapshotFromVolumeRecoveryPoint -&gt; Text
+$sel:volumeARN:CreateSnapshotFromVolumeRecoveryPoint' :: CreateSnapshotFromVolumeRecoveryPoint -&gt; Text
+$sel:tags:CreateSnapshotFromVolumeRecoveryPoint' :: CreateSnapshotFromVolumeRecoveryPoint -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679391291"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-213"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679391293"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391292"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-216"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SnapshotDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391291"><span class="hs-identifier hs-var">snapshotDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint</span></a></span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679391285"><span class="annot"><span class="annottext">toPath :: CreateSnapshotFromVolumeRecoveryPoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateSnapshotFromVolumeRecoveryPoint -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPoint"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPoint</span></a></span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679391281"><span class="annot"><span class="annottext">toQuery :: CreateSnapshotFromVolumeRecoveryPoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateSnapshotFromVolumeRecoveryPoint -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | /See:/ 'newCreateSnapshotFromVolumeRecoveryPointResponse' smart constructor.</span><span>
+</span><span id="line-233"></span><span id="local-6989586621679391278"><span id="local-6989586621679391279"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSnapshotFromVolumeRecoveryPointResponse"><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier hs-var">CreateSnapshotFromVolumeRecoveryPointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-var">CreateSnapshotFromVolumeRecoveryPointResponse'</span></a></span></span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time the volume was created from the recovery point.</span><span>
+</span><span id="line-235"></span><span>    </span><span id="%24sel%3AvolumeRecoveryPointTime%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AvolumeRecoveryPointTime%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-var hs-var">volumeRecoveryPointTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- for specified VolumeARN.</span><span>
+</span><span id="line-239"></span><span>    </span><span id="%24sel%3AvolumeARN%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AvolumeARN%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- | The ID of the snapshot.</span><span>
+</span><span id="line-241"></span><span>    </span><span id="%24sel%3AsnapshotId%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AsnapshotId%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-243"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Int
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AhttpStatus%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-244"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-245"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391270"><span id="local-6989586621679391272"><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPointResponse
+-&gt; CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Bool
+(CreateSnapshotFromVolumeRecoveryPointResponse
+ -&gt; CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Bool)
+-&gt; (CreateSnapshotFromVolumeRecoveryPointResponse
+    -&gt; CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Bool)
+-&gt; Eq CreateSnapshotFromVolumeRecoveryPointResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSnapshotFromVolumeRecoveryPointResponse
+-&gt; CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Bool
+$c/= :: CreateSnapshotFromVolumeRecoveryPointResponse
+-&gt; CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Bool
+== :: CreateSnapshotFromVolumeRecoveryPointResponse
+-&gt; CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Bool
+$c== :: CreateSnapshotFromVolumeRecoveryPointResponse
+-&gt; CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391262"><span id="local-6989586621679391264"><span id="local-6989586621679391266"><span id="local-6989586621679391268"><span class="annot"><span class="annottext">ReadPrec [CreateSnapshotFromVolumeRecoveryPointResponse]
+ReadPrec CreateSnapshotFromVolumeRecoveryPointResponse
+Int -&gt; ReadS CreateSnapshotFromVolumeRecoveryPointResponse
+ReadS [CreateSnapshotFromVolumeRecoveryPointResponse]
+(Int -&gt; ReadS CreateSnapshotFromVolumeRecoveryPointResponse)
+-&gt; ReadS [CreateSnapshotFromVolumeRecoveryPointResponse]
+-&gt; ReadPrec CreateSnapshotFromVolumeRecoveryPointResponse
+-&gt; ReadPrec [CreateSnapshotFromVolumeRecoveryPointResponse]
+-&gt; Read CreateSnapshotFromVolumeRecoveryPointResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSnapshotFromVolumeRecoveryPointResponse]
+$creadListPrec :: ReadPrec [CreateSnapshotFromVolumeRecoveryPointResponse]
+readPrec :: ReadPrec CreateSnapshotFromVolumeRecoveryPointResponse
+$creadPrec :: ReadPrec CreateSnapshotFromVolumeRecoveryPointResponse
+readList :: ReadS [CreateSnapshotFromVolumeRecoveryPointResponse]
+$creadList :: ReadS [CreateSnapshotFromVolumeRecoveryPointResponse]
+readsPrec :: Int -&gt; ReadS CreateSnapshotFromVolumeRecoveryPointResponse
+$creadsPrec :: Int -&gt; ReadS CreateSnapshotFromVolumeRecoveryPointResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391256"><span id="local-6989586621679391258"><span id="local-6989586621679391260"><span class="annot"><span class="annottext">Int -&gt; CreateSnapshotFromVolumeRecoveryPointResponse -&gt; ShowS
+[CreateSnapshotFromVolumeRecoveryPointResponse] -&gt; ShowS
+CreateSnapshotFromVolumeRecoveryPointResponse -&gt; String
+(Int -&gt; CreateSnapshotFromVolumeRecoveryPointResponse -&gt; ShowS)
+-&gt; (CreateSnapshotFromVolumeRecoveryPointResponse -&gt; String)
+-&gt; ([CreateSnapshotFromVolumeRecoveryPointResponse] -&gt; ShowS)
+-&gt; Show CreateSnapshotFromVolumeRecoveryPointResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSnapshotFromVolumeRecoveryPointResponse] -&gt; ShowS
+$cshowList :: [CreateSnapshotFromVolumeRecoveryPointResponse] -&gt; ShowS
+show :: CreateSnapshotFromVolumeRecoveryPointResponse -&gt; String
+$cshow :: CreateSnapshotFromVolumeRecoveryPointResponse -&gt; String
+showsPrec :: Int -&gt; CreateSnapshotFromVolumeRecoveryPointResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSnapshotFromVolumeRecoveryPointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateSnapshotFromVolumeRecoveryPointResponse
+ -&gt; Rep CreateSnapshotFromVolumeRecoveryPointResponse x)
+-&gt; (forall x.
+    Rep CreateSnapshotFromVolumeRecoveryPointResponse x
+    -&gt; CreateSnapshotFromVolumeRecoveryPointResponse)
+-&gt; Generic CreateSnapshotFromVolumeRecoveryPointResponse
+forall x.
+Rep CreateSnapshotFromVolumeRecoveryPointResponse x
+-&gt; CreateSnapshotFromVolumeRecoveryPointResponse
+forall x.
+CreateSnapshotFromVolumeRecoveryPointResponse
+-&gt; Rep CreateSnapshotFromVolumeRecoveryPointResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateSnapshotFromVolumeRecoveryPointResponse x
+-&gt; CreateSnapshotFromVolumeRecoveryPointResponse
+$cfrom :: forall x.
+CreateSnapshotFromVolumeRecoveryPointResponse
+-&gt; Rep CreateSnapshotFromVolumeRecoveryPointResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- Create a value of 'CreateSnapshotFromVolumeRecoveryPointResponse' with all optional fields omitted.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'volumeRecoveryPointTime', 'createSnapshotFromVolumeRecoveryPointResponse_volumeRecoveryPointTime' - The time the volume was created from the recovery point.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'volumeARN', 'createSnapshotFromVolumeRecoveryPointResponse_volumeARN' - The Amazon Resource Name (ARN) of the iSCSI volume target. Use the</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- for specified VolumeARN.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- 'snapshotId', 'createSnapshotFromVolumeRecoveryPointResponse_snapshotId' - The ID of the snapshot.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- 'httpStatus', 'createSnapshotFromVolumeRecoveryPointResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#newCreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier hs-type">newCreateSnapshotFromVolumeRecoveryPointResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-265"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-266"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-267"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse</span></a></span><span>
+</span><span id="line-268"></span><span id="newCreateSnapshotFromVolumeRecoveryPointResponse"><span class="annot"><span class="annottext">newCreateSnapshotFromVolumeRecoveryPointResponse :: Int -&gt; CreateSnapshotFromVolumeRecoveryPointResponse
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#newCreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier hs-var hs-var">newCreateSnapshotFromVolumeRecoveryPointResponse</span></a></span></span><span>
+</span><span id="line-269"></span><span>  </span><span id="local-6989586621679391253"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391253"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPointResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; CreateSnapshotFromVolumeRecoveryPointResponse
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse'</span></a></span><span>
+</span><span id="line-271"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:volumeRecoveryPointTime:CreateSnapshotFromVolumeRecoveryPointResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AvolumeRecoveryPointTime%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-var">volumeRecoveryPointTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-272"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">$sel:volumeARN:CreateSnapshotFromVolumeRecoveryPointResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AvolumeARN%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">$sel:snapshotId:CreateSnapshotFromVolumeRecoveryPointResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AsnapshotId%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSnapshotFromVolumeRecoveryPointResponse' :: Int
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AhttpStatus%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391253"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | The time the volume was created from the recovery point.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPointResponse_volumeRecoveryPointTime"><span class="hs-identifier hs-type">createSnapshotFromVolumeRecoveryPointResponse_volumeRecoveryPointTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="createSnapshotFromVolumeRecoveryPointResponse_volumeRecoveryPointTime"><span class="annot"><span class="annottext">createSnapshotFromVolumeRecoveryPointResponse_volumeRecoveryPointTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateSnapshotFromVolumeRecoveryPointResponse
+-&gt; f CreateSnapshotFromVolumeRecoveryPointResponse
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPointResponse_volumeRecoveryPointTime"><span class="hs-identifier hs-var hs-var">createSnapshotFromVolumeRecoveryPointResponse_volumeRecoveryPointTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Maybe Text)
+-&gt; (CreateSnapshotFromVolumeRecoveryPointResponse
+    -&gt; Maybe Text -&gt; CreateSnapshotFromVolumeRecoveryPointResponse)
+-&gt; Lens
+     CreateSnapshotFromVolumeRecoveryPointResponse
+     CreateSnapshotFromVolumeRecoveryPointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391252"><span class="annot"><span class="annottext">Maybe Text
+volumeRecoveryPointTime :: Maybe Text
+$sel:volumeRecoveryPointTime:CreateSnapshotFromVolumeRecoveryPointResponse' :: CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679391252"><span class="hs-identifier hs-var hs-var">volumeRecoveryPointTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391252"><span class="hs-identifier hs-var">volumeRecoveryPointTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391251"><span class="annot"><span class="annottext">s :: CreateSnapshotFromVolumeRecoveryPointResponse
+</span><a href="#local-6989586621679391251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391250"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPointResponse
+</span><a href="#local-6989586621679391251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeRecoveryPointTime:CreateSnapshotFromVolumeRecoveryPointResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AvolumeRecoveryPointTime%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-var">volumeRecoveryPointTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- for specified VolumeARN.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPointResponse_volumeARN"><span class="hs-identifier hs-type">createSnapshotFromVolumeRecoveryPointResponse_volumeARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="createSnapshotFromVolumeRecoveryPointResponse_volumeARN"><span class="annot"><span class="annottext">createSnapshotFromVolumeRecoveryPointResponse_volumeARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateSnapshotFromVolumeRecoveryPointResponse
+-&gt; f CreateSnapshotFromVolumeRecoveryPointResponse
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPointResponse_volumeARN"><span class="hs-identifier hs-var hs-var">createSnapshotFromVolumeRecoveryPointResponse_volumeARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Maybe Text)
+-&gt; (CreateSnapshotFromVolumeRecoveryPointResponse
+    -&gt; Maybe Text -&gt; CreateSnapshotFromVolumeRecoveryPointResponse)
+-&gt; Lens
+     CreateSnapshotFromVolumeRecoveryPointResponse
+     CreateSnapshotFromVolumeRecoveryPointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391249"><span class="annot"><span class="annottext">Maybe Text
+volumeARN :: Maybe Text
+$sel:volumeARN:CreateSnapshotFromVolumeRecoveryPointResponse' :: CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679391249"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391249"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391248"><span class="annot"><span class="annottext">s :: CreateSnapshotFromVolumeRecoveryPointResponse
+</span><a href="#local-6989586621679391248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391247"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPointResponse
+</span><a href="#local-6989586621679391248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:CreateSnapshotFromVolumeRecoveryPointResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AvolumeARN%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The ID of the snapshot.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPointResponse_snapshotId"><span class="hs-identifier hs-type">createSnapshotFromVolumeRecoveryPointResponse_snapshotId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span id="createSnapshotFromVolumeRecoveryPointResponse_snapshotId"><span class="annot"><span class="annottext">createSnapshotFromVolumeRecoveryPointResponse_snapshotId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateSnapshotFromVolumeRecoveryPointResponse
+-&gt; f CreateSnapshotFromVolumeRecoveryPointResponse
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPointResponse_snapshotId"><span class="hs-identifier hs-var hs-var">createSnapshotFromVolumeRecoveryPointResponse_snapshotId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Maybe Text)
+-&gt; (CreateSnapshotFromVolumeRecoveryPointResponse
+    -&gt; Maybe Text -&gt; CreateSnapshotFromVolumeRecoveryPointResponse)
+-&gt; Lens
+     CreateSnapshotFromVolumeRecoveryPointResponse
+     CreateSnapshotFromVolumeRecoveryPointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391246"><span class="annot"><span class="annottext">Maybe Text
+snapshotId :: Maybe Text
+$sel:snapshotId:CreateSnapshotFromVolumeRecoveryPointResponse' :: CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679391246"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391246"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391245"><span class="annot"><span class="annottext">s :: CreateSnapshotFromVolumeRecoveryPointResponse
+</span><a href="#local-6989586621679391245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391244"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPointResponse
+</span><a href="#local-6989586621679391245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:CreateSnapshotFromVolumeRecoveryPointResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AsnapshotId%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPointResponse_httpStatus"><span class="hs-identifier hs-type">createSnapshotFromVolumeRecoveryPointResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-294"></span><span id="createSnapshotFromVolumeRecoveryPointResponse_httpStatus"><span class="annot"><span class="annottext">createSnapshotFromVolumeRecoveryPointResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateSnapshotFromVolumeRecoveryPointResponse
+-&gt; f CreateSnapshotFromVolumeRecoveryPointResponse
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#createSnapshotFromVolumeRecoveryPointResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createSnapshotFromVolumeRecoveryPointResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Int)
+-&gt; (CreateSnapshotFromVolumeRecoveryPointResponse
+    -&gt; Int -&gt; CreateSnapshotFromVolumeRecoveryPointResponse)
+-&gt; Lens
+     CreateSnapshotFromVolumeRecoveryPointResponse
+     CreateSnapshotFromVolumeRecoveryPointResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391243"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateSnapshotFromVolumeRecoveryPointResponse' :: CreateSnapshotFromVolumeRecoveryPointResponse -&gt; Int
+</span><a href="#local-6989586621679391243"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391243"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391242"><span class="annot"><span class="annottext">s :: CreateSnapshotFromVolumeRecoveryPointResponse
+</span><a href="#local-6989586621679391242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391241"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshotFromVolumeRecoveryPointResponse
+</span><a href="#local-6989586621679391242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSnapshotFromVolumeRecoveryPointResponse' :: Int
+</span><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#%24sel%3AhttpStatus%3ACreateSnapshotFromVolumeRecoveryPointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-297"></span><span>  </span><span id="local-6989586621679391239"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint.html#CreateSnapshotFromVolumeRecoveryPointResponse"><span class="hs-identifier hs-type">CreateSnapshotFromVolumeRecoveryPointResponse</span></a></span></span><span>
+</span><span id="line-299"></span></pre></body></html>

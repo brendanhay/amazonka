@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Glacier.GetVaultNotifications</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This operation retrieves the @notification-configuration@ subresource of</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the specified vault.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- For information about setting a notification configuration on a vault,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- see SetVaultNotifications. If a notification configuration for a vault</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- is not set, the operation returns a @404 Not Found@ error. For more</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- information about vault notifications, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html Configuring Vault Notifications in Amazon S3 Glacier&gt;.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- An AWS account has full permission to perform all operations (actions).</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- However, AWS Identity and Access Management (IAM) users don\'t have any</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- permissions by default. You must grant them explicit permission to</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- perform specific actions. For more information, see</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)&gt;.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- For conceptual information and underlying REST API, see</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html Configuring Vault Notifications in Amazon S3 Glacier&gt;</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html Get Vault Notification Configuration&gt;</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- in the /Amazon Glacier Developer Guide/.</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glacier.GetVaultNotifications</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications"><span class="hs-identifier">GetVaultNotifications</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#newGetVaultNotifications"><span class="hs-identifier">newGetVaultNotifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#getVaultNotifications_accountId"><span class="hs-identifier">getVaultNotifications_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#getVaultNotifications_vaultName"><span class="hs-identifier">getVaultNotifications_vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse"><span class="hs-identifier">GetVaultNotificationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#newGetVaultNotificationsResponse"><span class="hs-identifier">newGetVaultNotificationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#getVaultNotificationsResponse_vaultNotificationConfig"><span class="hs-identifier">getVaultNotificationsResponse_vaultNotificationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#getVaultNotificationsResponse_httpStatus"><span class="hs-identifier">getVaultNotificationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.html"><span class="hs-identifier">Amazonka.Glacier.Types</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | Provides options for retrieving the notification configuration set on an</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Amazon Glacier vault.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- /See:/ 'newGetVaultNotifications' smart constructor.</span><span>
+</span><span id="line-73"></span><span id="local-6989586621679223047"><span id="local-6989586621679223048"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVaultNotifications"><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications"><span class="hs-identifier hs-var">GetVaultNotifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVaultNotifications%27"><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications%27"><span class="hs-identifier hs-var">GetVaultNotifications'</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- ID associated with the credentials used to sign the request. If you use</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- an account ID, do not include any hyphens (\'-\') in the ID.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AaccountId%3AGetVaultNotifications%27"><span class="annot"><span class="annottext">GetVaultNotifications -&gt; Text
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#%24sel%3AaccountId%3AGetVaultNotifications%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The name of the vault.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AvaultName%3AGetVaultNotifications%27"><span class="annot"><span class="annottext">GetVaultNotifications -&gt; Text
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#%24sel%3AvaultName%3AGetVaultNotifications%27"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223040"><span id="local-6989586621679223042"><span class="annot"><span class="annottext">GetVaultNotifications -&gt; GetVaultNotifications -&gt; Bool
+(GetVaultNotifications -&gt; GetVaultNotifications -&gt; Bool)
+-&gt; (GetVaultNotifications -&gt; GetVaultNotifications -&gt; Bool)
+-&gt; Eq GetVaultNotifications
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetVaultNotifications -&gt; GetVaultNotifications -&gt; Bool
+$c/= :: GetVaultNotifications -&gt; GetVaultNotifications -&gt; Bool
+== :: GetVaultNotifications -&gt; GetVaultNotifications -&gt; Bool
+$c== :: GetVaultNotifications -&gt; GetVaultNotifications -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223031"><span id="local-6989586621679223033"><span id="local-6989586621679223035"><span id="local-6989586621679223037"><span class="annot"><span class="annottext">ReadPrec [GetVaultNotifications]
+ReadPrec GetVaultNotifications
+Int -&gt; ReadS GetVaultNotifications
+ReadS [GetVaultNotifications]
+(Int -&gt; ReadS GetVaultNotifications)
+-&gt; ReadS [GetVaultNotifications]
+-&gt; ReadPrec GetVaultNotifications
+-&gt; ReadPrec [GetVaultNotifications]
+-&gt; Read GetVaultNotifications
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetVaultNotifications]
+$creadListPrec :: ReadPrec [GetVaultNotifications]
+readPrec :: ReadPrec GetVaultNotifications
+$creadPrec :: ReadPrec GetVaultNotifications
+readList :: ReadS [GetVaultNotifications]
+$creadList :: ReadS [GetVaultNotifications]
+readsPrec :: Int -&gt; ReadS GetVaultNotifications
+$creadsPrec :: Int -&gt; ReadS GetVaultNotifications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223024"><span id="local-6989586621679223026"><span id="local-6989586621679223028"><span class="annot"><span class="annottext">Int -&gt; GetVaultNotifications -&gt; ShowS
+[GetVaultNotifications] -&gt; ShowS
+GetVaultNotifications -&gt; String
+(Int -&gt; GetVaultNotifications -&gt; ShowS)
+-&gt; (GetVaultNotifications -&gt; String)
+-&gt; ([GetVaultNotifications] -&gt; ShowS)
+-&gt; Show GetVaultNotifications
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetVaultNotifications] -&gt; ShowS
+$cshowList :: [GetVaultNotifications] -&gt; ShowS
+show :: GetVaultNotifications -&gt; String
+$cshow :: GetVaultNotifications -&gt; String
+showsPrec :: Int -&gt; GetVaultNotifications -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetVaultNotifications -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetVaultNotifications -&gt; Rep GetVaultNotifications x)
+-&gt; (forall x. Rep GetVaultNotifications x -&gt; GetVaultNotifications)
+-&gt; Generic GetVaultNotifications
+forall x. Rep GetVaultNotifications x -&gt; GetVaultNotifications
+forall x. GetVaultNotifications -&gt; Rep GetVaultNotifications x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetVaultNotifications x -&gt; GetVaultNotifications
+$cfrom :: forall x. GetVaultNotifications -&gt; Rep GetVaultNotifications x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Create a value of 'GetVaultNotifications' with all optional fields omitted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'accountId', 'getVaultNotifications_accountId' - The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- ID associated with the credentials used to sign the request. If you use</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- an account ID, do not include any hyphens (\'-\') in the ID.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'vaultName', 'getVaultNotifications_vaultName' - The name of the vault.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#newGetVaultNotifications"><span class="hs-identifier hs-type">newGetVaultNotifications</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'vaultName'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications"><span class="hs-identifier hs-type">GetVaultNotifications</span></a></span><span>
+</span><span id="line-106"></span><span id="newGetVaultNotifications"><span class="annot"><span class="annottext">newGetVaultNotifications :: Text -&gt; Text -&gt; GetVaultNotifications
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#newGetVaultNotifications"><span class="hs-identifier hs-var hs-var">newGetVaultNotifications</span></a></span></span><span> </span><span id="local-6989586621679223019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223019"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679223018"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223018"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">GetVaultNotifications' :: Text -&gt; Text -&gt; GetVaultNotifications
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications%27"><span class="hs-identifier hs-type">GetVaultNotifications'</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:GetVaultNotifications' :: Text
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#%24sel%3AaccountId%3AGetVaultNotifications%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223019"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:GetVaultNotifications' :: Text
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#%24sel%3AvaultName%3AGetVaultNotifications%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223018"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- ID associated with the credentials used to sign the request. If you use</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- an account ID, do not include any hyphens (\'-\') in the ID.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#getVaultNotifications_accountId"><span class="hs-identifier hs-type">getVaultNotifications_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications"><span class="hs-identifier hs-type">GetVaultNotifications</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="getVaultNotifications_accountId"><span class="annot"><span class="annottext">getVaultNotifications_accountId :: (Text -&gt; f Text)
+-&gt; GetVaultNotifications -&gt; f GetVaultNotifications
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#getVaultNotifications_accountId"><span class="hs-identifier hs-var hs-var">getVaultNotifications_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVaultNotifications -&gt; Text)
+-&gt; (GetVaultNotifications -&gt; Text -&gt; GetVaultNotifications)
+-&gt; Lens GetVaultNotifications GetVaultNotifications Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications%27"><span class="hs-identifier hs-type">GetVaultNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223015"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:GetVaultNotifications' :: GetVaultNotifications -&gt; Text
+</span><a href="#local-6989586621679223015"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223015"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223014"><span class="annot"><span class="annottext">s :: GetVaultNotifications
+</span><a href="#local-6989586621679223014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications%27"><span class="hs-identifier hs-type">GetVaultNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223013"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVaultNotifications
+</span><a href="#local-6989586621679223014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:GetVaultNotifications' :: Text
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#%24sel%3AaccountId%3AGetVaultNotifications%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications"><span class="hs-identifier hs-type">GetVaultNotifications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The name of the vault.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#getVaultNotifications_vaultName"><span class="hs-identifier hs-type">getVaultNotifications_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications"><span class="hs-identifier hs-type">GetVaultNotifications</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="getVaultNotifications_vaultName"><span class="annot"><span class="annottext">getVaultNotifications_vaultName :: (Text -&gt; f Text)
+-&gt; GetVaultNotifications -&gt; f GetVaultNotifications
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#getVaultNotifications_vaultName"><span class="hs-identifier hs-var hs-var">getVaultNotifications_vaultName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVaultNotifications -&gt; Text)
+-&gt; (GetVaultNotifications -&gt; Text -&gt; GetVaultNotifications)
+-&gt; Lens GetVaultNotifications GetVaultNotifications Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications%27"><span class="hs-identifier hs-type">GetVaultNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223012"><span class="annot"><span class="annottext">Text
+vaultName :: Text
+$sel:vaultName:GetVaultNotifications' :: GetVaultNotifications -&gt; Text
+</span><a href="#local-6989586621679223012"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223012"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223011"><span class="annot"><span class="annottext">s :: GetVaultNotifications
+</span><a href="#local-6989586621679223011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications%27"><span class="hs-identifier hs-type">GetVaultNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223010"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVaultNotifications
+</span><a href="#local-6989586621679223011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:GetVaultNotifications' :: Text
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#%24sel%3AvaultName%3AGetVaultNotifications%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications"><span class="hs-identifier hs-type">GetVaultNotifications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications"><span class="hs-identifier hs-type">GetVaultNotifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications"><span class="hs-identifier hs-type">GetVaultNotifications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse"><span class="hs-identifier hs-type">GetVaultNotificationsResponse</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679223006"><span class="annot"><span class="annottext">request :: GetVaultNotifications -&gt; Request GetVaultNotifications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ByteString
+-&gt; Request GetVaultNotifications -&gt; Request GetVaultNotifications
+forall a. ByteString -&gt; Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.glacierVersionHeader</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Service -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var">Core._serviceVersion</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">(Request GetVaultNotifications -&gt; Request GetVaultNotifications)
+-&gt; (GetVaultNotifications -&gt; Request GetVaultNotifications)
+-&gt; GetVaultNotifications
+-&gt; Request GetVaultNotifications
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetVaultNotifications -&gt; Request GetVaultNotifications
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679222999"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetVaultNotifications
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetVaultNotifications)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetVaultNotifications))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetVaultNotifications
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetVaultNotifications)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222996"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222996"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679222995"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679222995"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679222994"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222994"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe VaultNotificationConfig
+-&gt; Int -&gt; GetVaultNotificationsResponse
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse%27"><span class="hs-identifier hs-var">GetVaultNotificationsResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VaultNotificationConfig
+ -&gt; Int -&gt; GetVaultNotificationsResponse)
+-&gt; Either String (Maybe VaultNotificationConfig)
+-&gt; Either String (Int -&gt; GetVaultNotificationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String (Maybe VaultNotificationConfig)
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222994"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetVaultNotificationsResponse)
+-&gt; Either String Int -&gt; Either String GetVaultNotificationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222996"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222986"><span id="local-6989586621679222988"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications"><span class="hs-identifier hs-type">GetVaultNotifications</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications"><span class="hs-identifier hs-type">GetVaultNotifications</span></a></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications"><span class="hs-identifier hs-type">GetVaultNotifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679222979"><span class="annot"><span class="annottext">toHeaders :: GetVaultNotifications -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetVaultNotifications -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications"><span class="hs-identifier hs-type">GetVaultNotifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679222974"><span class="annot"><span class="annottext">toPath :: GetVaultNotifications -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications%27"><span class="hs-identifier hs-type">GetVaultNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222971"><span id="local-6989586621679222972"><span class="annot"><span class="annottext">Text
+vaultName :: Text
+accountId :: Text
+$sel:vaultName:GetVaultNotifications' :: GetVaultNotifications -&gt; Text
+$sel:accountId:GetVaultNotifications' :: GetVaultNotifications -&gt; Text
+</span><a href="#local-6989586621679222971"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222972"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222971"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/notification-configuration&quot;</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotifications"><span class="hs-identifier hs-type">GetVaultNotifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679222967"><span class="annot"><span class="annottext">toQuery :: GetVaultNotifications -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetVaultNotifications -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | Contains the Amazon S3 Glacier response to your request.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- /See:/ 'newGetVaultNotificationsResponse' smart constructor.</span><span>
+</span><span id="line-162"></span><span id="local-6989586621679222964"><span id="local-6989586621679222965"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVaultNotificationsResponse"><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse"><span class="hs-identifier hs-var">GetVaultNotificationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVaultNotificationsResponse%27"><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse%27"><span class="hs-identifier hs-var">GetVaultNotificationsResponse'</span></a></span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns the notification configuration set on the vault.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AvaultNotificationConfig%3AGetVaultNotificationsResponse%27"><span class="annot"><span class="annottext">GetVaultNotificationsResponse -&gt; Maybe VaultNotificationConfig
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#%24sel%3AvaultNotificationConfig%3AGetVaultNotificationsResponse%27"><span class="hs-identifier hs-var hs-var">vaultNotificationConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.VaultNotificationConfig.html#VaultNotificationConfig"><span class="hs-identifier hs-type">VaultNotificationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetVaultNotificationsResponse%27"><span class="annot"><span class="annottext">GetVaultNotificationsResponse -&gt; Int
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#%24sel%3AhttpStatus%3AGetVaultNotificationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222958"><span id="local-6989586621679222960"><span class="annot"><span class="annottext">GetVaultNotificationsResponse
+-&gt; GetVaultNotificationsResponse -&gt; Bool
+(GetVaultNotificationsResponse
+ -&gt; GetVaultNotificationsResponse -&gt; Bool)
+-&gt; (GetVaultNotificationsResponse
+    -&gt; GetVaultNotificationsResponse -&gt; Bool)
+-&gt; Eq GetVaultNotificationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetVaultNotificationsResponse
+-&gt; GetVaultNotificationsResponse -&gt; Bool
+$c/= :: GetVaultNotificationsResponse
+-&gt; GetVaultNotificationsResponse -&gt; Bool
+== :: GetVaultNotificationsResponse
+-&gt; GetVaultNotificationsResponse -&gt; Bool
+$c== :: GetVaultNotificationsResponse
+-&gt; GetVaultNotificationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222950"><span id="local-6989586621679222952"><span id="local-6989586621679222954"><span id="local-6989586621679222956"><span class="annot"><span class="annottext">ReadPrec [GetVaultNotificationsResponse]
+ReadPrec GetVaultNotificationsResponse
+Int -&gt; ReadS GetVaultNotificationsResponse
+ReadS [GetVaultNotificationsResponse]
+(Int -&gt; ReadS GetVaultNotificationsResponse)
+-&gt; ReadS [GetVaultNotificationsResponse]
+-&gt; ReadPrec GetVaultNotificationsResponse
+-&gt; ReadPrec [GetVaultNotificationsResponse]
+-&gt; Read GetVaultNotificationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetVaultNotificationsResponse]
+$creadListPrec :: ReadPrec [GetVaultNotificationsResponse]
+readPrec :: ReadPrec GetVaultNotificationsResponse
+$creadPrec :: ReadPrec GetVaultNotificationsResponse
+readList :: ReadS [GetVaultNotificationsResponse]
+$creadList :: ReadS [GetVaultNotificationsResponse]
+readsPrec :: Int -&gt; ReadS GetVaultNotificationsResponse
+$creadsPrec :: Int -&gt; ReadS GetVaultNotificationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222944"><span id="local-6989586621679222946"><span id="local-6989586621679222948"><span class="annot"><span class="annottext">Int -&gt; GetVaultNotificationsResponse -&gt; ShowS
+[GetVaultNotificationsResponse] -&gt; ShowS
+GetVaultNotificationsResponse -&gt; String
+(Int -&gt; GetVaultNotificationsResponse -&gt; ShowS)
+-&gt; (GetVaultNotificationsResponse -&gt; String)
+-&gt; ([GetVaultNotificationsResponse] -&gt; ShowS)
+-&gt; Show GetVaultNotificationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetVaultNotificationsResponse] -&gt; ShowS
+$cshowList :: [GetVaultNotificationsResponse] -&gt; ShowS
+show :: GetVaultNotificationsResponse -&gt; String
+$cshow :: GetVaultNotificationsResponse -&gt; String
+showsPrec :: Int -&gt; GetVaultNotificationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetVaultNotificationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetVaultNotificationsResponse
+ -&gt; Rep GetVaultNotificationsResponse x)
+-&gt; (forall x.
+    Rep GetVaultNotificationsResponse x
+    -&gt; GetVaultNotificationsResponse)
+-&gt; Generic GetVaultNotificationsResponse
+forall x.
+Rep GetVaultNotificationsResponse x
+-&gt; GetVaultNotificationsResponse
+forall x.
+GetVaultNotificationsResponse
+-&gt; Rep GetVaultNotificationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetVaultNotificationsResponse x
+-&gt; GetVaultNotificationsResponse
+$cfrom :: forall x.
+GetVaultNotificationsResponse
+-&gt; Rep GetVaultNotificationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Create a value of 'GetVaultNotificationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'vaultNotificationConfig', 'getVaultNotificationsResponse_vaultNotificationConfig' - Returns the notification configuration set on the vault.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'httpStatus', 'getVaultNotificationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#newGetVaultNotificationsResponse"><span class="hs-identifier hs-type">newGetVaultNotificationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse"><span class="hs-identifier hs-type">GetVaultNotificationsResponse</span></a></span><span>
+</span><span id="line-185"></span><span id="newGetVaultNotificationsResponse"><span class="annot"><span class="annottext">newGetVaultNotificationsResponse :: Int -&gt; GetVaultNotificationsResponse
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#newGetVaultNotificationsResponse"><span class="hs-identifier hs-var hs-var">newGetVaultNotificationsResponse</span></a></span></span><span> </span><span id="local-6989586621679222941"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222941"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="annottext">GetVaultNotificationsResponse' :: Maybe VaultNotificationConfig
+-&gt; Int -&gt; GetVaultNotificationsResponse
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse%27"><span class="hs-identifier hs-type">GetVaultNotificationsResponse'</span></a></span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vaultNotificationConfig:GetVaultNotificationsResponse' :: Maybe VaultNotificationConfig
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#%24sel%3AvaultNotificationConfig%3AGetVaultNotificationsResponse%27"><span class="hs-identifier hs-var">vaultNotificationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">Maybe VaultNotificationConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetVaultNotificationsResponse' :: Int
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#%24sel%3AhttpStatus%3AGetVaultNotificationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222941"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Returns the notification configuration set on the vault.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#getVaultNotificationsResponse_vaultNotificationConfig"><span class="hs-identifier hs-type">getVaultNotificationsResponse_vaultNotificationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse"><span class="hs-identifier hs-type">GetVaultNotificationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.VaultNotificationConfig.html#VaultNotificationConfig"><span class="hs-identifier hs-type">VaultNotificationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="getVaultNotificationsResponse_vaultNotificationConfig"><span class="annot"><span class="annottext">getVaultNotificationsResponse_vaultNotificationConfig :: (Maybe VaultNotificationConfig
+ -&gt; f (Maybe VaultNotificationConfig))
+-&gt; GetVaultNotificationsResponse -&gt; f GetVaultNotificationsResponse
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#getVaultNotificationsResponse_vaultNotificationConfig"><span class="hs-identifier hs-var hs-var">getVaultNotificationsResponse_vaultNotificationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVaultNotificationsResponse -&gt; Maybe VaultNotificationConfig)
+-&gt; (GetVaultNotificationsResponse
+    -&gt; Maybe VaultNotificationConfig -&gt; GetVaultNotificationsResponse)
+-&gt; Lens
+     GetVaultNotificationsResponse
+     GetVaultNotificationsResponse
+     (Maybe VaultNotificationConfig)
+     (Maybe VaultNotificationConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse%27"><span class="hs-identifier hs-type">GetVaultNotificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222940"><span class="annot"><span class="annottext">Maybe VaultNotificationConfig
+vaultNotificationConfig :: Maybe VaultNotificationConfig
+$sel:vaultNotificationConfig:GetVaultNotificationsResponse' :: GetVaultNotificationsResponse -&gt; Maybe VaultNotificationConfig
+</span><a href="#local-6989586621679222940"><span class="hs-identifier hs-var hs-var">vaultNotificationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VaultNotificationConfig
+</span><a href="#local-6989586621679222940"><span class="hs-identifier hs-var">vaultNotificationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222939"><span class="annot"><span class="annottext">s :: GetVaultNotificationsResponse
+</span><a href="#local-6989586621679222939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse%27"><span class="hs-identifier hs-type">GetVaultNotificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222938"><span class="annot"><span class="annottext">Maybe VaultNotificationConfig
+</span><a href="#local-6989586621679222938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVaultNotificationsResponse
+</span><a href="#local-6989586621679222939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultNotificationConfig:GetVaultNotificationsResponse' :: Maybe VaultNotificationConfig
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#%24sel%3AvaultNotificationConfig%3AGetVaultNotificationsResponse%27"><span class="hs-identifier hs-var">vaultNotificationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VaultNotificationConfig
+</span><a href="#local-6989586621679222938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse"><span class="hs-identifier hs-type">GetVaultNotificationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#getVaultNotificationsResponse_httpStatus"><span class="hs-identifier hs-type">getVaultNotificationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse"><span class="hs-identifier hs-type">GetVaultNotificationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-198"></span><span id="getVaultNotificationsResponse_httpStatus"><span class="annot"><span class="annottext">getVaultNotificationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetVaultNotificationsResponse -&gt; f GetVaultNotificationsResponse
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#getVaultNotificationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getVaultNotificationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVaultNotificationsResponse -&gt; Int)
+-&gt; (GetVaultNotificationsResponse
+    -&gt; Int -&gt; GetVaultNotificationsResponse)
+-&gt; Lens
+     GetVaultNotificationsResponse GetVaultNotificationsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse%27"><span class="hs-identifier hs-type">GetVaultNotificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222937"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetVaultNotificationsResponse' :: GetVaultNotificationsResponse -&gt; Int
+</span><a href="#local-6989586621679222937"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222937"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222936"><span class="annot"><span class="annottext">s :: GetVaultNotificationsResponse
+</span><a href="#local-6989586621679222936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse%27"><span class="hs-identifier hs-type">GetVaultNotificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222935"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVaultNotificationsResponse
+</span><a href="#local-6989586621679222936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetVaultNotificationsResponse' :: Int
+</span><a href="Amazonka.Glacier.GetVaultNotifications.html#%24sel%3AhttpStatus%3AGetVaultNotificationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse"><span class="hs-identifier hs-type">GetVaultNotificationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222933"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.GetVaultNotifications.html#GetVaultNotificationsResponse"><span class="hs-identifier hs-type">GetVaultNotificationsResponse</span></a></span></span><span>
+</span><span id="line-201"></span></pre></body></html>

@@ -1,0 +1,576 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AutoScaling.Types.InstancesDistribution</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AutoScaling.Types.InstancesDistribution</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Describes an instances distribution for an Auto Scaling group with a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- MixedInstancesPolicy.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- The instances distribution specifies the distribution of On-Demand</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Instances and Spot Instances, the maximum price to pay for Spot</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Instances, and how the Auto Scaling group allocates instance types to</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- fulfill On-Demand and Spot capacities.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- When you modify @SpotAllocationStrategy@, @SpotInstancePools@, or</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- @SpotMaxPrice@ in the UpdateAutoScalingGroup API call, this update</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- action does not deploy any changes across the running Amazon EC2</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- instances in the group. Your existing Spot Instances continue to run as</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- long as the maximum price for those instances is higher than the current</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Spot price. When scale out occurs, Amazon EC2 Auto Scaling launches</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- instances based on the new settings. When scale in occurs, Amazon EC2</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Auto Scaling terminates instances according to the group\'s termination</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- policies.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- /See:/ 'newInstancesDistribution' smart constructor.</span><span>
+</span><span id="line-45"></span><span id="local-6989586621679326967"><span id="local-6989586621679326968"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstancesDistribution"><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-var">InstancesDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstancesDistribution%27"><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-var">InstancesDistribution'</span></a></span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates how to allocate instances across Spot Instance pools.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- If the allocation strategy is @lowest-price@, the Auto Scaling group</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- launches instances using the Spot pools with the lowest price, and</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- evenly allocates your instances across the number of Spot pools that you</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- specify. Defaults to @lowest-price@ if not specified.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- If the allocation strategy is @capacity-optimized@ (recommended), the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Auto Scaling group launches instances using Spot pools that are</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- optimally chosen based on the available Spot capacity. Alternatively,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- you can use @capacity-optimized-prioritized@ and set the order of</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- instance types in the list of launch template overrides from highest to</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- lowest priority (from first to last in the list). Amazon EC2 Auto</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Scaling honors the instance type priorities on a best-effort basis but</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- optimizes for capacity first.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AspotAllocationStrategy%3AInstancesDistribution%27"><span class="annot"><span class="annottext">InstancesDistribution -&gt; Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AspotAllocationStrategy%3AInstancesDistribution%27"><span class="hs-identifier hs-var hs-var">spotAllocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The number of Spot Instance pools across which to allocate your Spot</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Instances. The Spot pools are determined from the different instance</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- types in the overrides. Valid only when the Spot allocation strategy is</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @lowest-price@. Value must be in the range of 1 to 20. Defaults to 2 if</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- not specified.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AspotInstancePools%3AInstancesDistribution%27"><span class="annot"><span class="annottext">InstancesDistribution -&gt; Maybe Int
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AspotInstancePools%3AInstancesDistribution%27"><span class="hs-identifier hs-var hs-var">spotInstancePools</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The maximum price per unit hour that you are willing to pay for a Spot</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Instance. If you leave the value at its default (empty), Amazon EC2 Auto</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Scaling uses the On-Demand price as the maximum Spot price. To remove a</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- value that you previously set, include the property but specify an empty</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- string (\&quot;\&quot;) for the value.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AspotMaxPrice%3AInstancesDistribution%27"><span class="annot"><span class="annottext">InstancesDistribution -&gt; Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AspotMaxPrice%3AInstancesDistribution%27"><span class="hs-identifier hs-var hs-var">spotMaxPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The minimum amount of the Auto Scaling group\'s capacity that must be</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- fulfilled by On-Demand Instances. This base portion is provisioned first</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- as your group scales. Defaults to 0 if not specified. If you specify</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- weights for the instance types in the overrides, set the value of</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- @OnDemandBaseCapacity@ in terms of the number of capacity units, and not</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- the number of instances.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AonDemandBaseCapacity%3AInstancesDistribution%27"><span class="annot"><span class="annottext">InstancesDistribution -&gt; Maybe Int
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AonDemandBaseCapacity%3AInstancesDistribution%27"><span class="hs-identifier hs-var hs-var">onDemandBaseCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Indicates how to allocate instance types to fulfill On-Demand capacity.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- The only valid value is @prioritized@, which is also the default value.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- This strategy uses the order of instance types in the</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- @LaunchTemplateOverrides@ to define the launch priority of each instance</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- type. The first instance type in the array is prioritized higher than</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- the last. If all your On-Demand capacity cannot be fulfilled using your</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- highest priority instance, then the Auto Scaling groups launches the</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- remaining capacity using the second priority instance type, and so on.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AonDemandAllocationStrategy%3AInstancesDistribution%27"><span class="annot"><span class="annottext">InstancesDistribution -&gt; Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AonDemandAllocationStrategy%3AInstancesDistribution%27"><span class="hs-identifier hs-var hs-var">onDemandAllocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | Controls the percentages of On-Demand Instances and Spot Instances for</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- your additional capacity beyond @OnDemandBaseCapacity@. Expressed as a</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- number (for example, 20 specifies 20% On-Demand Instances, 80% Spot</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- Instances). Defaults to 100 if not specified. If set to 100, only</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- On-Demand Instances are provisioned.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AonDemandPercentageAboveBaseCapacity%3AInstancesDistribution%27"><span class="annot"><span class="annottext">InstancesDistribution -&gt; Maybe Int
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AonDemandPercentageAboveBaseCapacity%3AInstancesDistribution%27"><span class="hs-identifier hs-var hs-var">onDemandPercentageAboveBaseCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326956"><span id="local-6989586621679326958"><span class="annot"><span class="annottext">InstancesDistribution -&gt; InstancesDistribution -&gt; Bool
+(InstancesDistribution -&gt; InstancesDistribution -&gt; Bool)
+-&gt; (InstancesDistribution -&gt; InstancesDistribution -&gt; Bool)
+-&gt; Eq InstancesDistribution
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstancesDistribution -&gt; InstancesDistribution -&gt; Bool
+$c/= :: InstancesDistribution -&gt; InstancesDistribution -&gt; Bool
+== :: InstancesDistribution -&gt; InstancesDistribution -&gt; Bool
+$c== :: InstancesDistribution -&gt; InstancesDistribution -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326947"><span id="local-6989586621679326949"><span id="local-6989586621679326951"><span id="local-6989586621679326953"><span class="annot"><span class="annottext">ReadPrec [InstancesDistribution]
+ReadPrec InstancesDistribution
+Int -&gt; ReadS InstancesDistribution
+ReadS [InstancesDistribution]
+(Int -&gt; ReadS InstancesDistribution)
+-&gt; ReadS [InstancesDistribution]
+-&gt; ReadPrec InstancesDistribution
+-&gt; ReadPrec [InstancesDistribution]
+-&gt; Read InstancesDistribution
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstancesDistribution]
+$creadListPrec :: ReadPrec [InstancesDistribution]
+readPrec :: ReadPrec InstancesDistribution
+$creadPrec :: ReadPrec InstancesDistribution
+readList :: ReadS [InstancesDistribution]
+$creadList :: ReadS [InstancesDistribution]
+readsPrec :: Int -&gt; ReadS InstancesDistribution
+$creadsPrec :: Int -&gt; ReadS InstancesDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326940"><span id="local-6989586621679326942"><span id="local-6989586621679326944"><span class="annot"><span class="annottext">Int -&gt; InstancesDistribution -&gt; ShowS
+[InstancesDistribution] -&gt; ShowS
+InstancesDistribution -&gt; String
+(Int -&gt; InstancesDistribution -&gt; ShowS)
+-&gt; (InstancesDistribution -&gt; String)
+-&gt; ([InstancesDistribution] -&gt; ShowS)
+-&gt; Show InstancesDistribution
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstancesDistribution] -&gt; ShowS
+$cshowList :: [InstancesDistribution] -&gt; ShowS
+show :: InstancesDistribution -&gt; String
+$cshow :: InstancesDistribution -&gt; String
+showsPrec :: Int -&gt; InstancesDistribution -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstancesDistribution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InstancesDistribution -&gt; Rep InstancesDistribution x)
+-&gt; (forall x. Rep InstancesDistribution x -&gt; InstancesDistribution)
+-&gt; Generic InstancesDistribution
+forall x. Rep InstancesDistribution x -&gt; InstancesDistribution
+forall x. InstancesDistribution -&gt; Rep InstancesDistribution x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstancesDistribution x -&gt; InstancesDistribution
+$cfrom :: forall x. InstancesDistribution -&gt; Rep InstancesDistribution x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Create a value of 'InstancesDistribution' with all optional fields omitted.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'spotAllocationStrategy', 'instancesDistribution_spotAllocationStrategy' - Indicates how to allocate instances across Spot Instance pools.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- If the allocation strategy is @lowest-price@, the Auto Scaling group</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- launches instances using the Spot pools with the lowest price, and</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- evenly allocates your instances across the number of Spot pools that you</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- specify. Defaults to @lowest-price@ if not specified.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- If the allocation strategy is @capacity-optimized@ (recommended), the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Auto Scaling group launches instances using Spot pools that are</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- optimally chosen based on the available Spot capacity. Alternatively,</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- you can use @capacity-optimized-prioritized@ and set the order of</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- instance types in the list of launch template overrides from highest to</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- lowest priority (from first to last in the list). Amazon EC2 Auto</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Scaling honors the instance type priorities on a best-effort basis but</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- optimizes for capacity first.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'spotInstancePools', 'instancesDistribution_spotInstancePools' - The number of Spot Instance pools across which to allocate your Spot</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Instances. The Spot pools are determined from the different instance</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- types in the overrides. Valid only when the Spot allocation strategy is</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- @lowest-price@. Value must be in the range of 1 to 20. Defaults to 2 if</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- not specified.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'spotMaxPrice', 'instancesDistribution_spotMaxPrice' - The maximum price per unit hour that you are willing to pay for a Spot</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Instance. If you leave the value at its default (empty), Amazon EC2 Auto</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Scaling uses the On-Demand price as the maximum Spot price. To remove a</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- value that you previously set, include the property but specify an empty</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- string (\&quot;\&quot;) for the value.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'onDemandBaseCapacity', 'instancesDistribution_onDemandBaseCapacity' - The minimum amount of the Auto Scaling group\'s capacity that must be</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- fulfilled by On-Demand Instances. This base portion is provisioned first</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- as your group scales. Defaults to 0 if not specified. If you specify</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- weights for the instance types in the overrides, set the value of</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- @OnDemandBaseCapacity@ in terms of the number of capacity units, and not</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- the number of instances.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'onDemandAllocationStrategy', 'instancesDistribution_onDemandAllocationStrategy' - Indicates how to allocate instance types to fulfill On-Demand capacity.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- The only valid value is @prioritized@, which is also the default value.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- This strategy uses the order of instance types in the</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @LaunchTemplateOverrides@ to define the launch priority of each instance</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- type. The first instance type in the array is prioritized higher than</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- the last. If all your On-Demand capacity cannot be fulfilled using your</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- highest priority instance, then the Auto Scaling groups launches the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- remaining capacity using the second priority instance type, and so on.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'onDemandPercentageAboveBaseCapacity', 'instancesDistribution_onDemandPercentageAboveBaseCapacity' - Controls the percentages of On-Demand Instances and Spot Instances for</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- your additional capacity beyond @OnDemandBaseCapacity@. Expressed as a</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- number (for example, 20 specifies 20% On-Demand Instances, 80% Spot</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Instances). Defaults to 100 if not specified. If set to 100, only</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- On-Demand Instances are provisioned.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#newInstancesDistribution"><span class="hs-identifier hs-type">newInstancesDistribution</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span>
+</span><span id="line-158"></span><span id="newInstancesDistribution"><span class="annot"><span class="annottext">newInstancesDistribution :: InstancesDistribution
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#newInstancesDistribution"><span class="hs-identifier hs-var hs-var">newInstancesDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="annottext">InstancesDistribution' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; InstancesDistribution
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-type">InstancesDistribution'</span></a></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:spotAllocationStrategy:InstancesDistribution' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AspotAllocationStrategy%3AInstancesDistribution%27"><span class="hs-identifier hs-var">spotAllocationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:spotInstancePools:InstancesDistribution' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AspotInstancePools%3AInstancesDistribution%27"><span class="hs-identifier hs-var">spotInstancePools</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:spotMaxPrice:InstancesDistribution' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AspotMaxPrice%3AInstancesDistribution%27"><span class="hs-identifier hs-var">spotMaxPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:onDemandBaseCapacity:InstancesDistribution' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AonDemandBaseCapacity%3AInstancesDistribution%27"><span class="hs-identifier hs-var">onDemandBaseCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:onDemandAllocationStrategy:InstancesDistribution' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AonDemandAllocationStrategy%3AInstancesDistribution%27"><span class="hs-identifier hs-var">onDemandAllocationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:onDemandPercentageAboveBaseCapacity:InstancesDistribution' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AonDemandPercentageAboveBaseCapacity%3AInstancesDistribution%27"><span class="hs-identifier hs-var">onDemandPercentageAboveBaseCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | Indicates how to allocate instances across Spot Instance pools.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- If the allocation strategy is @lowest-price@, the Auto Scaling group</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- launches instances using the Spot pools with the lowest price, and</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- evenly allocates your instances across the number of Spot pools that you</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- specify. Defaults to @lowest-price@ if not specified.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- If the allocation strategy is @capacity-optimized@ (recommended), the</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Auto Scaling group launches instances using Spot pools that are</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- optimally chosen based on the available Spot capacity. Alternatively,</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- you can use @capacity-optimized-prioritized@ and set the order of</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- instance types in the list of launch template overrides from highest to</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- lowest priority (from first to last in the list). Amazon EC2 Auto</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Scaling honors the instance type priorities on a best-effort basis but</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- optimizes for capacity first.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#instancesDistribution_spotAllocationStrategy"><span class="hs-identifier hs-type">instancesDistribution_spotAllocationStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="instancesDistribution_spotAllocationStrategy"><span class="annot"><span class="annottext">instancesDistribution_spotAllocationStrategy :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstancesDistribution -&gt; f InstancesDistribution
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#instancesDistribution_spotAllocationStrategy"><span class="hs-identifier hs-var hs-var">instancesDistribution_spotAllocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstancesDistribution -&gt; Maybe Text)
+-&gt; (InstancesDistribution -&gt; Maybe Text -&gt; InstancesDistribution)
+-&gt; Lens
+     InstancesDistribution
+     InstancesDistribution
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-type">InstancesDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326931"><span class="annot"><span class="annottext">Maybe Text
+spotAllocationStrategy :: Maybe Text
+$sel:spotAllocationStrategy:InstancesDistribution' :: InstancesDistribution -&gt; Maybe Text
+</span><a href="#local-6989586621679326931"><span class="hs-identifier hs-var hs-var">spotAllocationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326931"><span class="hs-identifier hs-var">spotAllocationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326930"><span class="annot"><span class="annottext">s :: InstancesDistribution
+</span><a href="#local-6989586621679326930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-type">InstancesDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326929"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstancesDistribution
+</span><a href="#local-6989586621679326930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spotAllocationStrategy:InstancesDistribution' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AspotAllocationStrategy%3AInstancesDistribution%27"><span class="hs-identifier hs-var">spotAllocationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The number of Spot Instance pools across which to allocate your Spot</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Instances. The Spot pools are determined from the different instance</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- types in the overrides. Valid only when the Spot allocation strategy is</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- @lowest-price@. Value must be in the range of 1 to 20. Defaults to 2 if</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- not specified.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#instancesDistribution_spotInstancePools"><span class="hs-identifier hs-type">instancesDistribution_spotInstancePools</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="instancesDistribution_spotInstancePools"><span class="annot"><span class="annottext">instancesDistribution_spotInstancePools :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; InstancesDistribution -&gt; f InstancesDistribution
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#instancesDistribution_spotInstancePools"><span class="hs-identifier hs-var hs-var">instancesDistribution_spotInstancePools</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstancesDistribution -&gt; Maybe Int)
+-&gt; (InstancesDistribution -&gt; Maybe Int -&gt; InstancesDistribution)
+-&gt; Lens
+     InstancesDistribution InstancesDistribution (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-type">InstancesDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326927"><span class="annot"><span class="annottext">Maybe Int
+spotInstancePools :: Maybe Int
+$sel:spotInstancePools:InstancesDistribution' :: InstancesDistribution -&gt; Maybe Int
+</span><a href="#local-6989586621679326927"><span class="hs-identifier hs-var hs-var">spotInstancePools</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679326927"><span class="hs-identifier hs-var">spotInstancePools</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326926"><span class="annot"><span class="annottext">s :: InstancesDistribution
+</span><a href="#local-6989586621679326926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-type">InstancesDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326925"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679326925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstancesDistribution
+</span><a href="#local-6989586621679326926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spotInstancePools:InstancesDistribution' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AspotInstancePools%3AInstancesDistribution%27"><span class="hs-identifier hs-var">spotInstancePools</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679326925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The maximum price per unit hour that you are willing to pay for a Spot</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Instance. If you leave the value at its default (empty), Amazon EC2 Auto</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Scaling uses the On-Demand price as the maximum Spot price. To remove a</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- value that you previously set, include the property but specify an empty</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- string (\&quot;\&quot;) for the value.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#instancesDistribution_spotMaxPrice"><span class="hs-identifier hs-type">instancesDistribution_spotMaxPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="instancesDistribution_spotMaxPrice"><span class="annot"><span class="annottext">instancesDistribution_spotMaxPrice :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstancesDistribution -&gt; f InstancesDistribution
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#instancesDistribution_spotMaxPrice"><span class="hs-identifier hs-var hs-var">instancesDistribution_spotMaxPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstancesDistribution -&gt; Maybe Text)
+-&gt; (InstancesDistribution -&gt; Maybe Text -&gt; InstancesDistribution)
+-&gt; Lens
+     InstancesDistribution
+     InstancesDistribution
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-type">InstancesDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326923"><span class="annot"><span class="annottext">Maybe Text
+spotMaxPrice :: Maybe Text
+$sel:spotMaxPrice:InstancesDistribution' :: InstancesDistribution -&gt; Maybe Text
+</span><a href="#local-6989586621679326923"><span class="hs-identifier hs-var hs-var">spotMaxPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326923"><span class="hs-identifier hs-var">spotMaxPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326922"><span class="annot"><span class="annottext">s :: InstancesDistribution
+</span><a href="#local-6989586621679326922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-type">InstancesDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326921"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstancesDistribution
+</span><a href="#local-6989586621679326922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spotMaxPrice:InstancesDistribution' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AspotMaxPrice%3AInstancesDistribution%27"><span class="hs-identifier hs-var">spotMaxPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The minimum amount of the Auto Scaling group\'s capacity that must be</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- fulfilled by On-Demand Instances. This base portion is provisioned first</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- as your group scales. Defaults to 0 if not specified. If you specify</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- weights for the instance types in the overrides, set the value of</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- @OnDemandBaseCapacity@ in terms of the number of capacity units, and not</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- the number of instances.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#instancesDistribution_onDemandBaseCapacity"><span class="hs-identifier hs-type">instancesDistribution_onDemandBaseCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="instancesDistribution_onDemandBaseCapacity"><span class="annot"><span class="annottext">instancesDistribution_onDemandBaseCapacity :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; InstancesDistribution -&gt; f InstancesDistribution
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#instancesDistribution_onDemandBaseCapacity"><span class="hs-identifier hs-var hs-var">instancesDistribution_onDemandBaseCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstancesDistribution -&gt; Maybe Int)
+-&gt; (InstancesDistribution -&gt; Maybe Int -&gt; InstancesDistribution)
+-&gt; Lens
+     InstancesDistribution InstancesDistribution (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-type">InstancesDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326919"><span class="annot"><span class="annottext">Maybe Int
+onDemandBaseCapacity :: Maybe Int
+$sel:onDemandBaseCapacity:InstancesDistribution' :: InstancesDistribution -&gt; Maybe Int
+</span><a href="#local-6989586621679326919"><span class="hs-identifier hs-var hs-var">onDemandBaseCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679326919"><span class="hs-identifier hs-var">onDemandBaseCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326918"><span class="annot"><span class="annottext">s :: InstancesDistribution
+</span><a href="#local-6989586621679326918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-type">InstancesDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326917"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679326917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstancesDistribution
+</span><a href="#local-6989586621679326918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onDemandBaseCapacity:InstancesDistribution' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AonDemandBaseCapacity%3AInstancesDistribution%27"><span class="hs-identifier hs-var">onDemandBaseCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679326917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Indicates how to allocate instance types to fulfill On-Demand capacity.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- The only valid value is @prioritized@, which is also the default value.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- This strategy uses the order of instance types in the</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- @LaunchTemplateOverrides@ to define the launch priority of each instance</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- type. The first instance type in the array is prioritized higher than</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- the last. If all your On-Demand capacity cannot be fulfilled using your</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- highest priority instance, then the Auto Scaling groups launches the</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- remaining capacity using the second priority instance type, and so on.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#instancesDistribution_onDemandAllocationStrategy"><span class="hs-identifier hs-type">instancesDistribution_onDemandAllocationStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="instancesDistribution_onDemandAllocationStrategy"><span class="annot"><span class="annottext">instancesDistribution_onDemandAllocationStrategy :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstancesDistribution -&gt; f InstancesDistribution
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#instancesDistribution_onDemandAllocationStrategy"><span class="hs-identifier hs-var hs-var">instancesDistribution_onDemandAllocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstancesDistribution -&gt; Maybe Text)
+-&gt; (InstancesDistribution -&gt; Maybe Text -&gt; InstancesDistribution)
+-&gt; Lens
+     InstancesDistribution
+     InstancesDistribution
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-type">InstancesDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326915"><span class="annot"><span class="annottext">Maybe Text
+onDemandAllocationStrategy :: Maybe Text
+$sel:onDemandAllocationStrategy:InstancesDistribution' :: InstancesDistribution -&gt; Maybe Text
+</span><a href="#local-6989586621679326915"><span class="hs-identifier hs-var hs-var">onDemandAllocationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326915"><span class="hs-identifier hs-var">onDemandAllocationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326914"><span class="annot"><span class="annottext">s :: InstancesDistribution
+</span><a href="#local-6989586621679326914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-type">InstancesDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326913"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstancesDistribution
+</span><a href="#local-6989586621679326914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onDemandAllocationStrategy:InstancesDistribution' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AonDemandAllocationStrategy%3AInstancesDistribution%27"><span class="hs-identifier hs-var">onDemandAllocationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | Controls the percentages of On-Demand Instances and Spot Instances for</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- your additional capacity beyond @OnDemandBaseCapacity@. Expressed as a</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- number (for example, 20 specifies 20% On-Demand Instances, 80% Spot</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- Instances). Defaults to 100 if not specified. If set to 100, only</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- On-Demand Instances are provisioned.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#instancesDistribution_onDemandPercentageAboveBaseCapacity"><span class="hs-identifier hs-type">instancesDistribution_onDemandPercentageAboveBaseCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="instancesDistribution_onDemandPercentageAboveBaseCapacity"><span class="annot"><span class="annottext">instancesDistribution_onDemandPercentageAboveBaseCapacity :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; InstancesDistribution -&gt; f InstancesDistribution
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#instancesDistribution_onDemandPercentageAboveBaseCapacity"><span class="hs-identifier hs-var hs-var">instancesDistribution_onDemandPercentageAboveBaseCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstancesDistribution -&gt; Maybe Int)
+-&gt; (InstancesDistribution -&gt; Maybe Int -&gt; InstancesDistribution)
+-&gt; Lens
+     InstancesDistribution InstancesDistribution (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-type">InstancesDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326911"><span class="annot"><span class="annottext">Maybe Int
+onDemandPercentageAboveBaseCapacity :: Maybe Int
+$sel:onDemandPercentageAboveBaseCapacity:InstancesDistribution' :: InstancesDistribution -&gt; Maybe Int
+</span><a href="#local-6989586621679326911"><span class="hs-identifier hs-var hs-var">onDemandPercentageAboveBaseCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679326911"><span class="hs-identifier hs-var">onDemandPercentageAboveBaseCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326910"><span class="annot"><span class="annottext">s :: InstancesDistribution
+</span><a href="#local-6989586621679326910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-type">InstancesDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326909"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679326909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstancesDistribution
+</span><a href="#local-6989586621679326910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onDemandPercentageAboveBaseCapacity:InstancesDistribution' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#%24sel%3AonDemandPercentageAboveBaseCapacity%3AInstancesDistribution%27"><span class="hs-identifier hs-var">onDemandPercentageAboveBaseCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679326909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679326906"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstancesDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679326904"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679326904"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; InstancesDistribution
+</span><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-var">InstancesDistribution'</span></a></span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; InstancesDistribution)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; InstancesDistribution)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679326904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SpotAllocationStrategy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; InstancesDistribution)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe Int -&gt; InstancesDistribution)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679326904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SpotInstancePools&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe Int -&gt; InstancesDistribution)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int -&gt; Maybe Text -&gt; Maybe Int -&gt; InstancesDistribution)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679326904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SpotMaxPrice&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int -&gt; Maybe Text -&gt; Maybe Int -&gt; InstancesDistribution)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Maybe Text -&gt; Maybe Int -&gt; InstancesDistribution)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679326904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OnDemandBaseCapacity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Int -&gt; InstancesDistribution)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Int -&gt; InstancesDistribution)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679326904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OnDemandAllocationStrategy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; InstancesDistribution)
+-&gt; Either String (Maybe Int) -&gt; Either String InstancesDistribution
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679326904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OnDemandPercentageAboveBaseCapacity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326898"><span id="local-6989586621679326900"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span></span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326895"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679326891"><span class="annot"><span class="annottext">toQuery :: InstancesDistribution -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution%27"><span class="hs-identifier hs-type">InstancesDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326884"><span id="local-6989586621679326885"><span id="local-6989586621679326886"><span id="local-6989586621679326887"><span id="local-6989586621679326888"><span id="local-6989586621679326889"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+onDemandPercentageAboveBaseCapacity :: Maybe Int
+onDemandAllocationStrategy :: Maybe Text
+onDemandBaseCapacity :: Maybe Int
+spotMaxPrice :: Maybe Text
+spotInstancePools :: Maybe Int
+spotAllocationStrategy :: Maybe Text
+$sel:onDemandPercentageAboveBaseCapacity:InstancesDistribution' :: InstancesDistribution -&gt; Maybe Int
+$sel:onDemandAllocationStrategy:InstancesDistribution' :: InstancesDistribution -&gt; Maybe Text
+$sel:onDemandBaseCapacity:InstancesDistribution' :: InstancesDistribution -&gt; Maybe Int
+$sel:spotMaxPrice:InstancesDistribution' :: InstancesDistribution -&gt; Maybe Text
+$sel:spotInstancePools:InstancesDistribution' :: InstancesDistribution -&gt; Maybe Int
+$sel:spotAllocationStrategy:InstancesDistribution' :: InstancesDistribution -&gt; Maybe Text
+</span><a href="#local-6989586621679326884"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-249"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SpotAllocationStrategy&quot;</span></span><span>
+</span><span id="line-250"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326889"><span class="hs-identifier hs-var">spotAllocationStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SpotInstancePools&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679326888"><span class="hs-identifier hs-var">spotInstancePools</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SpotMaxPrice&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326887"><span class="hs-identifier hs-var">spotMaxPrice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OnDemandBaseCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679326886"><span class="hs-identifier hs-var">onDemandBaseCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OnDemandAllocationStrategy&quot;</span></span><span>
+</span><span id="line-255"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326885"><span class="hs-identifier hs-var">onDemandAllocationStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OnDemandPercentageAboveBaseCapacity&quot;</span></span><span>
+</span><span id="line-257"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679326884"><span class="hs-identifier hs-var">onDemandPercentageAboveBaseCapacity</span></a></span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-259"></span></pre></body></html>

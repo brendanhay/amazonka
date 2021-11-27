@@ -1,0 +1,588 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ELBV2.Types.Listener</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ELBV2.Types.Listener</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Action.html"><span class="hs-identifier">Amazonka.ELBV2.Types.Action</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Certificate.html"><span class="hs-identifier">Amazonka.ELBV2.Types.Certificate</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.ProtocolEnum.html"><span class="hs-identifier">Amazonka.ELBV2.Types.ProtocolEnum</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Information about a listener.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newListener' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679254113"><span id="local-6989586621679254114"></span></span><span class="hs-keyword">data</span><span> </span><span id="Listener"><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-var">Listener</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Listener%27"><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-var">Listener'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | [HTTPS or TLS listener] The security policy that defines which protocols</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- and ciphers are supported.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsslPolicy%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe Text
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3AsslPolicy%3AListener%27"><span class="hs-identifier hs-var hs-var">sslPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the listener.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlistenerArn%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe Text
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3AlistenerArn%3AListener%27"><span class="hs-identifier hs-var hs-var">listenerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The protocol for connections from clients to the load balancer.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aprotocol%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe ProtocolEnum
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3Aprotocol%3AListener%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.ProtocolEnum.html#ProtocolEnum"><span class="hs-identifier hs-type">ProtocolEnum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The default actions for the listener.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdefaultActions%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe [Action]
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3AdefaultActions%3AListener%27"><span class="hs-identifier hs-var hs-var">defaultActions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ELBV2.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | [HTTPS or TLS listener] The default certificate for the listener.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Acertificates%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe [Certificate]
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3Acertificates%3AListener%27"><span class="hs-identifier hs-var hs-var">certificates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ELBV2.Types.Certificate.html#Certificate"><span class="hs-identifier hs-type">Certificate</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the load balancer.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AloadBalancerArn%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe Text
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3AloadBalancerArn%3AListener%27"><span class="hs-identifier hs-var hs-var">loadBalancerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | [TLS listener] The name of the Application-Layer Protocol Negotiation</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- (ALPN) policy.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AalpnPolicy%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe [Text]
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3AalpnPolicy%3AListener%27"><span class="hs-identifier hs-var hs-var">alpnPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The port on which the load balancer is listening.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aport%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe Natural
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3Aport%3AListener%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254100"><span id="local-6989586621679254102"><span class="annot"><span class="annottext">Listener -&gt; Listener -&gt; Bool
+(Listener -&gt; Listener -&gt; Bool)
+-&gt; (Listener -&gt; Listener -&gt; Bool) -&gt; Eq Listener
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Listener -&gt; Listener -&gt; Bool
+$c/= :: Listener -&gt; Listener -&gt; Bool
+== :: Listener -&gt; Listener -&gt; Bool
+$c== :: Listener -&gt; Listener -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254091"><span id="local-6989586621679254093"><span id="local-6989586621679254095"><span id="local-6989586621679254097"><span class="annot"><span class="annottext">ReadPrec [Listener]
+ReadPrec Listener
+Int -&gt; ReadS Listener
+ReadS [Listener]
+(Int -&gt; ReadS Listener)
+-&gt; ReadS [Listener]
+-&gt; ReadPrec Listener
+-&gt; ReadPrec [Listener]
+-&gt; Read Listener
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Listener]
+$creadListPrec :: ReadPrec [Listener]
+readPrec :: ReadPrec Listener
+$creadPrec :: ReadPrec Listener
+readList :: ReadS [Listener]
+$creadList :: ReadS [Listener]
+readsPrec :: Int -&gt; ReadS Listener
+$creadsPrec :: Int -&gt; ReadS Listener
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254084"><span id="local-6989586621679254086"><span id="local-6989586621679254088"><span class="annot"><span class="annottext">Int -&gt; Listener -&gt; ShowS
+[Listener] -&gt; ShowS
+Listener -&gt; String
+(Int -&gt; Listener -&gt; ShowS)
+-&gt; (Listener -&gt; String) -&gt; ([Listener] -&gt; ShowS) -&gt; Show Listener
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Listener] -&gt; ShowS
+$cshowList :: [Listener] -&gt; ShowS
+show :: Listener -&gt; String
+$cshow :: Listener -&gt; String
+showsPrec :: Int -&gt; Listener -&gt; ShowS
+$cshowsPrec :: Int -&gt; Listener -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Listener -&gt; Rep Listener x)
+-&gt; (forall x. Rep Listener x -&gt; Listener) -&gt; Generic Listener
+forall x. Rep Listener x -&gt; Listener
+forall x. Listener -&gt; Rep Listener x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Listener x -&gt; Listener
+$cfrom :: forall x. Listener -&gt; Rep Listener x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'Listener' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'sslPolicy', 'listener_sslPolicy' - [HTTPS or TLS listener] The security policy that defines which protocols</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- and ciphers are supported.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'listenerArn', 'listener_listenerArn' - The Amazon Resource Name (ARN) of the listener.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'protocol', 'listener_protocol' - The protocol for connections from clients to the load balancer.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'defaultActions', 'listener_defaultActions' - The default actions for the listener.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'certificates', 'listener_certificates' - [HTTPS or TLS listener] The default certificate for the listener.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'loadBalancerArn', 'listener_loadBalancerArn' - The Amazon Resource Name (ARN) of the load balancer.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'alpnPolicy', 'listener_alpnPolicy' - [TLS listener] The name of the Application-Layer Protocol Negotiation</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- (ALPN) policy.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'port', 'listener_port' - The port on which the load balancer is listening.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#newListener"><span class="hs-identifier hs-type">newListener</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span>
+</span><span id="line-81"></span><span id="newListener"><span class="annot"><span class="annottext">newListener :: Listener
+</span><a href="Amazonka.ELBV2.Types.Listener.html#newListener"><span class="hs-identifier hs-var hs-var">newListener</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">Listener' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ProtocolEnum
+-&gt; Maybe [Action]
+-&gt; Maybe [Certificate]
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Natural
+-&gt; Listener
+</span><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sslPolicy:Listener' :: Maybe Text
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3AsslPolicy%3AListener%27"><span class="hs-identifier hs-var">sslPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:listenerArn:Listener' :: Maybe Text
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3AlistenerArn%3AListener%27"><span class="hs-identifier hs-var">listenerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:Listener' :: Maybe ProtocolEnum
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3Aprotocol%3AListener%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProtocolEnum
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultActions:Listener' :: Maybe [Action]
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3AdefaultActions%3AListener%27"><span class="hs-identifier hs-var">defaultActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Action]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificates:Listener' :: Maybe [Certificate]
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3Acertificates%3AListener%27"><span class="hs-identifier hs-var">certificates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Certificate]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:loadBalancerArn:Listener' :: Maybe Text
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3AloadBalancerArn%3AListener%27"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:alpnPolicy:Listener' :: Maybe [Text]
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3AalpnPolicy%3AListener%27"><span class="hs-identifier hs-var">alpnPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:port:Listener' :: Maybe Natural
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3Aport%3AListener%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | [HTTPS or TLS listener] The security policy that defines which protocols</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- and ciphers are supported.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#listener_sslPolicy"><span class="hs-identifier hs-type">listener_sslPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="listener_sslPolicy"><span class="annot"><span class="annottext">listener_sslPolicy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.ELBV2.Types.Listener.html#listener_sslPolicy"><span class="hs-identifier hs-var hs-var">listener_sslPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe Text)
+-&gt; (Listener -&gt; Maybe Text -&gt; Listener)
+-&gt; Lens Listener Listener (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254075"><span class="annot"><span class="annottext">Maybe Text
+sslPolicy :: Maybe Text
+$sel:sslPolicy:Listener' :: Listener -&gt; Maybe Text
+</span><a href="#local-6989586621679254075"><span class="hs-identifier hs-var hs-var">sslPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254075"><span class="hs-identifier hs-var">sslPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254074"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679254074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254073"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679254074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslPolicy:Listener' :: Maybe Text
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3AsslPolicy%3AListener%27"><span class="hs-identifier hs-var">sslPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the listener.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#listener_listenerArn"><span class="hs-identifier hs-type">listener_listenerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="listener_listenerArn"><span class="annot"><span class="annottext">listener_listenerArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.ELBV2.Types.Listener.html#listener_listenerArn"><span class="hs-identifier hs-var hs-var">listener_listenerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe Text)
+-&gt; (Listener -&gt; Maybe Text -&gt; Listener)
+-&gt; Lens Listener Listener (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254071"><span class="annot"><span class="annottext">Maybe Text
+listenerArn :: Maybe Text
+$sel:listenerArn:Listener' :: Listener -&gt; Maybe Text
+</span><a href="#local-6989586621679254071"><span class="hs-identifier hs-var hs-var">listenerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254071"><span class="hs-identifier hs-var">listenerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254070"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679254070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254069"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679254070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listenerArn:Listener' :: Maybe Text
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3AlistenerArn%3AListener%27"><span class="hs-identifier hs-var">listenerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The protocol for connections from clients to the load balancer.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#listener_protocol"><span class="hs-identifier hs-type">listener_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.ProtocolEnum.html#ProtocolEnum"><span class="hs-identifier hs-type">ProtocolEnum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="listener_protocol"><span class="annot"><span class="annottext">listener_protocol :: (Maybe ProtocolEnum -&gt; f (Maybe ProtocolEnum))
+-&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.ELBV2.Types.Listener.html#listener_protocol"><span class="hs-identifier hs-var hs-var">listener_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe ProtocolEnum)
+-&gt; (Listener -&gt; Maybe ProtocolEnum -&gt; Listener)
+-&gt; Lens Listener Listener (Maybe ProtocolEnum) (Maybe ProtocolEnum)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254067"><span class="annot"><span class="annottext">Maybe ProtocolEnum
+protocol :: Maybe ProtocolEnum
+$sel:protocol:Listener' :: Listener -&gt; Maybe ProtocolEnum
+</span><a href="#local-6989586621679254067"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProtocolEnum
+</span><a href="#local-6989586621679254067"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254066"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679254066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254065"><span class="annot"><span class="annottext">Maybe ProtocolEnum
+</span><a href="#local-6989586621679254065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679254066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:Listener' :: Maybe ProtocolEnum
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3Aprotocol%3AListener%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProtocolEnum
+</span><a href="#local-6989586621679254065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The default actions for the listener.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#listener_defaultActions"><span class="hs-identifier hs-type">listener_defaultActions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ELBV2.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="listener_defaultActions"><span class="annot"><span class="annottext">listener_defaultActions :: (Maybe [Action] -&gt; f (Maybe [Action])) -&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.ELBV2.Types.Listener.html#listener_defaultActions"><span class="hs-identifier hs-var hs-var">listener_defaultActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe [Action])
+-&gt; (Listener -&gt; Maybe [Action] -&gt; Listener)
+-&gt; Lens Listener Listener (Maybe [Action]) (Maybe [Action])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254063"><span class="annot"><span class="annottext">Maybe [Action]
+defaultActions :: Maybe [Action]
+$sel:defaultActions:Listener' :: Listener -&gt; Maybe [Action]
+</span><a href="#local-6989586621679254063"><span class="hs-identifier hs-var hs-var">defaultActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Action]
+</span><a href="#local-6989586621679254063"><span class="hs-identifier hs-var">defaultActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254062"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679254062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254061"><span class="annot"><span class="annottext">Maybe [Action]
+</span><a href="#local-6989586621679254061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679254062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultActions:Listener' :: Maybe [Action]
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3AdefaultActions%3AListener%27"><span class="hs-identifier hs-var">defaultActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Action]
+</span><a href="#local-6989586621679254061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Action] -&gt; f (Maybe [Action])) -&gt; Listener -&gt; f Listener)
+-&gt; ((Maybe [Action] -&gt; f (Maybe [Action]))
+    -&gt; Maybe [Action] -&gt; f (Maybe [Action]))
+-&gt; (Maybe [Action] -&gt; f (Maybe [Action]))
+-&gt; Listener
+-&gt; f Listener
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Action] [Action] [Action] [Action]
+-&gt; Iso
+     (Maybe [Action]) (Maybe [Action]) (Maybe [Action]) (Maybe [Action])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Action] [Action] [Action] [Action]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | [HTTPS or TLS listener] The default certificate for the listener.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#listener_certificates"><span class="hs-identifier hs-type">listener_certificates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ELBV2.Types.Certificate.html#Certificate"><span class="hs-identifier hs-type">Certificate</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="listener_certificates"><span class="annot"><span class="annottext">listener_certificates :: (Maybe [Certificate] -&gt; f (Maybe [Certificate]))
+-&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.ELBV2.Types.Listener.html#listener_certificates"><span class="hs-identifier hs-var hs-var">listener_certificates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe [Certificate])
+-&gt; (Listener -&gt; Maybe [Certificate] -&gt; Listener)
+-&gt; Lens
+     Listener Listener (Maybe [Certificate]) (Maybe [Certificate])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254056"><span class="annot"><span class="annottext">Maybe [Certificate]
+certificates :: Maybe [Certificate]
+$sel:certificates:Listener' :: Listener -&gt; Maybe [Certificate]
+</span><a href="#local-6989586621679254056"><span class="hs-identifier hs-var hs-var">certificates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Certificate]
+</span><a href="#local-6989586621679254056"><span class="hs-identifier hs-var">certificates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254055"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679254055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254054"><span class="annot"><span class="annottext">Maybe [Certificate]
+</span><a href="#local-6989586621679254054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679254055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificates:Listener' :: Maybe [Certificate]
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3Acertificates%3AListener%27"><span class="hs-identifier hs-var">certificates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Certificate]
+</span><a href="#local-6989586621679254054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Certificate] -&gt; f (Maybe [Certificate]))
+ -&gt; Listener -&gt; f Listener)
+-&gt; ((Maybe [Certificate] -&gt; f (Maybe [Certificate]))
+    -&gt; Maybe [Certificate] -&gt; f (Maybe [Certificate]))
+-&gt; (Maybe [Certificate] -&gt; f (Maybe [Certificate]))
+-&gt; Listener
+-&gt; f Listener
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Certificate] [Certificate] [Certificate] [Certificate]
+-&gt; Iso
+     (Maybe [Certificate])
+     (Maybe [Certificate])
+     (Maybe [Certificate])
+     (Maybe [Certificate])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Certificate] [Certificate] [Certificate] [Certificate]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the load balancer.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#listener_loadBalancerArn"><span class="hs-identifier hs-type">listener_loadBalancerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="listener_loadBalancerArn"><span class="annot"><span class="annottext">listener_loadBalancerArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.ELBV2.Types.Listener.html#listener_loadBalancerArn"><span class="hs-identifier hs-var hs-var">listener_loadBalancerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe Text)
+-&gt; (Listener -&gt; Maybe Text -&gt; Listener)
+-&gt; Lens Listener Listener (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254052"><span class="annot"><span class="annottext">Maybe Text
+loadBalancerArn :: Maybe Text
+$sel:loadBalancerArn:Listener' :: Listener -&gt; Maybe Text
+</span><a href="#local-6989586621679254052"><span class="hs-identifier hs-var hs-var">loadBalancerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254052"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254051"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679254051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254050"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679254051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerArn:Listener' :: Maybe Text
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3AloadBalancerArn%3AListener%27"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | [TLS listener] The name of the Application-Layer Protocol Negotiation</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- (ALPN) policy.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#listener_alpnPolicy"><span class="hs-identifier hs-type">listener_alpnPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="listener_alpnPolicy"><span class="annot"><span class="annottext">listener_alpnPolicy :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.ELBV2.Types.Listener.html#listener_alpnPolicy"><span class="hs-identifier hs-var hs-var">listener_alpnPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe [Text])
+-&gt; (Listener -&gt; Maybe [Text] -&gt; Listener)
+-&gt; Lens Listener Listener (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254048"><span class="annot"><span class="annottext">Maybe [Text]
+alpnPolicy :: Maybe [Text]
+$sel:alpnPolicy:Listener' :: Listener -&gt; Maybe [Text]
+</span><a href="#local-6989586621679254048"><span class="hs-identifier hs-var hs-var">alpnPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679254048"><span class="hs-identifier hs-var">alpnPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254047"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679254047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254046"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679254046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679254047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alpnPolicy:Listener' :: Maybe [Text]
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3AalpnPolicy%3AListener%27"><span class="hs-identifier hs-var">alpnPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679254046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Listener -&gt; f Listener)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Listener
+-&gt; f Listener
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The port on which the load balancer is listening.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#listener_port"><span class="hs-identifier hs-type">listener_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="listener_port"><span class="annot"><span class="annottext">listener_port :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.ELBV2.Types.Listener.html#listener_port"><span class="hs-identifier hs-var hs-var">listener_port</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe Natural)
+-&gt; (Listener -&gt; Maybe Natural -&gt; Listener)
+-&gt; Lens Listener Listener (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254044"><span class="annot"><span class="annottext">Maybe Natural
+port :: Maybe Natural
+$sel:port:Listener' :: Listener -&gt; Maybe Natural
+</span><a href="#local-6989586621679254044"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679254044"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254043"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679254043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254042"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679254042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679254043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:Listener' :: Maybe Natural
+</span><a href="Amazonka.ELBV2.Types.Listener.html#%24sel%3Aport%3AListener%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679254042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679254039"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Listener
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679254037"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679254037"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ProtocolEnum
+-&gt; Maybe [Action]
+-&gt; Maybe [Certificate]
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Natural
+-&gt; Listener
+</span><a href="Amazonka.ELBV2.Types.Listener.html#Listener%27"><span class="hs-identifier hs-var">Listener'</span></a></span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ProtocolEnum
+ -&gt; Maybe [Action]
+ -&gt; Maybe [Certificate]
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe Natural
+ -&gt; Listener)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ProtocolEnum
+      -&gt; Maybe [Action]
+      -&gt; Maybe [Certificate]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Natural
+      -&gt; Listener)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679254037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SslPolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ProtocolEnum
+   -&gt; Maybe [Action]
+   -&gt; Maybe [Certificate]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Natural
+   -&gt; Listener)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ProtocolEnum
+      -&gt; Maybe [Action]
+      -&gt; Maybe [Certificate]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Natural
+      -&gt; Listener)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679254037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ListenerArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ProtocolEnum
+   -&gt; Maybe [Action]
+   -&gt; Maybe [Certificate]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Natural
+   -&gt; Listener)
+-&gt; Either String (Maybe ProtocolEnum)
+-&gt; Either
+     String
+     (Maybe [Action]
+      -&gt; Maybe [Certificate]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Natural
+      -&gt; Listener)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679254037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ProtocolEnum)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Protocol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Action]
+   -&gt; Maybe [Certificate]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Natural
+   -&gt; Listener)
+-&gt; Either String (Maybe [Action])
+-&gt; Either
+     String
+     (Maybe [Certificate]
+      -&gt; Maybe Text -&gt; Maybe [Text] -&gt; Maybe Natural -&gt; Listener)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679254037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultActions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Action]))
+-&gt; Either String (Maybe [Action])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Action])
+-&gt; [Node] -&gt; Either String (Maybe [Action])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Action]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Certificate]
+   -&gt; Maybe Text -&gt; Maybe [Text] -&gt; Maybe Natural -&gt; Listener)
+-&gt; Either String (Maybe [Certificate])
+-&gt; Either
+     String (Maybe Text -&gt; Maybe [Text] -&gt; Maybe Natural -&gt; Listener)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679254037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Certificates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-137"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Certificate]))
+-&gt; Either String (Maybe [Certificate])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Certificate])
+-&gt; [Node] -&gt; Either String (Maybe [Certificate])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Certificate]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe [Text] -&gt; Maybe Natural -&gt; Listener)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Text] -&gt; Maybe Natural -&gt; Listener)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679254037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LoadBalancerArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; Maybe Natural -&gt; Listener)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Maybe Natural -&gt; Listener)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679254037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AlpnPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-141"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Natural -&gt; Listener)
+-&gt; Either String (Maybe Natural) -&gt; Either String Listener
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679254037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Port&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254028"><span id="local-6989586621679254030"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254025"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span></span><span>
+</span><span id="line-148"></span></pre></body></html>

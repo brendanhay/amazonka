@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DevOpsGuru.PutFeedback</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Collects customer feedback about the specified insight.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DevOpsGuru.PutFeedback</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback"><span class="hs-identifier">PutFeedback</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#newPutFeedback"><span class="hs-identifier">newPutFeedback</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#putFeedback_insightFeedback"><span class="hs-identifier">putFeedback_insightFeedback</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedbackResponse"><span class="hs-identifier">PutFeedbackResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#newPutFeedbackResponse"><span class="hs-identifier">newPutFeedbackResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#putFeedbackResponse_httpStatus"><span class="hs-identifier">putFeedbackResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.html"><span class="hs-identifier">Amazonka.DevOpsGuru.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newPutFeedback' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679240468"><span id="local-6989586621679240469"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutFeedback"><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback"><span class="hs-identifier hs-var">PutFeedback</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutFeedback%27"><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback%27"><span class="hs-identifier hs-var">PutFeedback'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The feedback from customers is about the recommendations in this</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- insight.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AinsightFeedback%3APutFeedback%27"><span class="annot"><span class="annottext">PutFeedback -&gt; Maybe InsightFeedback
+</span><a href="Amazonka.DevOpsGuru.PutFeedback.html#%24sel%3AinsightFeedback%3APutFeedback%27"><span class="hs-identifier hs-var hs-var">insightFeedback</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.InsightFeedback.html#InsightFeedback"><span class="hs-identifier hs-type">InsightFeedback</span></a></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679240462"><span id="local-6989586621679240464"><span class="annot"><span class="annottext">PutFeedback -&gt; PutFeedback -&gt; Bool
+(PutFeedback -&gt; PutFeedback -&gt; Bool)
+-&gt; (PutFeedback -&gt; PutFeedback -&gt; Bool) -&gt; Eq PutFeedback
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutFeedback -&gt; PutFeedback -&gt; Bool
+$c/= :: PutFeedback -&gt; PutFeedback -&gt; Bool
+== :: PutFeedback -&gt; PutFeedback -&gt; Bool
+$c== :: PutFeedback -&gt; PutFeedback -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240453"><span id="local-6989586621679240455"><span id="local-6989586621679240457"><span id="local-6989586621679240459"><span class="annot"><span class="annottext">ReadPrec [PutFeedback]
+ReadPrec PutFeedback
+Int -&gt; ReadS PutFeedback
+ReadS [PutFeedback]
+(Int -&gt; ReadS PutFeedback)
+-&gt; ReadS [PutFeedback]
+-&gt; ReadPrec PutFeedback
+-&gt; ReadPrec [PutFeedback]
+-&gt; Read PutFeedback
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutFeedback]
+$creadListPrec :: ReadPrec [PutFeedback]
+readPrec :: ReadPrec PutFeedback
+$creadPrec :: ReadPrec PutFeedback
+readList :: ReadS [PutFeedback]
+$creadList :: ReadS [PutFeedback]
+readsPrec :: Int -&gt; ReadS PutFeedback
+$creadsPrec :: Int -&gt; ReadS PutFeedback
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240446"><span id="local-6989586621679240448"><span id="local-6989586621679240450"><span class="annot"><span class="annottext">Int -&gt; PutFeedback -&gt; ShowS
+[PutFeedback] -&gt; ShowS
+PutFeedback -&gt; String
+(Int -&gt; PutFeedback -&gt; ShowS)
+-&gt; (PutFeedback -&gt; String)
+-&gt; ([PutFeedback] -&gt; ShowS)
+-&gt; Show PutFeedback
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutFeedback] -&gt; ShowS
+$cshowList :: [PutFeedback] -&gt; ShowS
+show :: PutFeedback -&gt; String
+$cshow :: PutFeedback -&gt; String
+showsPrec :: Int -&gt; PutFeedback -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutFeedback -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutFeedback -&gt; Rep PutFeedback x)
+-&gt; (forall x. Rep PutFeedback x -&gt; PutFeedback)
+-&gt; Generic PutFeedback
+forall x. Rep PutFeedback x -&gt; PutFeedback
+forall x. PutFeedback -&gt; Rep PutFeedback x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutFeedback x -&gt; PutFeedback
+$cfrom :: forall x. PutFeedback -&gt; Rep PutFeedback x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'PutFeedback' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'insightFeedback', 'putFeedback_insightFeedback' - The feedback from customers is about the recommendations in this</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- insight.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#newPutFeedback"><span class="hs-identifier hs-type">newPutFeedback</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback"><span class="hs-identifier hs-type">PutFeedback</span></a></span><span>
+</span><span id="line-68"></span><span id="newPutFeedback"><span class="annot"><span class="annottext">newPutFeedback :: PutFeedback
+</span><a href="Amazonka.DevOpsGuru.PutFeedback.html#newPutFeedback"><span class="hs-identifier hs-var hs-var">newPutFeedback</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">PutFeedback' :: Maybe InsightFeedback -&gt; PutFeedback
+</span><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback%27"><span class="hs-identifier hs-type">PutFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightFeedback:PutFeedback' :: Maybe InsightFeedback
+</span><a href="Amazonka.DevOpsGuru.PutFeedback.html#%24sel%3AinsightFeedback%3APutFeedback%27"><span class="hs-identifier hs-var">insightFeedback</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightFeedback
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The feedback from customers is about the recommendations in this</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- insight.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#putFeedback_insightFeedback"><span class="hs-identifier hs-type">putFeedback_insightFeedback</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback"><span class="hs-identifier hs-type">PutFeedback</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.InsightFeedback.html#InsightFeedback"><span class="hs-identifier hs-type">InsightFeedback</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="putFeedback_insightFeedback"><span class="annot"><span class="annottext">putFeedback_insightFeedback :: (Maybe InsightFeedback -&gt; f (Maybe InsightFeedback))
+-&gt; PutFeedback -&gt; f PutFeedback
+</span><a href="Amazonka.DevOpsGuru.PutFeedback.html#putFeedback_insightFeedback"><span class="hs-identifier hs-var hs-var">putFeedback_insightFeedback</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFeedback -&gt; Maybe InsightFeedback)
+-&gt; (PutFeedback -&gt; Maybe InsightFeedback -&gt; PutFeedback)
+-&gt; Lens
+     PutFeedback
+     PutFeedback
+     (Maybe InsightFeedback)
+     (Maybe InsightFeedback)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback%27"><span class="hs-identifier hs-type">PutFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240439"><span class="annot"><span class="annottext">Maybe InsightFeedback
+insightFeedback :: Maybe InsightFeedback
+$sel:insightFeedback:PutFeedback' :: PutFeedback -&gt; Maybe InsightFeedback
+</span><a href="#local-6989586621679240439"><span class="hs-identifier hs-var hs-var">insightFeedback</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InsightFeedback
+</span><a href="#local-6989586621679240439"><span class="hs-identifier hs-var">insightFeedback</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240438"><span class="annot"><span class="annottext">s :: PutFeedback
+</span><a href="#local-6989586621679240438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback%27"><span class="hs-identifier hs-type">PutFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240437"><span class="annot"><span class="annottext">Maybe InsightFeedback
+</span><a href="#local-6989586621679240437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFeedback
+</span><a href="#local-6989586621679240438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightFeedback:PutFeedback' :: Maybe InsightFeedback
+</span><a href="Amazonka.DevOpsGuru.PutFeedback.html#%24sel%3AinsightFeedback%3APutFeedback%27"><span class="hs-identifier hs-var">insightFeedback</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightFeedback
+</span><a href="#local-6989586621679240437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback"><span class="hs-identifier hs-type">PutFeedback</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback"><span class="hs-identifier hs-type">PutFeedback</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback"><span class="hs-identifier hs-type">PutFeedback</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedbackResponse"><span class="hs-identifier hs-type">PutFeedbackResponse</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679240433"><span class="annot"><span class="annottext">request :: PutFeedback -&gt; Request PutFeedback
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutFeedback -&gt; Request PutFeedback
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DevOpsGuru.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679240429"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutFeedback
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutFeedback)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse PutFeedback))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutFeedback
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutFeedback)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679240426"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240426"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679240425"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679240425"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679240424"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679240424"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutFeedbackResponse
+</span><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedbackResponse%27"><span class="hs-identifier hs-var">PutFeedbackResponse'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutFeedbackResponse)
+-&gt; Either String Int -&gt; Either String PutFeedbackResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240426"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240417"><span id="local-6989586621679240419"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback"><span class="hs-identifier hs-type">PutFeedback</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240414"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback"><span class="hs-identifier hs-type">PutFeedback</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback"><span class="hs-identifier hs-type">PutFeedback</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679240410"><span class="annot"><span class="annottext">toHeaders :: PutFeedback -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutFeedback -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-97"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240400"><span id="local-6989586621679240402"><span id="local-6989586621679240404"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback"><span class="hs-identifier hs-type">PutFeedback</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679240398"><span class="annot"><span class="annottext">toJSON :: PutFeedback -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback%27"><span class="hs-identifier hs-type">PutFeedback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240396"><span class="annot"><span class="annottext">Maybe InsightFeedback
+insightFeedback :: Maybe InsightFeedback
+$sel:insightFeedback:PutFeedback' :: PutFeedback -&gt; Maybe InsightFeedback
+</span><a href="#local-6989586621679240396"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InsightFeedback&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InsightFeedback -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">(InsightFeedback -&gt; Pair) -&gt; Maybe InsightFeedback -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InsightFeedback
+</span><a href="#local-6989586621679240396"><span class="hs-identifier hs-var">insightFeedback</span></a></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback"><span class="hs-identifier hs-type">PutFeedback</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679240390"><span class="annot"><span class="annottext">toPath :: PutFeedback -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutFeedback -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/feedback&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedback"><span class="hs-identifier hs-type">PutFeedback</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679240386"><span class="annot"><span class="annottext">toQuery :: PutFeedback -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutFeedback -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | /See:/ 'newPutFeedbackResponse' smart constructor.</span><span>
+</span><span id="line-117"></span><span id="local-6989586621679240383"><span id="local-6989586621679240384"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutFeedbackResponse"><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedbackResponse"><span class="hs-identifier hs-var">PutFeedbackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutFeedbackResponse%27"><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedbackResponse%27"><span class="hs-identifier hs-var">PutFeedbackResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutFeedbackResponse%27"><span class="annot"><span class="annottext">PutFeedbackResponse -&gt; Int
+</span><a href="Amazonka.DevOpsGuru.PutFeedback.html#%24sel%3AhttpStatus%3APutFeedbackResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679240378"><span id="local-6989586621679240380"><span class="annot"><span class="annottext">PutFeedbackResponse -&gt; PutFeedbackResponse -&gt; Bool
+(PutFeedbackResponse -&gt; PutFeedbackResponse -&gt; Bool)
+-&gt; (PutFeedbackResponse -&gt; PutFeedbackResponse -&gt; Bool)
+-&gt; Eq PutFeedbackResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutFeedbackResponse -&gt; PutFeedbackResponse -&gt; Bool
+$c/= :: PutFeedbackResponse -&gt; PutFeedbackResponse -&gt; Bool
+== :: PutFeedbackResponse -&gt; PutFeedbackResponse -&gt; Bool
+$c== :: PutFeedbackResponse -&gt; PutFeedbackResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240370"><span id="local-6989586621679240372"><span id="local-6989586621679240374"><span id="local-6989586621679240376"><span class="annot"><span class="annottext">ReadPrec [PutFeedbackResponse]
+ReadPrec PutFeedbackResponse
+Int -&gt; ReadS PutFeedbackResponse
+ReadS [PutFeedbackResponse]
+(Int -&gt; ReadS PutFeedbackResponse)
+-&gt; ReadS [PutFeedbackResponse]
+-&gt; ReadPrec PutFeedbackResponse
+-&gt; ReadPrec [PutFeedbackResponse]
+-&gt; Read PutFeedbackResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutFeedbackResponse]
+$creadListPrec :: ReadPrec [PutFeedbackResponse]
+readPrec :: ReadPrec PutFeedbackResponse
+$creadPrec :: ReadPrec PutFeedbackResponse
+readList :: ReadS [PutFeedbackResponse]
+$creadList :: ReadS [PutFeedbackResponse]
+readsPrec :: Int -&gt; ReadS PutFeedbackResponse
+$creadsPrec :: Int -&gt; ReadS PutFeedbackResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240364"><span id="local-6989586621679240366"><span id="local-6989586621679240368"><span class="annot"><span class="annottext">Int -&gt; PutFeedbackResponse -&gt; ShowS
+[PutFeedbackResponse] -&gt; ShowS
+PutFeedbackResponse -&gt; String
+(Int -&gt; PutFeedbackResponse -&gt; ShowS)
+-&gt; (PutFeedbackResponse -&gt; String)
+-&gt; ([PutFeedbackResponse] -&gt; ShowS)
+-&gt; Show PutFeedbackResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutFeedbackResponse] -&gt; ShowS
+$cshowList :: [PutFeedbackResponse] -&gt; ShowS
+show :: PutFeedbackResponse -&gt; String
+$cshow :: PutFeedbackResponse -&gt; String
+showsPrec :: Int -&gt; PutFeedbackResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutFeedbackResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutFeedbackResponse -&gt; Rep PutFeedbackResponse x)
+-&gt; (forall x. Rep PutFeedbackResponse x -&gt; PutFeedbackResponse)
+-&gt; Generic PutFeedbackResponse
+forall x. Rep PutFeedbackResponse x -&gt; PutFeedbackResponse
+forall x. PutFeedbackResponse -&gt; Rep PutFeedbackResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutFeedbackResponse x -&gt; PutFeedbackResponse
+$cfrom :: forall x. PutFeedbackResponse -&gt; Rep PutFeedbackResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Create a value of 'PutFeedbackResponse' with all optional fields omitted.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'httpStatus', 'putFeedbackResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#newPutFeedbackResponse"><span class="hs-identifier hs-type">newPutFeedbackResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedbackResponse"><span class="hs-identifier hs-type">PutFeedbackResponse</span></a></span><span>
+</span><span id="line-136"></span><span id="newPutFeedbackResponse"><span class="annot"><span class="annottext">newPutFeedbackResponse :: Int -&gt; PutFeedbackResponse
+</span><a href="Amazonka.DevOpsGuru.PutFeedback.html#newPutFeedbackResponse"><span class="hs-identifier hs-var hs-var">newPutFeedbackResponse</span></a></span></span><span> </span><span id="local-6989586621679240361"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240361"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">PutFeedbackResponse' :: Int -&gt; PutFeedbackResponse
+</span><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedbackResponse%27"><span class="hs-identifier hs-type">PutFeedbackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutFeedbackResponse' :: Int
+</span><a href="Amazonka.DevOpsGuru.PutFeedback.html#%24sel%3AhttpStatus%3APutFeedbackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240361"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#putFeedbackResponse_httpStatus"><span class="hs-identifier hs-type">putFeedbackResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedbackResponse"><span class="hs-identifier hs-type">PutFeedbackResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-141"></span><span id="putFeedbackResponse_httpStatus"><span class="annot"><span class="annottext">putFeedbackResponse_httpStatus :: (Int -&gt; f Int) -&gt; PutFeedbackResponse -&gt; f PutFeedbackResponse
+</span><a href="Amazonka.DevOpsGuru.PutFeedback.html#putFeedbackResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putFeedbackResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFeedbackResponse -&gt; Int)
+-&gt; (PutFeedbackResponse -&gt; Int -&gt; PutFeedbackResponse)
+-&gt; Lens PutFeedbackResponse PutFeedbackResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedbackResponse%27"><span class="hs-identifier hs-type">PutFeedbackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240360"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutFeedbackResponse' :: PutFeedbackResponse -&gt; Int
+</span><a href="#local-6989586621679240360"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240360"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240359"><span class="annot"><span class="annottext">s :: PutFeedbackResponse
+</span><a href="#local-6989586621679240359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedbackResponse%27"><span class="hs-identifier hs-type">PutFeedbackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240358"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFeedbackResponse
+</span><a href="#local-6989586621679240359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutFeedbackResponse' :: Int
+</span><a href="Amazonka.DevOpsGuru.PutFeedback.html#%24sel%3AhttpStatus%3APutFeedbackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedbackResponse"><span class="hs-identifier hs-type">PutFeedbackResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.PutFeedback.html#PutFeedbackResponse"><span class="hs-identifier hs-type">PutFeedbackResponse</span></a></span></span><span>
+</span><span id="line-144"></span></pre></body></html>

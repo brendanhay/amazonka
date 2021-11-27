@@ -1,0 +1,795 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CognitoIdentity.CreateIdentityPool</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new identity pool. The identity pool is a store of user</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- identity information that is specific to your AWS account. The keys for</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @SupportedLoginProviders@ are as follows:</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- -   Facebook: @graph.facebook.com@</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- -   Google: @accounts.google.com@</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- -   Amazon: @www.amazon.com@</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- -   Twitter: @api.twitter.com@</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   Digits: @www.digits.com@</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- You must use AWS Developer credentials to call this API.</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CognitoIdentity.CreateIdentityPool</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier">CreateIdentityPool</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#newCreateIdentityPool"><span class="hs-identifier">newCreateIdentityPool</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_samlProviderARNs"><span class="hs-identifier">createIdentityPool_samlProviderARNs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_supportedLoginProviders"><span class="hs-identifier">createIdentityPool_supportedLoginProviders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_allowClassicFlow"><span class="hs-identifier">createIdentityPool_allowClassicFlow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_developerProviderName"><span class="hs-identifier">createIdentityPool_developerProviderName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_identityPoolTags"><span class="hs-identifier">createIdentityPool_identityPoolTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_openIdConnectProviderARNs"><span class="hs-identifier">createIdentityPool_openIdConnectProviderARNs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_cognitoIdentityProviders"><span class="hs-identifier">createIdentityPool_cognitoIdentityProviders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_identityPoolName"><span class="hs-identifier">createIdentityPool_identityPoolName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_allowUnauthenticatedIdentities"><span class="hs-identifier">createIdentityPool_allowUnauthenticatedIdentities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.IdentityPool.html#IdentityPool"><span class="hs-identifier">IdentityPool</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.IdentityPool.html#newIdentityPool"><span class="hs-identifier">newIdentityPool</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.IdentityPool.html#identityPool_samlProviderARNs"><span class="hs-identifier">identityPool_samlProviderARNs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.IdentityPool.html#identityPool_supportedLoginProviders"><span class="hs-identifier">identityPool_supportedLoginProviders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.IdentityPool.html#identityPool_allowClassicFlow"><span class="hs-identifier">identityPool_allowClassicFlow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.IdentityPool.html#identityPool_developerProviderName"><span class="hs-identifier">identityPool_developerProviderName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.IdentityPool.html#identityPool_identityPoolTags"><span class="hs-identifier">identityPool_identityPoolTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.IdentityPool.html#identityPool_openIdConnectProviderARNs"><span class="hs-identifier">identityPool_openIdConnectProviderARNs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.IdentityPool.html#identityPool_cognitoIdentityProviders"><span class="hs-identifier">identityPool_cognitoIdentityProviders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.IdentityPool.html#identityPool_identityPoolId"><span class="hs-identifier">identityPool_identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.IdentityPool.html#identityPool_identityPoolName"><span class="hs-identifier">identityPool_identityPoolName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.IdentityPool.html#identityPool_allowUnauthenticatedIdentities"><span class="hs-identifier">identityPool_allowUnauthenticatedIdentities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.html"><span class="hs-identifier">Amazonka.CognitoIdentity.Types</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Input to the CreateIdentityPool action.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- /See:/ 'newCreateIdentityPool' smart constructor.</span><span>
+</span><span id="line-82"></span><span id="local-6989586621679188486"><span id="local-6989586621679188487"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateIdentityPool"><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-var">CreateIdentityPool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateIdentityPool%27"><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-var">CreateIdentityPool'</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of Amazon Resource Names (ARNs) of the SAML provider for your</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- identity pool.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AsamlProviderARNs%3ACreateIdentityPool%27"><span class="annot"><span class="annottext">CreateIdentityPool -&gt; Maybe [Text]
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AsamlProviderARNs%3ACreateIdentityPool%27"><span class="hs-identifier hs-var hs-var">samlProviderARNs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | Optional key:value pairs mapping provider names to provider app IDs.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AsupportedLoginProviders%3ACreateIdentityPool%27"><span class="annot"><span class="annottext">CreateIdentityPool -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AsupportedLoginProviders%3ACreateIdentityPool%27"><span class="hs-identifier hs-var hs-var">supportedLoginProviders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | Enables or disables the Basic (Classic) authentication flow. For more</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Identity Pools (Federated Identities) Authentication Flow&gt;</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- in the /Amazon Cognito Developer Guide/.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AallowClassicFlow%3ACreateIdentityPool%27"><span class="annot"><span class="annottext">CreateIdentityPool -&gt; Maybe Bool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AallowClassicFlow%3ACreateIdentityPool%27"><span class="hs-identifier hs-var hs-var">allowClassicFlow</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The \&quot;domain\&quot; by which Cognito will refer to your users. This name acts</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- as a placeholder that allows your backend and the Cognito service to</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- communicate about the developer provider. For the</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- @DeveloperProviderName@, you can use letters as well as period (@.@),</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- underscore (@_@), and dash (@-@).</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- Once you have set a developer provider name, you cannot change it.</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- Please take care in setting this parameter.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AdeveloperProviderName%3ACreateIdentityPool%27"><span class="annot"><span class="annottext">CreateIdentityPool -&gt; Maybe Text
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AdeveloperProviderName%3ACreateIdentityPool%27"><span class="hs-identifier hs-var hs-var">developerProviderName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | Tags to assign to the identity pool. A tag is a label that you can apply</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- to identity pools to categorize and manage them in different ways, such</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- as by purpose, owner, environment, or other criteria.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AidentityPoolTags%3ACreateIdentityPool%27"><span class="annot"><span class="annottext">CreateIdentityPool -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AidentityPoolTags%3ACreateIdentityPool%27"><span class="hs-identifier hs-var hs-var">identityPoolTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names (ARN) of the OpenID Connect providers.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AopenIdConnectProviderARNs%3ACreateIdentityPool%27"><span class="annot"><span class="annottext">CreateIdentityPool -&gt; Maybe [Text]
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AopenIdConnectProviderARNs%3ACreateIdentityPool%27"><span class="hs-identifier hs-var hs-var">openIdConnectProviderARNs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | An array of Amazon Cognito user pools and their client IDs.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AcognitoIdentityProviders%3ACreateIdentityPool%27"><span class="annot"><span class="annottext">CreateIdentityPool -&gt; Maybe [CognitoIdentityProvider]
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AcognitoIdentityProviders%3ACreateIdentityPool%27"><span class="hs-identifier hs-var hs-var">cognitoIdentityProviders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | A string that you provide.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AidentityPoolName%3ACreateIdentityPool%27"><span class="annot"><span class="annottext">CreateIdentityPool -&gt; Text
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AidentityPoolName%3ACreateIdentityPool%27"><span class="hs-identifier hs-var hs-var">identityPoolName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | TRUE if the identity pool supports unauthenticated logins.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3AallowUnauthenticatedIdentities%3ACreateIdentityPool%27"><span class="annot"><span class="annottext">CreateIdentityPool -&gt; Bool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AallowUnauthenticatedIdentities%3ACreateIdentityPool%27"><span class="hs-identifier hs-var hs-var">allowUnauthenticatedIdentities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188472"><span id="local-6989586621679188474"><span class="annot"><span class="annottext">CreateIdentityPool -&gt; CreateIdentityPool -&gt; Bool
+(CreateIdentityPool -&gt; CreateIdentityPool -&gt; Bool)
+-&gt; (CreateIdentityPool -&gt; CreateIdentityPool -&gt; Bool)
+-&gt; Eq CreateIdentityPool
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateIdentityPool -&gt; CreateIdentityPool -&gt; Bool
+$c/= :: CreateIdentityPool -&gt; CreateIdentityPool -&gt; Bool
+== :: CreateIdentityPool -&gt; CreateIdentityPool -&gt; Bool
+$c== :: CreateIdentityPool -&gt; CreateIdentityPool -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188463"><span id="local-6989586621679188465"><span id="local-6989586621679188467"><span id="local-6989586621679188469"><span class="annot"><span class="annottext">ReadPrec [CreateIdentityPool]
+ReadPrec CreateIdentityPool
+Int -&gt; ReadS CreateIdentityPool
+ReadS [CreateIdentityPool]
+(Int -&gt; ReadS CreateIdentityPool)
+-&gt; ReadS [CreateIdentityPool]
+-&gt; ReadPrec CreateIdentityPool
+-&gt; ReadPrec [CreateIdentityPool]
+-&gt; Read CreateIdentityPool
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateIdentityPool]
+$creadListPrec :: ReadPrec [CreateIdentityPool]
+readPrec :: ReadPrec CreateIdentityPool
+$creadPrec :: ReadPrec CreateIdentityPool
+readList :: ReadS [CreateIdentityPool]
+$creadList :: ReadS [CreateIdentityPool]
+readsPrec :: Int -&gt; ReadS CreateIdentityPool
+$creadsPrec :: Int -&gt; ReadS CreateIdentityPool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188456"><span id="local-6989586621679188458"><span id="local-6989586621679188460"><span class="annot"><span class="annottext">Int -&gt; CreateIdentityPool -&gt; ShowS
+[CreateIdentityPool] -&gt; ShowS
+CreateIdentityPool -&gt; String
+(Int -&gt; CreateIdentityPool -&gt; ShowS)
+-&gt; (CreateIdentityPool -&gt; String)
+-&gt; ([CreateIdentityPool] -&gt; ShowS)
+-&gt; Show CreateIdentityPool
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateIdentityPool] -&gt; ShowS
+$cshowList :: [CreateIdentityPool] -&gt; ShowS
+show :: CreateIdentityPool -&gt; String
+$cshow :: CreateIdentityPool -&gt; String
+showsPrec :: Int -&gt; CreateIdentityPool -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateIdentityPool -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateIdentityPool -&gt; Rep CreateIdentityPool x)
+-&gt; (forall x. Rep CreateIdentityPool x -&gt; CreateIdentityPool)
+-&gt; Generic CreateIdentityPool
+forall x. Rep CreateIdentityPool x -&gt; CreateIdentityPool
+forall x. CreateIdentityPool -&gt; Rep CreateIdentityPool x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateIdentityPool x -&gt; CreateIdentityPool
+$cfrom :: forall x. CreateIdentityPool -&gt; Rep CreateIdentityPool x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Create a value of 'CreateIdentityPool' with all optional fields omitted.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'samlProviderARNs', 'createIdentityPool_samlProviderARNs' - An array of Amazon Resource Names (ARNs) of the SAML provider for your</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- identity pool.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'supportedLoginProviders', 'createIdentityPool_supportedLoginProviders' - Optional key:value pairs mapping provider names to provider app IDs.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'allowClassicFlow', 'createIdentityPool_allowClassicFlow' - Enables or disables the Basic (Classic) authentication flow. For more</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Identity Pools (Federated Identities) Authentication Flow&gt;</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- in the /Amazon Cognito Developer Guide/.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'developerProviderName', 'createIdentityPool_developerProviderName' - The \&quot;domain\&quot; by which Cognito will refer to your users. This name acts</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- as a placeholder that allows your backend and the Cognito service to</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- communicate about the developer provider. For the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- @DeveloperProviderName@, you can use letters as well as period (@.@),</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- underscore (@_@), and dash (@-@).</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Once you have set a developer provider name, you cannot change it.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Please take care in setting this parameter.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'identityPoolTags', 'createIdentityPool_identityPoolTags' - Tags to assign to the identity pool. A tag is a label that you can apply</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- to identity pools to categorize and manage them in different ways, such</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- as by purpose, owner, environment, or other criteria.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'openIdConnectProviderARNs', 'createIdentityPool_openIdConnectProviderARNs' - The Amazon Resource Names (ARN) of the OpenID Connect providers.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'cognitoIdentityProviders', 'createIdentityPool_cognitoIdentityProviders' - An array of Amazon Cognito user pools and their client IDs.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'identityPoolName', 'createIdentityPool_identityPoolName' - A string that you provide.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'allowUnauthenticatedIdentities', 'createIdentityPool_allowUnauthenticatedIdentities' - TRUE if the identity pool supports unauthenticated logins.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#newCreateIdentityPool"><span class="hs-identifier hs-type">newCreateIdentityPool</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'identityPoolName'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'allowUnauthenticatedIdentities'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span>
+</span><span id="line-161"></span><span id="newCreateIdentityPool"><span class="annot"><span class="annottext">newCreateIdentityPool :: Text -&gt; Bool -&gt; CreateIdentityPool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#newCreateIdentityPool"><span class="hs-identifier hs-var hs-var">newCreateIdentityPool</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679188451"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188451"><span class="hs-identifier hs-var">pIdentityPoolName_</span></a></span></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679188450"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679188450"><span class="hs-identifier hs-var">pAllowUnauthenticatedIdentities_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">CreateIdentityPool' :: Maybe [Text]
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe [Text]
+-&gt; Maybe [CognitoIdentityProvider]
+-&gt; Text
+-&gt; Bool
+-&gt; CreateIdentityPool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:samlProviderARNs:CreateIdentityPool' :: Maybe [Text]
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AsamlProviderARNs%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">samlProviderARNs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:supportedLoginProviders:CreateIdentityPool' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AsupportedLoginProviders%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">supportedLoginProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:allowClassicFlow:CreateIdentityPool' :: Maybe Bool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AallowClassicFlow%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">allowClassicFlow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">$sel:developerProviderName:CreateIdentityPool' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AdeveloperProviderName%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">developerProviderName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityPoolTags:CreateIdentityPool' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AidentityPoolTags%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">identityPoolTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">$sel:openIdConnectProviderARNs:CreateIdentityPool' :: Maybe [Text]
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AopenIdConnectProviderARNs%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">openIdConnectProviderARNs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">$sel:cognitoIdentityProviders:CreateIdentityPool' :: Maybe [CognitoIdentityProvider]
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AcognitoIdentityProviders%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">cognitoIdentityProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CognitoIdentityProvider]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityPoolName:CreateIdentityPool' :: Text
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AidentityPoolName%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">identityPoolName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188451"><span class="hs-identifier hs-var">pIdentityPoolName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">$sel:allowUnauthenticatedIdentities:CreateIdentityPool' :: Bool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AallowUnauthenticatedIdentities%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">allowUnauthenticatedIdentities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679188450"><span class="hs-identifier hs-var">pAllowUnauthenticatedIdentities_</span></a></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | An array of Amazon Resource Names (ARNs) of the SAML provider for your</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- identity pool.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_samlProviderARNs"><span class="hs-identifier hs-type">createIdentityPool_samlProviderARNs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="createIdentityPool_samlProviderARNs"><span class="annot"><span class="annottext">createIdentityPool_samlProviderARNs :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateIdentityPool -&gt; f CreateIdentityPool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_samlProviderARNs"><span class="hs-identifier hs-var hs-var">createIdentityPool_samlProviderARNs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIdentityPool -&gt; Maybe [Text])
+-&gt; (CreateIdentityPool -&gt; Maybe [Text] -&gt; CreateIdentityPool)
+-&gt; Lens
+     CreateIdentityPool CreateIdentityPool (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188447"><span class="annot"><span class="annottext">Maybe [Text]
+samlProviderARNs :: Maybe [Text]
+$sel:samlProviderARNs:CreateIdentityPool' :: CreateIdentityPool -&gt; Maybe [Text]
+</span><a href="#local-6989586621679188447"><span class="hs-identifier hs-var hs-var">samlProviderARNs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679188447"><span class="hs-identifier hs-var">samlProviderARNs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188446"><span class="annot"><span class="annottext">s :: CreateIdentityPool
+</span><a href="#local-6989586621679188446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188445"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679188445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIdentityPool
+</span><a href="#local-6989586621679188446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:samlProviderARNs:CreateIdentityPool' :: Maybe [Text]
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AsamlProviderARNs%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">samlProviderARNs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679188445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateIdentityPool -&gt; f CreateIdentityPool)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateIdentityPool
+-&gt; f CreateIdentityPool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | Optional key:value pairs mapping provider names to provider app IDs.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_supportedLoginProviders"><span class="hs-identifier hs-type">createIdentityPool_supportedLoginProviders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="createIdentityPool_supportedLoginProviders"><span class="annot"><span class="annottext">createIdentityPool_supportedLoginProviders :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateIdentityPool -&gt; f CreateIdentityPool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_supportedLoginProviders"><span class="hs-identifier hs-var hs-var">createIdentityPool_supportedLoginProviders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIdentityPool -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateIdentityPool
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateIdentityPool)
+-&gt; Lens
+     CreateIdentityPool
+     CreateIdentityPool
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188441"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+supportedLoginProviders :: Maybe (HashMap Text Text)
+$sel:supportedLoginProviders:CreateIdentityPool' :: CreateIdentityPool -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679188441"><span class="hs-identifier hs-var hs-var">supportedLoginProviders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679188441"><span class="hs-identifier hs-var">supportedLoginProviders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188440"><span class="annot"><span class="annottext">s :: CreateIdentityPool
+</span><a href="#local-6989586621679188440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188439"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679188439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIdentityPool
+</span><a href="#local-6989586621679188440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedLoginProviders:CreateIdentityPool' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AsupportedLoginProviders%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">supportedLoginProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679188439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateIdentityPool -&gt; f CreateIdentityPool)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateIdentityPool
+-&gt; f CreateIdentityPool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | Enables or disables the Basic (Classic) authentication flow. For more</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Identity Pools (Federated Identities) Authentication Flow&gt;</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- in the /Amazon Cognito Developer Guide/.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_allowClassicFlow"><span class="hs-identifier hs-type">createIdentityPool_allowClassicFlow</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="createIdentityPool_allowClassicFlow"><span class="annot"><span class="annottext">createIdentityPool_allowClassicFlow :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateIdentityPool -&gt; f CreateIdentityPool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_allowClassicFlow"><span class="hs-identifier hs-var hs-var">createIdentityPool_allowClassicFlow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIdentityPool -&gt; Maybe Bool)
+-&gt; (CreateIdentityPool -&gt; Maybe Bool -&gt; CreateIdentityPool)
+-&gt; Lens
+     CreateIdentityPool CreateIdentityPool (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188438"><span class="annot"><span class="annottext">Maybe Bool
+allowClassicFlow :: Maybe Bool
+$sel:allowClassicFlow:CreateIdentityPool' :: CreateIdentityPool -&gt; Maybe Bool
+</span><a href="#local-6989586621679188438"><span class="hs-identifier hs-var hs-var">allowClassicFlow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679188438"><span class="hs-identifier hs-var">allowClassicFlow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188437"><span class="annot"><span class="annottext">s :: CreateIdentityPool
+</span><a href="#local-6989586621679188437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188436"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679188436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIdentityPool
+</span><a href="#local-6989586621679188437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowClassicFlow:CreateIdentityPool' :: Maybe Bool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AallowClassicFlow%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">allowClassicFlow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679188436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The \&quot;domain\&quot; by which Cognito will refer to your users. This name acts</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- as a placeholder that allows your backend and the Cognito service to</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- communicate about the developer provider. For the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- @DeveloperProviderName@, you can use letters as well as period (@.@),</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- underscore (@_@), and dash (@-@).</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Once you have set a developer provider name, you cannot change it.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Please take care in setting this parameter.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_developerProviderName"><span class="hs-identifier hs-type">createIdentityPool_developerProviderName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="createIdentityPool_developerProviderName"><span class="annot"><span class="annottext">createIdentityPool_developerProviderName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateIdentityPool -&gt; f CreateIdentityPool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_developerProviderName"><span class="hs-identifier hs-var hs-var">createIdentityPool_developerProviderName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIdentityPool -&gt; Maybe Text)
+-&gt; (CreateIdentityPool -&gt; Maybe Text -&gt; CreateIdentityPool)
+-&gt; Lens
+     CreateIdentityPool CreateIdentityPool (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188435"><span class="annot"><span class="annottext">Maybe Text
+developerProviderName :: Maybe Text
+$sel:developerProviderName:CreateIdentityPool' :: CreateIdentityPool -&gt; Maybe Text
+</span><a href="#local-6989586621679188435"><span class="hs-identifier hs-var hs-var">developerProviderName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188435"><span class="hs-identifier hs-var">developerProviderName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188434"><span class="annot"><span class="annottext">s :: CreateIdentityPool
+</span><a href="#local-6989586621679188434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188433"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIdentityPool
+</span><a href="#local-6989586621679188434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:developerProviderName:CreateIdentityPool' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AdeveloperProviderName%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">developerProviderName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | Tags to assign to the identity pool. A tag is a label that you can apply</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- to identity pools to categorize and manage them in different ways, such</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- as by purpose, owner, environment, or other criteria.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_identityPoolTags"><span class="hs-identifier hs-type">createIdentityPool_identityPoolTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="createIdentityPool_identityPoolTags"><span class="annot"><span class="annottext">createIdentityPool_identityPoolTags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateIdentityPool -&gt; f CreateIdentityPool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_identityPoolTags"><span class="hs-identifier hs-var hs-var">createIdentityPool_identityPoolTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIdentityPool -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateIdentityPool
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateIdentityPool)
+-&gt; Lens
+     CreateIdentityPool
+     CreateIdentityPool
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188432"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+identityPoolTags :: Maybe (HashMap Text Text)
+$sel:identityPoolTags:CreateIdentityPool' :: CreateIdentityPool -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679188432"><span class="hs-identifier hs-var hs-var">identityPoolTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679188432"><span class="hs-identifier hs-var">identityPoolTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188431"><span class="annot"><span class="annottext">s :: CreateIdentityPool
+</span><a href="#local-6989586621679188431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188430"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679188430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIdentityPool
+</span><a href="#local-6989586621679188431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolTags:CreateIdentityPool' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AidentityPoolTags%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">identityPoolTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679188430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateIdentityPool -&gt; f CreateIdentityPool)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateIdentityPool
+-&gt; f CreateIdentityPool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The Amazon Resource Names (ARN) of the OpenID Connect providers.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_openIdConnectProviderARNs"><span class="hs-identifier hs-type">createIdentityPool_openIdConnectProviderARNs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="createIdentityPool_openIdConnectProviderARNs"><span class="annot"><span class="annottext">createIdentityPool_openIdConnectProviderARNs :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateIdentityPool -&gt; f CreateIdentityPool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_openIdConnectProviderARNs"><span class="hs-identifier hs-var hs-var">createIdentityPool_openIdConnectProviderARNs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIdentityPool -&gt; Maybe [Text])
+-&gt; (CreateIdentityPool -&gt; Maybe [Text] -&gt; CreateIdentityPool)
+-&gt; Lens
+     CreateIdentityPool CreateIdentityPool (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188429"><span class="annot"><span class="annottext">Maybe [Text]
+openIdConnectProviderARNs :: Maybe [Text]
+$sel:openIdConnectProviderARNs:CreateIdentityPool' :: CreateIdentityPool -&gt; Maybe [Text]
+</span><a href="#local-6989586621679188429"><span class="hs-identifier hs-var hs-var">openIdConnectProviderARNs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679188429"><span class="hs-identifier hs-var">openIdConnectProviderARNs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188428"><span class="annot"><span class="annottext">s :: CreateIdentityPool
+</span><a href="#local-6989586621679188428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188427"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679188427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIdentityPool
+</span><a href="#local-6989586621679188428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:openIdConnectProviderARNs:CreateIdentityPool' :: Maybe [Text]
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AopenIdConnectProviderARNs%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">openIdConnectProviderARNs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679188427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateIdentityPool -&gt; f CreateIdentityPool)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateIdentityPool
+-&gt; f CreateIdentityPool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | An array of Amazon Cognito user pools and their client IDs.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_cognitoIdentityProviders"><span class="hs-identifier hs-type">createIdentityPool_cognitoIdentityProviders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="createIdentityPool_cognitoIdentityProviders"><span class="annot"><span class="annottext">createIdentityPool_cognitoIdentityProviders :: (Maybe [CognitoIdentityProvider]
+ -&gt; f (Maybe [CognitoIdentityProvider]))
+-&gt; CreateIdentityPool -&gt; f CreateIdentityPool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_cognitoIdentityProviders"><span class="hs-identifier hs-var hs-var">createIdentityPool_cognitoIdentityProviders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIdentityPool -&gt; Maybe [CognitoIdentityProvider])
+-&gt; (CreateIdentityPool
+    -&gt; Maybe [CognitoIdentityProvider] -&gt; CreateIdentityPool)
+-&gt; Lens
+     CreateIdentityPool
+     CreateIdentityPool
+     (Maybe [CognitoIdentityProvider])
+     (Maybe [CognitoIdentityProvider])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188426"><span class="annot"><span class="annottext">Maybe [CognitoIdentityProvider]
+cognitoIdentityProviders :: Maybe [CognitoIdentityProvider]
+$sel:cognitoIdentityProviders:CreateIdentityPool' :: CreateIdentityPool -&gt; Maybe [CognitoIdentityProvider]
+</span><a href="#local-6989586621679188426"><span class="hs-identifier hs-var hs-var">cognitoIdentityProviders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CognitoIdentityProvider]
+</span><a href="#local-6989586621679188426"><span class="hs-identifier hs-var">cognitoIdentityProviders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188425"><span class="annot"><span class="annottext">s :: CreateIdentityPool
+</span><a href="#local-6989586621679188425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188424"><span class="annot"><span class="annottext">Maybe [CognitoIdentityProvider]
+</span><a href="#local-6989586621679188424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIdentityPool
+</span><a href="#local-6989586621679188425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cognitoIdentityProviders:CreateIdentityPool' :: Maybe [CognitoIdentityProvider]
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AcognitoIdentityProviders%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">cognitoIdentityProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CognitoIdentityProvider]
+</span><a href="#local-6989586621679188424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CognitoIdentityProvider]
+  -&gt; f (Maybe [CognitoIdentityProvider]))
+ -&gt; CreateIdentityPool -&gt; f CreateIdentityPool)
+-&gt; ((Maybe [CognitoIdentityProvider]
+     -&gt; f (Maybe [CognitoIdentityProvider]))
+    -&gt; Maybe [CognitoIdentityProvider]
+    -&gt; f (Maybe [CognitoIdentityProvider]))
+-&gt; (Maybe [CognitoIdentityProvider]
+    -&gt; f (Maybe [CognitoIdentityProvider]))
+-&gt; CreateIdentityPool
+-&gt; f CreateIdentityPool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CognitoIdentityProvider]
+  [CognitoIdentityProvider]
+  [CognitoIdentityProvider]
+  [CognitoIdentityProvider]
+-&gt; Iso
+     (Maybe [CognitoIdentityProvider])
+     (Maybe [CognitoIdentityProvider])
+     (Maybe [CognitoIdentityProvider])
+     (Maybe [CognitoIdentityProvider])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CognitoIdentityProvider]
+  [CognitoIdentityProvider]
+  [CognitoIdentityProvider]
+  [CognitoIdentityProvider]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | A string that you provide.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_identityPoolName"><span class="hs-identifier hs-type">createIdentityPool_identityPoolName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-221"></span><span id="createIdentityPool_identityPoolName"><span class="annot"><span class="annottext">createIdentityPool_identityPoolName :: (Text -&gt; f Text) -&gt; CreateIdentityPool -&gt; f CreateIdentityPool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_identityPoolName"><span class="hs-identifier hs-var hs-var">createIdentityPool_identityPoolName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIdentityPool -&gt; Text)
+-&gt; (CreateIdentityPool -&gt; Text -&gt; CreateIdentityPool)
+-&gt; Lens CreateIdentityPool CreateIdentityPool Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188423"><span class="annot"><span class="annottext">Text
+identityPoolName :: Text
+$sel:identityPoolName:CreateIdentityPool' :: CreateIdentityPool -&gt; Text
+</span><a href="#local-6989586621679188423"><span class="hs-identifier hs-var hs-var">identityPoolName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188423"><span class="hs-identifier hs-var">identityPoolName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188422"><span class="annot"><span class="annottext">s :: CreateIdentityPool
+</span><a href="#local-6989586621679188422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188421"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIdentityPool
+</span><a href="#local-6989586621679188422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolName:CreateIdentityPool' :: Text
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AidentityPoolName%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">identityPoolName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | TRUE if the identity pool supports unauthenticated logins.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_allowUnauthenticatedIdentities"><span class="hs-identifier hs-type">createIdentityPool_allowUnauthenticatedIdentities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-225"></span><span id="createIdentityPool_allowUnauthenticatedIdentities"><span class="annot"><span class="annottext">createIdentityPool_allowUnauthenticatedIdentities :: (Bool -&gt; f Bool) -&gt; CreateIdentityPool -&gt; f CreateIdentityPool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#createIdentityPool_allowUnauthenticatedIdentities"><span class="hs-identifier hs-var hs-var">createIdentityPool_allowUnauthenticatedIdentities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIdentityPool -&gt; Bool)
+-&gt; (CreateIdentityPool -&gt; Bool -&gt; CreateIdentityPool)
+-&gt; Lens CreateIdentityPool CreateIdentityPool Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188420"><span class="annot"><span class="annottext">Bool
+allowUnauthenticatedIdentities :: Bool
+$sel:allowUnauthenticatedIdentities:CreateIdentityPool' :: CreateIdentityPool -&gt; Bool
+</span><a href="#local-6989586621679188420"><span class="hs-identifier hs-var hs-var">allowUnauthenticatedIdentities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679188420"><span class="hs-identifier hs-var">allowUnauthenticatedIdentities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188419"><span class="annot"><span class="annottext">s :: CreateIdentityPool
+</span><a href="#local-6989586621679188419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188418"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679188418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIdentityPool
+</span><a href="#local-6989586621679188419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowUnauthenticatedIdentities:CreateIdentityPool' :: Bool
+</span><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#%24sel%3AallowUnauthenticatedIdentities%3ACreateIdentityPool%27"><span class="hs-identifier hs-var">allowUnauthenticatedIdentities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679188418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.IdentityPool.html#IdentityPool"><span class="hs-identifier hs-type">IdentityPool</span></a></span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679188414"><span class="annot"><span class="annottext">request :: CreateIdentityPool -&gt; Request CreateIdentityPool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateIdentityPool -&gt; Request CreateIdentityPool
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CognitoIdentity.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679188410"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateIdentityPool
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateIdentityPool)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateIdentityPool))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateIdentityPool
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateIdentityPool)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-232"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188407"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188407"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679188406"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679188406"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679188405"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188405"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String IdentityPool
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188405"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188400"><span id="local-6989586621679188402"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span></span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188397"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679188393"><span class="annot"><span class="annottext">toHeaders :: CreateIdentityPool -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateIdentityPool -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-241"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-242"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-243"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSCognitoIdentityService.CreateIdentityPool&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-244"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-245"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-247"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-248"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-249"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188383"><span id="local-6989586621679188385"><span id="local-6989586621679188387"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679188381"><span class="annot"><span class="annottext">toJSON :: CreateIdentityPool -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool%27"><span class="hs-identifier hs-type">CreateIdentityPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188371"><span id="local-6989586621679188372"><span id="local-6989586621679188373"><span id="local-6989586621679188374"><span id="local-6989586621679188375"><span id="local-6989586621679188376"><span id="local-6989586621679188377"><span id="local-6989586621679188378"><span id="local-6989586621679188379"><span class="annot"><span class="annottext">Bool
+Maybe Bool
+Maybe [Text]
+Maybe [CognitoIdentityProvider]
+Maybe Text
+Maybe (HashMap Text Text)
+Text
+allowUnauthenticatedIdentities :: Bool
+identityPoolName :: Text
+cognitoIdentityProviders :: Maybe [CognitoIdentityProvider]
+openIdConnectProviderARNs :: Maybe [Text]
+identityPoolTags :: Maybe (HashMap Text Text)
+developerProviderName :: Maybe Text
+allowClassicFlow :: Maybe Bool
+supportedLoginProviders :: Maybe (HashMap Text Text)
+samlProviderARNs :: Maybe [Text]
+$sel:allowUnauthenticatedIdentities:CreateIdentityPool' :: CreateIdentityPool -&gt; Bool
+$sel:identityPoolName:CreateIdentityPool' :: CreateIdentityPool -&gt; Text
+$sel:cognitoIdentityProviders:CreateIdentityPool' :: CreateIdentityPool -&gt; Maybe [CognitoIdentityProvider]
+$sel:openIdConnectProviderARNs:CreateIdentityPool' :: CreateIdentityPool -&gt; Maybe [Text]
+$sel:identityPoolTags:CreateIdentityPool' :: CreateIdentityPool -&gt; Maybe (HashMap Text Text)
+$sel:developerProviderName:CreateIdentityPool' :: CreateIdentityPool -&gt; Maybe Text
+$sel:allowClassicFlow:CreateIdentityPool' :: CreateIdentityPool -&gt; Maybe Bool
+$sel:supportedLoginProviders:CreateIdentityPool' :: CreateIdentityPool -&gt; Maybe (HashMap Text Text)
+$sel:samlProviderARNs:CreateIdentityPool' :: CreateIdentityPool -&gt; Maybe [Text]
+</span><a href="#local-6989586621679188371"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-256"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-257"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SamlProviderARNs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679188379"><span class="hs-identifier hs-var">samlProviderARNs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SupportedLoginProviders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679188378"><span class="hs-identifier hs-var">supportedLoginProviders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AllowClassicFlow&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679188377"><span class="hs-identifier hs-var">allowClassicFlow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeveloperProviderName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188376"><span class="hs-identifier hs-var">developerProviderName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityPoolTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679188375"><span class="hs-identifier hs-var">identityPoolTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OpenIdConnectProviderARNs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679188374"><span class="hs-identifier hs-var">openIdConnectProviderARNs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CognitoIdentityProviders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CognitoIdentityProvider] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>              </span><span class="annot"><span class="annottext">([CognitoIdentityProvider] -&gt; Pair)
+-&gt; Maybe [CognitoIdentityProvider] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CognitoIdentityProvider]
+</span><a href="#local-6989586621679188373"><span class="hs-identifier hs-var">cognitoIdentityProviders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-272"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityPoolName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188372"><span class="hs-identifier hs-var">identityPoolName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-274"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AllowUnauthenticatedIdentities&quot;</span></span><span>
+</span><span id="line-275"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679188371"><span class="hs-identifier hs-var">allowUnauthenticatedIdentities</span></a></span><span>
+</span><span id="line-276"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-278"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621679188364"><span class="annot"><span class="annottext">toPath :: CreateIdentityPool -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateIdentityPool -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.CreateIdentityPool.html#CreateIdentityPool"><span class="hs-identifier hs-type">CreateIdentityPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621679188360"><span class="annot"><span class="annottext">toQuery :: CreateIdentityPool -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateIdentityPool -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-285"></span></pre></body></html>

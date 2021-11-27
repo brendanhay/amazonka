@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.Types.RowLevelPermissionPolicy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.Types.RowLevelPermissionPolicy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#RowLevelPermissionPolicy"><span class="hs-identifier">RowLevelPermissionPolicy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#RowLevelPermissionPolicy_DENY_ACCESS"><span class="hs-identifier">RowLevelPermissionPolicy_DENY_ACCESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#RowLevelPermissionPolicy_GRANT_ACCESS"><span class="hs-identifier">RowLevelPermissionPolicy_GRANT_ACCESS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679564076"><span id="local-6989586621679564077"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RowLevelPermissionPolicy"><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#RowLevelPermissionPolicy"><span class="hs-identifier hs-var">RowLevelPermissionPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RowLevelPermissionPolicy%27"><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#RowLevelPermissionPolicy%27"><span class="hs-identifier hs-var">RowLevelPermissionPolicy'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRowLevelPermissionPolicy"><span class="annot"><span class="annottext">RowLevelPermissionPolicy -&gt; Text
+</span><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#fromRowLevelPermissionPolicy"><span class="hs-identifier hs-var hs-var">fromRowLevelPermissionPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679564068"><span id="local-6989586621679564070"><span id="local-6989586621679564072"><span class="annot"><span class="annottext">Int -&gt; RowLevelPermissionPolicy -&gt; ShowS
+[RowLevelPermissionPolicy] -&gt; ShowS
+RowLevelPermissionPolicy -&gt; String
+(Int -&gt; RowLevelPermissionPolicy -&gt; ShowS)
+-&gt; (RowLevelPermissionPolicy -&gt; String)
+-&gt; ([RowLevelPermissionPolicy] -&gt; ShowS)
+-&gt; Show RowLevelPermissionPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RowLevelPermissionPolicy] -&gt; ShowS
+$cshowList :: [RowLevelPermissionPolicy] -&gt; ShowS
+show :: RowLevelPermissionPolicy -&gt; String
+$cshow :: RowLevelPermissionPolicy -&gt; String
+showsPrec :: Int -&gt; RowLevelPermissionPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; RowLevelPermissionPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679564059"><span id="local-6989586621679564061"><span id="local-6989586621679564063"><span id="local-6989586621679564065"><span class="annot"><span class="annottext">ReadPrec [RowLevelPermissionPolicy]
+ReadPrec RowLevelPermissionPolicy
+Int -&gt; ReadS RowLevelPermissionPolicy
+ReadS [RowLevelPermissionPolicy]
+(Int -&gt; ReadS RowLevelPermissionPolicy)
+-&gt; ReadS [RowLevelPermissionPolicy]
+-&gt; ReadPrec RowLevelPermissionPolicy
+-&gt; ReadPrec [RowLevelPermissionPolicy]
+-&gt; Read RowLevelPermissionPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RowLevelPermissionPolicy]
+$creadListPrec :: ReadPrec [RowLevelPermissionPolicy]
+readPrec :: ReadPrec RowLevelPermissionPolicy
+$creadPrec :: ReadPrec RowLevelPermissionPolicy
+readList :: ReadS [RowLevelPermissionPolicy]
+$creadList :: ReadS [RowLevelPermissionPolicy]
+readsPrec :: Int -&gt; ReadS RowLevelPermissionPolicy
+$creadsPrec :: Int -&gt; ReadS RowLevelPermissionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679564054"><span id="local-6989586621679564056"><span class="annot"><span class="annottext">RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool
+(RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool)
+-&gt; (RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool)
+-&gt; Eq RowLevelPermissionPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool
+$c/= :: RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool
+== :: RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool
+$c== :: RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679564038"><span id="local-6989586621679564040"><span id="local-6989586621679564042"><span id="local-6989586621679564044"><span id="local-6989586621679564046"><span id="local-6989586621679564048"><span id="local-6989586621679564050"><span class="annot"><span class="annottext">Eq RowLevelPermissionPolicy
+Eq RowLevelPermissionPolicy
+-&gt; (RowLevelPermissionPolicy
+    -&gt; RowLevelPermissionPolicy -&gt; Ordering)
+-&gt; (RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool)
+-&gt; (RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool)
+-&gt; (RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool)
+-&gt; (RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool)
+-&gt; (RowLevelPermissionPolicy
+    -&gt; RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy)
+-&gt; (RowLevelPermissionPolicy
+    -&gt; RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy)
+-&gt; Ord RowLevelPermissionPolicy
+RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool
+RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Ordering
+RowLevelPermissionPolicy
+-&gt; RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RowLevelPermissionPolicy
+-&gt; RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy
+$cmin :: RowLevelPermissionPolicy
+-&gt; RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy
+max :: RowLevelPermissionPolicy
+-&gt; RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy
+$cmax :: RowLevelPermissionPolicy
+-&gt; RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy
+&gt;= :: RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool
+$c&gt;= :: RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool
+&gt; :: RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool
+$c&gt; :: RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool
+&lt;= :: RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool
+$c&lt;= :: RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool
+&lt; :: RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool
+$c&lt; :: RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Bool
+compare :: RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Ordering
+$ccompare :: RowLevelPermissionPolicy -&gt; RowLevelPermissionPolicy -&gt; Ordering
+$cp1Ord :: Eq RowLevelPermissionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ RowLevelPermissionPolicy -&gt; Rep RowLevelPermissionPolicy x)
+-&gt; (forall x.
+    Rep RowLevelPermissionPolicy x -&gt; RowLevelPermissionPolicy)
+-&gt; Generic RowLevelPermissionPolicy
+forall x.
+Rep RowLevelPermissionPolicy x -&gt; RowLevelPermissionPolicy
+forall x.
+RowLevelPermissionPolicy -&gt; Rep RowLevelPermissionPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RowLevelPermissionPolicy x -&gt; RowLevelPermissionPolicy
+$cfrom :: forall x.
+RowLevelPermissionPolicy -&gt; Rep RowLevelPermissionPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679564030"><span id="local-6989586621679564032"><span class="annot"><span class="annottext">Int -&gt; RowLevelPermissionPolicy -&gt; Int
+RowLevelPermissionPolicy -&gt; Int
+(Int -&gt; RowLevelPermissionPolicy -&gt; Int)
+-&gt; (RowLevelPermissionPolicy -&gt; Int)
+-&gt; Hashable RowLevelPermissionPolicy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RowLevelPermissionPolicy -&gt; Int
+$chash :: RowLevelPermissionPolicy -&gt; Int
+hashWithSalt :: Int -&gt; RowLevelPermissionPolicy -&gt; Int
+$chashWithSalt :: Int -&gt; RowLevelPermissionPolicy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679564027"><span class="annot"><span class="annottext">RowLevelPermissionPolicy -&gt; ()
+(RowLevelPermissionPolicy -&gt; ()) -&gt; NFData RowLevelPermissionPolicy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RowLevelPermissionPolicy -&gt; ()
+$crnf :: RowLevelPermissionPolicy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679564024"><span class="annot"><span class="annottext">Text -&gt; Either String RowLevelPermissionPolicy
+(Text -&gt; Either String RowLevelPermissionPolicy)
+-&gt; FromText RowLevelPermissionPolicy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RowLevelPermissionPolicy
+$cfromText :: Text -&gt; Either String RowLevelPermissionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679564021"><span class="annot"><span class="annottext">RowLevelPermissionPolicy -&gt; Text
+(RowLevelPermissionPolicy -&gt; Text)
+-&gt; ToText RowLevelPermissionPolicy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RowLevelPermissionPolicy -&gt; Text
+$ctoText :: RowLevelPermissionPolicy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679564018"><span class="annot"><span class="annottext">RowLevelPermissionPolicy -&gt; ByteString
+(RowLevelPermissionPolicy -&gt; ByteString)
+-&gt; ToByteString RowLevelPermissionPolicy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RowLevelPermissionPolicy -&gt; ByteString
+$ctoBS :: RowLevelPermissionPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679564015"><span class="annot"><span class="annottext">RowLevelPermissionPolicy -&gt; ByteStringBuilder
+(RowLevelPermissionPolicy -&gt; ByteStringBuilder)
+-&gt; ToLog RowLevelPermissionPolicy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RowLevelPermissionPolicy -&gt; ByteStringBuilder
+$cbuild :: RowLevelPermissionPolicy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679564012"><span class="annot"><span class="annottext">HeaderName -&gt; RowLevelPermissionPolicy -&gt; [Header]
+(HeaderName -&gt; RowLevelPermissionPolicy -&gt; [Header])
+-&gt; ToHeader RowLevelPermissionPolicy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RowLevelPermissionPolicy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RowLevelPermissionPolicy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679564009"><span class="annot"><span class="annottext">RowLevelPermissionPolicy -&gt; QueryString
+(RowLevelPermissionPolicy -&gt; QueryString)
+-&gt; ToQuery RowLevelPermissionPolicy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RowLevelPermissionPolicy -&gt; QueryString
+$ctoQuery :: RowLevelPermissionPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679564004"><span id="local-6989586621679564006"><span class="annot"><span class="annottext">Value -&gt; Parser [RowLevelPermissionPolicy]
+Value -&gt; Parser RowLevelPermissionPolicy
+(Value -&gt; Parser RowLevelPermissionPolicy)
+-&gt; (Value -&gt; Parser [RowLevelPermissionPolicy])
+-&gt; FromJSON RowLevelPermissionPolicy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RowLevelPermissionPolicy]
+$cparseJSONList :: Value -&gt; Parser [RowLevelPermissionPolicy]
+parseJSON :: Value -&gt; Parser RowLevelPermissionPolicy
+$cparseJSON :: Value -&gt; Parser RowLevelPermissionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679563999"><span id="local-6989586621679564001"><span class="annot"><span class="annottext">FromJSONKeyFunction [RowLevelPermissionPolicy]
+FromJSONKeyFunction RowLevelPermissionPolicy
+FromJSONKeyFunction RowLevelPermissionPolicy
+-&gt; FromJSONKeyFunction [RowLevelPermissionPolicy]
+-&gt; FromJSONKey RowLevelPermissionPolicy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RowLevelPermissionPolicy]
+$cfromJSONKeyList :: FromJSONKeyFunction [RowLevelPermissionPolicy]
+fromJSONKey :: FromJSONKeyFunction RowLevelPermissionPolicy
+$cfromJSONKey :: FromJSONKeyFunction RowLevelPermissionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679563990"><span id="local-6989586621679563992"><span id="local-6989586621679563994"><span id="local-6989586621679563996"><span class="annot"><span class="annottext">[RowLevelPermissionPolicy] -&gt; Encoding
+[RowLevelPermissionPolicy] -&gt; Value
+RowLevelPermissionPolicy -&gt; Encoding
+RowLevelPermissionPolicy -&gt; Value
+(RowLevelPermissionPolicy -&gt; Value)
+-&gt; (RowLevelPermissionPolicy -&gt; Encoding)
+-&gt; ([RowLevelPermissionPolicy] -&gt; Value)
+-&gt; ([RowLevelPermissionPolicy] -&gt; Encoding)
+-&gt; ToJSON RowLevelPermissionPolicy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RowLevelPermissionPolicy] -&gt; Encoding
+$ctoEncodingList :: [RowLevelPermissionPolicy] -&gt; Encoding
+toJSONList :: [RowLevelPermissionPolicy] -&gt; Value
+$ctoJSONList :: [RowLevelPermissionPolicy] -&gt; Value
+toEncoding :: RowLevelPermissionPolicy -&gt; Encoding
+$ctoEncoding :: RowLevelPermissionPolicy -&gt; Encoding
+toJSON :: RowLevelPermissionPolicy -&gt; Value
+$ctoJSON :: RowLevelPermissionPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679563985"><span id="local-6989586621679563987"><span class="annot"><span class="annottext">ToJSONKeyFunction [RowLevelPermissionPolicy]
+ToJSONKeyFunction RowLevelPermissionPolicy
+ToJSONKeyFunction RowLevelPermissionPolicy
+-&gt; ToJSONKeyFunction [RowLevelPermissionPolicy]
+-&gt; ToJSONKey RowLevelPermissionPolicy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RowLevelPermissionPolicy]
+$ctoJSONKeyList :: ToJSONKeyFunction [RowLevelPermissionPolicy]
+toJSONKey :: ToJSONKeyFunction RowLevelPermissionPolicy
+$ctoJSONKey :: ToJSONKeyFunction RowLevelPermissionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679563982"><span class="annot"><span class="annottext">[Node] -&gt; Either String RowLevelPermissionPolicy
+([Node] -&gt; Either String RowLevelPermissionPolicy)
+-&gt; FromXML RowLevelPermissionPolicy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RowLevelPermissionPolicy
+$cparseXML :: [Node] -&gt; Either String RowLevelPermissionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679563979"><span class="annot"><span class="annottext">RowLevelPermissionPolicy -&gt; XML
+(RowLevelPermissionPolicy -&gt; XML) -&gt; ToXML RowLevelPermissionPolicy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RowLevelPermissionPolicy -&gt; XML
+$ctoXML :: RowLevelPermissionPolicy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#RowLevelPermissionPolicy_DENY_ACCESS"><span class="hs-identifier hs-type">RowLevelPermissionPolicy_DENY_ACCESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#RowLevelPermissionPolicy"><span class="hs-identifier hs-type">RowLevelPermissionPolicy</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRowLevelPermissionPolicy_DENY_ACCESS"><span id="%24mRowLevelPermissionPolicy_DENY_ACCESS"><span id="RowLevelPermissionPolicy_DENY_ACCESS"><span class="annot"><span class="annottext">$bRowLevelPermissionPolicy_DENY_ACCESS :: RowLevelPermissionPolicy
+$mRowLevelPermissionPolicy_DENY_ACCESS :: forall r.
+RowLevelPermissionPolicy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#%24bRowLevelPermissionPolicy_DENY_ACCESS"><span class="hs-identifier hs-var hs-var hs-var">RowLevelPermissionPolicy_DENY_ACCESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#RowLevelPermissionPolicy%27"><span class="hs-identifier hs-type">RowLevelPermissionPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DENY_ACCESS&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#RowLevelPermissionPolicy_GRANT_ACCESS"><span class="hs-identifier hs-type">RowLevelPermissionPolicy_GRANT_ACCESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#RowLevelPermissionPolicy"><span class="hs-identifier hs-type">RowLevelPermissionPolicy</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRowLevelPermissionPolicy_GRANT_ACCESS"><span id="%24mRowLevelPermissionPolicy_GRANT_ACCESS"><span id="RowLevelPermissionPolicy_GRANT_ACCESS"><span class="annot"><span class="annottext">$bRowLevelPermissionPolicy_GRANT_ACCESS :: RowLevelPermissionPolicy
+$mRowLevelPermissionPolicy_GRANT_ACCESS :: forall r.
+RowLevelPermissionPolicy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#%24bRowLevelPermissionPolicy_GRANT_ACCESS"><span class="hs-identifier hs-var hs-var hs-var">RowLevelPermissionPolicy_GRANT_ACCESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#RowLevelPermissionPolicy%27"><span class="hs-identifier hs-type">RowLevelPermissionPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GRANT_ACCESS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#RowLevelPermissionPolicy_DENY_ACCESS"><span class="hs-pragma hs-type">RowLevelPermissionPolicy_DENY_ACCESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#RowLevelPermissionPolicy_GRANT_ACCESS"><span class="hs-pragma hs-type">RowLevelPermissionPolicy_GRANT_ACCESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionPolicy.html#RowLevelPermissionPolicy%27"><span class="hs-pragma hs-type">RowLevelPermissionPolicy'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

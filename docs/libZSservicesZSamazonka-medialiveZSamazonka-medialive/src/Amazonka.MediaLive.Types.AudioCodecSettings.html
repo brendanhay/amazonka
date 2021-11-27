@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.AudioCodecSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.AudioCodecSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AacSettings.html"><span class="hs-identifier">Amazonka.MediaLive.Types.AacSettings</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3Settings.html"><span class="hs-identifier">Amazonka.MediaLive.Types.Ac3Settings</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3Settings.html"><span class="hs-identifier">Amazonka.MediaLive.Types.Eac3Settings</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html"><span class="hs-identifier">Amazonka.MediaLive.Types.Mp2Settings</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.PassThroughSettings.html"><span class="hs-identifier">Amazonka.MediaLive.Types.PassThroughSettings</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.WavSettings.html"><span class="hs-identifier">Amazonka.MediaLive.Types.WavSettings</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Audio Codec Settings</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newAudioCodecSettings' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679931982"><span id="local-6989586621679931983"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioCodecSettings"><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-var">AudioCodecSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioCodecSettings%27"><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-var">AudioCodecSettings'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ApassThroughSettings%3AAudioCodecSettings%27"><span class="annot"><span class="annottext">AudioCodecSettings -&gt; Maybe PassThroughSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3ApassThroughSettings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var hs-var">passThroughSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.PassThroughSettings.html#PassThroughSettings"><span class="hs-identifier hs-type">PassThroughSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aac3Settings%3AAudioCodecSettings%27"><span class="annot"><span class="annottext">AudioCodecSettings -&gt; Maybe Ac3Settings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3Aac3Settings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var hs-var">ac3Settings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Amp2Settings%3AAudioCodecSettings%27"><span class="annot"><span class="annottext">AudioCodecSettings -&gt; Maybe Mp2Settings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3Amp2Settings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var hs-var">mp2Settings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AwavSettings%3AAudioCodecSettings%27"><span class="annot"><span class="annottext">AudioCodecSettings -&gt; Maybe WavSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3AwavSettings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var hs-var">wavSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AaacSettings%3AAudioCodecSettings%27"><span class="annot"><span class="annottext">AudioCodecSettings -&gt; Maybe AacSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3AaacSettings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var hs-var">aacSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aeac3Settings%3AAudioCodecSettings%27"><span class="annot"><span class="annottext">AudioCodecSettings -&gt; Maybe Eac3Settings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3Aeac3Settings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var hs-var">eac3Settings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3Settings.html#Eac3Settings"><span class="hs-identifier hs-type">Eac3Settings</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679931971"><span id="local-6989586621679931973"><span class="annot"><span class="annottext">AudioCodecSettings -&gt; AudioCodecSettings -&gt; Bool
+(AudioCodecSettings -&gt; AudioCodecSettings -&gt; Bool)
+-&gt; (AudioCodecSettings -&gt; AudioCodecSettings -&gt; Bool)
+-&gt; Eq AudioCodecSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AudioCodecSettings -&gt; AudioCodecSettings -&gt; Bool
+$c/= :: AudioCodecSettings -&gt; AudioCodecSettings -&gt; Bool
+== :: AudioCodecSettings -&gt; AudioCodecSettings -&gt; Bool
+$c== :: AudioCodecSettings -&gt; AudioCodecSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679931962"><span id="local-6989586621679931964"><span id="local-6989586621679931966"><span id="local-6989586621679931968"><span class="annot"><span class="annottext">ReadPrec [AudioCodecSettings]
+ReadPrec AudioCodecSettings
+Int -&gt; ReadS AudioCodecSettings
+ReadS [AudioCodecSettings]
+(Int -&gt; ReadS AudioCodecSettings)
+-&gt; ReadS [AudioCodecSettings]
+-&gt; ReadPrec AudioCodecSettings
+-&gt; ReadPrec [AudioCodecSettings]
+-&gt; Read AudioCodecSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AudioCodecSettings]
+$creadListPrec :: ReadPrec [AudioCodecSettings]
+readPrec :: ReadPrec AudioCodecSettings
+$creadPrec :: ReadPrec AudioCodecSettings
+readList :: ReadS [AudioCodecSettings]
+$creadList :: ReadS [AudioCodecSettings]
+readsPrec :: Int -&gt; ReadS AudioCodecSettings
+$creadsPrec :: Int -&gt; ReadS AudioCodecSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679931955"><span id="local-6989586621679931957"><span id="local-6989586621679931959"><span class="annot"><span class="annottext">Int -&gt; AudioCodecSettings -&gt; ShowS
+[AudioCodecSettings] -&gt; ShowS
+AudioCodecSettings -&gt; String
+(Int -&gt; AudioCodecSettings -&gt; ShowS)
+-&gt; (AudioCodecSettings -&gt; String)
+-&gt; ([AudioCodecSettings] -&gt; ShowS)
+-&gt; Show AudioCodecSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AudioCodecSettings] -&gt; ShowS
+$cshowList :: [AudioCodecSettings] -&gt; ShowS
+show :: AudioCodecSettings -&gt; String
+$cshow :: AudioCodecSettings -&gt; String
+showsPrec :: Int -&gt; AudioCodecSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; AudioCodecSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AudioCodecSettings -&gt; Rep AudioCodecSettings x)
+-&gt; (forall x. Rep AudioCodecSettings x -&gt; AudioCodecSettings)
+-&gt; Generic AudioCodecSettings
+forall x. Rep AudioCodecSettings x -&gt; AudioCodecSettings
+forall x. AudioCodecSettings -&gt; Rep AudioCodecSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AudioCodecSettings x -&gt; AudioCodecSettings
+$cfrom :: forall x. AudioCodecSettings -&gt; Rep AudioCodecSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'AudioCodecSettings' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'passThroughSettings', 'audioCodecSettings_passThroughSettings' - Undocumented member.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'ac3Settings', 'audioCodecSettings_ac3Settings' - Undocumented member.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'mp2Settings', 'audioCodecSettings_mp2Settings' - Undocumented member.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'wavSettings', 'audioCodecSettings_wavSettings' - Undocumented member.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'aacSettings', 'audioCodecSettings_aacSettings' - Undocumented member.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'eac3Settings', 'audioCodecSettings_eac3Settings' - Undocumented member.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#newAudioCodecSettings"><span class="hs-identifier hs-type">newAudioCodecSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span>
+</span><span id="line-66"></span><span id="newAudioCodecSettings"><span class="annot"><span class="annottext">newAudioCodecSettings :: AudioCodecSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#newAudioCodecSettings"><span class="hs-identifier hs-var hs-var">newAudioCodecSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">AudioCodecSettings' :: Maybe PassThroughSettings
+-&gt; Maybe Ac3Settings
+-&gt; Maybe Mp2Settings
+-&gt; Maybe WavSettings
+-&gt; Maybe AacSettings
+-&gt; Maybe Eac3Settings
+-&gt; AudioCodecSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:passThroughSettings:AudioCodecSettings' :: Maybe PassThroughSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3ApassThroughSettings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">passThroughSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe PassThroughSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:ac3Settings:AudioCodecSettings' :: Maybe Ac3Settings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3Aac3Settings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">ac3Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3Settings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:mp2Settings:AudioCodecSettings' :: Maybe Mp2Settings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3Amp2Settings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">mp2Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mp2Settings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:wavSettings:AudioCodecSettings' :: Maybe WavSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3AwavSettings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">wavSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WavSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:aacSettings:AudioCodecSettings' :: Maybe AacSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3AaacSettings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">aacSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:eac3Settings:AudioCodecSettings' :: Maybe Eac3Settings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3Aeac3Settings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">eac3Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Eac3Settings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#audioCodecSettings_passThroughSettings"><span class="hs-identifier hs-type">audioCodecSettings_passThroughSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.PassThroughSettings.html#PassThroughSettings"><span class="hs-identifier hs-type">PassThroughSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="audioCodecSettings_passThroughSettings"><span class="annot"><span class="annottext">audioCodecSettings_passThroughSettings :: (Maybe PassThroughSettings -&gt; f (Maybe PassThroughSettings))
+-&gt; AudioCodecSettings -&gt; f AudioCodecSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#audioCodecSettings_passThroughSettings"><span class="hs-identifier hs-var hs-var">audioCodecSettings_passThroughSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioCodecSettings -&gt; Maybe PassThroughSettings)
+-&gt; (AudioCodecSettings
+    -&gt; Maybe PassThroughSettings -&gt; AudioCodecSettings)
+-&gt; Lens
+     AudioCodecSettings
+     AudioCodecSettings
+     (Maybe PassThroughSettings)
+     (Maybe PassThroughSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931946"><span class="annot"><span class="annottext">Maybe PassThroughSettings
+passThroughSettings :: Maybe PassThroughSettings
+$sel:passThroughSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe PassThroughSettings
+</span><a href="#local-6989586621679931946"><span class="hs-identifier hs-var hs-var">passThroughSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PassThroughSettings
+</span><a href="#local-6989586621679931946"><span class="hs-identifier hs-var">passThroughSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931945"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621679931945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931944"><span class="annot"><span class="annottext">Maybe PassThroughSettings
+</span><a href="#local-6989586621679931944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621679931945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passThroughSettings:AudioCodecSettings' :: Maybe PassThroughSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3ApassThroughSettings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">passThroughSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PassThroughSettings
+</span><a href="#local-6989586621679931944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#audioCodecSettings_ac3Settings"><span class="hs-identifier hs-type">audioCodecSettings_ac3Settings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="audioCodecSettings_ac3Settings"><span class="annot"><span class="annottext">audioCodecSettings_ac3Settings :: (Maybe Ac3Settings -&gt; f (Maybe Ac3Settings))
+-&gt; AudioCodecSettings -&gt; f AudioCodecSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#audioCodecSettings_ac3Settings"><span class="hs-identifier hs-var hs-var">audioCodecSettings_ac3Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioCodecSettings -&gt; Maybe Ac3Settings)
+-&gt; (AudioCodecSettings -&gt; Maybe Ac3Settings -&gt; AudioCodecSettings)
+-&gt; Lens
+     AudioCodecSettings
+     AudioCodecSettings
+     (Maybe Ac3Settings)
+     (Maybe Ac3Settings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931942"><span class="annot"><span class="annottext">Maybe Ac3Settings
+ac3Settings :: Maybe Ac3Settings
+$sel:ac3Settings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Ac3Settings
+</span><a href="#local-6989586621679931942"><span class="hs-identifier hs-var hs-var">ac3Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3Settings
+</span><a href="#local-6989586621679931942"><span class="hs-identifier hs-var">ac3Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931941"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621679931941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931940"><span class="annot"><span class="annottext">Maybe Ac3Settings
+</span><a href="#local-6989586621679931940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621679931941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ac3Settings:AudioCodecSettings' :: Maybe Ac3Settings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3Aac3Settings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">ac3Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3Settings
+</span><a href="#local-6989586621679931940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#audioCodecSettings_mp2Settings"><span class="hs-identifier hs-type">audioCodecSettings_mp2Settings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="audioCodecSettings_mp2Settings"><span class="annot"><span class="annottext">audioCodecSettings_mp2Settings :: (Maybe Mp2Settings -&gt; f (Maybe Mp2Settings))
+-&gt; AudioCodecSettings -&gt; f AudioCodecSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#audioCodecSettings_mp2Settings"><span class="hs-identifier hs-var hs-var">audioCodecSettings_mp2Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioCodecSettings -&gt; Maybe Mp2Settings)
+-&gt; (AudioCodecSettings -&gt; Maybe Mp2Settings -&gt; AudioCodecSettings)
+-&gt; Lens
+     AudioCodecSettings
+     AudioCodecSettings
+     (Maybe Mp2Settings)
+     (Maybe Mp2Settings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931938"><span class="annot"><span class="annottext">Maybe Mp2Settings
+mp2Settings :: Maybe Mp2Settings
+$sel:mp2Settings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Mp2Settings
+</span><a href="#local-6989586621679931938"><span class="hs-identifier hs-var hs-var">mp2Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mp2Settings
+</span><a href="#local-6989586621679931938"><span class="hs-identifier hs-var">mp2Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931937"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621679931937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931936"><span class="annot"><span class="annottext">Maybe Mp2Settings
+</span><a href="#local-6989586621679931936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621679931937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mp2Settings:AudioCodecSettings' :: Maybe Mp2Settings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3Amp2Settings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">mp2Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mp2Settings
+</span><a href="#local-6989586621679931936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#audioCodecSettings_wavSettings"><span class="hs-identifier hs-type">audioCodecSettings_wavSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="audioCodecSettings_wavSettings"><span class="annot"><span class="annottext">audioCodecSettings_wavSettings :: (Maybe WavSettings -&gt; f (Maybe WavSettings))
+-&gt; AudioCodecSettings -&gt; f AudioCodecSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#audioCodecSettings_wavSettings"><span class="hs-identifier hs-var hs-var">audioCodecSettings_wavSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioCodecSettings -&gt; Maybe WavSettings)
+-&gt; (AudioCodecSettings -&gt; Maybe WavSettings -&gt; AudioCodecSettings)
+-&gt; Lens
+     AudioCodecSettings
+     AudioCodecSettings
+     (Maybe WavSettings)
+     (Maybe WavSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931934"><span class="annot"><span class="annottext">Maybe WavSettings
+wavSettings :: Maybe WavSettings
+$sel:wavSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe WavSettings
+</span><a href="#local-6989586621679931934"><span class="hs-identifier hs-var hs-var">wavSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WavSettings
+</span><a href="#local-6989586621679931934"><span class="hs-identifier hs-var">wavSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931933"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621679931933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931932"><span class="annot"><span class="annottext">Maybe WavSettings
+</span><a href="#local-6989586621679931932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621679931933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:wavSettings:AudioCodecSettings' :: Maybe WavSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3AwavSettings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">wavSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WavSettings
+</span><a href="#local-6989586621679931932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#audioCodecSettings_aacSettings"><span class="hs-identifier hs-type">audioCodecSettings_aacSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="audioCodecSettings_aacSettings"><span class="annot"><span class="annottext">audioCodecSettings_aacSettings :: (Maybe AacSettings -&gt; f (Maybe AacSettings))
+-&gt; AudioCodecSettings -&gt; f AudioCodecSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#audioCodecSettings_aacSettings"><span class="hs-identifier hs-var hs-var">audioCodecSettings_aacSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioCodecSettings -&gt; Maybe AacSettings)
+-&gt; (AudioCodecSettings -&gt; Maybe AacSettings -&gt; AudioCodecSettings)
+-&gt; Lens
+     AudioCodecSettings
+     AudioCodecSettings
+     (Maybe AacSettings)
+     (Maybe AacSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931930"><span class="annot"><span class="annottext">Maybe AacSettings
+aacSettings :: Maybe AacSettings
+$sel:aacSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe AacSettings
+</span><a href="#local-6989586621679931930"><span class="hs-identifier hs-var hs-var">aacSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacSettings
+</span><a href="#local-6989586621679931930"><span class="hs-identifier hs-var">aacSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931929"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621679931929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931928"><span class="annot"><span class="annottext">Maybe AacSettings
+</span><a href="#local-6989586621679931928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621679931929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aacSettings:AudioCodecSettings' :: Maybe AacSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3AaacSettings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">aacSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacSettings
+</span><a href="#local-6989586621679931928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#audioCodecSettings_eac3Settings"><span class="hs-identifier hs-type">audioCodecSettings_eac3Settings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3Settings.html#Eac3Settings"><span class="hs-identifier hs-type">Eac3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="audioCodecSettings_eac3Settings"><span class="annot"><span class="annottext">audioCodecSettings_eac3Settings :: (Maybe Eac3Settings -&gt; f (Maybe Eac3Settings))
+-&gt; AudioCodecSettings -&gt; f AudioCodecSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#audioCodecSettings_eac3Settings"><span class="hs-identifier hs-var hs-var">audioCodecSettings_eac3Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioCodecSettings -&gt; Maybe Eac3Settings)
+-&gt; (AudioCodecSettings -&gt; Maybe Eac3Settings -&gt; AudioCodecSettings)
+-&gt; Lens
+     AudioCodecSettings
+     AudioCodecSettings
+     (Maybe Eac3Settings)
+     (Maybe Eac3Settings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931926"><span class="annot"><span class="annottext">Maybe Eac3Settings
+eac3Settings :: Maybe Eac3Settings
+$sel:eac3Settings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Eac3Settings
+</span><a href="#local-6989586621679931926"><span class="hs-identifier hs-var hs-var">eac3Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Eac3Settings
+</span><a href="#local-6989586621679931926"><span class="hs-identifier hs-var">eac3Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931925"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621679931925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931924"><span class="annot"><span class="annottext">Maybe Eac3Settings
+</span><a href="#local-6989586621679931924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621679931925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eac3Settings:AudioCodecSettings' :: Maybe Eac3Settings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#%24sel%3Aeac3Settings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">eac3Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Eac3Settings
+</span><a href="#local-6989586621679931924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931921"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679931919"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioCodecSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AudioCodecSettings)
+-&gt; Value
+-&gt; Parser AudioCodecSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AudioCodecSettings&quot;</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679931916"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931916"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe PassThroughSettings
+-&gt; Maybe Ac3Settings
+-&gt; Maybe Mp2Settings
+-&gt; Maybe WavSettings
+-&gt; Maybe AacSettings
+-&gt; Maybe Eac3Settings
+-&gt; AudioCodecSettings
+</span><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-var">AudioCodecSettings'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PassThroughSettings
+ -&gt; Maybe Ac3Settings
+ -&gt; Maybe Mp2Settings
+ -&gt; Maybe WavSettings
+ -&gt; Maybe AacSettings
+ -&gt; Maybe Eac3Settings
+ -&gt; AudioCodecSettings)
+-&gt; Parser (Maybe PassThroughSettings)
+-&gt; Parser
+     (Maybe Ac3Settings
+      -&gt; Maybe Mp2Settings
+      -&gt; Maybe WavSettings
+      -&gt; Maybe AacSettings
+      -&gt; Maybe Eac3Settings
+      -&gt; AudioCodecSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PassThroughSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;passThroughSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Ac3Settings
+   -&gt; Maybe Mp2Settings
+   -&gt; Maybe WavSettings
+   -&gt; Maybe AacSettings
+   -&gt; Maybe Eac3Settings
+   -&gt; AudioCodecSettings)
+-&gt; Parser (Maybe Ac3Settings)
+-&gt; Parser
+     (Maybe Mp2Settings
+      -&gt; Maybe WavSettings
+      -&gt; Maybe AacSettings
+      -&gt; Maybe Eac3Settings
+      -&gt; AudioCodecSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3Settings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ac3Settings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Mp2Settings
+   -&gt; Maybe WavSettings
+   -&gt; Maybe AacSettings
+   -&gt; Maybe Eac3Settings
+   -&gt; AudioCodecSettings)
+-&gt; Parser (Maybe Mp2Settings)
+-&gt; Parser
+     (Maybe WavSettings
+      -&gt; Maybe AacSettings -&gt; Maybe Eac3Settings -&gt; AudioCodecSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mp2Settings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mp2Settings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe WavSettings
+   -&gt; Maybe AacSettings -&gt; Maybe Eac3Settings -&gt; AudioCodecSettings)
+-&gt; Parser (Maybe WavSettings)
+-&gt; Parser
+     (Maybe AacSettings -&gt; Maybe Eac3Settings -&gt; AudioCodecSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WavSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;wavSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AacSettings -&gt; Maybe Eac3Settings -&gt; AudioCodecSettings)
+-&gt; Parser (Maybe AacSettings)
+-&gt; Parser (Maybe Eac3Settings -&gt; AudioCodecSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;aacSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Eac3Settings -&gt; AudioCodecSettings)
+-&gt; Parser (Maybe Eac3Settings) -&gt; Parser AudioCodecSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Eac3Settings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eac3Settings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931910"><span id="local-6989586621679931912"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931907"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931899"><span id="local-6989586621679931901"><span id="local-6989586621679931903"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679931897"><span class="annot"><span class="annottext">toJSON :: AudioCodecSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931890"><span id="local-6989586621679931891"><span id="local-6989586621679931892"><span id="local-6989586621679931893"><span id="local-6989586621679931894"><span id="local-6989586621679931895"><span class="annot"><span class="annottext">Maybe AacSettings
+Maybe Ac3Settings
+Maybe Eac3Settings
+Maybe Mp2Settings
+Maybe PassThroughSettings
+Maybe WavSettings
+eac3Settings :: Maybe Eac3Settings
+aacSettings :: Maybe AacSettings
+wavSettings :: Maybe WavSettings
+mp2Settings :: Maybe Mp2Settings
+ac3Settings :: Maybe Ac3Settings
+passThroughSettings :: Maybe PassThroughSettings
+$sel:eac3Settings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Eac3Settings
+$sel:aacSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe AacSettings
+$sel:wavSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe WavSettings
+$sel:mp2Settings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Mp2Settings
+$sel:ac3Settings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Ac3Settings
+$sel:passThroughSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe PassThroughSettings
+</span><a href="#local-6989586621679931890"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;passThroughSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PassThroughSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">(PassThroughSettings -&gt; Pair)
+-&gt; Maybe PassThroughSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PassThroughSettings
+</span><a href="#local-6989586621679931895"><span class="hs-identifier hs-var">passThroughSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ac3Settings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Ac3Settings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Ac3Settings -&gt; Pair) -&gt; Maybe Ac3Settings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Ac3Settings
+</span><a href="#local-6989586621679931894"><span class="hs-identifier hs-var">ac3Settings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mp2Settings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mp2Settings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Mp2Settings -&gt; Pair) -&gt; Maybe Mp2Settings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mp2Settings
+</span><a href="#local-6989586621679931893"><span class="hs-identifier hs-var">mp2Settings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;wavSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WavSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(WavSettings -&gt; Pair) -&gt; Maybe WavSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WavSettings
+</span><a href="#local-6989586621679931892"><span class="hs-identifier hs-var">wavSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;aacSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AacSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Pair) -&gt; Maybe AacSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AacSettings
+</span><a href="#local-6989586621679931891"><span class="hs-identifier hs-var">aacSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eac3Settings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Eac3Settings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Eac3Settings -&gt; Pair) -&gt; Maybe Eac3Settings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Eac3Settings
+</span><a href="#local-6989586621679931890"><span class="hs-identifier hs-var">eac3Settings</span></a></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span></pre></body></html>

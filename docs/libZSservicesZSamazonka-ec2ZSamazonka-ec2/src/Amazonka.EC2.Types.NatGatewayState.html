@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.NatGatewayState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.NatGatewayState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState"><span class="hs-identifier">NatGatewayState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState_Available"><span class="hs-identifier">NatGatewayState_Available</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState_Deleted"><span class="hs-identifier">NatGatewayState_Deleted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState_Deleting"><span class="hs-identifier">NatGatewayState_Deleting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState_Failed"><span class="hs-identifier">NatGatewayState_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState_Pending"><span class="hs-identifier">NatGatewayState_Pending</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621681128179"><span id="local-6989586621681128180"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NatGatewayState"><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState"><span class="hs-identifier hs-var">NatGatewayState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NatGatewayState%27"><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState%27"><span class="hs-identifier hs-var">NatGatewayState'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNatGatewayState"><span class="annot"><span class="annottext">NatGatewayState -&gt; Text
+</span><a href="Amazonka.EC2.Types.NatGatewayState.html#fromNatGatewayState"><span class="hs-identifier hs-var hs-var">fromNatGatewayState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681128171"><span id="local-6989586621681128173"><span id="local-6989586621681128175"><span class="annot"><span class="annottext">Int -&gt; NatGatewayState -&gt; ShowS
+[NatGatewayState] -&gt; ShowS
+NatGatewayState -&gt; String
+(Int -&gt; NatGatewayState -&gt; ShowS)
+-&gt; (NatGatewayState -&gt; String)
+-&gt; ([NatGatewayState] -&gt; ShowS)
+-&gt; Show NatGatewayState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NatGatewayState] -&gt; ShowS
+$cshowList :: [NatGatewayState] -&gt; ShowS
+show :: NatGatewayState -&gt; String
+$cshow :: NatGatewayState -&gt; String
+showsPrec :: Int -&gt; NatGatewayState -&gt; ShowS
+$cshowsPrec :: Int -&gt; NatGatewayState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681128162"><span id="local-6989586621681128164"><span id="local-6989586621681128166"><span id="local-6989586621681128168"><span class="annot"><span class="annottext">ReadPrec [NatGatewayState]
+ReadPrec NatGatewayState
+Int -&gt; ReadS NatGatewayState
+ReadS [NatGatewayState]
+(Int -&gt; ReadS NatGatewayState)
+-&gt; ReadS [NatGatewayState]
+-&gt; ReadPrec NatGatewayState
+-&gt; ReadPrec [NatGatewayState]
+-&gt; Read NatGatewayState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NatGatewayState]
+$creadListPrec :: ReadPrec [NatGatewayState]
+readPrec :: ReadPrec NatGatewayState
+$creadPrec :: ReadPrec NatGatewayState
+readList :: ReadS [NatGatewayState]
+$creadList :: ReadS [NatGatewayState]
+readsPrec :: Int -&gt; ReadS NatGatewayState
+$creadsPrec :: Int -&gt; ReadS NatGatewayState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681128157"><span id="local-6989586621681128159"><span class="annot"><span class="annottext">NatGatewayState -&gt; NatGatewayState -&gt; Bool
+(NatGatewayState -&gt; NatGatewayState -&gt; Bool)
+-&gt; (NatGatewayState -&gt; NatGatewayState -&gt; Bool)
+-&gt; Eq NatGatewayState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NatGatewayState -&gt; NatGatewayState -&gt; Bool
+$c/= :: NatGatewayState -&gt; NatGatewayState -&gt; Bool
+== :: NatGatewayState -&gt; NatGatewayState -&gt; Bool
+$c== :: NatGatewayState -&gt; NatGatewayState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681128141"><span id="local-6989586621681128143"><span id="local-6989586621681128145"><span id="local-6989586621681128147"><span id="local-6989586621681128149"><span id="local-6989586621681128151"><span id="local-6989586621681128153"><span class="annot"><span class="annottext">Eq NatGatewayState
+Eq NatGatewayState
+-&gt; (NatGatewayState -&gt; NatGatewayState -&gt; Ordering)
+-&gt; (NatGatewayState -&gt; NatGatewayState -&gt; Bool)
+-&gt; (NatGatewayState -&gt; NatGatewayState -&gt; Bool)
+-&gt; (NatGatewayState -&gt; NatGatewayState -&gt; Bool)
+-&gt; (NatGatewayState -&gt; NatGatewayState -&gt; Bool)
+-&gt; (NatGatewayState -&gt; NatGatewayState -&gt; NatGatewayState)
+-&gt; (NatGatewayState -&gt; NatGatewayState -&gt; NatGatewayState)
+-&gt; Ord NatGatewayState
+NatGatewayState -&gt; NatGatewayState -&gt; Bool
+NatGatewayState -&gt; NatGatewayState -&gt; Ordering
+NatGatewayState -&gt; NatGatewayState -&gt; NatGatewayState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NatGatewayState -&gt; NatGatewayState -&gt; NatGatewayState
+$cmin :: NatGatewayState -&gt; NatGatewayState -&gt; NatGatewayState
+max :: NatGatewayState -&gt; NatGatewayState -&gt; NatGatewayState
+$cmax :: NatGatewayState -&gt; NatGatewayState -&gt; NatGatewayState
+&gt;= :: NatGatewayState -&gt; NatGatewayState -&gt; Bool
+$c&gt;= :: NatGatewayState -&gt; NatGatewayState -&gt; Bool
+&gt; :: NatGatewayState -&gt; NatGatewayState -&gt; Bool
+$c&gt; :: NatGatewayState -&gt; NatGatewayState -&gt; Bool
+&lt;= :: NatGatewayState -&gt; NatGatewayState -&gt; Bool
+$c&lt;= :: NatGatewayState -&gt; NatGatewayState -&gt; Bool
+&lt; :: NatGatewayState -&gt; NatGatewayState -&gt; Bool
+$c&lt; :: NatGatewayState -&gt; NatGatewayState -&gt; Bool
+compare :: NatGatewayState -&gt; NatGatewayState -&gt; Ordering
+$ccompare :: NatGatewayState -&gt; NatGatewayState -&gt; Ordering
+$cp1Ord :: Eq NatGatewayState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. NatGatewayState -&gt; Rep NatGatewayState x)
+-&gt; (forall x. Rep NatGatewayState x -&gt; NatGatewayState)
+-&gt; Generic NatGatewayState
+forall x. Rep NatGatewayState x -&gt; NatGatewayState
+forall x. NatGatewayState -&gt; Rep NatGatewayState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NatGatewayState x -&gt; NatGatewayState
+$cfrom :: forall x. NatGatewayState -&gt; Rep NatGatewayState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681128133"><span id="local-6989586621681128135"><span class="annot"><span class="annottext">Int -&gt; NatGatewayState -&gt; Int
+NatGatewayState -&gt; Int
+(Int -&gt; NatGatewayState -&gt; Int)
+-&gt; (NatGatewayState -&gt; Int) -&gt; Hashable NatGatewayState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NatGatewayState -&gt; Int
+$chash :: NatGatewayState -&gt; Int
+hashWithSalt :: Int -&gt; NatGatewayState -&gt; Int
+$chashWithSalt :: Int -&gt; NatGatewayState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681128130"><span class="annot"><span class="annottext">NatGatewayState -&gt; ()
+(NatGatewayState -&gt; ()) -&gt; NFData NatGatewayState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NatGatewayState -&gt; ()
+$crnf :: NatGatewayState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681128127"><span class="annot"><span class="annottext">Text -&gt; Either String NatGatewayState
+(Text -&gt; Either String NatGatewayState) -&gt; FromText NatGatewayState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NatGatewayState
+$cfromText :: Text -&gt; Either String NatGatewayState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681128124"><span class="annot"><span class="annottext">NatGatewayState -&gt; Text
+(NatGatewayState -&gt; Text) -&gt; ToText NatGatewayState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NatGatewayState -&gt; Text
+$ctoText :: NatGatewayState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681128121"><span class="annot"><span class="annottext">NatGatewayState -&gt; ByteString
+(NatGatewayState -&gt; ByteString) -&gt; ToByteString NatGatewayState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NatGatewayState -&gt; ByteString
+$ctoBS :: NatGatewayState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681128118"><span class="annot"><span class="annottext">NatGatewayState -&gt; ByteStringBuilder
+(NatGatewayState -&gt; ByteStringBuilder) -&gt; ToLog NatGatewayState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NatGatewayState -&gt; ByteStringBuilder
+$cbuild :: NatGatewayState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681128115"><span class="annot"><span class="annottext">HeaderName -&gt; NatGatewayState -&gt; [Header]
+(HeaderName -&gt; NatGatewayState -&gt; [Header])
+-&gt; ToHeader NatGatewayState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NatGatewayState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NatGatewayState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681128112"><span class="annot"><span class="annottext">NatGatewayState -&gt; QueryString
+(NatGatewayState -&gt; QueryString) -&gt; ToQuery NatGatewayState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NatGatewayState -&gt; QueryString
+$ctoQuery :: NatGatewayState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681128107"><span id="local-6989586621681128109"><span class="annot"><span class="annottext">Value -&gt; Parser [NatGatewayState]
+Value -&gt; Parser NatGatewayState
+(Value -&gt; Parser NatGatewayState)
+-&gt; (Value -&gt; Parser [NatGatewayState]) -&gt; FromJSON NatGatewayState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NatGatewayState]
+$cparseJSONList :: Value -&gt; Parser [NatGatewayState]
+parseJSON :: Value -&gt; Parser NatGatewayState
+$cparseJSON :: Value -&gt; Parser NatGatewayState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681128102"><span id="local-6989586621681128104"><span class="annot"><span class="annottext">FromJSONKeyFunction [NatGatewayState]
+FromJSONKeyFunction NatGatewayState
+FromJSONKeyFunction NatGatewayState
+-&gt; FromJSONKeyFunction [NatGatewayState]
+-&gt; FromJSONKey NatGatewayState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NatGatewayState]
+$cfromJSONKeyList :: FromJSONKeyFunction [NatGatewayState]
+fromJSONKey :: FromJSONKeyFunction NatGatewayState
+$cfromJSONKey :: FromJSONKeyFunction NatGatewayState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681128093"><span id="local-6989586621681128095"><span id="local-6989586621681128097"><span id="local-6989586621681128099"><span class="annot"><span class="annottext">[NatGatewayState] -&gt; Encoding
+[NatGatewayState] -&gt; Value
+NatGatewayState -&gt; Encoding
+NatGatewayState -&gt; Value
+(NatGatewayState -&gt; Value)
+-&gt; (NatGatewayState -&gt; Encoding)
+-&gt; ([NatGatewayState] -&gt; Value)
+-&gt; ([NatGatewayState] -&gt; Encoding)
+-&gt; ToJSON NatGatewayState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NatGatewayState] -&gt; Encoding
+$ctoEncodingList :: [NatGatewayState] -&gt; Encoding
+toJSONList :: [NatGatewayState] -&gt; Value
+$ctoJSONList :: [NatGatewayState] -&gt; Value
+toEncoding :: NatGatewayState -&gt; Encoding
+$ctoEncoding :: NatGatewayState -&gt; Encoding
+toJSON :: NatGatewayState -&gt; Value
+$ctoJSON :: NatGatewayState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681128088"><span id="local-6989586621681128090"><span class="annot"><span class="annottext">ToJSONKeyFunction [NatGatewayState]
+ToJSONKeyFunction NatGatewayState
+ToJSONKeyFunction NatGatewayState
+-&gt; ToJSONKeyFunction [NatGatewayState] -&gt; ToJSONKey NatGatewayState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NatGatewayState]
+$ctoJSONKeyList :: ToJSONKeyFunction [NatGatewayState]
+toJSONKey :: ToJSONKeyFunction NatGatewayState
+$ctoJSONKey :: ToJSONKeyFunction NatGatewayState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681128085"><span class="annot"><span class="annottext">[Node] -&gt; Either String NatGatewayState
+([Node] -&gt; Either String NatGatewayState)
+-&gt; FromXML NatGatewayState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NatGatewayState
+$cparseXML :: [Node] -&gt; Either String NatGatewayState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681128082"><span class="annot"><span class="annottext">NatGatewayState -&gt; XML
+(NatGatewayState -&gt; XML) -&gt; ToXML NatGatewayState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NatGatewayState -&gt; XML
+$ctoXML :: NatGatewayState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState_Available"><span class="hs-identifier hs-type">NatGatewayState_Available</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState"><span class="hs-identifier hs-type">NatGatewayState</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNatGatewayState_Available"><span id="%24mNatGatewayState_Available"><span id="NatGatewayState_Available"><span class="annot"><span class="annottext">$bNatGatewayState_Available :: NatGatewayState
+$mNatGatewayState_Available :: forall r. NatGatewayState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.NatGatewayState.html#%24bNatGatewayState_Available"><span class="hs-identifier hs-var hs-var hs-var">NatGatewayState_Available</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState%27"><span class="hs-identifier hs-type">NatGatewayState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;available&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState_Deleted"><span class="hs-identifier hs-type">NatGatewayState_Deleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState"><span class="hs-identifier hs-type">NatGatewayState</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNatGatewayState_Deleted"><span id="%24mNatGatewayState_Deleted"><span id="NatGatewayState_Deleted"><span class="annot"><span class="annottext">$bNatGatewayState_Deleted :: NatGatewayState
+$mNatGatewayState_Deleted :: forall r. NatGatewayState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.NatGatewayState.html#%24bNatGatewayState_Deleted"><span class="hs-identifier hs-var hs-var hs-var">NatGatewayState_Deleted</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState%27"><span class="hs-identifier hs-type">NatGatewayState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;deleted&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState_Deleting"><span class="hs-identifier hs-type">NatGatewayState_Deleting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState"><span class="hs-identifier hs-type">NatGatewayState</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNatGatewayState_Deleting"><span id="%24mNatGatewayState_Deleting"><span id="NatGatewayState_Deleting"><span class="annot"><span class="annottext">$bNatGatewayState_Deleting :: NatGatewayState
+$mNatGatewayState_Deleting :: forall r. NatGatewayState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.NatGatewayState.html#%24bNatGatewayState_Deleting"><span class="hs-identifier hs-var hs-var hs-var">NatGatewayState_Deleting</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState%27"><span class="hs-identifier hs-type">NatGatewayState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;deleting&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState_Failed"><span class="hs-identifier hs-type">NatGatewayState_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState"><span class="hs-identifier hs-type">NatGatewayState</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNatGatewayState_Failed"><span id="%24mNatGatewayState_Failed"><span id="NatGatewayState_Failed"><span class="annot"><span class="annottext">$bNatGatewayState_Failed :: NatGatewayState
+$mNatGatewayState_Failed :: forall r. NatGatewayState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.NatGatewayState.html#%24bNatGatewayState_Failed"><span class="hs-identifier hs-var hs-var hs-var">NatGatewayState_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState%27"><span class="hs-identifier hs-type">NatGatewayState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failed&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState_Pending"><span class="hs-identifier hs-type">NatGatewayState_Pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState"><span class="hs-identifier hs-type">NatGatewayState</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNatGatewayState_Pending"><span id="%24mNatGatewayState_Pending"><span id="NatGatewayState_Pending"><span class="annot"><span class="annottext">$bNatGatewayState_Pending :: NatGatewayState
+$mNatGatewayState_Pending :: forall r. NatGatewayState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.NatGatewayState.html#%24bNatGatewayState_Pending"><span class="hs-identifier hs-var hs-var hs-var">NatGatewayState_Pending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState%27"><span class="hs-identifier hs-type">NatGatewayState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;pending&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState_Available"><span class="hs-pragma hs-type">NatGatewayState_Available</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState_Deleted"><span class="hs-pragma hs-type">NatGatewayState_Deleted</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState_Deleting"><span class="hs-pragma hs-type">NatGatewayState_Deleting</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState_Failed"><span class="hs-pragma hs-type">NatGatewayState_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState_Pending"><span class="hs-pragma hs-type">NatGatewayState_Pending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.NatGatewayState.html#NatGatewayState%27"><span class="hs-pragma hs-type">NatGatewayState'</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-87"></span></pre></body></html>

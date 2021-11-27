@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AppStream.StopImageBuilder</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Stops the specified image builder.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppStream.StopImageBuilder</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier">StopImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#newStopImageBuilder"><span class="hs-identifier">newStopImageBuilder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#stopImageBuilder_name"><span class="hs-identifier">stopImageBuilder_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier">StopImageBuilderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#newStopImageBuilderResponse"><span class="hs-identifier">newStopImageBuilderResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#stopImageBuilderResponse_imageBuilder"><span class="hs-identifier">stopImageBuilderResponse_imageBuilder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#stopImageBuilderResponse_httpStatus"><span class="hs-identifier">stopImageBuilderResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.html"><span class="hs-identifier">Amazonka.AppStream.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newStopImageBuilder' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679293328"><span id="local-6989586621679293329"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopImageBuilder"><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-var">StopImageBuilder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopImageBuilder%27"><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder%27"><span class="hs-identifier hs-var">StopImageBuilder'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the image builder.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3AStopImageBuilder%27"><span class="annot"><span class="annottext">StopImageBuilder -&gt; Text
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#%24sel%3Aname%3AStopImageBuilder%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293322"><span id="local-6989586621679293324"><span class="annot"><span class="annottext">StopImageBuilder -&gt; StopImageBuilder -&gt; Bool
+(StopImageBuilder -&gt; StopImageBuilder -&gt; Bool)
+-&gt; (StopImageBuilder -&gt; StopImageBuilder -&gt; Bool)
+-&gt; Eq StopImageBuilder
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopImageBuilder -&gt; StopImageBuilder -&gt; Bool
+$c/= :: StopImageBuilder -&gt; StopImageBuilder -&gt; Bool
+== :: StopImageBuilder -&gt; StopImageBuilder -&gt; Bool
+$c== :: StopImageBuilder -&gt; StopImageBuilder -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293313"><span id="local-6989586621679293315"><span id="local-6989586621679293317"><span id="local-6989586621679293319"><span class="annot"><span class="annottext">ReadPrec [StopImageBuilder]
+ReadPrec StopImageBuilder
+Int -&gt; ReadS StopImageBuilder
+ReadS [StopImageBuilder]
+(Int -&gt; ReadS StopImageBuilder)
+-&gt; ReadS [StopImageBuilder]
+-&gt; ReadPrec StopImageBuilder
+-&gt; ReadPrec [StopImageBuilder]
+-&gt; Read StopImageBuilder
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopImageBuilder]
+$creadListPrec :: ReadPrec [StopImageBuilder]
+readPrec :: ReadPrec StopImageBuilder
+$creadPrec :: ReadPrec StopImageBuilder
+readList :: ReadS [StopImageBuilder]
+$creadList :: ReadS [StopImageBuilder]
+readsPrec :: Int -&gt; ReadS StopImageBuilder
+$creadsPrec :: Int -&gt; ReadS StopImageBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293306"><span id="local-6989586621679293308"><span id="local-6989586621679293310"><span class="annot"><span class="annottext">Int -&gt; StopImageBuilder -&gt; ShowS
+[StopImageBuilder] -&gt; ShowS
+StopImageBuilder -&gt; String
+(Int -&gt; StopImageBuilder -&gt; ShowS)
+-&gt; (StopImageBuilder -&gt; String)
+-&gt; ([StopImageBuilder] -&gt; ShowS)
+-&gt; Show StopImageBuilder
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopImageBuilder] -&gt; ShowS
+$cshowList :: [StopImageBuilder] -&gt; ShowS
+show :: StopImageBuilder -&gt; String
+$cshow :: StopImageBuilder -&gt; String
+showsPrec :: Int -&gt; StopImageBuilder -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopImageBuilder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopImageBuilder -&gt; Rep StopImageBuilder x)
+-&gt; (forall x. Rep StopImageBuilder x -&gt; StopImageBuilder)
+-&gt; Generic StopImageBuilder
+forall x. Rep StopImageBuilder x -&gt; StopImageBuilder
+forall x. StopImageBuilder -&gt; Rep StopImageBuilder x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopImageBuilder x -&gt; StopImageBuilder
+$cfrom :: forall x. StopImageBuilder -&gt; Rep StopImageBuilder x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'StopImageBuilder' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'name', 'stopImageBuilder_name' - The name of the image builder.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#newStopImageBuilder"><span class="hs-identifier hs-type">newStopImageBuilder</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span>
+</span><span id="line-69"></span><span id="newStopImageBuilder"><span class="annot"><span class="annottext">newStopImageBuilder :: Text -&gt; StopImageBuilder
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#newStopImageBuilder"><span class="hs-identifier hs-var hs-var">newStopImageBuilder</span></a></span></span><span> </span><span id="local-6989586621679293301"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293301"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">StopImageBuilder' :: Text -&gt; StopImageBuilder
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder%27"><span class="hs-identifier hs-type">StopImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StopImageBuilder' :: Text
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#%24sel%3Aname%3AStopImageBuilder%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293301"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The name of the image builder.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#stopImageBuilder_name"><span class="hs-identifier hs-type">stopImageBuilder_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="stopImageBuilder_name"><span class="annot"><span class="annottext">stopImageBuilder_name :: (Text -&gt; f Text) -&gt; StopImageBuilder -&gt; f StopImageBuilder
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#stopImageBuilder_name"><span class="hs-identifier hs-var hs-var">stopImageBuilder_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopImageBuilder -&gt; Text)
+-&gt; (StopImageBuilder -&gt; Text -&gt; StopImageBuilder)
+-&gt; Lens StopImageBuilder StopImageBuilder Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder%27"><span class="hs-identifier hs-type">StopImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293298"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:StopImageBuilder' :: StopImageBuilder -&gt; Text
+</span><a href="#local-6989586621679293298"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293298"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293297"><span class="annot"><span class="annottext">s :: StopImageBuilder
+</span><a href="#local-6989586621679293297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder%27"><span class="hs-identifier hs-type">StopImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293296"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopImageBuilder
+</span><a href="#local-6989586621679293297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StopImageBuilder' :: Text
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#%24sel%3Aname%3AStopImageBuilder%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679293292"><span class="annot"><span class="annottext">request :: StopImageBuilder -&gt; Request StopImageBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopImageBuilder -&gt; Request StopImageBuilder
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679293288"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StopImageBuilder
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopImageBuilder)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StopImageBuilder))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StopImageBuilder
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopImageBuilder)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293285"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293285"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679293284"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679293284"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679293283"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293283"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe ImageBuilder -&gt; Int -&gt; StopImageBuilderResponse
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-var">StopImageBuilderResponse'</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ImageBuilder -&gt; Int -&gt; StopImageBuilderResponse)
+-&gt; Either String (Maybe ImageBuilder)
+-&gt; Either String (Int -&gt; StopImageBuilderResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ImageBuilder)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImageBuilder&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StopImageBuilderResponse)
+-&gt; Either String Int -&gt; Either String StopImageBuilderResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293285"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293275"><span id="local-6989586621679293277"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293272"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679293268"><span class="annot"><span class="annottext">toHeaders :: StopImageBuilder -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopImageBuilder -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PhotonAdminProxyService.StopImageBuilder&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-100"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-104"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293258"><span id="local-6989586621679293260"><span id="local-6989586621679293262"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679293256"><span class="annot"><span class="annottext">toJSON :: StopImageBuilder -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder%27"><span class="hs-identifier hs-type">StopImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293254"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:StopImageBuilder' :: StopImageBuilder -&gt; Text
+</span><a href="#local-6989586621679293254"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293254"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679293248"><span class="annot"><span class="annottext">toPath :: StopImageBuilder -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopImageBuilder -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679293244"><span class="annot"><span class="annottext">toQuery :: StopImageBuilder -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopImageBuilder -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newStopImageBuilderResponse' smart constructor.</span><span>
+</span><span id="line-122"></span><span id="local-6989586621679293241"><span id="local-6989586621679293242"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopImageBuilderResponse"><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-var">StopImageBuilderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopImageBuilderResponse%27"><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-var">StopImageBuilderResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the image builder.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AimageBuilder%3AStopImageBuilderResponse%27"><span class="annot"><span class="annottext">StopImageBuilderResponse -&gt; Maybe ImageBuilder
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#%24sel%3AimageBuilder%3AStopImageBuilderResponse%27"><span class="hs-identifier hs-var hs-var">imageBuilder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopImageBuilderResponse%27"><span class="annot"><span class="annottext">StopImageBuilderResponse -&gt; Int
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#%24sel%3AhttpStatus%3AStopImageBuilderResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293235"><span id="local-6989586621679293237"><span class="annot"><span class="annottext">StopImageBuilderResponse -&gt; StopImageBuilderResponse -&gt; Bool
+(StopImageBuilderResponse -&gt; StopImageBuilderResponse -&gt; Bool)
+-&gt; (StopImageBuilderResponse -&gt; StopImageBuilderResponse -&gt; Bool)
+-&gt; Eq StopImageBuilderResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopImageBuilderResponse -&gt; StopImageBuilderResponse -&gt; Bool
+$c/= :: StopImageBuilderResponse -&gt; StopImageBuilderResponse -&gt; Bool
+== :: StopImageBuilderResponse -&gt; StopImageBuilderResponse -&gt; Bool
+$c== :: StopImageBuilderResponse -&gt; StopImageBuilderResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293227"><span id="local-6989586621679293229"><span id="local-6989586621679293231"><span id="local-6989586621679293233"><span class="annot"><span class="annottext">ReadPrec [StopImageBuilderResponse]
+ReadPrec StopImageBuilderResponse
+Int -&gt; ReadS StopImageBuilderResponse
+ReadS [StopImageBuilderResponse]
+(Int -&gt; ReadS StopImageBuilderResponse)
+-&gt; ReadS [StopImageBuilderResponse]
+-&gt; ReadPrec StopImageBuilderResponse
+-&gt; ReadPrec [StopImageBuilderResponse]
+-&gt; Read StopImageBuilderResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopImageBuilderResponse]
+$creadListPrec :: ReadPrec [StopImageBuilderResponse]
+readPrec :: ReadPrec StopImageBuilderResponse
+$creadPrec :: ReadPrec StopImageBuilderResponse
+readList :: ReadS [StopImageBuilderResponse]
+$creadList :: ReadS [StopImageBuilderResponse]
+readsPrec :: Int -&gt; ReadS StopImageBuilderResponse
+$creadsPrec :: Int -&gt; ReadS StopImageBuilderResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293221"><span id="local-6989586621679293223"><span id="local-6989586621679293225"><span class="annot"><span class="annottext">Int -&gt; StopImageBuilderResponse -&gt; ShowS
+[StopImageBuilderResponse] -&gt; ShowS
+StopImageBuilderResponse -&gt; String
+(Int -&gt; StopImageBuilderResponse -&gt; ShowS)
+-&gt; (StopImageBuilderResponse -&gt; String)
+-&gt; ([StopImageBuilderResponse] -&gt; ShowS)
+-&gt; Show StopImageBuilderResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopImageBuilderResponse] -&gt; ShowS
+$cshowList :: [StopImageBuilderResponse] -&gt; ShowS
+show :: StopImageBuilderResponse -&gt; String
+$cshow :: StopImageBuilderResponse -&gt; String
+showsPrec :: Int -&gt; StopImageBuilderResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopImageBuilderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StopImageBuilderResponse -&gt; Rep StopImageBuilderResponse x)
+-&gt; (forall x.
+    Rep StopImageBuilderResponse x -&gt; StopImageBuilderResponse)
+-&gt; Generic StopImageBuilderResponse
+forall x.
+Rep StopImageBuilderResponse x -&gt; StopImageBuilderResponse
+forall x.
+StopImageBuilderResponse -&gt; Rep StopImageBuilderResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StopImageBuilderResponse x -&gt; StopImageBuilderResponse
+$cfrom :: forall x.
+StopImageBuilderResponse -&gt; Rep StopImageBuilderResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Create a value of 'StopImageBuilderResponse' with all optional fields omitted.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'imageBuilder', 'stopImageBuilderResponse_imageBuilder' - Information about the image builder.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'httpStatus', 'stopImageBuilderResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#newStopImageBuilderResponse"><span class="hs-identifier hs-type">newStopImageBuilderResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span><span>
+</span><span id="line-145"></span><span id="newStopImageBuilderResponse"><span class="annot"><span class="annottext">newStopImageBuilderResponse :: Int -&gt; StopImageBuilderResponse
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#newStopImageBuilderResponse"><span class="hs-identifier hs-var hs-var">newStopImageBuilderResponse</span></a></span></span><span> </span><span id="local-6989586621679293218"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293218"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">StopImageBuilderResponse' :: Maybe ImageBuilder -&gt; Int -&gt; StopImageBuilderResponse
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-type">StopImageBuilderResponse'</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:imageBuilder:StopImageBuilderResponse' :: Maybe ImageBuilder
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#%24sel%3AimageBuilder%3AStopImageBuilderResponse%27"><span class="hs-identifier hs-var">imageBuilder</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">Maybe ImageBuilder
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopImageBuilderResponse' :: Int
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#%24sel%3AhttpStatus%3AStopImageBuilderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293218"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Information about the image builder.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#stopImageBuilderResponse_imageBuilder"><span class="hs-identifier hs-type">stopImageBuilderResponse_imageBuilder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="stopImageBuilderResponse_imageBuilder"><span class="annot"><span class="annottext">stopImageBuilderResponse_imageBuilder :: (Maybe ImageBuilder -&gt; f (Maybe ImageBuilder))
+-&gt; StopImageBuilderResponse -&gt; f StopImageBuilderResponse
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#stopImageBuilderResponse_imageBuilder"><span class="hs-identifier hs-var hs-var">stopImageBuilderResponse_imageBuilder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopImageBuilderResponse -&gt; Maybe ImageBuilder)
+-&gt; (StopImageBuilderResponse
+    -&gt; Maybe ImageBuilder -&gt; StopImageBuilderResponse)
+-&gt; Lens
+     StopImageBuilderResponse
+     StopImageBuilderResponse
+     (Maybe ImageBuilder)
+     (Maybe ImageBuilder)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-type">StopImageBuilderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293217"><span class="annot"><span class="annottext">Maybe ImageBuilder
+imageBuilder :: Maybe ImageBuilder
+$sel:imageBuilder:StopImageBuilderResponse' :: StopImageBuilderResponse -&gt; Maybe ImageBuilder
+</span><a href="#local-6989586621679293217"><span class="hs-identifier hs-var hs-var">imageBuilder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageBuilder
+</span><a href="#local-6989586621679293217"><span class="hs-identifier hs-var">imageBuilder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293216"><span class="annot"><span class="annottext">s :: StopImageBuilderResponse
+</span><a href="#local-6989586621679293216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-type">StopImageBuilderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293215"><span class="annot"><span class="annottext">Maybe ImageBuilder
+</span><a href="#local-6989586621679293215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopImageBuilderResponse
+</span><a href="#local-6989586621679293216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageBuilder:StopImageBuilderResponse' :: Maybe ImageBuilder
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#%24sel%3AimageBuilder%3AStopImageBuilderResponse%27"><span class="hs-identifier hs-var">imageBuilder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageBuilder
+</span><a href="#local-6989586621679293215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#stopImageBuilderResponse_httpStatus"><span class="hs-identifier hs-type">stopImageBuilderResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-158"></span><span id="stopImageBuilderResponse_httpStatus"><span class="annot"><span class="annottext">stopImageBuilderResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StopImageBuilderResponse -&gt; f StopImageBuilderResponse
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#stopImageBuilderResponse_httpStatus"><span class="hs-identifier hs-var hs-var">stopImageBuilderResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopImageBuilderResponse -&gt; Int)
+-&gt; (StopImageBuilderResponse -&gt; Int -&gt; StopImageBuilderResponse)
+-&gt; Lens StopImageBuilderResponse StopImageBuilderResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-type">StopImageBuilderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293214"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StopImageBuilderResponse' :: StopImageBuilderResponse -&gt; Int
+</span><a href="#local-6989586621679293214"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293214"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293213"><span class="annot"><span class="annottext">s :: StopImageBuilderResponse
+</span><a href="#local-6989586621679293213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-type">StopImageBuilderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293212"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopImageBuilderResponse
+</span><a href="#local-6989586621679293213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopImageBuilderResponse' :: Int
+</span><a href="Amazonka.AppStream.StopImageBuilder.html#%24sel%3AhttpStatus%3AStopImageBuilderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293210"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span></span><span>
+</span><span id="line-161"></span></pre></body></html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.Types.InAppMessageCampaign</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.Types.InAppMessageCampaign</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppCampaignSchedule.html"><span class="hs-identifier">Amazonka.Pinpoint.Types.InAppCampaignSchedule</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessage.html"><span class="hs-identifier">Amazonka.Pinpoint.Types.InAppMessage</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Targeted in-app message campaign.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInAppMessageCampaign' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679611781"><span id="local-6989586621679611782"></span></span><span class="hs-keyword">data</span><span> </span><span id="InAppMessageCampaign"><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-var">InAppMessageCampaign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InAppMessageCampaign%27"><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-var">InAppMessageCampaign'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Session cap which controls the number of times an in-app message can be</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- shown to the endpoint during an application session.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsessionCap%3AInAppMessageCampaign%27"><span class="annot"><span class="annottext">InAppMessageCampaign -&gt; Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AsessionCap%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var hs-var">sessionCap</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Priority of the in-app message.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Apriority%3AInAppMessageCampaign%27"><span class="annot"><span class="annottext">InAppMessageCampaign -&gt; Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3Apriority%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Schedule of the campaign.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aschedule%3AInAppMessageCampaign%27"><span class="annot"><span class="annottext">InAppMessageCampaign -&gt; Maybe InAppCampaignSchedule
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3Aschedule%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Campaign id of the corresponding campaign.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcampaignId%3AInAppMessageCampaign%27"><span class="annot"><span class="annottext">InAppMessageCampaign -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AcampaignId%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Treatment id of the campaign.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AtreatmentId%3AInAppMessageCampaign%27"><span class="annot"><span class="annottext">InAppMessageCampaign -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AtreatmentId%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var hs-var">treatmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | In-app message content with all fields required for rendering an in-app</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- message.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AinAppMessage%3AInAppMessageCampaign%27"><span class="annot"><span class="annottext">InAppMessageCampaign -&gt; Maybe InAppMessage
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AinAppMessage%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var hs-var">inAppMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-type">InAppMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Total cap which controls the number of times an in-app message can be</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- shown to the endpoint.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AtotalCap%3AInAppMessageCampaign%27"><span class="annot"><span class="annottext">InAppMessageCampaign -&gt; Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AtotalCap%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var hs-var">totalCap</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Daily cap which controls the number of times any in-app messages can be</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- shown to the endpoint during a day.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AdailyCap%3AInAppMessageCampaign%27"><span class="annot"><span class="annottext">InAppMessageCampaign -&gt; Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AdailyCap%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var hs-var">dailyCap</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679611768"><span id="local-6989586621679611770"><span class="annot"><span class="annottext">InAppMessageCampaign -&gt; InAppMessageCampaign -&gt; Bool
+(InAppMessageCampaign -&gt; InAppMessageCampaign -&gt; Bool)
+-&gt; (InAppMessageCampaign -&gt; InAppMessageCampaign -&gt; Bool)
+-&gt; Eq InAppMessageCampaign
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InAppMessageCampaign -&gt; InAppMessageCampaign -&gt; Bool
+$c/= :: InAppMessageCampaign -&gt; InAppMessageCampaign -&gt; Bool
+== :: InAppMessageCampaign -&gt; InAppMessageCampaign -&gt; Bool
+$c== :: InAppMessageCampaign -&gt; InAppMessageCampaign -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611759"><span id="local-6989586621679611761"><span id="local-6989586621679611763"><span id="local-6989586621679611765"><span class="annot"><span class="annottext">ReadPrec [InAppMessageCampaign]
+ReadPrec InAppMessageCampaign
+Int -&gt; ReadS InAppMessageCampaign
+ReadS [InAppMessageCampaign]
+(Int -&gt; ReadS InAppMessageCampaign)
+-&gt; ReadS [InAppMessageCampaign]
+-&gt; ReadPrec InAppMessageCampaign
+-&gt; ReadPrec [InAppMessageCampaign]
+-&gt; Read InAppMessageCampaign
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InAppMessageCampaign]
+$creadListPrec :: ReadPrec [InAppMessageCampaign]
+readPrec :: ReadPrec InAppMessageCampaign
+$creadPrec :: ReadPrec InAppMessageCampaign
+readList :: ReadS [InAppMessageCampaign]
+$creadList :: ReadS [InAppMessageCampaign]
+readsPrec :: Int -&gt; ReadS InAppMessageCampaign
+$creadsPrec :: Int -&gt; ReadS InAppMessageCampaign
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611752"><span id="local-6989586621679611754"><span id="local-6989586621679611756"><span class="annot"><span class="annottext">Int -&gt; InAppMessageCampaign -&gt; ShowS
+[InAppMessageCampaign] -&gt; ShowS
+InAppMessageCampaign -&gt; String
+(Int -&gt; InAppMessageCampaign -&gt; ShowS)
+-&gt; (InAppMessageCampaign -&gt; String)
+-&gt; ([InAppMessageCampaign] -&gt; ShowS)
+-&gt; Show InAppMessageCampaign
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InAppMessageCampaign] -&gt; ShowS
+$cshowList :: [InAppMessageCampaign] -&gt; ShowS
+show :: InAppMessageCampaign -&gt; String
+$cshow :: InAppMessageCampaign -&gt; String
+showsPrec :: Int -&gt; InAppMessageCampaign -&gt; ShowS
+$cshowsPrec :: Int -&gt; InAppMessageCampaign -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InAppMessageCampaign -&gt; Rep InAppMessageCampaign x)
+-&gt; (forall x. Rep InAppMessageCampaign x -&gt; InAppMessageCampaign)
+-&gt; Generic InAppMessageCampaign
+forall x. Rep InAppMessageCampaign x -&gt; InAppMessageCampaign
+forall x. InAppMessageCampaign -&gt; Rep InAppMessageCampaign x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InAppMessageCampaign x -&gt; InAppMessageCampaign
+$cfrom :: forall x. InAppMessageCampaign -&gt; Rep InAppMessageCampaign x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'InAppMessageCampaign' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'sessionCap', 'inAppMessageCampaign_sessionCap' - Session cap which controls the number of times an in-app message can be</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- shown to the endpoint during an application session.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'priority', 'inAppMessageCampaign_priority' - Priority of the in-app message.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'schedule', 'inAppMessageCampaign_schedule' - Schedule of the campaign.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'campaignId', 'inAppMessageCampaign_campaignId' - Campaign id of the corresponding campaign.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'treatmentId', 'inAppMessageCampaign_treatmentId' - Treatment id of the campaign.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'inAppMessage', 'inAppMessageCampaign_inAppMessage' - In-app message content with all fields required for rendering an in-app</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- message.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'totalCap', 'inAppMessageCampaign_totalCap' - Total cap which controls the number of times an in-app message can be</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- shown to the endpoint.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'dailyCap', 'inAppMessageCampaign_dailyCap' - Daily cap which controls the number of times any in-app messages can be</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- shown to the endpoint during a day.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#newInAppMessageCampaign"><span class="hs-identifier hs-type">newInAppMessageCampaign</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span>
+</span><span id="line-84"></span><span id="newInAppMessageCampaign"><span class="annot"><span class="annottext">newInAppMessageCampaign :: InAppMessageCampaign
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#newInAppMessageCampaign"><span class="hs-identifier hs-var hs-var">newInAppMessageCampaign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">InAppMessageCampaign' :: Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe InAppCampaignSchedule
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe InAppMessage
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; InAppMessageCampaign
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sessionCap:InAppMessageCampaign' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AsessionCap%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">sessionCap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:priority:InAppMessageCampaign' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3Apriority%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:schedule:InAppMessageCampaign' :: Maybe InAppCampaignSchedule
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3Aschedule%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InAppCampaignSchedule
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:campaignId:InAppMessageCampaign' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AcampaignId%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">campaignId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:treatmentId:InAppMessageCampaign' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AtreatmentId%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">treatmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:inAppMessage:InAppMessageCampaign' :: Maybe InAppMessage
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AinAppMessage%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">inAppMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InAppMessage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalCap:InAppMessageCampaign' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AtotalCap%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">totalCap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:dailyCap:InAppMessageCampaign' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AdailyCap%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">dailyCap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | Session cap which controls the number of times an in-app message can be</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- shown to the endpoint during an application session.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_sessionCap"><span class="hs-identifier hs-type">inAppMessageCampaign_sessionCap</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="inAppMessageCampaign_sessionCap"><span class="annot"><span class="annottext">inAppMessageCampaign_sessionCap :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; InAppMessageCampaign -&gt; f InAppMessageCampaign
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_sessionCap"><span class="hs-identifier hs-var hs-var">inAppMessageCampaign_sessionCap</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppMessageCampaign -&gt; Maybe Int)
+-&gt; (InAppMessageCampaign -&gt; Maybe Int -&gt; InAppMessageCampaign)
+-&gt; Lens
+     InAppMessageCampaign InAppMessageCampaign (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611743"><span class="annot"><span class="annottext">Maybe Int
+sessionCap :: Maybe Int
+$sel:sessionCap:InAppMessageCampaign' :: InAppMessageCampaign -&gt; Maybe Int
+</span><a href="#local-6989586621679611743"><span class="hs-identifier hs-var hs-var">sessionCap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679611743"><span class="hs-identifier hs-var">sessionCap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611742"><span class="annot"><span class="annottext">s :: InAppMessageCampaign
+</span><a href="#local-6989586621679611742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611741"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679611741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppMessageCampaign
+</span><a href="#local-6989586621679611742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionCap:InAppMessageCampaign' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AsessionCap%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">sessionCap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679611741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Priority of the in-app message.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_priority"><span class="hs-identifier hs-type">inAppMessageCampaign_priority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="inAppMessageCampaign_priority"><span class="annot"><span class="annottext">inAppMessageCampaign_priority :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; InAppMessageCampaign -&gt; f InAppMessageCampaign
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_priority"><span class="hs-identifier hs-var hs-var">inAppMessageCampaign_priority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppMessageCampaign -&gt; Maybe Int)
+-&gt; (InAppMessageCampaign -&gt; Maybe Int -&gt; InAppMessageCampaign)
+-&gt; Lens
+     InAppMessageCampaign InAppMessageCampaign (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611739"><span class="annot"><span class="annottext">Maybe Int
+priority :: Maybe Int
+$sel:priority:InAppMessageCampaign' :: InAppMessageCampaign -&gt; Maybe Int
+</span><a href="#local-6989586621679611739"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679611739"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611738"><span class="annot"><span class="annottext">s :: InAppMessageCampaign
+</span><a href="#local-6989586621679611738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611737"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679611737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppMessageCampaign
+</span><a href="#local-6989586621679611738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:InAppMessageCampaign' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3Apriority%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679611737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Schedule of the campaign.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_schedule"><span class="hs-identifier hs-type">inAppMessageCampaign_schedule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="inAppMessageCampaign_schedule"><span class="annot"><span class="annottext">inAppMessageCampaign_schedule :: (Maybe InAppCampaignSchedule -&gt; f (Maybe InAppCampaignSchedule))
+-&gt; InAppMessageCampaign -&gt; f InAppMessageCampaign
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_schedule"><span class="hs-identifier hs-var hs-var">inAppMessageCampaign_schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppMessageCampaign -&gt; Maybe InAppCampaignSchedule)
+-&gt; (InAppMessageCampaign
+    -&gt; Maybe InAppCampaignSchedule -&gt; InAppMessageCampaign)
+-&gt; Lens
+     InAppMessageCampaign
+     InAppMessageCampaign
+     (Maybe InAppCampaignSchedule)
+     (Maybe InAppCampaignSchedule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611735"><span class="annot"><span class="annottext">Maybe InAppCampaignSchedule
+schedule :: Maybe InAppCampaignSchedule
+$sel:schedule:InAppMessageCampaign' :: InAppMessageCampaign -&gt; Maybe InAppCampaignSchedule
+</span><a href="#local-6989586621679611735"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InAppCampaignSchedule
+</span><a href="#local-6989586621679611735"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611734"><span class="annot"><span class="annottext">s :: InAppMessageCampaign
+</span><a href="#local-6989586621679611734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611733"><span class="annot"><span class="annottext">Maybe InAppCampaignSchedule
+</span><a href="#local-6989586621679611733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppMessageCampaign
+</span><a href="#local-6989586621679611734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:InAppMessageCampaign' :: Maybe InAppCampaignSchedule
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3Aschedule%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InAppCampaignSchedule
+</span><a href="#local-6989586621679611733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Campaign id of the corresponding campaign.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_campaignId"><span class="hs-identifier hs-type">inAppMessageCampaign_campaignId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="inAppMessageCampaign_campaignId"><span class="annot"><span class="annottext">inAppMessageCampaign_campaignId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InAppMessageCampaign -&gt; f InAppMessageCampaign
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_campaignId"><span class="hs-identifier hs-var hs-var">inAppMessageCampaign_campaignId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppMessageCampaign -&gt; Maybe Text)
+-&gt; (InAppMessageCampaign -&gt; Maybe Text -&gt; InAppMessageCampaign)
+-&gt; Lens
+     InAppMessageCampaign InAppMessageCampaign (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611731"><span class="annot"><span class="annottext">Maybe Text
+campaignId :: Maybe Text
+$sel:campaignId:InAppMessageCampaign' :: InAppMessageCampaign -&gt; Maybe Text
+</span><a href="#local-6989586621679611731"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679611731"><span class="hs-identifier hs-var">campaignId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611730"><span class="annot"><span class="annottext">s :: InAppMessageCampaign
+</span><a href="#local-6989586621679611730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611729"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679611729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppMessageCampaign
+</span><a href="#local-6989586621679611730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignId:InAppMessageCampaign' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AcampaignId%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">campaignId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679611729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Treatment id of the campaign.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_treatmentId"><span class="hs-identifier hs-type">inAppMessageCampaign_treatmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="inAppMessageCampaign_treatmentId"><span class="annot"><span class="annottext">inAppMessageCampaign_treatmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InAppMessageCampaign -&gt; f InAppMessageCampaign
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_treatmentId"><span class="hs-identifier hs-var hs-var">inAppMessageCampaign_treatmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppMessageCampaign -&gt; Maybe Text)
+-&gt; (InAppMessageCampaign -&gt; Maybe Text -&gt; InAppMessageCampaign)
+-&gt; Lens
+     InAppMessageCampaign InAppMessageCampaign (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611727"><span class="annot"><span class="annottext">Maybe Text
+treatmentId :: Maybe Text
+$sel:treatmentId:InAppMessageCampaign' :: InAppMessageCampaign -&gt; Maybe Text
+</span><a href="#local-6989586621679611727"><span class="hs-identifier hs-var hs-var">treatmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679611727"><span class="hs-identifier hs-var">treatmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611726"><span class="annot"><span class="annottext">s :: InAppMessageCampaign
+</span><a href="#local-6989586621679611726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611725"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679611725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppMessageCampaign
+</span><a href="#local-6989586621679611726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:treatmentId:InAppMessageCampaign' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AtreatmentId%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">treatmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679611725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | In-app message content with all fields required for rendering an in-app</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- message.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_inAppMessage"><span class="hs-identifier hs-type">inAppMessageCampaign_inAppMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessage.html#InAppMessage"><span class="hs-identifier hs-type">InAppMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="inAppMessageCampaign_inAppMessage"><span class="annot"><span class="annottext">inAppMessageCampaign_inAppMessage :: (Maybe InAppMessage -&gt; f (Maybe InAppMessage))
+-&gt; InAppMessageCampaign -&gt; f InAppMessageCampaign
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_inAppMessage"><span class="hs-identifier hs-var hs-var">inAppMessageCampaign_inAppMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppMessageCampaign -&gt; Maybe InAppMessage)
+-&gt; (InAppMessageCampaign
+    -&gt; Maybe InAppMessage -&gt; InAppMessageCampaign)
+-&gt; Lens
+     InAppMessageCampaign
+     InAppMessageCampaign
+     (Maybe InAppMessage)
+     (Maybe InAppMessage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611723"><span class="annot"><span class="annottext">Maybe InAppMessage
+inAppMessage :: Maybe InAppMessage
+$sel:inAppMessage:InAppMessageCampaign' :: InAppMessageCampaign -&gt; Maybe InAppMessage
+</span><a href="#local-6989586621679611723"><span class="hs-identifier hs-var hs-var">inAppMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InAppMessage
+</span><a href="#local-6989586621679611723"><span class="hs-identifier hs-var">inAppMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611722"><span class="annot"><span class="annottext">s :: InAppMessageCampaign
+</span><a href="#local-6989586621679611722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611721"><span class="annot"><span class="annottext">Maybe InAppMessage
+</span><a href="#local-6989586621679611721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppMessageCampaign
+</span><a href="#local-6989586621679611722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inAppMessage:InAppMessageCampaign' :: Maybe InAppMessage
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AinAppMessage%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">inAppMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InAppMessage
+</span><a href="#local-6989586621679611721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Total cap which controls the number of times an in-app message can be</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- shown to the endpoint.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_totalCap"><span class="hs-identifier hs-type">inAppMessageCampaign_totalCap</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="inAppMessageCampaign_totalCap"><span class="annot"><span class="annottext">inAppMessageCampaign_totalCap :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; InAppMessageCampaign -&gt; f InAppMessageCampaign
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_totalCap"><span class="hs-identifier hs-var hs-var">inAppMessageCampaign_totalCap</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppMessageCampaign -&gt; Maybe Int)
+-&gt; (InAppMessageCampaign -&gt; Maybe Int -&gt; InAppMessageCampaign)
+-&gt; Lens
+     InAppMessageCampaign InAppMessageCampaign (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611719"><span class="annot"><span class="annottext">Maybe Int
+totalCap :: Maybe Int
+$sel:totalCap:InAppMessageCampaign' :: InAppMessageCampaign -&gt; Maybe Int
+</span><a href="#local-6989586621679611719"><span class="hs-identifier hs-var hs-var">totalCap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679611719"><span class="hs-identifier hs-var">totalCap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611718"><span class="annot"><span class="annottext">s :: InAppMessageCampaign
+</span><a href="#local-6989586621679611718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611717"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679611717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppMessageCampaign
+</span><a href="#local-6989586621679611718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalCap:InAppMessageCampaign' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AtotalCap%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">totalCap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679611717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Daily cap which controls the number of times any in-app messages can be</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- shown to the endpoint during a day.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_dailyCap"><span class="hs-identifier hs-type">inAppMessageCampaign_dailyCap</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="inAppMessageCampaign_dailyCap"><span class="annot"><span class="annottext">inAppMessageCampaign_dailyCap :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; InAppMessageCampaign -&gt; f InAppMessageCampaign
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#inAppMessageCampaign_dailyCap"><span class="hs-identifier hs-var hs-var">inAppMessageCampaign_dailyCap</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppMessageCampaign -&gt; Maybe Int)
+-&gt; (InAppMessageCampaign -&gt; Maybe Int -&gt; InAppMessageCampaign)
+-&gt; Lens
+     InAppMessageCampaign InAppMessageCampaign (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611715"><span class="annot"><span class="annottext">Maybe Int
+dailyCap :: Maybe Int
+$sel:dailyCap:InAppMessageCampaign' :: InAppMessageCampaign -&gt; Maybe Int
+</span><a href="#local-6989586621679611715"><span class="hs-identifier hs-var hs-var">dailyCap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679611715"><span class="hs-identifier hs-var">dailyCap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611714"><span class="annot"><span class="annottext">s :: InAppMessageCampaign
+</span><a href="#local-6989586621679611714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-type">InAppMessageCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611713"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679611713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppMessageCampaign
+</span><a href="#local-6989586621679611714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dailyCap:InAppMessageCampaign' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#%24sel%3AdailyCap%3AInAppMessageCampaign%27"><span class="hs-identifier hs-var">dailyCap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679611713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611710"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679611708"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InAppMessageCampaign
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InAppMessageCampaign)
+-&gt; Value
+-&gt; Parser InAppMessageCampaign
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InAppMessageCampaign&quot;</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679611705"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611705"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe InAppCampaignSchedule
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe InAppMessage
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; InAppMessageCampaign
+</span><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign%27"><span class="hs-identifier hs-var">InAppMessageCampaign'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe InAppCampaignSchedule
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe InAppMessage
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; InAppMessageCampaign)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe InAppCampaignSchedule
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe InAppMessage
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; InAppMessageCampaign)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SessionCap&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe InAppCampaignSchedule
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe InAppMessage
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; InAppMessageCampaign)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe InAppCampaignSchedule
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe InAppMessage
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; InAppMessageCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Priority&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InAppCampaignSchedule
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe InAppMessage
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; InAppMessageCampaign)
+-&gt; Parser (Maybe InAppCampaignSchedule)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe InAppMessage
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; InAppMessageCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InAppCampaignSchedule)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Schedule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe InAppMessage
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; InAppMessageCampaign)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe InAppMessage
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; InAppMessageCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CampaignId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe InAppMessage
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; InAppMessageCampaign)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe InAppMessage
+      -&gt; Maybe Int -&gt; Maybe Int -&gt; InAppMessageCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TreatmentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InAppMessage
+   -&gt; Maybe Int -&gt; Maybe Int -&gt; InAppMessageCampaign)
+-&gt; Parser (Maybe InAppMessage)
+-&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; InAppMessageCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InAppMessage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InAppMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Int -&gt; InAppMessageCampaign)
+-&gt; Parser (Maybe Int) -&gt; Parser (Maybe Int -&gt; InAppMessageCampaign)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TotalCap&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; InAppMessageCampaign)
+-&gt; Parser (Maybe Int) -&gt; Parser InAppMessageCampaign
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DailyCap&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611699"><span id="local-6989586621679611701"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessageCampaign.html#InAppMessageCampaign"><span class="hs-identifier hs-type">InAppMessageCampaign</span></a></span></span><span>
+</span><span id="line-151"></span></pre></body></html>

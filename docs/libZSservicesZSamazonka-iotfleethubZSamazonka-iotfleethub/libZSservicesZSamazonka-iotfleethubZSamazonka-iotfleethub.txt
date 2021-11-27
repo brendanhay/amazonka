@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.IoTFleetHub.Types.ApplicationState
+module Amazonka.IoTFleetHub.Types.ApplicationState
 newtype ApplicationState
 ApplicationState' :: Text -> ApplicationState
 [fromApplicationState] :: ApplicationState -> Text
@@ -14,28 +14,28 @@ pattern ApplicationState_CREATE_FAILED :: ApplicationState
 pattern ApplicationState_CREATING :: ApplicationState
 pattern ApplicationState_DELETE_FAILED :: ApplicationState
 pattern ApplicationState_DELETING :: ApplicationState
-instance Network.AWS.Data.XML.ToXML Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance Network.AWS.Data.XML.FromXML Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance Network.AWS.Data.Log.ToLog Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance Network.AWS.Data.Text.ToText Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance Network.AWS.Data.Text.FromText Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance Data.Hashable.Class.Hashable Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance GHC.Classes.Ord Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance GHC.Read.Read Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
-instance GHC.Show.Show Network.AWS.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance Amazonka.Data.XML.ToXML Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance Amazonka.Data.XML.FromXML Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance Amazonka.Data.Headers.ToHeader Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance Amazonka.Data.Log.ToLog Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance Amazonka.Data.Text.ToText Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance Amazonka.Data.Text.FromText Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance Data.Hashable.Class.Hashable Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance GHC.Classes.Ord Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance GHC.Read.Read Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
+instance GHC.Show.Show Amazonka.IoTFleetHub.Types.ApplicationState.ApplicationState
 
 
-module Network.AWS.IoTFleetHub.Types.ApplicationSummary
+module Amazonka.IoTFleetHub.Types.ApplicationSummary
 
 -- | A summary of information about a AWS IoT Device Management web
 --   application.
@@ -128,16 +128,16 @@ applicationSummary_applicationName :: Lens' ApplicationSummary Text
 
 -- | The URL of the web application.
 applicationSummary_applicationUrl :: Lens' ApplicationSummary Text
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.Types.ApplicationSummary.ApplicationSummary
-instance GHC.Show.Show Network.AWS.IoTFleetHub.Types.ApplicationSummary.ApplicationSummary
-instance GHC.Read.Read Network.AWS.IoTFleetHub.Types.ApplicationSummary.ApplicationSummary
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.Types.ApplicationSummary.ApplicationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTFleetHub.Types.ApplicationSummary.ApplicationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.IoTFleetHub.Types.ApplicationSummary.ApplicationSummary
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.Types.ApplicationSummary.ApplicationSummary
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.Types.ApplicationSummary.ApplicationSummary
+instance GHC.Show.Show Amazonka.IoTFleetHub.Types.ApplicationSummary.ApplicationSummary
+instance GHC.Read.Read Amazonka.IoTFleetHub.Types.ApplicationSummary.ApplicationSummary
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.Types.ApplicationSummary.ApplicationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTFleetHub.Types.ApplicationSummary.ApplicationSummary
+instance Data.Hashable.Class.Hashable Amazonka.IoTFleetHub.Types.ApplicationSummary.ApplicationSummary
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.Types.ApplicationSummary.ApplicationSummary
 
 
-module Network.AWS.IoTFleetHub.Types
+module Amazonka.IoTFleetHub.Types
 
 -- | API version <tt>2020-11-03</tt> of the Amazon IoT Fleet Hub SDK
 --   configuration.
@@ -267,7 +267,7 @@ applicationSummary_applicationUrl :: Lens' ApplicationSummary Text
 --   
 --   Fleet Hub for AWS IoT Device Management is in public preview and is
 --   subject to change.
-module Network.AWS.IoTFleetHub.TagResource
+module Amazonka.IoTFleetHub.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -323,29 +323,29 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.IoTFleetHub.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.IoTFleetHub.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.IoTFleetHub.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.IoTFleetHub.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTFleetHub.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTFleetHub.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTFleetHub.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTFleetHub.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTFleetHub.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTFleetHub.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.TagResource.TagResource
+instance GHC.Show.Show Amazonka.IoTFleetHub.TagResource.TagResource
+instance GHC.Read.Read Amazonka.IoTFleetHub.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.IoTFleetHub.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.IoTFleetHub.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTFleetHub.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTFleetHub.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTFleetHub.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTFleetHub.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.IoTFleetHub.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTFleetHub.TagResource.TagResource
 
 
 -- | Lists the tags for the specified resource.
 --   
 --   Fleet Hub for AWS IoT Device Management is in public preview and is
 --   subject to change.
-module Network.AWS.IoTFleetHub.ListTagsForResource
+module Amazonka.IoTFleetHub.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -403,21 +403,21 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.IoTFleetHub.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.IoTFleetHub.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.IoTFleetHub.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.IoTFleetHub.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTFleetHub.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTFleetHub.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTFleetHub.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTFleetHub.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTFleetHub.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.IoTFleetHub.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.IoTFleetHub.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.IoTFleetHub.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.IoTFleetHub.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTFleetHub.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTFleetHub.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTFleetHub.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.IoTFleetHub.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTFleetHub.ListTagsForResource.ListTagsForResource
 
 
 -- | Gets a list of Fleet Hub for AWS IoT Device Management web
@@ -427,7 +427,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTFleetHub.ListTagsForResou
 --   subject to change.
 --   
 --   This operation returns paginated results.
-module Network.AWS.IoTFleetHub.ListApplications
+module Amazonka.IoTFleetHub.ListApplications
 
 -- | <i>See:</i> <a>newListApplications</a> smart constructor.
 data ListApplications
@@ -499,22 +499,22 @@ listApplicationsResponse_applicationSummaries :: Lens' ListApplicationsResponse 
 
 -- | The response's http status code.
 listApplicationsResponse_httpStatus :: Lens' ListApplicationsResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.ListApplications.ListApplications
-instance GHC.Show.Show Network.AWS.IoTFleetHub.ListApplications.ListApplications
-instance GHC.Read.Read Network.AWS.IoTFleetHub.ListApplications.ListApplications
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.ListApplications.ListApplications
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.ListApplications.ListApplicationsResponse
-instance GHC.Show.Show Network.AWS.IoTFleetHub.ListApplications.ListApplicationsResponse
-instance GHC.Read.Read Network.AWS.IoTFleetHub.ListApplications.ListApplicationsResponse
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.ListApplications.ListApplicationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTFleetHub.ListApplications.ListApplications
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.ListApplications.ListApplicationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.IoTFleetHub.ListApplications.ListApplications
-instance Data.Hashable.Class.Hashable Network.AWS.IoTFleetHub.ListApplications.ListApplications
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.ListApplications.ListApplications
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTFleetHub.ListApplications.ListApplications
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTFleetHub.ListApplications.ListApplications
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTFleetHub.ListApplications.ListApplications
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.ListApplications.ListApplications
+instance GHC.Show.Show Amazonka.IoTFleetHub.ListApplications.ListApplications
+instance GHC.Read.Read Amazonka.IoTFleetHub.ListApplications.ListApplications
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.ListApplications.ListApplications
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.ListApplications.ListApplicationsResponse
+instance GHC.Show.Show Amazonka.IoTFleetHub.ListApplications.ListApplicationsResponse
+instance GHC.Read.Read Amazonka.IoTFleetHub.ListApplications.ListApplicationsResponse
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.ListApplications.ListApplicationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTFleetHub.ListApplications.ListApplications
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.ListApplications.ListApplicationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.IoTFleetHub.ListApplications.ListApplications
+instance Data.Hashable.Class.Hashable Amazonka.IoTFleetHub.ListApplications.ListApplications
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.ListApplications.ListApplications
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTFleetHub.ListApplications.ListApplications
+instance Amazonka.Data.Path.ToPath Amazonka.IoTFleetHub.ListApplications.ListApplications
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTFleetHub.ListApplications.ListApplications
 
 
 -- | Gets information about a Fleet Hub for AWS IoT Device Management web
@@ -522,7 +522,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTFleetHub.ListApplications
 --   
 --   Fleet Hub for AWS IoT Device Management is in public preview and is
 --   subject to change.
-module Network.AWS.IoTFleetHub.DescribeApplication
+module Amazonka.IoTFleetHub.DescribeApplication
 
 -- | <i>See:</i> <a>newDescribeApplication</a> smart constructor.
 data DescribeApplication
@@ -698,28 +698,28 @@ describeApplicationResponse_applicationLastUpdateDate :: Lens' DescribeApplicati
 -- | The ARN of the role that the web application assumes when it interacts
 --   with AWS IoT Core.
 describeApplicationResponse_roleArn :: Lens' DescribeApplicationResponse Text
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.DescribeApplication.DescribeApplication
-instance GHC.Show.Show Network.AWS.IoTFleetHub.DescribeApplication.DescribeApplication
-instance GHC.Read.Read Network.AWS.IoTFleetHub.DescribeApplication.DescribeApplication
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.DescribeApplication.DescribeApplication
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.DescribeApplication.DescribeApplicationResponse
-instance GHC.Show.Show Network.AWS.IoTFleetHub.DescribeApplication.DescribeApplicationResponse
-instance GHC.Read.Read Network.AWS.IoTFleetHub.DescribeApplication.DescribeApplicationResponse
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.DescribeApplication.DescribeApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTFleetHub.DescribeApplication.DescribeApplication
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.DescribeApplication.DescribeApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTFleetHub.DescribeApplication.DescribeApplication
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.DescribeApplication.DescribeApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTFleetHub.DescribeApplication.DescribeApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTFleetHub.DescribeApplication.DescribeApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTFleetHub.DescribeApplication.DescribeApplication
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.DescribeApplication.DescribeApplication
+instance GHC.Show.Show Amazonka.IoTFleetHub.DescribeApplication.DescribeApplication
+instance GHC.Read.Read Amazonka.IoTFleetHub.DescribeApplication.DescribeApplication
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.DescribeApplication.DescribeApplication
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.DescribeApplication.DescribeApplicationResponse
+instance GHC.Show.Show Amazonka.IoTFleetHub.DescribeApplication.DescribeApplicationResponse
+instance GHC.Read.Read Amazonka.IoTFleetHub.DescribeApplication.DescribeApplicationResponse
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.DescribeApplication.DescribeApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTFleetHub.DescribeApplication.DescribeApplication
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.DescribeApplication.DescribeApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTFleetHub.DescribeApplication.DescribeApplication
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.DescribeApplication.DescribeApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTFleetHub.DescribeApplication.DescribeApplication
+instance Amazonka.Data.Path.ToPath Amazonka.IoTFleetHub.DescribeApplication.DescribeApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTFleetHub.DescribeApplication.DescribeApplication
 
 
 -- | Deletes a Fleet Hub for AWS IoT Device Management web application.
 --   
 --   Fleet Hub for AWS IoT Device Management is in public preview and is
 --   subject to change.
-module Network.AWS.IoTFleetHub.DeleteApplication
+module Amazonka.IoTFleetHub.DeleteApplication
 
 -- | <i>See:</i> <a>newDeleteApplication</a> smart constructor.
 data DeleteApplication
@@ -784,28 +784,28 @@ newDeleteApplicationResponse :: Int -> DeleteApplicationResponse
 
 -- | The response's http status code.
 deleteApplicationResponse_httpStatus :: Lens' DeleteApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.DeleteApplication.DeleteApplication
-instance GHC.Show.Show Network.AWS.IoTFleetHub.DeleteApplication.DeleteApplication
-instance GHC.Read.Read Network.AWS.IoTFleetHub.DeleteApplication.DeleteApplication
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.DeleteApplication.DeleteApplication
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.DeleteApplication.DeleteApplicationResponse
-instance GHC.Show.Show Network.AWS.IoTFleetHub.DeleteApplication.DeleteApplicationResponse
-instance GHC.Read.Read Network.AWS.IoTFleetHub.DeleteApplication.DeleteApplicationResponse
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.DeleteApplication.DeleteApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTFleetHub.DeleteApplication.DeleteApplication
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.DeleteApplication.DeleteApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTFleetHub.DeleteApplication.DeleteApplication
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.DeleteApplication.DeleteApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTFleetHub.DeleteApplication.DeleteApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTFleetHub.DeleteApplication.DeleteApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTFleetHub.DeleteApplication.DeleteApplication
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.DeleteApplication.DeleteApplication
+instance GHC.Show.Show Amazonka.IoTFleetHub.DeleteApplication.DeleteApplication
+instance GHC.Read.Read Amazonka.IoTFleetHub.DeleteApplication.DeleteApplication
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.DeleteApplication.DeleteApplication
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.DeleteApplication.DeleteApplicationResponse
+instance GHC.Show.Show Amazonka.IoTFleetHub.DeleteApplication.DeleteApplicationResponse
+instance GHC.Read.Read Amazonka.IoTFleetHub.DeleteApplication.DeleteApplicationResponse
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.DeleteApplication.DeleteApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTFleetHub.DeleteApplication.DeleteApplication
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.DeleteApplication.DeleteApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTFleetHub.DeleteApplication.DeleteApplication
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.DeleteApplication.DeleteApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTFleetHub.DeleteApplication.DeleteApplication
+instance Amazonka.Data.Path.ToPath Amazonka.IoTFleetHub.DeleteApplication.DeleteApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTFleetHub.DeleteApplication.DeleteApplication
 
 
 -- | Creates a Fleet Hub for AWS IoT Device Management web application.
 --   
 --   Fleet Hub for AWS IoT Device Management is in public preview and is
 --   subject to change.
-module Network.AWS.IoTFleetHub.CreateApplication
+module Amazonka.IoTFleetHub.CreateApplication
 
 -- | <i>See:</i> <a>newCreateApplication</a> smart constructor.
 data CreateApplication
@@ -933,29 +933,29 @@ createApplicationResponse_applicationId :: Lens' CreateApplicationResponse Text
 
 -- | The ARN of the web application.
 createApplicationResponse_applicationArn :: Lens' CreateApplicationResponse Text
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.CreateApplication.CreateApplication
-instance GHC.Show.Show Network.AWS.IoTFleetHub.CreateApplication.CreateApplication
-instance GHC.Read.Read Network.AWS.IoTFleetHub.CreateApplication.CreateApplication
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.CreateApplication.CreateApplication
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.CreateApplication.CreateApplicationResponse
-instance GHC.Show.Show Network.AWS.IoTFleetHub.CreateApplication.CreateApplicationResponse
-instance GHC.Read.Read Network.AWS.IoTFleetHub.CreateApplication.CreateApplicationResponse
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.CreateApplication.CreateApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTFleetHub.CreateApplication.CreateApplication
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.CreateApplication.CreateApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTFleetHub.CreateApplication.CreateApplication
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.CreateApplication.CreateApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTFleetHub.CreateApplication.CreateApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTFleetHub.CreateApplication.CreateApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTFleetHub.CreateApplication.CreateApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTFleetHub.CreateApplication.CreateApplication
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.CreateApplication.CreateApplication
+instance GHC.Show.Show Amazonka.IoTFleetHub.CreateApplication.CreateApplication
+instance GHC.Read.Read Amazonka.IoTFleetHub.CreateApplication.CreateApplication
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.CreateApplication.CreateApplication
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.CreateApplication.CreateApplicationResponse
+instance GHC.Show.Show Amazonka.IoTFleetHub.CreateApplication.CreateApplicationResponse
+instance GHC.Read.Read Amazonka.IoTFleetHub.CreateApplication.CreateApplicationResponse
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.CreateApplication.CreateApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTFleetHub.CreateApplication.CreateApplication
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.CreateApplication.CreateApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTFleetHub.CreateApplication.CreateApplication
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.CreateApplication.CreateApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTFleetHub.CreateApplication.CreateApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTFleetHub.CreateApplication.CreateApplication
+instance Amazonka.Data.Path.ToPath Amazonka.IoTFleetHub.CreateApplication.CreateApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTFleetHub.CreateApplication.CreateApplication
 
 
 -- | Removes the specified tags (metadata) from the resource.
 --   
 --   Fleet Hub for AWS IoT Device Management is in public preview and is
 --   subject to change.
-module Network.AWS.IoTFleetHub.UntagResource
+module Amazonka.IoTFleetHub.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -1012,21 +1012,21 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.IoTFleetHub.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.IoTFleetHub.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.IoTFleetHub.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.IoTFleetHub.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTFleetHub.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTFleetHub.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTFleetHub.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTFleetHub.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTFleetHub.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.IoTFleetHub.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.IoTFleetHub.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.IoTFleetHub.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.IoTFleetHub.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTFleetHub.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTFleetHub.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTFleetHub.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.IoTFleetHub.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTFleetHub.UntagResource.UntagResource
 
 
 -- | Updates information about a Fleet Hub for a AWS IoT Device Management
@@ -1034,7 +1034,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTFleetHub.UntagResource.Un
 --   
 --   Fleet Hub for AWS IoT Device Management is in public preview and is
 --   subject to change.
-module Network.AWS.IoTFleetHub.UpdateApplication
+module Amazonka.IoTFleetHub.UpdateApplication
 
 -- | <i>See:</i> <a>newUpdateApplication</a> smart constructor.
 data UpdateApplication
@@ -1119,25 +1119,25 @@ newUpdateApplicationResponse :: Int -> UpdateApplicationResponse
 
 -- | The response's http status code.
 updateApplicationResponse_httpStatus :: Lens' UpdateApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplication
-instance GHC.Show.Show Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplication
-instance GHC.Read.Read Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplication
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplication
-instance GHC.Generics.Generic Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplicationResponse
-instance GHC.Show.Show Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplicationResponse
-instance GHC.Read.Read Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplicationResponse
-instance GHC.Classes.Eq Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplication
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplication
-instance Control.DeepSeq.NFData Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTFleetHub.UpdateApplication.UpdateApplication
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.UpdateApplication.UpdateApplication
+instance GHC.Show.Show Amazonka.IoTFleetHub.UpdateApplication.UpdateApplication
+instance GHC.Read.Read Amazonka.IoTFleetHub.UpdateApplication.UpdateApplication
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.UpdateApplication.UpdateApplication
+instance GHC.Generics.Generic Amazonka.IoTFleetHub.UpdateApplication.UpdateApplicationResponse
+instance GHC.Show.Show Amazonka.IoTFleetHub.UpdateApplication.UpdateApplicationResponse
+instance GHC.Read.Read Amazonka.IoTFleetHub.UpdateApplication.UpdateApplicationResponse
+instance GHC.Classes.Eq Amazonka.IoTFleetHub.UpdateApplication.UpdateApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTFleetHub.UpdateApplication.UpdateApplication
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.UpdateApplication.UpdateApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTFleetHub.UpdateApplication.UpdateApplication
+instance Control.DeepSeq.NFData Amazonka.IoTFleetHub.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTFleetHub.UpdateApplication.UpdateApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTFleetHub.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Path.ToPath Amazonka.IoTFleetHub.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTFleetHub.UpdateApplication.UpdateApplication
 
 
-module Network.AWS.IoTFleetHub.Lens
+module Amazonka.IoTFleetHub.Lens
 
 -- | The unique Id of the web application.
 describeApplication_applicationId :: Lens' DescribeApplication Text
@@ -1306,7 +1306,7 @@ applicationSummary_applicationName :: Lens' ApplicationSummary Text
 applicationSummary_applicationUrl :: Lens' ApplicationSummary Text
 
 
-module Network.AWS.IoTFleetHub.Waiters
+module Amazonka.IoTFleetHub.Waiters
 
 
 -- | Derived from API version <tt>2020-11-03</tt> of the AWS service
@@ -1317,7 +1317,7 @@ module Network.AWS.IoTFleetHub.Waiters
 --   
 --   Fleet Hub for AWS IoT Device Management is in public preview and is
 --   subject to change.
-module Network.AWS.IoTFleetHub
+module Amazonka.IoTFleetHub
 
 -- | API version <tt>2020-11-03</tt> of the Amazon IoT Fleet Hub SDK
 --   configuration.

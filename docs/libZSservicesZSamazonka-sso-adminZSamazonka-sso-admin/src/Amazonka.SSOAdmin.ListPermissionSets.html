@@ -1,0 +1,694 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SSOAdmin.ListPermissionSets</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the PermissionSets in an SSO instance.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSOAdmin.ListPermissionSets</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier">ListPermissionSets</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#newListPermissionSets"><span class="hs-identifier">newListPermissionSets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSets_nextToken"><span class="hs-identifier">listPermissionSets_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSets_maxResults"><span class="hs-identifier">listPermissionSets_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSets_instanceArn"><span class="hs-identifier">listPermissionSets_instanceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse"><span class="hs-identifier">ListPermissionSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#newListPermissionSetsResponse"><span class="hs-identifier">newListPermissionSetsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSetsResponse_permissionSets"><span class="hs-identifier">listPermissionSetsResponse_permissionSets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSetsResponse_nextToken"><span class="hs-identifier">listPermissionSetsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSetsResponse_httpStatus"><span class="hs-identifier">listPermissionSetsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.html"><span class="hs-identifier">Amazonka.SSOAdmin.Types</span></a></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListPermissionSets' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679201806"><span id="local-6989586621679201807"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPermissionSets"><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-var">ListPermissionSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPermissionSets%27"><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets%27"><span class="hs-identifier hs-var">ListPermissionSets'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token for the list API. Initially the value is null. Use</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- the output of previous API calls to make subsequent calls.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListPermissionSets%27"><span class="annot"><span class="annottext">ListPermissionSets -&gt; Maybe Text
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3AnextToken%3AListPermissionSets%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to display for the assignment.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListPermissionSets%27"><span class="annot"><span class="annottext">ListPermissionSets -&gt; Maybe Natural
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3AmaxResults%3AListPermissionSets%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AinstanceArn%3AListPermissionSets%27"><span class="annot"><span class="annottext">ListPermissionSets -&gt; Text
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3AinstanceArn%3AListPermissionSets%27"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201798"><span id="local-6989586621679201800"><span class="annot"><span class="annottext">ListPermissionSets -&gt; ListPermissionSets -&gt; Bool
+(ListPermissionSets -&gt; ListPermissionSets -&gt; Bool)
+-&gt; (ListPermissionSets -&gt; ListPermissionSets -&gt; Bool)
+-&gt; Eq ListPermissionSets
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPermissionSets -&gt; ListPermissionSets -&gt; Bool
+$c/= :: ListPermissionSets -&gt; ListPermissionSets -&gt; Bool
+== :: ListPermissionSets -&gt; ListPermissionSets -&gt; Bool
+$c== :: ListPermissionSets -&gt; ListPermissionSets -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201789"><span id="local-6989586621679201791"><span id="local-6989586621679201793"><span id="local-6989586621679201795"><span class="annot"><span class="annottext">ReadPrec [ListPermissionSets]
+ReadPrec ListPermissionSets
+Int -&gt; ReadS ListPermissionSets
+ReadS [ListPermissionSets]
+(Int -&gt; ReadS ListPermissionSets)
+-&gt; ReadS [ListPermissionSets]
+-&gt; ReadPrec ListPermissionSets
+-&gt; ReadPrec [ListPermissionSets]
+-&gt; Read ListPermissionSets
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPermissionSets]
+$creadListPrec :: ReadPrec [ListPermissionSets]
+readPrec :: ReadPrec ListPermissionSets
+$creadPrec :: ReadPrec ListPermissionSets
+readList :: ReadS [ListPermissionSets]
+$creadList :: ReadS [ListPermissionSets]
+readsPrec :: Int -&gt; ReadS ListPermissionSets
+$creadsPrec :: Int -&gt; ReadS ListPermissionSets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201782"><span id="local-6989586621679201784"><span id="local-6989586621679201786"><span class="annot"><span class="annottext">Int -&gt; ListPermissionSets -&gt; ShowS
+[ListPermissionSets] -&gt; ShowS
+ListPermissionSets -&gt; String
+(Int -&gt; ListPermissionSets -&gt; ShowS)
+-&gt; (ListPermissionSets -&gt; String)
+-&gt; ([ListPermissionSets] -&gt; ShowS)
+-&gt; Show ListPermissionSets
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPermissionSets] -&gt; ShowS
+$cshowList :: [ListPermissionSets] -&gt; ShowS
+show :: ListPermissionSets -&gt; String
+$cshow :: ListPermissionSets -&gt; String
+showsPrec :: Int -&gt; ListPermissionSets -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPermissionSets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListPermissionSets -&gt; Rep ListPermissionSets x)
+-&gt; (forall x. Rep ListPermissionSets x -&gt; ListPermissionSets)
+-&gt; Generic ListPermissionSets
+forall x. Rep ListPermissionSets x -&gt; ListPermissionSets
+forall x. ListPermissionSets -&gt; Rep ListPermissionSets x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListPermissionSets x -&gt; ListPermissionSets
+$cfrom :: forall x. ListPermissionSets -&gt; Rep ListPermissionSets x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'ListPermissionSets' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'nextToken', 'listPermissionSets_nextToken' - The pagination token for the list API. Initially the value is null. Use</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- the output of previous API calls to make subsequent calls.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'maxResults', 'listPermissionSets_maxResults' - The maximum number of results to display for the assignment.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'instanceArn', 'listPermissionSets_instanceArn' - The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#newListPermissionSets"><span class="hs-identifier hs-type">newListPermissionSets</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'instanceArn'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span><span>
+</span><span id="line-90"></span><span id="newListPermissionSets"><span class="annot"><span class="annottext">newListPermissionSets :: Text -&gt; ListPermissionSets
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#newListPermissionSets"><span class="hs-identifier hs-var hs-var">newListPermissionSets</span></a></span></span><span> </span><span id="local-6989586621679201777"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201777"><span class="hs-identifier hs-var">pInstanceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">ListPermissionSets' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListPermissionSets
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets%27"><span class="hs-identifier hs-type">ListPermissionSets'</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPermissionSets' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3AnextToken%3AListPermissionSets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListPermissionSets' :: Maybe Natural
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3AmaxResults%3AListPermissionSets%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceArn:ListPermissionSets' :: Text
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3AinstanceArn%3AListPermissionSets%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201777"><span class="hs-identifier hs-var">pInstanceArn_</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The pagination token for the list API. Initially the value is null. Use</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- the output of previous API calls to make subsequent calls.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSets_nextToken"><span class="hs-identifier hs-type">listPermissionSets_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="listPermissionSets_nextToken"><span class="annot"><span class="annottext">listPermissionSets_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPermissionSets -&gt; f ListPermissionSets
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSets_nextToken"><span class="hs-identifier hs-var hs-var">listPermissionSets_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPermissionSets -&gt; Maybe Text)
+-&gt; (ListPermissionSets -&gt; Maybe Text -&gt; ListPermissionSets)
+-&gt; Lens
+     ListPermissionSets ListPermissionSets (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets%27"><span class="hs-identifier hs-type">ListPermissionSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201775"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPermissionSets' :: ListPermissionSets -&gt; Maybe Text
+</span><a href="#local-6989586621679201775"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201775"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201774"><span class="annot"><span class="annottext">s :: ListPermissionSets
+</span><a href="#local-6989586621679201774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets%27"><span class="hs-identifier hs-type">ListPermissionSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201773"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPermissionSets
+</span><a href="#local-6989586621679201774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPermissionSets' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3AnextToken%3AListPermissionSets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The maximum number of results to display for the assignment.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSets_maxResults"><span class="hs-identifier hs-type">listPermissionSets_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="listPermissionSets_maxResults"><span class="annot"><span class="annottext">listPermissionSets_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListPermissionSets -&gt; f ListPermissionSets
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSets_maxResults"><span class="hs-identifier hs-var hs-var">listPermissionSets_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPermissionSets -&gt; Maybe Natural)
+-&gt; (ListPermissionSets -&gt; Maybe Natural -&gt; ListPermissionSets)
+-&gt; Lens
+     ListPermissionSets
+     ListPermissionSets
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets%27"><span class="hs-identifier hs-type">ListPermissionSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201772"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListPermissionSets' :: ListPermissionSets -&gt; Maybe Natural
+</span><a href="#local-6989586621679201772"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679201772"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201771"><span class="annot"><span class="annottext">s :: ListPermissionSets
+</span><a href="#local-6989586621679201771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets%27"><span class="hs-identifier hs-type">ListPermissionSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201770"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679201770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPermissionSets
+</span><a href="#local-6989586621679201771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListPermissionSets' :: Maybe Natural
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3AmaxResults%3AListPermissionSets%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679201770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSets_instanceArn"><span class="hs-identifier hs-type">listPermissionSets_instanceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="listPermissionSets_instanceArn"><span class="annot"><span class="annottext">listPermissionSets_instanceArn :: (Text -&gt; f Text) -&gt; ListPermissionSets -&gt; f ListPermissionSets
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSets_instanceArn"><span class="hs-identifier hs-var hs-var">listPermissionSets_instanceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPermissionSets -&gt; Text)
+-&gt; (ListPermissionSets -&gt; Text -&gt; ListPermissionSets)
+-&gt; Lens ListPermissionSets ListPermissionSets Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets%27"><span class="hs-identifier hs-type">ListPermissionSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201769"><span class="annot"><span class="annottext">Text
+instanceArn :: Text
+$sel:instanceArn:ListPermissionSets' :: ListPermissionSets -&gt; Text
+</span><a href="#local-6989586621679201769"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201769"><span class="hs-identifier hs-var">instanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201768"><span class="annot"><span class="annottext">s :: ListPermissionSets
+</span><a href="#local-6989586621679201768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets%27"><span class="hs-identifier hs-type">ListPermissionSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201767"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPermissionSets
+</span><a href="#local-6989586621679201768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceArn:ListPermissionSets' :: Text
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3AinstanceArn%3AListPermissionSets%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679201763"><span class="annot"><span class="annottext">page :: ListPermissionSets
+-&gt; AWSResponse ListPermissionSets -&gt; Maybe ListPermissionSets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679201761"><span class="annot"><span class="annottext">ListPermissionSets
+</span><a href="#local-6989586621679201761"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679201760"><span class="annot"><span class="annottext">AWSResponse ListPermissionSets
+</span><a href="#local-6989586621679201760"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-116"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPermissionSets
+ListPermissionSetsResponse
+</span><a href="#local-6989586621679201760"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">ListPermissionSetsResponse
+-&gt; Getting (First Text) ListPermissionSetsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListPermissionSetsResponse
+-&gt; Const (First Text) ListPermissionSetsResponse
+Lens' ListPermissionSetsResponse (Maybe Text)
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSetsResponse_nextToken"><span class="hs-identifier hs-var">listPermissionSetsResponse_nextToken</span></a></span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListPermissionSetsResponse
+ -&gt; Const (First Text) ListPermissionSetsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListPermissionSetsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-119"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListPermissionSets
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-122"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPermissionSets
+ListPermissionSetsResponse
+</span><a href="#local-6989586621679201760"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">ListPermissionSetsResponse
+-&gt; Getting (First [Text]) ListPermissionSetsResponse [Text]
+-&gt; Maybe [Text]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; ListPermissionSetsResponse
+-&gt; Const (First [Text]) ListPermissionSetsResponse
+Lens' ListPermissionSetsResponse (Maybe [Text])
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSetsResponse_permissionSets"><span class="hs-identifier hs-var">listPermissionSetsResponse_permissionSets</span></a></span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+ -&gt; ListPermissionSetsResponse
+ -&gt; Const (First [Text]) ListPermissionSetsResponse)
+-&gt; (([Text] -&gt; Const (First [Text]) [Text])
+    -&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; Getting (First [Text]) ListPermissionSetsResponse [Text]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Const (First [Text]) [Text])
+-&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-125"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListPermissionSets
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">ListPermissionSets -&gt; Maybe ListPermissionSets
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListPermissionSets -&gt; Maybe ListPermissionSets)
+-&gt; ListPermissionSets -&gt; Maybe ListPermissionSets
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ListPermissionSets
+</span><a href="#local-6989586621679201761"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">ListPermissionSets
+-&gt; (ListPermissionSets -&gt; ListPermissionSets) -&gt; ListPermissionSets
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListPermissionSets -&gt; Identity ListPermissionSets
+Lens
+  ListPermissionSets ListPermissionSets (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSets_nextToken"><span class="hs-identifier hs-var">listPermissionSets_nextToken</span></a></span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListPermissionSets -&gt; Identity ListPermissionSets)
+-&gt; Maybe Text -&gt; ListPermissionSets -&gt; ListPermissionSets
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPermissionSets
+ListPermissionSetsResponse
+</span><a href="#local-6989586621679201760"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">ListPermissionSetsResponse
+-&gt; Getting (First Text) ListPermissionSetsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListPermissionSetsResponse
+-&gt; Const (First Text) ListPermissionSetsResponse
+Lens' ListPermissionSetsResponse (Maybe Text)
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSetsResponse_nextToken"><span class="hs-identifier hs-var">listPermissionSetsResponse_nextToken</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListPermissionSetsResponse
+ -&gt; Const (First Text) ListPermissionSetsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListPermissionSetsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-137"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse"><span class="hs-identifier hs-type">ListPermissionSetsResponse</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679201750"><span class="annot"><span class="annottext">request :: ListPermissionSets -&gt; Request ListPermissionSets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListPermissionSets -&gt; Request ListPermissionSets
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SSOAdmin.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679201746"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListPermissionSets
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPermissionSets)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListPermissionSets))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListPermissionSets
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPermissionSets)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201743"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201743"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679201742"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679201742"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679201741"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201741"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListPermissionSetsResponse
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse%27"><span class="hs-identifier hs-var">ListPermissionSetsResponse'</span></a></span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListPermissionSetsResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListPermissionSetsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PermissionSets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListPermissionSetsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListPermissionSetsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListPermissionSetsResponse)
+-&gt; Either String Int -&gt; Either String ListPermissionSetsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201743"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201732"><span id="local-6989586621679201734"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679201725"><span class="annot"><span class="annottext">toHeaders :: ListPermissionSets -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListPermissionSets -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SWBExternalService.ListPermissionSets&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-160"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-164"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201715"><span id="local-6989586621679201717"><span id="local-6989586621679201719"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679201713"><span class="annot"><span class="annottext">toJSON :: ListPermissionSets -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets%27"><span class="hs-identifier hs-type">ListPermissionSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201709"><span id="local-6989586621679201710"><span id="local-6989586621679201711"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+instanceArn :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:instanceArn:ListPermissionSets' :: ListPermissionSets -&gt; Text
+$sel:maxResults:ListPermissionSets' :: ListPermissionSets -&gt; Maybe Natural
+$sel:nextToken:ListPermissionSets' :: ListPermissionSets -&gt; Maybe Text
+</span><a href="#local-6989586621679201709"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201711"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679201710"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201709"><span class="hs-identifier hs-var">instanceArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679201703"><span class="annot"><span class="annottext">toPath :: ListPermissionSets -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListPermissionSets -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSets"><span class="hs-identifier hs-type">ListPermissionSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679201699"><span class="annot"><span class="annottext">toQuery :: ListPermissionSets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListPermissionSets -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | /See:/ 'newListPermissionSetsResponse' smart constructor.</span><span>
+</span><span id="line-185"></span><span id="local-6989586621679201696"><span id="local-6989586621679201697"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPermissionSetsResponse"><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse"><span class="hs-identifier hs-var">ListPermissionSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPermissionSetsResponse%27"><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse%27"><span class="hs-identifier hs-var">ListPermissionSetsResponse'</span></a></span></span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Defines the level of access on an Amazon Web Services account.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3ApermissionSets%3AListPermissionSetsResponse%27"><span class="annot"><span class="annottext">ListPermissionSetsResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3ApermissionSets%3AListPermissionSetsResponse%27"><span class="hs-identifier hs-var hs-var">permissionSets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | The pagination token for the list API. Initially the value is null. Use</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- the output of previous API calls to make subsequent calls.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AnextToken%3AListPermissionSetsResponse%27"><span class="annot"><span class="annottext">ListPermissionSetsResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3AnextToken%3AListPermissionSetsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPermissionSetsResponse%27"><span class="annot"><span class="annottext">ListPermissionSetsResponse -&gt; Int
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3AhttpStatus%3AListPermissionSetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201689"><span id="local-6989586621679201691"><span class="annot"><span class="annottext">ListPermissionSetsResponse -&gt; ListPermissionSetsResponse -&gt; Bool
+(ListPermissionSetsResponse -&gt; ListPermissionSetsResponse -&gt; Bool)
+-&gt; (ListPermissionSetsResponse
+    -&gt; ListPermissionSetsResponse -&gt; Bool)
+-&gt; Eq ListPermissionSetsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPermissionSetsResponse -&gt; ListPermissionSetsResponse -&gt; Bool
+$c/= :: ListPermissionSetsResponse -&gt; ListPermissionSetsResponse -&gt; Bool
+== :: ListPermissionSetsResponse -&gt; ListPermissionSetsResponse -&gt; Bool
+$c== :: ListPermissionSetsResponse -&gt; ListPermissionSetsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201681"><span id="local-6989586621679201683"><span id="local-6989586621679201685"><span id="local-6989586621679201687"><span class="annot"><span class="annottext">ReadPrec [ListPermissionSetsResponse]
+ReadPrec ListPermissionSetsResponse
+Int -&gt; ReadS ListPermissionSetsResponse
+ReadS [ListPermissionSetsResponse]
+(Int -&gt; ReadS ListPermissionSetsResponse)
+-&gt; ReadS [ListPermissionSetsResponse]
+-&gt; ReadPrec ListPermissionSetsResponse
+-&gt; ReadPrec [ListPermissionSetsResponse]
+-&gt; Read ListPermissionSetsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPermissionSetsResponse]
+$creadListPrec :: ReadPrec [ListPermissionSetsResponse]
+readPrec :: ReadPrec ListPermissionSetsResponse
+$creadPrec :: ReadPrec ListPermissionSetsResponse
+readList :: ReadS [ListPermissionSetsResponse]
+$creadList :: ReadS [ListPermissionSetsResponse]
+readsPrec :: Int -&gt; ReadS ListPermissionSetsResponse
+$creadsPrec :: Int -&gt; ReadS ListPermissionSetsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201675"><span id="local-6989586621679201677"><span id="local-6989586621679201679"><span class="annot"><span class="annottext">Int -&gt; ListPermissionSetsResponse -&gt; ShowS
+[ListPermissionSetsResponse] -&gt; ShowS
+ListPermissionSetsResponse -&gt; String
+(Int -&gt; ListPermissionSetsResponse -&gt; ShowS)
+-&gt; (ListPermissionSetsResponse -&gt; String)
+-&gt; ([ListPermissionSetsResponse] -&gt; ShowS)
+-&gt; Show ListPermissionSetsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPermissionSetsResponse] -&gt; ShowS
+$cshowList :: [ListPermissionSetsResponse] -&gt; ShowS
+show :: ListPermissionSetsResponse -&gt; String
+$cshow :: ListPermissionSetsResponse -&gt; String
+showsPrec :: Int -&gt; ListPermissionSetsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPermissionSetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPermissionSetsResponse -&gt; Rep ListPermissionSetsResponse x)
+-&gt; (forall x.
+    Rep ListPermissionSetsResponse x -&gt; ListPermissionSetsResponse)
+-&gt; Generic ListPermissionSetsResponse
+forall x.
+Rep ListPermissionSetsResponse x -&gt; ListPermissionSetsResponse
+forall x.
+ListPermissionSetsResponse -&gt; Rep ListPermissionSetsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListPermissionSetsResponse x -&gt; ListPermissionSetsResponse
+$cfrom :: forall x.
+ListPermissionSetsResponse -&gt; Rep ListPermissionSetsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Create a value of 'ListPermissionSetsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'permissionSets', 'listPermissionSetsResponse_permissionSets' - Defines the level of access on an Amazon Web Services account.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'nextToken', 'listPermissionSetsResponse_nextToken' - The pagination token for the list API. Initially the value is null. Use</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- the output of previous API calls to make subsequent calls.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'httpStatus', 'listPermissionSetsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#newListPermissionSetsResponse"><span class="hs-identifier hs-type">newListPermissionSetsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse"><span class="hs-identifier hs-type">ListPermissionSetsResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newListPermissionSetsResponse"><span class="annot"><span class="annottext">newListPermissionSetsResponse :: Int -&gt; ListPermissionSetsResponse
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#newListPermissionSetsResponse"><span class="hs-identifier hs-var hs-var">newListPermissionSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679201672"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201672"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">ListPermissionSetsResponse' :: Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListPermissionSetsResponse
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse%27"><span class="hs-identifier hs-type">ListPermissionSetsResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:permissionSets:ListPermissionSetsResponse' :: Maybe [Text]
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3ApermissionSets%3AListPermissionSetsResponse%27"><span class="hs-identifier hs-var">permissionSets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListPermissionSetsResponse' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3AnextToken%3AListPermissionSetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPermissionSetsResponse' :: Int
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3AhttpStatus%3AListPermissionSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201672"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | Defines the level of access on an Amazon Web Services account.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSetsResponse_permissionSets"><span class="hs-identifier hs-type">listPermissionSetsResponse_permissionSets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse"><span class="hs-identifier hs-type">ListPermissionSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="listPermissionSetsResponse_permissionSets"><span class="annot"><span class="annottext">listPermissionSetsResponse_permissionSets :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListPermissionSetsResponse -&gt; f ListPermissionSetsResponse
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSetsResponse_permissionSets"><span class="hs-identifier hs-var hs-var">listPermissionSetsResponse_permissionSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPermissionSetsResponse -&gt; Maybe [Text])
+-&gt; (ListPermissionSetsResponse
+    -&gt; Maybe [Text] -&gt; ListPermissionSetsResponse)
+-&gt; Lens' ListPermissionSetsResponse (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse%27"><span class="hs-identifier hs-type">ListPermissionSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201671"><span class="annot"><span class="annottext">Maybe [Text]
+permissionSets :: Maybe [Text]
+$sel:permissionSets:ListPermissionSetsResponse' :: ListPermissionSetsResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679201671"><span class="hs-identifier hs-var hs-var">permissionSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679201671"><span class="hs-identifier hs-var">permissionSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201670"><span class="annot"><span class="annottext">s :: ListPermissionSetsResponse
+</span><a href="#local-6989586621679201670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse%27"><span class="hs-identifier hs-type">ListPermissionSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201669"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679201669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPermissionSetsResponse
+</span><a href="#local-6989586621679201670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionSets:ListPermissionSetsResponse' :: Maybe [Text]
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3ApermissionSets%3AListPermissionSetsResponse%27"><span class="hs-identifier hs-var">permissionSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679201669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse"><span class="hs-identifier hs-type">ListPermissionSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ListPermissionSetsResponse -&gt; f ListPermissionSetsResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListPermissionSetsResponse
+-&gt; f ListPermissionSetsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The pagination token for the list API. Initially the value is null. Use</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- the output of previous API calls to make subsequent calls.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSetsResponse_nextToken"><span class="hs-identifier hs-type">listPermissionSetsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse"><span class="hs-identifier hs-type">ListPermissionSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="listPermissionSetsResponse_nextToken"><span class="annot"><span class="annottext">listPermissionSetsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPermissionSetsResponse -&gt; f ListPermissionSetsResponse
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSetsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listPermissionSetsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPermissionSetsResponse -&gt; Maybe Text)
+-&gt; (ListPermissionSetsResponse
+    -&gt; Maybe Text -&gt; ListPermissionSetsResponse)
+-&gt; Lens' ListPermissionSetsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse%27"><span class="hs-identifier hs-type">ListPermissionSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201666"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPermissionSetsResponse' :: ListPermissionSetsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679201666"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201666"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201665"><span class="annot"><span class="annottext">s :: ListPermissionSetsResponse
+</span><a href="#local-6989586621679201665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse%27"><span class="hs-identifier hs-type">ListPermissionSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201664"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPermissionSetsResponse
+</span><a href="#local-6989586621679201665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPermissionSetsResponse' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3AnextToken%3AListPermissionSetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse"><span class="hs-identifier hs-type">ListPermissionSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSetsResponse_httpStatus"><span class="hs-identifier hs-type">listPermissionSetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse"><span class="hs-identifier hs-type">ListPermissionSetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-233"></span><span id="listPermissionSetsResponse_httpStatus"><span class="annot"><span class="annottext">listPermissionSetsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListPermissionSetsResponse -&gt; f ListPermissionSetsResponse
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#listPermissionSetsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listPermissionSetsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPermissionSetsResponse -&gt; Int)
+-&gt; (ListPermissionSetsResponse
+    -&gt; Int -&gt; ListPermissionSetsResponse)
+-&gt; Lens
+     ListPermissionSetsResponse ListPermissionSetsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse%27"><span class="hs-identifier hs-type">ListPermissionSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201663"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListPermissionSetsResponse' :: ListPermissionSetsResponse -&gt; Int
+</span><a href="#local-6989586621679201663"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201663"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201662"><span class="annot"><span class="annottext">s :: ListPermissionSetsResponse
+</span><a href="#local-6989586621679201662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse%27"><span class="hs-identifier hs-type">ListPermissionSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201661"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPermissionSetsResponse
+</span><a href="#local-6989586621679201662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPermissionSetsResponse' :: Int
+</span><a href="Amazonka.SSOAdmin.ListPermissionSets.html#%24sel%3AhttpStatus%3AListPermissionSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse"><span class="hs-identifier hs-type">ListPermissionSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201659"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.ListPermissionSets.html#ListPermissionSetsResponse"><span class="hs-identifier hs-type">ListPermissionSetsResponse</span></a></span></span><span>
+</span><span id="line-236"></span></pre></body></html>

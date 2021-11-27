@@ -1,0 +1,605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.DeleteVpcEndpointServiceConfigurations</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes one or more VPC endpoint service configurations in your account.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Before you delete the endpoint service configuration, you must reject</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- any @Available@ or @PendingAcceptance@ interface endpoint connections</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- that are attached to the service.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.DeleteVpcEndpointServiceConfigurations</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations"><span class="hs-identifier">DeleteVpcEndpointServiceConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#newDeleteVpcEndpointServiceConfigurations"><span class="hs-identifier">newDeleteVpcEndpointServiceConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#deleteVpcEndpointServiceConfigurations_dryRun"><span class="hs-identifier">deleteVpcEndpointServiceConfigurations_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#deleteVpcEndpointServiceConfigurations_serviceIds"><span class="hs-identifier">deleteVpcEndpointServiceConfigurations_serviceIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse"><span class="hs-identifier">DeleteVpcEndpointServiceConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#newDeleteVpcEndpointServiceConfigurationsResponse"><span class="hs-identifier">newDeleteVpcEndpointServiceConfigurationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#deleteVpcEndpointServiceConfigurationsResponse_unsuccessful"><span class="hs-identifier">deleteVpcEndpointServiceConfigurationsResponse_unsuccessful</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#deleteVpcEndpointServiceConfigurationsResponse_httpStatus"><span class="hs-identifier">deleteVpcEndpointServiceConfigurationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDeleteVpcEndpointServiceConfigurations' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621681274816"><span id="local-6989586621681274817"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVpcEndpointServiceConfigurations"><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations"><span class="hs-identifier hs-var">DeleteVpcEndpointServiceConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVpcEndpointServiceConfigurations%27"><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations%27"><span class="hs-identifier hs-var">DeleteVpcEndpointServiceConfigurations'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdryRun%3ADeleteVpcEndpointServiceConfigurations%27"><span class="annot"><span class="annottext">DeleteVpcEndpointServiceConfigurations -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#%24sel%3AdryRun%3ADeleteVpcEndpointServiceConfigurations%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The IDs of one or more services.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AserviceIds%3ADeleteVpcEndpointServiceConfigurations%27"><span class="annot"><span class="annottext">DeleteVpcEndpointServiceConfigurations -&gt; [Text]
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#%24sel%3AserviceIds%3ADeleteVpcEndpointServiceConfigurations%27"><span class="hs-identifier hs-var hs-var">serviceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681274809"><span id="local-6989586621681274811"><span class="annot"><span class="annottext">DeleteVpcEndpointServiceConfigurations
+-&gt; DeleteVpcEndpointServiceConfigurations -&gt; Bool
+(DeleteVpcEndpointServiceConfigurations
+ -&gt; DeleteVpcEndpointServiceConfigurations -&gt; Bool)
+-&gt; (DeleteVpcEndpointServiceConfigurations
+    -&gt; DeleteVpcEndpointServiceConfigurations -&gt; Bool)
+-&gt; Eq DeleteVpcEndpointServiceConfigurations
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteVpcEndpointServiceConfigurations
+-&gt; DeleteVpcEndpointServiceConfigurations -&gt; Bool
+$c/= :: DeleteVpcEndpointServiceConfigurations
+-&gt; DeleteVpcEndpointServiceConfigurations -&gt; Bool
+== :: DeleteVpcEndpointServiceConfigurations
+-&gt; DeleteVpcEndpointServiceConfigurations -&gt; Bool
+$c== :: DeleteVpcEndpointServiceConfigurations
+-&gt; DeleteVpcEndpointServiceConfigurations -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681274800"><span id="local-6989586621681274802"><span id="local-6989586621681274804"><span id="local-6989586621681274806"><span class="annot"><span class="annottext">ReadPrec [DeleteVpcEndpointServiceConfigurations]
+ReadPrec DeleteVpcEndpointServiceConfigurations
+Int -&gt; ReadS DeleteVpcEndpointServiceConfigurations
+ReadS [DeleteVpcEndpointServiceConfigurations]
+(Int -&gt; ReadS DeleteVpcEndpointServiceConfigurations)
+-&gt; ReadS [DeleteVpcEndpointServiceConfigurations]
+-&gt; ReadPrec DeleteVpcEndpointServiceConfigurations
+-&gt; ReadPrec [DeleteVpcEndpointServiceConfigurations]
+-&gt; Read DeleteVpcEndpointServiceConfigurations
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteVpcEndpointServiceConfigurations]
+$creadListPrec :: ReadPrec [DeleteVpcEndpointServiceConfigurations]
+readPrec :: ReadPrec DeleteVpcEndpointServiceConfigurations
+$creadPrec :: ReadPrec DeleteVpcEndpointServiceConfigurations
+readList :: ReadS [DeleteVpcEndpointServiceConfigurations]
+$creadList :: ReadS [DeleteVpcEndpointServiceConfigurations]
+readsPrec :: Int -&gt; ReadS DeleteVpcEndpointServiceConfigurations
+$creadsPrec :: Int -&gt; ReadS DeleteVpcEndpointServiceConfigurations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681274793"><span id="local-6989586621681274795"><span id="local-6989586621681274797"><span class="annot"><span class="annottext">Int -&gt; DeleteVpcEndpointServiceConfigurations -&gt; ShowS
+[DeleteVpcEndpointServiceConfigurations] -&gt; ShowS
+DeleteVpcEndpointServiceConfigurations -&gt; String
+(Int -&gt; DeleteVpcEndpointServiceConfigurations -&gt; ShowS)
+-&gt; (DeleteVpcEndpointServiceConfigurations -&gt; String)
+-&gt; ([DeleteVpcEndpointServiceConfigurations] -&gt; ShowS)
+-&gt; Show DeleteVpcEndpointServiceConfigurations
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteVpcEndpointServiceConfigurations] -&gt; ShowS
+$cshowList :: [DeleteVpcEndpointServiceConfigurations] -&gt; ShowS
+show :: DeleteVpcEndpointServiceConfigurations -&gt; String
+$cshow :: DeleteVpcEndpointServiceConfigurations -&gt; String
+showsPrec :: Int -&gt; DeleteVpcEndpointServiceConfigurations -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteVpcEndpointServiceConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteVpcEndpointServiceConfigurations
+ -&gt; Rep DeleteVpcEndpointServiceConfigurations x)
+-&gt; (forall x.
+    Rep DeleteVpcEndpointServiceConfigurations x
+    -&gt; DeleteVpcEndpointServiceConfigurations)
+-&gt; Generic DeleteVpcEndpointServiceConfigurations
+forall x.
+Rep DeleteVpcEndpointServiceConfigurations x
+-&gt; DeleteVpcEndpointServiceConfigurations
+forall x.
+DeleteVpcEndpointServiceConfigurations
+-&gt; Rep DeleteVpcEndpointServiceConfigurations x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteVpcEndpointServiceConfigurations x
+-&gt; DeleteVpcEndpointServiceConfigurations
+$cfrom :: forall x.
+DeleteVpcEndpointServiceConfigurations
+-&gt; Rep DeleteVpcEndpointServiceConfigurations x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'DeleteVpcEndpointServiceConfigurations' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'dryRun', 'deleteVpcEndpointServiceConfigurations_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'serviceIds', 'deleteVpcEndpointServiceConfigurations_serviceIds' - The IDs of one or more services.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#newDeleteVpcEndpointServiceConfigurations"><span class="hs-identifier hs-type">newDeleteVpcEndpointServiceConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations</span></a></span><span>
+</span><span id="line-81"></span><span id="newDeleteVpcEndpointServiceConfigurations"><span class="annot"><span class="annottext">newDeleteVpcEndpointServiceConfigurations :: DeleteVpcEndpointServiceConfigurations
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#newDeleteVpcEndpointServiceConfigurations"><span class="hs-identifier hs-var hs-var">newDeleteVpcEndpointServiceConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DeleteVpcEndpointServiceConfigurations' :: Maybe Bool -&gt; [Text] -&gt; DeleteVpcEndpointServiceConfigurations
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations%27"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:DeleteVpcEndpointServiceConfigurations' :: Maybe Bool
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#%24sel%3AdryRun%3ADeleteVpcEndpointServiceConfigurations%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceIds:DeleteVpcEndpointServiceConfigurations' :: [Text]
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#%24sel%3AserviceIds%3ADeleteVpcEndpointServiceConfigurations%27"><span class="hs-identifier hs-var">serviceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#deleteVpcEndpointServiceConfigurations_dryRun"><span class="hs-identifier hs-type">deleteVpcEndpointServiceConfigurations_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="deleteVpcEndpointServiceConfigurations_dryRun"><span class="annot"><span class="annottext">deleteVpcEndpointServiceConfigurations_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DeleteVpcEndpointServiceConfigurations
+-&gt; f DeleteVpcEndpointServiceConfigurations
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#deleteVpcEndpointServiceConfigurations_dryRun"><span class="hs-identifier hs-var hs-var">deleteVpcEndpointServiceConfigurations_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteVpcEndpointServiceConfigurations -&gt; Maybe Bool)
+-&gt; (DeleteVpcEndpointServiceConfigurations
+    -&gt; Maybe Bool -&gt; DeleteVpcEndpointServiceConfigurations)
+-&gt; Lens
+     DeleteVpcEndpointServiceConfigurations
+     DeleteVpcEndpointServiceConfigurations
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations%27"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681274786"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DeleteVpcEndpointServiceConfigurations' :: DeleteVpcEndpointServiceConfigurations -&gt; Maybe Bool
+</span><a href="#local-6989586621681274786"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681274786"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681274785"><span class="annot"><span class="annottext">s :: DeleteVpcEndpointServiceConfigurations
+</span><a href="#local-6989586621681274785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations%27"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681274784"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681274784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVpcEndpointServiceConfigurations
+</span><a href="#local-6989586621681274785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DeleteVpcEndpointServiceConfigurations' :: Maybe Bool
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#%24sel%3AdryRun%3ADeleteVpcEndpointServiceConfigurations%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681274784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The IDs of one or more services.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#deleteVpcEndpointServiceConfigurations_serviceIds"><span class="hs-identifier hs-type">deleteVpcEndpointServiceConfigurations_serviceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-97"></span><span id="deleteVpcEndpointServiceConfigurations_serviceIds"><span class="annot"><span class="annottext">deleteVpcEndpointServiceConfigurations_serviceIds :: ([Text] -&gt; f [Text])
+-&gt; DeleteVpcEndpointServiceConfigurations
+-&gt; f DeleteVpcEndpointServiceConfigurations
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#deleteVpcEndpointServiceConfigurations_serviceIds"><span class="hs-identifier hs-var hs-var">deleteVpcEndpointServiceConfigurations_serviceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteVpcEndpointServiceConfigurations -&gt; [Text])
+-&gt; (DeleteVpcEndpointServiceConfigurations
+    -&gt; [Text] -&gt; DeleteVpcEndpointServiceConfigurations)
+-&gt; Lens
+     DeleteVpcEndpointServiceConfigurations
+     DeleteVpcEndpointServiceConfigurations
+     [Text]
+     [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations%27"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681274783"><span class="annot"><span class="annottext">[Text]
+serviceIds :: [Text]
+$sel:serviceIds:DeleteVpcEndpointServiceConfigurations' :: DeleteVpcEndpointServiceConfigurations -&gt; [Text]
+</span><a href="#local-6989586621681274783"><span class="hs-identifier hs-var hs-var">serviceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681274783"><span class="hs-identifier hs-var">serviceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681274782"><span class="annot"><span class="annottext">s :: DeleteVpcEndpointServiceConfigurations
+</span><a href="#local-6989586621681274782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations%27"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681274781"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681274781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVpcEndpointServiceConfigurations
+</span><a href="#local-6989586621681274782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceIds:DeleteVpcEndpointServiceConfigurations' :: [Text]
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#%24sel%3AserviceIds%3ADeleteVpcEndpointServiceConfigurations%27"><span class="hs-identifier hs-var">serviceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681274781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; DeleteVpcEndpointServiceConfigurations
+ -&gt; f DeleteVpcEndpointServiceConfigurations)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; DeleteVpcEndpointServiceConfigurations
+-&gt; f DeleteVpcEndpointServiceConfigurations
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurationsResponse</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621681274775"><span class="annot"><span class="annottext">request :: DeleteVpcEndpointServiceConfigurations
+-&gt; Request DeleteVpcEndpointServiceConfigurations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteVpcEndpointServiceConfigurations
+-&gt; Request DeleteVpcEndpointServiceConfigurations
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621681274771"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteVpcEndpointServiceConfigurations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DeleteVpcEndpointServiceConfigurations)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either
+      String (AWSResponse DeleteVpcEndpointServiceConfigurations))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteVpcEndpointServiceConfigurations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DeleteVpcEndpointServiceConfigurations)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681274768"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681274768"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681274767"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681274767"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681274766"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681274766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+-&gt; Int -&gt; DeleteVpcEndpointServiceConfigurationsResponse
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse%27"><span class="hs-identifier hs-var">DeleteVpcEndpointServiceConfigurationsResponse'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [UnsuccessfulItem]
+ -&gt; Int -&gt; DeleteVpcEndpointServiceConfigurationsResponse)
+-&gt; Either String (Maybe [UnsuccessfulItem])
+-&gt; Either
+     String (Int -&gt; DeleteVpcEndpointServiceConfigurationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681274766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;unsuccessful&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-113"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [UnsuccessfulItem]))
+-&gt; Either String (Maybe [UnsuccessfulItem])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [UnsuccessfulItem])
+-&gt; [Node] -&gt; Either String (Maybe [UnsuccessfulItem])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [UnsuccessfulItem]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; DeleteVpcEndpointServiceConfigurationsResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteVpcEndpointServiceConfigurationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681274768"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621681274755"><span id="local-6989586621681274757"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621681274752"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations</span></a></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621681274748"><span class="annot"><span class="annottext">toHeaders :: DeleteVpcEndpointServiceConfigurations -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DeleteVpcEndpointServiceConfigurations -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621681274743"><span class="annot"><span class="annottext">toPath :: DeleteVpcEndpointServiceConfigurations -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteVpcEndpointServiceConfigurations -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621681274739"><span class="annot"><span class="annottext">toQuery :: DeleteVpcEndpointServiceConfigurations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurations%27"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681274736"><span id="local-6989586621681274737"><span class="annot"><span class="annottext">[Text]
+Maybe Bool
+serviceIds :: [Text]
+dryRun :: Maybe Bool
+$sel:serviceIds:DeleteVpcEndpointServiceConfigurations' :: DeleteVpcEndpointServiceConfigurations -&gt; [Text]
+$sel:dryRun:DeleteVpcEndpointServiceConfigurations' :: DeleteVpcEndpointServiceConfigurations -&gt; Maybe Bool
+</span><a href="#local-6989586621681274736"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteVpcEndpointServiceConfigurations&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-147"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681274737"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ServiceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681274736"><span class="hs-identifier hs-var">serviceIds</span></a></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newDeleteVpcEndpointServiceConfigurationsResponse' smart constructor.</span><span>
+</span><span id="line-155"></span><span id="local-6989586621681274732"><span id="local-6989586621681274733"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVpcEndpointServiceConfigurationsResponse"><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse"><span class="hs-identifier hs-var">DeleteVpcEndpointServiceConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVpcEndpointServiceConfigurationsResponse%27"><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse%27"><span class="hs-identifier hs-var">DeleteVpcEndpointServiceConfigurationsResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the service configurations that were not deleted, if</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- applicable.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3Aunsuccessful%3ADeleteVpcEndpointServiceConfigurationsResponse%27"><span class="annot"><span class="annottext">DeleteVpcEndpointServiceConfigurationsResponse
+-&gt; Maybe [UnsuccessfulItem]
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#%24sel%3Aunsuccessful%3ADeleteVpcEndpointServiceConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">unsuccessful</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulItem.html#UnsuccessfulItem"><span class="hs-identifier hs-type">UnsuccessfulItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteVpcEndpointServiceConfigurationsResponse%27"><span class="annot"><span class="annottext">DeleteVpcEndpointServiceConfigurationsResponse -&gt; Int
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#%24sel%3AhttpStatus%3ADeleteVpcEndpointServiceConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681274726"><span id="local-6989586621681274728"><span class="annot"><span class="annottext">DeleteVpcEndpointServiceConfigurationsResponse
+-&gt; DeleteVpcEndpointServiceConfigurationsResponse -&gt; Bool
+(DeleteVpcEndpointServiceConfigurationsResponse
+ -&gt; DeleteVpcEndpointServiceConfigurationsResponse -&gt; Bool)
+-&gt; (DeleteVpcEndpointServiceConfigurationsResponse
+    -&gt; DeleteVpcEndpointServiceConfigurationsResponse -&gt; Bool)
+-&gt; Eq DeleteVpcEndpointServiceConfigurationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteVpcEndpointServiceConfigurationsResponse
+-&gt; DeleteVpcEndpointServiceConfigurationsResponse -&gt; Bool
+$c/= :: DeleteVpcEndpointServiceConfigurationsResponse
+-&gt; DeleteVpcEndpointServiceConfigurationsResponse -&gt; Bool
+== :: DeleteVpcEndpointServiceConfigurationsResponse
+-&gt; DeleteVpcEndpointServiceConfigurationsResponse -&gt; Bool
+$c== :: DeleteVpcEndpointServiceConfigurationsResponse
+-&gt; DeleteVpcEndpointServiceConfigurationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681274718"><span id="local-6989586621681274720"><span id="local-6989586621681274722"><span id="local-6989586621681274724"><span class="annot"><span class="annottext">ReadPrec [DeleteVpcEndpointServiceConfigurationsResponse]
+ReadPrec DeleteVpcEndpointServiceConfigurationsResponse
+Int -&gt; ReadS DeleteVpcEndpointServiceConfigurationsResponse
+ReadS [DeleteVpcEndpointServiceConfigurationsResponse]
+(Int -&gt; ReadS DeleteVpcEndpointServiceConfigurationsResponse)
+-&gt; ReadS [DeleteVpcEndpointServiceConfigurationsResponse]
+-&gt; ReadPrec DeleteVpcEndpointServiceConfigurationsResponse
+-&gt; ReadPrec [DeleteVpcEndpointServiceConfigurationsResponse]
+-&gt; Read DeleteVpcEndpointServiceConfigurationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteVpcEndpointServiceConfigurationsResponse]
+$creadListPrec :: ReadPrec [DeleteVpcEndpointServiceConfigurationsResponse]
+readPrec :: ReadPrec DeleteVpcEndpointServiceConfigurationsResponse
+$creadPrec :: ReadPrec DeleteVpcEndpointServiceConfigurationsResponse
+readList :: ReadS [DeleteVpcEndpointServiceConfigurationsResponse]
+$creadList :: ReadS [DeleteVpcEndpointServiceConfigurationsResponse]
+readsPrec :: Int -&gt; ReadS DeleteVpcEndpointServiceConfigurationsResponse
+$creadsPrec :: Int -&gt; ReadS DeleteVpcEndpointServiceConfigurationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681274712"><span id="local-6989586621681274714"><span id="local-6989586621681274716"><span class="annot"><span class="annottext">Int -&gt; DeleteVpcEndpointServiceConfigurationsResponse -&gt; ShowS
+[DeleteVpcEndpointServiceConfigurationsResponse] -&gt; ShowS
+DeleteVpcEndpointServiceConfigurationsResponse -&gt; String
+(Int -&gt; DeleteVpcEndpointServiceConfigurationsResponse -&gt; ShowS)
+-&gt; (DeleteVpcEndpointServiceConfigurationsResponse -&gt; String)
+-&gt; ([DeleteVpcEndpointServiceConfigurationsResponse] -&gt; ShowS)
+-&gt; Show DeleteVpcEndpointServiceConfigurationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteVpcEndpointServiceConfigurationsResponse] -&gt; ShowS
+$cshowList :: [DeleteVpcEndpointServiceConfigurationsResponse] -&gt; ShowS
+show :: DeleteVpcEndpointServiceConfigurationsResponse -&gt; String
+$cshow :: DeleteVpcEndpointServiceConfigurationsResponse -&gt; String
+showsPrec :: Int -&gt; DeleteVpcEndpointServiceConfigurationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteVpcEndpointServiceConfigurationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteVpcEndpointServiceConfigurationsResponse
+ -&gt; Rep DeleteVpcEndpointServiceConfigurationsResponse x)
+-&gt; (forall x.
+    Rep DeleteVpcEndpointServiceConfigurationsResponse x
+    -&gt; DeleteVpcEndpointServiceConfigurationsResponse)
+-&gt; Generic DeleteVpcEndpointServiceConfigurationsResponse
+forall x.
+Rep DeleteVpcEndpointServiceConfigurationsResponse x
+-&gt; DeleteVpcEndpointServiceConfigurationsResponse
+forall x.
+DeleteVpcEndpointServiceConfigurationsResponse
+-&gt; Rep DeleteVpcEndpointServiceConfigurationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteVpcEndpointServiceConfigurationsResponse x
+-&gt; DeleteVpcEndpointServiceConfigurationsResponse
+$cfrom :: forall x.
+DeleteVpcEndpointServiceConfigurationsResponse
+-&gt; Rep DeleteVpcEndpointServiceConfigurationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Create a value of 'DeleteVpcEndpointServiceConfigurationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'unsuccessful', 'deleteVpcEndpointServiceConfigurationsResponse_unsuccessful' - Information about the service configurations that were not deleted, if</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- applicable.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'httpStatus', 'deleteVpcEndpointServiceConfigurationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#newDeleteVpcEndpointServiceConfigurationsResponse"><span class="hs-identifier hs-type">newDeleteVpcEndpointServiceConfigurationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurationsResponse</span></a></span><span>
+</span><span id="line-180"></span><span id="newDeleteVpcEndpointServiceConfigurationsResponse"><span class="annot"><span class="annottext">newDeleteVpcEndpointServiceConfigurationsResponse :: Int -&gt; DeleteVpcEndpointServiceConfigurationsResponse
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#newDeleteVpcEndpointServiceConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newDeleteVpcEndpointServiceConfigurationsResponse</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621681274709"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681274709"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">DeleteVpcEndpointServiceConfigurationsResponse' :: Maybe [UnsuccessfulItem]
+-&gt; Int -&gt; DeleteVpcEndpointServiceConfigurationsResponse
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse%27"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurationsResponse'</span></a></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:unsuccessful:DeleteVpcEndpointServiceConfigurationsResponse' :: Maybe [UnsuccessfulItem]
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#%24sel%3Aunsuccessful%3ADeleteVpcEndpointServiceConfigurationsResponse%27"><span class="hs-identifier hs-var">unsuccessful</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteVpcEndpointServiceConfigurationsResponse' :: Int
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#%24sel%3AhttpStatus%3ADeleteVpcEndpointServiceConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681274709"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | Information about the service configurations that were not deleted, if</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- applicable.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#deleteVpcEndpointServiceConfigurationsResponse_unsuccessful"><span class="hs-identifier hs-type">deleteVpcEndpointServiceConfigurationsResponse_unsuccessful</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulItem.html#UnsuccessfulItem"><span class="hs-identifier hs-type">UnsuccessfulItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="deleteVpcEndpointServiceConfigurationsResponse_unsuccessful"><span class="annot"><span class="annottext">deleteVpcEndpointServiceConfigurationsResponse_unsuccessful :: (Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+-&gt; DeleteVpcEndpointServiceConfigurationsResponse
+-&gt; f DeleteVpcEndpointServiceConfigurationsResponse
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#deleteVpcEndpointServiceConfigurationsResponse_unsuccessful"><span class="hs-identifier hs-var hs-var">deleteVpcEndpointServiceConfigurationsResponse_unsuccessful</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteVpcEndpointServiceConfigurationsResponse
+ -&gt; Maybe [UnsuccessfulItem])
+-&gt; (DeleteVpcEndpointServiceConfigurationsResponse
+    -&gt; Maybe [UnsuccessfulItem]
+    -&gt; DeleteVpcEndpointServiceConfigurationsResponse)
+-&gt; Lens
+     DeleteVpcEndpointServiceConfigurationsResponse
+     DeleteVpcEndpointServiceConfigurationsResponse
+     (Maybe [UnsuccessfulItem])
+     (Maybe [UnsuccessfulItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse%27"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681274708"><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+unsuccessful :: Maybe [UnsuccessfulItem]
+$sel:unsuccessful:DeleteVpcEndpointServiceConfigurationsResponse' :: DeleteVpcEndpointServiceConfigurationsResponse
+-&gt; Maybe [UnsuccessfulItem]
+</span><a href="#local-6989586621681274708"><span class="hs-identifier hs-var hs-var">unsuccessful</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+</span><a href="#local-6989586621681274708"><span class="hs-identifier hs-var">unsuccessful</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681274707"><span class="annot"><span class="annottext">s :: DeleteVpcEndpointServiceConfigurationsResponse
+</span><a href="#local-6989586621681274707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse%27"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681274706"><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+</span><a href="#local-6989586621681274706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVpcEndpointServiceConfigurationsResponse
+</span><a href="#local-6989586621681274707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unsuccessful:DeleteVpcEndpointServiceConfigurationsResponse' :: Maybe [UnsuccessfulItem]
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#%24sel%3Aunsuccessful%3ADeleteVpcEndpointServiceConfigurationsResponse%27"><span class="hs-identifier hs-var">unsuccessful</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+</span><a href="#local-6989586621681274706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+ -&gt; DeleteVpcEndpointServiceConfigurationsResponse
+ -&gt; f DeleteVpcEndpointServiceConfigurationsResponse)
+-&gt; ((Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+    -&gt; Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+-&gt; (Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+-&gt; DeleteVpcEndpointServiceConfigurationsResponse
+-&gt; f DeleteVpcEndpointServiceConfigurationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+-&gt; Iso
+     (Maybe [UnsuccessfulItem])
+     (Maybe [UnsuccessfulItem])
+     (Maybe [UnsuccessfulItem])
+     (Maybe [UnsuccessfulItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#deleteVpcEndpointServiceConfigurationsResponse_httpStatus"><span class="hs-identifier hs-type">deleteVpcEndpointServiceConfigurationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-195"></span><span id="deleteVpcEndpointServiceConfigurationsResponse_httpStatus"><span class="annot"><span class="annottext">deleteVpcEndpointServiceConfigurationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteVpcEndpointServiceConfigurationsResponse
+-&gt; f DeleteVpcEndpointServiceConfigurationsResponse
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#deleteVpcEndpointServiceConfigurationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteVpcEndpointServiceConfigurationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteVpcEndpointServiceConfigurationsResponse -&gt; Int)
+-&gt; (DeleteVpcEndpointServiceConfigurationsResponse
+    -&gt; Int -&gt; DeleteVpcEndpointServiceConfigurationsResponse)
+-&gt; Lens
+     DeleteVpcEndpointServiceConfigurationsResponse
+     DeleteVpcEndpointServiceConfigurationsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse%27"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681274704"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteVpcEndpointServiceConfigurationsResponse' :: DeleteVpcEndpointServiceConfigurationsResponse -&gt; Int
+</span><a href="#local-6989586621681274704"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681274704"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681274703"><span class="annot"><span class="annottext">s :: DeleteVpcEndpointServiceConfigurationsResponse
+</span><a href="#local-6989586621681274703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse%27"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681274702"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681274702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVpcEndpointServiceConfigurationsResponse
+</span><a href="#local-6989586621681274703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteVpcEndpointServiceConfigurationsResponse' :: Int
+</span><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#%24sel%3AhttpStatus%3ADeleteVpcEndpointServiceConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681274702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621681274700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointServiceConfigurations.html#DeleteVpcEndpointServiceConfigurationsResponse"><span class="hs-identifier hs-type">DeleteVpcEndpointServiceConfigurationsResponse</span></a></span></span><span>
+</span><span id="line-200"></span></pre></body></html>

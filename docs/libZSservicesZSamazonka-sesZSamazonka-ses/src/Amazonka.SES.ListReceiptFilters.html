@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SES.ListReceiptFilters</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the IP address filters associated with your AWS account in the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- current AWS Region.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- For information about managing IP address filters, see the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- You can execute this operation no more than once per second.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SES.ListReceiptFilters</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFilters"><span class="hs-identifier">ListReceiptFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#newListReceiptFilters"><span class="hs-identifier">newListReceiptFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse"><span class="hs-identifier">ListReceiptFiltersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#newListReceiptFiltersResponse"><span class="hs-identifier">newListReceiptFiltersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#listReceiptFiltersResponse_filters"><span class="hs-identifier">listReceiptFiltersResponse_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#listReceiptFiltersResponse_httpStatus"><span class="hs-identifier">listReceiptFiltersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.html"><span class="hs-identifier">Amazonka.SES.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | Represents a request to list the IP address filters that exist under</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- your AWS account. You use IP address filters when you receive email with</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Amazon SES. For more information, see the</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newListReceiptFilters' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679281918"><span id="local-6989586621679281919"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReceiptFilters"><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFilters"><span class="hs-identifier hs-var">ListReceiptFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReceiptFilters%27"><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFilters%27"><span class="hs-identifier hs-var">ListReceiptFilters'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281913"><span id="local-6989586621679281915"><span class="annot"><span class="annottext">ListReceiptFilters -&gt; ListReceiptFilters -&gt; Bool
+(ListReceiptFilters -&gt; ListReceiptFilters -&gt; Bool)
+-&gt; (ListReceiptFilters -&gt; ListReceiptFilters -&gt; Bool)
+-&gt; Eq ListReceiptFilters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListReceiptFilters -&gt; ListReceiptFilters -&gt; Bool
+$c/= :: ListReceiptFilters -&gt; ListReceiptFilters -&gt; Bool
+== :: ListReceiptFilters -&gt; ListReceiptFilters -&gt; Bool
+$c== :: ListReceiptFilters -&gt; ListReceiptFilters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281904"><span id="local-6989586621679281906"><span id="local-6989586621679281908"><span id="local-6989586621679281910"><span class="annot"><span class="annottext">ReadPrec [ListReceiptFilters]
+ReadPrec ListReceiptFilters
+Int -&gt; ReadS ListReceiptFilters
+ReadS [ListReceiptFilters]
+(Int -&gt; ReadS ListReceiptFilters)
+-&gt; ReadS [ListReceiptFilters]
+-&gt; ReadPrec ListReceiptFilters
+-&gt; ReadPrec [ListReceiptFilters]
+-&gt; Read ListReceiptFilters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListReceiptFilters]
+$creadListPrec :: ReadPrec [ListReceiptFilters]
+readPrec :: ReadPrec ListReceiptFilters
+$creadPrec :: ReadPrec ListReceiptFilters
+readList :: ReadS [ListReceiptFilters]
+$creadList :: ReadS [ListReceiptFilters]
+readsPrec :: Int -&gt; ReadS ListReceiptFilters
+$creadsPrec :: Int -&gt; ReadS ListReceiptFilters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281897"><span id="local-6989586621679281899"><span id="local-6989586621679281901"><span class="annot"><span class="annottext">Int -&gt; ListReceiptFilters -&gt; ShowS
+[ListReceiptFilters] -&gt; ShowS
+ListReceiptFilters -&gt; String
+(Int -&gt; ListReceiptFilters -&gt; ShowS)
+-&gt; (ListReceiptFilters -&gt; String)
+-&gt; ([ListReceiptFilters] -&gt; ShowS)
+-&gt; Show ListReceiptFilters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListReceiptFilters] -&gt; ShowS
+$cshowList :: [ListReceiptFilters] -&gt; ShowS
+show :: ListReceiptFilters -&gt; String
+$cshow :: ListReceiptFilters -&gt; String
+showsPrec :: Int -&gt; ListReceiptFilters -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListReceiptFilters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListReceiptFilters -&gt; Rep ListReceiptFilters x)
+-&gt; (forall x. Rep ListReceiptFilters x -&gt; ListReceiptFilters)
+-&gt; Generic ListReceiptFilters
+forall x. Rep ListReceiptFilters x -&gt; ListReceiptFilters
+forall x. ListReceiptFilters -&gt; Rep ListReceiptFilters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListReceiptFilters x -&gt; ListReceiptFilters
+$cfrom :: forall x. ListReceiptFilters -&gt; Rep ListReceiptFilters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'ListReceiptFilters' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#newListReceiptFilters"><span class="hs-identifier hs-type">newListReceiptFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFilters"><span class="hs-identifier hs-type">ListReceiptFilters</span></a></span><span>
+</span><span id="line-69"></span><span id="newListReceiptFilters"><span class="annot"><span class="annottext">newListReceiptFilters :: ListReceiptFilters
+</span><a href="Amazonka.SES.ListReceiptFilters.html#newListReceiptFilters"><span class="hs-identifier hs-var hs-var">newListReceiptFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ListReceiptFilters
+</span><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFilters%27"><span class="hs-identifier hs-var">ListReceiptFilters'</span></a></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFilters"><span class="hs-identifier hs-type">ListReceiptFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-73"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFilters"><span class="hs-identifier hs-type">ListReceiptFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse"><span class="hs-identifier hs-type">ListReceiptFiltersResponse</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679281889"><span class="annot"><span class="annottext">request :: ListReceiptFilters -&gt; Request ListReceiptFilters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListReceiptFilters -&gt; Request ListReceiptFilters
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679281885"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListReceiptFilters
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListReceiptFilters)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse ListReceiptFilters))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListReceiptFilters
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListReceiptFilters)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ListReceiptFiltersResult&quot;</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281882"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281882"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679281881"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679281881"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679281880"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679281880"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ReceiptFilter] -&gt; Int -&gt; ListReceiptFiltersResponse
+</span><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse%27"><span class="hs-identifier hs-var">ListReceiptFiltersResponse'</span></a></span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ReceiptFilter] -&gt; Int -&gt; ListReceiptFiltersResponse)
+-&gt; Either String (Maybe [ReceiptFilter])
+-&gt; Either String (Int -&gt; ListReceiptFiltersResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679281880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-82"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [ReceiptFilter]))
+-&gt; Either String (Maybe [ReceiptFilter])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ReceiptFilter])
+-&gt; [Node] -&gt; Either String (Maybe [ReceiptFilter])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ReceiptFilter]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListReceiptFiltersResponse)
+-&gt; Either String Int -&gt; Either String ListReceiptFiltersResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281882"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281869"><span id="local-6989586621679281871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFilters"><span class="hs-identifier hs-type">ListReceiptFilters</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFilters"><span class="hs-identifier hs-type">ListReceiptFilters</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFilters"><span class="hs-identifier hs-type">ListReceiptFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679281862"><span class="annot"><span class="annottext">toHeaders :: ListReceiptFilters -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListReceiptFilters -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFilters"><span class="hs-identifier hs-type">ListReceiptFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679281857"><span class="annot"><span class="annottext">toPath :: ListReceiptFilters -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListReceiptFilters -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFilters"><span class="hs-identifier hs-type">ListReceiptFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679281853"><span class="annot"><span class="annottext">toQuery :: ListReceiptFilters -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; ListReceiptFilters -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ListReceiptFilters&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | A list of IP address filters that exist under your AWS account.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- /See:/ 'newListReceiptFiltersResponse' smart constructor.</span><span>
+</span><span id="line-111"></span><span id="local-6989586621679281849"><span id="local-6989586621679281850"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReceiptFiltersResponse"><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse"><span class="hs-identifier hs-var">ListReceiptFiltersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReceiptFiltersResponse%27"><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse%27"><span class="hs-identifier hs-var">ListReceiptFiltersResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of IP address filter data structures, which each consist of a</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- name, an IP address range, and whether to allow or block mail from it.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3Afilters%3AListReceiptFiltersResponse%27"><span class="annot"><span class="annottext">ListReceiptFiltersResponse -&gt; Maybe [ReceiptFilter]
+</span><a href="Amazonka.SES.ListReceiptFilters.html#%24sel%3Afilters%3AListReceiptFiltersResponse%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SES.Types.ReceiptFilter.html#ReceiptFilter"><span class="hs-identifier hs-type">ReceiptFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListReceiptFiltersResponse%27"><span class="annot"><span class="annottext">ListReceiptFiltersResponse -&gt; Int
+</span><a href="Amazonka.SES.ListReceiptFilters.html#%24sel%3AhttpStatus%3AListReceiptFiltersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281843"><span id="local-6989586621679281845"><span class="annot"><span class="annottext">ListReceiptFiltersResponse -&gt; ListReceiptFiltersResponse -&gt; Bool
+(ListReceiptFiltersResponse -&gt; ListReceiptFiltersResponse -&gt; Bool)
+-&gt; (ListReceiptFiltersResponse
+    -&gt; ListReceiptFiltersResponse -&gt; Bool)
+-&gt; Eq ListReceiptFiltersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListReceiptFiltersResponse -&gt; ListReceiptFiltersResponse -&gt; Bool
+$c/= :: ListReceiptFiltersResponse -&gt; ListReceiptFiltersResponse -&gt; Bool
+== :: ListReceiptFiltersResponse -&gt; ListReceiptFiltersResponse -&gt; Bool
+$c== :: ListReceiptFiltersResponse -&gt; ListReceiptFiltersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281835"><span id="local-6989586621679281837"><span id="local-6989586621679281839"><span id="local-6989586621679281841"><span class="annot"><span class="annottext">ReadPrec [ListReceiptFiltersResponse]
+ReadPrec ListReceiptFiltersResponse
+Int -&gt; ReadS ListReceiptFiltersResponse
+ReadS [ListReceiptFiltersResponse]
+(Int -&gt; ReadS ListReceiptFiltersResponse)
+-&gt; ReadS [ListReceiptFiltersResponse]
+-&gt; ReadPrec ListReceiptFiltersResponse
+-&gt; ReadPrec [ListReceiptFiltersResponse]
+-&gt; Read ListReceiptFiltersResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListReceiptFiltersResponse]
+$creadListPrec :: ReadPrec [ListReceiptFiltersResponse]
+readPrec :: ReadPrec ListReceiptFiltersResponse
+$creadPrec :: ReadPrec ListReceiptFiltersResponse
+readList :: ReadS [ListReceiptFiltersResponse]
+$creadList :: ReadS [ListReceiptFiltersResponse]
+readsPrec :: Int -&gt; ReadS ListReceiptFiltersResponse
+$creadsPrec :: Int -&gt; ReadS ListReceiptFiltersResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281829"><span id="local-6989586621679281831"><span id="local-6989586621679281833"><span class="annot"><span class="annottext">Int -&gt; ListReceiptFiltersResponse -&gt; ShowS
+[ListReceiptFiltersResponse] -&gt; ShowS
+ListReceiptFiltersResponse -&gt; String
+(Int -&gt; ListReceiptFiltersResponse -&gt; ShowS)
+-&gt; (ListReceiptFiltersResponse -&gt; String)
+-&gt; ([ListReceiptFiltersResponse] -&gt; ShowS)
+-&gt; Show ListReceiptFiltersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListReceiptFiltersResponse] -&gt; ShowS
+$cshowList :: [ListReceiptFiltersResponse] -&gt; ShowS
+show :: ListReceiptFiltersResponse -&gt; String
+$cshow :: ListReceiptFiltersResponse -&gt; String
+showsPrec :: Int -&gt; ListReceiptFiltersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListReceiptFiltersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListReceiptFiltersResponse -&gt; Rep ListReceiptFiltersResponse x)
+-&gt; (forall x.
+    Rep ListReceiptFiltersResponse x -&gt; ListReceiptFiltersResponse)
+-&gt; Generic ListReceiptFiltersResponse
+forall x.
+Rep ListReceiptFiltersResponse x -&gt; ListReceiptFiltersResponse
+forall x.
+ListReceiptFiltersResponse -&gt; Rep ListReceiptFiltersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListReceiptFiltersResponse x -&gt; ListReceiptFiltersResponse
+$cfrom :: forall x.
+ListReceiptFiltersResponse -&gt; Rep ListReceiptFiltersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Create a value of 'ListReceiptFiltersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'filters', 'listReceiptFiltersResponse_filters' - A list of IP address filter data structures, which each consist of a</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- name, an IP address range, and whether to allow or block mail from it.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'httpStatus', 'listReceiptFiltersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#newListReceiptFiltersResponse"><span class="hs-identifier hs-type">newListReceiptFiltersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse"><span class="hs-identifier hs-type">ListReceiptFiltersResponse</span></a></span><span>
+</span><span id="line-136"></span><span id="newListReceiptFiltersResponse"><span class="annot"><span class="annottext">newListReceiptFiltersResponse :: Int -&gt; ListReceiptFiltersResponse
+</span><a href="Amazonka.SES.ListReceiptFilters.html#newListReceiptFiltersResponse"><span class="hs-identifier hs-var hs-var">newListReceiptFiltersResponse</span></a></span></span><span> </span><span id="local-6989586621679281826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281826"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">ListReceiptFiltersResponse' :: Maybe [ReceiptFilter] -&gt; Int -&gt; ListReceiptFiltersResponse
+</span><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse%27"><span class="hs-identifier hs-type">ListReceiptFiltersResponse'</span></a></span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:ListReceiptFiltersResponse' :: Maybe [ReceiptFilter]
+</span><a href="Amazonka.SES.ListReceiptFilters.html#%24sel%3Afilters%3AListReceiptFiltersResponse%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ReceiptFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListReceiptFiltersResponse' :: Int
+</span><a href="Amazonka.SES.ListReceiptFilters.html#%24sel%3AhttpStatus%3AListReceiptFiltersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281826"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | A list of IP address filter data structures, which each consist of a</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- name, an IP address range, and whether to allow or block mail from it.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#listReceiptFiltersResponse_filters"><span class="hs-identifier hs-type">listReceiptFiltersResponse_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse"><span class="hs-identifier hs-type">ListReceiptFiltersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SES.Types.ReceiptFilter.html#ReceiptFilter"><span class="hs-identifier hs-type">ReceiptFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="listReceiptFiltersResponse_filters"><span class="annot"><span class="annottext">listReceiptFiltersResponse_filters :: (Maybe [ReceiptFilter] -&gt; f (Maybe [ReceiptFilter]))
+-&gt; ListReceiptFiltersResponse -&gt; f ListReceiptFiltersResponse
+</span><a href="Amazonka.SES.ListReceiptFilters.html#listReceiptFiltersResponse_filters"><span class="hs-identifier hs-var hs-var">listReceiptFiltersResponse_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReceiptFiltersResponse -&gt; Maybe [ReceiptFilter])
+-&gt; (ListReceiptFiltersResponse
+    -&gt; Maybe [ReceiptFilter] -&gt; ListReceiptFiltersResponse)
+-&gt; Lens
+     ListReceiptFiltersResponse
+     ListReceiptFiltersResponse
+     (Maybe [ReceiptFilter])
+     (Maybe [ReceiptFilter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse%27"><span class="hs-identifier hs-type">ListReceiptFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281823"><span class="annot"><span class="annottext">Maybe [ReceiptFilter]
+filters :: Maybe [ReceiptFilter]
+$sel:filters:ListReceiptFiltersResponse' :: ListReceiptFiltersResponse -&gt; Maybe [ReceiptFilter]
+</span><a href="#local-6989586621679281823"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReceiptFilter]
+</span><a href="#local-6989586621679281823"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281822"><span class="annot"><span class="annottext">s :: ListReceiptFiltersResponse
+</span><a href="#local-6989586621679281822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse%27"><span class="hs-identifier hs-type">ListReceiptFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281821"><span class="annot"><span class="annottext">Maybe [ReceiptFilter]
+</span><a href="#local-6989586621679281821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReceiptFiltersResponse
+</span><a href="#local-6989586621679281822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListReceiptFiltersResponse' :: Maybe [ReceiptFilter]
+</span><a href="Amazonka.SES.ListReceiptFilters.html#%24sel%3Afilters%3AListReceiptFiltersResponse%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReceiptFilter]
+</span><a href="#local-6989586621679281821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse"><span class="hs-identifier hs-type">ListReceiptFiltersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReceiptFilter] -&gt; f (Maybe [ReceiptFilter]))
+ -&gt; ListReceiptFiltersResponse -&gt; f ListReceiptFiltersResponse)
+-&gt; ((Maybe [ReceiptFilter] -&gt; f (Maybe [ReceiptFilter]))
+    -&gt; Maybe [ReceiptFilter] -&gt; f (Maybe [ReceiptFilter]))
+-&gt; (Maybe [ReceiptFilter] -&gt; f (Maybe [ReceiptFilter]))
+-&gt; ListReceiptFiltersResponse
+-&gt; f ListReceiptFiltersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReceiptFilter] [ReceiptFilter] [ReceiptFilter] [ReceiptFilter]
+-&gt; Iso
+     (Maybe [ReceiptFilter])
+     (Maybe [ReceiptFilter])
+     (Maybe [ReceiptFilter])
+     (Maybe [ReceiptFilter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReceiptFilter] [ReceiptFilter] [ReceiptFilter] [ReceiptFilter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#listReceiptFiltersResponse_httpStatus"><span class="hs-identifier hs-type">listReceiptFiltersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse"><span class="hs-identifier hs-type">ListReceiptFiltersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-150"></span><span id="listReceiptFiltersResponse_httpStatus"><span class="annot"><span class="annottext">listReceiptFiltersResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListReceiptFiltersResponse -&gt; f ListReceiptFiltersResponse
+</span><a href="Amazonka.SES.ListReceiptFilters.html#listReceiptFiltersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listReceiptFiltersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReceiptFiltersResponse -&gt; Int)
+-&gt; (ListReceiptFiltersResponse
+    -&gt; Int -&gt; ListReceiptFiltersResponse)
+-&gt; Lens
+     ListReceiptFiltersResponse ListReceiptFiltersResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse%27"><span class="hs-identifier hs-type">ListReceiptFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281817"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListReceiptFiltersResponse' :: ListReceiptFiltersResponse -&gt; Int
+</span><a href="#local-6989586621679281817"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281817"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281816"><span class="annot"><span class="annottext">s :: ListReceiptFiltersResponse
+</span><a href="#local-6989586621679281816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse%27"><span class="hs-identifier hs-type">ListReceiptFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281815"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReceiptFiltersResponse
+</span><a href="#local-6989586621679281816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListReceiptFiltersResponse' :: Int
+</span><a href="Amazonka.SES.ListReceiptFilters.html#%24sel%3AhttpStatus%3AListReceiptFiltersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse"><span class="hs-identifier hs-type">ListReceiptFiltersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281813"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SES.ListReceiptFilters.html#ListReceiptFiltersResponse"><span class="hs-identifier hs-type">ListReceiptFiltersResponse</span></a></span></span><span>
+</span><span id="line-153"></span></pre></body></html>

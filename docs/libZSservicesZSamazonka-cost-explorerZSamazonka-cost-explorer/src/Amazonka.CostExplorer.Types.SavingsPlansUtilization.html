@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CostExplorer.Types.SavingsPlansUtilization</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CostExplorer.Types.SavingsPlansUtilization</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The measurement of how well you\'re using your existing Savings Plans.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSavingsPlansUtilization' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679336625"><span id="local-6989586621679336626"></span></span><span class="hs-keyword">data</span><span> </span><span id="SavingsPlansUtilization"><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-var">SavingsPlansUtilization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SavingsPlansUtilization%27"><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization%27"><span class="hs-identifier hs-var">SavingsPlansUtilization'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of your Savings Plans commitment that wasn\'t consumed from</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Savings Plans eligible usage in a specific period.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AunusedCommitment%3ASavingsPlansUtilization%27"><span class="annot"><span class="annottext">SavingsPlansUtilization -&gt; Maybe Text
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#%24sel%3AunusedCommitment%3ASavingsPlansUtilization%27"><span class="hs-identifier hs-var hs-var">unusedCommitment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The amount of @UsedCommitment@ divided by the @TotalCommitment@ for your</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Savings Plans.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AutilizationPercentage%3ASavingsPlansUtilization%27"><span class="annot"><span class="annottext">SavingsPlansUtilization -&gt; Maybe Text
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#%24sel%3AutilizationPercentage%3ASavingsPlansUtilization%27"><span class="hs-identifier hs-var hs-var">utilizationPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The total amount of Savings Plans commitment that\'s been purchased in</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- an account (or set of accounts).</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtotalCommitment%3ASavingsPlansUtilization%27"><span class="annot"><span class="annottext">SavingsPlansUtilization -&gt; Maybe Text
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#%24sel%3AtotalCommitment%3ASavingsPlansUtilization%27"><span class="hs-identifier hs-var hs-var">totalCommitment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The amount of your Savings Plans commitment that was consumed from</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Savings Plans eligible usage in a specific period.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AusedCommitment%3ASavingsPlansUtilization%27"><span class="annot"><span class="annottext">SavingsPlansUtilization -&gt; Maybe Text
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#%24sel%3AusedCommitment%3ASavingsPlansUtilization%27"><span class="hs-identifier hs-var hs-var">usedCommitment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336616"><span id="local-6989586621679336618"><span class="annot"><span class="annottext">SavingsPlansUtilization -&gt; SavingsPlansUtilization -&gt; Bool
+(SavingsPlansUtilization -&gt; SavingsPlansUtilization -&gt; Bool)
+-&gt; (SavingsPlansUtilization -&gt; SavingsPlansUtilization -&gt; Bool)
+-&gt; Eq SavingsPlansUtilization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SavingsPlansUtilization -&gt; SavingsPlansUtilization -&gt; Bool
+$c/= :: SavingsPlansUtilization -&gt; SavingsPlansUtilization -&gt; Bool
+== :: SavingsPlansUtilization -&gt; SavingsPlansUtilization -&gt; Bool
+$c== :: SavingsPlansUtilization -&gt; SavingsPlansUtilization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336607"><span id="local-6989586621679336609"><span id="local-6989586621679336611"><span id="local-6989586621679336613"><span class="annot"><span class="annottext">ReadPrec [SavingsPlansUtilization]
+ReadPrec SavingsPlansUtilization
+Int -&gt; ReadS SavingsPlansUtilization
+ReadS [SavingsPlansUtilization]
+(Int -&gt; ReadS SavingsPlansUtilization)
+-&gt; ReadS [SavingsPlansUtilization]
+-&gt; ReadPrec SavingsPlansUtilization
+-&gt; ReadPrec [SavingsPlansUtilization]
+-&gt; Read SavingsPlansUtilization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SavingsPlansUtilization]
+$creadListPrec :: ReadPrec [SavingsPlansUtilization]
+readPrec :: ReadPrec SavingsPlansUtilization
+$creadPrec :: ReadPrec SavingsPlansUtilization
+readList :: ReadS [SavingsPlansUtilization]
+$creadList :: ReadS [SavingsPlansUtilization]
+readsPrec :: Int -&gt; ReadS SavingsPlansUtilization
+$creadsPrec :: Int -&gt; ReadS SavingsPlansUtilization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336600"><span id="local-6989586621679336602"><span id="local-6989586621679336604"><span class="annot"><span class="annottext">Int -&gt; SavingsPlansUtilization -&gt; ShowS
+[SavingsPlansUtilization] -&gt; ShowS
+SavingsPlansUtilization -&gt; String
+(Int -&gt; SavingsPlansUtilization -&gt; ShowS)
+-&gt; (SavingsPlansUtilization -&gt; String)
+-&gt; ([SavingsPlansUtilization] -&gt; ShowS)
+-&gt; Show SavingsPlansUtilization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SavingsPlansUtilization] -&gt; ShowS
+$cshowList :: [SavingsPlansUtilization] -&gt; ShowS
+show :: SavingsPlansUtilization -&gt; String
+$cshow :: SavingsPlansUtilization -&gt; String
+showsPrec :: Int -&gt; SavingsPlansUtilization -&gt; ShowS
+$cshowsPrec :: Int -&gt; SavingsPlansUtilization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SavingsPlansUtilization -&gt; Rep SavingsPlansUtilization x)
+-&gt; (forall x.
+    Rep SavingsPlansUtilization x -&gt; SavingsPlansUtilization)
+-&gt; Generic SavingsPlansUtilization
+forall x. Rep SavingsPlansUtilization x -&gt; SavingsPlansUtilization
+forall x. SavingsPlansUtilization -&gt; Rep SavingsPlansUtilization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SavingsPlansUtilization x -&gt; SavingsPlansUtilization
+$cfrom :: forall x. SavingsPlansUtilization -&gt; Rep SavingsPlansUtilization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'SavingsPlansUtilization' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'unusedCommitment', 'savingsPlansUtilization_unusedCommitment' - The amount of your Savings Plans commitment that wasn\'t consumed from</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Savings Plans eligible usage in a specific period.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'utilizationPercentage', 'savingsPlansUtilization_utilizationPercentage' - The amount of @UsedCommitment@ divided by the @TotalCommitment@ for your</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Savings Plans.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'totalCommitment', 'savingsPlansUtilization_totalCommitment' - The total amount of Savings Plans commitment that\'s been purchased in</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- an account (or set of accounts).</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'usedCommitment', 'savingsPlansUtilization_usedCommitment' - The amount of your Savings Plans commitment that was consumed from</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Savings Plans eligible usage in a specific period.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#newSavingsPlansUtilization"><span class="hs-identifier hs-type">newSavingsPlansUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span><span>
+</span><span id="line-66"></span><span id="newSavingsPlansUtilization"><span class="annot"><span class="annottext">newSavingsPlansUtilization :: SavingsPlansUtilization
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#newSavingsPlansUtilization"><span class="hs-identifier hs-var hs-var">newSavingsPlansUtilization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">SavingsPlansUtilization' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; SavingsPlansUtilization
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization%27"><span class="hs-identifier hs-type">SavingsPlansUtilization'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:unusedCommitment:SavingsPlansUtilization' :: Maybe Text
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#%24sel%3AunusedCommitment%3ASavingsPlansUtilization%27"><span class="hs-identifier hs-var">unusedCommitment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:utilizationPercentage:SavingsPlansUtilization' :: Maybe Text
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#%24sel%3AutilizationPercentage%3ASavingsPlansUtilization%27"><span class="hs-identifier hs-var">utilizationPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalCommitment:SavingsPlansUtilization' :: Maybe Text
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#%24sel%3AtotalCommitment%3ASavingsPlansUtilization%27"><span class="hs-identifier hs-var">totalCommitment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:usedCommitment:SavingsPlansUtilization' :: Maybe Text
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#%24sel%3AusedCommitment%3ASavingsPlansUtilization%27"><span class="hs-identifier hs-var">usedCommitment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The amount of your Savings Plans commitment that wasn\'t consumed from</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Savings Plans eligible usage in a specific period.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#savingsPlansUtilization_unusedCommitment"><span class="hs-identifier hs-type">savingsPlansUtilization_unusedCommitment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="savingsPlansUtilization_unusedCommitment"><span class="annot"><span class="annottext">savingsPlansUtilization_unusedCommitment :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SavingsPlansUtilization -&gt; f SavingsPlansUtilization
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#savingsPlansUtilization_unusedCommitment"><span class="hs-identifier hs-var hs-var">savingsPlansUtilization_unusedCommitment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansUtilization -&gt; Maybe Text)
+-&gt; (SavingsPlansUtilization
+    -&gt; Maybe Text -&gt; SavingsPlansUtilization)
+-&gt; Lens
+     SavingsPlansUtilization
+     SavingsPlansUtilization
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization%27"><span class="hs-identifier hs-type">SavingsPlansUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336591"><span class="annot"><span class="annottext">Maybe Text
+unusedCommitment :: Maybe Text
+$sel:unusedCommitment:SavingsPlansUtilization' :: SavingsPlansUtilization -&gt; Maybe Text
+</span><a href="#local-6989586621679336591"><span class="hs-identifier hs-var hs-var">unusedCommitment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336591"><span class="hs-identifier hs-var">unusedCommitment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336590"><span class="annot"><span class="annottext">s :: SavingsPlansUtilization
+</span><a href="#local-6989586621679336590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization%27"><span class="hs-identifier hs-type">SavingsPlansUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336589"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilization
+</span><a href="#local-6989586621679336590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unusedCommitment:SavingsPlansUtilization' :: Maybe Text
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#%24sel%3AunusedCommitment%3ASavingsPlansUtilization%27"><span class="hs-identifier hs-var">unusedCommitment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The amount of @UsedCommitment@ divided by the @TotalCommitment@ for your</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Savings Plans.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#savingsPlansUtilization_utilizationPercentage"><span class="hs-identifier hs-type">savingsPlansUtilization_utilizationPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="savingsPlansUtilization_utilizationPercentage"><span class="annot"><span class="annottext">savingsPlansUtilization_utilizationPercentage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SavingsPlansUtilization -&gt; f SavingsPlansUtilization
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#savingsPlansUtilization_utilizationPercentage"><span class="hs-identifier hs-var hs-var">savingsPlansUtilization_utilizationPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansUtilization -&gt; Maybe Text)
+-&gt; (SavingsPlansUtilization
+    -&gt; Maybe Text -&gt; SavingsPlansUtilization)
+-&gt; Lens
+     SavingsPlansUtilization
+     SavingsPlansUtilization
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization%27"><span class="hs-identifier hs-type">SavingsPlansUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336587"><span class="annot"><span class="annottext">Maybe Text
+utilizationPercentage :: Maybe Text
+$sel:utilizationPercentage:SavingsPlansUtilization' :: SavingsPlansUtilization -&gt; Maybe Text
+</span><a href="#local-6989586621679336587"><span class="hs-identifier hs-var hs-var">utilizationPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336587"><span class="hs-identifier hs-var">utilizationPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336586"><span class="annot"><span class="annottext">s :: SavingsPlansUtilization
+</span><a href="#local-6989586621679336586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization%27"><span class="hs-identifier hs-type">SavingsPlansUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336585"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilization
+</span><a href="#local-6989586621679336586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:utilizationPercentage:SavingsPlansUtilization' :: Maybe Text
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#%24sel%3AutilizationPercentage%3ASavingsPlansUtilization%27"><span class="hs-identifier hs-var">utilizationPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The total amount of Savings Plans commitment that\'s been purchased in</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- an account (or set of accounts).</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#savingsPlansUtilization_totalCommitment"><span class="hs-identifier hs-type">savingsPlansUtilization_totalCommitment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="savingsPlansUtilization_totalCommitment"><span class="annot"><span class="annottext">savingsPlansUtilization_totalCommitment :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SavingsPlansUtilization -&gt; f SavingsPlansUtilization
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#savingsPlansUtilization_totalCommitment"><span class="hs-identifier hs-var hs-var">savingsPlansUtilization_totalCommitment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansUtilization -&gt; Maybe Text)
+-&gt; (SavingsPlansUtilization
+    -&gt; Maybe Text -&gt; SavingsPlansUtilization)
+-&gt; Lens
+     SavingsPlansUtilization
+     SavingsPlansUtilization
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization%27"><span class="hs-identifier hs-type">SavingsPlansUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336583"><span class="annot"><span class="annottext">Maybe Text
+totalCommitment :: Maybe Text
+$sel:totalCommitment:SavingsPlansUtilization' :: SavingsPlansUtilization -&gt; Maybe Text
+</span><a href="#local-6989586621679336583"><span class="hs-identifier hs-var hs-var">totalCommitment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336583"><span class="hs-identifier hs-var">totalCommitment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336582"><span class="annot"><span class="annottext">s :: SavingsPlansUtilization
+</span><a href="#local-6989586621679336582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization%27"><span class="hs-identifier hs-type">SavingsPlansUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336581"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilization
+</span><a href="#local-6989586621679336582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalCommitment:SavingsPlansUtilization' :: Maybe Text
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#%24sel%3AtotalCommitment%3ASavingsPlansUtilization%27"><span class="hs-identifier hs-var">totalCommitment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The amount of your Savings Plans commitment that was consumed from</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Savings Plans eligible usage in a specific period.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#savingsPlansUtilization_usedCommitment"><span class="hs-identifier hs-type">savingsPlansUtilization_usedCommitment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="savingsPlansUtilization_usedCommitment"><span class="annot"><span class="annottext">savingsPlansUtilization_usedCommitment :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SavingsPlansUtilization -&gt; f SavingsPlansUtilization
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#savingsPlansUtilization_usedCommitment"><span class="hs-identifier hs-var hs-var">savingsPlansUtilization_usedCommitment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansUtilization -&gt; Maybe Text)
+-&gt; (SavingsPlansUtilization
+    -&gt; Maybe Text -&gt; SavingsPlansUtilization)
+-&gt; Lens
+     SavingsPlansUtilization
+     SavingsPlansUtilization
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization%27"><span class="hs-identifier hs-type">SavingsPlansUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336579"><span class="annot"><span class="annottext">Maybe Text
+usedCommitment :: Maybe Text
+$sel:usedCommitment:SavingsPlansUtilization' :: SavingsPlansUtilization -&gt; Maybe Text
+</span><a href="#local-6989586621679336579"><span class="hs-identifier hs-var hs-var">usedCommitment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336579"><span class="hs-identifier hs-var">usedCommitment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336578"><span class="annot"><span class="annottext">s :: SavingsPlansUtilization
+</span><a href="#local-6989586621679336578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization%27"><span class="hs-identifier hs-type">SavingsPlansUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336577"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilization
+</span><a href="#local-6989586621679336578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usedCommitment:SavingsPlansUtilization' :: Maybe Text
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#%24sel%3AusedCommitment%3ASavingsPlansUtilization%27"><span class="hs-identifier hs-var">usedCommitment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336574"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679336572"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SavingsPlansUtilization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SavingsPlansUtilization)
+-&gt; Value
+-&gt; Parser SavingsPlansUtilization
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SavingsPlansUtilization&quot;</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679336569"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679336569"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; SavingsPlansUtilization
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization%27"><span class="hs-identifier hs-var">SavingsPlansUtilization'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; SavingsPlansUtilization)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; SavingsPlansUtilization)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679336569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UnusedCommitment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; SavingsPlansUtilization)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; SavingsPlansUtilization)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679336569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UtilizationPercentage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; SavingsPlansUtilization)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; SavingsPlansUtilization)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679336569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TotalCommitment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; SavingsPlansUtilization)
+-&gt; Parser (Maybe Text) -&gt; Parser SavingsPlansUtilization
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679336569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UsedCommitment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336563"><span id="local-6989586621679336565"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span></span><span>
+</span><span id="line-110"></span></pre></body></html>

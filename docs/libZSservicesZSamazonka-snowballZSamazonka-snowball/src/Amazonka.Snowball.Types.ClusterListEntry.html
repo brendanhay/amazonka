@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Snowball.Types.ClusterListEntry</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Snowball.Types.ClusterListEntry</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterState.html"><span class="hs-identifier">Amazonka.Snowball.Types.ClusterState</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains a cluster\'s state, a cluster\'s ID, and other important</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- information.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newClusterListEntry' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679222241"><span id="local-6989586621679222242"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClusterListEntry"><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry"><span class="hs-identifier hs-var">ClusterListEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterListEntry%27"><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry%27"><span class="hs-identifier hs-var">ClusterListEntry'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of this cluster. For information about the state of a</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- specific node, see JobListEntry$JobState.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AclusterState%3AClusterListEntry%27"><span class="annot"><span class="annottext">ClusterListEntry -&gt; Maybe ClusterState
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#%24sel%3AclusterState%3AClusterListEntry%27"><span class="hs-identifier hs-var hs-var">clusterState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterState.html#ClusterState"><span class="hs-identifier hs-type">ClusterState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The 39-character ID for the cluster that you want to list, for example</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @CID123e4567-e89b-12d3-a456-426655440000@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AclusterId%3AClusterListEntry%27"><span class="annot"><span class="annottext">ClusterListEntry -&gt; Maybe Text
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#%24sel%3AclusterId%3AClusterListEntry%27"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The creation date for this cluster.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcreationDate%3AClusterListEntry%27"><span class="annot"><span class="annottext">ClusterListEntry -&gt; Maybe POSIX
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#%24sel%3AcreationDate%3AClusterListEntry%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Defines an optional description of the cluster, for example</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @Environmental Data Cluster-01@.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Adescription%3AClusterListEntry%27"><span class="annot"><span class="annottext">ClusterListEntry -&gt; Maybe Text
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#%24sel%3Adescription%3AClusterListEntry%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222232"><span id="local-6989586621679222234"><span class="annot"><span class="annottext">ClusterListEntry -&gt; ClusterListEntry -&gt; Bool
+(ClusterListEntry -&gt; ClusterListEntry -&gt; Bool)
+-&gt; (ClusterListEntry -&gt; ClusterListEntry -&gt; Bool)
+-&gt; Eq ClusterListEntry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ClusterListEntry -&gt; ClusterListEntry -&gt; Bool
+$c/= :: ClusterListEntry -&gt; ClusterListEntry -&gt; Bool
+== :: ClusterListEntry -&gt; ClusterListEntry -&gt; Bool
+$c== :: ClusterListEntry -&gt; ClusterListEntry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222223"><span id="local-6989586621679222225"><span id="local-6989586621679222227"><span id="local-6989586621679222229"><span class="annot"><span class="annottext">ReadPrec [ClusterListEntry]
+ReadPrec ClusterListEntry
+Int -&gt; ReadS ClusterListEntry
+ReadS [ClusterListEntry]
+(Int -&gt; ReadS ClusterListEntry)
+-&gt; ReadS [ClusterListEntry]
+-&gt; ReadPrec ClusterListEntry
+-&gt; ReadPrec [ClusterListEntry]
+-&gt; Read ClusterListEntry
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ClusterListEntry]
+$creadListPrec :: ReadPrec [ClusterListEntry]
+readPrec :: ReadPrec ClusterListEntry
+$creadPrec :: ReadPrec ClusterListEntry
+readList :: ReadS [ClusterListEntry]
+$creadList :: ReadS [ClusterListEntry]
+readsPrec :: Int -&gt; ReadS ClusterListEntry
+$creadsPrec :: Int -&gt; ReadS ClusterListEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222216"><span id="local-6989586621679222218"><span id="local-6989586621679222220"><span class="annot"><span class="annottext">Int -&gt; ClusterListEntry -&gt; ShowS
+[ClusterListEntry] -&gt; ShowS
+ClusterListEntry -&gt; String
+(Int -&gt; ClusterListEntry -&gt; ShowS)
+-&gt; (ClusterListEntry -&gt; String)
+-&gt; ([ClusterListEntry] -&gt; ShowS)
+-&gt; Show ClusterListEntry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ClusterListEntry] -&gt; ShowS
+$cshowList :: [ClusterListEntry] -&gt; ShowS
+show :: ClusterListEntry -&gt; String
+$cshow :: ClusterListEntry -&gt; String
+showsPrec :: Int -&gt; ClusterListEntry -&gt; ShowS
+$cshowsPrec :: Int -&gt; ClusterListEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ClusterListEntry -&gt; Rep ClusterListEntry x)
+-&gt; (forall x. Rep ClusterListEntry x -&gt; ClusterListEntry)
+-&gt; Generic ClusterListEntry
+forall x. Rep ClusterListEntry x -&gt; ClusterListEntry
+forall x. ClusterListEntry -&gt; Rep ClusterListEntry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ClusterListEntry x -&gt; ClusterListEntry
+$cfrom :: forall x. ClusterListEntry -&gt; Rep ClusterListEntry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'ClusterListEntry' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'clusterState', 'clusterListEntry_clusterState' - The current state of this cluster. For information about the state of a</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- specific node, see JobListEntry$JobState.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'clusterId', 'clusterListEntry_clusterId' - The 39-character ID for the cluster that you want to list, for example</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- @CID123e4567-e89b-12d3-a456-426655440000@.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'creationDate', 'clusterListEntry_creationDate' - The creation date for this cluster.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'description', 'clusterListEntry_description' - Defines an optional description of the cluster, for example</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- @Environmental Data Cluster-01@.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#newClusterListEntry"><span class="hs-identifier hs-type">newClusterListEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry"><span class="hs-identifier hs-type">ClusterListEntry</span></a></span><span>
+</span><span id="line-66"></span><span id="newClusterListEntry"><span class="annot"><span class="annottext">newClusterListEntry :: ClusterListEntry
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#newClusterListEntry"><span class="hs-identifier hs-var hs-var">newClusterListEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">ClusterListEntry' :: Maybe ClusterState
+-&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ClusterListEntry
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry%27"><span class="hs-identifier hs-type">ClusterListEntry'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterState:ClusterListEntry' :: Maybe ClusterState
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#%24sel%3AclusterState%3AClusterListEntry%27"><span class="hs-identifier hs-var">clusterState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterId:ClusterListEntry' :: Maybe Text
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#%24sel%3AclusterId%3AClusterListEntry%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:ClusterListEntry' :: Maybe POSIX
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#%24sel%3AcreationDate%3AClusterListEntry%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ClusterListEntry' :: Maybe Text
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#%24sel%3Adescription%3AClusterListEntry%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The current state of this cluster. For information about the state of a</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- specific node, see JobListEntry$JobState.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#clusterListEntry_clusterState"><span class="hs-identifier hs-type">clusterListEntry_clusterState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry"><span class="hs-identifier hs-type">ClusterListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterState.html#ClusterState"><span class="hs-identifier hs-type">ClusterState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="clusterListEntry_clusterState"><span class="annot"><span class="annottext">clusterListEntry_clusterState :: (Maybe ClusterState -&gt; f (Maybe ClusterState))
+-&gt; ClusterListEntry -&gt; f ClusterListEntry
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#clusterListEntry_clusterState"><span class="hs-identifier hs-var hs-var">clusterListEntry_clusterState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterListEntry -&gt; Maybe ClusterState)
+-&gt; (ClusterListEntry -&gt; Maybe ClusterState -&gt; ClusterListEntry)
+-&gt; Lens
+     ClusterListEntry
+     ClusterListEntry
+     (Maybe ClusterState)
+     (Maybe ClusterState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry%27"><span class="hs-identifier hs-type">ClusterListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222207"><span class="annot"><span class="annottext">Maybe ClusterState
+clusterState :: Maybe ClusterState
+$sel:clusterState:ClusterListEntry' :: ClusterListEntry -&gt; Maybe ClusterState
+</span><a href="#local-6989586621679222207"><span class="hs-identifier hs-var hs-var">clusterState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterState
+</span><a href="#local-6989586621679222207"><span class="hs-identifier hs-var">clusterState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222206"><span class="annot"><span class="annottext">s :: ClusterListEntry
+</span><a href="#local-6989586621679222206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry%27"><span class="hs-identifier hs-type">ClusterListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222205"><span class="annot"><span class="annottext">Maybe ClusterState
+</span><a href="#local-6989586621679222205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterListEntry
+</span><a href="#local-6989586621679222206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterState:ClusterListEntry' :: Maybe ClusterState
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#%24sel%3AclusterState%3AClusterListEntry%27"><span class="hs-identifier hs-var">clusterState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterState
+</span><a href="#local-6989586621679222205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry"><span class="hs-identifier hs-type">ClusterListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The 39-character ID for the cluster that you want to list, for example</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- @CID123e4567-e89b-12d3-a456-426655440000@.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#clusterListEntry_clusterId"><span class="hs-identifier hs-type">clusterListEntry_clusterId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry"><span class="hs-identifier hs-type">ClusterListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="clusterListEntry_clusterId"><span class="annot"><span class="annottext">clusterListEntry_clusterId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterListEntry -&gt; f ClusterListEntry
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#clusterListEntry_clusterId"><span class="hs-identifier hs-var hs-var">clusterListEntry_clusterId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterListEntry -&gt; Maybe Text)
+-&gt; (ClusterListEntry -&gt; Maybe Text -&gt; ClusterListEntry)
+-&gt; Lens ClusterListEntry ClusterListEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry%27"><span class="hs-identifier hs-type">ClusterListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222203"><span class="annot"><span class="annottext">Maybe Text
+clusterId :: Maybe Text
+$sel:clusterId:ClusterListEntry' :: ClusterListEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679222203"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222203"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222202"><span class="annot"><span class="annottext">s :: ClusterListEntry
+</span><a href="#local-6989586621679222202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry%27"><span class="hs-identifier hs-type">ClusterListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222201"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterListEntry
+</span><a href="#local-6989586621679222202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:ClusterListEntry' :: Maybe Text
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#%24sel%3AclusterId%3AClusterListEntry%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry"><span class="hs-identifier hs-type">ClusterListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The creation date for this cluster.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#clusterListEntry_creationDate"><span class="hs-identifier hs-type">clusterListEntry_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry"><span class="hs-identifier hs-type">ClusterListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="clusterListEntry_creationDate"><span class="annot"><span class="annottext">clusterListEntry_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ClusterListEntry -&gt; f ClusterListEntry
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#clusterListEntry_creationDate"><span class="hs-identifier hs-var hs-var">clusterListEntry_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterListEntry -&gt; Maybe POSIX)
+-&gt; (ClusterListEntry -&gt; Maybe POSIX -&gt; ClusterListEntry)
+-&gt; Lens
+     ClusterListEntry ClusterListEntry (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry%27"><span class="hs-identifier hs-type">ClusterListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222199"><span class="annot"><span class="annottext">Maybe POSIX
+creationDate :: Maybe POSIX
+$sel:creationDate:ClusterListEntry' :: ClusterListEntry -&gt; Maybe POSIX
+</span><a href="#local-6989586621679222199"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679222199"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222198"><span class="annot"><span class="annottext">s :: ClusterListEntry
+</span><a href="#local-6989586621679222198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry%27"><span class="hs-identifier hs-type">ClusterListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222197"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679222197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterListEntry
+</span><a href="#local-6989586621679222198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:ClusterListEntry' :: Maybe POSIX
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#%24sel%3AcreationDate%3AClusterListEntry%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679222197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry"><span class="hs-identifier hs-type">ClusterListEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ClusterListEntry -&gt; f ClusterListEntry)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ClusterListEntry
+-&gt; f ClusterListEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Defines an optional description of the cluster, for example</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- @Environmental Data Cluster-01@.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#clusterListEntry_description"><span class="hs-identifier hs-type">clusterListEntry_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry"><span class="hs-identifier hs-type">ClusterListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="clusterListEntry_description"><span class="annot"><span class="annottext">clusterListEntry_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterListEntry -&gt; f ClusterListEntry
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#clusterListEntry_description"><span class="hs-identifier hs-var hs-var">clusterListEntry_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterListEntry -&gt; Maybe Text)
+-&gt; (ClusterListEntry -&gt; Maybe Text -&gt; ClusterListEntry)
+-&gt; Lens ClusterListEntry ClusterListEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry%27"><span class="hs-identifier hs-type">ClusterListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222192"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ClusterListEntry' :: ClusterListEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679222192"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222192"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222191"><span class="annot"><span class="annottext">s :: ClusterListEntry
+</span><a href="#local-6989586621679222191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry%27"><span class="hs-identifier hs-type">ClusterListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222190"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterListEntry
+</span><a href="#local-6989586621679222191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ClusterListEntry' :: Maybe Text
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#%24sel%3Adescription%3AClusterListEntry%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry"><span class="hs-identifier hs-type">ClusterListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222187"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry"><span class="hs-identifier hs-type">ClusterListEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679222185"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClusterListEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ClusterListEntry)
+-&gt; Value
+-&gt; Parser ClusterListEntry
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ClusterListEntry&quot;</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222182"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222182"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe ClusterState
+-&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ClusterListEntry
+</span><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry%27"><span class="hs-identifier hs-var">ClusterListEntry'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ClusterState
+ -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ClusterListEntry)
+-&gt; Parser (Maybe ClusterState)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ClusterListEntry)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222182"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ClusterState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ClusterListEntry)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; ClusterListEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222182"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; ClusterListEntry)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; ClusterListEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222182"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ClusterListEntry)
+-&gt; Parser (Maybe Text) -&gt; Parser ClusterListEntry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222182"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222176"><span id="local-6989586621679222178"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry"><span class="hs-identifier hs-type">ClusterListEntry</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222173"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.ClusterListEntry.html#ClusterListEntry"><span class="hs-identifier hs-type">ClusterListEntry</span></a></span></span><span>
+</span><span id="line-108"></span></pre></body></html>

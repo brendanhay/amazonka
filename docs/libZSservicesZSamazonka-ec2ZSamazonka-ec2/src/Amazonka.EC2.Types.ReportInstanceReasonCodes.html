@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.ReportInstanceReasonCodes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.ReportInstanceReasonCodes</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes"><span class="hs-identifier">ReportInstanceReasonCodes</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Instance_stuck_in_state"><span class="hs-identifier">ReportInstanceReasonCodes_Instance_stuck_in_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Not_accepting_credentials"><span class="hs-identifier">ReportInstanceReasonCodes_Not_accepting_credentials</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Other"><span class="hs-identifier">ReportInstanceReasonCodes_Other</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Password_not_available"><span class="hs-identifier">ReportInstanceReasonCodes_Password_not_available</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Performance_ebs_volume"><span class="hs-identifier">ReportInstanceReasonCodes_Performance_ebs_volume</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Performance_instance_store"><span class="hs-identifier">ReportInstanceReasonCodes_Performance_instance_store</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Performance_network"><span class="hs-identifier">ReportInstanceReasonCodes_Performance_network</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Performance_other"><span class="hs-identifier">ReportInstanceReasonCodes_Performance_other</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Unresponsive"><span class="hs-identifier">ReportInstanceReasonCodes_Unresponsive</span></a></span><span>
+</span><span id="line-32"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span id="local-6989586621681142884"><span id="local-6989586621681142885"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReportInstanceReasonCodes"><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes"><span class="hs-identifier hs-var">ReportInstanceReasonCodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportInstanceReasonCodes%27"><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes%27"><span class="hs-identifier hs-var">ReportInstanceReasonCodes'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReportInstanceReasonCodes"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; Text
+</span><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#fromReportInstanceReasonCodes"><span class="hs-identifier hs-var hs-var">fromReportInstanceReasonCodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681142876"><span id="local-6989586621681142878"><span id="local-6989586621681142880"><span class="annot"><span class="annottext">Int -&gt; ReportInstanceReasonCodes -&gt; ShowS
+[ReportInstanceReasonCodes] -&gt; ShowS
+ReportInstanceReasonCodes -&gt; String
+(Int -&gt; ReportInstanceReasonCodes -&gt; ShowS)
+-&gt; (ReportInstanceReasonCodes -&gt; String)
+-&gt; ([ReportInstanceReasonCodes] -&gt; ShowS)
+-&gt; Show ReportInstanceReasonCodes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReportInstanceReasonCodes] -&gt; ShowS
+$cshowList :: [ReportInstanceReasonCodes] -&gt; ShowS
+show :: ReportInstanceReasonCodes -&gt; String
+$cshow :: ReportInstanceReasonCodes -&gt; String
+showsPrec :: Int -&gt; ReportInstanceReasonCodes -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReportInstanceReasonCodes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681142867"><span id="local-6989586621681142869"><span id="local-6989586621681142871"><span id="local-6989586621681142873"><span class="annot"><span class="annottext">ReadPrec [ReportInstanceReasonCodes]
+ReadPrec ReportInstanceReasonCodes
+Int -&gt; ReadS ReportInstanceReasonCodes
+ReadS [ReportInstanceReasonCodes]
+(Int -&gt; ReadS ReportInstanceReasonCodes)
+-&gt; ReadS [ReportInstanceReasonCodes]
+-&gt; ReadPrec ReportInstanceReasonCodes
+-&gt; ReadPrec [ReportInstanceReasonCodes]
+-&gt; Read ReportInstanceReasonCodes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReportInstanceReasonCodes]
+$creadListPrec :: ReadPrec [ReportInstanceReasonCodes]
+readPrec :: ReadPrec ReportInstanceReasonCodes
+$creadPrec :: ReadPrec ReportInstanceReasonCodes
+readList :: ReadS [ReportInstanceReasonCodes]
+$creadList :: ReadS [ReportInstanceReasonCodes]
+readsPrec :: Int -&gt; ReadS ReportInstanceReasonCodes
+$creadsPrec :: Int -&gt; ReadS ReportInstanceReasonCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681142862"><span id="local-6989586621681142864"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
+(ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool)
+-&gt; (ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool)
+-&gt; Eq ReportInstanceReasonCodes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
+$c/= :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
+== :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
+$c== :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681142846"><span id="local-6989586621681142848"><span id="local-6989586621681142850"><span id="local-6989586621681142852"><span id="local-6989586621681142854"><span id="local-6989586621681142856"><span id="local-6989586621681142858"><span class="annot"><span class="annottext">Eq ReportInstanceReasonCodes
+Eq ReportInstanceReasonCodes
+-&gt; (ReportInstanceReasonCodes
+    -&gt; ReportInstanceReasonCodes -&gt; Ordering)
+-&gt; (ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool)
+-&gt; (ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool)
+-&gt; (ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool)
+-&gt; (ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool)
+-&gt; (ReportInstanceReasonCodes
+    -&gt; ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes)
+-&gt; (ReportInstanceReasonCodes
+    -&gt; ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes)
+-&gt; Ord ReportInstanceReasonCodes
+ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
+ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Ordering
+ReportInstanceReasonCodes
+-&gt; ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ReportInstanceReasonCodes
+-&gt; ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes
+$cmin :: ReportInstanceReasonCodes
+-&gt; ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes
+max :: ReportInstanceReasonCodes
+-&gt; ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes
+$cmax :: ReportInstanceReasonCodes
+-&gt; ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes
+&gt;= :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
+$c&gt;= :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
+&gt; :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
+$c&gt; :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
+&lt;= :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
+$c&lt;= :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
+&lt; :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
+$c&lt; :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
+compare :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Ordering
+$ccompare :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Ordering
+$cp1Ord :: Eq ReportInstanceReasonCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ReportInstanceReasonCodes -&gt; Rep ReportInstanceReasonCodes x)
+-&gt; (forall x.
+    Rep ReportInstanceReasonCodes x -&gt; ReportInstanceReasonCodes)
+-&gt; Generic ReportInstanceReasonCodes
+forall x.
+Rep ReportInstanceReasonCodes x -&gt; ReportInstanceReasonCodes
+forall x.
+ReportInstanceReasonCodes -&gt; Rep ReportInstanceReasonCodes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ReportInstanceReasonCodes x -&gt; ReportInstanceReasonCodes
+$cfrom :: forall x.
+ReportInstanceReasonCodes -&gt; Rep ReportInstanceReasonCodes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681142838"><span id="local-6989586621681142840"><span class="annot"><span class="annottext">Int -&gt; ReportInstanceReasonCodes -&gt; Int
+ReportInstanceReasonCodes -&gt; Int
+(Int -&gt; ReportInstanceReasonCodes -&gt; Int)
+-&gt; (ReportInstanceReasonCodes -&gt; Int)
+-&gt; Hashable ReportInstanceReasonCodes
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ReportInstanceReasonCodes -&gt; Int
+$chash :: ReportInstanceReasonCodes -&gt; Int
+hashWithSalt :: Int -&gt; ReportInstanceReasonCodes -&gt; Int
+$chashWithSalt :: Int -&gt; ReportInstanceReasonCodes -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681142835"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; ()
+(ReportInstanceReasonCodes -&gt; ())
+-&gt; NFData ReportInstanceReasonCodes
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ReportInstanceReasonCodes -&gt; ()
+$crnf :: ReportInstanceReasonCodes -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681142832"><span class="annot"><span class="annottext">Text -&gt; Either String ReportInstanceReasonCodes
+(Text -&gt; Either String ReportInstanceReasonCodes)
+-&gt; FromText ReportInstanceReasonCodes
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ReportInstanceReasonCodes
+$cfromText :: Text -&gt; Either String ReportInstanceReasonCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681142829"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; Text
+(ReportInstanceReasonCodes -&gt; Text)
+-&gt; ToText ReportInstanceReasonCodes
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ReportInstanceReasonCodes -&gt; Text
+$ctoText :: ReportInstanceReasonCodes -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681142826"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; ByteString
+(ReportInstanceReasonCodes -&gt; ByteString)
+-&gt; ToByteString ReportInstanceReasonCodes
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ReportInstanceReasonCodes -&gt; ByteString
+$ctoBS :: ReportInstanceReasonCodes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681142823"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; ByteStringBuilder
+(ReportInstanceReasonCodes -&gt; ByteStringBuilder)
+-&gt; ToLog ReportInstanceReasonCodes
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ReportInstanceReasonCodes -&gt; ByteStringBuilder
+$cbuild :: ReportInstanceReasonCodes -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681142820"><span class="annot"><span class="annottext">HeaderName -&gt; ReportInstanceReasonCodes -&gt; [Header]
+(HeaderName -&gt; ReportInstanceReasonCodes -&gt; [Header])
+-&gt; ToHeader ReportInstanceReasonCodes
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ReportInstanceReasonCodes -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ReportInstanceReasonCodes -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681142817"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; QueryString
+(ReportInstanceReasonCodes -&gt; QueryString)
+-&gt; ToQuery ReportInstanceReasonCodes
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ReportInstanceReasonCodes -&gt; QueryString
+$ctoQuery :: ReportInstanceReasonCodes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681142812"><span id="local-6989586621681142814"><span class="annot"><span class="annottext">Value -&gt; Parser [ReportInstanceReasonCodes]
+Value -&gt; Parser ReportInstanceReasonCodes
+(Value -&gt; Parser ReportInstanceReasonCodes)
+-&gt; (Value -&gt; Parser [ReportInstanceReasonCodes])
+-&gt; FromJSON ReportInstanceReasonCodes
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ReportInstanceReasonCodes]
+$cparseJSONList :: Value -&gt; Parser [ReportInstanceReasonCodes]
+parseJSON :: Value -&gt; Parser ReportInstanceReasonCodes
+$cparseJSON :: Value -&gt; Parser ReportInstanceReasonCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681142807"><span id="local-6989586621681142809"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReportInstanceReasonCodes]
+FromJSONKeyFunction ReportInstanceReasonCodes
+FromJSONKeyFunction ReportInstanceReasonCodes
+-&gt; FromJSONKeyFunction [ReportInstanceReasonCodes]
+-&gt; FromJSONKey ReportInstanceReasonCodes
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ReportInstanceReasonCodes]
+$cfromJSONKeyList :: FromJSONKeyFunction [ReportInstanceReasonCodes]
+fromJSONKey :: FromJSONKeyFunction ReportInstanceReasonCodes
+$cfromJSONKey :: FromJSONKeyFunction ReportInstanceReasonCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681142798"><span id="local-6989586621681142800"><span id="local-6989586621681142802"><span id="local-6989586621681142804"><span class="annot"><span class="annottext">[ReportInstanceReasonCodes] -&gt; Encoding
+[ReportInstanceReasonCodes] -&gt; Value
+ReportInstanceReasonCodes -&gt; Encoding
+ReportInstanceReasonCodes -&gt; Value
+(ReportInstanceReasonCodes -&gt; Value)
+-&gt; (ReportInstanceReasonCodes -&gt; Encoding)
+-&gt; ([ReportInstanceReasonCodes] -&gt; Value)
+-&gt; ([ReportInstanceReasonCodes] -&gt; Encoding)
+-&gt; ToJSON ReportInstanceReasonCodes
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ReportInstanceReasonCodes] -&gt; Encoding
+$ctoEncodingList :: [ReportInstanceReasonCodes] -&gt; Encoding
+toJSONList :: [ReportInstanceReasonCodes] -&gt; Value
+$ctoJSONList :: [ReportInstanceReasonCodes] -&gt; Value
+toEncoding :: ReportInstanceReasonCodes -&gt; Encoding
+$ctoEncoding :: ReportInstanceReasonCodes -&gt; Encoding
+toJSON :: ReportInstanceReasonCodes -&gt; Value
+$ctoJSON :: ReportInstanceReasonCodes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621681142793"><span id="local-6989586621681142795"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReportInstanceReasonCodes]
+ToJSONKeyFunction ReportInstanceReasonCodes
+ToJSONKeyFunction ReportInstanceReasonCodes
+-&gt; ToJSONKeyFunction [ReportInstanceReasonCodes]
+-&gt; ToJSONKey ReportInstanceReasonCodes
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ReportInstanceReasonCodes]
+$ctoJSONKeyList :: ToJSONKeyFunction [ReportInstanceReasonCodes]
+toJSONKey :: ToJSONKeyFunction ReportInstanceReasonCodes
+$ctoJSONKey :: ToJSONKeyFunction ReportInstanceReasonCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621681142790"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReportInstanceReasonCodes
+([Node] -&gt; Either String ReportInstanceReasonCodes)
+-&gt; FromXML ReportInstanceReasonCodes
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ReportInstanceReasonCodes
+$cparseXML :: [Node] -&gt; Either String ReportInstanceReasonCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621681142787"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; XML
+(ReportInstanceReasonCodes -&gt; XML)
+-&gt; ToXML ReportInstanceReasonCodes
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ReportInstanceReasonCodes -&gt; XML
+$ctoXML :: ReportInstanceReasonCodes -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Instance_stuck_in_state"><span class="hs-identifier hs-type">ReportInstanceReasonCodes_Instance_stuck_in_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes"><span class="hs-identifier hs-type">ReportInstanceReasonCodes</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportInstanceReasonCodes_Instance_stuck_in_state"><span id="%24mReportInstanceReasonCodes_Instance_stuck_in_state"><span id="ReportInstanceReasonCodes_Instance_stuck_in_state"><span class="annot"><span class="annottext">$bReportInstanceReasonCodes_Instance_stuck_in_state :: ReportInstanceReasonCodes
+$mReportInstanceReasonCodes_Instance_stuck_in_state :: forall r.
+ReportInstanceReasonCodes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#%24bReportInstanceReasonCodes_Instance_stuck_in_state"><span class="hs-identifier hs-var hs-var hs-var">ReportInstanceReasonCodes_Instance_stuck_in_state</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes%27"><span class="hs-identifier hs-type">ReportInstanceReasonCodes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;instance-stuck-in-state&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Not_accepting_credentials"><span class="hs-identifier hs-type">ReportInstanceReasonCodes_Not_accepting_credentials</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes"><span class="hs-identifier hs-type">ReportInstanceReasonCodes</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportInstanceReasonCodes_Not_accepting_credentials"><span id="%24mReportInstanceReasonCodes_Not_accepting_credentials"><span id="ReportInstanceReasonCodes_Not_accepting_credentials"><span class="annot"><span class="annottext">$bReportInstanceReasonCodes_Not_accepting_credentials :: ReportInstanceReasonCodes
+$mReportInstanceReasonCodes_Not_accepting_credentials :: forall r.
+ReportInstanceReasonCodes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#%24bReportInstanceReasonCodes_Not_accepting_credentials"><span class="hs-identifier hs-var hs-var hs-var">ReportInstanceReasonCodes_Not_accepting_credentials</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes%27"><span class="hs-identifier hs-type">ReportInstanceReasonCodes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;not-accepting-credentials&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Other"><span class="hs-identifier hs-type">ReportInstanceReasonCodes_Other</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes"><span class="hs-identifier hs-type">ReportInstanceReasonCodes</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportInstanceReasonCodes_Other"><span id="%24mReportInstanceReasonCodes_Other"><span id="ReportInstanceReasonCodes_Other"><span class="annot"><span class="annottext">$bReportInstanceReasonCodes_Other :: ReportInstanceReasonCodes
+$mReportInstanceReasonCodes_Other :: forall r.
+ReportInstanceReasonCodes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#%24bReportInstanceReasonCodes_Other"><span class="hs-identifier hs-var hs-var hs-var">ReportInstanceReasonCodes_Other</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes%27"><span class="hs-identifier hs-type">ReportInstanceReasonCodes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;other&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Password_not_available"><span class="hs-identifier hs-type">ReportInstanceReasonCodes_Password_not_available</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes"><span class="hs-identifier hs-type">ReportInstanceReasonCodes</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportInstanceReasonCodes_Password_not_available"><span id="%24mReportInstanceReasonCodes_Password_not_available"><span id="ReportInstanceReasonCodes_Password_not_available"><span class="annot"><span class="annottext">$bReportInstanceReasonCodes_Password_not_available :: ReportInstanceReasonCodes
+$mReportInstanceReasonCodes_Password_not_available :: forall r.
+ReportInstanceReasonCodes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#%24bReportInstanceReasonCodes_Password_not_available"><span class="hs-identifier hs-var hs-var hs-var">ReportInstanceReasonCodes_Password_not_available</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes%27"><span class="hs-identifier hs-type">ReportInstanceReasonCodes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;password-not-available&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Performance_ebs_volume"><span class="hs-identifier hs-type">ReportInstanceReasonCodes_Performance_ebs_volume</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes"><span class="hs-identifier hs-type">ReportInstanceReasonCodes</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportInstanceReasonCodes_Performance_ebs_volume"><span id="%24mReportInstanceReasonCodes_Performance_ebs_volume"><span id="ReportInstanceReasonCodes_Performance_ebs_volume"><span class="annot"><span class="annottext">$bReportInstanceReasonCodes_Performance_ebs_volume :: ReportInstanceReasonCodes
+$mReportInstanceReasonCodes_Performance_ebs_volume :: forall r.
+ReportInstanceReasonCodes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#%24bReportInstanceReasonCodes_Performance_ebs_volume"><span class="hs-identifier hs-var hs-var hs-var">ReportInstanceReasonCodes_Performance_ebs_volume</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes%27"><span class="hs-identifier hs-type">ReportInstanceReasonCodes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;performance-ebs-volume&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Performance_instance_store"><span class="hs-identifier hs-type">ReportInstanceReasonCodes_Performance_instance_store</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes"><span class="hs-identifier hs-type">ReportInstanceReasonCodes</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportInstanceReasonCodes_Performance_instance_store"><span id="%24mReportInstanceReasonCodes_Performance_instance_store"><span id="ReportInstanceReasonCodes_Performance_instance_store"><span class="annot"><span class="annottext">$bReportInstanceReasonCodes_Performance_instance_store :: ReportInstanceReasonCodes
+$mReportInstanceReasonCodes_Performance_instance_store :: forall r.
+ReportInstanceReasonCodes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#%24bReportInstanceReasonCodes_Performance_instance_store"><span class="hs-identifier hs-var hs-var hs-var">ReportInstanceReasonCodes_Performance_instance_store</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes%27"><span class="hs-identifier hs-type">ReportInstanceReasonCodes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;performance-instance-store&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Performance_network"><span class="hs-identifier hs-type">ReportInstanceReasonCodes_Performance_network</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes"><span class="hs-identifier hs-type">ReportInstanceReasonCodes</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportInstanceReasonCodes_Performance_network"><span id="%24mReportInstanceReasonCodes_Performance_network"><span id="ReportInstanceReasonCodes_Performance_network"><span class="annot"><span class="annottext">$bReportInstanceReasonCodes_Performance_network :: ReportInstanceReasonCodes
+$mReportInstanceReasonCodes_Performance_network :: forall r.
+ReportInstanceReasonCodes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#%24bReportInstanceReasonCodes_Performance_network"><span class="hs-identifier hs-var hs-var hs-var">ReportInstanceReasonCodes_Performance_network</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes%27"><span class="hs-identifier hs-type">ReportInstanceReasonCodes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;performance-network&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Performance_other"><span class="hs-identifier hs-type">ReportInstanceReasonCodes_Performance_other</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes"><span class="hs-identifier hs-type">ReportInstanceReasonCodes</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportInstanceReasonCodes_Performance_other"><span id="%24mReportInstanceReasonCodes_Performance_other"><span id="ReportInstanceReasonCodes_Performance_other"><span class="annot"><span class="annottext">$bReportInstanceReasonCodes_Performance_other :: ReportInstanceReasonCodes
+$mReportInstanceReasonCodes_Performance_other :: forall r.
+ReportInstanceReasonCodes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#%24bReportInstanceReasonCodes_Performance_other"><span class="hs-identifier hs-var hs-var hs-var">ReportInstanceReasonCodes_Performance_other</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes%27"><span class="hs-identifier hs-type">ReportInstanceReasonCodes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;performance-other&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Unresponsive"><span class="hs-identifier hs-type">ReportInstanceReasonCodes_Unresponsive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes"><span class="hs-identifier hs-type">ReportInstanceReasonCodes</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportInstanceReasonCodes_Unresponsive"><span id="%24mReportInstanceReasonCodes_Unresponsive"><span id="ReportInstanceReasonCodes_Unresponsive"><span class="annot"><span class="annottext">$bReportInstanceReasonCodes_Unresponsive :: ReportInstanceReasonCodes
+$mReportInstanceReasonCodes_Unresponsive :: forall r.
+ReportInstanceReasonCodes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#%24bReportInstanceReasonCodes_Unresponsive"><span class="hs-identifier hs-var hs-var hs-var">ReportInstanceReasonCodes_Unresponsive</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes%27"><span class="hs-identifier hs-type">ReportInstanceReasonCodes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;unresponsive&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Instance_stuck_in_state"><span class="hs-pragma hs-type">ReportInstanceReasonCodes_Instance_stuck_in_state</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Not_accepting_credentials"><span class="hs-pragma hs-type">ReportInstanceReasonCodes_Not_accepting_credentials</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Other"><span class="hs-pragma hs-type">ReportInstanceReasonCodes_Other</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Password_not_available"><span class="hs-pragma hs-type">ReportInstanceReasonCodes_Password_not_available</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Performance_ebs_volume"><span class="hs-pragma hs-type">ReportInstanceReasonCodes_Performance_ebs_volume</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Performance_instance_store"><span class="hs-pragma hs-type">ReportInstanceReasonCodes_Performance_instance_store</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Performance_network"><span class="hs-pragma hs-type">ReportInstanceReasonCodes_Performance_network</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Performance_other"><span class="hs-pragma hs-type">ReportInstanceReasonCodes_Performance_other</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes_Unresponsive"><span class="hs-pragma hs-type">ReportInstanceReasonCodes_Unresponsive</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes%27"><span class="hs-pragma hs-type">ReportInstanceReasonCodes'</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-107"></span></pre></body></html>

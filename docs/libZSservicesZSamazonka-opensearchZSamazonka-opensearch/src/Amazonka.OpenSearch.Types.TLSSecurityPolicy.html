@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.OpenSearch.Types.TLSSecurityPolicy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.OpenSearch.Types.TLSSecurityPolicy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy"><span class="hs-identifier">TLSSecurityPolicy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy_Policy_Min_TLS_1_0_2019_07"><span class="hs-identifier">TLSSecurityPolicy_Policy_Min_TLS_1_0_2019_07</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy_Policy_Min_TLS_1_2_2019_07"><span class="hs-identifier">TLSSecurityPolicy_Policy_Min_TLS_1_2_2019_07</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679305951"><span id="local-6989586621679305952"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TLSSecurityPolicy"><span class="annot"><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy"><span class="hs-identifier hs-var">TLSSecurityPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TLSSecurityPolicy%27"><span class="annot"><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy%27"><span class="hs-identifier hs-var">TLSSecurityPolicy'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTLSSecurityPolicy"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; Text
+</span><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#fromTLSSecurityPolicy"><span class="hs-identifier hs-var hs-var">fromTLSSecurityPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305943"><span id="local-6989586621679305945"><span id="local-6989586621679305947"><span class="annot"><span class="annottext">Int -&gt; TLSSecurityPolicy -&gt; ShowS
+[TLSSecurityPolicy] -&gt; ShowS
+TLSSecurityPolicy -&gt; String
+(Int -&gt; TLSSecurityPolicy -&gt; ShowS)
+-&gt; (TLSSecurityPolicy -&gt; String)
+-&gt; ([TLSSecurityPolicy] -&gt; ShowS)
+-&gt; Show TLSSecurityPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TLSSecurityPolicy] -&gt; ShowS
+$cshowList :: [TLSSecurityPolicy] -&gt; ShowS
+show :: TLSSecurityPolicy -&gt; String
+$cshow :: TLSSecurityPolicy -&gt; String
+showsPrec :: Int -&gt; TLSSecurityPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; TLSSecurityPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679305934"><span id="local-6989586621679305936"><span id="local-6989586621679305938"><span id="local-6989586621679305940"><span class="annot"><span class="annottext">ReadPrec [TLSSecurityPolicy]
+ReadPrec TLSSecurityPolicy
+Int -&gt; ReadS TLSSecurityPolicy
+ReadS [TLSSecurityPolicy]
+(Int -&gt; ReadS TLSSecurityPolicy)
+-&gt; ReadS [TLSSecurityPolicy]
+-&gt; ReadPrec TLSSecurityPolicy
+-&gt; ReadPrec [TLSSecurityPolicy]
+-&gt; Read TLSSecurityPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TLSSecurityPolicy]
+$creadListPrec :: ReadPrec [TLSSecurityPolicy]
+readPrec :: ReadPrec TLSSecurityPolicy
+$creadPrec :: ReadPrec TLSSecurityPolicy
+readList :: ReadS [TLSSecurityPolicy]
+$creadList :: ReadS [TLSSecurityPolicy]
+readsPrec :: Int -&gt; ReadS TLSSecurityPolicy
+$creadsPrec :: Int -&gt; ReadS TLSSecurityPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679305929"><span id="local-6989586621679305931"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
+(TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool)
+-&gt; (TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool)
+-&gt; Eq TLSSecurityPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
+$c/= :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
+== :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
+$c== :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679305913"><span id="local-6989586621679305915"><span id="local-6989586621679305917"><span id="local-6989586621679305919"><span id="local-6989586621679305921"><span id="local-6989586621679305923"><span id="local-6989586621679305925"><span class="annot"><span class="annottext">Eq TLSSecurityPolicy
+Eq TLSSecurityPolicy
+-&gt; (TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Ordering)
+-&gt; (TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool)
+-&gt; (TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool)
+-&gt; (TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool)
+-&gt; (TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool)
+-&gt; (TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; TLSSecurityPolicy)
+-&gt; (TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; TLSSecurityPolicy)
+-&gt; Ord TLSSecurityPolicy
+TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
+TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Ordering
+TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; TLSSecurityPolicy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; TLSSecurityPolicy
+$cmin :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; TLSSecurityPolicy
+max :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; TLSSecurityPolicy
+$cmax :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; TLSSecurityPolicy
+&gt;= :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
+$c&gt;= :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
+&gt; :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
+$c&gt; :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
+&lt;= :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
+$c&lt;= :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
+&lt; :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
+$c&lt; :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
+compare :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Ordering
+$ccompare :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Ordering
+$cp1Ord :: Eq TLSSecurityPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TLSSecurityPolicy -&gt; Rep TLSSecurityPolicy x)
+-&gt; (forall x. Rep TLSSecurityPolicy x -&gt; TLSSecurityPolicy)
+-&gt; Generic TLSSecurityPolicy
+forall x. Rep TLSSecurityPolicy x -&gt; TLSSecurityPolicy
+forall x. TLSSecurityPolicy -&gt; Rep TLSSecurityPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TLSSecurityPolicy x -&gt; TLSSecurityPolicy
+$cfrom :: forall x. TLSSecurityPolicy -&gt; Rep TLSSecurityPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305905"><span id="local-6989586621679305907"><span class="annot"><span class="annottext">Int -&gt; TLSSecurityPolicy -&gt; Int
+TLSSecurityPolicy -&gt; Int
+(Int -&gt; TLSSecurityPolicy -&gt; Int)
+-&gt; (TLSSecurityPolicy -&gt; Int) -&gt; Hashable TLSSecurityPolicy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TLSSecurityPolicy -&gt; Int
+$chash :: TLSSecurityPolicy -&gt; Int
+hashWithSalt :: Int -&gt; TLSSecurityPolicy -&gt; Int
+$chashWithSalt :: Int -&gt; TLSSecurityPolicy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679305902"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; ()
+(TLSSecurityPolicy -&gt; ()) -&gt; NFData TLSSecurityPolicy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TLSSecurityPolicy -&gt; ()
+$crnf :: TLSSecurityPolicy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679305899"><span class="annot"><span class="annottext">Text -&gt; Either String TLSSecurityPolicy
+(Text -&gt; Either String TLSSecurityPolicy)
+-&gt; FromText TLSSecurityPolicy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TLSSecurityPolicy
+$cfromText :: Text -&gt; Either String TLSSecurityPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679305896"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; Text
+(TLSSecurityPolicy -&gt; Text) -&gt; ToText TLSSecurityPolicy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TLSSecurityPolicy -&gt; Text
+$ctoText :: TLSSecurityPolicy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679305893"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; ByteString
+(TLSSecurityPolicy -&gt; ByteString) -&gt; ToByteString TLSSecurityPolicy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TLSSecurityPolicy -&gt; ByteString
+$ctoBS :: TLSSecurityPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679305890"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; ByteStringBuilder
+(TLSSecurityPolicy -&gt; ByteStringBuilder) -&gt; ToLog TLSSecurityPolicy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TLSSecurityPolicy -&gt; ByteStringBuilder
+$cbuild :: TLSSecurityPolicy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679305887"><span class="annot"><span class="annottext">HeaderName -&gt; TLSSecurityPolicy -&gt; [Header]
+(HeaderName -&gt; TLSSecurityPolicy -&gt; [Header])
+-&gt; ToHeader TLSSecurityPolicy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TLSSecurityPolicy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TLSSecurityPolicy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679305884"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; QueryString
+(TLSSecurityPolicy -&gt; QueryString) -&gt; ToQuery TLSSecurityPolicy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TLSSecurityPolicy -&gt; QueryString
+$ctoQuery :: TLSSecurityPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679305879"><span id="local-6989586621679305881"><span class="annot"><span class="annottext">Value -&gt; Parser [TLSSecurityPolicy]
+Value -&gt; Parser TLSSecurityPolicy
+(Value -&gt; Parser TLSSecurityPolicy)
+-&gt; (Value -&gt; Parser [TLSSecurityPolicy])
+-&gt; FromJSON TLSSecurityPolicy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TLSSecurityPolicy]
+$cparseJSONList :: Value -&gt; Parser [TLSSecurityPolicy]
+parseJSON :: Value -&gt; Parser TLSSecurityPolicy
+$cparseJSON :: Value -&gt; Parser TLSSecurityPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679305874"><span id="local-6989586621679305876"><span class="annot"><span class="annottext">FromJSONKeyFunction [TLSSecurityPolicy]
+FromJSONKeyFunction TLSSecurityPolicy
+FromJSONKeyFunction TLSSecurityPolicy
+-&gt; FromJSONKeyFunction [TLSSecurityPolicy]
+-&gt; FromJSONKey TLSSecurityPolicy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TLSSecurityPolicy]
+$cfromJSONKeyList :: FromJSONKeyFunction [TLSSecurityPolicy]
+fromJSONKey :: FromJSONKeyFunction TLSSecurityPolicy
+$cfromJSONKey :: FromJSONKeyFunction TLSSecurityPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679305865"><span id="local-6989586621679305867"><span id="local-6989586621679305869"><span id="local-6989586621679305871"><span class="annot"><span class="annottext">[TLSSecurityPolicy] -&gt; Encoding
+[TLSSecurityPolicy] -&gt; Value
+TLSSecurityPolicy -&gt; Encoding
+TLSSecurityPolicy -&gt; Value
+(TLSSecurityPolicy -&gt; Value)
+-&gt; (TLSSecurityPolicy -&gt; Encoding)
+-&gt; ([TLSSecurityPolicy] -&gt; Value)
+-&gt; ([TLSSecurityPolicy] -&gt; Encoding)
+-&gt; ToJSON TLSSecurityPolicy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TLSSecurityPolicy] -&gt; Encoding
+$ctoEncodingList :: [TLSSecurityPolicy] -&gt; Encoding
+toJSONList :: [TLSSecurityPolicy] -&gt; Value
+$ctoJSONList :: [TLSSecurityPolicy] -&gt; Value
+toEncoding :: TLSSecurityPolicy -&gt; Encoding
+$ctoEncoding :: TLSSecurityPolicy -&gt; Encoding
+toJSON :: TLSSecurityPolicy -&gt; Value
+$ctoJSON :: TLSSecurityPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679305860"><span id="local-6989586621679305862"><span class="annot"><span class="annottext">ToJSONKeyFunction [TLSSecurityPolicy]
+ToJSONKeyFunction TLSSecurityPolicy
+ToJSONKeyFunction TLSSecurityPolicy
+-&gt; ToJSONKeyFunction [TLSSecurityPolicy]
+-&gt; ToJSONKey TLSSecurityPolicy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TLSSecurityPolicy]
+$ctoJSONKeyList :: ToJSONKeyFunction [TLSSecurityPolicy]
+toJSONKey :: ToJSONKeyFunction TLSSecurityPolicy
+$ctoJSONKey :: ToJSONKeyFunction TLSSecurityPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679305857"><span class="annot"><span class="annottext">[Node] -&gt; Either String TLSSecurityPolicy
+([Node] -&gt; Either String TLSSecurityPolicy)
+-&gt; FromXML TLSSecurityPolicy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TLSSecurityPolicy
+$cparseXML :: [Node] -&gt; Either String TLSSecurityPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679305854"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; XML
+(TLSSecurityPolicy -&gt; XML) -&gt; ToXML TLSSecurityPolicy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TLSSecurityPolicy -&gt; XML
+$ctoXML :: TLSSecurityPolicy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy_Policy_Min_TLS_1_0_2019_07"><span class="hs-identifier hs-type">TLSSecurityPolicy_Policy_Min_TLS_1_0_2019_07</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy"><span class="hs-identifier hs-type">TLSSecurityPolicy</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTLSSecurityPolicy_Policy_Min_TLS_1_0_2019_07"><span id="%24mTLSSecurityPolicy_Policy_Min_TLS_1_0_2019_07"><span id="TLSSecurityPolicy_Policy_Min_TLS_1_0_2019_07"><span class="annot"><span class="annottext">$bTLSSecurityPolicy_Policy_Min_TLS_1_0_2019_07 :: TLSSecurityPolicy
+$mTLSSecurityPolicy_Policy_Min_TLS_1_0_2019_07 :: forall r. TLSSecurityPolicy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#%24bTLSSecurityPolicy_Policy_Min_TLS_1_0_2019_07"><span class="hs-identifier hs-var hs-var hs-var">TLSSecurityPolicy_Policy_Min_TLS_1_0_2019_07</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy%27"><span class="hs-identifier hs-type">TLSSecurityPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Policy-Min-TLS-1-0-2019-07&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy_Policy_Min_TLS_1_2_2019_07"><span class="hs-identifier hs-type">TLSSecurityPolicy_Policy_Min_TLS_1_2_2019_07</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy"><span class="hs-identifier hs-type">TLSSecurityPolicy</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTLSSecurityPolicy_Policy_Min_TLS_1_2_2019_07"><span id="%24mTLSSecurityPolicy_Policy_Min_TLS_1_2_2019_07"><span id="TLSSecurityPolicy_Policy_Min_TLS_1_2_2019_07"><span class="annot"><span class="annottext">$bTLSSecurityPolicy_Policy_Min_TLS_1_2_2019_07 :: TLSSecurityPolicy
+$mTLSSecurityPolicy_Policy_Min_TLS_1_2_2019_07 :: forall r. TLSSecurityPolicy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#%24bTLSSecurityPolicy_Policy_Min_TLS_1_2_2019_07"><span class="hs-identifier hs-var hs-var hs-var">TLSSecurityPolicy_Policy_Min_TLS_1_2_2019_07</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy%27"><span class="hs-identifier hs-type">TLSSecurityPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Policy-Min-TLS-1-2-2019-07&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy_Policy_Min_TLS_1_0_2019_07"><span class="hs-pragma hs-type">TLSSecurityPolicy_Policy_Min_TLS_1_0_2019_07</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy_Policy_Min_TLS_1_2_2019_07"><span class="hs-pragma hs-type">TLSSecurityPolicy_Policy_Min_TLS_1_2_2019_07</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy%27"><span class="hs-pragma hs-type">TLSSecurityPolicy'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

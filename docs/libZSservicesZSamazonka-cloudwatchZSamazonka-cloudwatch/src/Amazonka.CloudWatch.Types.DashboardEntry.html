@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatch.Types.DashboardEntry</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatch.Types.DashboardEntry</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Represents a specific dashboard.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDashboardEntry' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679253440"><span id="local-6989586621679253441"></span></span><span class="hs-keyword">data</span><span> </span><span id="DashboardEntry"><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry"><span class="hs-identifier hs-var">DashboardEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashboardEntry%27"><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry%27"><span class="hs-identifier hs-var">DashboardEntry'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The size of the dashboard, in bytes.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Asize%3ADashboardEntry%27"><span class="annot"><span class="annottext">DashboardEntry -&gt; Maybe Integer
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#%24sel%3Asize%3ADashboardEntry%27"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The name of the dashboard.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdashboardName%3ADashboardEntry%27"><span class="annot"><span class="annottext">DashboardEntry -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#%24sel%3AdashboardName%3ADashboardEntry%27"><span class="hs-identifier hs-var hs-var">dashboardName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The time stamp of when the dashboard was last modified, either by an API</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- call or through the console. This number is expressed as the number of</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- milliseconds since Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlastModified%3ADashboardEntry%27"><span class="annot"><span class="annottext">DashboardEntry -&gt; Maybe ISO8601
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#%24sel%3AlastModified%3ADashboardEntry%27"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dashboard.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdashboardArn%3ADashboardEntry%27"><span class="annot"><span class="annottext">DashboardEntry -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#%24sel%3AdashboardArn%3ADashboardEntry%27"><span class="hs-identifier hs-var hs-var">dashboardArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253431"><span id="local-6989586621679253433"><span class="annot"><span class="annottext">DashboardEntry -&gt; DashboardEntry -&gt; Bool
+(DashboardEntry -&gt; DashboardEntry -&gt; Bool)
+-&gt; (DashboardEntry -&gt; DashboardEntry -&gt; Bool) -&gt; Eq DashboardEntry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DashboardEntry -&gt; DashboardEntry -&gt; Bool
+$c/= :: DashboardEntry -&gt; DashboardEntry -&gt; Bool
+== :: DashboardEntry -&gt; DashboardEntry -&gt; Bool
+$c== :: DashboardEntry -&gt; DashboardEntry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253422"><span id="local-6989586621679253424"><span id="local-6989586621679253426"><span id="local-6989586621679253428"><span class="annot"><span class="annottext">ReadPrec [DashboardEntry]
+ReadPrec DashboardEntry
+Int -&gt; ReadS DashboardEntry
+ReadS [DashboardEntry]
+(Int -&gt; ReadS DashboardEntry)
+-&gt; ReadS [DashboardEntry]
+-&gt; ReadPrec DashboardEntry
+-&gt; ReadPrec [DashboardEntry]
+-&gt; Read DashboardEntry
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DashboardEntry]
+$creadListPrec :: ReadPrec [DashboardEntry]
+readPrec :: ReadPrec DashboardEntry
+$creadPrec :: ReadPrec DashboardEntry
+readList :: ReadS [DashboardEntry]
+$creadList :: ReadS [DashboardEntry]
+readsPrec :: Int -&gt; ReadS DashboardEntry
+$creadsPrec :: Int -&gt; ReadS DashboardEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253415"><span id="local-6989586621679253417"><span id="local-6989586621679253419"><span class="annot"><span class="annottext">Int -&gt; DashboardEntry -&gt; ShowS
+[DashboardEntry] -&gt; ShowS
+DashboardEntry -&gt; String
+(Int -&gt; DashboardEntry -&gt; ShowS)
+-&gt; (DashboardEntry -&gt; String)
+-&gt; ([DashboardEntry] -&gt; ShowS)
+-&gt; Show DashboardEntry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DashboardEntry] -&gt; ShowS
+$cshowList :: [DashboardEntry] -&gt; ShowS
+show :: DashboardEntry -&gt; String
+$cshow :: DashboardEntry -&gt; String
+showsPrec :: Int -&gt; DashboardEntry -&gt; ShowS
+$cshowsPrec :: Int -&gt; DashboardEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DashboardEntry -&gt; Rep DashboardEntry x)
+-&gt; (forall x. Rep DashboardEntry x -&gt; DashboardEntry)
+-&gt; Generic DashboardEntry
+forall x. Rep DashboardEntry x -&gt; DashboardEntry
+forall x. DashboardEntry -&gt; Rep DashboardEntry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DashboardEntry x -&gt; DashboardEntry
+$cfrom :: forall x. DashboardEntry -&gt; Rep DashboardEntry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'DashboardEntry' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'size', 'dashboardEntry_size' - The size of the dashboard, in bytes.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'dashboardName', 'dashboardEntry_dashboardName' - The name of the dashboard.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'lastModified', 'dashboardEntry_lastModified' - The time stamp of when the dashboard was last modified, either by an API</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- call or through the console. This number is expressed as the number of</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- milliseconds since Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'dashboardArn', 'dashboardEntry_dashboardArn' - The Amazon Resource Name (ARN) of the dashboard.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#newDashboardEntry"><span class="hs-identifier hs-type">newDashboardEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry"><span class="hs-identifier hs-type">DashboardEntry</span></a></span><span>
+</span><span id="line-62"></span><span id="newDashboardEntry"><span class="annot"><span class="annottext">newDashboardEntry :: DashboardEntry
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#newDashboardEntry"><span class="hs-identifier hs-var hs-var">newDashboardEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">DashboardEntry' :: Maybe Integer
+-&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; DashboardEntry
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry%27"><span class="hs-identifier hs-type">DashboardEntry'</span></a></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:size:DashboardEntry' :: Maybe Integer
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#%24sel%3Asize%3ADashboardEntry%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:dashboardName:DashboardEntry' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#%24sel%3AdashboardName%3ADashboardEntry%27"><span class="hs-identifier hs-var">dashboardName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModified:DashboardEntry' :: Maybe ISO8601
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#%24sel%3AlastModified%3ADashboardEntry%27"><span class="hs-identifier hs-var">lastModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:dashboardArn:DashboardEntry' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#%24sel%3AdashboardArn%3ADashboardEntry%27"><span class="hs-identifier hs-var">dashboardArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The size of the dashboard, in bytes.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#dashboardEntry_size"><span class="hs-identifier hs-type">dashboardEntry_size</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry"><span class="hs-identifier hs-type">DashboardEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="dashboardEntry_size"><span class="annot"><span class="annottext">dashboardEntry_size :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; DashboardEntry -&gt; f DashboardEntry
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#dashboardEntry_size"><span class="hs-identifier hs-var hs-var">dashboardEntry_size</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashboardEntry -&gt; Maybe Integer)
+-&gt; (DashboardEntry -&gt; Maybe Integer -&gt; DashboardEntry)
+-&gt; Lens
+     DashboardEntry DashboardEntry (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry%27"><span class="hs-identifier hs-type">DashboardEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253406"><span class="annot"><span class="annottext">Maybe Integer
+size :: Maybe Integer
+$sel:size:DashboardEntry' :: DashboardEntry -&gt; Maybe Integer
+</span><a href="#local-6989586621679253406"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679253406"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253405"><span class="annot"><span class="annottext">s :: DashboardEntry
+</span><a href="#local-6989586621679253405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry%27"><span class="hs-identifier hs-type">DashboardEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253404"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679253404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashboardEntry
+</span><a href="#local-6989586621679253405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:DashboardEntry' :: Maybe Integer
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#%24sel%3Asize%3ADashboardEntry%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679253404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry"><span class="hs-identifier hs-type">DashboardEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The name of the dashboard.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#dashboardEntry_dashboardName"><span class="hs-identifier hs-type">dashboardEntry_dashboardName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry"><span class="hs-identifier hs-type">DashboardEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="dashboardEntry_dashboardName"><span class="annot"><span class="annottext">dashboardEntry_dashboardName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DashboardEntry -&gt; f DashboardEntry
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#dashboardEntry_dashboardName"><span class="hs-identifier hs-var hs-var">dashboardEntry_dashboardName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashboardEntry -&gt; Maybe Text)
+-&gt; (DashboardEntry -&gt; Maybe Text -&gt; DashboardEntry)
+-&gt; Lens DashboardEntry DashboardEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry%27"><span class="hs-identifier hs-type">DashboardEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253402"><span class="annot"><span class="annottext">Maybe Text
+dashboardName :: Maybe Text
+$sel:dashboardName:DashboardEntry' :: DashboardEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679253402"><span class="hs-identifier hs-var hs-var">dashboardName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253402"><span class="hs-identifier hs-var">dashboardName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253401"><span class="annot"><span class="annottext">s :: DashboardEntry
+</span><a href="#local-6989586621679253401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry%27"><span class="hs-identifier hs-type">DashboardEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253400"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashboardEntry
+</span><a href="#local-6989586621679253401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardName:DashboardEntry' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#%24sel%3AdashboardName%3ADashboardEntry%27"><span class="hs-identifier hs-var">dashboardName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry"><span class="hs-identifier hs-type">DashboardEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The time stamp of when the dashboard was last modified, either by an API</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- call or through the console. This number is expressed as the number of</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- milliseconds since Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#dashboardEntry_lastModified"><span class="hs-identifier hs-type">dashboardEntry_lastModified</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry"><span class="hs-identifier hs-type">DashboardEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="dashboardEntry_lastModified"><span class="annot"><span class="annottext">dashboardEntry_lastModified :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DashboardEntry -&gt; f DashboardEntry
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#dashboardEntry_lastModified"><span class="hs-identifier hs-var hs-var">dashboardEntry_lastModified</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashboardEntry -&gt; Maybe ISO8601)
+-&gt; (DashboardEntry -&gt; Maybe ISO8601 -&gt; DashboardEntry)
+-&gt; Lens
+     DashboardEntry DashboardEntry (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry%27"><span class="hs-identifier hs-type">DashboardEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253398"><span class="annot"><span class="annottext">Maybe ISO8601
+lastModified :: Maybe ISO8601
+$sel:lastModified:DashboardEntry' :: DashboardEntry -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679253398"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679253398"><span class="hs-identifier hs-var">lastModified</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253397"><span class="annot"><span class="annottext">s :: DashboardEntry
+</span><a href="#local-6989586621679253397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry%27"><span class="hs-identifier hs-type">DashboardEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253396"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679253396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashboardEntry
+</span><a href="#local-6989586621679253397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModified:DashboardEntry' :: Maybe ISO8601
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#%24sel%3AlastModified%3ADashboardEntry%27"><span class="hs-identifier hs-var">lastModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679253396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry"><span class="hs-identifier hs-type">DashboardEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; DashboardEntry -&gt; f DashboardEntry)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DashboardEntry
+-&gt; f DashboardEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dashboard.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#dashboardEntry_dashboardArn"><span class="hs-identifier hs-type">dashboardEntry_dashboardArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry"><span class="hs-identifier hs-type">DashboardEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="dashboardEntry_dashboardArn"><span class="annot"><span class="annottext">dashboardEntry_dashboardArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DashboardEntry -&gt; f DashboardEntry
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#dashboardEntry_dashboardArn"><span class="hs-identifier hs-var hs-var">dashboardEntry_dashboardArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashboardEntry -&gt; Maybe Text)
+-&gt; (DashboardEntry -&gt; Maybe Text -&gt; DashboardEntry)
+-&gt; Lens DashboardEntry DashboardEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry%27"><span class="hs-identifier hs-type">DashboardEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253391"><span class="annot"><span class="annottext">Maybe Text
+dashboardArn :: Maybe Text
+$sel:dashboardArn:DashboardEntry' :: DashboardEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679253391"><span class="hs-identifier hs-var hs-var">dashboardArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253391"><span class="hs-identifier hs-var">dashboardArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253390"><span class="annot"><span class="annottext">s :: DashboardEntry
+</span><a href="#local-6989586621679253390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry%27"><span class="hs-identifier hs-type">DashboardEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253389"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashboardEntry
+</span><a href="#local-6989586621679253390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardArn:DashboardEntry' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#%24sel%3AdashboardArn%3ADashboardEntry%27"><span class="hs-identifier hs-var">dashboardArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry"><span class="hs-identifier hs-type">DashboardEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry"><span class="hs-identifier hs-type">DashboardEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679253386"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DashboardEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679253384"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679253384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; DashboardEntry
+</span><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry%27"><span class="hs-identifier hs-var">DashboardEntry'</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; DashboardEntry)
+-&gt; Either String (Maybe Integer)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; DashboardEntry)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679253384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Size&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; DashboardEntry)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe ISO8601 -&gt; Maybe Text -&gt; DashboardEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679253384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DashboardName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; Maybe Text -&gt; DashboardEntry)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe Text -&gt; DashboardEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679253384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModified&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; DashboardEntry)
+-&gt; Either String (Maybe Text) -&gt; Either String DashboardEntry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679253384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DashboardArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253378"><span id="local-6989586621679253380"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry"><span class="hs-identifier hs-type">DashboardEntry</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry"><span class="hs-identifier hs-type">DashboardEntry</span></a></span></span><span>
+</span><span id="line-99"></span></pre></body></html>

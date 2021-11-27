@@ -1,0 +1,508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.InstallToRemoteAccessSession</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Installs an application to the device in a remote access session. For</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Android applications, the file must be in .apk format. For iOS</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- applications, the file must be in .ipa format.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.InstallToRemoteAccessSession</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession"><span class="hs-identifier">InstallToRemoteAccessSession</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#newInstallToRemoteAccessSession"><span class="hs-identifier">newInstallToRemoteAccessSession</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#installToRemoteAccessSession_remoteAccessSessionArn"><span class="hs-identifier">installToRemoteAccessSession_remoteAccessSessionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#installToRemoteAccessSession_appArn"><span class="hs-identifier">installToRemoteAccessSession_appArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse"><span class="hs-identifier">InstallToRemoteAccessSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#newInstallToRemoteAccessSessionResponse"><span class="hs-identifier">newInstallToRemoteAccessSessionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#installToRemoteAccessSessionResponse_appUpload"><span class="hs-identifier">installToRemoteAccessSessionResponse_appUpload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#installToRemoteAccessSessionResponse_httpStatus"><span class="hs-identifier">installToRemoteAccessSessionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.html"><span class="hs-identifier">Amazonka.DeviceFarm.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | Represents the request to install an Android application (in .apk</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- format) or an iOS application (in .ipa format) as part of a remote</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- access session.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newInstallToRemoteAccessSession' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679381090"><span id="local-6989586621679381091"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstallToRemoteAccessSession"><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession"><span class="hs-identifier hs-var">InstallToRemoteAccessSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstallToRemoteAccessSession%27"><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession%27"><span class="hs-identifier hs-var">InstallToRemoteAccessSession'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the remote access session about which</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- you are requesting information.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AremoteAccessSessionArn%3AInstallToRemoteAccessSession%27"><span class="annot"><span class="annottext">InstallToRemoteAccessSession -&gt; Text
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#%24sel%3AremoteAccessSessionArn%3AInstallToRemoteAccessSession%27"><span class="hs-identifier hs-var hs-var">remoteAccessSessionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The ARN of the app about which you are requesting information.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AappArn%3AInstallToRemoteAccessSession%27"><span class="annot"><span class="annottext">InstallToRemoteAccessSession -&gt; Text
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#%24sel%3AappArn%3AInstallToRemoteAccessSession%27"><span class="hs-identifier hs-var hs-var">appArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381083"><span id="local-6989586621679381085"><span class="annot"><span class="annottext">InstallToRemoteAccessSession
+-&gt; InstallToRemoteAccessSession -&gt; Bool
+(InstallToRemoteAccessSession
+ -&gt; InstallToRemoteAccessSession -&gt; Bool)
+-&gt; (InstallToRemoteAccessSession
+    -&gt; InstallToRemoteAccessSession -&gt; Bool)
+-&gt; Eq InstallToRemoteAccessSession
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstallToRemoteAccessSession
+-&gt; InstallToRemoteAccessSession -&gt; Bool
+$c/= :: InstallToRemoteAccessSession
+-&gt; InstallToRemoteAccessSession -&gt; Bool
+== :: InstallToRemoteAccessSession
+-&gt; InstallToRemoteAccessSession -&gt; Bool
+$c== :: InstallToRemoteAccessSession
+-&gt; InstallToRemoteAccessSession -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381074"><span id="local-6989586621679381076"><span id="local-6989586621679381078"><span id="local-6989586621679381080"><span class="annot"><span class="annottext">ReadPrec [InstallToRemoteAccessSession]
+ReadPrec InstallToRemoteAccessSession
+Int -&gt; ReadS InstallToRemoteAccessSession
+ReadS [InstallToRemoteAccessSession]
+(Int -&gt; ReadS InstallToRemoteAccessSession)
+-&gt; ReadS [InstallToRemoteAccessSession]
+-&gt; ReadPrec InstallToRemoteAccessSession
+-&gt; ReadPrec [InstallToRemoteAccessSession]
+-&gt; Read InstallToRemoteAccessSession
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstallToRemoteAccessSession]
+$creadListPrec :: ReadPrec [InstallToRemoteAccessSession]
+readPrec :: ReadPrec InstallToRemoteAccessSession
+$creadPrec :: ReadPrec InstallToRemoteAccessSession
+readList :: ReadS [InstallToRemoteAccessSession]
+$creadList :: ReadS [InstallToRemoteAccessSession]
+readsPrec :: Int -&gt; ReadS InstallToRemoteAccessSession
+$creadsPrec :: Int -&gt; ReadS InstallToRemoteAccessSession
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381067"><span id="local-6989586621679381069"><span id="local-6989586621679381071"><span class="annot"><span class="annottext">Int -&gt; InstallToRemoteAccessSession -&gt; ShowS
+[InstallToRemoteAccessSession] -&gt; ShowS
+InstallToRemoteAccessSession -&gt; String
+(Int -&gt; InstallToRemoteAccessSession -&gt; ShowS)
+-&gt; (InstallToRemoteAccessSession -&gt; String)
+-&gt; ([InstallToRemoteAccessSession] -&gt; ShowS)
+-&gt; Show InstallToRemoteAccessSession
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstallToRemoteAccessSession] -&gt; ShowS
+$cshowList :: [InstallToRemoteAccessSession] -&gt; ShowS
+show :: InstallToRemoteAccessSession -&gt; String
+$cshow :: InstallToRemoteAccessSession -&gt; String
+showsPrec :: Int -&gt; InstallToRemoteAccessSession -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstallToRemoteAccessSession -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ InstallToRemoteAccessSession -&gt; Rep InstallToRemoteAccessSession x)
+-&gt; (forall x.
+    Rep InstallToRemoteAccessSession x -&gt; InstallToRemoteAccessSession)
+-&gt; Generic InstallToRemoteAccessSession
+forall x.
+Rep InstallToRemoteAccessSession x -&gt; InstallToRemoteAccessSession
+forall x.
+InstallToRemoteAccessSession -&gt; Rep InstallToRemoteAccessSession x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep InstallToRemoteAccessSession x -&gt; InstallToRemoteAccessSession
+$cfrom :: forall x.
+InstallToRemoteAccessSession -&gt; Rep InstallToRemoteAccessSession x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'InstallToRemoteAccessSession' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'remoteAccessSessionArn', 'installToRemoteAccessSession_remoteAccessSessionArn' - The Amazon Resource Name (ARN) of the remote access session about which</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- you are requesting information.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'appArn', 'installToRemoteAccessSession_appArn' - The ARN of the app about which you are requesting information.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#newInstallToRemoteAccessSession"><span class="hs-identifier hs-type">newInstallToRemoteAccessSession</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'remoteAccessSessionArn'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'appArn'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession"><span class="hs-identifier hs-type">InstallToRemoteAccessSession</span></a></span><span>
+</span><span id="line-84"></span><span id="newInstallToRemoteAccessSession"><span class="annot"><span class="annottext">newInstallToRemoteAccessSession :: Text -&gt; Text -&gt; InstallToRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#newInstallToRemoteAccessSession"><span class="hs-identifier hs-var hs-var">newInstallToRemoteAccessSession</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679381062"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381062"><span class="hs-identifier hs-var">pRemoteAccessSessionArn_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679381061"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381061"><span class="hs-identifier hs-var">pAppArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">InstallToRemoteAccessSession' :: Text -&gt; Text -&gt; InstallToRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession%27"><span class="hs-identifier hs-type">InstallToRemoteAccessSession'</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:remoteAccessSessionArn:InstallToRemoteAccessSession' :: Text
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#%24sel%3AremoteAccessSessionArn%3AInstallToRemoteAccessSession%27"><span class="hs-identifier hs-var">remoteAccessSessionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381062"><span class="hs-identifier hs-var">pRemoteAccessSessionArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:appArn:InstallToRemoteAccessSession' :: Text
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#%24sel%3AappArn%3AInstallToRemoteAccessSession%27"><span class="hs-identifier hs-var">appArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381061"><span class="hs-identifier hs-var">pAppArn_</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the remote access session about which</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- you are requesting information.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#installToRemoteAccessSession_remoteAccessSessionArn"><span class="hs-identifier hs-type">installToRemoteAccessSession_remoteAccessSessionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession"><span class="hs-identifier hs-type">InstallToRemoteAccessSession</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="installToRemoteAccessSession_remoteAccessSessionArn"><span class="annot"><span class="annottext">installToRemoteAccessSession_remoteAccessSessionArn :: (Text -&gt; f Text)
+-&gt; InstallToRemoteAccessSession -&gt; f InstallToRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#installToRemoteAccessSession_remoteAccessSessionArn"><span class="hs-identifier hs-var hs-var">installToRemoteAccessSession_remoteAccessSessionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstallToRemoteAccessSession -&gt; Text)
+-&gt; (InstallToRemoteAccessSession
+    -&gt; Text -&gt; InstallToRemoteAccessSession)
+-&gt; Lens
+     InstallToRemoteAccessSession InstallToRemoteAccessSession Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession%27"><span class="hs-identifier hs-type">InstallToRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381058"><span class="annot"><span class="annottext">Text
+remoteAccessSessionArn :: Text
+$sel:remoteAccessSessionArn:InstallToRemoteAccessSession' :: InstallToRemoteAccessSession -&gt; Text
+</span><a href="#local-6989586621679381058"><span class="hs-identifier hs-var hs-var">remoteAccessSessionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381058"><span class="hs-identifier hs-var">remoteAccessSessionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381057"><span class="annot"><span class="annottext">s :: InstallToRemoteAccessSession
+</span><a href="#local-6989586621679381057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession%27"><span class="hs-identifier hs-type">InstallToRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381056"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstallToRemoteAccessSession
+</span><a href="#local-6989586621679381057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteAccessSessionArn:InstallToRemoteAccessSession' :: Text
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#%24sel%3AremoteAccessSessionArn%3AInstallToRemoteAccessSession%27"><span class="hs-identifier hs-var">remoteAccessSessionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession"><span class="hs-identifier hs-type">InstallToRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The ARN of the app about which you are requesting information.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#installToRemoteAccessSession_appArn"><span class="hs-identifier hs-type">installToRemoteAccessSession_appArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession"><span class="hs-identifier hs-type">InstallToRemoteAccessSession</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-100"></span><span id="installToRemoteAccessSession_appArn"><span class="annot"><span class="annottext">installToRemoteAccessSession_appArn :: (Text -&gt; f Text)
+-&gt; InstallToRemoteAccessSession -&gt; f InstallToRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#installToRemoteAccessSession_appArn"><span class="hs-identifier hs-var hs-var">installToRemoteAccessSession_appArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstallToRemoteAccessSession -&gt; Text)
+-&gt; (InstallToRemoteAccessSession
+    -&gt; Text -&gt; InstallToRemoteAccessSession)
+-&gt; Lens
+     InstallToRemoteAccessSession InstallToRemoteAccessSession Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession%27"><span class="hs-identifier hs-type">InstallToRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381055"><span class="annot"><span class="annottext">Text
+appArn :: Text
+$sel:appArn:InstallToRemoteAccessSession' :: InstallToRemoteAccessSession -&gt; Text
+</span><a href="#local-6989586621679381055"><span class="hs-identifier hs-var hs-var">appArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381055"><span class="hs-identifier hs-var">appArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381054"><span class="annot"><span class="annottext">s :: InstallToRemoteAccessSession
+</span><a href="#local-6989586621679381054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession%27"><span class="hs-identifier hs-type">InstallToRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381053"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstallToRemoteAccessSession
+</span><a href="#local-6989586621679381054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appArn:InstallToRemoteAccessSession' :: Text
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#%24sel%3AappArn%3AInstallToRemoteAccessSession%27"><span class="hs-identifier hs-var">appArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession"><span class="hs-identifier hs-type">InstallToRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession"><span class="hs-identifier hs-type">InstallToRemoteAccessSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession"><span class="hs-identifier hs-type">InstallToRemoteAccessSession</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse"><span class="hs-identifier hs-type">InstallToRemoteAccessSessionResponse</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679381049"><span class="annot"><span class="annottext">request :: InstallToRemoteAccessSession
+-&gt; Request InstallToRemoteAccessSession
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; InstallToRemoteAccessSession
+-&gt; Request InstallToRemoteAccessSession
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679381045"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy InstallToRemoteAccessSession
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse InstallToRemoteAccessSession)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse InstallToRemoteAccessSession))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy InstallToRemoteAccessSession
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse InstallToRemoteAccessSession)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381042"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381042"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679381041"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679381041"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679381040"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381040"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe Upload -&gt; Int -&gt; InstallToRemoteAccessSessionResponse
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">InstallToRemoteAccessSessionResponse'</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Upload -&gt; Int -&gt; InstallToRemoteAccessSessionResponse)
+-&gt; Either String (Maybe Upload)
+-&gt; Either String (Int -&gt; InstallToRemoteAccessSessionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Upload)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;appUpload&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; InstallToRemoteAccessSessionResponse)
+-&gt; Either String Int
+-&gt; Either String InstallToRemoteAccessSessionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381042"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679381032"><span id="local-6989586621679381034"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession"><span class="hs-identifier hs-type">InstallToRemoteAccessSession</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession"><span class="hs-identifier hs-type">InstallToRemoteAccessSession</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession"><span class="hs-identifier hs-type">InstallToRemoteAccessSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679381025"><span class="annot"><span class="annottext">toHeaders :: InstallToRemoteAccessSession -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; InstallToRemoteAccessSession -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeviceFarm_20150623.InstallToRemoteAccessSession&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381015"><span id="local-6989586621679381017"><span id="local-6989586621679381019"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession"><span class="hs-identifier hs-type">InstallToRemoteAccessSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679381013"><span class="annot"><span class="annottext">toJSON :: InstallToRemoteAccessSession -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession%27"><span class="hs-identifier hs-type">InstallToRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381010"><span id="local-6989586621679381011"><span class="annot"><span class="annottext">Text
+appArn :: Text
+remoteAccessSessionArn :: Text
+$sel:appArn:InstallToRemoteAccessSession' :: InstallToRemoteAccessSession -&gt; Text
+$sel:remoteAccessSessionArn:InstallToRemoteAccessSession' :: InstallToRemoteAccessSession -&gt; Text
+</span><a href="#local-6989586621679381010"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;remoteAccessSessionArn&quot;</span></span><span>
+</span><span id="line-142"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381011"><span class="hs-identifier hs-var">remoteAccessSessionArn</span></a></span><span>
+</span><span id="line-143"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;appArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381010"><span class="hs-identifier hs-var">appArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession"><span class="hs-identifier hs-type">InstallToRemoteAccessSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679381004"><span class="annot"><span class="annottext">toPath :: InstallToRemoteAccessSession -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; InstallToRemoteAccessSession -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSession"><span class="hs-identifier hs-type">InstallToRemoteAccessSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679381000"><span class="annot"><span class="annottext">toQuery :: InstallToRemoteAccessSession -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; InstallToRemoteAccessSession -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | Represents the response from the server after AWS Device Farm makes a</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- request to install to a remote access session.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- /See:/ 'newInstallToRemoteAccessSessionResponse' smart constructor.</span><span>
+</span><span id="line-158"></span><span id="local-6989586621679380997"><span id="local-6989586621679380998"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstallToRemoteAccessSessionResponse"><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse"><span class="hs-identifier hs-var">InstallToRemoteAccessSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstallToRemoteAccessSessionResponse%27"><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">InstallToRemoteAccessSessionResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An app to upload or that has been uploaded.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AappUpload%3AInstallToRemoteAccessSessionResponse%27"><span class="annot"><span class="annottext">InstallToRemoteAccessSessionResponse -&gt; Maybe Upload
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#%24sel%3AappUpload%3AInstallToRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var hs-var">appUpload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Upload.html#Upload"><span class="hs-identifier hs-type">Upload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3AInstallToRemoteAccessSessionResponse%27"><span class="annot"><span class="annottext">InstallToRemoteAccessSessionResponse -&gt; Int
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#%24sel%3AhttpStatus%3AInstallToRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679380991"><span id="local-6989586621679380993"><span class="annot"><span class="annottext">InstallToRemoteAccessSessionResponse
+-&gt; InstallToRemoteAccessSessionResponse -&gt; Bool
+(InstallToRemoteAccessSessionResponse
+ -&gt; InstallToRemoteAccessSessionResponse -&gt; Bool)
+-&gt; (InstallToRemoteAccessSessionResponse
+    -&gt; InstallToRemoteAccessSessionResponse -&gt; Bool)
+-&gt; Eq InstallToRemoteAccessSessionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstallToRemoteAccessSessionResponse
+-&gt; InstallToRemoteAccessSessionResponse -&gt; Bool
+$c/= :: InstallToRemoteAccessSessionResponse
+-&gt; InstallToRemoteAccessSessionResponse -&gt; Bool
+== :: InstallToRemoteAccessSessionResponse
+-&gt; InstallToRemoteAccessSessionResponse -&gt; Bool
+$c== :: InstallToRemoteAccessSessionResponse
+-&gt; InstallToRemoteAccessSessionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380985"><span id="local-6989586621679380987"><span id="local-6989586621679380989"><span class="annot"><span class="annottext">Int -&gt; InstallToRemoteAccessSessionResponse -&gt; ShowS
+[InstallToRemoteAccessSessionResponse] -&gt; ShowS
+InstallToRemoteAccessSessionResponse -&gt; String
+(Int -&gt; InstallToRemoteAccessSessionResponse -&gt; ShowS)
+-&gt; (InstallToRemoteAccessSessionResponse -&gt; String)
+-&gt; ([InstallToRemoteAccessSessionResponse] -&gt; ShowS)
+-&gt; Show InstallToRemoteAccessSessionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstallToRemoteAccessSessionResponse] -&gt; ShowS
+$cshowList :: [InstallToRemoteAccessSessionResponse] -&gt; ShowS
+show :: InstallToRemoteAccessSessionResponse -&gt; String
+$cshow :: InstallToRemoteAccessSessionResponse -&gt; String
+showsPrec :: Int -&gt; InstallToRemoteAccessSessionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstallToRemoteAccessSessionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ InstallToRemoteAccessSessionResponse
+ -&gt; Rep InstallToRemoteAccessSessionResponse x)
+-&gt; (forall x.
+    Rep InstallToRemoteAccessSessionResponse x
+    -&gt; InstallToRemoteAccessSessionResponse)
+-&gt; Generic InstallToRemoteAccessSessionResponse
+forall x.
+Rep InstallToRemoteAccessSessionResponse x
+-&gt; InstallToRemoteAccessSessionResponse
+forall x.
+InstallToRemoteAccessSessionResponse
+-&gt; Rep InstallToRemoteAccessSessionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep InstallToRemoteAccessSessionResponse x
+-&gt; InstallToRemoteAccessSessionResponse
+$cfrom :: forall x.
+InstallToRemoteAccessSessionResponse
+-&gt; Rep InstallToRemoteAccessSessionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Create a value of 'InstallToRemoteAccessSessionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'appUpload', 'installToRemoteAccessSessionResponse_appUpload' - An app to upload or that has been uploaded.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'httpStatus', 'installToRemoteAccessSessionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#newInstallToRemoteAccessSessionResponse"><span class="hs-identifier hs-type">newInstallToRemoteAccessSessionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse"><span class="hs-identifier hs-type">InstallToRemoteAccessSessionResponse</span></a></span><span>
+</span><span id="line-181"></span><span id="newInstallToRemoteAccessSessionResponse"><span class="annot"><span class="annottext">newInstallToRemoteAccessSessionResponse :: Int -&gt; InstallToRemoteAccessSessionResponse
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#newInstallToRemoteAccessSessionResponse"><span class="hs-identifier hs-var hs-var">newInstallToRemoteAccessSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679380982"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">InstallToRemoteAccessSessionResponse' :: Maybe Upload -&gt; Int -&gt; InstallToRemoteAccessSessionResponse
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">InstallToRemoteAccessSessionResponse'</span></a></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appUpload:InstallToRemoteAccessSessionResponse' :: Maybe Upload
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#%24sel%3AappUpload%3AInstallToRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">appUpload</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">Maybe Upload
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:InstallToRemoteAccessSessionResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#%24sel%3AhttpStatus%3AInstallToRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | An app to upload or that has been uploaded.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#installToRemoteAccessSessionResponse_appUpload"><span class="hs-identifier hs-type">installToRemoteAccessSessionResponse_appUpload</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse"><span class="hs-identifier hs-type">InstallToRemoteAccessSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Upload.html#Upload"><span class="hs-identifier hs-type">Upload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="installToRemoteAccessSessionResponse_appUpload"><span class="annot"><span class="annottext">installToRemoteAccessSessionResponse_appUpload :: (Maybe Upload -&gt; f (Maybe Upload))
+-&gt; InstallToRemoteAccessSessionResponse
+-&gt; f InstallToRemoteAccessSessionResponse
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#installToRemoteAccessSessionResponse_appUpload"><span class="hs-identifier hs-var hs-var">installToRemoteAccessSessionResponse_appUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstallToRemoteAccessSessionResponse -&gt; Maybe Upload)
+-&gt; (InstallToRemoteAccessSessionResponse
+    -&gt; Maybe Upload -&gt; InstallToRemoteAccessSessionResponse)
+-&gt; Lens
+     InstallToRemoteAccessSessionResponse
+     InstallToRemoteAccessSessionResponse
+     (Maybe Upload)
+     (Maybe Upload)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">InstallToRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380981"><span class="annot"><span class="annottext">Maybe Upload
+appUpload :: Maybe Upload
+$sel:appUpload:InstallToRemoteAccessSessionResponse' :: InstallToRemoteAccessSessionResponse -&gt; Maybe Upload
+</span><a href="#local-6989586621679380981"><span class="hs-identifier hs-var hs-var">appUpload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Upload
+</span><a href="#local-6989586621679380981"><span class="hs-identifier hs-var">appUpload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380980"><span class="annot"><span class="annottext">s :: InstallToRemoteAccessSessionResponse
+</span><a href="#local-6989586621679380980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">InstallToRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380979"><span class="annot"><span class="annottext">Maybe Upload
+</span><a href="#local-6989586621679380979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstallToRemoteAccessSessionResponse
+</span><a href="#local-6989586621679380980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appUpload:InstallToRemoteAccessSessionResponse' :: Maybe Upload
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#%24sel%3AappUpload%3AInstallToRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">appUpload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Upload
+</span><a href="#local-6989586621679380979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse"><span class="hs-identifier hs-type">InstallToRemoteAccessSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#installToRemoteAccessSessionResponse_httpStatus"><span class="hs-identifier hs-type">installToRemoteAccessSessionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse"><span class="hs-identifier hs-type">InstallToRemoteAccessSessionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span id="installToRemoteAccessSessionResponse_httpStatus"><span class="annot"><span class="annottext">installToRemoteAccessSessionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; InstallToRemoteAccessSessionResponse
+-&gt; f InstallToRemoteAccessSessionResponse
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#installToRemoteAccessSessionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">installToRemoteAccessSessionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstallToRemoteAccessSessionResponse -&gt; Int)
+-&gt; (InstallToRemoteAccessSessionResponse
+    -&gt; Int -&gt; InstallToRemoteAccessSessionResponse)
+-&gt; Lens
+     InstallToRemoteAccessSessionResponse
+     InstallToRemoteAccessSessionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">InstallToRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380978"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:InstallToRemoteAccessSessionResponse' :: InstallToRemoteAccessSessionResponse -&gt; Int
+</span><a href="#local-6989586621679380978"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380978"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380977"><span class="annot"><span class="annottext">s :: InstallToRemoteAccessSessionResponse
+</span><a href="#local-6989586621679380977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">InstallToRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380976"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstallToRemoteAccessSessionResponse
+</span><a href="#local-6989586621679380977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:InstallToRemoteAccessSessionResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#%24sel%3AhttpStatus%3AInstallToRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse"><span class="hs-identifier hs-type">InstallToRemoteAccessSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679380974"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.InstallToRemoteAccessSession.html#InstallToRemoteAccessSessionResponse"><span class="hs-identifier hs-type">InstallToRemoteAccessSessionResponse</span></a></span></span><span>
+</span><span id="line-199"></span></pre></body></html>

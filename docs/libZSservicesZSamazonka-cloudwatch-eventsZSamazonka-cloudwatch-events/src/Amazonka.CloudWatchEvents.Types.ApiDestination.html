@@ -1,0 +1,598 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatchEvents.Types.ApiDestination</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.ApiDestination</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestinationHttpMethod.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.ApiDestinationHttpMethod</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestinationState.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.ApiDestinationState</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Contains details about an API destination.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newApiDestination' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679298353"><span id="local-6989586621679298354"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApiDestination"><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-var">ApiDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiDestination%27"><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-var">ApiDestination'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A time stamp for the time that the API destination was created.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcreationTime%3AApiDestination%27"><span class="annot"><span class="annottext">ApiDestination -&gt; Maybe POSIX
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AcreationTime%3AApiDestination%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The method to use to connect to the HTTP endpoint.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AhttpMethod%3AApiDestination%27"><span class="annot"><span class="annottext">ApiDestination -&gt; Maybe ApiDestinationHttpMethod
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AhttpMethod%3AApiDestination%27"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestinationHttpMethod.html#ApiDestinationHttpMethod"><span class="hs-identifier hs-type">ApiDestinationHttpMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The URL to the endpoint for the API destination.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AinvocationEndpoint%3AApiDestination%27"><span class="annot"><span class="annottext">ApiDestination -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AinvocationEndpoint%3AApiDestination%27"><span class="hs-identifier hs-var hs-var">invocationEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A time stamp for the time that the API destination was last modified.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AApiDestination%27"><span class="annot"><span class="annottext">ApiDestination -&gt; Maybe POSIX
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AlastModifiedTime%3AApiDestination%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the API destination.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aname%3AApiDestination%27"><span class="annot"><span class="annottext">ApiDestination -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3Aname%3AApiDestination%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The maximum number of invocations per second to send to the HTTP</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AinvocationRateLimitPerSecond%3AApiDestination%27"><span class="annot"><span class="annottext">ApiDestination -&gt; Maybe Natural
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AinvocationRateLimitPerSecond%3AApiDestination%27"><span class="hs-identifier hs-var hs-var">invocationRateLimitPerSecond</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The state of the API destination.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AapiDestinationState%3AApiDestination%27"><span class="annot"><span class="annottext">ApiDestination -&gt; Maybe ApiDestinationState
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AapiDestinationState%3AApiDestination%27"><span class="hs-identifier hs-var hs-var">apiDestinationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestinationState.html#ApiDestinationState"><span class="hs-identifier hs-type">ApiDestinationState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The ARN of the connection specified for the API destination.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AconnectionArn%3AApiDestination%27"><span class="annot"><span class="annottext">ApiDestination -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AconnectionArn%3AApiDestination%27"><span class="hs-identifier hs-var hs-var">connectionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The ARN of the API destination.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AapiDestinationArn%3AApiDestination%27"><span class="annot"><span class="annottext">ApiDestination -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AapiDestinationArn%3AApiDestination%27"><span class="hs-identifier hs-var hs-var">apiDestinationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298339"><span id="local-6989586621679298341"><span class="annot"><span class="annottext">ApiDestination -&gt; ApiDestination -&gt; Bool
+(ApiDestination -&gt; ApiDestination -&gt; Bool)
+-&gt; (ApiDestination -&gt; ApiDestination -&gt; Bool) -&gt; Eq ApiDestination
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApiDestination -&gt; ApiDestination -&gt; Bool
+$c/= :: ApiDestination -&gt; ApiDestination -&gt; Bool
+== :: ApiDestination -&gt; ApiDestination -&gt; Bool
+$c== :: ApiDestination -&gt; ApiDestination -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298330"><span id="local-6989586621679298332"><span id="local-6989586621679298334"><span id="local-6989586621679298336"><span class="annot"><span class="annottext">ReadPrec [ApiDestination]
+ReadPrec ApiDestination
+Int -&gt; ReadS ApiDestination
+ReadS [ApiDestination]
+(Int -&gt; ReadS ApiDestination)
+-&gt; ReadS [ApiDestination]
+-&gt; ReadPrec ApiDestination
+-&gt; ReadPrec [ApiDestination]
+-&gt; Read ApiDestination
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApiDestination]
+$creadListPrec :: ReadPrec [ApiDestination]
+readPrec :: ReadPrec ApiDestination
+$creadPrec :: ReadPrec ApiDestination
+readList :: ReadS [ApiDestination]
+$creadList :: ReadS [ApiDestination]
+readsPrec :: Int -&gt; ReadS ApiDestination
+$creadsPrec :: Int -&gt; ReadS ApiDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298323"><span id="local-6989586621679298325"><span id="local-6989586621679298327"><span class="annot"><span class="annottext">Int -&gt; ApiDestination -&gt; ShowS
+[ApiDestination] -&gt; ShowS
+ApiDestination -&gt; String
+(Int -&gt; ApiDestination -&gt; ShowS)
+-&gt; (ApiDestination -&gt; String)
+-&gt; ([ApiDestination] -&gt; ShowS)
+-&gt; Show ApiDestination
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApiDestination] -&gt; ShowS
+$cshowList :: [ApiDestination] -&gt; ShowS
+show :: ApiDestination -&gt; String
+$cshow :: ApiDestination -&gt; String
+showsPrec :: Int -&gt; ApiDestination -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApiDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ApiDestination -&gt; Rep ApiDestination x)
+-&gt; (forall x. Rep ApiDestination x -&gt; ApiDestination)
+-&gt; Generic ApiDestination
+forall x. Rep ApiDestination x -&gt; ApiDestination
+forall x. ApiDestination -&gt; Rep ApiDestination x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ApiDestination x -&gt; ApiDestination
+$cfrom :: forall x. ApiDestination -&gt; Rep ApiDestination x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'ApiDestination' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'creationTime', 'apiDestination_creationTime' - A time stamp for the time that the API destination was created.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'httpMethod', 'apiDestination_httpMethod' - The method to use to connect to the HTTP endpoint.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'invocationEndpoint', 'apiDestination_invocationEndpoint' - The URL to the endpoint for the API destination.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'lastModifiedTime', 'apiDestination_lastModifiedTime' - A time stamp for the time that the API destination was last modified.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'name', 'apiDestination_name' - The name of the API destination.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'invocationRateLimitPerSecond', 'apiDestination_invocationRateLimitPerSecond' - The maximum number of invocations per second to send to the HTTP</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'apiDestinationState', 'apiDestination_apiDestinationState' - The state of the API destination.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'connectionArn', 'apiDestination_connectionArn' - The ARN of the connection specified for the API destination.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'apiDestinationArn', 'apiDestination_apiDestinationArn' - The ARN of the API destination.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#newApiDestination"><span class="hs-identifier hs-type">newApiDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span>
+</span><span id="line-82"></span><span id="newApiDestination"><span class="annot"><span class="annottext">newApiDestination :: ApiDestination
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#newApiDestination"><span class="hs-identifier hs-var hs-var">newApiDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">ApiDestination' :: Maybe POSIX
+-&gt; Maybe ApiDestinationHttpMethod
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe ApiDestinationState
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ApiDestination
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:ApiDestination' :: Maybe POSIX
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AcreationTime%3AApiDestination%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpMethod:ApiDestination' :: Maybe ApiDestinationHttpMethod
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AhttpMethod%3AApiDestination%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiDestinationHttpMethod
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:invocationEndpoint:ApiDestination' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AinvocationEndpoint%3AApiDestination%27"><span class="hs-identifier hs-var">invocationEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:ApiDestination' :: Maybe POSIX
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AlastModifiedTime%3AApiDestination%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ApiDestination' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3Aname%3AApiDestination%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:invocationRateLimitPerSecond:ApiDestination' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AinvocationRateLimitPerSecond%3AApiDestination%27"><span class="hs-identifier hs-var">invocationRateLimitPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiDestinationState:ApiDestination' :: Maybe ApiDestinationState
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AapiDestinationState%3AApiDestination%27"><span class="hs-identifier hs-var">apiDestinationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiDestinationState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionArn:ApiDestination' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AconnectionArn%3AApiDestination%27"><span class="hs-identifier hs-var">connectionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiDestinationArn:ApiDestination' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AapiDestinationArn%3AApiDestination%27"><span class="hs-identifier hs-var">apiDestinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | A time stamp for the time that the API destination was created.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_creationTime"><span class="hs-identifier hs-type">apiDestination_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="apiDestination_creationTime"><span class="annot"><span class="annottext">apiDestination_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApiDestination -&gt; f ApiDestination
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_creationTime"><span class="hs-identifier hs-var hs-var">apiDestination_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApiDestination -&gt; Maybe POSIX)
+-&gt; (ApiDestination -&gt; Maybe POSIX -&gt; ApiDestination)
+-&gt; Lens ApiDestination ApiDestination (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298314"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:ApiDestination' :: ApiDestination -&gt; Maybe POSIX
+</span><a href="#local-6989586621679298314"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679298314"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298313"><span class="annot"><span class="annottext">s :: ApiDestination
+</span><a href="#local-6989586621679298313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298312"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679298312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiDestination
+</span><a href="#local-6989586621679298313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ApiDestination' :: Maybe POSIX
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AcreationTime%3AApiDestination%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679298312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ApiDestination -&gt; f ApiDestination)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApiDestination
+-&gt; f ApiDestination
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The method to use to connect to the HTTP endpoint.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_httpMethod"><span class="hs-identifier hs-type">apiDestination_httpMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestinationHttpMethod.html#ApiDestinationHttpMethod"><span class="hs-identifier hs-type">ApiDestinationHttpMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="apiDestination_httpMethod"><span class="annot"><span class="annottext">apiDestination_httpMethod :: (Maybe ApiDestinationHttpMethod
+ -&gt; f (Maybe ApiDestinationHttpMethod))
+-&gt; ApiDestination -&gt; f ApiDestination
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_httpMethod"><span class="hs-identifier hs-var hs-var">apiDestination_httpMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApiDestination -&gt; Maybe ApiDestinationHttpMethod)
+-&gt; (ApiDestination
+    -&gt; Maybe ApiDestinationHttpMethod -&gt; ApiDestination)
+-&gt; Lens
+     ApiDestination
+     ApiDestination
+     (Maybe ApiDestinationHttpMethod)
+     (Maybe ApiDestinationHttpMethod)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298307"><span class="annot"><span class="annottext">Maybe ApiDestinationHttpMethod
+httpMethod :: Maybe ApiDestinationHttpMethod
+$sel:httpMethod:ApiDestination' :: ApiDestination -&gt; Maybe ApiDestinationHttpMethod
+</span><a href="#local-6989586621679298307"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiDestinationHttpMethod
+</span><a href="#local-6989586621679298307"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298306"><span class="annot"><span class="annottext">s :: ApiDestination
+</span><a href="#local-6989586621679298306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298305"><span class="annot"><span class="annottext">Maybe ApiDestinationHttpMethod
+</span><a href="#local-6989586621679298305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiDestination
+</span><a href="#local-6989586621679298306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:ApiDestination' :: Maybe ApiDestinationHttpMethod
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AhttpMethod%3AApiDestination%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiDestinationHttpMethod
+</span><a href="#local-6989586621679298305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The URL to the endpoint for the API destination.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_invocationEndpoint"><span class="hs-identifier hs-type">apiDestination_invocationEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="apiDestination_invocationEndpoint"><span class="annot"><span class="annottext">apiDestination_invocationEndpoint :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApiDestination -&gt; f ApiDestination
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_invocationEndpoint"><span class="hs-identifier hs-var hs-var">apiDestination_invocationEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApiDestination -&gt; Maybe Text)
+-&gt; (ApiDestination -&gt; Maybe Text -&gt; ApiDestination)
+-&gt; Lens ApiDestination ApiDestination (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298303"><span class="annot"><span class="annottext">Maybe Text
+invocationEndpoint :: Maybe Text
+$sel:invocationEndpoint:ApiDestination' :: ApiDestination -&gt; Maybe Text
+</span><a href="#local-6989586621679298303"><span class="hs-identifier hs-var hs-var">invocationEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298303"><span class="hs-identifier hs-var">invocationEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298302"><span class="annot"><span class="annottext">s :: ApiDestination
+</span><a href="#local-6989586621679298302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298301"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiDestination
+</span><a href="#local-6989586621679298302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invocationEndpoint:ApiDestination' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AinvocationEndpoint%3AApiDestination%27"><span class="hs-identifier hs-var">invocationEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | A time stamp for the time that the API destination was last modified.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_lastModifiedTime"><span class="hs-identifier hs-type">apiDestination_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="apiDestination_lastModifiedTime"><span class="annot"><span class="annottext">apiDestination_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApiDestination -&gt; f ApiDestination
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_lastModifiedTime"><span class="hs-identifier hs-var hs-var">apiDestination_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApiDestination -&gt; Maybe POSIX)
+-&gt; (ApiDestination -&gt; Maybe POSIX -&gt; ApiDestination)
+-&gt; Lens ApiDestination ApiDestination (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298299"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTime :: Maybe POSIX
+$sel:lastModifiedTime:ApiDestination' :: ApiDestination -&gt; Maybe POSIX
+</span><a href="#local-6989586621679298299"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679298299"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298298"><span class="annot"><span class="annottext">s :: ApiDestination
+</span><a href="#local-6989586621679298298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298297"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679298297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiDestination
+</span><a href="#local-6989586621679298298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:ApiDestination' :: Maybe POSIX
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AlastModifiedTime%3AApiDestination%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679298297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ApiDestination -&gt; f ApiDestination)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApiDestination
+-&gt; f ApiDestination
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The name of the API destination.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_name"><span class="hs-identifier hs-type">apiDestination_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="apiDestination_name"><span class="annot"><span class="annottext">apiDestination_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApiDestination -&gt; f ApiDestination
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_name"><span class="hs-identifier hs-var hs-var">apiDestination_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApiDestination -&gt; Maybe Text)
+-&gt; (ApiDestination -&gt; Maybe Text -&gt; ApiDestination)
+-&gt; Lens ApiDestination ApiDestination (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298295"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ApiDestination' :: ApiDestination -&gt; Maybe Text
+</span><a href="#local-6989586621679298295"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298295"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298294"><span class="annot"><span class="annottext">s :: ApiDestination
+</span><a href="#local-6989586621679298294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298293"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiDestination
+</span><a href="#local-6989586621679298294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ApiDestination' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3Aname%3AApiDestination%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The maximum number of invocations per second to send to the HTTP</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_invocationRateLimitPerSecond"><span class="hs-identifier hs-type">apiDestination_invocationRateLimitPerSecond</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="apiDestination_invocationRateLimitPerSecond"><span class="annot"><span class="annottext">apiDestination_invocationRateLimitPerSecond :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ApiDestination -&gt; f ApiDestination
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_invocationRateLimitPerSecond"><span class="hs-identifier hs-var hs-var">apiDestination_invocationRateLimitPerSecond</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApiDestination -&gt; Maybe Natural)
+-&gt; (ApiDestination -&gt; Maybe Natural -&gt; ApiDestination)
+-&gt; Lens
+     ApiDestination ApiDestination (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298291"><span class="annot"><span class="annottext">Maybe Natural
+invocationRateLimitPerSecond :: Maybe Natural
+$sel:invocationRateLimitPerSecond:ApiDestination' :: ApiDestination -&gt; Maybe Natural
+</span><a href="#local-6989586621679298291"><span class="hs-identifier hs-var hs-var">invocationRateLimitPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679298291"><span class="hs-identifier hs-var">invocationRateLimitPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298290"><span class="annot"><span class="annottext">s :: ApiDestination
+</span><a href="#local-6989586621679298290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298289"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679298289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiDestination
+</span><a href="#local-6989586621679298290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invocationRateLimitPerSecond:ApiDestination' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AinvocationRateLimitPerSecond%3AApiDestination%27"><span class="hs-identifier hs-var">invocationRateLimitPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679298289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The state of the API destination.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_apiDestinationState"><span class="hs-identifier hs-type">apiDestination_apiDestinationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestinationState.html#ApiDestinationState"><span class="hs-identifier hs-type">ApiDestinationState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="apiDestination_apiDestinationState"><span class="annot"><span class="annottext">apiDestination_apiDestinationState :: (Maybe ApiDestinationState -&gt; f (Maybe ApiDestinationState))
+-&gt; ApiDestination -&gt; f ApiDestination
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_apiDestinationState"><span class="hs-identifier hs-var hs-var">apiDestination_apiDestinationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApiDestination -&gt; Maybe ApiDestinationState)
+-&gt; (ApiDestination -&gt; Maybe ApiDestinationState -&gt; ApiDestination)
+-&gt; Lens
+     ApiDestination
+     ApiDestination
+     (Maybe ApiDestinationState)
+     (Maybe ApiDestinationState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298287"><span class="annot"><span class="annottext">Maybe ApiDestinationState
+apiDestinationState :: Maybe ApiDestinationState
+$sel:apiDestinationState:ApiDestination' :: ApiDestination -&gt; Maybe ApiDestinationState
+</span><a href="#local-6989586621679298287"><span class="hs-identifier hs-var hs-var">apiDestinationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiDestinationState
+</span><a href="#local-6989586621679298287"><span class="hs-identifier hs-var">apiDestinationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298286"><span class="annot"><span class="annottext">s :: ApiDestination
+</span><a href="#local-6989586621679298286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298285"><span class="annot"><span class="annottext">Maybe ApiDestinationState
+</span><a href="#local-6989586621679298285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiDestination
+</span><a href="#local-6989586621679298286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiDestinationState:ApiDestination' :: Maybe ApiDestinationState
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AapiDestinationState%3AApiDestination%27"><span class="hs-identifier hs-var">apiDestinationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiDestinationState
+</span><a href="#local-6989586621679298285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The ARN of the connection specified for the API destination.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_connectionArn"><span class="hs-identifier hs-type">apiDestination_connectionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="apiDestination_connectionArn"><span class="annot"><span class="annottext">apiDestination_connectionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApiDestination -&gt; f ApiDestination
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_connectionArn"><span class="hs-identifier hs-var hs-var">apiDestination_connectionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApiDestination -&gt; Maybe Text)
+-&gt; (ApiDestination -&gt; Maybe Text -&gt; ApiDestination)
+-&gt; Lens ApiDestination ApiDestination (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298283"><span class="annot"><span class="annottext">Maybe Text
+connectionArn :: Maybe Text
+$sel:connectionArn:ApiDestination' :: ApiDestination -&gt; Maybe Text
+</span><a href="#local-6989586621679298283"><span class="hs-identifier hs-var hs-var">connectionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298283"><span class="hs-identifier hs-var">connectionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298282"><span class="annot"><span class="annottext">s :: ApiDestination
+</span><a href="#local-6989586621679298282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298281"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiDestination
+</span><a href="#local-6989586621679298282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionArn:ApiDestination' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AconnectionArn%3AApiDestination%27"><span class="hs-identifier hs-var">connectionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The ARN of the API destination.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_apiDestinationArn"><span class="hs-identifier hs-type">apiDestination_apiDestinationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="apiDestination_apiDestinationArn"><span class="annot"><span class="annottext">apiDestination_apiDestinationArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApiDestination -&gt; f ApiDestination
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#apiDestination_apiDestinationArn"><span class="hs-identifier hs-var hs-var">apiDestination_apiDestinationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApiDestination -&gt; Maybe Text)
+-&gt; (ApiDestination -&gt; Maybe Text -&gt; ApiDestination)
+-&gt; Lens ApiDestination ApiDestination (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298279"><span class="annot"><span class="annottext">Maybe Text
+apiDestinationArn :: Maybe Text
+$sel:apiDestinationArn:ApiDestination' :: ApiDestination -&gt; Maybe Text
+</span><a href="#local-6989586621679298279"><span class="hs-identifier hs-var hs-var">apiDestinationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298279"><span class="hs-identifier hs-var">apiDestinationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298278"><span class="annot"><span class="annottext">s :: ApiDestination
+</span><a href="#local-6989586621679298278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-type">ApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298277"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiDestination
+</span><a href="#local-6989586621679298278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiDestinationArn:ApiDestination' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#%24sel%3AapiDestinationArn%3AApiDestination%27"><span class="hs-identifier hs-var">apiDestinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298274"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679298272"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApiDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ApiDestination)
+-&gt; Value
+-&gt; Parser ApiDestination
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ApiDestination&quot;</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298269"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298269"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe ApiDestinationHttpMethod
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe ApiDestinationState
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ApiDestination
+</span><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination%27"><span class="hs-identifier hs-var">ApiDestination'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe ApiDestinationHttpMethod
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe ApiDestinationState
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ApiDestination)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ApiDestinationHttpMethod
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe ApiDestinationState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ApiDestination)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ApiDestinationHttpMethod
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe ApiDestinationState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ApiDestination)
+-&gt; Parser (Maybe ApiDestinationHttpMethod)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe ApiDestinationState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ApiDestination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ApiDestinationHttpMethod)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HttpMethod&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe ApiDestinationState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ApiDestination)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe ApiDestinationState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ApiDestination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InvocationEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe ApiDestinationState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ApiDestination)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe ApiDestinationState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ApiDestination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe ApiDestinationState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ApiDestination)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe ApiDestinationState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ApiDestination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe ApiDestinationState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ApiDestination)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe ApiDestinationState
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; ApiDestination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InvocationRateLimitPerSecond&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ApiDestinationState
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; ApiDestination)
+-&gt; Parser (Maybe ApiDestinationState)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ApiDestination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ApiDestinationState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApiDestinationState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ApiDestination)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ApiDestination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ApiDestination)
+-&gt; Parser (Maybe Text) -&gt; Parser ApiDestination
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApiDestinationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298263"><span id="local-6989586621679298265"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ApiDestination.html#ApiDestination"><span class="hs-identifier hs-type">ApiDestination</span></a></span></span><span>
+</span><span id="line-152"></span></pre></body></html>

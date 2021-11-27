@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EKS.Types.NodegroupStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EKS.Types.NodegroupStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus"><span class="hs-identifier">NodegroupStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_ACTIVE"><span class="hs-identifier">NodegroupStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_CREATE_FAILED"><span class="hs-identifier">NodegroupStatus_CREATE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_CREATING"><span class="hs-identifier">NodegroupStatus_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_DEGRADED"><span class="hs-identifier">NodegroupStatus_DEGRADED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_DELETE_FAILED"><span class="hs-identifier">NodegroupStatus_DELETE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_DELETING"><span class="hs-identifier">NodegroupStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_UPDATING"><span class="hs-identifier">NodegroupStatus_UPDATING</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679267454"><span id="local-6989586621679267455"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NodegroupStatus"><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus"><span class="hs-identifier hs-var">NodegroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodegroupStatus%27"><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus%27"><span class="hs-identifier hs-var">NodegroupStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNodegroupStatus"><span class="annot"><span class="annottext">NodegroupStatus -&gt; Text
+</span><a href="Amazonka.EKS.Types.NodegroupStatus.html#fromNodegroupStatus"><span class="hs-identifier hs-var hs-var">fromNodegroupStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679267446"><span id="local-6989586621679267448"><span id="local-6989586621679267450"><span class="annot"><span class="annottext">Int -&gt; NodegroupStatus -&gt; ShowS
+[NodegroupStatus] -&gt; ShowS
+NodegroupStatus -&gt; String
+(Int -&gt; NodegroupStatus -&gt; ShowS)
+-&gt; (NodegroupStatus -&gt; String)
+-&gt; ([NodegroupStatus] -&gt; ShowS)
+-&gt; Show NodegroupStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NodegroupStatus] -&gt; ShowS
+$cshowList :: [NodegroupStatus] -&gt; ShowS
+show :: NodegroupStatus -&gt; String
+$cshow :: NodegroupStatus -&gt; String
+showsPrec :: Int -&gt; NodegroupStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; NodegroupStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679267437"><span id="local-6989586621679267439"><span id="local-6989586621679267441"><span id="local-6989586621679267443"><span class="annot"><span class="annottext">ReadPrec [NodegroupStatus]
+ReadPrec NodegroupStatus
+Int -&gt; ReadS NodegroupStatus
+ReadS [NodegroupStatus]
+(Int -&gt; ReadS NodegroupStatus)
+-&gt; ReadS [NodegroupStatus]
+-&gt; ReadPrec NodegroupStatus
+-&gt; ReadPrec [NodegroupStatus]
+-&gt; Read NodegroupStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NodegroupStatus]
+$creadListPrec :: ReadPrec [NodegroupStatus]
+readPrec :: ReadPrec NodegroupStatus
+$creadPrec :: ReadPrec NodegroupStatus
+readList :: ReadS [NodegroupStatus]
+$creadList :: ReadS [NodegroupStatus]
+readsPrec :: Int -&gt; ReadS NodegroupStatus
+$creadsPrec :: Int -&gt; ReadS NodegroupStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679267432"><span id="local-6989586621679267434"><span class="annot"><span class="annottext">NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
+(NodegroupStatus -&gt; NodegroupStatus -&gt; Bool)
+-&gt; (NodegroupStatus -&gt; NodegroupStatus -&gt; Bool)
+-&gt; Eq NodegroupStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
+$c/= :: NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
+== :: NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
+$c== :: NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679267416"><span id="local-6989586621679267418"><span id="local-6989586621679267420"><span id="local-6989586621679267422"><span id="local-6989586621679267424"><span id="local-6989586621679267426"><span id="local-6989586621679267428"><span class="annot"><span class="annottext">Eq NodegroupStatus
+Eq NodegroupStatus
+-&gt; (NodegroupStatus -&gt; NodegroupStatus -&gt; Ordering)
+-&gt; (NodegroupStatus -&gt; NodegroupStatus -&gt; Bool)
+-&gt; (NodegroupStatus -&gt; NodegroupStatus -&gt; Bool)
+-&gt; (NodegroupStatus -&gt; NodegroupStatus -&gt; Bool)
+-&gt; (NodegroupStatus -&gt; NodegroupStatus -&gt; Bool)
+-&gt; (NodegroupStatus -&gt; NodegroupStatus -&gt; NodegroupStatus)
+-&gt; (NodegroupStatus -&gt; NodegroupStatus -&gt; NodegroupStatus)
+-&gt; Ord NodegroupStatus
+NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
+NodegroupStatus -&gt; NodegroupStatus -&gt; Ordering
+NodegroupStatus -&gt; NodegroupStatus -&gt; NodegroupStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NodegroupStatus -&gt; NodegroupStatus -&gt; NodegroupStatus
+$cmin :: NodegroupStatus -&gt; NodegroupStatus -&gt; NodegroupStatus
+max :: NodegroupStatus -&gt; NodegroupStatus -&gt; NodegroupStatus
+$cmax :: NodegroupStatus -&gt; NodegroupStatus -&gt; NodegroupStatus
+&gt;= :: NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
+$c&gt;= :: NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
+&gt; :: NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
+$c&gt; :: NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
+&lt;= :: NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
+$c&lt;= :: NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
+&lt; :: NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
+$c&lt; :: NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
+compare :: NodegroupStatus -&gt; NodegroupStatus -&gt; Ordering
+$ccompare :: NodegroupStatus -&gt; NodegroupStatus -&gt; Ordering
+$cp1Ord :: Eq NodegroupStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. NodegroupStatus -&gt; Rep NodegroupStatus x)
+-&gt; (forall x. Rep NodegroupStatus x -&gt; NodegroupStatus)
+-&gt; Generic NodegroupStatus
+forall x. Rep NodegroupStatus x -&gt; NodegroupStatus
+forall x. NodegroupStatus -&gt; Rep NodegroupStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NodegroupStatus x -&gt; NodegroupStatus
+$cfrom :: forall x. NodegroupStatus -&gt; Rep NodegroupStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679267408"><span id="local-6989586621679267410"><span class="annot"><span class="annottext">Int -&gt; NodegroupStatus -&gt; Int
+NodegroupStatus -&gt; Int
+(Int -&gt; NodegroupStatus -&gt; Int)
+-&gt; (NodegroupStatus -&gt; Int) -&gt; Hashable NodegroupStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NodegroupStatus -&gt; Int
+$chash :: NodegroupStatus -&gt; Int
+hashWithSalt :: Int -&gt; NodegroupStatus -&gt; Int
+$chashWithSalt :: Int -&gt; NodegroupStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679267405"><span class="annot"><span class="annottext">NodegroupStatus -&gt; ()
+(NodegroupStatus -&gt; ()) -&gt; NFData NodegroupStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NodegroupStatus -&gt; ()
+$crnf :: NodegroupStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679267402"><span class="annot"><span class="annottext">Text -&gt; Either String NodegroupStatus
+(Text -&gt; Either String NodegroupStatus) -&gt; FromText NodegroupStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NodegroupStatus
+$cfromText :: Text -&gt; Either String NodegroupStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679267399"><span class="annot"><span class="annottext">NodegroupStatus -&gt; Text
+(NodegroupStatus -&gt; Text) -&gt; ToText NodegroupStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NodegroupStatus -&gt; Text
+$ctoText :: NodegroupStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679267396"><span class="annot"><span class="annottext">NodegroupStatus -&gt; ByteString
+(NodegroupStatus -&gt; ByteString) -&gt; ToByteString NodegroupStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NodegroupStatus -&gt; ByteString
+$ctoBS :: NodegroupStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679267393"><span class="annot"><span class="annottext">NodegroupStatus -&gt; ByteStringBuilder
+(NodegroupStatus -&gt; ByteStringBuilder) -&gt; ToLog NodegroupStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NodegroupStatus -&gt; ByteStringBuilder
+$cbuild :: NodegroupStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679267390"><span class="annot"><span class="annottext">HeaderName -&gt; NodegroupStatus -&gt; [Header]
+(HeaderName -&gt; NodegroupStatus -&gt; [Header])
+-&gt; ToHeader NodegroupStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NodegroupStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NodegroupStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679267387"><span class="annot"><span class="annottext">NodegroupStatus -&gt; QueryString
+(NodegroupStatus -&gt; QueryString) -&gt; ToQuery NodegroupStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NodegroupStatus -&gt; QueryString
+$ctoQuery :: NodegroupStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679267382"><span id="local-6989586621679267384"><span class="annot"><span class="annottext">Value -&gt; Parser [NodegroupStatus]
+Value -&gt; Parser NodegroupStatus
+(Value -&gt; Parser NodegroupStatus)
+-&gt; (Value -&gt; Parser [NodegroupStatus]) -&gt; FromJSON NodegroupStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NodegroupStatus]
+$cparseJSONList :: Value -&gt; Parser [NodegroupStatus]
+parseJSON :: Value -&gt; Parser NodegroupStatus
+$cparseJSON :: Value -&gt; Parser NodegroupStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679267377"><span id="local-6989586621679267379"><span class="annot"><span class="annottext">FromJSONKeyFunction [NodegroupStatus]
+FromJSONKeyFunction NodegroupStatus
+FromJSONKeyFunction NodegroupStatus
+-&gt; FromJSONKeyFunction [NodegroupStatus]
+-&gt; FromJSONKey NodegroupStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NodegroupStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [NodegroupStatus]
+fromJSONKey :: FromJSONKeyFunction NodegroupStatus
+$cfromJSONKey :: FromJSONKeyFunction NodegroupStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679267368"><span id="local-6989586621679267370"><span id="local-6989586621679267372"><span id="local-6989586621679267374"><span class="annot"><span class="annottext">[NodegroupStatus] -&gt; Encoding
+[NodegroupStatus] -&gt; Value
+NodegroupStatus -&gt; Encoding
+NodegroupStatus -&gt; Value
+(NodegroupStatus -&gt; Value)
+-&gt; (NodegroupStatus -&gt; Encoding)
+-&gt; ([NodegroupStatus] -&gt; Value)
+-&gt; ([NodegroupStatus] -&gt; Encoding)
+-&gt; ToJSON NodegroupStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NodegroupStatus] -&gt; Encoding
+$ctoEncodingList :: [NodegroupStatus] -&gt; Encoding
+toJSONList :: [NodegroupStatus] -&gt; Value
+$ctoJSONList :: [NodegroupStatus] -&gt; Value
+toEncoding :: NodegroupStatus -&gt; Encoding
+$ctoEncoding :: NodegroupStatus -&gt; Encoding
+toJSON :: NodegroupStatus -&gt; Value
+$ctoJSON :: NodegroupStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679267363"><span id="local-6989586621679267365"><span class="annot"><span class="annottext">ToJSONKeyFunction [NodegroupStatus]
+ToJSONKeyFunction NodegroupStatus
+ToJSONKeyFunction NodegroupStatus
+-&gt; ToJSONKeyFunction [NodegroupStatus] -&gt; ToJSONKey NodegroupStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NodegroupStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [NodegroupStatus]
+toJSONKey :: ToJSONKeyFunction NodegroupStatus
+$ctoJSONKey :: ToJSONKeyFunction NodegroupStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679267360"><span class="annot"><span class="annottext">[Node] -&gt; Either String NodegroupStatus
+([Node] -&gt; Either String NodegroupStatus)
+-&gt; FromXML NodegroupStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NodegroupStatus
+$cparseXML :: [Node] -&gt; Either String NodegroupStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679267357"><span class="annot"><span class="annottext">NodegroupStatus -&gt; XML
+(NodegroupStatus -&gt; XML) -&gt; ToXML NodegroupStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NodegroupStatus -&gt; XML
+$ctoXML :: NodegroupStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_ACTIVE"><span class="hs-identifier hs-type">NodegroupStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus"><span class="hs-identifier hs-type">NodegroupStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNodegroupStatus_ACTIVE"><span id="%24mNodegroupStatus_ACTIVE"><span id="NodegroupStatus_ACTIVE"><span class="annot"><span class="annottext">$bNodegroupStatus_ACTIVE :: NodegroupStatus
+$mNodegroupStatus_ACTIVE :: forall r. NodegroupStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.NodegroupStatus.html#%24bNodegroupStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">NodegroupStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus%27"><span class="hs-identifier hs-type">NodegroupStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_CREATE_FAILED"><span class="hs-identifier hs-type">NodegroupStatus_CREATE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus"><span class="hs-identifier hs-type">NodegroupStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNodegroupStatus_CREATE_FAILED"><span id="%24mNodegroupStatus_CREATE_FAILED"><span id="NodegroupStatus_CREATE_FAILED"><span class="annot"><span class="annottext">$bNodegroupStatus_CREATE_FAILED :: NodegroupStatus
+$mNodegroupStatus_CREATE_FAILED :: forall r. NodegroupStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.NodegroupStatus.html#%24bNodegroupStatus_CREATE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">NodegroupStatus_CREATE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus%27"><span class="hs-identifier hs-type">NodegroupStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_FAILED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_CREATING"><span class="hs-identifier hs-type">NodegroupStatus_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus"><span class="hs-identifier hs-type">NodegroupStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNodegroupStatus_CREATING"><span id="%24mNodegroupStatus_CREATING"><span id="NodegroupStatus_CREATING"><span class="annot"><span class="annottext">$bNodegroupStatus_CREATING :: NodegroupStatus
+$mNodegroupStatus_CREATING :: forall r. NodegroupStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.NodegroupStatus.html#%24bNodegroupStatus_CREATING"><span class="hs-identifier hs-var hs-var hs-var">NodegroupStatus_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus%27"><span class="hs-identifier hs-type">NodegroupStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_DEGRADED"><span class="hs-identifier hs-type">NodegroupStatus_DEGRADED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus"><span class="hs-identifier hs-type">NodegroupStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNodegroupStatus_DEGRADED"><span id="%24mNodegroupStatus_DEGRADED"><span id="NodegroupStatus_DEGRADED"><span class="annot"><span class="annottext">$bNodegroupStatus_DEGRADED :: NodegroupStatus
+$mNodegroupStatus_DEGRADED :: forall r. NodegroupStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.NodegroupStatus.html#%24bNodegroupStatus_DEGRADED"><span class="hs-identifier hs-var hs-var hs-var">NodegroupStatus_DEGRADED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus%27"><span class="hs-identifier hs-type">NodegroupStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEGRADED&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_DELETE_FAILED"><span class="hs-identifier hs-type">NodegroupStatus_DELETE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus"><span class="hs-identifier hs-type">NodegroupStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNodegroupStatus_DELETE_FAILED"><span id="%24mNodegroupStatus_DELETE_FAILED"><span id="NodegroupStatus_DELETE_FAILED"><span class="annot"><span class="annottext">$bNodegroupStatus_DELETE_FAILED :: NodegroupStatus
+$mNodegroupStatus_DELETE_FAILED :: forall r. NodegroupStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.NodegroupStatus.html#%24bNodegroupStatus_DELETE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">NodegroupStatus_DELETE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus%27"><span class="hs-identifier hs-type">NodegroupStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_FAILED&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_DELETING"><span class="hs-identifier hs-type">NodegroupStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus"><span class="hs-identifier hs-type">NodegroupStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNodegroupStatus_DELETING"><span id="%24mNodegroupStatus_DELETING"><span id="NodegroupStatus_DELETING"><span class="annot"><span class="annottext">$bNodegroupStatus_DELETING :: NodegroupStatus
+$mNodegroupStatus_DELETING :: forall r. NodegroupStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.NodegroupStatus.html#%24bNodegroupStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">NodegroupStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus%27"><span class="hs-identifier hs-type">NodegroupStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_UPDATING"><span class="hs-identifier hs-type">NodegroupStatus_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus"><span class="hs-identifier hs-type">NodegroupStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNodegroupStatus_UPDATING"><span id="%24mNodegroupStatus_UPDATING"><span id="NodegroupStatus_UPDATING"><span class="annot"><span class="annottext">$bNodegroupStatus_UPDATING :: NodegroupStatus
+$mNodegroupStatus_UPDATING :: forall r. NodegroupStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.NodegroupStatus.html#%24bNodegroupStatus_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">NodegroupStatus_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus%27"><span class="hs-identifier hs-type">NodegroupStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_ACTIVE"><span class="hs-pragma hs-type">NodegroupStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_CREATE_FAILED"><span class="hs-pragma hs-type">NodegroupStatus_CREATE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_CREATING"><span class="hs-pragma hs-type">NodegroupStatus_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_DEGRADED"><span class="hs-pragma hs-type">NodegroupStatus_DEGRADED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_DELETE_FAILED"><span class="hs-pragma hs-type">NodegroupStatus_DELETE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_DELETING"><span class="hs-pragma hs-type">NodegroupStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus_UPDATING"><span class="hs-pragma hs-type">NodegroupStatus_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupStatus.html#NodegroupStatus%27"><span class="hs-pragma hs-type">NodegroupStatus'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

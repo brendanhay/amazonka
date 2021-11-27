@@ -1,0 +1,681 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">-- |</span><span>
+</span><span id="line-2"></span><span class="hs-comment">-- Module      : Amazonka.Error</span><span>
+</span><span id="line-3"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Stability   : provisional</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-8"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Error</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-9"></span><span>
+</span><span id="line-10"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Data.html"><span class="hs-identifier">Amazonka.Data</span></a></span><span>
+</span><span id="line-11"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lens.html"><span class="hs-identifier">Amazonka.Lens</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">Choice</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">Getting</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">Optic'</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">filtered</span></span><span class="hs-special">)</span><span>
+</span><span id="line-12"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Prelude.html"><span class="hs-identifier">Amazonka.Prelude</span></a></span><span>
+</span><span id="line-13"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Types.html"><span class="hs-identifier">Amazonka.Types</span></a></span><span>
+</span><span id="line-14"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.Aeson</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Aeson</span></span><span>
+</span><span id="line-15"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.Aeson.Types</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Aeson.Types</span></span><span>
+</span><span id="line-16"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.ByteString.Lazy</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">LBS</span></span><span>
+</span><span id="line-17"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.HTTP.Client</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Client</span></span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Network.HTTP.Types.Status</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">Status</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-19"></span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- | Provides a generalised prism for catching a specific service error</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- identified by the opaque service abbreviation and error code.</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This can be used if the generated error prisms provided by</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- @Amazonka.&lt;ServiceName&gt;.Types@ do not cover all the thrown error codes.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- For example to define a new error prism:</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &gt; {-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &gt;</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &gt; import Amazonka.S3 (ServiceError, s3)</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &gt; _NoSuchBucketPolicy :: AsError a =&gt; Getting (First ServiceError) a ServiceError</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &gt; _NoSuchBucketPolicy = _MatchServiceError s3 &quot;NoSuchBucketPolicy&quot;</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- With example usage being:</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &gt;&gt;&gt; import Control.Exception.Lens (trying)</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- &gt;&gt;&gt; :t trying _NoSuchBucketPolicy</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- MonadCatch m =&gt; m a -&gt; m (Either ServiceError a)</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679185220"><span class="annot"><a href="Amazonka.Error.html#_MatchServiceError"><span class="hs-identifier hs-type">_MatchServiceError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>  </span><span class="annot"><a href="Amazonka.Types.html#AsError"><span class="hs-identifier hs-type">AsError</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679185220"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-41"></span><span>  </span><span class="annot"><a href="Amazonka.Types.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-42"></span><span>  </span><span class="annot"><a href="Amazonka.Types.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-43"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">First</span></span><span> </span><span class="annot"><a href="Amazonka.Types.html#ServiceError"><span class="hs-identifier hs-type">ServiceError</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679185220"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><a href="Amazonka.Types.html#ServiceError"><span class="hs-identifier hs-type">ServiceError</span></a></span></span><span>
+</span><span id="line-44"></span><span id="_MatchServiceError"><span class="annot"><span class="annottext">_MatchServiceError :: Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.Error.html#_MatchServiceError"><span class="hs-identifier hs-var hs-var">_MatchServiceError</span></a></span></span><span> </span><span id="local-6989586621679185218"><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679185218"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185217"><span class="annot"><span class="annottext">ErrorCode
+</span><a href="#local-6989586621679185217"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+forall a. AsError a =&gt; Prism' a ServiceError
+</span><a href="Amazonka.Types.html#_ServiceError"><span class="hs-identifier hs-var">_ServiceError</span></a></span><span> </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Service -&gt; Optic' p f ServiceError ServiceError
+</span><a href="Amazonka.Error.html#hasService"><span class="hs-identifier hs-var">hasService</span></a></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679185218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="annot"><span class="annottext">((ServiceError -&gt; Const (First ServiceError) ServiceError)
+ -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><a href="Amazonka.Error.html#hasCode"><span class="hs-identifier hs-var">hasCode</span></a></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><a href="#local-6989586621679185217"><span class="hs-identifier hs-var">c</span></a></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="annot"><a href="Amazonka.Error.html#statusSuccess"><span class="hs-identifier hs-type">statusSuccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Status</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span>
+</span><span id="line-47"></span><span id="statusSuccess"><span class="annot"><span class="annottext">statusSuccess :: Status -&gt; Bool
+</span><a href="Amazonka.Error.html#statusSuccess"><span class="hs-identifier hs-var hs-var">statusSuccess</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Status -&gt; Int
+</span><span class="hs-identifier hs-var hs-var">statusCode</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span id="local-6989586621679185210"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185210"><span class="hs-identifier hs-var">n</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185210"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+forall a. Ord a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">&gt;=</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">200</span></span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Bool -&gt; Bool
+</span><span class="hs-operator hs-var">&amp;&amp;</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185210"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+forall a. Ord a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">&lt;</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679185207"><span class="annot"><a href="Amazonka.Error.html#_HttpStatus"><span class="hs-identifier hs-type">_HttpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Types.html#AsError"><span class="hs-identifier hs-type">AsError</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679185207"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Status</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679185207"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Status</span></span></span><span>
+</span><span id="line-50"></span><span id="_HttpStatus"><span class="annot"><span class="annottext">_HttpStatus :: Getting (First Status) a Status
+</span><a href="Amazonka.Error.html#_HttpStatus"><span class="hs-identifier hs-var hs-var">_HttpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Error -&gt; Const (First Status) Error)
+-&gt; a -&gt; Const (First Status) a
+forall a. AsError a =&gt; Prism' a Error
+</span><a href="Amazonka.Types.html#_Error"><span class="hs-identifier hs-var">_Error</span></a></span><span> </span><span class="annot"><span class="annottext">((Error -&gt; Const (First Status) Error)
+ -&gt; a -&gt; Const (First Status) a)
+-&gt; ((Status -&gt; Const (First Status) Status)
+    -&gt; Error -&gt; Const (First Status) Error)
+-&gt; Getting (First Status) a Status
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; Const (First Status) Status)
+-&gt; Error -&gt; Const (First Status) Error
+forall (f :: * -&gt; *).
+Applicative f =&gt;
+(Status -&gt; f Status) -&gt; Error -&gt; f Error
+</span><a href="#local-6989586621679185204"><span class="hs-identifier hs-var">f</span></a></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>    </span><span id="local-6989586621679185204"><span class="annot"><span class="annottext">f :: (Status -&gt; f Status) -&gt; Error -&gt; f Error
+</span><a href="#local-6989586621679185204"><span class="hs-identifier hs-var hs-var">f</span></a></span></span><span> </span><span id="local-6989586621679185203"><span class="annot"><span class="annottext">Status -&gt; f Status
+</span><a href="#local-6989586621679185203"><span class="hs-identifier hs-var">g</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><a href="Amazonka.Types.html#TransportError"><span class="hs-identifier hs-type">TransportError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Client.HttpExceptionRequest</span></span><span> </span><span id="local-6989586621679185200"><span class="annot"><span class="annottext">Request
+</span><a href="#local-6989586621679185200"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Client.StatusCodeException</span></span><span> </span><span id="local-6989586621679185198"><span class="annot"><span class="annottext">Response ()
+</span><a href="#local-6989586621679185198"><span class="hs-identifier hs-var">rs</span></a></span></span><span> </span><span id="local-6989586621679185197"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679185197"><span class="hs-identifier hs-var">b</span></a></span></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-54"></span><span>        </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185196"><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185196"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpException -&gt; Error
+</span><a href="Amazonka.Types.html#TransportError"><span class="hs-identifier hs-var">TransportError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request -&gt; HttpExceptionContent -&gt; HttpException
+</span><span class="hs-identifier hs-var">Client.HttpExceptionRequest</span></span><span> </span><span class="annot"><span class="annottext">Request
+</span><a href="#local-6989586621679185200"><span class="hs-identifier hs-var">rq</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Response () -&gt; ByteString -&gt; HttpExceptionContent
+</span><span class="hs-identifier hs-var">Client.StatusCodeException</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Response ()
+</span><a href="#local-6989586621679185198"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">responseStatus :: Status
+</span><span class="hs-identifier hs-var">Client.responseStatus</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185196"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">}</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679185197"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>          </span><span class="annot"><span class="annottext">(Status -&gt; Error) -&gt; f Status -&gt; f Error
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Status -&gt; f Status
+</span><a href="#local-6989586621679185203"><span class="hs-identifier hs-var">g</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Response () -&gt; Status
+forall body. Response body -&gt; Status
+</span><span class="hs-identifier hs-var hs-var">Client.responseStatus</span></span><span> </span><span class="annot"><span class="annottext">Response ()
+</span><a href="#local-6989586621679185198"><span class="hs-identifier hs-var">rs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>      </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><a href="Amazonka.Types.html#TransportError"><span class="hs-identifier hs-type">TransportError</span></a></span><span> </span><span id="local-6989586621679185193"><span class="annot"><span class="annottext">HttpException
+</span><a href="#local-6989586621679185193"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Error -&gt; f Error
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HttpException -&gt; Error
+</span><a href="Amazonka.Types.html#TransportError"><span class="hs-identifier hs-var">TransportError</span></a></span><span> </span><span class="annot"><span class="annottext">HttpException
+</span><a href="#local-6989586621679185193"><span class="hs-identifier hs-var">e</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>      </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><a href="Amazonka.Types.html#SerializeError"><span class="hs-identifier hs-type">SerializeError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Types.html#SerializeError%27"><span class="hs-identifier hs-type">SerializeError'</span></a></span><span> </span><span id="local-6989586621679185190"><span class="annot"><span class="annottext">Abbrev
+</span><a href="#local-6989586621679185190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679185189"><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185189"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185188"><span class="annot"><span class="annottext">Maybe ByteStringLazy
+</span><a href="#local-6989586621679185188"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span id="local-6989586621679185187"><span class="annot"><span class="annottext">String
+</span><a href="#local-6989586621679185187"><span class="hs-identifier hs-var">e</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>        </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185186"><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185186"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SerializeError -&gt; Error
+</span><a href="Amazonka.Types.html#SerializeError"><span class="hs-identifier hs-var">SerializeError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Abbrev
+-&gt; Status -&gt; Maybe ByteStringLazy -&gt; String -&gt; SerializeError
+</span><a href="Amazonka.Types.html#SerializeError%27"><span class="hs-identifier hs-var">SerializeError'</span></a></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><a href="#local-6989586621679185190"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185186"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ByteStringLazy
+</span><a href="#local-6989586621679185188"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">String
+</span><a href="#local-6989586621679185187"><span class="hs-identifier hs-var">e</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Status -&gt; Error) -&gt; f Status -&gt; f Error
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Status -&gt; f Status
+</span><a href="#local-6989586621679185203"><span class="hs-identifier hs-var">g</span></a></span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185189"><span class="hs-identifier hs-var">s</span></a></span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><a href="Amazonka.Types.html#ServiceError"><span class="hs-identifier hs-type">ServiceError</span></a></span><span> </span><span id="local-6989586621679185184"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679185184"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>        </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185183"><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185183"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Error
+</span><a href="Amazonka.Types.html#ServiceError"><span class="hs-identifier hs-var">ServiceError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679185184"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:_serviceErrorStatus:ServiceError' :: Status
+</span><a href="Amazonka.Types.html#%24sel%3A_serviceErrorStatus%3AServiceError%27"><span class="hs-identifier hs-var">_serviceErrorStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185183"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">}</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">(Status -&gt; Error) -&gt; f Status -&gt; f Error
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Status -&gt; f Status
+</span><a href="#local-6989586621679185203"><span class="hs-identifier hs-var">g</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ServiceError -&gt; Status
+</span><a href="Amazonka.Types.html#%24sel%3A_serviceErrorStatus%3AServiceError%27"><span class="hs-identifier hs-var hs-var">_serviceErrorStatus</span></a></span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679185184"><span class="hs-identifier hs-var">e</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span id="local-6989586621679185306"><span id="local-6989586621679185307"><span class="annot"><a href="Amazonka.Error.html#hasService"><span class="hs-identifier hs-type">hasService</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Applicative</span></span><span> </span><span class="annot"><a href="#local-6989586621679185307"><span class="hs-identifier hs-type">f</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Choice</span></span><span> </span><span class="annot"><a href="#local-6989586621679185306"><span class="hs-identifier hs-type">p</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Types.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Optic'</span></span><span> </span><span class="annot"><a href="#local-6989586621679185306"><span class="hs-identifier hs-type">p</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679185307"><span class="hs-identifier hs-type">f</span></a></span><span> </span><span class="annot"><a href="Amazonka.Types.html#ServiceError"><span class="hs-identifier hs-type">ServiceError</span></a></span><span> </span><span class="annot"><a href="Amazonka.Types.html#ServiceError"><span class="hs-identifier hs-type">ServiceError</span></a></span></span></span><span>
+</span><span id="line-71"></span><span id="hasService"><span class="annot"><span class="annottext">hasService :: Service -&gt; Optic' p f ServiceError ServiceError
+</span><a href="Amazonka.Error.html#hasService"><span class="hs-identifier hs-var hs-var">hasService</span></a></span></span><span> </span><span id="local-6989586621679185181"><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679185181"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceError -&gt; Bool) -&gt; Optic' p f ServiceError ServiceError
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) a.
+(Choice p, Applicative f) =&gt;
+(a -&gt; Bool) -&gt; Optic' p f a a
+</span><span class="hs-identifier hs-var">filtered</span></span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Service -&gt; Abbrev
+</span><a href="Amazonka.Types.html#%24sel%3A_serviceAbbrev%3AService"><span class="hs-identifier hs-var hs-var">_serviceAbbrev</span></a></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679185181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="annot"><span class="annottext">Abbrev -&gt; Abbrev -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">==</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Abbrev -&gt; Bool)
+-&gt; (ServiceError -&gt; Abbrev) -&gt; ServiceError -&gt; Bool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Abbrev
+</span><a href="Amazonka.Types.html#%24sel%3A_serviceErrorAbbrev%3AServiceError%27"><span class="hs-identifier hs-var hs-var">_serviceErrorAbbrev</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span id="local-6989586621679185177"><span id="local-6989586621679185178"><span class="annot"><a href="Amazonka.Error.html#hasStatus"><span class="hs-identifier hs-type">hasStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Applicative</span></span><span> </span><span class="annot"><a href="#local-6989586621679185178"><span class="hs-identifier hs-type">f</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Choice</span></span><span> </span><span class="annot"><a href="#local-6989586621679185177"><span class="hs-identifier hs-type">p</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Optic'</span></span><span> </span><span class="annot"><a href="#local-6989586621679185177"><span class="hs-identifier hs-type">p</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679185178"><span class="hs-identifier hs-type">f</span></a></span><span> </span><span class="annot"><a href="Amazonka.Types.html#ServiceError"><span class="hs-identifier hs-type">ServiceError</span></a></span><span> </span><span class="annot"><a href="Amazonka.Types.html#ServiceError"><span class="hs-identifier hs-type">ServiceError</span></a></span></span></span><span>
+</span><span id="line-77"></span><span id="hasStatus"><span class="annot"><span class="annottext">hasStatus :: Int -&gt; Optic' p f ServiceError ServiceError
+</span><a href="Amazonka.Error.html#hasStatus"><span class="hs-identifier hs-var hs-var">hasStatus</span></a></span></span><span> </span><span id="local-6989586621679185175"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185175"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceError -&gt; Bool) -&gt; Optic' p f ServiceError ServiceError
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) a.
+(Choice p, Applicative f) =&gt;
+(a -&gt; Bool) -&gt; Optic' p f a a
+</span><span class="hs-identifier hs-var">filtered</span></span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185175"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">==</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Bool) -&gt; (ServiceError -&gt; Int) -&gt; ServiceError -&gt; Bool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Status -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">fromEnum</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; Int) -&gt; (ServiceError -&gt; Status) -&gt; ServiceError -&gt; Int
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Status
+</span><a href="Amazonka.Types.html#%24sel%3A_serviceErrorStatus%3AServiceError%27"><span class="hs-identifier hs-var hs-var">_serviceErrorStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span id="local-6989586621679185302"><span id="local-6989586621679185303"><span class="annot"><a href="Amazonka.Error.html#hasCode"><span class="hs-identifier hs-type">hasCode</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Applicative</span></span><span> </span><span class="annot"><a href="#local-6989586621679185303"><span class="hs-identifier hs-type">f</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Choice</span></span><span> </span><span class="annot"><a href="#local-6989586621679185302"><span class="hs-identifier hs-type">p</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.Types.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Optic'</span></span><span> </span><span class="annot"><a href="#local-6989586621679185302"><span class="hs-identifier hs-type">p</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679185303"><span class="hs-identifier hs-type">f</span></a></span><span> </span><span class="annot"><a href="Amazonka.Types.html#ServiceError"><span class="hs-identifier hs-type">ServiceError</span></a></span><span> </span><span class="annot"><a href="Amazonka.Types.html#ServiceError"><span class="hs-identifier hs-type">ServiceError</span></a></span></span></span><span>
+</span><span id="line-83"></span><span id="hasCode"><span class="annot"><span class="annottext">hasCode :: ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><a href="Amazonka.Error.html#hasCode"><span class="hs-identifier hs-var hs-var">hasCode</span></a></span></span><span> </span><span id="local-6989586621679185173"><span class="annot"><span class="annottext">ErrorCode
+</span><a href="#local-6989586621679185173"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceError -&gt; Bool) -&gt; Optic' p f ServiceError ServiceError
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) a.
+(Choice p, Applicative f) =&gt;
+(a -&gt; Bool) -&gt; Optic' p f a a
+</span><span class="hs-identifier hs-var">filtered</span></span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">ErrorCode
+</span><a href="#local-6989586621679185173"><span class="hs-identifier hs-var">c</span></a></span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; ErrorCode -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">==</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ErrorCode -&gt; Bool)
+-&gt; (ServiceError -&gt; ErrorCode) -&gt; ServiceError -&gt; Bool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; ErrorCode
+</span><a href="Amazonka.Types.html#%24sel%3A_serviceErrorCode%3AServiceError%27"><span class="hs-identifier hs-var hs-var">_serviceErrorCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.Error.html#serviceError"><span class="hs-identifier hs-type">serviceError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.Types.html#Abbrev"><span class="hs-identifier hs-type">Abbrev</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Status</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Types.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Types.html#ErrorMessage"><span class="hs-identifier hs-type">ErrorMessage</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Types.html#RequestId"><span class="hs-identifier hs-type">RequestId</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.Types.html#ServiceError"><span class="hs-identifier hs-type">ServiceError</span></a></span><span>
+</span><span id="line-93"></span><span id="serviceError"><span class="annot"><span class="annottext">serviceError :: Abbrev
+-&gt; Status
+-&gt; [Header]
+-&gt; Maybe ErrorCode
+-&gt; Maybe ErrorMessage
+-&gt; Maybe RequestId
+-&gt; ServiceError
+</span><a href="Amazonka.Error.html#serviceError"><span class="hs-identifier hs-var hs-var">serviceError</span></a></span></span><span> </span><span id="local-6989586621679185170"><span class="annot"><span class="annottext">Abbrev
+</span><a href="#local-6989586621679185170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679185169"><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185169"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185168"><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185168"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185167"><span class="annot"><span class="annottext">Maybe ErrorCode
+</span><a href="#local-6989586621679185167"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span id="local-6989586621679185166"><span class="annot"><span class="annottext">Maybe ErrorMessage
+</span><a href="#local-6989586621679185166"><span class="hs-identifier hs-var">m</span></a></span></span><span> </span><span id="local-6989586621679185165"><span class="annot"><span class="annottext">Maybe RequestId
+</span><a href="#local-6989586621679185165"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">Abbrev
+-&gt; Status
+-&gt; [Header]
+-&gt; ErrorCode
+-&gt; Maybe ErrorMessage
+-&gt; Maybe RequestId
+-&gt; ServiceError
+</span><a href="Amazonka.Types.html#ServiceError%27"><span class="hs-identifier hs-var">ServiceError'</span></a></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><a href="#local-6989586621679185170"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185168"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ErrorCode -&gt; Maybe ErrorCode -&gt; ErrorCode
+forall a. a -&gt; Maybe a -&gt; a
+</span><span class="hs-identifier hs-var">fromMaybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Status -&gt; [Header] -&gt; ErrorCode
+</span><a href="Amazonka.Error.html#getErrorCode"><span class="hs-identifier hs-var">getErrorCode</span></a></span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185168"><span class="hs-identifier hs-var">h</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorCode
+</span><a href="#local-6989586621679185167"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorMessage
+</span><a href="#local-6989586621679185166"><span class="hs-identifier hs-var">m</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Maybe RequestId
+</span><a href="#local-6989586621679185165"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe RequestId -&gt; Maybe RequestId -&gt; Maybe RequestId
+forall (f :: * -&gt; *) a. Alternative f =&gt; f a -&gt; f a -&gt; f a
+</span><span class="hs-operator hs-var">&lt;|&gt;</span></span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; Maybe RequestId
+</span><a href="Amazonka.Error.html#getRequestId"><span class="hs-identifier hs-var">getRequestId</span></a></span><span> </span><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185168"><span class="hs-identifier hs-var">h</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.Error.html#getRequestId"><span class="hs-identifier hs-type">getRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Types.html#RequestId"><span class="hs-identifier hs-type">RequestId</span></a></span><span>
+</span><span id="line-97"></span><span id="getRequestId"><span class="annot"><span class="annottext">getRequestId :: [Header] -&gt; Maybe RequestId
+</span><a href="Amazonka.Error.html#getRequestId"><span class="hs-identifier hs-var hs-var">getRequestId</span></a></span></span><span> </span><span id="local-6989586621679185159"><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185159"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">(String -&gt; Maybe RequestId)
+-&gt; (RequestId -&gt; Maybe RequestId)
+-&gt; Either String RequestId
+-&gt; Maybe RequestId
+forall a c b. (a -&gt; c) -&gt; (b -&gt; c) -&gt; Either a b -&gt; c
+</span><span class="hs-identifier hs-var">either</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Maybe RequestId -&gt; String -&gt; Maybe RequestId
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">const</span></span><span> </span><span class="annot"><span class="annottext">Maybe RequestId
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Nothing</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">RequestId -&gt; Maybe RequestId
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185159"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; HeaderName -&gt; Either String RequestId
+forall a. FromText a =&gt; [Header] -&gt; HeaderName -&gt; Either String a
+</span><a href="Amazonka.Data.Headers.html#.%23"><span class="hs-operator hs-var">.#</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZRequestId"><span class="hs-identifier hs-var">hAMZRequestId</span></a></span><span> </span><span class="annot"><span class="annottext">Either String RequestId
+-&gt; Either String RequestId -&gt; Either String RequestId
+forall (f :: * -&gt; *) a. Alternative f =&gt; f a -&gt; f a -&gt; f a
+</span><span class="hs-operator hs-var">&lt;|&gt;</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185159"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; HeaderName -&gt; Either String RequestId
+forall a. FromText a =&gt; [Header] -&gt; HeaderName -&gt; Either String a
+</span><a href="Amazonka.Data.Headers.html#.%23"><span class="hs-operator hs-var">.#</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZNRequestId"><span class="hs-identifier hs-var">hAMZNRequestId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.Error.html#getErrorCode"><span class="hs-identifier hs-type">getErrorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Status</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Amazonka.Types.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-101"></span><span id="getErrorCode"><span class="annot"><span class="annottext">getErrorCode :: Status -&gt; [Header] -&gt; ErrorCode
+</span><a href="Amazonka.Error.html#getErrorCode"><span class="hs-identifier hs-var hs-var">getErrorCode</span></a></span></span><span> </span><span id="local-6989586621679185153"><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185153"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185152"><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185152"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185152"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; HeaderName -&gt; Either String Text
+forall a. FromText a =&gt; [Header] -&gt; HeaderName -&gt; Either String a
+</span><a href="Amazonka.Data.Headers.html#.%23"><span class="hs-operator hs-var">.#</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZNErrorType"><span class="hs-identifier hs-var">hAMZNErrorType</span></a></span><span> </span><span class="hs-keyword">of</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">Left</span></span><span> </span><span class="annot"><span class="annottext">String
+</span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ErrorCode
+</span><a href="Amazonka.Types.html#newErrorCode"><span class="hs-identifier hs-var">newErrorCode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; Text
+forall a. ToText a =&gt; a -&gt; Text
+</span><a href="Amazonka.Data.Text.html#toText"><span class="hs-identifier hs-var">toText</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Status -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var">statusMessage</span></span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185153"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">Right</span></span><span> </span><span id="local-6989586621679185147"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185147"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ErrorCode
+</span><a href="Amazonka.Types.html#newErrorCode"><span class="hs-identifier hs-var">newErrorCode</span></a></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185147"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.Error.html#parseJSONError"><span class="hs-identifier hs-type">parseJSONError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.Types.html#Abbrev"><span class="hs-identifier hs-type">Abbrev</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Status</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.Prelude.html#ByteStringLazy"><span class="hs-identifier hs-type">ByteStringLazy</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.Types.html#Error"><span class="hs-identifier hs-type">Error</span></a></span><span>
+</span><span id="line-112"></span><span id="parseJSONError"><span class="annot"><span class="annottext">parseJSONError :: Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><a href="Amazonka.Error.html#parseJSONError"><span class="hs-identifier hs-var hs-var">parseJSONError</span></a></span></span><span> </span><span id="local-6989586621679185145"><span class="annot"><span class="annottext">Abbrev
+</span><a href="#local-6989586621679185145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679185144"><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185144"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185143"><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185143"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185142"><span class="annot"><span class="annottext">ByteStringLazy
+</span><a href="#local-6989586621679185142"><span class="hs-identifier hs-var">bs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">Abbrev
+-&gt; Status
+-&gt; [Header]
+-&gt; ByteStringLazy
+-&gt; Either String ServiceError
+-&gt; Error
+</span><a href="Amazonka.Error.html#decodeError"><span class="hs-identifier hs-var">decodeError</span></a></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><a href="#local-6989586621679185145"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185143"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringLazy
+</span><a href="#local-6989586621679185142"><span class="hs-identifier hs-var">bs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteStringLazy -&gt; Either String ServiceError
+</span><a href="#local-6989586621679185140"><span class="hs-identifier hs-var">parse</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringLazy
+</span><a href="#local-6989586621679185142"><span class="hs-identifier hs-var">bs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>    </span><span id="local-6989586621679185140"><span class="annot"><span class="annottext">parse :: ByteStringLazy -&gt; Either String ServiceError
+</span><a href="#local-6989586621679185140"><span class="hs-identifier hs-var hs-var">parse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">ByteStringLazy -&gt; Either String Value
+forall a. FromJSON a =&gt; ByteStringLazy -&gt; Either String a
+</span><span class="hs-identifier hs-var">eitherDecode'</span></span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">(ByteStringLazy -&gt; Either String Value)
+-&gt; (Value -&gt; Either String ServiceError)
+-&gt; ByteStringLazy
+-&gt; Either String ServiceError
+forall (m :: * -&gt; *) a b c.
+Monad m =&gt;
+(a -&gt; m b) -&gt; (b -&gt; m c) -&gt; a -&gt; m c
+</span><span class="hs-operator hs-var">&gt;=&gt;</span></span><span> </span><span class="annot"><span class="annottext">(Value -&gt; Parser ServiceError)
+-&gt; Value -&gt; Either String ServiceError
+forall a b. (a -&gt; Parser b) -&gt; a -&gt; Either String b
+</span><span class="hs-identifier hs-var">Aeson.Types.parseEither</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ServiceError) -&gt; Value -&gt; Parser ServiceError
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Aeson.withObject</span></span><span> </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;JSONError&quot;</span></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Parser ServiceError
+</span><a href="#local-6989586621679185135"><span class="hs-identifier hs-var">go</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span>    </span><span id="local-6989586621679185135"><span class="annot"><span class="annottext">go :: Object -&gt; Parser ServiceError
+</span><a href="#local-6989586621679185135"><span class="hs-identifier hs-var hs-var">go</span></a></span></span><span> </span><span id="local-6989586621679185134"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185134"><span class="hs-identifier hs-var">o</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
+</span><span id="line-120"></span><span>      </span><span id="local-6989586621679185133"><span class="annot"><span class="annottext">Maybe ErrorCode
+</span><a href="#local-6989586621679185133"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ErrorCode -&gt; Maybe ErrorCode
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">(ErrorCode -&gt; Maybe ErrorCode)
+-&gt; Parser ErrorCode -&gt; Parser (Maybe ErrorCode)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185134"><span class="hs-identifier hs-var">o</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ErrorCode
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">.:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;__type&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe ErrorCode)
+-&gt; Parser (Maybe ErrorCode) -&gt; Parser (Maybe ErrorCode)
+forall (f :: * -&gt; *) a. Alternative f =&gt; f a -&gt; f a -&gt; f a
+</span><span class="hs-operator hs-var">&lt;|&gt;</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185134"><span class="hs-identifier hs-var">o</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ErrorCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">.:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;code&quot;</span></span><span>
+</span><span id="line-121"></span><span>      </span><span id="local-6989586621679185130"><span class="annot"><span class="annottext">Maybe ErrorMessage
+</span><a href="#local-6989586621679185130"><span class="hs-identifier hs-var">m</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorCode -&gt; Object -&gt; Parser (Maybe ErrorMessage)
+forall a a.
+(Eq a, IsString a, IsString a, FromJSON a) =&gt;
+Maybe a -&gt; Object -&gt; Parser (Maybe a)
+</span><a href="#local-6989586621679185129"><span class="hs-identifier hs-var">msg</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ErrorCode
+</span><a href="#local-6989586621679185133"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185134"><span class="hs-identifier hs-var">o</span></a></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">ServiceError -&gt; Parser ServiceError
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Abbrev
+-&gt; Status
+-&gt; [Header]
+-&gt; Maybe ErrorCode
+-&gt; Maybe ErrorMessage
+-&gt; Maybe RequestId
+-&gt; ServiceError
+</span><a href="Amazonka.Error.html#serviceError"><span class="hs-identifier hs-var">serviceError</span></a></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><a href="#local-6989586621679185145"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185143"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ErrorCode
+</span><a href="#local-6989586621679185133"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ErrorMessage
+</span><a href="#local-6989586621679185130"><span class="hs-identifier hs-var">m</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe RequestId
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Nothing</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span>    </span><span id="local-6989586621679185129"><span class="annot"><span class="annottext">msg :: Maybe a -&gt; Object -&gt; Parser (Maybe a)
+</span><a href="#local-6989586621679185129"><span class="hs-identifier hs-var hs-var">msg</span></a></span></span><span> </span><span id="local-6989586621679185128"><span class="annot"><span class="annottext">Maybe a
+</span><a href="#local-6989586621679185128"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span id="local-6989586621679185127"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185127"><span class="hs-identifier hs-var">o</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-keyword">if</span><span> </span><span class="annot"><span class="annottext">Maybe a
+</span><a href="#local-6989586621679185128"><span class="hs-identifier hs-var">c</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe a -&gt; Maybe a -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;RequestEntityTooLarge&quot;</span></span><span>
+</span><span id="line-127"></span><span>        </span><span class="hs-keyword">then</span><span> </span><span class="annot"><span class="annottext">Maybe a -&gt; Parser (Maybe a)
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;Request body must be less than 1 MB&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>        </span><span class="hs-keyword">else</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">(a -&gt; Maybe a) -&gt; Parser a -&gt; Parser (Maybe a)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185127"><span class="hs-identifier hs-var">o</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser a
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">.:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe a) -&gt; Parser (Maybe a) -&gt; Parser (Maybe a)
+forall (f :: * -&gt; *) a. Alternative f =&gt; f a -&gt; f a -&gt; f a
+</span><span class="hs-operator hs-var">&lt;|&gt;</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185127"><span class="hs-identifier hs-var">o</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe a)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">.:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Message&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.Error.html#parseXMLError"><span class="hs-identifier hs-type">parseXMLError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.Types.html#Abbrev"><span class="hs-identifier hs-type">Abbrev</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Status</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.Prelude.html#ByteStringLazy"><span class="hs-identifier hs-type">ByteStringLazy</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Amazonka.Types.html#Error"><span class="hs-identifier hs-type">Error</span></a></span><span>
+</span><span id="line-138"></span><span id="parseXMLError"><span class="annot"><span class="annottext">parseXMLError :: Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><a href="Amazonka.Error.html#parseXMLError"><span class="hs-identifier hs-var hs-var">parseXMLError</span></a></span></span><span> </span><span id="local-6989586621679185125"><span class="annot"><span class="annottext">Abbrev
+</span><a href="#local-6989586621679185125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679185124"><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185124"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185123"><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185123"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185122"><span class="annot"><span class="annottext">ByteStringLazy
+</span><a href="#local-6989586621679185122"><span class="hs-identifier hs-var">bs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+-&gt; Status
+-&gt; [Header]
+-&gt; ByteStringLazy
+-&gt; Either String ServiceError
+-&gt; Error
+</span><a href="Amazonka.Error.html#decodeError"><span class="hs-identifier hs-var">decodeError</span></a></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><a href="#local-6989586621679185125"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185123"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringLazy
+</span><a href="#local-6989586621679185122"><span class="hs-identifier hs-var">bs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteStringLazy -&gt; Either String [Node]
+forall a. FromXML a =&gt; ByteStringLazy -&gt; Either String a
+</span><a href="Amazonka.Data.XML.html#decodeXML"><span class="hs-identifier hs-var">decodeXML</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringLazy
+</span><a href="#local-6989586621679185122"><span class="hs-identifier hs-var">bs</span></a></span><span> </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String ServiceError)
+-&gt; Either String ServiceError
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceError
+</span><a href="#local-6989586621679185120"><span class="hs-identifier hs-var">go</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>    </span><span id="local-6989586621679185120"><span class="annot"><span class="annottext">go :: [Node] -&gt; Either String ServiceError
+</span><a href="#local-6989586621679185120"><span class="hs-identifier hs-var hs-var">go</span></a></span></span><span> </span><span id="local-6989586621679185119"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679185119"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">Abbrev
+-&gt; Status
+-&gt; [Header]
+-&gt; Maybe ErrorCode
+-&gt; Maybe ErrorMessage
+-&gt; Maybe RequestId
+-&gt; ServiceError
+</span><a href="Amazonka.Error.html#serviceError"><span class="hs-identifier hs-var">serviceError</span></a></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><a href="#local-6989586621679185125"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185123"><span class="hs-identifier hs-var">h</span></a></span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">(Maybe ErrorCode
+ -&gt; Maybe ErrorMessage -&gt; Maybe RequestId -&gt; ServiceError)
+-&gt; Either String (Maybe ErrorCode)
+-&gt; Either
+     String (Maybe ErrorMessage -&gt; Maybe RequestId -&gt; ServiceError)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe ErrorCode)
+</span><a href="#local-6989586621679185118"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679185119"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Either
+  String (Maybe ErrorMessage -&gt; Maybe RequestId -&gt; ServiceError)
+-&gt; Either String (Maybe ErrorMessage)
+-&gt; Either String (Maybe RequestId -&gt; ServiceError)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">&lt;*&gt;</span></span><span> </span><span class="annot"><span class="annottext">Either String [Node] -&gt; Either String (Maybe ErrorMessage)
+forall a a. FromXML a =&gt; Either a [Node] -&gt; Either String (Maybe a)
+</span><a href="#local-6989586621679185117"><span class="hs-identifier hs-var">may'</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Node]
+</span><a href="Amazonka.Data.XML.html#firstElement"><span class="hs-identifier hs-var">firstElement</span></a></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Message&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679185119"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">Either String (Maybe RequestId -&gt; ServiceError)
+-&gt; Either String (Maybe RequestId) -&gt; Either String ServiceError
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">&lt;*&gt;</span></span><span> </span><span class="annot"><span class="annottext">Either String [Node] -&gt; Either String (Maybe RequestId)
+forall a a. FromXML a =&gt; Either a [Node] -&gt; Either String (Maybe a)
+</span><a href="#local-6989586621679185117"><span class="hs-identifier hs-var">may'</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Node]
+</span><a href="Amazonka.Data.XML.html#firstElement"><span class="hs-identifier hs-var">firstElement</span></a></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679185119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; Either String [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Alternative f =&gt; f a -&gt; f a -&gt; f a
+</span><span class="hs-operator hs-var">&lt;|&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Node]
+</span><a href="Amazonka.Data.XML.html#firstElement"><span class="hs-identifier hs-var">firstElement</span></a></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestID&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679185119"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span>    </span><span id="local-6989586621679185118"><span class="annot"><span class="annottext">code :: [Node] -&gt; Either String (Maybe ErrorCode)
+</span><a href="#local-6989586621679185118"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span id="local-6989586621679185115"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679185115"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">ErrorCode -&gt; Maybe ErrorCode
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">(ErrorCode -&gt; Maybe ErrorCode)
+-&gt; Either String ErrorCode -&gt; Either String (Maybe ErrorCode)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Node]
+</span><a href="Amazonka.Data.XML.html#firstElement"><span class="hs-identifier hs-var">firstElement</span></a></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Code&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679185115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String ErrorCode) -&gt; Either String ErrorCode
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String ErrorCode
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><a href="Amazonka.Data.XML.html#parseXML"><span class="hs-identifier hs-var">parseXML</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">Either String (Maybe ErrorCode)
+-&gt; Either String (Maybe ErrorCode)
+-&gt; Either String (Maybe ErrorCode)
+forall (f :: * -&gt; *) a. Alternative f =&gt; f a -&gt; f a -&gt; f a
+</span><span class="hs-operator hs-var">&lt;|&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ErrorCode -&gt; Either String (Maybe ErrorCode)
+forall (m :: * -&gt; *) a. Monad m =&gt; a -&gt; m a
+</span><span class="hs-identifier hs-var">return</span></span><span> </span><span class="annot"><span class="annottext">Maybe ErrorCode
+</span><a href="#local-6989586621679185113"><span class="hs-identifier hs-var">root</span></a></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span>    </span><span id="local-6989586621679185113"><span class="annot"><span class="annottext">root :: Maybe ErrorCode
+</span><a href="#local-6989586621679185113"><span class="hs-identifier hs-var hs-var">root</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ErrorCode
+</span><a href="Amazonka.Types.html#newErrorCode"><span class="hs-identifier hs-var">newErrorCode</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; ErrorCode) -&gt; Maybe Text -&gt; Maybe ErrorCode
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringLazy -&gt; Maybe Text
+</span><a href="Amazonka.Data.XML.html#rootElementName"><span class="hs-identifier hs-var">rootElementName</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringLazy
+</span><a href="#local-6989586621679185122"><span class="hs-identifier hs-var">bs</span></a></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span>    </span><span id="local-6989586621679185117"><span class="annot"><span class="annottext">may' :: Either a [Node] -&gt; Either String (Maybe a)
+</span><a href="#local-6989586621679185117"><span class="hs-identifier hs-var hs-var">may'</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Left</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-identifier">_</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a -&gt; Either String (Maybe a)
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Nothing</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="#local-6989586621679185117"><span class="hs-identifier hs-var">may'</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Right</span></span><span> </span><span id="local-6989586621679185111"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679185111"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">(a -&gt; Maybe a) -&gt; Either String a -&gt; Either String (Maybe a)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String a
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><a href="Amazonka.Data.XML.html#parseXML"><span class="hs-identifier hs-var">parseXML</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679185111"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span id="local-6989586621679185222"><span class="annot"><a href="Amazonka.Error.html#parseRESTError"><span class="hs-identifier hs-type">parseRESTError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.Types.html#Abbrev"><span class="hs-identifier hs-type">Abbrev</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Status</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="#local-6989586621679185222"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.Types.html#Error"><span class="hs-identifier hs-type">Error</span></a></span></span><span>
+</span><span id="line-161"></span><span id="parseRESTError"><span class="annot"><span class="annottext">parseRESTError :: Abbrev -&gt; Status -&gt; [Header] -&gt; a -&gt; Error
+</span><a href="Amazonka.Error.html#parseRESTError"><span class="hs-identifier hs-var hs-var">parseRESTError</span></a></span></span><span> </span><span id="local-6989586621679185109"><span class="annot"><span class="annottext">Abbrev
+</span><a href="#local-6989586621679185109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679185108"><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185108"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185107"><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185107"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">ServiceError -&gt; Error
+</span><a href="Amazonka.Types.html#ServiceError"><span class="hs-identifier hs-var">ServiceError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Abbrev
+-&gt; Status
+-&gt; [Header]
+-&gt; Maybe ErrorCode
+-&gt; Maybe ErrorMessage
+-&gt; Maybe RequestId
+-&gt; ServiceError
+</span><a href="Amazonka.Error.html#serviceError"><span class="hs-identifier hs-var">serviceError</span></a></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><a href="#local-6989586621679185109"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185107"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ErrorCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Nothing</span></span><span> </span><span class="annot"><span class="annottext">Maybe ErrorMessage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Nothing</span></span><span> </span><span class="annot"><span class="annottext">Maybe RequestId
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Nothing</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.Error.html#decodeError"><span class="hs-identifier hs-type">decodeError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Amazonka.Types.html#Abbrev"><span class="hs-identifier hs-type">Abbrev</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Status</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Amazonka.Prelude.html#ByteStringLazy"><span class="hs-identifier hs-type">ByteStringLazy</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span> </span><span class="annot"><a href="Amazonka.Types.html#ServiceError"><span class="hs-identifier hs-type">ServiceError</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Amazonka.Types.html#Error"><span class="hs-identifier hs-type">Error</span></a></span><span>
+</span><span id="line-171"></span><span id="decodeError"><span class="annot"><span class="annottext">decodeError :: Abbrev
+-&gt; Status
+-&gt; [Header]
+-&gt; ByteStringLazy
+-&gt; Either String ServiceError
+-&gt; Error
+</span><a href="Amazonka.Error.html#decodeError"><span class="hs-identifier hs-var hs-var">decodeError</span></a></span></span><span> </span><span id="local-6989586621679185106"><span class="annot"><span class="annottext">Abbrev
+</span><a href="#local-6989586621679185106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679185105"><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185105"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185104"><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185104"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185103"><span class="annot"><span class="annottext">ByteStringLazy
+</span><a href="#local-6989586621679185103"><span class="hs-identifier hs-var">bs</span></a></span></span><span> </span><span id="local-6989586621679185102"><span class="annot"><span class="annottext">Either String ServiceError
+</span><a href="#local-6989586621679185102"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">ByteStringLazy -&gt; Bool
+</span><span class="hs-identifier hs-var">LBS.null</span></span><span> </span><span class="annot"><span class="annottext">ByteStringLazy
+</span><a href="#local-6989586621679185103"><span class="hs-identifier hs-var">bs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+forall a. Abbrev -&gt; Status -&gt; [Header] -&gt; a -&gt; Error
+</span><a href="Amazonka.Error.html#parseRESTError"><span class="hs-identifier hs-var">parseRESTError</span></a></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><a href="#local-6989586621679185106"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679185104"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringLazy
+</span><a href="#local-6989586621679185103"><span class="hs-identifier hs-var">bs</span></a></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">(String -&gt; Error)
+-&gt; (ServiceError -&gt; Error) -&gt; Either String ServiceError -&gt; Error
+forall a c b. (a -&gt; c) -&gt; (b -&gt; c) -&gt; Either a b -&gt; c
+</span><span class="hs-identifier hs-var">either</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">SerializeError -&gt; Error
+</span><a href="Amazonka.Types.html#SerializeError"><span class="hs-identifier hs-var">SerializeError</span></a></span><span> </span><span class="annot"><span class="annottext">(SerializeError -&gt; Error)
+-&gt; (String -&gt; SerializeError) -&gt; String -&gt; Error
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+-&gt; Status -&gt; Maybe ByteStringLazy -&gt; String -&gt; SerializeError
+</span><a href="Amazonka.Types.html#SerializeError%27"><span class="hs-identifier hs-var">SerializeError'</span></a></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><a href="#local-6989586621679185106"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679185105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteStringLazy -&gt; Maybe ByteStringLazy
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">ByteStringLazy
+</span><a href="#local-6989586621679185103"><span class="hs-identifier hs-var">bs</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">ServiceError -&gt; Error
+</span><a href="Amazonka.Types.html#ServiceError"><span class="hs-identifier hs-var">ServiceError</span></a></span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">Either String ServiceError
+</span><a href="#local-6989586621679185102"><span class="hs-identifier hs-var">e</span></a></span><span>
+</span><span id="line-178"></span></pre></body></html>

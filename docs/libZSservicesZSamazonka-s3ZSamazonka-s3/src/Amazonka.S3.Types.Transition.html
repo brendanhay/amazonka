@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.S3.Types.Transition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.Types.Transition</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html"><span class="hs-identifier">Amazonka.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html"><span class="hs-identifier">Amazonka.S3.Types.TransitionStorageClass</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Specifies when an object transitions to a specified storage class. For</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- more information about Amazon S3 lifecycle configuration rules, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html Transitioning Objects Using Amazon S3 Lifecycle&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newTransition' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679557941"><span id="local-6989586621679557942"></span></span><span class="hs-keyword">data</span><span> </span><span id="Transition"><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-var">Transition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Transition%27"><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-var">Transition'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates the number of days after creation when objects are</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- transitioned to the specified storage class. The value must be a</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- positive integer.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Adays%3ATransition%27"><span class="annot"><span class="annottext">Transition -&gt; Maybe Int
+</span><a href="Amazonka.S3.Types.Transition.html#%24sel%3Adays%3ATransition%27"><span class="hs-identifier hs-var hs-var">days</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Indicates when objects are transitioned to the specified storage class.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- The date value must be in ISO 8601 format. The time is always midnight</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- UTC.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Adate%3ATransition%27"><span class="annot"><span class="annottext">Transition -&gt; Maybe ISO8601
+</span><a href="Amazonka.S3.Types.Transition.html#%24sel%3Adate%3ATransition%27"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The storage class to which you want the object to transition.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AstorageClass%3ATransition%27"><span class="annot"><span class="annottext">Transition -&gt; Maybe TransitionStorageClass
+</span><a href="Amazonka.S3.Types.Transition.html#%24sel%3AstorageClass%3ATransition%27"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass"><span class="hs-identifier hs-type">TransitionStorageClass</span></a></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679557933"><span id="local-6989586621679557935"><span class="annot"><span class="annottext">Transition -&gt; Transition -&gt; Bool
+(Transition -&gt; Transition -&gt; Bool)
+-&gt; (Transition -&gt; Transition -&gt; Bool) -&gt; Eq Transition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Transition -&gt; Transition -&gt; Bool
+$c/= :: Transition -&gt; Transition -&gt; Bool
+== :: Transition -&gt; Transition -&gt; Bool
+$c== :: Transition -&gt; Transition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557924"><span id="local-6989586621679557926"><span id="local-6989586621679557928"><span id="local-6989586621679557930"><span class="annot"><span class="annottext">ReadPrec [Transition]
+ReadPrec Transition
+Int -&gt; ReadS Transition
+ReadS [Transition]
+(Int -&gt; ReadS Transition)
+-&gt; ReadS [Transition]
+-&gt; ReadPrec Transition
+-&gt; ReadPrec [Transition]
+-&gt; Read Transition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Transition]
+$creadListPrec :: ReadPrec [Transition]
+readPrec :: ReadPrec Transition
+$creadPrec :: ReadPrec Transition
+readList :: ReadS [Transition]
+$creadList :: ReadS [Transition]
+readsPrec :: Int -&gt; ReadS Transition
+$creadsPrec :: Int -&gt; ReadS Transition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557917"><span id="local-6989586621679557919"><span id="local-6989586621679557921"><span class="annot"><span class="annottext">Int -&gt; Transition -&gt; ShowS
+[Transition] -&gt; ShowS
+Transition -&gt; String
+(Int -&gt; Transition -&gt; ShowS)
+-&gt; (Transition -&gt; String)
+-&gt; ([Transition] -&gt; ShowS)
+-&gt; Show Transition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Transition] -&gt; ShowS
+$cshowList :: [Transition] -&gt; ShowS
+show :: Transition -&gt; String
+$cshow :: Transition -&gt; String
+showsPrec :: Int -&gt; Transition -&gt; ShowS
+$cshowsPrec :: Int -&gt; Transition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Transition -&gt; Rep Transition x)
+-&gt; (forall x. Rep Transition x -&gt; Transition) -&gt; Generic Transition
+forall x. Rep Transition x -&gt; Transition
+forall x. Transition -&gt; Rep Transition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Transition x -&gt; Transition
+$cfrom :: forall x. Transition -&gt; Rep Transition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'Transition' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'days', 'transition_days' - Indicates the number of days after creation when objects are</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- transitioned to the specified storage class. The value must be a</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- positive integer.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'date', 'transition_date' - Indicates when objects are transitioned to the specified storage class.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The date value must be in ISO 8601 format. The time is always midnight</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- UTC.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'storageClass', 'transition_storageClass' - The storage class to which you want the object to transition.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#newTransition"><span class="hs-identifier hs-type">newTransition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span>
+</span><span id="line-67"></span><span id="newTransition"><span class="annot"><span class="annottext">newTransition :: Transition
+</span><a href="Amazonka.S3.Types.Transition.html#newTransition"><span class="hs-identifier hs-var hs-var">newTransition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">Transition' :: Maybe Int
+-&gt; Maybe ISO8601 -&gt; Maybe TransitionStorageClass -&gt; Transition
+</span><a href="Amazonka.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:days:Transition' :: Maybe Int
+</span><a href="Amazonka.S3.Types.Transition.html#%24sel%3Adays%3ATransition%27"><span class="hs-identifier hs-var">days</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:date:Transition' :: Maybe ISO8601
+</span><a href="Amazonka.S3.Types.Transition.html#%24sel%3Adate%3ATransition%27"><span class="hs-identifier hs-var">date</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageClass:Transition' :: Maybe TransitionStorageClass
+</span><a href="Amazonka.S3.Types.Transition.html#%24sel%3AstorageClass%3ATransition%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitionStorageClass
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | Indicates the number of days after creation when objects are</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- transitioned to the specified storage class. The value must be a</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- positive integer.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#transition_days"><span class="hs-identifier hs-type">transition_days</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="transition_days"><span class="annot"><span class="annottext">transition_days :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Transition -&gt; f Transition
+</span><a href="Amazonka.S3.Types.Transition.html#transition_days"><span class="hs-identifier hs-var hs-var">transition_days</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transition -&gt; Maybe Int)
+-&gt; (Transition -&gt; Maybe Int -&gt; Transition)
+-&gt; Lens Transition Transition (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557908"><span class="annot"><span class="annottext">Maybe Int
+days :: Maybe Int
+$sel:days:Transition' :: Transition -&gt; Maybe Int
+</span><a href="#local-6989586621679557908"><span class="hs-identifier hs-var hs-var">days</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679557908"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557907"><span class="annot"><span class="annottext">s :: Transition
+</span><a href="#local-6989586621679557907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557906"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679557906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transition
+</span><a href="#local-6989586621679557907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:days:Transition' :: Maybe Int
+</span><a href="Amazonka.S3.Types.Transition.html#%24sel%3Adays%3ATransition%27"><span class="hs-identifier hs-var">days</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679557906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Indicates when objects are transitioned to the specified storage class.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The date value must be in ISO 8601 format. The time is always midnight</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- UTC.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#transition_date"><span class="hs-identifier hs-type">transition_date</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="transition_date"><span class="annot"><span class="annottext">transition_date :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Transition -&gt; f Transition
+</span><a href="Amazonka.S3.Types.Transition.html#transition_date"><span class="hs-identifier hs-var hs-var">transition_date</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transition -&gt; Maybe ISO8601)
+-&gt; (Transition -&gt; Maybe ISO8601 -&gt; Transition)
+-&gt; Lens Transition Transition (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557904"><span class="annot"><span class="annottext">Maybe ISO8601
+date :: Maybe ISO8601
+$sel:date:Transition' :: Transition -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679557904"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679557904"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557903"><span class="annot"><span class="annottext">s :: Transition
+</span><a href="#local-6989586621679557903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557902"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679557902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transition
+</span><a href="#local-6989586621679557903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:date:Transition' :: Maybe ISO8601
+</span><a href="Amazonka.S3.Types.Transition.html#%24sel%3Adate%3ATransition%27"><span class="hs-identifier hs-var">date</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679557902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; Transition -&gt; f Transition)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Transition
+-&gt; f Transition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The storage class to which you want the object to transition.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#transition_storageClass"><span class="hs-identifier hs-type">transition_storageClass</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass"><span class="hs-identifier hs-type">TransitionStorageClass</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="transition_storageClass"><span class="annot"><span class="annottext">transition_storageClass :: (Maybe TransitionStorageClass -&gt; f (Maybe TransitionStorageClass))
+-&gt; Transition -&gt; f Transition
+</span><a href="Amazonka.S3.Types.Transition.html#transition_storageClass"><span class="hs-identifier hs-var hs-var">transition_storageClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transition -&gt; Maybe TransitionStorageClass)
+-&gt; (Transition -&gt; Maybe TransitionStorageClass -&gt; Transition)
+-&gt; Lens
+     Transition
+     Transition
+     (Maybe TransitionStorageClass)
+     (Maybe TransitionStorageClass)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557897"><span class="annot"><span class="annottext">Maybe TransitionStorageClass
+storageClass :: Maybe TransitionStorageClass
+$sel:storageClass:Transition' :: Transition -&gt; Maybe TransitionStorageClass
+</span><a href="#local-6989586621679557897"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitionStorageClass
+</span><a href="#local-6989586621679557897"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557896"><span class="annot"><span class="annottext">s :: Transition
+</span><a href="#local-6989586621679557896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557895"><span class="annot"><span class="annottext">Maybe TransitionStorageClass
+</span><a href="#local-6989586621679557895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transition
+</span><a href="#local-6989586621679557896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClass:Transition' :: Maybe TransitionStorageClass
+</span><a href="Amazonka.S3.Types.Transition.html#%24sel%3AstorageClass%3ATransition%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitionStorageClass
+</span><a href="#local-6989586621679557895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679557892"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Transition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679557890"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679557890"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe ISO8601 -&gt; Maybe TransitionStorageClass -&gt; Transition
+</span><a href="Amazonka.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-var">Transition'</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe ISO8601 -&gt; Maybe TransitionStorageClass -&gt; Transition)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe ISO8601 -&gt; Maybe TransitionStorageClass -&gt; Transition)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679557890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Days&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601 -&gt; Maybe TransitionStorageClass -&gt; Transition)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe TransitionStorageClass -&gt; Transition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679557890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Date&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe TransitionStorageClass -&gt; Transition)
+-&gt; Either String (Maybe TransitionStorageClass)
+-&gt; Either String Transition
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679557890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TransitionStorageClass)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StorageClass&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557884"><span id="local-6989586621679557886"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557881"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679557877"><span class="annot"><span class="annottext">toXML :: Transition -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557873"><span id="local-6989586621679557874"><span id="local-6989586621679557875"><span class="annot"><span class="annottext">Maybe Int
+Maybe ISO8601
+Maybe TransitionStorageClass
+storageClass :: Maybe TransitionStorageClass
+date :: Maybe ISO8601
+days :: Maybe Int
+$sel:storageClass:Transition' :: Transition -&gt; Maybe TransitionStorageClass
+$sel:date:Transition' :: Transition -&gt; Maybe ISO8601
+$sel:days:Transition' :: Transition -&gt; Maybe Int
+</span><a href="#local-6989586621679557873"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Days&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679557875"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Date&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe ISO8601 -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679557874"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;StorageClass&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe TransitionStorageClass -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe TransitionStorageClass
+</span><a href="#local-6989586621679557873"><span class="hs-identifier hs-var">storageClass</span></a></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span></pre></body></html>

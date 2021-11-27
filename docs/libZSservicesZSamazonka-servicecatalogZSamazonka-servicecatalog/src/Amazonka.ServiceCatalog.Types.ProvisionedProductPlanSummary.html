@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanType.html"><span class="hs-identifier">Amazonka.ServiceCatalog.Types.ProvisionedProductPlanType</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Summary information about a plan.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newProvisionedProductPlanSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679401853"><span id="local-6989586621679401854"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProvisionedProductPlanSummary"><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-var">ProvisionedProductPlanSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisionedProductPlanSummary%27"><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">ProvisionedProductPlanSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The product identifier.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AprovisionProductId%3AProvisionedProductPlanSummary%27"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisionProductId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var hs-var">provisionProductId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The identifier of the provisioning artifact.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AprovisioningArtifactId%3AProvisionedProductPlanSummary%27"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisioningArtifactId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The user-friendly name of the provisioned product.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AprovisionProductName%3AProvisionedProductPlanSummary%27"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisionProductName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var hs-var">provisionProductName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The plan identifier.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AplanId%3AProvisionedProductPlanSummary%27"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var hs-var">planId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the plan.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AplanName%3AProvisionedProductPlanSummary%27"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var hs-var">planName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The plan type.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AplanType%3AProvisionedProductPlanSummary%27"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary -&gt; Maybe ProvisionedProductPlanType
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanType%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var hs-var">planType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanType.html#ProvisionedProductPlanType"><span class="hs-identifier hs-type">ProvisionedProductPlanType</span></a></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401842"><span id="local-6989586621679401844"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
+-&gt; ProvisionedProductPlanSummary -&gt; Bool
+(ProvisionedProductPlanSummary
+ -&gt; ProvisionedProductPlanSummary -&gt; Bool)
+-&gt; (ProvisionedProductPlanSummary
+    -&gt; ProvisionedProductPlanSummary -&gt; Bool)
+-&gt; Eq ProvisionedProductPlanSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProvisionedProductPlanSummary
+-&gt; ProvisionedProductPlanSummary -&gt; Bool
+$c/= :: ProvisionedProductPlanSummary
+-&gt; ProvisionedProductPlanSummary -&gt; Bool
+== :: ProvisionedProductPlanSummary
+-&gt; ProvisionedProductPlanSummary -&gt; Bool
+$c== :: ProvisionedProductPlanSummary
+-&gt; ProvisionedProductPlanSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401833"><span id="local-6989586621679401835"><span id="local-6989586621679401837"><span id="local-6989586621679401839"><span class="annot"><span class="annottext">ReadPrec [ProvisionedProductPlanSummary]
+ReadPrec ProvisionedProductPlanSummary
+Int -&gt; ReadS ProvisionedProductPlanSummary
+ReadS [ProvisionedProductPlanSummary]
+(Int -&gt; ReadS ProvisionedProductPlanSummary)
+-&gt; ReadS [ProvisionedProductPlanSummary]
+-&gt; ReadPrec ProvisionedProductPlanSummary
+-&gt; ReadPrec [ProvisionedProductPlanSummary]
+-&gt; Read ProvisionedProductPlanSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProvisionedProductPlanSummary]
+$creadListPrec :: ReadPrec [ProvisionedProductPlanSummary]
+readPrec :: ReadPrec ProvisionedProductPlanSummary
+$creadPrec :: ReadPrec ProvisionedProductPlanSummary
+readList :: ReadS [ProvisionedProductPlanSummary]
+$creadList :: ReadS [ProvisionedProductPlanSummary]
+readsPrec :: Int -&gt; ReadS ProvisionedProductPlanSummary
+$creadsPrec :: Int -&gt; ReadS ProvisionedProductPlanSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401826"><span id="local-6989586621679401828"><span id="local-6989586621679401830"><span class="annot"><span class="annottext">Int -&gt; ProvisionedProductPlanSummary -&gt; ShowS
+[ProvisionedProductPlanSummary] -&gt; ShowS
+ProvisionedProductPlanSummary -&gt; String
+(Int -&gt; ProvisionedProductPlanSummary -&gt; ShowS)
+-&gt; (ProvisionedProductPlanSummary -&gt; String)
+-&gt; ([ProvisionedProductPlanSummary] -&gt; ShowS)
+-&gt; Show ProvisionedProductPlanSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProvisionedProductPlanSummary] -&gt; ShowS
+$cshowList :: [ProvisionedProductPlanSummary] -&gt; ShowS
+show :: ProvisionedProductPlanSummary -&gt; String
+$cshow :: ProvisionedProductPlanSummary -&gt; String
+showsPrec :: Int -&gt; ProvisionedProductPlanSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProvisionedProductPlanSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ProvisionedProductPlanSummary
+ -&gt; Rep ProvisionedProductPlanSummary x)
+-&gt; (forall x.
+    Rep ProvisionedProductPlanSummary x
+    -&gt; ProvisionedProductPlanSummary)
+-&gt; Generic ProvisionedProductPlanSummary
+forall x.
+Rep ProvisionedProductPlanSummary x
+-&gt; ProvisionedProductPlanSummary
+forall x.
+ProvisionedProductPlanSummary
+-&gt; Rep ProvisionedProductPlanSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ProvisionedProductPlanSummary x
+-&gt; ProvisionedProductPlanSummary
+$cfrom :: forall x.
+ProvisionedProductPlanSummary
+-&gt; Rep ProvisionedProductPlanSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'ProvisionedProductPlanSummary' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'provisionProductId', 'provisionedProductPlanSummary_provisionProductId' - The product identifier.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'provisioningArtifactId', 'provisionedProductPlanSummary_provisioningArtifactId' - The identifier of the provisioning artifact.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'provisionProductName', 'provisionedProductPlanSummary_provisionProductName' - The user-friendly name of the provisioned product.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'planId', 'provisionedProductPlanSummary_planId' - The plan identifier.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'planName', 'provisionedProductPlanSummary_planName' - The name of the plan.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'planType', 'provisionedProductPlanSummary_planType' - The plan type.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#newProvisionedProductPlanSummary"><span class="hs-identifier hs-type">newProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span>
+</span><span id="line-67"></span><span id="newProvisionedProductPlanSummary"><span class="annot"><span class="annottext">newProvisionedProductPlanSummary :: ProvisionedProductPlanSummary
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#newProvisionedProductPlanSummary"><span class="hs-identifier hs-var hs-var">newProvisionedProductPlanSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ProvisionedProductPlanType
+-&gt; ProvisionedProductPlanSummary
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:provisionProductId:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisionProductId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">provisionProductId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisioningArtifactId:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisioningArtifactId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionProductName:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisionProductName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">provisionProductName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:planId:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">planId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:planName:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">planName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:planType:ProvisionedProductPlanSummary' :: Maybe ProvisionedProductPlanType
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanType%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">planType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedProductPlanType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The product identifier.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_provisionProductId"><span class="hs-identifier hs-type">provisionedProductPlanSummary_provisionProductId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="provisionedProductPlanSummary_provisionProductId"><span class="annot"><span class="annottext">provisionedProductPlanSummary_provisionProductId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProvisionedProductPlanSummary -&gt; f ProvisionedProductPlanSummary
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_provisionProductId"><span class="hs-identifier hs-var hs-var">provisionedProductPlanSummary_provisionProductId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedProductPlanSummary -&gt; Maybe Text)
+-&gt; (ProvisionedProductPlanSummary
+    -&gt; Maybe Text -&gt; ProvisionedProductPlanSummary)
+-&gt; Lens
+     ProvisionedProductPlanSummary
+     ProvisionedProductPlanSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401817"><span class="annot"><span class="annottext">Maybe Text
+provisionProductId :: Maybe Text
+$sel:provisionProductId:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679401817"><span class="hs-identifier hs-var hs-var">provisionProductId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401817"><span class="hs-identifier hs-var">provisionProductId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401816"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679401816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401815"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679401816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionProductId:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisionProductId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">provisionProductId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The identifier of the provisioning artifact.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_provisioningArtifactId"><span class="hs-identifier hs-type">provisionedProductPlanSummary_provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="provisionedProductPlanSummary_provisioningArtifactId"><span class="annot"><span class="annottext">provisionedProductPlanSummary_provisioningArtifactId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProvisionedProductPlanSummary -&gt; f ProvisionedProductPlanSummary
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_provisioningArtifactId"><span class="hs-identifier hs-var hs-var">provisionedProductPlanSummary_provisioningArtifactId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedProductPlanSummary -&gt; Maybe Text)
+-&gt; (ProvisionedProductPlanSummary
+    -&gt; Maybe Text -&gt; ProvisionedProductPlanSummary)
+-&gt; Lens
+     ProvisionedProductPlanSummary
+     ProvisionedProductPlanSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401813"><span class="annot"><span class="annottext">Maybe Text
+provisioningArtifactId :: Maybe Text
+$sel:provisioningArtifactId:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679401813"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401813"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401812"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679401812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401811"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679401812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningArtifactId:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisioningArtifactId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The user-friendly name of the provisioned product.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_provisionProductName"><span class="hs-identifier hs-type">provisionedProductPlanSummary_provisionProductName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="provisionedProductPlanSummary_provisionProductName"><span class="annot"><span class="annottext">provisionedProductPlanSummary_provisionProductName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProvisionedProductPlanSummary -&gt; f ProvisionedProductPlanSummary
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_provisionProductName"><span class="hs-identifier hs-var hs-var">provisionedProductPlanSummary_provisionProductName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedProductPlanSummary -&gt; Maybe Text)
+-&gt; (ProvisionedProductPlanSummary
+    -&gt; Maybe Text -&gt; ProvisionedProductPlanSummary)
+-&gt; Lens
+     ProvisionedProductPlanSummary
+     ProvisionedProductPlanSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401809"><span class="annot"><span class="annottext">Maybe Text
+provisionProductName :: Maybe Text
+$sel:provisionProductName:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679401809"><span class="hs-identifier hs-var hs-var">provisionProductName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401809"><span class="hs-identifier hs-var">provisionProductName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401808"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679401808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401807"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679401808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionProductName:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisionProductName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">provisionProductName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The plan identifier.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_planId"><span class="hs-identifier hs-type">provisionedProductPlanSummary_planId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="provisionedProductPlanSummary_planId"><span class="annot"><span class="annottext">provisionedProductPlanSummary_planId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProvisionedProductPlanSummary -&gt; f ProvisionedProductPlanSummary
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_planId"><span class="hs-identifier hs-var hs-var">provisionedProductPlanSummary_planId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedProductPlanSummary -&gt; Maybe Text)
+-&gt; (ProvisionedProductPlanSummary
+    -&gt; Maybe Text -&gt; ProvisionedProductPlanSummary)
+-&gt; Lens
+     ProvisionedProductPlanSummary
+     ProvisionedProductPlanSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401805"><span class="annot"><span class="annottext">Maybe Text
+planId :: Maybe Text
+$sel:planId:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679401805"><span class="hs-identifier hs-var hs-var">planId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401805"><span class="hs-identifier hs-var">planId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401804"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679401804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401803"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679401804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:planId:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">planId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The name of the plan.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_planName"><span class="hs-identifier hs-type">provisionedProductPlanSummary_planName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="provisionedProductPlanSummary_planName"><span class="annot"><span class="annottext">provisionedProductPlanSummary_planName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProvisionedProductPlanSummary -&gt; f ProvisionedProductPlanSummary
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_planName"><span class="hs-identifier hs-var hs-var">provisionedProductPlanSummary_planName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedProductPlanSummary -&gt; Maybe Text)
+-&gt; (ProvisionedProductPlanSummary
+    -&gt; Maybe Text -&gt; ProvisionedProductPlanSummary)
+-&gt; Lens
+     ProvisionedProductPlanSummary
+     ProvisionedProductPlanSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401801"><span class="annot"><span class="annottext">Maybe Text
+planName :: Maybe Text
+$sel:planName:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679401801"><span class="hs-identifier hs-var hs-var">planName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401801"><span class="hs-identifier hs-var">planName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401800"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679401800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401799"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679401800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:planName:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">planName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The plan type.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_planType"><span class="hs-identifier hs-type">provisionedProductPlanSummary_planType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanType.html#ProvisionedProductPlanType"><span class="hs-identifier hs-type">ProvisionedProductPlanType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="provisionedProductPlanSummary_planType"><span class="annot"><span class="annottext">provisionedProductPlanSummary_planType :: (Maybe ProvisionedProductPlanType
+ -&gt; f (Maybe ProvisionedProductPlanType))
+-&gt; ProvisionedProductPlanSummary -&gt; f ProvisionedProductPlanSummary
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_planType"><span class="hs-identifier hs-var hs-var">provisionedProductPlanSummary_planType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedProductPlanSummary -&gt; Maybe ProvisionedProductPlanType)
+-&gt; (ProvisionedProductPlanSummary
+    -&gt; Maybe ProvisionedProductPlanType
+    -&gt; ProvisionedProductPlanSummary)
+-&gt; Lens
+     ProvisionedProductPlanSummary
+     ProvisionedProductPlanSummary
+     (Maybe ProvisionedProductPlanType)
+     (Maybe ProvisionedProductPlanType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401797"><span class="annot"><span class="annottext">Maybe ProvisionedProductPlanType
+planType :: Maybe ProvisionedProductPlanType
+$sel:planType:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&gt; Maybe ProvisionedProductPlanType
+</span><a href="#local-6989586621679401797"><span class="hs-identifier hs-var hs-var">planType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedProductPlanType
+</span><a href="#local-6989586621679401797"><span class="hs-identifier hs-var">planType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401796"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679401796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401795"><span class="annot"><span class="annottext">Maybe ProvisionedProductPlanType
+</span><a href="#local-6989586621679401795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679401796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:planType:ProvisionedProductPlanSummary' :: Maybe ProvisionedProductPlanType
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanType%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">planType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedProductPlanType
+</span><a href="#local-6989586621679401795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401792"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679401790"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProvisionedProductPlanSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ProvisionedProductPlanSummary)
+-&gt; Value
+-&gt; Parser ProvisionedProductPlanSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ProvisionedProductPlanSummary&quot;</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679401787"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401787"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ProvisionedProductPlanType
+-&gt; ProvisionedProductPlanSummary
+</span><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">ProvisionedProductPlanSummary'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ProvisionedProductPlanType
+ -&gt; ProvisionedProductPlanSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ProvisionedProductPlanType
+      -&gt; ProvisionedProductPlanSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionProductId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ProvisionedProductPlanType
+   -&gt; ProvisionedProductPlanSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ProvisionedProductPlanType
+      -&gt; ProvisionedProductPlanSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisioningArtifactId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ProvisionedProductPlanType
+   -&gt; ProvisionedProductPlanSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ProvisionedProductPlanType
+      -&gt; ProvisionedProductPlanSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionProductName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ProvisionedProductPlanType
+   -&gt; ProvisionedProductPlanSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ProvisionedProductPlanType
+      -&gt; ProvisionedProductPlanSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlanId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ProvisionedProductPlanType
+   -&gt; ProvisionedProductPlanSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ProvisionedProductPlanType -&gt; ProvisionedProductPlanSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlanName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ProvisionedProductPlanType -&gt; ProvisionedProductPlanSummary)
+-&gt; Parser (Maybe ProvisionedProductPlanType)
+-&gt; Parser ProvisionedProductPlanSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProvisionedProductPlanType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlanType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679401781"><span id="local-6989586621679401783"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401778"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span></span><span>
+</span><span id="line-121"></span></pre></body></html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState"><span class="hs-identifier">DirectConnectGatewayAssociationProposalState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState_Accepted"><span class="hs-identifier">DirectConnectGatewayAssociationProposalState_Accepted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState_Deleted"><span class="hs-identifier">DirectConnectGatewayAssociationProposalState_Deleted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState_Requested"><span class="hs-identifier">DirectConnectGatewayAssociationProposalState_Requested</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679286502"><span id="local-6989586621679286503"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DirectConnectGatewayAssociationProposalState"><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState"><span class="hs-identifier hs-var">DirectConnectGatewayAssociationProposalState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectConnectGatewayAssociationProposalState%27"><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState%27"><span class="hs-identifier hs-var">DirectConnectGatewayAssociationProposalState'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDirectConnectGatewayAssociationProposalState"><span class="annot"><span class="annottext">DirectConnectGatewayAssociationProposalState -&gt; Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#fromDirectConnectGatewayAssociationProposalState"><span class="hs-identifier hs-var hs-var">fromDirectConnectGatewayAssociationProposalState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679286494"><span id="local-6989586621679286496"><span id="local-6989586621679286498"><span class="annot"><span class="annottext">Int -&gt; DirectConnectGatewayAssociationProposalState -&gt; ShowS
+[DirectConnectGatewayAssociationProposalState] -&gt; ShowS
+DirectConnectGatewayAssociationProposalState -&gt; String
+(Int -&gt; DirectConnectGatewayAssociationProposalState -&gt; ShowS)
+-&gt; (DirectConnectGatewayAssociationProposalState -&gt; String)
+-&gt; ([DirectConnectGatewayAssociationProposalState] -&gt; ShowS)
+-&gt; Show DirectConnectGatewayAssociationProposalState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DirectConnectGatewayAssociationProposalState] -&gt; ShowS
+$cshowList :: [DirectConnectGatewayAssociationProposalState] -&gt; ShowS
+show :: DirectConnectGatewayAssociationProposalState -&gt; String
+$cshow :: DirectConnectGatewayAssociationProposalState -&gt; String
+showsPrec :: Int -&gt; DirectConnectGatewayAssociationProposalState -&gt; ShowS
+$cshowsPrec :: Int -&gt; DirectConnectGatewayAssociationProposalState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679286485"><span id="local-6989586621679286487"><span id="local-6989586621679286489"><span id="local-6989586621679286491"><span class="annot"><span class="annottext">ReadPrec [DirectConnectGatewayAssociationProposalState]
+ReadPrec DirectConnectGatewayAssociationProposalState
+Int -&gt; ReadS DirectConnectGatewayAssociationProposalState
+ReadS [DirectConnectGatewayAssociationProposalState]
+(Int -&gt; ReadS DirectConnectGatewayAssociationProposalState)
+-&gt; ReadS [DirectConnectGatewayAssociationProposalState]
+-&gt; ReadPrec DirectConnectGatewayAssociationProposalState
+-&gt; ReadPrec [DirectConnectGatewayAssociationProposalState]
+-&gt; Read DirectConnectGatewayAssociationProposalState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DirectConnectGatewayAssociationProposalState]
+$creadListPrec :: ReadPrec [DirectConnectGatewayAssociationProposalState]
+readPrec :: ReadPrec DirectConnectGatewayAssociationProposalState
+$creadPrec :: ReadPrec DirectConnectGatewayAssociationProposalState
+readList :: ReadS [DirectConnectGatewayAssociationProposalState]
+$creadList :: ReadS [DirectConnectGatewayAssociationProposalState]
+readsPrec :: Int -&gt; ReadS DirectConnectGatewayAssociationProposalState
+$creadsPrec :: Int -&gt; ReadS DirectConnectGatewayAssociationProposalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679286480"><span id="local-6989586621679286482"><span class="annot"><span class="annottext">DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool
+(DirectConnectGatewayAssociationProposalState
+ -&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool)
+-&gt; (DirectConnectGatewayAssociationProposalState
+    -&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool)
+-&gt; Eq DirectConnectGatewayAssociationProposalState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool
+$c/= :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool
+== :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool
+$c== :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679286464"><span id="local-6989586621679286466"><span id="local-6989586621679286468"><span id="local-6989586621679286470"><span id="local-6989586621679286472"><span id="local-6989586621679286474"><span id="local-6989586621679286476"><span class="annot"><span class="annottext">Eq DirectConnectGatewayAssociationProposalState
+Eq DirectConnectGatewayAssociationProposalState
+-&gt; (DirectConnectGatewayAssociationProposalState
+    -&gt; DirectConnectGatewayAssociationProposalState -&gt; Ordering)
+-&gt; (DirectConnectGatewayAssociationProposalState
+    -&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool)
+-&gt; (DirectConnectGatewayAssociationProposalState
+    -&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool)
+-&gt; (DirectConnectGatewayAssociationProposalState
+    -&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool)
+-&gt; (DirectConnectGatewayAssociationProposalState
+    -&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool)
+-&gt; (DirectConnectGatewayAssociationProposalState
+    -&gt; DirectConnectGatewayAssociationProposalState
+    -&gt; DirectConnectGatewayAssociationProposalState)
+-&gt; (DirectConnectGatewayAssociationProposalState
+    -&gt; DirectConnectGatewayAssociationProposalState
+    -&gt; DirectConnectGatewayAssociationProposalState)
+-&gt; Ord DirectConnectGatewayAssociationProposalState
+DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool
+DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Ordering
+DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState
+$cmin :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState
+max :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState
+$cmax :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState
+&gt;= :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool
+$c&gt;= :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool
+&gt; :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool
+$c&gt; :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool
+&lt;= :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool
+$c&lt;= :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool
+&lt; :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool
+$c&lt; :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Bool
+compare :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Ordering
+$ccompare :: DirectConnectGatewayAssociationProposalState
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; Ordering
+$cp1Ord :: Eq DirectConnectGatewayAssociationProposalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DirectConnectGatewayAssociationProposalState
+ -&gt; Rep DirectConnectGatewayAssociationProposalState x)
+-&gt; (forall x.
+    Rep DirectConnectGatewayAssociationProposalState x
+    -&gt; DirectConnectGatewayAssociationProposalState)
+-&gt; Generic DirectConnectGatewayAssociationProposalState
+forall x.
+Rep DirectConnectGatewayAssociationProposalState x
+-&gt; DirectConnectGatewayAssociationProposalState
+forall x.
+DirectConnectGatewayAssociationProposalState
+-&gt; Rep DirectConnectGatewayAssociationProposalState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DirectConnectGatewayAssociationProposalState x
+-&gt; DirectConnectGatewayAssociationProposalState
+$cfrom :: forall x.
+DirectConnectGatewayAssociationProposalState
+-&gt; Rep DirectConnectGatewayAssociationProposalState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679286456"><span id="local-6989586621679286458"><span class="annot"><span class="annottext">Int -&gt; DirectConnectGatewayAssociationProposalState -&gt; Int
+DirectConnectGatewayAssociationProposalState -&gt; Int
+(Int -&gt; DirectConnectGatewayAssociationProposalState -&gt; Int)
+-&gt; (DirectConnectGatewayAssociationProposalState -&gt; Int)
+-&gt; Hashable DirectConnectGatewayAssociationProposalState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DirectConnectGatewayAssociationProposalState -&gt; Int
+$chash :: DirectConnectGatewayAssociationProposalState -&gt; Int
+hashWithSalt :: Int -&gt; DirectConnectGatewayAssociationProposalState -&gt; Int
+$chashWithSalt :: Int -&gt; DirectConnectGatewayAssociationProposalState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679286453"><span class="annot"><span class="annottext">DirectConnectGatewayAssociationProposalState -&gt; ()
+(DirectConnectGatewayAssociationProposalState -&gt; ())
+-&gt; NFData DirectConnectGatewayAssociationProposalState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DirectConnectGatewayAssociationProposalState -&gt; ()
+$crnf :: DirectConnectGatewayAssociationProposalState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679286450"><span class="annot"><span class="annottext">Text -&gt; Either String DirectConnectGatewayAssociationProposalState
+(Text
+ -&gt; Either String DirectConnectGatewayAssociationProposalState)
+-&gt; FromText DirectConnectGatewayAssociationProposalState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DirectConnectGatewayAssociationProposalState
+$cfromText :: Text -&gt; Either String DirectConnectGatewayAssociationProposalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679286447"><span class="annot"><span class="annottext">DirectConnectGatewayAssociationProposalState -&gt; Text
+(DirectConnectGatewayAssociationProposalState -&gt; Text)
+-&gt; ToText DirectConnectGatewayAssociationProposalState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DirectConnectGatewayAssociationProposalState -&gt; Text
+$ctoText :: DirectConnectGatewayAssociationProposalState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679286444"><span class="annot"><span class="annottext">DirectConnectGatewayAssociationProposalState -&gt; ByteString
+(DirectConnectGatewayAssociationProposalState -&gt; ByteString)
+-&gt; ToByteString DirectConnectGatewayAssociationProposalState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DirectConnectGatewayAssociationProposalState -&gt; ByteString
+$ctoBS :: DirectConnectGatewayAssociationProposalState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679286441"><span class="annot"><span class="annottext">DirectConnectGatewayAssociationProposalState -&gt; ByteStringBuilder
+(DirectConnectGatewayAssociationProposalState -&gt; ByteStringBuilder)
+-&gt; ToLog DirectConnectGatewayAssociationProposalState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DirectConnectGatewayAssociationProposalState -&gt; ByteStringBuilder
+$cbuild :: DirectConnectGatewayAssociationProposalState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679286438"><span class="annot"><span class="annottext">HeaderName
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; [Header]
+(HeaderName
+ -&gt; DirectConnectGatewayAssociationProposalState -&gt; [Header])
+-&gt; ToHeader DirectConnectGatewayAssociationProposalState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; [Header]
+$ctoHeader :: HeaderName
+-&gt; DirectConnectGatewayAssociationProposalState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679286435"><span class="annot"><span class="annottext">DirectConnectGatewayAssociationProposalState -&gt; QueryString
+(DirectConnectGatewayAssociationProposalState -&gt; QueryString)
+-&gt; ToQuery DirectConnectGatewayAssociationProposalState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DirectConnectGatewayAssociationProposalState -&gt; QueryString
+$ctoQuery :: DirectConnectGatewayAssociationProposalState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679286430"><span id="local-6989586621679286432"><span class="annot"><span class="annottext">Value -&gt; Parser [DirectConnectGatewayAssociationProposalState]
+Value -&gt; Parser DirectConnectGatewayAssociationProposalState
+(Value -&gt; Parser DirectConnectGatewayAssociationProposalState)
+-&gt; (Value -&gt; Parser [DirectConnectGatewayAssociationProposalState])
+-&gt; FromJSON DirectConnectGatewayAssociationProposalState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DirectConnectGatewayAssociationProposalState]
+$cparseJSONList :: Value -&gt; Parser [DirectConnectGatewayAssociationProposalState]
+parseJSON :: Value -&gt; Parser DirectConnectGatewayAssociationProposalState
+$cparseJSON :: Value -&gt; Parser DirectConnectGatewayAssociationProposalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679286425"><span id="local-6989586621679286427"><span class="annot"><span class="annottext">FromJSONKeyFunction [DirectConnectGatewayAssociationProposalState]
+FromJSONKeyFunction DirectConnectGatewayAssociationProposalState
+FromJSONKeyFunction DirectConnectGatewayAssociationProposalState
+-&gt; FromJSONKeyFunction
+     [DirectConnectGatewayAssociationProposalState]
+-&gt; FromJSONKey DirectConnectGatewayAssociationProposalState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DirectConnectGatewayAssociationProposalState]
+$cfromJSONKeyList :: FromJSONKeyFunction [DirectConnectGatewayAssociationProposalState]
+fromJSONKey :: FromJSONKeyFunction DirectConnectGatewayAssociationProposalState
+$cfromJSONKey :: FromJSONKeyFunction DirectConnectGatewayAssociationProposalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679286416"><span id="local-6989586621679286418"><span id="local-6989586621679286420"><span id="local-6989586621679286422"><span class="annot"><span class="annottext">[DirectConnectGatewayAssociationProposalState] -&gt; Encoding
+[DirectConnectGatewayAssociationProposalState] -&gt; Value
+DirectConnectGatewayAssociationProposalState -&gt; Encoding
+DirectConnectGatewayAssociationProposalState -&gt; Value
+(DirectConnectGatewayAssociationProposalState -&gt; Value)
+-&gt; (DirectConnectGatewayAssociationProposalState -&gt; Encoding)
+-&gt; ([DirectConnectGatewayAssociationProposalState] -&gt; Value)
+-&gt; ([DirectConnectGatewayAssociationProposalState] -&gt; Encoding)
+-&gt; ToJSON DirectConnectGatewayAssociationProposalState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DirectConnectGatewayAssociationProposalState] -&gt; Encoding
+$ctoEncodingList :: [DirectConnectGatewayAssociationProposalState] -&gt; Encoding
+toJSONList :: [DirectConnectGatewayAssociationProposalState] -&gt; Value
+$ctoJSONList :: [DirectConnectGatewayAssociationProposalState] -&gt; Value
+toEncoding :: DirectConnectGatewayAssociationProposalState -&gt; Encoding
+$ctoEncoding :: DirectConnectGatewayAssociationProposalState -&gt; Encoding
+toJSON :: DirectConnectGatewayAssociationProposalState -&gt; Value
+$ctoJSON :: DirectConnectGatewayAssociationProposalState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679286411"><span id="local-6989586621679286413"><span class="annot"><span class="annottext">ToJSONKeyFunction [DirectConnectGatewayAssociationProposalState]
+ToJSONKeyFunction DirectConnectGatewayAssociationProposalState
+ToJSONKeyFunction DirectConnectGatewayAssociationProposalState
+-&gt; ToJSONKeyFunction [DirectConnectGatewayAssociationProposalState]
+-&gt; ToJSONKey DirectConnectGatewayAssociationProposalState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DirectConnectGatewayAssociationProposalState]
+$ctoJSONKeyList :: ToJSONKeyFunction [DirectConnectGatewayAssociationProposalState]
+toJSONKey :: ToJSONKeyFunction DirectConnectGatewayAssociationProposalState
+$ctoJSONKey :: ToJSONKeyFunction DirectConnectGatewayAssociationProposalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679286408"><span class="annot"><span class="annottext">[Node]
+-&gt; Either String DirectConnectGatewayAssociationProposalState
+([Node]
+ -&gt; Either String DirectConnectGatewayAssociationProposalState)
+-&gt; FromXML DirectConnectGatewayAssociationProposalState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node]
+-&gt; Either String DirectConnectGatewayAssociationProposalState
+$cparseXML :: [Node]
+-&gt; Either String DirectConnectGatewayAssociationProposalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679286405"><span class="annot"><span class="annottext">DirectConnectGatewayAssociationProposalState -&gt; XML
+(DirectConnectGatewayAssociationProposalState -&gt; XML)
+-&gt; ToXML DirectConnectGatewayAssociationProposalState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DirectConnectGatewayAssociationProposalState -&gt; XML
+$ctoXML :: DirectConnectGatewayAssociationProposalState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState_Accepted"><span class="hs-identifier hs-type">DirectConnectGatewayAssociationProposalState_Accepted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState"><span class="hs-identifier hs-type">DirectConnectGatewayAssociationProposalState</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDirectConnectGatewayAssociationProposalState_Accepted"><span id="%24mDirectConnectGatewayAssociationProposalState_Accepted"><span id="DirectConnectGatewayAssociationProposalState_Accepted"><span class="annot"><span class="annottext">$bDirectConnectGatewayAssociationProposalState_Accepted :: DirectConnectGatewayAssociationProposalState
+$mDirectConnectGatewayAssociationProposalState_Accepted :: forall r.
+DirectConnectGatewayAssociationProposalState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#%24bDirectConnectGatewayAssociationProposalState_Accepted"><span class="hs-identifier hs-var hs-var hs-var">DirectConnectGatewayAssociationProposalState_Accepted</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociationProposalState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;accepted&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState_Deleted"><span class="hs-identifier hs-type">DirectConnectGatewayAssociationProposalState_Deleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState"><span class="hs-identifier hs-type">DirectConnectGatewayAssociationProposalState</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDirectConnectGatewayAssociationProposalState_Deleted"><span id="%24mDirectConnectGatewayAssociationProposalState_Deleted"><span id="DirectConnectGatewayAssociationProposalState_Deleted"><span class="annot"><span class="annottext">$bDirectConnectGatewayAssociationProposalState_Deleted :: DirectConnectGatewayAssociationProposalState
+$mDirectConnectGatewayAssociationProposalState_Deleted :: forall r.
+DirectConnectGatewayAssociationProposalState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#%24bDirectConnectGatewayAssociationProposalState_Deleted"><span class="hs-identifier hs-var hs-var hs-var">DirectConnectGatewayAssociationProposalState_Deleted</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociationProposalState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;deleted&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState_Requested"><span class="hs-identifier hs-type">DirectConnectGatewayAssociationProposalState_Requested</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState"><span class="hs-identifier hs-type">DirectConnectGatewayAssociationProposalState</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDirectConnectGatewayAssociationProposalState_Requested"><span id="%24mDirectConnectGatewayAssociationProposalState_Requested"><span id="DirectConnectGatewayAssociationProposalState_Requested"><span class="annot"><span class="annottext">$bDirectConnectGatewayAssociationProposalState_Requested :: DirectConnectGatewayAssociationProposalState
+$mDirectConnectGatewayAssociationProposalState_Requested :: forall r.
+DirectConnectGatewayAssociationProposalState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#%24bDirectConnectGatewayAssociationProposalState_Requested"><span class="hs-identifier hs-var hs-var hs-var">DirectConnectGatewayAssociationProposalState_Requested</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociationProposalState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;requested&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState_Accepted"><span class="hs-pragma hs-type">DirectConnectGatewayAssociationProposalState_Accepted</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState_Deleted"><span class="hs-pragma hs-type">DirectConnectGatewayAssociationProposalState_Deleted</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState_Requested"><span class="hs-pragma hs-type">DirectConnectGatewayAssociationProposalState_Requested</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState.html#DirectConnectGatewayAssociationProposalState%27"><span class="hs-pragma hs-type">DirectConnectGatewayAssociationProposalState'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

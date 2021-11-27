@@ -5,35 +5,35 @@
 @version 2.0
 
 
-module Network.AWS.ApplicationAutoScaling.Types.AdjustmentType
+module Amazonka.ApplicationAutoScaling.Types.AdjustmentType
 newtype AdjustmentType
 AdjustmentType' :: Text -> AdjustmentType
 [fromAdjustmentType] :: AdjustmentType -> Text
 pattern AdjustmentType_ChangeInCapacity :: AdjustmentType
 pattern AdjustmentType_ExactCapacity :: AdjustmentType
 pattern AdjustmentType_PercentChangeInCapacity :: AdjustmentType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance GHC.Classes.Ord Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance GHC.Classes.Ord Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.AdjustmentType.AdjustmentType
 
 
-module Network.AWS.ApplicationAutoScaling.Types.Alarm
+module Amazonka.ApplicationAutoScaling.Types.Alarm
 
 -- | Represents a CloudWatch alarm associated with a scaling policy.
 --   
@@ -67,44 +67,44 @@ alarm_alarmName :: Lens' Alarm Text
 
 -- | The Amazon Resource Name (ARN) of the alarm.
 alarm_alarmARN :: Lens' Alarm Text
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.Alarm.Alarm
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.Alarm.Alarm
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.Alarm.Alarm
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.Alarm.Alarm
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.Alarm.Alarm
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.Alarm.Alarm
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.Alarm.Alarm
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.Alarm.Alarm
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.Alarm.Alarm
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.Alarm.Alarm
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.Alarm.Alarm
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.Alarm.Alarm
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.Alarm.Alarm
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.Alarm.Alarm
 
 
-module Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType
+module Amazonka.ApplicationAutoScaling.Types.MetricAggregationType
 newtype MetricAggregationType
 MetricAggregationType' :: Text -> MetricAggregationType
 [fromMetricAggregationType] :: MetricAggregationType -> Text
 pattern MetricAggregationType_Average :: MetricAggregationType
 pattern MetricAggregationType_Maximum :: MetricAggregationType
 pattern MetricAggregationType_Minimum :: MetricAggregationType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance GHC.Classes.Ord Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance GHC.Classes.Ord Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.MetricAggregationType
 
 
-module Network.AWS.ApplicationAutoScaling.Types.MetricDimension
+module Amazonka.ApplicationAutoScaling.Types.MetricDimension
 
 -- | Describes the dimension names and values associated with a metric.
 --   
@@ -139,17 +139,17 @@ metricDimension_name :: Lens' MetricDimension Text
 
 -- | The value of the dimension.
 metricDimension_value :: Lens' MetricDimension Text
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.MetricDimension.MetricDimension
 
 
-module Network.AWS.ApplicationAutoScaling.Types.MetricStatistic
+module Amazonka.ApplicationAutoScaling.Types.MetricStatistic
 newtype MetricStatistic
 MetricStatistic' :: Text -> MetricStatistic
 [fromMetricStatistic] :: MetricStatistic -> Text
@@ -158,28 +158,28 @@ pattern MetricStatistic_Maximum :: MetricStatistic
 pattern MetricStatistic_Minimum :: MetricStatistic
 pattern MetricStatistic_SampleCount :: MetricStatistic
 pattern MetricStatistic_Sum :: MetricStatistic
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance GHC.Classes.Ord Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance GHC.Classes.Ord Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.MetricStatistic.MetricStatistic
 
 
-module Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification
+module Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification
 
 -- | Represents a CloudWatch metric of your choosing for a target tracking
 --   scaling policy to use with Application Auto Scaling.
@@ -277,17 +277,17 @@ customizedMetricSpecification_namespace :: Lens' CustomizedMetricSpecification T
 
 -- | The statistic of the metric.
 customizedMetricSpecification_statistic :: Lens' CustomizedMetricSpecification MetricStatistic
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification.CustomizedMetricSpecification
 
 
-module Network.AWS.ApplicationAutoScaling.Types.MetricType
+module Amazonka.ApplicationAutoScaling.Types.MetricType
 newtype MetricType
 MetricType' :: Text -> MetricType
 [fromMetricType] :: MetricType -> Text
@@ -312,55 +312,55 @@ pattern MetricType_NeptuneReaderAverageCPUUtilization :: MetricType
 pattern MetricType_RDSReaderAverageCPUUtilization :: MetricType
 pattern MetricType_RDSReaderAverageDatabaseConnections :: MetricType
 pattern MetricType_SageMakerVariantInvocationsPerInstance :: MetricType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance GHC.Classes.Ord Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.MetricType.MetricType
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance GHC.Classes.Ord Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.MetricType.MetricType
 
 
-module Network.AWS.ApplicationAutoScaling.Types.PolicyType
+module Amazonka.ApplicationAutoScaling.Types.PolicyType
 newtype PolicyType
 PolicyType' :: Text -> PolicyType
 [fromPolicyType] :: PolicyType -> Text
 pattern PolicyType_StepScaling :: PolicyType
 pattern PolicyType_TargetTrackingScaling :: PolicyType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance GHC.Classes.Ord Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance GHC.Classes.Ord Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.PolicyType.PolicyType
 
 
-module Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification
+module Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification
 
 -- | Represents a predefined metric for a target tracking scaling policy to
 --   use with Application Auto Scaling.
@@ -480,17 +480,17 @@ predefinedMetricSpecification_resourceLabel :: Lens' PredefinedMetricSpecificati
 -- | The metric type. The <tt>ALBRequestCountPerTarget</tt> metric type
 --   applies only to Spot Fleet requests and ECS services.
 predefinedMetricSpecification_predefinedMetricType :: Lens' PredefinedMetricSpecification MetricType
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification.PredefinedMetricSpecification
 
 
-module Network.AWS.ApplicationAutoScaling.Types.ScalableDimension
+module Amazonka.ApplicationAutoScaling.Types.ScalableDimension
 newtype ScalableDimension
 ScalableDimension' :: Text -> ScalableDimension
 [fromScalableDimension] :: ScalableDimension -> Text
@@ -514,28 +514,28 @@ pattern ScalableDimension_Lambda_function_ProvisionedConcurrency :: ScalableDime
 pattern ScalableDimension_Neptune_cluster_ReadReplicaCount :: ScalableDimension
 pattern ScalableDimension_Rds_cluster_ReadReplicaCount :: ScalableDimension
 pattern ScalableDimension_Sagemaker_variant_DesiredInstanceCount :: ScalableDimension
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance GHC.Classes.Ord Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance GHC.Classes.Ord Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.ScalableDimension.ScalableDimension
 
 
-module Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction
+module Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction
 
 -- | Represents the minimum and maximum capacity for a scheduled action.
 --   
@@ -612,17 +612,17 @@ scalableTargetAction_maxCapacity :: Lens' ScalableTargetAction (Maybe Int)
 --   clusters, EMR clusters, and custom resources. For all other resources,
 --   the minimum value allowed is 1.
 scalableTargetAction_minCapacity :: Lens' ScalableTargetAction (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction.ScalableTargetAction
 
 
-module Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode
+module Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode
 newtype ScalingActivityStatusCode
 ScalingActivityStatusCode' :: Text -> ScalingActivityStatusCode
 [fromScalingActivityStatusCode] :: ScalingActivityStatusCode -> Text
@@ -632,28 +632,28 @@ pattern ScalingActivityStatusCode_Overridden :: ScalingActivityStatusCode
 pattern ScalingActivityStatusCode_Pending :: ScalingActivityStatusCode
 pattern ScalingActivityStatusCode_Successful :: ScalingActivityStatusCode
 pattern ScalingActivityStatusCode_Unfulfilled :: ScalingActivityStatusCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance GHC.Classes.Ord Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance GHC.Classes.Ord Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode.ScalingActivityStatusCode
 
 
-module Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace
+module Amazonka.ApplicationAutoScaling.Types.ServiceNamespace
 newtype ServiceNamespace
 ServiceNamespace' :: Text -> ServiceNamespace
 [fromServiceNamespace] :: ServiceNamespace -> Text
@@ -671,28 +671,28 @@ pattern ServiceNamespace_Lambda :: ServiceNamespace
 pattern ServiceNamespace_Neptune :: ServiceNamespace
 pattern ServiceNamespace_Rds :: ServiceNamespace
 pattern ServiceNamespace_Sagemaker :: ServiceNamespace
-instance Network.AWS.Data.XML.ToXML Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance Network.AWS.Data.XML.FromXML Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance Network.AWS.Data.Log.ToLog Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance Network.AWS.Data.Text.ToText Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance Network.AWS.Data.Text.FromText Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance GHC.Classes.Ord Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance Amazonka.Data.XML.ToXML Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance Amazonka.Data.XML.FromXML Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance Amazonka.Data.Headers.ToHeader Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance Amazonka.Data.Log.ToLog Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance Amazonka.Data.Text.ToText Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance Amazonka.Data.Text.FromText Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance GHC.Classes.Ord Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.ServiceNamespace
 
 
-module Network.AWS.ApplicationAutoScaling.Types.ScheduledAction
+module Amazonka.ApplicationAutoScaling.Types.ScheduledAction
 
 -- | Represents a scheduled action.
 --   
@@ -1240,16 +1240,16 @@ scheduledAction_resourceId :: Lens' ScheduledAction Text
 
 -- | The date and time that the scheduled action was created.
 scheduledAction_creationTime :: Lens' ScheduledAction UTCTime
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.ScheduledAction
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.ScheduledAction
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.ScheduledAction
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.ScheduledAction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.ScheduledAction
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.ScheduledAction
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.ScheduledAction
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.ScheduledAction.ScheduledAction
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.ScheduledAction.ScheduledAction
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.ScheduledAction.ScheduledAction
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.ScheduledAction.ScheduledAction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.ScheduledAction.ScheduledAction
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.ScheduledAction.ScheduledAction
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.ScheduledAction.ScheduledAction
 
 
-module Network.AWS.ApplicationAutoScaling.Types.ScalingActivity
+module Amazonka.ApplicationAutoScaling.Types.ScalingActivity
 
 -- | Represents a scaling activity.
 --   
@@ -1708,16 +1708,16 @@ scalingActivity_startTime :: Lens' ScalingActivity UTCTime
 
 -- | Indicates the status of the scaling activity.
 scalingActivity_statusCode :: Lens' ScalingActivity ScalingActivityStatusCode
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.ScalingActivity
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.ScalingActivity
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.ScalingActivity
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.ScalingActivity
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.ScalingActivity
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.ScalingActivity
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.ScalingActivity
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.ScalingActivity.ScalingActivity
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.ScalingActivity.ScalingActivity
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.ScalingActivity.ScalingActivity
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.ScalingActivity.ScalingActivity
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.ScalingActivity.ScalingActivity
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.ScalingActivity.ScalingActivity
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.ScalingActivity.ScalingActivity
 
 
-module Network.AWS.ApplicationAutoScaling.Types.StepAdjustment
+module Amazonka.ApplicationAutoScaling.Types.StepAdjustment
 
 -- | Represents a step adjustment for a
 --   <a>StepScalingPolicyConfiguration</a>. Describes an adjustment based
@@ -1839,17 +1839,17 @@ stepAdjustment_metricIntervalUpperBound :: Lens' StepAdjustment (Maybe Double)
 --   removes from the current capacity. For exact capacity, you must
 --   specify a positive value.
 stepAdjustment_scalingAdjustment :: Lens' StepAdjustment Int
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.StepAdjustment.StepAdjustment
 
 
-module Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration
+module Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration
 
 -- | Represents a step scaling policy configuration to use with Application
 --   Auto Scaling.
@@ -2121,17 +2121,17 @@ stepScalingPolicyConfiguration_metricAggregationType :: Lens' StepScalingPolicyC
 --   However, because you specified a <tt>MinAdjustmentMagnitude</tt> of 2,
 --   Application Auto Scaling scales out the service by 2 tasks.
 stepScalingPolicyConfiguration_minAdjustmentMagnitude :: Lens' StepScalingPolicyConfiguration (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.StepScalingPolicyConfiguration
 
 
-module Network.AWS.ApplicationAutoScaling.Types.SuspendedState
+module Amazonka.ApplicationAutoScaling.Types.SuspendedState
 
 -- | Specifies whether the scaling activities for a scalable target are in
 --   a suspended state.
@@ -2203,17 +2203,17 @@ suspendedState_scheduledScalingSuspended :: Lens' SuspendedState (Maybe Bool)
 --   don't want Application Auto Scaling to add capacity when a scaling
 --   policy is triggered. The default is <tt>false</tt>.
 suspendedState_dynamicScalingOutSuspended :: Lens' SuspendedState (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.SuspendedState.SuspendedState
 
 
-module Network.AWS.ApplicationAutoScaling.Types.ScalableTarget
+module Amazonka.ApplicationAutoScaling.Types.ScalableTarget
 
 -- | Represents a scalable target.
 --   
@@ -2644,16 +2644,16 @@ scalableTarget_roleARN :: Lens' ScalableTarget Text
 
 -- | The Unix timestamp for when the scalable target was created.
 scalableTarget_creationTime :: Lens' ScalableTarget UTCTime
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.ScalableTarget
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.ScalableTarget
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.ScalableTarget
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.ScalableTarget
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.ScalableTarget
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.ScalableTarget
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.ScalableTarget
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.ScalableTarget.ScalableTarget
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.ScalableTarget.ScalableTarget
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.ScalableTarget.ScalableTarget
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.ScalableTarget.ScalableTarget
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.ScalableTarget.ScalableTarget
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.ScalableTarget.ScalableTarget
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.ScalableTarget.ScalableTarget
 
 
-module Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration
+module Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration
 
 -- | Represents a target tracking scaling policy configuration to use with
 --   Application Auto Scaling.
@@ -2989,17 +2989,17 @@ targetTrackingScalingPolicyConfiguration_scaleOutCooldown :: Lens' TargetTrackin
 --   percent value that represents how much of the CPU can be used before
 --   scaling out.
 targetTrackingScalingPolicyConfiguration_targetValue :: Lens' TargetTrackingScalingPolicyConfiguration Double
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.TargetTrackingScalingPolicyConfiguration
 
 
-module Network.AWS.ApplicationAutoScaling.Types.ScalingPolicy
+module Amazonka.ApplicationAutoScaling.Types.ScalingPolicy
 
 -- | Represents a scaling policy to use with Application Auto Scaling.
 --   
@@ -3448,16 +3448,16 @@ scalingPolicy_policyType :: Lens' ScalingPolicy PolicyType
 
 -- | The Unix timestamp for when the scaling policy was created.
 scalingPolicy_creationTime :: Lens' ScalingPolicy UTCTime
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.Types.ScalingPolicy.ScalingPolicy
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.Types.ScalingPolicy.ScalingPolicy
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.Types.ScalingPolicy.ScalingPolicy
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.Types.ScalingPolicy.ScalingPolicy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ApplicationAutoScaling.Types.ScalingPolicy.ScalingPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.Types.ScalingPolicy.ScalingPolicy
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.Types.ScalingPolicy.ScalingPolicy
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.Types.ScalingPolicy.ScalingPolicy
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.Types.ScalingPolicy.ScalingPolicy
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.Types.ScalingPolicy.ScalingPolicy
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.Types.ScalingPolicy.ScalingPolicy
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ApplicationAutoScaling.Types.ScalingPolicy.ScalingPolicy
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.Types.ScalingPolicy.ScalingPolicy
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.Types.ScalingPolicy.ScalingPolicy
 
 
-module Network.AWS.ApplicationAutoScaling.Types
+module Amazonka.ApplicationAutoScaling.Types
 
 -- | API version <tt>2016-02-06</tt> of the Amazon Application Auto Scaling
 --   SDK configuration.
@@ -6669,7 +6669,7 @@ targetTrackingScalingPolicyConfiguration_targetValue :: Lens' TargetTrackingScal
 --   capacity of the scalable target to place it within these bounds, even
 --   if you don't include the <tt>MinCapacity</tt> or <tt>MaxCapacity</tt>
 --   request parameters.
-module Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
+module Amazonka.ApplicationAutoScaling.RegisterScalableTarget
 
 -- | <i>See:</i> <a>newRegisterScalableTarget</a> smart constructor.
 data RegisterScalableTarget
@@ -7261,22 +7261,22 @@ newRegisterScalableTargetResponse :: Int -> RegisterScalableTargetResponse
 
 -- | The response's http status code.
 registerScalableTargetResponse_httpStatus :: Lens' RegisterScalableTargetResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTargetResponse
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTargetResponse
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTargetResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTargetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTargetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTargetResponse
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTargetResponse
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTargetResponse
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTargetResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTargetResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.RegisterScalableTarget.RegisterScalableTarget
 
 
 -- | Creates or updates a scheduled action for an Application Auto Scaling
@@ -7302,7 +7302,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.Regis
 --   If a scalable target is deregistered, the scalable target is no longer
 --   available to run scheduled actions. Any scheduled actions that were
 --   specified for the scalable target are deleted.
-module Network.AWS.ApplicationAutoScaling.PutScheduledAction
+module Amazonka.ApplicationAutoScaling.PutScheduledAction
 
 -- | <i>See:</i> <a>newPutScheduledAction</a> smart constructor.
 data PutScheduledAction
@@ -7877,22 +7877,22 @@ newPutScheduledActionResponse :: Int -> PutScheduledActionResponse
 
 -- | The response's http status code.
 putScheduledActionResponse_httpStatus :: Lens' PutScheduledActionResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledActionResponse
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledActionResponse
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledActionResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledActionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledActionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledActionResponse
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledActionResponse
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledActionResponse
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledActionResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledActionResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.PutScheduledAction.PutScheduledAction
 
 
 -- | Creates or updates a scaling policy for an Application Auto Scaling
@@ -7931,7 +7931,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.PutSc
 --   If a scalable target is deregistered, the scalable target is no longer
 --   available to execute scaling policies. Any scaling policies that were
 --   specified for the scalable target are deleted.
-module Network.AWS.ApplicationAutoScaling.PutScalingPolicy
+module Amazonka.ApplicationAutoScaling.PutScalingPolicy
 
 -- | <i>See:</i> <a>newPutScalingPolicy</a> smart constructor.
 data PutScalingPolicy
@@ -8452,22 +8452,22 @@ putScalingPolicyResponse_httpStatus :: Lens' PutScalingPolicyResponse Int
 
 -- | The Amazon Resource Name (ARN) of the resulting scaling policy.
 putScalingPolicyResponse_policyARN :: Lens' PutScalingPolicyResponse Text
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicyResponse
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicyResponse
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicyResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicyResponse
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicyResponse
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicyResponse
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.PutScalingPolicy.PutScalingPolicy
 
 
 -- | Describes the Application Auto Scaling scheduled actions for the
@@ -8482,7 +8482,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.PutSc
 --   Guide</i>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ApplicationAutoScaling.DescribeScheduledActions
+module Amazonka.ApplicationAutoScaling.DescribeScheduledActions
 
 -- | <i>See:</i> <a>newDescribeScheduledActions</a> smart constructor.
 data DescribeScheduledActions
@@ -8968,23 +8968,23 @@ describeScheduledActionsResponse_scheduledActions :: Lens' DescribeScheduledActi
 
 -- | The response's http status code.
 describeScheduledActionsResponse_httpStatus :: Lens' DescribeScheduledActionsResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActionsResponse
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActionsResponse
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActionsResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActionsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActionsResponse
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActionsResponse
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActionsResponse
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActionsResponse
+instance Amazonka.Pager.AWSPager Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.DescribeScheduledActions.DescribeScheduledActions
 
 
 -- | Describes the Application Auto Scaling scaling policies for the
@@ -8998,7 +8998,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.Descr
 --   Guide</i>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
+module Amazonka.ApplicationAutoScaling.DescribeScalingPolicies
 
 -- | <i>See:</i> <a>newDescribeScalingPolicies</a> smart constructor.
 data DescribeScalingPolicies
@@ -9484,23 +9484,23 @@ describeScalingPoliciesResponse_scalingPolicies :: Lens' DescribeScalingPolicies
 
 -- | The response's http status code.
 describeScalingPoliciesResponse_httpStatus :: Lens' DescribeScalingPoliciesResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPoliciesResponse
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPoliciesResponse
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPoliciesResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPoliciesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPoliciesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPoliciesResponse
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPoliciesResponse
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPoliciesResponse
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPoliciesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPoliciesResponse
+instance Amazonka.Pager.AWSPager Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.DescribeScalingPolicies.DescribeScalingPolicies
 
 
 -- | Provides descriptive information about the scaling activities in the
@@ -9510,7 +9510,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.Descr
 --   <tt>ScalableDimension</tt>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
+module Amazonka.ApplicationAutoScaling.DescribeScalingActivities
 
 -- | <i>See:</i> <a>newDescribeScalingActivities</a> smart constructor.
 data DescribeScalingActivities
@@ -9986,23 +9986,23 @@ describeScalingActivitiesResponse_nextToken :: Lens' DescribeScalingActivitiesRe
 
 -- | The response's http status code.
 describeScalingActivitiesResponse_httpStatus :: Lens' DescribeScalingActivitiesResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivitiesResponse
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivitiesResponse
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivitiesResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivitiesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivitiesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivitiesResponse
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivitiesResponse
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivitiesResponse
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivitiesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivitiesResponse
+instance Amazonka.Pager.AWSPager Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.DescribeScalingActivities.DescribeScalingActivities
 
 
 -- | Gets information about the scalable targets in the specified
@@ -10012,7 +10012,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.Descr
 --   <tt>ScalableDimension</tt>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
+module Amazonka.ApplicationAutoScaling.DescribeScalableTargets
 
 -- | <i>See:</i> <a>newDescribeScalableTargets</a> smart constructor.
 data DescribeScalableTargets
@@ -10490,23 +10490,23 @@ describeScalableTargetsResponse_scalableTargets :: Lens' DescribeScalableTargets
 
 -- | The response's http status code.
 describeScalableTargetsResponse_httpStatus :: Lens' DescribeScalableTargetsResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargetsResponse
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargetsResponse
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargetsResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargetsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargetsResponse
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargetsResponse
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargetsResponse
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargetsResponse
+instance Amazonka.Pager.AWSPager Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.DescribeScalableTargets.DescribeScalableTargets
 
 
 -- | Deregisters an Application Auto Scaling scalable target when you have
@@ -10515,7 +10515,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.Descr
 --   
 --   Deregistering a scalable target deletes the scaling policies and the
 --   scheduled actions that are associated with it.
-module Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
+module Amazonka.ApplicationAutoScaling.DeregisterScalableTarget
 
 -- | <i>See:</i> <a>newDeregisterScalableTarget</a> smart constructor.
 data DeregisterScalableTarget
@@ -10923,22 +10923,22 @@ newDeregisterScalableTargetResponse :: Int -> DeregisterScalableTargetResponse
 
 -- | The response's http status code.
 deregisterScalableTargetResponse_httpStatus :: Lens' DeregisterScalableTargetResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTargetResponse
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTargetResponse
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTargetResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTargetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTargetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTargetResponse
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTargetResponse
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTargetResponse
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTargetResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTargetResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.DeregisterScalableTarget.DeregisterScalableTarget
 
 
 -- | Deletes the specified scheduled action for an Application Auto Scaling
@@ -10946,7 +10946,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.Dereg
 --   
 --   For more information, see <a>Delete a scheduled action</a> in the
 --   <i>Application Auto Scaling User Guide</i>.
-module Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
+module Amazonka.ApplicationAutoScaling.DeleteScheduledAction
 
 -- | <i>See:</i> <a>newDeleteScheduledAction</a> smart constructor.
 data DeleteScheduledAction
@@ -11361,22 +11361,22 @@ newDeleteScheduledActionResponse :: Int -> DeleteScheduledActionResponse
 
 -- | The response's http status code.
 deleteScheduledActionResponse_httpStatus :: Lens' DeleteScheduledActionResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledActionResponse
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledActionResponse
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledActionResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledActionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledActionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledActionResponse
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledActionResponse
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledActionResponse
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledActionResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledActionResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.DeleteScheduledAction.DeleteScheduledAction
 
 
 -- | Deletes the specified scaling policy for an Application Auto Scaling
@@ -11389,7 +11389,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.Delet
 --   For more information, see <a>Delete a step scaling policy</a> and
 --   <a>Delete a target tracking scaling policy</a> in the <i>Application
 --   Auto Scaling User Guide</i>.
-module Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
+module Amazonka.ApplicationAutoScaling.DeleteScalingPolicy
 
 -- | <i>See:</i> <a>newDeleteScalingPolicy</a> smart constructor.
 data DeleteScalingPolicy
@@ -11804,25 +11804,25 @@ newDeleteScalingPolicyResponse :: Int -> DeleteScalingPolicyResponse
 
 -- | The response's http status code.
 deleteScalingPolicyResponse_httpStatus :: Lens' DeleteScalingPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
-instance GHC.Generics.Generic Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicyResponse
-instance GHC.Show.Show Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicyResponse
-instance GHC.Read.Read Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicyResponse
-instance GHC.Classes.Eq Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
-instance Control.DeepSeq.NFData Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
+instance GHC.Generics.Generic Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicyResponse
+instance GHC.Show.Show Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicyResponse
+instance GHC.Read.Read Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicyResponse
+instance GHC.Classes.Eq Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
+instance Control.DeepSeq.NFData Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.ApplicationAutoScaling.DeleteScalingPolicy.DeleteScalingPolicy
 
 
-module Network.AWS.ApplicationAutoScaling.Lens
+module Amazonka.ApplicationAutoScaling.Lens
 
 -- | The name of the scaling policy.
 deleteScalingPolicy_policyName :: Lens' DeleteScalingPolicy Text
@@ -14226,7 +14226,7 @@ targetTrackingScalingPolicyConfiguration_scaleOutCooldown :: Lens' TargetTrackin
 targetTrackingScalingPolicyConfiguration_targetValue :: Lens' TargetTrackingScalingPolicyConfiguration Double
 
 
-module Network.AWS.ApplicationAutoScaling.Waiters
+module Amazonka.ApplicationAutoScaling.Waiters
 
 
 -- | Derived from API version <tt>2016-02-06</tt> of the AWS service
@@ -14280,7 +14280,7 @@ module Network.AWS.ApplicationAutoScaling.Waiters
 --   To learn more about Application Auto Scaling, including information
 --   about granting IAM users required permissions for Application Auto
 --   Scaling actions, see the <a>Application Auto Scaling User Guide</a>.
-module Network.AWS.ApplicationAutoScaling
+module Amazonka.ApplicationAutoScaling
 
 -- | API version <tt>2016-02-06</tt> of the Amazon Application Auto Scaling
 --   SDK configuration.

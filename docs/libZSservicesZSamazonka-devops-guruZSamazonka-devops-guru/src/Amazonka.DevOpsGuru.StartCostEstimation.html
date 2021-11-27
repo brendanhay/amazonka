@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DevOpsGuru.StartCostEstimation</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts the creation of an estimate of the monthly cost to analyze your</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- AWS resources.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DevOpsGuru.StartCostEstimation</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation"><span class="hs-identifier">StartCostEstimation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#newStartCostEstimation"><span class="hs-identifier">newStartCostEstimation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#startCostEstimation_clientToken"><span class="hs-identifier">startCostEstimation_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#startCostEstimation_resourceCollection"><span class="hs-identifier">startCostEstimation_resourceCollection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimationResponse"><span class="hs-identifier">StartCostEstimationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#newStartCostEstimationResponse"><span class="hs-identifier">newStartCostEstimationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#startCostEstimationResponse_httpStatus"><span class="hs-identifier">startCostEstimationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.html"><span class="hs-identifier">Amazonka.DevOpsGuru.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newStartCostEstimation' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679239787"><span id="local-6989586621679239788"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartCostEstimation"><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation"><span class="hs-identifier hs-var">StartCostEstimation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartCostEstimation%27"><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation%27"><span class="hs-identifier hs-var">StartCostEstimation'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The idempotency token used to identify each cost estimate request.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AclientToken%3AStartCostEstimation%27"><span class="annot"><span class="annottext">StartCostEstimation -&gt; Maybe Text
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#%24sel%3AclientToken%3AStartCostEstimation%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The collection of AWS resources used to create a monthly DevOps Guru</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- cost estimate.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AresourceCollection%3AStartCostEstimation%27"><span class="annot"><span class="annottext">StartCostEstimation -&gt; CostEstimationResourceCollectionFilter
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#%24sel%3AresourceCollection%3AStartCostEstimation%27"><span class="hs-identifier hs-var hs-var">resourceCollection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationResourceCollectionFilter.html#CostEstimationResourceCollectionFilter"><span class="hs-identifier hs-type">CostEstimationResourceCollectionFilter</span></a></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239780"><span id="local-6989586621679239782"><span class="annot"><span class="annottext">StartCostEstimation -&gt; StartCostEstimation -&gt; Bool
+(StartCostEstimation -&gt; StartCostEstimation -&gt; Bool)
+-&gt; (StartCostEstimation -&gt; StartCostEstimation -&gt; Bool)
+-&gt; Eq StartCostEstimation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartCostEstimation -&gt; StartCostEstimation -&gt; Bool
+$c/= :: StartCostEstimation -&gt; StartCostEstimation -&gt; Bool
+== :: StartCostEstimation -&gt; StartCostEstimation -&gt; Bool
+$c== :: StartCostEstimation -&gt; StartCostEstimation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239771"><span id="local-6989586621679239773"><span id="local-6989586621679239775"><span id="local-6989586621679239777"><span class="annot"><span class="annottext">ReadPrec [StartCostEstimation]
+ReadPrec StartCostEstimation
+Int -&gt; ReadS StartCostEstimation
+ReadS [StartCostEstimation]
+(Int -&gt; ReadS StartCostEstimation)
+-&gt; ReadS [StartCostEstimation]
+-&gt; ReadPrec StartCostEstimation
+-&gt; ReadPrec [StartCostEstimation]
+-&gt; Read StartCostEstimation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartCostEstimation]
+$creadListPrec :: ReadPrec [StartCostEstimation]
+readPrec :: ReadPrec StartCostEstimation
+$creadPrec :: ReadPrec StartCostEstimation
+readList :: ReadS [StartCostEstimation]
+$creadList :: ReadS [StartCostEstimation]
+readsPrec :: Int -&gt; ReadS StartCostEstimation
+$creadsPrec :: Int -&gt; ReadS StartCostEstimation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239764"><span id="local-6989586621679239766"><span id="local-6989586621679239768"><span class="annot"><span class="annottext">Int -&gt; StartCostEstimation -&gt; ShowS
+[StartCostEstimation] -&gt; ShowS
+StartCostEstimation -&gt; String
+(Int -&gt; StartCostEstimation -&gt; ShowS)
+-&gt; (StartCostEstimation -&gt; String)
+-&gt; ([StartCostEstimation] -&gt; ShowS)
+-&gt; Show StartCostEstimation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartCostEstimation] -&gt; ShowS
+$cshowList :: [StartCostEstimation] -&gt; ShowS
+show :: StartCostEstimation -&gt; String
+$cshow :: StartCostEstimation -&gt; String
+showsPrec :: Int -&gt; StartCostEstimation -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartCostEstimation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartCostEstimation -&gt; Rep StartCostEstimation x)
+-&gt; (forall x. Rep StartCostEstimation x -&gt; StartCostEstimation)
+-&gt; Generic StartCostEstimation
+forall x. Rep StartCostEstimation x -&gt; StartCostEstimation
+forall x. StartCostEstimation -&gt; Rep StartCostEstimation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartCostEstimation x -&gt; StartCostEstimation
+$cfrom :: forall x. StartCostEstimation -&gt; Rep StartCostEstimation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'StartCostEstimation' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'clientToken', 'startCostEstimation_clientToken' - The idempotency token used to identify each cost estimate request.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'resourceCollection', 'startCostEstimation_resourceCollection' - The collection of AWS resources used to create a monthly DevOps Guru</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- cost estimate.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#newStartCostEstimation"><span class="hs-identifier hs-type">newStartCostEstimation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'resourceCollection'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationResourceCollectionFilter.html#CostEstimationResourceCollectionFilter"><span class="hs-identifier hs-type">CostEstimationResourceCollectionFilter</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation"><span class="hs-identifier hs-type">StartCostEstimation</span></a></span><span>
+</span><span id="line-76"></span><span id="newStartCostEstimation"><span class="annot"><span class="annottext">newStartCostEstimation :: CostEstimationResourceCollectionFilter -&gt; StartCostEstimation
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#newStartCostEstimation"><span class="hs-identifier hs-var hs-var">newStartCostEstimation</span></a></span></span><span> </span><span id="local-6989586621679239759"><span class="annot"><span class="annottext">CostEstimationResourceCollectionFilter
+</span><a href="#local-6989586621679239759"><span class="hs-identifier hs-var">pResourceCollection_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">StartCostEstimation' :: Maybe Text
+-&gt; CostEstimationResourceCollectionFilter -&gt; StartCostEstimation
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation%27"><span class="hs-identifier hs-type">StartCostEstimation'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:StartCostEstimation' :: Maybe Text
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#%24sel%3AclientToken%3AStartCostEstimation%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceCollection:StartCostEstimation' :: CostEstimationResourceCollectionFilter
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#%24sel%3AresourceCollection%3AStartCostEstimation%27"><span class="hs-identifier hs-var">resourceCollection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CostEstimationResourceCollectionFilter
+</span><a href="#local-6989586621679239759"><span class="hs-identifier hs-var">pResourceCollection_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The idempotency token used to identify each cost estimate request.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#startCostEstimation_clientToken"><span class="hs-identifier hs-type">startCostEstimation_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation"><span class="hs-identifier hs-type">StartCostEstimation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="startCostEstimation_clientToken"><span class="annot"><span class="annottext">startCostEstimation_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartCostEstimation -&gt; f StartCostEstimation
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#startCostEstimation_clientToken"><span class="hs-identifier hs-var hs-var">startCostEstimation_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartCostEstimation -&gt; Maybe Text)
+-&gt; (StartCostEstimation -&gt; Maybe Text -&gt; StartCostEstimation)
+-&gt; Lens
+     StartCostEstimation StartCostEstimation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation%27"><span class="hs-identifier hs-type">StartCostEstimation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239756"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:StartCostEstimation' :: StartCostEstimation -&gt; Maybe Text
+</span><a href="#local-6989586621679239756"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239756"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239755"><span class="annot"><span class="annottext">s :: StartCostEstimation
+</span><a href="#local-6989586621679239755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation%27"><span class="hs-identifier hs-type">StartCostEstimation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239754"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartCostEstimation
+</span><a href="#local-6989586621679239755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:StartCostEstimation' :: Maybe Text
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#%24sel%3AclientToken%3AStartCostEstimation%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation"><span class="hs-identifier hs-type">StartCostEstimation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The collection of AWS resources used to create a monthly DevOps Guru</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- cost estimate.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#startCostEstimation_resourceCollection"><span class="hs-identifier hs-type">startCostEstimation_resourceCollection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation"><span class="hs-identifier hs-type">StartCostEstimation</span></a></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationResourceCollectionFilter.html#CostEstimationResourceCollectionFilter"><span class="hs-identifier hs-type">CostEstimationResourceCollectionFilter</span></a></span><span>
+</span><span id="line-89"></span><span id="startCostEstimation_resourceCollection"><span class="annot"><span class="annottext">startCostEstimation_resourceCollection :: (CostEstimationResourceCollectionFilter
+ -&gt; f CostEstimationResourceCollectionFilter)
+-&gt; StartCostEstimation -&gt; f StartCostEstimation
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#startCostEstimation_resourceCollection"><span class="hs-identifier hs-var hs-var">startCostEstimation_resourceCollection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartCostEstimation -&gt; CostEstimationResourceCollectionFilter)
+-&gt; (StartCostEstimation
+    -&gt; CostEstimationResourceCollectionFilter -&gt; StartCostEstimation)
+-&gt; Lens
+     StartCostEstimation
+     StartCostEstimation
+     CostEstimationResourceCollectionFilter
+     CostEstimationResourceCollectionFilter
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation%27"><span class="hs-identifier hs-type">StartCostEstimation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239753"><span class="annot"><span class="annottext">CostEstimationResourceCollectionFilter
+resourceCollection :: CostEstimationResourceCollectionFilter
+$sel:resourceCollection:StartCostEstimation' :: StartCostEstimation -&gt; CostEstimationResourceCollectionFilter
+</span><a href="#local-6989586621679239753"><span class="hs-identifier hs-var hs-var">resourceCollection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostEstimationResourceCollectionFilter
+</span><a href="#local-6989586621679239753"><span class="hs-identifier hs-var">resourceCollection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239752"><span class="annot"><span class="annottext">s :: StartCostEstimation
+</span><a href="#local-6989586621679239752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation%27"><span class="hs-identifier hs-type">StartCostEstimation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239751"><span class="annot"><span class="annottext">CostEstimationResourceCollectionFilter
+</span><a href="#local-6989586621679239751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartCostEstimation
+</span><a href="#local-6989586621679239752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceCollection:StartCostEstimation' :: CostEstimationResourceCollectionFilter
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#%24sel%3AresourceCollection%3AStartCostEstimation%27"><span class="hs-identifier hs-var">resourceCollection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CostEstimationResourceCollectionFilter
+</span><a href="#local-6989586621679239751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation"><span class="hs-identifier hs-type">StartCostEstimation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation"><span class="hs-identifier hs-type">StartCostEstimation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation"><span class="hs-identifier hs-type">StartCostEstimation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimationResponse"><span class="hs-identifier hs-type">StartCostEstimationResponse</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679239747"><span class="annot"><span class="annottext">request :: StartCostEstimation -&gt; Request StartCostEstimation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartCostEstimation -&gt; Request StartCostEstimation
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DevOpsGuru.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679239743"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartCostEstimation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartCostEstimation)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse StartCostEstimation))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartCostEstimation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartCostEstimation)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239740"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239740"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679239739"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679239739"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679239738"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679239738"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StartCostEstimationResponse
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimationResponse%27"><span class="hs-identifier hs-var">StartCostEstimationResponse'</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StartCostEstimationResponse)
+-&gt; Either String Int -&gt; Either String StartCostEstimationResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239740"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239731"><span id="local-6989586621679239733"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation"><span class="hs-identifier hs-type">StartCostEstimation</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239728"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation"><span class="hs-identifier hs-type">StartCostEstimation</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation"><span class="hs-identifier hs-type">StartCostEstimation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679239724"><span class="annot"><span class="annottext">toHeaders :: StartCostEstimation -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartCostEstimation -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239714"><span id="local-6989586621679239716"><span id="local-6989586621679239718"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation"><span class="hs-identifier hs-type">StartCostEstimation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679239712"><span class="annot"><span class="annottext">toJSON :: StartCostEstimation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation%27"><span class="hs-identifier hs-type">StartCostEstimation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239709"><span id="local-6989586621679239710"><span class="annot"><span class="annottext">Maybe Text
+CostEstimationResourceCollectionFilter
+resourceCollection :: CostEstimationResourceCollectionFilter
+clientToken :: Maybe Text
+$sel:resourceCollection:StartCostEstimation' :: StartCostEstimation -&gt; CostEstimationResourceCollectionFilter
+$sel:clientToken:StartCostEstimation' :: StartCostEstimation -&gt; Maybe Text
+</span><a href="#local-6989586621679239709"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239710"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceCollection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CostEstimationResourceCollectionFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">CostEstimationResourceCollectionFilter
+</span><a href="#local-6989586621679239709"><span class="hs-identifier hs-var">resourceCollection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation"><span class="hs-identifier hs-type">StartCostEstimation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679239703"><span class="annot"><span class="annottext">toPath :: StartCostEstimation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartCostEstimation -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/cost-estimation&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimation"><span class="hs-identifier hs-type">StartCostEstimation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679239699"><span class="annot"><span class="annottext">toQuery :: StartCostEstimation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartCostEstimation -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newStartCostEstimationResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621679239696"><span id="local-6989586621679239697"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartCostEstimationResponse"><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimationResponse"><span class="hs-identifier hs-var">StartCostEstimationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartCostEstimationResponse%27"><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimationResponse%27"><span class="hs-identifier hs-var">StartCostEstimationResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartCostEstimationResponse%27"><span class="annot"><span class="annottext">StartCostEstimationResponse -&gt; Int
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#%24sel%3AhttpStatus%3AStartCostEstimationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239691"><span id="local-6989586621679239693"><span class="annot"><span class="annottext">StartCostEstimationResponse -&gt; StartCostEstimationResponse -&gt; Bool
+(StartCostEstimationResponse
+ -&gt; StartCostEstimationResponse -&gt; Bool)
+-&gt; (StartCostEstimationResponse
+    -&gt; StartCostEstimationResponse -&gt; Bool)
+-&gt; Eq StartCostEstimationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartCostEstimationResponse -&gt; StartCostEstimationResponse -&gt; Bool
+$c/= :: StartCostEstimationResponse -&gt; StartCostEstimationResponse -&gt; Bool
+== :: StartCostEstimationResponse -&gt; StartCostEstimationResponse -&gt; Bool
+$c== :: StartCostEstimationResponse -&gt; StartCostEstimationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239683"><span id="local-6989586621679239685"><span id="local-6989586621679239687"><span id="local-6989586621679239689"><span class="annot"><span class="annottext">ReadPrec [StartCostEstimationResponse]
+ReadPrec StartCostEstimationResponse
+Int -&gt; ReadS StartCostEstimationResponse
+ReadS [StartCostEstimationResponse]
+(Int -&gt; ReadS StartCostEstimationResponse)
+-&gt; ReadS [StartCostEstimationResponse]
+-&gt; ReadPrec StartCostEstimationResponse
+-&gt; ReadPrec [StartCostEstimationResponse]
+-&gt; Read StartCostEstimationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartCostEstimationResponse]
+$creadListPrec :: ReadPrec [StartCostEstimationResponse]
+readPrec :: ReadPrec StartCostEstimationResponse
+$creadPrec :: ReadPrec StartCostEstimationResponse
+readList :: ReadS [StartCostEstimationResponse]
+$creadList :: ReadS [StartCostEstimationResponse]
+readsPrec :: Int -&gt; ReadS StartCostEstimationResponse
+$creadsPrec :: Int -&gt; ReadS StartCostEstimationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239677"><span id="local-6989586621679239679"><span id="local-6989586621679239681"><span class="annot"><span class="annottext">Int -&gt; StartCostEstimationResponse -&gt; ShowS
+[StartCostEstimationResponse] -&gt; ShowS
+StartCostEstimationResponse -&gt; String
+(Int -&gt; StartCostEstimationResponse -&gt; ShowS)
+-&gt; (StartCostEstimationResponse -&gt; String)
+-&gt; ([StartCostEstimationResponse] -&gt; ShowS)
+-&gt; Show StartCostEstimationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartCostEstimationResponse] -&gt; ShowS
+$cshowList :: [StartCostEstimationResponse] -&gt; ShowS
+show :: StartCostEstimationResponse -&gt; String
+$cshow :: StartCostEstimationResponse -&gt; String
+showsPrec :: Int -&gt; StartCostEstimationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartCostEstimationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartCostEstimationResponse -&gt; Rep StartCostEstimationResponse x)
+-&gt; (forall x.
+    Rep StartCostEstimationResponse x -&gt; StartCostEstimationResponse)
+-&gt; Generic StartCostEstimationResponse
+forall x.
+Rep StartCostEstimationResponse x -&gt; StartCostEstimationResponse
+forall x.
+StartCostEstimationResponse -&gt; Rep StartCostEstimationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartCostEstimationResponse x -&gt; StartCostEstimationResponse
+$cfrom :: forall x.
+StartCostEstimationResponse -&gt; Rep StartCostEstimationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Create a value of 'StartCostEstimationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'startCostEstimationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#newStartCostEstimationResponse"><span class="hs-identifier hs-type">newStartCostEstimationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimationResponse"><span class="hs-identifier hs-type">StartCostEstimationResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newStartCostEstimationResponse"><span class="annot"><span class="annottext">newStartCostEstimationResponse :: Int -&gt; StartCostEstimationResponse
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#newStartCostEstimationResponse"><span class="hs-identifier hs-var hs-var">newStartCostEstimationResponse</span></a></span></span><span> </span><span id="local-6989586621679239674"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239674"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">StartCostEstimationResponse' :: Int -&gt; StartCostEstimationResponse
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimationResponse%27"><span class="hs-identifier hs-type">StartCostEstimationResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StartCostEstimationResponse' :: Int
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#%24sel%3AhttpStatus%3AStartCostEstimationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239674"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#startCostEstimationResponse_httpStatus"><span class="hs-identifier hs-type">startCostEstimationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimationResponse"><span class="hs-identifier hs-type">StartCostEstimationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-162"></span><span id="startCostEstimationResponse_httpStatus"><span class="annot"><span class="annottext">startCostEstimationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartCostEstimationResponse -&gt; f StartCostEstimationResponse
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#startCostEstimationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startCostEstimationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartCostEstimationResponse -&gt; Int)
+-&gt; (StartCostEstimationResponse
+    -&gt; Int -&gt; StartCostEstimationResponse)
+-&gt; Lens
+     StartCostEstimationResponse StartCostEstimationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimationResponse%27"><span class="hs-identifier hs-type">StartCostEstimationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239673"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartCostEstimationResponse' :: StartCostEstimationResponse -&gt; Int
+</span><a href="#local-6989586621679239673"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239673"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239672"><span class="annot"><span class="annottext">s :: StartCostEstimationResponse
+</span><a href="#local-6989586621679239672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimationResponse%27"><span class="hs-identifier hs-type">StartCostEstimationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239671"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartCostEstimationResponse
+</span><a href="#local-6989586621679239672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartCostEstimationResponse' :: Int
+</span><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#%24sel%3AhttpStatus%3AStartCostEstimationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimationResponse"><span class="hs-identifier hs-type">StartCostEstimationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239669"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.StartCostEstimation.html#StartCostEstimationResponse"><span class="hs-identifier hs-type">StartCostEstimationResponse</span></a></span></span><span>
+</span><span id="line-165"></span></pre></body></html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.GetApnsVoipChannel</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves information about the status and settings of the APNs VoIP</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- channel for an application.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.GetApnsVoipChannel</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel"><span class="hs-identifier">GetApnsVoipChannel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#newGetApnsVoipChannel"><span class="hs-identifier">newGetApnsVoipChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#getApnsVoipChannel_applicationId"><span class="hs-identifier">getApnsVoipChannel_applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse"><span class="hs-identifier">GetApnsVoipChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#newGetApnsVoipChannelResponse"><span class="hs-identifier">newGetApnsVoipChannelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#getApnsVoipChannelResponse_httpStatus"><span class="hs-identifier">getApnsVoipChannelResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#getApnsVoipChannelResponse_aPNSVoipChannelResponse"><span class="hs-identifier">getApnsVoipChannelResponse_aPNSVoipChannelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.html"><span class="hs-identifier">Amazonka.Pinpoint.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetApnsVoipChannel' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679634202"><span id="local-6989586621679634203"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApnsVoipChannel"><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel"><span class="hs-identifier hs-var">GetApnsVoipChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApnsVoipChannel%27"><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel%27"><span class="hs-identifier hs-var">GetApnsVoipChannel'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AapplicationId%3AGetApnsVoipChannel%27"><span class="annot"><span class="annottext">GetApnsVoipChannel -&gt; Text
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#%24sel%3AapplicationId%3AGetApnsVoipChannel%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679634196"><span id="local-6989586621679634198"><span class="annot"><span class="annottext">GetApnsVoipChannel -&gt; GetApnsVoipChannel -&gt; Bool
+(GetApnsVoipChannel -&gt; GetApnsVoipChannel -&gt; Bool)
+-&gt; (GetApnsVoipChannel -&gt; GetApnsVoipChannel -&gt; Bool)
+-&gt; Eq GetApnsVoipChannel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetApnsVoipChannel -&gt; GetApnsVoipChannel -&gt; Bool
+$c/= :: GetApnsVoipChannel -&gt; GetApnsVoipChannel -&gt; Bool
+== :: GetApnsVoipChannel -&gt; GetApnsVoipChannel -&gt; Bool
+$c== :: GetApnsVoipChannel -&gt; GetApnsVoipChannel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634187"><span id="local-6989586621679634189"><span id="local-6989586621679634191"><span id="local-6989586621679634193"><span class="annot"><span class="annottext">ReadPrec [GetApnsVoipChannel]
+ReadPrec GetApnsVoipChannel
+Int -&gt; ReadS GetApnsVoipChannel
+ReadS [GetApnsVoipChannel]
+(Int -&gt; ReadS GetApnsVoipChannel)
+-&gt; ReadS [GetApnsVoipChannel]
+-&gt; ReadPrec GetApnsVoipChannel
+-&gt; ReadPrec [GetApnsVoipChannel]
+-&gt; Read GetApnsVoipChannel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetApnsVoipChannel]
+$creadListPrec :: ReadPrec [GetApnsVoipChannel]
+readPrec :: ReadPrec GetApnsVoipChannel
+$creadPrec :: ReadPrec GetApnsVoipChannel
+readList :: ReadS [GetApnsVoipChannel]
+$creadList :: ReadS [GetApnsVoipChannel]
+readsPrec :: Int -&gt; ReadS GetApnsVoipChannel
+$creadsPrec :: Int -&gt; ReadS GetApnsVoipChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634180"><span id="local-6989586621679634182"><span id="local-6989586621679634184"><span class="annot"><span class="annottext">Int -&gt; GetApnsVoipChannel -&gt; ShowS
+[GetApnsVoipChannel] -&gt; ShowS
+GetApnsVoipChannel -&gt; String
+(Int -&gt; GetApnsVoipChannel -&gt; ShowS)
+-&gt; (GetApnsVoipChannel -&gt; String)
+-&gt; ([GetApnsVoipChannel] -&gt; ShowS)
+-&gt; Show GetApnsVoipChannel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetApnsVoipChannel] -&gt; ShowS
+$cshowList :: [GetApnsVoipChannel] -&gt; ShowS
+show :: GetApnsVoipChannel -&gt; String
+$cshow :: GetApnsVoipChannel -&gt; String
+showsPrec :: Int -&gt; GetApnsVoipChannel -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetApnsVoipChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetApnsVoipChannel -&gt; Rep GetApnsVoipChannel x)
+-&gt; (forall x. Rep GetApnsVoipChannel x -&gt; GetApnsVoipChannel)
+-&gt; Generic GetApnsVoipChannel
+forall x. Rep GetApnsVoipChannel x -&gt; GetApnsVoipChannel
+forall x. GetApnsVoipChannel -&gt; Rep GetApnsVoipChannel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetApnsVoipChannel x -&gt; GetApnsVoipChannel
+$cfrom :: forall x. GetApnsVoipChannel -&gt; Rep GetApnsVoipChannel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'GetApnsVoipChannel' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'applicationId', 'getApnsVoipChannel_applicationId' - The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#newGetApnsVoipChannel"><span class="hs-identifier hs-type">newGetApnsVoipChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel"><span class="hs-identifier hs-type">GetApnsVoipChannel</span></a></span><span>
+</span><span id="line-72"></span><span id="newGetApnsVoipChannel"><span class="annot"><span class="annottext">newGetApnsVoipChannel :: Text -&gt; GetApnsVoipChannel
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#newGetApnsVoipChannel"><span class="hs-identifier hs-var hs-var">newGetApnsVoipChannel</span></a></span></span><span> </span><span id="local-6989586621679634175"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679634175"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">GetApnsVoipChannel' :: Text -&gt; GetApnsVoipChannel
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel%27"><span class="hs-identifier hs-type">GetApnsVoipChannel'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationId:GetApnsVoipChannel' :: Text
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#%24sel%3AapplicationId%3AGetApnsVoipChannel%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679634175"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#getApnsVoipChannel_applicationId"><span class="hs-identifier hs-type">getApnsVoipChannel_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel"><span class="hs-identifier hs-type">GetApnsVoipChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="getApnsVoipChannel_applicationId"><span class="annot"><span class="annottext">getApnsVoipChannel_applicationId :: (Text -&gt; f Text) -&gt; GetApnsVoipChannel -&gt; f GetApnsVoipChannel
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#getApnsVoipChannel_applicationId"><span class="hs-identifier hs-var hs-var">getApnsVoipChannel_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApnsVoipChannel -&gt; Text)
+-&gt; (GetApnsVoipChannel -&gt; Text -&gt; GetApnsVoipChannel)
+-&gt; Lens GetApnsVoipChannel GetApnsVoipChannel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel%27"><span class="hs-identifier hs-type">GetApnsVoipChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679634172"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:GetApnsVoipChannel' :: GetApnsVoipChannel -&gt; Text
+</span><a href="#local-6989586621679634172"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679634172"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679634171"><span class="annot"><span class="annottext">s :: GetApnsVoipChannel
+</span><a href="#local-6989586621679634171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel%27"><span class="hs-identifier hs-type">GetApnsVoipChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679634170"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679634170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApnsVoipChannel
+</span><a href="#local-6989586621679634171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetApnsVoipChannel' :: Text
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#%24sel%3AapplicationId%3AGetApnsVoipChannel%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679634170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel"><span class="hs-identifier hs-type">GetApnsVoipChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel"><span class="hs-identifier hs-type">GetApnsVoipChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel"><span class="hs-identifier hs-type">GetApnsVoipChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse"><span class="hs-identifier hs-type">GetApnsVoipChannelResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679634166"><span class="annot"><span class="annottext">request :: GetApnsVoipChannel -&gt; Request GetApnsVoipChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetApnsVoipChannel -&gt; Request GetApnsVoipChannel
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679634162"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetApnsVoipChannel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetApnsVoipChannel)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetApnsVoipChannel))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetApnsVoipChannel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetApnsVoipChannel)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679634159"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679634159"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679634158"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679634158"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679634157"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679634157"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; APNSVoipChannelResponse -&gt; GetApnsVoipChannelResponse
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse%27"><span class="hs-identifier hs-var">GetApnsVoipChannelResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; APNSVoipChannelResponse -&gt; GetApnsVoipChannelResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (APNSVoipChannelResponse -&gt; GetApnsVoipChannelResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679634159"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (APNSVoipChannelResponse -&gt; GetApnsVoipChannelResponse)
+-&gt; Either String APNSVoipChannelResponse
+-&gt; Either String GetApnsVoipChannelResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String APNSVoipChannelResponse
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679634157"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679634149"><span id="local-6989586621679634151"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel"><span class="hs-identifier hs-type">GetApnsVoipChannel</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679634146"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel"><span class="hs-identifier hs-type">GetApnsVoipChannel</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel"><span class="hs-identifier hs-type">GetApnsVoipChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679634142"><span class="annot"><span class="annottext">toHeaders :: GetApnsVoipChannel -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetApnsVoipChannel -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel"><span class="hs-identifier hs-type">GetApnsVoipChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679634136"><span class="annot"><span class="annottext">toPath :: GetApnsVoipChannel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel%27"><span class="hs-identifier hs-type">GetApnsVoipChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679634134"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:GetApnsVoipChannel' :: GetApnsVoipChannel -&gt; Text
+</span><a href="#local-6989586621679634134"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apps/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679634134"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/channels/apns_voip&quot;</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannel"><span class="hs-identifier hs-type">GetApnsVoipChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679634130"><span class="annot"><span class="annottext">toQuery :: GetApnsVoipChannel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetApnsVoipChannel -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newGetApnsVoipChannelResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679634127"><span id="local-6989586621679634128"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApnsVoipChannelResponse"><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse"><span class="hs-identifier hs-var">GetApnsVoipChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApnsVoipChannelResponse%27"><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse%27"><span class="hs-identifier hs-var">GetApnsVoipChannelResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetApnsVoipChannelResponse%27"><span class="annot"><span class="annottext">GetApnsVoipChannelResponse -&gt; Int
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#%24sel%3AhttpStatus%3AGetApnsVoipChannelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AaPNSVoipChannelResponse%3AGetApnsVoipChannelResponse%27"><span class="annot"><span class="annottext">GetApnsVoipChannelResponse -&gt; APNSVoipChannelResponse
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#%24sel%3AaPNSVoipChannelResponse%3AGetApnsVoipChannelResponse%27"><span class="hs-identifier hs-var hs-var">aPNSVoipChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.APNSVoipChannelResponse.html#APNSVoipChannelResponse"><span class="hs-identifier hs-type">APNSVoipChannelResponse</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679634121"><span id="local-6989586621679634123"><span class="annot"><span class="annottext">GetApnsVoipChannelResponse -&gt; GetApnsVoipChannelResponse -&gt; Bool
+(GetApnsVoipChannelResponse -&gt; GetApnsVoipChannelResponse -&gt; Bool)
+-&gt; (GetApnsVoipChannelResponse
+    -&gt; GetApnsVoipChannelResponse -&gt; Bool)
+-&gt; Eq GetApnsVoipChannelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetApnsVoipChannelResponse -&gt; GetApnsVoipChannelResponse -&gt; Bool
+$c/= :: GetApnsVoipChannelResponse -&gt; GetApnsVoipChannelResponse -&gt; Bool
+== :: GetApnsVoipChannelResponse -&gt; GetApnsVoipChannelResponse -&gt; Bool
+$c== :: GetApnsVoipChannelResponse -&gt; GetApnsVoipChannelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634113"><span id="local-6989586621679634115"><span id="local-6989586621679634117"><span id="local-6989586621679634119"><span class="annot"><span class="annottext">ReadPrec [GetApnsVoipChannelResponse]
+ReadPrec GetApnsVoipChannelResponse
+Int -&gt; ReadS GetApnsVoipChannelResponse
+ReadS [GetApnsVoipChannelResponse]
+(Int -&gt; ReadS GetApnsVoipChannelResponse)
+-&gt; ReadS [GetApnsVoipChannelResponse]
+-&gt; ReadPrec GetApnsVoipChannelResponse
+-&gt; ReadPrec [GetApnsVoipChannelResponse]
+-&gt; Read GetApnsVoipChannelResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetApnsVoipChannelResponse]
+$creadListPrec :: ReadPrec [GetApnsVoipChannelResponse]
+readPrec :: ReadPrec GetApnsVoipChannelResponse
+$creadPrec :: ReadPrec GetApnsVoipChannelResponse
+readList :: ReadS [GetApnsVoipChannelResponse]
+$creadList :: ReadS [GetApnsVoipChannelResponse]
+readsPrec :: Int -&gt; ReadS GetApnsVoipChannelResponse
+$creadsPrec :: Int -&gt; ReadS GetApnsVoipChannelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634107"><span id="local-6989586621679634109"><span id="local-6989586621679634111"><span class="annot"><span class="annottext">Int -&gt; GetApnsVoipChannelResponse -&gt; ShowS
+[GetApnsVoipChannelResponse] -&gt; ShowS
+GetApnsVoipChannelResponse -&gt; String
+(Int -&gt; GetApnsVoipChannelResponse -&gt; ShowS)
+-&gt; (GetApnsVoipChannelResponse -&gt; String)
+-&gt; ([GetApnsVoipChannelResponse] -&gt; ShowS)
+-&gt; Show GetApnsVoipChannelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetApnsVoipChannelResponse] -&gt; ShowS
+$cshowList :: [GetApnsVoipChannelResponse] -&gt; ShowS
+show :: GetApnsVoipChannelResponse -&gt; String
+$cshow :: GetApnsVoipChannelResponse -&gt; String
+showsPrec :: Int -&gt; GetApnsVoipChannelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetApnsVoipChannelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetApnsVoipChannelResponse -&gt; Rep GetApnsVoipChannelResponse x)
+-&gt; (forall x.
+    Rep GetApnsVoipChannelResponse x -&gt; GetApnsVoipChannelResponse)
+-&gt; Generic GetApnsVoipChannelResponse
+forall x.
+Rep GetApnsVoipChannelResponse x -&gt; GetApnsVoipChannelResponse
+forall x.
+GetApnsVoipChannelResponse -&gt; Rep GetApnsVoipChannelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetApnsVoipChannelResponse x -&gt; GetApnsVoipChannelResponse
+$cfrom :: forall x.
+GetApnsVoipChannelResponse -&gt; Rep GetApnsVoipChannelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Create a value of 'GetApnsVoipChannelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'httpStatus', 'getApnsVoipChannelResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'aPNSVoipChannelResponse', 'getApnsVoipChannelResponse_aPNSVoipChannelResponse' - Undocumented member.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#newGetApnsVoipChannelResponse"><span class="hs-identifier hs-type">newGetApnsVoipChannelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'aPNSVoipChannelResponse'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.APNSVoipChannelResponse.html#APNSVoipChannelResponse"><span class="hs-identifier hs-type">APNSVoipChannelResponse</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse"><span class="hs-identifier hs-type">GetApnsVoipChannelResponse</span></a></span><span>
+</span><span id="line-147"></span><span id="newGetApnsVoipChannelResponse"><span class="annot"><span class="annottext">newGetApnsVoipChannelResponse :: Int -&gt; APNSVoipChannelResponse -&gt; GetApnsVoipChannelResponse
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#newGetApnsVoipChannelResponse"><span class="hs-identifier hs-var hs-var">newGetApnsVoipChannelResponse</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679634104"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679634104"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679634103"><span class="annot"><span class="annottext">APNSVoipChannelResponse
+</span><a href="#local-6989586621679634103"><span class="hs-identifier hs-var">pAPNSVoipChannelResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">GetApnsVoipChannelResponse' :: Int -&gt; APNSVoipChannelResponse -&gt; GetApnsVoipChannelResponse
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse%27"><span class="hs-identifier hs-type">GetApnsVoipChannelResponse'</span></a></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetApnsVoipChannelResponse' :: Int
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#%24sel%3AhttpStatus%3AGetApnsVoipChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679634104"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">$sel:aPNSVoipChannelResponse:GetApnsVoipChannelResponse' :: APNSVoipChannelResponse
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#%24sel%3AaPNSVoipChannelResponse%3AGetApnsVoipChannelResponse%27"><span class="hs-identifier hs-var">aPNSVoipChannelResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">APNSVoipChannelResponse
+</span><a href="#local-6989586621679634103"><span class="hs-identifier hs-var">pAPNSVoipChannelResponse_</span></a></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#getApnsVoipChannelResponse_httpStatus"><span class="hs-identifier hs-type">getApnsVoipChannelResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse"><span class="hs-identifier hs-type">GetApnsVoipChannelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span id="getApnsVoipChannelResponse_httpStatus"><span class="annot"><span class="annottext">getApnsVoipChannelResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetApnsVoipChannelResponse -&gt; f GetApnsVoipChannelResponse
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#getApnsVoipChannelResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getApnsVoipChannelResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApnsVoipChannelResponse -&gt; Int)
+-&gt; (GetApnsVoipChannelResponse
+    -&gt; Int -&gt; GetApnsVoipChannelResponse)
+-&gt; Lens
+     GetApnsVoipChannelResponse GetApnsVoipChannelResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse%27"><span class="hs-identifier hs-type">GetApnsVoipChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679634102"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetApnsVoipChannelResponse' :: GetApnsVoipChannelResponse -&gt; Int
+</span><a href="#local-6989586621679634102"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679634102"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679634101"><span class="annot"><span class="annottext">s :: GetApnsVoipChannelResponse
+</span><a href="#local-6989586621679634101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse%27"><span class="hs-identifier hs-type">GetApnsVoipChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679634100"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679634100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApnsVoipChannelResponse
+</span><a href="#local-6989586621679634101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetApnsVoipChannelResponse' :: Int
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#%24sel%3AhttpStatus%3AGetApnsVoipChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679634100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse"><span class="hs-identifier hs-type">GetApnsVoipChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#getApnsVoipChannelResponse_aPNSVoipChannelResponse"><span class="hs-identifier hs-type">getApnsVoipChannelResponse_aPNSVoipChannelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse"><span class="hs-identifier hs-type">GetApnsVoipChannelResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.APNSVoipChannelResponse.html#APNSVoipChannelResponse"><span class="hs-identifier hs-type">APNSVoipChannelResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="getApnsVoipChannelResponse_aPNSVoipChannelResponse"><span class="annot"><span class="annottext">getApnsVoipChannelResponse_aPNSVoipChannelResponse :: (APNSVoipChannelResponse -&gt; f APNSVoipChannelResponse)
+-&gt; GetApnsVoipChannelResponse -&gt; f GetApnsVoipChannelResponse
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#getApnsVoipChannelResponse_aPNSVoipChannelResponse"><span class="hs-identifier hs-var hs-var">getApnsVoipChannelResponse_aPNSVoipChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApnsVoipChannelResponse -&gt; APNSVoipChannelResponse)
+-&gt; (GetApnsVoipChannelResponse
+    -&gt; APNSVoipChannelResponse -&gt; GetApnsVoipChannelResponse)
+-&gt; Lens
+     GetApnsVoipChannelResponse
+     GetApnsVoipChannelResponse
+     APNSVoipChannelResponse
+     APNSVoipChannelResponse
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse%27"><span class="hs-identifier hs-type">GetApnsVoipChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679634099"><span class="annot"><span class="annottext">APNSVoipChannelResponse
+aPNSVoipChannelResponse :: APNSVoipChannelResponse
+$sel:aPNSVoipChannelResponse:GetApnsVoipChannelResponse' :: GetApnsVoipChannelResponse -&gt; APNSVoipChannelResponse
+</span><a href="#local-6989586621679634099"><span class="hs-identifier hs-var hs-var">aPNSVoipChannelResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSVoipChannelResponse
+</span><a href="#local-6989586621679634099"><span class="hs-identifier hs-var">aPNSVoipChannelResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679634098"><span class="annot"><span class="annottext">s :: GetApnsVoipChannelResponse
+</span><a href="#local-6989586621679634098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse%27"><span class="hs-identifier hs-type">GetApnsVoipChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679634097"><span class="annot"><span class="annottext">APNSVoipChannelResponse
+</span><a href="#local-6989586621679634097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApnsVoipChannelResponse
+</span><a href="#local-6989586621679634098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aPNSVoipChannelResponse:GetApnsVoipChannelResponse' :: APNSVoipChannelResponse
+</span><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#%24sel%3AaPNSVoipChannelResponse%3AGetApnsVoipChannelResponse%27"><span class="hs-identifier hs-var">aPNSVoipChannelResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">APNSVoipChannelResponse
+</span><a href="#local-6989586621679634097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse"><span class="hs-identifier hs-type">GetApnsVoipChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679634095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetApnsVoipChannel.html#GetApnsVoipChannelResponse"><span class="hs-identifier hs-type">GetApnsVoipChannelResponse</span></a></span></span><span>
+</span><span id="line-166"></span></pre></body></html>

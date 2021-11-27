@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass"><span class="hs-identifier">Xavc4kProfileBitrateClass</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass_BITRATE_CLASS_100"><span class="hs-identifier">Xavc4kProfileBitrateClass_BITRATE_CLASS_100</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass_BITRATE_CLASS_140"><span class="hs-identifier">Xavc4kProfileBitrateClass_BITRATE_CLASS_140</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass_BITRATE_CLASS_200"><span class="hs-identifier">Xavc4kProfileBitrateClass_BITRATE_CLASS_200</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Specify the XAVC 4k (Long GOP) Bitrate Class to set the bitrate of your</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- output. Outputs of the same class have similar image quality over the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- operating points that are valid for that class.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621680019385"><span id="local-6989586621680019386"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Xavc4kProfileBitrateClass"><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass"><span class="hs-identifier hs-var">Xavc4kProfileBitrateClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Xavc4kProfileBitrateClass%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass%27"><span class="hs-identifier hs-var">Xavc4kProfileBitrateClass'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromXavc4kProfileBitrateClass"><span class="annot"><span class="annottext">Xavc4kProfileBitrateClass -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#fromXavc4kProfileBitrateClass"><span class="hs-identifier hs-var hs-var">fromXavc4kProfileBitrateClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680019377"><span id="local-6989586621680019379"><span id="local-6989586621680019381"><span class="annot"><span class="annottext">Int -&gt; Xavc4kProfileBitrateClass -&gt; ShowS
+[Xavc4kProfileBitrateClass] -&gt; ShowS
+Xavc4kProfileBitrateClass -&gt; String
+(Int -&gt; Xavc4kProfileBitrateClass -&gt; ShowS)
+-&gt; (Xavc4kProfileBitrateClass -&gt; String)
+-&gt; ([Xavc4kProfileBitrateClass] -&gt; ShowS)
+-&gt; Show Xavc4kProfileBitrateClass
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Xavc4kProfileBitrateClass] -&gt; ShowS
+$cshowList :: [Xavc4kProfileBitrateClass] -&gt; ShowS
+show :: Xavc4kProfileBitrateClass -&gt; String
+$cshow :: Xavc4kProfileBitrateClass -&gt; String
+showsPrec :: Int -&gt; Xavc4kProfileBitrateClass -&gt; ShowS
+$cshowsPrec :: Int -&gt; Xavc4kProfileBitrateClass -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680019368"><span id="local-6989586621680019370"><span id="local-6989586621680019372"><span id="local-6989586621680019374"><span class="annot"><span class="annottext">ReadPrec [Xavc4kProfileBitrateClass]
+ReadPrec Xavc4kProfileBitrateClass
+Int -&gt; ReadS Xavc4kProfileBitrateClass
+ReadS [Xavc4kProfileBitrateClass]
+(Int -&gt; ReadS Xavc4kProfileBitrateClass)
+-&gt; ReadS [Xavc4kProfileBitrateClass]
+-&gt; ReadPrec Xavc4kProfileBitrateClass
+-&gt; ReadPrec [Xavc4kProfileBitrateClass]
+-&gt; Read Xavc4kProfileBitrateClass
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Xavc4kProfileBitrateClass]
+$creadListPrec :: ReadPrec [Xavc4kProfileBitrateClass]
+readPrec :: ReadPrec Xavc4kProfileBitrateClass
+$creadPrec :: ReadPrec Xavc4kProfileBitrateClass
+readList :: ReadS [Xavc4kProfileBitrateClass]
+$creadList :: ReadS [Xavc4kProfileBitrateClass]
+readsPrec :: Int -&gt; ReadS Xavc4kProfileBitrateClass
+$creadsPrec :: Int -&gt; ReadS Xavc4kProfileBitrateClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680019363"><span id="local-6989586621680019365"><span class="annot"><span class="annottext">Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool
+(Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool)
+-&gt; (Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool)
+-&gt; Eq Xavc4kProfileBitrateClass
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool
+$c/= :: Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool
+== :: Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool
+$c== :: Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680019347"><span id="local-6989586621680019349"><span id="local-6989586621680019351"><span id="local-6989586621680019353"><span id="local-6989586621680019355"><span id="local-6989586621680019357"><span id="local-6989586621680019359"><span class="annot"><span class="annottext">Eq Xavc4kProfileBitrateClass
+Eq Xavc4kProfileBitrateClass
+-&gt; (Xavc4kProfileBitrateClass
+    -&gt; Xavc4kProfileBitrateClass -&gt; Ordering)
+-&gt; (Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool)
+-&gt; (Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool)
+-&gt; (Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool)
+-&gt; (Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool)
+-&gt; (Xavc4kProfileBitrateClass
+    -&gt; Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass)
+-&gt; (Xavc4kProfileBitrateClass
+    -&gt; Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass)
+-&gt; Ord Xavc4kProfileBitrateClass
+Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool
+Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Ordering
+Xavc4kProfileBitrateClass
+-&gt; Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Xavc4kProfileBitrateClass
+-&gt; Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass
+$cmin :: Xavc4kProfileBitrateClass
+-&gt; Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass
+max :: Xavc4kProfileBitrateClass
+-&gt; Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass
+$cmax :: Xavc4kProfileBitrateClass
+-&gt; Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass
+&gt;= :: Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool
+$c&gt;= :: Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool
+&gt; :: Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool
+$c&gt; :: Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool
+&lt;= :: Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool
+$c&lt;= :: Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool
+&lt; :: Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool
+$c&lt; :: Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Bool
+compare :: Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Ordering
+$ccompare :: Xavc4kProfileBitrateClass -&gt; Xavc4kProfileBitrateClass -&gt; Ordering
+$cp1Ord :: Eq Xavc4kProfileBitrateClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ Xavc4kProfileBitrateClass -&gt; Rep Xavc4kProfileBitrateClass x)
+-&gt; (forall x.
+    Rep Xavc4kProfileBitrateClass x -&gt; Xavc4kProfileBitrateClass)
+-&gt; Generic Xavc4kProfileBitrateClass
+forall x.
+Rep Xavc4kProfileBitrateClass x -&gt; Xavc4kProfileBitrateClass
+forall x.
+Xavc4kProfileBitrateClass -&gt; Rep Xavc4kProfileBitrateClass x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep Xavc4kProfileBitrateClass x -&gt; Xavc4kProfileBitrateClass
+$cfrom :: forall x.
+Xavc4kProfileBitrateClass -&gt; Rep Xavc4kProfileBitrateClass x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680019339"><span id="local-6989586621680019341"><span class="annot"><span class="annottext">Int -&gt; Xavc4kProfileBitrateClass -&gt; Int
+Xavc4kProfileBitrateClass -&gt; Int
+(Int -&gt; Xavc4kProfileBitrateClass -&gt; Int)
+-&gt; (Xavc4kProfileBitrateClass -&gt; Int)
+-&gt; Hashable Xavc4kProfileBitrateClass
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Xavc4kProfileBitrateClass -&gt; Int
+$chash :: Xavc4kProfileBitrateClass -&gt; Int
+hashWithSalt :: Int -&gt; Xavc4kProfileBitrateClass -&gt; Int
+$chashWithSalt :: Int -&gt; Xavc4kProfileBitrateClass -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680019336"><span class="annot"><span class="annottext">Xavc4kProfileBitrateClass -&gt; ()
+(Xavc4kProfileBitrateClass -&gt; ())
+-&gt; NFData Xavc4kProfileBitrateClass
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Xavc4kProfileBitrateClass -&gt; ()
+$crnf :: Xavc4kProfileBitrateClass -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680019333"><span class="annot"><span class="annottext">Text -&gt; Either String Xavc4kProfileBitrateClass
+(Text -&gt; Either String Xavc4kProfileBitrateClass)
+-&gt; FromText Xavc4kProfileBitrateClass
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Xavc4kProfileBitrateClass
+$cfromText :: Text -&gt; Either String Xavc4kProfileBitrateClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680019330"><span class="annot"><span class="annottext">Xavc4kProfileBitrateClass -&gt; Text
+(Xavc4kProfileBitrateClass -&gt; Text)
+-&gt; ToText Xavc4kProfileBitrateClass
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Xavc4kProfileBitrateClass -&gt; Text
+$ctoText :: Xavc4kProfileBitrateClass -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680019327"><span class="annot"><span class="annottext">Xavc4kProfileBitrateClass -&gt; ByteString
+(Xavc4kProfileBitrateClass -&gt; ByteString)
+-&gt; ToByteString Xavc4kProfileBitrateClass
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Xavc4kProfileBitrateClass -&gt; ByteString
+$ctoBS :: Xavc4kProfileBitrateClass -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680019324"><span class="annot"><span class="annottext">Xavc4kProfileBitrateClass -&gt; ByteStringBuilder
+(Xavc4kProfileBitrateClass -&gt; ByteStringBuilder)
+-&gt; ToLog Xavc4kProfileBitrateClass
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Xavc4kProfileBitrateClass -&gt; ByteStringBuilder
+$cbuild :: Xavc4kProfileBitrateClass -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680019321"><span class="annot"><span class="annottext">HeaderName -&gt; Xavc4kProfileBitrateClass -&gt; [Header]
+(HeaderName -&gt; Xavc4kProfileBitrateClass -&gt; [Header])
+-&gt; ToHeader Xavc4kProfileBitrateClass
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Xavc4kProfileBitrateClass -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Xavc4kProfileBitrateClass -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680019318"><span class="annot"><span class="annottext">Xavc4kProfileBitrateClass -&gt; QueryString
+(Xavc4kProfileBitrateClass -&gt; QueryString)
+-&gt; ToQuery Xavc4kProfileBitrateClass
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Xavc4kProfileBitrateClass -&gt; QueryString
+$ctoQuery :: Xavc4kProfileBitrateClass -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680019313"><span id="local-6989586621680019315"><span class="annot"><span class="annottext">Value -&gt; Parser [Xavc4kProfileBitrateClass]
+Value -&gt; Parser Xavc4kProfileBitrateClass
+(Value -&gt; Parser Xavc4kProfileBitrateClass)
+-&gt; (Value -&gt; Parser [Xavc4kProfileBitrateClass])
+-&gt; FromJSON Xavc4kProfileBitrateClass
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Xavc4kProfileBitrateClass]
+$cparseJSONList :: Value -&gt; Parser [Xavc4kProfileBitrateClass]
+parseJSON :: Value -&gt; Parser Xavc4kProfileBitrateClass
+$cparseJSON :: Value -&gt; Parser Xavc4kProfileBitrateClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680019308"><span id="local-6989586621680019310"><span class="annot"><span class="annottext">FromJSONKeyFunction [Xavc4kProfileBitrateClass]
+FromJSONKeyFunction Xavc4kProfileBitrateClass
+FromJSONKeyFunction Xavc4kProfileBitrateClass
+-&gt; FromJSONKeyFunction [Xavc4kProfileBitrateClass]
+-&gt; FromJSONKey Xavc4kProfileBitrateClass
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Xavc4kProfileBitrateClass]
+$cfromJSONKeyList :: FromJSONKeyFunction [Xavc4kProfileBitrateClass]
+fromJSONKey :: FromJSONKeyFunction Xavc4kProfileBitrateClass
+$cfromJSONKey :: FromJSONKeyFunction Xavc4kProfileBitrateClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680019299"><span id="local-6989586621680019301"><span id="local-6989586621680019303"><span id="local-6989586621680019305"><span class="annot"><span class="annottext">[Xavc4kProfileBitrateClass] -&gt; Encoding
+[Xavc4kProfileBitrateClass] -&gt; Value
+Xavc4kProfileBitrateClass -&gt; Encoding
+Xavc4kProfileBitrateClass -&gt; Value
+(Xavc4kProfileBitrateClass -&gt; Value)
+-&gt; (Xavc4kProfileBitrateClass -&gt; Encoding)
+-&gt; ([Xavc4kProfileBitrateClass] -&gt; Value)
+-&gt; ([Xavc4kProfileBitrateClass] -&gt; Encoding)
+-&gt; ToJSON Xavc4kProfileBitrateClass
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Xavc4kProfileBitrateClass] -&gt; Encoding
+$ctoEncodingList :: [Xavc4kProfileBitrateClass] -&gt; Encoding
+toJSONList :: [Xavc4kProfileBitrateClass] -&gt; Value
+$ctoJSONList :: [Xavc4kProfileBitrateClass] -&gt; Value
+toEncoding :: Xavc4kProfileBitrateClass -&gt; Encoding
+$ctoEncoding :: Xavc4kProfileBitrateClass -&gt; Encoding
+toJSON :: Xavc4kProfileBitrateClass -&gt; Value
+$ctoJSON :: Xavc4kProfileBitrateClass -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680019294"><span id="local-6989586621680019296"><span class="annot"><span class="annottext">ToJSONKeyFunction [Xavc4kProfileBitrateClass]
+ToJSONKeyFunction Xavc4kProfileBitrateClass
+ToJSONKeyFunction Xavc4kProfileBitrateClass
+-&gt; ToJSONKeyFunction [Xavc4kProfileBitrateClass]
+-&gt; ToJSONKey Xavc4kProfileBitrateClass
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Xavc4kProfileBitrateClass]
+$ctoJSONKeyList :: ToJSONKeyFunction [Xavc4kProfileBitrateClass]
+toJSONKey :: ToJSONKeyFunction Xavc4kProfileBitrateClass
+$ctoJSONKey :: ToJSONKeyFunction Xavc4kProfileBitrateClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680019291"><span class="annot"><span class="annottext">[Node] -&gt; Either String Xavc4kProfileBitrateClass
+([Node] -&gt; Either String Xavc4kProfileBitrateClass)
+-&gt; FromXML Xavc4kProfileBitrateClass
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Xavc4kProfileBitrateClass
+$cparseXML :: [Node] -&gt; Either String Xavc4kProfileBitrateClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680019288"><span class="annot"><span class="annottext">Xavc4kProfileBitrateClass -&gt; XML
+(Xavc4kProfileBitrateClass -&gt; XML)
+-&gt; ToXML Xavc4kProfileBitrateClass
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Xavc4kProfileBitrateClass -&gt; XML
+$ctoXML :: Xavc4kProfileBitrateClass -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass_BITRATE_CLASS_100"><span class="hs-identifier hs-type">Xavc4kProfileBitrateClass_BITRATE_CLASS_100</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass"><span class="hs-identifier hs-type">Xavc4kProfileBitrateClass</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bXavc4kProfileBitrateClass_BITRATE_CLASS_100"><span id="%24mXavc4kProfileBitrateClass_BITRATE_CLASS_100"><span id="Xavc4kProfileBitrateClass_BITRATE_CLASS_100"><span class="annot"><span class="annottext">$bXavc4kProfileBitrateClass_BITRATE_CLASS_100 :: Xavc4kProfileBitrateClass
+$mXavc4kProfileBitrateClass_BITRATE_CLASS_100 :: forall r.
+Xavc4kProfileBitrateClass -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#%24bXavc4kProfileBitrateClass_BITRATE_CLASS_100"><span class="hs-identifier hs-var hs-var hs-var">Xavc4kProfileBitrateClass_BITRATE_CLASS_100</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass%27"><span class="hs-identifier hs-type">Xavc4kProfileBitrateClass'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BITRATE_CLASS_100&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass_BITRATE_CLASS_140"><span class="hs-identifier hs-type">Xavc4kProfileBitrateClass_BITRATE_CLASS_140</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass"><span class="hs-identifier hs-type">Xavc4kProfileBitrateClass</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bXavc4kProfileBitrateClass_BITRATE_CLASS_140"><span id="%24mXavc4kProfileBitrateClass_BITRATE_CLASS_140"><span id="Xavc4kProfileBitrateClass_BITRATE_CLASS_140"><span class="annot"><span class="annottext">$bXavc4kProfileBitrateClass_BITRATE_CLASS_140 :: Xavc4kProfileBitrateClass
+$mXavc4kProfileBitrateClass_BITRATE_CLASS_140 :: forall r.
+Xavc4kProfileBitrateClass -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#%24bXavc4kProfileBitrateClass_BITRATE_CLASS_140"><span class="hs-identifier hs-var hs-var hs-var">Xavc4kProfileBitrateClass_BITRATE_CLASS_140</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass%27"><span class="hs-identifier hs-type">Xavc4kProfileBitrateClass'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BITRATE_CLASS_140&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass_BITRATE_CLASS_200"><span class="hs-identifier hs-type">Xavc4kProfileBitrateClass_BITRATE_CLASS_200</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass"><span class="hs-identifier hs-type">Xavc4kProfileBitrateClass</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bXavc4kProfileBitrateClass_BITRATE_CLASS_200"><span id="%24mXavc4kProfileBitrateClass_BITRATE_CLASS_200"><span id="Xavc4kProfileBitrateClass_BITRATE_CLASS_200"><span class="annot"><span class="annottext">$bXavc4kProfileBitrateClass_BITRATE_CLASS_200 :: Xavc4kProfileBitrateClass
+$mXavc4kProfileBitrateClass_BITRATE_CLASS_200 :: forall r.
+Xavc4kProfileBitrateClass -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#%24bXavc4kProfileBitrateClass_BITRATE_CLASS_200"><span class="hs-identifier hs-var hs-var hs-var">Xavc4kProfileBitrateClass_BITRATE_CLASS_200</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass%27"><span class="hs-identifier hs-type">Xavc4kProfileBitrateClass'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BITRATE_CLASS_200&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass_BITRATE_CLASS_100"><span class="hs-pragma hs-type">Xavc4kProfileBitrateClass_BITRATE_CLASS_100</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass_BITRATE_CLASS_140"><span class="hs-pragma hs-type">Xavc4kProfileBitrateClass_BITRATE_CLASS_140</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass_BITRATE_CLASS_200"><span class="hs-pragma hs-type">Xavc4kProfileBitrateClass_BITRATE_CLASS_200</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass.html#Xavc4kProfileBitrateClass%27"><span class="hs-pragma hs-type">Xavc4kProfileBitrateClass'</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-79"></span></pre></body></html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DMS.Types.SafeguardPolicy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DMS.Types.SafeguardPolicy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy"><span class="hs-identifier">SafeguardPolicy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy_Exclusive_automatic_truncation"><span class="hs-identifier">SafeguardPolicy_Exclusive_automatic_truncation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy_Rely_on_sql_server_replication_agent"><span class="hs-identifier">SafeguardPolicy_Rely_on_sql_server_replication_agent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy_Shared_automatic_truncation"><span class="hs-identifier">SafeguardPolicy_Shared_automatic_truncation</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679438367"><span id="local-6989586621679438368"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SafeguardPolicy"><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy"><span class="hs-identifier hs-var">SafeguardPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SafeguardPolicy%27"><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy%27"><span class="hs-identifier hs-var">SafeguardPolicy'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSafeguardPolicy"><span class="annot"><span class="annottext">SafeguardPolicy -&gt; Text
+</span><a href="Amazonka.DMS.Types.SafeguardPolicy.html#fromSafeguardPolicy"><span class="hs-identifier hs-var hs-var">fromSafeguardPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679438359"><span id="local-6989586621679438361"><span id="local-6989586621679438363"><span class="annot"><span class="annottext">Int -&gt; SafeguardPolicy -&gt; ShowS
+[SafeguardPolicy] -&gt; ShowS
+SafeguardPolicy -&gt; String
+(Int -&gt; SafeguardPolicy -&gt; ShowS)
+-&gt; (SafeguardPolicy -&gt; String)
+-&gt; ([SafeguardPolicy] -&gt; ShowS)
+-&gt; Show SafeguardPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SafeguardPolicy] -&gt; ShowS
+$cshowList :: [SafeguardPolicy] -&gt; ShowS
+show :: SafeguardPolicy -&gt; String
+$cshow :: SafeguardPolicy -&gt; String
+showsPrec :: Int -&gt; SafeguardPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; SafeguardPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679438350"><span id="local-6989586621679438352"><span id="local-6989586621679438354"><span id="local-6989586621679438356"><span class="annot"><span class="annottext">ReadPrec [SafeguardPolicy]
+ReadPrec SafeguardPolicy
+Int -&gt; ReadS SafeguardPolicy
+ReadS [SafeguardPolicy]
+(Int -&gt; ReadS SafeguardPolicy)
+-&gt; ReadS [SafeguardPolicy]
+-&gt; ReadPrec SafeguardPolicy
+-&gt; ReadPrec [SafeguardPolicy]
+-&gt; Read SafeguardPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SafeguardPolicy]
+$creadListPrec :: ReadPrec [SafeguardPolicy]
+readPrec :: ReadPrec SafeguardPolicy
+$creadPrec :: ReadPrec SafeguardPolicy
+readList :: ReadS [SafeguardPolicy]
+$creadList :: ReadS [SafeguardPolicy]
+readsPrec :: Int -&gt; ReadS SafeguardPolicy
+$creadsPrec :: Int -&gt; ReadS SafeguardPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679438345"><span id="local-6989586621679438347"><span class="annot"><span class="annottext">SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool
+(SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool)
+-&gt; (SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool)
+-&gt; Eq SafeguardPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool
+$c/= :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool
+== :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool
+$c== :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679438329"><span id="local-6989586621679438331"><span id="local-6989586621679438333"><span id="local-6989586621679438335"><span id="local-6989586621679438337"><span id="local-6989586621679438339"><span id="local-6989586621679438341"><span class="annot"><span class="annottext">Eq SafeguardPolicy
+Eq SafeguardPolicy
+-&gt; (SafeguardPolicy -&gt; SafeguardPolicy -&gt; Ordering)
+-&gt; (SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool)
+-&gt; (SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool)
+-&gt; (SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool)
+-&gt; (SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool)
+-&gt; (SafeguardPolicy -&gt; SafeguardPolicy -&gt; SafeguardPolicy)
+-&gt; (SafeguardPolicy -&gt; SafeguardPolicy -&gt; SafeguardPolicy)
+-&gt; Ord SafeguardPolicy
+SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool
+SafeguardPolicy -&gt; SafeguardPolicy -&gt; Ordering
+SafeguardPolicy -&gt; SafeguardPolicy -&gt; SafeguardPolicy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; SafeguardPolicy
+$cmin :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; SafeguardPolicy
+max :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; SafeguardPolicy
+$cmax :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; SafeguardPolicy
+&gt;= :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool
+$c&gt;= :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool
+&gt; :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool
+$c&gt; :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool
+&lt;= :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool
+$c&lt;= :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool
+&lt; :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool
+$c&lt; :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; Bool
+compare :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; Ordering
+$ccompare :: SafeguardPolicy -&gt; SafeguardPolicy -&gt; Ordering
+$cp1Ord :: Eq SafeguardPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SafeguardPolicy -&gt; Rep SafeguardPolicy x)
+-&gt; (forall x. Rep SafeguardPolicy x -&gt; SafeguardPolicy)
+-&gt; Generic SafeguardPolicy
+forall x. Rep SafeguardPolicy x -&gt; SafeguardPolicy
+forall x. SafeguardPolicy -&gt; Rep SafeguardPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SafeguardPolicy x -&gt; SafeguardPolicy
+$cfrom :: forall x. SafeguardPolicy -&gt; Rep SafeguardPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679438321"><span id="local-6989586621679438323"><span class="annot"><span class="annottext">Int -&gt; SafeguardPolicy -&gt; Int
+SafeguardPolicy -&gt; Int
+(Int -&gt; SafeguardPolicy -&gt; Int)
+-&gt; (SafeguardPolicy -&gt; Int) -&gt; Hashable SafeguardPolicy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SafeguardPolicy -&gt; Int
+$chash :: SafeguardPolicy -&gt; Int
+hashWithSalt :: Int -&gt; SafeguardPolicy -&gt; Int
+$chashWithSalt :: Int -&gt; SafeguardPolicy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679438318"><span class="annot"><span class="annottext">SafeguardPolicy -&gt; ()
+(SafeguardPolicy -&gt; ()) -&gt; NFData SafeguardPolicy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SafeguardPolicy -&gt; ()
+$crnf :: SafeguardPolicy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679438315"><span class="annot"><span class="annottext">Text -&gt; Either String SafeguardPolicy
+(Text -&gt; Either String SafeguardPolicy) -&gt; FromText SafeguardPolicy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SafeguardPolicy
+$cfromText :: Text -&gt; Either String SafeguardPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679438312"><span class="annot"><span class="annottext">SafeguardPolicy -&gt; Text
+(SafeguardPolicy -&gt; Text) -&gt; ToText SafeguardPolicy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SafeguardPolicy -&gt; Text
+$ctoText :: SafeguardPolicy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679438309"><span class="annot"><span class="annottext">SafeguardPolicy -&gt; ByteString
+(SafeguardPolicy -&gt; ByteString) -&gt; ToByteString SafeguardPolicy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SafeguardPolicy -&gt; ByteString
+$ctoBS :: SafeguardPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679438306"><span class="annot"><span class="annottext">SafeguardPolicy -&gt; ByteStringBuilder
+(SafeguardPolicy -&gt; ByteStringBuilder) -&gt; ToLog SafeguardPolicy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SafeguardPolicy -&gt; ByteStringBuilder
+$cbuild :: SafeguardPolicy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679438303"><span class="annot"><span class="annottext">HeaderName -&gt; SafeguardPolicy -&gt; [Header]
+(HeaderName -&gt; SafeguardPolicy -&gt; [Header])
+-&gt; ToHeader SafeguardPolicy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SafeguardPolicy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SafeguardPolicy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679438300"><span class="annot"><span class="annottext">SafeguardPolicy -&gt; QueryString
+(SafeguardPolicy -&gt; QueryString) -&gt; ToQuery SafeguardPolicy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SafeguardPolicy -&gt; QueryString
+$ctoQuery :: SafeguardPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679438295"><span id="local-6989586621679438297"><span class="annot"><span class="annottext">Value -&gt; Parser [SafeguardPolicy]
+Value -&gt; Parser SafeguardPolicy
+(Value -&gt; Parser SafeguardPolicy)
+-&gt; (Value -&gt; Parser [SafeguardPolicy]) -&gt; FromJSON SafeguardPolicy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SafeguardPolicy]
+$cparseJSONList :: Value -&gt; Parser [SafeguardPolicy]
+parseJSON :: Value -&gt; Parser SafeguardPolicy
+$cparseJSON :: Value -&gt; Parser SafeguardPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679438290"><span id="local-6989586621679438292"><span class="annot"><span class="annottext">FromJSONKeyFunction [SafeguardPolicy]
+FromJSONKeyFunction SafeguardPolicy
+FromJSONKeyFunction SafeguardPolicy
+-&gt; FromJSONKeyFunction [SafeguardPolicy]
+-&gt; FromJSONKey SafeguardPolicy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SafeguardPolicy]
+$cfromJSONKeyList :: FromJSONKeyFunction [SafeguardPolicy]
+fromJSONKey :: FromJSONKeyFunction SafeguardPolicy
+$cfromJSONKey :: FromJSONKeyFunction SafeguardPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679438281"><span id="local-6989586621679438283"><span id="local-6989586621679438285"><span id="local-6989586621679438287"><span class="annot"><span class="annottext">[SafeguardPolicy] -&gt; Encoding
+[SafeguardPolicy] -&gt; Value
+SafeguardPolicy -&gt; Encoding
+SafeguardPolicy -&gt; Value
+(SafeguardPolicy -&gt; Value)
+-&gt; (SafeguardPolicy -&gt; Encoding)
+-&gt; ([SafeguardPolicy] -&gt; Value)
+-&gt; ([SafeguardPolicy] -&gt; Encoding)
+-&gt; ToJSON SafeguardPolicy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SafeguardPolicy] -&gt; Encoding
+$ctoEncodingList :: [SafeguardPolicy] -&gt; Encoding
+toJSONList :: [SafeguardPolicy] -&gt; Value
+$ctoJSONList :: [SafeguardPolicy] -&gt; Value
+toEncoding :: SafeguardPolicy -&gt; Encoding
+$ctoEncoding :: SafeguardPolicy -&gt; Encoding
+toJSON :: SafeguardPolicy -&gt; Value
+$ctoJSON :: SafeguardPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679438276"><span id="local-6989586621679438278"><span class="annot"><span class="annottext">ToJSONKeyFunction [SafeguardPolicy]
+ToJSONKeyFunction SafeguardPolicy
+ToJSONKeyFunction SafeguardPolicy
+-&gt; ToJSONKeyFunction [SafeguardPolicy] -&gt; ToJSONKey SafeguardPolicy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SafeguardPolicy]
+$ctoJSONKeyList :: ToJSONKeyFunction [SafeguardPolicy]
+toJSONKey :: ToJSONKeyFunction SafeguardPolicy
+$ctoJSONKey :: ToJSONKeyFunction SafeguardPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679438273"><span class="annot"><span class="annottext">[Node] -&gt; Either String SafeguardPolicy
+([Node] -&gt; Either String SafeguardPolicy)
+-&gt; FromXML SafeguardPolicy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SafeguardPolicy
+$cparseXML :: [Node] -&gt; Either String SafeguardPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679438270"><span class="annot"><span class="annottext">SafeguardPolicy -&gt; XML
+(SafeguardPolicy -&gt; XML) -&gt; ToXML SafeguardPolicy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SafeguardPolicy -&gt; XML
+$ctoXML :: SafeguardPolicy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy_Exclusive_automatic_truncation"><span class="hs-identifier hs-type">SafeguardPolicy_Exclusive_automatic_truncation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy"><span class="hs-identifier hs-type">SafeguardPolicy</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSafeguardPolicy_Exclusive_automatic_truncation"><span id="%24mSafeguardPolicy_Exclusive_automatic_truncation"><span id="SafeguardPolicy_Exclusive_automatic_truncation"><span class="annot"><span class="annottext">$bSafeguardPolicy_Exclusive_automatic_truncation :: SafeguardPolicy
+$mSafeguardPolicy_Exclusive_automatic_truncation :: forall r. SafeguardPolicy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DMS.Types.SafeguardPolicy.html#%24bSafeguardPolicy_Exclusive_automatic_truncation"><span class="hs-identifier hs-var hs-var hs-var">SafeguardPolicy_Exclusive_automatic_truncation</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy%27"><span class="hs-identifier hs-type">SafeguardPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;exclusive-automatic-truncation&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy_Rely_on_sql_server_replication_agent"><span class="hs-identifier hs-type">SafeguardPolicy_Rely_on_sql_server_replication_agent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy"><span class="hs-identifier hs-type">SafeguardPolicy</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSafeguardPolicy_Rely_on_sql_server_replication_agent"><span id="%24mSafeguardPolicy_Rely_on_sql_server_replication_agent"><span id="SafeguardPolicy_Rely_on_sql_server_replication_agent"><span class="annot"><span class="annottext">$bSafeguardPolicy_Rely_on_sql_server_replication_agent :: SafeguardPolicy
+$mSafeguardPolicy_Rely_on_sql_server_replication_agent :: forall r. SafeguardPolicy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DMS.Types.SafeguardPolicy.html#%24bSafeguardPolicy_Rely_on_sql_server_replication_agent"><span class="hs-identifier hs-var hs-var hs-var">SafeguardPolicy_Rely_on_sql_server_replication_agent</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy%27"><span class="hs-identifier hs-type">SafeguardPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;rely-on-sql-server-replication-agent&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy_Shared_automatic_truncation"><span class="hs-identifier hs-type">SafeguardPolicy_Shared_automatic_truncation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy"><span class="hs-identifier hs-type">SafeguardPolicy</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSafeguardPolicy_Shared_automatic_truncation"><span id="%24mSafeguardPolicy_Shared_automatic_truncation"><span id="SafeguardPolicy_Shared_automatic_truncation"><span class="annot"><span class="annottext">$bSafeguardPolicy_Shared_automatic_truncation :: SafeguardPolicy
+$mSafeguardPolicy_Shared_automatic_truncation :: forall r. SafeguardPolicy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DMS.Types.SafeguardPolicy.html#%24bSafeguardPolicy_Shared_automatic_truncation"><span class="hs-identifier hs-var hs-var hs-var">SafeguardPolicy_Shared_automatic_truncation</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy%27"><span class="hs-identifier hs-type">SafeguardPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;shared-automatic-truncation&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy_Exclusive_automatic_truncation"><span class="hs-pragma hs-type">SafeguardPolicy_Exclusive_automatic_truncation</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy_Rely_on_sql_server_replication_agent"><span class="hs-pragma hs-type">SafeguardPolicy_Rely_on_sql_server_replication_agent</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy_Shared_automatic_truncation"><span class="hs-pragma hs-type">SafeguardPolicy_Shared_automatic_truncation</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.SafeguardPolicy.html#SafeguardPolicy%27"><span class="hs-pragma hs-type">SafeguardPolicy'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

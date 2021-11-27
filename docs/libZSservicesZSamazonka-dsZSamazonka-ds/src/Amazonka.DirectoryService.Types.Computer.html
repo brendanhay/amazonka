@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DirectoryService.Types.Computer</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DirectoryService.Types.Computer</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.Attribute.html"><span class="hs-identifier">Amazonka.DirectoryService.Types.Attribute</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about a computer account in a directory.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newComputer' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679294589"><span id="local-6989586621679294590"></span></span><span class="hs-keyword">data</span><span> </span><span id="Computer"><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-var">Computer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Computer%27"><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-var">Computer'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the computer.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcomputerId%3AComputer%27"><span class="annot"><span class="annottext">Computer -&gt; Maybe Text
+</span><a href="Amazonka.DirectoryService.Types.Computer.html#%24sel%3AcomputerId%3AComputer%27"><span class="hs-identifier hs-var hs-var">computerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | An array of Attribute objects containing the LDAP attributes that belong</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- to the computer account.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcomputerAttributes%3AComputer%27"><span class="annot"><span class="annottext">Computer -&gt; Maybe [Attribute]
+</span><a href="Amazonka.DirectoryService.Types.Computer.html#%24sel%3AcomputerAttributes%3AComputer%27"><span class="hs-identifier hs-var hs-var">computerAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DirectoryService.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The computer name.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcomputerName%3AComputer%27"><span class="annot"><span class="annottext">Computer -&gt; Maybe Text
+</span><a href="Amazonka.DirectoryService.Types.Computer.html#%24sel%3AcomputerName%3AComputer%27"><span class="hs-identifier hs-var hs-var">computerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294581"><span id="local-6989586621679294583"><span class="annot"><span class="annottext">Computer -&gt; Computer -&gt; Bool
+(Computer -&gt; Computer -&gt; Bool)
+-&gt; (Computer -&gt; Computer -&gt; Bool) -&gt; Eq Computer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Computer -&gt; Computer -&gt; Bool
+$c/= :: Computer -&gt; Computer -&gt; Bool
+== :: Computer -&gt; Computer -&gt; Bool
+$c== :: Computer -&gt; Computer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294572"><span id="local-6989586621679294574"><span id="local-6989586621679294576"><span id="local-6989586621679294578"><span class="annot"><span class="annottext">ReadPrec [Computer]
+ReadPrec Computer
+Int -&gt; ReadS Computer
+ReadS [Computer]
+(Int -&gt; ReadS Computer)
+-&gt; ReadS [Computer]
+-&gt; ReadPrec Computer
+-&gt; ReadPrec [Computer]
+-&gt; Read Computer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Computer]
+$creadListPrec :: ReadPrec [Computer]
+readPrec :: ReadPrec Computer
+$creadPrec :: ReadPrec Computer
+readList :: ReadS [Computer]
+$creadList :: ReadS [Computer]
+readsPrec :: Int -&gt; ReadS Computer
+$creadsPrec :: Int -&gt; ReadS Computer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294565"><span id="local-6989586621679294567"><span id="local-6989586621679294569"><span class="annot"><span class="annottext">Int -&gt; Computer -&gt; ShowS
+[Computer] -&gt; ShowS
+Computer -&gt; String
+(Int -&gt; Computer -&gt; ShowS)
+-&gt; (Computer -&gt; String) -&gt; ([Computer] -&gt; ShowS) -&gt; Show Computer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Computer] -&gt; ShowS
+$cshowList :: [Computer] -&gt; ShowS
+show :: Computer -&gt; String
+$cshow :: Computer -&gt; String
+showsPrec :: Int -&gt; Computer -&gt; ShowS
+$cshowsPrec :: Int -&gt; Computer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Computer -&gt; Rep Computer x)
+-&gt; (forall x. Rep Computer x -&gt; Computer) -&gt; Generic Computer
+forall x. Rep Computer x -&gt; Computer
+forall x. Computer -&gt; Rep Computer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Computer x -&gt; Computer
+$cfrom :: forall x. Computer -&gt; Rep Computer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'Computer' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'computerId', 'computer_computerId' - The identifier of the computer.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'computerAttributes', 'computer_computerAttributes' - An array of Attribute objects containing the LDAP attributes that belong</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- to the computer account.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'computerName', 'computer_computerName' - The computer name.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#newComputer"><span class="hs-identifier hs-type">newComputer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span><span>
+</span><span id="line-57"></span><span id="newComputer"><span class="annot"><span class="annottext">newComputer :: Computer
+</span><a href="Amazonka.DirectoryService.Types.Computer.html#newComputer"><span class="hs-identifier hs-var hs-var">newComputer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">Computer' :: Maybe Text -&gt; Maybe [Attribute] -&gt; Maybe Text -&gt; Computer
+</span><a href="Amazonka.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:computerId:Computer' :: Maybe Text
+</span><a href="Amazonka.DirectoryService.Types.Computer.html#%24sel%3AcomputerId%3AComputer%27"><span class="hs-identifier hs-var">computerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:computerAttributes:Computer' :: Maybe [Attribute]
+</span><a href="Amazonka.DirectoryService.Types.Computer.html#%24sel%3AcomputerAttributes%3AComputer%27"><span class="hs-identifier hs-var">computerAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:computerName:Computer' :: Maybe Text
+</span><a href="Amazonka.DirectoryService.Types.Computer.html#%24sel%3AcomputerName%3AComputer%27"><span class="hs-identifier hs-var">computerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The identifier of the computer.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#computer_computerId"><span class="hs-identifier hs-type">computer_computerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="computer_computerId"><span class="annot"><span class="annottext">computer_computerId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Computer -&gt; f Computer
+</span><a href="Amazonka.DirectoryService.Types.Computer.html#computer_computerId"><span class="hs-identifier hs-var hs-var">computer_computerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Computer -&gt; Maybe Text)
+-&gt; (Computer -&gt; Maybe Text -&gt; Computer)
+-&gt; Lens Computer Computer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294556"><span class="annot"><span class="annottext">Maybe Text
+computerId :: Maybe Text
+$sel:computerId:Computer' :: Computer -&gt; Maybe Text
+</span><a href="#local-6989586621679294556"><span class="hs-identifier hs-var hs-var">computerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294556"><span class="hs-identifier hs-var">computerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294555"><span class="annot"><span class="annottext">s :: Computer
+</span><a href="#local-6989586621679294555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294554"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Computer
+</span><a href="#local-6989586621679294555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computerId:Computer' :: Maybe Text
+</span><a href="Amazonka.DirectoryService.Types.Computer.html#%24sel%3AcomputerId%3AComputer%27"><span class="hs-identifier hs-var">computerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | An array of Attribute objects containing the LDAP attributes that belong</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- to the computer account.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#computer_computerAttributes"><span class="hs-identifier hs-type">computer_computerAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DirectoryService.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="computer_computerAttributes"><span class="annot"><span class="annottext">computer_computerAttributes :: (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; Computer -&gt; f Computer
+</span><a href="Amazonka.DirectoryService.Types.Computer.html#computer_computerAttributes"><span class="hs-identifier hs-var hs-var">computer_computerAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Computer -&gt; Maybe [Attribute])
+-&gt; (Computer -&gt; Maybe [Attribute] -&gt; Computer)
+-&gt; Lens Computer Computer (Maybe [Attribute]) (Maybe [Attribute])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294552"><span class="annot"><span class="annottext">Maybe [Attribute]
+computerAttributes :: Maybe [Attribute]
+$sel:computerAttributes:Computer' :: Computer -&gt; Maybe [Attribute]
+</span><a href="#local-6989586621679294552"><span class="hs-identifier hs-var hs-var">computerAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679294552"><span class="hs-identifier hs-var">computerAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294551"><span class="annot"><span class="annottext">s :: Computer
+</span><a href="#local-6989586621679294551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294550"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679294550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Computer
+</span><a href="#local-6989586621679294551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computerAttributes:Computer' :: Maybe [Attribute]
+</span><a href="Amazonka.DirectoryService.Types.Computer.html#%24sel%3AcomputerAttributes%3AComputer%27"><span class="hs-identifier hs-var">computerAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679294550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+ -&gt; Computer -&gt; f Computer)
+-&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+    -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; Computer
+-&gt; f Computer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+-&gt; Iso
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The computer name.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#computer_computerName"><span class="hs-identifier hs-type">computer_computerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="computer_computerName"><span class="annot"><span class="annottext">computer_computerName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Computer -&gt; f Computer
+</span><a href="Amazonka.DirectoryService.Types.Computer.html#computer_computerName"><span class="hs-identifier hs-var hs-var">computer_computerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Computer -&gt; Maybe Text)
+-&gt; (Computer -&gt; Maybe Text -&gt; Computer)
+-&gt; Lens Computer Computer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294545"><span class="annot"><span class="annottext">Maybe Text
+computerName :: Maybe Text
+$sel:computerName:Computer' :: Computer -&gt; Maybe Text
+</span><a href="#local-6989586621679294545"><span class="hs-identifier hs-var hs-var">computerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294545"><span class="hs-identifier hs-var">computerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294544"><span class="annot"><span class="annottext">s :: Computer
+</span><a href="#local-6989586621679294544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294543"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Computer
+</span><a href="#local-6989586621679294544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computerName:Computer' :: Maybe Text
+</span><a href="Amazonka.DirectoryService.Types.Computer.html#%24sel%3AcomputerName%3AComputer%27"><span class="hs-identifier hs-var">computerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294540"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679294538"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Computer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Computer) -&gt; Value -&gt; Parser Computer
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Computer&quot;</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294535"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294535"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Attribute] -&gt; Maybe Text -&gt; Computer
+</span><a href="Amazonka.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-var">Computer'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Attribute] -&gt; Maybe Text -&gt; Computer)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Attribute] -&gt; Maybe Text -&gt; Computer)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComputerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Attribute] -&gt; Maybe Text -&gt; Computer)
+-&gt; Parser (Maybe [Attribute]) -&gt; Parser (Maybe Text -&gt; Computer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Attribute]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComputerAttributes&quot;</span></span><span>
+</span><span id="line-85"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Attribute]))
+-&gt; Maybe [Attribute] -&gt; Parser (Maybe [Attribute])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-86"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Computer)
+-&gt; Parser (Maybe Text) -&gt; Parser Computer
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComputerName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294528"><span id="local-6989586621679294530"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294525"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span></span><span>
+</span><span id="line-93"></span></pre></body></html>

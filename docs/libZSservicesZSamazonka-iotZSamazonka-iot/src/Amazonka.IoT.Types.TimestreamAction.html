@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoT.Types.TimestreamAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.Types.TimestreamAction</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamDimension.html"><span class="hs-identifier">Amazonka.IoT.Types.TimestreamDimension</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamTimestamp.html"><span class="hs-identifier">Amazonka.IoT.Types.TimestreamTimestamp</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The Timestream rule action writes attributes (measures) from an MQTT</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- message into an Amazon Timestream table. For more information, see the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html Timestream&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- topic rule action documentation.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newTimestreamAction' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679804012"><span id="local-6989586621679804013"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimestreamAction"><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-var">TimestreamAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimestreamAction%27"><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-var">TimestreamAction'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies an application-defined value to replace the default value</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- assigned to the Timestream record\'s timestamp in the @time@ column.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- You can use this property to specify the value and the precision of the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Timestream record\'s timestamp. You can specify a value from the message</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- payload or a value computed by a substitution template.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- If omitted, the topic rule action assigns the timestamp, in</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- milliseconds, at the time it processed the rule.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Atimestamp%3ATimestreamAction%27"><span class="annot"><span class="annottext">TimestreamAction -&gt; Maybe TimestreamTimestamp
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#%24sel%3Atimestamp%3ATimestreamAction%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamTimestamp.html#TimestreamTimestamp"><span class="hs-identifier hs-type">TimestreamTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ARN of the role that grants permission to write to the Amazon</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- Timestream database table.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AroleArn%3ATimestreamAction%27"><span class="annot"><span class="annottext">TimestreamAction -&gt; Text
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#%24sel%3AroleArn%3ATimestreamAction%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The name of an Amazon Timestream database.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdatabaseName%3ATimestreamAction%27"><span class="annot"><span class="annottext">TimestreamAction -&gt; Text
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#%24sel%3AdatabaseName%3ATimestreamAction%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The name of the database table into which to write the measure records.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AtableName%3ATimestreamAction%27"><span class="annot"><span class="annottext">TimestreamAction -&gt; Text
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#%24sel%3AtableName%3ATimestreamAction%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Metadata attributes of the time series that are written in each measure</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- record.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Adimensions%3ATimestreamAction%27"><span class="annot"><span class="annottext">TimestreamAction -&gt; NonEmpty TimestreamDimension
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#%24sel%3Adimensions%3ATimestreamAction%27"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamDimension.html#TimestreamDimension"><span class="hs-identifier hs-type">TimestreamDimension</span></a></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679804002"><span id="local-6989586621679804004"><span class="annot"><span class="annottext">TimestreamAction -&gt; TimestreamAction -&gt; Bool
+(TimestreamAction -&gt; TimestreamAction -&gt; Bool)
+-&gt; (TimestreamAction -&gt; TimestreamAction -&gt; Bool)
+-&gt; Eq TimestreamAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TimestreamAction -&gt; TimestreamAction -&gt; Bool
+$c/= :: TimestreamAction -&gt; TimestreamAction -&gt; Bool
+== :: TimestreamAction -&gt; TimestreamAction -&gt; Bool
+$c== :: TimestreamAction -&gt; TimestreamAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803993"><span id="local-6989586621679803995"><span id="local-6989586621679803997"><span id="local-6989586621679803999"><span class="annot"><span class="annottext">ReadPrec [TimestreamAction]
+ReadPrec TimestreamAction
+Int -&gt; ReadS TimestreamAction
+ReadS [TimestreamAction]
+(Int -&gt; ReadS TimestreamAction)
+-&gt; ReadS [TimestreamAction]
+-&gt; ReadPrec TimestreamAction
+-&gt; ReadPrec [TimestreamAction]
+-&gt; Read TimestreamAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TimestreamAction]
+$creadListPrec :: ReadPrec [TimestreamAction]
+readPrec :: ReadPrec TimestreamAction
+$creadPrec :: ReadPrec TimestreamAction
+readList :: ReadS [TimestreamAction]
+$creadList :: ReadS [TimestreamAction]
+readsPrec :: Int -&gt; ReadS TimestreamAction
+$creadsPrec :: Int -&gt; ReadS TimestreamAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803986"><span id="local-6989586621679803988"><span id="local-6989586621679803990"><span class="annot"><span class="annottext">Int -&gt; TimestreamAction -&gt; ShowS
+[TimestreamAction] -&gt; ShowS
+TimestreamAction -&gt; String
+(Int -&gt; TimestreamAction -&gt; ShowS)
+-&gt; (TimestreamAction -&gt; String)
+-&gt; ([TimestreamAction] -&gt; ShowS)
+-&gt; Show TimestreamAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TimestreamAction] -&gt; ShowS
+$cshowList :: [TimestreamAction] -&gt; ShowS
+show :: TimestreamAction -&gt; String
+$cshow :: TimestreamAction -&gt; String
+showsPrec :: Int -&gt; TimestreamAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; TimestreamAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TimestreamAction -&gt; Rep TimestreamAction x)
+-&gt; (forall x. Rep TimestreamAction x -&gt; TimestreamAction)
+-&gt; Generic TimestreamAction
+forall x. Rep TimestreamAction x -&gt; TimestreamAction
+forall x. TimestreamAction -&gt; Rep TimestreamAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TimestreamAction x -&gt; TimestreamAction
+$cfrom :: forall x. TimestreamAction -&gt; Rep TimestreamAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'TimestreamAction' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'timestamp', 'timestreamAction_timestamp' - Specifies an application-defined value to replace the default value</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- assigned to the Timestream record\'s timestamp in the @time@ column.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- You can use this property to specify the value and the precision of the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Timestream record\'s timestamp. You can specify a value from the message</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- payload or a value computed by a substitution template.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- If omitted, the topic rule action assigns the timestamp, in</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- milliseconds, at the time it processed the rule.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'roleArn', 'timestreamAction_roleArn' - The ARN of the role that grants permission to write to the Amazon</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Timestream database table.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'databaseName', 'timestreamAction_databaseName' - The name of an Amazon Timestream database.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'tableName', 'timestreamAction_tableName' - The name of the database table into which to write the measure records.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'dimensions', 'timestreamAction_dimensions' - Metadata attributes of the time series that are written in each measure</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- record.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#newTimestreamAction"><span class="hs-identifier hs-type">newTimestreamAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'databaseName'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'tableName'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'dimensions'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamDimension.html#TimestreamDimension"><span class="hs-identifier hs-type">TimestreamDimension</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span>
+</span><span id="line-95"></span><span id="newTimestreamAction"><span class="annot"><span class="annottext">newTimestreamAction :: Text
+-&gt; Text -&gt; Text -&gt; NonEmpty TimestreamDimension -&gt; TimestreamAction
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#newTimestreamAction"><span class="hs-identifier hs-var hs-var">newTimestreamAction</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679803980"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803980"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679803979"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803979"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679803978"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803978"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679803977"><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
+</span><a href="#local-6989586621679803977"><span class="hs-identifier hs-var">pDimensions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">TimestreamAction' :: Maybe TimestreamTimestamp
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; NonEmpty TimestreamDimension
+-&gt; TimestreamAction
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timestamp:TimestreamAction' :: Maybe TimestreamTimestamp
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#%24sel%3Atimestamp%3ATimestreamAction%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:TimestreamAction' :: Text
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#%24sel%3AroleArn%3ATimestreamAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803980"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:databaseName:TimestreamAction' :: Text
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#%24sel%3AdatabaseName%3ATimestreamAction%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803979"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:tableName:TimestreamAction' :: Text
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#%24sel%3AtableName%3ATimestreamAction%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803978"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:dimensions:TimestreamAction' :: NonEmpty TimestreamDimension
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#%24sel%3Adimensions%3ATimestreamAction%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty TimestreamDimension)
+  (Identity (NonEmpty TimestreamDimension))
+-&gt; Tagged
+     (NonEmpty TimestreamDimension)
+     (Identity (NonEmpty TimestreamDimension))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty TimestreamDimension)
+   (Identity (NonEmpty TimestreamDimension))
+ -&gt; Tagged
+      (NonEmpty TimestreamDimension)
+      (Identity (NonEmpty TimestreamDimension)))
+-&gt; NonEmpty TimestreamDimension -&gt; NonEmpty TimestreamDimension
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
+</span><a href="#local-6989586621679803977"><span class="hs-identifier hs-var">pDimensions_</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | Specifies an application-defined value to replace the default value</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- assigned to the Timestream record\'s timestamp in the @time@ column.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- You can use this property to specify the value and the precision of the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Timestream record\'s timestamp. You can specify a value from the message</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- payload or a value computed by a substitution template.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- If omitted, the topic rule action assigns the timestamp, in</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- milliseconds, at the time it processed the rule.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#timestreamAction_timestamp"><span class="hs-identifier hs-type">timestreamAction_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamTimestamp.html#TimestreamTimestamp"><span class="hs-identifier hs-type">TimestreamTimestamp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="timestreamAction_timestamp"><span class="annot"><span class="annottext">timestreamAction_timestamp :: (Maybe TimestreamTimestamp -&gt; f (Maybe TimestreamTimestamp))
+-&gt; TimestreamAction -&gt; f TimestreamAction
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#timestreamAction_timestamp"><span class="hs-identifier hs-var hs-var">timestreamAction_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimestreamAction -&gt; Maybe TimestreamTimestamp)
+-&gt; (TimestreamAction
+    -&gt; Maybe TimestreamTimestamp -&gt; TimestreamAction)
+-&gt; Lens
+     TimestreamAction
+     TimestreamAction
+     (Maybe TimestreamTimestamp)
+     (Maybe TimestreamTimestamp)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803971"><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
+timestamp :: Maybe TimestreamTimestamp
+$sel:timestamp:TimestreamAction' :: TimestreamAction -&gt; Maybe TimestreamTimestamp
+</span><a href="#local-6989586621679803971"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
+</span><a href="#local-6989586621679803971"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803970"><span class="annot"><span class="annottext">s :: TimestreamAction
+</span><a href="#local-6989586621679803970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803969"><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
+</span><a href="#local-6989586621679803969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestreamAction
+</span><a href="#local-6989586621679803970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:TimestreamAction' :: Maybe TimestreamTimestamp
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#%24sel%3Atimestamp%3ATimestreamAction%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
+</span><a href="#local-6989586621679803969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The ARN of the role that grants permission to write to the Amazon</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Timestream database table.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#timestreamAction_roleArn"><span class="hs-identifier hs-type">timestreamAction_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-123"></span><span id="timestreamAction_roleArn"><span class="annot"><span class="annottext">timestreamAction_roleArn :: (Text -&gt; f Text) -&gt; TimestreamAction -&gt; f TimestreamAction
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#timestreamAction_roleArn"><span class="hs-identifier hs-var hs-var">timestreamAction_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimestreamAction -&gt; Text)
+-&gt; (TimestreamAction -&gt; Text -&gt; TimestreamAction)
+-&gt; Lens TimestreamAction TimestreamAction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803967"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:TimestreamAction' :: TimestreamAction -&gt; Text
+</span><a href="#local-6989586621679803967"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803967"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803966"><span class="annot"><span class="annottext">s :: TimestreamAction
+</span><a href="#local-6989586621679803966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803965"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestreamAction
+</span><a href="#local-6989586621679803966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:TimestreamAction' :: Text
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#%24sel%3AroleArn%3ATimestreamAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The name of an Amazon Timestream database.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#timestreamAction_databaseName"><span class="hs-identifier hs-type">timestreamAction_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="timestreamAction_databaseName"><span class="annot"><span class="annottext">timestreamAction_databaseName :: (Text -&gt; f Text) -&gt; TimestreamAction -&gt; f TimestreamAction
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#timestreamAction_databaseName"><span class="hs-identifier hs-var hs-var">timestreamAction_databaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimestreamAction -&gt; Text)
+-&gt; (TimestreamAction -&gt; Text -&gt; TimestreamAction)
+-&gt; Lens TimestreamAction TimestreamAction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803963"><span class="annot"><span class="annottext">Text
+databaseName :: Text
+$sel:databaseName:TimestreamAction' :: TimestreamAction -&gt; Text
+</span><a href="#local-6989586621679803963"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803963"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803962"><span class="annot"><span class="annottext">s :: TimestreamAction
+</span><a href="#local-6989586621679803962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803961"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestreamAction
+</span><a href="#local-6989586621679803962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:TimestreamAction' :: Text
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#%24sel%3AdatabaseName%3ATimestreamAction%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The name of the database table into which to write the measure records.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#timestreamAction_tableName"><span class="hs-identifier hs-type">timestreamAction_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="timestreamAction_tableName"><span class="annot"><span class="annottext">timestreamAction_tableName :: (Text -&gt; f Text) -&gt; TimestreamAction -&gt; f TimestreamAction
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#timestreamAction_tableName"><span class="hs-identifier hs-var hs-var">timestreamAction_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimestreamAction -&gt; Text)
+-&gt; (TimestreamAction -&gt; Text -&gt; TimestreamAction)
+-&gt; Lens TimestreamAction TimestreamAction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803959"><span class="annot"><span class="annottext">Text
+tableName :: Text
+$sel:tableName:TimestreamAction' :: TimestreamAction -&gt; Text
+</span><a href="#local-6989586621679803959"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803959"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803958"><span class="annot"><span class="annottext">s :: TimestreamAction
+</span><a href="#local-6989586621679803958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803957"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestreamAction
+</span><a href="#local-6989586621679803958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:TimestreamAction' :: Text
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#%24sel%3AtableName%3ATimestreamAction%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Metadata attributes of the time series that are written in each measure</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- record.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#timestreamAction_dimensions"><span class="hs-identifier hs-type">timestreamAction_dimensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamDimension.html#TimestreamDimension"><span class="hs-identifier hs-type">TimestreamDimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="timestreamAction_dimensions"><span class="annot"><span class="annottext">timestreamAction_dimensions :: (NonEmpty TimestreamDimension -&gt; f (NonEmpty TimestreamDimension))
+-&gt; TimestreamAction -&gt; f TimestreamAction
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#timestreamAction_dimensions"><span class="hs-identifier hs-var hs-var">timestreamAction_dimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimestreamAction -&gt; NonEmpty TimestreamDimension)
+-&gt; (TimestreamAction
+    -&gt; NonEmpty TimestreamDimension -&gt; TimestreamAction)
+-&gt; Lens
+     TimestreamAction
+     TimestreamAction
+     (NonEmpty TimestreamDimension)
+     (NonEmpty TimestreamDimension)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803955"><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
+dimensions :: NonEmpty TimestreamDimension
+$sel:dimensions:TimestreamAction' :: TimestreamAction -&gt; NonEmpty TimestreamDimension
+</span><a href="#local-6989586621679803955"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
+</span><a href="#local-6989586621679803955"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803954"><span class="annot"><span class="annottext">s :: TimestreamAction
+</span><a href="#local-6989586621679803954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803953"><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
+</span><a href="#local-6989586621679803953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestreamAction
+</span><a href="#local-6989586621679803954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:TimestreamAction' :: NonEmpty TimestreamDimension
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#%24sel%3Adimensions%3ATimestreamAction%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
+</span><a href="#local-6989586621679803953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty TimestreamDimension -&gt; f (NonEmpty TimestreamDimension))
+ -&gt; TimestreamAction -&gt; f TimestreamAction)
+-&gt; ((NonEmpty TimestreamDimension
+     -&gt; f (NonEmpty TimestreamDimension))
+    -&gt; NonEmpty TimestreamDimension
+    -&gt; f (NonEmpty TimestreamDimension))
+-&gt; (NonEmpty TimestreamDimension
+    -&gt; f (NonEmpty TimestreamDimension))
+-&gt; TimestreamAction
+-&gt; f TimestreamAction
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty TimestreamDimension -&gt; f (NonEmpty TimestreamDimension))
+-&gt; NonEmpty TimestreamDimension -&gt; f (NonEmpty TimestreamDimension)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803949"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679803947"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimestreamAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TimestreamAction)
+-&gt; Value
+-&gt; Parser TimestreamAction
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TimestreamAction&quot;</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679803944"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679803944"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; NonEmpty TimestreamDimension
+-&gt; TimestreamAction
+</span><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-var">TimestreamAction'</span></a></span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TimestreamTimestamp
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; NonEmpty TimestreamDimension
+ -&gt; TimestreamAction)
+-&gt; Parser (Maybe TimestreamTimestamp)
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; NonEmpty TimestreamDimension
+      -&gt; TimestreamAction)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679803944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimestreamTimestamp)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; NonEmpty TimestreamDimension
+   -&gt; TimestreamAction)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; Text -&gt; NonEmpty TimestreamDimension -&gt; TimestreamAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679803944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; Text -&gt; NonEmpty TimestreamDimension -&gt; TimestreamAction)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; NonEmpty TimestreamDimension -&gt; TimestreamAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679803944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;databaseName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; NonEmpty TimestreamDimension -&gt; TimestreamAction)
+-&gt; Parser Text
+-&gt; Parser (NonEmpty TimestreamDimension -&gt; TimestreamAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679803944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tableName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (NonEmpty TimestreamDimension -&gt; TimestreamAction)
+-&gt; Parser (NonEmpty TimestreamDimension) -&gt; Parser TimestreamAction
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679803944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty TimestreamDimension)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dimensions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803937"><span id="local-6989586621679803939"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803934"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803926"><span id="local-6989586621679803928"><span id="local-6989586621679803930"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679803924"><span class="annot"><span class="annottext">toJSON :: TimestreamAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803918"><span id="local-6989586621679803919"><span id="local-6989586621679803920"><span id="local-6989586621679803921"><span id="local-6989586621679803922"><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
+NonEmpty TimestreamDimension
+Text
+dimensions :: NonEmpty TimestreamDimension
+tableName :: Text
+databaseName :: Text
+roleArn :: Text
+timestamp :: Maybe TimestreamTimestamp
+$sel:dimensions:TimestreamAction' :: TimestreamAction -&gt; NonEmpty TimestreamDimension
+$sel:tableName:TimestreamAction' :: TimestreamAction -&gt; Text
+$sel:databaseName:TimestreamAction' :: TimestreamAction -&gt; Text
+$sel:roleArn:TimestreamAction' :: TimestreamAction -&gt; Text
+$sel:timestamp:TimestreamAction' :: TimestreamAction -&gt; Maybe TimestreamTimestamp
+</span><a href="#local-6989586621679803918"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimestreamTimestamp -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TimestreamTimestamp -&gt; Pair)
+-&gt; Maybe TimestreamTimestamp -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
+</span><a href="#local-6989586621679803922"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803921"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;databaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803920"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679803919"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dimensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty TimestreamDimension -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
+</span><a href="#local-6989586621679803918"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span></pre></body></html>

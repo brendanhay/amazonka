@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.Support.Types.Attachment
+module Amazonka.Support.Types.Attachment
 
 -- | An attachment to a case communication. The attachment consists of the
 --   file name and the content of the file.
@@ -50,17 +50,17 @@ attachment_data :: Lens' Attachment (Maybe ByteString)
 
 -- | The name of the attachment file.
 attachment_fileName :: Lens' Attachment (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Support.Types.Attachment.Attachment
-instance GHC.Show.Show Network.AWS.Support.Types.Attachment.Attachment
-instance GHC.Read.Read Network.AWS.Support.Types.Attachment.Attachment
-instance GHC.Classes.Eq Network.AWS.Support.Types.Attachment.Attachment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.Attachment.Attachment
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.Attachment.Attachment
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.Attachment.Attachment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Support.Types.Attachment.Attachment
+instance GHC.Generics.Generic Amazonka.Support.Types.Attachment.Attachment
+instance GHC.Show.Show Amazonka.Support.Types.Attachment.Attachment
+instance GHC.Read.Read Amazonka.Support.Types.Attachment.Attachment
+instance GHC.Classes.Eq Amazonka.Support.Types.Attachment.Attachment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.Attachment.Attachment
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.Attachment.Attachment
+instance Control.DeepSeq.NFData Amazonka.Support.Types.Attachment.Attachment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Support.Types.Attachment.Attachment
 
 
-module Network.AWS.Support.Types.AttachmentDetails
+module Amazonka.Support.Types.AttachmentDetails
 
 -- | The file name and ID of an attachment to a case communication. You can
 --   use the ID to retrieve the attachment with the DescribeAttachment
@@ -97,16 +97,16 @@ attachmentDetails_attachmentId :: Lens' AttachmentDetails (Maybe Text)
 
 -- | The file name of the attachment.
 attachmentDetails_fileName :: Lens' AttachmentDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Support.Types.AttachmentDetails.AttachmentDetails
-instance GHC.Show.Show Network.AWS.Support.Types.AttachmentDetails.AttachmentDetails
-instance GHC.Read.Read Network.AWS.Support.Types.AttachmentDetails.AttachmentDetails
-instance GHC.Classes.Eq Network.AWS.Support.Types.AttachmentDetails.AttachmentDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.AttachmentDetails.AttachmentDetails
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.AttachmentDetails.AttachmentDetails
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.AttachmentDetails.AttachmentDetails
+instance GHC.Generics.Generic Amazonka.Support.Types.AttachmentDetails.AttachmentDetails
+instance GHC.Show.Show Amazonka.Support.Types.AttachmentDetails.AttachmentDetails
+instance GHC.Read.Read Amazonka.Support.Types.AttachmentDetails.AttachmentDetails
+instance GHC.Classes.Eq Amazonka.Support.Types.AttachmentDetails.AttachmentDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.AttachmentDetails.AttachmentDetails
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.AttachmentDetails.AttachmentDetails
+instance Control.DeepSeq.NFData Amazonka.Support.Types.AttachmentDetails.AttachmentDetails
 
 
-module Network.AWS.Support.Types.Category
+module Amazonka.Support.Types.Category
 
 -- | A JSON-formatted name/value pair that represents the category name and
 --   category code of the problem, selected from the DescribeServices
@@ -142,16 +142,16 @@ category_name :: Lens' Category (Maybe Text)
 
 -- | The category code for the support case.
 category_code :: Lens' Category (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Support.Types.Category.Category
-instance GHC.Show.Show Network.AWS.Support.Types.Category.Category
-instance GHC.Read.Read Network.AWS.Support.Types.Category.Category
-instance GHC.Classes.Eq Network.AWS.Support.Types.Category.Category
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.Category.Category
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.Category.Category
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.Category.Category
+instance GHC.Generics.Generic Amazonka.Support.Types.Category.Category
+instance GHC.Show.Show Amazonka.Support.Types.Category.Category
+instance GHC.Read.Read Amazonka.Support.Types.Category.Category
+instance GHC.Classes.Eq Amazonka.Support.Types.Category.Category
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.Category.Category
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.Category.Category
+instance Control.DeepSeq.NFData Amazonka.Support.Types.Category.Category
 
 
-module Network.AWS.Support.Types.Communication
+module Amazonka.Support.Types.Communication
 
 -- | A communication associated with a support case. The communication
 --   consists of the case ID, the message body, attachment information, the
@@ -237,16 +237,16 @@ communication_timeCreated :: Lens' Communication (Maybe Text)
 
 -- | Information about the attachments to the case communication.
 communication_attachmentSet :: Lens' Communication (Maybe [AttachmentDetails])
-instance GHC.Generics.Generic Network.AWS.Support.Types.Communication.Communication
-instance GHC.Show.Show Network.AWS.Support.Types.Communication.Communication
-instance GHC.Read.Read Network.AWS.Support.Types.Communication.Communication
-instance GHC.Classes.Eq Network.AWS.Support.Types.Communication.Communication
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.Communication.Communication
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.Communication.Communication
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.Communication.Communication
+instance GHC.Generics.Generic Amazonka.Support.Types.Communication.Communication
+instance GHC.Show.Show Amazonka.Support.Types.Communication.Communication
+instance GHC.Read.Read Amazonka.Support.Types.Communication.Communication
+instance GHC.Classes.Eq Amazonka.Support.Types.Communication.Communication
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.Communication.Communication
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.Communication.Communication
+instance Control.DeepSeq.NFData Amazonka.Support.Types.Communication.Communication
 
 
-module Network.AWS.Support.Types.RecentCaseCommunications
+module Amazonka.Support.Types.RecentCaseCommunications
 
 -- | The five most recent communications associated with the case.
 --   
@@ -283,16 +283,16 @@ recentCaseCommunications_nextToken :: Lens' RecentCaseCommunications (Maybe Text
 
 -- | The five most recent communications associated with the case.
 recentCaseCommunications_communications :: Lens' RecentCaseCommunications (Maybe [Communication])
-instance GHC.Generics.Generic Network.AWS.Support.Types.RecentCaseCommunications.RecentCaseCommunications
-instance GHC.Show.Show Network.AWS.Support.Types.RecentCaseCommunications.RecentCaseCommunications
-instance GHC.Read.Read Network.AWS.Support.Types.RecentCaseCommunications.RecentCaseCommunications
-instance GHC.Classes.Eq Network.AWS.Support.Types.RecentCaseCommunications.RecentCaseCommunications
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.RecentCaseCommunications.RecentCaseCommunications
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.RecentCaseCommunications.RecentCaseCommunications
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.RecentCaseCommunications.RecentCaseCommunications
+instance GHC.Generics.Generic Amazonka.Support.Types.RecentCaseCommunications.RecentCaseCommunications
+instance GHC.Show.Show Amazonka.Support.Types.RecentCaseCommunications.RecentCaseCommunications
+instance GHC.Read.Read Amazonka.Support.Types.RecentCaseCommunications.RecentCaseCommunications
+instance GHC.Classes.Eq Amazonka.Support.Types.RecentCaseCommunications.RecentCaseCommunications
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.RecentCaseCommunications.RecentCaseCommunications
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.RecentCaseCommunications.RecentCaseCommunications
+instance Control.DeepSeq.NFData Amazonka.Support.Types.RecentCaseCommunications.RecentCaseCommunications
 
 
-module Network.AWS.Support.Types.CaseDetails
+module Amazonka.Support.Types.CaseDetails
 
 -- | A JSON-formatted object that contains the metadata for a support case.
 --   It is contained in the response from a DescribeCases request.
@@ -523,16 +523,16 @@ caseDetails_categoryCode :: Lens' CaseDetails (Maybe Text)
 -- | The code for the AWS service. You can get a list of codes and the
 --   corresponding service names by calling DescribeServices.
 caseDetails_serviceCode :: Lens' CaseDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Support.Types.CaseDetails.CaseDetails
-instance GHC.Show.Show Network.AWS.Support.Types.CaseDetails.CaseDetails
-instance GHC.Read.Read Network.AWS.Support.Types.CaseDetails.CaseDetails
-instance GHC.Classes.Eq Network.AWS.Support.Types.CaseDetails.CaseDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.CaseDetails.CaseDetails
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.CaseDetails.CaseDetails
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.CaseDetails.CaseDetails
+instance GHC.Generics.Generic Amazonka.Support.Types.CaseDetails.CaseDetails
+instance GHC.Show.Show Amazonka.Support.Types.CaseDetails.CaseDetails
+instance GHC.Read.Read Amazonka.Support.Types.CaseDetails.CaseDetails
+instance GHC.Classes.Eq Amazonka.Support.Types.CaseDetails.CaseDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.CaseDetails.CaseDetails
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.CaseDetails.CaseDetails
+instance Control.DeepSeq.NFData Amazonka.Support.Types.CaseDetails.CaseDetails
 
 
-module Network.AWS.Support.Types.SeverityLevel
+module Amazonka.Support.Types.SeverityLevel
 
 -- | A code and name pair that represents the severity level of a support
 --   case. The available values depend on the support plan for the account.
@@ -638,16 +638,16 @@ severityLevel_name :: Lens' SeverityLevel (Maybe Text)
 --   Valid values: <tt>low</tt> | <tt>normal</tt> | <tt>high</tt> |
 --   <tt>urgent</tt> | <tt>critical</tt>
 severityLevel_code :: Lens' SeverityLevel (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Support.Types.SeverityLevel.SeverityLevel
-instance GHC.Show.Show Network.AWS.Support.Types.SeverityLevel.SeverityLevel
-instance GHC.Read.Read Network.AWS.Support.Types.SeverityLevel.SeverityLevel
-instance GHC.Classes.Eq Network.AWS.Support.Types.SeverityLevel.SeverityLevel
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.SeverityLevel.SeverityLevel
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.SeverityLevel.SeverityLevel
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.SeverityLevel.SeverityLevel
+instance GHC.Generics.Generic Amazonka.Support.Types.SeverityLevel.SeverityLevel
+instance GHC.Show.Show Amazonka.Support.Types.SeverityLevel.SeverityLevel
+instance GHC.Read.Read Amazonka.Support.Types.SeverityLevel.SeverityLevel
+instance GHC.Classes.Eq Amazonka.Support.Types.SeverityLevel.SeverityLevel
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.SeverityLevel.SeverityLevel
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.SeverityLevel.SeverityLevel
+instance Control.DeepSeq.NFData Amazonka.Support.Types.SeverityLevel.SeverityLevel
 
 
-module Network.AWS.Support.Types.SupportService
+module Amazonka.Support.Types.SupportService
 
 -- | Information about an AWS service returned by the DescribeServices
 --   operation.
@@ -707,16 +707,16 @@ supportService_name :: Lens' SupportService (Maybe Text)
 -- | The code for an AWS service returned by the DescribeServices response.
 --   The <tt>name</tt> element contains the corresponding friendly name.
 supportService_code :: Lens' SupportService (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Support.Types.SupportService.SupportService
-instance GHC.Show.Show Network.AWS.Support.Types.SupportService.SupportService
-instance GHC.Read.Read Network.AWS.Support.Types.SupportService.SupportService
-instance GHC.Classes.Eq Network.AWS.Support.Types.SupportService.SupportService
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.SupportService.SupportService
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.SupportService.SupportService
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.SupportService.SupportService
+instance GHC.Generics.Generic Amazonka.Support.Types.SupportService.SupportService
+instance GHC.Show.Show Amazonka.Support.Types.SupportService.SupportService
+instance GHC.Read.Read Amazonka.Support.Types.SupportService.SupportService
+instance GHC.Classes.Eq Amazonka.Support.Types.SupportService.SupportService
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.SupportService.SupportService
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.SupportService.SupportService
+instance Control.DeepSeq.NFData Amazonka.Support.Types.SupportService.SupportService
 
 
-module Network.AWS.Support.Types.TrustedAdvisorCheckDescription
+module Amazonka.Support.Types.TrustedAdvisorCheckDescription
 
 -- | The description and metadata for a Trusted Advisor check.
 --   
@@ -801,16 +801,16 @@ trustedAdvisorCheckDescription_category :: Lens' TrustedAdvisorCheckDescription 
 --   Excel download, even in those cases where the UI shows just summary
 --   data.
 trustedAdvisorCheckDescription_metadata :: Lens' TrustedAdvisorCheckDescription [Text]
-instance GHC.Generics.Generic Network.AWS.Support.Types.TrustedAdvisorCheckDescription.TrustedAdvisorCheckDescription
-instance GHC.Show.Show Network.AWS.Support.Types.TrustedAdvisorCheckDescription.TrustedAdvisorCheckDescription
-instance GHC.Read.Read Network.AWS.Support.Types.TrustedAdvisorCheckDescription.TrustedAdvisorCheckDescription
-instance GHC.Classes.Eq Network.AWS.Support.Types.TrustedAdvisorCheckDescription.TrustedAdvisorCheckDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.TrustedAdvisorCheckDescription.TrustedAdvisorCheckDescription
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.TrustedAdvisorCheckDescription.TrustedAdvisorCheckDescription
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.TrustedAdvisorCheckDescription.TrustedAdvisorCheckDescription
+instance GHC.Generics.Generic Amazonka.Support.Types.TrustedAdvisorCheckDescription.TrustedAdvisorCheckDescription
+instance GHC.Show.Show Amazonka.Support.Types.TrustedAdvisorCheckDescription.TrustedAdvisorCheckDescription
+instance GHC.Read.Read Amazonka.Support.Types.TrustedAdvisorCheckDescription.TrustedAdvisorCheckDescription
+instance GHC.Classes.Eq Amazonka.Support.Types.TrustedAdvisorCheckDescription.TrustedAdvisorCheckDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.TrustedAdvisorCheckDescription.TrustedAdvisorCheckDescription
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.TrustedAdvisorCheckDescription.TrustedAdvisorCheckDescription
+instance Control.DeepSeq.NFData Amazonka.Support.Types.TrustedAdvisorCheckDescription.TrustedAdvisorCheckDescription
 
 
-module Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus
+module Amazonka.Support.Types.TrustedAdvisorCheckRefreshStatus
 
 -- | The refresh status of a Trusted Advisor check.
 --   
@@ -897,16 +897,16 @@ trustedAdvisorCheckRefreshStatus_status :: Lens' TrustedAdvisorCheckRefreshStatu
 -- | The amount of time, in milliseconds, until the Trusted Advisor check
 --   is eligible for refresh.
 trustedAdvisorCheckRefreshStatus_millisUntilNextRefreshable :: Lens' TrustedAdvisorCheckRefreshStatus Integer
-instance GHC.Generics.Generic Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus.TrustedAdvisorCheckRefreshStatus
-instance GHC.Show.Show Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus.TrustedAdvisorCheckRefreshStatus
-instance GHC.Read.Read Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus.TrustedAdvisorCheckRefreshStatus
-instance GHC.Classes.Eq Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus.TrustedAdvisorCheckRefreshStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus.TrustedAdvisorCheckRefreshStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus.TrustedAdvisorCheckRefreshStatus
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus.TrustedAdvisorCheckRefreshStatus
+instance GHC.Generics.Generic Amazonka.Support.Types.TrustedAdvisorCheckRefreshStatus.TrustedAdvisorCheckRefreshStatus
+instance GHC.Show.Show Amazonka.Support.Types.TrustedAdvisorCheckRefreshStatus.TrustedAdvisorCheckRefreshStatus
+instance GHC.Read.Read Amazonka.Support.Types.TrustedAdvisorCheckRefreshStatus.TrustedAdvisorCheckRefreshStatus
+instance GHC.Classes.Eq Amazonka.Support.Types.TrustedAdvisorCheckRefreshStatus.TrustedAdvisorCheckRefreshStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.TrustedAdvisorCheckRefreshStatus.TrustedAdvisorCheckRefreshStatus
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.TrustedAdvisorCheckRefreshStatus.TrustedAdvisorCheckRefreshStatus
+instance Control.DeepSeq.NFData Amazonka.Support.Types.TrustedAdvisorCheckRefreshStatus.TrustedAdvisorCheckRefreshStatus
 
 
-module Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary
+module Amazonka.Support.Types.TrustedAdvisorCostOptimizingSummary
 
 -- | The estimated cost savings that might be realized if the recommended
 --   operations are taken.
@@ -953,16 +953,16 @@ trustedAdvisorCostOptimizingSummary_estimatedMonthlySavings :: Lens' TrustedAdvi
 -- | The estimated percentage of savings that might be realized if the
 --   recommended operations are taken.
 trustedAdvisorCostOptimizingSummary_estimatedPercentMonthlySavings :: Lens' TrustedAdvisorCostOptimizingSummary Double
-instance GHC.Generics.Generic Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary.TrustedAdvisorCostOptimizingSummary
-instance GHC.Show.Show Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary.TrustedAdvisorCostOptimizingSummary
-instance GHC.Read.Read Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary.TrustedAdvisorCostOptimizingSummary
-instance GHC.Classes.Eq Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary.TrustedAdvisorCostOptimizingSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary.TrustedAdvisorCostOptimizingSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary.TrustedAdvisorCostOptimizingSummary
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary.TrustedAdvisorCostOptimizingSummary
+instance GHC.Generics.Generic Amazonka.Support.Types.TrustedAdvisorCostOptimizingSummary.TrustedAdvisorCostOptimizingSummary
+instance GHC.Show.Show Amazonka.Support.Types.TrustedAdvisorCostOptimizingSummary.TrustedAdvisorCostOptimizingSummary
+instance GHC.Read.Read Amazonka.Support.Types.TrustedAdvisorCostOptimizingSummary.TrustedAdvisorCostOptimizingSummary
+instance GHC.Classes.Eq Amazonka.Support.Types.TrustedAdvisorCostOptimizingSummary.TrustedAdvisorCostOptimizingSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.TrustedAdvisorCostOptimizingSummary.TrustedAdvisorCostOptimizingSummary
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.TrustedAdvisorCostOptimizingSummary.TrustedAdvisorCostOptimizingSummary
+instance Control.DeepSeq.NFData Amazonka.Support.Types.TrustedAdvisorCostOptimizingSummary.TrustedAdvisorCostOptimizingSummary
 
 
-module Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary
+module Amazonka.Support.Types.TrustedAdvisorCategorySpecificSummary
 
 -- | The container for summary information that relates to the category of
 --   the Trusted Advisor check.
@@ -994,16 +994,16 @@ newTrustedAdvisorCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummar
 -- | The summary information about cost savings for a Trusted Advisor check
 --   that is in the Cost Optimizing category.
 trustedAdvisorCategorySpecificSummary_costOptimizing :: Lens' TrustedAdvisorCategorySpecificSummary (Maybe TrustedAdvisorCostOptimizingSummary)
-instance GHC.Generics.Generic Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary.TrustedAdvisorCategorySpecificSummary
-instance GHC.Show.Show Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary.TrustedAdvisorCategorySpecificSummary
-instance GHC.Read.Read Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary.TrustedAdvisorCategorySpecificSummary
-instance GHC.Classes.Eq Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary.TrustedAdvisorCategorySpecificSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary.TrustedAdvisorCategorySpecificSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary.TrustedAdvisorCategorySpecificSummary
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary.TrustedAdvisorCategorySpecificSummary
+instance GHC.Generics.Generic Amazonka.Support.Types.TrustedAdvisorCategorySpecificSummary.TrustedAdvisorCategorySpecificSummary
+instance GHC.Show.Show Amazonka.Support.Types.TrustedAdvisorCategorySpecificSummary.TrustedAdvisorCategorySpecificSummary
+instance GHC.Read.Read Amazonka.Support.Types.TrustedAdvisorCategorySpecificSummary.TrustedAdvisorCategorySpecificSummary
+instance GHC.Classes.Eq Amazonka.Support.Types.TrustedAdvisorCategorySpecificSummary.TrustedAdvisorCategorySpecificSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.TrustedAdvisorCategorySpecificSummary.TrustedAdvisorCategorySpecificSummary
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.TrustedAdvisorCategorySpecificSummary.TrustedAdvisorCategorySpecificSummary
+instance Control.DeepSeq.NFData Amazonka.Support.Types.TrustedAdvisorCategorySpecificSummary.TrustedAdvisorCategorySpecificSummary
 
 
-module Network.AWS.Support.Types.TrustedAdvisorResourceDetail
+module Amazonka.Support.Types.TrustedAdvisorResourceDetail
 
 -- | Contains information about a resource identified by a Trusted Advisor
 --   check.
@@ -1090,16 +1090,16 @@ trustedAdvisorResourceDetail_resourceId :: Lens' TrustedAdvisorResourceDetail Te
 --   that is shown in the Excel download, even in those cases where the UI
 --   shows just summary data.
 trustedAdvisorResourceDetail_metadata :: Lens' TrustedAdvisorResourceDetail [Text]
-instance GHC.Generics.Generic Network.AWS.Support.Types.TrustedAdvisorResourceDetail.TrustedAdvisorResourceDetail
-instance GHC.Show.Show Network.AWS.Support.Types.TrustedAdvisorResourceDetail.TrustedAdvisorResourceDetail
-instance GHC.Read.Read Network.AWS.Support.Types.TrustedAdvisorResourceDetail.TrustedAdvisorResourceDetail
-instance GHC.Classes.Eq Network.AWS.Support.Types.TrustedAdvisorResourceDetail.TrustedAdvisorResourceDetail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.TrustedAdvisorResourceDetail.TrustedAdvisorResourceDetail
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.TrustedAdvisorResourceDetail.TrustedAdvisorResourceDetail
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.TrustedAdvisorResourceDetail.TrustedAdvisorResourceDetail
+instance GHC.Generics.Generic Amazonka.Support.Types.TrustedAdvisorResourceDetail.TrustedAdvisorResourceDetail
+instance GHC.Show.Show Amazonka.Support.Types.TrustedAdvisorResourceDetail.TrustedAdvisorResourceDetail
+instance GHC.Read.Read Amazonka.Support.Types.TrustedAdvisorResourceDetail.TrustedAdvisorResourceDetail
+instance GHC.Classes.Eq Amazonka.Support.Types.TrustedAdvisorResourceDetail.TrustedAdvisorResourceDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.TrustedAdvisorResourceDetail.TrustedAdvisorResourceDetail
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.TrustedAdvisorResourceDetail.TrustedAdvisorResourceDetail
+instance Control.DeepSeq.NFData Amazonka.Support.Types.TrustedAdvisorResourceDetail.TrustedAdvisorResourceDetail
 
 
-module Network.AWS.Support.Types.TrustedAdvisorResourcesSummary
+module Amazonka.Support.Types.TrustedAdvisorResourcesSummary
 
 -- | Details about AWS resources that were analyzed in a call to Trusted
 --   Advisor DescribeTrustedAdvisorCheckSummaries.
@@ -1168,16 +1168,16 @@ trustedAdvisorResourcesSummary_resourcesIgnored :: Lens' TrustedAdvisorResources
 -- | The number of AWS resources ignored by Trusted Advisor because they
 --   were marked as suppressed by the user.
 trustedAdvisorResourcesSummary_resourcesSuppressed :: Lens' TrustedAdvisorResourcesSummary Integer
-instance GHC.Generics.Generic Network.AWS.Support.Types.TrustedAdvisorResourcesSummary.TrustedAdvisorResourcesSummary
-instance GHC.Show.Show Network.AWS.Support.Types.TrustedAdvisorResourcesSummary.TrustedAdvisorResourcesSummary
-instance GHC.Read.Read Network.AWS.Support.Types.TrustedAdvisorResourcesSummary.TrustedAdvisorResourcesSummary
-instance GHC.Classes.Eq Network.AWS.Support.Types.TrustedAdvisorResourcesSummary.TrustedAdvisorResourcesSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.TrustedAdvisorResourcesSummary.TrustedAdvisorResourcesSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.TrustedAdvisorResourcesSummary.TrustedAdvisorResourcesSummary
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.TrustedAdvisorResourcesSummary.TrustedAdvisorResourcesSummary
+instance GHC.Generics.Generic Amazonka.Support.Types.TrustedAdvisorResourcesSummary.TrustedAdvisorResourcesSummary
+instance GHC.Show.Show Amazonka.Support.Types.TrustedAdvisorResourcesSummary.TrustedAdvisorResourcesSummary
+instance GHC.Read.Read Amazonka.Support.Types.TrustedAdvisorResourcesSummary.TrustedAdvisorResourcesSummary
+instance GHC.Classes.Eq Amazonka.Support.Types.TrustedAdvisorResourcesSummary.TrustedAdvisorResourcesSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.TrustedAdvisorResourcesSummary.TrustedAdvisorResourcesSummary
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.TrustedAdvisorResourcesSummary.TrustedAdvisorResourcesSummary
+instance Control.DeepSeq.NFData Amazonka.Support.Types.TrustedAdvisorResourcesSummary.TrustedAdvisorResourcesSummary
 
 
-module Network.AWS.Support.Types.TrustedAdvisorCheckSummary
+module Amazonka.Support.Types.TrustedAdvisorCheckSummary
 
 -- | A summary of a Trusted Advisor check result, including the alert
 --   status, last refresh, and number of resources examined.
@@ -1259,16 +1259,16 @@ trustedAdvisorCheckSummary_resourcesSummary :: Lens' TrustedAdvisorCheckSummary 
 -- | Summary information that relates to the category of the check. Cost
 --   Optimizing is the only category that is currently supported.
 trustedAdvisorCheckSummary_categorySpecificSummary :: Lens' TrustedAdvisorCheckSummary TrustedAdvisorCategorySpecificSummary
-instance GHC.Generics.Generic Network.AWS.Support.Types.TrustedAdvisorCheckSummary.TrustedAdvisorCheckSummary
-instance GHC.Show.Show Network.AWS.Support.Types.TrustedAdvisorCheckSummary.TrustedAdvisorCheckSummary
-instance GHC.Read.Read Network.AWS.Support.Types.TrustedAdvisorCheckSummary.TrustedAdvisorCheckSummary
-instance GHC.Classes.Eq Network.AWS.Support.Types.TrustedAdvisorCheckSummary.TrustedAdvisorCheckSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.TrustedAdvisorCheckSummary.TrustedAdvisorCheckSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.TrustedAdvisorCheckSummary.TrustedAdvisorCheckSummary
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.TrustedAdvisorCheckSummary.TrustedAdvisorCheckSummary
+instance GHC.Generics.Generic Amazonka.Support.Types.TrustedAdvisorCheckSummary.TrustedAdvisorCheckSummary
+instance GHC.Show.Show Amazonka.Support.Types.TrustedAdvisorCheckSummary.TrustedAdvisorCheckSummary
+instance GHC.Read.Read Amazonka.Support.Types.TrustedAdvisorCheckSummary.TrustedAdvisorCheckSummary
+instance GHC.Classes.Eq Amazonka.Support.Types.TrustedAdvisorCheckSummary.TrustedAdvisorCheckSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.TrustedAdvisorCheckSummary.TrustedAdvisorCheckSummary
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.TrustedAdvisorCheckSummary.TrustedAdvisorCheckSummary
+instance Control.DeepSeq.NFData Amazonka.Support.Types.TrustedAdvisorCheckSummary.TrustedAdvisorCheckSummary
 
 
-module Network.AWS.Support.Types.TrustedAdvisorCheckResult
+module Amazonka.Support.Types.TrustedAdvisorCheckResult
 
 -- | The results of a Trusted Advisor check returned by
 --   DescribeTrustedAdvisorCheckResult.
@@ -1350,16 +1350,16 @@ trustedAdvisorCheckResult_categorySpecificSummary :: Lens' TrustedAdvisorCheckRe
 
 -- | The details about each resource listed in the check result.
 trustedAdvisorCheckResult_flaggedResources :: Lens' TrustedAdvisorCheckResult [TrustedAdvisorResourceDetail]
-instance GHC.Generics.Generic Network.AWS.Support.Types.TrustedAdvisorCheckResult.TrustedAdvisorCheckResult
-instance GHC.Show.Show Network.AWS.Support.Types.TrustedAdvisorCheckResult.TrustedAdvisorCheckResult
-instance GHC.Read.Read Network.AWS.Support.Types.TrustedAdvisorCheckResult.TrustedAdvisorCheckResult
-instance GHC.Classes.Eq Network.AWS.Support.Types.TrustedAdvisorCheckResult.TrustedAdvisorCheckResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Support.Types.TrustedAdvisorCheckResult.TrustedAdvisorCheckResult
-instance Data.Hashable.Class.Hashable Network.AWS.Support.Types.TrustedAdvisorCheckResult.TrustedAdvisorCheckResult
-instance Control.DeepSeq.NFData Network.AWS.Support.Types.TrustedAdvisorCheckResult.TrustedAdvisorCheckResult
+instance GHC.Generics.Generic Amazonka.Support.Types.TrustedAdvisorCheckResult.TrustedAdvisorCheckResult
+instance GHC.Show.Show Amazonka.Support.Types.TrustedAdvisorCheckResult.TrustedAdvisorCheckResult
+instance GHC.Read.Read Amazonka.Support.Types.TrustedAdvisorCheckResult.TrustedAdvisorCheckResult
+instance GHC.Classes.Eq Amazonka.Support.Types.TrustedAdvisorCheckResult.TrustedAdvisorCheckResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Support.Types.TrustedAdvisorCheckResult.TrustedAdvisorCheckResult
+instance Data.Hashable.Class.Hashable Amazonka.Support.Types.TrustedAdvisorCheckResult.TrustedAdvisorCheckResult
+instance Control.DeepSeq.NFData Amazonka.Support.Types.TrustedAdvisorCheckResult.TrustedAdvisorCheckResult
 
 
-module Network.AWS.Support.Types
+module Amazonka.Support.Types
 
 -- | API version <tt>2013-04-15</tt> of the Amazon Support SDK
 --   configuration.
@@ -2602,7 +2602,7 @@ trustedAdvisorResourcesSummary_resourcesSuppressed :: Lens' TrustedAdvisorResour
 --   information about changing your support plan, see <a>AWS
 --   Support</a>.</li>
 --   </ul>
-module Network.AWS.Support.ResolveCase
+module Amazonka.Support.ResolveCase
 
 -- | <i>See:</i> <a>newResolveCase</a> smart constructor.
 data ResolveCase
@@ -2677,22 +2677,22 @@ resolveCaseResponse_finalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 
 -- | The response's http status code.
 resolveCaseResponse_httpStatus :: Lens' ResolveCaseResponse Int
-instance GHC.Generics.Generic Network.AWS.Support.ResolveCase.ResolveCase
-instance GHC.Show.Show Network.AWS.Support.ResolveCase.ResolveCase
-instance GHC.Read.Read Network.AWS.Support.ResolveCase.ResolveCase
-instance GHC.Classes.Eq Network.AWS.Support.ResolveCase.ResolveCase
-instance GHC.Generics.Generic Network.AWS.Support.ResolveCase.ResolveCaseResponse
-instance GHC.Show.Show Network.AWS.Support.ResolveCase.ResolveCaseResponse
-instance GHC.Read.Read Network.AWS.Support.ResolveCase.ResolveCaseResponse
-instance GHC.Classes.Eq Network.AWS.Support.ResolveCase.ResolveCaseResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Support.ResolveCase.ResolveCase
-instance Control.DeepSeq.NFData Network.AWS.Support.ResolveCase.ResolveCaseResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Support.ResolveCase.ResolveCase
-instance Control.DeepSeq.NFData Network.AWS.Support.ResolveCase.ResolveCase
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Support.ResolveCase.ResolveCase
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Support.ResolveCase.ResolveCase
-instance Network.AWS.Data.Path.ToPath Network.AWS.Support.ResolveCase.ResolveCase
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.ResolveCase.ResolveCase
+instance GHC.Generics.Generic Amazonka.Support.ResolveCase.ResolveCase
+instance GHC.Show.Show Amazonka.Support.ResolveCase.ResolveCase
+instance GHC.Read.Read Amazonka.Support.ResolveCase.ResolveCase
+instance GHC.Classes.Eq Amazonka.Support.ResolveCase.ResolveCase
+instance GHC.Generics.Generic Amazonka.Support.ResolveCase.ResolveCaseResponse
+instance GHC.Show.Show Amazonka.Support.ResolveCase.ResolveCaseResponse
+instance GHC.Read.Read Amazonka.Support.ResolveCase.ResolveCaseResponse
+instance GHC.Classes.Eq Amazonka.Support.ResolveCase.ResolveCaseResponse
+instance Amazonka.Types.AWSRequest Amazonka.Support.ResolveCase.ResolveCase
+instance Control.DeepSeq.NFData Amazonka.Support.ResolveCase.ResolveCaseResponse
+instance Data.Hashable.Class.Hashable Amazonka.Support.ResolveCase.ResolveCase
+instance Control.DeepSeq.NFData Amazonka.Support.ResolveCase.ResolveCase
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Support.ResolveCase.ResolveCase
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Support.ResolveCase.ResolveCase
+instance Amazonka.Data.Path.ToPath Amazonka.Support.ResolveCase.ResolveCase
+instance Amazonka.Data.Query.ToQuery Amazonka.Support.ResolveCase.ResolveCase
 
 
 -- | Refreshes the AWS Trusted Advisor check that you specify using the
@@ -2714,7 +2714,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.ResolveCase.ResolveC
 --   information about changing your support plan, see <a>AWS
 --   Support</a>.</li>
 --   </ul>
-module Network.AWS.Support.RefreshTrustedAdvisorCheck
+module Amazonka.Support.RefreshTrustedAdvisorCheck
 
 -- | <i>See:</i> <a>newRefreshTrustedAdvisorCheck</a> smart constructor.
 data RefreshTrustedAdvisorCheck
@@ -2788,22 +2788,22 @@ refreshTrustedAdvisorCheckResponse_httpStatus :: Lens' RefreshTrustedAdvisorChec
 -- | The current refresh status for a check, including the amount of time
 --   until the check is eligible for refresh.
 refreshTrustedAdvisorCheckResponse_status :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
-instance GHC.Generics.Generic Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
-instance GHC.Show.Show Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
-instance GHC.Read.Read Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
-instance GHC.Classes.Eq Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
-instance GHC.Generics.Generic Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheckResponse
-instance GHC.Show.Show Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheckResponse
-instance GHC.Read.Read Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheckResponse
-instance GHC.Classes.Eq Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheckResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
-instance Control.DeepSeq.NFData Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheckResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
-instance Control.DeepSeq.NFData Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
-instance Network.AWS.Data.Path.ToPath Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
+instance GHC.Generics.Generic Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
+instance GHC.Show.Show Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
+instance GHC.Read.Read Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
+instance GHC.Classes.Eq Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
+instance GHC.Generics.Generic Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheckResponse
+instance GHC.Show.Show Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheckResponse
+instance GHC.Read.Read Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheckResponse
+instance GHC.Classes.Eq Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheckResponse
+instance Amazonka.Types.AWSRequest Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
+instance Control.DeepSeq.NFData Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheckResponse
+instance Data.Hashable.Class.Hashable Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
+instance Control.DeepSeq.NFData Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
+instance Amazonka.Data.Path.ToPath Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
+instance Amazonka.Data.Query.ToQuery Amazonka.Support.RefreshTrustedAdvisorCheck.RefreshTrustedAdvisorCheck
 
 
 -- | Returns information about all available AWS Trusted Advisor checks,
@@ -2825,7 +2825,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.RefreshTrustedAdviso
 --   to change. We recommend that you specify the check ID in your code to
 --   uniquely identify a check.</li>
 --   </ul>
-module Network.AWS.Support.DescribeTrustedAdvisorChecks
+module Amazonka.Support.DescribeTrustedAdvisorChecks
 
 -- | <i>See:</i> <a>newDescribeTrustedAdvisorChecks</a> smart constructor.
 data DescribeTrustedAdvisorChecks
@@ -2896,22 +2896,22 @@ describeTrustedAdvisorChecksResponse_httpStatus :: Lens' DescribeTrustedAdvisorC
 
 -- | Information about all available Trusted Advisor checks.
 describeTrustedAdvisorChecksResponse_checks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
-instance GHC.Generics.Generic Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
-instance GHC.Show.Show Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
-instance GHC.Read.Read Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
-instance GHC.Classes.Eq Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
-instance GHC.Generics.Generic Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecksResponse
-instance GHC.Show.Show Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecksResponse
-instance GHC.Read.Read Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecksResponse
-instance GHC.Classes.Eq Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecksResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecksResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
-instance Network.AWS.Data.Path.ToPath Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
+instance GHC.Generics.Generic Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
+instance GHC.Show.Show Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
+instance GHC.Read.Read Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
+instance GHC.Classes.Eq Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
+instance GHC.Generics.Generic Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecksResponse
+instance GHC.Show.Show Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecksResponse
+instance GHC.Read.Read Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecksResponse
+instance GHC.Classes.Eq Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecksResponse
+instance Amazonka.Types.AWSRequest Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecksResponse
+instance Data.Hashable.Class.Hashable Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
+instance Amazonka.Data.Path.ToPath Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
+instance Amazonka.Data.Query.ToQuery Amazonka.Support.DescribeTrustedAdvisorChecks.DescribeTrustedAdvisorChecks
 
 
 -- | Returns the results for the AWS Trusted Advisor check summaries for
@@ -2929,7 +2929,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeTrustedAdvis
 --   information about changing your support plan, see <a>AWS
 --   Support</a>.</li>
 --   </ul>
-module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
+module Amazonka.Support.DescribeTrustedAdvisorCheckSummaries
 
 -- | <i>See:</i> <a>newDescribeTrustedAdvisorCheckSummaries</a> smart
 --   constructor.
@@ -2993,22 +2993,22 @@ describeTrustedAdvisorCheckSummariesResponse_httpStatus :: Lens' DescribeTrusted
 
 -- | The summary information for the requested Trusted Advisor checks.
 describeTrustedAdvisorCheckSummariesResponse_summaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
-instance GHC.Generics.Generic Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
-instance GHC.Show.Show Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
-instance GHC.Read.Read Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
-instance GHC.Classes.Eq Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
-instance GHC.Generics.Generic Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummariesResponse
-instance GHC.Show.Show Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummariesResponse
-instance GHC.Read.Read Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummariesResponse
-instance GHC.Classes.Eq Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummariesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummariesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
-instance Network.AWS.Data.Path.ToPath Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
+instance GHC.Generics.Generic Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
+instance GHC.Show.Show Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
+instance GHC.Read.Read Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
+instance GHC.Classes.Eq Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
+instance GHC.Generics.Generic Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummariesResponse
+instance GHC.Show.Show Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummariesResponse
+instance GHC.Read.Read Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummariesResponse
+instance GHC.Classes.Eq Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummariesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummariesResponse
+instance Data.Hashable.Class.Hashable Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
+instance Amazonka.Data.Path.ToPath Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
+instance Amazonka.Data.Query.ToQuery Amazonka.Support.DescribeTrustedAdvisorCheckSummaries.DescribeTrustedAdvisorCheckSummaries
 
 
 -- | Returns the results of the AWS Trusted Advisor check that has the
@@ -3040,7 +3040,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeTrustedAdvis
 --   information about changing your support plan, see <a>AWS
 --   Support</a>.</li>
 --   </ul>
-module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
+module Amazonka.Support.DescribeTrustedAdvisorCheckResult
 
 -- | <i>See:</i> <a>newDescribeTrustedAdvisorCheckResult</a> smart
 --   constructor.
@@ -3122,22 +3122,22 @@ describeTrustedAdvisorCheckResultResponse_result :: Lens' DescribeTrustedAdvisor
 
 -- | The response's http status code.
 describeTrustedAdvisorCheckResultResponse_httpStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
-instance GHC.Generics.Generic Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
-instance GHC.Show.Show Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
-instance GHC.Read.Read Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
-instance GHC.Classes.Eq Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
-instance GHC.Generics.Generic Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResultResponse
-instance GHC.Show.Show Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResultResponse
-instance GHC.Read.Read Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResultResponse
-instance GHC.Classes.Eq Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResultResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResultResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
-instance Network.AWS.Data.Path.ToPath Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
+instance GHC.Generics.Generic Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
+instance GHC.Show.Show Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
+instance GHC.Read.Read Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
+instance GHC.Classes.Eq Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
+instance GHC.Generics.Generic Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResultResponse
+instance GHC.Show.Show Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResultResponse
+instance GHC.Read.Read Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResultResponse
+instance GHC.Classes.Eq Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResultResponse
+instance Amazonka.Types.AWSRequest Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResultResponse
+instance Data.Hashable.Class.Hashable Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
+instance Amazonka.Data.Path.ToPath Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
+instance Amazonka.Data.Query.ToQuery Amazonka.Support.DescribeTrustedAdvisorCheckResult.DescribeTrustedAdvisorCheckResult
 
 
 -- | Returns the refresh status of the AWS Trusted Advisor checks that have
@@ -3159,7 +3159,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeTrustedAdvis
 --   information about changing your support plan, see <a>AWS
 --   Support</a>.</li>
 --   </ul>
-module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
+module Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses
 
 -- | <i>See:</i> <a>newDescribeTrustedAdvisorCheckRefreshStatuses</a> smart
 --   constructor.
@@ -3236,22 +3236,22 @@ describeTrustedAdvisorCheckRefreshStatusesResponse_httpStatus :: Lens' DescribeT
 
 -- | The refresh status of the specified Trusted Advisor checks.
 describeTrustedAdvisorCheckRefreshStatusesResponse_statuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
-instance GHC.Generics.Generic Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
-instance GHC.Show.Show Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
-instance GHC.Read.Read Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
-instance GHC.Classes.Eq Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
-instance GHC.Generics.Generic Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatusesResponse
-instance GHC.Show.Show Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatusesResponse
-instance GHC.Read.Read Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatusesResponse
-instance GHC.Classes.Eq Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatusesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatusesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
-instance Network.AWS.Data.Path.ToPath Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
+instance GHC.Generics.Generic Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
+instance GHC.Show.Show Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
+instance GHC.Read.Read Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
+instance GHC.Classes.Eq Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
+instance GHC.Generics.Generic Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatusesResponse
+instance GHC.Show.Show Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatusesResponse
+instance GHC.Read.Read Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatusesResponse
+instance GHC.Classes.Eq Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatusesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatusesResponse
+instance Data.Hashable.Class.Hashable Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
+instance Amazonka.Data.Path.ToPath Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
+instance Amazonka.Data.Query.ToQuery Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses.DescribeTrustedAdvisorCheckRefreshStatuses
 
 
 -- | Returns the list of severity levels that you can assign to a support
@@ -3267,7 +3267,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeTrustedAdvis
 --   information about changing your support plan, see <a>AWS
 --   Support</a>.</li>
 --   </ul>
-module Network.AWS.Support.DescribeSeverityLevels
+module Amazonka.Support.DescribeSeverityLevels
 
 -- | <i>See:</i> <a>newDescribeSeverityLevels</a> smart constructor.
 data DescribeSeverityLevels
@@ -3341,22 +3341,22 @@ describeSeverityLevelsResponse_severityLevels :: Lens' DescribeSeverityLevelsRes
 
 -- | The response's http status code.
 describeSeverityLevelsResponse_httpStatus :: Lens' DescribeSeverityLevelsResponse Int
-instance GHC.Generics.Generic Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevels
-instance GHC.Show.Show Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevels
-instance GHC.Read.Read Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevels
-instance GHC.Classes.Eq Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevels
-instance GHC.Generics.Generic Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevelsResponse
-instance GHC.Show.Show Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevelsResponse
-instance GHC.Read.Read Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevelsResponse
-instance GHC.Classes.Eq Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevelsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevels
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevelsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevels
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevels
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevels
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevels
-instance Network.AWS.Data.Path.ToPath Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevels
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeSeverityLevels.DescribeSeverityLevels
+instance GHC.Generics.Generic Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevels
+instance GHC.Show.Show Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevels
+instance GHC.Read.Read Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevels
+instance GHC.Classes.Eq Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevels
+instance GHC.Generics.Generic Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevelsResponse
+instance GHC.Show.Show Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevelsResponse
+instance GHC.Read.Read Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevelsResponse
+instance GHC.Classes.Eq Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevelsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevels
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevelsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevels
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevels
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevels
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevels
+instance Amazonka.Data.Path.ToPath Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevels
+instance Amazonka.Data.Query.ToQuery Amazonka.Support.DescribeSeverityLevels.DescribeSeverityLevels
 
 
 -- | Returns the current list of AWS services and a list of service
@@ -3381,7 +3381,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeSeverityLeve
 --   information about changing your support plan, see <a>AWS
 --   Support</a>.</li>
 --   </ul>
-module Network.AWS.Support.DescribeServices
+module Amazonka.Support.DescribeServices
 
 -- | <i>See:</i> <a>newDescribeServices</a> smart constructor.
 data DescribeServices
@@ -3460,22 +3460,22 @@ describeServicesResponse_services :: Lens' DescribeServicesResponse (Maybe [Supp
 
 -- | The response's http status code.
 describeServicesResponse_httpStatus :: Lens' DescribeServicesResponse Int
-instance GHC.Generics.Generic Network.AWS.Support.DescribeServices.DescribeServices
-instance GHC.Show.Show Network.AWS.Support.DescribeServices.DescribeServices
-instance GHC.Read.Read Network.AWS.Support.DescribeServices.DescribeServices
-instance GHC.Classes.Eq Network.AWS.Support.DescribeServices.DescribeServices
-instance GHC.Generics.Generic Network.AWS.Support.DescribeServices.DescribeServicesResponse
-instance GHC.Show.Show Network.AWS.Support.DescribeServices.DescribeServicesResponse
-instance GHC.Read.Read Network.AWS.Support.DescribeServices.DescribeServicesResponse
-instance GHC.Classes.Eq Network.AWS.Support.DescribeServices.DescribeServicesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Support.DescribeServices.DescribeServices
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeServices.DescribeServicesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Support.DescribeServices.DescribeServices
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeServices.DescribeServices
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Support.DescribeServices.DescribeServices
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Support.DescribeServices.DescribeServices
-instance Network.AWS.Data.Path.ToPath Network.AWS.Support.DescribeServices.DescribeServices
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeServices.DescribeServices
+instance GHC.Generics.Generic Amazonka.Support.DescribeServices.DescribeServices
+instance GHC.Show.Show Amazonka.Support.DescribeServices.DescribeServices
+instance GHC.Read.Read Amazonka.Support.DescribeServices.DescribeServices
+instance GHC.Classes.Eq Amazonka.Support.DescribeServices.DescribeServices
+instance GHC.Generics.Generic Amazonka.Support.DescribeServices.DescribeServicesResponse
+instance GHC.Show.Show Amazonka.Support.DescribeServices.DescribeServicesResponse
+instance GHC.Read.Read Amazonka.Support.DescribeServices.DescribeServicesResponse
+instance GHC.Classes.Eq Amazonka.Support.DescribeServices.DescribeServicesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Support.DescribeServices.DescribeServices
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeServices.DescribeServicesResponse
+instance Data.Hashable.Class.Hashable Amazonka.Support.DescribeServices.DescribeServices
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeServices.DescribeServices
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Support.DescribeServices.DescribeServices
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Support.DescribeServices.DescribeServices
+instance Amazonka.Data.Path.ToPath Amazonka.Support.DescribeServices.DescribeServices
+instance Amazonka.Data.Query.ToQuery Amazonka.Support.DescribeServices.DescribeServices
 
 
 -- | Returns communications and attachments for one or more support cases.
@@ -3503,7 +3503,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeServices.Des
 --   </ul>
 --   
 --   This operation returns paginated results.
-module Network.AWS.Support.DescribeCommunications
+module Amazonka.Support.DescribeCommunications
 
 -- | <i>See:</i> <a>newDescribeCommunications</a> smart constructor.
 data DescribeCommunications
@@ -3631,23 +3631,23 @@ describeCommunicationsResponse_communications :: Lens' DescribeCommunicationsRes
 
 -- | The response's http status code.
 describeCommunicationsResponse_httpStatus :: Lens' DescribeCommunicationsResponse Int
-instance GHC.Generics.Generic Network.AWS.Support.DescribeCommunications.DescribeCommunications
-instance GHC.Show.Show Network.AWS.Support.DescribeCommunications.DescribeCommunications
-instance GHC.Read.Read Network.AWS.Support.DescribeCommunications.DescribeCommunications
-instance GHC.Classes.Eq Network.AWS.Support.DescribeCommunications.DescribeCommunications
-instance GHC.Generics.Generic Network.AWS.Support.DescribeCommunications.DescribeCommunicationsResponse
-instance GHC.Show.Show Network.AWS.Support.DescribeCommunications.DescribeCommunicationsResponse
-instance GHC.Read.Read Network.AWS.Support.DescribeCommunications.DescribeCommunicationsResponse
-instance GHC.Classes.Eq Network.AWS.Support.DescribeCommunications.DescribeCommunicationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Support.DescribeCommunications.DescribeCommunications
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeCommunications.DescribeCommunicationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Support.DescribeCommunications.DescribeCommunications
-instance Data.Hashable.Class.Hashable Network.AWS.Support.DescribeCommunications.DescribeCommunications
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeCommunications.DescribeCommunications
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Support.DescribeCommunications.DescribeCommunications
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Support.DescribeCommunications.DescribeCommunications
-instance Network.AWS.Data.Path.ToPath Network.AWS.Support.DescribeCommunications.DescribeCommunications
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeCommunications.DescribeCommunications
+instance GHC.Generics.Generic Amazonka.Support.DescribeCommunications.DescribeCommunications
+instance GHC.Show.Show Amazonka.Support.DescribeCommunications.DescribeCommunications
+instance GHC.Read.Read Amazonka.Support.DescribeCommunications.DescribeCommunications
+instance GHC.Classes.Eq Amazonka.Support.DescribeCommunications.DescribeCommunications
+instance GHC.Generics.Generic Amazonka.Support.DescribeCommunications.DescribeCommunicationsResponse
+instance GHC.Show.Show Amazonka.Support.DescribeCommunications.DescribeCommunicationsResponse
+instance GHC.Read.Read Amazonka.Support.DescribeCommunications.DescribeCommunicationsResponse
+instance GHC.Classes.Eq Amazonka.Support.DescribeCommunications.DescribeCommunicationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Support.DescribeCommunications.DescribeCommunications
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeCommunications.DescribeCommunicationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Support.DescribeCommunications.DescribeCommunications
+instance Data.Hashable.Class.Hashable Amazonka.Support.DescribeCommunications.DescribeCommunications
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeCommunications.DescribeCommunications
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Support.DescribeCommunications.DescribeCommunications
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Support.DescribeCommunications.DescribeCommunications
+instance Amazonka.Data.Path.ToPath Amazonka.Support.DescribeCommunications.DescribeCommunications
+instance Amazonka.Data.Query.ToQuery Amazonka.Support.DescribeCommunications.DescribeCommunications
 
 
 -- | Returns a list of cases that you specify by passing one or more case
@@ -3679,7 +3679,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeCommunicatio
 --   </ul>
 --   
 --   This operation returns paginated results.
-module Network.AWS.Support.DescribeCases
+module Amazonka.Support.DescribeCases
 
 -- | <i>See:</i> <a>newDescribeCases</a> smart constructor.
 data DescribeCases
@@ -3859,23 +3859,23 @@ describeCasesResponse_nextToken :: Lens' DescribeCasesResponse (Maybe Text)
 
 -- | The response's http status code.
 describeCasesResponse_httpStatus :: Lens' DescribeCasesResponse Int
-instance GHC.Generics.Generic Network.AWS.Support.DescribeCases.DescribeCases
-instance GHC.Show.Show Network.AWS.Support.DescribeCases.DescribeCases
-instance GHC.Read.Read Network.AWS.Support.DescribeCases.DescribeCases
-instance GHC.Classes.Eq Network.AWS.Support.DescribeCases.DescribeCases
-instance GHC.Generics.Generic Network.AWS.Support.DescribeCases.DescribeCasesResponse
-instance GHC.Show.Show Network.AWS.Support.DescribeCases.DescribeCasesResponse
-instance GHC.Read.Read Network.AWS.Support.DescribeCases.DescribeCasesResponse
-instance GHC.Classes.Eq Network.AWS.Support.DescribeCases.DescribeCasesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Support.DescribeCases.DescribeCases
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeCases.DescribeCasesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Support.DescribeCases.DescribeCases
-instance Data.Hashable.Class.Hashable Network.AWS.Support.DescribeCases.DescribeCases
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeCases.DescribeCases
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Support.DescribeCases.DescribeCases
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Support.DescribeCases.DescribeCases
-instance Network.AWS.Data.Path.ToPath Network.AWS.Support.DescribeCases.DescribeCases
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeCases.DescribeCases
+instance GHC.Generics.Generic Amazonka.Support.DescribeCases.DescribeCases
+instance GHC.Show.Show Amazonka.Support.DescribeCases.DescribeCases
+instance GHC.Read.Read Amazonka.Support.DescribeCases.DescribeCases
+instance GHC.Classes.Eq Amazonka.Support.DescribeCases.DescribeCases
+instance GHC.Generics.Generic Amazonka.Support.DescribeCases.DescribeCasesResponse
+instance GHC.Show.Show Amazonka.Support.DescribeCases.DescribeCasesResponse
+instance GHC.Read.Read Amazonka.Support.DescribeCases.DescribeCasesResponse
+instance GHC.Classes.Eq Amazonka.Support.DescribeCases.DescribeCasesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Support.DescribeCases.DescribeCases
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeCases.DescribeCasesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Support.DescribeCases.DescribeCases
+instance Data.Hashable.Class.Hashable Amazonka.Support.DescribeCases.DescribeCases
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeCases.DescribeCases
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Support.DescribeCases.DescribeCases
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Support.DescribeCases.DescribeCases
+instance Amazonka.Data.Path.ToPath Amazonka.Support.DescribeCases.DescribeCases
+instance Amazonka.Data.Query.ToQuery Amazonka.Support.DescribeCases.DescribeCases
 
 
 -- | Returns the attachment that has the specified ID. Attachments can
@@ -3894,7 +3894,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeCases.Descri
 --   information about changing your support plan, see <a>AWS
 --   Support</a>.</li>
 --   </ul>
-module Network.AWS.Support.DescribeAttachment
+module Amazonka.Support.DescribeAttachment
 
 -- | <i>See:</i> <a>newDescribeAttachment</a> smart constructor.
 data DescribeAttachment
@@ -3974,22 +3974,22 @@ describeAttachmentResponse_attachment :: Lens' DescribeAttachmentResponse (Maybe
 
 -- | The response's http status code.
 describeAttachmentResponse_httpStatus :: Lens' DescribeAttachmentResponse Int
-instance GHC.Generics.Generic Network.AWS.Support.DescribeAttachment.DescribeAttachment
-instance GHC.Show.Show Network.AWS.Support.DescribeAttachment.DescribeAttachment
-instance GHC.Read.Read Network.AWS.Support.DescribeAttachment.DescribeAttachment
-instance GHC.Classes.Eq Network.AWS.Support.DescribeAttachment.DescribeAttachment
-instance GHC.Generics.Generic Network.AWS.Support.DescribeAttachment.DescribeAttachmentResponse
-instance GHC.Show.Show Network.AWS.Support.DescribeAttachment.DescribeAttachmentResponse
-instance GHC.Read.Read Network.AWS.Support.DescribeAttachment.DescribeAttachmentResponse
-instance GHC.Classes.Eq Network.AWS.Support.DescribeAttachment.DescribeAttachmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Support.DescribeAttachment.DescribeAttachment
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeAttachment.DescribeAttachmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Support.DescribeAttachment.DescribeAttachment
-instance Control.DeepSeq.NFData Network.AWS.Support.DescribeAttachment.DescribeAttachment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Support.DescribeAttachment.DescribeAttachment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Support.DescribeAttachment.DescribeAttachment
-instance Network.AWS.Data.Path.ToPath Network.AWS.Support.DescribeAttachment.DescribeAttachment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeAttachment.DescribeAttachment
+instance GHC.Generics.Generic Amazonka.Support.DescribeAttachment.DescribeAttachment
+instance GHC.Show.Show Amazonka.Support.DescribeAttachment.DescribeAttachment
+instance GHC.Read.Read Amazonka.Support.DescribeAttachment.DescribeAttachment
+instance GHC.Classes.Eq Amazonka.Support.DescribeAttachment.DescribeAttachment
+instance GHC.Generics.Generic Amazonka.Support.DescribeAttachment.DescribeAttachmentResponse
+instance GHC.Show.Show Amazonka.Support.DescribeAttachment.DescribeAttachmentResponse
+instance GHC.Read.Read Amazonka.Support.DescribeAttachment.DescribeAttachmentResponse
+instance GHC.Classes.Eq Amazonka.Support.DescribeAttachment.DescribeAttachmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.Support.DescribeAttachment.DescribeAttachment
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeAttachment.DescribeAttachmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.Support.DescribeAttachment.DescribeAttachment
+instance Control.DeepSeq.NFData Amazonka.Support.DescribeAttachment.DescribeAttachment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Support.DescribeAttachment.DescribeAttachment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Support.DescribeAttachment.DescribeAttachment
+instance Amazonka.Data.Path.ToPath Amazonka.Support.DescribeAttachment.DescribeAttachment
+instance Amazonka.Data.Query.ToQuery Amazonka.Support.DescribeAttachment.DescribeAttachment
 
 
 -- | Creates a case in the AWS Support Center. This operation is similar to
@@ -4026,7 +4026,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.DescribeAttachment.D
 --   information about changing your support plan, see <a>AWS
 --   Support</a>.</li>
 --   </ul>
-module Network.AWS.Support.CreateCase
+module Amazonka.Support.CreateCase
 
 -- | <i>See:</i> <a>newCreateCase</a> smart constructor.
 data CreateCase
@@ -4236,22 +4236,22 @@ createCaseResponse_caseId :: Lens' CreateCaseResponse (Maybe Text)
 
 -- | The response's http status code.
 createCaseResponse_httpStatus :: Lens' CreateCaseResponse Int
-instance GHC.Generics.Generic Network.AWS.Support.CreateCase.CreateCase
-instance GHC.Show.Show Network.AWS.Support.CreateCase.CreateCase
-instance GHC.Read.Read Network.AWS.Support.CreateCase.CreateCase
-instance GHC.Classes.Eq Network.AWS.Support.CreateCase.CreateCase
-instance GHC.Generics.Generic Network.AWS.Support.CreateCase.CreateCaseResponse
-instance GHC.Show.Show Network.AWS.Support.CreateCase.CreateCaseResponse
-instance GHC.Read.Read Network.AWS.Support.CreateCase.CreateCaseResponse
-instance GHC.Classes.Eq Network.AWS.Support.CreateCase.CreateCaseResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Support.CreateCase.CreateCase
-instance Control.DeepSeq.NFData Network.AWS.Support.CreateCase.CreateCaseResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Support.CreateCase.CreateCase
-instance Control.DeepSeq.NFData Network.AWS.Support.CreateCase.CreateCase
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Support.CreateCase.CreateCase
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Support.CreateCase.CreateCase
-instance Network.AWS.Data.Path.ToPath Network.AWS.Support.CreateCase.CreateCase
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.CreateCase.CreateCase
+instance GHC.Generics.Generic Amazonka.Support.CreateCase.CreateCase
+instance GHC.Show.Show Amazonka.Support.CreateCase.CreateCase
+instance GHC.Read.Read Amazonka.Support.CreateCase.CreateCase
+instance GHC.Classes.Eq Amazonka.Support.CreateCase.CreateCase
+instance GHC.Generics.Generic Amazonka.Support.CreateCase.CreateCaseResponse
+instance GHC.Show.Show Amazonka.Support.CreateCase.CreateCaseResponse
+instance GHC.Read.Read Amazonka.Support.CreateCase.CreateCaseResponse
+instance GHC.Classes.Eq Amazonka.Support.CreateCase.CreateCaseResponse
+instance Amazonka.Types.AWSRequest Amazonka.Support.CreateCase.CreateCase
+instance Control.DeepSeq.NFData Amazonka.Support.CreateCase.CreateCaseResponse
+instance Data.Hashable.Class.Hashable Amazonka.Support.CreateCase.CreateCase
+instance Control.DeepSeq.NFData Amazonka.Support.CreateCase.CreateCase
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Support.CreateCase.CreateCase
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Support.CreateCase.CreateCase
+instance Amazonka.Data.Path.ToPath Amazonka.Support.CreateCase.CreateCase
+instance Amazonka.Data.Query.ToQuery Amazonka.Support.CreateCase.CreateCase
 
 
 -- | Adds additional customer communication to an AWS Support case. Use the
@@ -4270,7 +4270,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.CreateCase.CreateCas
 --   information about changing your support plan, see <a>AWS
 --   Support</a>.</li>
 --   </ul>
-module Network.AWS.Support.AddCommunicationToCase
+module Amazonka.Support.AddCommunicationToCase
 
 -- | <i>See:</i> <a>newAddCommunicationToCase</a> smart constructor.
 data AddCommunicationToCase
@@ -4373,22 +4373,22 @@ addCommunicationToCaseResponse_result :: Lens' AddCommunicationToCaseResponse (M
 
 -- | The response's http status code.
 addCommunicationToCaseResponse_httpStatus :: Lens' AddCommunicationToCaseResponse Int
-instance GHC.Generics.Generic Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCase
-instance GHC.Show.Show Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCase
-instance GHC.Read.Read Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCase
-instance GHC.Classes.Eq Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCase
-instance GHC.Generics.Generic Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCaseResponse
-instance GHC.Show.Show Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCaseResponse
-instance GHC.Read.Read Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCaseResponse
-instance GHC.Classes.Eq Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCaseResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCase
-instance Control.DeepSeq.NFData Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCaseResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCase
-instance Control.DeepSeq.NFData Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCase
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCase
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCase
-instance Network.AWS.Data.Path.ToPath Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCase
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.AddCommunicationToCase.AddCommunicationToCase
+instance GHC.Generics.Generic Amazonka.Support.AddCommunicationToCase.AddCommunicationToCase
+instance GHC.Show.Show Amazonka.Support.AddCommunicationToCase.AddCommunicationToCase
+instance GHC.Read.Read Amazonka.Support.AddCommunicationToCase.AddCommunicationToCase
+instance GHC.Classes.Eq Amazonka.Support.AddCommunicationToCase.AddCommunicationToCase
+instance GHC.Generics.Generic Amazonka.Support.AddCommunicationToCase.AddCommunicationToCaseResponse
+instance GHC.Show.Show Amazonka.Support.AddCommunicationToCase.AddCommunicationToCaseResponse
+instance GHC.Read.Read Amazonka.Support.AddCommunicationToCase.AddCommunicationToCaseResponse
+instance GHC.Classes.Eq Amazonka.Support.AddCommunicationToCase.AddCommunicationToCaseResponse
+instance Amazonka.Types.AWSRequest Amazonka.Support.AddCommunicationToCase.AddCommunicationToCase
+instance Control.DeepSeq.NFData Amazonka.Support.AddCommunicationToCase.AddCommunicationToCaseResponse
+instance Data.Hashable.Class.Hashable Amazonka.Support.AddCommunicationToCase.AddCommunicationToCase
+instance Control.DeepSeq.NFData Amazonka.Support.AddCommunicationToCase.AddCommunicationToCase
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Support.AddCommunicationToCase.AddCommunicationToCase
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Support.AddCommunicationToCase.AddCommunicationToCase
+instance Amazonka.Data.Path.ToPath Amazonka.Support.AddCommunicationToCase.AddCommunicationToCase
+instance Amazonka.Data.Query.ToQuery Amazonka.Support.AddCommunicationToCase.AddCommunicationToCase
 
 
 -- | Adds one or more attachments to an attachment set.
@@ -4407,7 +4407,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.AddCommunicationToCa
 --   information about changing your support plan, see <a>AWS
 --   Support</a>.</li>
 --   </ul>
-module Network.AWS.Support.AddAttachmentsToSet
+module Amazonka.Support.AddAttachmentsToSet
 
 -- | <i>See:</i> <a>newAddAttachmentsToSet</a> smart constructor.
 data AddAttachmentsToSet
@@ -4533,25 +4533,25 @@ addAttachmentsToSetResponse_attachmentSetId :: Lens' AddAttachmentsToSetResponse
 
 -- | The response's http status code.
 addAttachmentsToSetResponse_httpStatus :: Lens' AddAttachmentsToSetResponse Int
-instance GHC.Generics.Generic Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSet
-instance GHC.Show.Show Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSet
-instance GHC.Read.Read Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSet
-instance GHC.Classes.Eq Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSet
-instance GHC.Generics.Generic Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSetResponse
-instance GHC.Show.Show Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSetResponse
-instance GHC.Read.Read Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSetResponse
-instance GHC.Classes.Eq Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSet
-instance Control.DeepSeq.NFData Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSet
-instance Control.DeepSeq.NFData Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Support.AddAttachmentsToSet.AddAttachmentsToSet
+instance GHC.Generics.Generic Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSet
+instance GHC.Show.Show Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSet
+instance GHC.Read.Read Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSet
+instance GHC.Classes.Eq Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSet
+instance GHC.Generics.Generic Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSetResponse
+instance GHC.Show.Show Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSetResponse
+instance GHC.Read.Read Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSetResponse
+instance GHC.Classes.Eq Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSet
+instance Control.DeepSeq.NFData Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSet
+instance Control.DeepSeq.NFData Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSet
+instance Amazonka.Data.Path.ToPath Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSet
+instance Amazonka.Data.Query.ToQuery Amazonka.Support.AddAttachmentsToSet.AddAttachmentsToSet
 
 
-module Network.AWS.Support.Lens
+module Amazonka.Support.Lens
 
 -- | The unique identifier for the Trusted Advisor check to refresh.
 --   
@@ -5146,7 +5146,7 @@ trustedAdvisorResourcesSummary_resourcesIgnored :: Lens' TrustedAdvisorResources
 trustedAdvisorResourcesSummary_resourcesSuppressed :: Lens' TrustedAdvisorResourcesSummary Integer
 
 
-module Network.AWS.Support.Waiters
+module Amazonka.Support.Waiters
 
 
 -- | Derived from API version <tt>2013-04-15</tt> of the AWS service
@@ -5218,7 +5218,7 @@ module Network.AWS.Support.Waiters
 --   Guide</i> for information about how to use this service to create and
 --   manage your support cases, and how to call Trusted Advisor for results
 --   of checks on your resources.
-module Network.AWS.Support
+module Amazonka.Support
 
 -- | API version <tt>2013-04-15</tt> of the Amazon Support SDK
 --   configuration.

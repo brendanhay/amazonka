@@ -5,61 +5,61 @@
 @version 2.0
 
 
-module Network.AWS.SavingsPlans.Types.CurrencyCode
+module Amazonka.SavingsPlans.Types.CurrencyCode
 newtype CurrencyCode
 CurrencyCode' :: Text -> CurrencyCode
 [fromCurrencyCode] :: CurrencyCode -> Text
 pattern CurrencyCode_CNY :: CurrencyCode
 pattern CurrencyCode_USD :: CurrencyCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance Network.AWS.Data.Text.ToText Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance Network.AWS.Data.Text.FromText Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance GHC.Classes.Ord Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance Amazonka.Data.XML.ToXML Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance Amazonka.Data.XML.FromXML Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance Amazonka.Data.Log.ToLog Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance Amazonka.Data.Text.ToText Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance Amazonka.Data.Text.FromText Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance GHC.Classes.Ord Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.CurrencyCode.CurrencyCode
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute
+module Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute
 newtype SavingsPlanOfferingFilterAttribute
 SavingsPlanOfferingFilterAttribute' :: Text -> SavingsPlanOfferingFilterAttribute
 [fromSavingsPlanOfferingFilterAttribute] :: SavingsPlanOfferingFilterAttribute -> Text
 pattern SavingsPlanOfferingFilterAttribute_InstanceFamily :: SavingsPlanOfferingFilterAttribute
 pattern SavingsPlanOfferingFilterAttribute_Region :: SavingsPlanOfferingFilterAttribute
-instance Network.AWS.Data.XML.ToXML Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance Network.AWS.Data.XML.FromXML Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance Network.AWS.Data.Log.ToLog Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance Network.AWS.Data.Text.ToText Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance Network.AWS.Data.Text.FromText Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance GHC.Classes.Ord Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance Amazonka.Data.XML.ToXML Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance Amazonka.Data.XML.FromXML Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance Amazonka.Data.Headers.ToHeader Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance Amazonka.Data.Log.ToLog Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance Amazonka.Data.Text.ToText Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance Amazonka.Data.Text.FromText Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance GHC.Classes.Ord Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute.SavingsPlanOfferingFilterAttribute
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterElement
+module Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterElement
 
 -- | Information about a filter.
 --   
@@ -95,43 +95,43 @@ savingsPlanOfferingFilterElement_values :: Lens' SavingsPlanOfferingFilterElemen
 
 -- | The filter name.
 savingsPlanOfferingFilterElement_name :: Lens' SavingsPlanOfferingFilterElement (Maybe SavingsPlanOfferingFilterAttribute)
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterElement.SavingsPlanOfferingFilterElement
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterElement.SavingsPlanOfferingFilterElement
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterElement.SavingsPlanOfferingFilterElement
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterElement.SavingsPlanOfferingFilterElement
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterElement.SavingsPlanOfferingFilterElement
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterElement.SavingsPlanOfferingFilterElement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterElement.SavingsPlanOfferingFilterElement
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterElement.SavingsPlanOfferingFilterElement
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterElement.SavingsPlanOfferingFilterElement
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterElement.SavingsPlanOfferingFilterElement
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterElement.SavingsPlanOfferingFilterElement
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterElement.SavingsPlanOfferingFilterElement
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterElement.SavingsPlanOfferingFilterElement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterElement.SavingsPlanOfferingFilterElement
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey
+module Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey
 newtype SavingsPlanOfferingPropertyKey
 SavingsPlanOfferingPropertyKey' :: Text -> SavingsPlanOfferingPropertyKey
 [fromSavingsPlanOfferingPropertyKey] :: SavingsPlanOfferingPropertyKey -> Text
 pattern SavingsPlanOfferingPropertyKey_InstanceFamily :: SavingsPlanOfferingPropertyKey
 pattern SavingsPlanOfferingPropertyKey_Region :: SavingsPlanOfferingPropertyKey
-instance Network.AWS.Data.XML.ToXML Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance Network.AWS.Data.XML.FromXML Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance Network.AWS.Data.Log.ToLog Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance Network.AWS.Data.Text.ToText Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance Network.AWS.Data.Text.FromText Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance GHC.Classes.Ord Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance Amazonka.Data.XML.ToXML Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance Amazonka.Data.XML.FromXML Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance Amazonka.Data.Headers.ToHeader Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance Amazonka.Data.Log.ToLog Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance Amazonka.Data.Text.ToText Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance Amazonka.Data.Text.FromText Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance GHC.Classes.Ord Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey.SavingsPlanOfferingPropertyKey
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanOfferingProperty
+module Amazonka.SavingsPlans.Types.SavingsPlanOfferingProperty
 
 -- | Information about a property.
 --   
@@ -166,16 +166,16 @@ savingsPlanOfferingProperty_value :: Lens' SavingsPlanOfferingProperty (Maybe Te
 
 -- | The property name.
 savingsPlanOfferingProperty_name :: Lens' SavingsPlanOfferingProperty (Maybe SavingsPlanOfferingPropertyKey)
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanOfferingProperty.SavingsPlanOfferingProperty
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanOfferingProperty.SavingsPlanOfferingProperty
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanOfferingProperty.SavingsPlanOfferingProperty
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanOfferingProperty.SavingsPlanOfferingProperty
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanOfferingProperty.SavingsPlanOfferingProperty
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanOfferingProperty.SavingsPlanOfferingProperty
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanOfferingProperty.SavingsPlanOfferingProperty
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanOfferingProperty.SavingsPlanOfferingProperty
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanOfferingProperty.SavingsPlanOfferingProperty
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanOfferingProperty.SavingsPlanOfferingProperty
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanOfferingProperty.SavingsPlanOfferingProperty
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanOfferingProperty.SavingsPlanOfferingProperty
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanOfferingProperty.SavingsPlanOfferingProperty
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanOfferingProperty.SavingsPlanOfferingProperty
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateProperty
+module Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateProperty
 
 -- | Information about a property.
 --   
@@ -211,44 +211,44 @@ savingsPlanOfferingRateProperty_value :: Lens' SavingsPlanOfferingRateProperty (
 
 -- | The property name.
 savingsPlanOfferingRateProperty_name :: Lens' SavingsPlanOfferingRateProperty (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateProperty.SavingsPlanOfferingRateProperty
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateProperty.SavingsPlanOfferingRateProperty
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateProperty.SavingsPlanOfferingRateProperty
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateProperty.SavingsPlanOfferingRateProperty
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateProperty.SavingsPlanOfferingRateProperty
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateProperty.SavingsPlanOfferingRateProperty
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateProperty.SavingsPlanOfferingRateProperty
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateProperty.SavingsPlanOfferingRateProperty
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateProperty.SavingsPlanOfferingRateProperty
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateProperty.SavingsPlanOfferingRateProperty
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateProperty.SavingsPlanOfferingRateProperty
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateProperty.SavingsPlanOfferingRateProperty
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateProperty.SavingsPlanOfferingRateProperty
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateProperty.SavingsPlanOfferingRateProperty
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption
+module Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption
 newtype SavingsPlanPaymentOption
 SavingsPlanPaymentOption' :: Text -> SavingsPlanPaymentOption
 [fromSavingsPlanPaymentOption] :: SavingsPlanPaymentOption -> Text
 pattern SavingsPlanPaymentOption_All_Upfront :: SavingsPlanPaymentOption
 pattern SavingsPlanPaymentOption_No_Upfront :: SavingsPlanPaymentOption
 pattern SavingsPlanPaymentOption_Partial_Upfront :: SavingsPlanPaymentOption
-instance Network.AWS.Data.XML.ToXML Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance Network.AWS.Data.XML.FromXML Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance Network.AWS.Data.Log.ToLog Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance Network.AWS.Data.Text.ToText Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance Network.AWS.Data.Text.FromText Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance GHC.Classes.Ord Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance Amazonka.Data.XML.ToXML Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance Amazonka.Data.XML.FromXML Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance Amazonka.Data.Headers.ToHeader Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance Amazonka.Data.Log.ToLog Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance Amazonka.Data.Text.ToText Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance Amazonka.Data.Text.FromText Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance GHC.Classes.Ord Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.SavingsPlanPaymentOption
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanProductType
+module Amazonka.SavingsPlans.Types.SavingsPlanProductType
 newtype SavingsPlanProductType
 SavingsPlanProductType' :: Text -> SavingsPlanProductType
 [fromSavingsPlanProductType] :: SavingsPlanProductType -> Text
@@ -256,28 +256,28 @@ pattern SavingsPlanProductType_EC2 :: SavingsPlanProductType
 pattern SavingsPlanProductType_Fargate :: SavingsPlanProductType
 pattern SavingsPlanProductType_Lambda :: SavingsPlanProductType
 pattern SavingsPlanProductType_SageMaker :: SavingsPlanProductType
-instance Network.AWS.Data.XML.ToXML Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance Network.AWS.Data.XML.FromXML Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance Network.AWS.Data.Log.ToLog Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance Network.AWS.Data.Text.ToText Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance Network.AWS.Data.Text.FromText Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance GHC.Classes.Ord Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance Amazonka.Data.XML.ToXML Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance Amazonka.Data.XML.FromXML Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance Amazonka.Data.Headers.ToHeader Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance Amazonka.Data.Log.ToLog Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance Amazonka.Data.Text.ToText Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance Amazonka.Data.Text.FromText Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance GHC.Classes.Ord Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanProductType.SavingsPlanProductType
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute
+module Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute
 newtype SavingsPlanRateFilterAttribute
 SavingsPlanRateFilterAttribute' :: Text -> SavingsPlanRateFilterAttribute
 [fromSavingsPlanRateFilterAttribute] :: SavingsPlanRateFilterAttribute -> Text
@@ -287,28 +287,28 @@ pattern SavingsPlanRateFilterAttribute_ProductDescription :: SavingsPlanRateFilt
 pattern SavingsPlanRateFilterAttribute_ProductId :: SavingsPlanRateFilterAttribute
 pattern SavingsPlanRateFilterAttribute_Region :: SavingsPlanRateFilterAttribute
 pattern SavingsPlanRateFilterAttribute_Tenancy :: SavingsPlanRateFilterAttribute
-instance Network.AWS.Data.XML.ToXML Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance Network.AWS.Data.XML.FromXML Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance Network.AWS.Data.Log.ToLog Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance Network.AWS.Data.Text.ToText Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance Network.AWS.Data.Text.FromText Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance GHC.Classes.Ord Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance Amazonka.Data.XML.ToXML Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance Amazonka.Data.XML.FromXML Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance Amazonka.Data.Headers.ToHeader Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance Amazonka.Data.Log.ToLog Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance Amazonka.Data.Text.ToText Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance Amazonka.Data.Text.FromText Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance GHC.Classes.Ord Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute.SavingsPlanRateFilterAttribute
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement
+module Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement
 
 -- | Information about a filter.
 --   
@@ -345,16 +345,16 @@ savingsPlanOfferingRateFilterElement_values :: Lens' SavingsPlanOfferingRateFilt
 
 -- | The filter name.
 savingsPlanOfferingRateFilterElement_name :: Lens' SavingsPlanOfferingRateFilterElement (Maybe SavingsPlanRateFilterAttribute)
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement.SavingsPlanOfferingRateFilterElement
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement.SavingsPlanOfferingRateFilterElement
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement.SavingsPlanOfferingRateFilterElement
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement.SavingsPlanOfferingRateFilterElement
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement.SavingsPlanOfferingRateFilterElement
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement.SavingsPlanOfferingRateFilterElement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement.SavingsPlanOfferingRateFilterElement
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement.SavingsPlanOfferingRateFilterElement
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement.SavingsPlanOfferingRateFilterElement
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement.SavingsPlanOfferingRateFilterElement
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement.SavingsPlanOfferingRateFilterElement
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement.SavingsPlanOfferingRateFilterElement
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement.SavingsPlanOfferingRateFilterElement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement.SavingsPlanOfferingRateFilterElement
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName
+module Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName
 newtype SavingsPlanRateFilterName
 SavingsPlanRateFilterName' :: Text -> SavingsPlanRateFilterName
 [fromSavingsPlanRateFilterName] :: SavingsPlanRateFilterName -> Text
@@ -366,28 +366,28 @@ pattern SavingsPlanRateFilterName_Region :: SavingsPlanRateFilterName
 pattern SavingsPlanRateFilterName_ServiceCode :: SavingsPlanRateFilterName
 pattern SavingsPlanRateFilterName_Tenancy :: SavingsPlanRateFilterName
 pattern SavingsPlanRateFilterName_UsageType :: SavingsPlanRateFilterName
-instance Network.AWS.Data.XML.ToXML Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance Network.AWS.Data.XML.FromXML Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance Network.AWS.Data.Log.ToLog Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance Network.AWS.Data.Text.ToText Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance Network.AWS.Data.Text.FromText Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance GHC.Classes.Ord Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance Amazonka.Data.XML.ToXML Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance Amazonka.Data.XML.FromXML Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance Amazonka.Data.Headers.ToHeader Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance Amazonka.Data.Log.ToLog Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance Amazonka.Data.Text.ToText Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance Amazonka.Data.Text.FromText Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance GHC.Classes.Ord Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName.SavingsPlanRateFilterName
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanRateFilter
+module Amazonka.SavingsPlans.Types.SavingsPlanRateFilter
 
 -- | Information about a filter.
 --   
@@ -422,16 +422,16 @@ savingsPlanRateFilter_values :: Lens' SavingsPlanRateFilter (Maybe [Text])
 
 -- | The filter name.
 savingsPlanRateFilter_name :: Lens' SavingsPlanRateFilter (Maybe SavingsPlanRateFilterName)
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanRateFilter.SavingsPlanRateFilter
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanRateFilter.SavingsPlanRateFilter
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanRateFilter.SavingsPlanRateFilter
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanRateFilter.SavingsPlanRateFilter
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanRateFilter.SavingsPlanRateFilter
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanRateFilter.SavingsPlanRateFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlanRateFilter.SavingsPlanRateFilter
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanRateFilter.SavingsPlanRateFilter
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanRateFilter.SavingsPlanRateFilter
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanRateFilter.SavingsPlanRateFilter
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanRateFilter.SavingsPlanRateFilter
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanRateFilter.SavingsPlanRateFilter
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanRateFilter.SavingsPlanRateFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlanRateFilter.SavingsPlanRateFilter
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey
+module Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey
 newtype SavingsPlanRatePropertyKey
 SavingsPlanRatePropertyKey' :: Text -> SavingsPlanRatePropertyKey
 [fromSavingsPlanRatePropertyKey] :: SavingsPlanRatePropertyKey -> Text
@@ -440,28 +440,28 @@ pattern SavingsPlanRatePropertyKey_InstanceType :: SavingsPlanRatePropertyKey
 pattern SavingsPlanRatePropertyKey_ProductDescription :: SavingsPlanRatePropertyKey
 pattern SavingsPlanRatePropertyKey_Region :: SavingsPlanRatePropertyKey
 pattern SavingsPlanRatePropertyKey_Tenancy :: SavingsPlanRatePropertyKey
-instance Network.AWS.Data.XML.ToXML Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance Network.AWS.Data.XML.FromXML Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance Network.AWS.Data.Log.ToLog Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance Network.AWS.Data.Text.ToText Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance Network.AWS.Data.Text.FromText Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance GHC.Classes.Ord Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance Amazonka.Data.XML.ToXML Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance Amazonka.Data.XML.FromXML Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance Amazonka.Data.Headers.ToHeader Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance Amazonka.Data.Log.ToLog Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance Amazonka.Data.Text.ToText Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance Amazonka.Data.Text.FromText Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance GHC.Classes.Ord Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey.SavingsPlanRatePropertyKey
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanRateProperty
+module Amazonka.SavingsPlans.Types.SavingsPlanRateProperty
 
 -- | Information about a property.
 --   
@@ -496,16 +496,16 @@ savingsPlanRateProperty_value :: Lens' SavingsPlanRateProperty (Maybe Text)
 
 -- | The property name.
 savingsPlanRateProperty_name :: Lens' SavingsPlanRateProperty (Maybe SavingsPlanRatePropertyKey)
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanRateProperty.SavingsPlanRateProperty
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanRateProperty.SavingsPlanRateProperty
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanRateProperty.SavingsPlanRateProperty
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanRateProperty.SavingsPlanRateProperty
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanRateProperty.SavingsPlanRateProperty
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanRateProperty.SavingsPlanRateProperty
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanRateProperty.SavingsPlanRateProperty
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanRateProperty.SavingsPlanRateProperty
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanRateProperty.SavingsPlanRateProperty
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanRateProperty.SavingsPlanRateProperty
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanRateProperty.SavingsPlanRateProperty
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanRateProperty.SavingsPlanRateProperty
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanRateProperty.SavingsPlanRateProperty
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanRateProperty.SavingsPlanRateProperty
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode
+module Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode
 newtype SavingsPlanRateServiceCode
 SavingsPlanRateServiceCode' :: Text -> SavingsPlanRateServiceCode
 [fromSavingsPlanRateServiceCode] :: SavingsPlanRateServiceCode -> Text
@@ -514,56 +514,56 @@ pattern SavingsPlanRateServiceCode_AmazonEC2 :: SavingsPlanRateServiceCode
 pattern SavingsPlanRateServiceCode_AmazonECS :: SavingsPlanRateServiceCode
 pattern SavingsPlanRateServiceCode_AmazonEKS :: SavingsPlanRateServiceCode
 pattern SavingsPlanRateServiceCode_AmazonSageMaker :: SavingsPlanRateServiceCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance Network.AWS.Data.Text.ToText Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance Network.AWS.Data.Text.FromText Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance GHC.Classes.Ord Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance Amazonka.Data.XML.ToXML Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance Amazonka.Data.XML.FromXML Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance Amazonka.Data.Log.ToLog Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance Amazonka.Data.Text.ToText Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance Amazonka.Data.Text.FromText Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance GHC.Classes.Ord Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.SavingsPlanRateServiceCode
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit
+module Amazonka.SavingsPlans.Types.SavingsPlanRateUnit
 newtype SavingsPlanRateUnit
 SavingsPlanRateUnit' :: Text -> SavingsPlanRateUnit
 [fromSavingsPlanRateUnit] :: SavingsPlanRateUnit -> Text
 pattern SavingsPlanRateUnit_Hrs :: SavingsPlanRateUnit
 pattern SavingsPlanRateUnit_Lambda_GB_Second :: SavingsPlanRateUnit
 pattern SavingsPlanRateUnit_Request :: SavingsPlanRateUnit
-instance Network.AWS.Data.XML.ToXML Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance Network.AWS.Data.XML.FromXML Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance Network.AWS.Data.Log.ToLog Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance Network.AWS.Data.Text.ToText Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance Network.AWS.Data.Text.FromText Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance GHC.Classes.Ord Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance Amazonka.Data.XML.ToXML Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance Amazonka.Data.XML.FromXML Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance Amazonka.Data.Headers.ToHeader Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance Amazonka.Data.Log.ToLog Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance Amazonka.Data.Text.ToText Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance Amazonka.Data.Text.FromText Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance GHC.Classes.Ord Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.SavingsPlanRateUnit
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanRate
+module Amazonka.SavingsPlans.Types.SavingsPlanRate
 
 -- | Information about a Savings Plan rate.
 --   
@@ -654,16 +654,16 @@ savingsPlanRate_unit :: Lens' SavingsPlanRate (Maybe SavingsPlanRateUnit)
 
 -- | The properties.
 savingsPlanRate_properties :: Lens' SavingsPlanRate (Maybe [SavingsPlanRateProperty])
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanRate.SavingsPlanRate
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanRate.SavingsPlanRate
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanRate.SavingsPlanRate
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanRate.SavingsPlanRate
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanRate.SavingsPlanRate
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanRate.SavingsPlanRate
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanRate.SavingsPlanRate
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanRate.SavingsPlanRate
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanRate.SavingsPlanRate
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanRate.SavingsPlanRate
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanRate.SavingsPlanRate
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanRate.SavingsPlanRate
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanRate.SavingsPlanRate
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanRate.SavingsPlanRate
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanState
+module Amazonka.SavingsPlans.Types.SavingsPlanState
 newtype SavingsPlanState
 SavingsPlanState' :: Text -> SavingsPlanState
 [fromSavingsPlanState] :: SavingsPlanState -> Text
@@ -673,56 +673,56 @@ pattern SavingsPlanState_Payment_pending :: SavingsPlanState
 pattern SavingsPlanState_Queued :: SavingsPlanState
 pattern SavingsPlanState_Queued_deleted :: SavingsPlanState
 pattern SavingsPlanState_Retired :: SavingsPlanState
-instance Network.AWS.Data.XML.ToXML Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance Network.AWS.Data.XML.FromXML Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance Network.AWS.Data.Log.ToLog Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance Network.AWS.Data.Text.ToText Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance Network.AWS.Data.Text.FromText Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance GHC.Classes.Ord Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance Amazonka.Data.XML.ToXML Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance Amazonka.Data.XML.FromXML Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance Amazonka.Data.Headers.ToHeader Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance Amazonka.Data.Log.ToLog Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance Amazonka.Data.Text.ToText Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance Amazonka.Data.Text.FromText Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance GHC.Classes.Ord Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanState.SavingsPlanState
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanType
+module Amazonka.SavingsPlans.Types.SavingsPlanType
 newtype SavingsPlanType
 SavingsPlanType' :: Text -> SavingsPlanType
 [fromSavingsPlanType] :: SavingsPlanType -> Text
 pattern SavingsPlanType_Compute :: SavingsPlanType
 pattern SavingsPlanType_EC2Instance :: SavingsPlanType
 pattern SavingsPlanType_SageMaker :: SavingsPlanType
-instance Network.AWS.Data.XML.ToXML Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance Network.AWS.Data.XML.FromXML Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance Network.AWS.Data.Log.ToLog Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance Network.AWS.Data.Text.ToText Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance Network.AWS.Data.Text.FromText Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance GHC.Classes.Ord Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance Amazonka.Data.XML.ToXML Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance Amazonka.Data.XML.FromXML Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance Amazonka.Data.Headers.ToHeader Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance Amazonka.Data.Log.ToLog Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance Amazonka.Data.Text.ToText Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance Amazonka.Data.Text.FromText Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance GHC.Classes.Ord Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanType.SavingsPlanType
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanOffering
+module Amazonka.SavingsPlans.Types.SavingsPlanOffering
 
 -- | Information about a Savings Plan offering.
 --   
@@ -840,16 +840,16 @@ savingsPlanOffering_paymentOption :: Lens' SavingsPlanOffering (Maybe SavingsPla
 
 -- | The properties.
 savingsPlanOffering_properties :: Lens' SavingsPlanOffering (Maybe [SavingsPlanOfferingProperty])
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanOffering.SavingsPlanOffering
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanOffering.SavingsPlanOffering
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanOffering.SavingsPlanOffering
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanOffering.SavingsPlanOffering
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanOffering.SavingsPlanOffering
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanOffering.SavingsPlanOffering
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanOffering.SavingsPlanOffering
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanOffering.SavingsPlanOffering
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanOffering.SavingsPlanOffering
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanOffering.SavingsPlanOffering
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanOffering.SavingsPlanOffering
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanOffering.SavingsPlanOffering
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanOffering.SavingsPlanOffering
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanOffering.SavingsPlanOffering
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlan
+module Amazonka.SavingsPlans.Types.SavingsPlan
 
 -- | Information about a Savings Plan.
 --   
@@ -1028,16 +1028,16 @@ savingsPlan_savingsPlanArn :: Lens' SavingsPlan (Maybe Text)
 
 -- | One or more tags.
 savingsPlan_tags :: Lens' SavingsPlan (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlan.SavingsPlan
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlan.SavingsPlan
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlan.SavingsPlan
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlan.SavingsPlan
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlan.SavingsPlan
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlan.SavingsPlan
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlan.SavingsPlan
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlan.SavingsPlan
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlan.SavingsPlan
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlan.SavingsPlan
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlan.SavingsPlan
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlan.SavingsPlan
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlan.SavingsPlan
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlan.SavingsPlan
 
 
-module Network.AWS.SavingsPlans.Types.ParentSavingsPlanOffering
+module Amazonka.SavingsPlans.Types.ParentSavingsPlanOffering
 
 -- | Information about a Savings Plan offering.
 --   
@@ -1109,16 +1109,16 @@ parentSavingsPlanOffering_planType :: Lens' ParentSavingsPlanOffering (Maybe Sav
 
 -- | The payment option.
 parentSavingsPlanOffering_paymentOption :: Lens' ParentSavingsPlanOffering (Maybe SavingsPlanPaymentOption)
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.ParentSavingsPlanOffering.ParentSavingsPlanOffering
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.ParentSavingsPlanOffering.ParentSavingsPlanOffering
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.ParentSavingsPlanOffering.ParentSavingsPlanOffering
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.ParentSavingsPlanOffering.ParentSavingsPlanOffering
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.ParentSavingsPlanOffering.ParentSavingsPlanOffering
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.ParentSavingsPlanOffering.ParentSavingsPlanOffering
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.ParentSavingsPlanOffering.ParentSavingsPlanOffering
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.ParentSavingsPlanOffering.ParentSavingsPlanOffering
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.ParentSavingsPlanOffering.ParentSavingsPlanOffering
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.ParentSavingsPlanOffering.ParentSavingsPlanOffering
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.ParentSavingsPlanOffering.ParentSavingsPlanOffering
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.ParentSavingsPlanOffering.ParentSavingsPlanOffering
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.ParentSavingsPlanOffering.ParentSavingsPlanOffering
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.ParentSavingsPlanOffering.ParentSavingsPlanOffering
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRate
+module Amazonka.SavingsPlans.Types.SavingsPlanOfferingRate
 
 -- | Information about a Savings Plan offering rate.
 --   
@@ -1210,16 +1210,16 @@ savingsPlanOfferingRate_unit :: Lens' SavingsPlanOfferingRate (Maybe SavingsPlan
 
 -- | The properties.
 savingsPlanOfferingRate_properties :: Lens' SavingsPlanOfferingRate (Maybe [SavingsPlanOfferingRateProperty])
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRate.SavingsPlanOfferingRate
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRate.SavingsPlanOfferingRate
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRate.SavingsPlanOfferingRate
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRate.SavingsPlanOfferingRate
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRate.SavingsPlanOfferingRate
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRate.SavingsPlanOfferingRate
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRate.SavingsPlanOfferingRate
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanOfferingRate.SavingsPlanOfferingRate
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanOfferingRate.SavingsPlanOfferingRate
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanOfferingRate.SavingsPlanOfferingRate
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanOfferingRate.SavingsPlanOfferingRate
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlanOfferingRate.SavingsPlanOfferingRate
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanOfferingRate.SavingsPlanOfferingRate
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanOfferingRate.SavingsPlanOfferingRate
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlansFilterName
+module Amazonka.SavingsPlans.Types.SavingsPlansFilterName
 newtype SavingsPlansFilterName
 SavingsPlansFilterName' :: Text -> SavingsPlansFilterName
 [fromSavingsPlansFilterName] :: SavingsPlansFilterName -> Text
@@ -1232,28 +1232,28 @@ pattern SavingsPlansFilterName_Savings_plan_type :: SavingsPlansFilterName
 pattern SavingsPlansFilterName_Start :: SavingsPlansFilterName
 pattern SavingsPlansFilterName_Term :: SavingsPlansFilterName
 pattern SavingsPlansFilterName_Upfront :: SavingsPlansFilterName
-instance Network.AWS.Data.XML.ToXML Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance Network.AWS.Data.XML.FromXML Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance Network.AWS.Data.Log.ToLog Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance Network.AWS.Data.Text.ToText Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance Network.AWS.Data.Text.FromText Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance GHC.Classes.Ord Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance Amazonka.Data.XML.ToXML Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance Amazonka.Data.XML.FromXML Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance Amazonka.Data.Headers.ToHeader Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance Amazonka.Data.Log.ToLog Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance Amazonka.Data.Text.ToText Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance Amazonka.Data.Text.FromText Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance GHC.Classes.Ord Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlansFilterName.SavingsPlansFilterName
 
 
-module Network.AWS.SavingsPlans.Types.SavingsPlanFilter
+module Amazonka.SavingsPlans.Types.SavingsPlanFilter
 
 -- | Information about a filter.
 --   
@@ -1288,16 +1288,16 @@ savingsPlanFilter_values :: Lens' SavingsPlanFilter (Maybe [Text])
 
 -- | The filter name.
 savingsPlanFilter_name :: Lens' SavingsPlanFilter (Maybe SavingsPlansFilterName)
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.Types.SavingsPlanFilter.SavingsPlanFilter
-instance GHC.Show.Show Network.AWS.SavingsPlans.Types.SavingsPlanFilter.SavingsPlanFilter
-instance GHC.Read.Read Network.AWS.SavingsPlans.Types.SavingsPlanFilter.SavingsPlanFilter
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.Types.SavingsPlanFilter.SavingsPlanFilter
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.Types.SavingsPlanFilter.SavingsPlanFilter
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.Types.SavingsPlanFilter.SavingsPlanFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.Types.SavingsPlanFilter.SavingsPlanFilter
+instance GHC.Generics.Generic Amazonka.SavingsPlans.Types.SavingsPlanFilter.SavingsPlanFilter
+instance GHC.Show.Show Amazonka.SavingsPlans.Types.SavingsPlanFilter.SavingsPlanFilter
+instance GHC.Read.Read Amazonka.SavingsPlans.Types.SavingsPlanFilter.SavingsPlanFilter
+instance GHC.Classes.Eq Amazonka.SavingsPlans.Types.SavingsPlanFilter.SavingsPlanFilter
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.Types.SavingsPlanFilter.SavingsPlanFilter
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.Types.SavingsPlanFilter.SavingsPlanFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.Types.SavingsPlanFilter.SavingsPlanFilter
 
 
-module Network.AWS.SavingsPlans.Types
+module Amazonka.SavingsPlans.Types
 
 -- | API version <tt>2019-06-28</tt> of the Amazon Savings Plans SDK
 --   configuration.
@@ -2203,7 +2203,7 @@ savingsPlanRateProperty_name :: Lens' SavingsPlanRateProperty (Maybe SavingsPlan
 
 
 -- | Adds the specified tags to the specified resource.
-module Network.AWS.SavingsPlans.TagResource
+module Amazonka.SavingsPlans.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2261,26 +2261,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.SavingsPlans.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.SavingsPlans.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.SavingsPlans.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.SavingsPlans.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SavingsPlans.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SavingsPlans.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.SavingsPlans.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.SavingsPlans.TagResource.TagResource
+instance GHC.Show.Show Amazonka.SavingsPlans.TagResource.TagResource
+instance GHC.Read.Read Amazonka.SavingsPlans.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.SavingsPlans.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.SavingsPlans.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.SavingsPlans.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.SavingsPlans.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.SavingsPlans.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SavingsPlans.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SavingsPlans.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.SavingsPlans.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.TagResource.TagResource
 
 
 -- | Lists the tags for the specified resource.
-module Network.AWS.SavingsPlans.ListTagsForResource
+module Amazonka.SavingsPlans.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -2338,26 +2338,26 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.ListTagsForResource.ListTagsForResource
 
 
 -- | Describes the specified Savings Plans offerings.
-module Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings
+module Amazonka.SavingsPlans.DescribeSavingsPlansOfferings
 
 -- | <i>See:</i> <a>newDescribeSavingsPlansOfferings</a> smart constructor.
 data DescribeSavingsPlansOfferings
@@ -2549,26 +2549,26 @@ describeSavingsPlansOfferingsResponse_nextToken :: Lens' DescribeSavingsPlansOff
 
 -- | The response's http status code.
 describeSavingsPlansOfferingsResponse_httpStatus :: Lens' DescribeSavingsPlansOfferingsResponse Int
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
-instance GHC.Show.Show Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
-instance GHC.Read.Read Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferingsResponse
-instance GHC.Show.Show Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferingsResponse
-instance GHC.Read.Read Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferingsResponse
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferingsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferingsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
-instance Network.AWS.Data.Path.ToPath Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
+instance GHC.Generics.Generic Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
+instance GHC.Show.Show Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
+instance GHC.Read.Read Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
+instance GHC.Classes.Eq Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
+instance GHC.Generics.Generic Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferingsResponse
+instance GHC.Show.Show Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferingsResponse
+instance GHC.Read.Read Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferingsResponse
+instance GHC.Classes.Eq Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferingsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferingsResponse
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
+instance Amazonka.Data.Path.ToPath Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.DescribeSavingsPlansOfferings.DescribeSavingsPlansOfferings
 
 
 -- | Describes the specified Savings Plans offering rates.
-module Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates
+module Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates
 
 -- | <i>See:</i> <a>newDescribeSavingsPlansOfferingRates</a> smart
 --   constructor.
@@ -2735,26 +2735,26 @@ describeSavingsPlansOfferingRatesResponse_nextToken :: Lens' DescribeSavingsPlan
 
 -- | The response's http status code.
 describeSavingsPlansOfferingRatesResponse_httpStatus :: Lens' DescribeSavingsPlansOfferingRatesResponse Int
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
-instance GHC.Show.Show Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
-instance GHC.Read.Read Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRatesResponse
-instance GHC.Show.Show Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRatesResponse
-instance GHC.Read.Read Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRatesResponse
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRatesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRatesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
-instance Network.AWS.Data.Path.ToPath Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
+instance GHC.Generics.Generic Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
+instance GHC.Show.Show Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
+instance GHC.Read.Read Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
+instance GHC.Classes.Eq Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
+instance GHC.Generics.Generic Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRatesResponse
+instance GHC.Show.Show Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRatesResponse
+instance GHC.Read.Read Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRatesResponse
+instance GHC.Classes.Eq Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRatesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRatesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
+instance Amazonka.Data.Path.ToPath Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates.DescribeSavingsPlansOfferingRates
 
 
 -- | Describes the specified Savings Plans.
-module Network.AWS.SavingsPlans.DescribeSavingsPlans
+module Amazonka.SavingsPlans.DescribeSavingsPlans
 
 -- | <i>See:</i> <a>newDescribeSavingsPlans</a> smart constructor.
 data DescribeSavingsPlans
@@ -2879,26 +2879,26 @@ describeSavingsPlansResponse_nextToken :: Lens' DescribeSavingsPlansResponse (Ma
 
 -- | The response's http status code.
 describeSavingsPlansResponse_httpStatus :: Lens' DescribeSavingsPlansResponse Int
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
-instance GHC.Show.Show Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
-instance GHC.Read.Read Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlansResponse
-instance GHC.Show.Show Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlansResponse
-instance GHC.Read.Read Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlansResponse
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlansResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlansResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
-instance Network.AWS.Data.Path.ToPath Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
+instance GHC.Generics.Generic Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
+instance GHC.Show.Show Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
+instance GHC.Read.Read Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
+instance GHC.Classes.Eq Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
+instance GHC.Generics.Generic Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlansResponse
+instance GHC.Show.Show Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlansResponse
+instance GHC.Read.Read Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlansResponse
+instance GHC.Classes.Eq Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlansResponse
+instance Amazonka.Types.AWSRequest Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlansResponse
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
+instance Amazonka.Data.Path.ToPath Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.DescribeSavingsPlans.DescribeSavingsPlans
 
 
 -- | Describes the specified Savings Plans rates.
-module Network.AWS.SavingsPlans.DescribeSavingsPlanRates
+module Amazonka.SavingsPlans.DescribeSavingsPlanRates
 
 -- | <i>See:</i> <a>newDescribeSavingsPlanRates</a> smart constructor.
 data DescribeSavingsPlanRates
@@ -3015,26 +3015,26 @@ describeSavingsPlanRatesResponse_nextToken :: Lens' DescribeSavingsPlanRatesResp
 
 -- | The response's http status code.
 describeSavingsPlanRatesResponse_httpStatus :: Lens' DescribeSavingsPlanRatesResponse Int
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
-instance GHC.Show.Show Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
-instance GHC.Read.Read Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRatesResponse
-instance GHC.Show.Show Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRatesResponse
-instance GHC.Read.Read Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRatesResponse
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRatesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRatesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
-instance Network.AWS.Data.Path.ToPath Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
+instance GHC.Generics.Generic Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
+instance GHC.Show.Show Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
+instance GHC.Read.Read Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
+instance GHC.Classes.Eq Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
+instance GHC.Generics.Generic Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRatesResponse
+instance GHC.Show.Show Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRatesResponse
+instance GHC.Read.Read Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRatesResponse
+instance GHC.Classes.Eq Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRatesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRatesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
+instance Amazonka.Data.Path.ToPath Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.DescribeSavingsPlanRates.DescribeSavingsPlanRates
 
 
 -- | Deletes the queued purchase for the specified Savings Plan.
-module Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan
+module Amazonka.SavingsPlans.DeleteQueuedSavingsPlan
 
 -- | <i>See:</i> <a>newDeleteQueuedSavingsPlan</a> smart constructor.
 data DeleteQueuedSavingsPlan
@@ -3084,26 +3084,26 @@ newDeleteQueuedSavingsPlanResponse :: Int -> DeleteQueuedSavingsPlanResponse
 
 -- | The response's http status code.
 deleteQueuedSavingsPlanResponse_httpStatus :: Lens' DeleteQueuedSavingsPlanResponse Int
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
-instance GHC.Show.Show Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
-instance GHC.Read.Read Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlanResponse
-instance GHC.Show.Show Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlanResponse
-instance GHC.Read.Read Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlanResponse
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlanResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlanResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
-instance Network.AWS.Data.Path.ToPath Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
+instance GHC.Generics.Generic Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
+instance GHC.Show.Show Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
+instance GHC.Read.Read Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
+instance GHC.Classes.Eq Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
+instance GHC.Generics.Generic Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlanResponse
+instance GHC.Show.Show Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlanResponse
+instance GHC.Read.Read Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlanResponse
+instance GHC.Classes.Eq Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlanResponse
+instance Amazonka.Types.AWSRequest Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlanResponse
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
+instance Amazonka.Data.Path.ToPath Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.DeleteQueuedSavingsPlan.DeleteQueuedSavingsPlan
 
 
 -- | Creates a Savings Plan.
-module Network.AWS.SavingsPlans.CreateSavingsPlan
+module Amazonka.SavingsPlans.CreateSavingsPlan
 
 -- | <i>See:</i> <a>newCreateSavingsPlan</a> smart constructor.
 data CreateSavingsPlan
@@ -3226,26 +3226,26 @@ createSavingsPlanResponse_savingsPlanId :: Lens' CreateSavingsPlanResponse (Mayb
 
 -- | The response's http status code.
 createSavingsPlanResponse_httpStatus :: Lens' CreateSavingsPlanResponse Int
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
-instance GHC.Show.Show Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
-instance GHC.Read.Read Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlanResponse
-instance GHC.Show.Show Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlanResponse
-instance GHC.Read.Read Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlanResponse
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlanResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlanResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
-instance Network.AWS.Data.Path.ToPath Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
+instance GHC.Generics.Generic Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
+instance GHC.Show.Show Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
+instance GHC.Read.Read Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
+instance GHC.Classes.Eq Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
+instance GHC.Generics.Generic Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlanResponse
+instance GHC.Show.Show Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlanResponse
+instance GHC.Read.Read Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlanResponse
+instance GHC.Classes.Eq Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlanResponse
+instance Amazonka.Types.AWSRequest Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlanResponse
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
+instance Amazonka.Data.Path.ToPath Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.CreateSavingsPlan.CreateSavingsPlan
 
 
 -- | Removes the specified tags from the specified resource.
-module Network.AWS.SavingsPlans.UntagResource
+module Amazonka.SavingsPlans.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -3303,25 +3303,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.SavingsPlans.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.SavingsPlans.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.SavingsPlans.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.SavingsPlans.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.SavingsPlans.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.SavingsPlans.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SavingsPlans.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SavingsPlans.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.SavingsPlans.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SavingsPlans.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SavingsPlans.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.SavingsPlans.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SavingsPlans.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.SavingsPlans.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.SavingsPlans.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.SavingsPlans.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.SavingsPlans.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.SavingsPlans.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.SavingsPlans.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.SavingsPlans.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.SavingsPlans.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SavingsPlans.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.SavingsPlans.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.SavingsPlans.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SavingsPlans.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SavingsPlans.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.SavingsPlans.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.SavingsPlans.UntagResource.UntagResource
 
 
-module Network.AWS.SavingsPlans.Lens
+module Amazonka.SavingsPlans.Lens
 
 -- | The Amazon Resource Name (ARN) of the resource.
 listTagsForResource_resourceArn :: Lens' ListTagsForResource Text
@@ -3733,7 +3733,7 @@ savingsPlanRateProperty_value :: Lens' SavingsPlanRateProperty (Maybe Text)
 savingsPlanRateProperty_name :: Lens' SavingsPlanRateProperty (Maybe SavingsPlanRatePropertyKey)
 
 
-module Network.AWS.SavingsPlans.Waiters
+module Amazonka.SavingsPlans.Waiters
 
 
 -- | Derived from API version <tt>2019-06-28</tt> of the AWS service
@@ -3744,7 +3744,7 @@ module Network.AWS.SavingsPlans.Waiters
 --   consistent amount of usage, in USD per hour, for a term of 1 or 3
 --   years, and receive a lower price for that usage. For more information,
 --   see the <a>AWS Savings Plans User Guide</a>.
-module Network.AWS.SavingsPlans
+module Amazonka.SavingsPlans
 
 -- | API version <tt>2019-06-28</tt> of the Amazon Savings Plans SDK
 --   configuration.

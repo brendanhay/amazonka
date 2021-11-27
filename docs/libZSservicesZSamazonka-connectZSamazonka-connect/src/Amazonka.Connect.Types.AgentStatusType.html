@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Connect.Types.AgentStatusType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Connect.Types.AgentStatusType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType"><span class="hs-identifier">AgentStatusType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType_CUSTOM"><span class="hs-identifier">AgentStatusType_CUSTOM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType_OFFLINE"><span class="hs-identifier">AgentStatusType_OFFLINE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType_ROUTABLE"><span class="hs-identifier">AgentStatusType_ROUTABLE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679393808"><span id="local-6989586621679393809"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AgentStatusType"><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType"><span class="hs-identifier hs-var">AgentStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AgentStatusType%27"><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType%27"><span class="hs-identifier hs-var">AgentStatusType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAgentStatusType"><span class="annot"><span class="annottext">AgentStatusType -&gt; Text
+</span><a href="Amazonka.Connect.Types.AgentStatusType.html#fromAgentStatusType"><span class="hs-identifier hs-var hs-var">fromAgentStatusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679393800"><span id="local-6989586621679393802"><span id="local-6989586621679393804"><span class="annot"><span class="annottext">Int -&gt; AgentStatusType -&gt; ShowS
+[AgentStatusType] -&gt; ShowS
+AgentStatusType -&gt; String
+(Int -&gt; AgentStatusType -&gt; ShowS)
+-&gt; (AgentStatusType -&gt; String)
+-&gt; ([AgentStatusType] -&gt; ShowS)
+-&gt; Show AgentStatusType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AgentStatusType] -&gt; ShowS
+$cshowList :: [AgentStatusType] -&gt; ShowS
+show :: AgentStatusType -&gt; String
+$cshow :: AgentStatusType -&gt; String
+showsPrec :: Int -&gt; AgentStatusType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AgentStatusType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679393791"><span id="local-6989586621679393793"><span id="local-6989586621679393795"><span id="local-6989586621679393797"><span class="annot"><span class="annottext">ReadPrec [AgentStatusType]
+ReadPrec AgentStatusType
+Int -&gt; ReadS AgentStatusType
+ReadS [AgentStatusType]
+(Int -&gt; ReadS AgentStatusType)
+-&gt; ReadS [AgentStatusType]
+-&gt; ReadPrec AgentStatusType
+-&gt; ReadPrec [AgentStatusType]
+-&gt; Read AgentStatusType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AgentStatusType]
+$creadListPrec :: ReadPrec [AgentStatusType]
+readPrec :: ReadPrec AgentStatusType
+$creadPrec :: ReadPrec AgentStatusType
+readList :: ReadS [AgentStatusType]
+$creadList :: ReadS [AgentStatusType]
+readsPrec :: Int -&gt; ReadS AgentStatusType
+$creadsPrec :: Int -&gt; ReadS AgentStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679393786"><span id="local-6989586621679393788"><span class="annot"><span class="annottext">AgentStatusType -&gt; AgentStatusType -&gt; Bool
+(AgentStatusType -&gt; AgentStatusType -&gt; Bool)
+-&gt; (AgentStatusType -&gt; AgentStatusType -&gt; Bool)
+-&gt; Eq AgentStatusType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AgentStatusType -&gt; AgentStatusType -&gt; Bool
+$c/= :: AgentStatusType -&gt; AgentStatusType -&gt; Bool
+== :: AgentStatusType -&gt; AgentStatusType -&gt; Bool
+$c== :: AgentStatusType -&gt; AgentStatusType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679393770"><span id="local-6989586621679393772"><span id="local-6989586621679393774"><span id="local-6989586621679393776"><span id="local-6989586621679393778"><span id="local-6989586621679393780"><span id="local-6989586621679393782"><span class="annot"><span class="annottext">Eq AgentStatusType
+Eq AgentStatusType
+-&gt; (AgentStatusType -&gt; AgentStatusType -&gt; Ordering)
+-&gt; (AgentStatusType -&gt; AgentStatusType -&gt; Bool)
+-&gt; (AgentStatusType -&gt; AgentStatusType -&gt; Bool)
+-&gt; (AgentStatusType -&gt; AgentStatusType -&gt; Bool)
+-&gt; (AgentStatusType -&gt; AgentStatusType -&gt; Bool)
+-&gt; (AgentStatusType -&gt; AgentStatusType -&gt; AgentStatusType)
+-&gt; (AgentStatusType -&gt; AgentStatusType -&gt; AgentStatusType)
+-&gt; Ord AgentStatusType
+AgentStatusType -&gt; AgentStatusType -&gt; Bool
+AgentStatusType -&gt; AgentStatusType -&gt; Ordering
+AgentStatusType -&gt; AgentStatusType -&gt; AgentStatusType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AgentStatusType -&gt; AgentStatusType -&gt; AgentStatusType
+$cmin :: AgentStatusType -&gt; AgentStatusType -&gt; AgentStatusType
+max :: AgentStatusType -&gt; AgentStatusType -&gt; AgentStatusType
+$cmax :: AgentStatusType -&gt; AgentStatusType -&gt; AgentStatusType
+&gt;= :: AgentStatusType -&gt; AgentStatusType -&gt; Bool
+$c&gt;= :: AgentStatusType -&gt; AgentStatusType -&gt; Bool
+&gt; :: AgentStatusType -&gt; AgentStatusType -&gt; Bool
+$c&gt; :: AgentStatusType -&gt; AgentStatusType -&gt; Bool
+&lt;= :: AgentStatusType -&gt; AgentStatusType -&gt; Bool
+$c&lt;= :: AgentStatusType -&gt; AgentStatusType -&gt; Bool
+&lt; :: AgentStatusType -&gt; AgentStatusType -&gt; Bool
+$c&lt; :: AgentStatusType -&gt; AgentStatusType -&gt; Bool
+compare :: AgentStatusType -&gt; AgentStatusType -&gt; Ordering
+$ccompare :: AgentStatusType -&gt; AgentStatusType -&gt; Ordering
+$cp1Ord :: Eq AgentStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AgentStatusType -&gt; Rep AgentStatusType x)
+-&gt; (forall x. Rep AgentStatusType x -&gt; AgentStatusType)
+-&gt; Generic AgentStatusType
+forall x. Rep AgentStatusType x -&gt; AgentStatusType
+forall x. AgentStatusType -&gt; Rep AgentStatusType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AgentStatusType x -&gt; AgentStatusType
+$cfrom :: forall x. AgentStatusType -&gt; Rep AgentStatusType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679393762"><span id="local-6989586621679393764"><span class="annot"><span class="annottext">Int -&gt; AgentStatusType -&gt; Int
+AgentStatusType -&gt; Int
+(Int -&gt; AgentStatusType -&gt; Int)
+-&gt; (AgentStatusType -&gt; Int) -&gt; Hashable AgentStatusType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AgentStatusType -&gt; Int
+$chash :: AgentStatusType -&gt; Int
+hashWithSalt :: Int -&gt; AgentStatusType -&gt; Int
+$chashWithSalt :: Int -&gt; AgentStatusType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679393759"><span class="annot"><span class="annottext">AgentStatusType -&gt; ()
+(AgentStatusType -&gt; ()) -&gt; NFData AgentStatusType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AgentStatusType -&gt; ()
+$crnf :: AgentStatusType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679393756"><span class="annot"><span class="annottext">Text -&gt; Either String AgentStatusType
+(Text -&gt; Either String AgentStatusType) -&gt; FromText AgentStatusType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AgentStatusType
+$cfromText :: Text -&gt; Either String AgentStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679393753"><span class="annot"><span class="annottext">AgentStatusType -&gt; Text
+(AgentStatusType -&gt; Text) -&gt; ToText AgentStatusType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AgentStatusType -&gt; Text
+$ctoText :: AgentStatusType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679393750"><span class="annot"><span class="annottext">AgentStatusType -&gt; ByteString
+(AgentStatusType -&gt; ByteString) -&gt; ToByteString AgentStatusType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AgentStatusType -&gt; ByteString
+$ctoBS :: AgentStatusType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679393747"><span class="annot"><span class="annottext">AgentStatusType -&gt; ByteStringBuilder
+(AgentStatusType -&gt; ByteStringBuilder) -&gt; ToLog AgentStatusType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AgentStatusType -&gt; ByteStringBuilder
+$cbuild :: AgentStatusType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679393744"><span class="annot"><span class="annottext">HeaderName -&gt; AgentStatusType -&gt; [Header]
+(HeaderName -&gt; AgentStatusType -&gt; [Header])
+-&gt; ToHeader AgentStatusType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AgentStatusType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AgentStatusType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679393741"><span class="annot"><span class="annottext">AgentStatusType -&gt; QueryString
+(AgentStatusType -&gt; QueryString) -&gt; ToQuery AgentStatusType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AgentStatusType -&gt; QueryString
+$ctoQuery :: AgentStatusType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679393736"><span id="local-6989586621679393738"><span class="annot"><span class="annottext">Value -&gt; Parser [AgentStatusType]
+Value -&gt; Parser AgentStatusType
+(Value -&gt; Parser AgentStatusType)
+-&gt; (Value -&gt; Parser [AgentStatusType]) -&gt; FromJSON AgentStatusType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AgentStatusType]
+$cparseJSONList :: Value -&gt; Parser [AgentStatusType]
+parseJSON :: Value -&gt; Parser AgentStatusType
+$cparseJSON :: Value -&gt; Parser AgentStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679393731"><span id="local-6989586621679393733"><span class="annot"><span class="annottext">FromJSONKeyFunction [AgentStatusType]
+FromJSONKeyFunction AgentStatusType
+FromJSONKeyFunction AgentStatusType
+-&gt; FromJSONKeyFunction [AgentStatusType]
+-&gt; FromJSONKey AgentStatusType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AgentStatusType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AgentStatusType]
+fromJSONKey :: FromJSONKeyFunction AgentStatusType
+$cfromJSONKey :: FromJSONKeyFunction AgentStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679393722"><span id="local-6989586621679393724"><span id="local-6989586621679393726"><span id="local-6989586621679393728"><span class="annot"><span class="annottext">[AgentStatusType] -&gt; Encoding
+[AgentStatusType] -&gt; Value
+AgentStatusType -&gt; Encoding
+AgentStatusType -&gt; Value
+(AgentStatusType -&gt; Value)
+-&gt; (AgentStatusType -&gt; Encoding)
+-&gt; ([AgentStatusType] -&gt; Value)
+-&gt; ([AgentStatusType] -&gt; Encoding)
+-&gt; ToJSON AgentStatusType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AgentStatusType] -&gt; Encoding
+$ctoEncodingList :: [AgentStatusType] -&gt; Encoding
+toJSONList :: [AgentStatusType] -&gt; Value
+$ctoJSONList :: [AgentStatusType] -&gt; Value
+toEncoding :: AgentStatusType -&gt; Encoding
+$ctoEncoding :: AgentStatusType -&gt; Encoding
+toJSON :: AgentStatusType -&gt; Value
+$ctoJSON :: AgentStatusType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679393717"><span id="local-6989586621679393719"><span class="annot"><span class="annottext">ToJSONKeyFunction [AgentStatusType]
+ToJSONKeyFunction AgentStatusType
+ToJSONKeyFunction AgentStatusType
+-&gt; ToJSONKeyFunction [AgentStatusType] -&gt; ToJSONKey AgentStatusType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AgentStatusType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AgentStatusType]
+toJSONKey :: ToJSONKeyFunction AgentStatusType
+$ctoJSONKey :: ToJSONKeyFunction AgentStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679393714"><span class="annot"><span class="annottext">[Node] -&gt; Either String AgentStatusType
+([Node] -&gt; Either String AgentStatusType)
+-&gt; FromXML AgentStatusType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AgentStatusType
+$cparseXML :: [Node] -&gt; Either String AgentStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679393711"><span class="annot"><span class="annottext">AgentStatusType -&gt; XML
+(AgentStatusType -&gt; XML) -&gt; ToXML AgentStatusType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AgentStatusType -&gt; XML
+$ctoXML :: AgentStatusType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType_CUSTOM"><span class="hs-identifier hs-type">AgentStatusType_CUSTOM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType"><span class="hs-identifier hs-type">AgentStatusType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAgentStatusType_CUSTOM"><span id="%24mAgentStatusType_CUSTOM"><span id="AgentStatusType_CUSTOM"><span class="annot"><span class="annottext">$bAgentStatusType_CUSTOM :: AgentStatusType
+$mAgentStatusType_CUSTOM :: forall r. AgentStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.AgentStatusType.html#%24bAgentStatusType_CUSTOM"><span class="hs-identifier hs-var hs-var hs-var">AgentStatusType_CUSTOM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType%27"><span class="hs-identifier hs-type">AgentStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CUSTOM&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType_OFFLINE"><span class="hs-identifier hs-type">AgentStatusType_OFFLINE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType"><span class="hs-identifier hs-type">AgentStatusType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAgentStatusType_OFFLINE"><span id="%24mAgentStatusType_OFFLINE"><span id="AgentStatusType_OFFLINE"><span class="annot"><span class="annottext">$bAgentStatusType_OFFLINE :: AgentStatusType
+$mAgentStatusType_OFFLINE :: forall r. AgentStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.AgentStatusType.html#%24bAgentStatusType_OFFLINE"><span class="hs-identifier hs-var hs-var hs-var">AgentStatusType_OFFLINE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType%27"><span class="hs-identifier hs-type">AgentStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OFFLINE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType_ROUTABLE"><span class="hs-identifier hs-type">AgentStatusType_ROUTABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType"><span class="hs-identifier hs-type">AgentStatusType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAgentStatusType_ROUTABLE"><span id="%24mAgentStatusType_ROUTABLE"><span id="AgentStatusType_ROUTABLE"><span class="annot"><span class="annottext">$bAgentStatusType_ROUTABLE :: AgentStatusType
+$mAgentStatusType_ROUTABLE :: forall r. AgentStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.AgentStatusType.html#%24bAgentStatusType_ROUTABLE"><span class="hs-identifier hs-var hs-var hs-var">AgentStatusType_ROUTABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType%27"><span class="hs-identifier hs-type">AgentStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROUTABLE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType_CUSTOM"><span class="hs-pragma hs-type">AgentStatusType_CUSTOM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType_OFFLINE"><span class="hs-pragma hs-type">AgentStatusType_OFFLINE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType_ROUTABLE"><span class="hs-pragma hs-type">AgentStatusType_ROUTABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.AgentStatusType.html#AgentStatusType%27"><span class="hs-pragma hs-type">AgentStatusType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

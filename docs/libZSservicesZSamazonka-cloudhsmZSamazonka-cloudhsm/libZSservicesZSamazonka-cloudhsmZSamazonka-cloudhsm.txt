@@ -5,61 +5,61 @@
 @version 2.0
 
 
-module Network.AWS.CloudHSM.Types.ClientVersion
+module Amazonka.CloudHSM.Types.ClientVersion
 newtype ClientVersion
 ClientVersion' :: Text -> ClientVersion
 [fromClientVersion] :: ClientVersion -> Text
 pattern ClientVersion_ :: ClientVersion
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance GHC.Generics.Generic Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance GHC.Classes.Ord Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance GHC.Classes.Eq Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance GHC.Read.Read Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
-instance GHC.Show.Show Network.AWS.CloudHSM.Types.ClientVersion.ClientVersion
+instance Amazonka.Data.XML.ToXML Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance Amazonka.Data.XML.FromXML Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance Amazonka.Data.Log.ToLog Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance Amazonka.Data.Text.ToText Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance Amazonka.Data.Text.FromText Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance GHC.Generics.Generic Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance GHC.Classes.Ord Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance GHC.Classes.Eq Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance GHC.Read.Read Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
+instance GHC.Show.Show Amazonka.CloudHSM.Types.ClientVersion.ClientVersion
 
 
-module Network.AWS.CloudHSM.Types.CloudHsmObjectState
+module Amazonka.CloudHSM.Types.CloudHsmObjectState
 newtype CloudHsmObjectState
 CloudHsmObjectState' :: Text -> CloudHsmObjectState
 [fromCloudHsmObjectState] :: CloudHsmObjectState -> Text
 pattern CloudHsmObjectState_DEGRADED :: CloudHsmObjectState
 pattern CloudHsmObjectState_READY :: CloudHsmObjectState
 pattern CloudHsmObjectState_UPDATING :: CloudHsmObjectState
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance GHC.Generics.Generic Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance GHC.Classes.Ord Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance GHC.Classes.Eq Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance GHC.Read.Read Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
-instance GHC.Show.Show Network.AWS.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance Amazonka.Data.XML.ToXML Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance Amazonka.Data.XML.FromXML Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance Amazonka.Data.Log.ToLog Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance Amazonka.Data.Text.ToText Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance Amazonka.Data.Text.FromText Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance GHC.Generics.Generic Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance GHC.Classes.Ord Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance GHC.Classes.Eq Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance GHC.Read.Read Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
+instance GHC.Show.Show Amazonka.CloudHSM.Types.CloudHsmObjectState.CloudHsmObjectState
 
 
-module Network.AWS.CloudHSM.Types.HsmStatus
+module Amazonka.CloudHSM.Types.HsmStatus
 newtype HsmStatus
 HsmStatus' :: Text -> HsmStatus
 [fromHsmStatus] :: HsmStatus -> Text
@@ -70,28 +70,28 @@ pattern HsmStatus_SUSPENDED :: HsmStatus
 pattern HsmStatus_TERMINATED :: HsmStatus
 pattern HsmStatus_TERMINATING :: HsmStatus
 pattern HsmStatus_UPDATING :: HsmStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance GHC.Generics.Generic Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance GHC.Classes.Ord Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance GHC.Classes.Eq Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance GHC.Read.Read Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
-instance GHC.Show.Show Network.AWS.CloudHSM.Types.HsmStatus.HsmStatus
+instance Amazonka.Data.XML.ToXML Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance Amazonka.Data.Log.ToLog Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance Amazonka.Data.Text.ToText Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance Amazonka.Data.Text.FromText Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance GHC.Generics.Generic Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance GHC.Classes.Ord Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance GHC.Classes.Eq Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance GHC.Read.Read Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
+instance GHC.Show.Show Amazonka.CloudHSM.Types.HsmStatus.HsmStatus
 
 
-module Network.AWS.CloudHSM.Types.SubscriptionType
+module Amazonka.CloudHSM.Types.SubscriptionType
 
 -- | Specifies the type of subscription for the HSM.
 --   
@@ -104,28 +104,28 @@ newtype SubscriptionType
 SubscriptionType' :: Text -> SubscriptionType
 [fromSubscriptionType] :: SubscriptionType -> Text
 pattern SubscriptionType_PRODUCTION :: SubscriptionType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance GHC.Generics.Generic Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance GHC.Classes.Ord Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance GHC.Classes.Eq Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance GHC.Read.Read Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
-instance GHC.Show.Show Network.AWS.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance Amazonka.Data.XML.ToXML Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance Amazonka.Data.XML.FromXML Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance Amazonka.Data.Log.ToLog Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance Amazonka.Data.Text.ToText Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance Amazonka.Data.Text.FromText Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance GHC.Generics.Generic Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance GHC.Classes.Ord Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance GHC.Classes.Eq Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance GHC.Read.Read Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
+instance GHC.Show.Show Amazonka.CloudHSM.Types.SubscriptionType.SubscriptionType
 
 
-module Network.AWS.CloudHSM.Types.Tag
+module Amazonka.CloudHSM.Types.Tag
 
 -- | A key-value pair that identifies or specifies metadata about an AWS
 --   CloudHSM resource.
@@ -158,17 +158,17 @@ tag_key :: Lens' Tag Text
 
 -- | The value of the tag.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.CloudHSM.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.CloudHSM.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.CloudHSM.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.CloudHSM.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSM.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.CloudHSM.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.CloudHSM.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.CloudHSM.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.CloudHSM.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudHSM.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.Types.Tag.Tag
 
 
-module Network.AWS.CloudHSM.Types
+module Amazonka.CloudHSM.Types
 
 -- | API version <tt>2014-05-30</tt> of the Amazon CloudHSM SDK
 --   configuration.
@@ -261,7 +261,7 @@ tag_value :: Lens' Tag Text
 --   
 --   To remove a tag, specify only the tag key to remove (not the value).
 --   To overwrite the value for an existing tag, use AddTagsToResource.
-module Network.AWS.CloudHSM.RemoveTagsFromResource
+module Amazonka.CloudHSM.RemoveTagsFromResource
 
 -- | <i>See:</i> <a>newRemoveTagsFromResource</a> smart constructor.
 data RemoveTagsFromResource
@@ -340,22 +340,22 @@ removeTagsFromResourceResponse_httpStatus :: Lens' RemoveTagsFromResourceRespons
 
 -- | The status of the operation.
 removeTagsFromResourceResponse_status :: Lens' RemoveTagsFromResourceResponse Text
-instance GHC.Generics.Generic Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
-instance GHC.Show.Show Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
-instance GHC.Read.Read Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
-instance GHC.Classes.Eq Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
-instance GHC.Generics.Generic Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResourceResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResourceResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResourceResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
+instance GHC.Generics.Generic Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
+instance GHC.Show.Show Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
+instance GHC.Read.Read Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
+instance GHC.Classes.Eq Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
+instance GHC.Generics.Generic Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResourceResponse
+instance GHC.Show.Show Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResourceResponse
+instance GHC.Read.Read Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResourceResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.RemoveTagsFromResource.RemoveTagsFromResource
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -371,7 +371,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.RemoveTagsFromResou
 --   
 --   This action can potentially start a workflow to install the new
 --   certificate on the client's HSMs.
-module Network.AWS.CloudHSM.ModifyLunaClient
+module Amazonka.CloudHSM.ModifyLunaClient
 
 -- | <i>See:</i> <a>newModifyLunaClient</a> smart constructor.
 data ModifyLunaClient
@@ -438,22 +438,22 @@ modifyLunaClientResponse_clientArn :: Lens' ModifyLunaClientResponse (Maybe Text
 
 -- | The response's http status code.
 modifyLunaClientResponse_httpStatus :: Lens' ModifyLunaClientResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClient
-instance GHC.Show.Show Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClient
-instance GHC.Read.Read Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClient
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClient
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClientResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClientResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClientResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClientResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClient
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClientResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClient
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClient
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClient
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClient
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClient
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ModifyLunaClient.ModifyLunaClient
+instance GHC.Generics.Generic Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClient
+instance GHC.Show.Show Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClient
+instance GHC.Read.Read Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClient
+instance GHC.Classes.Eq Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClient
+instance GHC.Generics.Generic Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClientResponse
+instance GHC.Show.Show Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClientResponse
+instance GHC.Read.Read Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClientResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClientResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClient
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClientResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClient
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClient
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClient
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClient
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClient
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.ModifyLunaClient.ModifyLunaClient
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -472,7 +472,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ModifyLunaClient.Mo
 --   modifying a production HSM, you should ensure that your AWS CloudHSM
 --   service is configured for high availability, and consider executing
 --   this operation during a maintenance window.
-module Network.AWS.CloudHSM.ModifyHsm
+module Amazonka.CloudHSM.ModifyHsm
 
 -- | Contains the inputs for the ModifyHsm operation.
 --   
@@ -596,22 +596,22 @@ modifyHsmResponse_hsmArn :: Lens' ModifyHsmResponse (Maybe Text)
 
 -- | The response's http status code.
 modifyHsmResponse_httpStatus :: Lens' ModifyHsmResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ModifyHsm.ModifyHsm
-instance GHC.Show.Show Network.AWS.CloudHSM.ModifyHsm.ModifyHsm
-instance GHC.Read.Read Network.AWS.CloudHSM.ModifyHsm.ModifyHsm
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ModifyHsm.ModifyHsm
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ModifyHsm.ModifyHsmResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.ModifyHsm.ModifyHsmResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.ModifyHsm.ModifyHsmResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ModifyHsm.ModifyHsmResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.ModifyHsm.ModifyHsm
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ModifyHsm.ModifyHsmResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.ModifyHsm.ModifyHsm
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ModifyHsm.ModifyHsm
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.ModifyHsm.ModifyHsm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.ModifyHsm.ModifyHsm
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.ModifyHsm.ModifyHsm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ModifyHsm.ModifyHsm
+instance GHC.Generics.Generic Amazonka.CloudHSM.ModifyHsm.ModifyHsm
+instance GHC.Show.Show Amazonka.CloudHSM.ModifyHsm.ModifyHsm
+instance GHC.Read.Read Amazonka.CloudHSM.ModifyHsm.ModifyHsm
+instance GHC.Classes.Eq Amazonka.CloudHSM.ModifyHsm.ModifyHsm
+instance GHC.Generics.Generic Amazonka.CloudHSM.ModifyHsm.ModifyHsmResponse
+instance GHC.Show.Show Amazonka.CloudHSM.ModifyHsm.ModifyHsmResponse
+instance GHC.Read.Read Amazonka.CloudHSM.ModifyHsm.ModifyHsmResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.ModifyHsm.ModifyHsmResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.ModifyHsm.ModifyHsm
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ModifyHsm.ModifyHsmResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.ModifyHsm.ModifyHsm
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ModifyHsm.ModifyHsm
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.ModifyHsm.ModifyHsm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.ModifyHsm.ModifyHsm
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.ModifyHsm.ModifyHsm
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.ModifyHsm.ModifyHsm
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -624,7 +624,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ModifyHsm.ModifyHsm
 --   <a>AWS CloudHSM API Reference</a>.
 --   
 --   Modifies an existing high-availability partition group.
-module Network.AWS.CloudHSM.ModifyHapg
+module Amazonka.CloudHSM.ModifyHapg
 
 -- | <i>See:</i> <a>newModifyHapg</a> smart constructor.
 data ModifyHapg
@@ -701,22 +701,22 @@ modifyHapgResponse_hapgArn :: Lens' ModifyHapgResponse (Maybe Text)
 
 -- | The response's http status code.
 modifyHapgResponse_httpStatus :: Lens' ModifyHapgResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ModifyHapg.ModifyHapg
-instance GHC.Show.Show Network.AWS.CloudHSM.ModifyHapg.ModifyHapg
-instance GHC.Read.Read Network.AWS.CloudHSM.ModifyHapg.ModifyHapg
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ModifyHapg.ModifyHapg
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ModifyHapg.ModifyHapgResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.ModifyHapg.ModifyHapgResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.ModifyHapg.ModifyHapgResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ModifyHapg.ModifyHapgResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.ModifyHapg.ModifyHapg
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ModifyHapg.ModifyHapgResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.ModifyHapg.ModifyHapg
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ModifyHapg.ModifyHapg
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.ModifyHapg.ModifyHapg
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.ModifyHapg.ModifyHapg
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.ModifyHapg.ModifyHapg
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ModifyHapg.ModifyHapg
+instance GHC.Generics.Generic Amazonka.CloudHSM.ModifyHapg.ModifyHapg
+instance GHC.Show.Show Amazonka.CloudHSM.ModifyHapg.ModifyHapg
+instance GHC.Read.Read Amazonka.CloudHSM.ModifyHapg.ModifyHapg
+instance GHC.Classes.Eq Amazonka.CloudHSM.ModifyHapg.ModifyHapg
+instance GHC.Generics.Generic Amazonka.CloudHSM.ModifyHapg.ModifyHapgResponse
+instance GHC.Show.Show Amazonka.CloudHSM.ModifyHapg.ModifyHapgResponse
+instance GHC.Read.Read Amazonka.CloudHSM.ModifyHapg.ModifyHapgResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.ModifyHapg.ModifyHapgResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.ModifyHapg.ModifyHapg
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ModifyHapg.ModifyHapgResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.ModifyHapg.ModifyHapg
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ModifyHapg.ModifyHapg
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.ModifyHapg.ModifyHapg
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.ModifyHapg.ModifyHapg
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.ModifyHapg.ModifyHapg
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.ModifyHapg.ModifyHapg
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -729,7 +729,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ModifyHapg.ModifyHa
 --   <a>AWS CloudHSM API Reference</a>.
 --   
 --   Returns a list of all tags for the specified AWS CloudHSM resource.
-module Network.AWS.CloudHSM.ListTagsForResource
+module Amazonka.CloudHSM.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -787,22 +787,22 @@ listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
 
 -- | One or more tags.
 listTagsForResourceResponse_tagList :: Lens' ListTagsForResourceResponse [Tag]
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.CloudHSM.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.CloudHSM.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.CloudHSM.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.CloudHSM.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.CloudHSM.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.CloudHSM.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.CloudHSM.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.ListTagsForResource.ListTagsForResource
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -823,7 +823,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ListTagsForResource
 --   set of items.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CloudHSM.ListLunaClients
+module Amazonka.CloudHSM.ListLunaClients
 
 -- | <i>See:</i> <a>newListLunaClients</a> smart constructor.
 data ListLunaClients
@@ -897,23 +897,23 @@ listLunaClientsResponse_httpStatus :: Lens' ListLunaClientsResponse Int
 
 -- | The list of clients.
 listLunaClientsResponse_clientList :: Lens' ListLunaClientsResponse [Text]
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ListLunaClients.ListLunaClients
-instance GHC.Show.Show Network.AWS.CloudHSM.ListLunaClients.ListLunaClients
-instance GHC.Read.Read Network.AWS.CloudHSM.ListLunaClients.ListLunaClients
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ListLunaClients.ListLunaClients
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ListLunaClients.ListLunaClientsResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.ListLunaClients.ListLunaClientsResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.ListLunaClients.ListLunaClientsResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ListLunaClients.ListLunaClientsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.ListLunaClients.ListLunaClients
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ListLunaClients.ListLunaClientsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CloudHSM.ListLunaClients.ListLunaClients
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.ListLunaClients.ListLunaClients
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ListLunaClients.ListLunaClients
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.ListLunaClients.ListLunaClients
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.ListLunaClients.ListLunaClients
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.ListLunaClients.ListLunaClients
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ListLunaClients.ListLunaClients
+instance GHC.Generics.Generic Amazonka.CloudHSM.ListLunaClients.ListLunaClients
+instance GHC.Show.Show Amazonka.CloudHSM.ListLunaClients.ListLunaClients
+instance GHC.Read.Read Amazonka.CloudHSM.ListLunaClients.ListLunaClients
+instance GHC.Classes.Eq Amazonka.CloudHSM.ListLunaClients.ListLunaClients
+instance GHC.Generics.Generic Amazonka.CloudHSM.ListLunaClients.ListLunaClientsResponse
+instance GHC.Show.Show Amazonka.CloudHSM.ListLunaClients.ListLunaClientsResponse
+instance GHC.Read.Read Amazonka.CloudHSM.ListLunaClients.ListLunaClientsResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.ListLunaClients.ListLunaClientsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.ListLunaClients.ListLunaClients
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ListLunaClients.ListLunaClientsResponse
+instance Amazonka.Pager.AWSPager Amazonka.CloudHSM.ListLunaClients.ListLunaClients
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.ListLunaClients.ListLunaClients
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ListLunaClients.ListLunaClients
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.ListLunaClients.ListLunaClients
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.ListLunaClients.ListLunaClients
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.ListLunaClients.ListLunaClients
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.ListLunaClients.ListLunaClients
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -935,7 +935,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ListLunaClients.Lis
 --   items.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CloudHSM.ListHsms
+module Amazonka.CloudHSM.ListHsms
 
 -- | <i>See:</i> <a>newListHsms</a> smart constructor.
 data ListHsms
@@ -1007,23 +1007,23 @@ listHsmsResponse_hsmList :: Lens' ListHsmsResponse (Maybe [Text])
 
 -- | The response's http status code.
 listHsmsResponse_httpStatus :: Lens' ListHsmsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ListHsms.ListHsms
-instance GHC.Show.Show Network.AWS.CloudHSM.ListHsms.ListHsms
-instance GHC.Read.Read Network.AWS.CloudHSM.ListHsms.ListHsms
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ListHsms.ListHsms
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ListHsms.ListHsmsResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.ListHsms.ListHsmsResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.ListHsms.ListHsmsResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ListHsms.ListHsmsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.ListHsms.ListHsms
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ListHsms.ListHsmsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CloudHSM.ListHsms.ListHsms
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.ListHsms.ListHsms
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ListHsms.ListHsms
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.ListHsms.ListHsms
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.ListHsms.ListHsms
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.ListHsms.ListHsms
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ListHsms.ListHsms
+instance GHC.Generics.Generic Amazonka.CloudHSM.ListHsms.ListHsms
+instance GHC.Show.Show Amazonka.CloudHSM.ListHsms.ListHsms
+instance GHC.Read.Read Amazonka.CloudHSM.ListHsms.ListHsms
+instance GHC.Classes.Eq Amazonka.CloudHSM.ListHsms.ListHsms
+instance GHC.Generics.Generic Amazonka.CloudHSM.ListHsms.ListHsmsResponse
+instance GHC.Show.Show Amazonka.CloudHSM.ListHsms.ListHsmsResponse
+instance GHC.Read.Read Amazonka.CloudHSM.ListHsms.ListHsmsResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.ListHsms.ListHsmsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.ListHsms.ListHsms
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ListHsms.ListHsmsResponse
+instance Amazonka.Pager.AWSPager Amazonka.CloudHSM.ListHsms.ListHsms
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.ListHsms.ListHsms
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ListHsms.ListHsms
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.ListHsms.ListHsms
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.ListHsms.ListHsms
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.ListHsms.ListHsms
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.ListHsms.ListHsms
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -1044,7 +1044,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ListHsms.ListHsms
 --   of items.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CloudHSM.ListHapgs
+module Amazonka.CloudHSM.ListHapgs
 
 -- | <i>See:</i> <a>newListHapgs</a> smart constructor.
 data ListHapgs
@@ -1115,23 +1115,23 @@ listHapgsResponse_httpStatus :: Lens' ListHapgsResponse Int
 
 -- | The list of high-availability partition groups.
 listHapgsResponse_hapgList :: Lens' ListHapgsResponse [Text]
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ListHapgs.ListHapgs
-instance GHC.Show.Show Network.AWS.CloudHSM.ListHapgs.ListHapgs
-instance GHC.Read.Read Network.AWS.CloudHSM.ListHapgs.ListHapgs
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ListHapgs.ListHapgs
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ListHapgs.ListHapgsResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.ListHapgs.ListHapgsResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.ListHapgs.ListHapgsResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ListHapgs.ListHapgsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.ListHapgs.ListHapgs
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ListHapgs.ListHapgsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CloudHSM.ListHapgs.ListHapgs
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.ListHapgs.ListHapgs
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ListHapgs.ListHapgs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.ListHapgs.ListHapgs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.ListHapgs.ListHapgs
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.ListHapgs.ListHapgs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ListHapgs.ListHapgs
+instance GHC.Generics.Generic Amazonka.CloudHSM.ListHapgs.ListHapgs
+instance GHC.Show.Show Amazonka.CloudHSM.ListHapgs.ListHapgs
+instance GHC.Read.Read Amazonka.CloudHSM.ListHapgs.ListHapgs
+instance GHC.Classes.Eq Amazonka.CloudHSM.ListHapgs.ListHapgs
+instance GHC.Generics.Generic Amazonka.CloudHSM.ListHapgs.ListHapgsResponse
+instance GHC.Show.Show Amazonka.CloudHSM.ListHapgs.ListHapgsResponse
+instance GHC.Read.Read Amazonka.CloudHSM.ListHapgs.ListHapgsResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.ListHapgs.ListHapgsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.ListHapgs.ListHapgs
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ListHapgs.ListHapgsResponse
+instance Amazonka.Pager.AWSPager Amazonka.CloudHSM.ListHapgs.ListHapgs
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.ListHapgs.ListHapgs
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ListHapgs.ListHapgs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.ListHapgs.ListHapgs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.ListHapgs.ListHapgs
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.ListHapgs.ListHapgs
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.ListHapgs.ListHapgs
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -1145,7 +1145,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ListHapgs.ListHapgs
 --   
 --   Lists the Availability Zones that have available AWS CloudHSM
 --   capacity.
-module Network.AWS.CloudHSM.ListAvailableZones
+module Amazonka.CloudHSM.ListAvailableZones
 
 -- | Contains the inputs for the ListAvailableZones action.
 --   
@@ -1195,22 +1195,22 @@ listAvailableZonesResponse_aZList :: Lens' ListAvailableZonesResponse (Maybe [Te
 
 -- | The response's http status code.
 listAvailableZonesResponse_httpStatus :: Lens' ListAvailableZonesResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZones
-instance GHC.Show.Show Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZones
-instance GHC.Read.Read Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZones
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZones
-instance GHC.Generics.Generic Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZonesResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZonesResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZonesResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZonesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZones
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZonesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZones
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZones
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZones
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZones
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZones
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ListAvailableZones.ListAvailableZones
+instance GHC.Generics.Generic Amazonka.CloudHSM.ListAvailableZones.ListAvailableZones
+instance GHC.Show.Show Amazonka.CloudHSM.ListAvailableZones.ListAvailableZones
+instance GHC.Read.Read Amazonka.CloudHSM.ListAvailableZones.ListAvailableZones
+instance GHC.Classes.Eq Amazonka.CloudHSM.ListAvailableZones.ListAvailableZones
+instance GHC.Generics.Generic Amazonka.CloudHSM.ListAvailableZones.ListAvailableZonesResponse
+instance GHC.Show.Show Amazonka.CloudHSM.ListAvailableZones.ListAvailableZonesResponse
+instance GHC.Read.Read Amazonka.CloudHSM.ListAvailableZones.ListAvailableZonesResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.ListAvailableZones.ListAvailableZonesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.ListAvailableZones.ListAvailableZones
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ListAvailableZones.ListAvailableZonesResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.ListAvailableZones.ListAvailableZones
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.ListAvailableZones.ListAvailableZones
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.ListAvailableZones.ListAvailableZones
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.ListAvailableZones.ListAvailableZones
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.ListAvailableZones.ListAvailableZones
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.ListAvailableZones.ListAvailableZones
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -1224,7 +1224,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.ListAvailableZones.
 --   
 --   Gets the configuration files necessary to connect to all high
 --   availability partition groups the client is associated with.
-module Network.AWS.CloudHSM.GetConfig
+module Amazonka.CloudHSM.GetConfig
 
 -- | <i>See:</i> <a>newGetConfig</a> smart constructor.
 data GetConfig
@@ -1320,22 +1320,22 @@ getConfigResponse_configType :: Lens' GetConfigResponse (Maybe Text)
 
 -- | The response's http status code.
 getConfigResponse_httpStatus :: Lens' GetConfigResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSM.GetConfig.GetConfig
-instance GHC.Show.Show Network.AWS.CloudHSM.GetConfig.GetConfig
-instance GHC.Read.Read Network.AWS.CloudHSM.GetConfig.GetConfig
-instance GHC.Classes.Eq Network.AWS.CloudHSM.GetConfig.GetConfig
-instance GHC.Generics.Generic Network.AWS.CloudHSM.GetConfig.GetConfigResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.GetConfig.GetConfigResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.GetConfig.GetConfigResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.GetConfig.GetConfigResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.GetConfig.GetConfig
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.GetConfig.GetConfigResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.GetConfig.GetConfig
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.GetConfig.GetConfig
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.GetConfig.GetConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.GetConfig.GetConfig
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.GetConfig.GetConfig
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.GetConfig.GetConfig
+instance GHC.Generics.Generic Amazonka.CloudHSM.GetConfig.GetConfig
+instance GHC.Show.Show Amazonka.CloudHSM.GetConfig.GetConfig
+instance GHC.Read.Read Amazonka.CloudHSM.GetConfig.GetConfig
+instance GHC.Classes.Eq Amazonka.CloudHSM.GetConfig.GetConfig
+instance GHC.Generics.Generic Amazonka.CloudHSM.GetConfig.GetConfigResponse
+instance GHC.Show.Show Amazonka.CloudHSM.GetConfig.GetConfigResponse
+instance GHC.Read.Read Amazonka.CloudHSM.GetConfig.GetConfigResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.GetConfig.GetConfigResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.GetConfig.GetConfig
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.GetConfig.GetConfigResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.GetConfig.GetConfig
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.GetConfig.GetConfig
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.GetConfig.GetConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.GetConfig.GetConfig
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.GetConfig.GetConfig
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.GetConfig.GetConfig
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -1348,7 +1348,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.GetConfig.GetConfig
 --   <a>AWS CloudHSM API Reference</a>.
 --   
 --   Retrieves information about an HSM client.
-module Network.AWS.CloudHSM.DescribeLunaClient
+module Amazonka.CloudHSM.DescribeLunaClient
 
 -- | <i>See:</i> <a>newDescribeLunaClient</a> smart constructor.
 data DescribeLunaClient
@@ -1454,22 +1454,22 @@ describeLunaClientResponse_label :: Lens' DescribeLunaClientResponse (Maybe Text
 
 -- | The response's http status code.
 describeLunaClientResponse_httpStatus :: Lens' DescribeLunaClientResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClient
-instance GHC.Show.Show Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClient
-instance GHC.Read.Read Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClient
-instance GHC.Classes.Eq Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClient
-instance GHC.Generics.Generic Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClientResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClientResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClientResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClientResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClient
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClientResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClient
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClient
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClient
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClient
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClient
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.DescribeLunaClient.DescribeLunaClient
+instance GHC.Generics.Generic Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClient
+instance GHC.Show.Show Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClient
+instance GHC.Read.Read Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClient
+instance GHC.Classes.Eq Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClient
+instance GHC.Generics.Generic Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClientResponse
+instance GHC.Show.Show Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClientResponse
+instance GHC.Read.Read Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClientResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClientResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClient
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClientResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClient
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClient
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClient
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClient
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClient
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.DescribeLunaClient.DescribeLunaClient
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -1483,7 +1483,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.DescribeLunaClient.
 --   
 --   Retrieves information about an HSM. You can identify the HSM by its
 --   ARN or its serial number.
-module Network.AWS.CloudHSM.DescribeHsm
+module Amazonka.CloudHSM.DescribeHsm
 
 -- | Contains the inputs for the DescribeHsm operation.
 --   
@@ -1753,22 +1753,22 @@ describeHsmResponse_hsmType :: Lens' DescribeHsmResponse (Maybe Text)
 
 -- | The response's http status code.
 describeHsmResponse_httpStatus :: Lens' DescribeHsmResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSM.DescribeHsm.DescribeHsm
-instance GHC.Show.Show Network.AWS.CloudHSM.DescribeHsm.DescribeHsm
-instance GHC.Read.Read Network.AWS.CloudHSM.DescribeHsm.DescribeHsm
-instance GHC.Classes.Eq Network.AWS.CloudHSM.DescribeHsm.DescribeHsm
-instance GHC.Generics.Generic Network.AWS.CloudHSM.DescribeHsm.DescribeHsmResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.DescribeHsm.DescribeHsmResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.DescribeHsm.DescribeHsmResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.DescribeHsm.DescribeHsmResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.DescribeHsm.DescribeHsm
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.DescribeHsm.DescribeHsmResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.DescribeHsm.DescribeHsm
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.DescribeHsm.DescribeHsm
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.DescribeHsm.DescribeHsm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.DescribeHsm.DescribeHsm
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.DescribeHsm.DescribeHsm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.DescribeHsm.DescribeHsm
+instance GHC.Generics.Generic Amazonka.CloudHSM.DescribeHsm.DescribeHsm
+instance GHC.Show.Show Amazonka.CloudHSM.DescribeHsm.DescribeHsm
+instance GHC.Read.Read Amazonka.CloudHSM.DescribeHsm.DescribeHsm
+instance GHC.Classes.Eq Amazonka.CloudHSM.DescribeHsm.DescribeHsm
+instance GHC.Generics.Generic Amazonka.CloudHSM.DescribeHsm.DescribeHsmResponse
+instance GHC.Show.Show Amazonka.CloudHSM.DescribeHsm.DescribeHsmResponse
+instance GHC.Read.Read Amazonka.CloudHSM.DescribeHsm.DescribeHsmResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.DescribeHsm.DescribeHsmResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.DescribeHsm.DescribeHsm
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.DescribeHsm.DescribeHsmResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.DescribeHsm.DescribeHsm
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.DescribeHsm.DescribeHsm
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.DescribeHsm.DescribeHsm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.DescribeHsm.DescribeHsm
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.DescribeHsm.DescribeHsm
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.DescribeHsm.DescribeHsm
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -1781,7 +1781,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.DescribeHsm.Describ
 --   <a>AWS CloudHSM API Reference</a>.
 --   
 --   Retrieves information about a high-availability partition group.
-module Network.AWS.CloudHSM.DescribeHapg
+module Amazonka.CloudHSM.DescribeHapg
 
 -- | Contains the inputs for the DescribeHapg action.
 --   
@@ -1915,22 +1915,22 @@ describeHapgResponse_label :: Lens' DescribeHapgResponse (Maybe Text)
 
 -- | The response's http status code.
 describeHapgResponse_httpStatus :: Lens' DescribeHapgResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSM.DescribeHapg.DescribeHapg
-instance GHC.Show.Show Network.AWS.CloudHSM.DescribeHapg.DescribeHapg
-instance GHC.Read.Read Network.AWS.CloudHSM.DescribeHapg.DescribeHapg
-instance GHC.Classes.Eq Network.AWS.CloudHSM.DescribeHapg.DescribeHapg
-instance GHC.Generics.Generic Network.AWS.CloudHSM.DescribeHapg.DescribeHapgResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.DescribeHapg.DescribeHapgResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.DescribeHapg.DescribeHapgResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.DescribeHapg.DescribeHapgResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.DescribeHapg.DescribeHapg
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.DescribeHapg.DescribeHapgResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.DescribeHapg.DescribeHapg
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.DescribeHapg.DescribeHapg
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.DescribeHapg.DescribeHapg
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.DescribeHapg.DescribeHapg
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.DescribeHapg.DescribeHapg
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.DescribeHapg.DescribeHapg
+instance GHC.Generics.Generic Amazonka.CloudHSM.DescribeHapg.DescribeHapg
+instance GHC.Show.Show Amazonka.CloudHSM.DescribeHapg.DescribeHapg
+instance GHC.Read.Read Amazonka.CloudHSM.DescribeHapg.DescribeHapg
+instance GHC.Classes.Eq Amazonka.CloudHSM.DescribeHapg.DescribeHapg
+instance GHC.Generics.Generic Amazonka.CloudHSM.DescribeHapg.DescribeHapgResponse
+instance GHC.Show.Show Amazonka.CloudHSM.DescribeHapg.DescribeHapgResponse
+instance GHC.Read.Read Amazonka.CloudHSM.DescribeHapg.DescribeHapgResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.DescribeHapg.DescribeHapgResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.DescribeHapg.DescribeHapg
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.DescribeHapg.DescribeHapgResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.DescribeHapg.DescribeHapg
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.DescribeHapg.DescribeHapg
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.DescribeHapg.DescribeHapg
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.DescribeHapg.DescribeHapg
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.DescribeHapg.DescribeHapg
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.DescribeHapg.DescribeHapg
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -1943,7 +1943,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.DescribeHapg.Descri
 --   <a>AWS CloudHSM API Reference</a>.
 --   
 --   Deletes a client.
-module Network.AWS.CloudHSM.DeleteLunaClient
+module Amazonka.CloudHSM.DeleteLunaClient
 
 -- | <i>See:</i> <a>newDeleteLunaClient</a> smart constructor.
 data DeleteLunaClient
@@ -2000,22 +2000,22 @@ deleteLunaClientResponse_httpStatus :: Lens' DeleteLunaClientResponse Int
 
 -- | The status of the action.
 deleteLunaClientResponse_status :: Lens' DeleteLunaClientResponse Text
-instance GHC.Generics.Generic Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClient
-instance GHC.Show.Show Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClient
-instance GHC.Read.Read Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClient
-instance GHC.Classes.Eq Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClient
-instance GHC.Generics.Generic Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClientResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClientResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClientResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClientResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClient
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClientResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClient
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClient
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClient
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClient
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClient
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.DeleteLunaClient.DeleteLunaClient
+instance GHC.Generics.Generic Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClient
+instance GHC.Show.Show Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClient
+instance GHC.Read.Read Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClient
+instance GHC.Classes.Eq Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClient
+instance GHC.Generics.Generic Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClientResponse
+instance GHC.Show.Show Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClientResponse
+instance GHC.Read.Read Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClientResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClientResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClient
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClientResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClient
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClient
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClient
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClient
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClient
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.DeleteLunaClient.DeleteLunaClient
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -2029,7 +2029,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.DeleteLunaClient.De
 --   
 --   Deletes an HSM. After completion, this operation cannot be undone and
 --   your key material cannot be recovered.
-module Network.AWS.CloudHSM.DeleteHsm
+module Amazonka.CloudHSM.DeleteHsm
 
 -- | Contains the inputs for the DeleteHsm operation.
 --   
@@ -2088,22 +2088,22 @@ deleteHsmResponse_httpStatus :: Lens' DeleteHsmResponse Int
 
 -- | The status of the operation.
 deleteHsmResponse_status :: Lens' DeleteHsmResponse Text
-instance GHC.Generics.Generic Network.AWS.CloudHSM.DeleteHsm.DeleteHsm
-instance GHC.Show.Show Network.AWS.CloudHSM.DeleteHsm.DeleteHsm
-instance GHC.Read.Read Network.AWS.CloudHSM.DeleteHsm.DeleteHsm
-instance GHC.Classes.Eq Network.AWS.CloudHSM.DeleteHsm.DeleteHsm
-instance GHC.Generics.Generic Network.AWS.CloudHSM.DeleteHsm.DeleteHsmResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.DeleteHsm.DeleteHsmResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.DeleteHsm.DeleteHsmResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.DeleteHsm.DeleteHsmResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.DeleteHsm.DeleteHsm
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.DeleteHsm.DeleteHsmResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.DeleteHsm.DeleteHsm
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.DeleteHsm.DeleteHsm
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.DeleteHsm.DeleteHsm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.DeleteHsm.DeleteHsm
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.DeleteHsm.DeleteHsm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.DeleteHsm.DeleteHsm
+instance GHC.Generics.Generic Amazonka.CloudHSM.DeleteHsm.DeleteHsm
+instance GHC.Show.Show Amazonka.CloudHSM.DeleteHsm.DeleteHsm
+instance GHC.Read.Read Amazonka.CloudHSM.DeleteHsm.DeleteHsm
+instance GHC.Classes.Eq Amazonka.CloudHSM.DeleteHsm.DeleteHsm
+instance GHC.Generics.Generic Amazonka.CloudHSM.DeleteHsm.DeleteHsmResponse
+instance GHC.Show.Show Amazonka.CloudHSM.DeleteHsm.DeleteHsmResponse
+instance GHC.Read.Read Amazonka.CloudHSM.DeleteHsm.DeleteHsmResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.DeleteHsm.DeleteHsmResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.DeleteHsm.DeleteHsm
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.DeleteHsm.DeleteHsmResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.DeleteHsm.DeleteHsm
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.DeleteHsm.DeleteHsm
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.DeleteHsm.DeleteHsm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.DeleteHsm.DeleteHsm
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.DeleteHsm.DeleteHsm
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.DeleteHsm.DeleteHsm
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -2116,7 +2116,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.DeleteHsm.DeleteHsm
 --   <a>AWS CloudHSM API Reference</a>.
 --   
 --   Deletes a high-availability partition group.
-module Network.AWS.CloudHSM.DeleteHapg
+module Amazonka.CloudHSM.DeleteHapg
 
 -- | Contains the inputs for the DeleteHapg action.
 --   
@@ -2176,22 +2176,22 @@ deleteHapgResponse_httpStatus :: Lens' DeleteHapgResponse Int
 
 -- | The status of the action.
 deleteHapgResponse_status :: Lens' DeleteHapgResponse Text
-instance GHC.Generics.Generic Network.AWS.CloudHSM.DeleteHapg.DeleteHapg
-instance GHC.Show.Show Network.AWS.CloudHSM.DeleteHapg.DeleteHapg
-instance GHC.Read.Read Network.AWS.CloudHSM.DeleteHapg.DeleteHapg
-instance GHC.Classes.Eq Network.AWS.CloudHSM.DeleteHapg.DeleteHapg
-instance GHC.Generics.Generic Network.AWS.CloudHSM.DeleteHapg.DeleteHapgResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.DeleteHapg.DeleteHapgResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.DeleteHapg.DeleteHapgResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.DeleteHapg.DeleteHapgResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.DeleteHapg.DeleteHapg
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.DeleteHapg.DeleteHapgResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.DeleteHapg.DeleteHapg
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.DeleteHapg.DeleteHapg
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.DeleteHapg.DeleteHapg
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.DeleteHapg.DeleteHapg
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.DeleteHapg.DeleteHapg
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.DeleteHapg.DeleteHapg
+instance GHC.Generics.Generic Amazonka.CloudHSM.DeleteHapg.DeleteHapg
+instance GHC.Show.Show Amazonka.CloudHSM.DeleteHapg.DeleteHapg
+instance GHC.Read.Read Amazonka.CloudHSM.DeleteHapg.DeleteHapg
+instance GHC.Classes.Eq Amazonka.CloudHSM.DeleteHapg.DeleteHapg
+instance GHC.Generics.Generic Amazonka.CloudHSM.DeleteHapg.DeleteHapgResponse
+instance GHC.Show.Show Amazonka.CloudHSM.DeleteHapg.DeleteHapgResponse
+instance GHC.Read.Read Amazonka.CloudHSM.DeleteHapg.DeleteHapgResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.DeleteHapg.DeleteHapgResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.DeleteHapg.DeleteHapg
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.DeleteHapg.DeleteHapgResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.DeleteHapg.DeleteHapg
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.DeleteHapg.DeleteHapg
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.DeleteHapg.DeleteHapg
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.DeleteHapg.DeleteHapg
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.DeleteHapg.DeleteHapg
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.DeleteHapg.DeleteHapg
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -2204,7 +2204,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.DeleteHapg.DeleteHa
 --   <a>AWS CloudHSM API Reference</a>.
 --   
 --   Creates an HSM client.
-module Network.AWS.CloudHSM.CreateLunaClient
+module Amazonka.CloudHSM.CreateLunaClient
 
 -- | Contains the inputs for the CreateLunaClient action.
 --   
@@ -2277,22 +2277,22 @@ createLunaClientResponse_clientArn :: Lens' CreateLunaClientResponse (Maybe Text
 
 -- | The response's http status code.
 createLunaClientResponse_httpStatus :: Lens' CreateLunaClientResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClient
-instance GHC.Show.Show Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClient
-instance GHC.Read.Read Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClient
-instance GHC.Classes.Eq Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClient
-instance GHC.Generics.Generic Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClientResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClientResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClientResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClientResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClient
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClientResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClient
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClient
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClient
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClient
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClient
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.CreateLunaClient.CreateLunaClient
+instance GHC.Generics.Generic Amazonka.CloudHSM.CreateLunaClient.CreateLunaClient
+instance GHC.Show.Show Amazonka.CloudHSM.CreateLunaClient.CreateLunaClient
+instance GHC.Read.Read Amazonka.CloudHSM.CreateLunaClient.CreateLunaClient
+instance GHC.Classes.Eq Amazonka.CloudHSM.CreateLunaClient.CreateLunaClient
+instance GHC.Generics.Generic Amazonka.CloudHSM.CreateLunaClient.CreateLunaClientResponse
+instance GHC.Show.Show Amazonka.CloudHSM.CreateLunaClient.CreateLunaClientResponse
+instance GHC.Read.Read Amazonka.CloudHSM.CreateLunaClient.CreateLunaClientResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.CreateLunaClient.CreateLunaClientResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.CreateLunaClient.CreateLunaClient
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.CreateLunaClient.CreateLunaClientResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.CreateLunaClient.CreateLunaClient
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.CreateLunaClient.CreateLunaClient
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.CreateLunaClient.CreateLunaClient
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.CreateLunaClient.CreateLunaClient
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.CreateLunaClient.CreateLunaClient
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.CreateLunaClient.CreateLunaClient
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -2316,7 +2316,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.CreateLunaClient.Cr
 --   monitor the status of the HSM with the DescribeHsm operation. The HSM
 --   is ready to be initialized when the status changes to
 --   <tt>RUNNING</tt>.
-module Network.AWS.CloudHSM.CreateHsm
+module Amazonka.CloudHSM.CreateHsm
 
 -- | Contains the inputs for the <tt>CreateHsm</tt> operation.
 --   
@@ -2454,22 +2454,22 @@ createHsmResponse_hsmArn :: Lens' CreateHsmResponse (Maybe Text)
 
 -- | The response's http status code.
 createHsmResponse_httpStatus :: Lens' CreateHsmResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSM.CreateHsm.CreateHsm
-instance GHC.Show.Show Network.AWS.CloudHSM.CreateHsm.CreateHsm
-instance GHC.Read.Read Network.AWS.CloudHSM.CreateHsm.CreateHsm
-instance GHC.Classes.Eq Network.AWS.CloudHSM.CreateHsm.CreateHsm
-instance GHC.Generics.Generic Network.AWS.CloudHSM.CreateHsm.CreateHsmResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.CreateHsm.CreateHsmResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.CreateHsm.CreateHsmResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.CreateHsm.CreateHsmResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.CreateHsm.CreateHsm
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.CreateHsm.CreateHsmResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.CreateHsm.CreateHsm
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.CreateHsm.CreateHsm
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.CreateHsm.CreateHsm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.CreateHsm.CreateHsm
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.CreateHsm.CreateHsm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.CreateHsm.CreateHsm
+instance GHC.Generics.Generic Amazonka.CloudHSM.CreateHsm.CreateHsm
+instance GHC.Show.Show Amazonka.CloudHSM.CreateHsm.CreateHsm
+instance GHC.Read.Read Amazonka.CloudHSM.CreateHsm.CreateHsm
+instance GHC.Classes.Eq Amazonka.CloudHSM.CreateHsm.CreateHsm
+instance GHC.Generics.Generic Amazonka.CloudHSM.CreateHsm.CreateHsmResponse
+instance GHC.Show.Show Amazonka.CloudHSM.CreateHsm.CreateHsmResponse
+instance GHC.Read.Read Amazonka.CloudHSM.CreateHsm.CreateHsmResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.CreateHsm.CreateHsmResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.CreateHsm.CreateHsm
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.CreateHsm.CreateHsmResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.CreateHsm.CreateHsm
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.CreateHsm.CreateHsm
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.CreateHsm.CreateHsm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.CreateHsm.CreateHsm
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.CreateHsm.CreateHsm
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.CreateHsm.CreateHsm
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -2484,7 +2484,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.CreateHsm.CreateHsm
 --   Creates a high-availability partition group. A high-availability
 --   partition group is a group of partitions that spans multiple physical
 --   HSMs.
-module Network.AWS.CloudHSM.CreateHapg
+module Amazonka.CloudHSM.CreateHapg
 
 -- | Contains the inputs for the CreateHapgRequest action.
 --   
@@ -2545,22 +2545,22 @@ createHapgResponse_hapgArn :: Lens' CreateHapgResponse (Maybe Text)
 
 -- | The response's http status code.
 createHapgResponse_httpStatus :: Lens' CreateHapgResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSM.CreateHapg.CreateHapg
-instance GHC.Show.Show Network.AWS.CloudHSM.CreateHapg.CreateHapg
-instance GHC.Read.Read Network.AWS.CloudHSM.CreateHapg.CreateHapg
-instance GHC.Classes.Eq Network.AWS.CloudHSM.CreateHapg.CreateHapg
-instance GHC.Generics.Generic Network.AWS.CloudHSM.CreateHapg.CreateHapgResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.CreateHapg.CreateHapgResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.CreateHapg.CreateHapgResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.CreateHapg.CreateHapgResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.CreateHapg.CreateHapg
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.CreateHapg.CreateHapgResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.CreateHapg.CreateHapg
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.CreateHapg.CreateHapg
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.CreateHapg.CreateHapg
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.CreateHapg.CreateHapg
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.CreateHapg.CreateHapg
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.CreateHapg.CreateHapg
+instance GHC.Generics.Generic Amazonka.CloudHSM.CreateHapg.CreateHapg
+instance GHC.Show.Show Amazonka.CloudHSM.CreateHapg.CreateHapg
+instance GHC.Read.Read Amazonka.CloudHSM.CreateHapg.CreateHapg
+instance GHC.Classes.Eq Amazonka.CloudHSM.CreateHapg.CreateHapg
+instance GHC.Generics.Generic Amazonka.CloudHSM.CreateHapg.CreateHapgResponse
+instance GHC.Show.Show Amazonka.CloudHSM.CreateHapg.CreateHapgResponse
+instance GHC.Read.Read Amazonka.CloudHSM.CreateHapg.CreateHapgResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.CreateHapg.CreateHapgResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.CreateHapg.CreateHapg
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.CreateHapg.CreateHapgResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.CreateHapg.CreateHapg
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.CreateHapg.CreateHapg
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.CreateHapg.CreateHapg
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.CreateHapg.CreateHapg
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.CreateHapg.CreateHapg
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.CreateHapg.CreateHapg
 
 
 -- | This is documentation for <b>AWS CloudHSM Classic</b>. For more
@@ -2577,7 +2577,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.CreateHapg.CreateHa
 --   
 --   Each tag consists of a key and a value. Tag keys must be unique to
 --   each resource.
-module Network.AWS.CloudHSM.AddTagsToResource
+module Amazonka.CloudHSM.AddTagsToResource
 
 -- | <i>See:</i> <a>newAddTagsToResource</a> smart constructor.
 data AddTagsToResource
@@ -2644,25 +2644,25 @@ addTagsToResourceResponse_httpStatus :: Lens' AddTagsToResourceResponse Int
 
 -- | The status of the operation.
 addTagsToResourceResponse_status :: Lens' AddTagsToResourceResponse Text
-instance GHC.Generics.Generic Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResource
-instance GHC.Show.Show Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResource
-instance GHC.Read.Read Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResource
-instance GHC.Classes.Eq Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResource
-instance GHC.Generics.Generic Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResourceResponse
-instance GHC.Show.Show Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResourceResponse
-instance GHC.Read.Read Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResourceResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResource
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResource
-instance Control.DeepSeq.NFData Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSM.AddTagsToResource.AddTagsToResource
+instance GHC.Generics.Generic Amazonka.CloudHSM.AddTagsToResource.AddTagsToResource
+instance GHC.Show.Show Amazonka.CloudHSM.AddTagsToResource.AddTagsToResource
+instance GHC.Read.Read Amazonka.CloudHSM.AddTagsToResource.AddTagsToResource
+instance GHC.Classes.Eq Amazonka.CloudHSM.AddTagsToResource.AddTagsToResource
+instance GHC.Generics.Generic Amazonka.CloudHSM.AddTagsToResource.AddTagsToResourceResponse
+instance GHC.Show.Show Amazonka.CloudHSM.AddTagsToResource.AddTagsToResourceResponse
+instance GHC.Read.Read Amazonka.CloudHSM.AddTagsToResource.AddTagsToResourceResponse
+instance GHC.Classes.Eq Amazonka.CloudHSM.AddTagsToResource.AddTagsToResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudHSM.AddTagsToResource.AddTagsToResource
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.AddTagsToResource.AddTagsToResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudHSM.AddTagsToResource.AddTagsToResource
+instance Control.DeepSeq.NFData Amazonka.CloudHSM.AddTagsToResource.AddTagsToResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudHSM.AddTagsToResource.AddTagsToResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudHSM.AddTagsToResource.AddTagsToResource
+instance Amazonka.Data.Path.ToPath Amazonka.CloudHSM.AddTagsToResource.AddTagsToResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudHSM.AddTagsToResource.AddTagsToResource
 
 
-module Network.AWS.CloudHSM.Lens
+module Amazonka.CloudHSM.Lens
 
 -- | The ARN of the high-availability partition group to delete.
 deleteHapg_hapgArn :: Lens' DeleteHapg Text
@@ -3053,7 +3053,7 @@ tag_key :: Lens' Tag Text
 tag_value :: Lens' Tag Text
 
 
-module Network.AWS.CloudHSM.Waiters
+module Amazonka.CloudHSM.Waiters
 
 
 -- | Derived from API version <tt>2014-05-30</tt> of the AWS service
@@ -3069,7 +3069,7 @@ module Network.AWS.CloudHSM.Waiters
 --   <b>For information about the current version of AWS CloudHSM</b>, see
 --   <a>AWS CloudHSM</a>, the <a>AWS CloudHSM User Guide</a>, and the
 --   <a>AWS CloudHSM API Reference</a>.
-module Network.AWS.CloudHSM
+module Amazonka.CloudHSM
 
 -- | API version <tt>2014-05-30</tt> of the Amazon CloudHSM SDK
 --   configuration.

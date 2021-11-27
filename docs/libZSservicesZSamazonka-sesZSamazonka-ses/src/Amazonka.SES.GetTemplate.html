@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SES.GetTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Displays the template object (which includes the Subject line, HTML part</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- and text part) for the template you specify.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- You can execute this operation no more than once per second.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SES.GetTemplate</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier">GetTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#newGetTemplate"><span class="hs-identifier">newGetTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#getTemplate_templateName"><span class="hs-identifier">getTemplate_templateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier">GetTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#newGetTemplateResponse"><span class="hs-identifier">newGetTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#getTemplateResponse_template"><span class="hs-identifier">getTemplateResponse_template</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#getTemplateResponse_httpStatus"><span class="hs-identifier">getTemplateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.html"><span class="hs-identifier">Amazonka.SES.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetTemplate' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679283105"><span id="local-6989586621679283106"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTemplate"><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-var">GetTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTemplate%27"><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate%27"><span class="hs-identifier hs-var">GetTemplate'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the template you want to retrieve.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AtemplateName%3AGetTemplate%27"><span class="annot"><span class="annottext">GetTemplate -&gt; Text
+</span><a href="Amazonka.SES.GetTemplate.html#%24sel%3AtemplateName%3AGetTemplate%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283099"><span id="local-6989586621679283101"><span class="annot"><span class="annottext">GetTemplate -&gt; GetTemplate -&gt; Bool
+(GetTemplate -&gt; GetTemplate -&gt; Bool)
+-&gt; (GetTemplate -&gt; GetTemplate -&gt; Bool) -&gt; Eq GetTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetTemplate -&gt; GetTemplate -&gt; Bool
+$c/= :: GetTemplate -&gt; GetTemplate -&gt; Bool
+== :: GetTemplate -&gt; GetTemplate -&gt; Bool
+$c== :: GetTemplate -&gt; GetTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283090"><span id="local-6989586621679283092"><span id="local-6989586621679283094"><span id="local-6989586621679283096"><span class="annot"><span class="annottext">ReadPrec [GetTemplate]
+ReadPrec GetTemplate
+Int -&gt; ReadS GetTemplate
+ReadS [GetTemplate]
+(Int -&gt; ReadS GetTemplate)
+-&gt; ReadS [GetTemplate]
+-&gt; ReadPrec GetTemplate
+-&gt; ReadPrec [GetTemplate]
+-&gt; Read GetTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetTemplate]
+$creadListPrec :: ReadPrec [GetTemplate]
+readPrec :: ReadPrec GetTemplate
+$creadPrec :: ReadPrec GetTemplate
+readList :: ReadS [GetTemplate]
+$creadList :: ReadS [GetTemplate]
+readsPrec :: Int -&gt; ReadS GetTemplate
+$creadsPrec :: Int -&gt; ReadS GetTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283083"><span id="local-6989586621679283085"><span id="local-6989586621679283087"><span class="annot"><span class="annottext">Int -&gt; GetTemplate -&gt; ShowS
+[GetTemplate] -&gt; ShowS
+GetTemplate -&gt; String
+(Int -&gt; GetTemplate -&gt; ShowS)
+-&gt; (GetTemplate -&gt; String)
+-&gt; ([GetTemplate] -&gt; ShowS)
+-&gt; Show GetTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetTemplate] -&gt; ShowS
+$cshowList :: [GetTemplate] -&gt; ShowS
+show :: GetTemplate -&gt; String
+$cshow :: GetTemplate -&gt; String
+showsPrec :: Int -&gt; GetTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetTemplate -&gt; Rep GetTemplate x)
+-&gt; (forall x. Rep GetTemplate x -&gt; GetTemplate)
+-&gt; Generic GetTemplate
+forall x. Rep GetTemplate x -&gt; GetTemplate
+forall x. GetTemplate -&gt; Rep GetTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetTemplate x -&gt; GetTemplate
+$cfrom :: forall x. GetTemplate -&gt; Rep GetTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'GetTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'templateName', 'getTemplate_templateName' - The name of the template you want to retrieve.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#newGetTemplate"><span class="hs-identifier hs-type">newGetTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'templateName'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span>
+</span><span id="line-72"></span><span id="newGetTemplate"><span class="annot"><span class="annottext">newGetTemplate :: Text -&gt; GetTemplate
+</span><a href="Amazonka.SES.GetTemplate.html#newGetTemplate"><span class="hs-identifier hs-var hs-var">newGetTemplate</span></a></span></span><span> </span><span id="local-6989586621679283078"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283078"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">GetTemplate' :: Text -&gt; GetTemplate
+</span><a href="Amazonka.SES.GetTemplate.html#GetTemplate%27"><span class="hs-identifier hs-type">GetTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:GetTemplate' :: Text
+</span><a href="Amazonka.SES.GetTemplate.html#%24sel%3AtemplateName%3AGetTemplate%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283078"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The name of the template you want to retrieve.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#getTemplate_templateName"><span class="hs-identifier hs-type">getTemplate_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="getTemplate_templateName"><span class="annot"><span class="annottext">getTemplate_templateName :: (Text -&gt; f Text) -&gt; GetTemplate -&gt; f GetTemplate
+</span><a href="Amazonka.SES.GetTemplate.html#getTemplate_templateName"><span class="hs-identifier hs-var hs-var">getTemplate_templateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTemplate -&gt; Text)
+-&gt; (GetTemplate -&gt; Text -&gt; GetTemplate)
+-&gt; Lens GetTemplate GetTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate%27"><span class="hs-identifier hs-type">GetTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283075"><span class="annot"><span class="annottext">Text
+templateName :: Text
+$sel:templateName:GetTemplate' :: GetTemplate -&gt; Text
+</span><a href="#local-6989586621679283075"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283075"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283074"><span class="annot"><span class="annottext">s :: GetTemplate
+</span><a href="#local-6989586621679283074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate%27"><span class="hs-identifier hs-type">GetTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283073"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTemplate
+</span><a href="#local-6989586621679283074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:GetTemplate' :: Text
+</span><a href="Amazonka.SES.GetTemplate.html#%24sel%3AtemplateName%3AGetTemplate%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679283069"><span class="annot"><span class="annottext">request :: GetTemplate -&gt; Request GetTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetTemplate -&gt; Request GetTemplate
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679283065"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse GetTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GetTemplateResult&quot;</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283062"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283062"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283061"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679283061"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283060"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679283060"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Template -&gt; Int -&gt; GetTemplateResponse
+</span><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-var">GetTemplateResponse'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Template -&gt; Int -&gt; GetTemplateResponse)
+-&gt; Either String (Maybe Template)
+-&gt; Either String (Int -&gt; GetTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679283060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Template)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Template&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetTemplateResponse)
+-&gt; Either String Int -&gt; Either String GetTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283062"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283052"><span id="local-6989586621679283054"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283049"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679283045"><span class="annot"><span class="annottext">toHeaders :: GetTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679283040"><span class="annot"><span class="annottext">toPath :: GetTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetTemplate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679283036"><span class="annot"><span class="annottext">toQuery :: GetTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplate%27"><span class="hs-identifier hs-type">GetTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283034"><span class="annot"><span class="annottext">Text
+templateName :: Text
+$sel:templateName:GetTemplate' :: GetTemplate -&gt; Text
+</span><a href="#local-6989586621679283034"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GetTemplate&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TemplateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283034"><span class="hs-identifier hs-var">templateName</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | /See:/ 'newGetTemplateResponse' smart constructor.</span><span>
+</span><span id="line-112"></span><span id="local-6989586621679283031"><span id="local-6989586621679283032"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTemplateResponse"><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-var">GetTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTemplateResponse%27"><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-var">GetTemplateResponse'</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Atemplate%3AGetTemplateResponse%27"><span class="annot"><span class="annottext">GetTemplateResponse -&gt; Maybe Template
+</span><a href="Amazonka.SES.GetTemplate.html#%24sel%3Atemplate%3AGetTemplateResponse%27"><span class="hs-identifier hs-var hs-var">template</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTemplateResponse%27"><span class="annot"><span class="annottext">GetTemplateResponse -&gt; Int
+</span><a href="Amazonka.SES.GetTemplate.html#%24sel%3AhttpStatus%3AGetTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283025"><span id="local-6989586621679283027"><span class="annot"><span class="annottext">GetTemplateResponse -&gt; GetTemplateResponse -&gt; Bool
+(GetTemplateResponse -&gt; GetTemplateResponse -&gt; Bool)
+-&gt; (GetTemplateResponse -&gt; GetTemplateResponse -&gt; Bool)
+-&gt; Eq GetTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetTemplateResponse -&gt; GetTemplateResponse -&gt; Bool
+$c/= :: GetTemplateResponse -&gt; GetTemplateResponse -&gt; Bool
+== :: GetTemplateResponse -&gt; GetTemplateResponse -&gt; Bool
+$c== :: GetTemplateResponse -&gt; GetTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283017"><span id="local-6989586621679283019"><span id="local-6989586621679283021"><span id="local-6989586621679283023"><span class="annot"><span class="annottext">ReadPrec [GetTemplateResponse]
+ReadPrec GetTemplateResponse
+Int -&gt; ReadS GetTemplateResponse
+ReadS [GetTemplateResponse]
+(Int -&gt; ReadS GetTemplateResponse)
+-&gt; ReadS [GetTemplateResponse]
+-&gt; ReadPrec GetTemplateResponse
+-&gt; ReadPrec [GetTemplateResponse]
+-&gt; Read GetTemplateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetTemplateResponse]
+$creadListPrec :: ReadPrec [GetTemplateResponse]
+readPrec :: ReadPrec GetTemplateResponse
+$creadPrec :: ReadPrec GetTemplateResponse
+readList :: ReadS [GetTemplateResponse]
+$creadList :: ReadS [GetTemplateResponse]
+readsPrec :: Int -&gt; ReadS GetTemplateResponse
+$creadsPrec :: Int -&gt; ReadS GetTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283011"><span id="local-6989586621679283013"><span id="local-6989586621679283015"><span class="annot"><span class="annottext">Int -&gt; GetTemplateResponse -&gt; ShowS
+[GetTemplateResponse] -&gt; ShowS
+GetTemplateResponse -&gt; String
+(Int -&gt; GetTemplateResponse -&gt; ShowS)
+-&gt; (GetTemplateResponse -&gt; String)
+-&gt; ([GetTemplateResponse] -&gt; ShowS)
+-&gt; Show GetTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetTemplateResponse] -&gt; ShowS
+$cshowList :: [GetTemplateResponse] -&gt; ShowS
+show :: GetTemplateResponse -&gt; String
+$cshow :: GetTemplateResponse -&gt; String
+showsPrec :: Int -&gt; GetTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetTemplateResponse -&gt; Rep GetTemplateResponse x)
+-&gt; (forall x. Rep GetTemplateResponse x -&gt; GetTemplateResponse)
+-&gt; Generic GetTemplateResponse
+forall x. Rep GetTemplateResponse x -&gt; GetTemplateResponse
+forall x. GetTemplateResponse -&gt; Rep GetTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetTemplateResponse x -&gt; GetTemplateResponse
+$cfrom :: forall x. GetTemplateResponse -&gt; Rep GetTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Create a value of 'GetTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'template', 'getTemplateResponse_template' - Undocumented member.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'httpStatus', 'getTemplateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#newGetTemplateResponse"><span class="hs-identifier hs-type">newGetTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span><span>
+</span><span id="line-134"></span><span id="newGetTemplateResponse"><span class="annot"><span class="annottext">newGetTemplateResponse :: Int -&gt; GetTemplateResponse
+</span><a href="Amazonka.SES.GetTemplate.html#newGetTemplateResponse"><span class="hs-identifier hs-var hs-var">newGetTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679283008"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283008"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">GetTemplateResponse' :: Maybe Template -&gt; Int -&gt; GetTemplateResponse
+</span><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-type">GetTemplateResponse'</span></a></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:template:GetTemplateResponse' :: Maybe Template
+</span><a href="Amazonka.SES.GetTemplate.html#%24sel%3Atemplate%3AGetTemplateResponse%27"><span class="hs-identifier hs-var">template</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTemplateResponse' :: Int
+</span><a href="Amazonka.SES.GetTemplate.html#%24sel%3AhttpStatus%3AGetTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283008"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#getTemplateResponse_template"><span class="hs-identifier hs-type">getTemplateResponse_template</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="getTemplateResponse_template"><span class="annot"><span class="annottext">getTemplateResponse_template :: (Maybe Template -&gt; f (Maybe Template))
+-&gt; GetTemplateResponse -&gt; f GetTemplateResponse
+</span><a href="Amazonka.SES.GetTemplate.html#getTemplateResponse_template"><span class="hs-identifier hs-var hs-var">getTemplateResponse_template</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTemplateResponse -&gt; Maybe Template)
+-&gt; (GetTemplateResponse -&gt; Maybe Template -&gt; GetTemplateResponse)
+-&gt; Lens
+     GetTemplateResponse
+     GetTemplateResponse
+     (Maybe Template)
+     (Maybe Template)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-type">GetTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283007"><span class="annot"><span class="annottext">Maybe Template
+template :: Maybe Template
+$sel:template:GetTemplateResponse' :: GetTemplateResponse -&gt; Maybe Template
+</span><a href="#local-6989586621679283007"><span class="hs-identifier hs-var hs-var">template</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679283007"><span class="hs-identifier hs-var">template</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283006"><span class="annot"><span class="annottext">s :: GetTemplateResponse
+</span><a href="#local-6989586621679283006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-type">GetTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283005"><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679283005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTemplateResponse
+</span><a href="#local-6989586621679283006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:template:GetTemplateResponse' :: Maybe Template
+</span><a href="Amazonka.SES.GetTemplate.html#%24sel%3Atemplate%3AGetTemplateResponse%27"><span class="hs-identifier hs-var">template</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679283005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#getTemplateResponse_httpStatus"><span class="hs-identifier hs-type">getTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-146"></span><span id="getTemplateResponse_httpStatus"><span class="annot"><span class="annottext">getTemplateResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetTemplateResponse -&gt; f GetTemplateResponse
+</span><a href="Amazonka.SES.GetTemplate.html#getTemplateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getTemplateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTemplateResponse -&gt; Int)
+-&gt; (GetTemplateResponse -&gt; Int -&gt; GetTemplateResponse)
+-&gt; Lens GetTemplateResponse GetTemplateResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-type">GetTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283004"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetTemplateResponse' :: GetTemplateResponse -&gt; Int
+</span><a href="#local-6989586621679283004"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283004"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283003"><span class="annot"><span class="annottext">s :: GetTemplateResponse
+</span><a href="#local-6989586621679283003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-type">GetTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283002"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTemplateResponse
+</span><a href="#local-6989586621679283003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTemplateResponse' :: Int
+</span><a href="Amazonka.SES.GetTemplate.html#%24sel%3AhttpStatus%3AGetTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283000"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span></span><span>
+</span><span id="line-149"></span></pre></body></html>

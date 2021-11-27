@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MemoryDb.UpdateSubnetGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a subnet group. For more information, see</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/MemoryDB/latest/devguide/ubnetGroups.Modifying.html Updating a subnet group&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MemoryDb.UpdateSubnetGroup</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier">UpdateSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#newUpdateSubnetGroup"><span class="hs-identifier">newUpdateSubnetGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#updateSubnetGroup_subnetIds"><span class="hs-identifier">updateSubnetGroup_subnetIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#updateSubnetGroup_description"><span class="hs-identifier">updateSubnetGroup_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#updateSubnetGroup_subnetGroupName"><span class="hs-identifier">updateSubnetGroup_subnetGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse"><span class="hs-identifier">UpdateSubnetGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#newUpdateSubnetGroupResponse"><span class="hs-identifier">newUpdateSubnetGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#updateSubnetGroupResponse_subnetGroup"><span class="hs-identifier">updateSubnetGroupResponse_subnetGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#updateSubnetGroupResponse_httpStatus"><span class="hs-identifier">updateSubnetGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.html"><span class="hs-identifier">Amazonka.MemoryDb.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateSubnetGroup' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679254862"><span id="local-6989586621679254863"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSubnetGroup"><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-var">UpdateSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSubnetGroup%27"><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup%27"><span class="hs-identifier hs-var">UpdateSubnetGroup'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The EC2 subnet IDs for the subnet group.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AsubnetIds%3AUpdateSubnetGroup%27"><span class="annot"><span class="annottext">UpdateSubnetGroup -&gt; Maybe [Text]
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#%24sel%3AsubnetIds%3AUpdateSubnetGroup%27"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | A description of the subnet group</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateSubnetGroup%27"><span class="annot"><span class="annottext">UpdateSubnetGroup -&gt; Maybe Text
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#%24sel%3Adescription%3AUpdateSubnetGroup%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The name of the subnet group</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AsubnetGroupName%3AUpdateSubnetGroup%27"><span class="annot"><span class="annottext">UpdateSubnetGroup -&gt; Text
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#%24sel%3AsubnetGroupName%3AUpdateSubnetGroup%27"><span class="hs-identifier hs-var hs-var">subnetGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254854"><span id="local-6989586621679254856"><span class="annot"><span class="annottext">UpdateSubnetGroup -&gt; UpdateSubnetGroup -&gt; Bool
+(UpdateSubnetGroup -&gt; UpdateSubnetGroup -&gt; Bool)
+-&gt; (UpdateSubnetGroup -&gt; UpdateSubnetGroup -&gt; Bool)
+-&gt; Eq UpdateSubnetGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSubnetGroup -&gt; UpdateSubnetGroup -&gt; Bool
+$c/= :: UpdateSubnetGroup -&gt; UpdateSubnetGroup -&gt; Bool
+== :: UpdateSubnetGroup -&gt; UpdateSubnetGroup -&gt; Bool
+$c== :: UpdateSubnetGroup -&gt; UpdateSubnetGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254845"><span id="local-6989586621679254847"><span id="local-6989586621679254849"><span id="local-6989586621679254851"><span class="annot"><span class="annottext">ReadPrec [UpdateSubnetGroup]
+ReadPrec UpdateSubnetGroup
+Int -&gt; ReadS UpdateSubnetGroup
+ReadS [UpdateSubnetGroup]
+(Int -&gt; ReadS UpdateSubnetGroup)
+-&gt; ReadS [UpdateSubnetGroup]
+-&gt; ReadPrec UpdateSubnetGroup
+-&gt; ReadPrec [UpdateSubnetGroup]
+-&gt; Read UpdateSubnetGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateSubnetGroup]
+$creadListPrec :: ReadPrec [UpdateSubnetGroup]
+readPrec :: ReadPrec UpdateSubnetGroup
+$creadPrec :: ReadPrec UpdateSubnetGroup
+readList :: ReadS [UpdateSubnetGroup]
+$creadList :: ReadS [UpdateSubnetGroup]
+readsPrec :: Int -&gt; ReadS UpdateSubnetGroup
+$creadsPrec :: Int -&gt; ReadS UpdateSubnetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254838"><span id="local-6989586621679254840"><span id="local-6989586621679254842"><span class="annot"><span class="annottext">Int -&gt; UpdateSubnetGroup -&gt; ShowS
+[UpdateSubnetGroup] -&gt; ShowS
+UpdateSubnetGroup -&gt; String
+(Int -&gt; UpdateSubnetGroup -&gt; ShowS)
+-&gt; (UpdateSubnetGroup -&gt; String)
+-&gt; ([UpdateSubnetGroup] -&gt; ShowS)
+-&gt; Show UpdateSubnetGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSubnetGroup] -&gt; ShowS
+$cshowList :: [UpdateSubnetGroup] -&gt; ShowS
+show :: UpdateSubnetGroup -&gt; String
+$cshow :: UpdateSubnetGroup -&gt; String
+showsPrec :: Int -&gt; UpdateSubnetGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSubnetGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateSubnetGroup -&gt; Rep UpdateSubnetGroup x)
+-&gt; (forall x. Rep UpdateSubnetGroup x -&gt; UpdateSubnetGroup)
+-&gt; Generic UpdateSubnetGroup
+forall x. Rep UpdateSubnetGroup x -&gt; UpdateSubnetGroup
+forall x. UpdateSubnetGroup -&gt; Rep UpdateSubnetGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateSubnetGroup x -&gt; UpdateSubnetGroup
+$cfrom :: forall x. UpdateSubnetGroup -&gt; Rep UpdateSubnetGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'UpdateSubnetGroup' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'subnetIds', 'updateSubnetGroup_subnetIds' - The EC2 subnet IDs for the subnet group.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'description', 'updateSubnetGroup_description' - A description of the subnet group</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'subnetGroupName', 'updateSubnetGroup_subnetGroupName' - The name of the subnet group</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#newUpdateSubnetGroup"><span class="hs-identifier hs-type">newUpdateSubnetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'subnetGroupName'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-type">UpdateSubnetGroup</span></a></span><span>
+</span><span id="line-80"></span><span id="newUpdateSubnetGroup"><span class="annot"><span class="annottext">newUpdateSubnetGroup :: Text -&gt; UpdateSubnetGroup
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#newUpdateSubnetGroup"><span class="hs-identifier hs-var hs-var">newUpdateSubnetGroup</span></a></span></span><span> </span><span id="local-6989586621679254833"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254833"><span class="hs-identifier hs-var">pSubnetGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">UpdateSubnetGroup' :: Maybe [Text] -&gt; Maybe Text -&gt; Text -&gt; UpdateSubnetGroup
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup%27"><span class="hs-identifier hs-type">UpdateSubnetGroup'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subnetIds:UpdateSubnetGroup' :: Maybe [Text]
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#%24sel%3AsubnetIds%3AUpdateSubnetGroup%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateSubnetGroup' :: Maybe Text
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#%24sel%3Adescription%3AUpdateSubnetGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetGroupName:UpdateSubnetGroup' :: Text
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#%24sel%3AsubnetGroupName%3AUpdateSubnetGroup%27"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254833"><span class="hs-identifier hs-var">pSubnetGroupName_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The EC2 subnet IDs for the subnet group.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#updateSubnetGroup_subnetIds"><span class="hs-identifier hs-type">updateSubnetGroup_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-type">UpdateSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="updateSubnetGroup_subnetIds"><span class="annot"><span class="annottext">updateSubnetGroup_subnetIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateSubnetGroup -&gt; f UpdateSubnetGroup
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#updateSubnetGroup_subnetIds"><span class="hs-identifier hs-var hs-var">updateSubnetGroup_subnetIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSubnetGroup -&gt; Maybe [Text])
+-&gt; (UpdateSubnetGroup -&gt; Maybe [Text] -&gt; UpdateSubnetGroup)
+-&gt; Lens
+     UpdateSubnetGroup UpdateSubnetGroup (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup%27"><span class="hs-identifier hs-type">UpdateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254830"><span class="annot"><span class="annottext">Maybe [Text]
+subnetIds :: Maybe [Text]
+$sel:subnetIds:UpdateSubnetGroup' :: UpdateSubnetGroup -&gt; Maybe [Text]
+</span><a href="#local-6989586621679254830"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679254830"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254829"><span class="annot"><span class="annottext">s :: UpdateSubnetGroup
+</span><a href="#local-6989586621679254829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup%27"><span class="hs-identifier hs-type">UpdateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254828"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679254828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubnetGroup
+</span><a href="#local-6989586621679254829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:UpdateSubnetGroup' :: Maybe [Text]
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#%24sel%3AsubnetIds%3AUpdateSubnetGroup%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679254828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-type">UpdateSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; UpdateSubnetGroup -&gt; f UpdateSubnetGroup)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateSubnetGroup
+-&gt; f UpdateSubnetGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | A description of the subnet group</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#updateSubnetGroup_description"><span class="hs-identifier hs-type">updateSubnetGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-type">UpdateSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="updateSubnetGroup_description"><span class="annot"><span class="annottext">updateSubnetGroup_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateSubnetGroup -&gt; f UpdateSubnetGroup
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#updateSubnetGroup_description"><span class="hs-identifier hs-var hs-var">updateSubnetGroup_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSubnetGroup -&gt; Maybe Text)
+-&gt; (UpdateSubnetGroup -&gt; Maybe Text -&gt; UpdateSubnetGroup)
+-&gt; Lens
+     UpdateSubnetGroup UpdateSubnetGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup%27"><span class="hs-identifier hs-type">UpdateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254824"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateSubnetGroup' :: UpdateSubnetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679254824"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254824"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254823"><span class="annot"><span class="annottext">s :: UpdateSubnetGroup
+</span><a href="#local-6989586621679254823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup%27"><span class="hs-identifier hs-type">UpdateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254822"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubnetGroup
+</span><a href="#local-6989586621679254823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateSubnetGroup' :: Maybe Text
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#%24sel%3Adescription%3AUpdateSubnetGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-type">UpdateSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The name of the subnet group</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#updateSubnetGroup_subnetGroupName"><span class="hs-identifier hs-type">updateSubnetGroup_subnetGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-type">UpdateSubnetGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="updateSubnetGroup_subnetGroupName"><span class="annot"><span class="annottext">updateSubnetGroup_subnetGroupName :: (Text -&gt; f Text) -&gt; UpdateSubnetGroup -&gt; f UpdateSubnetGroup
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#updateSubnetGroup_subnetGroupName"><span class="hs-identifier hs-var hs-var">updateSubnetGroup_subnetGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSubnetGroup -&gt; Text)
+-&gt; (UpdateSubnetGroup -&gt; Text -&gt; UpdateSubnetGroup)
+-&gt; Lens UpdateSubnetGroup UpdateSubnetGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup%27"><span class="hs-identifier hs-type">UpdateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254821"><span class="annot"><span class="annottext">Text
+subnetGroupName :: Text
+$sel:subnetGroupName:UpdateSubnetGroup' :: UpdateSubnetGroup -&gt; Text
+</span><a href="#local-6989586621679254821"><span class="hs-identifier hs-var hs-var">subnetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254821"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254820"><span class="annot"><span class="annottext">s :: UpdateSubnetGroup
+</span><a href="#local-6989586621679254820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup%27"><span class="hs-identifier hs-type">UpdateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254819"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubnetGroup
+</span><a href="#local-6989586621679254820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetGroupName:UpdateSubnetGroup' :: Text
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#%24sel%3AsubnetGroupName%3AUpdateSubnetGroup%27"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-type">UpdateSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-type">UpdateSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-type">UpdateSubnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse"><span class="hs-identifier hs-type">UpdateSubnetGroupResponse</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679254815"><span class="annot"><span class="annottext">request :: UpdateSubnetGroup -&gt; Request UpdateSubnetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateSubnetGroup -&gt; Request UpdateSubnetGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MemoryDb.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679254811"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateSubnetGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateSubnetGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateSubnetGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateSubnetGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateSubnetGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254808"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254808"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679254807"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679254807"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679254806"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679254806"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe SubnetGroup -&gt; Int -&gt; UpdateSubnetGroupResponse
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse%27"><span class="hs-identifier hs-var">UpdateSubnetGroupResponse'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SubnetGroup -&gt; Int -&gt; UpdateSubnetGroupResponse)
+-&gt; Either String (Maybe SubnetGroup)
+-&gt; Either String (Int -&gt; UpdateSubnetGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679254806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SubnetGroup)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubnetGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateSubnetGroupResponse)
+-&gt; Either String Int -&gt; Either String UpdateSubnetGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254808"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254798"><span id="local-6989586621679254800"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-type">UpdateSubnetGroup</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-type">UpdateSubnetGroup</span></a></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-type">UpdateSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679254791"><span class="annot"><span class="annottext">toHeaders :: UpdateSubnetGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateSubnetGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonMemoryDB.UpdateSubnetGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-123"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-127"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254781"><span id="local-6989586621679254783"><span id="local-6989586621679254785"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-type">UpdateSubnetGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679254779"><span class="annot"><span class="annottext">toJSON :: UpdateSubnetGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup%27"><span class="hs-identifier hs-type">UpdateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254775"><span id="local-6989586621679254776"><span id="local-6989586621679254777"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe Text
+Text
+subnetGroupName :: Text
+description :: Maybe Text
+subnetIds :: Maybe [Text]
+$sel:subnetGroupName:UpdateSubnetGroup' :: UpdateSubnetGroup -&gt; Text
+$sel:description:UpdateSubnetGroup' :: UpdateSubnetGroup -&gt; Maybe Text
+$sel:subnetIds:UpdateSubnetGroup' :: UpdateSubnetGroup -&gt; Maybe [Text]
+</span><a href="#local-6989586621679254775"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubnetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679254777"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254776"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubnetGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254775"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-type">UpdateSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679254769"><span class="annot"><span class="annottext">toPath :: UpdateSubnetGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateSubnetGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroup"><span class="hs-identifier hs-type">UpdateSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679254765"><span class="annot"><span class="annottext">toQuery :: UpdateSubnetGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateSubnetGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newUpdateSubnetGroupResponse' smart constructor.</span><span>
+</span><span id="line-149"></span><span id="local-6989586621679254762"><span id="local-6989586621679254763"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSubnetGroupResponse"><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse"><span class="hs-identifier hs-var">UpdateSubnetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSubnetGroupResponse%27"><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse%27"><span class="hs-identifier hs-var">UpdateSubnetGroupResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated subnet group</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AsubnetGroup%3AUpdateSubnetGroupResponse%27"><span class="annot"><span class="annottext">UpdateSubnetGroupResponse -&gt; Maybe SubnetGroup
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#%24sel%3AsubnetGroup%3AUpdateSubnetGroupResponse%27"><span class="hs-identifier hs-var hs-var">subnetGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.SubnetGroup.html#SubnetGroup"><span class="hs-identifier hs-type">SubnetGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateSubnetGroupResponse%27"><span class="annot"><span class="annottext">UpdateSubnetGroupResponse -&gt; Int
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#%24sel%3AhttpStatus%3AUpdateSubnetGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254756"><span id="local-6989586621679254758"><span class="annot"><span class="annottext">UpdateSubnetGroupResponse -&gt; UpdateSubnetGroupResponse -&gt; Bool
+(UpdateSubnetGroupResponse -&gt; UpdateSubnetGroupResponse -&gt; Bool)
+-&gt; (UpdateSubnetGroupResponse -&gt; UpdateSubnetGroupResponse -&gt; Bool)
+-&gt; Eq UpdateSubnetGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSubnetGroupResponse -&gt; UpdateSubnetGroupResponse -&gt; Bool
+$c/= :: UpdateSubnetGroupResponse -&gt; UpdateSubnetGroupResponse -&gt; Bool
+== :: UpdateSubnetGroupResponse -&gt; UpdateSubnetGroupResponse -&gt; Bool
+$c== :: UpdateSubnetGroupResponse -&gt; UpdateSubnetGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254748"><span id="local-6989586621679254750"><span id="local-6989586621679254752"><span id="local-6989586621679254754"><span class="annot"><span class="annottext">ReadPrec [UpdateSubnetGroupResponse]
+ReadPrec UpdateSubnetGroupResponse
+Int -&gt; ReadS UpdateSubnetGroupResponse
+ReadS [UpdateSubnetGroupResponse]
+(Int -&gt; ReadS UpdateSubnetGroupResponse)
+-&gt; ReadS [UpdateSubnetGroupResponse]
+-&gt; ReadPrec UpdateSubnetGroupResponse
+-&gt; ReadPrec [UpdateSubnetGroupResponse]
+-&gt; Read UpdateSubnetGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateSubnetGroupResponse]
+$creadListPrec :: ReadPrec [UpdateSubnetGroupResponse]
+readPrec :: ReadPrec UpdateSubnetGroupResponse
+$creadPrec :: ReadPrec UpdateSubnetGroupResponse
+readList :: ReadS [UpdateSubnetGroupResponse]
+$creadList :: ReadS [UpdateSubnetGroupResponse]
+readsPrec :: Int -&gt; ReadS UpdateSubnetGroupResponse
+$creadsPrec :: Int -&gt; ReadS UpdateSubnetGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254742"><span id="local-6989586621679254744"><span id="local-6989586621679254746"><span class="annot"><span class="annottext">Int -&gt; UpdateSubnetGroupResponse -&gt; ShowS
+[UpdateSubnetGroupResponse] -&gt; ShowS
+UpdateSubnetGroupResponse -&gt; String
+(Int -&gt; UpdateSubnetGroupResponse -&gt; ShowS)
+-&gt; (UpdateSubnetGroupResponse -&gt; String)
+-&gt; ([UpdateSubnetGroupResponse] -&gt; ShowS)
+-&gt; Show UpdateSubnetGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSubnetGroupResponse] -&gt; ShowS
+$cshowList :: [UpdateSubnetGroupResponse] -&gt; ShowS
+show :: UpdateSubnetGroupResponse -&gt; String
+$cshow :: UpdateSubnetGroupResponse -&gt; String
+showsPrec :: Int -&gt; UpdateSubnetGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSubnetGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateSubnetGroupResponse -&gt; Rep UpdateSubnetGroupResponse x)
+-&gt; (forall x.
+    Rep UpdateSubnetGroupResponse x -&gt; UpdateSubnetGroupResponse)
+-&gt; Generic UpdateSubnetGroupResponse
+forall x.
+Rep UpdateSubnetGroupResponse x -&gt; UpdateSubnetGroupResponse
+forall x.
+UpdateSubnetGroupResponse -&gt; Rep UpdateSubnetGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateSubnetGroupResponse x -&gt; UpdateSubnetGroupResponse
+$cfrom :: forall x.
+UpdateSubnetGroupResponse -&gt; Rep UpdateSubnetGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'UpdateSubnetGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'subnetGroup', 'updateSubnetGroupResponse_subnetGroup' - The updated subnet group</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'httpStatus', 'updateSubnetGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#newUpdateSubnetGroupResponse"><span class="hs-identifier hs-type">newUpdateSubnetGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse"><span class="hs-identifier hs-type">UpdateSubnetGroupResponse</span></a></span><span>
+</span><span id="line-172"></span><span id="newUpdateSubnetGroupResponse"><span class="annot"><span class="annottext">newUpdateSubnetGroupResponse :: Int -&gt; UpdateSubnetGroupResponse
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#newUpdateSubnetGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateSubnetGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679254739"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254739"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">UpdateSubnetGroupResponse' :: Maybe SubnetGroup -&gt; Int -&gt; UpdateSubnetGroupResponse
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse%27"><span class="hs-identifier hs-type">UpdateSubnetGroupResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subnetGroup:UpdateSubnetGroupResponse' :: Maybe SubnetGroup
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#%24sel%3AsubnetGroup%3AUpdateSubnetGroupResponse%27"><span class="hs-identifier hs-var">subnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Maybe SubnetGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSubnetGroupResponse' :: Int
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#%24sel%3AhttpStatus%3AUpdateSubnetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254739"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The updated subnet group</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#updateSubnetGroupResponse_subnetGroup"><span class="hs-identifier hs-type">updateSubnetGroupResponse_subnetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse"><span class="hs-identifier hs-type">UpdateSubnetGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.SubnetGroup.html#SubnetGroup"><span class="hs-identifier hs-type">SubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="updateSubnetGroupResponse_subnetGroup"><span class="annot"><span class="annottext">updateSubnetGroupResponse_subnetGroup :: (Maybe SubnetGroup -&gt; f (Maybe SubnetGroup))
+-&gt; UpdateSubnetGroupResponse -&gt; f UpdateSubnetGroupResponse
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#updateSubnetGroupResponse_subnetGroup"><span class="hs-identifier hs-var hs-var">updateSubnetGroupResponse_subnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSubnetGroupResponse -&gt; Maybe SubnetGroup)
+-&gt; (UpdateSubnetGroupResponse
+    -&gt; Maybe SubnetGroup -&gt; UpdateSubnetGroupResponse)
+-&gt; Lens
+     UpdateSubnetGroupResponse
+     UpdateSubnetGroupResponse
+     (Maybe SubnetGroup)
+     (Maybe SubnetGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse%27"><span class="hs-identifier hs-type">UpdateSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254738"><span class="annot"><span class="annottext">Maybe SubnetGroup
+subnetGroup :: Maybe SubnetGroup
+$sel:subnetGroup:UpdateSubnetGroupResponse' :: UpdateSubnetGroupResponse -&gt; Maybe SubnetGroup
+</span><a href="#local-6989586621679254738"><span class="hs-identifier hs-var hs-var">subnetGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetGroup
+</span><a href="#local-6989586621679254738"><span class="hs-identifier hs-var">subnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254737"><span class="annot"><span class="annottext">s :: UpdateSubnetGroupResponse
+</span><a href="#local-6989586621679254737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse%27"><span class="hs-identifier hs-type">UpdateSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254736"><span class="annot"><span class="annottext">Maybe SubnetGroup
+</span><a href="#local-6989586621679254736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubnetGroupResponse
+</span><a href="#local-6989586621679254737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetGroup:UpdateSubnetGroupResponse' :: Maybe SubnetGroup
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#%24sel%3AsubnetGroup%3AUpdateSubnetGroupResponse%27"><span class="hs-identifier hs-var">subnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetGroup
+</span><a href="#local-6989586621679254736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse"><span class="hs-identifier hs-type">UpdateSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#updateSubnetGroupResponse_httpStatus"><span class="hs-identifier hs-type">updateSubnetGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse"><span class="hs-identifier hs-type">UpdateSubnetGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span id="updateSubnetGroupResponse_httpStatus"><span class="annot"><span class="annottext">updateSubnetGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateSubnetGroupResponse -&gt; f UpdateSubnetGroupResponse
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#updateSubnetGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateSubnetGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSubnetGroupResponse -&gt; Int)
+-&gt; (UpdateSubnetGroupResponse -&gt; Int -&gt; UpdateSubnetGroupResponse)
+-&gt; Lens UpdateSubnetGroupResponse UpdateSubnetGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse%27"><span class="hs-identifier hs-type">UpdateSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254735"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateSubnetGroupResponse' :: UpdateSubnetGroupResponse -&gt; Int
+</span><a href="#local-6989586621679254735"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254735"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254734"><span class="annot"><span class="annottext">s :: UpdateSubnetGroupResponse
+</span><a href="#local-6989586621679254734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse%27"><span class="hs-identifier hs-type">UpdateSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254733"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubnetGroupResponse
+</span><a href="#local-6989586621679254734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSubnetGroupResponse' :: Int
+</span><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#%24sel%3AhttpStatus%3AUpdateSubnetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse"><span class="hs-identifier hs-type">UpdateSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254731"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.UpdateSubnetGroup.html#UpdateSubnetGroupResponse"><span class="hs-identifier hs-type">UpdateSubnetGroupResponse</span></a></span></span><span>
+</span><span id="line-188"></span></pre></body></html>

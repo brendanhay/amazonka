@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.StepFunctions.DeleteStateMachine</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a state machine. This is an asynchronous operation: It sets the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- state machine\'s status to @DELETING@ and begins the deletion process.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- For @EXPRESS@state machines, the deletion will happen eventually</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- (usually less than a minute). Running executions may emit logs after</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @DeleteStateMachine@ API is called.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StepFunctions.DeleteStateMachine</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier">DeleteStateMachine</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#newDeleteStateMachine"><span class="hs-identifier">newDeleteStateMachine</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#deleteStateMachine_stateMachineArn"><span class="hs-identifier">deleteStateMachine_stateMachineArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse"><span class="hs-identifier">DeleteStateMachineResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#newDeleteStateMachineResponse"><span class="hs-identifier">newDeleteStateMachineResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#deleteStateMachineResponse_httpStatus"><span class="hs-identifier">deleteStateMachineResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.html"><span class="hs-identifier">Amazonka.StepFunctions.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDeleteStateMachine' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679233372"><span id="local-6989586621679233373"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStateMachine"><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-var">DeleteStateMachine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStateMachine%27"><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine%27"><span class="hs-identifier hs-var">DeleteStateMachine'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the state machine to delete.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AstateMachineArn%3ADeleteStateMachine%27"><span class="annot"><span class="annottext">DeleteStateMachine -&gt; Text
+</span><a href="Amazonka.StepFunctions.DeleteStateMachine.html#%24sel%3AstateMachineArn%3ADeleteStateMachine%27"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233366"><span id="local-6989586621679233368"><span class="annot"><span class="annottext">DeleteStateMachine -&gt; DeleteStateMachine -&gt; Bool
+(DeleteStateMachine -&gt; DeleteStateMachine -&gt; Bool)
+-&gt; (DeleteStateMachine -&gt; DeleteStateMachine -&gt; Bool)
+-&gt; Eq DeleteStateMachine
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteStateMachine -&gt; DeleteStateMachine -&gt; Bool
+$c/= :: DeleteStateMachine -&gt; DeleteStateMachine -&gt; Bool
+== :: DeleteStateMachine -&gt; DeleteStateMachine -&gt; Bool
+$c== :: DeleteStateMachine -&gt; DeleteStateMachine -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233357"><span id="local-6989586621679233359"><span id="local-6989586621679233361"><span id="local-6989586621679233363"><span class="annot"><span class="annottext">ReadPrec [DeleteStateMachine]
+ReadPrec DeleteStateMachine
+Int -&gt; ReadS DeleteStateMachine
+ReadS [DeleteStateMachine]
+(Int -&gt; ReadS DeleteStateMachine)
+-&gt; ReadS [DeleteStateMachine]
+-&gt; ReadPrec DeleteStateMachine
+-&gt; ReadPrec [DeleteStateMachine]
+-&gt; Read DeleteStateMachine
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteStateMachine]
+$creadListPrec :: ReadPrec [DeleteStateMachine]
+readPrec :: ReadPrec DeleteStateMachine
+$creadPrec :: ReadPrec DeleteStateMachine
+readList :: ReadS [DeleteStateMachine]
+$creadList :: ReadS [DeleteStateMachine]
+readsPrec :: Int -&gt; ReadS DeleteStateMachine
+$creadsPrec :: Int -&gt; ReadS DeleteStateMachine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233350"><span id="local-6989586621679233352"><span id="local-6989586621679233354"><span class="annot"><span class="annottext">Int -&gt; DeleteStateMachine -&gt; ShowS
+[DeleteStateMachine] -&gt; ShowS
+DeleteStateMachine -&gt; String
+(Int -&gt; DeleteStateMachine -&gt; ShowS)
+-&gt; (DeleteStateMachine -&gt; String)
+-&gt; ([DeleteStateMachine] -&gt; ShowS)
+-&gt; Show DeleteStateMachine
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteStateMachine] -&gt; ShowS
+$cshowList :: [DeleteStateMachine] -&gt; ShowS
+show :: DeleteStateMachine -&gt; String
+$cshow :: DeleteStateMachine -&gt; String
+showsPrec :: Int -&gt; DeleteStateMachine -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteStateMachine -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteStateMachine -&gt; Rep DeleteStateMachine x)
+-&gt; (forall x. Rep DeleteStateMachine x -&gt; DeleteStateMachine)
+-&gt; Generic DeleteStateMachine
+forall x. Rep DeleteStateMachine x -&gt; DeleteStateMachine
+forall x. DeleteStateMachine -&gt; Rep DeleteStateMachine x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteStateMachine x -&gt; DeleteStateMachine
+$cfrom :: forall x. DeleteStateMachine -&gt; Rep DeleteStateMachine x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DeleteStateMachine' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'stateMachineArn', 'deleteStateMachine_stateMachineArn' - The Amazon Resource Name (ARN) of the state machine to delete.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#newDeleteStateMachine"><span class="hs-identifier hs-type">newDeleteStateMachine</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'stateMachineArn'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span>
+</span><span id="line-73"></span><span id="newDeleteStateMachine"><span class="annot"><span class="annottext">newDeleteStateMachine :: Text -&gt; DeleteStateMachine
+</span><a href="Amazonka.StepFunctions.DeleteStateMachine.html#newDeleteStateMachine"><span class="hs-identifier hs-var hs-var">newDeleteStateMachine</span></a></span></span><span> </span><span id="local-6989586621679233345"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233345"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DeleteStateMachine' :: Text -&gt; DeleteStateMachine
+</span><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine%27"><span class="hs-identifier hs-type">DeleteStateMachine'</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stateMachineArn:DeleteStateMachine' :: Text
+</span><a href="Amazonka.StepFunctions.DeleteStateMachine.html#%24sel%3AstateMachineArn%3ADeleteStateMachine%27"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233345"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the state machine to delete.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#deleteStateMachine_stateMachineArn"><span class="hs-identifier hs-type">deleteStateMachine_stateMachineArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="deleteStateMachine_stateMachineArn"><span class="annot"><span class="annottext">deleteStateMachine_stateMachineArn :: (Text -&gt; f Text) -&gt; DeleteStateMachine -&gt; f DeleteStateMachine
+</span><a href="Amazonka.StepFunctions.DeleteStateMachine.html#deleteStateMachine_stateMachineArn"><span class="hs-identifier hs-var hs-var">deleteStateMachine_stateMachineArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteStateMachine -&gt; Text)
+-&gt; (DeleteStateMachine -&gt; Text -&gt; DeleteStateMachine)
+-&gt; Lens DeleteStateMachine DeleteStateMachine Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine%27"><span class="hs-identifier hs-type">DeleteStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233342"><span class="annot"><span class="annottext">Text
+stateMachineArn :: Text
+$sel:stateMachineArn:DeleteStateMachine' :: DeleteStateMachine -&gt; Text
+</span><a href="#local-6989586621679233342"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233342"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233341"><span class="annot"><span class="annottext">s :: DeleteStateMachine
+</span><a href="#local-6989586621679233341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine%27"><span class="hs-identifier hs-type">DeleteStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233340"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStateMachine
+</span><a href="#local-6989586621679233341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateMachineArn:DeleteStateMachine' :: Text
+</span><a href="Amazonka.StepFunctions.DeleteStateMachine.html#%24sel%3AstateMachineArn%3ADeleteStateMachine%27"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse"><span class="hs-identifier hs-type">DeleteStateMachineResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679233336"><span class="annot"><span class="annottext">request :: DeleteStateMachine -&gt; Request DeleteStateMachine
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteStateMachine -&gt; Request DeleteStateMachine
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679233332"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteStateMachine
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteStateMachine)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteStateMachine))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteStateMachine
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteStateMachine)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679233329"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233329"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679233328"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679233328"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679233327"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679233327"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteStateMachineResponse
+</span><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse%27"><span class="hs-identifier hs-var">DeleteStateMachineResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteStateMachineResponse)
+-&gt; Either String Int -&gt; Either String DeleteStateMachineResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233329"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233320"><span id="local-6989586621679233322"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679233313"><span class="annot"><span class="annottext">toHeaders :: DeleteStateMachine -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteStateMachine -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSStepFunctions.DeleteStateMachine&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-106"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233303"><span id="local-6989586621679233305"><span id="local-6989586621679233307"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679233301"><span class="annot"><span class="annottext">toJSON :: DeleteStateMachine -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine%27"><span class="hs-identifier hs-type">DeleteStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233299"><span class="annot"><span class="annottext">Text
+stateMachineArn :: Text
+$sel:stateMachineArn:DeleteStateMachine' :: DeleteStateMachine -&gt; Text
+</span><a href="#local-6989586621679233299"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stateMachineArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233299"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679233293"><span class="annot"><span class="annottext">toPath :: DeleteStateMachine -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteStateMachine -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679233289"><span class="annot"><span class="annottext">toQuery :: DeleteStateMachine -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteStateMachine -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newDeleteStateMachineResponse' smart constructor.</span><span>
+</span><span id="line-130"></span><span id="local-6989586621679233286"><span id="local-6989586621679233287"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStateMachineResponse"><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse"><span class="hs-identifier hs-var">DeleteStateMachineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStateMachineResponse%27"><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse%27"><span class="hs-identifier hs-var">DeleteStateMachineResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteStateMachineResponse%27"><span class="annot"><span class="annottext">DeleteStateMachineResponse -&gt; Int
+</span><a href="Amazonka.StepFunctions.DeleteStateMachine.html#%24sel%3AhttpStatus%3ADeleteStateMachineResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233281"><span id="local-6989586621679233283"><span class="annot"><span class="annottext">DeleteStateMachineResponse -&gt; DeleteStateMachineResponse -&gt; Bool
+(DeleteStateMachineResponse -&gt; DeleteStateMachineResponse -&gt; Bool)
+-&gt; (DeleteStateMachineResponse
+    -&gt; DeleteStateMachineResponse -&gt; Bool)
+-&gt; Eq DeleteStateMachineResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteStateMachineResponse -&gt; DeleteStateMachineResponse -&gt; Bool
+$c/= :: DeleteStateMachineResponse -&gt; DeleteStateMachineResponse -&gt; Bool
+== :: DeleteStateMachineResponse -&gt; DeleteStateMachineResponse -&gt; Bool
+$c== :: DeleteStateMachineResponse -&gt; DeleteStateMachineResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233273"><span id="local-6989586621679233275"><span id="local-6989586621679233277"><span id="local-6989586621679233279"><span class="annot"><span class="annottext">ReadPrec [DeleteStateMachineResponse]
+ReadPrec DeleteStateMachineResponse
+Int -&gt; ReadS DeleteStateMachineResponse
+ReadS [DeleteStateMachineResponse]
+(Int -&gt; ReadS DeleteStateMachineResponse)
+-&gt; ReadS [DeleteStateMachineResponse]
+-&gt; ReadPrec DeleteStateMachineResponse
+-&gt; ReadPrec [DeleteStateMachineResponse]
+-&gt; Read DeleteStateMachineResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteStateMachineResponse]
+$creadListPrec :: ReadPrec [DeleteStateMachineResponse]
+readPrec :: ReadPrec DeleteStateMachineResponse
+$creadPrec :: ReadPrec DeleteStateMachineResponse
+readList :: ReadS [DeleteStateMachineResponse]
+$creadList :: ReadS [DeleteStateMachineResponse]
+readsPrec :: Int -&gt; ReadS DeleteStateMachineResponse
+$creadsPrec :: Int -&gt; ReadS DeleteStateMachineResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233267"><span id="local-6989586621679233269"><span id="local-6989586621679233271"><span class="annot"><span class="annottext">Int -&gt; DeleteStateMachineResponse -&gt; ShowS
+[DeleteStateMachineResponse] -&gt; ShowS
+DeleteStateMachineResponse -&gt; String
+(Int -&gt; DeleteStateMachineResponse -&gt; ShowS)
+-&gt; (DeleteStateMachineResponse -&gt; String)
+-&gt; ([DeleteStateMachineResponse] -&gt; ShowS)
+-&gt; Show DeleteStateMachineResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteStateMachineResponse] -&gt; ShowS
+$cshowList :: [DeleteStateMachineResponse] -&gt; ShowS
+show :: DeleteStateMachineResponse -&gt; String
+$cshow :: DeleteStateMachineResponse -&gt; String
+showsPrec :: Int -&gt; DeleteStateMachineResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteStateMachineResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteStateMachineResponse -&gt; Rep DeleteStateMachineResponse x)
+-&gt; (forall x.
+    Rep DeleteStateMachineResponse x -&gt; DeleteStateMachineResponse)
+-&gt; Generic DeleteStateMachineResponse
+forall x.
+Rep DeleteStateMachineResponse x -&gt; DeleteStateMachineResponse
+forall x.
+DeleteStateMachineResponse -&gt; Rep DeleteStateMachineResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteStateMachineResponse x -&gt; DeleteStateMachineResponse
+$cfrom :: forall x.
+DeleteStateMachineResponse -&gt; Rep DeleteStateMachineResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Create a value of 'DeleteStateMachineResponse' with all optional fields omitted.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'httpStatus', 'deleteStateMachineResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#newDeleteStateMachineResponse"><span class="hs-identifier hs-type">newDeleteStateMachineResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse"><span class="hs-identifier hs-type">DeleteStateMachineResponse</span></a></span><span>
+</span><span id="line-149"></span><span id="newDeleteStateMachineResponse"><span class="annot"><span class="annottext">newDeleteStateMachineResponse :: Int -&gt; DeleteStateMachineResponse
+</span><a href="Amazonka.StepFunctions.DeleteStateMachine.html#newDeleteStateMachineResponse"><span class="hs-identifier hs-var hs-var">newDeleteStateMachineResponse</span></a></span></span><span> </span><span id="local-6989586621679233264"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233264"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">DeleteStateMachineResponse' :: Int -&gt; DeleteStateMachineResponse
+</span><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse%27"><span class="hs-identifier hs-type">DeleteStateMachineResponse'</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteStateMachineResponse' :: Int
+</span><a href="Amazonka.StepFunctions.DeleteStateMachine.html#%24sel%3AhttpStatus%3ADeleteStateMachineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233264"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#deleteStateMachineResponse_httpStatus"><span class="hs-identifier hs-type">deleteStateMachineResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse"><span class="hs-identifier hs-type">DeleteStateMachineResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-157"></span><span id="deleteStateMachineResponse_httpStatus"><span class="annot"><span class="annottext">deleteStateMachineResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteStateMachineResponse -&gt; f DeleteStateMachineResponse
+</span><a href="Amazonka.StepFunctions.DeleteStateMachine.html#deleteStateMachineResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteStateMachineResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteStateMachineResponse -&gt; Int)
+-&gt; (DeleteStateMachineResponse
+    -&gt; Int -&gt; DeleteStateMachineResponse)
+-&gt; Lens
+     DeleteStateMachineResponse DeleteStateMachineResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse%27"><span class="hs-identifier hs-type">DeleteStateMachineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233263"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteStateMachineResponse' :: DeleteStateMachineResponse -&gt; Int
+</span><a href="#local-6989586621679233263"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233263"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233262"><span class="annot"><span class="annottext">s :: DeleteStateMachineResponse
+</span><a href="#local-6989586621679233262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse%27"><span class="hs-identifier hs-type">DeleteStateMachineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233261"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStateMachineResponse
+</span><a href="#local-6989586621679233262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteStateMachineResponse' :: Int
+</span><a href="Amazonka.StepFunctions.DeleteStateMachine.html#%24sel%3AhttpStatus%3ADeleteStateMachineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse"><span class="hs-identifier hs-type">DeleteStateMachineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse"><span class="hs-identifier hs-type">DeleteStateMachineResponse</span></a></span></span><span>
+</span><span id="line-160"></span></pre></body></html>

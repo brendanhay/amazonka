@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod"><span class="hs-identifier">AmazonopensearchserviceIndexRotationPeriod</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod_NoRotation"><span class="hs-identifier">AmazonopensearchserviceIndexRotationPeriod_NoRotation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod_OneDay"><span class="hs-identifier">AmazonopensearchserviceIndexRotationPeriod_OneDay</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod_OneHour"><span class="hs-identifier">AmazonopensearchserviceIndexRotationPeriod_OneHour</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod_OneMonth"><span class="hs-identifier">AmazonopensearchserviceIndexRotationPeriod_OneMonth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod_OneWeek"><span class="hs-identifier">AmazonopensearchserviceIndexRotationPeriod_OneWeek</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679268189"><span id="local-6989586621679268190"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AmazonopensearchserviceIndexRotationPeriod"><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod"><span class="hs-identifier hs-var">AmazonopensearchserviceIndexRotationPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AmazonopensearchserviceIndexRotationPeriod%27"><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod%27"><span class="hs-identifier hs-var">AmazonopensearchserviceIndexRotationPeriod'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAmazonopensearchserviceIndexRotationPeriod"><span class="annot"><span class="annottext">AmazonopensearchserviceIndexRotationPeriod -&gt; Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#fromAmazonopensearchserviceIndexRotationPeriod"><span class="hs-identifier hs-var hs-var">fromAmazonopensearchserviceIndexRotationPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679268181"><span id="local-6989586621679268183"><span id="local-6989586621679268185"><span class="annot"><span class="annottext">Int -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; ShowS
+[AmazonopensearchserviceIndexRotationPeriod] -&gt; ShowS
+AmazonopensearchserviceIndexRotationPeriod -&gt; String
+(Int -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; ShowS)
+-&gt; (AmazonopensearchserviceIndexRotationPeriod -&gt; String)
+-&gt; ([AmazonopensearchserviceIndexRotationPeriod] -&gt; ShowS)
+-&gt; Show AmazonopensearchserviceIndexRotationPeriod
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AmazonopensearchserviceIndexRotationPeriod] -&gt; ShowS
+$cshowList :: [AmazonopensearchserviceIndexRotationPeriod] -&gt; ShowS
+show :: AmazonopensearchserviceIndexRotationPeriod -&gt; String
+$cshow :: AmazonopensearchserviceIndexRotationPeriod -&gt; String
+showsPrec :: Int -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; ShowS
+$cshowsPrec :: Int -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679268172"><span id="local-6989586621679268174"><span id="local-6989586621679268176"><span id="local-6989586621679268178"><span class="annot"><span class="annottext">ReadPrec [AmazonopensearchserviceIndexRotationPeriod]
+ReadPrec AmazonopensearchserviceIndexRotationPeriod
+Int -&gt; ReadS AmazonopensearchserviceIndexRotationPeriod
+ReadS [AmazonopensearchserviceIndexRotationPeriod]
+(Int -&gt; ReadS AmazonopensearchserviceIndexRotationPeriod)
+-&gt; ReadS [AmazonopensearchserviceIndexRotationPeriod]
+-&gt; ReadPrec AmazonopensearchserviceIndexRotationPeriod
+-&gt; ReadPrec [AmazonopensearchserviceIndexRotationPeriod]
+-&gt; Read AmazonopensearchserviceIndexRotationPeriod
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AmazonopensearchserviceIndexRotationPeriod]
+$creadListPrec :: ReadPrec [AmazonopensearchserviceIndexRotationPeriod]
+readPrec :: ReadPrec AmazonopensearchserviceIndexRotationPeriod
+$creadPrec :: ReadPrec AmazonopensearchserviceIndexRotationPeriod
+readList :: ReadS [AmazonopensearchserviceIndexRotationPeriod]
+$creadList :: ReadS [AmazonopensearchserviceIndexRotationPeriod]
+readsPrec :: Int -&gt; ReadS AmazonopensearchserviceIndexRotationPeriod
+$creadsPrec :: Int -&gt; ReadS AmazonopensearchserviceIndexRotationPeriod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679268167"><span id="local-6989586621679268169"><span class="annot"><span class="annottext">AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool
+(AmazonopensearchserviceIndexRotationPeriod
+ -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool)
+-&gt; (AmazonopensearchserviceIndexRotationPeriod
+    -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool)
+-&gt; Eq AmazonopensearchserviceIndexRotationPeriod
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool
+$c/= :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool
+== :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool
+$c== :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679268151"><span id="local-6989586621679268153"><span id="local-6989586621679268155"><span id="local-6989586621679268157"><span id="local-6989586621679268159"><span id="local-6989586621679268161"><span id="local-6989586621679268163"><span class="annot"><span class="annottext">Eq AmazonopensearchserviceIndexRotationPeriod
+Eq AmazonopensearchserviceIndexRotationPeriod
+-&gt; (AmazonopensearchserviceIndexRotationPeriod
+    -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Ordering)
+-&gt; (AmazonopensearchserviceIndexRotationPeriod
+    -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool)
+-&gt; (AmazonopensearchserviceIndexRotationPeriod
+    -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool)
+-&gt; (AmazonopensearchserviceIndexRotationPeriod
+    -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool)
+-&gt; (AmazonopensearchserviceIndexRotationPeriod
+    -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool)
+-&gt; (AmazonopensearchserviceIndexRotationPeriod
+    -&gt; AmazonopensearchserviceIndexRotationPeriod
+    -&gt; AmazonopensearchserviceIndexRotationPeriod)
+-&gt; (AmazonopensearchserviceIndexRotationPeriod
+    -&gt; AmazonopensearchserviceIndexRotationPeriod
+    -&gt; AmazonopensearchserviceIndexRotationPeriod)
+-&gt; Ord AmazonopensearchserviceIndexRotationPeriod
+AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool
+AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Ordering
+AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod
+$cmin :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod
+max :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod
+$cmax :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod
+&gt;= :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool
+$c&gt;= :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool
+&gt; :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool
+$c&gt; :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool
+&lt;= :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool
+$c&lt;= :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool
+&lt; :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool
+$c&lt; :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Bool
+compare :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Ordering
+$ccompare :: AmazonopensearchserviceIndexRotationPeriod
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Ordering
+$cp1Ord :: Eq AmazonopensearchserviceIndexRotationPeriod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AmazonopensearchserviceIndexRotationPeriod
+ -&gt; Rep AmazonopensearchserviceIndexRotationPeriod x)
+-&gt; (forall x.
+    Rep AmazonopensearchserviceIndexRotationPeriod x
+    -&gt; AmazonopensearchserviceIndexRotationPeriod)
+-&gt; Generic AmazonopensearchserviceIndexRotationPeriod
+forall x.
+Rep AmazonopensearchserviceIndexRotationPeriod x
+-&gt; AmazonopensearchserviceIndexRotationPeriod
+forall x.
+AmazonopensearchserviceIndexRotationPeriod
+-&gt; Rep AmazonopensearchserviceIndexRotationPeriod x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AmazonopensearchserviceIndexRotationPeriod x
+-&gt; AmazonopensearchserviceIndexRotationPeriod
+$cfrom :: forall x.
+AmazonopensearchserviceIndexRotationPeriod
+-&gt; Rep AmazonopensearchserviceIndexRotationPeriod x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679268143"><span id="local-6989586621679268145"><span class="annot"><span class="annottext">Int -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Int
+AmazonopensearchserviceIndexRotationPeriod -&gt; Int
+(Int -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Int)
+-&gt; (AmazonopensearchserviceIndexRotationPeriod -&gt; Int)
+-&gt; Hashable AmazonopensearchserviceIndexRotationPeriod
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AmazonopensearchserviceIndexRotationPeriod -&gt; Int
+$chash :: AmazonopensearchserviceIndexRotationPeriod -&gt; Int
+hashWithSalt :: Int -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Int
+$chashWithSalt :: Int -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679268140"><span class="annot"><span class="annottext">AmazonopensearchserviceIndexRotationPeriod -&gt; ()
+(AmazonopensearchserviceIndexRotationPeriod -&gt; ())
+-&gt; NFData AmazonopensearchserviceIndexRotationPeriod
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AmazonopensearchserviceIndexRotationPeriod -&gt; ()
+$crnf :: AmazonopensearchserviceIndexRotationPeriod -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679268137"><span class="annot"><span class="annottext">Text -&gt; Either String AmazonopensearchserviceIndexRotationPeriod
+(Text -&gt; Either String AmazonopensearchserviceIndexRotationPeriod)
+-&gt; FromText AmazonopensearchserviceIndexRotationPeriod
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AmazonopensearchserviceIndexRotationPeriod
+$cfromText :: Text -&gt; Either String AmazonopensearchserviceIndexRotationPeriod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679268134"><span class="annot"><span class="annottext">AmazonopensearchserviceIndexRotationPeriod -&gt; Text
+(AmazonopensearchserviceIndexRotationPeriod -&gt; Text)
+-&gt; ToText AmazonopensearchserviceIndexRotationPeriod
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AmazonopensearchserviceIndexRotationPeriod -&gt; Text
+$ctoText :: AmazonopensearchserviceIndexRotationPeriod -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679268131"><span class="annot"><span class="annottext">AmazonopensearchserviceIndexRotationPeriod -&gt; ByteString
+(AmazonopensearchserviceIndexRotationPeriod -&gt; ByteString)
+-&gt; ToByteString AmazonopensearchserviceIndexRotationPeriod
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AmazonopensearchserviceIndexRotationPeriod -&gt; ByteString
+$ctoBS :: AmazonopensearchserviceIndexRotationPeriod -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679268128"><span class="annot"><span class="annottext">AmazonopensearchserviceIndexRotationPeriod -&gt; ByteStringBuilder
+(AmazonopensearchserviceIndexRotationPeriod -&gt; ByteStringBuilder)
+-&gt; ToLog AmazonopensearchserviceIndexRotationPeriod
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AmazonopensearchserviceIndexRotationPeriod -&gt; ByteStringBuilder
+$cbuild :: AmazonopensearchserviceIndexRotationPeriod -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679268125"><span class="annot"><span class="annottext">HeaderName
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; [Header]
+(HeaderName
+ -&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; [Header])
+-&gt; ToHeader AmazonopensearchserviceIndexRotationPeriod
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; [Header]
+$ctoHeader :: HeaderName
+-&gt; AmazonopensearchserviceIndexRotationPeriod -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679268122"><span class="annot"><span class="annottext">AmazonopensearchserviceIndexRotationPeriod -&gt; QueryString
+(AmazonopensearchserviceIndexRotationPeriod -&gt; QueryString)
+-&gt; ToQuery AmazonopensearchserviceIndexRotationPeriod
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AmazonopensearchserviceIndexRotationPeriod -&gt; QueryString
+$ctoQuery :: AmazonopensearchserviceIndexRotationPeriod -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679268117"><span id="local-6989586621679268119"><span class="annot"><span class="annottext">Value -&gt; Parser [AmazonopensearchserviceIndexRotationPeriod]
+Value -&gt; Parser AmazonopensearchserviceIndexRotationPeriod
+(Value -&gt; Parser AmazonopensearchserviceIndexRotationPeriod)
+-&gt; (Value -&gt; Parser [AmazonopensearchserviceIndexRotationPeriod])
+-&gt; FromJSON AmazonopensearchserviceIndexRotationPeriod
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AmazonopensearchserviceIndexRotationPeriod]
+$cparseJSONList :: Value -&gt; Parser [AmazonopensearchserviceIndexRotationPeriod]
+parseJSON :: Value -&gt; Parser AmazonopensearchserviceIndexRotationPeriod
+$cparseJSON :: Value -&gt; Parser AmazonopensearchserviceIndexRotationPeriod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679268112"><span id="local-6989586621679268114"><span class="annot"><span class="annottext">FromJSONKeyFunction [AmazonopensearchserviceIndexRotationPeriod]
+FromJSONKeyFunction AmazonopensearchserviceIndexRotationPeriod
+FromJSONKeyFunction AmazonopensearchserviceIndexRotationPeriod
+-&gt; FromJSONKeyFunction [AmazonopensearchserviceIndexRotationPeriod]
+-&gt; FromJSONKey AmazonopensearchserviceIndexRotationPeriod
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AmazonopensearchserviceIndexRotationPeriod]
+$cfromJSONKeyList :: FromJSONKeyFunction [AmazonopensearchserviceIndexRotationPeriod]
+fromJSONKey :: FromJSONKeyFunction AmazonopensearchserviceIndexRotationPeriod
+$cfromJSONKey :: FromJSONKeyFunction AmazonopensearchserviceIndexRotationPeriod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679268103"><span id="local-6989586621679268105"><span id="local-6989586621679268107"><span id="local-6989586621679268109"><span class="annot"><span class="annottext">[AmazonopensearchserviceIndexRotationPeriod] -&gt; Encoding
+[AmazonopensearchserviceIndexRotationPeriod] -&gt; Value
+AmazonopensearchserviceIndexRotationPeriod -&gt; Encoding
+AmazonopensearchserviceIndexRotationPeriod -&gt; Value
+(AmazonopensearchserviceIndexRotationPeriod -&gt; Value)
+-&gt; (AmazonopensearchserviceIndexRotationPeriod -&gt; Encoding)
+-&gt; ([AmazonopensearchserviceIndexRotationPeriod] -&gt; Value)
+-&gt; ([AmazonopensearchserviceIndexRotationPeriod] -&gt; Encoding)
+-&gt; ToJSON AmazonopensearchserviceIndexRotationPeriod
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AmazonopensearchserviceIndexRotationPeriod] -&gt; Encoding
+$ctoEncodingList :: [AmazonopensearchserviceIndexRotationPeriod] -&gt; Encoding
+toJSONList :: [AmazonopensearchserviceIndexRotationPeriod] -&gt; Value
+$ctoJSONList :: [AmazonopensearchserviceIndexRotationPeriod] -&gt; Value
+toEncoding :: AmazonopensearchserviceIndexRotationPeriod -&gt; Encoding
+$ctoEncoding :: AmazonopensearchserviceIndexRotationPeriod -&gt; Encoding
+toJSON :: AmazonopensearchserviceIndexRotationPeriod -&gt; Value
+$ctoJSON :: AmazonopensearchserviceIndexRotationPeriod -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679268098"><span id="local-6989586621679268100"><span class="annot"><span class="annottext">ToJSONKeyFunction [AmazonopensearchserviceIndexRotationPeriod]
+ToJSONKeyFunction AmazonopensearchserviceIndexRotationPeriod
+ToJSONKeyFunction AmazonopensearchserviceIndexRotationPeriod
+-&gt; ToJSONKeyFunction [AmazonopensearchserviceIndexRotationPeriod]
+-&gt; ToJSONKey AmazonopensearchserviceIndexRotationPeriod
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AmazonopensearchserviceIndexRotationPeriod]
+$ctoJSONKeyList :: ToJSONKeyFunction [AmazonopensearchserviceIndexRotationPeriod]
+toJSONKey :: ToJSONKeyFunction AmazonopensearchserviceIndexRotationPeriod
+$ctoJSONKey :: ToJSONKeyFunction AmazonopensearchserviceIndexRotationPeriod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679268095"><span class="annot"><span class="annottext">[Node] -&gt; Either String AmazonopensearchserviceIndexRotationPeriod
+([Node]
+ -&gt; Either String AmazonopensearchserviceIndexRotationPeriod)
+-&gt; FromXML AmazonopensearchserviceIndexRotationPeriod
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AmazonopensearchserviceIndexRotationPeriod
+$cparseXML :: [Node] -&gt; Either String AmazonopensearchserviceIndexRotationPeriod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679268092"><span class="annot"><span class="annottext">AmazonopensearchserviceIndexRotationPeriod -&gt; XML
+(AmazonopensearchserviceIndexRotationPeriod -&gt; XML)
+-&gt; ToXML AmazonopensearchserviceIndexRotationPeriod
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AmazonopensearchserviceIndexRotationPeriod -&gt; XML
+$ctoXML :: AmazonopensearchserviceIndexRotationPeriod -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod_NoRotation"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod_NoRotation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAmazonopensearchserviceIndexRotationPeriod_NoRotation"><span id="%24mAmazonopensearchserviceIndexRotationPeriod_NoRotation"><span id="AmazonopensearchserviceIndexRotationPeriod_NoRotation"><span class="annot"><span class="annottext">$bAmazonopensearchserviceIndexRotationPeriod_NoRotation :: AmazonopensearchserviceIndexRotationPeriod
+$mAmazonopensearchserviceIndexRotationPeriod_NoRotation :: forall r.
+AmazonopensearchserviceIndexRotationPeriod
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#%24bAmazonopensearchserviceIndexRotationPeriod_NoRotation"><span class="hs-identifier hs-var hs-var hs-var">AmazonopensearchserviceIndexRotationPeriod_NoRotation</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod%27"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NoRotation&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod_OneDay"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod_OneDay</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAmazonopensearchserviceIndexRotationPeriod_OneDay"><span id="%24mAmazonopensearchserviceIndexRotationPeriod_OneDay"><span id="AmazonopensearchserviceIndexRotationPeriod_OneDay"><span class="annot"><span class="annottext">$bAmazonopensearchserviceIndexRotationPeriod_OneDay :: AmazonopensearchserviceIndexRotationPeriod
+$mAmazonopensearchserviceIndexRotationPeriod_OneDay :: forall r.
+AmazonopensearchserviceIndexRotationPeriod
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#%24bAmazonopensearchserviceIndexRotationPeriod_OneDay"><span class="hs-identifier hs-var hs-var hs-var">AmazonopensearchserviceIndexRotationPeriod_OneDay</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod%27"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OneDay&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod_OneHour"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod_OneHour</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAmazonopensearchserviceIndexRotationPeriod_OneHour"><span id="%24mAmazonopensearchserviceIndexRotationPeriod_OneHour"><span id="AmazonopensearchserviceIndexRotationPeriod_OneHour"><span class="annot"><span class="annottext">$bAmazonopensearchserviceIndexRotationPeriod_OneHour :: AmazonopensearchserviceIndexRotationPeriod
+$mAmazonopensearchserviceIndexRotationPeriod_OneHour :: forall r.
+AmazonopensearchserviceIndexRotationPeriod
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#%24bAmazonopensearchserviceIndexRotationPeriod_OneHour"><span class="hs-identifier hs-var hs-var hs-var">AmazonopensearchserviceIndexRotationPeriod_OneHour</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod%27"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OneHour&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod_OneMonth"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod_OneMonth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAmazonopensearchserviceIndexRotationPeriod_OneMonth"><span id="%24mAmazonopensearchserviceIndexRotationPeriod_OneMonth"><span id="AmazonopensearchserviceIndexRotationPeriod_OneMonth"><span class="annot"><span class="annottext">$bAmazonopensearchserviceIndexRotationPeriod_OneMonth :: AmazonopensearchserviceIndexRotationPeriod
+$mAmazonopensearchserviceIndexRotationPeriod_OneMonth :: forall r.
+AmazonopensearchserviceIndexRotationPeriod
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#%24bAmazonopensearchserviceIndexRotationPeriod_OneMonth"><span class="hs-identifier hs-var hs-var hs-var">AmazonopensearchserviceIndexRotationPeriod_OneMonth</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod%27"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OneMonth&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod_OneWeek"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod_OneWeek</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAmazonopensearchserviceIndexRotationPeriod_OneWeek"><span id="%24mAmazonopensearchserviceIndexRotationPeriod_OneWeek"><span id="AmazonopensearchserviceIndexRotationPeriod_OneWeek"><span class="annot"><span class="annottext">$bAmazonopensearchserviceIndexRotationPeriod_OneWeek :: AmazonopensearchserviceIndexRotationPeriod
+$mAmazonopensearchserviceIndexRotationPeriod_OneWeek :: forall r.
+AmazonopensearchserviceIndexRotationPeriod
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#%24bAmazonopensearchserviceIndexRotationPeriod_OneWeek"><span class="hs-identifier hs-var hs-var hs-var">AmazonopensearchserviceIndexRotationPeriod_OneWeek</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod%27"><span class="hs-identifier hs-type">AmazonopensearchserviceIndexRotationPeriod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OneWeek&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod_NoRotation"><span class="hs-pragma hs-type">AmazonopensearchserviceIndexRotationPeriod_NoRotation</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod_OneDay"><span class="hs-pragma hs-type">AmazonopensearchserviceIndexRotationPeriod_OneDay</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod_OneHour"><span class="hs-pragma hs-type">AmazonopensearchserviceIndexRotationPeriod_OneHour</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod_OneMonth"><span class="hs-pragma hs-type">AmazonopensearchserviceIndexRotationPeriod_OneMonth</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod_OneWeek"><span class="hs-pragma hs-type">AmazonopensearchserviceIndexRotationPeriod_OneWeek</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod.html#AmazonopensearchserviceIndexRotationPeriod%27"><span class="hs-pragma hs-type">AmazonopensearchserviceIndexRotationPeriod'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

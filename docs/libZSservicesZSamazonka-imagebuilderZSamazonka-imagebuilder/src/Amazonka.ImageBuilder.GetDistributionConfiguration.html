@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ImageBuilder.GetDistributionConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a distribution configuration.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ImageBuilder.GetDistributionConfiguration</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration"><span class="hs-identifier">GetDistributionConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#newGetDistributionConfiguration"><span class="hs-identifier">newGetDistributionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#getDistributionConfiguration_distributionConfigurationArn"><span class="hs-identifier">getDistributionConfiguration_distributionConfigurationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse"><span class="hs-identifier">GetDistributionConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#newGetDistributionConfigurationResponse"><span class="hs-identifier">newGetDistributionConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#getDistributionConfigurationResponse_requestId"><span class="hs-identifier">getDistributionConfigurationResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#getDistributionConfigurationResponse_distributionConfiguration"><span class="hs-identifier">getDistributionConfigurationResponse_distributionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#getDistributionConfigurationResponse_httpStatus"><span class="hs-identifier">getDistributionConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.html"><span class="hs-identifier">Amazonka.ImageBuilder.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetDistributionConfiguration' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679326513"><span id="local-6989586621679326514"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDistributionConfiguration"><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration"><span class="hs-identifier hs-var">GetDistributionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDistributionConfiguration%27"><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration%27"><span class="hs-identifier hs-var">GetDistributionConfiguration'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the distribution configuration that</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- you want to retrieve.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AdistributionConfigurationArn%3AGetDistributionConfiguration%27"><span class="annot"><span class="annottext">GetDistributionConfiguration -&gt; Text
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#%24sel%3AdistributionConfigurationArn%3AGetDistributionConfiguration%27"><span class="hs-identifier hs-var hs-var">distributionConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326507"><span id="local-6989586621679326509"><span class="annot"><span class="annottext">GetDistributionConfiguration
+-&gt; GetDistributionConfiguration -&gt; Bool
+(GetDistributionConfiguration
+ -&gt; GetDistributionConfiguration -&gt; Bool)
+-&gt; (GetDistributionConfiguration
+    -&gt; GetDistributionConfiguration -&gt; Bool)
+-&gt; Eq GetDistributionConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDistributionConfiguration
+-&gt; GetDistributionConfiguration -&gt; Bool
+$c/= :: GetDistributionConfiguration
+-&gt; GetDistributionConfiguration -&gt; Bool
+== :: GetDistributionConfiguration
+-&gt; GetDistributionConfiguration -&gt; Bool
+$c== :: GetDistributionConfiguration
+-&gt; GetDistributionConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326498"><span id="local-6989586621679326500"><span id="local-6989586621679326502"><span id="local-6989586621679326504"><span class="annot"><span class="annottext">ReadPrec [GetDistributionConfiguration]
+ReadPrec GetDistributionConfiguration
+Int -&gt; ReadS GetDistributionConfiguration
+ReadS [GetDistributionConfiguration]
+(Int -&gt; ReadS GetDistributionConfiguration)
+-&gt; ReadS [GetDistributionConfiguration]
+-&gt; ReadPrec GetDistributionConfiguration
+-&gt; ReadPrec [GetDistributionConfiguration]
+-&gt; Read GetDistributionConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDistributionConfiguration]
+$creadListPrec :: ReadPrec [GetDistributionConfiguration]
+readPrec :: ReadPrec GetDistributionConfiguration
+$creadPrec :: ReadPrec GetDistributionConfiguration
+readList :: ReadS [GetDistributionConfiguration]
+$creadList :: ReadS [GetDistributionConfiguration]
+readsPrec :: Int -&gt; ReadS GetDistributionConfiguration
+$creadsPrec :: Int -&gt; ReadS GetDistributionConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326491"><span id="local-6989586621679326493"><span id="local-6989586621679326495"><span class="annot"><span class="annottext">Int -&gt; GetDistributionConfiguration -&gt; ShowS
+[GetDistributionConfiguration] -&gt; ShowS
+GetDistributionConfiguration -&gt; String
+(Int -&gt; GetDistributionConfiguration -&gt; ShowS)
+-&gt; (GetDistributionConfiguration -&gt; String)
+-&gt; ([GetDistributionConfiguration] -&gt; ShowS)
+-&gt; Show GetDistributionConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDistributionConfiguration] -&gt; ShowS
+$cshowList :: [GetDistributionConfiguration] -&gt; ShowS
+show :: GetDistributionConfiguration -&gt; String
+$cshow :: GetDistributionConfiguration -&gt; String
+showsPrec :: Int -&gt; GetDistributionConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDistributionConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDistributionConfiguration -&gt; Rep GetDistributionConfiguration x)
+-&gt; (forall x.
+    Rep GetDistributionConfiguration x -&gt; GetDistributionConfiguration)
+-&gt; Generic GetDistributionConfiguration
+forall x.
+Rep GetDistributionConfiguration x -&gt; GetDistributionConfiguration
+forall x.
+GetDistributionConfiguration -&gt; Rep GetDistributionConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetDistributionConfiguration x -&gt; GetDistributionConfiguration
+$cfrom :: forall x.
+GetDistributionConfiguration -&gt; Rep GetDistributionConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'GetDistributionConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'distributionConfigurationArn', 'getDistributionConfiguration_distributionConfigurationArn' - The Amazon Resource Name (ARN) of the distribution configuration that</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- you want to retrieve.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#newGetDistributionConfiguration"><span class="hs-identifier hs-type">newGetDistributionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'distributionConfigurationArn'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration"><span class="hs-identifier hs-type">GetDistributionConfiguration</span></a></span><span>
+</span><span id="line-72"></span><span id="newGetDistributionConfiguration"><span class="annot"><span class="annottext">newGetDistributionConfiguration :: Text -&gt; GetDistributionConfiguration
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#newGetDistributionConfiguration"><span class="hs-identifier hs-var hs-var">newGetDistributionConfiguration</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679326486"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326486"><span class="hs-identifier hs-var">pDistributionConfigurationArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">GetDistributionConfiguration' :: Text -&gt; GetDistributionConfiguration
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration%27"><span class="hs-identifier hs-type">GetDistributionConfiguration'</span></a></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:distributionConfigurationArn:GetDistributionConfiguration' :: Text
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#%24sel%3AdistributionConfigurationArn%3AGetDistributionConfiguration%27"><span class="hs-identifier hs-var">distributionConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326486"><span class="hs-identifier hs-var">pDistributionConfigurationArn_</span></a></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the distribution configuration that</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- you want to retrieve.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#getDistributionConfiguration_distributionConfigurationArn"><span class="hs-identifier hs-type">getDistributionConfiguration_distributionConfigurationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration"><span class="hs-identifier hs-type">GetDistributionConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="getDistributionConfiguration_distributionConfigurationArn"><span class="annot"><span class="annottext">getDistributionConfiguration_distributionConfigurationArn :: (Text -&gt; f Text)
+-&gt; GetDistributionConfiguration -&gt; f GetDistributionConfiguration
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#getDistributionConfiguration_distributionConfigurationArn"><span class="hs-identifier hs-var hs-var">getDistributionConfiguration_distributionConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDistributionConfiguration -&gt; Text)
+-&gt; (GetDistributionConfiguration
+    -&gt; Text -&gt; GetDistributionConfiguration)
+-&gt; Lens
+     GetDistributionConfiguration GetDistributionConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration%27"><span class="hs-identifier hs-type">GetDistributionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326483"><span class="annot"><span class="annottext">Text
+distributionConfigurationArn :: Text
+$sel:distributionConfigurationArn:GetDistributionConfiguration' :: GetDistributionConfiguration -&gt; Text
+</span><a href="#local-6989586621679326483"><span class="hs-identifier hs-var hs-var">distributionConfigurationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326483"><span class="hs-identifier hs-var">distributionConfigurationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326482"><span class="annot"><span class="annottext">s :: GetDistributionConfiguration
+</span><a href="#local-6989586621679326482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration%27"><span class="hs-identifier hs-type">GetDistributionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326481"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionConfiguration
+</span><a href="#local-6989586621679326482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionConfigurationArn:GetDistributionConfiguration' :: Text
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#%24sel%3AdistributionConfigurationArn%3AGetDistributionConfiguration%27"><span class="hs-identifier hs-var">distributionConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration"><span class="hs-identifier hs-type">GetDistributionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration"><span class="hs-identifier hs-type">GetDistributionConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration"><span class="hs-identifier hs-type">GetDistributionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679326477"><span class="annot"><span class="annottext">request :: GetDistributionConfiguration
+-&gt; Request GetDistributionConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetDistributionConfiguration
+-&gt; Request GetDistributionConfiguration
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ImageBuilder.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679326473"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDistributionConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDistributionConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDistributionConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDistributionConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDistributionConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326470"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326470"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679326469"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679326469"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679326468"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326468"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe DistributionConfiguration
+-&gt; Int
+-&gt; GetDistributionConfigurationResponse
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse%27"><span class="hs-identifier hs-var">GetDistributionConfigurationResponse'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe DistributionConfiguration
+ -&gt; Int
+ -&gt; GetDistributionConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe DistributionConfiguration
+      -&gt; Int -&gt; GetDistributionConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;requestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe DistributionConfiguration
+   -&gt; Int -&gt; GetDistributionConfigurationResponse)
+-&gt; Either String (Maybe DistributionConfiguration)
+-&gt; Either String (Int -&gt; GetDistributionConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DistributionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;distributionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDistributionConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either String GetDistributionConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326470"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679326460"><span id="local-6989586621679326462"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration"><span class="hs-identifier hs-type">GetDistributionConfiguration</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326457"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration"><span class="hs-identifier hs-type">GetDistributionConfiguration</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration"><span class="hs-identifier hs-type">GetDistributionConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679326453"><span class="annot"><span class="annottext">toHeaders :: GetDistributionConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDistributionConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration"><span class="hs-identifier hs-type">GetDistributionConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679326447"><span class="annot"><span class="annottext">toPath :: GetDistributionConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; GetDistributionConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/GetDistributionConfiguration&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration"><span class="hs-identifier hs-type">GetDistributionConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679326443"><span class="annot"><span class="annottext">toQuery :: GetDistributionConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfiguration%27"><span class="hs-identifier hs-type">GetDistributionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326441"><span class="annot"><span class="annottext">Text
+distributionConfigurationArn :: Text
+$sel:distributionConfigurationArn:GetDistributionConfiguration' :: GetDistributionConfiguration -&gt; Text
+</span><a href="#local-6989586621679326441"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;distributionConfigurationArn&quot;</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326441"><span class="hs-identifier hs-var">distributionConfigurationArn</span></a></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newGetDistributionConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-127"></span><span id="local-6989586621679326438"><span id="local-6989586621679326439"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDistributionConfigurationResponse"><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse"><span class="hs-identifier hs-var">GetDistributionConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDistributionConfigurationResponse%27"><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse%27"><span class="hs-identifier hs-var">GetDistributionConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The request ID that uniquely identifies this request.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3ArequestId%3AGetDistributionConfigurationResponse%27"><span class="annot"><span class="annottext">GetDistributionConfigurationResponse -&gt; Maybe Text
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#%24sel%3ArequestId%3AGetDistributionConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The distribution configuration object.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AdistributionConfiguration%3AGetDistributionConfigurationResponse%27"><span class="annot"><span class="annottext">GetDistributionConfigurationResponse
+-&gt; Maybe DistributionConfiguration
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#%24sel%3AdistributionConfiguration%3AGetDistributionConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">distributionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.DistributionConfiguration.html#DistributionConfiguration"><span class="hs-identifier hs-type">DistributionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDistributionConfigurationResponse%27"><span class="annot"><span class="annottext">GetDistributionConfigurationResponse -&gt; Int
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#%24sel%3AhttpStatus%3AGetDistributionConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326431"><span id="local-6989586621679326433"><span class="annot"><span class="annottext">GetDistributionConfigurationResponse
+-&gt; GetDistributionConfigurationResponse -&gt; Bool
+(GetDistributionConfigurationResponse
+ -&gt; GetDistributionConfigurationResponse -&gt; Bool)
+-&gt; (GetDistributionConfigurationResponse
+    -&gt; GetDistributionConfigurationResponse -&gt; Bool)
+-&gt; Eq GetDistributionConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDistributionConfigurationResponse
+-&gt; GetDistributionConfigurationResponse -&gt; Bool
+$c/= :: GetDistributionConfigurationResponse
+-&gt; GetDistributionConfigurationResponse -&gt; Bool
+== :: GetDistributionConfigurationResponse
+-&gt; GetDistributionConfigurationResponse -&gt; Bool
+$c== :: GetDistributionConfigurationResponse
+-&gt; GetDistributionConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326423"><span id="local-6989586621679326425"><span id="local-6989586621679326427"><span id="local-6989586621679326429"><span class="annot"><span class="annottext">ReadPrec [GetDistributionConfigurationResponse]
+ReadPrec GetDistributionConfigurationResponse
+Int -&gt; ReadS GetDistributionConfigurationResponse
+ReadS [GetDistributionConfigurationResponse]
+(Int -&gt; ReadS GetDistributionConfigurationResponse)
+-&gt; ReadS [GetDistributionConfigurationResponse]
+-&gt; ReadPrec GetDistributionConfigurationResponse
+-&gt; ReadPrec [GetDistributionConfigurationResponse]
+-&gt; Read GetDistributionConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDistributionConfigurationResponse]
+$creadListPrec :: ReadPrec [GetDistributionConfigurationResponse]
+readPrec :: ReadPrec GetDistributionConfigurationResponse
+$creadPrec :: ReadPrec GetDistributionConfigurationResponse
+readList :: ReadS [GetDistributionConfigurationResponse]
+$creadList :: ReadS [GetDistributionConfigurationResponse]
+readsPrec :: Int -&gt; ReadS GetDistributionConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS GetDistributionConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326417"><span id="local-6989586621679326419"><span id="local-6989586621679326421"><span class="annot"><span class="annottext">Int -&gt; GetDistributionConfigurationResponse -&gt; ShowS
+[GetDistributionConfigurationResponse] -&gt; ShowS
+GetDistributionConfigurationResponse -&gt; String
+(Int -&gt; GetDistributionConfigurationResponse -&gt; ShowS)
+-&gt; (GetDistributionConfigurationResponse -&gt; String)
+-&gt; ([GetDistributionConfigurationResponse] -&gt; ShowS)
+-&gt; Show GetDistributionConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDistributionConfigurationResponse] -&gt; ShowS
+$cshowList :: [GetDistributionConfigurationResponse] -&gt; ShowS
+show :: GetDistributionConfigurationResponse -&gt; String
+$cshow :: GetDistributionConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; GetDistributionConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDistributionConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDistributionConfigurationResponse
+ -&gt; Rep GetDistributionConfigurationResponse x)
+-&gt; (forall x.
+    Rep GetDistributionConfigurationResponse x
+    -&gt; GetDistributionConfigurationResponse)
+-&gt; Generic GetDistributionConfigurationResponse
+forall x.
+Rep GetDistributionConfigurationResponse x
+-&gt; GetDistributionConfigurationResponse
+forall x.
+GetDistributionConfigurationResponse
+-&gt; Rep GetDistributionConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetDistributionConfigurationResponse x
+-&gt; GetDistributionConfigurationResponse
+$cfrom :: forall x.
+GetDistributionConfigurationResponse
+-&gt; Rep GetDistributionConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Create a value of 'GetDistributionConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'requestId', 'getDistributionConfigurationResponse_requestId' - The request ID that uniquely identifies this request.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'distributionConfiguration', 'getDistributionConfigurationResponse_distributionConfiguration' - The distribution configuration object.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'getDistributionConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#newGetDistributionConfigurationResponse"><span class="hs-identifier hs-type">newGetDistributionConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newGetDistributionConfigurationResponse"><span class="annot"><span class="annottext">newGetDistributionConfigurationResponse :: Int -&gt; GetDistributionConfigurationResponse
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#newGetDistributionConfigurationResponse"><span class="hs-identifier hs-var hs-var">newGetDistributionConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679326414"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326414"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">GetDistributionConfigurationResponse' :: Maybe Text
+-&gt; Maybe DistributionConfiguration
+-&gt; Int
+-&gt; GetDistributionConfigurationResponse
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:GetDistributionConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#%24sel%3ArequestId%3AGetDistributionConfigurationResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:distributionConfiguration:GetDistributionConfigurationResponse' :: Maybe DistributionConfiguration
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#%24sel%3AdistributionConfiguration%3AGetDistributionConfigurationResponse%27"><span class="hs-identifier hs-var">distributionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Maybe DistributionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDistributionConfigurationResponse' :: Int
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#%24sel%3AhttpStatus%3AGetDistributionConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326414"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The request ID that uniquely identifies this request.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#getDistributionConfigurationResponse_requestId"><span class="hs-identifier hs-type">getDistributionConfigurationResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="getDistributionConfigurationResponse_requestId"><span class="annot"><span class="annottext">getDistributionConfigurationResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDistributionConfigurationResponse
+-&gt; f GetDistributionConfigurationResponse
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#getDistributionConfigurationResponse_requestId"><span class="hs-identifier hs-var hs-var">getDistributionConfigurationResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDistributionConfigurationResponse -&gt; Maybe Text)
+-&gt; (GetDistributionConfigurationResponse
+    -&gt; Maybe Text -&gt; GetDistributionConfigurationResponse)
+-&gt; Lens
+     GetDistributionConfigurationResponse
+     GetDistributionConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326413"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:GetDistributionConfigurationResponse' :: GetDistributionConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679326413"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326413"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326412"><span class="annot"><span class="annottext">s :: GetDistributionConfigurationResponse
+</span><a href="#local-6989586621679326412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326411"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionConfigurationResponse
+</span><a href="#local-6989586621679326412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:GetDistributionConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#%24sel%3ArequestId%3AGetDistributionConfigurationResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The distribution configuration object.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#getDistributionConfigurationResponse_distributionConfiguration"><span class="hs-identifier hs-type">getDistributionConfigurationResponse_distributionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.DistributionConfiguration.html#DistributionConfiguration"><span class="hs-identifier hs-type">DistributionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="getDistributionConfigurationResponse_distributionConfiguration"><span class="annot"><span class="annottext">getDistributionConfigurationResponse_distributionConfiguration :: (Maybe DistributionConfiguration
+ -&gt; f (Maybe DistributionConfiguration))
+-&gt; GetDistributionConfigurationResponse
+-&gt; f GetDistributionConfigurationResponse
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#getDistributionConfigurationResponse_distributionConfiguration"><span class="hs-identifier hs-var hs-var">getDistributionConfigurationResponse_distributionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDistributionConfigurationResponse
+ -&gt; Maybe DistributionConfiguration)
+-&gt; (GetDistributionConfigurationResponse
+    -&gt; Maybe DistributionConfiguration
+    -&gt; GetDistributionConfigurationResponse)
+-&gt; Lens
+     GetDistributionConfigurationResponse
+     GetDistributionConfigurationResponse
+     (Maybe DistributionConfiguration)
+     (Maybe DistributionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326410"><span class="annot"><span class="annottext">Maybe DistributionConfiguration
+distributionConfiguration :: Maybe DistributionConfiguration
+$sel:distributionConfiguration:GetDistributionConfigurationResponse' :: GetDistributionConfigurationResponse
+-&gt; Maybe DistributionConfiguration
+</span><a href="#local-6989586621679326410"><span class="hs-identifier hs-var hs-var">distributionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DistributionConfiguration
+</span><a href="#local-6989586621679326410"><span class="hs-identifier hs-var">distributionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326409"><span class="annot"><span class="annottext">s :: GetDistributionConfigurationResponse
+</span><a href="#local-6989586621679326409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326408"><span class="annot"><span class="annottext">Maybe DistributionConfiguration
+</span><a href="#local-6989586621679326408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionConfigurationResponse
+</span><a href="#local-6989586621679326409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionConfiguration:GetDistributionConfigurationResponse' :: Maybe DistributionConfiguration
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#%24sel%3AdistributionConfiguration%3AGetDistributionConfigurationResponse%27"><span class="hs-identifier hs-var">distributionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DistributionConfiguration
+</span><a href="#local-6989586621679326408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#getDistributionConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">getDistributionConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span id="getDistributionConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">getDistributionConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDistributionConfigurationResponse
+-&gt; f GetDistributionConfigurationResponse
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#getDistributionConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDistributionConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDistributionConfigurationResponse -&gt; Int)
+-&gt; (GetDistributionConfigurationResponse
+    -&gt; Int -&gt; GetDistributionConfigurationResponse)
+-&gt; Lens
+     GetDistributionConfigurationResponse
+     GetDistributionConfigurationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326407"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDistributionConfigurationResponse' :: GetDistributionConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679326407"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326407"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326406"><span class="annot"><span class="annottext">s :: GetDistributionConfigurationResponse
+</span><a href="#local-6989586621679326406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326405"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionConfigurationResponse
+</span><a href="#local-6989586621679326406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDistributionConfigurationResponse' :: Int
+</span><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#%24sel%3AhttpStatus%3AGetDistributionConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679326403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetDistributionConfiguration.html#GetDistributionConfigurationResponse"><span class="hs-identifier hs-type">GetDistributionConfigurationResponse</span></a></span></span><span>
+</span><span id="line-178"></span></pre></body></html>

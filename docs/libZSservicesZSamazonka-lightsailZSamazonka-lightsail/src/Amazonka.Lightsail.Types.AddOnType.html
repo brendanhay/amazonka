@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.Types.AddOnType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.Types.AddOnType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AddOnType.html#AddOnType"><span class="hs-identifier">AddOnType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Lightsail.Types.AddOnType.html#AddOnType_AutoSnapshot"><span class="hs-identifier">AddOnType_AutoSnapshot</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679603614"><span id="local-6989586621679603615"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AddOnType"><span class="annot"><a href="Amazonka.Lightsail.Types.AddOnType.html#AddOnType"><span class="hs-identifier hs-var">AddOnType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddOnType%27"><span class="annot"><a href="Amazonka.Lightsail.Types.AddOnType.html#AddOnType%27"><span class="hs-identifier hs-var">AddOnType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAddOnType"><span class="annot"><span class="annottext">AddOnType -&gt; Text
+</span><a href="Amazonka.Lightsail.Types.AddOnType.html#fromAddOnType"><span class="hs-identifier hs-var hs-var">fromAddOnType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679603606"><span id="local-6989586621679603608"><span id="local-6989586621679603610"><span class="annot"><span class="annottext">Int -&gt; AddOnType -&gt; ShowS
+[AddOnType] -&gt; ShowS
+AddOnType -&gt; String
+(Int -&gt; AddOnType -&gt; ShowS)
+-&gt; (AddOnType -&gt; String)
+-&gt; ([AddOnType] -&gt; ShowS)
+-&gt; Show AddOnType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddOnType] -&gt; ShowS
+$cshowList :: [AddOnType] -&gt; ShowS
+show :: AddOnType -&gt; String
+$cshow :: AddOnType -&gt; String
+showsPrec :: Int -&gt; AddOnType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddOnType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679603597"><span id="local-6989586621679603599"><span id="local-6989586621679603601"><span id="local-6989586621679603603"><span class="annot"><span class="annottext">ReadPrec [AddOnType]
+ReadPrec AddOnType
+Int -&gt; ReadS AddOnType
+ReadS [AddOnType]
+(Int -&gt; ReadS AddOnType)
+-&gt; ReadS [AddOnType]
+-&gt; ReadPrec AddOnType
+-&gt; ReadPrec [AddOnType]
+-&gt; Read AddOnType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddOnType]
+$creadListPrec :: ReadPrec [AddOnType]
+readPrec :: ReadPrec AddOnType
+$creadPrec :: ReadPrec AddOnType
+readList :: ReadS [AddOnType]
+$creadList :: ReadS [AddOnType]
+readsPrec :: Int -&gt; ReadS AddOnType
+$creadsPrec :: Int -&gt; ReadS AddOnType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679603592"><span id="local-6989586621679603594"><span class="annot"><span class="annottext">AddOnType -&gt; AddOnType -&gt; Bool
+(AddOnType -&gt; AddOnType -&gt; Bool)
+-&gt; (AddOnType -&gt; AddOnType -&gt; Bool) -&gt; Eq AddOnType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddOnType -&gt; AddOnType -&gt; Bool
+$c/= :: AddOnType -&gt; AddOnType -&gt; Bool
+== :: AddOnType -&gt; AddOnType -&gt; Bool
+$c== :: AddOnType -&gt; AddOnType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679603576"><span id="local-6989586621679603578"><span id="local-6989586621679603580"><span id="local-6989586621679603582"><span id="local-6989586621679603584"><span id="local-6989586621679603586"><span id="local-6989586621679603588"><span class="annot"><span class="annottext">Eq AddOnType
+Eq AddOnType
+-&gt; (AddOnType -&gt; AddOnType -&gt; Ordering)
+-&gt; (AddOnType -&gt; AddOnType -&gt; Bool)
+-&gt; (AddOnType -&gt; AddOnType -&gt; Bool)
+-&gt; (AddOnType -&gt; AddOnType -&gt; Bool)
+-&gt; (AddOnType -&gt; AddOnType -&gt; Bool)
+-&gt; (AddOnType -&gt; AddOnType -&gt; AddOnType)
+-&gt; (AddOnType -&gt; AddOnType -&gt; AddOnType)
+-&gt; Ord AddOnType
+AddOnType -&gt; AddOnType -&gt; Bool
+AddOnType -&gt; AddOnType -&gt; Ordering
+AddOnType -&gt; AddOnType -&gt; AddOnType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AddOnType -&gt; AddOnType -&gt; AddOnType
+$cmin :: AddOnType -&gt; AddOnType -&gt; AddOnType
+max :: AddOnType -&gt; AddOnType -&gt; AddOnType
+$cmax :: AddOnType -&gt; AddOnType -&gt; AddOnType
+&gt;= :: AddOnType -&gt; AddOnType -&gt; Bool
+$c&gt;= :: AddOnType -&gt; AddOnType -&gt; Bool
+&gt; :: AddOnType -&gt; AddOnType -&gt; Bool
+$c&gt; :: AddOnType -&gt; AddOnType -&gt; Bool
+&lt;= :: AddOnType -&gt; AddOnType -&gt; Bool
+$c&lt;= :: AddOnType -&gt; AddOnType -&gt; Bool
+&lt; :: AddOnType -&gt; AddOnType -&gt; Bool
+$c&lt; :: AddOnType -&gt; AddOnType -&gt; Bool
+compare :: AddOnType -&gt; AddOnType -&gt; Ordering
+$ccompare :: AddOnType -&gt; AddOnType -&gt; Ordering
+$cp1Ord :: Eq AddOnType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AddOnType -&gt; Rep AddOnType x)
+-&gt; (forall x. Rep AddOnType x -&gt; AddOnType) -&gt; Generic AddOnType
+forall x. Rep AddOnType x -&gt; AddOnType
+forall x. AddOnType -&gt; Rep AddOnType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddOnType x -&gt; AddOnType
+$cfrom :: forall x. AddOnType -&gt; Rep AddOnType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679603568"><span id="local-6989586621679603570"><span class="annot"><span class="annottext">Int -&gt; AddOnType -&gt; Int
+AddOnType -&gt; Int
+(Int -&gt; AddOnType -&gt; Int)
+-&gt; (AddOnType -&gt; Int) -&gt; Hashable AddOnType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AddOnType -&gt; Int
+$chash :: AddOnType -&gt; Int
+hashWithSalt :: Int -&gt; AddOnType -&gt; Int
+$chashWithSalt :: Int -&gt; AddOnType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679603565"><span class="annot"><span class="annottext">AddOnType -&gt; ()
+(AddOnType -&gt; ()) -&gt; NFData AddOnType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AddOnType -&gt; ()
+$crnf :: AddOnType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679603562"><span class="annot"><span class="annottext">Text -&gt; Either String AddOnType
+(Text -&gt; Either String AddOnType) -&gt; FromText AddOnType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AddOnType
+$cfromText :: Text -&gt; Either String AddOnType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679603559"><span class="annot"><span class="annottext">AddOnType -&gt; Text
+(AddOnType -&gt; Text) -&gt; ToText AddOnType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AddOnType -&gt; Text
+$ctoText :: AddOnType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679603556"><span class="annot"><span class="annottext">AddOnType -&gt; ByteString
+(AddOnType -&gt; ByteString) -&gt; ToByteString AddOnType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AddOnType -&gt; ByteString
+$ctoBS :: AddOnType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679603553"><span class="annot"><span class="annottext">AddOnType -&gt; ByteStringBuilder
+(AddOnType -&gt; ByteStringBuilder) -&gt; ToLog AddOnType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AddOnType -&gt; ByteStringBuilder
+$cbuild :: AddOnType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679603550"><span class="annot"><span class="annottext">HeaderName -&gt; AddOnType -&gt; [Header]
+(HeaderName -&gt; AddOnType -&gt; [Header]) -&gt; ToHeader AddOnType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AddOnType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AddOnType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679603547"><span class="annot"><span class="annottext">AddOnType -&gt; QueryString
+(AddOnType -&gt; QueryString) -&gt; ToQuery AddOnType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AddOnType -&gt; QueryString
+$ctoQuery :: AddOnType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679603542"><span id="local-6989586621679603544"><span class="annot"><span class="annottext">Value -&gt; Parser [AddOnType]
+Value -&gt; Parser AddOnType
+(Value -&gt; Parser AddOnType)
+-&gt; (Value -&gt; Parser [AddOnType]) -&gt; FromJSON AddOnType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AddOnType]
+$cparseJSONList :: Value -&gt; Parser [AddOnType]
+parseJSON :: Value -&gt; Parser AddOnType
+$cparseJSON :: Value -&gt; Parser AddOnType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679603537"><span id="local-6989586621679603539"><span class="annot"><span class="annottext">FromJSONKeyFunction [AddOnType]
+FromJSONKeyFunction AddOnType
+FromJSONKeyFunction AddOnType
+-&gt; FromJSONKeyFunction [AddOnType] -&gt; FromJSONKey AddOnType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AddOnType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AddOnType]
+fromJSONKey :: FromJSONKeyFunction AddOnType
+$cfromJSONKey :: FromJSONKeyFunction AddOnType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679603528"><span id="local-6989586621679603530"><span id="local-6989586621679603532"><span id="local-6989586621679603534"><span class="annot"><span class="annottext">[AddOnType] -&gt; Encoding
+[AddOnType] -&gt; Value
+AddOnType -&gt; Encoding
+AddOnType -&gt; Value
+(AddOnType -&gt; Value)
+-&gt; (AddOnType -&gt; Encoding)
+-&gt; ([AddOnType] -&gt; Value)
+-&gt; ([AddOnType] -&gt; Encoding)
+-&gt; ToJSON AddOnType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AddOnType] -&gt; Encoding
+$ctoEncodingList :: [AddOnType] -&gt; Encoding
+toJSONList :: [AddOnType] -&gt; Value
+$ctoJSONList :: [AddOnType] -&gt; Value
+toEncoding :: AddOnType -&gt; Encoding
+$ctoEncoding :: AddOnType -&gt; Encoding
+toJSON :: AddOnType -&gt; Value
+$ctoJSON :: AddOnType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679603523"><span id="local-6989586621679603525"><span class="annot"><span class="annottext">ToJSONKeyFunction [AddOnType]
+ToJSONKeyFunction AddOnType
+ToJSONKeyFunction AddOnType
+-&gt; ToJSONKeyFunction [AddOnType] -&gt; ToJSONKey AddOnType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AddOnType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AddOnType]
+toJSONKey :: ToJSONKeyFunction AddOnType
+$ctoJSONKey :: ToJSONKeyFunction AddOnType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679603520"><span class="annot"><span class="annottext">[Node] -&gt; Either String AddOnType
+([Node] -&gt; Either String AddOnType) -&gt; FromXML AddOnType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AddOnType
+$cparseXML :: [Node] -&gt; Either String AddOnType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679603517"><span class="annot"><span class="annottext">AddOnType -&gt; XML
+(AddOnType -&gt; XML) -&gt; ToXML AddOnType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AddOnType -&gt; XML
+$ctoXML :: AddOnType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AddOnType.html#AddOnType_AutoSnapshot"><span class="hs-identifier hs-type">AddOnType_AutoSnapshot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AddOnType.html#AddOnType"><span class="hs-identifier hs-type">AddOnType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAddOnType_AutoSnapshot"><span id="%24mAddOnType_AutoSnapshot"><span id="AddOnType_AutoSnapshot"><span class="annot"><span class="annottext">$bAddOnType_AutoSnapshot :: AddOnType
+$mAddOnType_AutoSnapshot :: forall r. AddOnType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Lightsail.Types.AddOnType.html#%24bAddOnType_AutoSnapshot"><span class="hs-identifier hs-var hs-var hs-var">AddOnType_AutoSnapshot</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AddOnType.html#AddOnType%27"><span class="hs-identifier hs-type">AddOnType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AutoSnapshot&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.AddOnType.html#AddOnType_AutoSnapshot"><span class="hs-pragma hs-type">AddOnType_AutoSnapshot</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.AddOnType.html#AddOnType%27"><span class="hs-pragma hs-type">AddOnType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

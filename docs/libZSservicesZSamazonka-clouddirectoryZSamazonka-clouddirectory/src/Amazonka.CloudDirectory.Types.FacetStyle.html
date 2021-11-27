@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudDirectory.Types.FacetStyle</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudDirectory.Types.FacetStyle</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#FacetStyle"><span class="hs-identifier">FacetStyle</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#FacetStyle_DYNAMIC"><span class="hs-identifier">FacetStyle_DYNAMIC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#FacetStyle_STATIC"><span class="hs-identifier">FacetStyle_STATIC</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679324248"><span id="local-6989586621679324249"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FacetStyle"><span class="annot"><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#FacetStyle"><span class="hs-identifier hs-var">FacetStyle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FacetStyle%27"><span class="annot"><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#FacetStyle%27"><span class="hs-identifier hs-var">FacetStyle'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFacetStyle"><span class="annot"><span class="annottext">FacetStyle -&gt; Text
+</span><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#fromFacetStyle"><span class="hs-identifier hs-var hs-var">fromFacetStyle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324240"><span id="local-6989586621679324242"><span id="local-6989586621679324244"><span class="annot"><span class="annottext">Int -&gt; FacetStyle -&gt; ShowS
+[FacetStyle] -&gt; ShowS
+FacetStyle -&gt; String
+(Int -&gt; FacetStyle -&gt; ShowS)
+-&gt; (FacetStyle -&gt; String)
+-&gt; ([FacetStyle] -&gt; ShowS)
+-&gt; Show FacetStyle
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FacetStyle] -&gt; ShowS
+$cshowList :: [FacetStyle] -&gt; ShowS
+show :: FacetStyle -&gt; String
+$cshow :: FacetStyle -&gt; String
+showsPrec :: Int -&gt; FacetStyle -&gt; ShowS
+$cshowsPrec :: Int -&gt; FacetStyle -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679324231"><span id="local-6989586621679324233"><span id="local-6989586621679324235"><span id="local-6989586621679324237"><span class="annot"><span class="annottext">ReadPrec [FacetStyle]
+ReadPrec FacetStyle
+Int -&gt; ReadS FacetStyle
+ReadS [FacetStyle]
+(Int -&gt; ReadS FacetStyle)
+-&gt; ReadS [FacetStyle]
+-&gt; ReadPrec FacetStyle
+-&gt; ReadPrec [FacetStyle]
+-&gt; Read FacetStyle
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FacetStyle]
+$creadListPrec :: ReadPrec [FacetStyle]
+readPrec :: ReadPrec FacetStyle
+$creadPrec :: ReadPrec FacetStyle
+readList :: ReadS [FacetStyle]
+$creadList :: ReadS [FacetStyle]
+readsPrec :: Int -&gt; ReadS FacetStyle
+$creadsPrec :: Int -&gt; ReadS FacetStyle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679324226"><span id="local-6989586621679324228"><span class="annot"><span class="annottext">FacetStyle -&gt; FacetStyle -&gt; Bool
+(FacetStyle -&gt; FacetStyle -&gt; Bool)
+-&gt; (FacetStyle -&gt; FacetStyle -&gt; Bool) -&gt; Eq FacetStyle
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FacetStyle -&gt; FacetStyle -&gt; Bool
+$c/= :: FacetStyle -&gt; FacetStyle -&gt; Bool
+== :: FacetStyle -&gt; FacetStyle -&gt; Bool
+$c== :: FacetStyle -&gt; FacetStyle -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679324210"><span id="local-6989586621679324212"><span id="local-6989586621679324214"><span id="local-6989586621679324216"><span id="local-6989586621679324218"><span id="local-6989586621679324220"><span id="local-6989586621679324222"><span class="annot"><span class="annottext">Eq FacetStyle
+Eq FacetStyle
+-&gt; (FacetStyle -&gt; FacetStyle -&gt; Ordering)
+-&gt; (FacetStyle -&gt; FacetStyle -&gt; Bool)
+-&gt; (FacetStyle -&gt; FacetStyle -&gt; Bool)
+-&gt; (FacetStyle -&gt; FacetStyle -&gt; Bool)
+-&gt; (FacetStyle -&gt; FacetStyle -&gt; Bool)
+-&gt; (FacetStyle -&gt; FacetStyle -&gt; FacetStyle)
+-&gt; (FacetStyle -&gt; FacetStyle -&gt; FacetStyle)
+-&gt; Ord FacetStyle
+FacetStyle -&gt; FacetStyle -&gt; Bool
+FacetStyle -&gt; FacetStyle -&gt; Ordering
+FacetStyle -&gt; FacetStyle -&gt; FacetStyle
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FacetStyle -&gt; FacetStyle -&gt; FacetStyle
+$cmin :: FacetStyle -&gt; FacetStyle -&gt; FacetStyle
+max :: FacetStyle -&gt; FacetStyle -&gt; FacetStyle
+$cmax :: FacetStyle -&gt; FacetStyle -&gt; FacetStyle
+&gt;= :: FacetStyle -&gt; FacetStyle -&gt; Bool
+$c&gt;= :: FacetStyle -&gt; FacetStyle -&gt; Bool
+&gt; :: FacetStyle -&gt; FacetStyle -&gt; Bool
+$c&gt; :: FacetStyle -&gt; FacetStyle -&gt; Bool
+&lt;= :: FacetStyle -&gt; FacetStyle -&gt; Bool
+$c&lt;= :: FacetStyle -&gt; FacetStyle -&gt; Bool
+&lt; :: FacetStyle -&gt; FacetStyle -&gt; Bool
+$c&lt; :: FacetStyle -&gt; FacetStyle -&gt; Bool
+compare :: FacetStyle -&gt; FacetStyle -&gt; Ordering
+$ccompare :: FacetStyle -&gt; FacetStyle -&gt; Ordering
+$cp1Ord :: Eq FacetStyle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FacetStyle -&gt; Rep FacetStyle x)
+-&gt; (forall x. Rep FacetStyle x -&gt; FacetStyle) -&gt; Generic FacetStyle
+forall x. Rep FacetStyle x -&gt; FacetStyle
+forall x. FacetStyle -&gt; Rep FacetStyle x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FacetStyle x -&gt; FacetStyle
+$cfrom :: forall x. FacetStyle -&gt; Rep FacetStyle x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324202"><span id="local-6989586621679324204"><span class="annot"><span class="annottext">Int -&gt; FacetStyle -&gt; Int
+FacetStyle -&gt; Int
+(Int -&gt; FacetStyle -&gt; Int)
+-&gt; (FacetStyle -&gt; Int) -&gt; Hashable FacetStyle
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FacetStyle -&gt; Int
+$chash :: FacetStyle -&gt; Int
+hashWithSalt :: Int -&gt; FacetStyle -&gt; Int
+$chashWithSalt :: Int -&gt; FacetStyle -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679324199"><span class="annot"><span class="annottext">FacetStyle -&gt; ()
+(FacetStyle -&gt; ()) -&gt; NFData FacetStyle
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FacetStyle -&gt; ()
+$crnf :: FacetStyle -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679324196"><span class="annot"><span class="annottext">Text -&gt; Either String FacetStyle
+(Text -&gt; Either String FacetStyle) -&gt; FromText FacetStyle
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FacetStyle
+$cfromText :: Text -&gt; Either String FacetStyle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679324193"><span class="annot"><span class="annottext">FacetStyle -&gt; Text
+(FacetStyle -&gt; Text) -&gt; ToText FacetStyle
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FacetStyle -&gt; Text
+$ctoText :: FacetStyle -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679324190"><span class="annot"><span class="annottext">FacetStyle -&gt; ByteString
+(FacetStyle -&gt; ByteString) -&gt; ToByteString FacetStyle
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FacetStyle -&gt; ByteString
+$ctoBS :: FacetStyle -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679324187"><span class="annot"><span class="annottext">FacetStyle -&gt; ByteStringBuilder
+(FacetStyle -&gt; ByteStringBuilder) -&gt; ToLog FacetStyle
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FacetStyle -&gt; ByteStringBuilder
+$cbuild :: FacetStyle -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679324184"><span class="annot"><span class="annottext">HeaderName -&gt; FacetStyle -&gt; [Header]
+(HeaderName -&gt; FacetStyle -&gt; [Header]) -&gt; ToHeader FacetStyle
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FacetStyle -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FacetStyle -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679324181"><span class="annot"><span class="annottext">FacetStyle -&gt; QueryString
+(FacetStyle -&gt; QueryString) -&gt; ToQuery FacetStyle
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FacetStyle -&gt; QueryString
+$ctoQuery :: FacetStyle -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679324176"><span id="local-6989586621679324178"><span class="annot"><span class="annottext">Value -&gt; Parser [FacetStyle]
+Value -&gt; Parser FacetStyle
+(Value -&gt; Parser FacetStyle)
+-&gt; (Value -&gt; Parser [FacetStyle]) -&gt; FromJSON FacetStyle
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FacetStyle]
+$cparseJSONList :: Value -&gt; Parser [FacetStyle]
+parseJSON :: Value -&gt; Parser FacetStyle
+$cparseJSON :: Value -&gt; Parser FacetStyle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679324171"><span id="local-6989586621679324173"><span class="annot"><span class="annottext">FromJSONKeyFunction [FacetStyle]
+FromJSONKeyFunction FacetStyle
+FromJSONKeyFunction FacetStyle
+-&gt; FromJSONKeyFunction [FacetStyle] -&gt; FromJSONKey FacetStyle
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FacetStyle]
+$cfromJSONKeyList :: FromJSONKeyFunction [FacetStyle]
+fromJSONKey :: FromJSONKeyFunction FacetStyle
+$cfromJSONKey :: FromJSONKeyFunction FacetStyle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679324162"><span id="local-6989586621679324164"><span id="local-6989586621679324166"><span id="local-6989586621679324168"><span class="annot"><span class="annottext">[FacetStyle] -&gt; Encoding
+[FacetStyle] -&gt; Value
+FacetStyle -&gt; Encoding
+FacetStyle -&gt; Value
+(FacetStyle -&gt; Value)
+-&gt; (FacetStyle -&gt; Encoding)
+-&gt; ([FacetStyle] -&gt; Value)
+-&gt; ([FacetStyle] -&gt; Encoding)
+-&gt; ToJSON FacetStyle
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FacetStyle] -&gt; Encoding
+$ctoEncodingList :: [FacetStyle] -&gt; Encoding
+toJSONList :: [FacetStyle] -&gt; Value
+$ctoJSONList :: [FacetStyle] -&gt; Value
+toEncoding :: FacetStyle -&gt; Encoding
+$ctoEncoding :: FacetStyle -&gt; Encoding
+toJSON :: FacetStyle -&gt; Value
+$ctoJSON :: FacetStyle -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679324157"><span id="local-6989586621679324159"><span class="annot"><span class="annottext">ToJSONKeyFunction [FacetStyle]
+ToJSONKeyFunction FacetStyle
+ToJSONKeyFunction FacetStyle
+-&gt; ToJSONKeyFunction [FacetStyle] -&gt; ToJSONKey FacetStyle
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FacetStyle]
+$ctoJSONKeyList :: ToJSONKeyFunction [FacetStyle]
+toJSONKey :: ToJSONKeyFunction FacetStyle
+$ctoJSONKey :: ToJSONKeyFunction FacetStyle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679324154"><span class="annot"><span class="annottext">[Node] -&gt; Either String FacetStyle
+([Node] -&gt; Either String FacetStyle) -&gt; FromXML FacetStyle
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FacetStyle
+$cparseXML :: [Node] -&gt; Either String FacetStyle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679324151"><span class="annot"><span class="annottext">FacetStyle -&gt; XML
+(FacetStyle -&gt; XML) -&gt; ToXML FacetStyle
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FacetStyle -&gt; XML
+$ctoXML :: FacetStyle -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#FacetStyle_DYNAMIC"><span class="hs-identifier hs-type">FacetStyle_DYNAMIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#FacetStyle"><span class="hs-identifier hs-type">FacetStyle</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFacetStyle_DYNAMIC"><span id="%24mFacetStyle_DYNAMIC"><span id="FacetStyle_DYNAMIC"><span class="annot"><span class="annottext">$bFacetStyle_DYNAMIC :: FacetStyle
+$mFacetStyle_DYNAMIC :: forall r. FacetStyle -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#%24bFacetStyle_DYNAMIC"><span class="hs-identifier hs-var hs-var hs-var">FacetStyle_DYNAMIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#FacetStyle%27"><span class="hs-identifier hs-type">FacetStyle'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DYNAMIC&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#FacetStyle_STATIC"><span class="hs-identifier hs-type">FacetStyle_STATIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#FacetStyle"><span class="hs-identifier hs-type">FacetStyle</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFacetStyle_STATIC"><span id="%24mFacetStyle_STATIC"><span id="FacetStyle_STATIC"><span class="annot"><span class="annottext">$bFacetStyle_STATIC :: FacetStyle
+$mFacetStyle_STATIC :: forall r. FacetStyle -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#%24bFacetStyle_STATIC"><span class="hs-identifier hs-var hs-var hs-var">FacetStyle_STATIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#FacetStyle%27"><span class="hs-identifier hs-type">FacetStyle'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STATIC&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#FacetStyle_DYNAMIC"><span class="hs-pragma hs-type">FacetStyle_DYNAMIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#FacetStyle_STATIC"><span class="hs-pragma hs-type">FacetStyle_STATIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.FacetStyle.html#FacetStyle%27"><span class="hs-pragma hs-type">FacetStyle'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,933 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ApiGatewayV2.Types.Route</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ApiGatewayV2.Types.Route</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizationType.html"><span class="hs-identifier">Amazonka.ApiGatewayV2.Types.AuthorizationType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.ParameterConstraints.html"><span class="hs-identifier">Amazonka.ApiGatewayV2.Types.ParameterConstraints</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Represents a route.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRoute' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679408822"><span id="local-6989586621679408823"></span></span><span class="hs-keyword">data</span><span> </span><span id="Route"><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-var">Route</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Route%27"><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-var">Route'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of authorization scopes configured on a route. The scopes are</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- used with a JWT authorizer to authorize the method invocation. The</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- authorization works by matching the route scopes against the scopes</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- parsed from the access token in the incoming request. The method</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- invocation is authorized if any route scope matches a claimed scope in</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the access token. Otherwise, the invocation is not authorized. When the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- route scope is configured, the client must provide an access token</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- instead of an identity token for authorization purposes.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AauthorizationScopes%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe [Text]
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AauthorizationScopes%3ARoute%27"><span class="hs-identifier hs-var hs-var">authorizationScopes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The model selection expression for the route. Supported only for</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- WebSocket APIs.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AmodelSelectionExpression%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AmodelSelectionExpression%3ARoute%27"><span class="hs-identifier hs-var hs-var">modelSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The request models for the route. Supported only for WebSocket APIs.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3ArequestModels%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3ArequestModels%3ARoute%27"><span class="hs-identifier hs-var hs-var">requestModels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The route response selection expression for the route. Supported only</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- for WebSocket APIs.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3ArouteResponseSelectionExpression%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3ArouteResponseSelectionExpression%3ARoute%27"><span class="hs-identifier hs-var hs-var">routeResponseSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The request parameters for the route. Supported only for WebSocket APIs.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3ArequestParameters%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe (HashMap Text ParameterConstraints)
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3ArequestParameters%3ARoute%27"><span class="hs-identifier hs-var hs-var">requestParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.ParameterConstraints.html#ParameterConstraints"><span class="hs-identifier hs-type">ParameterConstraints</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The route ID.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3ArouteId%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3ArouteId%3ARoute%27"><span class="hs-identifier hs-var hs-var">routeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The identifier of the Authorizer resource to be associated with this</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- route. The authorizer identifier is generated by API Gateway when you</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- created the authorizer.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AauthorizerId%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AauthorizerId%3ARoute%27"><span class="hs-identifier hs-var hs-var">authorizerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The operation name for the route.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AoperationName%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AoperationName%3ARoute%27"><span class="hs-identifier hs-var hs-var">operationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Specifies whether a route is managed by API Gateway. If you created an</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- API using quick create, the $default route is managed by API Gateway.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- You can\'t modify the $default route key.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AapiGatewayManaged%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Bool
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AapiGatewayManaged%3ARoute%27"><span class="hs-identifier hs-var hs-var">apiGatewayManaged</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The authorization type for the route. For WebSocket APIs, valid values</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- are NONE for open access, AWS_IAM for using AWS IAM permissions, and</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AauthorizationType%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe AuthorizationType
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AauthorizationType%3ARoute%27"><span class="hs-identifier hs-var hs-var">authorizationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizationType.html#AuthorizationType"><span class="hs-identifier hs-type">AuthorizationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Specifies whether an API key is required for this route. Supported only</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- for WebSocket APIs.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AapiKeyRequired%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Bool
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AapiKeyRequired%3ARoute%27"><span class="hs-identifier hs-var hs-var">apiKeyRequired</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The target for the route.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Atarget%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3Atarget%3ARoute%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The route key for the route.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3ArouteKey%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3ArouteKey%3ARoute%27"><span class="hs-identifier hs-var hs-var">routeKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408804"><span id="local-6989586621679408806"><span class="annot"><span class="annottext">Route -&gt; Route -&gt; Bool
+(Route -&gt; Route -&gt; Bool) -&gt; (Route -&gt; Route -&gt; Bool) -&gt; Eq Route
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Route -&gt; Route -&gt; Bool
+$c/= :: Route -&gt; Route -&gt; Bool
+== :: Route -&gt; Route -&gt; Bool
+$c== :: Route -&gt; Route -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408795"><span id="local-6989586621679408797"><span id="local-6989586621679408799"><span id="local-6989586621679408801"><span class="annot"><span class="annottext">ReadPrec [Route]
+ReadPrec Route
+Int -&gt; ReadS Route
+ReadS [Route]
+(Int -&gt; ReadS Route)
+-&gt; ReadS [Route]
+-&gt; ReadPrec Route
+-&gt; ReadPrec [Route]
+-&gt; Read Route
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Route]
+$creadListPrec :: ReadPrec [Route]
+readPrec :: ReadPrec Route
+$creadPrec :: ReadPrec Route
+readList :: ReadS [Route]
+$creadList :: ReadS [Route]
+readsPrec :: Int -&gt; ReadS Route
+$creadsPrec :: Int -&gt; ReadS Route
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408788"><span id="local-6989586621679408790"><span id="local-6989586621679408792"><span class="annot"><span class="annottext">Int -&gt; Route -&gt; ShowS
+[Route] -&gt; ShowS
+Route -&gt; String
+(Int -&gt; Route -&gt; ShowS)
+-&gt; (Route -&gt; String) -&gt; ([Route] -&gt; ShowS) -&gt; Show Route
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Route] -&gt; ShowS
+$cshowList :: [Route] -&gt; ShowS
+show :: Route -&gt; String
+$cshow :: Route -&gt; String
+showsPrec :: Int -&gt; Route -&gt; ShowS
+$cshowsPrec :: Int -&gt; Route -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Route -&gt; Rep Route x)
+-&gt; (forall x. Rep Route x -&gt; Route) -&gt; Generic Route
+forall x. Rep Route x -&gt; Route
+forall x. Route -&gt; Rep Route x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Route x -&gt; Route
+$cfrom :: forall x. Route -&gt; Rep Route x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'Route' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'authorizationScopes', 'route_authorizationScopes' - A list of authorization scopes configured on a route. The scopes are</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- used with a JWT authorizer to authorize the method invocation. The</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- authorization works by matching the route scopes against the scopes</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- parsed from the access token in the incoming request. The method</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- invocation is authorized if any route scope matches a claimed scope in</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- the access token. Otherwise, the invocation is not authorized. When the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- route scope is configured, the client must provide an access token</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- instead of an identity token for authorization purposes.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'modelSelectionExpression', 'route_modelSelectionExpression' - The model selection expression for the route. Supported only for</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- WebSocket APIs.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'requestModels', 'route_requestModels' - The request models for the route. Supported only for WebSocket APIs.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'routeResponseSelectionExpression', 'route_routeResponseSelectionExpression' - The route response selection expression for the route. Supported only</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for WebSocket APIs.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'requestParameters', 'route_requestParameters' - The request parameters for the route. Supported only for WebSocket APIs.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'routeId', 'route_routeId' - The route ID.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'authorizerId', 'route_authorizerId' - The identifier of the Authorizer resource to be associated with this</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- route. The authorizer identifier is generated by API Gateway when you</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- created the authorizer.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'operationName', 'route_operationName' - The operation name for the route.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'apiGatewayManaged', 'route_apiGatewayManaged' - Specifies whether a route is managed by API Gateway. If you created an</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- API using quick create, the $default route is managed by API Gateway.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- You can\'t modify the $default route key.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'authorizationType', 'route_authorizationType' - The authorization type for the route. For WebSocket APIs, valid values</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- are NONE for open access, AWS_IAM for using AWS IAM permissions, and</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'apiKeyRequired', 'route_apiKeyRequired' - Specifies whether an API key is required for this route. Supported only</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- for WebSocket APIs.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'target', 'route_target' - The target for the route.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'routeKey', 'route_routeKey' - The route key for the route.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#newRoute"><span class="hs-identifier hs-type">newRoute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-comment">-- | 'routeKey'</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span>
+</span><span id="line-134"></span><span id="newRoute"><span class="annot"><span class="annottext">newRoute :: Text -&gt; Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#newRoute"><span class="hs-identifier hs-var hs-var">newRoute</span></a></span></span><span> </span><span id="local-6989586621679408782"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408782"><span class="hs-identifier hs-var">pRouteKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">Route' :: Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text ParameterConstraints)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe AuthorizationType
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authorizationScopes:Route' :: Maybe [Text]
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AauthorizationScopes%3ARoute%27"><span class="hs-identifier hs-var">authorizationScopes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelSelectionExpression:Route' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AmodelSelectionExpression%3ARoute%27"><span class="hs-identifier hs-var">modelSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestModels:Route' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3ArequestModels%3ARoute%27"><span class="hs-identifier hs-var">requestModels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:routeResponseSelectionExpression:Route' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3ArouteResponseSelectionExpression%3ARoute%27"><span class="hs-identifier hs-var">routeResponseSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestParameters:Route' :: Maybe (HashMap Text ParameterConstraints)
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3ArequestParameters%3ARoute%27"><span class="hs-identifier hs-var">requestParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:routeId:Route' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3ArouteId%3ARoute%27"><span class="hs-identifier hs-var">routeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorizerId:Route' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AauthorizerId%3ARoute%27"><span class="hs-identifier hs-var">authorizerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:operationName:Route' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AoperationName%3ARoute%27"><span class="hs-identifier hs-var">operationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiGatewayManaged:Route' :: Maybe Bool
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AapiGatewayManaged%3ARoute%27"><span class="hs-identifier hs-var">apiGatewayManaged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorizationType:Route' :: Maybe AuthorizationType
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AauthorizationType%3ARoute%27"><span class="hs-identifier hs-var">authorizationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiKeyRequired:Route' :: Maybe Bool
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AapiKeyRequired%3ARoute%27"><span class="hs-identifier hs-var">apiKeyRequired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:Route' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3Atarget%3ARoute%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:routeKey:Route' :: Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3ArouteKey%3ARoute%27"><span class="hs-identifier hs-var">routeKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408782"><span class="hs-identifier hs-var">pRouteKey_</span></a></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | A list of authorization scopes configured on a route. The scopes are</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- used with a JWT authorizer to authorize the method invocation. The</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- authorization works by matching the route scopes against the scopes</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- parsed from the access token in the incoming request. The method</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- invocation is authorized if any route scope matches a claimed scope in</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- the access token. Otherwise, the invocation is not authorized. When the</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- route scope is configured, the client must provide an access token</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- instead of an identity token for authorization purposes.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_authorizationScopes"><span class="hs-identifier hs-type">route_authorizationScopes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="route_authorizationScopes"><span class="annot"><span class="annottext">route_authorizationScopes :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_authorizationScopes"><span class="hs-identifier hs-var hs-var">route_authorizationScopes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe [Text])
+-&gt; (Route -&gt; Maybe [Text] -&gt; Route)
+-&gt; Lens Route Route (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408778"><span class="annot"><span class="annottext">Maybe [Text]
+authorizationScopes :: Maybe [Text]
+$sel:authorizationScopes:Route' :: Route -&gt; Maybe [Text]
+</span><a href="#local-6989586621679408778"><span class="hs-identifier hs-var hs-var">authorizationScopes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408778"><span class="hs-identifier hs-var">authorizationScopes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408777"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679408777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408776"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679408777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationScopes:Route' :: Maybe [Text]
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AauthorizationScopes%3ARoute%27"><span class="hs-identifier hs-var">authorizationScopes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Route -&gt; f Route)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Route
+-&gt; f Route
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The model selection expression for the route. Supported only for</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- WebSocket APIs.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_modelSelectionExpression"><span class="hs-identifier hs-type">route_modelSelectionExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="route_modelSelectionExpression"><span class="annot"><span class="annottext">route_modelSelectionExpression :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_modelSelectionExpression"><span class="hs-identifier hs-var hs-var">route_modelSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408771"><span class="annot"><span class="annottext">Maybe Text
+modelSelectionExpression :: Maybe Text
+$sel:modelSelectionExpression:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621679408771"><span class="hs-identifier hs-var hs-var">modelSelectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408771"><span class="hs-identifier hs-var">modelSelectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408770"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679408770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408769"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679408770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelSelectionExpression:Route' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AmodelSelectionExpression%3ARoute%27"><span class="hs-identifier hs-var">modelSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The request models for the route. Supported only for WebSocket APIs.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_requestModels"><span class="hs-identifier hs-type">route_requestModels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="route_requestModels"><span class="annot"><span class="annottext">route_requestModels :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Route -&gt; f Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_requestModels"><span class="hs-identifier hs-var hs-var">route_requestModels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe (HashMap Text Text))
+-&gt; (Route -&gt; Maybe (HashMap Text Text) -&gt; Route)
+-&gt; Lens
+     Route Route (Maybe (HashMap Text Text)) (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408767"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+requestModels :: Maybe (HashMap Text Text)
+$sel:requestModels:Route' :: Route -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679408767"><span class="hs-identifier hs-var hs-var">requestModels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679408767"><span class="hs-identifier hs-var">requestModels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408766"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679408766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408765"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679408765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679408766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestModels:Route' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3ArequestModels%3ARoute%27"><span class="hs-identifier hs-var">requestModels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679408765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Route -&gt; f Route)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Route
+-&gt; f Route
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The route response selection expression for the route. Supported only</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for WebSocket APIs.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_routeResponseSelectionExpression"><span class="hs-identifier hs-type">route_routeResponseSelectionExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="route_routeResponseSelectionExpression"><span class="annot"><span class="annottext">route_routeResponseSelectionExpression :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_routeResponseSelectionExpression"><span class="hs-identifier hs-var hs-var">route_routeResponseSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408763"><span class="annot"><span class="annottext">Maybe Text
+routeResponseSelectionExpression :: Maybe Text
+$sel:routeResponseSelectionExpression:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621679408763"><span class="hs-identifier hs-var hs-var">routeResponseSelectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408763"><span class="hs-identifier hs-var">routeResponseSelectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408762"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679408762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408761"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679408762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeResponseSelectionExpression:Route' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3ArouteResponseSelectionExpression%3ARoute%27"><span class="hs-identifier hs-var">routeResponseSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The request parameters for the route. Supported only for WebSocket APIs.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_requestParameters"><span class="hs-identifier hs-type">route_requestParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.ParameterConstraints.html#ParameterConstraints"><span class="hs-identifier hs-type">ParameterConstraints</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="route_requestParameters"><span class="annot"><span class="annottext">route_requestParameters :: (Maybe (HashMap Text ParameterConstraints)
+ -&gt; f (Maybe (HashMap Text ParameterConstraints)))
+-&gt; Route -&gt; f Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_requestParameters"><span class="hs-identifier hs-var hs-var">route_requestParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe (HashMap Text ParameterConstraints))
+-&gt; (Route -&gt; Maybe (HashMap Text ParameterConstraints) -&gt; Route)
+-&gt; Lens
+     Route
+     Route
+     (Maybe (HashMap Text ParameterConstraints))
+     (Maybe (HashMap Text ParameterConstraints))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408759"><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+requestParameters :: Maybe (HashMap Text ParameterConstraints)
+$sel:requestParameters:Route' :: Route -&gt; Maybe (HashMap Text ParameterConstraints)
+</span><a href="#local-6989586621679408759"><span class="hs-identifier hs-var hs-var">requestParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+</span><a href="#local-6989586621679408759"><span class="hs-identifier hs-var">requestParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408758"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679408758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408757"><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+</span><a href="#local-6989586621679408757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679408758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestParameters:Route' :: Maybe (HashMap Text ParameterConstraints)
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3ArequestParameters%3ARoute%27"><span class="hs-identifier hs-var">requestParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+</span><a href="#local-6989586621679408757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text ParameterConstraints)
+  -&gt; f (Maybe (HashMap Text ParameterConstraints)))
+ -&gt; Route -&gt; f Route)
+-&gt; ((Maybe (HashMap Text ParameterConstraints)
+     -&gt; f (Maybe (HashMap Text ParameterConstraints)))
+    -&gt; Maybe (HashMap Text ParameterConstraints)
+    -&gt; f (Maybe (HashMap Text ParameterConstraints)))
+-&gt; (Maybe (HashMap Text ParameterConstraints)
+    -&gt; f (Maybe (HashMap Text ParameterConstraints)))
+-&gt; Route
+-&gt; f Route
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+-&gt; Iso
+     (Maybe (HashMap Text ParameterConstraints))
+     (Maybe (HashMap Text ParameterConstraints))
+     (Maybe (HashMap Text ParameterConstraints))
+     (Maybe (HashMap Text ParameterConstraints))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+  (HashMap Text ParameterConstraints)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The route ID.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_routeId"><span class="hs-identifier hs-type">route_routeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="route_routeId"><span class="annot"><span class="annottext">route_routeId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_routeId"><span class="hs-identifier hs-var hs-var">route_routeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408755"><span class="annot"><span class="annottext">Maybe Text
+routeId :: Maybe Text
+$sel:routeId:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621679408755"><span class="hs-identifier hs-var hs-var">routeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408755"><span class="hs-identifier hs-var">routeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408754"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679408754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408753"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679408754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeId:Route' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3ArouteId%3ARoute%27"><span class="hs-identifier hs-var">routeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The identifier of the Authorizer resource to be associated with this</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- route. The authorizer identifier is generated by API Gateway when you</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- created the authorizer.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_authorizerId"><span class="hs-identifier hs-type">route_authorizerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="route_authorizerId"><span class="annot"><span class="annottext">route_authorizerId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_authorizerId"><span class="hs-identifier hs-var hs-var">route_authorizerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408751"><span class="annot"><span class="annottext">Maybe Text
+authorizerId :: Maybe Text
+$sel:authorizerId:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621679408751"><span class="hs-identifier hs-var hs-var">authorizerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408751"><span class="hs-identifier hs-var">authorizerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408750"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679408750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408749"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679408750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerId:Route' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AauthorizerId%3ARoute%27"><span class="hs-identifier hs-var">authorizerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The operation name for the route.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_operationName"><span class="hs-identifier hs-type">route_operationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="route_operationName"><span class="annot"><span class="annottext">route_operationName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_operationName"><span class="hs-identifier hs-var hs-var">route_operationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408747"><span class="annot"><span class="annottext">Maybe Text
+operationName :: Maybe Text
+$sel:operationName:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621679408747"><span class="hs-identifier hs-var hs-var">operationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408747"><span class="hs-identifier hs-var">operationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408746"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679408746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408745"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679408746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationName:Route' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AoperationName%3ARoute%27"><span class="hs-identifier hs-var">operationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | Specifies whether a route is managed by API Gateway. If you created an</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- API using quick create, the $default route is managed by API Gateway.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- You can\'t modify the $default route key.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_apiGatewayManaged"><span class="hs-identifier hs-type">route_apiGatewayManaged</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="route_apiGatewayManaged"><span class="annot"><span class="annottext">route_apiGatewayManaged :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_apiGatewayManaged"><span class="hs-identifier hs-var hs-var">route_apiGatewayManaged</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Bool)
+-&gt; (Route -&gt; Maybe Bool -&gt; Route)
+-&gt; Lens Route Route (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408743"><span class="annot"><span class="annottext">Maybe Bool
+apiGatewayManaged :: Maybe Bool
+$sel:apiGatewayManaged:Route' :: Route -&gt; Maybe Bool
+</span><a href="#local-6989586621679408743"><span class="hs-identifier hs-var hs-var">apiGatewayManaged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679408743"><span class="hs-identifier hs-var">apiGatewayManaged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408742"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679408742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408741"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679408741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679408742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiGatewayManaged:Route' :: Maybe Bool
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AapiGatewayManaged%3ARoute%27"><span class="hs-identifier hs-var">apiGatewayManaged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679408741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The authorization type for the route. For WebSocket APIs, valid values</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- are NONE for open access, AWS_IAM for using AWS IAM permissions, and</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_authorizationType"><span class="hs-identifier hs-type">route_authorizationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizationType.html#AuthorizationType"><span class="hs-identifier hs-type">AuthorizationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="route_authorizationType"><span class="annot"><span class="annottext">route_authorizationType :: (Maybe AuthorizationType -&gt; f (Maybe AuthorizationType))
+-&gt; Route -&gt; f Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_authorizationType"><span class="hs-identifier hs-var hs-var">route_authorizationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe AuthorizationType)
+-&gt; (Route -&gt; Maybe AuthorizationType -&gt; Route)
+-&gt; Lens
+     Route Route (Maybe AuthorizationType) (Maybe AuthorizationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408739"><span class="annot"><span class="annottext">Maybe AuthorizationType
+authorizationType :: Maybe AuthorizationType
+$sel:authorizationType:Route' :: Route -&gt; Maybe AuthorizationType
+</span><a href="#local-6989586621679408739"><span class="hs-identifier hs-var hs-var">authorizationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizationType
+</span><a href="#local-6989586621679408739"><span class="hs-identifier hs-var">authorizationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408738"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679408738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408737"><span class="annot"><span class="annottext">Maybe AuthorizationType
+</span><a href="#local-6989586621679408737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679408738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationType:Route' :: Maybe AuthorizationType
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AauthorizationType%3ARoute%27"><span class="hs-identifier hs-var">authorizationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizationType
+</span><a href="#local-6989586621679408737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | Specifies whether an API key is required for this route. Supported only</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- for WebSocket APIs.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_apiKeyRequired"><span class="hs-identifier hs-type">route_apiKeyRequired</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="route_apiKeyRequired"><span class="annot"><span class="annottext">route_apiKeyRequired :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_apiKeyRequired"><span class="hs-identifier hs-var hs-var">route_apiKeyRequired</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Bool)
+-&gt; (Route -&gt; Maybe Bool -&gt; Route)
+-&gt; Lens Route Route (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408735"><span class="annot"><span class="annottext">Maybe Bool
+apiKeyRequired :: Maybe Bool
+$sel:apiKeyRequired:Route' :: Route -&gt; Maybe Bool
+</span><a href="#local-6989586621679408735"><span class="hs-identifier hs-var hs-var">apiKeyRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679408735"><span class="hs-identifier hs-var">apiKeyRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408734"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679408734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408733"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679408733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679408734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeyRequired:Route' :: Maybe Bool
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3AapiKeyRequired%3ARoute%27"><span class="hs-identifier hs-var">apiKeyRequired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679408733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The target for the route.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_target"><span class="hs-identifier hs-type">route_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="route_target"><span class="annot"><span class="annottext">route_target :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_target"><span class="hs-identifier hs-var hs-var">route_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408731"><span class="annot"><span class="annottext">Maybe Text
+target :: Maybe Text
+$sel:target:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621679408731"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408731"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408730"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679408730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408729"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679408730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:Route' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3Atarget%3ARoute%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The route key for the route.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_routeKey"><span class="hs-identifier hs-type">route_routeKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-219"></span><span id="route_routeKey"><span class="annot"><span class="annottext">route_routeKey :: (Text -&gt; f Text) -&gt; Route -&gt; f Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#route_routeKey"><span class="hs-identifier hs-var hs-var">route_routeKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Text)
+-&gt; (Route -&gt; Text -&gt; Route) -&gt; Lens Route Route Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408727"><span class="annot"><span class="annottext">Text
+routeKey :: Text
+$sel:routeKey:Route' :: Route -&gt; Text
+</span><a href="#local-6989586621679408727"><span class="hs-identifier hs-var hs-var">routeKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408727"><span class="hs-identifier hs-var">routeKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408726"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679408726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679408726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeKey:Route' :: Text
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#%24sel%3ArouteKey%3ARoute%27"><span class="hs-identifier hs-var">routeKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408722"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679408720"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Route
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Route) -&gt; Value -&gt; Parser Route
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Route&quot;</span></span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679408717"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-226"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text ParameterConstraints)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe AuthorizationType
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Route
+</span><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route%27"><span class="hs-identifier hs-var">Route'</span></a></span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text ParameterConstraints)
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe AuthorizationType
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Route)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text ParameterConstraints)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe AuthorizationType
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authorizationScopes&quot;</span></span><span>
+</span><span id="line-228"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-229"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text ParameterConstraints)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe AuthorizationType
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Route)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text ParameterConstraints)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe AuthorizationType
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;modelSelectionExpression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text ParameterConstraints)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe AuthorizationType
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Route)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text ParameterConstraints)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe AuthorizationType
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;requestModels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text ParameterConstraints)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe AuthorizationType
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Route)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text ParameterConstraints)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe AuthorizationType
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;routeResponseSelectionExpression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text ParameterConstraints)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe AuthorizationType
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Route)
+-&gt; Parser (Maybe (HashMap Text ParameterConstraints))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe AuthorizationType
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe (Maybe (HashMap Text ParameterConstraints)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;requestParameters&quot;</span></span><span>
+</span><span id="line-234"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text ParameterConstraints)))
+-&gt; Maybe (HashMap Text ParameterConstraints)
+-&gt; Parser (Maybe (HashMap Text ParameterConstraints))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ParameterConstraints)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-235"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe AuthorizationType
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Route)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe AuthorizationType
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;routeId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe AuthorizationType
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Route)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe AuthorizationType
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authorizerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe AuthorizationType
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Route)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe AuthorizationType
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe AuthorizationType
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Route)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe AuthorizationType
+      -&gt; Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;apiGatewayManaged&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AuthorizationType
+   -&gt; Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Route)
+-&gt; Parser (Maybe AuthorizationType)
+-&gt; Parser (Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuthorizationType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authorizationType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Route)
+-&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Text -&gt; Text -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;apiKeyRequired&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Route)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;target&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Route) -&gt; Parser Text -&gt; Parser Route
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;routeKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408709"><span id="local-6989586621679408711"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span></span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408706"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span></span><span>
+</span><span id="line-249"></span></pre></body></html>

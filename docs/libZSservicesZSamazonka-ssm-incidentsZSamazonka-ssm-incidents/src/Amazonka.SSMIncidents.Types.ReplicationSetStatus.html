@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSMIncidents.Types.ReplicationSetStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSMIncidents.Types.ReplicationSetStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus"><span class="hs-identifier">ReplicationSetStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus_ACTIVE"><span class="hs-identifier">ReplicationSetStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus_CREATING"><span class="hs-identifier">ReplicationSetStatus_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus_DELETING"><span class="hs-identifier">ReplicationSetStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus_FAILED"><span class="hs-identifier">ReplicationSetStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus_UPDATING"><span class="hs-identifier">ReplicationSetStatus_UPDATING</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679215261"><span id="local-6989586621679215262"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicationSetStatus"><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus"><span class="hs-identifier hs-var">ReplicationSetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationSetStatus%27"><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus%27"><span class="hs-identifier hs-var">ReplicationSetStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReplicationSetStatus"><span class="annot"><span class="annottext">ReplicationSetStatus -&gt; Text
+</span><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#fromReplicationSetStatus"><span class="hs-identifier hs-var hs-var">fromReplicationSetStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679215253"><span id="local-6989586621679215255"><span id="local-6989586621679215257"><span class="annot"><span class="annottext">Int -&gt; ReplicationSetStatus -&gt; ShowS
+[ReplicationSetStatus] -&gt; ShowS
+ReplicationSetStatus -&gt; String
+(Int -&gt; ReplicationSetStatus -&gt; ShowS)
+-&gt; (ReplicationSetStatus -&gt; String)
+-&gt; ([ReplicationSetStatus] -&gt; ShowS)
+-&gt; Show ReplicationSetStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReplicationSetStatus] -&gt; ShowS
+$cshowList :: [ReplicationSetStatus] -&gt; ShowS
+show :: ReplicationSetStatus -&gt; String
+$cshow :: ReplicationSetStatus -&gt; String
+showsPrec :: Int -&gt; ReplicationSetStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReplicationSetStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679215244"><span id="local-6989586621679215246"><span id="local-6989586621679215248"><span id="local-6989586621679215250"><span class="annot"><span class="annottext">ReadPrec [ReplicationSetStatus]
+ReadPrec ReplicationSetStatus
+Int -&gt; ReadS ReplicationSetStatus
+ReadS [ReplicationSetStatus]
+(Int -&gt; ReadS ReplicationSetStatus)
+-&gt; ReadS [ReplicationSetStatus]
+-&gt; ReadPrec ReplicationSetStatus
+-&gt; ReadPrec [ReplicationSetStatus]
+-&gt; Read ReplicationSetStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReplicationSetStatus]
+$creadListPrec :: ReadPrec [ReplicationSetStatus]
+readPrec :: ReadPrec ReplicationSetStatus
+$creadPrec :: ReadPrec ReplicationSetStatus
+readList :: ReadS [ReplicationSetStatus]
+$creadList :: ReadS [ReplicationSetStatus]
+readsPrec :: Int -&gt; ReadS ReplicationSetStatus
+$creadsPrec :: Int -&gt; ReadS ReplicationSetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679215239"><span id="local-6989586621679215241"><span class="annot"><span class="annottext">ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool
+(ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool)
+-&gt; (ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool)
+-&gt; Eq ReplicationSetStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool
+$c/= :: ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool
+== :: ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool
+$c== :: ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679215223"><span id="local-6989586621679215225"><span id="local-6989586621679215227"><span id="local-6989586621679215229"><span id="local-6989586621679215231"><span id="local-6989586621679215233"><span id="local-6989586621679215235"><span class="annot"><span class="annottext">Eq ReplicationSetStatus
+Eq ReplicationSetStatus
+-&gt; (ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Ordering)
+-&gt; (ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool)
+-&gt; (ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool)
+-&gt; (ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool)
+-&gt; (ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool)
+-&gt; (ReplicationSetStatus
+    -&gt; ReplicationSetStatus -&gt; ReplicationSetStatus)
+-&gt; (ReplicationSetStatus
+    -&gt; ReplicationSetStatus -&gt; ReplicationSetStatus)
+-&gt; Ord ReplicationSetStatus
+ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool
+ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Ordering
+ReplicationSetStatus
+-&gt; ReplicationSetStatus -&gt; ReplicationSetStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ReplicationSetStatus
+-&gt; ReplicationSetStatus -&gt; ReplicationSetStatus
+$cmin :: ReplicationSetStatus
+-&gt; ReplicationSetStatus -&gt; ReplicationSetStatus
+max :: ReplicationSetStatus
+-&gt; ReplicationSetStatus -&gt; ReplicationSetStatus
+$cmax :: ReplicationSetStatus
+-&gt; ReplicationSetStatus -&gt; ReplicationSetStatus
+&gt;= :: ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool
+$c&gt;= :: ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool
+&gt; :: ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool
+$c&gt; :: ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool
+&lt;= :: ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool
+$c&lt;= :: ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool
+&lt; :: ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool
+$c&lt; :: ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Bool
+compare :: ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Ordering
+$ccompare :: ReplicationSetStatus -&gt; ReplicationSetStatus -&gt; Ordering
+$cp1Ord :: Eq ReplicationSetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ReplicationSetStatus -&gt; Rep ReplicationSetStatus x)
+-&gt; (forall x. Rep ReplicationSetStatus x -&gt; ReplicationSetStatus)
+-&gt; Generic ReplicationSetStatus
+forall x. Rep ReplicationSetStatus x -&gt; ReplicationSetStatus
+forall x. ReplicationSetStatus -&gt; Rep ReplicationSetStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReplicationSetStatus x -&gt; ReplicationSetStatus
+$cfrom :: forall x. ReplicationSetStatus -&gt; Rep ReplicationSetStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679215215"><span id="local-6989586621679215217"><span class="annot"><span class="annottext">Int -&gt; ReplicationSetStatus -&gt; Int
+ReplicationSetStatus -&gt; Int
+(Int -&gt; ReplicationSetStatus -&gt; Int)
+-&gt; (ReplicationSetStatus -&gt; Int) -&gt; Hashable ReplicationSetStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ReplicationSetStatus -&gt; Int
+$chash :: ReplicationSetStatus -&gt; Int
+hashWithSalt :: Int -&gt; ReplicationSetStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ReplicationSetStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679215212"><span class="annot"><span class="annottext">ReplicationSetStatus -&gt; ()
+(ReplicationSetStatus -&gt; ()) -&gt; NFData ReplicationSetStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ReplicationSetStatus -&gt; ()
+$crnf :: ReplicationSetStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679215209"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicationSetStatus
+(Text -&gt; Either String ReplicationSetStatus)
+-&gt; FromText ReplicationSetStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ReplicationSetStatus
+$cfromText :: Text -&gt; Either String ReplicationSetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679215206"><span class="annot"><span class="annottext">ReplicationSetStatus -&gt; Text
+(ReplicationSetStatus -&gt; Text) -&gt; ToText ReplicationSetStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ReplicationSetStatus -&gt; Text
+$ctoText :: ReplicationSetStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679215203"><span class="annot"><span class="annottext">ReplicationSetStatus -&gt; ByteString
+(ReplicationSetStatus -&gt; ByteString)
+-&gt; ToByteString ReplicationSetStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ReplicationSetStatus -&gt; ByteString
+$ctoBS :: ReplicationSetStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679215200"><span class="annot"><span class="annottext">ReplicationSetStatus -&gt; ByteStringBuilder
+(ReplicationSetStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ReplicationSetStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ReplicationSetStatus -&gt; ByteStringBuilder
+$cbuild :: ReplicationSetStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679215197"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicationSetStatus -&gt; [Header]
+(HeaderName -&gt; ReplicationSetStatus -&gt; [Header])
+-&gt; ToHeader ReplicationSetStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ReplicationSetStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ReplicationSetStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679215194"><span class="annot"><span class="annottext">ReplicationSetStatus -&gt; QueryString
+(ReplicationSetStatus -&gt; QueryString)
+-&gt; ToQuery ReplicationSetStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ReplicationSetStatus -&gt; QueryString
+$ctoQuery :: ReplicationSetStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679215189"><span id="local-6989586621679215191"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicationSetStatus]
+Value -&gt; Parser ReplicationSetStatus
+(Value -&gt; Parser ReplicationSetStatus)
+-&gt; (Value -&gt; Parser [ReplicationSetStatus])
+-&gt; FromJSON ReplicationSetStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ReplicationSetStatus]
+$cparseJSONList :: Value -&gt; Parser [ReplicationSetStatus]
+parseJSON :: Value -&gt; Parser ReplicationSetStatus
+$cparseJSON :: Value -&gt; Parser ReplicationSetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679215184"><span id="local-6989586621679215186"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicationSetStatus]
+FromJSONKeyFunction ReplicationSetStatus
+FromJSONKeyFunction ReplicationSetStatus
+-&gt; FromJSONKeyFunction [ReplicationSetStatus]
+-&gt; FromJSONKey ReplicationSetStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ReplicationSetStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ReplicationSetStatus]
+fromJSONKey :: FromJSONKeyFunction ReplicationSetStatus
+$cfromJSONKey :: FromJSONKeyFunction ReplicationSetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679215175"><span id="local-6989586621679215177"><span id="local-6989586621679215179"><span id="local-6989586621679215181"><span class="annot"><span class="annottext">[ReplicationSetStatus] -&gt; Encoding
+[ReplicationSetStatus] -&gt; Value
+ReplicationSetStatus -&gt; Encoding
+ReplicationSetStatus -&gt; Value
+(ReplicationSetStatus -&gt; Value)
+-&gt; (ReplicationSetStatus -&gt; Encoding)
+-&gt; ([ReplicationSetStatus] -&gt; Value)
+-&gt; ([ReplicationSetStatus] -&gt; Encoding)
+-&gt; ToJSON ReplicationSetStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ReplicationSetStatus] -&gt; Encoding
+$ctoEncodingList :: [ReplicationSetStatus] -&gt; Encoding
+toJSONList :: [ReplicationSetStatus] -&gt; Value
+$ctoJSONList :: [ReplicationSetStatus] -&gt; Value
+toEncoding :: ReplicationSetStatus -&gt; Encoding
+$ctoEncoding :: ReplicationSetStatus -&gt; Encoding
+toJSON :: ReplicationSetStatus -&gt; Value
+$ctoJSON :: ReplicationSetStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679215170"><span id="local-6989586621679215172"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicationSetStatus]
+ToJSONKeyFunction ReplicationSetStatus
+ToJSONKeyFunction ReplicationSetStatus
+-&gt; ToJSONKeyFunction [ReplicationSetStatus]
+-&gt; ToJSONKey ReplicationSetStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ReplicationSetStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ReplicationSetStatus]
+toJSONKey :: ToJSONKeyFunction ReplicationSetStatus
+$ctoJSONKey :: ToJSONKeyFunction ReplicationSetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679215167"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicationSetStatus
+([Node] -&gt; Either String ReplicationSetStatus)
+-&gt; FromXML ReplicationSetStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ReplicationSetStatus
+$cparseXML :: [Node] -&gt; Either String ReplicationSetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679215164"><span class="annot"><span class="annottext">ReplicationSetStatus -&gt; XML
+(ReplicationSetStatus -&gt; XML) -&gt; ToXML ReplicationSetStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ReplicationSetStatus -&gt; XML
+$ctoXML :: ReplicationSetStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus_ACTIVE"><span class="hs-identifier hs-type">ReplicationSetStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus"><span class="hs-identifier hs-type">ReplicationSetStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplicationSetStatus_ACTIVE"><span id="%24mReplicationSetStatus_ACTIVE"><span id="ReplicationSetStatus_ACTIVE"><span class="annot"><span class="annottext">$bReplicationSetStatus_ACTIVE :: ReplicationSetStatus
+$mReplicationSetStatus_ACTIVE :: forall r. ReplicationSetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#%24bReplicationSetStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">ReplicationSetStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus%27"><span class="hs-identifier hs-type">ReplicationSetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus_CREATING"><span class="hs-identifier hs-type">ReplicationSetStatus_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus"><span class="hs-identifier hs-type">ReplicationSetStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplicationSetStatus_CREATING"><span id="%24mReplicationSetStatus_CREATING"><span id="ReplicationSetStatus_CREATING"><span class="annot"><span class="annottext">$bReplicationSetStatus_CREATING :: ReplicationSetStatus
+$mReplicationSetStatus_CREATING :: forall r. ReplicationSetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#%24bReplicationSetStatus_CREATING"><span class="hs-identifier hs-var hs-var hs-var">ReplicationSetStatus_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus%27"><span class="hs-identifier hs-type">ReplicationSetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus_DELETING"><span class="hs-identifier hs-type">ReplicationSetStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus"><span class="hs-identifier hs-type">ReplicationSetStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplicationSetStatus_DELETING"><span id="%24mReplicationSetStatus_DELETING"><span id="ReplicationSetStatus_DELETING"><span class="annot"><span class="annottext">$bReplicationSetStatus_DELETING :: ReplicationSetStatus
+$mReplicationSetStatus_DELETING :: forall r. ReplicationSetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#%24bReplicationSetStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">ReplicationSetStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus%27"><span class="hs-identifier hs-type">ReplicationSetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus_FAILED"><span class="hs-identifier hs-type">ReplicationSetStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus"><span class="hs-identifier hs-type">ReplicationSetStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplicationSetStatus_FAILED"><span id="%24mReplicationSetStatus_FAILED"><span id="ReplicationSetStatus_FAILED"><span class="annot"><span class="annottext">$bReplicationSetStatus_FAILED :: ReplicationSetStatus
+$mReplicationSetStatus_FAILED :: forall r. ReplicationSetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#%24bReplicationSetStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ReplicationSetStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus%27"><span class="hs-identifier hs-type">ReplicationSetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus_UPDATING"><span class="hs-identifier hs-type">ReplicationSetStatus_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus"><span class="hs-identifier hs-type">ReplicationSetStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplicationSetStatus_UPDATING"><span id="%24mReplicationSetStatus_UPDATING"><span id="ReplicationSetStatus_UPDATING"><span class="annot"><span class="annottext">$bReplicationSetStatus_UPDATING :: ReplicationSetStatus
+$mReplicationSetStatus_UPDATING :: forall r. ReplicationSetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#%24bReplicationSetStatus_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">ReplicationSetStatus_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus%27"><span class="hs-identifier hs-type">ReplicationSetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus_ACTIVE"><span class="hs-pragma hs-type">ReplicationSetStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus_CREATING"><span class="hs-pragma hs-type">ReplicationSetStatus_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus_DELETING"><span class="hs-pragma hs-type">ReplicationSetStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus_FAILED"><span class="hs-pragma hs-type">ReplicationSetStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus_UPDATING"><span class="hs-pragma hs-type">ReplicationSetStatus_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.ReplicationSetStatus.html#ReplicationSetStatus%27"><span class="hs-pragma hs-type">ReplicationSetStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

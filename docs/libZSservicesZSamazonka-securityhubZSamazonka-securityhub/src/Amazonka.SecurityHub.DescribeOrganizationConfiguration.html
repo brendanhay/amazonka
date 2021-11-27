@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.DescribeOrganizationConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about the Organizations configuration for Security</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Hub. Can only be called from a Security Hub administrator account.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.DescribeOrganizationConfiguration</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfiguration"><span class="hs-identifier">DescribeOrganizationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#newDescribeOrganizationConfiguration"><span class="hs-identifier">newDescribeOrganizationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse"><span class="hs-identifier">DescribeOrganizationConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#newDescribeOrganizationConfigurationResponse"><span class="hs-identifier">newDescribeOrganizationConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#describeOrganizationConfigurationResponse_memberAccountLimitReached"><span class="hs-identifier">describeOrganizationConfigurationResponse_memberAccountLimitReached</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#describeOrganizationConfigurationResponse_autoEnable"><span class="hs-identifier">describeOrganizationConfigurationResponse_autoEnable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#describeOrganizationConfigurationResponse_httpStatus"><span class="hs-identifier">describeOrganizationConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.html"><span class="hs-identifier">Amazonka.SecurityHub.Types</span></a></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDescribeOrganizationConfiguration' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621680004055"><span id="local-6989586621680004056"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOrganizationConfiguration"><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfiguration"><span class="hs-identifier hs-var">DescribeOrganizationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOrganizationConfiguration%27"><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfiguration%27"><span class="hs-identifier hs-var">DescribeOrganizationConfiguration'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680004050"><span id="local-6989586621680004052"><span class="annot"><span class="annottext">DescribeOrganizationConfiguration
+-&gt; DescribeOrganizationConfiguration -&gt; Bool
+(DescribeOrganizationConfiguration
+ -&gt; DescribeOrganizationConfiguration -&gt; Bool)
+-&gt; (DescribeOrganizationConfiguration
+    -&gt; DescribeOrganizationConfiguration -&gt; Bool)
+-&gt; Eq DescribeOrganizationConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeOrganizationConfiguration
+-&gt; DescribeOrganizationConfiguration -&gt; Bool
+$c/= :: DescribeOrganizationConfiguration
+-&gt; DescribeOrganizationConfiguration -&gt; Bool
+== :: DescribeOrganizationConfiguration
+-&gt; DescribeOrganizationConfiguration -&gt; Bool
+$c== :: DescribeOrganizationConfiguration
+-&gt; DescribeOrganizationConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680004041"><span id="local-6989586621680004043"><span id="local-6989586621680004045"><span id="local-6989586621680004047"><span class="annot"><span class="annottext">ReadPrec [DescribeOrganizationConfiguration]
+ReadPrec DescribeOrganizationConfiguration
+Int -&gt; ReadS DescribeOrganizationConfiguration
+ReadS [DescribeOrganizationConfiguration]
+(Int -&gt; ReadS DescribeOrganizationConfiguration)
+-&gt; ReadS [DescribeOrganizationConfiguration]
+-&gt; ReadPrec DescribeOrganizationConfiguration
+-&gt; ReadPrec [DescribeOrganizationConfiguration]
+-&gt; Read DescribeOrganizationConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeOrganizationConfiguration]
+$creadListPrec :: ReadPrec [DescribeOrganizationConfiguration]
+readPrec :: ReadPrec DescribeOrganizationConfiguration
+$creadPrec :: ReadPrec DescribeOrganizationConfiguration
+readList :: ReadS [DescribeOrganizationConfiguration]
+$creadList :: ReadS [DescribeOrganizationConfiguration]
+readsPrec :: Int -&gt; ReadS DescribeOrganizationConfiguration
+$creadsPrec :: Int -&gt; ReadS DescribeOrganizationConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680004034"><span id="local-6989586621680004036"><span id="local-6989586621680004038"><span class="annot"><span class="annottext">Int -&gt; DescribeOrganizationConfiguration -&gt; ShowS
+[DescribeOrganizationConfiguration] -&gt; ShowS
+DescribeOrganizationConfiguration -&gt; String
+(Int -&gt; DescribeOrganizationConfiguration -&gt; ShowS)
+-&gt; (DescribeOrganizationConfiguration -&gt; String)
+-&gt; ([DescribeOrganizationConfiguration] -&gt; ShowS)
+-&gt; Show DescribeOrganizationConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeOrganizationConfiguration] -&gt; ShowS
+$cshowList :: [DescribeOrganizationConfiguration] -&gt; ShowS
+show :: DescribeOrganizationConfiguration -&gt; String
+$cshow :: DescribeOrganizationConfiguration -&gt; String
+showsPrec :: Int -&gt; DescribeOrganizationConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeOrganizationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeOrganizationConfiguration
+ -&gt; Rep DescribeOrganizationConfiguration x)
+-&gt; (forall x.
+    Rep DescribeOrganizationConfiguration x
+    -&gt; DescribeOrganizationConfiguration)
+-&gt; Generic DescribeOrganizationConfiguration
+forall x.
+Rep DescribeOrganizationConfiguration x
+-&gt; DescribeOrganizationConfiguration
+forall x.
+DescribeOrganizationConfiguration
+-&gt; Rep DescribeOrganizationConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeOrganizationConfiguration x
+-&gt; DescribeOrganizationConfiguration
+$cfrom :: forall x.
+DescribeOrganizationConfiguration
+-&gt; Rep DescribeOrganizationConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'DescribeOrganizationConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#newDescribeOrganizationConfiguration"><span class="hs-identifier hs-type">newDescribeOrganizationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfiguration"><span class="hs-identifier hs-type">DescribeOrganizationConfiguration</span></a></span><span>
+</span><span id="line-60"></span><span id="newDescribeOrganizationConfiguration"><span class="annot"><span class="annottext">newDescribeOrganizationConfiguration :: DescribeOrganizationConfiguration
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#newDescribeOrganizationConfiguration"><span class="hs-identifier hs-var hs-var">newDescribeOrganizationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">DescribeOrganizationConfiguration
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfiguration%27"><span class="hs-identifier hs-var">DescribeOrganizationConfiguration'</span></a></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfiguration"><span class="hs-identifier hs-type">DescribeOrganizationConfiguration</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-68"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfiguration"><span class="hs-identifier hs-type">DescribeOrganizationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621680004026"><span class="annot"><span class="annottext">request :: DescribeOrganizationConfiguration
+-&gt; Request DescribeOrganizationConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeOrganizationConfiguration
+-&gt; Request DescribeOrganizationConfiguration
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SecurityHub.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621680004022"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeOrganizationConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeOrganizationConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeOrganizationConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeOrganizationConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeOrganizationConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680004019"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680004019"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680004018"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680004018"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680004017"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680004017"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Bool -&gt; Int -&gt; DescribeOrganizationConfigurationResponse
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-var">DescribeOrganizationConfigurationResponse'</span></a></span><span>
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Bool -&gt; Int -&gt; DescribeOrganizationConfigurationResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Bool -&gt; Int -&gt; DescribeOrganizationConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680004017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;MemberAccountLimitReached&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool -&gt; Int -&gt; DescribeOrganizationConfigurationResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; DescribeOrganizationConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680004017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;AutoEnable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeOrganizationConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeOrganizationConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680004019"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621680004009"><span id="local-6989586621680004011"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfiguration"><span class="hs-identifier hs-type">DescribeOrganizationConfiguration</span></a></span></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621680004006"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfiguration"><span class="hs-identifier hs-type">DescribeOrganizationConfiguration</span></a></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfiguration"><span class="hs-identifier hs-type">DescribeOrganizationConfiguration</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621680004002"><span class="annot"><span class="annottext">toHeaders :: DescribeOrganizationConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeOrganizationConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-98"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfiguration"><span class="hs-identifier hs-type">DescribeOrganizationConfiguration</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621680003996"><span class="annot"><span class="annottext">toPath :: DescribeOrganizationConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeOrganizationConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/organization/configuration&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfiguration"><span class="hs-identifier hs-type">DescribeOrganizationConfiguration</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621680003992"><span class="annot"><span class="annottext">toQuery :: DescribeOrganizationConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeOrganizationConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | /See:/ 'newDescribeOrganizationConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-115"></span><span id="local-6989586621680003989"><span id="local-6989586621680003990"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOrganizationConfigurationResponse"><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse"><span class="hs-identifier hs-var">DescribeOrganizationConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOrganizationConfigurationResponse%27"><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-var">DescribeOrganizationConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether the maximum number of allowed member accounts are already</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- associated with the Security Hub administrator account.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3AmemberAccountLimitReached%3ADescribeOrganizationConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeOrganizationConfigurationResponse -&gt; Maybe Bool
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#%24sel%3AmemberAccountLimitReached%3ADescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">memberAccountLimitReached</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | Whether to automatically enable Security Hub for new accounts in the</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- organization.</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- If set to @true@, then Security Hub is enabled for new accounts. If set</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- to false, then new accounts are not added automatically.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AautoEnable%3ADescribeOrganizationConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeOrganizationConfigurationResponse -&gt; Maybe Bool
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#%24sel%3AautoEnable%3ADescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">autoEnable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeOrganizationConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeOrganizationConfigurationResponse -&gt; Int
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#%24sel%3AhttpStatus%3ADescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680003982"><span id="local-6989586621680003984"><span class="annot"><span class="annottext">DescribeOrganizationConfigurationResponse
+-&gt; DescribeOrganizationConfigurationResponse -&gt; Bool
+(DescribeOrganizationConfigurationResponse
+ -&gt; DescribeOrganizationConfigurationResponse -&gt; Bool)
+-&gt; (DescribeOrganizationConfigurationResponse
+    -&gt; DescribeOrganizationConfigurationResponse -&gt; Bool)
+-&gt; Eq DescribeOrganizationConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeOrganizationConfigurationResponse
+-&gt; DescribeOrganizationConfigurationResponse -&gt; Bool
+$c/= :: DescribeOrganizationConfigurationResponse
+-&gt; DescribeOrganizationConfigurationResponse -&gt; Bool
+== :: DescribeOrganizationConfigurationResponse
+-&gt; DescribeOrganizationConfigurationResponse -&gt; Bool
+$c== :: DescribeOrganizationConfigurationResponse
+-&gt; DescribeOrganizationConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003974"><span id="local-6989586621680003976"><span id="local-6989586621680003978"><span id="local-6989586621680003980"><span class="annot"><span class="annottext">ReadPrec [DescribeOrganizationConfigurationResponse]
+ReadPrec DescribeOrganizationConfigurationResponse
+Int -&gt; ReadS DescribeOrganizationConfigurationResponse
+ReadS [DescribeOrganizationConfigurationResponse]
+(Int -&gt; ReadS DescribeOrganizationConfigurationResponse)
+-&gt; ReadS [DescribeOrganizationConfigurationResponse]
+-&gt; ReadPrec DescribeOrganizationConfigurationResponse
+-&gt; ReadPrec [DescribeOrganizationConfigurationResponse]
+-&gt; Read DescribeOrganizationConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeOrganizationConfigurationResponse]
+$creadListPrec :: ReadPrec [DescribeOrganizationConfigurationResponse]
+readPrec :: ReadPrec DescribeOrganizationConfigurationResponse
+$creadPrec :: ReadPrec DescribeOrganizationConfigurationResponse
+readList :: ReadS [DescribeOrganizationConfigurationResponse]
+$creadList :: ReadS [DescribeOrganizationConfigurationResponse]
+readsPrec :: Int -&gt; ReadS DescribeOrganizationConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS DescribeOrganizationConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003968"><span id="local-6989586621680003970"><span id="local-6989586621680003972"><span class="annot"><span class="annottext">Int -&gt; DescribeOrganizationConfigurationResponse -&gt; ShowS
+[DescribeOrganizationConfigurationResponse] -&gt; ShowS
+DescribeOrganizationConfigurationResponse -&gt; String
+(Int -&gt; DescribeOrganizationConfigurationResponse -&gt; ShowS)
+-&gt; (DescribeOrganizationConfigurationResponse -&gt; String)
+-&gt; ([DescribeOrganizationConfigurationResponse] -&gt; ShowS)
+-&gt; Show DescribeOrganizationConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeOrganizationConfigurationResponse] -&gt; ShowS
+$cshowList :: [DescribeOrganizationConfigurationResponse] -&gt; ShowS
+show :: DescribeOrganizationConfigurationResponse -&gt; String
+$cshow :: DescribeOrganizationConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; DescribeOrganizationConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeOrganizationConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeOrganizationConfigurationResponse
+ -&gt; Rep DescribeOrganizationConfigurationResponse x)
+-&gt; (forall x.
+    Rep DescribeOrganizationConfigurationResponse x
+    -&gt; DescribeOrganizationConfigurationResponse)
+-&gt; Generic DescribeOrganizationConfigurationResponse
+forall x.
+Rep DescribeOrganizationConfigurationResponse x
+-&gt; DescribeOrganizationConfigurationResponse
+forall x.
+DescribeOrganizationConfigurationResponse
+-&gt; Rep DescribeOrganizationConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeOrganizationConfigurationResponse x
+-&gt; DescribeOrganizationConfigurationResponse
+$cfrom :: forall x.
+DescribeOrganizationConfigurationResponse
+-&gt; Rep DescribeOrganizationConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Create a value of 'DescribeOrganizationConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'memberAccountLimitReached', 'describeOrganizationConfigurationResponse_memberAccountLimitReached' - Whether the maximum number of allowed member accounts are already</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- associated with the Security Hub administrator account.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'autoEnable', 'describeOrganizationConfigurationResponse_autoEnable' - Whether to automatically enable Security Hub for new accounts in the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- organization.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- If set to @true@, then Security Hub is enabled for new accounts. If set</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- to false, then new accounts are not added automatically.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'httpStatus', 'describeOrganizationConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#newDescribeOrganizationConfigurationResponse"><span class="hs-identifier hs-type">newDescribeOrganizationConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse</span></a></span><span>
+</span><span id="line-152"></span><span id="newDescribeOrganizationConfigurationResponse"><span class="annot"><span class="annottext">newDescribeOrganizationConfigurationResponse :: Int -&gt; DescribeOrganizationConfigurationResponse
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#newDescribeOrganizationConfigurationResponse"><span class="hs-identifier hs-var hs-var">newDescribeOrganizationConfigurationResponse</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621680003965"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680003965"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">DescribeOrganizationConfigurationResponse' :: Maybe Bool
+-&gt; Maybe Bool -&gt; Int -&gt; DescribeOrganizationConfigurationResponse
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse'</span></a></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:memberAccountLimitReached:DescribeOrganizationConfigurationResponse' :: Maybe Bool
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#%24sel%3AmemberAccountLimitReached%3ADescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-var">memberAccountLimitReached</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoEnable:DescribeOrganizationConfigurationResponse' :: Maybe Bool
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#%24sel%3AautoEnable%3ADescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-var">autoEnable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOrganizationConfigurationResponse' :: Int
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#%24sel%3AhttpStatus%3ADescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680003965"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Whether the maximum number of allowed member accounts are already</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- associated with the Security Hub administrator account.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#describeOrganizationConfigurationResponse_memberAccountLimitReached"><span class="hs-identifier hs-type">describeOrganizationConfigurationResponse_memberAccountLimitReached</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="describeOrganizationConfigurationResponse_memberAccountLimitReached"><span class="annot"><span class="annottext">describeOrganizationConfigurationResponse_memberAccountLimitReached :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeOrganizationConfigurationResponse
+-&gt; f DescribeOrganizationConfigurationResponse
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#describeOrganizationConfigurationResponse_memberAccountLimitReached"><span class="hs-identifier hs-var hs-var">describeOrganizationConfigurationResponse_memberAccountLimitReached</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOrganizationConfigurationResponse -&gt; Maybe Bool)
+-&gt; (DescribeOrganizationConfigurationResponse
+    -&gt; Maybe Bool -&gt; DescribeOrganizationConfigurationResponse)
+-&gt; Lens
+     DescribeOrganizationConfigurationResponse
+     DescribeOrganizationConfigurationResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003962"><span class="annot"><span class="annottext">Maybe Bool
+memberAccountLimitReached :: Maybe Bool
+$sel:memberAccountLimitReached:DescribeOrganizationConfigurationResponse' :: DescribeOrganizationConfigurationResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621680003962"><span class="hs-identifier hs-var hs-var">memberAccountLimitReached</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680003962"><span class="hs-identifier hs-var">memberAccountLimitReached</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003961"><span class="annot"><span class="annottext">s :: DescribeOrganizationConfigurationResponse
+</span><a href="#local-6989586621680003961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003960"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680003960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationConfigurationResponse
+</span><a href="#local-6989586621680003961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberAccountLimitReached:DescribeOrganizationConfigurationResponse' :: Maybe Bool
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#%24sel%3AmemberAccountLimitReached%3ADescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-var">memberAccountLimitReached</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680003960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | Whether to automatically enable Security Hub for new accounts in the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- organization.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- If set to @true@, then Security Hub is enabled for new accounts. If set</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- to false, then new accounts are not added automatically.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#describeOrganizationConfigurationResponse_autoEnable"><span class="hs-identifier hs-type">describeOrganizationConfigurationResponse_autoEnable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="describeOrganizationConfigurationResponse_autoEnable"><span class="annot"><span class="annottext">describeOrganizationConfigurationResponse_autoEnable :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeOrganizationConfigurationResponse
+-&gt; f DescribeOrganizationConfigurationResponse
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#describeOrganizationConfigurationResponse_autoEnable"><span class="hs-identifier hs-var hs-var">describeOrganizationConfigurationResponse_autoEnable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOrganizationConfigurationResponse -&gt; Maybe Bool)
+-&gt; (DescribeOrganizationConfigurationResponse
+    -&gt; Maybe Bool -&gt; DescribeOrganizationConfigurationResponse)
+-&gt; Lens
+     DescribeOrganizationConfigurationResponse
+     DescribeOrganizationConfigurationResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003959"><span class="annot"><span class="annottext">Maybe Bool
+autoEnable :: Maybe Bool
+$sel:autoEnable:DescribeOrganizationConfigurationResponse' :: DescribeOrganizationConfigurationResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621680003959"><span class="hs-identifier hs-var hs-var">autoEnable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680003959"><span class="hs-identifier hs-var">autoEnable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003958"><span class="annot"><span class="annottext">s :: DescribeOrganizationConfigurationResponse
+</span><a href="#local-6989586621680003958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003957"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680003957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationConfigurationResponse
+</span><a href="#local-6989586621680003958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoEnable:DescribeOrganizationConfigurationResponse' :: Maybe Bool
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#%24sel%3AautoEnable%3ADescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-var">autoEnable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680003957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#describeOrganizationConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">describeOrganizationConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-176"></span><span id="describeOrganizationConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">describeOrganizationConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeOrganizationConfigurationResponse
+-&gt; f DescribeOrganizationConfigurationResponse
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#describeOrganizationConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeOrganizationConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOrganizationConfigurationResponse -&gt; Int)
+-&gt; (DescribeOrganizationConfigurationResponse
+    -&gt; Int -&gt; DescribeOrganizationConfigurationResponse)
+-&gt; Lens
+     DescribeOrganizationConfigurationResponse
+     DescribeOrganizationConfigurationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003956"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeOrganizationConfigurationResponse' :: DescribeOrganizationConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621680003956"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680003956"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003955"><span class="annot"><span class="annottext">s :: DescribeOrganizationConfigurationResponse
+</span><a href="#local-6989586621680003955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003954"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680003954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationConfigurationResponse
+</span><a href="#local-6989586621680003955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOrganizationConfigurationResponse' :: Int
+</span><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#%24sel%3AhttpStatus%3ADescribeOrganizationConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680003954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621680003952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DescribeOrganizationConfiguration.html#DescribeOrganizationConfigurationResponse"><span class="hs-identifier hs-type">DescribeOrganizationConfigurationResponse</span></a></span></span><span>
+</span><span id="line-181"></span></pre></body></html>

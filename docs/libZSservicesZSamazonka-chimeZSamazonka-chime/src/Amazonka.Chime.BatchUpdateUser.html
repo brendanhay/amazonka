@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Chime.BatchUpdateUser</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates user details within the UpdateUserRequestItem object for up to</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- 20 users for the specified Amazon Chime account. Currently, only</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @LicenseType@ updates are supported for this action.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.BatchUpdateUser</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser"><span class="hs-identifier">BatchUpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#newBatchUpdateUser"><span class="hs-identifier">newBatchUpdateUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#batchUpdateUser_accountId"><span class="hs-identifier">batchUpdateUser_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#batchUpdateUser_updateUserRequestItems"><span class="hs-identifier">batchUpdateUser_updateUserRequestItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse"><span class="hs-identifier">BatchUpdateUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#newBatchUpdateUserResponse"><span class="hs-identifier">newBatchUpdateUserResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#batchUpdateUserResponse_userErrors"><span class="hs-identifier">batchUpdateUserResponse_userErrors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#batchUpdateUserResponse_httpStatus"><span class="hs-identifier">batchUpdateUserResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.html"><span class="hs-identifier">Amazonka.Chime.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newBatchUpdateUser' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679556170"><span id="local-6989586621679556171"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchUpdateUser"><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser"><span class="hs-identifier hs-var">BatchUpdateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchUpdateUser%27"><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser%27"><span class="hs-identifier hs-var">BatchUpdateUser'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AaccountId%3ABatchUpdateUser%27"><span class="annot"><span class="annottext">BatchUpdateUser -&gt; Text
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#%24sel%3AaccountId%3ABatchUpdateUser%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The request containing the user IDs and details to update.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AupdateUserRequestItems%3ABatchUpdateUser%27"><span class="annot"><span class="annottext">BatchUpdateUser -&gt; [UpdateUserRequestItem]
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#%24sel%3AupdateUserRequestItems%3ABatchUpdateUser%27"><span class="hs-identifier hs-var hs-var">updateUserRequestItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Chime.Types.UpdateUserRequestItem.html#UpdateUserRequestItem"><span class="hs-identifier hs-type">UpdateUserRequestItem</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679556163"><span id="local-6989586621679556165"><span class="annot"><span class="annottext">BatchUpdateUser -&gt; BatchUpdateUser -&gt; Bool
+(BatchUpdateUser -&gt; BatchUpdateUser -&gt; Bool)
+-&gt; (BatchUpdateUser -&gt; BatchUpdateUser -&gt; Bool)
+-&gt; Eq BatchUpdateUser
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchUpdateUser -&gt; BatchUpdateUser -&gt; Bool
+$c/= :: BatchUpdateUser -&gt; BatchUpdateUser -&gt; Bool
+== :: BatchUpdateUser -&gt; BatchUpdateUser -&gt; Bool
+$c== :: BatchUpdateUser -&gt; BatchUpdateUser -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679556156"><span id="local-6989586621679556158"><span id="local-6989586621679556160"><span class="annot"><span class="annottext">Int -&gt; BatchUpdateUser -&gt; ShowS
+[BatchUpdateUser] -&gt; ShowS
+BatchUpdateUser -&gt; String
+(Int -&gt; BatchUpdateUser -&gt; ShowS)
+-&gt; (BatchUpdateUser -&gt; String)
+-&gt; ([BatchUpdateUser] -&gt; ShowS)
+-&gt; Show BatchUpdateUser
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchUpdateUser] -&gt; ShowS
+$cshowList :: [BatchUpdateUser] -&gt; ShowS
+show :: BatchUpdateUser -&gt; String
+$cshow :: BatchUpdateUser -&gt; String
+showsPrec :: Int -&gt; BatchUpdateUser -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchUpdateUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchUpdateUser -&gt; Rep BatchUpdateUser x)
+-&gt; (forall x. Rep BatchUpdateUser x -&gt; BatchUpdateUser)
+-&gt; Generic BatchUpdateUser
+forall x. Rep BatchUpdateUser x -&gt; BatchUpdateUser
+forall x. BatchUpdateUser -&gt; Rep BatchUpdateUser x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchUpdateUser x -&gt; BatchUpdateUser
+$cfrom :: forall x. BatchUpdateUser -&gt; Rep BatchUpdateUser x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'BatchUpdateUser' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'accountId', 'batchUpdateUser_accountId' - The Amazon Chime account ID.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'updateUserRequestItems', 'batchUpdateUser_updateUserRequestItems' - The request containing the user IDs and details to update.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#newBatchUpdateUser"><span class="hs-identifier hs-type">newBatchUpdateUser</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser"><span class="hs-identifier hs-type">BatchUpdateUser</span></a></span><span>
+</span><span id="line-76"></span><span id="newBatchUpdateUser"><span class="annot"><span class="annottext">newBatchUpdateUser :: Text -&gt; BatchUpdateUser
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#newBatchUpdateUser"><span class="hs-identifier hs-var hs-var">newBatchUpdateUser</span></a></span></span><span> </span><span id="local-6989586621679556151"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679556151"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">BatchUpdateUser' :: Text -&gt; [UpdateUserRequestItem] -&gt; BatchUpdateUser
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser%27"><span class="hs-identifier hs-type">BatchUpdateUser'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:BatchUpdateUser' :: Text
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#%24sel%3AaccountId%3ABatchUpdateUser%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679556151"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:updateUserRequestItems:BatchUpdateUser' :: [UpdateUserRequestItem]
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#%24sel%3AupdateUserRequestItems%3ABatchUpdateUser%27"><span class="hs-identifier hs-var">updateUserRequestItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UpdateUserRequestItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#batchUpdateUser_accountId"><span class="hs-identifier hs-type">batchUpdateUser_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser"><span class="hs-identifier hs-type">BatchUpdateUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="batchUpdateUser_accountId"><span class="annot"><span class="annottext">batchUpdateUser_accountId :: (Text -&gt; f Text) -&gt; BatchUpdateUser -&gt; f BatchUpdateUser
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#batchUpdateUser_accountId"><span class="hs-identifier hs-var hs-var">batchUpdateUser_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateUser -&gt; Text)
+-&gt; (BatchUpdateUser -&gt; Text -&gt; BatchUpdateUser)
+-&gt; Lens BatchUpdateUser BatchUpdateUser Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser%27"><span class="hs-identifier hs-type">BatchUpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556148"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:BatchUpdateUser' :: BatchUpdateUser -&gt; Text
+</span><a href="#local-6989586621679556148"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679556148"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556147"><span class="annot"><span class="annottext">s :: BatchUpdateUser
+</span><a href="#local-6989586621679556147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser%27"><span class="hs-identifier hs-type">BatchUpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556146"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679556146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateUser
+</span><a href="#local-6989586621679556147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:BatchUpdateUser' :: Text
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#%24sel%3AaccountId%3ABatchUpdateUser%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679556146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser"><span class="hs-identifier hs-type">BatchUpdateUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The request containing the user IDs and details to update.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#batchUpdateUser_updateUserRequestItems"><span class="hs-identifier hs-type">batchUpdateUser_updateUserRequestItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser"><span class="hs-identifier hs-type">BatchUpdateUser</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Chime.Types.UpdateUserRequestItem.html#UpdateUserRequestItem"><span class="hs-identifier hs-type">UpdateUserRequestItem</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-88"></span><span id="batchUpdateUser_updateUserRequestItems"><span class="annot"><span class="annottext">batchUpdateUser_updateUserRequestItems :: ([UpdateUserRequestItem] -&gt; f [UpdateUserRequestItem])
+-&gt; BatchUpdateUser -&gt; f BatchUpdateUser
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#batchUpdateUser_updateUserRequestItems"><span class="hs-identifier hs-var hs-var">batchUpdateUser_updateUserRequestItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateUser -&gt; [UpdateUserRequestItem])
+-&gt; (BatchUpdateUser -&gt; [UpdateUserRequestItem] -&gt; BatchUpdateUser)
+-&gt; Lens
+     BatchUpdateUser
+     BatchUpdateUser
+     [UpdateUserRequestItem]
+     [UpdateUserRequestItem]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser%27"><span class="hs-identifier hs-type">BatchUpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556145"><span class="annot"><span class="annottext">[UpdateUserRequestItem]
+updateUserRequestItems :: [UpdateUserRequestItem]
+$sel:updateUserRequestItems:BatchUpdateUser' :: BatchUpdateUser -&gt; [UpdateUserRequestItem]
+</span><a href="#local-6989586621679556145"><span class="hs-identifier hs-var hs-var">updateUserRequestItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[UpdateUserRequestItem]
+</span><a href="#local-6989586621679556145"><span class="hs-identifier hs-var">updateUserRequestItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556144"><span class="annot"><span class="annottext">s :: BatchUpdateUser
+</span><a href="#local-6989586621679556144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser%27"><span class="hs-identifier hs-type">BatchUpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556143"><span class="annot"><span class="annottext">[UpdateUserRequestItem]
+</span><a href="#local-6989586621679556143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateUser
+</span><a href="#local-6989586621679556144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateUserRequestItems:BatchUpdateUser' :: [UpdateUserRequestItem]
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#%24sel%3AupdateUserRequestItems%3ABatchUpdateUser%27"><span class="hs-identifier hs-var">updateUserRequestItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UpdateUserRequestItem]
+</span><a href="#local-6989586621679556143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser"><span class="hs-identifier hs-type">BatchUpdateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([UpdateUserRequestItem] -&gt; f [UpdateUserRequestItem])
+ -&gt; BatchUpdateUser -&gt; f BatchUpdateUser)
+-&gt; (([UpdateUserRequestItem] -&gt; f [UpdateUserRequestItem])
+    -&gt; [UpdateUserRequestItem] -&gt; f [UpdateUserRequestItem])
+-&gt; ([UpdateUserRequestItem] -&gt; f [UpdateUserRequestItem])
+-&gt; BatchUpdateUser
+-&gt; f BatchUpdateUser
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([UpdateUserRequestItem] -&gt; f [UpdateUserRequestItem])
+-&gt; [UpdateUserRequestItem] -&gt; f [UpdateUserRequestItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser"><span class="hs-identifier hs-type">BatchUpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser"><span class="hs-identifier hs-type">BatchUpdateUser</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse"><span class="hs-identifier hs-type">BatchUpdateUserResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679556137"><span class="annot"><span class="annottext">request :: BatchUpdateUser -&gt; Request BatchUpdateUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchUpdateUser -&gt; Request BatchUpdateUser
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679556133"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchUpdateUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse BatchUpdateUser)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchUpdateUser))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchUpdateUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse BatchUpdateUser)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679556130"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679556130"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679556129"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679556129"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679556128"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679556128"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UserError] -&gt; Int -&gt; BatchUpdateUserResponse
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse%27"><span class="hs-identifier hs-var">BatchUpdateUserResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [UserError] -&gt; Int -&gt; BatchUpdateUserResponse)
+-&gt; Either String (Maybe [UserError])
+-&gt; Either String (Int -&gt; BatchUpdateUserResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679556128"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [UserError]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserErrors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [UserError]))
+-&gt; Maybe [UserError] -&gt; Either String (Maybe [UserError])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UserError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchUpdateUserResponse)
+-&gt; Either String Int -&gt; Either String BatchUpdateUserResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679556130"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679556119"><span id="local-6989586621679556121"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser"><span class="hs-identifier hs-type">BatchUpdateUser</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679556116"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser"><span class="hs-identifier hs-type">BatchUpdateUser</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser"><span class="hs-identifier hs-type">BatchUpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679556112"><span class="annot"><span class="annottext">toHeaders :: BatchUpdateUser -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchUpdateUser -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679556103"><span id="local-6989586621679556105"><span id="local-6989586621679556107"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser"><span class="hs-identifier hs-type">BatchUpdateUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679556101"><span class="annot"><span class="annottext">toJSON :: BatchUpdateUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser%27"><span class="hs-identifier hs-type">BatchUpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556098"><span id="local-6989586621679556099"><span class="annot"><span class="annottext">[UpdateUserRequestItem]
+Text
+updateUserRequestItems :: [UpdateUserRequestItem]
+accountId :: Text
+$sel:updateUserRequestItems:BatchUpdateUser' :: BatchUpdateUser -&gt; [UpdateUserRequestItem]
+$sel:accountId:BatchUpdateUser' :: BatchUpdateUser -&gt; Text
+</span><a href="#local-6989586621679556098"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateUserRequestItems&quot;</span></span><span>
+</span><span id="line-116"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [UpdateUserRequestItem] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[UpdateUserRequestItem]
+</span><a href="#local-6989586621679556098"><span class="hs-identifier hs-var">updateUserRequestItems</span></a></span><span>
+</span><span id="line-117"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser"><span class="hs-identifier hs-type">BatchUpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679556092"><span class="annot"><span class="annottext">toPath :: BatchUpdateUser -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser%27"><span class="hs-identifier hs-type">BatchUpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556089"><span id="local-6989586621679556090"><span class="annot"><span class="annottext">[UpdateUserRequestItem]
+Text
+updateUserRequestItems :: [UpdateUserRequestItem]
+accountId :: Text
+$sel:updateUserRequestItems:BatchUpdateUser' :: BatchUpdateUser -&gt; [UpdateUserRequestItem]
+$sel:accountId:BatchUpdateUser' :: BatchUpdateUser -&gt; Text
+</span><a href="#local-6989586621679556089"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679556090"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/users&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUser"><span class="hs-identifier hs-type">BatchUpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679556085"><span class="annot"><span class="annottext">toQuery :: BatchUpdateUser -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchUpdateUser -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newBatchUpdateUserResponse' smart constructor.</span><span>
+</span><span id="line-130"></span><span id="local-6989586621679556082"><span id="local-6989586621679556083"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchUpdateUserResponse"><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse"><span class="hs-identifier hs-var">BatchUpdateUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchUpdateUserResponse%27"><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse%27"><span class="hs-identifier hs-var">BatchUpdateUserResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the BatchUpdateUser action fails for one or more of the user IDs in</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- the request, a list of the user IDs is returned, along with error codes</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- and error messages.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AuserErrors%3ABatchUpdateUserResponse%27"><span class="annot"><span class="annottext">BatchUpdateUserResponse -&gt; Maybe [UserError]
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#%24sel%3AuserErrors%3ABatchUpdateUserResponse%27"><span class="hs-identifier hs-var hs-var">userErrors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Chime.Types.UserError.html#UserError"><span class="hs-identifier hs-type">UserError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchUpdateUserResponse%27"><span class="annot"><span class="annottext">BatchUpdateUserResponse -&gt; Int
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#%24sel%3AhttpStatus%3ABatchUpdateUserResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679556076"><span id="local-6989586621679556078"><span class="annot"><span class="annottext">BatchUpdateUserResponse -&gt; BatchUpdateUserResponse -&gt; Bool
+(BatchUpdateUserResponse -&gt; BatchUpdateUserResponse -&gt; Bool)
+-&gt; (BatchUpdateUserResponse -&gt; BatchUpdateUserResponse -&gt; Bool)
+-&gt; Eq BatchUpdateUserResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchUpdateUserResponse -&gt; BatchUpdateUserResponse -&gt; Bool
+$c/= :: BatchUpdateUserResponse -&gt; BatchUpdateUserResponse -&gt; Bool
+== :: BatchUpdateUserResponse -&gt; BatchUpdateUserResponse -&gt; Bool
+$c== :: BatchUpdateUserResponse -&gt; BatchUpdateUserResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679556068"><span id="local-6989586621679556070"><span id="local-6989586621679556072"><span id="local-6989586621679556074"><span class="annot"><span class="annottext">ReadPrec [BatchUpdateUserResponse]
+ReadPrec BatchUpdateUserResponse
+Int -&gt; ReadS BatchUpdateUserResponse
+ReadS [BatchUpdateUserResponse]
+(Int -&gt; ReadS BatchUpdateUserResponse)
+-&gt; ReadS [BatchUpdateUserResponse]
+-&gt; ReadPrec BatchUpdateUserResponse
+-&gt; ReadPrec [BatchUpdateUserResponse]
+-&gt; Read BatchUpdateUserResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchUpdateUserResponse]
+$creadListPrec :: ReadPrec [BatchUpdateUserResponse]
+readPrec :: ReadPrec BatchUpdateUserResponse
+$creadPrec :: ReadPrec BatchUpdateUserResponse
+readList :: ReadS [BatchUpdateUserResponse]
+$creadList :: ReadS [BatchUpdateUserResponse]
+readsPrec :: Int -&gt; ReadS BatchUpdateUserResponse
+$creadsPrec :: Int -&gt; ReadS BatchUpdateUserResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679556061"><span id="local-6989586621679556063"><span id="local-6989586621679556065"><span class="annot"><span class="annottext">Int -&gt; BatchUpdateUserResponse -&gt; ShowS
+[BatchUpdateUserResponse] -&gt; ShowS
+BatchUpdateUserResponse -&gt; String
+(Int -&gt; BatchUpdateUserResponse -&gt; ShowS)
+-&gt; (BatchUpdateUserResponse -&gt; String)
+-&gt; ([BatchUpdateUserResponse] -&gt; ShowS)
+-&gt; Show BatchUpdateUserResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchUpdateUserResponse] -&gt; ShowS
+$cshowList :: [BatchUpdateUserResponse] -&gt; ShowS
+show :: BatchUpdateUserResponse -&gt; String
+$cshow :: BatchUpdateUserResponse -&gt; String
+showsPrec :: Int -&gt; BatchUpdateUserResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchUpdateUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchUpdateUserResponse -&gt; Rep BatchUpdateUserResponse x)
+-&gt; (forall x.
+    Rep BatchUpdateUserResponse x -&gt; BatchUpdateUserResponse)
+-&gt; Generic BatchUpdateUserResponse
+forall x. Rep BatchUpdateUserResponse x -&gt; BatchUpdateUserResponse
+forall x. BatchUpdateUserResponse -&gt; Rep BatchUpdateUserResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchUpdateUserResponse x -&gt; BatchUpdateUserResponse
+$cfrom :: forall x. BatchUpdateUserResponse -&gt; Rep BatchUpdateUserResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Create a value of 'BatchUpdateUserResponse' with all optional fields omitted.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'userErrors', 'batchUpdateUserResponse_userErrors' - If the BatchUpdateUser action fails for one or more of the user IDs in</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- the request, a list of the user IDs is returned, along with error codes</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- and error messages.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'batchUpdateUserResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#newBatchUpdateUserResponse"><span class="hs-identifier hs-type">newBatchUpdateUserResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse"><span class="hs-identifier hs-type">BatchUpdateUserResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newBatchUpdateUserResponse"><span class="annot"><span class="annottext">newBatchUpdateUserResponse :: Int -&gt; BatchUpdateUserResponse
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#newBatchUpdateUserResponse"><span class="hs-identifier hs-var hs-var">newBatchUpdateUserResponse</span></a></span></span><span> </span><span id="local-6989586621679556058"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679556058"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">BatchUpdateUserResponse' :: Maybe [UserError] -&gt; Int -&gt; BatchUpdateUserResponse
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse%27"><span class="hs-identifier hs-type">BatchUpdateUserResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userErrors:BatchUpdateUserResponse' :: Maybe [UserError]
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#%24sel%3AuserErrors%3ABatchUpdateUserResponse%27"><span class="hs-identifier hs-var">userErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Maybe [UserError]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchUpdateUserResponse' :: Int
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#%24sel%3AhttpStatus%3ABatchUpdateUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679556058"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | If the BatchUpdateUser action fails for one or more of the user IDs in</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- the request, a list of the user IDs is returned, along with error codes</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- and error messages.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#batchUpdateUserResponse_userErrors"><span class="hs-identifier hs-type">batchUpdateUserResponse_userErrors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse"><span class="hs-identifier hs-type">BatchUpdateUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Chime.Types.UserError.html#UserError"><span class="hs-identifier hs-type">UserError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="batchUpdateUserResponse_userErrors"><span class="annot"><span class="annottext">batchUpdateUserResponse_userErrors :: (Maybe [UserError] -&gt; f (Maybe [UserError]))
+-&gt; BatchUpdateUserResponse -&gt; f BatchUpdateUserResponse
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#batchUpdateUserResponse_userErrors"><span class="hs-identifier hs-var hs-var">batchUpdateUserResponse_userErrors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateUserResponse -&gt; Maybe [UserError])
+-&gt; (BatchUpdateUserResponse
+    -&gt; Maybe [UserError] -&gt; BatchUpdateUserResponse)
+-&gt; Lens
+     BatchUpdateUserResponse
+     BatchUpdateUserResponse
+     (Maybe [UserError])
+     (Maybe [UserError])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse%27"><span class="hs-identifier hs-type">BatchUpdateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556057"><span class="annot"><span class="annottext">Maybe [UserError]
+userErrors :: Maybe [UserError]
+$sel:userErrors:BatchUpdateUserResponse' :: BatchUpdateUserResponse -&gt; Maybe [UserError]
+</span><a href="#local-6989586621679556057"><span class="hs-identifier hs-var hs-var">userErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UserError]
+</span><a href="#local-6989586621679556057"><span class="hs-identifier hs-var">userErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556056"><span class="annot"><span class="annottext">s :: BatchUpdateUserResponse
+</span><a href="#local-6989586621679556056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse%27"><span class="hs-identifier hs-type">BatchUpdateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556055"><span class="annot"><span class="annottext">Maybe [UserError]
+</span><a href="#local-6989586621679556055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateUserResponse
+</span><a href="#local-6989586621679556056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userErrors:BatchUpdateUserResponse' :: Maybe [UserError]
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#%24sel%3AuserErrors%3ABatchUpdateUserResponse%27"><span class="hs-identifier hs-var">userErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UserError]
+</span><a href="#local-6989586621679556055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse"><span class="hs-identifier hs-type">BatchUpdateUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UserError] -&gt; f (Maybe [UserError]))
+ -&gt; BatchUpdateUserResponse -&gt; f BatchUpdateUserResponse)
+-&gt; ((Maybe [UserError] -&gt; f (Maybe [UserError]))
+    -&gt; Maybe [UserError] -&gt; f (Maybe [UserError]))
+-&gt; (Maybe [UserError] -&gt; f (Maybe [UserError]))
+-&gt; BatchUpdateUserResponse
+-&gt; f BatchUpdateUserResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [UserError] [UserError] [UserError] [UserError]
+-&gt; Iso
+     (Maybe [UserError])
+     (Maybe [UserError])
+     (Maybe [UserError])
+     (Maybe [UserError])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [UserError] [UserError] [UserError] [UserError]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#batchUpdateUserResponse_httpStatus"><span class="hs-identifier hs-type">batchUpdateUserResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse"><span class="hs-identifier hs-type">BatchUpdateUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-172"></span><span id="batchUpdateUserResponse_httpStatus"><span class="annot"><span class="annottext">batchUpdateUserResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchUpdateUserResponse -&gt; f BatchUpdateUserResponse
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#batchUpdateUserResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchUpdateUserResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateUserResponse -&gt; Int)
+-&gt; (BatchUpdateUserResponse -&gt; Int -&gt; BatchUpdateUserResponse)
+-&gt; Lens BatchUpdateUserResponse BatchUpdateUserResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse%27"><span class="hs-identifier hs-type">BatchUpdateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556053"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchUpdateUserResponse' :: BatchUpdateUserResponse -&gt; Int
+</span><a href="#local-6989586621679556053"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679556053"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556052"><span class="annot"><span class="annottext">s :: BatchUpdateUserResponse
+</span><a href="#local-6989586621679556052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse%27"><span class="hs-identifier hs-type">BatchUpdateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556051"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679556051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateUserResponse
+</span><a href="#local-6989586621679556052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchUpdateUserResponse' :: Int
+</span><a href="Amazonka.Chime.BatchUpdateUser.html#%24sel%3AhttpStatus%3ABatchUpdateUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679556051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse"><span class="hs-identifier hs-type">BatchUpdateUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679556049"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.BatchUpdateUser.html#BatchUpdateUserResponse"><span class="hs-identifier hs-type">BatchUpdateUserResponse</span></a></span></span><span>
+</span><span id="line-175"></span></pre></body></html>

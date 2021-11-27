@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMakerA2IRuntime.StopHumanLoop</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Stops the specified human loop.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMakerA2IRuntime.StopHumanLoop</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop"><span class="hs-identifier">StopHumanLoop</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#newStopHumanLoop"><span class="hs-identifier">newStopHumanLoop</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#stopHumanLoop_humanLoopName"><span class="hs-identifier">stopHumanLoop_humanLoopName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoopResponse"><span class="hs-identifier">StopHumanLoopResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#newStopHumanLoopResponse"><span class="hs-identifier">newStopHumanLoopResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#stopHumanLoopResponse_httpStatus"><span class="hs-identifier">stopHumanLoopResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.Types.html"><span class="hs-identifier">Amazonka.SageMakerA2IRuntime.Types</span></a></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newStopHumanLoop' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679148774"><span id="local-6989586621679148775"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopHumanLoop"><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop"><span class="hs-identifier hs-var">StopHumanLoop</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopHumanLoop%27"><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop%27"><span class="hs-identifier hs-var">StopHumanLoop'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the human loop that you want to stop.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AhumanLoopName%3AStopHumanLoop%27"><span class="annot"><span class="annottext">StopHumanLoop -&gt; Text
+</span><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#%24sel%3AhumanLoopName%3AStopHumanLoop%27"><span class="hs-identifier hs-var hs-var">humanLoopName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679148768"><span id="local-6989586621679148770"><span class="annot"><span class="annottext">StopHumanLoop -&gt; StopHumanLoop -&gt; Bool
+(StopHumanLoop -&gt; StopHumanLoop -&gt; Bool)
+-&gt; (StopHumanLoop -&gt; StopHumanLoop -&gt; Bool) -&gt; Eq StopHumanLoop
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopHumanLoop -&gt; StopHumanLoop -&gt; Bool
+$c/= :: StopHumanLoop -&gt; StopHumanLoop -&gt; Bool
+== :: StopHumanLoop -&gt; StopHumanLoop -&gt; Bool
+$c== :: StopHumanLoop -&gt; StopHumanLoop -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148759"><span id="local-6989586621679148761"><span id="local-6989586621679148763"><span id="local-6989586621679148765"><span class="annot"><span class="annottext">ReadPrec [StopHumanLoop]
+ReadPrec StopHumanLoop
+Int -&gt; ReadS StopHumanLoop
+ReadS [StopHumanLoop]
+(Int -&gt; ReadS StopHumanLoop)
+-&gt; ReadS [StopHumanLoop]
+-&gt; ReadPrec StopHumanLoop
+-&gt; ReadPrec [StopHumanLoop]
+-&gt; Read StopHumanLoop
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopHumanLoop]
+$creadListPrec :: ReadPrec [StopHumanLoop]
+readPrec :: ReadPrec StopHumanLoop
+$creadPrec :: ReadPrec StopHumanLoop
+readList :: ReadS [StopHumanLoop]
+$creadList :: ReadS [StopHumanLoop]
+readsPrec :: Int -&gt; ReadS StopHumanLoop
+$creadsPrec :: Int -&gt; ReadS StopHumanLoop
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148752"><span id="local-6989586621679148754"><span id="local-6989586621679148756"><span class="annot"><span class="annottext">Int -&gt; StopHumanLoop -&gt; ShowS
+[StopHumanLoop] -&gt; ShowS
+StopHumanLoop -&gt; String
+(Int -&gt; StopHumanLoop -&gt; ShowS)
+-&gt; (StopHumanLoop -&gt; String)
+-&gt; ([StopHumanLoop] -&gt; ShowS)
+-&gt; Show StopHumanLoop
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopHumanLoop] -&gt; ShowS
+$cshowList :: [StopHumanLoop] -&gt; ShowS
+show :: StopHumanLoop -&gt; String
+$cshow :: StopHumanLoop -&gt; String
+showsPrec :: Int -&gt; StopHumanLoop -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopHumanLoop -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopHumanLoop -&gt; Rep StopHumanLoop x)
+-&gt; (forall x. Rep StopHumanLoop x -&gt; StopHumanLoop)
+-&gt; Generic StopHumanLoop
+forall x. Rep StopHumanLoop x -&gt; StopHumanLoop
+forall x. StopHumanLoop -&gt; Rep StopHumanLoop x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopHumanLoop x -&gt; StopHumanLoop
+$cfrom :: forall x. StopHumanLoop -&gt; Rep StopHumanLoop x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'StopHumanLoop' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'humanLoopName', 'stopHumanLoop_humanLoopName' - The name of the human loop that you want to stop.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#newStopHumanLoop"><span class="hs-identifier hs-type">newStopHumanLoop</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'humanLoopName'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop"><span class="hs-identifier hs-type">StopHumanLoop</span></a></span><span>
+</span><span id="line-68"></span><span id="newStopHumanLoop"><span class="annot"><span class="annottext">newStopHumanLoop :: Text -&gt; StopHumanLoop
+</span><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#newStopHumanLoop"><span class="hs-identifier hs-var hs-var">newStopHumanLoop</span></a></span></span><span> </span><span id="local-6989586621679148747"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679148747"><span class="hs-identifier hs-var">pHumanLoopName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">StopHumanLoop' :: Text -&gt; StopHumanLoop
+</span><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop%27"><span class="hs-identifier hs-type">StopHumanLoop'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanLoopName:StopHumanLoop' :: Text
+</span><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#%24sel%3AhumanLoopName%3AStopHumanLoop%27"><span class="hs-identifier hs-var">humanLoopName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679148747"><span class="hs-identifier hs-var">pHumanLoopName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The name of the human loop that you want to stop.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#stopHumanLoop_humanLoopName"><span class="hs-identifier hs-type">stopHumanLoop_humanLoopName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop"><span class="hs-identifier hs-type">StopHumanLoop</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="stopHumanLoop_humanLoopName"><span class="annot"><span class="annottext">stopHumanLoop_humanLoopName :: (Text -&gt; f Text) -&gt; StopHumanLoop -&gt; f StopHumanLoop
+</span><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#stopHumanLoop_humanLoopName"><span class="hs-identifier hs-var hs-var">stopHumanLoop_humanLoopName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopHumanLoop -&gt; Text)
+-&gt; (StopHumanLoop -&gt; Text -&gt; StopHumanLoop)
+-&gt; Lens StopHumanLoop StopHumanLoop Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop%27"><span class="hs-identifier hs-type">StopHumanLoop'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148744"><span class="annot"><span class="annottext">Text
+humanLoopName :: Text
+$sel:humanLoopName:StopHumanLoop' :: StopHumanLoop -&gt; Text
+</span><a href="#local-6989586621679148744"><span class="hs-identifier hs-var hs-var">humanLoopName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679148744"><span class="hs-identifier hs-var">humanLoopName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148743"><span class="annot"><span class="annottext">s :: StopHumanLoop
+</span><a href="#local-6989586621679148743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop%27"><span class="hs-identifier hs-type">StopHumanLoop'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148742"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679148742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopHumanLoop
+</span><a href="#local-6989586621679148743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanLoopName:StopHumanLoop' :: Text
+</span><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#%24sel%3AhumanLoopName%3AStopHumanLoop%27"><span class="hs-identifier hs-var">humanLoopName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679148742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop"><span class="hs-identifier hs-type">StopHumanLoop</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop"><span class="hs-identifier hs-type">StopHumanLoop</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop"><span class="hs-identifier hs-type">StopHumanLoop</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoopResponse"><span class="hs-identifier hs-type">StopHumanLoopResponse</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679148738"><span class="annot"><span class="annottext">request :: StopHumanLoop -&gt; Request StopHumanLoop
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopHumanLoop -&gt; Request StopHumanLoop
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMakerA2IRuntime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679148734"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StopHumanLoop
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopHumanLoop)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse StopHumanLoop))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StopHumanLoop
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopHumanLoop)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679148731"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148731"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679148730"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679148730"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679148729"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679148729"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StopHumanLoopResponse
+</span><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoopResponse%27"><span class="hs-identifier hs-var">StopHumanLoopResponse'</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StopHumanLoopResponse)
+-&gt; Either String Int -&gt; Either String StopHumanLoopResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148731"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679148722"><span id="local-6989586621679148724"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop"><span class="hs-identifier hs-type">StopHumanLoop</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679148719"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop"><span class="hs-identifier hs-type">StopHumanLoop</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop"><span class="hs-identifier hs-type">StopHumanLoop</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679148715"><span class="annot"><span class="annottext">toHeaders :: StopHumanLoop -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopHumanLoop -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-98"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679148705"><span id="local-6989586621679148707"><span id="local-6989586621679148709"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop"><span class="hs-identifier hs-type">StopHumanLoop</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679148703"><span class="annot"><span class="annottext">toJSON :: StopHumanLoop -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop%27"><span class="hs-identifier hs-type">StopHumanLoop'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148701"><span class="annot"><span class="annottext">Text
+humanLoopName :: Text
+$sel:humanLoopName:StopHumanLoop' :: StopHumanLoop -&gt; Text
+</span><a href="#local-6989586621679148701"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-107"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HumanLoopName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679148701"><span class="hs-identifier hs-var">humanLoopName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop"><span class="hs-identifier hs-type">StopHumanLoop</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679148695"><span class="annot"><span class="annottext">toPath :: StopHumanLoop -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopHumanLoop -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/human-loops/stop&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoop"><span class="hs-identifier hs-type">StopHumanLoop</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679148691"><span class="annot"><span class="annottext">toQuery :: StopHumanLoop -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopHumanLoop -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newStopHumanLoopResponse' smart constructor.</span><span>
+</span><span id="line-118"></span><span id="local-6989586621679148688"><span id="local-6989586621679148689"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopHumanLoopResponse"><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoopResponse"><span class="hs-identifier hs-var">StopHumanLoopResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopHumanLoopResponse%27"><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoopResponse%27"><span class="hs-identifier hs-var">StopHumanLoopResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopHumanLoopResponse%27"><span class="annot"><span class="annottext">StopHumanLoopResponse -&gt; Int
+</span><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#%24sel%3AhttpStatus%3AStopHumanLoopResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679148683"><span id="local-6989586621679148685"><span class="annot"><span class="annottext">StopHumanLoopResponse -&gt; StopHumanLoopResponse -&gt; Bool
+(StopHumanLoopResponse -&gt; StopHumanLoopResponse -&gt; Bool)
+-&gt; (StopHumanLoopResponse -&gt; StopHumanLoopResponse -&gt; Bool)
+-&gt; Eq StopHumanLoopResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopHumanLoopResponse -&gt; StopHumanLoopResponse -&gt; Bool
+$c/= :: StopHumanLoopResponse -&gt; StopHumanLoopResponse -&gt; Bool
+== :: StopHumanLoopResponse -&gt; StopHumanLoopResponse -&gt; Bool
+$c== :: StopHumanLoopResponse -&gt; StopHumanLoopResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148675"><span id="local-6989586621679148677"><span id="local-6989586621679148679"><span id="local-6989586621679148681"><span class="annot"><span class="annottext">ReadPrec [StopHumanLoopResponse]
+ReadPrec StopHumanLoopResponse
+Int -&gt; ReadS StopHumanLoopResponse
+ReadS [StopHumanLoopResponse]
+(Int -&gt; ReadS StopHumanLoopResponse)
+-&gt; ReadS [StopHumanLoopResponse]
+-&gt; ReadPrec StopHumanLoopResponse
+-&gt; ReadPrec [StopHumanLoopResponse]
+-&gt; Read StopHumanLoopResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopHumanLoopResponse]
+$creadListPrec :: ReadPrec [StopHumanLoopResponse]
+readPrec :: ReadPrec StopHumanLoopResponse
+$creadPrec :: ReadPrec StopHumanLoopResponse
+readList :: ReadS [StopHumanLoopResponse]
+$creadList :: ReadS [StopHumanLoopResponse]
+readsPrec :: Int -&gt; ReadS StopHumanLoopResponse
+$creadsPrec :: Int -&gt; ReadS StopHumanLoopResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148669"><span id="local-6989586621679148671"><span id="local-6989586621679148673"><span class="annot"><span class="annottext">Int -&gt; StopHumanLoopResponse -&gt; ShowS
+[StopHumanLoopResponse] -&gt; ShowS
+StopHumanLoopResponse -&gt; String
+(Int -&gt; StopHumanLoopResponse -&gt; ShowS)
+-&gt; (StopHumanLoopResponse -&gt; String)
+-&gt; ([StopHumanLoopResponse] -&gt; ShowS)
+-&gt; Show StopHumanLoopResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopHumanLoopResponse] -&gt; ShowS
+$cshowList :: [StopHumanLoopResponse] -&gt; ShowS
+show :: StopHumanLoopResponse -&gt; String
+$cshow :: StopHumanLoopResponse -&gt; String
+showsPrec :: Int -&gt; StopHumanLoopResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopHumanLoopResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopHumanLoopResponse -&gt; Rep StopHumanLoopResponse x)
+-&gt; (forall x. Rep StopHumanLoopResponse x -&gt; StopHumanLoopResponse)
+-&gt; Generic StopHumanLoopResponse
+forall x. Rep StopHumanLoopResponse x -&gt; StopHumanLoopResponse
+forall x. StopHumanLoopResponse -&gt; Rep StopHumanLoopResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopHumanLoopResponse x -&gt; StopHumanLoopResponse
+$cfrom :: forall x. StopHumanLoopResponse -&gt; Rep StopHumanLoopResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'StopHumanLoopResponse' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'httpStatus', 'stopHumanLoopResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#newStopHumanLoopResponse"><span class="hs-identifier hs-type">newStopHumanLoopResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoopResponse"><span class="hs-identifier hs-type">StopHumanLoopResponse</span></a></span><span>
+</span><span id="line-137"></span><span id="newStopHumanLoopResponse"><span class="annot"><span class="annottext">newStopHumanLoopResponse :: Int -&gt; StopHumanLoopResponse
+</span><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#newStopHumanLoopResponse"><span class="hs-identifier hs-var hs-var">newStopHumanLoopResponse</span></a></span></span><span> </span><span id="local-6989586621679148666"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148666"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">StopHumanLoopResponse' :: Int -&gt; StopHumanLoopResponse
+</span><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoopResponse%27"><span class="hs-identifier hs-type">StopHumanLoopResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopHumanLoopResponse' :: Int
+</span><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#%24sel%3AhttpStatus%3AStopHumanLoopResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148666"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#stopHumanLoopResponse_httpStatus"><span class="hs-identifier hs-type">stopHumanLoopResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoopResponse"><span class="hs-identifier hs-type">StopHumanLoopResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-142"></span><span id="stopHumanLoopResponse_httpStatus"><span class="annot"><span class="annottext">stopHumanLoopResponse_httpStatus :: (Int -&gt; f Int) -&gt; StopHumanLoopResponse -&gt; f StopHumanLoopResponse
+</span><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#stopHumanLoopResponse_httpStatus"><span class="hs-identifier hs-var hs-var">stopHumanLoopResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopHumanLoopResponse -&gt; Int)
+-&gt; (StopHumanLoopResponse -&gt; Int -&gt; StopHumanLoopResponse)
+-&gt; Lens StopHumanLoopResponse StopHumanLoopResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoopResponse%27"><span class="hs-identifier hs-type">StopHumanLoopResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148665"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StopHumanLoopResponse' :: StopHumanLoopResponse -&gt; Int
+</span><a href="#local-6989586621679148665"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148665"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148664"><span class="annot"><span class="annottext">s :: StopHumanLoopResponse
+</span><a href="#local-6989586621679148664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoopResponse%27"><span class="hs-identifier hs-type">StopHumanLoopResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148663"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopHumanLoopResponse
+</span><a href="#local-6989586621679148664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopHumanLoopResponse' :: Int
+</span><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#%24sel%3AhttpStatus%3AStopHumanLoopResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoopResponse"><span class="hs-identifier hs-type">StopHumanLoopResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679148661"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerA2IRuntime.StopHumanLoop.html#StopHumanLoopResponse"><span class="hs-identifier hs-type">StopHumanLoopResponse</span></a></span></span><span>
+</span><span id="line-145"></span></pre></body></html>

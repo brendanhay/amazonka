@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Schemas.Types.DiscovererState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Schemas.Types.DiscovererState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.DiscovererState.html#DiscovererState"><span class="hs-identifier">DiscovererState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Schemas.Types.DiscovererState.html#DiscovererState_STARTED"><span class="hs-identifier">DiscovererState_STARTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Schemas.Types.DiscovererState.html#DiscovererState_STOPPED"><span class="hs-identifier">DiscovererState_STOPPED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679198399"><span id="local-6989586621679198400"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DiscovererState"><span class="annot"><a href="Amazonka.Schemas.Types.DiscovererState.html#DiscovererState"><span class="hs-identifier hs-var">DiscovererState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiscovererState%27"><span class="annot"><a href="Amazonka.Schemas.Types.DiscovererState.html#DiscovererState%27"><span class="hs-identifier hs-var">DiscovererState'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDiscovererState"><span class="annot"><span class="annottext">DiscovererState -&gt; Text
+</span><a href="Amazonka.Schemas.Types.DiscovererState.html#fromDiscovererState"><span class="hs-identifier hs-var hs-var">fromDiscovererState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679198391"><span id="local-6989586621679198393"><span id="local-6989586621679198395"><span class="annot"><span class="annottext">Int -&gt; DiscovererState -&gt; ShowS
+[DiscovererState] -&gt; ShowS
+DiscovererState -&gt; String
+(Int -&gt; DiscovererState -&gt; ShowS)
+-&gt; (DiscovererState -&gt; String)
+-&gt; ([DiscovererState] -&gt; ShowS)
+-&gt; Show DiscovererState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DiscovererState] -&gt; ShowS
+$cshowList :: [DiscovererState] -&gt; ShowS
+show :: DiscovererState -&gt; String
+$cshow :: DiscovererState -&gt; String
+showsPrec :: Int -&gt; DiscovererState -&gt; ShowS
+$cshowsPrec :: Int -&gt; DiscovererState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679198382"><span id="local-6989586621679198384"><span id="local-6989586621679198386"><span id="local-6989586621679198388"><span class="annot"><span class="annottext">ReadPrec [DiscovererState]
+ReadPrec DiscovererState
+Int -&gt; ReadS DiscovererState
+ReadS [DiscovererState]
+(Int -&gt; ReadS DiscovererState)
+-&gt; ReadS [DiscovererState]
+-&gt; ReadPrec DiscovererState
+-&gt; ReadPrec [DiscovererState]
+-&gt; Read DiscovererState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DiscovererState]
+$creadListPrec :: ReadPrec [DiscovererState]
+readPrec :: ReadPrec DiscovererState
+$creadPrec :: ReadPrec DiscovererState
+readList :: ReadS [DiscovererState]
+$creadList :: ReadS [DiscovererState]
+readsPrec :: Int -&gt; ReadS DiscovererState
+$creadsPrec :: Int -&gt; ReadS DiscovererState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679198377"><span id="local-6989586621679198379"><span class="annot"><span class="annottext">DiscovererState -&gt; DiscovererState -&gt; Bool
+(DiscovererState -&gt; DiscovererState -&gt; Bool)
+-&gt; (DiscovererState -&gt; DiscovererState -&gt; Bool)
+-&gt; Eq DiscovererState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DiscovererState -&gt; DiscovererState -&gt; Bool
+$c/= :: DiscovererState -&gt; DiscovererState -&gt; Bool
+== :: DiscovererState -&gt; DiscovererState -&gt; Bool
+$c== :: DiscovererState -&gt; DiscovererState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679198361"><span id="local-6989586621679198363"><span id="local-6989586621679198365"><span id="local-6989586621679198367"><span id="local-6989586621679198369"><span id="local-6989586621679198371"><span id="local-6989586621679198373"><span class="annot"><span class="annottext">Eq DiscovererState
+Eq DiscovererState
+-&gt; (DiscovererState -&gt; DiscovererState -&gt; Ordering)
+-&gt; (DiscovererState -&gt; DiscovererState -&gt; Bool)
+-&gt; (DiscovererState -&gt; DiscovererState -&gt; Bool)
+-&gt; (DiscovererState -&gt; DiscovererState -&gt; Bool)
+-&gt; (DiscovererState -&gt; DiscovererState -&gt; Bool)
+-&gt; (DiscovererState -&gt; DiscovererState -&gt; DiscovererState)
+-&gt; (DiscovererState -&gt; DiscovererState -&gt; DiscovererState)
+-&gt; Ord DiscovererState
+DiscovererState -&gt; DiscovererState -&gt; Bool
+DiscovererState -&gt; DiscovererState -&gt; Ordering
+DiscovererState -&gt; DiscovererState -&gt; DiscovererState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DiscovererState -&gt; DiscovererState -&gt; DiscovererState
+$cmin :: DiscovererState -&gt; DiscovererState -&gt; DiscovererState
+max :: DiscovererState -&gt; DiscovererState -&gt; DiscovererState
+$cmax :: DiscovererState -&gt; DiscovererState -&gt; DiscovererState
+&gt;= :: DiscovererState -&gt; DiscovererState -&gt; Bool
+$c&gt;= :: DiscovererState -&gt; DiscovererState -&gt; Bool
+&gt; :: DiscovererState -&gt; DiscovererState -&gt; Bool
+$c&gt; :: DiscovererState -&gt; DiscovererState -&gt; Bool
+&lt;= :: DiscovererState -&gt; DiscovererState -&gt; Bool
+$c&lt;= :: DiscovererState -&gt; DiscovererState -&gt; Bool
+&lt; :: DiscovererState -&gt; DiscovererState -&gt; Bool
+$c&lt; :: DiscovererState -&gt; DiscovererState -&gt; Bool
+compare :: DiscovererState -&gt; DiscovererState -&gt; Ordering
+$ccompare :: DiscovererState -&gt; DiscovererState -&gt; Ordering
+$cp1Ord :: Eq DiscovererState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DiscovererState -&gt; Rep DiscovererState x)
+-&gt; (forall x. Rep DiscovererState x -&gt; DiscovererState)
+-&gt; Generic DiscovererState
+forall x. Rep DiscovererState x -&gt; DiscovererState
+forall x. DiscovererState -&gt; Rep DiscovererState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DiscovererState x -&gt; DiscovererState
+$cfrom :: forall x. DiscovererState -&gt; Rep DiscovererState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679198353"><span id="local-6989586621679198355"><span class="annot"><span class="annottext">Int -&gt; DiscovererState -&gt; Int
+DiscovererState -&gt; Int
+(Int -&gt; DiscovererState -&gt; Int)
+-&gt; (DiscovererState -&gt; Int) -&gt; Hashable DiscovererState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DiscovererState -&gt; Int
+$chash :: DiscovererState -&gt; Int
+hashWithSalt :: Int -&gt; DiscovererState -&gt; Int
+$chashWithSalt :: Int -&gt; DiscovererState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679198350"><span class="annot"><span class="annottext">DiscovererState -&gt; ()
+(DiscovererState -&gt; ()) -&gt; NFData DiscovererState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DiscovererState -&gt; ()
+$crnf :: DiscovererState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679198347"><span class="annot"><span class="annottext">Text -&gt; Either String DiscovererState
+(Text -&gt; Either String DiscovererState) -&gt; FromText DiscovererState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DiscovererState
+$cfromText :: Text -&gt; Either String DiscovererState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679198344"><span class="annot"><span class="annottext">DiscovererState -&gt; Text
+(DiscovererState -&gt; Text) -&gt; ToText DiscovererState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DiscovererState -&gt; Text
+$ctoText :: DiscovererState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679198341"><span class="annot"><span class="annottext">DiscovererState -&gt; ByteString
+(DiscovererState -&gt; ByteString) -&gt; ToByteString DiscovererState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DiscovererState -&gt; ByteString
+$ctoBS :: DiscovererState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679198338"><span class="annot"><span class="annottext">DiscovererState -&gt; ByteStringBuilder
+(DiscovererState -&gt; ByteStringBuilder) -&gt; ToLog DiscovererState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DiscovererState -&gt; ByteStringBuilder
+$cbuild :: DiscovererState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679198335"><span class="annot"><span class="annottext">HeaderName -&gt; DiscovererState -&gt; [Header]
+(HeaderName -&gt; DiscovererState -&gt; [Header])
+-&gt; ToHeader DiscovererState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DiscovererState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DiscovererState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679198332"><span class="annot"><span class="annottext">DiscovererState -&gt; QueryString
+(DiscovererState -&gt; QueryString) -&gt; ToQuery DiscovererState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DiscovererState -&gt; QueryString
+$ctoQuery :: DiscovererState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679198327"><span id="local-6989586621679198329"><span class="annot"><span class="annottext">Value -&gt; Parser [DiscovererState]
+Value -&gt; Parser DiscovererState
+(Value -&gt; Parser DiscovererState)
+-&gt; (Value -&gt; Parser [DiscovererState]) -&gt; FromJSON DiscovererState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DiscovererState]
+$cparseJSONList :: Value -&gt; Parser [DiscovererState]
+parseJSON :: Value -&gt; Parser DiscovererState
+$cparseJSON :: Value -&gt; Parser DiscovererState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679198322"><span id="local-6989586621679198324"><span class="annot"><span class="annottext">FromJSONKeyFunction [DiscovererState]
+FromJSONKeyFunction DiscovererState
+FromJSONKeyFunction DiscovererState
+-&gt; FromJSONKeyFunction [DiscovererState]
+-&gt; FromJSONKey DiscovererState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DiscovererState]
+$cfromJSONKeyList :: FromJSONKeyFunction [DiscovererState]
+fromJSONKey :: FromJSONKeyFunction DiscovererState
+$cfromJSONKey :: FromJSONKeyFunction DiscovererState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679198313"><span id="local-6989586621679198315"><span id="local-6989586621679198317"><span id="local-6989586621679198319"><span class="annot"><span class="annottext">[DiscovererState] -&gt; Encoding
+[DiscovererState] -&gt; Value
+DiscovererState -&gt; Encoding
+DiscovererState -&gt; Value
+(DiscovererState -&gt; Value)
+-&gt; (DiscovererState -&gt; Encoding)
+-&gt; ([DiscovererState] -&gt; Value)
+-&gt; ([DiscovererState] -&gt; Encoding)
+-&gt; ToJSON DiscovererState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DiscovererState] -&gt; Encoding
+$ctoEncodingList :: [DiscovererState] -&gt; Encoding
+toJSONList :: [DiscovererState] -&gt; Value
+$ctoJSONList :: [DiscovererState] -&gt; Value
+toEncoding :: DiscovererState -&gt; Encoding
+$ctoEncoding :: DiscovererState -&gt; Encoding
+toJSON :: DiscovererState -&gt; Value
+$ctoJSON :: DiscovererState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679198308"><span id="local-6989586621679198310"><span class="annot"><span class="annottext">ToJSONKeyFunction [DiscovererState]
+ToJSONKeyFunction DiscovererState
+ToJSONKeyFunction DiscovererState
+-&gt; ToJSONKeyFunction [DiscovererState] -&gt; ToJSONKey DiscovererState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DiscovererState]
+$ctoJSONKeyList :: ToJSONKeyFunction [DiscovererState]
+toJSONKey :: ToJSONKeyFunction DiscovererState
+$ctoJSONKey :: ToJSONKeyFunction DiscovererState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679198305"><span class="annot"><span class="annottext">[Node] -&gt; Either String DiscovererState
+([Node] -&gt; Either String DiscovererState)
+-&gt; FromXML DiscovererState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DiscovererState
+$cparseXML :: [Node] -&gt; Either String DiscovererState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679198302"><span class="annot"><span class="annottext">DiscovererState -&gt; XML
+(DiscovererState -&gt; XML) -&gt; ToXML DiscovererState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DiscovererState -&gt; XML
+$ctoXML :: DiscovererState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.DiscovererState.html#DiscovererState_STARTED"><span class="hs-identifier hs-type">DiscovererState_STARTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.DiscovererState.html#DiscovererState"><span class="hs-identifier hs-type">DiscovererState</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDiscovererState_STARTED"><span id="%24mDiscovererState_STARTED"><span id="DiscovererState_STARTED"><span class="annot"><span class="annottext">$bDiscovererState_STARTED :: DiscovererState
+$mDiscovererState_STARTED :: forall r. DiscovererState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Schemas.Types.DiscovererState.html#%24bDiscovererState_STARTED"><span class="hs-identifier hs-var hs-var hs-var">DiscovererState_STARTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.DiscovererState.html#DiscovererState%27"><span class="hs-identifier hs-type">DiscovererState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STARTED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.DiscovererState.html#DiscovererState_STOPPED"><span class="hs-identifier hs-type">DiscovererState_STOPPED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.DiscovererState.html#DiscovererState"><span class="hs-identifier hs-type">DiscovererState</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDiscovererState_STOPPED"><span id="%24mDiscovererState_STOPPED"><span id="DiscovererState_STOPPED"><span class="annot"><span class="annottext">$bDiscovererState_STOPPED :: DiscovererState
+$mDiscovererState_STOPPED :: forall r. DiscovererState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Schemas.Types.DiscovererState.html#%24bDiscovererState_STOPPED"><span class="hs-identifier hs-var hs-var hs-var">DiscovererState_STOPPED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.DiscovererState.html#DiscovererState%27"><span class="hs-identifier hs-type">DiscovererState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STOPPED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Schemas.Types.DiscovererState.html#DiscovererState_STARTED"><span class="hs-pragma hs-type">DiscovererState_STARTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Schemas.Types.DiscovererState.html#DiscovererState_STOPPED"><span class="hs-pragma hs-type">DiscovererState_STOPPED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Schemas.Types.DiscovererState.html#DiscovererState%27"><span class="hs-pragma hs-type">DiscovererState'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

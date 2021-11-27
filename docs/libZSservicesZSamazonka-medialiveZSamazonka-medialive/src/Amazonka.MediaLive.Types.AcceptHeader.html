@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.AcceptHeader</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.AcceptHeader</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AcceptHeader.html#AcceptHeader"><span class="hs-identifier">AcceptHeader</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.AcceptHeader.html#AcceptHeader_Image_jpeg"><span class="hs-identifier">AcceptHeader_Image_jpeg</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | The HTTP Accept header. Indicates the requested type fothe thumbnail.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679863988"><span id="local-6989586621679863989"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AcceptHeader"><span class="annot"><a href="Amazonka.MediaLive.Types.AcceptHeader.html#AcceptHeader"><span class="hs-identifier hs-var">AcceptHeader</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptHeader%27"><span class="annot"><a href="Amazonka.MediaLive.Types.AcceptHeader.html#AcceptHeader%27"><span class="hs-identifier hs-var">AcceptHeader'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAcceptHeader"><span class="annot"><span class="annottext">AcceptHeader -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.AcceptHeader.html#fromAcceptHeader"><span class="hs-identifier hs-var hs-var">fromAcceptHeader</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679863980"><span id="local-6989586621679863982"><span id="local-6989586621679863984"><span class="annot"><span class="annottext">Int -&gt; AcceptHeader -&gt; ShowS
+[AcceptHeader] -&gt; ShowS
+AcceptHeader -&gt; String
+(Int -&gt; AcceptHeader -&gt; ShowS)
+-&gt; (AcceptHeader -&gt; String)
+-&gt; ([AcceptHeader] -&gt; ShowS)
+-&gt; Show AcceptHeader
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AcceptHeader] -&gt; ShowS
+$cshowList :: [AcceptHeader] -&gt; ShowS
+show :: AcceptHeader -&gt; String
+$cshow :: AcceptHeader -&gt; String
+showsPrec :: Int -&gt; AcceptHeader -&gt; ShowS
+$cshowsPrec :: Int -&gt; AcceptHeader -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679863971"><span id="local-6989586621679863973"><span id="local-6989586621679863975"><span id="local-6989586621679863977"><span class="annot"><span class="annottext">ReadPrec [AcceptHeader]
+ReadPrec AcceptHeader
+Int -&gt; ReadS AcceptHeader
+ReadS [AcceptHeader]
+(Int -&gt; ReadS AcceptHeader)
+-&gt; ReadS [AcceptHeader]
+-&gt; ReadPrec AcceptHeader
+-&gt; ReadPrec [AcceptHeader]
+-&gt; Read AcceptHeader
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AcceptHeader]
+$creadListPrec :: ReadPrec [AcceptHeader]
+readPrec :: ReadPrec AcceptHeader
+$creadPrec :: ReadPrec AcceptHeader
+readList :: ReadS [AcceptHeader]
+$creadList :: ReadS [AcceptHeader]
+readsPrec :: Int -&gt; ReadS AcceptHeader
+$creadsPrec :: Int -&gt; ReadS AcceptHeader
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679863966"><span id="local-6989586621679863968"><span class="annot"><span class="annottext">AcceptHeader -&gt; AcceptHeader -&gt; Bool
+(AcceptHeader -&gt; AcceptHeader -&gt; Bool)
+-&gt; (AcceptHeader -&gt; AcceptHeader -&gt; Bool) -&gt; Eq AcceptHeader
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AcceptHeader -&gt; AcceptHeader -&gt; Bool
+$c/= :: AcceptHeader -&gt; AcceptHeader -&gt; Bool
+== :: AcceptHeader -&gt; AcceptHeader -&gt; Bool
+$c== :: AcceptHeader -&gt; AcceptHeader -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679863950"><span id="local-6989586621679863952"><span id="local-6989586621679863954"><span id="local-6989586621679863956"><span id="local-6989586621679863958"><span id="local-6989586621679863960"><span id="local-6989586621679863962"><span class="annot"><span class="annottext">Eq AcceptHeader
+Eq AcceptHeader
+-&gt; (AcceptHeader -&gt; AcceptHeader -&gt; Ordering)
+-&gt; (AcceptHeader -&gt; AcceptHeader -&gt; Bool)
+-&gt; (AcceptHeader -&gt; AcceptHeader -&gt; Bool)
+-&gt; (AcceptHeader -&gt; AcceptHeader -&gt; Bool)
+-&gt; (AcceptHeader -&gt; AcceptHeader -&gt; Bool)
+-&gt; (AcceptHeader -&gt; AcceptHeader -&gt; AcceptHeader)
+-&gt; (AcceptHeader -&gt; AcceptHeader -&gt; AcceptHeader)
+-&gt; Ord AcceptHeader
+AcceptHeader -&gt; AcceptHeader -&gt; Bool
+AcceptHeader -&gt; AcceptHeader -&gt; Ordering
+AcceptHeader -&gt; AcceptHeader -&gt; AcceptHeader
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AcceptHeader -&gt; AcceptHeader -&gt; AcceptHeader
+$cmin :: AcceptHeader -&gt; AcceptHeader -&gt; AcceptHeader
+max :: AcceptHeader -&gt; AcceptHeader -&gt; AcceptHeader
+$cmax :: AcceptHeader -&gt; AcceptHeader -&gt; AcceptHeader
+&gt;= :: AcceptHeader -&gt; AcceptHeader -&gt; Bool
+$c&gt;= :: AcceptHeader -&gt; AcceptHeader -&gt; Bool
+&gt; :: AcceptHeader -&gt; AcceptHeader -&gt; Bool
+$c&gt; :: AcceptHeader -&gt; AcceptHeader -&gt; Bool
+&lt;= :: AcceptHeader -&gt; AcceptHeader -&gt; Bool
+$c&lt;= :: AcceptHeader -&gt; AcceptHeader -&gt; Bool
+&lt; :: AcceptHeader -&gt; AcceptHeader -&gt; Bool
+$c&lt; :: AcceptHeader -&gt; AcceptHeader -&gt; Bool
+compare :: AcceptHeader -&gt; AcceptHeader -&gt; Ordering
+$ccompare :: AcceptHeader -&gt; AcceptHeader -&gt; Ordering
+$cp1Ord :: Eq AcceptHeader
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AcceptHeader -&gt; Rep AcceptHeader x)
+-&gt; (forall x. Rep AcceptHeader x -&gt; AcceptHeader)
+-&gt; Generic AcceptHeader
+forall x. Rep AcceptHeader x -&gt; AcceptHeader
+forall x. AcceptHeader -&gt; Rep AcceptHeader x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AcceptHeader x -&gt; AcceptHeader
+$cfrom :: forall x. AcceptHeader -&gt; Rep AcceptHeader x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679863942"><span id="local-6989586621679863944"><span class="annot"><span class="annottext">Int -&gt; AcceptHeader -&gt; Int
+AcceptHeader -&gt; Int
+(Int -&gt; AcceptHeader -&gt; Int)
+-&gt; (AcceptHeader -&gt; Int) -&gt; Hashable AcceptHeader
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AcceptHeader -&gt; Int
+$chash :: AcceptHeader -&gt; Int
+hashWithSalt :: Int -&gt; AcceptHeader -&gt; Int
+$chashWithSalt :: Int -&gt; AcceptHeader -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679863939"><span class="annot"><span class="annottext">AcceptHeader -&gt; ()
+(AcceptHeader -&gt; ()) -&gt; NFData AcceptHeader
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AcceptHeader -&gt; ()
+$crnf :: AcceptHeader -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679863936"><span class="annot"><span class="annottext">Text -&gt; Either String AcceptHeader
+(Text -&gt; Either String AcceptHeader) -&gt; FromText AcceptHeader
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AcceptHeader
+$cfromText :: Text -&gt; Either String AcceptHeader
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679863933"><span class="annot"><span class="annottext">AcceptHeader -&gt; Text
+(AcceptHeader -&gt; Text) -&gt; ToText AcceptHeader
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AcceptHeader -&gt; Text
+$ctoText :: AcceptHeader -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679863930"><span class="annot"><span class="annottext">AcceptHeader -&gt; ByteString
+(AcceptHeader -&gt; ByteString) -&gt; ToByteString AcceptHeader
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AcceptHeader -&gt; ByteString
+$ctoBS :: AcceptHeader -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679863927"><span class="annot"><span class="annottext">AcceptHeader -&gt; ByteStringBuilder
+(AcceptHeader -&gt; ByteStringBuilder) -&gt; ToLog AcceptHeader
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AcceptHeader -&gt; ByteStringBuilder
+$cbuild :: AcceptHeader -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679863924"><span class="annot"><span class="annottext">HeaderName -&gt; AcceptHeader -&gt; [Header]
+(HeaderName -&gt; AcceptHeader -&gt; [Header]) -&gt; ToHeader AcceptHeader
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AcceptHeader -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AcceptHeader -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679863921"><span class="annot"><span class="annottext">AcceptHeader -&gt; QueryString
+(AcceptHeader -&gt; QueryString) -&gt; ToQuery AcceptHeader
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AcceptHeader -&gt; QueryString
+$ctoQuery :: AcceptHeader -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679863916"><span id="local-6989586621679863918"><span class="annot"><span class="annottext">Value -&gt; Parser [AcceptHeader]
+Value -&gt; Parser AcceptHeader
+(Value -&gt; Parser AcceptHeader)
+-&gt; (Value -&gt; Parser [AcceptHeader]) -&gt; FromJSON AcceptHeader
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AcceptHeader]
+$cparseJSONList :: Value -&gt; Parser [AcceptHeader]
+parseJSON :: Value -&gt; Parser AcceptHeader
+$cparseJSON :: Value -&gt; Parser AcceptHeader
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679863911"><span id="local-6989586621679863913"><span class="annot"><span class="annottext">FromJSONKeyFunction [AcceptHeader]
+FromJSONKeyFunction AcceptHeader
+FromJSONKeyFunction AcceptHeader
+-&gt; FromJSONKeyFunction [AcceptHeader] -&gt; FromJSONKey AcceptHeader
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AcceptHeader]
+$cfromJSONKeyList :: FromJSONKeyFunction [AcceptHeader]
+fromJSONKey :: FromJSONKeyFunction AcceptHeader
+$cfromJSONKey :: FromJSONKeyFunction AcceptHeader
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679863902"><span id="local-6989586621679863904"><span id="local-6989586621679863906"><span id="local-6989586621679863908"><span class="annot"><span class="annottext">[AcceptHeader] -&gt; Encoding
+[AcceptHeader] -&gt; Value
+AcceptHeader -&gt; Encoding
+AcceptHeader -&gt; Value
+(AcceptHeader -&gt; Value)
+-&gt; (AcceptHeader -&gt; Encoding)
+-&gt; ([AcceptHeader] -&gt; Value)
+-&gt; ([AcceptHeader] -&gt; Encoding)
+-&gt; ToJSON AcceptHeader
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AcceptHeader] -&gt; Encoding
+$ctoEncodingList :: [AcceptHeader] -&gt; Encoding
+toJSONList :: [AcceptHeader] -&gt; Value
+$ctoJSONList :: [AcceptHeader] -&gt; Value
+toEncoding :: AcceptHeader -&gt; Encoding
+$ctoEncoding :: AcceptHeader -&gt; Encoding
+toJSON :: AcceptHeader -&gt; Value
+$ctoJSON :: AcceptHeader -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679863897"><span id="local-6989586621679863899"><span class="annot"><span class="annottext">ToJSONKeyFunction [AcceptHeader]
+ToJSONKeyFunction AcceptHeader
+ToJSONKeyFunction AcceptHeader
+-&gt; ToJSONKeyFunction [AcceptHeader] -&gt; ToJSONKey AcceptHeader
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AcceptHeader]
+$ctoJSONKeyList :: ToJSONKeyFunction [AcceptHeader]
+toJSONKey :: ToJSONKeyFunction AcceptHeader
+$ctoJSONKey :: ToJSONKeyFunction AcceptHeader
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679863894"><span class="annot"><span class="annottext">[Node] -&gt; Either String AcceptHeader
+([Node] -&gt; Either String AcceptHeader) -&gt; FromXML AcceptHeader
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AcceptHeader
+$cparseXML :: [Node] -&gt; Either String AcceptHeader
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679863891"><span class="annot"><span class="annottext">AcceptHeader -&gt; XML
+(AcceptHeader -&gt; XML) -&gt; ToXML AcceptHeader
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AcceptHeader -&gt; XML
+$ctoXML :: AcceptHeader -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AcceptHeader.html#AcceptHeader_Image_jpeg"><span class="hs-identifier hs-type">AcceptHeader_Image_jpeg</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AcceptHeader.html#AcceptHeader"><span class="hs-identifier hs-type">AcceptHeader</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAcceptHeader_Image_jpeg"><span id="%24mAcceptHeader_Image_jpeg"><span id="AcceptHeader_Image_jpeg"><span class="annot"><span class="annottext">$bAcceptHeader_Image_jpeg :: AcceptHeader
+$mAcceptHeader_Image_jpeg :: forall r. AcceptHeader -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.AcceptHeader.html#%24bAcceptHeader_Image_jpeg"><span class="hs-identifier hs-var hs-var hs-var">AcceptHeader_Image_jpeg</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AcceptHeader.html#AcceptHeader%27"><span class="hs-identifier hs-type">AcceptHeader'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;image/jpeg&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.AcceptHeader.html#AcceptHeader_Image_jpeg"><span class="hs-pragma hs-type">AcceptHeader_Image_jpeg</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.AcceptHeader.html#AcceptHeader%27"><span class="hs-pragma hs-type">AcceptHeader'</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-67"></span></pre></body></html>

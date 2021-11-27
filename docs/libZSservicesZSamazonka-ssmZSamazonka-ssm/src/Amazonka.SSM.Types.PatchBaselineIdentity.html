@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.PatchBaselineIdentity</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.PatchBaselineIdentity</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OperatingSystem.html"><span class="hs-identifier">Amazonka.SSM.Types.OperatingSystem</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Defines the basic information about a patch baseline.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPatchBaselineIdentity' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679807496"><span id="local-6989586621679807497"></span></span><span class="hs-keyword">data</span><span> </span><span id="PatchBaselineIdentity"><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity"><span class="hs-identifier hs-var">PatchBaselineIdentity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchBaselineIdentity%27"><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity%27"><span class="hs-identifier hs-var">PatchBaselineIdentity'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the patch baseline.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AbaselineName%3APatchBaselineIdentity%27"><span class="annot"><span class="annottext">PatchBaselineIdentity -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#%24sel%3AbaselineName%3APatchBaselineIdentity%27"><span class="hs-identifier hs-var hs-var">baselineName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The description of the patch baseline.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AbaselineDescription%3APatchBaselineIdentity%27"><span class="annot"><span class="annottext">PatchBaselineIdentity -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#%24sel%3AbaselineDescription%3APatchBaselineIdentity%27"><span class="hs-identifier hs-var hs-var">baselineDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Defines the operating system the patch baseline applies to. The default</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- value is @WINDOWS@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AoperatingSystem%3APatchBaselineIdentity%27"><span class="annot"><span class="annottext">PatchBaselineIdentity -&gt; Maybe OperatingSystem
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#%24sel%3AoperatingSystem%3APatchBaselineIdentity%27"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Whether this is the default baseline. Amazon Web Services Systems</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Manager supports creating multiple default patch baselines. For example,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- you can create a default patch baseline for each operating system.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdefaultBaseline%3APatchBaselineIdentity%27"><span class="annot"><span class="annottext">PatchBaselineIdentity -&gt; Maybe Bool
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#%24sel%3AdefaultBaseline%3APatchBaselineIdentity%27"><span class="hs-identifier hs-var hs-var">defaultBaseline</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The ID of the patch baseline.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AbaselineId%3APatchBaselineIdentity%27"><span class="annot"><span class="annottext">PatchBaselineIdentity -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#%24sel%3AbaselineId%3APatchBaselineIdentity%27"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679807486"><span id="local-6989586621679807488"><span class="annot"><span class="annottext">PatchBaselineIdentity -&gt; PatchBaselineIdentity -&gt; Bool
+(PatchBaselineIdentity -&gt; PatchBaselineIdentity -&gt; Bool)
+-&gt; (PatchBaselineIdentity -&gt; PatchBaselineIdentity -&gt; Bool)
+-&gt; Eq PatchBaselineIdentity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PatchBaselineIdentity -&gt; PatchBaselineIdentity -&gt; Bool
+$c/= :: PatchBaselineIdentity -&gt; PatchBaselineIdentity -&gt; Bool
+== :: PatchBaselineIdentity -&gt; PatchBaselineIdentity -&gt; Bool
+$c== :: PatchBaselineIdentity -&gt; PatchBaselineIdentity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679807477"><span id="local-6989586621679807479"><span id="local-6989586621679807481"><span id="local-6989586621679807483"><span class="annot"><span class="annottext">ReadPrec [PatchBaselineIdentity]
+ReadPrec PatchBaselineIdentity
+Int -&gt; ReadS PatchBaselineIdentity
+ReadS [PatchBaselineIdentity]
+(Int -&gt; ReadS PatchBaselineIdentity)
+-&gt; ReadS [PatchBaselineIdentity]
+-&gt; ReadPrec PatchBaselineIdentity
+-&gt; ReadPrec [PatchBaselineIdentity]
+-&gt; Read PatchBaselineIdentity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PatchBaselineIdentity]
+$creadListPrec :: ReadPrec [PatchBaselineIdentity]
+readPrec :: ReadPrec PatchBaselineIdentity
+$creadPrec :: ReadPrec PatchBaselineIdentity
+readList :: ReadS [PatchBaselineIdentity]
+$creadList :: ReadS [PatchBaselineIdentity]
+readsPrec :: Int -&gt; ReadS PatchBaselineIdentity
+$creadsPrec :: Int -&gt; ReadS PatchBaselineIdentity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679807470"><span id="local-6989586621679807472"><span id="local-6989586621679807474"><span class="annot"><span class="annottext">Int -&gt; PatchBaselineIdentity -&gt; ShowS
+[PatchBaselineIdentity] -&gt; ShowS
+PatchBaselineIdentity -&gt; String
+(Int -&gt; PatchBaselineIdentity -&gt; ShowS)
+-&gt; (PatchBaselineIdentity -&gt; String)
+-&gt; ([PatchBaselineIdentity] -&gt; ShowS)
+-&gt; Show PatchBaselineIdentity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PatchBaselineIdentity] -&gt; ShowS
+$cshowList :: [PatchBaselineIdentity] -&gt; ShowS
+show :: PatchBaselineIdentity -&gt; String
+$cshow :: PatchBaselineIdentity -&gt; String
+showsPrec :: Int -&gt; PatchBaselineIdentity -&gt; ShowS
+$cshowsPrec :: Int -&gt; PatchBaselineIdentity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PatchBaselineIdentity -&gt; Rep PatchBaselineIdentity x)
+-&gt; (forall x. Rep PatchBaselineIdentity x -&gt; PatchBaselineIdentity)
+-&gt; Generic PatchBaselineIdentity
+forall x. Rep PatchBaselineIdentity x -&gt; PatchBaselineIdentity
+forall x. PatchBaselineIdentity -&gt; Rep PatchBaselineIdentity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PatchBaselineIdentity x -&gt; PatchBaselineIdentity
+$cfrom :: forall x. PatchBaselineIdentity -&gt; Rep PatchBaselineIdentity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'PatchBaselineIdentity' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'baselineName', 'patchBaselineIdentity_baselineName' - The name of the patch baseline.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'baselineDescription', 'patchBaselineIdentity_baselineDescription' - The description of the patch baseline.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'operatingSystem', 'patchBaselineIdentity_operatingSystem' - Defines the operating system the patch baseline applies to. The default</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- value is @WINDOWS@.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'defaultBaseline', 'patchBaselineIdentity_defaultBaseline' - Whether this is the default baseline. Amazon Web Services Systems</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Manager supports creating multiple default patch baselines. For example,</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- you can create a default patch baseline for each operating system.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'baselineId', 'patchBaselineIdentity_baselineId' - The ID of the patch baseline.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#newPatchBaselineIdentity"><span class="hs-identifier hs-type">newPatchBaselineIdentity</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity"><span class="hs-identifier hs-type">PatchBaselineIdentity</span></a></span><span>
+</span><span id="line-69"></span><span id="newPatchBaselineIdentity"><span class="annot"><span class="annottext">newPatchBaselineIdentity :: PatchBaselineIdentity
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#newPatchBaselineIdentity"><span class="hs-identifier hs-var hs-var">newPatchBaselineIdentity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">PatchBaselineIdentity' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe OperatingSystem
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; PatchBaselineIdentity
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity%27"><span class="hs-identifier hs-type">PatchBaselineIdentity'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:baselineName:PatchBaselineIdentity' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#%24sel%3AbaselineName%3APatchBaselineIdentity%27"><span class="hs-identifier hs-var">baselineName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:baselineDescription:PatchBaselineIdentity' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#%24sel%3AbaselineDescription%3APatchBaselineIdentity%27"><span class="hs-identifier hs-var">baselineDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:operatingSystem:PatchBaselineIdentity' :: Maybe OperatingSystem
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#%24sel%3AoperatingSystem%3APatchBaselineIdentity%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultBaseline:PatchBaselineIdentity' :: Maybe Bool
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#%24sel%3AdefaultBaseline%3APatchBaselineIdentity%27"><span class="hs-identifier hs-var">defaultBaseline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:baselineId:PatchBaselineIdentity' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#%24sel%3AbaselineId%3APatchBaselineIdentity%27"><span class="hs-identifier hs-var">baselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The name of the patch baseline.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#patchBaselineIdentity_baselineName"><span class="hs-identifier hs-type">patchBaselineIdentity_baselineName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity"><span class="hs-identifier hs-type">PatchBaselineIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="patchBaselineIdentity_baselineName"><span class="annot"><span class="annottext">patchBaselineIdentity_baselineName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PatchBaselineIdentity -&gt; f PatchBaselineIdentity
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#patchBaselineIdentity_baselineName"><span class="hs-identifier hs-var hs-var">patchBaselineIdentity_baselineName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PatchBaselineIdentity -&gt; Maybe Text)
+-&gt; (PatchBaselineIdentity -&gt; Maybe Text -&gt; PatchBaselineIdentity)
+-&gt; Lens
+     PatchBaselineIdentity
+     PatchBaselineIdentity
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity%27"><span class="hs-identifier hs-type">PatchBaselineIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807461"><span class="annot"><span class="annottext">Maybe Text
+baselineName :: Maybe Text
+$sel:baselineName:PatchBaselineIdentity' :: PatchBaselineIdentity -&gt; Maybe Text
+</span><a href="#local-6989586621679807461"><span class="hs-identifier hs-var hs-var">baselineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807461"><span class="hs-identifier hs-var">baselineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807460"><span class="annot"><span class="annottext">s :: PatchBaselineIdentity
+</span><a href="#local-6989586621679807460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity%27"><span class="hs-identifier hs-type">PatchBaselineIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807459"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchBaselineIdentity
+</span><a href="#local-6989586621679807460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baselineName:PatchBaselineIdentity' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#%24sel%3AbaselineName%3APatchBaselineIdentity%27"><span class="hs-identifier hs-var">baselineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity"><span class="hs-identifier hs-type">PatchBaselineIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The description of the patch baseline.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#patchBaselineIdentity_baselineDescription"><span class="hs-identifier hs-type">patchBaselineIdentity_baselineDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity"><span class="hs-identifier hs-type">PatchBaselineIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="patchBaselineIdentity_baselineDescription"><span class="annot"><span class="annottext">patchBaselineIdentity_baselineDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PatchBaselineIdentity -&gt; f PatchBaselineIdentity
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#patchBaselineIdentity_baselineDescription"><span class="hs-identifier hs-var hs-var">patchBaselineIdentity_baselineDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PatchBaselineIdentity -&gt; Maybe Text)
+-&gt; (PatchBaselineIdentity -&gt; Maybe Text -&gt; PatchBaselineIdentity)
+-&gt; Lens
+     PatchBaselineIdentity
+     PatchBaselineIdentity
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity%27"><span class="hs-identifier hs-type">PatchBaselineIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807457"><span class="annot"><span class="annottext">Maybe Text
+baselineDescription :: Maybe Text
+$sel:baselineDescription:PatchBaselineIdentity' :: PatchBaselineIdentity -&gt; Maybe Text
+</span><a href="#local-6989586621679807457"><span class="hs-identifier hs-var hs-var">baselineDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807457"><span class="hs-identifier hs-var">baselineDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807456"><span class="annot"><span class="annottext">s :: PatchBaselineIdentity
+</span><a href="#local-6989586621679807456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity%27"><span class="hs-identifier hs-type">PatchBaselineIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807455"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchBaselineIdentity
+</span><a href="#local-6989586621679807456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baselineDescription:PatchBaselineIdentity' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#%24sel%3AbaselineDescription%3APatchBaselineIdentity%27"><span class="hs-identifier hs-var">baselineDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity"><span class="hs-identifier hs-type">PatchBaselineIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Defines the operating system the patch baseline applies to. The default</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- value is @WINDOWS@.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#patchBaselineIdentity_operatingSystem"><span class="hs-identifier hs-type">patchBaselineIdentity_operatingSystem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity"><span class="hs-identifier hs-type">PatchBaselineIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="patchBaselineIdentity_operatingSystem"><span class="annot"><span class="annottext">patchBaselineIdentity_operatingSystem :: (Maybe OperatingSystem -&gt; f (Maybe OperatingSystem))
+-&gt; PatchBaselineIdentity -&gt; f PatchBaselineIdentity
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#patchBaselineIdentity_operatingSystem"><span class="hs-identifier hs-var hs-var">patchBaselineIdentity_operatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PatchBaselineIdentity -&gt; Maybe OperatingSystem)
+-&gt; (PatchBaselineIdentity
+    -&gt; Maybe OperatingSystem -&gt; PatchBaselineIdentity)
+-&gt; Lens
+     PatchBaselineIdentity
+     PatchBaselineIdentity
+     (Maybe OperatingSystem)
+     (Maybe OperatingSystem)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity%27"><span class="hs-identifier hs-type">PatchBaselineIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807453"><span class="annot"><span class="annottext">Maybe OperatingSystem
+operatingSystem :: Maybe OperatingSystem
+$sel:operatingSystem:PatchBaselineIdentity' :: PatchBaselineIdentity -&gt; Maybe OperatingSystem
+</span><a href="#local-6989586621679807453"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679807453"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807452"><span class="annot"><span class="annottext">s :: PatchBaselineIdentity
+</span><a href="#local-6989586621679807452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity%27"><span class="hs-identifier hs-type">PatchBaselineIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807451"><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679807451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchBaselineIdentity
+</span><a href="#local-6989586621679807452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystem:PatchBaselineIdentity' :: Maybe OperatingSystem
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#%24sel%3AoperatingSystem%3APatchBaselineIdentity%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679807451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity"><span class="hs-identifier hs-type">PatchBaselineIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | Whether this is the default baseline. Amazon Web Services Systems</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Manager supports creating multiple default patch baselines. For example,</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- you can create a default patch baseline for each operating system.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#patchBaselineIdentity_defaultBaseline"><span class="hs-identifier hs-type">patchBaselineIdentity_defaultBaseline</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity"><span class="hs-identifier hs-type">PatchBaselineIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="patchBaselineIdentity_defaultBaseline"><span class="annot"><span class="annottext">patchBaselineIdentity_defaultBaseline :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; PatchBaselineIdentity -&gt; f PatchBaselineIdentity
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#patchBaselineIdentity_defaultBaseline"><span class="hs-identifier hs-var hs-var">patchBaselineIdentity_defaultBaseline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PatchBaselineIdentity -&gt; Maybe Bool)
+-&gt; (PatchBaselineIdentity -&gt; Maybe Bool -&gt; PatchBaselineIdentity)
+-&gt; Lens
+     PatchBaselineIdentity
+     PatchBaselineIdentity
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity%27"><span class="hs-identifier hs-type">PatchBaselineIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807449"><span class="annot"><span class="annottext">Maybe Bool
+defaultBaseline :: Maybe Bool
+$sel:defaultBaseline:PatchBaselineIdentity' :: PatchBaselineIdentity -&gt; Maybe Bool
+</span><a href="#local-6989586621679807449"><span class="hs-identifier hs-var hs-var">defaultBaseline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679807449"><span class="hs-identifier hs-var">defaultBaseline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807448"><span class="annot"><span class="annottext">s :: PatchBaselineIdentity
+</span><a href="#local-6989586621679807448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity%27"><span class="hs-identifier hs-type">PatchBaselineIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807447"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679807447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchBaselineIdentity
+</span><a href="#local-6989586621679807448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultBaseline:PatchBaselineIdentity' :: Maybe Bool
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#%24sel%3AdefaultBaseline%3APatchBaselineIdentity%27"><span class="hs-identifier hs-var">defaultBaseline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679807447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity"><span class="hs-identifier hs-type">PatchBaselineIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The ID of the patch baseline.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#patchBaselineIdentity_baselineId"><span class="hs-identifier hs-type">patchBaselineIdentity_baselineId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity"><span class="hs-identifier hs-type">PatchBaselineIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="patchBaselineIdentity_baselineId"><span class="annot"><span class="annottext">patchBaselineIdentity_baselineId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PatchBaselineIdentity -&gt; f PatchBaselineIdentity
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#patchBaselineIdentity_baselineId"><span class="hs-identifier hs-var hs-var">patchBaselineIdentity_baselineId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PatchBaselineIdentity -&gt; Maybe Text)
+-&gt; (PatchBaselineIdentity -&gt; Maybe Text -&gt; PatchBaselineIdentity)
+-&gt; Lens
+     PatchBaselineIdentity
+     PatchBaselineIdentity
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity%27"><span class="hs-identifier hs-type">PatchBaselineIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807445"><span class="annot"><span class="annottext">Maybe Text
+baselineId :: Maybe Text
+$sel:baselineId:PatchBaselineIdentity' :: PatchBaselineIdentity -&gt; Maybe Text
+</span><a href="#local-6989586621679807445"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807445"><span class="hs-identifier hs-var">baselineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807444"><span class="annot"><span class="annottext">s :: PatchBaselineIdentity
+</span><a href="#local-6989586621679807444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity%27"><span class="hs-identifier hs-type">PatchBaselineIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807443"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchBaselineIdentity
+</span><a href="#local-6989586621679807444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baselineId:PatchBaselineIdentity' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#%24sel%3AbaselineId%3APatchBaselineIdentity%27"><span class="hs-identifier hs-var">baselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity"><span class="hs-identifier hs-type">PatchBaselineIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807440"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity"><span class="hs-identifier hs-type">PatchBaselineIdentity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679807438"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PatchBaselineIdentity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PatchBaselineIdentity)
+-&gt; Value
+-&gt; Parser PatchBaselineIdentity
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PatchBaselineIdentity&quot;</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679807435"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679807435"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe OperatingSystem
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; PatchBaselineIdentity
+</span><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity%27"><span class="hs-identifier hs-var">PatchBaselineIdentity'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe OperatingSystem
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; PatchBaselineIdentity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe OperatingSystem
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; PatchBaselineIdentity)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679807435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BaselineName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe OperatingSystem
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; PatchBaselineIdentity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe OperatingSystem
+      -&gt; Maybe Bool -&gt; Maybe Text -&gt; PatchBaselineIdentity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679807435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BaselineDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OperatingSystem
+   -&gt; Maybe Bool -&gt; Maybe Text -&gt; PatchBaselineIdentity)
+-&gt; Parser (Maybe OperatingSystem)
+-&gt; Parser (Maybe Bool -&gt; Maybe Text -&gt; PatchBaselineIdentity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679807435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OperatingSystem)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OperatingSystem&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Text -&gt; PatchBaselineIdentity)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Text -&gt; PatchBaselineIdentity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679807435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultBaseline&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PatchBaselineIdentity)
+-&gt; Parser (Maybe Text) -&gt; Parser PatchBaselineIdentity
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679807435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BaselineId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807429"><span id="local-6989586621679807431"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity"><span class="hs-identifier hs-type">PatchBaselineIdentity</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807426"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchBaselineIdentity.html#PatchBaselineIdentity"><span class="hs-identifier hs-type">PatchBaselineIdentity</span></a></span></span><span>
+</span><span id="line-118"></span></pre></body></html>

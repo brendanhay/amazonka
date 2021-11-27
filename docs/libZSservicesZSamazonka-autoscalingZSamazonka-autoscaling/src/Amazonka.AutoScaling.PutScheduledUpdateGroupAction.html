@@ -1,0 +1,886 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AutoScaling.PutScheduledUpdateGroupAction</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates or updates a scheduled scaling action for an Auto Scaling group.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html Scheduled scaling&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in the /Amazon EC2 Auto Scaling User Guide/.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- You can view the scheduled actions for an Auto Scaling group using the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- DescribeScheduledActions API call. If you are no longer using a</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- scheduled action, you can delete it by calling the DeleteScheduledAction</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AutoScaling.PutScheduledUpdateGroupAction</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier">PutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#newPutScheduledUpdateGroupAction"><span class="hs-identifier">newPutScheduledUpdateGroupAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_startTime"><span class="hs-identifier">putScheduledUpdateGroupAction_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_time"><span class="hs-identifier">putScheduledUpdateGroupAction_time</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_maxSize"><span class="hs-identifier">putScheduledUpdateGroupAction_maxSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_recurrence"><span class="hs-identifier">putScheduledUpdateGroupAction_recurrence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_desiredCapacity"><span class="hs-identifier">putScheduledUpdateGroupAction_desiredCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_minSize"><span class="hs-identifier">putScheduledUpdateGroupAction_minSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_endTime"><span class="hs-identifier">putScheduledUpdateGroupAction_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_timeZone"><span class="hs-identifier">putScheduledUpdateGroupAction_timeZone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_autoScalingGroupName"><span class="hs-identifier">putScheduledUpdateGroupAction_autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_scheduledActionName"><span class="hs-identifier">putScheduledUpdateGroupAction_scheduledActionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupActionResponse"><span class="hs-identifier">PutScheduledUpdateGroupActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#newPutScheduledUpdateGroupActionResponse"><span class="hs-identifier">newPutScheduledUpdateGroupActionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.html"><span class="hs-identifier">Amazonka.AutoScaling.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newPutScheduledUpdateGroupAction' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679336937"><span id="local-6989586621679336938"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutScheduledUpdateGroupAction"><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-var">PutScheduledUpdateGroupAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutScheduledUpdateGroupAction%27"><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">PutScheduledUpdateGroupAction'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- format in UTC\/GMT only and in quotes (for example,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @\&quot;2019-06-01T00:00:00Z\&quot;@).</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- If you specify @Recurrence@ and @StartTime@, Amazon EC2 Auto Scaling</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- performs the action at this time, and then performs the action based on</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- the specified recurrence.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- If you try to schedule your action in the past, Amazon EC2 Auto Scaling</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- returns an error message.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AstartTime%3APutScheduledUpdateGroupAction%27"><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction -&gt; Maybe ISO8601
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AstartTime%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | This parameter is no longer used.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Atime%3APutScheduledUpdateGroupAction%27"><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction -&gt; Maybe ISO8601
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3Atime%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var hs-var">time</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The maximum size of the Auto Scaling group.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AmaxSize%3APutScheduledUpdateGroupAction%27"><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction -&gt; Maybe Int
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AmaxSize%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var hs-var">maxSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The recurring schedule for this action. This format consists of five</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- fields separated by white spaces: [Minute] [Hour] [Day_of_Month]</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @\&quot;30 0 1 1,6,12 *\&quot;@). For more information about this format, see</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- &lt;http://crontab.org Crontab&gt;.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- form the boundaries of when the recurring action starts and stops.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- Cron expressions use Universal Coordinated Time (UTC) by default.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3Arecurrence%3APutScheduledUpdateGroupAction%27"><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction -&gt; Maybe Text
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3Arecurrence%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var hs-var">recurrence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The desired capacity is the initial capacity of the Auto Scaling group</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- after the scheduled action runs and the capacity it attempts to</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- maintain. It can scale beyond this capacity if you add more scaling</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- conditions.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AdesiredCapacity%3APutScheduledUpdateGroupAction%27"><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction -&gt; Maybe Int
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AdesiredCapacity%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var hs-var">desiredCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The minimum size of the Auto Scaling group.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AminSize%3APutScheduledUpdateGroupAction%27"><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction -&gt; Maybe Int
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AminSize%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The date and time for the recurring schedule to end, in UTC.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AendTime%3APutScheduledUpdateGroupAction%27"><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction -&gt; Maybe ISO8601
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AendTime%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | Specifies the time zone for a cron expression. If a time zone is not</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- provided, UTC is used by default.</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- Valid values are the canonical names of the IANA time zones, derived</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- from the IANA Time Zone Database (such as @Etc\/GMT+9@ or</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- @Pacific\/Tahiti@). For more information, see</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&gt;.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AtimeZone%3APutScheduledUpdateGroupAction%27"><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction -&gt; Maybe Text
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AtimeZone%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var hs-var">timeZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AautoScalingGroupName%3APutScheduledUpdateGroupAction%27"><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction -&gt; Text
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AautoScalingGroupName%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The name of this scaling action.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AscheduledActionName%3APutScheduledUpdateGroupAction%27"><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction -&gt; Text
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AscheduledActionName%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var hs-var">scheduledActionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336922"><span id="local-6989586621679336924"><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction
+-&gt; PutScheduledUpdateGroupAction -&gt; Bool
+(PutScheduledUpdateGroupAction
+ -&gt; PutScheduledUpdateGroupAction -&gt; Bool)
+-&gt; (PutScheduledUpdateGroupAction
+    -&gt; PutScheduledUpdateGroupAction -&gt; Bool)
+-&gt; Eq PutScheduledUpdateGroupAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutScheduledUpdateGroupAction
+-&gt; PutScheduledUpdateGroupAction -&gt; Bool
+$c/= :: PutScheduledUpdateGroupAction
+-&gt; PutScheduledUpdateGroupAction -&gt; Bool
+== :: PutScheduledUpdateGroupAction
+-&gt; PutScheduledUpdateGroupAction -&gt; Bool
+$c== :: PutScheduledUpdateGroupAction
+-&gt; PutScheduledUpdateGroupAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336913"><span id="local-6989586621679336915"><span id="local-6989586621679336917"><span id="local-6989586621679336919"><span class="annot"><span class="annottext">ReadPrec [PutScheduledUpdateGroupAction]
+ReadPrec PutScheduledUpdateGroupAction
+Int -&gt; ReadS PutScheduledUpdateGroupAction
+ReadS [PutScheduledUpdateGroupAction]
+(Int -&gt; ReadS PutScheduledUpdateGroupAction)
+-&gt; ReadS [PutScheduledUpdateGroupAction]
+-&gt; ReadPrec PutScheduledUpdateGroupAction
+-&gt; ReadPrec [PutScheduledUpdateGroupAction]
+-&gt; Read PutScheduledUpdateGroupAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutScheduledUpdateGroupAction]
+$creadListPrec :: ReadPrec [PutScheduledUpdateGroupAction]
+readPrec :: ReadPrec PutScheduledUpdateGroupAction
+$creadPrec :: ReadPrec PutScheduledUpdateGroupAction
+readList :: ReadS [PutScheduledUpdateGroupAction]
+$creadList :: ReadS [PutScheduledUpdateGroupAction]
+readsPrec :: Int -&gt; ReadS PutScheduledUpdateGroupAction
+$creadsPrec :: Int -&gt; ReadS PutScheduledUpdateGroupAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336906"><span id="local-6989586621679336908"><span id="local-6989586621679336910"><span class="annot"><span class="annottext">Int -&gt; PutScheduledUpdateGroupAction -&gt; ShowS
+[PutScheduledUpdateGroupAction] -&gt; ShowS
+PutScheduledUpdateGroupAction -&gt; String
+(Int -&gt; PutScheduledUpdateGroupAction -&gt; ShowS)
+-&gt; (PutScheduledUpdateGroupAction -&gt; String)
+-&gt; ([PutScheduledUpdateGroupAction] -&gt; ShowS)
+-&gt; Show PutScheduledUpdateGroupAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutScheduledUpdateGroupAction] -&gt; ShowS
+$cshowList :: [PutScheduledUpdateGroupAction] -&gt; ShowS
+show :: PutScheduledUpdateGroupAction -&gt; String
+$cshow :: PutScheduledUpdateGroupAction -&gt; String
+showsPrec :: Int -&gt; PutScheduledUpdateGroupAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutScheduledUpdateGroupAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutScheduledUpdateGroupAction
+ -&gt; Rep PutScheduledUpdateGroupAction x)
+-&gt; (forall x.
+    Rep PutScheduledUpdateGroupAction x
+    -&gt; PutScheduledUpdateGroupAction)
+-&gt; Generic PutScheduledUpdateGroupAction
+forall x.
+Rep PutScheduledUpdateGroupAction x
+-&gt; PutScheduledUpdateGroupAction
+forall x.
+PutScheduledUpdateGroupAction
+-&gt; Rep PutScheduledUpdateGroupAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutScheduledUpdateGroupAction x
+-&gt; PutScheduledUpdateGroupAction
+$cfrom :: forall x.
+PutScheduledUpdateGroupAction
+-&gt; Rep PutScheduledUpdateGroupAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Create a value of 'PutScheduledUpdateGroupAction' with all optional fields omitted.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'startTime', 'putScheduledUpdateGroupAction_startTime' - The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- format in UTC\/GMT only and in quotes (for example,</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- @\&quot;2019-06-01T00:00:00Z\&quot;@).</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- If you specify @Recurrence@ and @StartTime@, Amazon EC2 Auto Scaling</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- performs the action at this time, and then performs the action based on</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- the specified recurrence.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- If you try to schedule your action in the past, Amazon EC2 Auto Scaling</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- returns an error message.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'time', 'putScheduledUpdateGroupAction_time' - This parameter is no longer used.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'maxSize', 'putScheduledUpdateGroupAction_maxSize' - The maximum size of the Auto Scaling group.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'recurrence', 'putScheduledUpdateGroupAction_recurrence' - The recurring schedule for this action. This format consists of five</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- fields separated by white spaces: [Minute] [Hour] [Day_of_Month]</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example,</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- @\&quot;30 0 1 1,6,12 *\&quot;@). For more information about this format, see</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- &lt;http://crontab.org Crontab&gt;.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- form the boundaries of when the recurring action starts and stops.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Cron expressions use Universal Coordinated Time (UTC) by default.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'desiredCapacity', 'putScheduledUpdateGroupAction_desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- after the scheduled action runs and the capacity it attempts to</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- maintain. It can scale beyond this capacity if you add more scaling</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- conditions.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'minSize', 'putScheduledUpdateGroupAction_minSize' - The minimum size of the Auto Scaling group.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'endTime', 'putScheduledUpdateGroupAction_endTime' - The date and time for the recurring schedule to end, in UTC.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'timeZone', 'putScheduledUpdateGroupAction_timeZone' - Specifies the time zone for a cron expression. If a time zone is not</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- provided, UTC is used by default.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Valid values are the canonical names of the IANA time zones, derived</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- from the IANA Time Zone Database (such as @Etc\/GMT+9@ or</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- @Pacific\/Tahiti@). For more information, see</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&gt;.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'autoScalingGroupName', 'putScheduledUpdateGroupAction_autoScalingGroupName' - The name of the Auto Scaling group.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'scheduledActionName', 'putScheduledUpdateGroupAction_scheduledActionName' - The name of this scaling action.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#newPutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">newPutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-comment">-- | 'autoScalingGroupName'</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'scheduledActionName'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span>
+</span><span id="line-175"></span><span id="newPutScheduledUpdateGroupAction"><span class="annot"><span class="annottext">newPutScheduledUpdateGroupAction :: Text -&gt; Text -&gt; PutScheduledUpdateGroupAction
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#newPutScheduledUpdateGroupAction"><span class="hs-identifier hs-var hs-var">newPutScheduledUpdateGroupAction</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679336901"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336901"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679336900"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336900"><span class="hs-identifier hs-var">pScheduledActionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction' :: Maybe ISO8601
+-&gt; Maybe ISO8601
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; PutScheduledUpdateGroupAction
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTime:PutScheduledUpdateGroupAction' :: Maybe ISO8601
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AstartTime%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">$sel:time:PutScheduledUpdateGroupAction' :: Maybe ISO8601
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3Atime%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">time</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxSize:PutScheduledUpdateGroupAction' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AmaxSize%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">maxSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">$sel:recurrence:PutScheduledUpdateGroupAction' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3Arecurrence%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">recurrence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">$sel:desiredCapacity:PutScheduledUpdateGroupAction' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AdesiredCapacity%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">desiredCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:minSize:PutScheduledUpdateGroupAction' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AminSize%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">$sel:endTime:PutScheduledUpdateGroupAction' :: Maybe ISO8601
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AendTime%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">$sel:timeZone:PutScheduledUpdateGroupAction' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AtimeZone%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">timeZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:PutScheduledUpdateGroupAction' :: Text
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AautoScalingGroupName%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336901"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduledActionName:PutScheduledUpdateGroupAction' :: Text
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AscheduledActionName%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336900"><span class="hs-identifier hs-var">pScheduledActionName_</span></a></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- format in UTC\/GMT only and in quotes (for example,</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- @\&quot;2019-06-01T00:00:00Z\&quot;@).</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- If you specify @Recurrence@ and @StartTime@, Amazon EC2 Auto Scaling</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- performs the action at this time, and then performs the action based on</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- the specified recurrence.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- If you try to schedule your action in the past, Amazon EC2 Auto Scaling</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- returns an error message.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_startTime"><span class="hs-identifier hs-type">putScheduledUpdateGroupAction_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="putScheduledUpdateGroupAction_startTime"><span class="annot"><span class="annottext">putScheduledUpdateGroupAction_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PutScheduledUpdateGroupAction -&gt; f PutScheduledUpdateGroupAction
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_startTime"><span class="hs-identifier hs-var hs-var">putScheduledUpdateGroupAction_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledUpdateGroupAction -&gt; Maybe ISO8601)
+-&gt; (PutScheduledUpdateGroupAction
+    -&gt; Maybe ISO8601 -&gt; PutScheduledUpdateGroupAction)
+-&gt; Lens
+     PutScheduledUpdateGroupAction
+     PutScheduledUpdateGroupAction
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336897"><span class="annot"><span class="annottext">Maybe ISO8601
+startTime :: Maybe ISO8601
+$sel:startTime:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679336897"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679336897"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336896"><span class="annot"><span class="annottext">s :: PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336895"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679336895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:PutScheduledUpdateGroupAction' :: Maybe ISO8601
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AstartTime%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679336895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; PutScheduledUpdateGroupAction
+ -&gt; f PutScheduledUpdateGroupAction)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PutScheduledUpdateGroupAction
+-&gt; f PutScheduledUpdateGroupAction
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | This parameter is no longer used.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_time"><span class="hs-identifier hs-type">putScheduledUpdateGroupAction_time</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="putScheduledUpdateGroupAction_time"><span class="annot"><span class="annottext">putScheduledUpdateGroupAction_time :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PutScheduledUpdateGroupAction -&gt; f PutScheduledUpdateGroupAction
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_time"><span class="hs-identifier hs-var hs-var">putScheduledUpdateGroupAction_time</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledUpdateGroupAction -&gt; Maybe ISO8601)
+-&gt; (PutScheduledUpdateGroupAction
+    -&gt; Maybe ISO8601 -&gt; PutScheduledUpdateGroupAction)
+-&gt; Lens
+     PutScheduledUpdateGroupAction
+     PutScheduledUpdateGroupAction
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336891"><span class="annot"><span class="annottext">Maybe ISO8601
+time :: Maybe ISO8601
+$sel:time:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679336891"><span class="hs-identifier hs-var hs-var">time</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679336891"><span class="hs-identifier hs-var">time</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336890"><span class="annot"><span class="annottext">s :: PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336889"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679336889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:time:PutScheduledUpdateGroupAction' :: Maybe ISO8601
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3Atime%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">time</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679336889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; PutScheduledUpdateGroupAction
+ -&gt; f PutScheduledUpdateGroupAction)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PutScheduledUpdateGroupAction
+-&gt; f PutScheduledUpdateGroupAction
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The maximum size of the Auto Scaling group.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_maxSize"><span class="hs-identifier hs-type">putScheduledUpdateGroupAction_maxSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="putScheduledUpdateGroupAction_maxSize"><span class="annot"><span class="annottext">putScheduledUpdateGroupAction_maxSize :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; PutScheduledUpdateGroupAction -&gt; f PutScheduledUpdateGroupAction
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_maxSize"><span class="hs-identifier hs-var hs-var">putScheduledUpdateGroupAction_maxSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledUpdateGroupAction -&gt; Maybe Int)
+-&gt; (PutScheduledUpdateGroupAction
+    -&gt; Maybe Int -&gt; PutScheduledUpdateGroupAction)
+-&gt; Lens
+     PutScheduledUpdateGroupAction
+     PutScheduledUpdateGroupAction
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336888"><span class="annot"><span class="annottext">Maybe Int
+maxSize :: Maybe Int
+$sel:maxSize:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe Int
+</span><a href="#local-6989586621679336888"><span class="hs-identifier hs-var hs-var">maxSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336888"><span class="hs-identifier hs-var">maxSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336887"><span class="annot"><span class="annottext">s :: PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336886"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSize:PutScheduledUpdateGroupAction' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AmaxSize%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">maxSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The recurring schedule for this action. This format consists of five</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- fields separated by white spaces: [Minute] [Hour] [Day_of_Month]</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example,</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- @\&quot;30 0 1 1,6,12 *\&quot;@). For more information about this format, see</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- &lt;http://crontab.org Crontab&gt;.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- form the boundaries of when the recurring action starts and stops.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- Cron expressions use Universal Coordinated Time (UTC) by default.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_recurrence"><span class="hs-identifier hs-type">putScheduledUpdateGroupAction_recurrence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="putScheduledUpdateGroupAction_recurrence"><span class="annot"><span class="annottext">putScheduledUpdateGroupAction_recurrence :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutScheduledUpdateGroupAction -&gt; f PutScheduledUpdateGroupAction
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_recurrence"><span class="hs-identifier hs-var hs-var">putScheduledUpdateGroupAction_recurrence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledUpdateGroupAction -&gt; Maybe Text)
+-&gt; (PutScheduledUpdateGroupAction
+    -&gt; Maybe Text -&gt; PutScheduledUpdateGroupAction)
+-&gt; Lens
+     PutScheduledUpdateGroupAction
+     PutScheduledUpdateGroupAction
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336885"><span class="annot"><span class="annottext">Maybe Text
+recurrence :: Maybe Text
+$sel:recurrence:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe Text
+</span><a href="#local-6989586621679336885"><span class="hs-identifier hs-var hs-var">recurrence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336885"><span class="hs-identifier hs-var">recurrence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336884"><span class="annot"><span class="annottext">s :: PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336883"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recurrence:PutScheduledUpdateGroupAction' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3Arecurrence%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">recurrence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The desired capacity is the initial capacity of the Auto Scaling group</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- after the scheduled action runs and the capacity it attempts to</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- maintain. It can scale beyond this capacity if you add more scaling</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- conditions.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_desiredCapacity"><span class="hs-identifier hs-type">putScheduledUpdateGroupAction_desiredCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="putScheduledUpdateGroupAction_desiredCapacity"><span class="annot"><span class="annottext">putScheduledUpdateGroupAction_desiredCapacity :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; PutScheduledUpdateGroupAction -&gt; f PutScheduledUpdateGroupAction
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_desiredCapacity"><span class="hs-identifier hs-var hs-var">putScheduledUpdateGroupAction_desiredCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledUpdateGroupAction -&gt; Maybe Int)
+-&gt; (PutScheduledUpdateGroupAction
+    -&gt; Maybe Int -&gt; PutScheduledUpdateGroupAction)
+-&gt; Lens
+     PutScheduledUpdateGroupAction
+     PutScheduledUpdateGroupAction
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336882"><span class="annot"><span class="annottext">Maybe Int
+desiredCapacity :: Maybe Int
+$sel:desiredCapacity:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe Int
+</span><a href="#local-6989586621679336882"><span class="hs-identifier hs-var hs-var">desiredCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336882"><span class="hs-identifier hs-var">desiredCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336881"><span class="annot"><span class="annottext">s :: PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336880"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredCapacity:PutScheduledUpdateGroupAction' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AdesiredCapacity%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">desiredCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The minimum size of the Auto Scaling group.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_minSize"><span class="hs-identifier hs-type">putScheduledUpdateGroupAction_minSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="putScheduledUpdateGroupAction_minSize"><span class="annot"><span class="annottext">putScheduledUpdateGroupAction_minSize :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; PutScheduledUpdateGroupAction -&gt; f PutScheduledUpdateGroupAction
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_minSize"><span class="hs-identifier hs-var hs-var">putScheduledUpdateGroupAction_minSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledUpdateGroupAction -&gt; Maybe Int)
+-&gt; (PutScheduledUpdateGroupAction
+    -&gt; Maybe Int -&gt; PutScheduledUpdateGroupAction)
+-&gt; Lens
+     PutScheduledUpdateGroupAction
+     PutScheduledUpdateGroupAction
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336879"><span class="annot"><span class="annottext">Maybe Int
+minSize :: Maybe Int
+$sel:minSize:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe Int
+</span><a href="#local-6989586621679336879"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336879"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336878"><span class="annot"><span class="annottext">s :: PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336877"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minSize:PutScheduledUpdateGroupAction' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AminSize%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The date and time for the recurring schedule to end, in UTC.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_endTime"><span class="hs-identifier hs-type">putScheduledUpdateGroupAction_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="putScheduledUpdateGroupAction_endTime"><span class="annot"><span class="annottext">putScheduledUpdateGroupAction_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PutScheduledUpdateGroupAction -&gt; f PutScheduledUpdateGroupAction
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_endTime"><span class="hs-identifier hs-var hs-var">putScheduledUpdateGroupAction_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledUpdateGroupAction -&gt; Maybe ISO8601)
+-&gt; (PutScheduledUpdateGroupAction
+    -&gt; Maybe ISO8601 -&gt; PutScheduledUpdateGroupAction)
+-&gt; Lens
+     PutScheduledUpdateGroupAction
+     PutScheduledUpdateGroupAction
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336876"><span class="annot"><span class="annottext">Maybe ISO8601
+endTime :: Maybe ISO8601
+$sel:endTime:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679336876"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679336876"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336875"><span class="annot"><span class="annottext">s :: PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336874"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679336874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:PutScheduledUpdateGroupAction' :: Maybe ISO8601
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AendTime%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679336874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; PutScheduledUpdateGroupAction
+ -&gt; f PutScheduledUpdateGroupAction)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PutScheduledUpdateGroupAction
+-&gt; f PutScheduledUpdateGroupAction
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | Specifies the time zone for a cron expression. If a time zone is not</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- provided, UTC is used by default.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- Valid values are the canonical names of the IANA time zones, derived</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- from the IANA Time Zone Database (such as @Etc\/GMT+9@ or</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- @Pacific\/Tahiti@). For more information, see</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&gt;.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_timeZone"><span class="hs-identifier hs-type">putScheduledUpdateGroupAction_timeZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="putScheduledUpdateGroupAction_timeZone"><span class="annot"><span class="annottext">putScheduledUpdateGroupAction_timeZone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutScheduledUpdateGroupAction -&gt; f PutScheduledUpdateGroupAction
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_timeZone"><span class="hs-identifier hs-var hs-var">putScheduledUpdateGroupAction_timeZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledUpdateGroupAction -&gt; Maybe Text)
+-&gt; (PutScheduledUpdateGroupAction
+    -&gt; Maybe Text -&gt; PutScheduledUpdateGroupAction)
+-&gt; Lens
+     PutScheduledUpdateGroupAction
+     PutScheduledUpdateGroupAction
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336873"><span class="annot"><span class="annottext">Maybe Text
+timeZone :: Maybe Text
+$sel:timeZone:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe Text
+</span><a href="#local-6989586621679336873"><span class="hs-identifier hs-var hs-var">timeZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336873"><span class="hs-identifier hs-var">timeZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336872"><span class="annot"><span class="annottext">s :: PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336871"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeZone:PutScheduledUpdateGroupAction' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AtimeZone%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">timeZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_autoScalingGroupName"><span class="hs-identifier hs-type">putScheduledUpdateGroupAction_autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-254"></span><span id="putScheduledUpdateGroupAction_autoScalingGroupName"><span class="annot"><span class="annottext">putScheduledUpdateGroupAction_autoScalingGroupName :: (Text -&gt; f Text)
+-&gt; PutScheduledUpdateGroupAction -&gt; f PutScheduledUpdateGroupAction
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_autoScalingGroupName"><span class="hs-identifier hs-var hs-var">putScheduledUpdateGroupAction_autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledUpdateGroupAction -&gt; Text)
+-&gt; (PutScheduledUpdateGroupAction
+    -&gt; Text -&gt; PutScheduledUpdateGroupAction)
+-&gt; Lens
+     PutScheduledUpdateGroupAction
+     PutScheduledUpdateGroupAction
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336870"><span class="annot"><span class="annottext">Text
+autoScalingGroupName :: Text
+$sel:autoScalingGroupName:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Text
+</span><a href="#local-6989586621679336870"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336870"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336869"><span class="annot"><span class="annottext">s :: PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336868"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:PutScheduledUpdateGroupAction' :: Text
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AautoScalingGroupName%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The name of this scaling action.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_scheduledActionName"><span class="hs-identifier hs-type">putScheduledUpdateGroupAction_scheduledActionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-258"></span><span id="putScheduledUpdateGroupAction_scheduledActionName"><span class="annot"><span class="annottext">putScheduledUpdateGroupAction_scheduledActionName :: (Text -&gt; f Text)
+-&gt; PutScheduledUpdateGroupAction -&gt; f PutScheduledUpdateGroupAction
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#putScheduledUpdateGroupAction_scheduledActionName"><span class="hs-identifier hs-var hs-var">putScheduledUpdateGroupAction_scheduledActionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutScheduledUpdateGroupAction -&gt; Text)
+-&gt; (PutScheduledUpdateGroupAction
+    -&gt; Text -&gt; PutScheduledUpdateGroupAction)
+-&gt; Lens
+     PutScheduledUpdateGroupAction
+     PutScheduledUpdateGroupAction
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336867"><span class="annot"><span class="annottext">Text
+scheduledActionName :: Text
+$sel:scheduledActionName:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Text
+</span><a href="#local-6989586621679336867"><span class="hs-identifier hs-var hs-var">scheduledActionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336867"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336866"><span class="annot"><span class="annottext">s :: PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336865"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutScheduledUpdateGroupAction
+</span><a href="#local-6989586621679336866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActionName:PutScheduledUpdateGroupAction' :: Text
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#%24sel%3AscheduledActionName%3APutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span>
+</span><span id="line-263"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-265"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-type">PutScheduledUpdateGroupActionResponse</span></a></span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679336861"><span class="annot"><span class="annottext">request :: PutScheduledUpdateGroupAction
+-&gt; Request PutScheduledUpdateGroupAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutScheduledUpdateGroupAction
+-&gt; Request PutScheduledUpdateGroupAction
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679336857"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutScheduledUpdateGroupAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutScheduledUpdateGroupAction)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse PutScheduledUpdateGroupAction
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutScheduledUpdateGroupAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutScheduledUpdateGroupAction)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-270"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse PutScheduledUpdateGroupAction
+PutScheduledUpdateGroupActionResponse
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-var">PutScheduledUpdateGroupActionResponse'</span></a></span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621679336850"><span id="local-6989586621679336852"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span></span></span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336847"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span></span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-279"></span><span>  </span><span id="local-6989586621679336843"><span class="annot"><span class="annottext">toHeaders :: PutScheduledUpdateGroupAction -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; PutScheduledUpdateGroupAction -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-282"></span><span>  </span><span id="local-6989586621679336838"><span class="annot"><span class="annottext">toPath :: PutScheduledUpdateGroupAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutScheduledUpdateGroupAction -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-285"></span><span>  </span><span id="local-6989586621679336834"><span class="annot"><span class="annottext">toQuery :: PutScheduledUpdateGroupAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupAction%27"><span class="hs-identifier hs-type">PutScheduledUpdateGroupAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336823"><span id="local-6989586621679336824"><span id="local-6989586621679336825"><span id="local-6989586621679336826"><span id="local-6989586621679336827"><span id="local-6989586621679336828"><span id="local-6989586621679336829"><span id="local-6989586621679336830"><span id="local-6989586621679336831"><span id="local-6989586621679336832"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Maybe ISO8601
+Text
+scheduledActionName :: Text
+autoScalingGroupName :: Text
+timeZone :: Maybe Text
+endTime :: Maybe ISO8601
+minSize :: Maybe Int
+desiredCapacity :: Maybe Int
+recurrence :: Maybe Text
+maxSize :: Maybe Int
+time :: Maybe ISO8601
+startTime :: Maybe ISO8601
+$sel:scheduledActionName:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Text
+$sel:autoScalingGroupName:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Text
+$sel:timeZone:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe Text
+$sel:endTime:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe ISO8601
+$sel:minSize:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe Int
+$sel:desiredCapacity:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe Int
+$sel:recurrence:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe Text
+$sel:maxSize:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe Int
+$sel:time:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe ISO8601
+$sel:startTime:PutScheduledUpdateGroupAction' :: PutScheduledUpdateGroupAction -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679336823"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-287"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-288"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PutScheduledUpdateGroupAction&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-289"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-290"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-292"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2011-01-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679336832"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Time&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679336831"><span class="hs-identifier hs-var">time</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336830"><span class="hs-identifier hs-var">maxSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Recurrence&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336829"><span class="hs-identifier hs-var">recurrence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DesiredCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336828"><span class="hs-identifier hs-var">desiredCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MinSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336827"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679336826"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TimeZone&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336825"><span class="hs-identifier hs-var">timeZone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AutoScalingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336824"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ScheduledActionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336823"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span>
+</span><span id="line-303"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | /See:/ 'newPutScheduledUpdateGroupActionResponse' smart constructor.</span><span>
+</span><span id="line-306"></span><span id="local-6989586621679336820"><span id="local-6989586621679336821"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutScheduledUpdateGroupActionResponse"><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-var">PutScheduledUpdateGroupActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutScheduledUpdateGroupActionResponse%27"><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-var">PutScheduledUpdateGroupActionResponse'</span></a></span></span><span>
+</span><span id="line-307"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-308"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-309"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336816"><span id="local-6989586621679336818"><span class="annot"><span class="annottext">PutScheduledUpdateGroupActionResponse
+-&gt; PutScheduledUpdateGroupActionResponse -&gt; Bool
+(PutScheduledUpdateGroupActionResponse
+ -&gt; PutScheduledUpdateGroupActionResponse -&gt; Bool)
+-&gt; (PutScheduledUpdateGroupActionResponse
+    -&gt; PutScheduledUpdateGroupActionResponse -&gt; Bool)
+-&gt; Eq PutScheduledUpdateGroupActionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutScheduledUpdateGroupActionResponse
+-&gt; PutScheduledUpdateGroupActionResponse -&gt; Bool
+$c/= :: PutScheduledUpdateGroupActionResponse
+-&gt; PutScheduledUpdateGroupActionResponse -&gt; Bool
+== :: PutScheduledUpdateGroupActionResponse
+-&gt; PutScheduledUpdateGroupActionResponse -&gt; Bool
+$c== :: PutScheduledUpdateGroupActionResponse
+-&gt; PutScheduledUpdateGroupActionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336808"><span id="local-6989586621679336810"><span id="local-6989586621679336812"><span id="local-6989586621679336814"><span class="annot"><span class="annottext">ReadPrec [PutScheduledUpdateGroupActionResponse]
+ReadPrec PutScheduledUpdateGroupActionResponse
+Int -&gt; ReadS PutScheduledUpdateGroupActionResponse
+ReadS [PutScheduledUpdateGroupActionResponse]
+(Int -&gt; ReadS PutScheduledUpdateGroupActionResponse)
+-&gt; ReadS [PutScheduledUpdateGroupActionResponse]
+-&gt; ReadPrec PutScheduledUpdateGroupActionResponse
+-&gt; ReadPrec [PutScheduledUpdateGroupActionResponse]
+-&gt; Read PutScheduledUpdateGroupActionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutScheduledUpdateGroupActionResponse]
+$creadListPrec :: ReadPrec [PutScheduledUpdateGroupActionResponse]
+readPrec :: ReadPrec PutScheduledUpdateGroupActionResponse
+$creadPrec :: ReadPrec PutScheduledUpdateGroupActionResponse
+readList :: ReadS [PutScheduledUpdateGroupActionResponse]
+$creadList :: ReadS [PutScheduledUpdateGroupActionResponse]
+readsPrec :: Int -&gt; ReadS PutScheduledUpdateGroupActionResponse
+$creadsPrec :: Int -&gt; ReadS PutScheduledUpdateGroupActionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336802"><span id="local-6989586621679336804"><span id="local-6989586621679336806"><span class="annot"><span class="annottext">Int -&gt; PutScheduledUpdateGroupActionResponse -&gt; ShowS
+[PutScheduledUpdateGroupActionResponse] -&gt; ShowS
+PutScheduledUpdateGroupActionResponse -&gt; String
+(Int -&gt; PutScheduledUpdateGroupActionResponse -&gt; ShowS)
+-&gt; (PutScheduledUpdateGroupActionResponse -&gt; String)
+-&gt; ([PutScheduledUpdateGroupActionResponse] -&gt; ShowS)
+-&gt; Show PutScheduledUpdateGroupActionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutScheduledUpdateGroupActionResponse] -&gt; ShowS
+$cshowList :: [PutScheduledUpdateGroupActionResponse] -&gt; ShowS
+show :: PutScheduledUpdateGroupActionResponse -&gt; String
+$cshow :: PutScheduledUpdateGroupActionResponse -&gt; String
+showsPrec :: Int -&gt; PutScheduledUpdateGroupActionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutScheduledUpdateGroupActionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutScheduledUpdateGroupActionResponse
+ -&gt; Rep PutScheduledUpdateGroupActionResponse x)
+-&gt; (forall x.
+    Rep PutScheduledUpdateGroupActionResponse x
+    -&gt; PutScheduledUpdateGroupActionResponse)
+-&gt; Generic PutScheduledUpdateGroupActionResponse
+forall x.
+Rep PutScheduledUpdateGroupActionResponse x
+-&gt; PutScheduledUpdateGroupActionResponse
+forall x.
+PutScheduledUpdateGroupActionResponse
+-&gt; Rep PutScheduledUpdateGroupActionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutScheduledUpdateGroupActionResponse x
+-&gt; PutScheduledUpdateGroupActionResponse
+$cfrom :: forall x.
+PutScheduledUpdateGroupActionResponse
+-&gt; Rep PutScheduledUpdateGroupActionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- Create a value of 'PutScheduledUpdateGroupActionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#newPutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-type">newPutScheduledUpdateGroupActionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-316"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-type">PutScheduledUpdateGroupActionResponse</span></a></span><span>
+</span><span id="line-317"></span><span id="newPutScheduledUpdateGroupActionResponse"><span class="annot"><span class="annottext">newPutScheduledUpdateGroupActionResponse :: PutScheduledUpdateGroupActionResponse
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#newPutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-var hs-var">newPutScheduledUpdateGroupActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-318"></span><span>  </span><span class="annot"><span class="annottext">PutScheduledUpdateGroupActionResponse
+</span><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupActionResponse%27"><span class="hs-identifier hs-var">PutScheduledUpdateGroupActionResponse'</span></a></span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-321"></span><span>  </span><span id="local-6989586621679336798"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.PutScheduledUpdateGroupAction.html#PutScheduledUpdateGroupActionResponse"><span class="hs-identifier hs-type">PutScheduledUpdateGroupActionResponse</span></a></span></span><span>
+</span><span id="line-323"></span></pre></body></html>

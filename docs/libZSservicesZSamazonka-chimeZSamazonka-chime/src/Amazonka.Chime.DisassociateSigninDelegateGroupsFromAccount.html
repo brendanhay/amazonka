@@ -1,0 +1,525 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disassociates the specified sign-in delegate groups from the specified</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Amazon Chime account.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier">DisassociateSigninDelegateGroupsFromAccount</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#newDisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier">newDisassociateSigninDelegateGroupsFromAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#disassociateSigninDelegateGroupsFromAccount_accountId"><span class="hs-identifier">disassociateSigninDelegateGroupsFromAccount_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#disassociateSigninDelegateGroupsFromAccount_groupNames"><span class="hs-identifier">disassociateSigninDelegateGroupsFromAccount_groupNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccountResponse"><span class="hs-identifier">DisassociateSigninDelegateGroupsFromAccountResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#newDisassociateSigninDelegateGroupsFromAccountResponse"><span class="hs-identifier">newDisassociateSigninDelegateGroupsFromAccountResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#disassociateSigninDelegateGroupsFromAccountResponse_httpStatus"><span class="hs-identifier">disassociateSigninDelegateGroupsFromAccountResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.html"><span class="hs-identifier">Amazonka.Chime.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDisassociateSigninDelegateGroupsFromAccount' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679543340"><span id="local-6989586621679543341"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateSigninDelegateGroupsFromAccount"><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-var">DisassociateSigninDelegateGroupsFromAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateSigninDelegateGroupsFromAccount%27"><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount%27"><span class="hs-identifier hs-var">DisassociateSigninDelegateGroupsFromAccount'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AaccountId%3ADisassociateSigninDelegateGroupsFromAccount%27"><span class="annot"><span class="annottext">DisassociateSigninDelegateGroupsFromAccount -&gt; Text
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#%24sel%3AaccountId%3ADisassociateSigninDelegateGroupsFromAccount%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The sign-in delegate group names.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AgroupNames%3ADisassociateSigninDelegateGroupsFromAccount%27"><span class="annot"><span class="annottext">DisassociateSigninDelegateGroupsFromAccount -&gt; NonEmpty Text
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#%24sel%3AgroupNames%3ADisassociateSigninDelegateGroupsFromAccount%27"><span class="hs-identifier hs-var hs-var">groupNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679543333"><span id="local-6989586621679543335"><span class="annot"><span class="annottext">DisassociateSigninDelegateGroupsFromAccount
+-&gt; DisassociateSigninDelegateGroupsFromAccount -&gt; Bool
+(DisassociateSigninDelegateGroupsFromAccount
+ -&gt; DisassociateSigninDelegateGroupsFromAccount -&gt; Bool)
+-&gt; (DisassociateSigninDelegateGroupsFromAccount
+    -&gt; DisassociateSigninDelegateGroupsFromAccount -&gt; Bool)
+-&gt; Eq DisassociateSigninDelegateGroupsFromAccount
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateSigninDelegateGroupsFromAccount
+-&gt; DisassociateSigninDelegateGroupsFromAccount -&gt; Bool
+$c/= :: DisassociateSigninDelegateGroupsFromAccount
+-&gt; DisassociateSigninDelegateGroupsFromAccount -&gt; Bool
+== :: DisassociateSigninDelegateGroupsFromAccount
+-&gt; DisassociateSigninDelegateGroupsFromAccount -&gt; Bool
+$c== :: DisassociateSigninDelegateGroupsFromAccount
+-&gt; DisassociateSigninDelegateGroupsFromAccount -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543324"><span id="local-6989586621679543326"><span id="local-6989586621679543328"><span id="local-6989586621679543330"><span class="annot"><span class="annottext">ReadPrec [DisassociateSigninDelegateGroupsFromAccount]
+ReadPrec DisassociateSigninDelegateGroupsFromAccount
+Int -&gt; ReadS DisassociateSigninDelegateGroupsFromAccount
+ReadS [DisassociateSigninDelegateGroupsFromAccount]
+(Int -&gt; ReadS DisassociateSigninDelegateGroupsFromAccount)
+-&gt; ReadS [DisassociateSigninDelegateGroupsFromAccount]
+-&gt; ReadPrec DisassociateSigninDelegateGroupsFromAccount
+-&gt; ReadPrec [DisassociateSigninDelegateGroupsFromAccount]
+-&gt; Read DisassociateSigninDelegateGroupsFromAccount
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateSigninDelegateGroupsFromAccount]
+$creadListPrec :: ReadPrec [DisassociateSigninDelegateGroupsFromAccount]
+readPrec :: ReadPrec DisassociateSigninDelegateGroupsFromAccount
+$creadPrec :: ReadPrec DisassociateSigninDelegateGroupsFromAccount
+readList :: ReadS [DisassociateSigninDelegateGroupsFromAccount]
+$creadList :: ReadS [DisassociateSigninDelegateGroupsFromAccount]
+readsPrec :: Int -&gt; ReadS DisassociateSigninDelegateGroupsFromAccount
+$creadsPrec :: Int -&gt; ReadS DisassociateSigninDelegateGroupsFromAccount
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543317"><span id="local-6989586621679543319"><span id="local-6989586621679543321"><span class="annot"><span class="annottext">Int -&gt; DisassociateSigninDelegateGroupsFromAccount -&gt; ShowS
+[DisassociateSigninDelegateGroupsFromAccount] -&gt; ShowS
+DisassociateSigninDelegateGroupsFromAccount -&gt; String
+(Int -&gt; DisassociateSigninDelegateGroupsFromAccount -&gt; ShowS)
+-&gt; (DisassociateSigninDelegateGroupsFromAccount -&gt; String)
+-&gt; ([DisassociateSigninDelegateGroupsFromAccount] -&gt; ShowS)
+-&gt; Show DisassociateSigninDelegateGroupsFromAccount
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateSigninDelegateGroupsFromAccount] -&gt; ShowS
+$cshowList :: [DisassociateSigninDelegateGroupsFromAccount] -&gt; ShowS
+show :: DisassociateSigninDelegateGroupsFromAccount -&gt; String
+$cshow :: DisassociateSigninDelegateGroupsFromAccount -&gt; String
+showsPrec :: Int -&gt; DisassociateSigninDelegateGroupsFromAccount -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateSigninDelegateGroupsFromAccount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociateSigninDelegateGroupsFromAccount
+ -&gt; Rep DisassociateSigninDelegateGroupsFromAccount x)
+-&gt; (forall x.
+    Rep DisassociateSigninDelegateGroupsFromAccount x
+    -&gt; DisassociateSigninDelegateGroupsFromAccount)
+-&gt; Generic DisassociateSigninDelegateGroupsFromAccount
+forall x.
+Rep DisassociateSigninDelegateGroupsFromAccount x
+-&gt; DisassociateSigninDelegateGroupsFromAccount
+forall x.
+DisassociateSigninDelegateGroupsFromAccount
+-&gt; Rep DisassociateSigninDelegateGroupsFromAccount x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociateSigninDelegateGroupsFromAccount x
+-&gt; DisassociateSigninDelegateGroupsFromAccount
+$cfrom :: forall x.
+DisassociateSigninDelegateGroupsFromAccount
+-&gt; Rep DisassociateSigninDelegateGroupsFromAccount x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DisassociateSigninDelegateGroupsFromAccount' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'accountId', 'disassociateSigninDelegateGroupsFromAccount_accountId' - The Amazon Chime account ID.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'groupNames', 'disassociateSigninDelegateGroupsFromAccount_groupNames' - The sign-in delegate group names.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#newDisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-type">newDisassociateSigninDelegateGroupsFromAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'groupNames'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount</span></a></span><span>
+</span><span id="line-76"></span><span id="newDisassociateSigninDelegateGroupsFromAccount"><span class="annot"><span class="annottext">newDisassociateSigninDelegateGroupsFromAccount :: Text
+-&gt; NonEmpty Text -&gt; DisassociateSigninDelegateGroupsFromAccount
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#newDisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-var hs-var">newDisassociateSigninDelegateGroupsFromAccount</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679543312"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543312"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679543311"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679543311"><span class="hs-identifier hs-var">pGroupNames_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">DisassociateSigninDelegateGroupsFromAccount' :: Text
+-&gt; NonEmpty Text -&gt; DisassociateSigninDelegateGroupsFromAccount
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount%27"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount'</span></a></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:DisassociateSigninDelegateGroupsFromAccount' :: Text
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#%24sel%3AaccountId%3ADisassociateSigninDelegateGroupsFromAccount%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543312"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:groupNames:DisassociateSigninDelegateGroupsFromAccount' :: NonEmpty Text
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#%24sel%3AgroupNames%3ADisassociateSigninDelegateGroupsFromAccount%27"><span class="hs-identifier hs-var">groupNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679543311"><span class="hs-identifier hs-var">pGroupNames_</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#disassociateSigninDelegateGroupsFromAccount_accountId"><span class="hs-identifier hs-type">disassociateSigninDelegateGroupsFromAccount_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="disassociateSigninDelegateGroupsFromAccount_accountId"><span class="annot"><span class="annottext">disassociateSigninDelegateGroupsFromAccount_accountId :: (Text -&gt; f Text)
+-&gt; DisassociateSigninDelegateGroupsFromAccount
+-&gt; f DisassociateSigninDelegateGroupsFromAccount
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#disassociateSigninDelegateGroupsFromAccount_accountId"><span class="hs-identifier hs-var hs-var">disassociateSigninDelegateGroupsFromAccount_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateSigninDelegateGroupsFromAccount -&gt; Text)
+-&gt; (DisassociateSigninDelegateGroupsFromAccount
+    -&gt; Text -&gt; DisassociateSigninDelegateGroupsFromAccount)
+-&gt; Lens
+     DisassociateSigninDelegateGroupsFromAccount
+     DisassociateSigninDelegateGroupsFromAccount
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount%27"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543306"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:DisassociateSigninDelegateGroupsFromAccount' :: DisassociateSigninDelegateGroupsFromAccount -&gt; Text
+</span><a href="#local-6989586621679543306"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543306"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543305"><span class="annot"><span class="annottext">s :: DisassociateSigninDelegateGroupsFromAccount
+</span><a href="#local-6989586621679543305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount%27"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543304"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateSigninDelegateGroupsFromAccount
+</span><a href="#local-6989586621679543305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DisassociateSigninDelegateGroupsFromAccount' :: Text
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#%24sel%3AaccountId%3ADisassociateSigninDelegateGroupsFromAccount%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The sign-in delegate group names.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#disassociateSigninDelegateGroupsFromAccount_groupNames"><span class="hs-identifier hs-type">disassociateSigninDelegateGroupsFromAccount_groupNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="disassociateSigninDelegateGroupsFromAccount_groupNames"><span class="annot"><span class="annottext">disassociateSigninDelegateGroupsFromAccount_groupNames :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; DisassociateSigninDelegateGroupsFromAccount
+-&gt; f DisassociateSigninDelegateGroupsFromAccount
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#disassociateSigninDelegateGroupsFromAccount_groupNames"><span class="hs-identifier hs-var hs-var">disassociateSigninDelegateGroupsFromAccount_groupNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateSigninDelegateGroupsFromAccount -&gt; NonEmpty Text)
+-&gt; (DisassociateSigninDelegateGroupsFromAccount
+    -&gt; NonEmpty Text -&gt; DisassociateSigninDelegateGroupsFromAccount)
+-&gt; Lens
+     DisassociateSigninDelegateGroupsFromAccount
+     DisassociateSigninDelegateGroupsFromAccount
+     (NonEmpty Text)
+     (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount%27"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543303"><span class="annot"><span class="annottext">NonEmpty Text
+groupNames :: NonEmpty Text
+$sel:groupNames:DisassociateSigninDelegateGroupsFromAccount' :: DisassociateSigninDelegateGroupsFromAccount -&gt; NonEmpty Text
+</span><a href="#local-6989586621679543303"><span class="hs-identifier hs-var hs-var">groupNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679543303"><span class="hs-identifier hs-var">groupNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543302"><span class="annot"><span class="annottext">s :: DisassociateSigninDelegateGroupsFromAccount
+</span><a href="#local-6989586621679543302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount%27"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543301"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679543301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateSigninDelegateGroupsFromAccount
+</span><a href="#local-6989586621679543302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupNames:DisassociateSigninDelegateGroupsFromAccount' :: NonEmpty Text
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#%24sel%3AgroupNames%3ADisassociateSigninDelegateGroupsFromAccount%27"><span class="hs-identifier hs-var">groupNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679543301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; DisassociateSigninDelegateGroupsFromAccount
+ -&gt; f DisassociateSigninDelegateGroupsFromAccount)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; DisassociateSigninDelegateGroupsFromAccount
+-&gt; f DisassociateSigninDelegateGroupsFromAccount
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccountResponse"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccountResponse</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679543296"><span class="annot"><span class="annottext">request :: DisassociateSigninDelegateGroupsFromAccount
+-&gt; Request DisassociateSigninDelegateGroupsFromAccount
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DisassociateSigninDelegateGroupsFromAccount
+-&gt; Request DisassociateSigninDelegateGroupsFromAccount
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679543292"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisassociateSigninDelegateGroupsFromAccount
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DisassociateSigninDelegateGroupsFromAccount)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either
+      String (AWSResponse DisassociateSigninDelegateGroupsFromAccount))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisassociateSigninDelegateGroupsFromAccount
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DisassociateSigninDelegateGroupsFromAccount)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679543289"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543289"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679543288"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679543288"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679543287"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679543287"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DisassociateSigninDelegateGroupsFromAccountResponse
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccountResponse%27"><span class="hs-identifier hs-var">DisassociateSigninDelegateGroupsFromAccountResponse'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DisassociateSigninDelegateGroupsFromAccountResponse)
+-&gt; Either String Int
+-&gt; Either
+     String DisassociateSigninDelegateGroupsFromAccountResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543289"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679543280"><span id="local-6989586621679543282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679543277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679543273"><span class="annot"><span class="annottext">toHeaders :: DisassociateSigninDelegateGroupsFromAccount -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DisassociateSigninDelegateGroupsFromAccount -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679543264"><span id="local-6989586621679543266"><span id="local-6989586621679543268"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount</span></a></span></span></span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679543262"><span class="annot"><span class="annottext">toJSON :: DisassociateSigninDelegateGroupsFromAccount -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount%27"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543259"><span id="local-6989586621679543260"><span class="annot"><span class="annottext">NonEmpty Text
+Text
+groupNames :: NonEmpty Text
+accountId :: Text
+$sel:groupNames:DisassociateSigninDelegateGroupsFromAccount' :: DisassociateSigninDelegateGroupsFromAccount -&gt; NonEmpty Text
+$sel:accountId:DisassociateSigninDelegateGroupsFromAccount' :: DisassociateSigninDelegateGroupsFromAccount -&gt; Text
+</span><a href="#local-6989586621679543259"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-132"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-133"></span><span>            </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679543259"><span class="hs-identifier hs-var">groupNames</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>        </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679543253"><span class="annot"><span class="annottext">toPath :: DisassociateSigninDelegateGroupsFromAccount -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount%27"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543250"><span id="local-6989586621679543251"><span class="annot"><span class="annottext">NonEmpty Text
+Text
+groupNames :: NonEmpty Text
+accountId :: Text
+$sel:groupNames:DisassociateSigninDelegateGroupsFromAccount' :: DisassociateSigninDelegateGroupsFromAccount -&gt; NonEmpty Text
+$sel:accountId:DisassociateSigninDelegateGroupsFromAccount' :: DisassociateSigninDelegateGroupsFromAccount -&gt; Text
+</span><a href="#local-6989586621679543250"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543251"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccount"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccount</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679543246"><span class="annot"><span class="annottext">toQuery :: DisassociateSigninDelegateGroupsFromAccount -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">QueryString
+-&gt; DisassociateSigninDelegateGroupsFromAccount -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;operation=disassociate-signin-delegate-groups&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newDisassociateSigninDelegateGroupsFromAccountResponse' smart constructor.</span><span>
+</span><span id="line-155"></span><span id="local-6989586621679543243"><span id="local-6989586621679543244"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateSigninDelegateGroupsFromAccountResponse"><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccountResponse"><span class="hs-identifier hs-var">DisassociateSigninDelegateGroupsFromAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateSigninDelegateGroupsFromAccountResponse%27"><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccountResponse%27"><span class="hs-identifier hs-var">DisassociateSigninDelegateGroupsFromAccountResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisassociateSigninDelegateGroupsFromAccountResponse%27"><span class="annot"><span class="annottext">DisassociateSigninDelegateGroupsFromAccountResponse -&gt; Int
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#%24sel%3AhttpStatus%3ADisassociateSigninDelegateGroupsFromAccountResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679543238"><span id="local-6989586621679543240"><span class="annot"><span class="annottext">DisassociateSigninDelegateGroupsFromAccountResponse
+-&gt; DisassociateSigninDelegateGroupsFromAccountResponse -&gt; Bool
+(DisassociateSigninDelegateGroupsFromAccountResponse
+ -&gt; DisassociateSigninDelegateGroupsFromAccountResponse -&gt; Bool)
+-&gt; (DisassociateSigninDelegateGroupsFromAccountResponse
+    -&gt; DisassociateSigninDelegateGroupsFromAccountResponse -&gt; Bool)
+-&gt; Eq DisassociateSigninDelegateGroupsFromAccountResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateSigninDelegateGroupsFromAccountResponse
+-&gt; DisassociateSigninDelegateGroupsFromAccountResponse -&gt; Bool
+$c/= :: DisassociateSigninDelegateGroupsFromAccountResponse
+-&gt; DisassociateSigninDelegateGroupsFromAccountResponse -&gt; Bool
+== :: DisassociateSigninDelegateGroupsFromAccountResponse
+-&gt; DisassociateSigninDelegateGroupsFromAccountResponse -&gt; Bool
+$c== :: DisassociateSigninDelegateGroupsFromAccountResponse
+-&gt; DisassociateSigninDelegateGroupsFromAccountResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543230"><span id="local-6989586621679543232"><span id="local-6989586621679543234"><span id="local-6989586621679543236"><span class="annot"><span class="annottext">ReadPrec [DisassociateSigninDelegateGroupsFromAccountResponse]
+ReadPrec DisassociateSigninDelegateGroupsFromAccountResponse
+Int -&gt; ReadS DisassociateSigninDelegateGroupsFromAccountResponse
+ReadS [DisassociateSigninDelegateGroupsFromAccountResponse]
+(Int -&gt; ReadS DisassociateSigninDelegateGroupsFromAccountResponse)
+-&gt; ReadS [DisassociateSigninDelegateGroupsFromAccountResponse]
+-&gt; ReadPrec DisassociateSigninDelegateGroupsFromAccountResponse
+-&gt; ReadPrec [DisassociateSigninDelegateGroupsFromAccountResponse]
+-&gt; Read DisassociateSigninDelegateGroupsFromAccountResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateSigninDelegateGroupsFromAccountResponse]
+$creadListPrec :: ReadPrec [DisassociateSigninDelegateGroupsFromAccountResponse]
+readPrec :: ReadPrec DisassociateSigninDelegateGroupsFromAccountResponse
+$creadPrec :: ReadPrec DisassociateSigninDelegateGroupsFromAccountResponse
+readList :: ReadS [DisassociateSigninDelegateGroupsFromAccountResponse]
+$creadList :: ReadS [DisassociateSigninDelegateGroupsFromAccountResponse]
+readsPrec :: Int -&gt; ReadS DisassociateSigninDelegateGroupsFromAccountResponse
+$creadsPrec :: Int -&gt; ReadS DisassociateSigninDelegateGroupsFromAccountResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543224"><span id="local-6989586621679543226"><span id="local-6989586621679543228"><span class="annot"><span class="annottext">Int -&gt; DisassociateSigninDelegateGroupsFromAccountResponse -&gt; ShowS
+[DisassociateSigninDelegateGroupsFromAccountResponse] -&gt; ShowS
+DisassociateSigninDelegateGroupsFromAccountResponse -&gt; String
+(Int
+ -&gt; DisassociateSigninDelegateGroupsFromAccountResponse -&gt; ShowS)
+-&gt; (DisassociateSigninDelegateGroupsFromAccountResponse -&gt; String)
+-&gt; ([DisassociateSigninDelegateGroupsFromAccountResponse] -&gt; ShowS)
+-&gt; Show DisassociateSigninDelegateGroupsFromAccountResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateSigninDelegateGroupsFromAccountResponse] -&gt; ShowS
+$cshowList :: [DisassociateSigninDelegateGroupsFromAccountResponse] -&gt; ShowS
+show :: DisassociateSigninDelegateGroupsFromAccountResponse -&gt; String
+$cshow :: DisassociateSigninDelegateGroupsFromAccountResponse -&gt; String
+showsPrec :: Int -&gt; DisassociateSigninDelegateGroupsFromAccountResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateSigninDelegateGroupsFromAccountResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociateSigninDelegateGroupsFromAccountResponse
+ -&gt; Rep DisassociateSigninDelegateGroupsFromAccountResponse x)
+-&gt; (forall x.
+    Rep DisassociateSigninDelegateGroupsFromAccountResponse x
+    -&gt; DisassociateSigninDelegateGroupsFromAccountResponse)
+-&gt; Generic DisassociateSigninDelegateGroupsFromAccountResponse
+forall x.
+Rep DisassociateSigninDelegateGroupsFromAccountResponse x
+-&gt; DisassociateSigninDelegateGroupsFromAccountResponse
+forall x.
+DisassociateSigninDelegateGroupsFromAccountResponse
+-&gt; Rep DisassociateSigninDelegateGroupsFromAccountResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociateSigninDelegateGroupsFromAccountResponse x
+-&gt; DisassociateSigninDelegateGroupsFromAccountResponse
+$cfrom :: forall x.
+DisassociateSigninDelegateGroupsFromAccountResponse
+-&gt; Rep DisassociateSigninDelegateGroupsFromAccountResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Create a value of 'DisassociateSigninDelegateGroupsFromAccountResponse' with all optional fields omitted.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'httpStatus', 'disassociateSigninDelegateGroupsFromAccountResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#newDisassociateSigninDelegateGroupsFromAccountResponse"><span class="hs-identifier hs-type">newDisassociateSigninDelegateGroupsFromAccountResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccountResponse"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccountResponse</span></a></span><span>
+</span><span id="line-174"></span><span id="newDisassociateSigninDelegateGroupsFromAccountResponse"><span class="annot"><span class="annottext">newDisassociateSigninDelegateGroupsFromAccountResponse :: Int -&gt; DisassociateSigninDelegateGroupsFromAccountResponse
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#newDisassociateSigninDelegateGroupsFromAccountResponse"><span class="hs-identifier hs-var hs-var">newDisassociateSigninDelegateGroupsFromAccountResponse</span></a></span></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679543221"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543221"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">DisassociateSigninDelegateGroupsFromAccountResponse' :: Int -&gt; DisassociateSigninDelegateGroupsFromAccountResponse
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccountResponse%27"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccountResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateSigninDelegateGroupsFromAccountResponse' :: Int
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#%24sel%3AhttpStatus%3ADisassociateSigninDelegateGroupsFromAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543221"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#disassociateSigninDelegateGroupsFromAccountResponse_httpStatus"><span class="hs-identifier hs-type">disassociateSigninDelegateGroupsFromAccountResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccountResponse"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccountResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span id="disassociateSigninDelegateGroupsFromAccountResponse_httpStatus"><span class="annot"><span class="annottext">disassociateSigninDelegateGroupsFromAccountResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DisassociateSigninDelegateGroupsFromAccountResponse
+-&gt; f DisassociateSigninDelegateGroupsFromAccountResponse
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#disassociateSigninDelegateGroupsFromAccountResponse_httpStatus"><span class="hs-identifier hs-var hs-var">disassociateSigninDelegateGroupsFromAccountResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateSigninDelegateGroupsFromAccountResponse -&gt; Int)
+-&gt; (DisassociateSigninDelegateGroupsFromAccountResponse
+    -&gt; Int -&gt; DisassociateSigninDelegateGroupsFromAccountResponse)
+-&gt; Lens
+     DisassociateSigninDelegateGroupsFromAccountResponse
+     DisassociateSigninDelegateGroupsFromAccountResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccountResponse%27"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543220"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DisassociateSigninDelegateGroupsFromAccountResponse' :: DisassociateSigninDelegateGroupsFromAccountResponse -&gt; Int
+</span><a href="#local-6989586621679543220"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543220"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543219"><span class="annot"><span class="annottext">s :: DisassociateSigninDelegateGroupsFromAccountResponse
+</span><a href="#local-6989586621679543219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccountResponse%27"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543218"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateSigninDelegateGroupsFromAccountResponse
+</span><a href="#local-6989586621679543219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateSigninDelegateGroupsFromAccountResponse' :: Int
+</span><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#%24sel%3AhttpStatus%3ADisassociateSigninDelegateGroupsFromAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccountResponse"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679543216"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociateSigninDelegateGroupsFromAccount.html#DisassociateSigninDelegateGroupsFromAccountResponse"><span class="hs-identifier hs-type">DisassociateSigninDelegateGroupsFromAccountResponse</span></a></span></span><span>
+</span><span id="line-188"></span></pre></body></html>

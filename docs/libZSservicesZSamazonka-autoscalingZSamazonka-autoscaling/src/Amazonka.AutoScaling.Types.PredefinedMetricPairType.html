@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AutoScaling.Types.PredefinedMetricPairType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AutoScaling.Types.PredefinedMetricPairType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType"><span class="hs-identifier">PredefinedMetricPairType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType_ALBRequestCount"><span class="hs-identifier">PredefinedMetricPairType_ALBRequestCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType_ASGCPUUtilization"><span class="hs-identifier">PredefinedMetricPairType_ASGCPUUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType_ASGNetworkIn"><span class="hs-identifier">PredefinedMetricPairType_ASGNetworkIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType_ASGNetworkOut"><span class="hs-identifier">PredefinedMetricPairType_ASGNetworkOut</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679329940"><span id="local-6989586621679329941"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PredefinedMetricPairType"><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType"><span class="hs-identifier hs-var">PredefinedMetricPairType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PredefinedMetricPairType%27"><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType%27"><span class="hs-identifier hs-var">PredefinedMetricPairType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPredefinedMetricPairType"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; Text
+</span><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#fromPredefinedMetricPairType"><span class="hs-identifier hs-var hs-var">fromPredefinedMetricPairType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329932"><span id="local-6989586621679329934"><span id="local-6989586621679329936"><span class="annot"><span class="annottext">Int -&gt; PredefinedMetricPairType -&gt; ShowS
+[PredefinedMetricPairType] -&gt; ShowS
+PredefinedMetricPairType -&gt; String
+(Int -&gt; PredefinedMetricPairType -&gt; ShowS)
+-&gt; (PredefinedMetricPairType -&gt; String)
+-&gt; ([PredefinedMetricPairType] -&gt; ShowS)
+-&gt; Show PredefinedMetricPairType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PredefinedMetricPairType] -&gt; ShowS
+$cshowList :: [PredefinedMetricPairType] -&gt; ShowS
+show :: PredefinedMetricPairType -&gt; String
+$cshow :: PredefinedMetricPairType -&gt; String
+showsPrec :: Int -&gt; PredefinedMetricPairType -&gt; ShowS
+$cshowsPrec :: Int -&gt; PredefinedMetricPairType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679329923"><span id="local-6989586621679329925"><span id="local-6989586621679329927"><span id="local-6989586621679329929"><span class="annot"><span class="annottext">ReadPrec [PredefinedMetricPairType]
+ReadPrec PredefinedMetricPairType
+Int -&gt; ReadS PredefinedMetricPairType
+ReadS [PredefinedMetricPairType]
+(Int -&gt; ReadS PredefinedMetricPairType)
+-&gt; ReadS [PredefinedMetricPairType]
+-&gt; ReadPrec PredefinedMetricPairType
+-&gt; ReadPrec [PredefinedMetricPairType]
+-&gt; Read PredefinedMetricPairType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PredefinedMetricPairType]
+$creadListPrec :: ReadPrec [PredefinedMetricPairType]
+readPrec :: ReadPrec PredefinedMetricPairType
+$creadPrec :: ReadPrec PredefinedMetricPairType
+readList :: ReadS [PredefinedMetricPairType]
+$creadList :: ReadS [PredefinedMetricPairType]
+readsPrec :: Int -&gt; ReadS PredefinedMetricPairType
+$creadsPrec :: Int -&gt; ReadS PredefinedMetricPairType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679329918"><span id="local-6989586621679329920"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
+(PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool)
+-&gt; (PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool)
+-&gt; Eq PredefinedMetricPairType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
+$c/= :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
+== :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
+$c== :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679329902"><span id="local-6989586621679329904"><span id="local-6989586621679329906"><span id="local-6989586621679329908"><span id="local-6989586621679329910"><span id="local-6989586621679329912"><span id="local-6989586621679329914"><span class="annot"><span class="annottext">Eq PredefinedMetricPairType
+Eq PredefinedMetricPairType
+-&gt; (PredefinedMetricPairType
+    -&gt; PredefinedMetricPairType -&gt; Ordering)
+-&gt; (PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool)
+-&gt; (PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool)
+-&gt; (PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool)
+-&gt; (PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool)
+-&gt; (PredefinedMetricPairType
+    -&gt; PredefinedMetricPairType -&gt; PredefinedMetricPairType)
+-&gt; (PredefinedMetricPairType
+    -&gt; PredefinedMetricPairType -&gt; PredefinedMetricPairType)
+-&gt; Ord PredefinedMetricPairType
+PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
+PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Ordering
+PredefinedMetricPairType
+-&gt; PredefinedMetricPairType -&gt; PredefinedMetricPairType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PredefinedMetricPairType
+-&gt; PredefinedMetricPairType -&gt; PredefinedMetricPairType
+$cmin :: PredefinedMetricPairType
+-&gt; PredefinedMetricPairType -&gt; PredefinedMetricPairType
+max :: PredefinedMetricPairType
+-&gt; PredefinedMetricPairType -&gt; PredefinedMetricPairType
+$cmax :: PredefinedMetricPairType
+-&gt; PredefinedMetricPairType -&gt; PredefinedMetricPairType
+&gt;= :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
+$c&gt;= :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
+&gt; :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
+$c&gt; :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
+&lt;= :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
+$c&lt;= :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
+&lt; :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
+$c&lt; :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
+compare :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Ordering
+$ccompare :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Ordering
+$cp1Ord :: Eq PredefinedMetricPairType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ PredefinedMetricPairType -&gt; Rep PredefinedMetricPairType x)
+-&gt; (forall x.
+    Rep PredefinedMetricPairType x -&gt; PredefinedMetricPairType)
+-&gt; Generic PredefinedMetricPairType
+forall x.
+Rep PredefinedMetricPairType x -&gt; PredefinedMetricPairType
+forall x.
+PredefinedMetricPairType -&gt; Rep PredefinedMetricPairType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PredefinedMetricPairType x -&gt; PredefinedMetricPairType
+$cfrom :: forall x.
+PredefinedMetricPairType -&gt; Rep PredefinedMetricPairType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329894"><span id="local-6989586621679329896"><span class="annot"><span class="annottext">Int -&gt; PredefinedMetricPairType -&gt; Int
+PredefinedMetricPairType -&gt; Int
+(Int -&gt; PredefinedMetricPairType -&gt; Int)
+-&gt; (PredefinedMetricPairType -&gt; Int)
+-&gt; Hashable PredefinedMetricPairType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PredefinedMetricPairType -&gt; Int
+$chash :: PredefinedMetricPairType -&gt; Int
+hashWithSalt :: Int -&gt; PredefinedMetricPairType -&gt; Int
+$chashWithSalt :: Int -&gt; PredefinedMetricPairType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679329891"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; ()
+(PredefinedMetricPairType -&gt; ()) -&gt; NFData PredefinedMetricPairType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PredefinedMetricPairType -&gt; ()
+$crnf :: PredefinedMetricPairType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679329888"><span class="annot"><span class="annottext">Text -&gt; Either String PredefinedMetricPairType
+(Text -&gt; Either String PredefinedMetricPairType)
+-&gt; FromText PredefinedMetricPairType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PredefinedMetricPairType
+$cfromText :: Text -&gt; Either String PredefinedMetricPairType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679329885"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; Text
+(PredefinedMetricPairType -&gt; Text)
+-&gt; ToText PredefinedMetricPairType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PredefinedMetricPairType -&gt; Text
+$ctoText :: PredefinedMetricPairType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679329882"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; ByteString
+(PredefinedMetricPairType -&gt; ByteString)
+-&gt; ToByteString PredefinedMetricPairType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PredefinedMetricPairType -&gt; ByteString
+$ctoBS :: PredefinedMetricPairType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679329879"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; ByteStringBuilder
+(PredefinedMetricPairType -&gt; ByteStringBuilder)
+-&gt; ToLog PredefinedMetricPairType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PredefinedMetricPairType -&gt; ByteStringBuilder
+$cbuild :: PredefinedMetricPairType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679329876"><span class="annot"><span class="annottext">HeaderName -&gt; PredefinedMetricPairType -&gt; [Header]
+(HeaderName -&gt; PredefinedMetricPairType -&gt; [Header])
+-&gt; ToHeader PredefinedMetricPairType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PredefinedMetricPairType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PredefinedMetricPairType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679329873"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; QueryString
+(PredefinedMetricPairType -&gt; QueryString)
+-&gt; ToQuery PredefinedMetricPairType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PredefinedMetricPairType -&gt; QueryString
+$ctoQuery :: PredefinedMetricPairType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329868"><span id="local-6989586621679329870"><span class="annot"><span class="annottext">Value -&gt; Parser [PredefinedMetricPairType]
+Value -&gt; Parser PredefinedMetricPairType
+(Value -&gt; Parser PredefinedMetricPairType)
+-&gt; (Value -&gt; Parser [PredefinedMetricPairType])
+-&gt; FromJSON PredefinedMetricPairType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PredefinedMetricPairType]
+$cparseJSONList :: Value -&gt; Parser [PredefinedMetricPairType]
+parseJSON :: Value -&gt; Parser PredefinedMetricPairType
+$cparseJSON :: Value -&gt; Parser PredefinedMetricPairType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679329863"><span id="local-6989586621679329865"><span class="annot"><span class="annottext">FromJSONKeyFunction [PredefinedMetricPairType]
+FromJSONKeyFunction PredefinedMetricPairType
+FromJSONKeyFunction PredefinedMetricPairType
+-&gt; FromJSONKeyFunction [PredefinedMetricPairType]
+-&gt; FromJSONKey PredefinedMetricPairType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PredefinedMetricPairType]
+$cfromJSONKeyList :: FromJSONKeyFunction [PredefinedMetricPairType]
+fromJSONKey :: FromJSONKeyFunction PredefinedMetricPairType
+$cfromJSONKey :: FromJSONKeyFunction PredefinedMetricPairType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679329854"><span id="local-6989586621679329856"><span id="local-6989586621679329858"><span id="local-6989586621679329860"><span class="annot"><span class="annottext">[PredefinedMetricPairType] -&gt; Encoding
+[PredefinedMetricPairType] -&gt; Value
+PredefinedMetricPairType -&gt; Encoding
+PredefinedMetricPairType -&gt; Value
+(PredefinedMetricPairType -&gt; Value)
+-&gt; (PredefinedMetricPairType -&gt; Encoding)
+-&gt; ([PredefinedMetricPairType] -&gt; Value)
+-&gt; ([PredefinedMetricPairType] -&gt; Encoding)
+-&gt; ToJSON PredefinedMetricPairType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PredefinedMetricPairType] -&gt; Encoding
+$ctoEncodingList :: [PredefinedMetricPairType] -&gt; Encoding
+toJSONList :: [PredefinedMetricPairType] -&gt; Value
+$ctoJSONList :: [PredefinedMetricPairType] -&gt; Value
+toEncoding :: PredefinedMetricPairType -&gt; Encoding
+$ctoEncoding :: PredefinedMetricPairType -&gt; Encoding
+toJSON :: PredefinedMetricPairType -&gt; Value
+$ctoJSON :: PredefinedMetricPairType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679329849"><span id="local-6989586621679329851"><span class="annot"><span class="annottext">ToJSONKeyFunction [PredefinedMetricPairType]
+ToJSONKeyFunction PredefinedMetricPairType
+ToJSONKeyFunction PredefinedMetricPairType
+-&gt; ToJSONKeyFunction [PredefinedMetricPairType]
+-&gt; ToJSONKey PredefinedMetricPairType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PredefinedMetricPairType]
+$ctoJSONKeyList :: ToJSONKeyFunction [PredefinedMetricPairType]
+toJSONKey :: ToJSONKeyFunction PredefinedMetricPairType
+$ctoJSONKey :: ToJSONKeyFunction PredefinedMetricPairType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679329846"><span class="annot"><span class="annottext">[Node] -&gt; Either String PredefinedMetricPairType
+([Node] -&gt; Either String PredefinedMetricPairType)
+-&gt; FromXML PredefinedMetricPairType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PredefinedMetricPairType
+$cparseXML :: [Node] -&gt; Either String PredefinedMetricPairType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679329843"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; XML
+(PredefinedMetricPairType -&gt; XML) -&gt; ToXML PredefinedMetricPairType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PredefinedMetricPairType -&gt; XML
+$ctoXML :: PredefinedMetricPairType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType_ALBRequestCount"><span class="hs-identifier hs-type">PredefinedMetricPairType_ALBRequestCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType"><span class="hs-identifier hs-type">PredefinedMetricPairType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPredefinedMetricPairType_ALBRequestCount"><span id="%24mPredefinedMetricPairType_ALBRequestCount"><span id="PredefinedMetricPairType_ALBRequestCount"><span class="annot"><span class="annottext">$bPredefinedMetricPairType_ALBRequestCount :: PredefinedMetricPairType
+$mPredefinedMetricPairType_ALBRequestCount :: forall r.
+PredefinedMetricPairType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#%24bPredefinedMetricPairType_ALBRequestCount"><span class="hs-identifier hs-var hs-var hs-var">PredefinedMetricPairType_ALBRequestCount</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType%27"><span class="hs-identifier hs-type">PredefinedMetricPairType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALBRequestCount&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType_ASGCPUUtilization"><span class="hs-identifier hs-type">PredefinedMetricPairType_ASGCPUUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType"><span class="hs-identifier hs-type">PredefinedMetricPairType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPredefinedMetricPairType_ASGCPUUtilization"><span id="%24mPredefinedMetricPairType_ASGCPUUtilization"><span id="PredefinedMetricPairType_ASGCPUUtilization"><span class="annot"><span class="annottext">$bPredefinedMetricPairType_ASGCPUUtilization :: PredefinedMetricPairType
+$mPredefinedMetricPairType_ASGCPUUtilization :: forall r.
+PredefinedMetricPairType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#%24bPredefinedMetricPairType_ASGCPUUtilization"><span class="hs-identifier hs-var hs-var hs-var">PredefinedMetricPairType_ASGCPUUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType%27"><span class="hs-identifier hs-type">PredefinedMetricPairType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASGCPUUtilization&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType_ASGNetworkIn"><span class="hs-identifier hs-type">PredefinedMetricPairType_ASGNetworkIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType"><span class="hs-identifier hs-type">PredefinedMetricPairType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPredefinedMetricPairType_ASGNetworkIn"><span id="%24mPredefinedMetricPairType_ASGNetworkIn"><span id="PredefinedMetricPairType_ASGNetworkIn"><span class="annot"><span class="annottext">$bPredefinedMetricPairType_ASGNetworkIn :: PredefinedMetricPairType
+$mPredefinedMetricPairType_ASGNetworkIn :: forall r.
+PredefinedMetricPairType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#%24bPredefinedMetricPairType_ASGNetworkIn"><span class="hs-identifier hs-var hs-var hs-var">PredefinedMetricPairType_ASGNetworkIn</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType%27"><span class="hs-identifier hs-type">PredefinedMetricPairType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASGNetworkIn&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType_ASGNetworkOut"><span class="hs-identifier hs-type">PredefinedMetricPairType_ASGNetworkOut</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType"><span class="hs-identifier hs-type">PredefinedMetricPairType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPredefinedMetricPairType_ASGNetworkOut"><span id="%24mPredefinedMetricPairType_ASGNetworkOut"><span id="PredefinedMetricPairType_ASGNetworkOut"><span class="annot"><span class="annottext">$bPredefinedMetricPairType_ASGNetworkOut :: PredefinedMetricPairType
+$mPredefinedMetricPairType_ASGNetworkOut :: forall r.
+PredefinedMetricPairType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#%24bPredefinedMetricPairType_ASGNetworkOut"><span class="hs-identifier hs-var hs-var hs-var">PredefinedMetricPairType_ASGNetworkOut</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType%27"><span class="hs-identifier hs-type">PredefinedMetricPairType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASGNetworkOut&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType_ALBRequestCount"><span class="hs-pragma hs-type">PredefinedMetricPairType_ALBRequestCount</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType_ASGCPUUtilization"><span class="hs-pragma hs-type">PredefinedMetricPairType_ASGCPUUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType_ASGNetworkIn"><span class="hs-pragma hs-type">PredefinedMetricPairType_ASGNetworkIn</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType_ASGNetworkOut"><span class="hs-pragma hs-type">PredefinedMetricPairType_ASGNetworkOut</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType%27"><span class="hs-pragma hs-type">PredefinedMetricPairType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

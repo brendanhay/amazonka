@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.CloudSearch.Types.AlgorithmicStemming
+module Amazonka.CloudSearch.Types.AlgorithmicStemming
 newtype AlgorithmicStemming
 AlgorithmicStemming' :: Text -> AlgorithmicStemming
 [fromAlgorithmicStemming] :: AlgorithmicStemming -> Text
@@ -13,28 +13,28 @@ pattern AlgorithmicStemming_Full :: AlgorithmicStemming
 pattern AlgorithmicStemming_Light :: AlgorithmicStemming
 pattern AlgorithmicStemming_Minimal :: AlgorithmicStemming
 pattern AlgorithmicStemming_None :: AlgorithmicStemming
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance GHC.Classes.Ord Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance Amazonka.Data.XML.ToXML Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance Amazonka.Data.Log.ToLog Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance Amazonka.Data.Text.ToText Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance Amazonka.Data.Text.FromText Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance GHC.Classes.Ord Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance GHC.Read.Read Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
+instance GHC.Show.Show Amazonka.CloudSearch.Types.AlgorithmicStemming.AlgorithmicStemming
 
 
-module Network.AWS.CloudSearch.Types.AnalysisOptions
+module Amazonka.CloudSearch.Types.AnalysisOptions
 
 -- | Synonyms, stopwords, and stemming options for an analysis scheme.
 --   Includes tokenization dictionary for Japanese.
@@ -174,17 +174,17 @@ analysisOptions_synonyms :: Lens' AnalysisOptions (Maybe Text)
 --   cases of overstemming or understemming. The maximum size of a stemming
 --   dictionary is 500 KB.
 analysisOptions_stemmingDictionary :: Lens' AnalysisOptions (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.AnalysisOptions.AnalysisOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.AnalysisOptions.AnalysisOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.AnalysisOptions.AnalysisOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.AnalysisOptions.AnalysisOptions
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.AnalysisOptions.AnalysisOptions
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.AnalysisOptions.AnalysisOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.AnalysisOptions.AnalysisOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.AnalysisOptions.AnalysisOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.AnalysisOptions.AnalysisOptions
+instance GHC.Show.Show Amazonka.CloudSearch.Types.AnalysisOptions.AnalysisOptions
+instance GHC.Read.Read Amazonka.CloudSearch.Types.AnalysisOptions.AnalysisOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.AnalysisOptions.AnalysisOptions
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.AnalysisOptions.AnalysisOptions
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.AnalysisOptions.AnalysisOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.AnalysisOptions.AnalysisOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.AnalysisOptions.AnalysisOptions
 
 
-module Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage
+module Amazonka.CloudSearch.Types.AnalysisSchemeLanguage
 
 -- | An <a>IETF RFC 4646</a> language code or <tt>mul</tt> for multiple
 --   languages.
@@ -226,28 +226,28 @@ pattern AnalysisSchemeLanguage_Th :: AnalysisSchemeLanguage
 pattern AnalysisSchemeLanguage_Tr :: AnalysisSchemeLanguage
 pattern AnalysisSchemeLanguage_Zh_Hans :: AnalysisSchemeLanguage
 pattern AnalysisSchemeLanguage_Zh_Hant :: AnalysisSchemeLanguage
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance GHC.Classes.Ord Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance Amazonka.Data.XML.ToXML Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance Amazonka.Data.Log.ToLog Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance Amazonka.Data.Text.ToText Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance Amazonka.Data.Text.FromText Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance GHC.Classes.Ord Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance GHC.Read.Read Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
+instance GHC.Show.Show Amazonka.CloudSearch.Types.AnalysisSchemeLanguage.AnalysisSchemeLanguage
 
 
-module Network.AWS.CloudSearch.Types.AnalysisScheme
+module Amazonka.CloudSearch.Types.AnalysisScheme
 
 -- | Configuration information for an analysis scheme. Each analysis scheme
 --   has a unique name and specifies the language of the text to be
@@ -290,17 +290,17 @@ analysisScheme_analysisSchemeName :: Lens' AnalysisScheme Text
 
 -- | Undocumented member.
 analysisScheme_analysisSchemeLanguage :: Lens' AnalysisScheme AnalysisSchemeLanguage
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.AnalysisScheme.AnalysisScheme
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.AnalysisScheme.AnalysisScheme
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.AnalysisScheme.AnalysisScheme
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.AnalysisScheme.AnalysisScheme
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.AnalysisScheme.AnalysisScheme
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.AnalysisScheme.AnalysisScheme
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.AnalysisScheme.AnalysisScheme
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.AnalysisScheme.AnalysisScheme
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.AnalysisScheme.AnalysisScheme
+instance GHC.Show.Show Amazonka.CloudSearch.Types.AnalysisScheme.AnalysisScheme
+instance GHC.Read.Read Amazonka.CloudSearch.Types.AnalysisScheme.AnalysisScheme
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.AnalysisScheme.AnalysisScheme
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.AnalysisScheme.AnalysisScheme
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.AnalysisScheme.AnalysisScheme
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.AnalysisScheme.AnalysisScheme
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.AnalysisScheme.AnalysisScheme
 
 
-module Network.AWS.CloudSearch.Types.DateArrayOptions
+module Amazonka.CloudSearch.Types.DateArrayOptions
 
 -- | Options for a field that contains an array of dates. Present if
 --   <tt>IndexFieldType</tt> specifies the field is of type
@@ -373,17 +373,17 @@ dateArrayOptions_searchEnabled :: Lens' DateArrayOptions (Maybe Bool)
 -- | A value to use for the field if the field isn't specified for a
 --   document.
 dateArrayOptions_defaultValue :: Lens' DateArrayOptions (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.DateArrayOptions.DateArrayOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.DateArrayOptions.DateArrayOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.DateArrayOptions.DateArrayOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.DateArrayOptions.DateArrayOptions
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.DateArrayOptions.DateArrayOptions
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.DateArrayOptions.DateArrayOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.DateArrayOptions.DateArrayOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.DateArrayOptions.DateArrayOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.DateArrayOptions.DateArrayOptions
+instance GHC.Show.Show Amazonka.CloudSearch.Types.DateArrayOptions.DateArrayOptions
+instance GHC.Read.Read Amazonka.CloudSearch.Types.DateArrayOptions.DateArrayOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.DateArrayOptions.DateArrayOptions
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.DateArrayOptions.DateArrayOptions
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.DateArrayOptions.DateArrayOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.DateArrayOptions.DateArrayOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.DateArrayOptions.DateArrayOptions
 
 
-module Network.AWS.CloudSearch.Types.DateOptions
+module Amazonka.CloudSearch.Types.DateOptions
 
 -- | Options for a date field. Dates and times are specified in UTC
 --   (Coordinated Universal Time) according to IETF RFC3339:
@@ -461,17 +461,17 @@ dateOptions_sortEnabled :: Lens' DateOptions (Maybe Bool)
 -- | A value to use for the field if the field isn't specified for a
 --   document.
 dateOptions_defaultValue :: Lens' DateOptions (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.DateOptions.DateOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.DateOptions.DateOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.DateOptions.DateOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.DateOptions.DateOptions
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.DateOptions.DateOptions
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.DateOptions.DateOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.DateOptions.DateOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.DateOptions.DateOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.DateOptions.DateOptions
+instance GHC.Show.Show Amazonka.CloudSearch.Types.DateOptions.DateOptions
+instance GHC.Read.Read Amazonka.CloudSearch.Types.DateOptions.DateOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.DateOptions.DateOptions
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.DateOptions.DateOptions
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.DateOptions.DateOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.DateOptions.DateOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.DateOptions.DateOptions
 
 
-module Network.AWS.CloudSearch.Types.DoubleArrayOptions
+module Amazonka.CloudSearch.Types.DoubleArrayOptions
 
 -- | Options for a field that contains an array of double-precision 64-bit
 --   floating point values. Present if <tt>IndexFieldType</tt> specifies
@@ -545,17 +545,17 @@ doubleArrayOptions_searchEnabled :: Lens' DoubleArrayOptions (Maybe Bool)
 -- | A value to use for the field if the field isn't specified for a
 --   document.
 doubleArrayOptions_defaultValue :: Lens' DoubleArrayOptions (Maybe Double)
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
+instance GHC.Show.Show Amazonka.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
+instance GHC.Read.Read Amazonka.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.DoubleArrayOptions.DoubleArrayOptions
 
 
-module Network.AWS.CloudSearch.Types.DoubleOptions
+module Amazonka.CloudSearch.Types.DoubleOptions
 
 -- | Options for a double-precision 64-bit floating point field. Present if
 --   <tt>IndexFieldType</tt> specifies the field is of type
@@ -642,17 +642,17 @@ doubleOptions_sortEnabled :: Lens' DoubleOptions (Maybe Bool)
 --   document. This can be important if you are using the field in an
 --   expression and that field is not present in every document.
 doubleOptions_defaultValue :: Lens' DoubleOptions (Maybe Double)
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.DoubleOptions.DoubleOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.DoubleOptions.DoubleOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.DoubleOptions.DoubleOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.DoubleOptions.DoubleOptions
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.DoubleOptions.DoubleOptions
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.DoubleOptions.DoubleOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.DoubleOptions.DoubleOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.DoubleOptions.DoubleOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.DoubleOptions.DoubleOptions
+instance GHC.Show.Show Amazonka.CloudSearch.Types.DoubleOptions.DoubleOptions
+instance GHC.Read.Read Amazonka.CloudSearch.Types.DoubleOptions.DoubleOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.DoubleOptions.DoubleOptions
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.DoubleOptions.DoubleOptions
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.DoubleOptions.DoubleOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.DoubleOptions.DoubleOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.DoubleOptions.DoubleOptions
 
 
-module Network.AWS.CloudSearch.Types.Expression
+module Amazonka.CloudSearch.Types.Expression
 
 -- | A named expression that can be evaluated at search time. Can be used
 --   to sort the search results, define other expressions, or return
@@ -684,17 +684,17 @@ expression_expressionName :: Lens' Expression Text
 
 -- | Undocumented member.
 expression_expressionValue :: Lens' Expression Text
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.Expression.Expression
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.Expression.Expression
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.Expression.Expression
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.Expression.Expression
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.Expression.Expression
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.Expression.Expression
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.Expression.Expression
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.Expression.Expression
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.Expression.Expression
+instance GHC.Show.Show Amazonka.CloudSearch.Types.Expression.Expression
+instance GHC.Read.Read Amazonka.CloudSearch.Types.Expression.Expression
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.Expression.Expression
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.Expression.Expression
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.Expression.Expression
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.Expression.Expression
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.Expression.Expression
 
 
-module Network.AWS.CloudSearch.Types.IndexFieldType
+module Amazonka.CloudSearch.Types.IndexFieldType
 
 -- | The type of field. The valid options for a field depend on the field
 --   type. For more information about the supported field types, see
@@ -714,28 +714,28 @@ pattern IndexFieldType_Literal :: IndexFieldType
 pattern IndexFieldType_Literal_array :: IndexFieldType
 pattern IndexFieldType_Text :: IndexFieldType
 pattern IndexFieldType_Text_array :: IndexFieldType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance GHC.Classes.Ord Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance Amazonka.Data.XML.ToXML Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance Amazonka.Data.Log.ToLog Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance Amazonka.Data.Text.ToText Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance Amazonka.Data.Text.FromText Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance GHC.Classes.Ord Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance GHC.Read.Read Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
+instance GHC.Show.Show Amazonka.CloudSearch.Types.IndexFieldType.IndexFieldType
 
 
-module Network.AWS.CloudSearch.Types.IntArrayOptions
+module Amazonka.CloudSearch.Types.IntArrayOptions
 
 -- | Options for a field that contains an array of 64-bit signed integers.
 --   Present if <tt>IndexFieldType</tt> specifies the field is of type
@@ -808,17 +808,17 @@ intArrayOptions_searchEnabled :: Lens' IntArrayOptions (Maybe Bool)
 -- | A value to use for the field if the field isn't specified for a
 --   document.
 intArrayOptions_defaultValue :: Lens' IntArrayOptions (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.IntArrayOptions.IntArrayOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.IntArrayOptions.IntArrayOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.IntArrayOptions.IntArrayOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.IntArrayOptions.IntArrayOptions
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.IntArrayOptions.IntArrayOptions
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.IntArrayOptions.IntArrayOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.IntArrayOptions.IntArrayOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.IntArrayOptions.IntArrayOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.IntArrayOptions.IntArrayOptions
+instance GHC.Show.Show Amazonka.CloudSearch.Types.IntArrayOptions.IntArrayOptions
+instance GHC.Read.Read Amazonka.CloudSearch.Types.IntArrayOptions.IntArrayOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.IntArrayOptions.IntArrayOptions
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.IntArrayOptions.IntArrayOptions
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.IntArrayOptions.IntArrayOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.IntArrayOptions.IntArrayOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.IntArrayOptions.IntArrayOptions
 
 
-module Network.AWS.CloudSearch.Types.IntOptions
+module Amazonka.CloudSearch.Types.IntOptions
 
 -- | Options for a 64-bit signed integer field. Present if
 --   <tt>IndexFieldType</tt> specifies the field is of type <tt>int</tt>.
@@ -899,17 +899,17 @@ intOptions_sortEnabled :: Lens' IntOptions (Maybe Bool)
 --   document. This can be important if you are using the field in an
 --   expression and that field is not present in every document.
 intOptions_defaultValue :: Lens' IntOptions (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.IntOptions.IntOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.IntOptions.IntOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.IntOptions.IntOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.IntOptions.IntOptions
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.IntOptions.IntOptions
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.IntOptions.IntOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.IntOptions.IntOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.IntOptions.IntOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.IntOptions.IntOptions
+instance GHC.Show.Show Amazonka.CloudSearch.Types.IntOptions.IntOptions
+instance GHC.Read.Read Amazonka.CloudSearch.Types.IntOptions.IntOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.IntOptions.IntOptions
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.IntOptions.IntOptions
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.IntOptions.IntOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.IntOptions.IntOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.IntOptions.IntOptions
 
 
-module Network.AWS.CloudSearch.Types.LatLonOptions
+module Amazonka.CloudSearch.Types.LatLonOptions
 
 -- | Options for a latlon field. A latlon field contains a location stored
 --   as a latitude and longitude value pair. Present if
@@ -990,17 +990,17 @@ latLonOptions_sortEnabled :: Lens' LatLonOptions (Maybe Bool)
 -- | A value to use for the field if the field isn't specified for a
 --   document.
 latLonOptions_defaultValue :: Lens' LatLonOptions (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.LatLonOptions.LatLonOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.LatLonOptions.LatLonOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.LatLonOptions.LatLonOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.LatLonOptions.LatLonOptions
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.LatLonOptions.LatLonOptions
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.LatLonOptions.LatLonOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.LatLonOptions.LatLonOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.LatLonOptions.LatLonOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.LatLonOptions.LatLonOptions
+instance GHC.Show.Show Amazonka.CloudSearch.Types.LatLonOptions.LatLonOptions
+instance GHC.Read.Read Amazonka.CloudSearch.Types.LatLonOptions.LatLonOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.LatLonOptions.LatLonOptions
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.LatLonOptions.LatLonOptions
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.LatLonOptions.LatLonOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.LatLonOptions.LatLonOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.LatLonOptions.LatLonOptions
 
 
-module Network.AWS.CloudSearch.Types.Limits
+module Amazonka.CloudSearch.Types.Limits
 
 -- | <i>See:</i> <a>newLimits</a> smart constructor.
 data Limits
@@ -1028,16 +1028,16 @@ limits_maximumReplicationCount :: Lens' Limits Natural
 
 -- | Undocumented member.
 limits_maximumPartitionCount :: Lens' Limits Natural
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.Limits.Limits
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.Limits.Limits
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.Limits.Limits
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.Limits.Limits
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.Limits.Limits
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.Limits.Limits
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.Limits.Limits
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.Limits.Limits
+instance GHC.Show.Show Amazonka.CloudSearch.Types.Limits.Limits
+instance GHC.Read.Read Amazonka.CloudSearch.Types.Limits.Limits
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.Limits.Limits
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.Limits.Limits
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.Limits.Limits
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.Limits.Limits
 
 
-module Network.AWS.CloudSearch.Types.LiteralArrayOptions
+module Amazonka.CloudSearch.Types.LiteralArrayOptions
 
 -- | Options for a field that contains an array of literal strings. Present
 --   if <tt>IndexFieldType</tt> specifies the field is of type
@@ -1110,17 +1110,17 @@ literalArrayOptions_searchEnabled :: Lens' LiteralArrayOptions (Maybe Bool)
 -- | A value to use for the field if the field isn't specified for a
 --   document.
 literalArrayOptions_defaultValue :: Lens' LiteralArrayOptions (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
+instance GHC.Show.Show Amazonka.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
+instance GHC.Read.Read Amazonka.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.LiteralArrayOptions.LiteralArrayOptions
 
 
-module Network.AWS.CloudSearch.Types.LiteralOptions
+module Amazonka.CloudSearch.Types.LiteralOptions
 
 -- | Options for literal field. Present if <tt>IndexFieldType</tt>
 --   specifies the field is of type <tt>literal</tt>. All options are
@@ -1200,17 +1200,17 @@ literalOptions_sortEnabled :: Lens' LiteralOptions (Maybe Bool)
 -- | A value to use for the field if the field isn't specified for a
 --   document.
 literalOptions_defaultValue :: Lens' LiteralOptions (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.LiteralOptions.LiteralOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.LiteralOptions.LiteralOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.LiteralOptions.LiteralOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.LiteralOptions.LiteralOptions
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.LiteralOptions.LiteralOptions
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.LiteralOptions.LiteralOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.LiteralOptions.LiteralOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.LiteralOptions.LiteralOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.LiteralOptions.LiteralOptions
+instance GHC.Show.Show Amazonka.CloudSearch.Types.LiteralOptions.LiteralOptions
+instance GHC.Read.Read Amazonka.CloudSearch.Types.LiteralOptions.LiteralOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.LiteralOptions.LiteralOptions
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.LiteralOptions.LiteralOptions
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.LiteralOptions.LiteralOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.LiteralOptions.LiteralOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.LiteralOptions.LiteralOptions
 
 
-module Network.AWS.CloudSearch.Types.OptionState
+module Amazonka.CloudSearch.Types.OptionState
 
 -- | The state of processing a change to an option. One of:
 --   
@@ -1233,28 +1233,28 @@ pattern OptionState_Active :: OptionState
 pattern OptionState_FailedToValidate :: OptionState
 pattern OptionState_Processing :: OptionState
 pattern OptionState_RequiresIndexDocuments :: OptionState
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance GHC.Classes.Ord Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.OptionState.OptionState
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.OptionState.OptionState
+instance Amazonka.Data.XML.ToXML Amazonka.CloudSearch.Types.OptionState.OptionState
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.OptionState.OptionState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudSearch.Types.OptionState.OptionState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudSearch.Types.OptionState.OptionState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudSearch.Types.OptionState.OptionState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearch.Types.OptionState.OptionState
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.OptionState.OptionState
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudSearch.Types.OptionState.OptionState
+instance Amazonka.Data.Log.ToLog Amazonka.CloudSearch.Types.OptionState.OptionState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudSearch.Types.OptionState.OptionState
+instance Amazonka.Data.Text.ToText Amazonka.CloudSearch.Types.OptionState.OptionState
+instance Amazonka.Data.Text.FromText Amazonka.CloudSearch.Types.OptionState.OptionState
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.OptionState.OptionState
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.OptionState.OptionState
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.OptionState.OptionState
+instance GHC.Classes.Ord Amazonka.CloudSearch.Types.OptionState.OptionState
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.OptionState.OptionState
+instance GHC.Read.Read Amazonka.CloudSearch.Types.OptionState.OptionState
+instance GHC.Show.Show Amazonka.CloudSearch.Types.OptionState.OptionState
 
 
-module Network.AWS.CloudSearch.Types.OptionStatus
+module Amazonka.CloudSearch.Types.OptionStatus
 
 -- | The status of domain configuration option.
 --   
@@ -1361,16 +1361,16 @@ optionStatus_updateDate :: Lens' OptionStatus UTCTime
 --   documents.</li>
 --   </ul>
 optionStatus_state :: Lens' OptionStatus OptionState
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.OptionStatus.OptionStatus
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.OptionStatus.OptionStatus
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.OptionStatus.OptionStatus
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.OptionStatus.OptionStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.OptionStatus.OptionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.OptionStatus.OptionStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.OptionStatus.OptionStatus
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.OptionStatus.OptionStatus
+instance GHC.Show.Show Amazonka.CloudSearch.Types.OptionStatus.OptionStatus
+instance GHC.Read.Read Amazonka.CloudSearch.Types.OptionStatus.OptionStatus
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.OptionStatus.OptionStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.OptionStatus.OptionStatus
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.OptionStatus.OptionStatus
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.OptionStatus.OptionStatus
 
 
-module Network.AWS.CloudSearch.Types.ExpressionStatus
+module Amazonka.CloudSearch.Types.ExpressionStatus
 
 -- | The value of an <tt>Expression</tt> and its current status.
 --   
@@ -1406,16 +1406,16 @@ expressionStatus_options :: Lens' ExpressionStatus Expression
 
 -- | Undocumented member.
 expressionStatus_status :: Lens' ExpressionStatus OptionStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.ExpressionStatus.ExpressionStatus
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.ExpressionStatus.ExpressionStatus
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.ExpressionStatus.ExpressionStatus
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.ExpressionStatus.ExpressionStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.ExpressionStatus.ExpressionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.ExpressionStatus.ExpressionStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.ExpressionStatus.ExpressionStatus
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.ExpressionStatus.ExpressionStatus
+instance GHC.Show.Show Amazonka.CloudSearch.Types.ExpressionStatus.ExpressionStatus
+instance GHC.Read.Read Amazonka.CloudSearch.Types.ExpressionStatus.ExpressionStatus
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.ExpressionStatus.ExpressionStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.ExpressionStatus.ExpressionStatus
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.ExpressionStatus.ExpressionStatus
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.ExpressionStatus.ExpressionStatus
 
 
-module Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus
+module Amazonka.CloudSearch.Types.AvailabilityOptionsStatus
 
 -- | The status and configuration of the domain's availability options.
 --   
@@ -1449,16 +1449,16 @@ availabilityOptionsStatus_options :: Lens' AvailabilityOptionsStatus Bool
 
 -- | Undocumented member.
 availabilityOptionsStatus_status :: Lens' AvailabilityOptionsStatus OptionStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus.AvailabilityOptionsStatus
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus.AvailabilityOptionsStatus
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus.AvailabilityOptionsStatus
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus.AvailabilityOptionsStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus.AvailabilityOptionsStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus.AvailabilityOptionsStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus.AvailabilityOptionsStatus
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.AvailabilityOptionsStatus.AvailabilityOptionsStatus
+instance GHC.Show.Show Amazonka.CloudSearch.Types.AvailabilityOptionsStatus.AvailabilityOptionsStatus
+instance GHC.Read.Read Amazonka.CloudSearch.Types.AvailabilityOptionsStatus.AvailabilityOptionsStatus
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.AvailabilityOptionsStatus.AvailabilityOptionsStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.AvailabilityOptionsStatus.AvailabilityOptionsStatus
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.AvailabilityOptionsStatus.AvailabilityOptionsStatus
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.AvailabilityOptionsStatus.AvailabilityOptionsStatus
 
 
-module Network.AWS.CloudSearch.Types.AnalysisSchemeStatus
+module Amazonka.CloudSearch.Types.AnalysisSchemeStatus
 
 -- | The status and configuration of an <tt>AnalysisScheme</tt>.
 --   
@@ -1489,16 +1489,16 @@ analysisSchemeStatus_options :: Lens' AnalysisSchemeStatus AnalysisScheme
 
 -- | Undocumented member.
 analysisSchemeStatus_status :: Lens' AnalysisSchemeStatus OptionStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.AnalysisSchemeStatus.AnalysisSchemeStatus
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.AnalysisSchemeStatus.AnalysisSchemeStatus
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.AnalysisSchemeStatus.AnalysisSchemeStatus
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.AnalysisSchemeStatus.AnalysisSchemeStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.AnalysisSchemeStatus.AnalysisSchemeStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.AnalysisSchemeStatus.AnalysisSchemeStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.AnalysisSchemeStatus.AnalysisSchemeStatus
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.AnalysisSchemeStatus.AnalysisSchemeStatus
+instance GHC.Show.Show Amazonka.CloudSearch.Types.AnalysisSchemeStatus.AnalysisSchemeStatus
+instance GHC.Read.Read Amazonka.CloudSearch.Types.AnalysisSchemeStatus.AnalysisSchemeStatus
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.AnalysisSchemeStatus.AnalysisSchemeStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.AnalysisSchemeStatus.AnalysisSchemeStatus
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.AnalysisSchemeStatus.AnalysisSchemeStatus
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.AnalysisSchemeStatus.AnalysisSchemeStatus
 
 
-module Network.AWS.CloudSearch.Types.AccessPoliciesStatus
+module Amazonka.CloudSearch.Types.AccessPoliciesStatus
 
 -- | The configured access rules for the domain's document and search
 --   endpoints, and the current status of those rules.
@@ -1530,16 +1530,16 @@ accessPoliciesStatus_options :: Lens' AccessPoliciesStatus Text
 
 -- | Undocumented member.
 accessPoliciesStatus_status :: Lens' AccessPoliciesStatus OptionStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.AccessPoliciesStatus.AccessPoliciesStatus
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.AccessPoliciesStatus.AccessPoliciesStatus
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.AccessPoliciesStatus.AccessPoliciesStatus
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.AccessPoliciesStatus.AccessPoliciesStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.AccessPoliciesStatus.AccessPoliciesStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.AccessPoliciesStatus.AccessPoliciesStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.AccessPoliciesStatus.AccessPoliciesStatus
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.AccessPoliciesStatus.AccessPoliciesStatus
+instance GHC.Show.Show Amazonka.CloudSearch.Types.AccessPoliciesStatus.AccessPoliciesStatus
+instance GHC.Read.Read Amazonka.CloudSearch.Types.AccessPoliciesStatus.AccessPoliciesStatus
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.AccessPoliciesStatus.AccessPoliciesStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.AccessPoliciesStatus.AccessPoliciesStatus
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.AccessPoliciesStatus.AccessPoliciesStatus
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.AccessPoliciesStatus.AccessPoliciesStatus
 
 
-module Network.AWS.CloudSearch.Types.PartitionInstanceType
+module Amazonka.CloudSearch.Types.PartitionInstanceType
 
 -- | The instance type (such as <tt>search.m1.small</tt>) on which an index
 --   partition is hosted.
@@ -1563,28 +1563,28 @@ pattern PartitionInstanceType_Search_previousgeneration_small :: PartitionInstan
 pattern PartitionInstanceType_Search_previousgeneration_xlarge :: PartitionInstanceType
 pattern PartitionInstanceType_Search_small :: PartitionInstanceType
 pattern PartitionInstanceType_Search_xlarge :: PartitionInstanceType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance GHC.Classes.Ord Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance Amazonka.Data.XML.ToXML Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance Amazonka.Data.Log.ToLog Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance Amazonka.Data.Text.ToText Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance Amazonka.Data.Text.FromText Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance GHC.Classes.Ord Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance GHC.Read.Read Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
+instance GHC.Show.Show Amazonka.CloudSearch.Types.PartitionInstanceType.PartitionInstanceType
 
 
-module Network.AWS.CloudSearch.Types.ScalingParameters
+module Amazonka.CloudSearch.Types.ScalingParameters
 
 -- | The desired instance type and desired number of replicas of each index
 --   partition.
@@ -1642,17 +1642,17 @@ scalingParameters_desiredReplicationCount :: Lens' ScalingParameters (Maybe Natu
 --   Only valid when you select <tt>m2.2xlarge</tt> as the desired instance
 --   type.
 scalingParameters_desiredPartitionCount :: Lens' ScalingParameters (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.ScalingParameters.ScalingParameters
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.ScalingParameters.ScalingParameters
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.ScalingParameters.ScalingParameters
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.ScalingParameters.ScalingParameters
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.ScalingParameters.ScalingParameters
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.ScalingParameters.ScalingParameters
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.ScalingParameters.ScalingParameters
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.ScalingParameters.ScalingParameters
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.ScalingParameters.ScalingParameters
+instance GHC.Show.Show Amazonka.CloudSearch.Types.ScalingParameters.ScalingParameters
+instance GHC.Read.Read Amazonka.CloudSearch.Types.ScalingParameters.ScalingParameters
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.ScalingParameters.ScalingParameters
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.ScalingParameters.ScalingParameters
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.ScalingParameters.ScalingParameters
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.ScalingParameters.ScalingParameters
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.ScalingParameters.ScalingParameters
 
 
-module Network.AWS.CloudSearch.Types.ScalingParametersStatus
+module Amazonka.CloudSearch.Types.ScalingParametersStatus
 
 -- | The status and configuration of a search domain's scaling parameters.
 --   
@@ -1683,16 +1683,16 @@ scalingParametersStatus_options :: Lens' ScalingParametersStatus ScalingParamete
 
 -- | Undocumented member.
 scalingParametersStatus_status :: Lens' ScalingParametersStatus OptionStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.ScalingParametersStatus.ScalingParametersStatus
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.ScalingParametersStatus.ScalingParametersStatus
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.ScalingParametersStatus.ScalingParametersStatus
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.ScalingParametersStatus.ScalingParametersStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.ScalingParametersStatus.ScalingParametersStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.ScalingParametersStatus.ScalingParametersStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.ScalingParametersStatus.ScalingParametersStatus
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.ScalingParametersStatus.ScalingParametersStatus
+instance GHC.Show.Show Amazonka.CloudSearch.Types.ScalingParametersStatus.ScalingParametersStatus
+instance GHC.Read.Read Amazonka.CloudSearch.Types.ScalingParametersStatus.ScalingParametersStatus
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.ScalingParametersStatus.ScalingParametersStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.ScalingParametersStatus.ScalingParametersStatus
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.ScalingParametersStatus.ScalingParametersStatus
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.ScalingParametersStatus.ScalingParametersStatus
 
 
-module Network.AWS.CloudSearch.Types.ServiceEndpoint
+module Amazonka.CloudSearch.Types.ServiceEndpoint
 
 -- | The endpoint to which service requests can be submitted.
 --   
@@ -1716,16 +1716,16 @@ newServiceEndpoint :: ServiceEndpoint
 
 -- | Undocumented member.
 serviceEndpoint_endpoint :: Lens' ServiceEndpoint (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.ServiceEndpoint.ServiceEndpoint
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.ServiceEndpoint.ServiceEndpoint
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.ServiceEndpoint.ServiceEndpoint
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.ServiceEndpoint.ServiceEndpoint
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.ServiceEndpoint.ServiceEndpoint
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.ServiceEndpoint.ServiceEndpoint
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.ServiceEndpoint.ServiceEndpoint
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.ServiceEndpoint.ServiceEndpoint
+instance GHC.Show.Show Amazonka.CloudSearch.Types.ServiceEndpoint.ServiceEndpoint
+instance GHC.Read.Read Amazonka.CloudSearch.Types.ServiceEndpoint.ServiceEndpoint
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.ServiceEndpoint.ServiceEndpoint
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.ServiceEndpoint.ServiceEndpoint
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.ServiceEndpoint.ServiceEndpoint
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.ServiceEndpoint.ServiceEndpoint
 
 
-module Network.AWS.CloudSearch.Types.DomainStatus
+module Amazonka.CloudSearch.Types.DomainStatus
 
 -- | The current status of the search domain.
 --   
@@ -1886,44 +1886,44 @@ domainStatus_domainName :: Lens' DomainStatus Text
 -- | True if IndexDocuments needs to be called to activate the current
 --   domain configuration.
 domainStatus_requiresIndexDocuments :: Lens' DomainStatus Bool
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.DomainStatus.DomainStatus
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.DomainStatus.DomainStatus
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.DomainStatus.DomainStatus
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.DomainStatus.DomainStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.DomainStatus.DomainStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.DomainStatus.DomainStatus
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.DomainStatus.DomainStatus
+instance GHC.Show.Show Amazonka.CloudSearch.Types.DomainStatus.DomainStatus
+instance GHC.Read.Read Amazonka.CloudSearch.Types.DomainStatus.DomainStatus
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.DomainStatus.DomainStatus
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.DomainStatus.DomainStatus
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.DomainStatus.DomainStatus
 
 
-module Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching
+module Amazonka.CloudSearch.Types.SuggesterFuzzyMatching
 newtype SuggesterFuzzyMatching
 SuggesterFuzzyMatching' :: Text -> SuggesterFuzzyMatching
 [fromSuggesterFuzzyMatching] :: SuggesterFuzzyMatching -> Text
 pattern SuggesterFuzzyMatching_High :: SuggesterFuzzyMatching
 pattern SuggesterFuzzyMatching_Low :: SuggesterFuzzyMatching
 pattern SuggesterFuzzyMatching_None :: SuggesterFuzzyMatching
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance GHC.Classes.Ord Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance Amazonka.Data.XML.ToXML Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance Amazonka.Data.Log.ToLog Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance Amazonka.Data.Text.ToText Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance Amazonka.Data.Text.FromText Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance GHC.Classes.Ord Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance GHC.Read.Read Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
+instance GHC.Show.Show Amazonka.CloudSearch.Types.SuggesterFuzzyMatching.SuggesterFuzzyMatching
 
 
-module Network.AWS.CloudSearch.Types.DocumentSuggesterOptions
+module Amazonka.CloudSearch.Types.DocumentSuggesterOptions
 
 -- | Options for a search suggester.
 --   
@@ -2005,17 +2005,17 @@ documentSuggesterOptions_fuzzyMatching :: Lens' DocumentSuggesterOptions (Maybe 
 
 -- | The name of the index field you want to use for suggestions.
 documentSuggesterOptions_sourceField :: Lens' DocumentSuggesterOptions Text
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
+instance GHC.Show.Show Amazonka.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
+instance GHC.Read.Read Amazonka.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.DocumentSuggesterOptions.DocumentSuggesterOptions
 
 
-module Network.AWS.CloudSearch.Types.Suggester
+module Amazonka.CloudSearch.Types.Suggester
 
 -- | Configuration information for a search suggester. Each suggester has a
 --   unique name and specifies the text field you want to use for
@@ -2048,17 +2048,17 @@ suggester_suggesterName :: Lens' Suggester Text
 
 -- | Undocumented member.
 suggester_documentSuggesterOptions :: Lens' Suggester DocumentSuggesterOptions
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.Suggester.Suggester
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.Suggester.Suggester
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.Suggester.Suggester
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.Suggester.Suggester
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.Suggester.Suggester
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.Suggester.Suggester
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.Suggester.Suggester
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.Suggester.Suggester
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.Suggester.Suggester
+instance GHC.Show.Show Amazonka.CloudSearch.Types.Suggester.Suggester
+instance GHC.Read.Read Amazonka.CloudSearch.Types.Suggester.Suggester
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.Suggester.Suggester
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.Suggester.Suggester
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.Suggester.Suggester
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.Suggester.Suggester
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.Suggester.Suggester
 
 
-module Network.AWS.CloudSearch.Types.SuggesterStatus
+module Amazonka.CloudSearch.Types.SuggesterStatus
 
 -- | The value of a <tt>Suggester</tt> and its current status.
 --   
@@ -2089,16 +2089,16 @@ suggesterStatus_options :: Lens' SuggesterStatus Suggester
 
 -- | Undocumented member.
 suggesterStatus_status :: Lens' SuggesterStatus OptionStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.SuggesterStatus.SuggesterStatus
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.SuggesterStatus.SuggesterStatus
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.SuggesterStatus.SuggesterStatus
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.SuggesterStatus.SuggesterStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.SuggesterStatus.SuggesterStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.SuggesterStatus.SuggesterStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.SuggesterStatus.SuggesterStatus
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.SuggesterStatus.SuggesterStatus
+instance GHC.Show.Show Amazonka.CloudSearch.Types.SuggesterStatus.SuggesterStatus
+instance GHC.Read.Read Amazonka.CloudSearch.Types.SuggesterStatus.SuggesterStatus
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.SuggesterStatus.SuggesterStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.SuggesterStatus.SuggesterStatus
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.SuggesterStatus.SuggesterStatus
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.SuggesterStatus.SuggesterStatus
 
 
-module Network.AWS.CloudSearch.Types.TLSSecurityPolicy
+module Amazonka.CloudSearch.Types.TLSSecurityPolicy
 
 -- | The minimum required TLS version.
 newtype TLSSecurityPolicy
@@ -2106,28 +2106,28 @@ TLSSecurityPolicy' :: Text -> TLSSecurityPolicy
 [fromTLSSecurityPolicy] :: TLSSecurityPolicy -> Text
 pattern TLSSecurityPolicy_Policy_Min_TLS_1_0_2019_07 :: TLSSecurityPolicy
 pattern TLSSecurityPolicy_Policy_Min_TLS_1_2_2019_07 :: TLSSecurityPolicy
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance GHC.Classes.Ord Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance Amazonka.Data.XML.ToXML Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance Amazonka.Data.Log.ToLog Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance Amazonka.Data.Text.ToText Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance Amazonka.Data.Text.FromText Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance GHC.Classes.Ord Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance GHC.Read.Read Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
+instance GHC.Show.Show Amazonka.CloudSearch.Types.TLSSecurityPolicy.TLSSecurityPolicy
 
 
-module Network.AWS.CloudSearch.Types.DomainEndpointOptions
+module Amazonka.CloudSearch.Types.DomainEndpointOptions
 
 -- | The domain's endpoint options.
 --   
@@ -2164,17 +2164,17 @@ domainEndpointOptions_enforceHTTPS :: Lens' DomainEndpointOptions (Maybe Bool)
 
 -- | The minimum required TLS version
 domainEndpointOptions_tLSSecurityPolicy :: Lens' DomainEndpointOptions (Maybe TLSSecurityPolicy)
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
+instance GHC.Show.Show Amazonka.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
+instance GHC.Read.Read Amazonka.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.DomainEndpointOptions.DomainEndpointOptions
 
 
-module Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus
+module Amazonka.CloudSearch.Types.DomainEndpointOptionsStatus
 
 -- | The configuration and status of the domain's endpoint options.
 --   
@@ -2211,16 +2211,16 @@ domainEndpointOptionsStatus_options :: Lens' DomainEndpointOptionsStatus DomainE
 
 -- | The status of the configured domain endpoint options.
 domainEndpointOptionsStatus_status :: Lens' DomainEndpointOptionsStatus OptionStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus.DomainEndpointOptionsStatus
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus.DomainEndpointOptionsStatus
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus.DomainEndpointOptionsStatus
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus.DomainEndpointOptionsStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus.DomainEndpointOptionsStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus.DomainEndpointOptionsStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus.DomainEndpointOptionsStatus
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.DomainEndpointOptionsStatus.DomainEndpointOptionsStatus
+instance GHC.Show.Show Amazonka.CloudSearch.Types.DomainEndpointOptionsStatus.DomainEndpointOptionsStatus
+instance GHC.Read.Read Amazonka.CloudSearch.Types.DomainEndpointOptionsStatus.DomainEndpointOptionsStatus
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.DomainEndpointOptionsStatus.DomainEndpointOptionsStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.DomainEndpointOptionsStatus.DomainEndpointOptionsStatus
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.DomainEndpointOptionsStatus.DomainEndpointOptionsStatus
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.DomainEndpointOptionsStatus.DomainEndpointOptionsStatus
 
 
-module Network.AWS.CloudSearch.Types.TextArrayOptions
+module Amazonka.CloudSearch.Types.TextArrayOptions
 
 -- | Options for a field that contains an array of text strings. Present if
 --   <tt>IndexFieldType</tt> specifies the field is of type
@@ -2294,17 +2294,17 @@ textArrayOptions_highlightEnabled :: Lens' TextArrayOptions (Maybe Bool)
 -- | A value to use for the field if the field isn't specified for a
 --   document.
 textArrayOptions_defaultValue :: Lens' TextArrayOptions (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.TextArrayOptions.TextArrayOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.TextArrayOptions.TextArrayOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.TextArrayOptions.TextArrayOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.TextArrayOptions.TextArrayOptions
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.TextArrayOptions.TextArrayOptions
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.TextArrayOptions.TextArrayOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.TextArrayOptions.TextArrayOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.TextArrayOptions.TextArrayOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.TextArrayOptions.TextArrayOptions
+instance GHC.Show.Show Amazonka.CloudSearch.Types.TextArrayOptions.TextArrayOptions
+instance GHC.Read.Read Amazonka.CloudSearch.Types.TextArrayOptions.TextArrayOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.TextArrayOptions.TextArrayOptions
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.TextArrayOptions.TextArrayOptions
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.TextArrayOptions.TextArrayOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.TextArrayOptions.TextArrayOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.TextArrayOptions.TextArrayOptions
 
 
-module Network.AWS.CloudSearch.Types.TextOptions
+module Amazonka.CloudSearch.Types.TextOptions
 
 -- | Options for text field. Present if <tt>IndexFieldType</tt> specifies
 --   the field is of type <tt>text</tt>. A <tt>text</tt> field is always
@@ -2382,17 +2382,17 @@ textOptions_sortEnabled :: Lens' TextOptions (Maybe Bool)
 -- | A value to use for the field if the field isn't specified for a
 --   document.
 textOptions_defaultValue :: Lens' TextOptions (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.TextOptions.TextOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.TextOptions.TextOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.TextOptions.TextOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.TextOptions.TextOptions
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.TextOptions.TextOptions
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.TextOptions.TextOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.TextOptions.TextOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.TextOptions.TextOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.TextOptions.TextOptions
+instance GHC.Show.Show Amazonka.CloudSearch.Types.TextOptions.TextOptions
+instance GHC.Read.Read Amazonka.CloudSearch.Types.TextOptions.TextOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.TextOptions.TextOptions
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.TextOptions.TextOptions
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.TextOptions.TextOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.TextOptions.TextOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.TextOptions.TextOptions
 
 
-module Network.AWS.CloudSearch.Types.IndexField
+module Amazonka.CloudSearch.Types.IndexField
 
 -- | Configuration information for a field in the index, including its
 --   name, type, and options. The supported options depend on the
@@ -2545,17 +2545,17 @@ indexField_indexFieldName :: Lens' IndexField Text
 
 -- | Undocumented member.
 indexField_indexFieldType :: Lens' IndexField IndexFieldType
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.IndexField.IndexField
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.IndexField.IndexField
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.IndexField.IndexField
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.IndexField.IndexField
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.IndexField.IndexField
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.IndexField.IndexField
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.IndexField.IndexField
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.Types.IndexField.IndexField
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.IndexField.IndexField
+instance GHC.Show.Show Amazonka.CloudSearch.Types.IndexField.IndexField
+instance GHC.Read.Read Amazonka.CloudSearch.Types.IndexField.IndexField
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.IndexField.IndexField
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.IndexField.IndexField
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.IndexField.IndexField
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.IndexField.IndexField
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.Types.IndexField.IndexField
 
 
-module Network.AWS.CloudSearch.Types.IndexFieldStatus
+module Amazonka.CloudSearch.Types.IndexFieldStatus
 
 -- | The value of an <tt>IndexField</tt> and its current status.
 --   
@@ -2586,16 +2586,16 @@ indexFieldStatus_options :: Lens' IndexFieldStatus IndexField
 
 -- | Undocumented member.
 indexFieldStatus_status :: Lens' IndexFieldStatus OptionStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.Types.IndexFieldStatus.IndexFieldStatus
-instance GHC.Show.Show Network.AWS.CloudSearch.Types.IndexFieldStatus.IndexFieldStatus
-instance GHC.Read.Read Network.AWS.CloudSearch.Types.IndexFieldStatus.IndexFieldStatus
-instance GHC.Classes.Eq Network.AWS.CloudSearch.Types.IndexFieldStatus.IndexFieldStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearch.Types.IndexFieldStatus.IndexFieldStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.Types.IndexFieldStatus.IndexFieldStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.Types.IndexFieldStatus.IndexFieldStatus
+instance GHC.Generics.Generic Amazonka.CloudSearch.Types.IndexFieldStatus.IndexFieldStatus
+instance GHC.Show.Show Amazonka.CloudSearch.Types.IndexFieldStatus.IndexFieldStatus
+instance GHC.Read.Read Amazonka.CloudSearch.Types.IndexFieldStatus.IndexFieldStatus
+instance GHC.Classes.Eq Amazonka.CloudSearch.Types.IndexFieldStatus.IndexFieldStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearch.Types.IndexFieldStatus.IndexFieldStatus
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.Types.IndexFieldStatus.IndexFieldStatus
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.Types.IndexFieldStatus.IndexFieldStatus
 
 
-module Network.AWS.CloudSearch.Types
+module Amazonka.CloudSearch.Types
 
 -- | API version <tt>2013-01-01</tt> of the Amazon CloudSearch SDK
 --   configuration.
@@ -4741,7 +4741,7 @@ textOptions_defaultValue :: Lens' TextOptions (Maybe Text)
 
 
 -- | Lists all search domains owned by an account.
-module Network.AWS.CloudSearch.ListDomainNames
+module Amazonka.CloudSearch.ListDomainNames
 
 -- | <i>See:</i> <a>newListDomainNames</a> smart constructor.
 data ListDomainNames
@@ -4790,27 +4790,27 @@ listDomainNamesResponse_domainNames :: Lens' ListDomainNamesResponse (Maybe (Has
 
 -- | The response's http status code.
 listDomainNamesResponse_httpStatus :: Lens' ListDomainNamesResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudSearch.ListDomainNames.ListDomainNames
-instance GHC.Show.Show Network.AWS.CloudSearch.ListDomainNames.ListDomainNames
-instance GHC.Read.Read Network.AWS.CloudSearch.ListDomainNames.ListDomainNames
-instance GHC.Classes.Eq Network.AWS.CloudSearch.ListDomainNames.ListDomainNames
-instance GHC.Generics.Generic Network.AWS.CloudSearch.ListDomainNames.ListDomainNamesResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.ListDomainNames.ListDomainNamesResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.ListDomainNames.ListDomainNamesResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.ListDomainNames.ListDomainNamesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.ListDomainNames.ListDomainNames
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.ListDomainNames.ListDomainNamesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.ListDomainNames.ListDomainNames
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.ListDomainNames.ListDomainNames
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.ListDomainNames.ListDomainNames
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.ListDomainNames.ListDomainNames
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.ListDomainNames.ListDomainNames
+instance GHC.Generics.Generic Amazonka.CloudSearch.ListDomainNames.ListDomainNames
+instance GHC.Show.Show Amazonka.CloudSearch.ListDomainNames.ListDomainNames
+instance GHC.Read.Read Amazonka.CloudSearch.ListDomainNames.ListDomainNames
+instance GHC.Classes.Eq Amazonka.CloudSearch.ListDomainNames.ListDomainNames
+instance GHC.Generics.Generic Amazonka.CloudSearch.ListDomainNames.ListDomainNamesResponse
+instance GHC.Show.Show Amazonka.CloudSearch.ListDomainNames.ListDomainNamesResponse
+instance GHC.Read.Read Amazonka.CloudSearch.ListDomainNames.ListDomainNamesResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.ListDomainNames.ListDomainNamesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.ListDomainNames.ListDomainNames
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.ListDomainNames.ListDomainNamesResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.ListDomainNames.ListDomainNames
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.ListDomainNames.ListDomainNames
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.ListDomainNames.ListDomainNames
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.ListDomainNames.ListDomainNames
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.ListDomainNames.ListDomainNames
 
 
 -- | Tells the search domain to start indexing its documents using the
 --   latest indexing options. This operation must be invoked to activate
 --   options whose OptionStatus is <tt>RequiresIndexDocuments</tt>.
-module Network.AWS.CloudSearch.IndexDocuments
+module Amazonka.CloudSearch.IndexDocuments
 
 -- | Container for the parameters to the <tt>IndexDocuments</tt> operation.
 --   Specifies the name of the domain you want to re-index.
@@ -4872,21 +4872,21 @@ indexDocumentsResponse_fieldNames :: Lens' IndexDocumentsResponse (Maybe [Text])
 
 -- | The response's http status code.
 indexDocumentsResponse_httpStatus :: Lens' IndexDocumentsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudSearch.IndexDocuments.IndexDocuments
-instance GHC.Show.Show Network.AWS.CloudSearch.IndexDocuments.IndexDocuments
-instance GHC.Read.Read Network.AWS.CloudSearch.IndexDocuments.IndexDocuments
-instance GHC.Classes.Eq Network.AWS.CloudSearch.IndexDocuments.IndexDocuments
-instance GHC.Generics.Generic Network.AWS.CloudSearch.IndexDocuments.IndexDocumentsResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.IndexDocuments.IndexDocumentsResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.IndexDocuments.IndexDocumentsResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.IndexDocuments.IndexDocumentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.IndexDocuments.IndexDocuments
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.IndexDocuments.IndexDocumentsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.IndexDocuments.IndexDocuments
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.IndexDocuments.IndexDocuments
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.IndexDocuments.IndexDocuments
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.IndexDocuments.IndexDocuments
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.IndexDocuments.IndexDocuments
+instance GHC.Generics.Generic Amazonka.CloudSearch.IndexDocuments.IndexDocuments
+instance GHC.Show.Show Amazonka.CloudSearch.IndexDocuments.IndexDocuments
+instance GHC.Read.Read Amazonka.CloudSearch.IndexDocuments.IndexDocuments
+instance GHC.Classes.Eq Amazonka.CloudSearch.IndexDocuments.IndexDocuments
+instance GHC.Generics.Generic Amazonka.CloudSearch.IndexDocuments.IndexDocumentsResponse
+instance GHC.Show.Show Amazonka.CloudSearch.IndexDocuments.IndexDocumentsResponse
+instance GHC.Read.Read Amazonka.CloudSearch.IndexDocuments.IndexDocumentsResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.IndexDocuments.IndexDocumentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.IndexDocuments.IndexDocuments
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.IndexDocuments.IndexDocumentsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.IndexDocuments.IndexDocuments
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.IndexDocuments.IndexDocuments
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.IndexDocuments.IndexDocuments
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.IndexDocuments.IndexDocuments
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.IndexDocuments.IndexDocuments
 
 
 -- | Gets the suggesters configured for a domain. A suggester enables you
@@ -4897,7 +4897,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.IndexDocuments.I
 --   configuration and exclude pending changes. For more information, see
 --   <a>Getting Search Suggestions</a> in the <i>Amazon CloudSearch
 --   Developer Guide</i>.
-module Network.AWS.CloudSearch.DescribeSuggesters
+module Amazonka.CloudSearch.DescribeSuggesters
 
 -- | Container for the parameters to the <tt>DescribeSuggester</tt>
 --   operation. Specifies the name of the domain you want to describe. To
@@ -4990,21 +4990,21 @@ describeSuggestersResponse_httpStatus :: Lens' DescribeSuggestersResponse Int
 
 -- | The suggesters configured for the domain specified in the request.
 describeSuggestersResponse_suggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeSuggesters.DescribeSuggesters
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeSuggesters.DescribeSuggesters
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeSuggesters.DescribeSuggesters
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeSuggesters.DescribeSuggesters
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeSuggesters.DescribeSuggestersResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeSuggesters.DescribeSuggestersResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeSuggesters.DescribeSuggestersResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeSuggesters.DescribeSuggestersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DescribeSuggesters.DescribeSuggesters
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeSuggesters.DescribeSuggestersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DescribeSuggesters.DescribeSuggesters
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeSuggesters.DescribeSuggesters
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DescribeSuggesters.DescribeSuggesters
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DescribeSuggesters.DescribeSuggesters
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DescribeSuggesters.DescribeSuggesters
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeSuggesters.DescribeSuggesters
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeSuggesters.DescribeSuggesters
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeSuggesters.DescribeSuggesters
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeSuggesters.DescribeSuggesters
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeSuggesters.DescribeSuggestersResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeSuggesters.DescribeSuggestersResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeSuggesters.DescribeSuggestersResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeSuggesters.DescribeSuggestersResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DescribeSuggesters.DescribeSuggesters
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeSuggesters.DescribeSuggestersResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DescribeSuggesters.DescribeSuggesters
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeSuggesters.DescribeSuggesters
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DescribeSuggesters.DescribeSuggesters
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DescribeSuggesters.DescribeSuggesters
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DescribeSuggesters.DescribeSuggesters
 
 
 -- | Gets information about the access policies that control access to the
@@ -5013,7 +5013,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DescribeSuggeste
 --   option to <tt>true</tt> to show the active configuration and exclude
 --   pending changes. For more information, see <a>Configuring Access for a
 --   Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
+module Amazonka.CloudSearch.DescribeServiceAccessPolicies
 
 -- | Container for the parameters to the
 --   <tt>DescribeServiceAccessPolicies</tt> operation. Specifies the name
@@ -5096,28 +5096,28 @@ describeServiceAccessPoliciesResponse_httpStatus :: Lens' DescribeServiceAccessP
 
 -- | The access rules configured for the domain specified in the request.
 describeServiceAccessPoliciesResponse_accessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPoliciesResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPoliciesResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPoliciesResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPoliciesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPoliciesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPoliciesResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPoliciesResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPoliciesResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPoliciesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPoliciesResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DescribeServiceAccessPolicies.DescribeServiceAccessPolicies
 
 
 -- | Gets the scaling parameters configured for a domain. A domain's
 --   scaling parameters specify the desired search instance type and
 --   replication count. For more information, see <a>Configuring Scaling
 --   Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.DescribeScalingParameters
+module Amazonka.CloudSearch.DescribeScalingParameters
 
 -- | Container for the parameters to the <tt>DescribeScalingParameters</tt>
 --   operation. Specifies the name of the domain you want to describe.
@@ -5179,21 +5179,21 @@ describeScalingParametersResponse_httpStatus :: Lens' DescribeScalingParametersR
 
 -- | Undocumented member.
 describeScalingParametersResponse_scalingParameters :: Lens' DescribeScalingParametersResponse ScalingParametersStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeScalingParameters.DescribeScalingParametersResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeScalingParameters.DescribeScalingParametersResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeScalingParameters.DescribeScalingParametersResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeScalingParameters.DescribeScalingParametersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeScalingParameters.DescribeScalingParametersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeScalingParameters.DescribeScalingParametersResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeScalingParameters.DescribeScalingParametersResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeScalingParameters.DescribeScalingParametersResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeScalingParameters.DescribeScalingParametersResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeScalingParameters.DescribeScalingParametersResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DescribeScalingParameters.DescribeScalingParameters
 
 
 -- | Gets information about the index fields configured for the search
@@ -5203,7 +5203,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DescribeScalingP
 --   configuration and exclude pending changes. For more information, see
 --   <a>Getting Domain Information</a> in the <i>Amazon CloudSearch
 --   Developer Guide</i>.
-module Network.AWS.CloudSearch.DescribeIndexFields
+module Amazonka.CloudSearch.DescribeIndexFields
 
 -- | Container for the parameters to the <tt>DescribeIndexFields</tt>
 --   operation. Specifies the name of the domain you want to describe. To
@@ -5300,21 +5300,21 @@ describeIndexFieldsResponse_httpStatus :: Lens' DescribeIndexFieldsResponse Int
 
 -- | The index fields configured for the domain.
 describeIndexFieldsResponse_indexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeIndexFields.DescribeIndexFields
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeIndexFields.DescribeIndexFields
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeIndexFields.DescribeIndexFields
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeIndexFields.DescribeIndexFields
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeIndexFields.DescribeIndexFieldsResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeIndexFields.DescribeIndexFieldsResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeIndexFields.DescribeIndexFieldsResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeIndexFields.DescribeIndexFieldsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DescribeIndexFields.DescribeIndexFields
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeIndexFields.DescribeIndexFieldsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DescribeIndexFields.DescribeIndexFields
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeIndexFields.DescribeIndexFields
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DescribeIndexFields.DescribeIndexFields
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DescribeIndexFields.DescribeIndexFields
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DescribeIndexFields.DescribeIndexFields
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeIndexFields.DescribeIndexFields
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeIndexFields.DescribeIndexFields
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeIndexFields.DescribeIndexFields
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeIndexFields.DescribeIndexFields
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeIndexFields.DescribeIndexFieldsResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeIndexFields.DescribeIndexFieldsResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeIndexFields.DescribeIndexFieldsResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeIndexFields.DescribeIndexFieldsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DescribeIndexFields.DescribeIndexFields
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeIndexFields.DescribeIndexFieldsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DescribeIndexFields.DescribeIndexFields
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeIndexFields.DescribeIndexFields
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DescribeIndexFields.DescribeIndexFields
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DescribeIndexFields.DescribeIndexFields
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DescribeIndexFields.DescribeIndexFields
 
 
 -- | Gets the expressions configured for the search domain. Can be limited
@@ -5324,7 +5324,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DescribeIndexFie
 --   configuration and exclude pending changes. For more information, see
 --   <a>Configuring Expressions</a> in the <i>Amazon CloudSearch Developer
 --   Guide</i>.
-module Network.AWS.CloudSearch.DescribeExpressions
+module Amazonka.CloudSearch.DescribeExpressions
 
 -- | Container for the parameters to the <tt>DescribeDomains</tt>
 --   operation. Specifies the name of the domain you want to describe. To
@@ -5421,21 +5421,21 @@ describeExpressionsResponse_httpStatus :: Lens' DescribeExpressionsResponse Int
 
 -- | The expressions configured for the domain.
 describeExpressionsResponse_expressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeExpressions.DescribeExpressions
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeExpressions.DescribeExpressions
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeExpressions.DescribeExpressions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeExpressions.DescribeExpressions
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeExpressions.DescribeExpressionsResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeExpressions.DescribeExpressionsResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeExpressions.DescribeExpressionsResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeExpressions.DescribeExpressionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DescribeExpressions.DescribeExpressions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeExpressions.DescribeExpressionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DescribeExpressions.DescribeExpressions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeExpressions.DescribeExpressions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DescribeExpressions.DescribeExpressions
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DescribeExpressions.DescribeExpressions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DescribeExpressions.DescribeExpressions
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeExpressions.DescribeExpressions
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeExpressions.DescribeExpressions
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeExpressions.DescribeExpressions
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeExpressions.DescribeExpressions
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeExpressions.DescribeExpressionsResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeExpressions.DescribeExpressionsResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeExpressions.DescribeExpressionsResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeExpressions.DescribeExpressionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DescribeExpressions.DescribeExpressions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeExpressions.DescribeExpressionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DescribeExpressions.DescribeExpressions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeExpressions.DescribeExpressions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DescribeExpressions.DescribeExpressions
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DescribeExpressions.DescribeExpressions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DescribeExpressions.DescribeExpressions
 
 
 -- | Gets information about the search domains owned by this account. Can
@@ -5445,7 +5445,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DescribeExpressi
 --   <tt>q=matchall&amp;amp;q.parser=structured&amp;amp;size=0</tt>. For
 --   more information, see <a>Getting Information about a Search Domain</a>
 --   in the <i>Amazon CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.DescribeDomains
+module Amazonka.CloudSearch.DescribeDomains
 
 -- | Container for the parameters to the <tt>DescribeDomains</tt>
 --   operation. By default shows the status of all domains. To restrict the
@@ -5510,28 +5510,28 @@ describeDomainsResponse_httpStatus :: Lens' DescribeDomainsResponse Int
 
 -- | Undocumented member.
 describeDomainsResponse_domainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeDomains.DescribeDomains
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeDomains.DescribeDomains
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeDomains.DescribeDomains
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeDomains.DescribeDomains
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeDomains.DescribeDomainsResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeDomains.DescribeDomainsResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeDomains.DescribeDomainsResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeDomains.DescribeDomainsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DescribeDomains.DescribeDomains
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeDomains.DescribeDomainsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DescribeDomains.DescribeDomains
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeDomains.DescribeDomains
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DescribeDomains.DescribeDomains
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DescribeDomains.DescribeDomains
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DescribeDomains.DescribeDomains
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeDomains.DescribeDomains
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeDomains.DescribeDomains
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeDomains.DescribeDomains
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeDomains.DescribeDomains
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeDomains.DescribeDomainsResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeDomains.DescribeDomainsResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeDomains.DescribeDomainsResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeDomains.DescribeDomainsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DescribeDomains.DescribeDomains
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeDomains.DescribeDomainsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DescribeDomains.DescribeDomains
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeDomains.DescribeDomains
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DescribeDomains.DescribeDomains
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DescribeDomains.DescribeDomains
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DescribeDomains.DescribeDomains
 
 
 -- | Returns the domain's endpoint options, specifically whether all
 --   requests to the domain must arrive over HTTPS. For more information,
 --   see <a>Configuring Domain Endpoint Options</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.DescribeDomainEndpointOptions
+module Amazonka.CloudSearch.DescribeDomainEndpointOptions
 
 -- | Container for the parameters to the
 --   <tt>DescribeDomainEndpointOptions</tt> operation. Specify the name of
@@ -5616,21 +5616,21 @@ describeDomainEndpointOptionsResponse_domainEndpointOptions :: Lens' DescribeDom
 
 -- | The response's http status code.
 describeDomainEndpointOptionsResponse_httpStatus :: Lens' DescribeDomainEndpointOptionsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptionsResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptionsResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptionsResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptionsResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptionsResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptionsResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DescribeDomainEndpointOptions.DescribeDomainEndpointOptions
 
 
 -- | Gets the availability options configured for a domain. By default,
@@ -5639,7 +5639,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DescribeDomainEn
 --   configuration and exclude pending changes. For more information, see
 --   <a>Configuring Availability Options</a> in the <i>Amazon CloudSearch
 --   Developer Guide</i>.
-module Network.AWS.CloudSearch.DescribeAvailabilityOptions
+module Amazonka.CloudSearch.DescribeAvailabilityOptions
 
 -- | Container for the parameters to the
 --   <tt>DescribeAvailabilityOptions</tt> operation. Specifies the name of
@@ -5726,21 +5726,21 @@ describeAvailabilityOptionsResponse_availabilityOptions :: Lens' DescribeAvailab
 
 -- | The response's http status code.
 describeAvailabilityOptionsResponse_httpStatus :: Lens' DescribeAvailabilityOptionsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptionsResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptionsResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptionsResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptionsResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptionsResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptionsResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DescribeAvailabilityOptions.DescribeAvailabilityOptions
 
 
 -- | Gets the analysis schemes configured for a domain. An analysis scheme
@@ -5751,7 +5751,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DescribeAvailabi
 --   <tt>true</tt> to show the active configuration and exclude pending
 --   changes. For more information, see <a>Configuring Analysis Schemes</a>
 --   in the <i>Amazon CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.DescribeAnalysisSchemes
+module Amazonka.CloudSearch.DescribeAnalysisSchemes
 
 -- | Container for the parameters to the <tt>DescribeAnalysisSchemes</tt>
 --   operation. Specifies the name of the domain you want to describe. To
@@ -5846,26 +5846,26 @@ describeAnalysisSchemesResponse_httpStatus :: Lens' DescribeAnalysisSchemesRespo
 
 -- | The analysis scheme descriptions.
 describeAnalysisSchemesResponse_analysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemesResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemesResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemesResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
+instance GHC.Generics.Generic Amazonka.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemesResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemesResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemesResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemesResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DescribeAnalysisSchemes.DescribeAnalysisSchemes
 
 
 -- | Deletes a suggester. For more information, see <a>Getting Search
 --   Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.DeleteSuggester
+module Amazonka.CloudSearch.DeleteSuggester
 
 -- | Container for the parameters to the <tt>DeleteSuggester</tt>
 --   operation. Specifies the name of the domain you want to update and
@@ -5938,27 +5938,27 @@ deleteSuggesterResponse_httpStatus :: Lens' DeleteSuggesterResponse Int
 
 -- | The status of the suggester being deleted.
 deleteSuggesterResponse_suggester :: Lens' DeleteSuggesterResponse SuggesterStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DeleteSuggester.DeleteSuggester
-instance GHC.Show.Show Network.AWS.CloudSearch.DeleteSuggester.DeleteSuggester
-instance GHC.Read.Read Network.AWS.CloudSearch.DeleteSuggester.DeleteSuggester
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DeleteSuggester.DeleteSuggester
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DeleteSuggester.DeleteSuggesterResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DeleteSuggester.DeleteSuggesterResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DeleteSuggester.DeleteSuggesterResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DeleteSuggester.DeleteSuggesterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DeleteSuggester.DeleteSuggester
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DeleteSuggester.DeleteSuggesterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DeleteSuggester.DeleteSuggester
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DeleteSuggester.DeleteSuggester
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DeleteSuggester.DeleteSuggester
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DeleteSuggester.DeleteSuggester
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DeleteSuggester.DeleteSuggester
+instance GHC.Generics.Generic Amazonka.CloudSearch.DeleteSuggester.DeleteSuggester
+instance GHC.Show.Show Amazonka.CloudSearch.DeleteSuggester.DeleteSuggester
+instance GHC.Read.Read Amazonka.CloudSearch.DeleteSuggester.DeleteSuggester
+instance GHC.Classes.Eq Amazonka.CloudSearch.DeleteSuggester.DeleteSuggester
+instance GHC.Generics.Generic Amazonka.CloudSearch.DeleteSuggester.DeleteSuggesterResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DeleteSuggester.DeleteSuggesterResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DeleteSuggester.DeleteSuggesterResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DeleteSuggester.DeleteSuggesterResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DeleteSuggester.DeleteSuggester
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DeleteSuggester.DeleteSuggesterResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DeleteSuggester.DeleteSuggester
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DeleteSuggester.DeleteSuggester
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DeleteSuggester.DeleteSuggester
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DeleteSuggester.DeleteSuggester
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DeleteSuggester.DeleteSuggester
 
 
 -- | Removes an <tt>IndexField</tt> from the search domain. For more
 --   information, see <a>Configuring Index Fields</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.DeleteIndexField
+module Amazonka.CloudSearch.DeleteIndexField
 
 -- | Container for the parameters to the <tt>DeleteIndexField</tt>
 --   operation. Specifies the name of the domain you want to update and the
@@ -6032,27 +6032,27 @@ deleteIndexFieldResponse_httpStatus :: Lens' DeleteIndexFieldResponse Int
 
 -- | The status of the index field being deleted.
 deleteIndexFieldResponse_indexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DeleteIndexField.DeleteIndexField
-instance GHC.Show.Show Network.AWS.CloudSearch.DeleteIndexField.DeleteIndexField
-instance GHC.Read.Read Network.AWS.CloudSearch.DeleteIndexField.DeleteIndexField
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DeleteIndexField.DeleteIndexField
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DeleteIndexField.DeleteIndexFieldResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DeleteIndexField.DeleteIndexFieldResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DeleteIndexField.DeleteIndexFieldResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DeleteIndexField.DeleteIndexFieldResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DeleteIndexField.DeleteIndexField
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DeleteIndexField.DeleteIndexFieldResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DeleteIndexField.DeleteIndexField
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DeleteIndexField.DeleteIndexField
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DeleteIndexField.DeleteIndexField
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DeleteIndexField.DeleteIndexField
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DeleteIndexField.DeleteIndexField
+instance GHC.Generics.Generic Amazonka.CloudSearch.DeleteIndexField.DeleteIndexField
+instance GHC.Show.Show Amazonka.CloudSearch.DeleteIndexField.DeleteIndexField
+instance GHC.Read.Read Amazonka.CloudSearch.DeleteIndexField.DeleteIndexField
+instance GHC.Classes.Eq Amazonka.CloudSearch.DeleteIndexField.DeleteIndexField
+instance GHC.Generics.Generic Amazonka.CloudSearch.DeleteIndexField.DeleteIndexFieldResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DeleteIndexField.DeleteIndexFieldResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DeleteIndexField.DeleteIndexFieldResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DeleteIndexField.DeleteIndexFieldResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DeleteIndexField.DeleteIndexField
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DeleteIndexField.DeleteIndexFieldResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DeleteIndexField.DeleteIndexField
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DeleteIndexField.DeleteIndexField
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DeleteIndexField.DeleteIndexField
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DeleteIndexField.DeleteIndexField
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DeleteIndexField.DeleteIndexField
 
 
 -- | Removes an <tt>Expression</tt> from the search domain. For more
 --   information, see <a>Configuring Expressions</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.DeleteExpression
+module Amazonka.CloudSearch.DeleteExpression
 
 -- | Container for the parameters to the <tt>DeleteExpression</tt>
 --   operation. Specifies the name of the domain you want to update and the
@@ -6125,28 +6125,28 @@ deleteExpressionResponse_httpStatus :: Lens' DeleteExpressionResponse Int
 
 -- | The status of the expression being deleted.
 deleteExpressionResponse_expression :: Lens' DeleteExpressionResponse ExpressionStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DeleteExpression.DeleteExpression
-instance GHC.Show.Show Network.AWS.CloudSearch.DeleteExpression.DeleteExpression
-instance GHC.Read.Read Network.AWS.CloudSearch.DeleteExpression.DeleteExpression
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DeleteExpression.DeleteExpression
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DeleteExpression.DeleteExpressionResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DeleteExpression.DeleteExpressionResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DeleteExpression.DeleteExpressionResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DeleteExpression.DeleteExpressionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DeleteExpression.DeleteExpression
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DeleteExpression.DeleteExpressionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DeleteExpression.DeleteExpression
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DeleteExpression.DeleteExpression
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DeleteExpression.DeleteExpression
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DeleteExpression.DeleteExpression
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DeleteExpression.DeleteExpression
+instance GHC.Generics.Generic Amazonka.CloudSearch.DeleteExpression.DeleteExpression
+instance GHC.Show.Show Amazonka.CloudSearch.DeleteExpression.DeleteExpression
+instance GHC.Read.Read Amazonka.CloudSearch.DeleteExpression.DeleteExpression
+instance GHC.Classes.Eq Amazonka.CloudSearch.DeleteExpression.DeleteExpression
+instance GHC.Generics.Generic Amazonka.CloudSearch.DeleteExpression.DeleteExpressionResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DeleteExpression.DeleteExpressionResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DeleteExpression.DeleteExpressionResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DeleteExpression.DeleteExpressionResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DeleteExpression.DeleteExpression
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DeleteExpression.DeleteExpressionResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DeleteExpression.DeleteExpression
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DeleteExpression.DeleteExpression
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DeleteExpression.DeleteExpression
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DeleteExpression.DeleteExpression
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DeleteExpression.DeleteExpression
 
 
 -- | Permanently deletes a search domain and all of its data. Once a domain
 --   has been deleted, it cannot be recovered. For more information, see
 --   <a>Deleting a Search Domain</a> in the <i>Amazon CloudSearch Developer
 --   Guide</i>.
-module Network.AWS.CloudSearch.DeleteDomain
+module Amazonka.CloudSearch.DeleteDomain
 
 -- | Container for the parameters to the <tt>DeleteDomain</tt> operation.
 --   Specifies the name of the domain you want to delete.
@@ -6208,26 +6208,26 @@ deleteDomainResponse_domainStatus :: Lens' DeleteDomainResponse (Maybe DomainSta
 
 -- | The response's http status code.
 deleteDomainResponse_httpStatus :: Lens' DeleteDomainResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DeleteDomain.DeleteDomain
-instance GHC.Show.Show Network.AWS.CloudSearch.DeleteDomain.DeleteDomain
-instance GHC.Read.Read Network.AWS.CloudSearch.DeleteDomain.DeleteDomain
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DeleteDomain.DeleteDomain
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DeleteDomain.DeleteDomainResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DeleteDomain.DeleteDomainResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DeleteDomain.DeleteDomainResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DeleteDomain.DeleteDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DeleteDomain.DeleteDomain
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DeleteDomain.DeleteDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DeleteDomain.DeleteDomain
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DeleteDomain.DeleteDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DeleteDomain.DeleteDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DeleteDomain.DeleteDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DeleteDomain.DeleteDomain
+instance GHC.Generics.Generic Amazonka.CloudSearch.DeleteDomain.DeleteDomain
+instance GHC.Show.Show Amazonka.CloudSearch.DeleteDomain.DeleteDomain
+instance GHC.Read.Read Amazonka.CloudSearch.DeleteDomain.DeleteDomain
+instance GHC.Classes.Eq Amazonka.CloudSearch.DeleteDomain.DeleteDomain
+instance GHC.Generics.Generic Amazonka.CloudSearch.DeleteDomain.DeleteDomainResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DeleteDomain.DeleteDomainResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DeleteDomain.DeleteDomainResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DeleteDomain.DeleteDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DeleteDomain.DeleteDomain
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DeleteDomain.DeleteDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DeleteDomain.DeleteDomain
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DeleteDomain.DeleteDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DeleteDomain.DeleteDomain
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DeleteDomain.DeleteDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DeleteDomain.DeleteDomain
 
 
 -- | Deletes an analysis scheme. For more information, see <a>Configuring
 --   Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.DeleteAnalysisScheme
+module Amazonka.CloudSearch.DeleteAnalysisScheme
 
 -- | Container for the parameters to the <tt>DeleteAnalysisScheme</tt>
 --   operation. Specifies the name of the domain you want to update and the
@@ -6300,21 +6300,21 @@ deleteAnalysisSchemeResponse_httpStatus :: Lens' DeleteAnalysisSchemeResponse In
 
 -- | The status of the analysis scheme being deleted.
 deleteAnalysisSchemeResponse_analysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
-instance GHC.Show.Show Network.AWS.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
-instance GHC.Read.Read Network.AWS.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisSchemeResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisSchemeResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisSchemeResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisSchemeResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisSchemeResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
+instance GHC.Generics.Generic Amazonka.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
+instance GHC.Show.Show Amazonka.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
+instance GHC.Read.Read Amazonka.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
+instance GHC.Classes.Eq Amazonka.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
+instance GHC.Generics.Generic Amazonka.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisSchemeResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisSchemeResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisSchemeResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisSchemeResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisSchemeResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DeleteAnalysisScheme.DeleteAnalysisScheme
 
 
 -- | Configures a suggester for a domain. A suggester enables you to
@@ -6323,7 +6323,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DeleteAnalysisSc
 --   field you want to search for possible matches and a unique name for
 --   the suggester. For more information, see <a>Getting Search
 --   Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.DefineSuggester
+module Amazonka.CloudSearch.DefineSuggester
 
 -- | Container for the parameters to the <tt>DefineSuggester</tt>
 --   operation. Specifies the name of the domain you want to update and the
@@ -6390,21 +6390,21 @@ defineSuggesterResponse_httpStatus :: Lens' DefineSuggesterResponse Int
 
 -- | Undocumented member.
 defineSuggesterResponse_suggester :: Lens' DefineSuggesterResponse SuggesterStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DefineSuggester.DefineSuggester
-instance GHC.Show.Show Network.AWS.CloudSearch.DefineSuggester.DefineSuggester
-instance GHC.Read.Read Network.AWS.CloudSearch.DefineSuggester.DefineSuggester
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DefineSuggester.DefineSuggester
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DefineSuggester.DefineSuggesterResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DefineSuggester.DefineSuggesterResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DefineSuggester.DefineSuggesterResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DefineSuggester.DefineSuggesterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DefineSuggester.DefineSuggester
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DefineSuggester.DefineSuggesterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DefineSuggester.DefineSuggester
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DefineSuggester.DefineSuggester
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DefineSuggester.DefineSuggester
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DefineSuggester.DefineSuggester
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DefineSuggester.DefineSuggester
+instance GHC.Generics.Generic Amazonka.CloudSearch.DefineSuggester.DefineSuggester
+instance GHC.Show.Show Amazonka.CloudSearch.DefineSuggester.DefineSuggester
+instance GHC.Read.Read Amazonka.CloudSearch.DefineSuggester.DefineSuggester
+instance GHC.Classes.Eq Amazonka.CloudSearch.DefineSuggester.DefineSuggester
+instance GHC.Generics.Generic Amazonka.CloudSearch.DefineSuggester.DefineSuggesterResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DefineSuggester.DefineSuggesterResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DefineSuggester.DefineSuggesterResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DefineSuggester.DefineSuggesterResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DefineSuggester.DefineSuggester
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DefineSuggester.DefineSuggesterResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DefineSuggester.DefineSuggester
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DefineSuggester.DefineSuggester
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DefineSuggester.DefineSuggester
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DefineSuggester.DefineSuggester
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DefineSuggester.DefineSuggester
 
 
 -- | Configures an <tt>IndexField</tt> for the search domain. Used to
@@ -6416,7 +6416,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DefineSuggester.
 --   exists, the new configuration replaces the old one. For more
 --   information, see <a>Configuring Index Fields</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.DefineIndexField
+module Amazonka.CloudSearch.DefineIndexField
 
 -- | Container for the parameters to the <tt>DefineIndexField</tt>
 --   operation. Specifies the name of the domain you want to update and the
@@ -6486,21 +6486,21 @@ defineIndexFieldResponse_httpStatus :: Lens' DefineIndexFieldResponse Int
 
 -- | Undocumented member.
 defineIndexFieldResponse_indexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DefineIndexField.DefineIndexField
-instance GHC.Show.Show Network.AWS.CloudSearch.DefineIndexField.DefineIndexField
-instance GHC.Read.Read Network.AWS.CloudSearch.DefineIndexField.DefineIndexField
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DefineIndexField.DefineIndexField
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DefineIndexField.DefineIndexFieldResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DefineIndexField.DefineIndexFieldResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DefineIndexField.DefineIndexFieldResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DefineIndexField.DefineIndexFieldResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DefineIndexField.DefineIndexField
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DefineIndexField.DefineIndexFieldResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DefineIndexField.DefineIndexField
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DefineIndexField.DefineIndexField
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DefineIndexField.DefineIndexField
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DefineIndexField.DefineIndexField
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DefineIndexField.DefineIndexField
+instance GHC.Generics.Generic Amazonka.CloudSearch.DefineIndexField.DefineIndexField
+instance GHC.Show.Show Amazonka.CloudSearch.DefineIndexField.DefineIndexField
+instance GHC.Read.Read Amazonka.CloudSearch.DefineIndexField.DefineIndexField
+instance GHC.Classes.Eq Amazonka.CloudSearch.DefineIndexField.DefineIndexField
+instance GHC.Generics.Generic Amazonka.CloudSearch.DefineIndexField.DefineIndexFieldResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DefineIndexField.DefineIndexFieldResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DefineIndexField.DefineIndexFieldResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DefineIndexField.DefineIndexFieldResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DefineIndexField.DefineIndexField
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DefineIndexField.DefineIndexFieldResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DefineIndexField.DefineIndexField
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DefineIndexField.DefineIndexField
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DefineIndexField.DefineIndexField
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DefineIndexField.DefineIndexField
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DefineIndexField.DefineIndexField
 
 
 -- | Configures an <tt>Expression</tt> for the search domain. Used to
@@ -6508,7 +6508,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DefineIndexField
 --   exists, the new configuration replaces the old one. For more
 --   information, see <a>Configuring Expressions</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.DefineExpression
+module Amazonka.CloudSearch.DefineExpression
 
 -- | Container for the parameters to the <tt>DefineExpression</tt>
 --   operation. Specifies the name of the domain you want to update and the
@@ -6575,28 +6575,28 @@ defineExpressionResponse_httpStatus :: Lens' DefineExpressionResponse Int
 
 -- | Undocumented member.
 defineExpressionResponse_expression :: Lens' DefineExpressionResponse ExpressionStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DefineExpression.DefineExpression
-instance GHC.Show.Show Network.AWS.CloudSearch.DefineExpression.DefineExpression
-instance GHC.Read.Read Network.AWS.CloudSearch.DefineExpression.DefineExpression
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DefineExpression.DefineExpression
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DefineExpression.DefineExpressionResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DefineExpression.DefineExpressionResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DefineExpression.DefineExpressionResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DefineExpression.DefineExpressionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DefineExpression.DefineExpression
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DefineExpression.DefineExpressionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DefineExpression.DefineExpression
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DefineExpression.DefineExpression
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DefineExpression.DefineExpression
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DefineExpression.DefineExpression
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DefineExpression.DefineExpression
+instance GHC.Generics.Generic Amazonka.CloudSearch.DefineExpression.DefineExpression
+instance GHC.Show.Show Amazonka.CloudSearch.DefineExpression.DefineExpression
+instance GHC.Read.Read Amazonka.CloudSearch.DefineExpression.DefineExpression
+instance GHC.Classes.Eq Amazonka.CloudSearch.DefineExpression.DefineExpression
+instance GHC.Generics.Generic Amazonka.CloudSearch.DefineExpression.DefineExpressionResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DefineExpression.DefineExpressionResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DefineExpression.DefineExpressionResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DefineExpression.DefineExpressionResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DefineExpression.DefineExpression
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DefineExpression.DefineExpressionResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DefineExpression.DefineExpression
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DefineExpression.DefineExpression
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DefineExpression.DefineExpression
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DefineExpression.DefineExpression
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DefineExpression.DefineExpression
 
 
 -- | Configures an analysis scheme that can be applied to a <tt>text</tt>
 --   or <tt>text-array</tt> field to define language-specific text
 --   processing options. For more information, see <a>Configuring Analysis
 --   Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.DefineAnalysisScheme
+module Amazonka.CloudSearch.DefineAnalysisScheme
 
 -- | Container for the parameters to the <tt>DefineAnalysisScheme</tt>
 --   operation. Specifies the name of the domain you want to update and the
@@ -6664,26 +6664,26 @@ defineAnalysisSchemeResponse_httpStatus :: Lens' DefineAnalysisSchemeResponse In
 
 -- | Undocumented member.
 defineAnalysisSchemeResponse_analysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
-instance GHC.Show.Show Network.AWS.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
-instance GHC.Read.Read Network.AWS.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
-instance GHC.Generics.Generic Network.AWS.CloudSearch.DefineAnalysisScheme.DefineAnalysisSchemeResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.DefineAnalysisScheme.DefineAnalysisSchemeResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.DefineAnalysisScheme.DefineAnalysisSchemeResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.DefineAnalysisScheme.DefineAnalysisSchemeResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DefineAnalysisScheme.DefineAnalysisSchemeResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
+instance GHC.Generics.Generic Amazonka.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
+instance GHC.Show.Show Amazonka.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
+instance GHC.Read.Read Amazonka.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
+instance GHC.Classes.Eq Amazonka.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
+instance GHC.Generics.Generic Amazonka.CloudSearch.DefineAnalysisScheme.DefineAnalysisSchemeResponse
+instance GHC.Show.Show Amazonka.CloudSearch.DefineAnalysisScheme.DefineAnalysisSchemeResponse
+instance GHC.Read.Read Amazonka.CloudSearch.DefineAnalysisScheme.DefineAnalysisSchemeResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.DefineAnalysisScheme.DefineAnalysisSchemeResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DefineAnalysisScheme.DefineAnalysisSchemeResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.DefineAnalysisScheme.DefineAnalysisScheme
 
 
 -- | Creates a new search domain. For more information, see <a>Creating a
 --   Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.CreateDomain
+module Amazonka.CloudSearch.CreateDomain
 
 -- | Container for the parameters to the <tt>CreateDomain</tt> operation.
 --   Specifies a name for the new search domain.
@@ -6753,27 +6753,27 @@ createDomainResponse_domainStatus :: Lens' CreateDomainResponse (Maybe DomainSta
 
 -- | The response's http status code.
 createDomainResponse_httpStatus :: Lens' CreateDomainResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudSearch.CreateDomain.CreateDomain
-instance GHC.Show.Show Network.AWS.CloudSearch.CreateDomain.CreateDomain
-instance GHC.Read.Read Network.AWS.CloudSearch.CreateDomain.CreateDomain
-instance GHC.Classes.Eq Network.AWS.CloudSearch.CreateDomain.CreateDomain
-instance GHC.Generics.Generic Network.AWS.CloudSearch.CreateDomain.CreateDomainResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.CreateDomain.CreateDomainResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.CreateDomain.CreateDomainResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.CreateDomain.CreateDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.CreateDomain.CreateDomain
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.CreateDomain.CreateDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.CreateDomain.CreateDomain
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.CreateDomain.CreateDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.CreateDomain.CreateDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.CreateDomain.CreateDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.CreateDomain.CreateDomain
+instance GHC.Generics.Generic Amazonka.CloudSearch.CreateDomain.CreateDomain
+instance GHC.Show.Show Amazonka.CloudSearch.CreateDomain.CreateDomain
+instance GHC.Read.Read Amazonka.CloudSearch.CreateDomain.CreateDomain
+instance GHC.Classes.Eq Amazonka.CloudSearch.CreateDomain.CreateDomain
+instance GHC.Generics.Generic Amazonka.CloudSearch.CreateDomain.CreateDomainResponse
+instance GHC.Show.Show Amazonka.CloudSearch.CreateDomain.CreateDomainResponse
+instance GHC.Read.Read Amazonka.CloudSearch.CreateDomain.CreateDomainResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.CreateDomain.CreateDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.CreateDomain.CreateDomain
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.CreateDomain.CreateDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.CreateDomain.CreateDomain
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.CreateDomain.CreateDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.CreateDomain.CreateDomain
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.CreateDomain.CreateDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.CreateDomain.CreateDomain
 
 
 -- | Indexes the search suggestions. For more information, see
 --   <a>Configuring Suggesters</a> in the <i>Amazon CloudSearch Developer
 --   Guide</i>.
-module Network.AWS.CloudSearch.BuildSuggesters
+module Amazonka.CloudSearch.BuildSuggesters
 
 -- | Container for the parameters to the <tt>BuildSuggester</tt> operation.
 --   Specifies the name of the domain you want to update.
@@ -6832,21 +6832,21 @@ buildSuggestersResponse_fieldNames :: Lens' BuildSuggestersResponse (Maybe [Text
 
 -- | The response's http status code.
 buildSuggestersResponse_httpStatus :: Lens' BuildSuggestersResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudSearch.BuildSuggesters.BuildSuggesters
-instance GHC.Show.Show Network.AWS.CloudSearch.BuildSuggesters.BuildSuggesters
-instance GHC.Read.Read Network.AWS.CloudSearch.BuildSuggesters.BuildSuggesters
-instance GHC.Classes.Eq Network.AWS.CloudSearch.BuildSuggesters.BuildSuggesters
-instance GHC.Generics.Generic Network.AWS.CloudSearch.BuildSuggesters.BuildSuggestersResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.BuildSuggesters.BuildSuggestersResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.BuildSuggesters.BuildSuggestersResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.BuildSuggesters.BuildSuggestersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.BuildSuggesters.BuildSuggesters
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.BuildSuggesters.BuildSuggestersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.BuildSuggesters.BuildSuggesters
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.BuildSuggesters.BuildSuggesters
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.BuildSuggesters.BuildSuggesters
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.BuildSuggesters.BuildSuggesters
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.BuildSuggesters.BuildSuggesters
+instance GHC.Generics.Generic Amazonka.CloudSearch.BuildSuggesters.BuildSuggesters
+instance GHC.Show.Show Amazonka.CloudSearch.BuildSuggesters.BuildSuggesters
+instance GHC.Read.Read Amazonka.CloudSearch.BuildSuggesters.BuildSuggesters
+instance GHC.Classes.Eq Amazonka.CloudSearch.BuildSuggesters.BuildSuggesters
+instance GHC.Generics.Generic Amazonka.CloudSearch.BuildSuggesters.BuildSuggestersResponse
+instance GHC.Show.Show Amazonka.CloudSearch.BuildSuggesters.BuildSuggestersResponse
+instance GHC.Read.Read Amazonka.CloudSearch.BuildSuggesters.BuildSuggestersResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.BuildSuggesters.BuildSuggestersResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.BuildSuggesters.BuildSuggesters
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.BuildSuggesters.BuildSuggestersResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.BuildSuggesters.BuildSuggesters
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.BuildSuggesters.BuildSuggesters
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.BuildSuggesters.BuildSuggesters
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.BuildSuggesters.BuildSuggesters
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.BuildSuggesters.BuildSuggesters
 
 
 -- | Configures the availability options for a domain. Enabling the
@@ -6856,7 +6856,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.BuildSuggesters.
 --   take about half an hour to become active. For more information, see
 --   <a>Configuring Availability Options</a> in the <i>Amazon CloudSearch
 --   Developer Guide</i>.
-module Network.AWS.CloudSearch.UpdateAvailabilityOptions
+module Amazonka.CloudSearch.UpdateAvailabilityOptions
 
 -- | Container for the parameters to the <tt>UpdateAvailabilityOptions</tt>
 --   operation. Specifies the name of the domain you want to update and the
@@ -6942,28 +6942,28 @@ updateAvailabilityOptionsResponse_availabilityOptions :: Lens' UpdateAvailabilit
 
 -- | The response's http status code.
 updateAvailabilityOptionsResponse_httpStatus :: Lens' UpdateAvailabilityOptionsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
-instance GHC.Generics.Generic Network.AWS.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptionsResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptionsResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptionsResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
+instance GHC.Show.Show Amazonka.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
+instance GHC.Read.Read Amazonka.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptionsResponse
+instance GHC.Show.Show Amazonka.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptionsResponse
+instance GHC.Read.Read Amazonka.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptionsResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.UpdateAvailabilityOptions.UpdateAvailabilityOptions
 
 
 -- | Updates the domain's endpoint options, specifically whether all
 --   requests to the domain must arrive over HTTPS. For more information,
 --   see <a>Configuring Domain Endpoint Options</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.UpdateDomainEndpointOptions
+module Amazonka.CloudSearch.UpdateDomainEndpointOptions
 
 -- | Container for the parameters to the
 --   <tt>UpdateDomainEndpointOptions</tt> operation. Specifies the name of
@@ -7049,21 +7049,21 @@ updateDomainEndpointOptionsResponse_domainEndpointOptions :: Lens' UpdateDomainE
 
 -- | The response's http status code.
 updateDomainEndpointOptionsResponse_httpStatus :: Lens' UpdateDomainEndpointOptionsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
-instance GHC.Show.Show Network.AWS.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
-instance GHC.Read.Read Network.AWS.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
-instance GHC.Classes.Eq Network.AWS.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
-instance GHC.Generics.Generic Network.AWS.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptionsResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptionsResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptionsResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
+instance GHC.Show.Show Amazonka.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
+instance GHC.Read.Read Amazonka.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
+instance GHC.Classes.Eq Amazonka.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
+instance GHC.Generics.Generic Amazonka.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptionsResponse
+instance GHC.Show.Show Amazonka.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptionsResponse
+instance GHC.Read.Read Amazonka.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptionsResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.UpdateDomainEndpointOptions.UpdateDomainEndpointOptions
 
 
 -- | Configures scaling parameters for a domain. A domain's scaling
@@ -7074,7 +7074,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.UpdateDomainEndp
 --   enabled, these values control the resources used per Availability
 --   Zone. For more information, see <a>Configuring Scaling Options</a> in
 --   the <i>Amazon CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearch.UpdateScalingParameters
+module Amazonka.CloudSearch.UpdateScalingParameters
 
 -- | Container for the parameters to the <tt>UpdateScalingParameters</tt>
 --   operation. Specifies the name of the domain you want to update and the
@@ -7144,27 +7144,27 @@ updateScalingParametersResponse_httpStatus :: Lens' UpdateScalingParametersRespo
 
 -- | Undocumented member.
 updateScalingParametersResponse_scalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
-instance GHC.Show.Show Network.AWS.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
-instance GHC.Read.Read Network.AWS.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
-instance GHC.Classes.Eq Network.AWS.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
-instance GHC.Generics.Generic Network.AWS.CloudSearch.UpdateScalingParameters.UpdateScalingParametersResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.UpdateScalingParameters.UpdateScalingParametersResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.UpdateScalingParameters.UpdateScalingParametersResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.UpdateScalingParameters.UpdateScalingParametersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.UpdateScalingParameters.UpdateScalingParametersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
+instance GHC.Generics.Generic Amazonka.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
+instance GHC.Show.Show Amazonka.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
+instance GHC.Read.Read Amazonka.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
+instance GHC.Classes.Eq Amazonka.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
+instance GHC.Generics.Generic Amazonka.CloudSearch.UpdateScalingParameters.UpdateScalingParametersResponse
+instance GHC.Show.Show Amazonka.CloudSearch.UpdateScalingParameters.UpdateScalingParametersResponse
+instance GHC.Read.Read Amazonka.CloudSearch.UpdateScalingParameters.UpdateScalingParametersResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.UpdateScalingParameters.UpdateScalingParametersResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.UpdateScalingParameters.UpdateScalingParametersResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.UpdateScalingParameters.UpdateScalingParameters
 
 
 -- | Configures the access rules that control access to the domain's
 --   document and search endpoints. For more information, see
 --   <a>Configuring Access for an Amazon CloudSearch Domain</a>.
-module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
+module Amazonka.CloudSearch.UpdateServiceAccessPolicies
 
 -- | Container for the parameters to the
 --   <tt>UpdateServiceAccessPolicies</tt> operation. Specifies the name of
@@ -7241,24 +7241,24 @@ updateServiceAccessPoliciesResponse_httpStatus :: Lens' UpdateServiceAccessPolic
 
 -- | The access rules configured for the domain.
 updateServiceAccessPoliciesResponse_accessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
-instance GHC.Generics.Generic Network.AWS.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
-instance GHC.Show.Show Network.AWS.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
-instance GHC.Read.Read Network.AWS.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
-instance GHC.Classes.Eq Network.AWS.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
-instance GHC.Generics.Generic Network.AWS.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPoliciesResponse
-instance GHC.Show.Show Network.AWS.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPoliciesResponse
-instance GHC.Read.Read Network.AWS.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPoliciesResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPoliciesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPoliciesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
-instance Control.DeepSeq.NFData Network.AWS.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
+instance GHC.Generics.Generic Amazonka.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
+instance GHC.Show.Show Amazonka.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
+instance GHC.Read.Read Amazonka.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
+instance GHC.Classes.Eq Amazonka.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
+instance GHC.Generics.Generic Amazonka.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPoliciesResponse
+instance GHC.Show.Show Amazonka.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPoliciesResponse
+instance GHC.Read.Read Amazonka.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPoliciesResponse
+instance GHC.Classes.Eq Amazonka.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPoliciesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPoliciesResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
+instance Control.DeepSeq.NFData Amazonka.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearch.UpdateServiceAccessPolicies.UpdateServiceAccessPolicies
 
 
-module Network.AWS.CloudSearch.Lens
+module Amazonka.CloudSearch.Lens
 
 -- | Whether to display the deployed configuration (<tt>true</tt>) or
 --   include any pending changes (<tt>false</tt>). Defaults to
@@ -8088,7 +8088,7 @@ textOptions_sortEnabled :: Lens' TextOptions (Maybe Bool)
 textOptions_defaultValue :: Lens' TextOptions (Maybe Text)
 
 
-module Network.AWS.CloudSearch.Waiters
+module Amazonka.CloudSearch.Waiters
 
 
 -- | Derived from API version <tt>2013-01-01</tt> of the AWS service
@@ -8106,7 +8106,7 @@ module Network.AWS.CloudSearch.Waiters
 --   cloudsearch.<i>region</i>.amazonaws.com. For example,
 --   cloudsearch.us-east-1.amazonaws.com. For a current list of supported
 --   regions and endpoints, see <a>Regions and Endpoints</a>.
-module Network.AWS.CloudSearch
+module Amazonka.CloudSearch
 
 -- | API version <tt>2013-01-01</tt> of the Amazon CloudSearch SDK
 --   configuration.

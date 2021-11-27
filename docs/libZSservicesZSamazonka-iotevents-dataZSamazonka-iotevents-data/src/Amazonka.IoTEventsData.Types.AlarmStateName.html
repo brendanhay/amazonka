@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTEventsData.Types.AlarmStateName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTEventsData.Types.AlarmStateName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName"><span class="hs-identifier">AlarmStateName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_ACKNOWLEDGED"><span class="hs-identifier">AlarmStateName_ACKNOWLEDGED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_ACTIVE"><span class="hs-identifier">AlarmStateName_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_DISABLED"><span class="hs-identifier">AlarmStateName_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_LATCHED"><span class="hs-identifier">AlarmStateName_LATCHED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_NORMAL"><span class="hs-identifier">AlarmStateName_NORMAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_SNOOZE_DISABLED"><span class="hs-identifier">AlarmStateName_SNOOZE_DISABLED</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679180443"><span id="local-6989586621679180444"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AlarmStateName"><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName"><span class="hs-identifier hs-var">AlarmStateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlarmStateName%27"><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName%27"><span class="hs-identifier hs-var">AlarmStateName'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAlarmStateName"><span class="annot"><span class="annottext">AlarmStateName -&gt; Text
+</span><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#fromAlarmStateName"><span class="hs-identifier hs-var hs-var">fromAlarmStateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679180435"><span id="local-6989586621679180437"><span id="local-6989586621679180439"><span class="annot"><span class="annottext">Int -&gt; AlarmStateName -&gt; ShowS
+[AlarmStateName] -&gt; ShowS
+AlarmStateName -&gt; String
+(Int -&gt; AlarmStateName -&gt; ShowS)
+-&gt; (AlarmStateName -&gt; String)
+-&gt; ([AlarmStateName] -&gt; ShowS)
+-&gt; Show AlarmStateName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AlarmStateName] -&gt; ShowS
+$cshowList :: [AlarmStateName] -&gt; ShowS
+show :: AlarmStateName -&gt; String
+$cshow :: AlarmStateName -&gt; String
+showsPrec :: Int -&gt; AlarmStateName -&gt; ShowS
+$cshowsPrec :: Int -&gt; AlarmStateName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679180426"><span id="local-6989586621679180428"><span id="local-6989586621679180430"><span id="local-6989586621679180432"><span class="annot"><span class="annottext">ReadPrec [AlarmStateName]
+ReadPrec AlarmStateName
+Int -&gt; ReadS AlarmStateName
+ReadS [AlarmStateName]
+(Int -&gt; ReadS AlarmStateName)
+-&gt; ReadS [AlarmStateName]
+-&gt; ReadPrec AlarmStateName
+-&gt; ReadPrec [AlarmStateName]
+-&gt; Read AlarmStateName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AlarmStateName]
+$creadListPrec :: ReadPrec [AlarmStateName]
+readPrec :: ReadPrec AlarmStateName
+$creadPrec :: ReadPrec AlarmStateName
+readList :: ReadS [AlarmStateName]
+$creadList :: ReadS [AlarmStateName]
+readsPrec :: Int -&gt; ReadS AlarmStateName
+$creadsPrec :: Int -&gt; ReadS AlarmStateName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679180421"><span id="local-6989586621679180423"><span class="annot"><span class="annottext">AlarmStateName -&gt; AlarmStateName -&gt; Bool
+(AlarmStateName -&gt; AlarmStateName -&gt; Bool)
+-&gt; (AlarmStateName -&gt; AlarmStateName -&gt; Bool) -&gt; Eq AlarmStateName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AlarmStateName -&gt; AlarmStateName -&gt; Bool
+$c/= :: AlarmStateName -&gt; AlarmStateName -&gt; Bool
+== :: AlarmStateName -&gt; AlarmStateName -&gt; Bool
+$c== :: AlarmStateName -&gt; AlarmStateName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679180405"><span id="local-6989586621679180407"><span id="local-6989586621679180409"><span id="local-6989586621679180411"><span id="local-6989586621679180413"><span id="local-6989586621679180415"><span id="local-6989586621679180417"><span class="annot"><span class="annottext">Eq AlarmStateName
+Eq AlarmStateName
+-&gt; (AlarmStateName -&gt; AlarmStateName -&gt; Ordering)
+-&gt; (AlarmStateName -&gt; AlarmStateName -&gt; Bool)
+-&gt; (AlarmStateName -&gt; AlarmStateName -&gt; Bool)
+-&gt; (AlarmStateName -&gt; AlarmStateName -&gt; Bool)
+-&gt; (AlarmStateName -&gt; AlarmStateName -&gt; Bool)
+-&gt; (AlarmStateName -&gt; AlarmStateName -&gt; AlarmStateName)
+-&gt; (AlarmStateName -&gt; AlarmStateName -&gt; AlarmStateName)
+-&gt; Ord AlarmStateName
+AlarmStateName -&gt; AlarmStateName -&gt; Bool
+AlarmStateName -&gt; AlarmStateName -&gt; Ordering
+AlarmStateName -&gt; AlarmStateName -&gt; AlarmStateName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AlarmStateName -&gt; AlarmStateName -&gt; AlarmStateName
+$cmin :: AlarmStateName -&gt; AlarmStateName -&gt; AlarmStateName
+max :: AlarmStateName -&gt; AlarmStateName -&gt; AlarmStateName
+$cmax :: AlarmStateName -&gt; AlarmStateName -&gt; AlarmStateName
+&gt;= :: AlarmStateName -&gt; AlarmStateName -&gt; Bool
+$c&gt;= :: AlarmStateName -&gt; AlarmStateName -&gt; Bool
+&gt; :: AlarmStateName -&gt; AlarmStateName -&gt; Bool
+$c&gt; :: AlarmStateName -&gt; AlarmStateName -&gt; Bool
+&lt;= :: AlarmStateName -&gt; AlarmStateName -&gt; Bool
+$c&lt;= :: AlarmStateName -&gt; AlarmStateName -&gt; Bool
+&lt; :: AlarmStateName -&gt; AlarmStateName -&gt; Bool
+$c&lt; :: AlarmStateName -&gt; AlarmStateName -&gt; Bool
+compare :: AlarmStateName -&gt; AlarmStateName -&gt; Ordering
+$ccompare :: AlarmStateName -&gt; AlarmStateName -&gt; Ordering
+$cp1Ord :: Eq AlarmStateName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AlarmStateName -&gt; Rep AlarmStateName x)
+-&gt; (forall x. Rep AlarmStateName x -&gt; AlarmStateName)
+-&gt; Generic AlarmStateName
+forall x. Rep AlarmStateName x -&gt; AlarmStateName
+forall x. AlarmStateName -&gt; Rep AlarmStateName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AlarmStateName x -&gt; AlarmStateName
+$cfrom :: forall x. AlarmStateName -&gt; Rep AlarmStateName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679180397"><span id="local-6989586621679180399"><span class="annot"><span class="annottext">Int -&gt; AlarmStateName -&gt; Int
+AlarmStateName -&gt; Int
+(Int -&gt; AlarmStateName -&gt; Int)
+-&gt; (AlarmStateName -&gt; Int) -&gt; Hashable AlarmStateName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AlarmStateName -&gt; Int
+$chash :: AlarmStateName -&gt; Int
+hashWithSalt :: Int -&gt; AlarmStateName -&gt; Int
+$chashWithSalt :: Int -&gt; AlarmStateName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679180394"><span class="annot"><span class="annottext">AlarmStateName -&gt; ()
+(AlarmStateName -&gt; ()) -&gt; NFData AlarmStateName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AlarmStateName -&gt; ()
+$crnf :: AlarmStateName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679180391"><span class="annot"><span class="annottext">Text -&gt; Either String AlarmStateName
+(Text -&gt; Either String AlarmStateName) -&gt; FromText AlarmStateName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AlarmStateName
+$cfromText :: Text -&gt; Either String AlarmStateName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679180388"><span class="annot"><span class="annottext">AlarmStateName -&gt; Text
+(AlarmStateName -&gt; Text) -&gt; ToText AlarmStateName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AlarmStateName -&gt; Text
+$ctoText :: AlarmStateName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679180385"><span class="annot"><span class="annottext">AlarmStateName -&gt; ByteString
+(AlarmStateName -&gt; ByteString) -&gt; ToByteString AlarmStateName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AlarmStateName -&gt; ByteString
+$ctoBS :: AlarmStateName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679180382"><span class="annot"><span class="annottext">AlarmStateName -&gt; ByteStringBuilder
+(AlarmStateName -&gt; ByteStringBuilder) -&gt; ToLog AlarmStateName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AlarmStateName -&gt; ByteStringBuilder
+$cbuild :: AlarmStateName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679180379"><span class="annot"><span class="annottext">HeaderName -&gt; AlarmStateName -&gt; [Header]
+(HeaderName -&gt; AlarmStateName -&gt; [Header])
+-&gt; ToHeader AlarmStateName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AlarmStateName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AlarmStateName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679180376"><span class="annot"><span class="annottext">AlarmStateName -&gt; QueryString
+(AlarmStateName -&gt; QueryString) -&gt; ToQuery AlarmStateName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AlarmStateName -&gt; QueryString
+$ctoQuery :: AlarmStateName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679180371"><span id="local-6989586621679180373"><span class="annot"><span class="annottext">Value -&gt; Parser [AlarmStateName]
+Value -&gt; Parser AlarmStateName
+(Value -&gt; Parser AlarmStateName)
+-&gt; (Value -&gt; Parser [AlarmStateName]) -&gt; FromJSON AlarmStateName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AlarmStateName]
+$cparseJSONList :: Value -&gt; Parser [AlarmStateName]
+parseJSON :: Value -&gt; Parser AlarmStateName
+$cparseJSON :: Value -&gt; Parser AlarmStateName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679180366"><span id="local-6989586621679180368"><span class="annot"><span class="annottext">FromJSONKeyFunction [AlarmStateName]
+FromJSONKeyFunction AlarmStateName
+FromJSONKeyFunction AlarmStateName
+-&gt; FromJSONKeyFunction [AlarmStateName]
+-&gt; FromJSONKey AlarmStateName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AlarmStateName]
+$cfromJSONKeyList :: FromJSONKeyFunction [AlarmStateName]
+fromJSONKey :: FromJSONKeyFunction AlarmStateName
+$cfromJSONKey :: FromJSONKeyFunction AlarmStateName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679180357"><span id="local-6989586621679180359"><span id="local-6989586621679180361"><span id="local-6989586621679180363"><span class="annot"><span class="annottext">[AlarmStateName] -&gt; Encoding
+[AlarmStateName] -&gt; Value
+AlarmStateName -&gt; Encoding
+AlarmStateName -&gt; Value
+(AlarmStateName -&gt; Value)
+-&gt; (AlarmStateName -&gt; Encoding)
+-&gt; ([AlarmStateName] -&gt; Value)
+-&gt; ([AlarmStateName] -&gt; Encoding)
+-&gt; ToJSON AlarmStateName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AlarmStateName] -&gt; Encoding
+$ctoEncodingList :: [AlarmStateName] -&gt; Encoding
+toJSONList :: [AlarmStateName] -&gt; Value
+$ctoJSONList :: [AlarmStateName] -&gt; Value
+toEncoding :: AlarmStateName -&gt; Encoding
+$ctoEncoding :: AlarmStateName -&gt; Encoding
+toJSON :: AlarmStateName -&gt; Value
+$ctoJSON :: AlarmStateName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679180352"><span id="local-6989586621679180354"><span class="annot"><span class="annottext">ToJSONKeyFunction [AlarmStateName]
+ToJSONKeyFunction AlarmStateName
+ToJSONKeyFunction AlarmStateName
+-&gt; ToJSONKeyFunction [AlarmStateName] -&gt; ToJSONKey AlarmStateName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AlarmStateName]
+$ctoJSONKeyList :: ToJSONKeyFunction [AlarmStateName]
+toJSONKey :: ToJSONKeyFunction AlarmStateName
+$ctoJSONKey :: ToJSONKeyFunction AlarmStateName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679180349"><span class="annot"><span class="annottext">[Node] -&gt; Either String AlarmStateName
+([Node] -&gt; Either String AlarmStateName) -&gt; FromXML AlarmStateName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AlarmStateName
+$cparseXML :: [Node] -&gt; Either String AlarmStateName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679180346"><span class="annot"><span class="annottext">AlarmStateName -&gt; XML
+(AlarmStateName -&gt; XML) -&gt; ToXML AlarmStateName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AlarmStateName -&gt; XML
+$ctoXML :: AlarmStateName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_ACKNOWLEDGED"><span class="hs-identifier hs-type">AlarmStateName_ACKNOWLEDGED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName"><span class="hs-identifier hs-type">AlarmStateName</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlarmStateName_ACKNOWLEDGED"><span id="%24mAlarmStateName_ACKNOWLEDGED"><span id="AlarmStateName_ACKNOWLEDGED"><span class="annot"><span class="annottext">$bAlarmStateName_ACKNOWLEDGED :: AlarmStateName
+$mAlarmStateName_ACKNOWLEDGED :: forall r. AlarmStateName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#%24bAlarmStateName_ACKNOWLEDGED"><span class="hs-identifier hs-var hs-var hs-var">AlarmStateName_ACKNOWLEDGED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName%27"><span class="hs-identifier hs-type">AlarmStateName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACKNOWLEDGED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_ACTIVE"><span class="hs-identifier hs-type">AlarmStateName_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName"><span class="hs-identifier hs-type">AlarmStateName</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlarmStateName_ACTIVE"><span id="%24mAlarmStateName_ACTIVE"><span id="AlarmStateName_ACTIVE"><span class="annot"><span class="annottext">$bAlarmStateName_ACTIVE :: AlarmStateName
+$mAlarmStateName_ACTIVE :: forall r. AlarmStateName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#%24bAlarmStateName_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">AlarmStateName_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName%27"><span class="hs-identifier hs-type">AlarmStateName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_DISABLED"><span class="hs-identifier hs-type">AlarmStateName_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName"><span class="hs-identifier hs-type">AlarmStateName</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlarmStateName_DISABLED"><span id="%24mAlarmStateName_DISABLED"><span id="AlarmStateName_DISABLED"><span class="annot"><span class="annottext">$bAlarmStateName_DISABLED :: AlarmStateName
+$mAlarmStateName_DISABLED :: forall r. AlarmStateName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#%24bAlarmStateName_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">AlarmStateName_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName%27"><span class="hs-identifier hs-type">AlarmStateName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_LATCHED"><span class="hs-identifier hs-type">AlarmStateName_LATCHED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName"><span class="hs-identifier hs-type">AlarmStateName</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlarmStateName_LATCHED"><span id="%24mAlarmStateName_LATCHED"><span id="AlarmStateName_LATCHED"><span class="annot"><span class="annottext">$bAlarmStateName_LATCHED :: AlarmStateName
+$mAlarmStateName_LATCHED :: forall r. AlarmStateName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#%24bAlarmStateName_LATCHED"><span class="hs-identifier hs-var hs-var hs-var">AlarmStateName_LATCHED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName%27"><span class="hs-identifier hs-type">AlarmStateName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LATCHED&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_NORMAL"><span class="hs-identifier hs-type">AlarmStateName_NORMAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName"><span class="hs-identifier hs-type">AlarmStateName</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlarmStateName_NORMAL"><span id="%24mAlarmStateName_NORMAL"><span id="AlarmStateName_NORMAL"><span class="annot"><span class="annottext">$bAlarmStateName_NORMAL :: AlarmStateName
+$mAlarmStateName_NORMAL :: forall r. AlarmStateName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#%24bAlarmStateName_NORMAL"><span class="hs-identifier hs-var hs-var hs-var">AlarmStateName_NORMAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName%27"><span class="hs-identifier hs-type">AlarmStateName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NORMAL&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_SNOOZE_DISABLED"><span class="hs-identifier hs-type">AlarmStateName_SNOOZE_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName"><span class="hs-identifier hs-type">AlarmStateName</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlarmStateName_SNOOZE_DISABLED"><span id="%24mAlarmStateName_SNOOZE_DISABLED"><span id="AlarmStateName_SNOOZE_DISABLED"><span class="annot"><span class="annottext">$bAlarmStateName_SNOOZE_DISABLED :: AlarmStateName
+$mAlarmStateName_SNOOZE_DISABLED :: forall r. AlarmStateName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#%24bAlarmStateName_SNOOZE_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">AlarmStateName_SNOOZE_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName%27"><span class="hs-identifier hs-type">AlarmStateName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SNOOZE_DISABLED&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_ACKNOWLEDGED"><span class="hs-pragma hs-type">AlarmStateName_ACKNOWLEDGED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_ACTIVE"><span class="hs-pragma hs-type">AlarmStateName_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_DISABLED"><span class="hs-pragma hs-type">AlarmStateName_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_LATCHED"><span class="hs-pragma hs-type">AlarmStateName_LATCHED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_NORMAL"><span class="hs-pragma hs-type">AlarmStateName_NORMAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName_SNOOZE_DISABLED"><span class="hs-pragma hs-type">AlarmStateName_SNOOZE_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName%27"><span class="hs-pragma hs-type">AlarmStateName'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

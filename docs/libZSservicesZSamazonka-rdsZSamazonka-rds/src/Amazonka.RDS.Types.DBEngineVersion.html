@@ -1,0 +1,1509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.RDS.Types.DBEngineVersion</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDS.Types.DBEngineVersion</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.CharacterSet.html"><span class="hs-identifier">Amazonka.RDS.Types.CharacterSet</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.Timezone.html"><span class="hs-identifier">Amazonka.RDS.Types.Timezone</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.UpgradeTarget.html"><span class="hs-identifier">Amazonka.RDS.Types.UpgradeTarget</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | This data type is used as a response element in the action</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- @DescribeDBEngineVersions@.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDBEngineVersion' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679768510"><span id="local-6989586621679768511"></span></span><span class="hs-keyword">data</span><span> </span><span id="DBEngineVersion"><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-var">DBEngineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBEngineVersion%27"><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-var">DBEngineVersion'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version number of the database engine.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AengineVersion%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AengineVersion%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The status of the DB engine version, either @available@ or @deprecated@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Astatus%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3Astatus%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The description of the database engine version.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdbEngineVersionDescription%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AdbEngineVersionDescription%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">dbEngineVersionDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A list of the supported DB engine modes.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AsupportedEngineModes%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe [Text]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportedEngineModes%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">supportedEngineModes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The default character set for new instances of this engine version, if</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- the @CharacterSetName@ parameter of the CreateDBInstance API isn\'t</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- specified.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AdefaultCharacterSet%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe CharacterSet
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AdefaultCharacterSet%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">defaultCharacterSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.CharacterSet.html#CharacterSet"><span class="hs-identifier hs-type">CharacterSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the database engine.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aengine%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3Aengine%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The name of the DB parameter group family for the database engine.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdbParameterGroupFamily%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AdbParameterGroupFamily%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">dbParameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | A list of the character sets supported by this engine for the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @CharacterSetName@ parameter of the @CreateDBInstance@ operation.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AsupportedCharacterSets%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe [CharacterSet]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportedCharacterSets%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">supportedCharacterSets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.CharacterSet.html#CharacterSet"><span class="hs-identifier hs-type">CharacterSet</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The description of the database engine.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AdbEngineDescription%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AdbEngineDescription%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">dbEngineDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether you can use Aurora global databases with</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- a specific DB engine version.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AsupportsGlobalDatabases%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Bool
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportsGlobalDatabases%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">supportsGlobalDatabases</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A list of engine versions that this database engine version can be</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- upgraded to.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AvalidUpgradeTarget%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe [UpgradeTarget]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AvalidUpgradeTarget%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">validUpgradeTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether you can use Aurora parallel query with a</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- specific DB engine version.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AsupportsParallelQuery%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Bool
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportsParallelQuery%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">supportsParallelQuery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A list of the character sets supported by the Oracle DB engine for the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @NcharCharacterSetName@ parameter of the @CreateDBInstance@ operation.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AsupportedNcharCharacterSets%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe [CharacterSet]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportedNcharCharacterSets%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">supportedNcharCharacterSets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.CharacterSet.html#CharacterSet"><span class="hs-identifier hs-type">CharacterSet</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether the engine version supports exporting the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- log types specified by ExportableLogTypes to CloudWatch Logs.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AsupportsLogExportsToCloudwatchLogs%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Bool
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportsLogExportsToCloudwatchLogs%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">supportsLogExportsToCloudwatchLogs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Indicates whether the database engine version supports read replicas.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AsupportsReadReplica%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Bool
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportsReadReplica%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">supportsReadReplica</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A list of features supported by the DB engine. Supported feature names</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- include the following.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   s3Import</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AsupportedFeatureNames%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe [Text]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportedFeatureNames%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">supportedFeatureNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | A list of the time zones supported by this engine for the @Timezone@</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- parameter of the @CreateDBInstance@ action.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AsupportedTimezones%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe [Timezone]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportedTimezones%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">supportedTimezones</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.Timezone.html#Timezone"><span class="hs-identifier hs-type">Timezone</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The types of logs that the database engine has available for export to</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- CloudWatch Logs.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AexportableLogTypes%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe [Text]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AexportableLogTypes%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">exportableLogTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679768487"><span id="local-6989586621679768489"><span class="annot"><span class="annottext">DBEngineVersion -&gt; DBEngineVersion -&gt; Bool
+(DBEngineVersion -&gt; DBEngineVersion -&gt; Bool)
+-&gt; (DBEngineVersion -&gt; DBEngineVersion -&gt; Bool)
+-&gt; Eq DBEngineVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DBEngineVersion -&gt; DBEngineVersion -&gt; Bool
+$c/= :: DBEngineVersion -&gt; DBEngineVersion -&gt; Bool
+== :: DBEngineVersion -&gt; DBEngineVersion -&gt; Bool
+$c== :: DBEngineVersion -&gt; DBEngineVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679768478"><span id="local-6989586621679768480"><span id="local-6989586621679768482"><span id="local-6989586621679768484"><span class="annot"><span class="annottext">ReadPrec [DBEngineVersion]
+ReadPrec DBEngineVersion
+Int -&gt; ReadS DBEngineVersion
+ReadS [DBEngineVersion]
+(Int -&gt; ReadS DBEngineVersion)
+-&gt; ReadS [DBEngineVersion]
+-&gt; ReadPrec DBEngineVersion
+-&gt; ReadPrec [DBEngineVersion]
+-&gt; Read DBEngineVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DBEngineVersion]
+$creadListPrec :: ReadPrec [DBEngineVersion]
+readPrec :: ReadPrec DBEngineVersion
+$creadPrec :: ReadPrec DBEngineVersion
+readList :: ReadS [DBEngineVersion]
+$creadList :: ReadS [DBEngineVersion]
+readsPrec :: Int -&gt; ReadS DBEngineVersion
+$creadsPrec :: Int -&gt; ReadS DBEngineVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679768471"><span id="local-6989586621679768473"><span id="local-6989586621679768475"><span class="annot"><span class="annottext">Int -&gt; DBEngineVersion -&gt; ShowS
+[DBEngineVersion] -&gt; ShowS
+DBEngineVersion -&gt; String
+(Int -&gt; DBEngineVersion -&gt; ShowS)
+-&gt; (DBEngineVersion -&gt; String)
+-&gt; ([DBEngineVersion] -&gt; ShowS)
+-&gt; Show DBEngineVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DBEngineVersion] -&gt; ShowS
+$cshowList :: [DBEngineVersion] -&gt; ShowS
+show :: DBEngineVersion -&gt; String
+$cshow :: DBEngineVersion -&gt; String
+showsPrec :: Int -&gt; DBEngineVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; DBEngineVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DBEngineVersion -&gt; Rep DBEngineVersion x)
+-&gt; (forall x. Rep DBEngineVersion x -&gt; DBEngineVersion)
+-&gt; Generic DBEngineVersion
+forall x. Rep DBEngineVersion x -&gt; DBEngineVersion
+forall x. DBEngineVersion -&gt; Rep DBEngineVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DBEngineVersion x -&gt; DBEngineVersion
+$cfrom :: forall x. DBEngineVersion -&gt; Rep DBEngineVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Create a value of 'DBEngineVersion' with all optional fields omitted.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'engineVersion', 'dbEngineVersion_engineVersion' - The version number of the database engine.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'status', 'dbEngineVersion_status' - The status of the DB engine version, either @available@ or @deprecated@.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'dbEngineVersionDescription', 'dbEngineVersion_dbEngineVersionDescription' - The description of the database engine version.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'supportedEngineModes', 'dbEngineVersion_supportedEngineModes' - A list of the supported DB engine modes.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'defaultCharacterSet', 'dbEngineVersion_defaultCharacterSet' - The default character set for new instances of this engine version, if</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- the @CharacterSetName@ parameter of the CreateDBInstance API isn\'t</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- specified.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'engine', 'dbEngineVersion_engine' - The name of the database engine.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'dbParameterGroupFamily', 'dbEngineVersion_dbParameterGroupFamily' - The name of the DB parameter group family for the database engine.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'supportedCharacterSets', 'dbEngineVersion_supportedCharacterSets' - A list of the character sets supported by this engine for the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- @CharacterSetName@ parameter of the @CreateDBInstance@ operation.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'dbEngineDescription', 'dbEngineVersion_dbEngineDescription' - The description of the database engine.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'supportsGlobalDatabases', 'dbEngineVersion_supportsGlobalDatabases' - A value that indicates whether you can use Aurora global databases with</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- a specific DB engine version.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'validUpgradeTarget', 'dbEngineVersion_validUpgradeTarget' - A list of engine versions that this database engine version can be</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- upgraded to.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'supportsParallelQuery', 'dbEngineVersion_supportsParallelQuery' - A value that indicates whether you can use Aurora parallel query with a</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- specific DB engine version.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'supportedNcharCharacterSets', 'dbEngineVersion_supportedNcharCharacterSets' - A list of the character sets supported by the Oracle DB engine for the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- @NcharCharacterSetName@ parameter of the @CreateDBInstance@ operation.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'supportsLogExportsToCloudwatchLogs', 'dbEngineVersion_supportsLogExportsToCloudwatchLogs' - A value that indicates whether the engine version supports exporting the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- log types specified by ExportableLogTypes to CloudWatch Logs.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'supportsReadReplica', 'dbEngineVersion_supportsReadReplica' - Indicates whether the database engine version supports read replicas.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'supportedFeatureNames', 'dbEngineVersion_supportedFeatureNames' - A list of features supported by the DB engine. Supported feature names</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- include the following.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- -   s3Import</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'supportedTimezones', 'dbEngineVersion_supportedTimezones' - A list of the time zones supported by this engine for the @Timezone@</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- parameter of the @CreateDBInstance@ action.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'exportableLogTypes', 'dbEngineVersion_exportableLogTypes' - The types of logs that the database engine has available for export to</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- CloudWatch Logs.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#newDBEngineVersion"><span class="hs-identifier hs-type">newDBEngineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span>
+</span><span id="line-144"></span><span id="newDBEngineVersion"><span class="annot"><span class="annottext">newDBEngineVersion :: DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#newDBEngineVersion"><span class="hs-identifier hs-var hs-var">newDBEngineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">DBEngineVersion' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe CharacterSet
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [CharacterSet]
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe [UpgradeTarget]
+-&gt; Maybe Bool
+-&gt; Maybe [CharacterSet]
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe [Timezone]
+-&gt; Maybe [Text]
+-&gt; DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:engineVersion:DBEngineVersion' :: Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AengineVersion%3ADBEngineVersion%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DBEngineVersion' :: Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3Astatus%3ADBEngineVersion%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbEngineVersionDescription:DBEngineVersion' :: Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AdbEngineVersionDescription%3ADBEngineVersion%27"><span class="hs-identifier hs-var">dbEngineVersionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedEngineModes:DBEngineVersion' :: Maybe [Text]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportedEngineModes%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportedEngineModes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultCharacterSet:DBEngineVersion' :: Maybe CharacterSet
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AdefaultCharacterSet%3ADBEngineVersion%27"><span class="hs-identifier hs-var">defaultCharacterSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CharacterSet
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:engine:DBEngineVersion' :: Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3Aengine%3ADBEngineVersion%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbParameterGroupFamily:DBEngineVersion' :: Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AdbParameterGroupFamily%3ADBEngineVersion%27"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedCharacterSets:DBEngineVersion' :: Maybe [CharacterSet]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportedCharacterSets%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportedCharacterSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CharacterSet]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbEngineDescription:DBEngineVersion' :: Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AdbEngineDescription%3ADBEngineVersion%27"><span class="hs-identifier hs-var">dbEngineDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportsGlobalDatabases:DBEngineVersion' :: Maybe Bool
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportsGlobalDatabases%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportsGlobalDatabases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:validUpgradeTarget:DBEngineVersion' :: Maybe [UpgradeTarget]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AvalidUpgradeTarget%3ADBEngineVersion%27"><span class="hs-identifier hs-var">validUpgradeTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UpgradeTarget]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportsParallelQuery:DBEngineVersion' :: Maybe Bool
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportsParallelQuery%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportsParallelQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedNcharCharacterSets:DBEngineVersion' :: Maybe [CharacterSet]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportedNcharCharacterSets%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportedNcharCharacterSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CharacterSet]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportsLogExportsToCloudwatchLogs:DBEngineVersion' :: Maybe Bool
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportsLogExportsToCloudwatchLogs%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportsLogExportsToCloudwatchLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportsReadReplica:DBEngineVersion' :: Maybe Bool
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportsReadReplica%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportsReadReplica</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedFeatureNames:DBEngineVersion' :: Maybe [Text]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportedFeatureNames%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportedFeatureNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedTimezones:DBEngineVersion' :: Maybe [Timezone]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportedTimezones%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportedTimezones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Timezone]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:exportableLogTypes:DBEngineVersion' :: Maybe [Text]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AexportableLogTypes%3ADBEngineVersion%27"><span class="hs-identifier hs-var">exportableLogTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The version number of the database engine.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_engineVersion"><span class="hs-identifier hs-type">dbEngineVersion_engineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="dbEngineVersion_engineVersion"><span class="annot"><span class="annottext">dbEngineVersion_engineVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_engineVersion"><span class="hs-identifier hs-var hs-var">dbEngineVersion_engineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Text)
+-&gt; (DBEngineVersion -&gt; Maybe Text -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768462"><span class="annot"><span class="annottext">Maybe Text
+engineVersion :: Maybe Text
+$sel:engineVersion:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679768462"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768462"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768461"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768460"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:DBEngineVersion' :: Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AengineVersion%3ADBEngineVersion%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The status of the DB engine version, either @available@ or @deprecated@.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_status"><span class="hs-identifier hs-type">dbEngineVersion_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="dbEngineVersion_status"><span class="annot"><span class="annottext">dbEngineVersion_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_status"><span class="hs-identifier hs-var hs-var">dbEngineVersion_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Text)
+-&gt; (DBEngineVersion -&gt; Maybe Text -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768458"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679768458"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768458"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768457"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768456"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DBEngineVersion' :: Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3Astatus%3ADBEngineVersion%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The description of the database engine version.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_dbEngineVersionDescription"><span class="hs-identifier hs-type">dbEngineVersion_dbEngineVersionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="dbEngineVersion_dbEngineVersionDescription"><span class="annot"><span class="annottext">dbEngineVersion_dbEngineVersionDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_dbEngineVersionDescription"><span class="hs-identifier hs-var hs-var">dbEngineVersion_dbEngineVersionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Text)
+-&gt; (DBEngineVersion -&gt; Maybe Text -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768454"><span class="annot"><span class="annottext">Maybe Text
+dbEngineVersionDescription :: Maybe Text
+$sel:dbEngineVersionDescription:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679768454"><span class="hs-identifier hs-var hs-var">dbEngineVersionDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768454"><span class="hs-identifier hs-var">dbEngineVersionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768453"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768452"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbEngineVersionDescription:DBEngineVersion' :: Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AdbEngineVersionDescription%3ADBEngineVersion%27"><span class="hs-identifier hs-var">dbEngineVersionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | A list of the supported DB engine modes.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportedEngineModes"><span class="hs-identifier hs-type">dbEngineVersion_supportedEngineModes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="dbEngineVersion_supportedEngineModes"><span class="annot"><span class="annottext">dbEngineVersion_supportedEngineModes :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportedEngineModes"><span class="hs-identifier hs-var hs-var">dbEngineVersion_supportedEngineModes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe [Text])
+-&gt; (DBEngineVersion -&gt; Maybe [Text] -&gt; DBEngineVersion)
+-&gt; Lens
+     DBEngineVersion DBEngineVersion (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768450"><span class="annot"><span class="annottext">Maybe [Text]
+supportedEngineModes :: Maybe [Text]
+$sel:supportedEngineModes:DBEngineVersion' :: DBEngineVersion -&gt; Maybe [Text]
+</span><a href="#local-6989586621679768450"><span class="hs-identifier hs-var hs-var">supportedEngineModes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679768450"><span class="hs-identifier hs-var">supportedEngineModes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768449"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768448"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679768448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedEngineModes:DBEngineVersion' :: Maybe [Text]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportedEngineModes%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportedEngineModes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679768448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DBEngineVersion -&gt; f DBEngineVersion)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DBEngineVersion
+-&gt; f DBEngineVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The default character set for new instances of this engine version, if</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- the @CharacterSetName@ parameter of the CreateDBInstance API isn\'t</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- specified.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_defaultCharacterSet"><span class="hs-identifier hs-type">dbEngineVersion_defaultCharacterSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.CharacterSet.html#CharacterSet"><span class="hs-identifier hs-type">CharacterSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="dbEngineVersion_defaultCharacterSet"><span class="annot"><span class="annottext">dbEngineVersion_defaultCharacterSet :: (Maybe CharacterSet -&gt; f (Maybe CharacterSet))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_defaultCharacterSet"><span class="hs-identifier hs-var hs-var">dbEngineVersion_defaultCharacterSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe CharacterSet)
+-&gt; (DBEngineVersion -&gt; Maybe CharacterSet -&gt; DBEngineVersion)
+-&gt; Lens
+     DBEngineVersion
+     DBEngineVersion
+     (Maybe CharacterSet)
+     (Maybe CharacterSet)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768443"><span class="annot"><span class="annottext">Maybe CharacterSet
+defaultCharacterSet :: Maybe CharacterSet
+$sel:defaultCharacterSet:DBEngineVersion' :: DBEngineVersion -&gt; Maybe CharacterSet
+</span><a href="#local-6989586621679768443"><span class="hs-identifier hs-var hs-var">defaultCharacterSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CharacterSet
+</span><a href="#local-6989586621679768443"><span class="hs-identifier hs-var">defaultCharacterSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768442"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768441"><span class="annot"><span class="annottext">Maybe CharacterSet
+</span><a href="#local-6989586621679768441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultCharacterSet:DBEngineVersion' :: Maybe CharacterSet
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AdefaultCharacterSet%3ADBEngineVersion%27"><span class="hs-identifier hs-var">defaultCharacterSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CharacterSet
+</span><a href="#local-6989586621679768441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The name of the database engine.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_engine"><span class="hs-identifier hs-type">dbEngineVersion_engine</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="dbEngineVersion_engine"><span class="annot"><span class="annottext">dbEngineVersion_engine :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_engine"><span class="hs-identifier hs-var hs-var">dbEngineVersion_engine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Text)
+-&gt; (DBEngineVersion -&gt; Maybe Text -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768439"><span class="annot"><span class="annottext">Maybe Text
+engine :: Maybe Text
+$sel:engine:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679768439"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768439"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768438"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768437"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:DBEngineVersion' :: Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3Aengine%3ADBEngineVersion%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The name of the DB parameter group family for the database engine.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_dbParameterGroupFamily"><span class="hs-identifier hs-type">dbEngineVersion_dbParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="dbEngineVersion_dbParameterGroupFamily"><span class="annot"><span class="annottext">dbEngineVersion_dbParameterGroupFamily :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_dbParameterGroupFamily"><span class="hs-identifier hs-var hs-var">dbEngineVersion_dbParameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Text)
+-&gt; (DBEngineVersion -&gt; Maybe Text -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768435"><span class="annot"><span class="annottext">Maybe Text
+dbParameterGroupFamily :: Maybe Text
+$sel:dbParameterGroupFamily:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679768435"><span class="hs-identifier hs-var hs-var">dbParameterGroupFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768435"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768434"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768433"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbParameterGroupFamily:DBEngineVersion' :: Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AdbParameterGroupFamily%3ADBEngineVersion%27"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | A list of the character sets supported by this engine for the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- @CharacterSetName@ parameter of the @CreateDBInstance@ operation.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportedCharacterSets"><span class="hs-identifier hs-type">dbEngineVersion_supportedCharacterSets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.CharacterSet.html#CharacterSet"><span class="hs-identifier hs-type">CharacterSet</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="dbEngineVersion_supportedCharacterSets"><span class="annot"><span class="annottext">dbEngineVersion_supportedCharacterSets :: (Maybe [CharacterSet] -&gt; f (Maybe [CharacterSet]))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportedCharacterSets"><span class="hs-identifier hs-var hs-var">dbEngineVersion_supportedCharacterSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe [CharacterSet])
+-&gt; (DBEngineVersion -&gt; Maybe [CharacterSet] -&gt; DBEngineVersion)
+-&gt; Lens
+     DBEngineVersion
+     DBEngineVersion
+     (Maybe [CharacterSet])
+     (Maybe [CharacterSet])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768431"><span class="annot"><span class="annottext">Maybe [CharacterSet]
+supportedCharacterSets :: Maybe [CharacterSet]
+$sel:supportedCharacterSets:DBEngineVersion' :: DBEngineVersion -&gt; Maybe [CharacterSet]
+</span><a href="#local-6989586621679768431"><span class="hs-identifier hs-var hs-var">supportedCharacterSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CharacterSet]
+</span><a href="#local-6989586621679768431"><span class="hs-identifier hs-var">supportedCharacterSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768430"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768429"><span class="annot"><span class="annottext">Maybe [CharacterSet]
+</span><a href="#local-6989586621679768429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedCharacterSets:DBEngineVersion' :: Maybe [CharacterSet]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportedCharacterSets%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportedCharacterSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CharacterSet]
+</span><a href="#local-6989586621679768429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CharacterSet] -&gt; f (Maybe [CharacterSet]))
+ -&gt; DBEngineVersion -&gt; f DBEngineVersion)
+-&gt; ((Maybe [CharacterSet] -&gt; f (Maybe [CharacterSet]))
+    -&gt; Maybe [CharacterSet] -&gt; f (Maybe [CharacterSet]))
+-&gt; (Maybe [CharacterSet] -&gt; f (Maybe [CharacterSet]))
+-&gt; DBEngineVersion
+-&gt; f DBEngineVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CharacterSet] [CharacterSet] [CharacterSet] [CharacterSet]
+-&gt; Iso
+     (Maybe [CharacterSet])
+     (Maybe [CharacterSet])
+     (Maybe [CharacterSet])
+     (Maybe [CharacterSet])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CharacterSet] [CharacterSet] [CharacterSet] [CharacterSet]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The description of the database engine.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_dbEngineDescription"><span class="hs-identifier hs-type">dbEngineVersion_dbEngineDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="dbEngineVersion_dbEngineDescription"><span class="annot"><span class="annottext">dbEngineVersion_dbEngineDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_dbEngineDescription"><span class="hs-identifier hs-var hs-var">dbEngineVersion_dbEngineDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Text)
+-&gt; (DBEngineVersion -&gt; Maybe Text -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768427"><span class="annot"><span class="annottext">Maybe Text
+dbEngineDescription :: Maybe Text
+$sel:dbEngineDescription:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679768427"><span class="hs-identifier hs-var hs-var">dbEngineDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768427"><span class="hs-identifier hs-var">dbEngineDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768426"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768425"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbEngineDescription:DBEngineVersion' :: Maybe Text
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AdbEngineDescription%3ADBEngineVersion%27"><span class="hs-identifier hs-var">dbEngineDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | A value that indicates whether you can use Aurora global databases with</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- a specific DB engine version.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportsGlobalDatabases"><span class="hs-identifier hs-type">dbEngineVersion_supportsGlobalDatabases</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="dbEngineVersion_supportsGlobalDatabases"><span class="annot"><span class="annottext">dbEngineVersion_supportsGlobalDatabases :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportsGlobalDatabases"><span class="hs-identifier hs-var hs-var">dbEngineVersion_supportsGlobalDatabases</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Bool)
+-&gt; (DBEngineVersion -&gt; Maybe Bool -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768423"><span class="annot"><span class="annottext">Maybe Bool
+supportsGlobalDatabases :: Maybe Bool
+$sel:supportsGlobalDatabases:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Bool
+</span><a href="#local-6989586621679768423"><span class="hs-identifier hs-var hs-var">supportsGlobalDatabases</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768423"><span class="hs-identifier hs-var">supportsGlobalDatabases</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768422"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768421"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportsGlobalDatabases:DBEngineVersion' :: Maybe Bool
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportsGlobalDatabases%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportsGlobalDatabases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | A list of engine versions that this database engine version can be</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- upgraded to.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_validUpgradeTarget"><span class="hs-identifier hs-type">dbEngineVersion_validUpgradeTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="dbEngineVersion_validUpgradeTarget"><span class="annot"><span class="annottext">dbEngineVersion_validUpgradeTarget :: (Maybe [UpgradeTarget] -&gt; f (Maybe [UpgradeTarget]))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_validUpgradeTarget"><span class="hs-identifier hs-var hs-var">dbEngineVersion_validUpgradeTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe [UpgradeTarget])
+-&gt; (DBEngineVersion -&gt; Maybe [UpgradeTarget] -&gt; DBEngineVersion)
+-&gt; Lens
+     DBEngineVersion
+     DBEngineVersion
+     (Maybe [UpgradeTarget])
+     (Maybe [UpgradeTarget])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768419"><span class="annot"><span class="annottext">Maybe [UpgradeTarget]
+validUpgradeTarget :: Maybe [UpgradeTarget]
+$sel:validUpgradeTarget:DBEngineVersion' :: DBEngineVersion -&gt; Maybe [UpgradeTarget]
+</span><a href="#local-6989586621679768419"><span class="hs-identifier hs-var hs-var">validUpgradeTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UpgradeTarget]
+</span><a href="#local-6989586621679768419"><span class="hs-identifier hs-var">validUpgradeTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768418"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768417"><span class="annot"><span class="annottext">Maybe [UpgradeTarget]
+</span><a href="#local-6989586621679768417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validUpgradeTarget:DBEngineVersion' :: Maybe [UpgradeTarget]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AvalidUpgradeTarget%3ADBEngineVersion%27"><span class="hs-identifier hs-var">validUpgradeTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UpgradeTarget]
+</span><a href="#local-6989586621679768417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UpgradeTarget] -&gt; f (Maybe [UpgradeTarget]))
+ -&gt; DBEngineVersion -&gt; f DBEngineVersion)
+-&gt; ((Maybe [UpgradeTarget] -&gt; f (Maybe [UpgradeTarget]))
+    -&gt; Maybe [UpgradeTarget] -&gt; f (Maybe [UpgradeTarget]))
+-&gt; (Maybe [UpgradeTarget] -&gt; f (Maybe [UpgradeTarget]))
+-&gt; DBEngineVersion
+-&gt; f DBEngineVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UpgradeTarget] [UpgradeTarget] [UpgradeTarget] [UpgradeTarget]
+-&gt; Iso
+     (Maybe [UpgradeTarget])
+     (Maybe [UpgradeTarget])
+     (Maybe [UpgradeTarget])
+     (Maybe [UpgradeTarget])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UpgradeTarget] [UpgradeTarget] [UpgradeTarget] [UpgradeTarget]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | A value that indicates whether you can use Aurora parallel query with a</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- specific DB engine version.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportsParallelQuery"><span class="hs-identifier hs-type">dbEngineVersion_supportsParallelQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="dbEngineVersion_supportsParallelQuery"><span class="annot"><span class="annottext">dbEngineVersion_supportsParallelQuery :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportsParallelQuery"><span class="hs-identifier hs-var hs-var">dbEngineVersion_supportsParallelQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Bool)
+-&gt; (DBEngineVersion -&gt; Maybe Bool -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768415"><span class="annot"><span class="annottext">Maybe Bool
+supportsParallelQuery :: Maybe Bool
+$sel:supportsParallelQuery:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Bool
+</span><a href="#local-6989586621679768415"><span class="hs-identifier hs-var hs-var">supportsParallelQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768415"><span class="hs-identifier hs-var">supportsParallelQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768414"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768413"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportsParallelQuery:DBEngineVersion' :: Maybe Bool
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportsParallelQuery%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportsParallelQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | A list of the character sets supported by the Oracle DB engine for the</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- @NcharCharacterSetName@ parameter of the @CreateDBInstance@ operation.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportedNcharCharacterSets"><span class="hs-identifier hs-type">dbEngineVersion_supportedNcharCharacterSets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.CharacterSet.html#CharacterSet"><span class="hs-identifier hs-type">CharacterSet</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="dbEngineVersion_supportedNcharCharacterSets"><span class="annot"><span class="annottext">dbEngineVersion_supportedNcharCharacterSets :: (Maybe [CharacterSet] -&gt; f (Maybe [CharacterSet]))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportedNcharCharacterSets"><span class="hs-identifier hs-var hs-var">dbEngineVersion_supportedNcharCharacterSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe [CharacterSet])
+-&gt; (DBEngineVersion -&gt; Maybe [CharacterSet] -&gt; DBEngineVersion)
+-&gt; Lens
+     DBEngineVersion
+     DBEngineVersion
+     (Maybe [CharacterSet])
+     (Maybe [CharacterSet])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768411"><span class="annot"><span class="annottext">Maybe [CharacterSet]
+supportedNcharCharacterSets :: Maybe [CharacterSet]
+$sel:supportedNcharCharacterSets:DBEngineVersion' :: DBEngineVersion -&gt; Maybe [CharacterSet]
+</span><a href="#local-6989586621679768411"><span class="hs-identifier hs-var hs-var">supportedNcharCharacterSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CharacterSet]
+</span><a href="#local-6989586621679768411"><span class="hs-identifier hs-var">supportedNcharCharacterSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768410"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768409"><span class="annot"><span class="annottext">Maybe [CharacterSet]
+</span><a href="#local-6989586621679768409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedNcharCharacterSets:DBEngineVersion' :: Maybe [CharacterSet]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportedNcharCharacterSets%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportedNcharCharacterSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CharacterSet]
+</span><a href="#local-6989586621679768409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CharacterSet] -&gt; f (Maybe [CharacterSet]))
+ -&gt; DBEngineVersion -&gt; f DBEngineVersion)
+-&gt; ((Maybe [CharacterSet] -&gt; f (Maybe [CharacterSet]))
+    -&gt; Maybe [CharacterSet] -&gt; f (Maybe [CharacterSet]))
+-&gt; (Maybe [CharacterSet] -&gt; f (Maybe [CharacterSet]))
+-&gt; DBEngineVersion
+-&gt; f DBEngineVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CharacterSet] [CharacterSet] [CharacterSet] [CharacterSet]
+-&gt; Iso
+     (Maybe [CharacterSet])
+     (Maybe [CharacterSet])
+     (Maybe [CharacterSet])
+     (Maybe [CharacterSet])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CharacterSet] [CharacterSet] [CharacterSet] [CharacterSet]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | A value that indicates whether the engine version supports exporting the</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- log types specified by ExportableLogTypes to CloudWatch Logs.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportsLogExportsToCloudwatchLogs"><span class="hs-identifier hs-type">dbEngineVersion_supportsLogExportsToCloudwatchLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="dbEngineVersion_supportsLogExportsToCloudwatchLogs"><span class="annot"><span class="annottext">dbEngineVersion_supportsLogExportsToCloudwatchLogs :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportsLogExportsToCloudwatchLogs"><span class="hs-identifier hs-var hs-var">dbEngineVersion_supportsLogExportsToCloudwatchLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Bool)
+-&gt; (DBEngineVersion -&gt; Maybe Bool -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768407"><span class="annot"><span class="annottext">Maybe Bool
+supportsLogExportsToCloudwatchLogs :: Maybe Bool
+$sel:supportsLogExportsToCloudwatchLogs:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Bool
+</span><a href="#local-6989586621679768407"><span class="hs-identifier hs-var hs-var">supportsLogExportsToCloudwatchLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768407"><span class="hs-identifier hs-var">supportsLogExportsToCloudwatchLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768406"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768405"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportsLogExportsToCloudwatchLogs:DBEngineVersion' :: Maybe Bool
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportsLogExportsToCloudwatchLogs%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportsLogExportsToCloudwatchLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | Indicates whether the database engine version supports read replicas.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportsReadReplica"><span class="hs-identifier hs-type">dbEngineVersion_supportsReadReplica</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="dbEngineVersion_supportsReadReplica"><span class="annot"><span class="annottext">dbEngineVersion_supportsReadReplica :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportsReadReplica"><span class="hs-identifier hs-var hs-var">dbEngineVersion_supportsReadReplica</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Bool)
+-&gt; (DBEngineVersion -&gt; Maybe Bool -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768403"><span class="annot"><span class="annottext">Maybe Bool
+supportsReadReplica :: Maybe Bool
+$sel:supportsReadReplica:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Bool
+</span><a href="#local-6989586621679768403"><span class="hs-identifier hs-var hs-var">supportsReadReplica</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768403"><span class="hs-identifier hs-var">supportsReadReplica</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768402"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768401"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportsReadReplica:DBEngineVersion' :: Maybe Bool
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportsReadReplica%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportsReadReplica</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | A list of features supported by the DB engine. Supported feature names</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- include the following.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- -   s3Import</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportedFeatureNames"><span class="hs-identifier hs-type">dbEngineVersion_supportedFeatureNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="dbEngineVersion_supportedFeatureNames"><span class="annot"><span class="annottext">dbEngineVersion_supportedFeatureNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportedFeatureNames"><span class="hs-identifier hs-var hs-var">dbEngineVersion_supportedFeatureNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe [Text])
+-&gt; (DBEngineVersion -&gt; Maybe [Text] -&gt; DBEngineVersion)
+-&gt; Lens
+     DBEngineVersion DBEngineVersion (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768399"><span class="annot"><span class="annottext">Maybe [Text]
+supportedFeatureNames :: Maybe [Text]
+$sel:supportedFeatureNames:DBEngineVersion' :: DBEngineVersion -&gt; Maybe [Text]
+</span><a href="#local-6989586621679768399"><span class="hs-identifier hs-var hs-var">supportedFeatureNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679768399"><span class="hs-identifier hs-var">supportedFeatureNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768398"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768397"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679768397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedFeatureNames:DBEngineVersion' :: Maybe [Text]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportedFeatureNames%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportedFeatureNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679768397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DBEngineVersion -&gt; f DBEngineVersion)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DBEngineVersion
+-&gt; f DBEngineVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | A list of the time zones supported by this engine for the @Timezone@</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- parameter of the @CreateDBInstance@ action.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportedTimezones"><span class="hs-identifier hs-type">dbEngineVersion_supportedTimezones</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.Timezone.html#Timezone"><span class="hs-identifier hs-type">Timezone</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="dbEngineVersion_supportedTimezones"><span class="annot"><span class="annottext">dbEngineVersion_supportedTimezones :: (Maybe [Timezone] -&gt; f (Maybe [Timezone]))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_supportedTimezones"><span class="hs-identifier hs-var hs-var">dbEngineVersion_supportedTimezones</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe [Timezone])
+-&gt; (DBEngineVersion -&gt; Maybe [Timezone] -&gt; DBEngineVersion)
+-&gt; Lens
+     DBEngineVersion
+     DBEngineVersion
+     (Maybe [Timezone])
+     (Maybe [Timezone])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768395"><span class="annot"><span class="annottext">Maybe [Timezone]
+supportedTimezones :: Maybe [Timezone]
+$sel:supportedTimezones:DBEngineVersion' :: DBEngineVersion -&gt; Maybe [Timezone]
+</span><a href="#local-6989586621679768395"><span class="hs-identifier hs-var hs-var">supportedTimezones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Timezone]
+</span><a href="#local-6989586621679768395"><span class="hs-identifier hs-var">supportedTimezones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768394"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768393"><span class="annot"><span class="annottext">Maybe [Timezone]
+</span><a href="#local-6989586621679768393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedTimezones:DBEngineVersion' :: Maybe [Timezone]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AsupportedTimezones%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportedTimezones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Timezone]
+</span><a href="#local-6989586621679768393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Timezone] -&gt; f (Maybe [Timezone]))
+ -&gt; DBEngineVersion -&gt; f DBEngineVersion)
+-&gt; ((Maybe [Timezone] -&gt; f (Maybe [Timezone]))
+    -&gt; Maybe [Timezone] -&gt; f (Maybe [Timezone]))
+-&gt; (Maybe [Timezone] -&gt; f (Maybe [Timezone]))
+-&gt; DBEngineVersion
+-&gt; f DBEngineVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Timezone] [Timezone] [Timezone] [Timezone]
+-&gt; Iso
+     (Maybe [Timezone])
+     (Maybe [Timezone])
+     (Maybe [Timezone])
+     (Maybe [Timezone])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Timezone] [Timezone] [Timezone] [Timezone]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The types of logs that the database engine has available for export to</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- CloudWatch Logs.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_exportableLogTypes"><span class="hs-identifier hs-type">dbEngineVersion_exportableLogTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="dbEngineVersion_exportableLogTypes"><span class="annot"><span class="annottext">dbEngineVersion_exportableLogTypes :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#dbEngineVersion_exportableLogTypes"><span class="hs-identifier hs-var hs-var">dbEngineVersion_exportableLogTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe [Text])
+-&gt; (DBEngineVersion -&gt; Maybe [Text] -&gt; DBEngineVersion)
+-&gt; Lens
+     DBEngineVersion DBEngineVersion (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768391"><span class="annot"><span class="annottext">Maybe [Text]
+exportableLogTypes :: Maybe [Text]
+$sel:exportableLogTypes:DBEngineVersion' :: DBEngineVersion -&gt; Maybe [Text]
+</span><a href="#local-6989586621679768391"><span class="hs-identifier hs-var hs-var">exportableLogTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679768391"><span class="hs-identifier hs-var">exportableLogTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768390"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679768390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768389"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679768389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679768390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportableLogTypes:DBEngineVersion' :: Maybe [Text]
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#%24sel%3AexportableLogTypes%3ADBEngineVersion%27"><span class="hs-identifier hs-var">exportableLogTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679768389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DBEngineVersion -&gt; f DBEngineVersion)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DBEngineVersion
+-&gt; f DBEngineVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679768386"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DBEngineVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679768384"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe CharacterSet
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [CharacterSet]
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe [UpgradeTarget]
+-&gt; Maybe Bool
+-&gt; Maybe [CharacterSet]
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe [Timezone]
+-&gt; Maybe [Text]
+-&gt; DBEngineVersion
+</span><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-var">DBEngineVersion'</span></a></span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe CharacterSet
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [CharacterSet]
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe [UpgradeTarget]
+ -&gt; Maybe Bool
+ -&gt; Maybe [CharacterSet]
+ -&gt; Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe [Text]
+ -&gt; Maybe [Timezone]
+ -&gt; Maybe [Text]
+ -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe CharacterSet
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [UpgradeTarget]
+      -&gt; Maybe Bool
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Timezone]
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EngineVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe CharacterSet
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [UpgradeTarget]
+   -&gt; Maybe Bool
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Timezone]
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe CharacterSet
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [UpgradeTarget]
+      -&gt; Maybe Bool
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Timezone]
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe CharacterSet
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [UpgradeTarget]
+   -&gt; Maybe Bool
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Timezone]
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe CharacterSet
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [UpgradeTarget]
+      -&gt; Maybe Bool
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Timezone]
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBEngineVersionDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe CharacterSet
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [UpgradeTarget]
+   -&gt; Maybe Bool
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Timezone]
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe CharacterSet
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [UpgradeTarget]
+      -&gt; Maybe Bool
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Timezone]
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SupportedEngineModes&quot;</span></span><span>
+</span><span id="line-258"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-259"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe CharacterSet
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [UpgradeTarget]
+   -&gt; Maybe Bool
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Timezone]
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe CharacterSet)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [UpgradeTarget]
+      -&gt; Maybe Bool
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Timezone]
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CharacterSet)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultCharacterSet&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [UpgradeTarget]
+   -&gt; Maybe Bool
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Timezone]
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [UpgradeTarget]
+      -&gt; Maybe Bool
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Timezone]
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Engine&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [UpgradeTarget]
+   -&gt; Maybe Bool
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Timezone]
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [CharacterSet]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [UpgradeTarget]
+      -&gt; Maybe Bool
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Timezone]
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBParameterGroupFamily&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [CharacterSet]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [UpgradeTarget]
+   -&gt; Maybe Bool
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Timezone]
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe [CharacterSet])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [UpgradeTarget]
+      -&gt; Maybe Bool
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Timezone]
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SupportedCharacterSets&quot;</span></span><span>
+</span><span id="line-265"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-266"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [CharacterSet]))
+-&gt; Either String (Maybe [CharacterSet])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [CharacterSet])
+-&gt; [Node] -&gt; Either String (Maybe [CharacterSet])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [CharacterSet]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CharacterSet&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [UpgradeTarget]
+   -&gt; Maybe Bool
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Timezone]
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe [UpgradeTarget]
+      -&gt; Maybe Bool
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Timezone]
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBEngineDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe [UpgradeTarget]
+   -&gt; Maybe Bool
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Timezone]
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe [UpgradeTarget]
+      -&gt; Maybe Bool
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Timezone]
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SupportsGlobalDatabases&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [UpgradeTarget]
+   -&gt; Maybe Bool
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Timezone]
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe [UpgradeTarget])
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe [CharacterSet]
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Timezone]
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ValidUpgradeTarget&quot;</span></span><span>
+</span><span id="line-271"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-272"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [UpgradeTarget]))
+-&gt; Either String (Maybe [UpgradeTarget])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [UpgradeTarget])
+-&gt; [Node] -&gt; Either String (Maybe [UpgradeTarget])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [UpgradeTarget]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpgradeTarget&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe [CharacterSet]
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Timezone]
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe [CharacterSet]
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Timezone]
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SupportsParallelQuery&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [CharacterSet]
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Timezone]
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe [CharacterSet])
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Timezone]
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SupportedNcharCharacterSets&quot;</span></span><span>
+</span><span id="line-276"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-277"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [CharacterSet]))
+-&gt; Either String (Maybe [CharacterSet])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [CharacterSet])
+-&gt; [Node] -&gt; Either String (Maybe [CharacterSet])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [CharacterSet]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CharacterSet&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Timezone]
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Timezone]
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SupportsLogExportsToCloudwatchLogs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Timezone]
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe [Timezone] -&gt; Maybe [Text] -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SupportsReadReplica&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe [Timezone] -&gt; Maybe [Text] -&gt; DBEngineVersion)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String (Maybe [Timezone] -&gt; Maybe [Text] -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SupportedFeatureNames&quot;</span></span><span>
+</span><span id="line-282"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-283"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Timezone] -&gt; Maybe [Text] -&gt; DBEngineVersion)
+-&gt; Either String (Maybe [Timezone])
+-&gt; Either String (Maybe [Text] -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SupportedTimezones&quot;</span></span><span>
+</span><span id="line-286"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-287"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Timezone]))
+-&gt; Either String (Maybe [Timezone])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Timezone])
+-&gt; [Node] -&gt; Either String (Maybe [Timezone])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Timezone]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timezone&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; DBEngineVersion)
+-&gt; Either String (Maybe [Text]) -&gt; Either String DBEngineVersion
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExportableLogTypes&quot;</span></span><span>
+</span><span id="line-290"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-291"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679768375"><span id="local-6989586621679768377"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span></span></span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679768372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span></span><span>
+</span><span id="line-297"></span></pre></body></html>

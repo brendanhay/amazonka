@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodePipeline.Types.ActionTypePermissions</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodePipeline.Types.ActionTypePermissions</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Details identifying the users with permissions to use the action type.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newActionTypePermissions' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679274762"><span id="local-6989586621679274763"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionTypePermissions"><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-var">ActionTypePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionTypePermissions%27"><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-var">ActionTypePermissions'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of AWS account IDs with access to use the action type in their</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- pipelines.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AallowedAccounts%3AActionTypePermissions%27"><span class="annot"><span class="annottext">ActionTypePermissions -&gt; NonEmpty Text
+</span><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#%24sel%3AallowedAccounts%3AActionTypePermissions%27"><span class="hs-identifier hs-var hs-var">allowedAccounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274756"><span id="local-6989586621679274758"><span class="annot"><span class="annottext">ActionTypePermissions -&gt; ActionTypePermissions -&gt; Bool
+(ActionTypePermissions -&gt; ActionTypePermissions -&gt; Bool)
+-&gt; (ActionTypePermissions -&gt; ActionTypePermissions -&gt; Bool)
+-&gt; Eq ActionTypePermissions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ActionTypePermissions -&gt; ActionTypePermissions -&gt; Bool
+$c/= :: ActionTypePermissions -&gt; ActionTypePermissions -&gt; Bool
+== :: ActionTypePermissions -&gt; ActionTypePermissions -&gt; Bool
+$c== :: ActionTypePermissions -&gt; ActionTypePermissions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274747"><span id="local-6989586621679274749"><span id="local-6989586621679274751"><span id="local-6989586621679274753"><span class="annot"><span class="annottext">ReadPrec [ActionTypePermissions]
+ReadPrec ActionTypePermissions
+Int -&gt; ReadS ActionTypePermissions
+ReadS [ActionTypePermissions]
+(Int -&gt; ReadS ActionTypePermissions)
+-&gt; ReadS [ActionTypePermissions]
+-&gt; ReadPrec ActionTypePermissions
+-&gt; ReadPrec [ActionTypePermissions]
+-&gt; Read ActionTypePermissions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ActionTypePermissions]
+$creadListPrec :: ReadPrec [ActionTypePermissions]
+readPrec :: ReadPrec ActionTypePermissions
+$creadPrec :: ReadPrec ActionTypePermissions
+readList :: ReadS [ActionTypePermissions]
+$creadList :: ReadS [ActionTypePermissions]
+readsPrec :: Int -&gt; ReadS ActionTypePermissions
+$creadsPrec :: Int -&gt; ReadS ActionTypePermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274740"><span id="local-6989586621679274742"><span id="local-6989586621679274744"><span class="annot"><span class="annottext">Int -&gt; ActionTypePermissions -&gt; ShowS
+[ActionTypePermissions] -&gt; ShowS
+ActionTypePermissions -&gt; String
+(Int -&gt; ActionTypePermissions -&gt; ShowS)
+-&gt; (ActionTypePermissions -&gt; String)
+-&gt; ([ActionTypePermissions] -&gt; ShowS)
+-&gt; Show ActionTypePermissions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ActionTypePermissions] -&gt; ShowS
+$cshowList :: [ActionTypePermissions] -&gt; ShowS
+show :: ActionTypePermissions -&gt; String
+$cshow :: ActionTypePermissions -&gt; String
+showsPrec :: Int -&gt; ActionTypePermissions -&gt; ShowS
+$cshowsPrec :: Int -&gt; ActionTypePermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ActionTypePermissions -&gt; Rep ActionTypePermissions x)
+-&gt; (forall x. Rep ActionTypePermissions x -&gt; ActionTypePermissions)
+-&gt; Generic ActionTypePermissions
+forall x. Rep ActionTypePermissions x -&gt; ActionTypePermissions
+forall x. ActionTypePermissions -&gt; Rep ActionTypePermissions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ActionTypePermissions x -&gt; ActionTypePermissions
+$cfrom :: forall x. ActionTypePermissions -&gt; Rep ActionTypePermissions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'ActionTypePermissions' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'allowedAccounts', 'actionTypePermissions_allowedAccounts' - A list of AWS account IDs with access to use the action type in their</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- pipelines.</span><span>
+</span><span id="line-46"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#newActionTypePermissions"><span class="hs-identifier hs-type">newActionTypePermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-comment">-- | 'allowedAccounts'</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span><span>
+</span><span id="line-50"></span><span id="newActionTypePermissions"><span class="annot"><span class="annottext">newActionTypePermissions :: NonEmpty Text -&gt; ActionTypePermissions
+</span><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#newActionTypePermissions"><span class="hs-identifier hs-var hs-var">newActionTypePermissions</span></a></span></span><span> </span><span id="local-6989586621679274734"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679274734"><span class="hs-identifier hs-var">pAllowedAccounts_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ActionTypePermissions' :: NonEmpty Text -&gt; ActionTypePermissions
+</span><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-type">ActionTypePermissions'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:allowedAccounts:ActionTypePermissions' :: NonEmpty Text
+</span><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#%24sel%3AallowedAccounts%3AActionTypePermissions%27"><span class="hs-identifier hs-var">allowedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679274734"><span class="hs-identifier hs-var">pAllowedAccounts_</span></a></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | A list of AWS account IDs with access to use the action type in their</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- pipelines.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#actionTypePermissions_allowedAccounts"><span class="hs-identifier hs-type">actionTypePermissions_allowedAccounts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="actionTypePermissions_allowedAccounts"><span class="annot"><span class="annottext">actionTypePermissions_allowedAccounts :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; ActionTypePermissions -&gt; f ActionTypePermissions
+</span><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#actionTypePermissions_allowedAccounts"><span class="hs-identifier hs-var hs-var">actionTypePermissions_allowedAccounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionTypePermissions -&gt; NonEmpty Text)
+-&gt; (ActionTypePermissions
+    -&gt; NonEmpty Text -&gt; ActionTypePermissions)
+-&gt; Lens
+     ActionTypePermissions
+     ActionTypePermissions
+     (NonEmpty Text)
+     (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-type">ActionTypePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274728"><span class="annot"><span class="annottext">NonEmpty Text
+allowedAccounts :: NonEmpty Text
+$sel:allowedAccounts:ActionTypePermissions' :: ActionTypePermissions -&gt; NonEmpty Text
+</span><a href="#local-6989586621679274728"><span class="hs-identifier hs-var hs-var">allowedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679274728"><span class="hs-identifier hs-var">allowedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274727"><span class="annot"><span class="annottext">s :: ActionTypePermissions
+</span><a href="#local-6989586621679274727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-type">ActionTypePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274726"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679274726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypePermissions
+</span><a href="#local-6989586621679274727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedAccounts:ActionTypePermissions' :: NonEmpty Text
+</span><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#%24sel%3AallowedAccounts%3AActionTypePermissions%27"><span class="hs-identifier hs-var">allowedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679274726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; ActionTypePermissions -&gt; f ActionTypePermissions)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; ActionTypePermissions
+-&gt; f ActionTypePermissions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274722"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679274720"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionTypePermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ActionTypePermissions)
+-&gt; Value
+-&gt; Parser ActionTypePermissions
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ActionTypePermissions&quot;</span></span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274717"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">NonEmpty Text -&gt; ActionTypePermissions
+</span><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-var">ActionTypePermissions'</span></a></span><span>
+</span><span id="line-67"></span><span>            </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; ActionTypePermissions)
+-&gt; Parser (NonEmpty Text) -&gt; Parser ActionTypePermissions
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;allowedAccounts&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274711"><span id="local-6989586621679274713"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span></span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274708"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274700"><span id="local-6989586621679274702"><span id="local-6989586621679274704"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679274698"><span class="annot"><span class="annottext">toJSON :: ActionTypePermissions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-type">ActionTypePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274696"><span class="annot"><span class="annottext">NonEmpty Text
+allowedAccounts :: NonEmpty Text
+$sel:allowedAccounts:ActionTypePermissions' :: ActionTypePermissions -&gt; NonEmpty Text
+</span><a href="#local-6989586621679274696"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-78"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-79"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;allowedAccounts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679274696"><span class="hs-identifier hs-var">allowedAccounts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span></pre></body></html>

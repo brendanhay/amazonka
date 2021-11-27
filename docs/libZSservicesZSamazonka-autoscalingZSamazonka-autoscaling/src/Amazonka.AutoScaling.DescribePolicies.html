@@ -1,0 +1,840 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AutoScaling.DescribePolicies</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets information about the scaling policies in the account and Region.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AutoScaling.DescribePolicies</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier">DescribePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#newDescribePolicies"><span class="hs-identifier">newDescribePolicies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_policyNames"><span class="hs-identifier">describePolicies_policyNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_nextToken"><span class="hs-identifier">describePolicies_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_autoScalingGroupName"><span class="hs-identifier">describePolicies_autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_maxRecords"><span class="hs-identifier">describePolicies_maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_policyTypes"><span class="hs-identifier">describePolicies_policyTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse"><span class="hs-identifier">DescribePoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#newDescribePoliciesResponse"><span class="hs-identifier">newDescribePoliciesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePoliciesResponse_nextToken"><span class="hs-identifier">describePoliciesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePoliciesResponse_scalingPolicies"><span class="hs-identifier">describePoliciesResponse_scalingPolicies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePoliciesResponse_httpStatus"><span class="hs-identifier">describePoliciesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.html"><span class="hs-identifier">Amazonka.AutoScaling.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribePolicies' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679341292"><span id="local-6989586621679341293"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePolicies"><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-var">DescribePolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePolicies%27"><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies%27"><span class="hs-identifier hs-var">DescribePolicies'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The names of one or more policies. If you omit this parameter, all</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- policies are described. If a group name is provided, the results are</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- limited to that group. If you specify an unknown policy name, it is</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- ignored with no error.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Array Members: Maximum number of 50 items.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3ApolicyNames%3ADescribePolicies%27"><span class="annot"><span class="annottext">DescribePolicies -&gt; Maybe [Text]
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3ApolicyNames%3ADescribePolicies%27"><span class="hs-identifier hs-var hs-var">policyNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribePolicies%27"><span class="annot"><span class="annottext">DescribePolicies -&gt; Maybe Text
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AnextToken%3ADescribePolicies%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AautoScalingGroupName%3ADescribePolicies%27"><span class="annot"><span class="annottext">DescribePolicies -&gt; Maybe Text
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AautoScalingGroupName%3ADescribePolicies%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to be returned with each call. The default</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- value is @50@ and the maximum value is @100@.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribePolicies%27"><span class="annot"><span class="annottext">DescribePolicies -&gt; Maybe Int
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AmaxRecords%3ADescribePolicies%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | One or more policy types. The valid values are @SimpleScaling@,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @StepScaling@, @TargetTrackingScaling@, and @PredictiveScaling@.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3ApolicyTypes%3ADescribePolicies%27"><span class="annot"><span class="annottext">DescribePolicies -&gt; Maybe [Text]
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3ApolicyTypes%3ADescribePolicies%27"><span class="hs-identifier hs-var hs-var">policyTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341282"><span id="local-6989586621679341284"><span class="annot"><span class="annottext">DescribePolicies -&gt; DescribePolicies -&gt; Bool
+(DescribePolicies -&gt; DescribePolicies -&gt; Bool)
+-&gt; (DescribePolicies -&gt; DescribePolicies -&gt; Bool)
+-&gt; Eq DescribePolicies
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePolicies -&gt; DescribePolicies -&gt; Bool
+$c/= :: DescribePolicies -&gt; DescribePolicies -&gt; Bool
+== :: DescribePolicies -&gt; DescribePolicies -&gt; Bool
+$c== :: DescribePolicies -&gt; DescribePolicies -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341273"><span id="local-6989586621679341275"><span id="local-6989586621679341277"><span id="local-6989586621679341279"><span class="annot"><span class="annottext">ReadPrec [DescribePolicies]
+ReadPrec DescribePolicies
+Int -&gt; ReadS DescribePolicies
+ReadS [DescribePolicies]
+(Int -&gt; ReadS DescribePolicies)
+-&gt; ReadS [DescribePolicies]
+-&gt; ReadPrec DescribePolicies
+-&gt; ReadPrec [DescribePolicies]
+-&gt; Read DescribePolicies
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePolicies]
+$creadListPrec :: ReadPrec [DescribePolicies]
+readPrec :: ReadPrec DescribePolicies
+$creadPrec :: ReadPrec DescribePolicies
+readList :: ReadS [DescribePolicies]
+$creadList :: ReadS [DescribePolicies]
+readsPrec :: Int -&gt; ReadS DescribePolicies
+$creadsPrec :: Int -&gt; ReadS DescribePolicies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341266"><span id="local-6989586621679341268"><span id="local-6989586621679341270"><span class="annot"><span class="annottext">Int -&gt; DescribePolicies -&gt; ShowS
+[DescribePolicies] -&gt; ShowS
+DescribePolicies -&gt; String
+(Int -&gt; DescribePolicies -&gt; ShowS)
+-&gt; (DescribePolicies -&gt; String)
+-&gt; ([DescribePolicies] -&gt; ShowS)
+-&gt; Show DescribePolicies
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePolicies] -&gt; ShowS
+$cshowList :: [DescribePolicies] -&gt; ShowS
+show :: DescribePolicies -&gt; String
+$cshow :: DescribePolicies -&gt; String
+showsPrec :: Int -&gt; DescribePolicies -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePolicies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribePolicies -&gt; Rep DescribePolicies x)
+-&gt; (forall x. Rep DescribePolicies x -&gt; DescribePolicies)
+-&gt; Generic DescribePolicies
+forall x. Rep DescribePolicies x -&gt; DescribePolicies
+forall x. DescribePolicies -&gt; Rep DescribePolicies x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribePolicies x -&gt; DescribePolicies
+$cfrom :: forall x. DescribePolicies -&gt; Rep DescribePolicies x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'DescribePolicies' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'policyNames', 'describePolicies_policyNames' - The names of one or more policies. If you omit this parameter, all</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- policies are described. If a group name is provided, the results are</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- limited to that group. If you specify an unknown policy name, it is</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- ignored with no error.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Array Members: Maximum number of 50 items.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'nextToken', 'describePolicies_nextToken' - The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'autoScalingGroupName', 'describePolicies_autoScalingGroupName' - The name of the Auto Scaling group.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'maxRecords', 'describePolicies_maxRecords' - The maximum number of items to be returned with each call. The default</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- value is @50@ and the maximum value is @100@.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'policyTypes', 'describePolicies_policyTypes' - One or more policy types. The valid values are @SimpleScaling@,</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- @StepScaling@, @TargetTrackingScaling@, and @PredictiveScaling@.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#newDescribePolicies"><span class="hs-identifier hs-type">newDescribePolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span>
+</span><span id="line-106"></span><span id="newDescribePolicies"><span class="annot"><span class="annottext">newDescribePolicies :: DescribePolicies
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#newDescribePolicies"><span class="hs-identifier hs-var hs-var">newDescribePolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">DescribePolicies' :: Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe [Text]
+-&gt; DescribePolicies
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies%27"><span class="hs-identifier hs-type">DescribePolicies'</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyNames:DescribePolicies' :: Maybe [Text]
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3ApolicyNames%3ADescribePolicies%27"><span class="hs-identifier hs-var">policyNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribePolicies' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AnextToken%3ADescribePolicies%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:DescribePolicies' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AautoScalingGroupName%3ADescribePolicies%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribePolicies' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AmaxRecords%3ADescribePolicies%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyTypes:DescribePolicies' :: Maybe [Text]
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3ApolicyTypes%3ADescribePolicies%27"><span class="hs-identifier hs-var">policyTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The names of one or more policies. If you omit this parameter, all</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- policies are described. If a group name is provided, the results are</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- limited to that group. If you specify an unknown policy name, it is</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- ignored with no error.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Array Members: Maximum number of 50 items.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_policyNames"><span class="hs-identifier hs-type">describePolicies_policyNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="describePolicies_policyNames"><span class="annot"><span class="annottext">describePolicies_policyNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribePolicies -&gt; f DescribePolicies
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_policyNames"><span class="hs-identifier hs-var hs-var">describePolicies_policyNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePolicies -&gt; Maybe [Text])
+-&gt; (DescribePolicies -&gt; Maybe [Text] -&gt; DescribePolicies)
+-&gt; Lens
+     DescribePolicies DescribePolicies (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies%27"><span class="hs-identifier hs-type">DescribePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341260"><span class="annot"><span class="annottext">Maybe [Text]
+policyNames :: Maybe [Text]
+$sel:policyNames:DescribePolicies' :: DescribePolicies -&gt; Maybe [Text]
+</span><a href="#local-6989586621679341260"><span class="hs-identifier hs-var hs-var">policyNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679341260"><span class="hs-identifier hs-var">policyNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341259"><span class="annot"><span class="annottext">s :: DescribePolicies
+</span><a href="#local-6989586621679341259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies%27"><span class="hs-identifier hs-type">DescribePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341258"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679341258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePolicies
+</span><a href="#local-6989586621679341259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyNames:DescribePolicies' :: Maybe [Text]
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3ApolicyNames%3ADescribePolicies%27"><span class="hs-identifier hs-var">policyNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679341258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribePolicies -&gt; f DescribePolicies)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribePolicies
+-&gt; f DescribePolicies
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_nextToken"><span class="hs-identifier hs-type">describePolicies_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="describePolicies_nextToken"><span class="annot"><span class="annottext">describePolicies_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePolicies -&gt; f DescribePolicies
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_nextToken"><span class="hs-identifier hs-var hs-var">describePolicies_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePolicies -&gt; Maybe Text)
+-&gt; (DescribePolicies -&gt; Maybe Text -&gt; DescribePolicies)
+-&gt; Lens DescribePolicies DescribePolicies (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies%27"><span class="hs-identifier hs-type">DescribePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341254"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribePolicies' :: DescribePolicies -&gt; Maybe Text
+</span><a href="#local-6989586621679341254"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341254"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341253"><span class="annot"><span class="annottext">s :: DescribePolicies
+</span><a href="#local-6989586621679341253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies%27"><span class="hs-identifier hs-type">DescribePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341252"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePolicies
+</span><a href="#local-6989586621679341253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribePolicies' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AnextToken%3ADescribePolicies%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_autoScalingGroupName"><span class="hs-identifier hs-type">describePolicies_autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="describePolicies_autoScalingGroupName"><span class="annot"><span class="annottext">describePolicies_autoScalingGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePolicies -&gt; f DescribePolicies
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_autoScalingGroupName"><span class="hs-identifier hs-var hs-var">describePolicies_autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePolicies -&gt; Maybe Text)
+-&gt; (DescribePolicies -&gt; Maybe Text -&gt; DescribePolicies)
+-&gt; Lens DescribePolicies DescribePolicies (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies%27"><span class="hs-identifier hs-type">DescribePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341251"><span class="annot"><span class="annottext">Maybe Text
+autoScalingGroupName :: Maybe Text
+$sel:autoScalingGroupName:DescribePolicies' :: DescribePolicies -&gt; Maybe Text
+</span><a href="#local-6989586621679341251"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341251"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341250"><span class="annot"><span class="annottext">s :: DescribePolicies
+</span><a href="#local-6989586621679341250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies%27"><span class="hs-identifier hs-type">DescribePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341249"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePolicies
+</span><a href="#local-6989586621679341250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:DescribePolicies' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AautoScalingGroupName%3ADescribePolicies%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The maximum number of items to be returned with each call. The default</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- value is @50@ and the maximum value is @100@.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_maxRecords"><span class="hs-identifier hs-type">describePolicies_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="describePolicies_maxRecords"><span class="annot"><span class="annottext">describePolicies_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribePolicies -&gt; f DescribePolicies
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_maxRecords"><span class="hs-identifier hs-var hs-var">describePolicies_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePolicies -&gt; Maybe Int)
+-&gt; (DescribePolicies -&gt; Maybe Int -&gt; DescribePolicies)
+-&gt; Lens DescribePolicies DescribePolicies (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies%27"><span class="hs-identifier hs-type">DescribePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341248"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribePolicies' :: DescribePolicies -&gt; Maybe Int
+</span><a href="#local-6989586621679341248"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679341248"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341247"><span class="annot"><span class="annottext">s :: DescribePolicies
+</span><a href="#local-6989586621679341247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies%27"><span class="hs-identifier hs-type">DescribePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341246"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679341246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePolicies
+</span><a href="#local-6989586621679341247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribePolicies' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AmaxRecords%3ADescribePolicies%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679341246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | One or more policy types. The valid values are @SimpleScaling@,</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- @StepScaling@, @TargetTrackingScaling@, and @PredictiveScaling@.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_policyTypes"><span class="hs-identifier hs-type">describePolicies_policyTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="describePolicies_policyTypes"><span class="annot"><span class="annottext">describePolicies_policyTypes :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribePolicies -&gt; f DescribePolicies
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_policyTypes"><span class="hs-identifier hs-var hs-var">describePolicies_policyTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePolicies -&gt; Maybe [Text])
+-&gt; (DescribePolicies -&gt; Maybe [Text] -&gt; DescribePolicies)
+-&gt; Lens
+     DescribePolicies DescribePolicies (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies%27"><span class="hs-identifier hs-type">DescribePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341245"><span class="annot"><span class="annottext">Maybe [Text]
+policyTypes :: Maybe [Text]
+$sel:policyTypes:DescribePolicies' :: DescribePolicies -&gt; Maybe [Text]
+</span><a href="#local-6989586621679341245"><span class="hs-identifier hs-var hs-var">policyTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679341245"><span class="hs-identifier hs-var">policyTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341244"><span class="annot"><span class="annottext">s :: DescribePolicies
+</span><a href="#local-6989586621679341244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies%27"><span class="hs-identifier hs-type">DescribePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341243"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679341243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePolicies
+</span><a href="#local-6989586621679341244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyTypes:DescribePolicies' :: Maybe [Text]
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3ApolicyTypes%3ADescribePolicies%27"><span class="hs-identifier hs-var">policyTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679341243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribePolicies -&gt; f DescribePolicies)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribePolicies
+-&gt; f DescribePolicies
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679341239"><span class="annot"><span class="annottext">page :: DescribePolicies
+-&gt; AWSResponse DescribePolicies -&gt; Maybe DescribePolicies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679341237"><span class="annot"><span class="annottext">DescribePolicies
+</span><a href="#local-6989586621679341237"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679341236"><span class="annot"><span class="annottext">AWSResponse DescribePolicies
+</span><a href="#local-6989586621679341236"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-146"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribePolicies
+DescribePoliciesResponse
+</span><a href="#local-6989586621679341236"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">DescribePoliciesResponse
+-&gt; Getting (First Text) DescribePoliciesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribePoliciesResponse
+-&gt; Const (First Text) DescribePoliciesResponse
+Lens' DescribePoliciesResponse (Maybe Text)
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#describePoliciesResponse_nextToken"><span class="hs-identifier hs-var">describePoliciesResponse_nextToken</span></a></span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribePoliciesResponse
+ -&gt; Const (First Text) DescribePoliciesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribePoliciesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-149"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribePolicies
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ScalingPolicy] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-152"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribePolicies
+DescribePoliciesResponse
+</span><a href="#local-6989586621679341236"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">DescribePoliciesResponse
+-&gt; Getting
+     (First [ScalingPolicy]) DescribePoliciesResponse [ScalingPolicy]
+-&gt; Maybe [ScalingPolicy]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ScalingPolicy]
+ -&gt; Const (First [ScalingPolicy]) (Maybe [ScalingPolicy]))
+-&gt; DescribePoliciesResponse
+-&gt; Const (First [ScalingPolicy]) DescribePoliciesResponse
+Lens' DescribePoliciesResponse (Maybe [ScalingPolicy])
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#describePoliciesResponse_scalingPolicies"><span class="hs-identifier hs-var">describePoliciesResponse_scalingPolicies</span></a></span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ScalingPolicy]
+  -&gt; Const (First [ScalingPolicy]) (Maybe [ScalingPolicy]))
+ -&gt; DescribePoliciesResponse
+ -&gt; Const (First [ScalingPolicy]) DescribePoliciesResponse)
+-&gt; (([ScalingPolicy]
+     -&gt; Const (First [ScalingPolicy]) [ScalingPolicy])
+    -&gt; Maybe [ScalingPolicy]
+    -&gt; Const (First [ScalingPolicy]) (Maybe [ScalingPolicy]))
+-&gt; Getting
+     (First [ScalingPolicy]) DescribePoliciesResponse [ScalingPolicy]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ScalingPolicy] -&gt; Const (First [ScalingPolicy]) [ScalingPolicy])
+-&gt; Maybe [ScalingPolicy]
+-&gt; Const (First [ScalingPolicy]) (Maybe [ScalingPolicy])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-155"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribePolicies
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">DescribePolicies -&gt; Maybe DescribePolicies
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribePolicies -&gt; Maybe DescribePolicies)
+-&gt; DescribePolicies -&gt; Maybe DescribePolicies
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">DescribePolicies
+</span><a href="#local-6989586621679341237"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">DescribePolicies
+-&gt; (DescribePolicies -&gt; DescribePolicies) -&gt; DescribePolicies
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribePolicies -&gt; Identity DescribePolicies
+Lens DescribePolicies DescribePolicies (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#describePolicies_nextToken"><span class="hs-identifier hs-var">describePolicies_nextToken</span></a></span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribePolicies -&gt; Identity DescribePolicies)
+-&gt; Maybe Text -&gt; DescribePolicies -&gt; DescribePolicies
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribePolicies
+DescribePoliciesResponse
+</span><a href="#local-6989586621679341236"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">DescribePoliciesResponse
+-&gt; Getting (First Text) DescribePoliciesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribePoliciesResponse
+-&gt; Const (First Text) DescribePoliciesResponse
+Lens' DescribePoliciesResponse (Maybe Text)
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#describePoliciesResponse_nextToken"><span class="hs-identifier hs-var">describePoliciesResponse_nextToken</span></a></span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribePoliciesResponse
+ -&gt; Const (First Text) DescribePoliciesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribePoliciesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-167"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse"><span class="hs-identifier hs-type">DescribePoliciesResponse</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679341227"><span class="annot"><span class="annottext">request :: DescribePolicies -&gt; Request DescribePolicies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribePolicies -&gt; Request DescribePolicies
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679341223"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribePolicies
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribePolicies)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribePolicies))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribePolicies
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribePolicies)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribePoliciesResult&quot;</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341220"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341220"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679341219"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679341219"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679341218"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679341218"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ScalingPolicy] -&gt; Int -&gt; DescribePoliciesResponse
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse%27"><span class="hs-identifier hs-var">DescribePoliciesResponse'</span></a></span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ScalingPolicy] -&gt; Int -&gt; DescribePoliciesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [ScalingPolicy] -&gt; Int -&gt; DescribePoliciesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679341218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [ScalingPolicy] -&gt; Int -&gt; DescribePoliciesResponse)
+-&gt; Either String (Maybe [ScalingPolicy])
+-&gt; Either String (Int -&gt; DescribePoliciesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679341218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScalingPolicies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-177"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [ScalingPolicy]))
+-&gt; Either String (Maybe [ScalingPolicy])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ScalingPolicy])
+-&gt; [Node] -&gt; Either String (Maybe [ScalingPolicy])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ScalingPolicy]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribePoliciesResponse)
+-&gt; Either String Int -&gt; Either String DescribePoliciesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341220"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341207"><span id="local-6989586621679341209"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span></span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341204"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679341200"><span class="annot"><span class="annottext">toHeaders :: DescribePolicies -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribePolicies -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679341195"><span class="annot"><span class="annottext">toPath :: DescribePolicies -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribePolicies -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies"><span class="hs-identifier hs-type">DescribePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679341191"><span class="annot"><span class="annottext">toQuery :: DescribePolicies -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePolicies%27"><span class="hs-identifier hs-type">DescribePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341185"><span id="local-6989586621679341186"><span id="local-6989586621679341187"><span id="local-6989586621679341188"><span id="local-6989586621679341189"><span class="annot"><span class="annottext">Maybe Int
+Maybe [Text]
+Maybe Text
+policyTypes :: Maybe [Text]
+maxRecords :: Maybe Int
+autoScalingGroupName :: Maybe Text
+nextToken :: Maybe Text
+policyNames :: Maybe [Text]
+$sel:policyTypes:DescribePolicies' :: DescribePolicies -&gt; Maybe [Text]
+$sel:maxRecords:DescribePolicies' :: DescribePolicies -&gt; Maybe Int
+$sel:autoScalingGroupName:DescribePolicies' :: DescribePolicies -&gt; Maybe Text
+$sel:nextToken:DescribePolicies' :: DescribePolicies -&gt; Maybe Text
+$sel:policyNames:DescribePolicies' :: DescribePolicies -&gt; Maybe [Text]
+</span><a href="#local-6989586621679341185"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-196"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribePolicies&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2011-01-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PolicyNames&quot;</span></span><span>
+</span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679341189"><span class="hs-identifier hs-var">policyNames</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341188"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AutoScalingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341187"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679341186"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PolicyTypes&quot;</span></span><span>
+</span><span id="line-206"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679341185"><span class="hs-identifier hs-var">policyTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | /See:/ 'newDescribePoliciesResponse' smart constructor.</span><span>
+</span><span id="line-211"></span><span id="local-6989586621679341181"><span id="local-6989586621679341182"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePoliciesResponse"><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse"><span class="hs-identifier hs-var">DescribePoliciesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePoliciesResponse%27"><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse%27"><span class="hs-identifier hs-var">DescribePoliciesResponse'</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string that indicates that the response contains more items than can</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- be returned in a single response. To receive additional items, specify</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- this string for the @NextToken@ value when requesting the next set of</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- items. This value is null when there are no more items to return.</span><span>
+</span><span id="line-216"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribePoliciesResponse%27"><span class="annot"><span class="annottext">DescribePoliciesResponse -&gt; Maybe Text
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AnextToken%3ADescribePoliciesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- | The scaling policies.</span><span>
+</span><span id="line-218"></span><span>    </span><span id="%24sel%3AscalingPolicies%3ADescribePoliciesResponse%27"><span class="annot"><span class="annottext">DescribePoliciesResponse -&gt; Maybe [ScalingPolicy]
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AscalingPolicies%3ADescribePoliciesResponse%27"><span class="hs-identifier hs-var hs-var">scalingPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AutoScaling.Types.ScalingPolicy.html#ScalingPolicy"><span class="hs-identifier hs-type">ScalingPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-220"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribePoliciesResponse%27"><span class="annot"><span class="annottext">DescribePoliciesResponse -&gt; Int
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AhttpStatus%3ADescribePoliciesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341174"><span id="local-6989586621679341176"><span class="annot"><span class="annottext">DescribePoliciesResponse -&gt; DescribePoliciesResponse -&gt; Bool
+(DescribePoliciesResponse -&gt; DescribePoliciesResponse -&gt; Bool)
+-&gt; (DescribePoliciesResponse -&gt; DescribePoliciesResponse -&gt; Bool)
+-&gt; Eq DescribePoliciesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePoliciesResponse -&gt; DescribePoliciesResponse -&gt; Bool
+$c/= :: DescribePoliciesResponse -&gt; DescribePoliciesResponse -&gt; Bool
+== :: DescribePoliciesResponse -&gt; DescribePoliciesResponse -&gt; Bool
+$c== :: DescribePoliciesResponse -&gt; DescribePoliciesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341166"><span id="local-6989586621679341168"><span id="local-6989586621679341170"><span id="local-6989586621679341172"><span class="annot"><span class="annottext">ReadPrec [DescribePoliciesResponse]
+ReadPrec DescribePoliciesResponse
+Int -&gt; ReadS DescribePoliciesResponse
+ReadS [DescribePoliciesResponse]
+(Int -&gt; ReadS DescribePoliciesResponse)
+-&gt; ReadS [DescribePoliciesResponse]
+-&gt; ReadPrec DescribePoliciesResponse
+-&gt; ReadPrec [DescribePoliciesResponse]
+-&gt; Read DescribePoliciesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePoliciesResponse]
+$creadListPrec :: ReadPrec [DescribePoliciesResponse]
+readPrec :: ReadPrec DescribePoliciesResponse
+$creadPrec :: ReadPrec DescribePoliciesResponse
+readList :: ReadS [DescribePoliciesResponse]
+$creadList :: ReadS [DescribePoliciesResponse]
+readsPrec :: Int -&gt; ReadS DescribePoliciesResponse
+$creadsPrec :: Int -&gt; ReadS DescribePoliciesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341160"><span id="local-6989586621679341162"><span id="local-6989586621679341164"><span class="annot"><span class="annottext">Int -&gt; DescribePoliciesResponse -&gt; ShowS
+[DescribePoliciesResponse] -&gt; ShowS
+DescribePoliciesResponse -&gt; String
+(Int -&gt; DescribePoliciesResponse -&gt; ShowS)
+-&gt; (DescribePoliciesResponse -&gt; String)
+-&gt; ([DescribePoliciesResponse] -&gt; ShowS)
+-&gt; Show DescribePoliciesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePoliciesResponse] -&gt; ShowS
+$cshowList :: [DescribePoliciesResponse] -&gt; ShowS
+show :: DescribePoliciesResponse -&gt; String
+$cshow :: DescribePoliciesResponse -&gt; String
+showsPrec :: Int -&gt; DescribePoliciesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePoliciesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribePoliciesResponse -&gt; Rep DescribePoliciesResponse x)
+-&gt; (forall x.
+    Rep DescribePoliciesResponse x -&gt; DescribePoliciesResponse)
+-&gt; Generic DescribePoliciesResponse
+forall x.
+Rep DescribePoliciesResponse x -&gt; DescribePoliciesResponse
+forall x.
+DescribePoliciesResponse -&gt; Rep DescribePoliciesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribePoliciesResponse x -&gt; DescribePoliciesResponse
+$cfrom :: forall x.
+DescribePoliciesResponse -&gt; Rep DescribePoliciesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- Create a value of 'DescribePoliciesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'nextToken', 'describePoliciesResponse_nextToken' - A string that indicates that the response contains more items than can</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- be returned in a single response. To receive additional items, specify</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- this string for the @NextToken@ value when requesting the next set of</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- items. This value is null when there are no more items to return.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'scalingPolicies', 'describePoliciesResponse_scalingPolicies' - The scaling policies.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'httpStatus', 'describePoliciesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#newDescribePoliciesResponse"><span class="hs-identifier hs-type">newDescribePoliciesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-241"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse"><span class="hs-identifier hs-type">DescribePoliciesResponse</span></a></span><span>
+</span><span id="line-244"></span><span id="newDescribePoliciesResponse"><span class="annot"><span class="annottext">newDescribePoliciesResponse :: Int -&gt; DescribePoliciesResponse
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#newDescribePoliciesResponse"><span class="hs-identifier hs-var hs-var">newDescribePoliciesResponse</span></a></span></span><span> </span><span id="local-6989586621679341157"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341157"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><span class="annottext">DescribePoliciesResponse' :: Maybe Text
+-&gt; Maybe [ScalingPolicy] -&gt; Int -&gt; DescribePoliciesResponse
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse%27"><span class="hs-identifier hs-type">DescribePoliciesResponse'</span></a></span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribePoliciesResponse' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AnextToken%3ADescribePoliciesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:scalingPolicies:DescribePoliciesResponse' :: Maybe [ScalingPolicy]
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AscalingPolicies%3ADescribePoliciesResponse%27"><span class="hs-identifier hs-var">scalingPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePoliciesResponse' :: Int
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AhttpStatus%3ADescribePoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341157"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | A string that indicates that the response contains more items than can</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- be returned in a single response. To receive additional items, specify</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- this string for the @NextToken@ value when requesting the next set of</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- items. This value is null when there are no more items to return.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePoliciesResponse_nextToken"><span class="hs-identifier hs-type">describePoliciesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse"><span class="hs-identifier hs-type">DescribePoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="describePoliciesResponse_nextToken"><span class="annot"><span class="annottext">describePoliciesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePoliciesResponse -&gt; f DescribePoliciesResponse
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#describePoliciesResponse_nextToken"><span class="hs-identifier hs-var hs-var">describePoliciesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePoliciesResponse -&gt; Maybe Text)
+-&gt; (DescribePoliciesResponse
+    -&gt; Maybe Text -&gt; DescribePoliciesResponse)
+-&gt; Lens' DescribePoliciesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse%27"><span class="hs-identifier hs-type">DescribePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341156"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribePoliciesResponse' :: DescribePoliciesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679341156"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341156"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341155"><span class="annot"><span class="annottext">s :: DescribePoliciesResponse
+</span><a href="#local-6989586621679341155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse%27"><span class="hs-identifier hs-type">DescribePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341154"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePoliciesResponse
+</span><a href="#local-6989586621679341155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribePoliciesResponse' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AnextToken%3ADescribePoliciesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse"><span class="hs-identifier hs-type">DescribePoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The scaling policies.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePoliciesResponse_scalingPolicies"><span class="hs-identifier hs-type">describePoliciesResponse_scalingPolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse"><span class="hs-identifier hs-type">DescribePoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AutoScaling.Types.ScalingPolicy.html#ScalingPolicy"><span class="hs-identifier hs-type">ScalingPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="describePoliciesResponse_scalingPolicies"><span class="annot"><span class="annottext">describePoliciesResponse_scalingPolicies :: (Maybe [ScalingPolicy] -&gt; f (Maybe [ScalingPolicy]))
+-&gt; DescribePoliciesResponse -&gt; f DescribePoliciesResponse
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#describePoliciesResponse_scalingPolicies"><span class="hs-identifier hs-var hs-var">describePoliciesResponse_scalingPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePoliciesResponse -&gt; Maybe [ScalingPolicy])
+-&gt; (DescribePoliciesResponse
+    -&gt; Maybe [ScalingPolicy] -&gt; DescribePoliciesResponse)
+-&gt; Lens' DescribePoliciesResponse (Maybe [ScalingPolicy])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse%27"><span class="hs-identifier hs-type">DescribePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341153"><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
+scalingPolicies :: Maybe [ScalingPolicy]
+$sel:scalingPolicies:DescribePoliciesResponse' :: DescribePoliciesResponse -&gt; Maybe [ScalingPolicy]
+</span><a href="#local-6989586621679341153"><span class="hs-identifier hs-var hs-var">scalingPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
+</span><a href="#local-6989586621679341153"><span class="hs-identifier hs-var">scalingPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341152"><span class="annot"><span class="annottext">s :: DescribePoliciesResponse
+</span><a href="#local-6989586621679341152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse%27"><span class="hs-identifier hs-type">DescribePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341151"><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
+</span><a href="#local-6989586621679341151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePoliciesResponse
+</span><a href="#local-6989586621679341152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingPolicies:DescribePoliciesResponse' :: Maybe [ScalingPolicy]
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AscalingPolicies%3ADescribePoliciesResponse%27"><span class="hs-identifier hs-var">scalingPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
+</span><a href="#local-6989586621679341151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse"><span class="hs-identifier hs-type">DescribePoliciesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ScalingPolicy] -&gt; f (Maybe [ScalingPolicy]))
+ -&gt; DescribePoliciesResponse -&gt; f DescribePoliciesResponse)
+-&gt; ((Maybe [ScalingPolicy] -&gt; f (Maybe [ScalingPolicy]))
+    -&gt; Maybe [ScalingPolicy] -&gt; f (Maybe [ScalingPolicy]))
+-&gt; (Maybe [ScalingPolicy] -&gt; f (Maybe [ScalingPolicy]))
+-&gt; DescribePoliciesResponse
+-&gt; f DescribePoliciesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ScalingPolicy] [ScalingPolicy] [ScalingPolicy] [ScalingPolicy]
+-&gt; Iso
+     (Maybe [ScalingPolicy])
+     (Maybe [ScalingPolicy])
+     (Maybe [ScalingPolicy])
+     (Maybe [ScalingPolicy])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ScalingPolicy] [ScalingPolicy] [ScalingPolicy] [ScalingPolicy]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#describePoliciesResponse_httpStatus"><span class="hs-identifier hs-type">describePoliciesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse"><span class="hs-identifier hs-type">DescribePoliciesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-265"></span><span id="describePoliciesResponse_httpStatus"><span class="annot"><span class="annottext">describePoliciesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribePoliciesResponse -&gt; f DescribePoliciesResponse
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#describePoliciesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describePoliciesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePoliciesResponse -&gt; Int)
+-&gt; (DescribePoliciesResponse -&gt; Int -&gt; DescribePoliciesResponse)
+-&gt; Lens DescribePoliciesResponse DescribePoliciesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse%27"><span class="hs-identifier hs-type">DescribePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341150"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribePoliciesResponse' :: DescribePoliciesResponse -&gt; Int
+</span><a href="#local-6989586621679341150"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341150"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341149"><span class="annot"><span class="annottext">s :: DescribePoliciesResponse
+</span><a href="#local-6989586621679341149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse%27"><span class="hs-identifier hs-type">DescribePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341148"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePoliciesResponse
+</span><a href="#local-6989586621679341149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePoliciesResponse' :: Int
+</span><a href="Amazonka.AutoScaling.DescribePolicies.html#%24sel%3AhttpStatus%3ADescribePoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse"><span class="hs-identifier hs-type">DescribePoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341146"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.DescribePolicies.html#DescribePoliciesResponse"><span class="hs-identifier hs-type">DescribePoliciesResponse</span></a></span></span><span>
+</span><span id="line-268"></span></pre></body></html>

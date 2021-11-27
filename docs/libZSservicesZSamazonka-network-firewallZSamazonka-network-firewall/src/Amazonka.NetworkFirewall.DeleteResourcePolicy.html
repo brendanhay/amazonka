@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.NetworkFirewall.DeleteResourcePolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a resource policy that you created in a PutResourcePolicy</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.NetworkFirewall.DeleteResourcePolicy</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier">DeleteResourcePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#newDeleteResourcePolicy"><span class="hs-identifier">newDeleteResourcePolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#deleteResourcePolicy_resourceArn"><span class="hs-identifier">deleteResourcePolicy_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicyResponse"><span class="hs-identifier">DeleteResourcePolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#newDeleteResourcePolicyResponse"><span class="hs-identifier">newDeleteResourcePolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#deleteResourcePolicyResponse_httpStatus"><span class="hs-identifier">deleteResourcePolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteResourcePolicy' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679247240"><span id="local-6989586621679247241"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteResourcePolicy"><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-var">DeleteResourcePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteResourcePolicy%27"><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy%27"><span class="hs-identifier hs-var">DeleteResourcePolicy'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the rule group or firewall policy</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- whose resource policy you want to delete.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AresourceArn%3ADeleteResourcePolicy%27"><span class="annot"><span class="annottext">DeleteResourcePolicy -&gt; Text
+</span><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#%24sel%3AresourceArn%3ADeleteResourcePolicy%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247234"><span id="local-6989586621679247236"><span class="annot"><span class="annottext">DeleteResourcePolicy -&gt; DeleteResourcePolicy -&gt; Bool
+(DeleteResourcePolicy -&gt; DeleteResourcePolicy -&gt; Bool)
+-&gt; (DeleteResourcePolicy -&gt; DeleteResourcePolicy -&gt; Bool)
+-&gt; Eq DeleteResourcePolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteResourcePolicy -&gt; DeleteResourcePolicy -&gt; Bool
+$c/= :: DeleteResourcePolicy -&gt; DeleteResourcePolicy -&gt; Bool
+== :: DeleteResourcePolicy -&gt; DeleteResourcePolicy -&gt; Bool
+$c== :: DeleteResourcePolicy -&gt; DeleteResourcePolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247225"><span id="local-6989586621679247227"><span id="local-6989586621679247229"><span id="local-6989586621679247231"><span class="annot"><span class="annottext">ReadPrec [DeleteResourcePolicy]
+ReadPrec DeleteResourcePolicy
+Int -&gt; ReadS DeleteResourcePolicy
+ReadS [DeleteResourcePolicy]
+(Int -&gt; ReadS DeleteResourcePolicy)
+-&gt; ReadS [DeleteResourcePolicy]
+-&gt; ReadPrec DeleteResourcePolicy
+-&gt; ReadPrec [DeleteResourcePolicy]
+-&gt; Read DeleteResourcePolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteResourcePolicy]
+$creadListPrec :: ReadPrec [DeleteResourcePolicy]
+readPrec :: ReadPrec DeleteResourcePolicy
+$creadPrec :: ReadPrec DeleteResourcePolicy
+readList :: ReadS [DeleteResourcePolicy]
+$creadList :: ReadS [DeleteResourcePolicy]
+readsPrec :: Int -&gt; ReadS DeleteResourcePolicy
+$creadsPrec :: Int -&gt; ReadS DeleteResourcePolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247218"><span id="local-6989586621679247220"><span id="local-6989586621679247222"><span class="annot"><span class="annottext">Int -&gt; DeleteResourcePolicy -&gt; ShowS
+[DeleteResourcePolicy] -&gt; ShowS
+DeleteResourcePolicy -&gt; String
+(Int -&gt; DeleteResourcePolicy -&gt; ShowS)
+-&gt; (DeleteResourcePolicy -&gt; String)
+-&gt; ([DeleteResourcePolicy] -&gt; ShowS)
+-&gt; Show DeleteResourcePolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteResourcePolicy] -&gt; ShowS
+$cshowList :: [DeleteResourcePolicy] -&gt; ShowS
+show :: DeleteResourcePolicy -&gt; String
+$cshow :: DeleteResourcePolicy -&gt; String
+showsPrec :: Int -&gt; DeleteResourcePolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteResourcePolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteResourcePolicy -&gt; Rep DeleteResourcePolicy x)
+-&gt; (forall x. Rep DeleteResourcePolicy x -&gt; DeleteResourcePolicy)
+-&gt; Generic DeleteResourcePolicy
+forall x. Rep DeleteResourcePolicy x -&gt; DeleteResourcePolicy
+forall x. DeleteResourcePolicy -&gt; Rep DeleteResourcePolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteResourcePolicy x -&gt; DeleteResourcePolicy
+$cfrom :: forall x. DeleteResourcePolicy -&gt; Rep DeleteResourcePolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DeleteResourcePolicy' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'resourceArn', 'deleteResourcePolicy_resourceArn' - The Amazon Resource Name (ARN) of the rule group or firewall policy</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- whose resource policy you want to delete.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#newDeleteResourcePolicy"><span class="hs-identifier hs-type">newDeleteResourcePolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'resourceArn'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span><span>
+</span><span id="line-71"></span><span id="newDeleteResourcePolicy"><span class="annot"><span class="annottext">newDeleteResourcePolicy :: Text -&gt; DeleteResourcePolicy
+</span><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#newDeleteResourcePolicy"><span class="hs-identifier hs-var hs-var">newDeleteResourcePolicy</span></a></span></span><span> </span><span id="local-6989586621679247213"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247213"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DeleteResourcePolicy' :: Text -&gt; DeleteResourcePolicy
+</span><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy%27"><span class="hs-identifier hs-type">DeleteResourcePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:DeleteResourcePolicy' :: Text
+</span><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#%24sel%3AresourceArn%3ADeleteResourcePolicy%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247213"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the rule group or firewall policy</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- whose resource policy you want to delete.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#deleteResourcePolicy_resourceArn"><span class="hs-identifier hs-type">deleteResourcePolicy_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="deleteResourcePolicy_resourceArn"><span class="annot"><span class="annottext">deleteResourcePolicy_resourceArn :: (Text -&gt; f Text) -&gt; DeleteResourcePolicy -&gt; f DeleteResourcePolicy
+</span><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#deleteResourcePolicy_resourceArn"><span class="hs-identifier hs-var hs-var">deleteResourcePolicy_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteResourcePolicy -&gt; Text)
+-&gt; (DeleteResourcePolicy -&gt; Text -&gt; DeleteResourcePolicy)
+-&gt; Lens DeleteResourcePolicy DeleteResourcePolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy%27"><span class="hs-identifier hs-type">DeleteResourcePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247210"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:DeleteResourcePolicy' :: DeleteResourcePolicy -&gt; Text
+</span><a href="#local-6989586621679247210"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247210"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247209"><span class="annot"><span class="annottext">s :: DeleteResourcePolicy
+</span><a href="#local-6989586621679247209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy%27"><span class="hs-identifier hs-type">DeleteResourcePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247208"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteResourcePolicy
+</span><a href="#local-6989586621679247209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:DeleteResourcePolicy' :: Text
+</span><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#%24sel%3AresourceArn%3ADeleteResourcePolicy%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicyResponse"><span class="hs-identifier hs-type">DeleteResourcePolicyResponse</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679247204"><span class="annot"><span class="annottext">request :: DeleteResourcePolicy -&gt; Request DeleteResourcePolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteResourcePolicy -&gt; Request DeleteResourcePolicy
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679247200"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteResourcePolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteResourcePolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteResourcePolicy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteResourcePolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteResourcePolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247197"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247197"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679247196"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679247196"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679247195"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679247195"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteResourcePolicyResponse
+</span><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicyResponse%27"><span class="hs-identifier hs-var">DeleteResourcePolicyResponse'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteResourcePolicyResponse)
+-&gt; Either String Int -&gt; Either String DeleteResourcePolicyResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247197"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247188"><span id="local-6989586621679247190"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247185"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679247181"><span class="annot"><span class="annottext">toHeaders :: DeleteResourcePolicy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteResourcePolicy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NetworkFirewall_20201112.DeleteResourcePolicy&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-102"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-106"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247171"><span id="local-6989586621679247173"><span id="local-6989586621679247175"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679247169"><span class="annot"><span class="annottext">toJSON :: DeleteResourcePolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy%27"><span class="hs-identifier hs-type">DeleteResourcePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247167"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:DeleteResourcePolicy' :: DeleteResourcePolicy -&gt; Text
+</span><a href="#local-6989586621679247167"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247167"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679247161"><span class="annot"><span class="annottext">toPath :: DeleteResourcePolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteResourcePolicy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679247157"><span class="annot"><span class="annottext">toQuery :: DeleteResourcePolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteResourcePolicy -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newDeleteResourcePolicyResponse' smart constructor.</span><span>
+</span><span id="line-124"></span><span id="local-6989586621679247154"><span id="local-6989586621679247155"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteResourcePolicyResponse"><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicyResponse"><span class="hs-identifier hs-var">DeleteResourcePolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteResourcePolicyResponse%27"><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicyResponse%27"><span class="hs-identifier hs-var">DeleteResourcePolicyResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteResourcePolicyResponse%27"><span class="annot"><span class="annottext">DeleteResourcePolicyResponse -&gt; Int
+</span><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#%24sel%3AhttpStatus%3ADeleteResourcePolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247149"><span id="local-6989586621679247151"><span class="annot"><span class="annottext">DeleteResourcePolicyResponse
+-&gt; DeleteResourcePolicyResponse -&gt; Bool
+(DeleteResourcePolicyResponse
+ -&gt; DeleteResourcePolicyResponse -&gt; Bool)
+-&gt; (DeleteResourcePolicyResponse
+    -&gt; DeleteResourcePolicyResponse -&gt; Bool)
+-&gt; Eq DeleteResourcePolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteResourcePolicyResponse
+-&gt; DeleteResourcePolicyResponse -&gt; Bool
+$c/= :: DeleteResourcePolicyResponse
+-&gt; DeleteResourcePolicyResponse -&gt; Bool
+== :: DeleteResourcePolicyResponse
+-&gt; DeleteResourcePolicyResponse -&gt; Bool
+$c== :: DeleteResourcePolicyResponse
+-&gt; DeleteResourcePolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247141"><span id="local-6989586621679247143"><span id="local-6989586621679247145"><span id="local-6989586621679247147"><span class="annot"><span class="annottext">ReadPrec [DeleteResourcePolicyResponse]
+ReadPrec DeleteResourcePolicyResponse
+Int -&gt; ReadS DeleteResourcePolicyResponse
+ReadS [DeleteResourcePolicyResponse]
+(Int -&gt; ReadS DeleteResourcePolicyResponse)
+-&gt; ReadS [DeleteResourcePolicyResponse]
+-&gt; ReadPrec DeleteResourcePolicyResponse
+-&gt; ReadPrec [DeleteResourcePolicyResponse]
+-&gt; Read DeleteResourcePolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteResourcePolicyResponse]
+$creadListPrec :: ReadPrec [DeleteResourcePolicyResponse]
+readPrec :: ReadPrec DeleteResourcePolicyResponse
+$creadPrec :: ReadPrec DeleteResourcePolicyResponse
+readList :: ReadS [DeleteResourcePolicyResponse]
+$creadList :: ReadS [DeleteResourcePolicyResponse]
+readsPrec :: Int -&gt; ReadS DeleteResourcePolicyResponse
+$creadsPrec :: Int -&gt; ReadS DeleteResourcePolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247135"><span id="local-6989586621679247137"><span id="local-6989586621679247139"><span class="annot"><span class="annottext">Int -&gt; DeleteResourcePolicyResponse -&gt; ShowS
+[DeleteResourcePolicyResponse] -&gt; ShowS
+DeleteResourcePolicyResponse -&gt; String
+(Int -&gt; DeleteResourcePolicyResponse -&gt; ShowS)
+-&gt; (DeleteResourcePolicyResponse -&gt; String)
+-&gt; ([DeleteResourcePolicyResponse] -&gt; ShowS)
+-&gt; Show DeleteResourcePolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteResourcePolicyResponse] -&gt; ShowS
+$cshowList :: [DeleteResourcePolicyResponse] -&gt; ShowS
+show :: DeleteResourcePolicyResponse -&gt; String
+$cshow :: DeleteResourcePolicyResponse -&gt; String
+showsPrec :: Int -&gt; DeleteResourcePolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteResourcePolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteResourcePolicyResponse -&gt; Rep DeleteResourcePolicyResponse x)
+-&gt; (forall x.
+    Rep DeleteResourcePolicyResponse x -&gt; DeleteResourcePolicyResponse)
+-&gt; Generic DeleteResourcePolicyResponse
+forall x.
+Rep DeleteResourcePolicyResponse x -&gt; DeleteResourcePolicyResponse
+forall x.
+DeleteResourcePolicyResponse -&gt; Rep DeleteResourcePolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteResourcePolicyResponse x -&gt; DeleteResourcePolicyResponse
+$cfrom :: forall x.
+DeleteResourcePolicyResponse -&gt; Rep DeleteResourcePolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Create a value of 'DeleteResourcePolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'httpStatus', 'deleteResourcePolicyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#newDeleteResourcePolicyResponse"><span class="hs-identifier hs-type">newDeleteResourcePolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicyResponse"><span class="hs-identifier hs-type">DeleteResourcePolicyResponse</span></a></span><span>
+</span><span id="line-143"></span><span id="newDeleteResourcePolicyResponse"><span class="annot"><span class="annottext">newDeleteResourcePolicyResponse :: Int -&gt; DeleteResourcePolicyResponse
+</span><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#newDeleteResourcePolicyResponse"><span class="hs-identifier hs-var hs-var">newDeleteResourcePolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679247132"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247132"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">DeleteResourcePolicyResponse' :: Int -&gt; DeleteResourcePolicyResponse
+</span><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicyResponse%27"><span class="hs-identifier hs-type">DeleteResourcePolicyResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteResourcePolicyResponse' :: Int
+</span><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#%24sel%3AhttpStatus%3ADeleteResourcePolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247132"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#deleteResourcePolicyResponse_httpStatus"><span class="hs-identifier hs-type">deleteResourcePolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicyResponse"><span class="hs-identifier hs-type">DeleteResourcePolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-151"></span><span id="deleteResourcePolicyResponse_httpStatus"><span class="annot"><span class="annottext">deleteResourcePolicyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteResourcePolicyResponse -&gt; f DeleteResourcePolicyResponse
+</span><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#deleteResourcePolicyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteResourcePolicyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteResourcePolicyResponse -&gt; Int)
+-&gt; (DeleteResourcePolicyResponse
+    -&gt; Int -&gt; DeleteResourcePolicyResponse)
+-&gt; Lens
+     DeleteResourcePolicyResponse DeleteResourcePolicyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicyResponse%27"><span class="hs-identifier hs-type">DeleteResourcePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247131"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteResourcePolicyResponse' :: DeleteResourcePolicyResponse -&gt; Int
+</span><a href="#local-6989586621679247131"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247131"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247130"><span class="annot"><span class="annottext">s :: DeleteResourcePolicyResponse
+</span><a href="#local-6989586621679247130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicyResponse%27"><span class="hs-identifier hs-type">DeleteResourcePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247129"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteResourcePolicyResponse
+</span><a href="#local-6989586621679247130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteResourcePolicyResponse' :: Int
+</span><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#%24sel%3AhttpStatus%3ADeleteResourcePolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicyResponse"><span class="hs-identifier hs-type">DeleteResourcePolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247127"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.DeleteResourcePolicy.html#DeleteResourcePolicyResponse"><span class="hs-identifier hs-type">DeleteResourcePolicyResponse</span></a></span></span><span>
+</span><span id="line-154"></span></pre></body></html>

@@ -1,0 +1,741 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Shield.CreateProtectionGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a grouping of protected resources so they can be handled as a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- collective. This resource grouping improves the accuracy of detection</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- and reduces false positives.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Shield.CreateProtectionGroup</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier">CreateProtectionGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#newCreateProtectionGroup"><span class="hs-identifier">newCreateProtectionGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_resourceType"><span class="hs-identifier">createProtectionGroup_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_members"><span class="hs-identifier">createProtectionGroup_members</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_tags"><span class="hs-identifier">createProtectionGroup_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_protectionGroupId"><span class="hs-identifier">createProtectionGroup_protectionGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_aggregation"><span class="hs-identifier">createProtectionGroup_aggregation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_pattern"><span class="hs-identifier">createProtectionGroup_pattern</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse"><span class="hs-identifier">CreateProtectionGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#newCreateProtectionGroupResponse"><span class="hs-identifier">newCreateProtectionGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroupResponse_httpStatus"><span class="hs-identifier">createProtectionGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.html"><span class="hs-identifier">Amazonka.Shield.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newCreateProtectionGroup' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679210248"><span id="local-6989586621679210249"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProtectionGroup"><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-var">CreateProtectionGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProtectionGroup%27"><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-var">CreateProtectionGroup'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource type to include in the protection group. All protected</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- resources of this type are included in the protection group. Newly</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- protected resources of this type are automatically added to the group.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- You must set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- must not set it for any other @Pattern@ setting.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AresourceType%3ACreateProtectionGroup%27"><span class="annot"><span class="annottext">CreateProtectionGroup -&gt; Maybe ProtectedResourceType
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3AresourceType%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectedResourceType.html#ProtectedResourceType"><span class="hs-identifier hs-type">ProtectedResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the resources to include in the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- protection group. You must set this when you set @Pattern@ to</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Amembers%3ACreateProtectionGroup%27"><span class="annot"><span class="annottext">CreateProtectionGroup -&gt; Maybe [Text]
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3Amembers%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var hs-var">members</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | One or more tag key-value pairs for the protection group.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Atags%3ACreateProtectionGroup%27"><span class="annot"><span class="annottext">CreateProtectionGroup -&gt; Maybe [Tag]
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3Atags%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Shield.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name of the protection group. You use this to identify the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- protection group in lists and to manage the protection group, for</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- example to update, delete, or describe it.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AprotectionGroupId%3ACreateProtectionGroup%27"><span class="annot"><span class="annottext">CreateProtectionGroup -&gt; Text
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3AprotectionGroupId%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var hs-var">protectionGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Defines how Shield combines resource data for the group in order to</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- detect, mitigate, and report events.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   Sum - Use the total traffic across the group. This is a good choice</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     for most cases. Examples include Elastic IP addresses for EC2</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     instances that scale manually or automatically.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- -   Mean - Use the average of the traffic across the group. This is a</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     good choice for resources that share traffic uniformly. Examples</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     include accelerators and load balancers.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- -   Max - Use the highest traffic from each resource. This is useful for</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     resources that don\'t share traffic and for resources that share</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     that traffic in a non-uniform way. Examples include Amazon</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     CloudFront and origin resources for CloudFront distributions.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Aaggregation%3ACreateProtectionGroup%27"><span class="annot"><span class="annottext">CreateProtectionGroup -&gt; ProtectionGroupAggregation
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3Aaggregation%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var hs-var">aggregation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation"><span class="hs-identifier hs-type">ProtectionGroupAggregation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The criteria to use to choose the protected resources for inclusion in</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- the group. You can include all resources that have protections, provide</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- a list of resource Amazon Resource Names (ARNs), or include all</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- resources of a specified resource type.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3Apattern%27%3ACreateProtectionGroup%27"><span class="annot"><span class="annottext">CreateProtectionGroup -&gt; ProtectionGroupPattern
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3Apattern%27%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern"><span class="hs-identifier hs-type">ProtectionGroupPattern</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210237"><span id="local-6989586621679210239"><span class="annot"><span class="annottext">CreateProtectionGroup -&gt; CreateProtectionGroup -&gt; Bool
+(CreateProtectionGroup -&gt; CreateProtectionGroup -&gt; Bool)
+-&gt; (CreateProtectionGroup -&gt; CreateProtectionGroup -&gt; Bool)
+-&gt; Eq CreateProtectionGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateProtectionGroup -&gt; CreateProtectionGroup -&gt; Bool
+$c/= :: CreateProtectionGroup -&gt; CreateProtectionGroup -&gt; Bool
+== :: CreateProtectionGroup -&gt; CreateProtectionGroup -&gt; Bool
+$c== :: CreateProtectionGroup -&gt; CreateProtectionGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210228"><span id="local-6989586621679210230"><span id="local-6989586621679210232"><span id="local-6989586621679210234"><span class="annot"><span class="annottext">ReadPrec [CreateProtectionGroup]
+ReadPrec CreateProtectionGroup
+Int -&gt; ReadS CreateProtectionGroup
+ReadS [CreateProtectionGroup]
+(Int -&gt; ReadS CreateProtectionGroup)
+-&gt; ReadS [CreateProtectionGroup]
+-&gt; ReadPrec CreateProtectionGroup
+-&gt; ReadPrec [CreateProtectionGroup]
+-&gt; Read CreateProtectionGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateProtectionGroup]
+$creadListPrec :: ReadPrec [CreateProtectionGroup]
+readPrec :: ReadPrec CreateProtectionGroup
+$creadPrec :: ReadPrec CreateProtectionGroup
+readList :: ReadS [CreateProtectionGroup]
+$creadList :: ReadS [CreateProtectionGroup]
+readsPrec :: Int -&gt; ReadS CreateProtectionGroup
+$creadsPrec :: Int -&gt; ReadS CreateProtectionGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210221"><span id="local-6989586621679210223"><span id="local-6989586621679210225"><span class="annot"><span class="annottext">Int -&gt; CreateProtectionGroup -&gt; ShowS
+[CreateProtectionGroup] -&gt; ShowS
+CreateProtectionGroup -&gt; String
+(Int -&gt; CreateProtectionGroup -&gt; ShowS)
+-&gt; (CreateProtectionGroup -&gt; String)
+-&gt; ([CreateProtectionGroup] -&gt; ShowS)
+-&gt; Show CreateProtectionGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateProtectionGroup] -&gt; ShowS
+$cshowList :: [CreateProtectionGroup] -&gt; ShowS
+show :: CreateProtectionGroup -&gt; String
+$cshow :: CreateProtectionGroup -&gt; String
+showsPrec :: Int -&gt; CreateProtectionGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateProtectionGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateProtectionGroup -&gt; Rep CreateProtectionGroup x)
+-&gt; (forall x. Rep CreateProtectionGroup x -&gt; CreateProtectionGroup)
+-&gt; Generic CreateProtectionGroup
+forall x. Rep CreateProtectionGroup x -&gt; CreateProtectionGroup
+forall x. CreateProtectionGroup -&gt; Rep CreateProtectionGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateProtectionGroup x -&gt; CreateProtectionGroup
+$cfrom :: forall x. CreateProtectionGroup -&gt; Rep CreateProtectionGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Create a value of 'CreateProtectionGroup' with all optional fields omitted.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'resourceType', 'createProtectionGroup_resourceType' - The resource type to include in the protection group. All protected</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- resources of this type are included in the protection group. Newly</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- protected resources of this type are automatically added to the group.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- You must set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- must not set it for any other @Pattern@ setting.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'members', 'createProtectionGroup_members' - The Amazon Resource Names (ARNs) of the resources to include in the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- protection group. You must set this when you set @Pattern@ to</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'tags', 'createProtectionGroup_tags' - One or more tag key-value pairs for the protection group.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'protectionGroupId', 'createProtectionGroup_protectionGroupId' - The name of the protection group. You use this to identify the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- protection group in lists and to manage the protection group, for</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- example to update, delete, or describe it.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'aggregation', 'createProtectionGroup_aggregation' - Defines how Shield combines resource data for the group in order to</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- detect, mitigate, and report events.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   Sum - Use the total traffic across the group. This is a good choice</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--     for most cases. Examples include Elastic IP addresses for EC2</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     instances that scale manually or automatically.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   Mean - Use the average of the traffic across the group. This is a</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     good choice for resources that share traffic uniformly. Examples</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     include accelerators and load balancers.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -   Max - Use the highest traffic from each resource. This is useful for</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--     resources that don\'t share traffic and for resources that share</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--     that traffic in a non-uniform way. Examples include Amazon</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     CloudFront and origin resources for CloudFront distributions.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'pattern'', 'createProtectionGroup_pattern' - The criteria to use to choose the protected resources for inclusion in</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- the group. You can include all resources that have protections, provide</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- a list of resource Amazon Resource Names (ARNs), or include all</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- resources of a specified resource type.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#newCreateProtectionGroup"><span class="hs-identifier hs-type">newCreateProtectionGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-comment">-- | 'protectionGroupId'</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'aggregation'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation"><span class="hs-identifier hs-type">ProtectionGroupAggregation</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'pattern''</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern"><span class="hs-identifier hs-type">ProtectionGroupPattern</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span>
+</span><span id="line-149"></span><span id="newCreateProtectionGroup"><span class="annot"><span class="annottext">newCreateProtectionGroup :: Text
+-&gt; ProtectionGroupAggregation
+-&gt; ProtectionGroupPattern
+-&gt; CreateProtectionGroup
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#newCreateProtectionGroup"><span class="hs-identifier hs-var hs-var">newCreateProtectionGroup</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679210216"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210216"><span class="hs-identifier hs-var">pProtectionGroupId_</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679210215"><span class="annot"><span class="annottext">ProtectionGroupAggregation
+</span><a href="#local-6989586621679210215"><span class="hs-identifier hs-var">pAggregation_</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679210214"><span class="annot"><span class="annottext">ProtectionGroupPattern
+</span><a href="#local-6989586621679210214"><span class="hs-identifier hs-var">pPattern_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">CreateProtectionGroup' :: Maybe ProtectedResourceType
+-&gt; Maybe [Text]
+-&gt; Maybe [Tag]
+-&gt; Text
+-&gt; ProtectionGroupAggregation
+-&gt; ProtectionGroupPattern
+-&gt; CreateProtectionGroup
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceType:CreateProtectionGroup' :: Maybe ProtectedResourceType
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3AresourceType%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProtectedResourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">$sel:members:CreateProtectionGroup' :: Maybe [Text]
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3Amembers%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">members</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateProtectionGroup' :: Maybe [Tag]
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3Atags%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:protectionGroupId:CreateProtectionGroup' :: Text
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3AprotectionGroupId%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">protectionGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210216"><span class="hs-identifier hs-var">pProtectionGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:aggregation:CreateProtectionGroup' :: ProtectionGroupAggregation
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3Aaggregation%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">aggregation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupAggregation
+</span><a href="#local-6989586621679210215"><span class="hs-identifier hs-var">pAggregation_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:pattern':CreateProtectionGroup' :: ProtectionGroupPattern
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3Apattern%27%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">pattern'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupPattern
+</span><a href="#local-6989586621679210214"><span class="hs-identifier hs-var">pPattern_</span></a></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The resource type to include in the protection group. All protected</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- resources of this type are included in the protection group. Newly</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- protected resources of this type are automatically added to the group.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- You must set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- must not set it for any other @Pattern@ setting.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_resourceType"><span class="hs-identifier hs-type">createProtectionGroup_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectedResourceType.html#ProtectedResourceType"><span class="hs-identifier hs-type">ProtectedResourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="createProtectionGroup_resourceType"><span class="annot"><span class="annottext">createProtectionGroup_resourceType :: (Maybe ProtectedResourceType -&gt; f (Maybe ProtectedResourceType))
+-&gt; CreateProtectionGroup -&gt; f CreateProtectionGroup
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_resourceType"><span class="hs-identifier hs-var hs-var">createProtectionGroup_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProtectionGroup -&gt; Maybe ProtectedResourceType)
+-&gt; (CreateProtectionGroup
+    -&gt; Maybe ProtectedResourceType -&gt; CreateProtectionGroup)
+-&gt; Lens
+     CreateProtectionGroup
+     CreateProtectionGroup
+     (Maybe ProtectedResourceType)
+     (Maybe ProtectedResourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210211"><span class="annot"><span class="annottext">Maybe ProtectedResourceType
+resourceType :: Maybe ProtectedResourceType
+$sel:resourceType:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Maybe ProtectedResourceType
+</span><a href="#local-6989586621679210211"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProtectedResourceType
+</span><a href="#local-6989586621679210211"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210210"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
+</span><a href="#local-6989586621679210210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210209"><span class="annot"><span class="annottext">Maybe ProtectedResourceType
+</span><a href="#local-6989586621679210209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
+</span><a href="#local-6989586621679210210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:CreateProtectionGroup' :: Maybe ProtectedResourceType
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3AresourceType%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProtectedResourceType
+</span><a href="#local-6989586621679210209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the resources to include in the</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- protection group. You must set this when you set @Pattern@ to</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_members"><span class="hs-identifier hs-type">createProtectionGroup_members</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="createProtectionGroup_members"><span class="annot"><span class="annottext">createProtectionGroup_members :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateProtectionGroup -&gt; f CreateProtectionGroup
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_members"><span class="hs-identifier hs-var hs-var">createProtectionGroup_members</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProtectionGroup -&gt; Maybe [Text])
+-&gt; (CreateProtectionGroup -&gt; Maybe [Text] -&gt; CreateProtectionGroup)
+-&gt; Lens
+     CreateProtectionGroup
+     CreateProtectionGroup
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210208"><span class="annot"><span class="annottext">Maybe [Text]
+members :: Maybe [Text]
+$sel:members:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Maybe [Text]
+</span><a href="#local-6989586621679210208"><span class="hs-identifier hs-var hs-var">members</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679210208"><span class="hs-identifier hs-var">members</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210207"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
+</span><a href="#local-6989586621679210207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210206"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679210206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
+</span><a href="#local-6989586621679210207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:members:CreateProtectionGroup' :: Maybe [Text]
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3Amembers%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">members</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679210206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateProtectionGroup -&gt; f CreateProtectionGroup)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateProtectionGroup
+-&gt; f CreateProtectionGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | One or more tag key-value pairs for the protection group.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_tags"><span class="hs-identifier hs-type">createProtectionGroup_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Shield.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="createProtectionGroup_tags"><span class="annot"><span class="annottext">createProtectionGroup_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateProtectionGroup -&gt; f CreateProtectionGroup
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_tags"><span class="hs-identifier hs-var hs-var">createProtectionGroup_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProtectionGroup -&gt; Maybe [Tag])
+-&gt; (CreateProtectionGroup -&gt; Maybe [Tag] -&gt; CreateProtectionGroup)
+-&gt; Lens
+     CreateProtectionGroup
+     CreateProtectionGroup
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210202"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679210202"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679210202"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210201"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
+</span><a href="#local-6989586621679210201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210200"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679210200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
+</span><a href="#local-6989586621679210201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateProtectionGroup' :: Maybe [Tag]
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3Atags%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679210200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateProtectionGroup -&gt; f CreateProtectionGroup)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateProtectionGroup
+-&gt; f CreateProtectionGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The name of the protection group. You use this to identify the</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- protection group in lists and to manage the protection group, for</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- example to update, delete, or describe it.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_protectionGroupId"><span class="hs-identifier hs-type">createProtectionGroup_protectionGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-185"></span><span id="createProtectionGroup_protectionGroupId"><span class="annot"><span class="annottext">createProtectionGroup_protectionGroupId :: (Text -&gt; f Text)
+-&gt; CreateProtectionGroup -&gt; f CreateProtectionGroup
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_protectionGroupId"><span class="hs-identifier hs-var hs-var">createProtectionGroup_protectionGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProtectionGroup -&gt; Text)
+-&gt; (CreateProtectionGroup -&gt; Text -&gt; CreateProtectionGroup)
+-&gt; Lens CreateProtectionGroup CreateProtectionGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210199"><span class="annot"><span class="annottext">Text
+protectionGroupId :: Text
+$sel:protectionGroupId:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Text
+</span><a href="#local-6989586621679210199"><span class="hs-identifier hs-var hs-var">protectionGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210199"><span class="hs-identifier hs-var">protectionGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210198"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
+</span><a href="#local-6989586621679210198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210197"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
+</span><a href="#local-6989586621679210198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectionGroupId:CreateProtectionGroup' :: Text
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3AprotectionGroupId%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">protectionGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | Defines how Shield combines resource data for the group in order to</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- detect, mitigate, and report events.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- -   Sum - Use the total traffic across the group. This is a good choice</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--     for most cases. Examples include Elastic IP addresses for EC2</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--     instances that scale manually or automatically.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- -   Mean - Use the average of the traffic across the group. This is a</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     good choice for resources that share traffic uniformly. Examples</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     include accelerators and load balancers.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- -   Max - Use the highest traffic from each resource. This is useful for</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     resources that don\'t share traffic and for resources that share</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     that traffic in a non-uniform way. Examples include Amazon</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     CloudFront and origin resources for CloudFront distributions.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_aggregation"><span class="hs-identifier hs-type">createProtectionGroup_aggregation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation"><span class="hs-identifier hs-type">ProtectionGroupAggregation</span></a></span><span>
+</span><span id="line-203"></span><span id="createProtectionGroup_aggregation"><span class="annot"><span class="annottext">createProtectionGroup_aggregation :: (ProtectionGroupAggregation -&gt; f ProtectionGroupAggregation)
+-&gt; CreateProtectionGroup -&gt; f CreateProtectionGroup
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_aggregation"><span class="hs-identifier hs-var hs-var">createProtectionGroup_aggregation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProtectionGroup -&gt; ProtectionGroupAggregation)
+-&gt; (CreateProtectionGroup
+    -&gt; ProtectionGroupAggregation -&gt; CreateProtectionGroup)
+-&gt; Lens
+     CreateProtectionGroup
+     CreateProtectionGroup
+     ProtectionGroupAggregation
+     ProtectionGroupAggregation
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210196"><span class="annot"><span class="annottext">ProtectionGroupAggregation
+aggregation :: ProtectionGroupAggregation
+$sel:aggregation:CreateProtectionGroup' :: CreateProtectionGroup -&gt; ProtectionGroupAggregation
+</span><a href="#local-6989586621679210196"><span class="hs-identifier hs-var hs-var">aggregation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupAggregation
+</span><a href="#local-6989586621679210196"><span class="hs-identifier hs-var">aggregation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210195"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
+</span><a href="#local-6989586621679210195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210194"><span class="annot"><span class="annottext">ProtectionGroupAggregation
+</span><a href="#local-6989586621679210194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
+</span><a href="#local-6989586621679210195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregation:CreateProtectionGroup' :: ProtectionGroupAggregation
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3Aaggregation%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">aggregation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupAggregation
+</span><a href="#local-6989586621679210194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The criteria to use to choose the protected resources for inclusion in</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- the group. You can include all resources that have protections, provide</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- a list of resource Amazon Resource Names (ARNs), or include all</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- resources of a specified resource type.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_pattern"><span class="hs-identifier hs-type">createProtectionGroup_pattern</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern"><span class="hs-identifier hs-type">ProtectionGroupPattern</span></a></span><span>
+</span><span id="line-210"></span><span id="createProtectionGroup_pattern"><span class="annot"><span class="annottext">createProtectionGroup_pattern :: (ProtectionGroupPattern -&gt; f ProtectionGroupPattern)
+-&gt; CreateProtectionGroup -&gt; f CreateProtectionGroup
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroup_pattern"><span class="hs-identifier hs-var hs-var">createProtectionGroup_pattern</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProtectionGroup -&gt; ProtectionGroupPattern)
+-&gt; (CreateProtectionGroup
+    -&gt; ProtectionGroupPattern -&gt; CreateProtectionGroup)
+-&gt; Lens
+     CreateProtectionGroup
+     CreateProtectionGroup
+     ProtectionGroupPattern
+     ProtectionGroupPattern
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210193"><span class="annot"><span class="annottext">ProtectionGroupPattern
+pattern' :: ProtectionGroupPattern
+$sel:pattern':CreateProtectionGroup' :: CreateProtectionGroup -&gt; ProtectionGroupPattern
+</span><a href="#local-6989586621679210193"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupPattern
+</span><a href="#local-6989586621679210193"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210192"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
+</span><a href="#local-6989586621679210192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210191"><span class="annot"><span class="annottext">ProtectionGroupPattern
+</span><a href="#local-6989586621679210191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
+</span><a href="#local-6989586621679210192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pattern':CreateProtectionGroup' :: ProtectionGroupPattern
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3Apattern%27%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">pattern'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupPattern
+</span><a href="#local-6989586621679210191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-214"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse"><span class="hs-identifier hs-type">CreateProtectionGroupResponse</span></a></span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679210187"><span class="annot"><span class="annottext">request :: CreateProtectionGroup -&gt; Request CreateProtectionGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateProtectionGroup -&gt; Request CreateProtectionGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Shield.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679210183"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateProtectionGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateProtectionGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse CreateProtectionGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateProtectionGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateProtectionGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210180"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210180"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679210179"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679210179"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679210178"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679210178"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateProtectionGroupResponse
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse%27"><span class="hs-identifier hs-var">CreateProtectionGroupResponse'</span></a></span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateProtectionGroupResponse)
+-&gt; Either String Int -&gt; Either String CreateProtectionGroupResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210180"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210171"><span id="local-6989586621679210173"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span></span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210168"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span></span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679210164"><span class="annot"><span class="annottext">toHeaders :: CreateProtectionGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateProtectionGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-232"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-233"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSShield_20160616.CreateProtectionGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-234"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-235"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-237"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-238"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-239"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-241"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210154"><span id="local-6989586621679210156"><span id="local-6989586621679210158"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679210152"><span class="annot"><span class="annottext">toJSON :: CreateProtectionGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210145"><span id="local-6989586621679210146"><span id="local-6989586621679210147"><span id="local-6989586621679210148"><span id="local-6989586621679210149"><span id="local-6989586621679210150"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe [Tag]
+Maybe ProtectedResourceType
+Text
+ProtectionGroupAggregation
+ProtectionGroupPattern
+pattern' :: ProtectionGroupPattern
+aggregation :: ProtectionGroupAggregation
+protectionGroupId :: Text
+tags :: Maybe [Tag]
+members :: Maybe [Text]
+resourceType :: Maybe ProtectedResourceType
+$sel:pattern':CreateProtectionGroup' :: CreateProtectionGroup -&gt; ProtectionGroupPattern
+$sel:aggregation:CreateProtectionGroup' :: CreateProtectionGroup -&gt; ProtectionGroupAggregation
+$sel:protectionGroupId:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Text
+$sel:tags:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Maybe [Tag]
+$sel:members:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Maybe [Text]
+$sel:resourceType:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Maybe ProtectedResourceType
+</span><a href="#local-6989586621679210145"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-247"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProtectedResourceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ProtectedResourceType -&gt; Pair)
+-&gt; Maybe ProtectedResourceType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProtectedResourceType
+</span><a href="#local-6989586621679210150"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Members&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679210149"><span class="hs-identifier hs-var">members</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679210148"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-251"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProtectionGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210147"><span class="hs-identifier hs-var">protectionGroupId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Aggregation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProtectionGroupAggregation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ProtectionGroupAggregation
+</span><a href="#local-6989586621679210146"><span class="hs-identifier hs-var">aggregation</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Pattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProtectionGroupPattern -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ProtectionGroupPattern
+</span><a href="#local-6989586621679210145"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679210139"><span class="annot"><span class="annottext">toPath :: CreateProtectionGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateProtectionGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679210135"><span class="annot"><span class="annottext">toQuery :: CreateProtectionGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateProtectionGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | /See:/ 'newCreateProtectionGroupResponse' smart constructor.</span><span>
+</span><span id="line-264"></span><span id="local-6989586621679210132"><span id="local-6989586621679210133"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProtectionGroupResponse"><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse"><span class="hs-identifier hs-var">CreateProtectionGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProtectionGroupResponse%27"><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse%27"><span class="hs-identifier hs-var">CreateProtectionGroupResponse'</span></a></span></span><span>
+</span><span id="line-265"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-266"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateProtectionGroupResponse%27"><span class="annot"><span class="annottext">CreateProtectionGroupResponse -&gt; Int
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3AhttpStatus%3ACreateProtectionGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-267"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-268"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210127"><span id="local-6989586621679210129"><span class="annot"><span class="annottext">CreateProtectionGroupResponse
+-&gt; CreateProtectionGroupResponse -&gt; Bool
+(CreateProtectionGroupResponse
+ -&gt; CreateProtectionGroupResponse -&gt; Bool)
+-&gt; (CreateProtectionGroupResponse
+    -&gt; CreateProtectionGroupResponse -&gt; Bool)
+-&gt; Eq CreateProtectionGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateProtectionGroupResponse
+-&gt; CreateProtectionGroupResponse -&gt; Bool
+$c/= :: CreateProtectionGroupResponse
+-&gt; CreateProtectionGroupResponse -&gt; Bool
+== :: CreateProtectionGroupResponse
+-&gt; CreateProtectionGroupResponse -&gt; Bool
+$c== :: CreateProtectionGroupResponse
+-&gt; CreateProtectionGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210119"><span id="local-6989586621679210121"><span id="local-6989586621679210123"><span id="local-6989586621679210125"><span class="annot"><span class="annottext">ReadPrec [CreateProtectionGroupResponse]
+ReadPrec CreateProtectionGroupResponse
+Int -&gt; ReadS CreateProtectionGroupResponse
+ReadS [CreateProtectionGroupResponse]
+(Int -&gt; ReadS CreateProtectionGroupResponse)
+-&gt; ReadS [CreateProtectionGroupResponse]
+-&gt; ReadPrec CreateProtectionGroupResponse
+-&gt; ReadPrec [CreateProtectionGroupResponse]
+-&gt; Read CreateProtectionGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateProtectionGroupResponse]
+$creadListPrec :: ReadPrec [CreateProtectionGroupResponse]
+readPrec :: ReadPrec CreateProtectionGroupResponse
+$creadPrec :: ReadPrec CreateProtectionGroupResponse
+readList :: ReadS [CreateProtectionGroupResponse]
+$creadList :: ReadS [CreateProtectionGroupResponse]
+readsPrec :: Int -&gt; ReadS CreateProtectionGroupResponse
+$creadsPrec :: Int -&gt; ReadS CreateProtectionGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210113"><span id="local-6989586621679210115"><span id="local-6989586621679210117"><span class="annot"><span class="annottext">Int -&gt; CreateProtectionGroupResponse -&gt; ShowS
+[CreateProtectionGroupResponse] -&gt; ShowS
+CreateProtectionGroupResponse -&gt; String
+(Int -&gt; CreateProtectionGroupResponse -&gt; ShowS)
+-&gt; (CreateProtectionGroupResponse -&gt; String)
+-&gt; ([CreateProtectionGroupResponse] -&gt; ShowS)
+-&gt; Show CreateProtectionGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateProtectionGroupResponse] -&gt; ShowS
+$cshowList :: [CreateProtectionGroupResponse] -&gt; ShowS
+show :: CreateProtectionGroupResponse -&gt; String
+$cshow :: CreateProtectionGroupResponse -&gt; String
+showsPrec :: Int -&gt; CreateProtectionGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateProtectionGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateProtectionGroupResponse
+ -&gt; Rep CreateProtectionGroupResponse x)
+-&gt; (forall x.
+    Rep CreateProtectionGroupResponse x
+    -&gt; CreateProtectionGroupResponse)
+-&gt; Generic CreateProtectionGroupResponse
+forall x.
+Rep CreateProtectionGroupResponse x
+-&gt; CreateProtectionGroupResponse
+forall x.
+CreateProtectionGroupResponse
+-&gt; Rep CreateProtectionGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateProtectionGroupResponse x
+-&gt; CreateProtectionGroupResponse
+$cfrom :: forall x.
+CreateProtectionGroupResponse
+-&gt; Rep CreateProtectionGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- Create a value of 'CreateProtectionGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- 'httpStatus', 'createProtectionGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#newCreateProtectionGroupResponse"><span class="hs-identifier hs-type">newCreateProtectionGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-280"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-281"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-282"></span><span>  </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse"><span class="hs-identifier hs-type">CreateProtectionGroupResponse</span></a></span><span>
+</span><span id="line-283"></span><span id="newCreateProtectionGroupResponse"><span class="annot"><span class="annottext">newCreateProtectionGroupResponse :: Int -&gt; CreateProtectionGroupResponse
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#newCreateProtectionGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateProtectionGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679210110"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210110"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-284"></span><span>  </span><span class="annot"><span class="annottext">CreateProtectionGroupResponse' :: Int -&gt; CreateProtectionGroupResponse
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse%27"><span class="hs-identifier hs-type">CreateProtectionGroupResponse'</span></a></span><span>
+</span><span id="line-285"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProtectionGroupResponse' :: Int
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3AhttpStatus%3ACreateProtectionGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-286"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210110"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-287"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroupResponse_httpStatus"><span class="hs-identifier hs-type">createProtectionGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse"><span class="hs-identifier hs-type">CreateProtectionGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-291"></span><span id="createProtectionGroupResponse_httpStatus"><span class="annot"><span class="annottext">createProtectionGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateProtectionGroupResponse -&gt; f CreateProtectionGroupResponse
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#createProtectionGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createProtectionGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProtectionGroupResponse -&gt; Int)
+-&gt; (CreateProtectionGroupResponse
+    -&gt; Int -&gt; CreateProtectionGroupResponse)
+-&gt; Lens
+     CreateProtectionGroupResponse CreateProtectionGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse%27"><span class="hs-identifier hs-type">CreateProtectionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210109"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateProtectionGroupResponse' :: CreateProtectionGroupResponse -&gt; Int
+</span><a href="#local-6989586621679210109"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210109"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210108"><span class="annot"><span class="annottext">s :: CreateProtectionGroupResponse
+</span><a href="#local-6989586621679210108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse%27"><span class="hs-identifier hs-type">CreateProtectionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210107"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroupResponse
+</span><a href="#local-6989586621679210108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProtectionGroupResponse' :: Int
+</span><a href="Amazonka.Shield.CreateProtectionGroup.html#%24sel%3AhttpStatus%3ACreateProtectionGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse"><span class="hs-identifier hs-type">CreateProtectionGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210105"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse"><span class="hs-identifier hs-type">CreateProtectionGroupResponse</span></a></span></span><span>
+</span><span id="line-294"></span></pre></body></html>

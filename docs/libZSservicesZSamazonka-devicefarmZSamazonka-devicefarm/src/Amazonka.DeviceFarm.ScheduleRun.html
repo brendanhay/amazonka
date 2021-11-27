@@ -1,0 +1,728 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.ScheduleRun</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Schedules a run.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.ScheduleRun</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier">ScheduleRun</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#newScheduleRun"><span class="hs-identifier">newScheduleRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_executionConfiguration"><span class="hs-identifier">scheduleRun_executionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_deviceSelectionConfiguration"><span class="hs-identifier">scheduleRun_deviceSelectionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_appArn"><span class="hs-identifier">scheduleRun_appArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_name"><span class="hs-identifier">scheduleRun_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_configuration"><span class="hs-identifier">scheduleRun_configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_devicePoolArn"><span class="hs-identifier">scheduleRun_devicePoolArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_projectArn"><span class="hs-identifier">scheduleRun_projectArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_test"><span class="hs-identifier">scheduleRun_test</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse"><span class="hs-identifier">ScheduleRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#newScheduleRunResponse"><span class="hs-identifier">newScheduleRunResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRunResponse_run"><span class="hs-identifier">scheduleRunResponse_run</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRunResponse_httpStatus"><span class="hs-identifier">scheduleRunResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.html"><span class="hs-identifier">Amazonka.DeviceFarm.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | Represents a request to the schedule run operation.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newScheduleRun' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679373898"><span id="local-6989586621679373899"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduleRun"><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-var">ScheduleRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleRun%27"><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-var">ScheduleRun'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies configuration information about a test run, such as the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- execution timeout (in minutes).</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AexecutionConfiguration%3AScheduleRun%27"><span class="annot"><span class="annottext">ScheduleRun -&gt; Maybe ExecutionConfiguration
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AexecutionConfiguration%3AScheduleRun%27"><span class="hs-identifier hs-var hs-var">executionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionConfiguration.html#ExecutionConfiguration"><span class="hs-identifier hs-type">ExecutionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The filter criteria used to dynamically select a set of devices for a</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- test run and the maximum number of devices to be included in the run.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- Either __@devicePoolArn@__ or __@deviceSelectionConfiguration@__ is</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- required in a request.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AdeviceSelectionConfiguration%3AScheduleRun%27"><span class="annot"><span class="annottext">ScheduleRun -&gt; Maybe DeviceSelectionConfiguration
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AdeviceSelectionConfiguration%3AScheduleRun%27"><span class="hs-identifier hs-var hs-var">deviceSelectionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration"><span class="hs-identifier hs-type">DeviceSelectionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The ARN of an application package to run tests against, created with</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- CreateUpload. See ListUploads.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AappArn%3AScheduleRun%27"><span class="annot"><span class="annottext">ScheduleRun -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AappArn%3AScheduleRun%27"><span class="hs-identifier hs-var hs-var">appArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The name for the run to be scheduled.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Aname%3AScheduleRun%27"><span class="annot"><span class="annottext">ScheduleRun -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3Aname%3AScheduleRun%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Information about the settings for the run to be scheduled.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Aconfiguration%3AScheduleRun%27"><span class="annot"><span class="annottext">ScheduleRun -&gt; Maybe ScheduleRunConfiguration
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3Aconfiguration%3AScheduleRun%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The ARN of the device pool for the run to be scheduled.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AdevicePoolArn%3AScheduleRun%27"><span class="annot"><span class="annottext">ScheduleRun -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AdevicePoolArn%3AScheduleRun%27"><span class="hs-identifier hs-var hs-var">devicePoolArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The ARN of the project for the run to be scheduled.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AprojectArn%3AScheduleRun%27"><span class="annot"><span class="annottext">ScheduleRun -&gt; Text
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AprojectArn%3AScheduleRun%27"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | Information about the test for the run to be scheduled.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Atest%3AScheduleRun%27"><span class="annot"><span class="annottext">ScheduleRun -&gt; ScheduleRunTest
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3Atest%3AScheduleRun%27"><span class="hs-identifier hs-var hs-var">test</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ScheduleRunTest.html#ScheduleRunTest"><span class="hs-identifier hs-type">ScheduleRunTest</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373885"><span id="local-6989586621679373887"><span class="annot"><span class="annottext">ScheduleRun -&gt; ScheduleRun -&gt; Bool
+(ScheduleRun -&gt; ScheduleRun -&gt; Bool)
+-&gt; (ScheduleRun -&gt; ScheduleRun -&gt; Bool) -&gt; Eq ScheduleRun
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScheduleRun -&gt; ScheduleRun -&gt; Bool
+$c/= :: ScheduleRun -&gt; ScheduleRun -&gt; Bool
+== :: ScheduleRun -&gt; ScheduleRun -&gt; Bool
+$c== :: ScheduleRun -&gt; ScheduleRun -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373876"><span id="local-6989586621679373878"><span id="local-6989586621679373880"><span id="local-6989586621679373882"><span class="annot"><span class="annottext">ReadPrec [ScheduleRun]
+ReadPrec ScheduleRun
+Int -&gt; ReadS ScheduleRun
+ReadS [ScheduleRun]
+(Int -&gt; ReadS ScheduleRun)
+-&gt; ReadS [ScheduleRun]
+-&gt; ReadPrec ScheduleRun
+-&gt; ReadPrec [ScheduleRun]
+-&gt; Read ScheduleRun
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScheduleRun]
+$creadListPrec :: ReadPrec [ScheduleRun]
+readPrec :: ReadPrec ScheduleRun
+$creadPrec :: ReadPrec ScheduleRun
+readList :: ReadS [ScheduleRun]
+$creadList :: ReadS [ScheduleRun]
+readsPrec :: Int -&gt; ReadS ScheduleRun
+$creadsPrec :: Int -&gt; ReadS ScheduleRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373869"><span id="local-6989586621679373871"><span id="local-6989586621679373873"><span class="annot"><span class="annottext">Int -&gt; ScheduleRun -&gt; ShowS
+[ScheduleRun] -&gt; ShowS
+ScheduleRun -&gt; String
+(Int -&gt; ScheduleRun -&gt; ShowS)
+-&gt; (ScheduleRun -&gt; String)
+-&gt; ([ScheduleRun] -&gt; ShowS)
+-&gt; Show ScheduleRun
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScheduleRun] -&gt; ShowS
+$cshowList :: [ScheduleRun] -&gt; ShowS
+show :: ScheduleRun -&gt; String
+$cshow :: ScheduleRun -&gt; String
+showsPrec :: Int -&gt; ScheduleRun -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScheduleRun -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ScheduleRun -&gt; Rep ScheduleRun x)
+-&gt; (forall x. Rep ScheduleRun x -&gt; ScheduleRun)
+-&gt; Generic ScheduleRun
+forall x. Rep ScheduleRun x -&gt; ScheduleRun
+forall x. ScheduleRun -&gt; Rep ScheduleRun x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ScheduleRun x -&gt; ScheduleRun
+$cfrom :: forall x. ScheduleRun -&gt; Rep ScheduleRun x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Create a value of 'ScheduleRun' with all optional fields omitted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'executionConfiguration', 'scheduleRun_executionConfiguration' - Specifies configuration information about a test run, such as the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- execution timeout (in minutes).</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'deviceSelectionConfiguration', 'scheduleRun_deviceSelectionConfiguration' - The filter criteria used to dynamically select a set of devices for a</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- test run and the maximum number of devices to be included in the run.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Either __@devicePoolArn@__ or __@deviceSelectionConfiguration@__ is</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- required in a request.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'appArn', 'scheduleRun_appArn' - The ARN of an application package to run tests against, created with</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- CreateUpload. See ListUploads.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'name', 'scheduleRun_name' - The name for the run to be scheduled.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'configuration', 'scheduleRun_configuration' - Information about the settings for the run to be scheduled.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'devicePoolArn', 'scheduleRun_devicePoolArn' - The ARN of the device pool for the run to be scheduled.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'projectArn', 'scheduleRun_projectArn' - The ARN of the project for the run to be scheduled.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'test', 'scheduleRun_test' - Information about the test for the run to be scheduled.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#newScheduleRun"><span class="hs-identifier hs-type">newScheduleRun</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-comment">-- | 'projectArn'</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-comment">-- | 'test'</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ScheduleRunTest.html#ScheduleRunTest"><span class="hs-identifier hs-type">ScheduleRunTest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span>
+</span><span id="line-120"></span><span id="newScheduleRun"><span class="annot"><span class="annottext">newScheduleRun :: Text -&gt; ScheduleRunTest -&gt; ScheduleRun
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#newScheduleRun"><span class="hs-identifier hs-var hs-var">newScheduleRun</span></a></span></span><span> </span><span id="local-6989586621679373864"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373864"><span class="hs-identifier hs-var">pProjectArn_</span></a></span></span><span> </span><span id="local-6989586621679373863"><span class="annot"><span class="annottext">ScheduleRunTest
+</span><a href="#local-6989586621679373863"><span class="hs-identifier hs-var">pTest_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="annottext">ScheduleRun' :: Maybe ExecutionConfiguration
+-&gt; Maybe DeviceSelectionConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ScheduleRunConfiguration
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ScheduleRunTest
+-&gt; ScheduleRun
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:executionConfiguration:ScheduleRun' :: Maybe ExecutionConfiguration
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AexecutionConfiguration%3AScheduleRun%27"><span class="hs-identifier hs-var">executionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">Maybe ExecutionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceSelectionConfiguration:ScheduleRun' :: Maybe DeviceSelectionConfiguration
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AdeviceSelectionConfiguration%3AScheduleRun%27"><span class="hs-identifier hs-var">deviceSelectionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceSelectionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:appArn:ScheduleRun' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AappArn%3AScheduleRun%27"><span class="hs-identifier hs-var">appArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ScheduleRun' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3Aname%3AScheduleRun%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:ScheduleRun' :: Maybe ScheduleRunConfiguration
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3Aconfiguration%3AScheduleRun%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduleRunConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:devicePoolArn:ScheduleRun' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AdevicePoolArn%3AScheduleRun%27"><span class="hs-identifier hs-var">devicePoolArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectArn:ScheduleRun' :: Text
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AprojectArn%3AScheduleRun%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373864"><span class="hs-identifier hs-var">pProjectArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:test:ScheduleRun' :: ScheduleRunTest
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3Atest%3AScheduleRun%27"><span class="hs-identifier hs-var">test</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScheduleRunTest
+</span><a href="#local-6989586621679373863"><span class="hs-identifier hs-var">pTest_</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Specifies configuration information about a test run, such as the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- execution timeout (in minutes).</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_executionConfiguration"><span class="hs-identifier hs-type">scheduleRun_executionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionConfiguration.html#ExecutionConfiguration"><span class="hs-identifier hs-type">ExecutionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="scheduleRun_executionConfiguration"><span class="annot"><span class="annottext">scheduleRun_executionConfiguration :: (Maybe ExecutionConfiguration -&gt; f (Maybe ExecutionConfiguration))
+-&gt; ScheduleRun -&gt; f ScheduleRun
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_executionConfiguration"><span class="hs-identifier hs-var hs-var">scheduleRun_executionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRun -&gt; Maybe ExecutionConfiguration)
+-&gt; (ScheduleRun -&gt; Maybe ExecutionConfiguration -&gt; ScheduleRun)
+-&gt; Lens
+     ScheduleRun
+     ScheduleRun
+     (Maybe ExecutionConfiguration)
+     (Maybe ExecutionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373860"><span class="annot"><span class="annottext">Maybe ExecutionConfiguration
+executionConfiguration :: Maybe ExecutionConfiguration
+$sel:executionConfiguration:ScheduleRun' :: ScheduleRun -&gt; Maybe ExecutionConfiguration
+</span><a href="#local-6989586621679373860"><span class="hs-identifier hs-var hs-var">executionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionConfiguration
+</span><a href="#local-6989586621679373860"><span class="hs-identifier hs-var">executionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373859"><span class="annot"><span class="annottext">s :: ScheduleRun
+</span><a href="#local-6989586621679373859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373858"><span class="annot"><span class="annottext">Maybe ExecutionConfiguration
+</span><a href="#local-6989586621679373858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRun
+</span><a href="#local-6989586621679373859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionConfiguration:ScheduleRun' :: Maybe ExecutionConfiguration
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AexecutionConfiguration%3AScheduleRun%27"><span class="hs-identifier hs-var">executionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionConfiguration
+</span><a href="#local-6989586621679373858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The filter criteria used to dynamically select a set of devices for a</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- test run and the maximum number of devices to be included in the run.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Either __@devicePoolArn@__ or __@deviceSelectionConfiguration@__ is</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- required in a request.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_deviceSelectionConfiguration"><span class="hs-identifier hs-type">scheduleRun_deviceSelectionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration"><span class="hs-identifier hs-type">DeviceSelectionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="scheduleRun_deviceSelectionConfiguration"><span class="annot"><span class="annottext">scheduleRun_deviceSelectionConfiguration :: (Maybe DeviceSelectionConfiguration
+ -&gt; f (Maybe DeviceSelectionConfiguration))
+-&gt; ScheduleRun -&gt; f ScheduleRun
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_deviceSelectionConfiguration"><span class="hs-identifier hs-var hs-var">scheduleRun_deviceSelectionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRun -&gt; Maybe DeviceSelectionConfiguration)
+-&gt; (ScheduleRun
+    -&gt; Maybe DeviceSelectionConfiguration -&gt; ScheduleRun)
+-&gt; Lens
+     ScheduleRun
+     ScheduleRun
+     (Maybe DeviceSelectionConfiguration)
+     (Maybe DeviceSelectionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373857"><span class="annot"><span class="annottext">Maybe DeviceSelectionConfiguration
+deviceSelectionConfiguration :: Maybe DeviceSelectionConfiguration
+$sel:deviceSelectionConfiguration:ScheduleRun' :: ScheduleRun -&gt; Maybe DeviceSelectionConfiguration
+</span><a href="#local-6989586621679373857"><span class="hs-identifier hs-var hs-var">deviceSelectionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceSelectionConfiguration
+</span><a href="#local-6989586621679373857"><span class="hs-identifier hs-var">deviceSelectionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373856"><span class="annot"><span class="annottext">s :: ScheduleRun
+</span><a href="#local-6989586621679373856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373855"><span class="annot"><span class="annottext">Maybe DeviceSelectionConfiguration
+</span><a href="#local-6989586621679373855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRun
+</span><a href="#local-6989586621679373856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceSelectionConfiguration:ScheduleRun' :: Maybe DeviceSelectionConfiguration
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AdeviceSelectionConfiguration%3AScheduleRun%27"><span class="hs-identifier hs-var">deviceSelectionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceSelectionConfiguration
+</span><a href="#local-6989586621679373855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The ARN of an application package to run tests against, created with</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- CreateUpload. See ListUploads.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_appArn"><span class="hs-identifier hs-type">scheduleRun_appArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="scheduleRun_appArn"><span class="annot"><span class="annottext">scheduleRun_appArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ScheduleRun -&gt; f ScheduleRun
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_appArn"><span class="hs-identifier hs-var hs-var">scheduleRun_appArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRun -&gt; Maybe Text)
+-&gt; (ScheduleRun -&gt; Maybe Text -&gt; ScheduleRun)
+-&gt; Lens ScheduleRun ScheduleRun (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373854"><span class="annot"><span class="annottext">Maybe Text
+appArn :: Maybe Text
+$sel:appArn:ScheduleRun' :: ScheduleRun -&gt; Maybe Text
+</span><a href="#local-6989586621679373854"><span class="hs-identifier hs-var hs-var">appArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373854"><span class="hs-identifier hs-var">appArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373853"><span class="annot"><span class="annottext">s :: ScheduleRun
+</span><a href="#local-6989586621679373853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373852"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRun
+</span><a href="#local-6989586621679373853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appArn:ScheduleRun' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AappArn%3AScheduleRun%27"><span class="hs-identifier hs-var">appArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The name for the run to be scheduled.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_name"><span class="hs-identifier hs-type">scheduleRun_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="scheduleRun_name"><span class="annot"><span class="annottext">scheduleRun_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ScheduleRun -&gt; f ScheduleRun
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_name"><span class="hs-identifier hs-var hs-var">scheduleRun_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRun -&gt; Maybe Text)
+-&gt; (ScheduleRun -&gt; Maybe Text -&gt; ScheduleRun)
+-&gt; Lens ScheduleRun ScheduleRun (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373851"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ScheduleRun' :: ScheduleRun -&gt; Maybe Text
+</span><a href="#local-6989586621679373851"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373851"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373850"><span class="annot"><span class="annottext">s :: ScheduleRun
+</span><a href="#local-6989586621679373850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373849"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRun
+</span><a href="#local-6989586621679373850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ScheduleRun' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3Aname%3AScheduleRun%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | Information about the settings for the run to be scheduled.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_configuration"><span class="hs-identifier hs-type">scheduleRun_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="scheduleRun_configuration"><span class="annot"><span class="annottext">scheduleRun_configuration :: (Maybe ScheduleRunConfiguration
+ -&gt; f (Maybe ScheduleRunConfiguration))
+-&gt; ScheduleRun -&gt; f ScheduleRun
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_configuration"><span class="hs-identifier hs-var hs-var">scheduleRun_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRun -&gt; Maybe ScheduleRunConfiguration)
+-&gt; (ScheduleRun -&gt; Maybe ScheduleRunConfiguration -&gt; ScheduleRun)
+-&gt; Lens
+     ScheduleRun
+     ScheduleRun
+     (Maybe ScheduleRunConfiguration)
+     (Maybe ScheduleRunConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373848"><span class="annot"><span class="annottext">Maybe ScheduleRunConfiguration
+configuration :: Maybe ScheduleRunConfiguration
+$sel:configuration:ScheduleRun' :: ScheduleRun -&gt; Maybe ScheduleRunConfiguration
+</span><a href="#local-6989586621679373848"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduleRunConfiguration
+</span><a href="#local-6989586621679373848"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373847"><span class="annot"><span class="annottext">s :: ScheduleRun
+</span><a href="#local-6989586621679373847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373846"><span class="annot"><span class="annottext">Maybe ScheduleRunConfiguration
+</span><a href="#local-6989586621679373846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRun
+</span><a href="#local-6989586621679373847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:ScheduleRun' :: Maybe ScheduleRunConfiguration
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3Aconfiguration%3AScheduleRun%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduleRunConfiguration
+</span><a href="#local-6989586621679373846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The ARN of the device pool for the run to be scheduled.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_devicePoolArn"><span class="hs-identifier hs-type">scheduleRun_devicePoolArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="scheduleRun_devicePoolArn"><span class="annot"><span class="annottext">scheduleRun_devicePoolArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ScheduleRun -&gt; f ScheduleRun
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_devicePoolArn"><span class="hs-identifier hs-var hs-var">scheduleRun_devicePoolArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRun -&gt; Maybe Text)
+-&gt; (ScheduleRun -&gt; Maybe Text -&gt; ScheduleRun)
+-&gt; Lens ScheduleRun ScheduleRun (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373845"><span class="annot"><span class="annottext">Maybe Text
+devicePoolArn :: Maybe Text
+$sel:devicePoolArn:ScheduleRun' :: ScheduleRun -&gt; Maybe Text
+</span><a href="#local-6989586621679373845"><span class="hs-identifier hs-var hs-var">devicePoolArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373845"><span class="hs-identifier hs-var">devicePoolArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373844"><span class="annot"><span class="annottext">s :: ScheduleRun
+</span><a href="#local-6989586621679373844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373843"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRun
+</span><a href="#local-6989586621679373844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devicePoolArn:ScheduleRun' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AdevicePoolArn%3AScheduleRun%27"><span class="hs-identifier hs-var">devicePoolArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The ARN of the project for the run to be scheduled.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_projectArn"><span class="hs-identifier hs-type">scheduleRun_projectArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-165"></span><span id="scheduleRun_projectArn"><span class="annot"><span class="annottext">scheduleRun_projectArn :: (Text -&gt; f Text) -&gt; ScheduleRun -&gt; f ScheduleRun
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_projectArn"><span class="hs-identifier hs-var hs-var">scheduleRun_projectArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRun -&gt; Text)
+-&gt; (ScheduleRun -&gt; Text -&gt; ScheduleRun)
+-&gt; Lens ScheduleRun ScheduleRun Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373842"><span class="annot"><span class="annottext">Text
+projectArn :: Text
+$sel:projectArn:ScheduleRun' :: ScheduleRun -&gt; Text
+</span><a href="#local-6989586621679373842"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373842"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373841"><span class="annot"><span class="annottext">s :: ScheduleRun
+</span><a href="#local-6989586621679373841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373840"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRun
+</span><a href="#local-6989586621679373841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectArn:ScheduleRun' :: Text
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AprojectArn%3AScheduleRun%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | Information about the test for the run to be scheduled.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_test"><span class="hs-identifier hs-type">scheduleRun_test</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ScheduleRunTest.html#ScheduleRunTest"><span class="hs-identifier hs-type">ScheduleRunTest</span></a></span><span>
+</span><span id="line-169"></span><span id="scheduleRun_test"><span class="annot"><span class="annottext">scheduleRun_test :: (ScheduleRunTest -&gt; f ScheduleRunTest)
+-&gt; ScheduleRun -&gt; f ScheduleRun
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRun_test"><span class="hs-identifier hs-var hs-var">scheduleRun_test</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRun -&gt; ScheduleRunTest)
+-&gt; (ScheduleRun -&gt; ScheduleRunTest -&gt; ScheduleRun)
+-&gt; Lens ScheduleRun ScheduleRun ScheduleRunTest ScheduleRunTest
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373839"><span class="annot"><span class="annottext">ScheduleRunTest
+test :: ScheduleRunTest
+$sel:test:ScheduleRun' :: ScheduleRun -&gt; ScheduleRunTest
+</span><a href="#local-6989586621679373839"><span class="hs-identifier hs-var hs-var">test</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRunTest
+</span><a href="#local-6989586621679373839"><span class="hs-identifier hs-var">test</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373838"><span class="annot"><span class="annottext">s :: ScheduleRun
+</span><a href="#local-6989586621679373838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373837"><span class="annot"><span class="annottext">ScheduleRunTest
+</span><a href="#local-6989586621679373837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRun
+</span><a href="#local-6989586621679373838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:test:ScheduleRun' :: ScheduleRunTest
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3Atest%3AScheduleRun%27"><span class="hs-identifier hs-var">test</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScheduleRunTest
+</span><a href="#local-6989586621679373837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse"><span class="hs-identifier hs-type">ScheduleRunResponse</span></a></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679373833"><span class="annot"><span class="annottext">request :: ScheduleRun -&gt; Request ScheduleRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ScheduleRun -&gt; Request ScheduleRun
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679373829"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ScheduleRun
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ScheduleRun)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ScheduleRun))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ScheduleRun
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ScheduleRun)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373826"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679373825"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679373825"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679373824"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373824"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe Run -&gt; Int -&gt; ScheduleRunResponse
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse%27"><span class="hs-identifier hs-var">ScheduleRunResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Run -&gt; Int -&gt; ScheduleRunResponse)
+-&gt; Either String (Maybe Run)
+-&gt; Either String (Int -&gt; ScheduleRunResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Run)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;run&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ScheduleRunResponse)
+-&gt; Either String Int -&gt; Either String ScheduleRunResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373826"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373816"><span id="local-6989586621679373818"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span></span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373813"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679373809"><span class="annot"><span class="annottext">toHeaders :: ScheduleRun -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ScheduleRun -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-191"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeviceFarm_20150623.ScheduleRun&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-193"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-195"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-196"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-197"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373799"><span id="local-6989586621679373801"><span id="local-6989586621679373803"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679373797"><span class="annot"><span class="annottext">toJSON :: ScheduleRun -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun%27"><span class="hs-identifier hs-type">ScheduleRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373788"><span id="local-6989586621679373789"><span id="local-6989586621679373790"><span id="local-6989586621679373791"><span id="local-6989586621679373792"><span id="local-6989586621679373793"><span id="local-6989586621679373794"><span id="local-6989586621679373795"><span class="annot"><span class="annottext">Maybe Text
+Maybe ExecutionConfiguration
+Maybe DeviceSelectionConfiguration
+Maybe ScheduleRunConfiguration
+Text
+ScheduleRunTest
+test :: ScheduleRunTest
+projectArn :: Text
+devicePoolArn :: Maybe Text
+configuration :: Maybe ScheduleRunConfiguration
+name :: Maybe Text
+appArn :: Maybe Text
+deviceSelectionConfiguration :: Maybe DeviceSelectionConfiguration
+executionConfiguration :: Maybe ExecutionConfiguration
+$sel:test:ScheduleRun' :: ScheduleRun -&gt; ScheduleRunTest
+$sel:projectArn:ScheduleRun' :: ScheduleRun -&gt; Text
+$sel:devicePoolArn:ScheduleRun' :: ScheduleRun -&gt; Maybe Text
+$sel:configuration:ScheduleRun' :: ScheduleRun -&gt; Maybe ScheduleRunConfiguration
+$sel:name:ScheduleRun' :: ScheduleRun -&gt; Maybe Text
+$sel:appArn:ScheduleRun' :: ScheduleRun -&gt; Maybe Text
+$sel:deviceSelectionConfiguration:ScheduleRun' :: ScheduleRun -&gt; Maybe DeviceSelectionConfiguration
+$sel:executionConfiguration:ScheduleRun' :: ScheduleRun -&gt; Maybe ExecutionConfiguration
+</span><a href="#local-6989586621679373788"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-205"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;executionConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExecutionConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">(ExecutionConfiguration -&gt; Pair)
+-&gt; Maybe ExecutionConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionConfiguration
+</span><a href="#local-6989586621679373795"><span class="hs-identifier hs-var">executionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceSelectionConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeviceSelectionConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">(DeviceSelectionConfiguration -&gt; Pair)
+-&gt; Maybe DeviceSelectionConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeviceSelectionConfiguration
+</span><a href="#local-6989586621679373794"><span class="hs-identifier hs-var">deviceSelectionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;appArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373793"><span class="hs-identifier hs-var">appArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373792"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScheduleRunConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ScheduleRunConfiguration -&gt; Pair)
+-&gt; Maybe ScheduleRunConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScheduleRunConfiguration
+</span><a href="#local-6989586621679373791"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;devicePoolArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373790"><span class="hs-identifier hs-var">devicePoolArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;projectArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373789"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;test&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScheduleRunTest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ScheduleRunTest
+</span><a href="#local-6989586621679373788"><span class="hs-identifier hs-var">test</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679373782"><span class="annot"><span class="annottext">toPath :: ScheduleRun -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ScheduleRun -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRun"><span class="hs-identifier hs-type">ScheduleRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679373778"><span class="annot"><span class="annottext">toQuery :: ScheduleRun -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ScheduleRun -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | Represents the result of a schedule run request.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- /See:/ 'newScheduleRunResponse' smart constructor.</span><span>
+</span><span id="line-227"></span><span id="local-6989586621679373775"><span id="local-6989586621679373776"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduleRunResponse"><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse"><span class="hs-identifier hs-var">ScheduleRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleRunResponse%27"><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse%27"><span class="hs-identifier hs-var">ScheduleRunResponse'</span></a></span></span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the scheduled run.</span><span>
+</span><span id="line-229"></span><span>    </span><span id="%24sel%3Arun%3AScheduleRunResponse%27"><span class="annot"><span class="annottext">ScheduleRunResponse -&gt; Maybe Run
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3Arun%3AScheduleRunResponse%27"><span class="hs-identifier hs-var hs-var">run</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Run.html#Run"><span class="hs-identifier hs-type">Run</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-231"></span><span>    </span><span id="%24sel%3AhttpStatus%3AScheduleRunResponse%27"><span class="annot"><span class="annottext">ScheduleRunResponse -&gt; Int
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AhttpStatus%3AScheduleRunResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373769"><span id="local-6989586621679373771"><span class="annot"><span class="annottext">ScheduleRunResponse -&gt; ScheduleRunResponse -&gt; Bool
+(ScheduleRunResponse -&gt; ScheduleRunResponse -&gt; Bool)
+-&gt; (ScheduleRunResponse -&gt; ScheduleRunResponse -&gt; Bool)
+-&gt; Eq ScheduleRunResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScheduleRunResponse -&gt; ScheduleRunResponse -&gt; Bool
+$c/= :: ScheduleRunResponse -&gt; ScheduleRunResponse -&gt; Bool
+== :: ScheduleRunResponse -&gt; ScheduleRunResponse -&gt; Bool
+$c== :: ScheduleRunResponse -&gt; ScheduleRunResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373761"><span id="local-6989586621679373763"><span id="local-6989586621679373765"><span id="local-6989586621679373767"><span class="annot"><span class="annottext">ReadPrec [ScheduleRunResponse]
+ReadPrec ScheduleRunResponse
+Int -&gt; ReadS ScheduleRunResponse
+ReadS [ScheduleRunResponse]
+(Int -&gt; ReadS ScheduleRunResponse)
+-&gt; ReadS [ScheduleRunResponse]
+-&gt; ReadPrec ScheduleRunResponse
+-&gt; ReadPrec [ScheduleRunResponse]
+-&gt; Read ScheduleRunResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScheduleRunResponse]
+$creadListPrec :: ReadPrec [ScheduleRunResponse]
+readPrec :: ReadPrec ScheduleRunResponse
+$creadPrec :: ReadPrec ScheduleRunResponse
+readList :: ReadS [ScheduleRunResponse]
+$creadList :: ReadS [ScheduleRunResponse]
+readsPrec :: Int -&gt; ReadS ScheduleRunResponse
+$creadsPrec :: Int -&gt; ReadS ScheduleRunResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373755"><span id="local-6989586621679373757"><span id="local-6989586621679373759"><span class="annot"><span class="annottext">Int -&gt; ScheduleRunResponse -&gt; ShowS
+[ScheduleRunResponse] -&gt; ShowS
+ScheduleRunResponse -&gt; String
+(Int -&gt; ScheduleRunResponse -&gt; ShowS)
+-&gt; (ScheduleRunResponse -&gt; String)
+-&gt; ([ScheduleRunResponse] -&gt; ShowS)
+-&gt; Show ScheduleRunResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScheduleRunResponse] -&gt; ShowS
+$cshowList :: [ScheduleRunResponse] -&gt; ShowS
+show :: ScheduleRunResponse -&gt; String
+$cshow :: ScheduleRunResponse -&gt; String
+showsPrec :: Int -&gt; ScheduleRunResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScheduleRunResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ScheduleRunResponse -&gt; Rep ScheduleRunResponse x)
+-&gt; (forall x. Rep ScheduleRunResponse x -&gt; ScheduleRunResponse)
+-&gt; Generic ScheduleRunResponse
+forall x. Rep ScheduleRunResponse x -&gt; ScheduleRunResponse
+forall x. ScheduleRunResponse -&gt; Rep ScheduleRunResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ScheduleRunResponse x -&gt; ScheduleRunResponse
+$cfrom :: forall x. ScheduleRunResponse -&gt; Rep ScheduleRunResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- Create a value of 'ScheduleRunResponse' with all optional fields omitted.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'run', 'scheduleRunResponse_run' - Information about the scheduled run.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 'httpStatus', 'scheduleRunResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#newScheduleRunResponse"><span class="hs-identifier hs-type">newScheduleRunResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-249"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse"><span class="hs-identifier hs-type">ScheduleRunResponse</span></a></span><span>
+</span><span id="line-250"></span><span id="newScheduleRunResponse"><span class="annot"><span class="annottext">newScheduleRunResponse :: Int -&gt; ScheduleRunResponse
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#newScheduleRunResponse"><span class="hs-identifier hs-var hs-var">newScheduleRunResponse</span></a></span></span><span> </span><span id="local-6989586621679373752"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373752"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>  </span><span class="annot"><span class="annottext">ScheduleRunResponse' :: Maybe Run -&gt; Int -&gt; ScheduleRunResponse
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse%27"><span class="hs-identifier hs-type">ScheduleRunResponse'</span></a></span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:run:ScheduleRunResponse' :: Maybe Run
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3Arun%3AScheduleRunResponse%27"><span class="hs-identifier hs-var">run</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Run
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ScheduleRunResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AhttpStatus%3AScheduleRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373752"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | Information about the scheduled run.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRunResponse_run"><span class="hs-identifier hs-type">scheduleRunResponse_run</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse"><span class="hs-identifier hs-type">ScheduleRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Run.html#Run"><span class="hs-identifier hs-type">Run</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="scheduleRunResponse_run"><span class="annot"><span class="annottext">scheduleRunResponse_run :: (Maybe Run -&gt; f (Maybe Run))
+-&gt; ScheduleRunResponse -&gt; f ScheduleRunResponse
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRunResponse_run"><span class="hs-identifier hs-var hs-var">scheduleRunResponse_run</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRunResponse -&gt; Maybe Run)
+-&gt; (ScheduleRunResponse -&gt; Maybe Run -&gt; ScheduleRunResponse)
+-&gt; Lens
+     ScheduleRunResponse ScheduleRunResponse (Maybe Run) (Maybe Run)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse%27"><span class="hs-identifier hs-type">ScheduleRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373751"><span class="annot"><span class="annottext">Maybe Run
+run :: Maybe Run
+$sel:run:ScheduleRunResponse' :: ScheduleRunResponse -&gt; Maybe Run
+</span><a href="#local-6989586621679373751"><span class="hs-identifier hs-var hs-var">run</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Run
+</span><a href="#local-6989586621679373751"><span class="hs-identifier hs-var">run</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373750"><span class="annot"><span class="annottext">s :: ScheduleRunResponse
+</span><a href="#local-6989586621679373750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse%27"><span class="hs-identifier hs-type">ScheduleRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373749"><span class="annot"><span class="annottext">Maybe Run
+</span><a href="#local-6989586621679373749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRunResponse
+</span><a href="#local-6989586621679373750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:run:ScheduleRunResponse' :: Maybe Run
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3Arun%3AScheduleRunResponse%27"><span class="hs-identifier hs-var">run</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Run
+</span><a href="#local-6989586621679373749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse"><span class="hs-identifier hs-type">ScheduleRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRunResponse_httpStatus"><span class="hs-identifier hs-type">scheduleRunResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse"><span class="hs-identifier hs-type">ScheduleRunResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-262"></span><span id="scheduleRunResponse_httpStatus"><span class="annot"><span class="annottext">scheduleRunResponse_httpStatus :: (Int -&gt; f Int) -&gt; ScheduleRunResponse -&gt; f ScheduleRunResponse
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#scheduleRunResponse_httpStatus"><span class="hs-identifier hs-var hs-var">scheduleRunResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRunResponse -&gt; Int)
+-&gt; (ScheduleRunResponse -&gt; Int -&gt; ScheduleRunResponse)
+-&gt; Lens ScheduleRunResponse ScheduleRunResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse%27"><span class="hs-identifier hs-type">ScheduleRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373748"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ScheduleRunResponse' :: ScheduleRunResponse -&gt; Int
+</span><a href="#local-6989586621679373748"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373748"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373747"><span class="annot"><span class="annottext">s :: ScheduleRunResponse
+</span><a href="#local-6989586621679373747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse%27"><span class="hs-identifier hs-type">ScheduleRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373746"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRunResponse
+</span><a href="#local-6989586621679373747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ScheduleRunResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.ScheduleRun.html#%24sel%3AhttpStatus%3AScheduleRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse"><span class="hs-identifier hs-type">ScheduleRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373744"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.ScheduleRun.html#ScheduleRunResponse"><span class="hs-identifier hs-type">ScheduleRunResponse</span></a></span></span><span>
+</span><span id="line-265"></span></pre></body></html>

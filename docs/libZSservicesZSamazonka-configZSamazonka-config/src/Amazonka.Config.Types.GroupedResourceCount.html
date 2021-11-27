@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Config.Types.GroupedResourceCount</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Config.Types.GroupedResourceCount</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The count of resources that are grouped by the group name.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newGroupedResourceCount' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679400666"><span id="local-6989586621679400667"></span></span><span class="hs-keyword">data</span><span> </span><span id="GroupedResourceCount"><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount"><span class="hs-identifier hs-var">GroupedResourceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupedResourceCount%27"><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount%27"><span class="hs-identifier hs-var">GroupedResourceCount'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the group that can be region, account ID, or resource type.</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- For example, region1, region2 if the region was chosen as @GroupByKey@.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AgroupName%3AGroupedResourceCount%27"><span class="annot"><span class="annottext">GroupedResourceCount -&gt; Text
+</span><a href="Amazonka.Config.Types.GroupedResourceCount.html#%24sel%3AgroupName%3AGroupedResourceCount%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The number of resources in the group.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AresourceCount%3AGroupedResourceCount%27"><span class="annot"><span class="annottext">GroupedResourceCount -&gt; Integer
+</span><a href="Amazonka.Config.Types.GroupedResourceCount.html#%24sel%3AresourceCount%3AGroupedResourceCount%27"><span class="hs-identifier hs-var hs-var">resourceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400659"><span id="local-6989586621679400661"><span class="annot"><span class="annottext">GroupedResourceCount -&gt; GroupedResourceCount -&gt; Bool
+(GroupedResourceCount -&gt; GroupedResourceCount -&gt; Bool)
+-&gt; (GroupedResourceCount -&gt; GroupedResourceCount -&gt; Bool)
+-&gt; Eq GroupedResourceCount
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GroupedResourceCount -&gt; GroupedResourceCount -&gt; Bool
+$c/= :: GroupedResourceCount -&gt; GroupedResourceCount -&gt; Bool
+== :: GroupedResourceCount -&gt; GroupedResourceCount -&gt; Bool
+$c== :: GroupedResourceCount -&gt; GroupedResourceCount -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400650"><span id="local-6989586621679400652"><span id="local-6989586621679400654"><span id="local-6989586621679400656"><span class="annot"><span class="annottext">ReadPrec [GroupedResourceCount]
+ReadPrec GroupedResourceCount
+Int -&gt; ReadS GroupedResourceCount
+ReadS [GroupedResourceCount]
+(Int -&gt; ReadS GroupedResourceCount)
+-&gt; ReadS [GroupedResourceCount]
+-&gt; ReadPrec GroupedResourceCount
+-&gt; ReadPrec [GroupedResourceCount]
+-&gt; Read GroupedResourceCount
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GroupedResourceCount]
+$creadListPrec :: ReadPrec [GroupedResourceCount]
+readPrec :: ReadPrec GroupedResourceCount
+$creadPrec :: ReadPrec GroupedResourceCount
+readList :: ReadS [GroupedResourceCount]
+$creadList :: ReadS [GroupedResourceCount]
+readsPrec :: Int -&gt; ReadS GroupedResourceCount
+$creadsPrec :: Int -&gt; ReadS GroupedResourceCount
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400643"><span id="local-6989586621679400645"><span id="local-6989586621679400647"><span class="annot"><span class="annottext">Int -&gt; GroupedResourceCount -&gt; ShowS
+[GroupedResourceCount] -&gt; ShowS
+GroupedResourceCount -&gt; String
+(Int -&gt; GroupedResourceCount -&gt; ShowS)
+-&gt; (GroupedResourceCount -&gt; String)
+-&gt; ([GroupedResourceCount] -&gt; ShowS)
+-&gt; Show GroupedResourceCount
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GroupedResourceCount] -&gt; ShowS
+$cshowList :: [GroupedResourceCount] -&gt; ShowS
+show :: GroupedResourceCount -&gt; String
+$cshow :: GroupedResourceCount -&gt; String
+showsPrec :: Int -&gt; GroupedResourceCount -&gt; ShowS
+$cshowsPrec :: Int -&gt; GroupedResourceCount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GroupedResourceCount -&gt; Rep GroupedResourceCount x)
+-&gt; (forall x. Rep GroupedResourceCount x -&gt; GroupedResourceCount)
+-&gt; Generic GroupedResourceCount
+forall x. Rep GroupedResourceCount x -&gt; GroupedResourceCount
+forall x. GroupedResourceCount -&gt; Rep GroupedResourceCount x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GroupedResourceCount x -&gt; GroupedResourceCount
+$cfrom :: forall x. GroupedResourceCount -&gt; Rep GroupedResourceCount x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'GroupedResourceCount' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'groupName', 'groupedResourceCount_groupName' - The name of the group that can be region, account ID, or resource type.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- For example, region1, region2 if the region was chosen as @GroupByKey@.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'resourceCount', 'groupedResourceCount_resourceCount' - The number of resources in the group.</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#newGroupedResourceCount"><span class="hs-identifier hs-type">newGroupedResourceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-comment">-- | 'groupName'</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'resourceCount'</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount"><span class="hs-identifier hs-type">GroupedResourceCount</span></a></span><span>
+</span><span id="line-56"></span><span id="newGroupedResourceCount"><span class="annot"><span class="annottext">newGroupedResourceCount :: Text -&gt; Integer -&gt; GroupedResourceCount
+</span><a href="Amazonka.Config.Types.GroupedResourceCount.html#newGroupedResourceCount"><span class="hs-identifier hs-var hs-var">newGroupedResourceCount</span></a></span></span><span> </span><span id="local-6989586621679400637"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400637"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span id="local-6989586621679400636"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679400636"><span class="hs-identifier hs-var">pResourceCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">GroupedResourceCount' :: Text -&gt; Integer -&gt; GroupedResourceCount
+</span><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount%27"><span class="hs-identifier hs-type">GroupedResourceCount'</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupName:GroupedResourceCount' :: Text
+</span><a href="Amazonka.Config.Types.GroupedResourceCount.html#%24sel%3AgroupName%3AGroupedResourceCount%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400637"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceCount:GroupedResourceCount' :: Integer
+</span><a href="Amazonka.Config.Types.GroupedResourceCount.html#%24sel%3AresourceCount%3AGroupedResourceCount%27"><span class="hs-identifier hs-var">resourceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679400636"><span class="hs-identifier hs-var">pResourceCount_</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The name of the group that can be region, account ID, or resource type.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- For example, region1, region2 if the region was chosen as @GroupByKey@.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#groupedResourceCount_groupName"><span class="hs-identifier hs-type">groupedResourceCount_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount"><span class="hs-identifier hs-type">GroupedResourceCount</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span id="groupedResourceCount_groupName"><span class="annot"><span class="annottext">groupedResourceCount_groupName :: (Text -&gt; f Text) -&gt; GroupedResourceCount -&gt; f GroupedResourceCount
+</span><a href="Amazonka.Config.Types.GroupedResourceCount.html#groupedResourceCount_groupName"><span class="hs-identifier hs-var hs-var">groupedResourceCount_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupedResourceCount -&gt; Text)
+-&gt; (GroupedResourceCount -&gt; Text -&gt; GroupedResourceCount)
+-&gt; Lens GroupedResourceCount GroupedResourceCount Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount%27"><span class="hs-identifier hs-type">GroupedResourceCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400632"><span class="annot"><span class="annottext">Text
+groupName :: Text
+$sel:groupName:GroupedResourceCount' :: GroupedResourceCount -&gt; Text
+</span><a href="#local-6989586621679400632"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400632"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400631"><span class="annot"><span class="annottext">s :: GroupedResourceCount
+</span><a href="#local-6989586621679400631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount%27"><span class="hs-identifier hs-type">GroupedResourceCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400630"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupedResourceCount
+</span><a href="#local-6989586621679400631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GroupedResourceCount' :: Text
+</span><a href="Amazonka.Config.Types.GroupedResourceCount.html#%24sel%3AgroupName%3AGroupedResourceCount%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount"><span class="hs-identifier hs-type">GroupedResourceCount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The number of resources in the group.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#groupedResourceCount_resourceCount"><span class="hs-identifier hs-type">groupedResourceCount_resourceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount"><span class="hs-identifier hs-type">GroupedResourceCount</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-69"></span><span id="groupedResourceCount_resourceCount"><span class="annot"><span class="annottext">groupedResourceCount_resourceCount :: (Integer -&gt; f Integer)
+-&gt; GroupedResourceCount -&gt; f GroupedResourceCount
+</span><a href="Amazonka.Config.Types.GroupedResourceCount.html#groupedResourceCount_resourceCount"><span class="hs-identifier hs-var hs-var">groupedResourceCount_resourceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupedResourceCount -&gt; Integer)
+-&gt; (GroupedResourceCount -&gt; Integer -&gt; GroupedResourceCount)
+-&gt; Lens GroupedResourceCount GroupedResourceCount Integer Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount%27"><span class="hs-identifier hs-type">GroupedResourceCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400628"><span class="annot"><span class="annottext">Integer
+resourceCount :: Integer
+$sel:resourceCount:GroupedResourceCount' :: GroupedResourceCount -&gt; Integer
+</span><a href="#local-6989586621679400628"><span class="hs-identifier hs-var hs-var">resourceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679400628"><span class="hs-identifier hs-var">resourceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400627"><span class="annot"><span class="annottext">s :: GroupedResourceCount
+</span><a href="#local-6989586621679400627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount%27"><span class="hs-identifier hs-type">GroupedResourceCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400626"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679400626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupedResourceCount
+</span><a href="#local-6989586621679400627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceCount:GroupedResourceCount' :: Integer
+</span><a href="Amazonka.Config.Types.GroupedResourceCount.html#%24sel%3AresourceCount%3AGroupedResourceCount%27"><span class="hs-identifier hs-var">resourceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679400626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount"><span class="hs-identifier hs-type">GroupedResourceCount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400623"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount"><span class="hs-identifier hs-type">GroupedResourceCount</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679400621"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GroupedResourceCount
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser GroupedResourceCount)
+-&gt; Value
+-&gt; Parser GroupedResourceCount
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;GroupedResourceCount&quot;</span></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679400618"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400618"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; GroupedResourceCount
+</span><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount%27"><span class="hs-identifier hs-var">GroupedResourceCount'</span></a></span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Integer -&gt; GroupedResourceCount)
+-&gt; Parser Text -&gt; Parser (Integer -&gt; GroupedResourceCount)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Parser (Integer -&gt; GroupedResourceCount)
+-&gt; Parser Integer -&gt; Parser GroupedResourceCount
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400612"><span id="local-6989586621679400614"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount"><span class="hs-identifier hs-type">GroupedResourceCount</span></a></span></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400609"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.GroupedResourceCount.html#GroupedResourceCount"><span class="hs-identifier hs-type">GroupedResourceCount</span></a></span></span><span>
+</span><span id="line-84"></span></pre></body></html>

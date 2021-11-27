@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.ItemSelection</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.ItemSelection</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection"><span class="hs-identifier">ItemSelection</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection_All"><span class="hs-identifier">ItemSelection_All</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection_None"><span class="hs-identifier">ItemSelection_None</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection_Whitelist"><span class="hs-identifier">ItemSelection_Whitelist</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679393071"><span id="local-6989586621679393072"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ItemSelection"><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection"><span class="hs-identifier hs-var">ItemSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ItemSelection%27"><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection%27"><span class="hs-identifier hs-var">ItemSelection'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromItemSelection"><span class="annot"><span class="annottext">ItemSelection -&gt; Text
+</span><a href="Amazonka.CloudFront.Types.ItemSelection.html#fromItemSelection"><span class="hs-identifier hs-var hs-var">fromItemSelection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679393063"><span id="local-6989586621679393065"><span id="local-6989586621679393067"><span class="annot"><span class="annottext">Int -&gt; ItemSelection -&gt; ShowS
+[ItemSelection] -&gt; ShowS
+ItemSelection -&gt; String
+(Int -&gt; ItemSelection -&gt; ShowS)
+-&gt; (ItemSelection -&gt; String)
+-&gt; ([ItemSelection] -&gt; ShowS)
+-&gt; Show ItemSelection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ItemSelection] -&gt; ShowS
+$cshowList :: [ItemSelection] -&gt; ShowS
+show :: ItemSelection -&gt; String
+$cshow :: ItemSelection -&gt; String
+showsPrec :: Int -&gt; ItemSelection -&gt; ShowS
+$cshowsPrec :: Int -&gt; ItemSelection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679393054"><span id="local-6989586621679393056"><span id="local-6989586621679393058"><span id="local-6989586621679393060"><span class="annot"><span class="annottext">ReadPrec [ItemSelection]
+ReadPrec ItemSelection
+Int -&gt; ReadS ItemSelection
+ReadS [ItemSelection]
+(Int -&gt; ReadS ItemSelection)
+-&gt; ReadS [ItemSelection]
+-&gt; ReadPrec ItemSelection
+-&gt; ReadPrec [ItemSelection]
+-&gt; Read ItemSelection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ItemSelection]
+$creadListPrec :: ReadPrec [ItemSelection]
+readPrec :: ReadPrec ItemSelection
+$creadPrec :: ReadPrec ItemSelection
+readList :: ReadS [ItemSelection]
+$creadList :: ReadS [ItemSelection]
+readsPrec :: Int -&gt; ReadS ItemSelection
+$creadsPrec :: Int -&gt; ReadS ItemSelection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679393049"><span id="local-6989586621679393051"><span class="annot"><span class="annottext">ItemSelection -&gt; ItemSelection -&gt; Bool
+(ItemSelection -&gt; ItemSelection -&gt; Bool)
+-&gt; (ItemSelection -&gt; ItemSelection -&gt; Bool) -&gt; Eq ItemSelection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ItemSelection -&gt; ItemSelection -&gt; Bool
+$c/= :: ItemSelection -&gt; ItemSelection -&gt; Bool
+== :: ItemSelection -&gt; ItemSelection -&gt; Bool
+$c== :: ItemSelection -&gt; ItemSelection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679393033"><span id="local-6989586621679393035"><span id="local-6989586621679393037"><span id="local-6989586621679393039"><span id="local-6989586621679393041"><span id="local-6989586621679393043"><span id="local-6989586621679393045"><span class="annot"><span class="annottext">Eq ItemSelection
+Eq ItemSelection
+-&gt; (ItemSelection -&gt; ItemSelection -&gt; Ordering)
+-&gt; (ItemSelection -&gt; ItemSelection -&gt; Bool)
+-&gt; (ItemSelection -&gt; ItemSelection -&gt; Bool)
+-&gt; (ItemSelection -&gt; ItemSelection -&gt; Bool)
+-&gt; (ItemSelection -&gt; ItemSelection -&gt; Bool)
+-&gt; (ItemSelection -&gt; ItemSelection -&gt; ItemSelection)
+-&gt; (ItemSelection -&gt; ItemSelection -&gt; ItemSelection)
+-&gt; Ord ItemSelection
+ItemSelection -&gt; ItemSelection -&gt; Bool
+ItemSelection -&gt; ItemSelection -&gt; Ordering
+ItemSelection -&gt; ItemSelection -&gt; ItemSelection
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ItemSelection -&gt; ItemSelection -&gt; ItemSelection
+$cmin :: ItemSelection -&gt; ItemSelection -&gt; ItemSelection
+max :: ItemSelection -&gt; ItemSelection -&gt; ItemSelection
+$cmax :: ItemSelection -&gt; ItemSelection -&gt; ItemSelection
+&gt;= :: ItemSelection -&gt; ItemSelection -&gt; Bool
+$c&gt;= :: ItemSelection -&gt; ItemSelection -&gt; Bool
+&gt; :: ItemSelection -&gt; ItemSelection -&gt; Bool
+$c&gt; :: ItemSelection -&gt; ItemSelection -&gt; Bool
+&lt;= :: ItemSelection -&gt; ItemSelection -&gt; Bool
+$c&lt;= :: ItemSelection -&gt; ItemSelection -&gt; Bool
+&lt; :: ItemSelection -&gt; ItemSelection -&gt; Bool
+$c&lt; :: ItemSelection -&gt; ItemSelection -&gt; Bool
+compare :: ItemSelection -&gt; ItemSelection -&gt; Ordering
+$ccompare :: ItemSelection -&gt; ItemSelection -&gt; Ordering
+$cp1Ord :: Eq ItemSelection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ItemSelection -&gt; Rep ItemSelection x)
+-&gt; (forall x. Rep ItemSelection x -&gt; ItemSelection)
+-&gt; Generic ItemSelection
+forall x. Rep ItemSelection x -&gt; ItemSelection
+forall x. ItemSelection -&gt; Rep ItemSelection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ItemSelection x -&gt; ItemSelection
+$cfrom :: forall x. ItemSelection -&gt; Rep ItemSelection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679393025"><span id="local-6989586621679393027"><span class="annot"><span class="annottext">Int -&gt; ItemSelection -&gt; Int
+ItemSelection -&gt; Int
+(Int -&gt; ItemSelection -&gt; Int)
+-&gt; (ItemSelection -&gt; Int) -&gt; Hashable ItemSelection
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ItemSelection -&gt; Int
+$chash :: ItemSelection -&gt; Int
+hashWithSalt :: Int -&gt; ItemSelection -&gt; Int
+$chashWithSalt :: Int -&gt; ItemSelection -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679393022"><span class="annot"><span class="annottext">ItemSelection -&gt; ()
+(ItemSelection -&gt; ()) -&gt; NFData ItemSelection
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ItemSelection -&gt; ()
+$crnf :: ItemSelection -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679393019"><span class="annot"><span class="annottext">Text -&gt; Either String ItemSelection
+(Text -&gt; Either String ItemSelection) -&gt; FromText ItemSelection
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ItemSelection
+$cfromText :: Text -&gt; Either String ItemSelection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679393016"><span class="annot"><span class="annottext">ItemSelection -&gt; Text
+(ItemSelection -&gt; Text) -&gt; ToText ItemSelection
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ItemSelection -&gt; Text
+$ctoText :: ItemSelection -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679393013"><span class="annot"><span class="annottext">ItemSelection -&gt; ByteString
+(ItemSelection -&gt; ByteString) -&gt; ToByteString ItemSelection
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ItemSelection -&gt; ByteString
+$ctoBS :: ItemSelection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679393010"><span class="annot"><span class="annottext">ItemSelection -&gt; ByteStringBuilder
+(ItemSelection -&gt; ByteStringBuilder) -&gt; ToLog ItemSelection
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ItemSelection -&gt; ByteStringBuilder
+$cbuild :: ItemSelection -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679393007"><span class="annot"><span class="annottext">HeaderName -&gt; ItemSelection -&gt; [Header]
+(HeaderName -&gt; ItemSelection -&gt; [Header]) -&gt; ToHeader ItemSelection
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ItemSelection -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ItemSelection -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679393004"><span class="annot"><span class="annottext">ItemSelection -&gt; QueryString
+(ItemSelection -&gt; QueryString) -&gt; ToQuery ItemSelection
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ItemSelection -&gt; QueryString
+$ctoQuery :: ItemSelection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679392999"><span id="local-6989586621679393001"><span class="annot"><span class="annottext">Value -&gt; Parser [ItemSelection]
+Value -&gt; Parser ItemSelection
+(Value -&gt; Parser ItemSelection)
+-&gt; (Value -&gt; Parser [ItemSelection]) -&gt; FromJSON ItemSelection
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ItemSelection]
+$cparseJSONList :: Value -&gt; Parser [ItemSelection]
+parseJSON :: Value -&gt; Parser ItemSelection
+$cparseJSON :: Value -&gt; Parser ItemSelection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679392994"><span id="local-6989586621679392996"><span class="annot"><span class="annottext">FromJSONKeyFunction [ItemSelection]
+FromJSONKeyFunction ItemSelection
+FromJSONKeyFunction ItemSelection
+-&gt; FromJSONKeyFunction [ItemSelection] -&gt; FromJSONKey ItemSelection
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ItemSelection]
+$cfromJSONKeyList :: FromJSONKeyFunction [ItemSelection]
+fromJSONKey :: FromJSONKeyFunction ItemSelection
+$cfromJSONKey :: FromJSONKeyFunction ItemSelection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679392985"><span id="local-6989586621679392987"><span id="local-6989586621679392989"><span id="local-6989586621679392991"><span class="annot"><span class="annottext">[ItemSelection] -&gt; Encoding
+[ItemSelection] -&gt; Value
+ItemSelection -&gt; Encoding
+ItemSelection -&gt; Value
+(ItemSelection -&gt; Value)
+-&gt; (ItemSelection -&gt; Encoding)
+-&gt; ([ItemSelection] -&gt; Value)
+-&gt; ([ItemSelection] -&gt; Encoding)
+-&gt; ToJSON ItemSelection
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ItemSelection] -&gt; Encoding
+$ctoEncodingList :: [ItemSelection] -&gt; Encoding
+toJSONList :: [ItemSelection] -&gt; Value
+$ctoJSONList :: [ItemSelection] -&gt; Value
+toEncoding :: ItemSelection -&gt; Encoding
+$ctoEncoding :: ItemSelection -&gt; Encoding
+toJSON :: ItemSelection -&gt; Value
+$ctoJSON :: ItemSelection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679392980"><span id="local-6989586621679392982"><span class="annot"><span class="annottext">ToJSONKeyFunction [ItemSelection]
+ToJSONKeyFunction ItemSelection
+ToJSONKeyFunction ItemSelection
+-&gt; ToJSONKeyFunction [ItemSelection] -&gt; ToJSONKey ItemSelection
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ItemSelection]
+$ctoJSONKeyList :: ToJSONKeyFunction [ItemSelection]
+toJSONKey :: ToJSONKeyFunction ItemSelection
+$ctoJSONKey :: ToJSONKeyFunction ItemSelection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679392977"><span class="annot"><span class="annottext">[Node] -&gt; Either String ItemSelection
+([Node] -&gt; Either String ItemSelection) -&gt; FromXML ItemSelection
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ItemSelection
+$cparseXML :: [Node] -&gt; Either String ItemSelection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679392974"><span class="annot"><span class="annottext">ItemSelection -&gt; XML
+(ItemSelection -&gt; XML) -&gt; ToXML ItemSelection
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ItemSelection -&gt; XML
+$ctoXML :: ItemSelection -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection_All"><span class="hs-identifier hs-type">ItemSelection_All</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection"><span class="hs-identifier hs-type">ItemSelection</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bItemSelection_All"><span id="%24mItemSelection_All"><span id="ItemSelection_All"><span class="annot"><span class="annottext">$bItemSelection_All :: ItemSelection
+$mItemSelection_All :: forall r. ItemSelection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.ItemSelection.html#%24bItemSelection_All"><span class="hs-identifier hs-var hs-var hs-var">ItemSelection_All</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection%27"><span class="hs-identifier hs-type">ItemSelection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;all&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection_None"><span class="hs-identifier hs-type">ItemSelection_None</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection"><span class="hs-identifier hs-type">ItemSelection</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bItemSelection_None"><span id="%24mItemSelection_None"><span id="ItemSelection_None"><span class="annot"><span class="annottext">$bItemSelection_None :: ItemSelection
+$mItemSelection_None :: forall r. ItemSelection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.ItemSelection.html#%24bItemSelection_None"><span class="hs-identifier hs-var hs-var hs-var">ItemSelection_None</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection%27"><span class="hs-identifier hs-type">ItemSelection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;none&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection_Whitelist"><span class="hs-identifier hs-type">ItemSelection_Whitelist</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection"><span class="hs-identifier hs-type">ItemSelection</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bItemSelection_Whitelist"><span id="%24mItemSelection_Whitelist"><span id="ItemSelection_Whitelist"><span class="annot"><span class="annottext">$bItemSelection_Whitelist :: ItemSelection
+$mItemSelection_Whitelist :: forall r. ItemSelection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.ItemSelection.html#%24bItemSelection_Whitelist"><span class="hs-identifier hs-var hs-var hs-var">ItemSelection_Whitelist</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection%27"><span class="hs-identifier hs-type">ItemSelection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;whitelist&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection_All"><span class="hs-pragma hs-type">ItemSelection_All</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection_None"><span class="hs-pragma hs-type">ItemSelection_None</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection_Whitelist"><span class="hs-pragma hs-type">ItemSelection_Whitelist</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.ItemSelection.html#ItemSelection%27"><span class="hs-pragma hs-type">ItemSelection'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

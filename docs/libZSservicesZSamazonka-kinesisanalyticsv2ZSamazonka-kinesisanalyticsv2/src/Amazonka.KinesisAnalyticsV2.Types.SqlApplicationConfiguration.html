@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.Input.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.Input</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.Output.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.Output</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ReferenceDataSource.html"><span class="hs-identifier">Amazonka.KinesisAnalyticsV2.Types.ReferenceDataSource</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes the inputs, outputs, and reference data sources for a</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- SQL-based Kinesis Data Analytics application.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newSqlApplicationConfiguration' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679297415"><span id="local-6989586621679297416"></span></span><span class="hs-keyword">data</span><span> </span><span id="SqlApplicationConfiguration"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration"><span class="hs-identifier hs-var">SqlApplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SqlApplicationConfiguration%27"><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration%27"><span class="hs-identifier hs-var">SqlApplicationConfiguration'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The array of Input objects describing the input streams used by the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Ainputs%3ASqlApplicationConfiguration%27"><span class="annot"><span class="annottext">SqlApplicationConfiguration -&gt; Maybe [Input]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#%24sel%3Ainputs%3ASqlApplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">inputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.Input.html#Input"><span class="hs-identifier hs-type">Input</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The array of ReferenceDataSource objects describing the reference data</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- sources used by the application.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AreferenceDataSources%3ASqlApplicationConfiguration%27"><span class="annot"><span class="annottext">SqlApplicationConfiguration -&gt; Maybe [ReferenceDataSource]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#%24sel%3AreferenceDataSources%3ASqlApplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">referenceDataSources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-type">ReferenceDataSource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The array of Output objects describing the destination streams used by</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- the application.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aoutputs%3ASqlApplicationConfiguration%27"><span class="annot"><span class="annottext">SqlApplicationConfiguration -&gt; Maybe [Output]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#%24sel%3Aoutputs%3ASqlApplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">outputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297407"><span id="local-6989586621679297409"><span class="annot"><span class="annottext">SqlApplicationConfiguration -&gt; SqlApplicationConfiguration -&gt; Bool
+(SqlApplicationConfiguration
+ -&gt; SqlApplicationConfiguration -&gt; Bool)
+-&gt; (SqlApplicationConfiguration
+    -&gt; SqlApplicationConfiguration -&gt; Bool)
+-&gt; Eq SqlApplicationConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SqlApplicationConfiguration -&gt; SqlApplicationConfiguration -&gt; Bool
+$c/= :: SqlApplicationConfiguration -&gt; SqlApplicationConfiguration -&gt; Bool
+== :: SqlApplicationConfiguration -&gt; SqlApplicationConfiguration -&gt; Bool
+$c== :: SqlApplicationConfiguration -&gt; SqlApplicationConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297398"><span id="local-6989586621679297400"><span id="local-6989586621679297402"><span id="local-6989586621679297404"><span class="annot"><span class="annottext">ReadPrec [SqlApplicationConfiguration]
+ReadPrec SqlApplicationConfiguration
+Int -&gt; ReadS SqlApplicationConfiguration
+ReadS [SqlApplicationConfiguration]
+(Int -&gt; ReadS SqlApplicationConfiguration)
+-&gt; ReadS [SqlApplicationConfiguration]
+-&gt; ReadPrec SqlApplicationConfiguration
+-&gt; ReadPrec [SqlApplicationConfiguration]
+-&gt; Read SqlApplicationConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SqlApplicationConfiguration]
+$creadListPrec :: ReadPrec [SqlApplicationConfiguration]
+readPrec :: ReadPrec SqlApplicationConfiguration
+$creadPrec :: ReadPrec SqlApplicationConfiguration
+readList :: ReadS [SqlApplicationConfiguration]
+$creadList :: ReadS [SqlApplicationConfiguration]
+readsPrec :: Int -&gt; ReadS SqlApplicationConfiguration
+$creadsPrec :: Int -&gt; ReadS SqlApplicationConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297391"><span id="local-6989586621679297393"><span id="local-6989586621679297395"><span class="annot"><span class="annottext">Int -&gt; SqlApplicationConfiguration -&gt; ShowS
+[SqlApplicationConfiguration] -&gt; ShowS
+SqlApplicationConfiguration -&gt; String
+(Int -&gt; SqlApplicationConfiguration -&gt; ShowS)
+-&gt; (SqlApplicationConfiguration -&gt; String)
+-&gt; ([SqlApplicationConfiguration] -&gt; ShowS)
+-&gt; Show SqlApplicationConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SqlApplicationConfiguration] -&gt; ShowS
+$cshowList :: [SqlApplicationConfiguration] -&gt; ShowS
+show :: SqlApplicationConfiguration -&gt; String
+$cshow :: SqlApplicationConfiguration -&gt; String
+showsPrec :: Int -&gt; SqlApplicationConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; SqlApplicationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SqlApplicationConfiguration -&gt; Rep SqlApplicationConfiguration x)
+-&gt; (forall x.
+    Rep SqlApplicationConfiguration x -&gt; SqlApplicationConfiguration)
+-&gt; Generic SqlApplicationConfiguration
+forall x.
+Rep SqlApplicationConfiguration x -&gt; SqlApplicationConfiguration
+forall x.
+SqlApplicationConfiguration -&gt; Rep SqlApplicationConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SqlApplicationConfiguration x -&gt; SqlApplicationConfiguration
+$cfrom :: forall x.
+SqlApplicationConfiguration -&gt; Rep SqlApplicationConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'SqlApplicationConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'inputs', 'sqlApplicationConfiguration_inputs' - The array of Input objects describing the input streams used by the</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'referenceDataSources', 'sqlApplicationConfiguration_referenceDataSources' - The array of ReferenceDataSource objects describing the reference data</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- sources used by the application.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'outputs', 'sqlApplicationConfiguration_outputs' - The array of Output objects describing the destination streams used by</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- the application.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#newSqlApplicationConfiguration"><span class="hs-identifier hs-type">newSqlApplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration"><span class="hs-identifier hs-type">SqlApplicationConfiguration</span></a></span><span>
+</span><span id="line-64"></span><span id="newSqlApplicationConfiguration"><span class="annot"><span class="annottext">newSqlApplicationConfiguration :: SqlApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#newSqlApplicationConfiguration"><span class="hs-identifier hs-var hs-var">newSqlApplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">SqlApplicationConfiguration' :: Maybe [Input]
+-&gt; Maybe [ReferenceDataSource]
+-&gt; Maybe [Output]
+-&gt; SqlApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration%27"><span class="hs-identifier hs-type">SqlApplicationConfiguration'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:inputs:SqlApplicationConfiguration' :: Maybe [Input]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#%24sel%3Ainputs%3ASqlApplicationConfiguration%27"><span class="hs-identifier hs-var">inputs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Input]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:referenceDataSources:SqlApplicationConfiguration' :: Maybe [ReferenceDataSource]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#%24sel%3AreferenceDataSources%3ASqlApplicationConfiguration%27"><span class="hs-identifier hs-var">referenceDataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReferenceDataSource]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputs:SqlApplicationConfiguration' :: Maybe [Output]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#%24sel%3Aoutputs%3ASqlApplicationConfiguration%27"><span class="hs-identifier hs-var">outputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Output]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The array of Input objects describing the input streams used by the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#sqlApplicationConfiguration_inputs"><span class="hs-identifier hs-type">sqlApplicationConfiguration_inputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration"><span class="hs-identifier hs-type">SqlApplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.Input.html#Input"><span class="hs-identifier hs-type">Input</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="sqlApplicationConfiguration_inputs"><span class="annot"><span class="annottext">sqlApplicationConfiguration_inputs :: (Maybe [Input] -&gt; f (Maybe [Input]))
+-&gt; SqlApplicationConfiguration -&gt; f SqlApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#sqlApplicationConfiguration_inputs"><span class="hs-identifier hs-var hs-var">sqlApplicationConfiguration_inputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SqlApplicationConfiguration -&gt; Maybe [Input])
+-&gt; (SqlApplicationConfiguration
+    -&gt; Maybe [Input] -&gt; SqlApplicationConfiguration)
+-&gt; Lens
+     SqlApplicationConfiguration
+     SqlApplicationConfiguration
+     (Maybe [Input])
+     (Maybe [Input])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration%27"><span class="hs-identifier hs-type">SqlApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297382"><span class="annot"><span class="annottext">Maybe [Input]
+inputs :: Maybe [Input]
+$sel:inputs:SqlApplicationConfiguration' :: SqlApplicationConfiguration -&gt; Maybe [Input]
+</span><a href="#local-6989586621679297382"><span class="hs-identifier hs-var hs-var">inputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Input]
+</span><a href="#local-6989586621679297382"><span class="hs-identifier hs-var">inputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297381"><span class="annot"><span class="annottext">s :: SqlApplicationConfiguration
+</span><a href="#local-6989586621679297381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration%27"><span class="hs-identifier hs-type">SqlApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297380"><span class="annot"><span class="annottext">Maybe [Input]
+</span><a href="#local-6989586621679297380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqlApplicationConfiguration
+</span><a href="#local-6989586621679297381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputs:SqlApplicationConfiguration' :: Maybe [Input]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#%24sel%3Ainputs%3ASqlApplicationConfiguration%27"><span class="hs-identifier hs-var">inputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Input]
+</span><a href="#local-6989586621679297380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration"><span class="hs-identifier hs-type">SqlApplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Input] -&gt; f (Maybe [Input]))
+ -&gt; SqlApplicationConfiguration -&gt; f SqlApplicationConfiguration)
+-&gt; ((Maybe [Input] -&gt; f (Maybe [Input]))
+    -&gt; Maybe [Input] -&gt; f (Maybe [Input]))
+-&gt; (Maybe [Input] -&gt; f (Maybe [Input]))
+-&gt; SqlApplicationConfiguration
+-&gt; f SqlApplicationConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Input] [Input] [Input] [Input]
+-&gt; Iso
+     (Maybe [Input]) (Maybe [Input]) (Maybe [Input]) (Maybe [Input])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Input] [Input] [Input] [Input]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The array of ReferenceDataSource objects describing the reference data</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- sources used by the application.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#sqlApplicationConfiguration_referenceDataSources"><span class="hs-identifier hs-type">sqlApplicationConfiguration_referenceDataSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration"><span class="hs-identifier hs-type">SqlApplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-type">ReferenceDataSource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="sqlApplicationConfiguration_referenceDataSources"><span class="annot"><span class="annottext">sqlApplicationConfiguration_referenceDataSources :: (Maybe [ReferenceDataSource] -&gt; f (Maybe [ReferenceDataSource]))
+-&gt; SqlApplicationConfiguration -&gt; f SqlApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#sqlApplicationConfiguration_referenceDataSources"><span class="hs-identifier hs-var hs-var">sqlApplicationConfiguration_referenceDataSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SqlApplicationConfiguration -&gt; Maybe [ReferenceDataSource])
+-&gt; (SqlApplicationConfiguration
+    -&gt; Maybe [ReferenceDataSource] -&gt; SqlApplicationConfiguration)
+-&gt; Lens
+     SqlApplicationConfiguration
+     SqlApplicationConfiguration
+     (Maybe [ReferenceDataSource])
+     (Maybe [ReferenceDataSource])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration%27"><span class="hs-identifier hs-type">SqlApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297375"><span class="annot"><span class="annottext">Maybe [ReferenceDataSource]
+referenceDataSources :: Maybe [ReferenceDataSource]
+$sel:referenceDataSources:SqlApplicationConfiguration' :: SqlApplicationConfiguration -&gt; Maybe [ReferenceDataSource]
+</span><a href="#local-6989586621679297375"><span class="hs-identifier hs-var hs-var">referenceDataSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReferenceDataSource]
+</span><a href="#local-6989586621679297375"><span class="hs-identifier hs-var">referenceDataSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297374"><span class="annot"><span class="annottext">s :: SqlApplicationConfiguration
+</span><a href="#local-6989586621679297374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration%27"><span class="hs-identifier hs-type">SqlApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297373"><span class="annot"><span class="annottext">Maybe [ReferenceDataSource]
+</span><a href="#local-6989586621679297373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqlApplicationConfiguration
+</span><a href="#local-6989586621679297374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceDataSources:SqlApplicationConfiguration' :: Maybe [ReferenceDataSource]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#%24sel%3AreferenceDataSources%3ASqlApplicationConfiguration%27"><span class="hs-identifier hs-var">referenceDataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReferenceDataSource]
+</span><a href="#local-6989586621679297373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration"><span class="hs-identifier hs-type">SqlApplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReferenceDataSource] -&gt; f (Maybe [ReferenceDataSource]))
+ -&gt; SqlApplicationConfiguration -&gt; f SqlApplicationConfiguration)
+-&gt; ((Maybe [ReferenceDataSource]
+     -&gt; f (Maybe [ReferenceDataSource]))
+    -&gt; Maybe [ReferenceDataSource] -&gt; f (Maybe [ReferenceDataSource]))
+-&gt; (Maybe [ReferenceDataSource] -&gt; f (Maybe [ReferenceDataSource]))
+-&gt; SqlApplicationConfiguration
+-&gt; f SqlApplicationConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReferenceDataSource]
+  [ReferenceDataSource]
+  [ReferenceDataSource]
+  [ReferenceDataSource]
+-&gt; Iso
+     (Maybe [ReferenceDataSource])
+     (Maybe [ReferenceDataSource])
+     (Maybe [ReferenceDataSource])
+     (Maybe [ReferenceDataSource])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReferenceDataSource]
+  [ReferenceDataSource]
+  [ReferenceDataSource]
+  [ReferenceDataSource]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The array of Output objects describing the destination streams used by</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- the application.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#sqlApplicationConfiguration_outputs"><span class="hs-identifier hs-type">sqlApplicationConfiguration_outputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration"><span class="hs-identifier hs-type">SqlApplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="sqlApplicationConfiguration_outputs"><span class="annot"><span class="annottext">sqlApplicationConfiguration_outputs :: (Maybe [Output] -&gt; f (Maybe [Output]))
+-&gt; SqlApplicationConfiguration -&gt; f SqlApplicationConfiguration
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#sqlApplicationConfiguration_outputs"><span class="hs-identifier hs-var hs-var">sqlApplicationConfiguration_outputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SqlApplicationConfiguration -&gt; Maybe [Output])
+-&gt; (SqlApplicationConfiguration
+    -&gt; Maybe [Output] -&gt; SqlApplicationConfiguration)
+-&gt; Lens
+     SqlApplicationConfiguration
+     SqlApplicationConfiguration
+     (Maybe [Output])
+     (Maybe [Output])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration%27"><span class="hs-identifier hs-type">SqlApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297371"><span class="annot"><span class="annottext">Maybe [Output]
+outputs :: Maybe [Output]
+$sel:outputs:SqlApplicationConfiguration' :: SqlApplicationConfiguration -&gt; Maybe [Output]
+</span><a href="#local-6989586621679297371"><span class="hs-identifier hs-var hs-var">outputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Output]
+</span><a href="#local-6989586621679297371"><span class="hs-identifier hs-var">outputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297370"><span class="annot"><span class="annottext">s :: SqlApplicationConfiguration
+</span><a href="#local-6989586621679297370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration%27"><span class="hs-identifier hs-type">SqlApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297369"><span class="annot"><span class="annottext">Maybe [Output]
+</span><a href="#local-6989586621679297369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqlApplicationConfiguration
+</span><a href="#local-6989586621679297370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputs:SqlApplicationConfiguration' :: Maybe [Output]
+</span><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#%24sel%3Aoutputs%3ASqlApplicationConfiguration%27"><span class="hs-identifier hs-var">outputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Output]
+</span><a href="#local-6989586621679297369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration"><span class="hs-identifier hs-type">SqlApplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Output] -&gt; f (Maybe [Output]))
+ -&gt; SqlApplicationConfiguration -&gt; f SqlApplicationConfiguration)
+-&gt; ((Maybe [Output] -&gt; f (Maybe [Output]))
+    -&gt; Maybe [Output] -&gt; f (Maybe [Output]))
+-&gt; (Maybe [Output] -&gt; f (Maybe [Output]))
+-&gt; SqlApplicationConfiguration
+-&gt; f SqlApplicationConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Output] [Output] [Output] [Output]
+-&gt; Iso
+     (Maybe [Output]) (Maybe [Output]) (Maybe [Output]) (Maybe [Output])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Output] [Output] [Output] [Output]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297365"><span id="local-6989586621679297367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration"><span class="hs-identifier hs-type">SqlApplicationConfiguration</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration"><span class="hs-identifier hs-type">SqlApplicationConfiguration</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297354"><span id="local-6989586621679297356"><span id="local-6989586621679297358"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration"><span class="hs-identifier hs-type">SqlApplicationConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679297352"><span class="annot"><span class="annottext">toJSON :: SqlApplicationConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration.html#SqlApplicationConfiguration%27"><span class="hs-identifier hs-type">SqlApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297348"><span id="local-6989586621679297349"><span id="local-6989586621679297350"><span class="annot"><span class="annottext">Maybe [Output]
+Maybe [ReferenceDataSource]
+Maybe [Input]
+outputs :: Maybe [Output]
+referenceDataSources :: Maybe [ReferenceDataSource]
+inputs :: Maybe [Input]
+$sel:outputs:SqlApplicationConfiguration' :: SqlApplicationConfiguration -&gt; Maybe [Output]
+$sel:referenceDataSources:SqlApplicationConfiguration' :: SqlApplicationConfiguration -&gt; Maybe [ReferenceDataSource]
+$sel:inputs:SqlApplicationConfiguration' :: SqlApplicationConfiguration -&gt; Maybe [Input]
+</span><a href="#local-6989586621679297348"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Inputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Input] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Input] -&gt; Pair) -&gt; Maybe [Input] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Input]
+</span><a href="#local-6989586621679297350"><span class="hs-identifier hs-var">inputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReferenceDataSources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ReferenceDataSource] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">([ReferenceDataSource] -&gt; Pair)
+-&gt; Maybe [ReferenceDataSource] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ReferenceDataSource]
+</span><a href="#local-6989586621679297349"><span class="hs-identifier hs-var">referenceDataSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Outputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Output] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Output] -&gt; Pair) -&gt; Maybe [Output] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Output]
+</span><a href="#local-6989586621679297348"><span class="hs-identifier hs-var">outputs</span></a></span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span></pre></body></html>

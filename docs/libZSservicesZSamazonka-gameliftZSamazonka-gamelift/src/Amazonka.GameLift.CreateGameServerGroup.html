@@ -1,0 +1,1280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.GameLift.CreateGameServerGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- __This operation is used with the GameLift FleetIQ solution and game</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- server groups.__</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Creates a GameLift FleetIQ game server group for managing game hosting</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- on a collection of Amazon EC2 instances for game hosting. This operation</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- creates the game server group, creates an Auto Scaling group in your AWS</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- account, and establishes a link between the two groups. You can view the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- status of your game server groups in the GameLift console. Game server</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- group metrics and events are emitted to Amazon CloudWatch.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Before creating a new game server group, you must have the following:</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   An Amazon EC2 launch template that specifies how to launch Amazon</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     EC2 instances with your game server build. For more information, see</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html Launching an Instance from a Launch Template&gt;</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide/.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- -   An IAM role that extends limited access to your AWS account to allow</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     GameLift FleetIQ to create and interact with the Auto Scaling group.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     For more information, see</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-iam-permissions-roles.html Create IAM roles for cross-service interaction&gt;</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--     in the /GameLift FleetIQ Developer Guide/.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- To create a new game server group, specify a unique group name, IAM role</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- and Amazon EC2 launch template, and provide a list of instance types</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- that can be used in the group. You must also set initial maximum and</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- minimum limits on the group\'s instance count. You can optionally set an</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Auto Scaling policy with target tracking based on a GameLift FleetIQ</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- metric.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Once the game server group and corresponding Auto Scaling group are</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- created, you have full access to change the Auto Scaling group\'s</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- configuration as needed. Several properties that are set when creating a</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- game server group, including maximum\/minimum size and auto-scaling</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- policy settings, must be updated directly in the Auto Scaling group.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Keep in mind that some Auto Scaling group properties are periodically</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- updated by GameLift FleetIQ as part of its balancing activities to</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- optimize for availability and cost.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- __Learn more__</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide&gt;</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- __Related actions__</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- CreateGameServerGroup | ListGameServerGroups | DescribeGameServerGroup |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- UpdateGameServerGroup | DeleteGameServerGroup | ResumeGameServerGroup |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- SuspendGameServerGroup | DescribeGameServerInstances |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task&gt;</span><span>
+</span><span id="line-72"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GameLift.CreateGameServerGroup</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier">CreateGameServerGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#newCreateGameServerGroup"><span class="hs-identifier">newCreateGameServerGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_vpcSubnets"><span class="hs-identifier">createGameServerGroup_vpcSubnets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_balancingStrategy"><span class="hs-identifier">createGameServerGroup_balancingStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_autoScalingPolicy"><span class="hs-identifier">createGameServerGroup_autoScalingPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_gameServerProtectionPolicy"><span class="hs-identifier">createGameServerGroup_gameServerProtectionPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_tags"><span class="hs-identifier">createGameServerGroup_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_gameServerGroupName"><span class="hs-identifier">createGameServerGroup_gameServerGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_roleArn"><span class="hs-identifier">createGameServerGroup_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_minSize"><span class="hs-identifier">createGameServerGroup_minSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_maxSize"><span class="hs-identifier">createGameServerGroup_maxSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_launchTemplate"><span class="hs-identifier">createGameServerGroup_launchTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_instanceDefinitions"><span class="hs-identifier">createGameServerGroup_instanceDefinitions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse"><span class="hs-identifier">CreateGameServerGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#newCreateGameServerGroupResponse"><span class="hs-identifier">newCreateGameServerGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroupResponse_gameServerGroup"><span class="hs-identifier">createGameServerGroupResponse_gameServerGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroupResponse_httpStatus"><span class="hs-identifier">createGameServerGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.html"><span class="hs-identifier">Amazonka.GameLift.Types</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | /See:/ 'newCreateGameServerGroup' smart constructor.</span><span>
+</span><span id="line-108"></span><span id="local-6989586621679461570"><span id="local-6989586621679461571"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGameServerGroup"><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-var">CreateGameServerGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGameServerGroup%27"><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-var">CreateGameServerGroup'</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of virtual private cloud (VPC) subnets to use with instances in</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- the game server group. By default, all GameLift FleetIQ-supported</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- Availability Zones are used. You can use this parameter to specify VPCs</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- that you\'ve set up. This property cannot be updated after the game</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- server group is created, and the corresponding Auto Scaling group will</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- always use the property value that is set with this request, even if the</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- Auto Scaling group is updated directly.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AvpcSubnets%3ACreateGameServerGroup%27"><span class="annot"><span class="annottext">CreateGameServerGroup -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AvpcSubnets%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var hs-var">vpcSubnets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | Indicates how GameLift FleetIQ balances the use of Spot Instances and</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- On-Demand Instances in the game server group. Method options include the</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- following:</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- -   @SPOT_ONLY@ - Only Spot Instances are used in the game server group.</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--     If Spot Instances are unavailable or not viable for game hosting,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--     the game server group provides no hosting capacity until Spot</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--     Instances can again be used. Until then, no new instances are</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--     started, and the existing nonviable Spot Instances are terminated</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--     (after current gameplay ends) and are not replaced.</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- -   @SPOT_PREFERRED@ - (default value) Spot Instances are used whenever</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--     available in the game server group. If Spot Instances are</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">--     unavailable, the game server group continues to provide hosting</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--     capacity by falling back to On-Demand Instances. Existing nonviable</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--     Spot Instances are terminated (after current gameplay ends) and are</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--     replaced with new On-Demand Instances.</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- -   @ON_DEMAND_ONLY@ - Only On-Demand Instances are used in the game</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--     server group. No Spot Instances are used, even when available, while</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--     this balancing strategy is in force.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AbalancingStrategy%3ACreateGameServerGroup%27"><span class="annot"><span class="annottext">CreateGameServerGroup -&gt; Maybe BalancingStrategy
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AbalancingStrategy%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var hs-var">balancingStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.BalancingStrategy.html#BalancingStrategy"><span class="hs-identifier hs-type">BalancingStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | Configuration settings to define a scaling policy for the Auto Scaling</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- group that is optimized for game hosting. The scaling policy uses the</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- metric @\&quot;PercentUtilizedGameServers\&quot;@ to maintain a buffer of idle</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- game servers that can immediately accommodate new games and players.</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- After the Auto Scaling group is created, update this value directly in</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- the Auto Scaling group using the AWS console or APIs.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AautoScalingPolicy%3ACreateGameServerGroup%27"><span class="annot"><span class="annottext">CreateGameServerGroup -&gt; Maybe GameServerGroupAutoScalingPolicy
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AautoScalingPolicy%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var hs-var">autoScalingPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupAutoScalingPolicy.html#GameServerGroupAutoScalingPolicy"><span class="hs-identifier hs-type">GameServerGroupAutoScalingPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | A flag that indicates whether instances in the game server group are</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- protected from early termination. Unprotected instances that have active</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- game servers running might be terminated during a scale-down event,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- causing players to be dropped from the game. Protected instances cannot</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- be terminated while there are active game servers running except in the</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- event of a forced game server group deletion (see ). An exception to</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- this is with Spot Instances, which can be terminated by AWS regardless</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- of protection status. This property is set to @NO_PROTECTION@ by</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- default.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AgameServerProtectionPolicy%3ACreateGameServerGroup%27"><span class="annot"><span class="annottext">CreateGameServerGroup -&gt; Maybe GameServerProtectionPolicy
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AgameServerProtectionPolicy%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var hs-var">gameServerProtectionPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerProtectionPolicy.html#GameServerProtectionPolicy"><span class="hs-identifier hs-type">GameServerProtectionPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | A list of labels to assign to the new game server group resource. Tags</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- are developer-defined key-value pairs. Tagging AWS resources is useful</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- for resource management, access management, and cost allocation. For</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources&gt;</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- in the /AWS General Reference/. Once the resource is created, you can</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- use TagResource, UntagResource, and ListTagsForResource to add, remove,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- and view tags, respectively. The maximum tag limit may be lower than</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- stated. See the AWS General Reference for actual tagging limits.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3Atags%3ACreateGameServerGroup%27"><span class="annot"><span class="annottext">CreateGameServerGroup -&gt; Maybe [Tag]
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3Atags%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GameLift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | An identifier for the new game server group. This value is used to</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- generate unique ARN identifiers for the EC2 Auto Scaling group and the</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- GameLift FleetIQ game server group. The name must be unique per Region</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- per AWS account.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AgameServerGroupName%3ACreateGameServerGroup%27"><span class="annot"><span class="annottext">CreateGameServerGroup -&gt; Text
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AgameServerGroupName%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var hs-var">gameServerGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- for an IAM role that allows Amazon GameLift to access your EC2 Auto</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- Scaling groups.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateGameServerGroup%27"><span class="annot"><span class="annottext">CreateGameServerGroup -&gt; Text
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AroleArn%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | The minimum number of instances allowed in the EC2 Auto Scaling group.</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- During automatic scaling events, GameLift FleetIQ and EC2 do not scale</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- down the group below this minimum. In production, this value should be</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- set to at least 1. After the Auto Scaling group is created, update this</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- value directly in the Auto Scaling group using the AWS console or APIs.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AminSize%3ACreateGameServerGroup%27"><span class="annot"><span class="annottext">CreateGameServerGroup -&gt; Natural
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AminSize%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The maximum number of instances allowed in the EC2 Auto Scaling group.</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- During automatic scaling events, GameLift FleetIQ and EC2 do not scale</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- up the group above this maximum. After the Auto Scaling group is</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- created, update this value directly in the Auto Scaling group using the</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- AWS console or APIs.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3AmaxSize%3ACreateGameServerGroup%27"><span class="annot"><span class="annottext">CreateGameServerGroup -&gt; Natural
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AmaxSize%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var hs-var">maxSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | The EC2 launch template that contains configuration settings and game</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- server code to be deployed to all instances in the game server group.</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- You can specify the template using either the template name or ID. For</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- help with creating a launch template, see</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html Creating a Launch Template for an Auto Scaling Group&gt;</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- in the /Amazon EC2 Auto Scaling User Guide/. After the Auto Scaling</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- group is created, update this value directly in the Auto Scaling group</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- using the AWS console or APIs.</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- If you specify network interfaces in your launch template, you must</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- explicitly set the property @AssociatePublicIpAddress@ to \&quot;true\&quot;. If</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- no network interface is specified in the launch template, GameLift</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- FleetIQ uses your account\'s default VPC.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AlaunchTemplate%3ACreateGameServerGroup%27"><span class="annot"><span class="annottext">CreateGameServerGroup -&gt; LaunchTemplateSpecification
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AlaunchTemplate%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | The EC2 instance types and sizes to use in the Auto Scaling group. The</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- instance definitions must specify at least two different instance types</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- that are supported by GameLift FleetIQ. For more information on instance</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- types, see</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types&gt;</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- in the /Amazon EC2 User Guide/. You can optionally specify capacity</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- weighting for each instance type. If no weight value is specified for an</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- instance type, it is set to the default value \&quot;1\&quot;. For more</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- information about capacity weighting, see</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling&gt;</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- in the Amazon EC2 Auto Scaling User Guide.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3AinstanceDefinitions%3ACreateGameServerGroup%27"><span class="annot"><span class="annottext">CreateGameServerGroup -&gt; NonEmpty InstanceDefinition
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AinstanceDefinitions%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var hs-var">instanceDefinitions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.InstanceDefinition.html#InstanceDefinition"><span class="hs-identifier hs-type">InstanceDefinition</span></a></span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461554"><span id="local-6989586621679461556"><span class="annot"><span class="annottext">CreateGameServerGroup -&gt; CreateGameServerGroup -&gt; Bool
+(CreateGameServerGroup -&gt; CreateGameServerGroup -&gt; Bool)
+-&gt; (CreateGameServerGroup -&gt; CreateGameServerGroup -&gt; Bool)
+-&gt; Eq CreateGameServerGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateGameServerGroup -&gt; CreateGameServerGroup -&gt; Bool
+$c/= :: CreateGameServerGroup -&gt; CreateGameServerGroup -&gt; Bool
+== :: CreateGameServerGroup -&gt; CreateGameServerGroup -&gt; Bool
+$c== :: CreateGameServerGroup -&gt; CreateGameServerGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461545"><span id="local-6989586621679461547"><span id="local-6989586621679461549"><span id="local-6989586621679461551"><span class="annot"><span class="annottext">ReadPrec [CreateGameServerGroup]
+ReadPrec CreateGameServerGroup
+Int -&gt; ReadS CreateGameServerGroup
+ReadS [CreateGameServerGroup]
+(Int -&gt; ReadS CreateGameServerGroup)
+-&gt; ReadS [CreateGameServerGroup]
+-&gt; ReadPrec CreateGameServerGroup
+-&gt; ReadPrec [CreateGameServerGroup]
+-&gt; Read CreateGameServerGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateGameServerGroup]
+$creadListPrec :: ReadPrec [CreateGameServerGroup]
+readPrec :: ReadPrec CreateGameServerGroup
+$creadPrec :: ReadPrec CreateGameServerGroup
+readList :: ReadS [CreateGameServerGroup]
+$creadList :: ReadS [CreateGameServerGroup]
+readsPrec :: Int -&gt; ReadS CreateGameServerGroup
+$creadsPrec :: Int -&gt; ReadS CreateGameServerGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461538"><span id="local-6989586621679461540"><span id="local-6989586621679461542"><span class="annot"><span class="annottext">Int -&gt; CreateGameServerGroup -&gt; ShowS
+[CreateGameServerGroup] -&gt; ShowS
+CreateGameServerGroup -&gt; String
+(Int -&gt; CreateGameServerGroup -&gt; ShowS)
+-&gt; (CreateGameServerGroup -&gt; String)
+-&gt; ([CreateGameServerGroup] -&gt; ShowS)
+-&gt; Show CreateGameServerGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateGameServerGroup] -&gt; ShowS
+$cshowList :: [CreateGameServerGroup] -&gt; ShowS
+show :: CreateGameServerGroup -&gt; String
+$cshow :: CreateGameServerGroup -&gt; String
+showsPrec :: Int -&gt; CreateGameServerGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateGameServerGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateGameServerGroup -&gt; Rep CreateGameServerGroup x)
+-&gt; (forall x. Rep CreateGameServerGroup x -&gt; CreateGameServerGroup)
+-&gt; Generic CreateGameServerGroup
+forall x. Rep CreateGameServerGroup x -&gt; CreateGameServerGroup
+forall x. CreateGameServerGroup -&gt; Rep CreateGameServerGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateGameServerGroup x -&gt; CreateGameServerGroup
+$cfrom :: forall x. CreateGameServerGroup -&gt; Rep CreateGameServerGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Create a value of 'CreateGameServerGroup' with all optional fields omitted.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'vpcSubnets', 'createGameServerGroup_vpcSubnets' - A list of virtual private cloud (VPC) subnets to use with instances in</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- the game server group. By default, all GameLift FleetIQ-supported</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- Availability Zones are used. You can use this parameter to specify VPCs</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- that you\'ve set up. This property cannot be updated after the game</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- server group is created, and the corresponding Auto Scaling group will</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- always use the property value that is set with this request, even if the</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- Auto Scaling group is updated directly.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'balancingStrategy', 'createGameServerGroup_balancingStrategy' - Indicates how GameLift FleetIQ balances the use of Spot Instances and</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- On-Demand Instances in the game server group. Method options include the</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- following:</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- -   @SPOT_ONLY@ - Only Spot Instances are used in the game server group.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     If Spot Instances are unavailable or not viable for game hosting,</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--     the game server group provides no hosting capacity until Spot</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--     Instances can again be used. Until then, no new instances are</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     started, and the existing nonviable Spot Instances are terminated</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--     (after current gameplay ends) and are not replaced.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- -   @SPOT_PREFERRED@ - (default value) Spot Instances are used whenever</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--     available in the game server group. If Spot Instances are</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--     unavailable, the game server group continues to provide hosting</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--     capacity by falling back to On-Demand Instances. Existing nonviable</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--     Spot Instances are terminated (after current gameplay ends) and are</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     replaced with new On-Demand Instances.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- -   @ON_DEMAND_ONLY@ - Only On-Demand Instances are used in the game</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     server group. No Spot Instances are used, even when available, while</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--     this balancing strategy is in force.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'autoScalingPolicy', 'createGameServerGroup_autoScalingPolicy' - Configuration settings to define a scaling policy for the Auto Scaling</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- group that is optimized for game hosting. The scaling policy uses the</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- metric @\&quot;PercentUtilizedGameServers\&quot;@ to maintain a buffer of idle</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- game servers that can immediately accommodate new games and players.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- After the Auto Scaling group is created, update this value directly in</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- the Auto Scaling group using the AWS console or APIs.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- 'gameServerProtectionPolicy', 'createGameServerGroup_gameServerProtectionPolicy' - A flag that indicates whether instances in the game server group are</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- protected from early termination. Unprotected instances that have active</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- game servers running might be terminated during a scale-down event,</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- causing players to be dropped from the game. Protected instances cannot</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- be terminated while there are active game servers running except in the</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- event of a forced game server group deletion (see ). An exception to</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- this is with Spot Instances, which can be terminated by AWS regardless</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- of protection status. This property is set to @NO_PROTECTION@ by</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- default.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- 'tags', 'createGameServerGroup_tags' - A list of labels to assign to the new game server group resource. Tags</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- are developer-defined key-value pairs. Tagging AWS resources is useful</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- for resource management, access management, and cost allocation. For</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources&gt;</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- in the /AWS General Reference/. Once the resource is created, you can</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- use TagResource, UntagResource, and ListTagsForResource to add, remove,</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- and view tags, respectively. The maximum tag limit may be lower than</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- stated. See the AWS General Reference for actual tagging limits.</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- 'gameServerGroupName', 'createGameServerGroup_gameServerGroupName' - An identifier for the new game server group. This value is used to</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- generate unique ARN identifiers for the EC2 Auto Scaling group and the</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- GameLift FleetIQ game server group. The name must be unique per Region</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- per AWS account.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- 'roleArn', 'createGameServerGroup_roleArn' - The Amazon Resource Name</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- for an IAM role that allows Amazon GameLift to access your EC2 Auto</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- Scaling groups.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- 'minSize', 'createGameServerGroup_minSize' - The minimum number of instances allowed in the EC2 Auto Scaling group.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- During automatic scaling events, GameLift FleetIQ and EC2 do not scale</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- down the group below this minimum. In production, this value should be</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- set to at least 1. After the Auto Scaling group is created, update this</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- value directly in the Auto Scaling group using the AWS console or APIs.</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- 'maxSize', 'createGameServerGroup_maxSize' - The maximum number of instances allowed in the EC2 Auto Scaling group.</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- During automatic scaling events, GameLift FleetIQ and EC2 do not scale</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- up the group above this maximum. After the Auto Scaling group is</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- created, update this value directly in the Auto Scaling group using the</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- AWS console or APIs.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- 'launchTemplate', 'createGameServerGroup_launchTemplate' - The EC2 launch template that contains configuration settings and game</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- server code to be deployed to all instances in the game server group.</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- You can specify the template using either the template name or ID. For</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- help with creating a launch template, see</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html Creating a Launch Template for an Auto Scaling Group&gt;</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- in the /Amazon EC2 Auto Scaling User Guide/. After the Auto Scaling</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- group is created, update this value directly in the Auto Scaling group</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- using the AWS console or APIs.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- If you specify network interfaces in your launch template, you must</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- explicitly set the property @AssociatePublicIpAddress@ to \&quot;true\&quot;. If</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- no network interface is specified in the launch template, GameLift</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- FleetIQ uses your account\'s default VPC.</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- 'instanceDefinitions', 'createGameServerGroup_instanceDefinitions' - The EC2 instance types and sizes to use in the Auto Scaling group. The</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- instance definitions must specify at least two different instance types</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- that are supported by GameLift FleetIQ. For more information on instance</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- types, see</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types&gt;</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- in the /Amazon EC2 User Guide/. You can optionally specify capacity</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- weighting for each instance type. If no weight value is specified for an</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- instance type, it is set to the default value \&quot;1\&quot;. For more</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- information about capacity weighting, see</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling&gt;</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- in the Amazon EC2 Auto Scaling User Guide.</span><span>
+</span><span id="line-329"></span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#newCreateGameServerGroup"><span class="hs-identifier hs-type">newCreateGameServerGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-330"></span><span>  </span><span class="hs-comment">-- | 'gameServerGroupName'</span><span>
+</span><span id="line-331"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-332"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-333"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-334"></span><span>  </span><span class="hs-comment">-- | 'minSize'</span><span>
+</span><span id="line-335"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-336"></span><span>  </span><span class="hs-comment">-- | 'maxSize'</span><span>
+</span><span id="line-337"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-338"></span><span>  </span><span class="hs-comment">-- | 'launchTemplate'</span><span>
+</span><span id="line-339"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-340"></span><span>  </span><span class="hs-comment">-- | 'instanceDefinitions'</span><span>
+</span><span id="line-341"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.InstanceDefinition.html#InstanceDefinition"><span class="hs-identifier hs-type">InstanceDefinition</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-342"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span>
+</span><span id="line-343"></span><span id="newCreateGameServerGroup"><span class="annot"><span class="annottext">newCreateGameServerGroup :: Text
+-&gt; Text
+-&gt; Natural
+-&gt; Natural
+-&gt; LaunchTemplateSpecification
+-&gt; NonEmpty InstanceDefinition
+-&gt; CreateGameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#newCreateGameServerGroup"><span class="hs-identifier hs-var hs-var">newCreateGameServerGroup</span></a></span></span><span>
+</span><span id="line-344"></span><span>  </span><span id="local-6989586621679461533"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461533"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span></span><span>
+</span><span id="line-345"></span><span>  </span><span id="local-6989586621679461532"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461532"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
+</span><span id="line-346"></span><span>  </span><span id="local-6989586621679461531"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679461531"><span class="hs-identifier hs-var">pMinSize_</span></a></span></span><span>
+</span><span id="line-347"></span><span>  </span><span id="local-6989586621679461530"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679461530"><span class="hs-identifier hs-var">pMaxSize_</span></a></span></span><span>
+</span><span id="line-348"></span><span>  </span><span id="local-6989586621679461529"><span class="annot"><span class="annottext">LaunchTemplateSpecification
+</span><a href="#local-6989586621679461529"><span class="hs-identifier hs-var">pLaunchTemplate_</span></a></span></span><span>
+</span><span id="line-349"></span><span>  </span><span id="local-6989586621679461528"><span class="annot"><span class="annottext">NonEmpty InstanceDefinition
+</span><a href="#local-6989586621679461528"><span class="hs-identifier hs-var">pInstanceDefinitions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-350"></span><span>    </span><span class="annot"><span class="annottext">CreateGameServerGroup' :: Maybe (NonEmpty Text)
+-&gt; Maybe BalancingStrategy
+-&gt; Maybe GameServerGroupAutoScalingPolicy
+-&gt; Maybe GameServerProtectionPolicy
+-&gt; Maybe [Tag]
+-&gt; Text
+-&gt; Text
+-&gt; Natural
+-&gt; Natural
+-&gt; LaunchTemplateSpecification
+-&gt; NonEmpty InstanceDefinition
+-&gt; CreateGameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span>
+</span><span id="line-351"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpcSubnets:CreateGameServerGroup' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AvpcSubnets%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">vpcSubnets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-352"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>        </span><span class="annot"><span class="annottext">$sel:balancingStrategy:CreateGameServerGroup' :: Maybe BalancingStrategy
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AbalancingStrategy%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">balancingStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BalancingStrategy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-354"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoScalingPolicy:CreateGameServerGroup' :: Maybe GameServerGroupAutoScalingPolicy
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AautoScalingPolicy%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">autoScalingPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroupAutoScalingPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-355"></span><span>        </span><span class="annot"><span class="annottext">$sel:gameServerProtectionPolicy:CreateGameServerGroup' :: Maybe GameServerProtectionPolicy
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AgameServerProtectionPolicy%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">gameServerProtectionPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerProtectionPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-356"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateGameServerGroup' :: Maybe [Tag]
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3Atags%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-357"></span><span>        </span><span class="annot"><span class="annottext">$sel:gameServerGroupName:CreateGameServerGroup' :: Text
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AgameServerGroupName%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461533"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-358"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:CreateGameServerGroup' :: Text
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AroleArn%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461532"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-359"></span><span>        </span><span class="annot"><span class="annottext">$sel:minSize:CreateGameServerGroup' :: Natural
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AminSize%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679461531"><span class="hs-identifier hs-var">pMinSize_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-360"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxSize:CreateGameServerGroup' :: Natural
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AmaxSize%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">maxSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679461530"><span class="hs-identifier hs-var">pMaxSize_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-361"></span><span>        </span><span class="annot"><span class="annottext">$sel:launchTemplate:CreateGameServerGroup' :: LaunchTemplateSpecification
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AlaunchTemplate%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
+</span><a href="#local-6989586621679461529"><span class="hs-identifier hs-var">pLaunchTemplate_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-362"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceDefinitions:CreateGameServerGroup' :: NonEmpty InstanceDefinition
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AinstanceDefinitions%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">instanceDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-363"></span><span>          </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty InstanceDefinition)
+  (Identity (NonEmpty InstanceDefinition))
+-&gt; Tagged
+     (NonEmpty InstanceDefinition)
+     (Identity (NonEmpty InstanceDefinition))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty InstanceDefinition)
+   (Identity (NonEmpty InstanceDefinition))
+ -&gt; Tagged
+      (NonEmpty InstanceDefinition)
+      (Identity (NonEmpty InstanceDefinition)))
+-&gt; NonEmpty InstanceDefinition -&gt; NonEmpty InstanceDefinition
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty InstanceDefinition
+</span><a href="#local-6989586621679461528"><span class="hs-identifier hs-var">pInstanceDefinitions_</span></a></span><span>
+</span><span id="line-364"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-365"></span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- | A list of virtual private cloud (VPC) subnets to use with instances in</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- the game server group. By default, all GameLift FleetIQ-supported</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- Availability Zones are used. You can use this parameter to specify VPCs</span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- that you\'ve set up. This property cannot be updated after the game</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- server group is created, and the corresponding Auto Scaling group will</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- always use the property value that is set with this request, even if the</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- Auto Scaling group is updated directly.</span><span>
+</span><span id="line-373"></span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_vpcSubnets"><span class="hs-identifier hs-type">createGameServerGroup_vpcSubnets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span id="createGameServerGroup_vpcSubnets"><span class="annot"><span class="annottext">createGameServerGroup_vpcSubnets :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; CreateGameServerGroup -&gt; f CreateGameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_vpcSubnets"><span class="hs-identifier hs-var hs-var">createGameServerGroup_vpcSubnets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGameServerGroup -&gt; Maybe (NonEmpty Text))
+-&gt; (CreateGameServerGroup
+    -&gt; Maybe (NonEmpty Text) -&gt; CreateGameServerGroup)
+-&gt; Lens
+     CreateGameServerGroup
+     CreateGameServerGroup
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461523"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+vpcSubnets :: Maybe (NonEmpty Text)
+$sel:vpcSubnets:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679461523"><span class="hs-identifier hs-var hs-var">vpcSubnets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679461523"><span class="hs-identifier hs-var">vpcSubnets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461522"><span class="annot"><span class="annottext">s :: CreateGameServerGroup
+</span><a href="#local-6989586621679461522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461521"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679461521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGameServerGroup
+</span><a href="#local-6989586621679461522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcSubnets:CreateGameServerGroup' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AvpcSubnets%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">vpcSubnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679461521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; CreateGameServerGroup -&gt; f CreateGameServerGroup)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; CreateGameServerGroup
+-&gt; f CreateGameServerGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-375"></span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- | Indicates how GameLift FleetIQ balances the use of Spot Instances and</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- On-Demand Instances in the game server group. Method options include the</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- following:</span><span>
+</span><span id="line-379"></span><span class="hs-comment">--</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- -   @SPOT_ONLY@ - Only Spot Instances are used in the game server group.</span><span>
+</span><span id="line-381"></span><span class="hs-comment">--     If Spot Instances are unavailable or not viable for game hosting,</span><span>
+</span><span id="line-382"></span><span class="hs-comment">--     the game server group provides no hosting capacity until Spot</span><span>
+</span><span id="line-383"></span><span class="hs-comment">--     Instances can again be used. Until then, no new instances are</span><span>
+</span><span id="line-384"></span><span class="hs-comment">--     started, and the existing nonviable Spot Instances are terminated</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--     (after current gameplay ends) and are not replaced.</span><span>
+</span><span id="line-386"></span><span class="hs-comment">--</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- -   @SPOT_PREFERRED@ - (default value) Spot Instances are used whenever</span><span>
+</span><span id="line-388"></span><span class="hs-comment">--     available in the game server group. If Spot Instances are</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--     unavailable, the game server group continues to provide hosting</span><span>
+</span><span id="line-390"></span><span class="hs-comment">--     capacity by falling back to On-Demand Instances. Existing nonviable</span><span>
+</span><span id="line-391"></span><span class="hs-comment">--     Spot Instances are terminated (after current gameplay ends) and are</span><span>
+</span><span id="line-392"></span><span class="hs-comment">--     replaced with new On-Demand Instances.</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- -   @ON_DEMAND_ONLY@ - Only On-Demand Instances are used in the game</span><span>
+</span><span id="line-395"></span><span class="hs-comment">--     server group. No Spot Instances are used, even when available, while</span><span>
+</span><span id="line-396"></span><span class="hs-comment">--     this balancing strategy is in force.</span><span>
+</span><span id="line-397"></span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_balancingStrategy"><span class="hs-identifier hs-type">createGameServerGroup_balancingStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.BalancingStrategy.html#BalancingStrategy"><span class="hs-identifier hs-type">BalancingStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-398"></span><span id="createGameServerGroup_balancingStrategy"><span class="annot"><span class="annottext">createGameServerGroup_balancingStrategy :: (Maybe BalancingStrategy -&gt; f (Maybe BalancingStrategy))
+-&gt; CreateGameServerGroup -&gt; f CreateGameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_balancingStrategy"><span class="hs-identifier hs-var hs-var">createGameServerGroup_balancingStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGameServerGroup -&gt; Maybe BalancingStrategy)
+-&gt; (CreateGameServerGroup
+    -&gt; Maybe BalancingStrategy -&gt; CreateGameServerGroup)
+-&gt; Lens
+     CreateGameServerGroup
+     CreateGameServerGroup
+     (Maybe BalancingStrategy)
+     (Maybe BalancingStrategy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461518"><span class="annot"><span class="annottext">Maybe BalancingStrategy
+balancingStrategy :: Maybe BalancingStrategy
+$sel:balancingStrategy:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Maybe BalancingStrategy
+</span><a href="#local-6989586621679461518"><span class="hs-identifier hs-var hs-var">balancingStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BalancingStrategy
+</span><a href="#local-6989586621679461518"><span class="hs-identifier hs-var">balancingStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461517"><span class="annot"><span class="annottext">s :: CreateGameServerGroup
+</span><a href="#local-6989586621679461517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461516"><span class="annot"><span class="annottext">Maybe BalancingStrategy
+</span><a href="#local-6989586621679461516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGameServerGroup
+</span><a href="#local-6989586621679461517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:balancingStrategy:CreateGameServerGroup' :: Maybe BalancingStrategy
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AbalancingStrategy%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">balancingStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BalancingStrategy
+</span><a href="#local-6989586621679461516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- | Configuration settings to define a scaling policy for the Auto Scaling</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- group that is optimized for game hosting. The scaling policy uses the</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- metric @\&quot;PercentUtilizedGameServers\&quot;@ to maintain a buffer of idle</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- game servers that can immediately accommodate new games and players.</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- After the Auto Scaling group is created, update this value directly in</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- the Auto Scaling group using the AWS console or APIs.</span><span>
+</span><span id="line-406"></span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_autoScalingPolicy"><span class="hs-identifier hs-type">createGameServerGroup_autoScalingPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroupAutoScalingPolicy.html#GameServerGroupAutoScalingPolicy"><span class="hs-identifier hs-type">GameServerGroupAutoScalingPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-407"></span><span id="createGameServerGroup_autoScalingPolicy"><span class="annot"><span class="annottext">createGameServerGroup_autoScalingPolicy :: (Maybe GameServerGroupAutoScalingPolicy
+ -&gt; f (Maybe GameServerGroupAutoScalingPolicy))
+-&gt; CreateGameServerGroup -&gt; f CreateGameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_autoScalingPolicy"><span class="hs-identifier hs-var hs-var">createGameServerGroup_autoScalingPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGameServerGroup -&gt; Maybe GameServerGroupAutoScalingPolicy)
+-&gt; (CreateGameServerGroup
+    -&gt; Maybe GameServerGroupAutoScalingPolicy -&gt; CreateGameServerGroup)
+-&gt; Lens
+     CreateGameServerGroup
+     CreateGameServerGroup
+     (Maybe GameServerGroupAutoScalingPolicy)
+     (Maybe GameServerGroupAutoScalingPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461515"><span class="annot"><span class="annottext">Maybe GameServerGroupAutoScalingPolicy
+autoScalingPolicy :: Maybe GameServerGroupAutoScalingPolicy
+$sel:autoScalingPolicy:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Maybe GameServerGroupAutoScalingPolicy
+</span><a href="#local-6989586621679461515"><span class="hs-identifier hs-var hs-var">autoScalingPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroupAutoScalingPolicy
+</span><a href="#local-6989586621679461515"><span class="hs-identifier hs-var">autoScalingPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461514"><span class="annot"><span class="annottext">s :: CreateGameServerGroup
+</span><a href="#local-6989586621679461514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461513"><span class="annot"><span class="annottext">Maybe GameServerGroupAutoScalingPolicy
+</span><a href="#local-6989586621679461513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGameServerGroup
+</span><a href="#local-6989586621679461514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingPolicy:CreateGameServerGroup' :: Maybe GameServerGroupAutoScalingPolicy
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AautoScalingPolicy%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">autoScalingPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroupAutoScalingPolicy
+</span><a href="#local-6989586621679461513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-408"></span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- | A flag that indicates whether instances in the game server group are</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- protected from early termination. Unprotected instances that have active</span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- game servers running might be terminated during a scale-down event,</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- causing players to be dropped from the game. Protected instances cannot</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- be terminated while there are active game servers running except in the</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- event of a forced game server group deletion (see ). An exception to</span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- this is with Spot Instances, which can be terminated by AWS regardless</span><span>
+</span><span id="line-416"></span><span class="hs-comment">-- of protection status. This property is set to @NO_PROTECTION@ by</span><span>
+</span><span id="line-417"></span><span class="hs-comment">-- default.</span><span>
+</span><span id="line-418"></span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_gameServerProtectionPolicy"><span class="hs-identifier hs-type">createGameServerGroup_gameServerProtectionPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerProtectionPolicy.html#GameServerProtectionPolicy"><span class="hs-identifier hs-type">GameServerProtectionPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-419"></span><span id="createGameServerGroup_gameServerProtectionPolicy"><span class="annot"><span class="annottext">createGameServerGroup_gameServerProtectionPolicy :: (Maybe GameServerProtectionPolicy
+ -&gt; f (Maybe GameServerProtectionPolicy))
+-&gt; CreateGameServerGroup -&gt; f CreateGameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_gameServerProtectionPolicy"><span class="hs-identifier hs-var hs-var">createGameServerGroup_gameServerProtectionPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGameServerGroup -&gt; Maybe GameServerProtectionPolicy)
+-&gt; (CreateGameServerGroup
+    -&gt; Maybe GameServerProtectionPolicy -&gt; CreateGameServerGroup)
+-&gt; Lens
+     CreateGameServerGroup
+     CreateGameServerGroup
+     (Maybe GameServerProtectionPolicy)
+     (Maybe GameServerProtectionPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461512"><span class="annot"><span class="annottext">Maybe GameServerProtectionPolicy
+gameServerProtectionPolicy :: Maybe GameServerProtectionPolicy
+$sel:gameServerProtectionPolicy:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Maybe GameServerProtectionPolicy
+</span><a href="#local-6989586621679461512"><span class="hs-identifier hs-var hs-var">gameServerProtectionPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerProtectionPolicy
+</span><a href="#local-6989586621679461512"><span class="hs-identifier hs-var">gameServerProtectionPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461511"><span class="annot"><span class="annottext">s :: CreateGameServerGroup
+</span><a href="#local-6989586621679461511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461510"><span class="annot"><span class="annottext">Maybe GameServerProtectionPolicy
+</span><a href="#local-6989586621679461510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGameServerGroup
+</span><a href="#local-6989586621679461511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerProtectionPolicy:CreateGameServerGroup' :: Maybe GameServerProtectionPolicy
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AgameServerProtectionPolicy%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">gameServerProtectionPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerProtectionPolicy
+</span><a href="#local-6989586621679461510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-420"></span><span>
+</span><span id="line-421"></span><span class="hs-comment">-- | A list of labels to assign to the new game server group resource. Tags</span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- are developer-defined key-value pairs. Tagging AWS resources is useful</span><span>
+</span><span id="line-423"></span><span class="hs-comment">-- for resource management, access management, and cost allocation. For</span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources&gt;</span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- in the /AWS General Reference/. Once the resource is created, you can</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- use TagResource, UntagResource, and ListTagsForResource to add, remove,</span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- and view tags, respectively. The maximum tag limit may be lower than</span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- stated. See the AWS General Reference for actual tagging limits.</span><span>
+</span><span id="line-430"></span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_tags"><span class="hs-identifier hs-type">createGameServerGroup_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GameLift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-431"></span><span id="createGameServerGroup_tags"><span class="annot"><span class="annottext">createGameServerGroup_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateGameServerGroup -&gt; f CreateGameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_tags"><span class="hs-identifier hs-var hs-var">createGameServerGroup_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGameServerGroup -&gt; Maybe [Tag])
+-&gt; (CreateGameServerGroup -&gt; Maybe [Tag] -&gt; CreateGameServerGroup)
+-&gt; Lens
+     CreateGameServerGroup
+     CreateGameServerGroup
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461509"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679461509"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679461509"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461508"><span class="annot"><span class="annottext">s :: CreateGameServerGroup
+</span><a href="#local-6989586621679461508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461507"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679461507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGameServerGroup
+</span><a href="#local-6989586621679461508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateGameServerGroup' :: Maybe [Tag]
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3Atags%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679461507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateGameServerGroup -&gt; f CreateGameServerGroup)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateGameServerGroup
+-&gt; f CreateGameServerGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-432"></span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- | An identifier for the new game server group. This value is used to</span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- generate unique ARN identifiers for the EC2 Auto Scaling group and the</span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- GameLift FleetIQ game server group. The name must be unique per Region</span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- per AWS account.</span><span>
+</span><span id="line-437"></span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_gameServerGroupName"><span class="hs-identifier hs-type">createGameServerGroup_gameServerGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-438"></span><span id="createGameServerGroup_gameServerGroupName"><span class="annot"><span class="annottext">createGameServerGroup_gameServerGroupName :: (Text -&gt; f Text)
+-&gt; CreateGameServerGroup -&gt; f CreateGameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_gameServerGroupName"><span class="hs-identifier hs-var hs-var">createGameServerGroup_gameServerGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGameServerGroup -&gt; Text)
+-&gt; (CreateGameServerGroup -&gt; Text -&gt; CreateGameServerGroup)
+-&gt; Lens CreateGameServerGroup CreateGameServerGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461506"><span class="annot"><span class="annottext">Text
+gameServerGroupName :: Text
+$sel:gameServerGroupName:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Text
+</span><a href="#local-6989586621679461506"><span class="hs-identifier hs-var hs-var">gameServerGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461506"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461505"><span class="annot"><span class="annottext">s :: CreateGameServerGroup
+</span><a href="#local-6989586621679461505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461504"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGameServerGroup
+</span><a href="#local-6989586621679461505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroupName:CreateGameServerGroup' :: Text
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AgameServerGroupName%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-439"></span><span>
+</span><span id="line-440"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-442"></span><span class="hs-comment">-- for an IAM role that allows Amazon GameLift to access your EC2 Auto</span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- Scaling groups.</span><span>
+</span><span id="line-444"></span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_roleArn"><span class="hs-identifier hs-type">createGameServerGroup_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-445"></span><span id="createGameServerGroup_roleArn"><span class="annot"><span class="annottext">createGameServerGroup_roleArn :: (Text -&gt; f Text)
+-&gt; CreateGameServerGroup -&gt; f CreateGameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_roleArn"><span class="hs-identifier hs-var hs-var">createGameServerGroup_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGameServerGroup -&gt; Text)
+-&gt; (CreateGameServerGroup -&gt; Text -&gt; CreateGameServerGroup)
+-&gt; Lens CreateGameServerGroup CreateGameServerGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461503"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Text
+</span><a href="#local-6989586621679461503"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461503"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461502"><span class="annot"><span class="annottext">s :: CreateGameServerGroup
+</span><a href="#local-6989586621679461502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461501"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGameServerGroup
+</span><a href="#local-6989586621679461502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateGameServerGroup' :: Text
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AroleArn%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-446"></span><span>
+</span><span id="line-447"></span><span class="hs-comment">-- | The minimum number of instances allowed in the EC2 Auto Scaling group.</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- During automatic scaling events, GameLift FleetIQ and EC2 do not scale</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- down the group below this minimum. In production, this value should be</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- set to at least 1. After the Auto Scaling group is created, update this</span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- value directly in the Auto Scaling group using the AWS console or APIs.</span><span>
+</span><span id="line-452"></span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_minSize"><span class="hs-identifier hs-type">createGameServerGroup_minSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-453"></span><span id="createGameServerGroup_minSize"><span class="annot"><span class="annottext">createGameServerGroup_minSize :: (Natural -&gt; f Natural)
+-&gt; CreateGameServerGroup -&gt; f CreateGameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_minSize"><span class="hs-identifier hs-var hs-var">createGameServerGroup_minSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGameServerGroup -&gt; Natural)
+-&gt; (CreateGameServerGroup -&gt; Natural -&gt; CreateGameServerGroup)
+-&gt; Lens CreateGameServerGroup CreateGameServerGroup Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461500"><span class="annot"><span class="annottext">Natural
+minSize :: Natural
+$sel:minSize:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Natural
+</span><a href="#local-6989586621679461500"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679461500"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461499"><span class="annot"><span class="annottext">s :: CreateGameServerGroup
+</span><a href="#local-6989586621679461499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461498"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679461498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGameServerGroup
+</span><a href="#local-6989586621679461499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minSize:CreateGameServerGroup' :: Natural
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AminSize%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679461498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-454"></span><span>
+</span><span id="line-455"></span><span class="hs-comment">-- | The maximum number of instances allowed in the EC2 Auto Scaling group.</span><span>
+</span><span id="line-456"></span><span class="hs-comment">-- During automatic scaling events, GameLift FleetIQ and EC2 do not scale</span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- up the group above this maximum. After the Auto Scaling group is</span><span>
+</span><span id="line-458"></span><span class="hs-comment">-- created, update this value directly in the Auto Scaling group using the</span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- AWS console or APIs.</span><span>
+</span><span id="line-460"></span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_maxSize"><span class="hs-identifier hs-type">createGameServerGroup_maxSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-461"></span><span id="createGameServerGroup_maxSize"><span class="annot"><span class="annottext">createGameServerGroup_maxSize :: (Natural -&gt; f Natural)
+-&gt; CreateGameServerGroup -&gt; f CreateGameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_maxSize"><span class="hs-identifier hs-var hs-var">createGameServerGroup_maxSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGameServerGroup -&gt; Natural)
+-&gt; (CreateGameServerGroup -&gt; Natural -&gt; CreateGameServerGroup)
+-&gt; Lens CreateGameServerGroup CreateGameServerGroup Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461497"><span class="annot"><span class="annottext">Natural
+maxSize :: Natural
+$sel:maxSize:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Natural
+</span><a href="#local-6989586621679461497"><span class="hs-identifier hs-var hs-var">maxSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679461497"><span class="hs-identifier hs-var">maxSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461496"><span class="annot"><span class="annottext">s :: CreateGameServerGroup
+</span><a href="#local-6989586621679461496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461495"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679461495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGameServerGroup
+</span><a href="#local-6989586621679461496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSize:CreateGameServerGroup' :: Natural
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AmaxSize%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">maxSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679461495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-462"></span><span>
+</span><span id="line-463"></span><span class="hs-comment">-- | The EC2 launch template that contains configuration settings and game</span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- server code to be deployed to all instances in the game server group.</span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- You can specify the template using either the template name or ID. For</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- help with creating a launch template, see</span><span>
+</span><span id="line-467"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html Creating a Launch Template for an Auto Scaling Group&gt;</span><span>
+</span><span id="line-468"></span><span class="hs-comment">-- in the /Amazon EC2 Auto Scaling User Guide/. After the Auto Scaling</span><span>
+</span><span id="line-469"></span><span class="hs-comment">-- group is created, update this value directly in the Auto Scaling group</span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- using the AWS console or APIs.</span><span>
+</span><span id="line-471"></span><span class="hs-comment">--</span><span>
+</span><span id="line-472"></span><span class="hs-comment">-- If you specify network interfaces in your launch template, you must</span><span>
+</span><span id="line-473"></span><span class="hs-comment">-- explicitly set the property @AssociatePublicIpAddress@ to \&quot;true\&quot;. If</span><span>
+</span><span id="line-474"></span><span class="hs-comment">-- no network interface is specified in the launch template, GameLift</span><span>
+</span><span id="line-475"></span><span class="hs-comment">-- FleetIQ uses your account\'s default VPC.</span><span>
+</span><span id="line-476"></span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_launchTemplate"><span class="hs-identifier hs-type">createGameServerGroup_launchTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span>
+</span><span id="line-477"></span><span id="createGameServerGroup_launchTemplate"><span class="annot"><span class="annottext">createGameServerGroup_launchTemplate :: (LaunchTemplateSpecification -&gt; f LaunchTemplateSpecification)
+-&gt; CreateGameServerGroup -&gt; f CreateGameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_launchTemplate"><span class="hs-identifier hs-var hs-var">createGameServerGroup_launchTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGameServerGroup -&gt; LaunchTemplateSpecification)
+-&gt; (CreateGameServerGroup
+    -&gt; LaunchTemplateSpecification -&gt; CreateGameServerGroup)
+-&gt; Lens
+     CreateGameServerGroup
+     CreateGameServerGroup
+     LaunchTemplateSpecification
+     LaunchTemplateSpecification
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461494"><span class="annot"><span class="annottext">LaunchTemplateSpecification
+launchTemplate :: LaunchTemplateSpecification
+$sel:launchTemplate:CreateGameServerGroup' :: CreateGameServerGroup -&gt; LaunchTemplateSpecification
+</span><a href="#local-6989586621679461494"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
+</span><a href="#local-6989586621679461494"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461493"><span class="annot"><span class="annottext">s :: CreateGameServerGroup
+</span><a href="#local-6989586621679461493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461492"><span class="annot"><span class="annottext">LaunchTemplateSpecification
+</span><a href="#local-6989586621679461492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGameServerGroup
+</span><a href="#local-6989586621679461493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplate:CreateGameServerGroup' :: LaunchTemplateSpecification
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AlaunchTemplate%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
+</span><a href="#local-6989586621679461492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-478"></span><span>
+</span><span id="line-479"></span><span class="hs-comment">-- | The EC2 instance types and sizes to use in the Auto Scaling group. The</span><span>
+</span><span id="line-480"></span><span class="hs-comment">-- instance definitions must specify at least two different instance types</span><span>
+</span><span id="line-481"></span><span class="hs-comment">-- that are supported by GameLift FleetIQ. For more information on instance</span><span>
+</span><span id="line-482"></span><span class="hs-comment">-- types, see</span><span>
+</span><span id="line-483"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types&gt;</span><span>
+</span><span id="line-484"></span><span class="hs-comment">-- in the /Amazon EC2 User Guide/. You can optionally specify capacity</span><span>
+</span><span id="line-485"></span><span class="hs-comment">-- weighting for each instance type. If no weight value is specified for an</span><span>
+</span><span id="line-486"></span><span class="hs-comment">-- instance type, it is set to the default value \&quot;1\&quot;. For more</span><span>
+</span><span id="line-487"></span><span class="hs-comment">-- information about capacity weighting, see</span><span>
+</span><span id="line-488"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling&gt;</span><span>
+</span><span id="line-489"></span><span class="hs-comment">-- in the Amazon EC2 Auto Scaling User Guide.</span><span>
+</span><span id="line-490"></span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_instanceDefinitions"><span class="hs-identifier hs-type">createGameServerGroup_instanceDefinitions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.InstanceDefinition.html#InstanceDefinition"><span class="hs-identifier hs-type">InstanceDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-491"></span><span id="createGameServerGroup_instanceDefinitions"><span class="annot"><span class="annottext">createGameServerGroup_instanceDefinitions :: (NonEmpty InstanceDefinition -&gt; f (NonEmpty InstanceDefinition))
+-&gt; CreateGameServerGroup -&gt; f CreateGameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroup_instanceDefinitions"><span class="hs-identifier hs-var hs-var">createGameServerGroup_instanceDefinitions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGameServerGroup -&gt; NonEmpty InstanceDefinition)
+-&gt; (CreateGameServerGroup
+    -&gt; NonEmpty InstanceDefinition -&gt; CreateGameServerGroup)
+-&gt; Lens
+     CreateGameServerGroup
+     CreateGameServerGroup
+     (NonEmpty InstanceDefinition)
+     (NonEmpty InstanceDefinition)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461491"><span class="annot"><span class="annottext">NonEmpty InstanceDefinition
+instanceDefinitions :: NonEmpty InstanceDefinition
+$sel:instanceDefinitions:CreateGameServerGroup' :: CreateGameServerGroup -&gt; NonEmpty InstanceDefinition
+</span><a href="#local-6989586621679461491"><span class="hs-identifier hs-var hs-var">instanceDefinitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty InstanceDefinition
+</span><a href="#local-6989586621679461491"><span class="hs-identifier hs-var">instanceDefinitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461490"><span class="annot"><span class="annottext">s :: CreateGameServerGroup
+</span><a href="#local-6989586621679461490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461489"><span class="annot"><span class="annottext">NonEmpty InstanceDefinition
+</span><a href="#local-6989586621679461489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGameServerGroup
+</span><a href="#local-6989586621679461490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceDefinitions:CreateGameServerGroup' :: NonEmpty InstanceDefinition
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AinstanceDefinitions%3ACreateGameServerGroup%27"><span class="hs-identifier hs-var">instanceDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty InstanceDefinition
+</span><a href="#local-6989586621679461489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty InstanceDefinition -&gt; f (NonEmpty InstanceDefinition))
+ -&gt; CreateGameServerGroup -&gt; f CreateGameServerGroup)
+-&gt; ((NonEmpty InstanceDefinition
+     -&gt; f (NonEmpty InstanceDefinition))
+    -&gt; NonEmpty InstanceDefinition -&gt; f (NonEmpty InstanceDefinition))
+-&gt; (NonEmpty InstanceDefinition -&gt; f (NonEmpty InstanceDefinition))
+-&gt; CreateGameServerGroup
+-&gt; f CreateGameServerGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty InstanceDefinition -&gt; f (NonEmpty InstanceDefinition))
+-&gt; NonEmpty InstanceDefinition -&gt; f (NonEmpty InstanceDefinition)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-492"></span><span>
+</span><span id="line-493"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-494"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-495"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-496"></span><span>      </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse"><span class="hs-identifier hs-type">CreateGameServerGroupResponse</span></a></span><span>
+</span><span id="line-497"></span><span>  </span><span id="local-6989586621679461485"><span class="annot"><span class="annottext">request :: CreateGameServerGroup -&gt; Request CreateGameServerGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateGameServerGroup -&gt; Request CreateGameServerGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-498"></span><span>  </span><span id="local-6989586621679461481"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateGameServerGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateGameServerGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-499"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateGameServerGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateGameServerGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateGameServerGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-500"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679461478"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679461478"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679461477"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679461477"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679461476"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461476"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-501"></span><span>          </span><span class="annot"><span class="annottext">Maybe GameServerGroup -&gt; Int -&gt; CreateGameServerGroupResponse
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse%27"><span class="hs-identifier hs-var">CreateGameServerGroupResponse'</span></a></span><span>
+</span><span id="line-502"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GameServerGroup -&gt; Int -&gt; CreateGameServerGroupResponse)
+-&gt; Either String (Maybe GameServerGroup)
+-&gt; Either String (Int -&gt; CreateGameServerGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameServerGroup)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GameServerGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-503"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateGameServerGroupResponse)
+-&gt; Either String Int -&gt; Either String CreateGameServerGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679461478"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-504"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-505"></span><span>
+</span><span id="line-506"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461468"><span id="local-6989586621679461470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span></span></span><span>
+</span><span id="line-507"></span><span>
+</span><span id="line-508"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span></span><span>
+</span><span id="line-509"></span><span>
+</span><span id="line-510"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-511"></span><span>  </span><span id="local-6989586621679461461"><span class="annot"><span class="annottext">toHeaders :: CreateGameServerGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-512"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateGameServerGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-513"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-514"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-515"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GameLift.CreateGameServerGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-516"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-517"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-518"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-519"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-520"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-521"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-522"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-523"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-524"></span><span>
+</span><span id="line-525"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461451"><span id="local-6989586621679461453"><span id="local-6989586621679461455"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-526"></span><span>  </span><span id="local-6989586621679461449"><span class="annot"><span class="annottext">toJSON :: CreateGameServerGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup%27"><span class="hs-identifier hs-type">CreateGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461437"><span id="local-6989586621679461438"><span id="local-6989586621679461439"><span id="local-6989586621679461440"><span id="local-6989586621679461441"><span id="local-6989586621679461442"><span id="local-6989586621679461443"><span id="local-6989586621679461444"><span id="local-6989586621679461445"><span id="local-6989586621679461446"><span id="local-6989586621679461447"><span class="annot"><span class="annottext">Natural
+Maybe [Tag]
+Maybe (NonEmpty Text)
+Maybe BalancingStrategy
+Maybe GameServerProtectionPolicy
+Maybe GameServerGroupAutoScalingPolicy
+NonEmpty InstanceDefinition
+Text
+LaunchTemplateSpecification
+instanceDefinitions :: NonEmpty InstanceDefinition
+launchTemplate :: LaunchTemplateSpecification
+maxSize :: Natural
+minSize :: Natural
+roleArn :: Text
+gameServerGroupName :: Text
+tags :: Maybe [Tag]
+gameServerProtectionPolicy :: Maybe GameServerProtectionPolicy
+autoScalingPolicy :: Maybe GameServerGroupAutoScalingPolicy
+balancingStrategy :: Maybe BalancingStrategy
+vpcSubnets :: Maybe (NonEmpty Text)
+$sel:instanceDefinitions:CreateGameServerGroup' :: CreateGameServerGroup -&gt; NonEmpty InstanceDefinition
+$sel:launchTemplate:CreateGameServerGroup' :: CreateGameServerGroup -&gt; LaunchTemplateSpecification
+$sel:maxSize:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Natural
+$sel:minSize:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Natural
+$sel:roleArn:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Text
+$sel:gameServerGroupName:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Text
+$sel:tags:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Maybe [Tag]
+$sel:gameServerProtectionPolicy:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Maybe GameServerProtectionPolicy
+$sel:autoScalingPolicy:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Maybe GameServerGroupAutoScalingPolicy
+$sel:balancingStrategy:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Maybe BalancingStrategy
+$sel:vpcSubnets:CreateGameServerGroup' :: CreateGameServerGroup -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679461437"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-527"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-528"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-529"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcSubnets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679461447"><span class="hs-identifier hs-var">vpcSubnets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-530"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BalancingStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BalancingStrategy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-531"></span><span>              </span><span class="annot"><span class="annottext">(BalancingStrategy -&gt; Pair)
+-&gt; Maybe BalancingStrategy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BalancingStrategy
+</span><a href="#local-6989586621679461446"><span class="hs-identifier hs-var">balancingStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-532"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoScalingPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GameServerGroupAutoScalingPolicy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-533"></span><span>              </span><span class="annot"><span class="annottext">(GameServerGroupAutoScalingPolicy -&gt; Pair)
+-&gt; Maybe GameServerGroupAutoScalingPolicy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroupAutoScalingPolicy
+</span><a href="#local-6989586621679461445"><span class="hs-identifier hs-var">autoScalingPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-534"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GameServerProtectionPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GameServerProtectionPolicy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-535"></span><span>              </span><span class="annot"><span class="annottext">(GameServerProtectionPolicy -&gt; Pair)
+-&gt; Maybe GameServerProtectionPolicy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GameServerProtectionPolicy
+</span><a href="#local-6989586621679461444"><span class="hs-identifier hs-var">gameServerProtectionPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-536"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679461443"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-537"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-538"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GameServerGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461442"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-539"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461441"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-540"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MinSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679461440"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-541"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679461439"><span class="hs-identifier hs-var">maxSize</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-542"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-543"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LaunchTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LaunchTemplateSpecification -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
+</span><a href="#local-6989586621679461438"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-544"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-545"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceDefinitions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty InstanceDefinition -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty InstanceDefinition
+</span><a href="#local-6989586621679461437"><span class="hs-identifier hs-var">instanceDefinitions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-546"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-547"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-548"></span><span>
+</span><span id="line-549"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-550"></span><span>  </span><span id="local-6989586621679461431"><span class="annot"><span class="annottext">toPath :: CreateGameServerGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateGameServerGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-551"></span><span>
+</span><span id="line-552"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroup"><span class="hs-identifier hs-type">CreateGameServerGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-553"></span><span>  </span><span id="local-6989586621679461427"><span class="annot"><span class="annottext">toQuery :: CreateGameServerGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateGameServerGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-554"></span><span>
+</span><span id="line-555"></span><span class="hs-comment">-- | /See:/ 'newCreateGameServerGroupResponse' smart constructor.</span><span>
+</span><span id="line-556"></span><span id="local-6989586621679461424"><span id="local-6989586621679461425"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGameServerGroupResponse"><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse"><span class="hs-identifier hs-var">CreateGameServerGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGameServerGroupResponse%27"><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse%27"><span class="hs-identifier hs-var">CreateGameServerGroupResponse'</span></a></span></span><span>
+</span><span id="line-557"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The newly created game server group object, including the new ARN value</span><span>
+</span><span id="line-558"></span><span>    </span><span class="hs-comment">-- for the GameLift FleetIQ game server group and the object\'s status. The</span><span>
+</span><span id="line-559"></span><span>    </span><span class="hs-comment">-- EC2 Auto Scaling group ARN is initially null, since the group has not</span><span>
+</span><span id="line-560"></span><span>    </span><span class="hs-comment">-- yet been created. This value is added once the game server group status</span><span>
+</span><span id="line-561"></span><span>    </span><span class="hs-comment">-- reaches @ACTIVE@.</span><span>
+</span><span id="line-562"></span><span>    </span><span id="%24sel%3AgameServerGroup%3ACreateGameServerGroupResponse%27"><span class="annot"><span class="annottext">CreateGameServerGroupResponse -&gt; Maybe GameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AgameServerGroup%3ACreateGameServerGroupResponse%27"><span class="hs-identifier hs-var hs-var">gameServerGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroup.html#GameServerGroup"><span class="hs-identifier hs-type">GameServerGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-563"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-564"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateGameServerGroupResponse%27"><span class="annot"><span class="annottext">CreateGameServerGroupResponse -&gt; Int
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AhttpStatus%3ACreateGameServerGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-565"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-566"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461418"><span id="local-6989586621679461420"><span class="annot"><span class="annottext">CreateGameServerGroupResponse
+-&gt; CreateGameServerGroupResponse -&gt; Bool
+(CreateGameServerGroupResponse
+ -&gt; CreateGameServerGroupResponse -&gt; Bool)
+-&gt; (CreateGameServerGroupResponse
+    -&gt; CreateGameServerGroupResponse -&gt; Bool)
+-&gt; Eq CreateGameServerGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateGameServerGroupResponse
+-&gt; CreateGameServerGroupResponse -&gt; Bool
+$c/= :: CreateGameServerGroupResponse
+-&gt; CreateGameServerGroupResponse -&gt; Bool
+== :: CreateGameServerGroupResponse
+-&gt; CreateGameServerGroupResponse -&gt; Bool
+$c== :: CreateGameServerGroupResponse
+-&gt; CreateGameServerGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461410"><span id="local-6989586621679461412"><span id="local-6989586621679461414"><span id="local-6989586621679461416"><span class="annot"><span class="annottext">ReadPrec [CreateGameServerGroupResponse]
+ReadPrec CreateGameServerGroupResponse
+Int -&gt; ReadS CreateGameServerGroupResponse
+ReadS [CreateGameServerGroupResponse]
+(Int -&gt; ReadS CreateGameServerGroupResponse)
+-&gt; ReadS [CreateGameServerGroupResponse]
+-&gt; ReadPrec CreateGameServerGroupResponse
+-&gt; ReadPrec [CreateGameServerGroupResponse]
+-&gt; Read CreateGameServerGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateGameServerGroupResponse]
+$creadListPrec :: ReadPrec [CreateGameServerGroupResponse]
+readPrec :: ReadPrec CreateGameServerGroupResponse
+$creadPrec :: ReadPrec CreateGameServerGroupResponse
+readList :: ReadS [CreateGameServerGroupResponse]
+$creadList :: ReadS [CreateGameServerGroupResponse]
+readsPrec :: Int -&gt; ReadS CreateGameServerGroupResponse
+$creadsPrec :: Int -&gt; ReadS CreateGameServerGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461404"><span id="local-6989586621679461406"><span id="local-6989586621679461408"><span class="annot"><span class="annottext">Int -&gt; CreateGameServerGroupResponse -&gt; ShowS
+[CreateGameServerGroupResponse] -&gt; ShowS
+CreateGameServerGroupResponse -&gt; String
+(Int -&gt; CreateGameServerGroupResponse -&gt; ShowS)
+-&gt; (CreateGameServerGroupResponse -&gt; String)
+-&gt; ([CreateGameServerGroupResponse] -&gt; ShowS)
+-&gt; Show CreateGameServerGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateGameServerGroupResponse] -&gt; ShowS
+$cshowList :: [CreateGameServerGroupResponse] -&gt; ShowS
+show :: CreateGameServerGroupResponse -&gt; String
+$cshow :: CreateGameServerGroupResponse -&gt; String
+showsPrec :: Int -&gt; CreateGameServerGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateGameServerGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateGameServerGroupResponse
+ -&gt; Rep CreateGameServerGroupResponse x)
+-&gt; (forall x.
+    Rep CreateGameServerGroupResponse x
+    -&gt; CreateGameServerGroupResponse)
+-&gt; Generic CreateGameServerGroupResponse
+forall x.
+Rep CreateGameServerGroupResponse x
+-&gt; CreateGameServerGroupResponse
+forall x.
+CreateGameServerGroupResponse
+-&gt; Rep CreateGameServerGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateGameServerGroupResponse x
+-&gt; CreateGameServerGroupResponse
+$cfrom :: forall x.
+CreateGameServerGroupResponse
+-&gt; Rep CreateGameServerGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-567"></span><span>
+</span><span id="line-568"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-569"></span><span class="hs-comment">-- Create a value of 'CreateGameServerGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-570"></span><span class="hs-comment">--</span><span>
+</span><span id="line-571"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-572"></span><span class="hs-comment">--</span><span>
+</span><span id="line-573"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-574"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-575"></span><span class="hs-comment">--</span><span>
+</span><span id="line-576"></span><span class="hs-comment">-- 'gameServerGroup', 'createGameServerGroupResponse_gameServerGroup' - The newly created game server group object, including the new ARN value</span><span>
+</span><span id="line-577"></span><span class="hs-comment">-- for the GameLift FleetIQ game server group and the object\'s status. The</span><span>
+</span><span id="line-578"></span><span class="hs-comment">-- EC2 Auto Scaling group ARN is initially null, since the group has not</span><span>
+</span><span id="line-579"></span><span class="hs-comment">-- yet been created. This value is added once the game server group status</span><span>
+</span><span id="line-580"></span><span class="hs-comment">-- reaches @ACTIVE@.</span><span>
+</span><span id="line-581"></span><span class="hs-comment">--</span><span>
+</span><span id="line-582"></span><span class="hs-comment">-- 'httpStatus', 'createGameServerGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-583"></span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#newCreateGameServerGroupResponse"><span class="hs-identifier hs-type">newCreateGameServerGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-584"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-585"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-586"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse"><span class="hs-identifier hs-type">CreateGameServerGroupResponse</span></a></span><span>
+</span><span id="line-587"></span><span id="newCreateGameServerGroupResponse"><span class="annot"><span class="annottext">newCreateGameServerGroupResponse :: Int -&gt; CreateGameServerGroupResponse
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#newCreateGameServerGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateGameServerGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679461401"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679461401"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-588"></span><span>  </span><span class="annot"><span class="annottext">CreateGameServerGroupResponse' :: Maybe GameServerGroup -&gt; Int -&gt; CreateGameServerGroupResponse
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse%27"><span class="hs-identifier hs-type">CreateGameServerGroupResponse'</span></a></span><span>
+</span><span id="line-589"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameServerGroup:CreateGameServerGroupResponse' :: Maybe GameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AgameServerGroup%3ACreateGameServerGroupResponse%27"><span class="hs-identifier hs-var">gameServerGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-590"></span><span>        </span><span class="annot"><span class="annottext">Maybe GameServerGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-591"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGameServerGroupResponse' :: Int
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AhttpStatus%3ACreateGameServerGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679461401"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-592"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-593"></span><span>
+</span><span id="line-594"></span><span class="hs-comment">-- | The newly created game server group object, including the new ARN value</span><span>
+</span><span id="line-595"></span><span class="hs-comment">-- for the GameLift FleetIQ game server group and the object\'s status. The</span><span>
+</span><span id="line-596"></span><span class="hs-comment">-- EC2 Auto Scaling group ARN is initially null, since the group has not</span><span>
+</span><span id="line-597"></span><span class="hs-comment">-- yet been created. This value is added once the game server group status</span><span>
+</span><span id="line-598"></span><span class="hs-comment">-- reaches @ACTIVE@.</span><span>
+</span><span id="line-599"></span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroupResponse_gameServerGroup"><span class="hs-identifier hs-type">createGameServerGroupResponse_gameServerGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse"><span class="hs-identifier hs-type">CreateGameServerGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerGroup.html#GameServerGroup"><span class="hs-identifier hs-type">GameServerGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-600"></span><span id="createGameServerGroupResponse_gameServerGroup"><span class="annot"><span class="annottext">createGameServerGroupResponse_gameServerGroup :: (Maybe GameServerGroup -&gt; f (Maybe GameServerGroup))
+-&gt; CreateGameServerGroupResponse -&gt; f CreateGameServerGroupResponse
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroupResponse_gameServerGroup"><span class="hs-identifier hs-var hs-var">createGameServerGroupResponse_gameServerGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGameServerGroupResponse -&gt; Maybe GameServerGroup)
+-&gt; (CreateGameServerGroupResponse
+    -&gt; Maybe GameServerGroup -&gt; CreateGameServerGroupResponse)
+-&gt; Lens
+     CreateGameServerGroupResponse
+     CreateGameServerGroupResponse
+     (Maybe GameServerGroup)
+     (Maybe GameServerGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse%27"><span class="hs-identifier hs-type">CreateGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461400"><span class="annot"><span class="annottext">Maybe GameServerGroup
+gameServerGroup :: Maybe GameServerGroup
+$sel:gameServerGroup:CreateGameServerGroupResponse' :: CreateGameServerGroupResponse -&gt; Maybe GameServerGroup
+</span><a href="#local-6989586621679461400"><span class="hs-identifier hs-var hs-var">gameServerGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroup
+</span><a href="#local-6989586621679461400"><span class="hs-identifier hs-var">gameServerGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461399"><span class="annot"><span class="annottext">s :: CreateGameServerGroupResponse
+</span><a href="#local-6989586621679461399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse%27"><span class="hs-identifier hs-type">CreateGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461398"><span class="annot"><span class="annottext">Maybe GameServerGroup
+</span><a href="#local-6989586621679461398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGameServerGroupResponse
+</span><a href="#local-6989586621679461399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroup:CreateGameServerGroupResponse' :: Maybe GameServerGroup
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AgameServerGroup%3ACreateGameServerGroupResponse%27"><span class="hs-identifier hs-var">gameServerGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroup
+</span><a href="#local-6989586621679461398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse"><span class="hs-identifier hs-type">CreateGameServerGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-601"></span><span>
+</span><span id="line-602"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-603"></span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroupResponse_httpStatus"><span class="hs-identifier hs-type">createGameServerGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse"><span class="hs-identifier hs-type">CreateGameServerGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-604"></span><span id="createGameServerGroupResponse_httpStatus"><span class="annot"><span class="annottext">createGameServerGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateGameServerGroupResponse -&gt; f CreateGameServerGroupResponse
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#createGameServerGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createGameServerGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGameServerGroupResponse -&gt; Int)
+-&gt; (CreateGameServerGroupResponse
+    -&gt; Int -&gt; CreateGameServerGroupResponse)
+-&gt; Lens
+     CreateGameServerGroupResponse CreateGameServerGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse%27"><span class="hs-identifier hs-type">CreateGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461397"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateGameServerGroupResponse' :: CreateGameServerGroupResponse -&gt; Int
+</span><a href="#local-6989586621679461397"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679461397"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461396"><span class="annot"><span class="annottext">s :: CreateGameServerGroupResponse
+</span><a href="#local-6989586621679461396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse%27"><span class="hs-identifier hs-type">CreateGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461395"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679461395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGameServerGroupResponse
+</span><a href="#local-6989586621679461396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGameServerGroupResponse' :: Int
+</span><a href="Amazonka.GameLift.CreateGameServerGroup.html#%24sel%3AhttpStatus%3ACreateGameServerGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679461395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse"><span class="hs-identifier hs-type">CreateGameServerGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-605"></span><span>
+</span><span id="line-606"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461393"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.CreateGameServerGroup.html#CreateGameServerGroupResponse"><span class="hs-identifier hs-type">CreateGameServerGroupResponse</span></a></span></span><span>
+</span><span id="line-607"></span></pre></body></html>

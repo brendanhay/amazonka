@@ -1,0 +1,745 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Rekognition.StartSegmentDetection</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts asynchronous detection of segment detection in a stored video.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Amazon Rekognition Video can detect segments in a video stored in an</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Amazon S3 bucket. Use Video to specify the bucket name and the filename</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- of the video. @StartSegmentDetection@ returns a job identifier (@JobId@)</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- which you use to get the results of the operation. When segment</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- detection is finished, Amazon Rekognition Video publishes a completion</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- status to the Amazon Simple Notification Service topic that you specify</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in @NotificationChannel@.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- You can use the @Filters@ (StartSegmentDetectionFilters) input parameter</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- to specify the minimum detection confidence returned in the response.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- Within @Filters@, use @ShotFilter@ (StartShotDetectionFilter) to filter</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- detected shots. Use @TechnicalCueFilter@</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- (StartTechnicalCueDetectionFilter) to filter technical cues.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- To get the results of the segment detection operation, first check that</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- the status value published to the Amazon SNS topic is @SUCCEEDED@. if</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- so, call GetSegmentDetection and pass the job identifier (@JobId@) from</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- the initial call to @StartSegmentDetection@.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- For more information, see Detecting Video Segments in Stored Video in</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- the Amazon Rekognition Developer Guide.</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Rekognition.StartSegmentDetection</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier">StartSegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#newStartSegmentDetection"><span class="hs-identifier">newStartSegmentDetection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_jobTag"><span class="hs-identifier">startSegmentDetection_jobTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_filters"><span class="hs-identifier">startSegmentDetection_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_notificationChannel"><span class="hs-identifier">startSegmentDetection_notificationChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_clientRequestToken"><span class="hs-identifier">startSegmentDetection_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_video"><span class="hs-identifier">startSegmentDetection_video</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_segmentTypes"><span class="hs-identifier">startSegmentDetection_segmentTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse"><span class="hs-identifier">StartSegmentDetectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#newStartSegmentDetectionResponse"><span class="hs-identifier">newStartSegmentDetectionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetectionResponse_jobId"><span class="hs-identifier">startSegmentDetectionResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetectionResponse_httpStatus"><span class="hs-identifier">startSegmentDetectionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.html"><span class="hs-identifier">Amazonka.Rekognition.Types</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | /See:/ 'newStartSegmentDetection' smart constructor.</span><span>
+</span><span id="line-77"></span><span id="local-6989586621679337430"><span id="local-6989586621679337431"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartSegmentDetection"><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-var">StartSegmentDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartSegmentDetection%27"><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection%27"><span class="hs-identifier hs-var">StartSegmentDetection'</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier you specify that\'s returned in the completion</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- notification that\'s published to your Amazon Simple Notification</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Service topic. For example, you can use @JobTag@ to group related jobs</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- and identify them in the completion notification.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AjobTag%3AStartSegmentDetection%27"><span class="annot"><span class="annottext">StartSegmentDetection -&gt; Maybe Text
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AjobTag%3AStartSegmentDetection%27"><span class="hs-identifier hs-var hs-var">jobTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | Filters for technical cue or shot detection.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Afilters%3AStartSegmentDetection%27"><span class="annot"><span class="annottext">StartSegmentDetection -&gt; Maybe StartSegmentDetectionFilters
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3Afilters%3AStartSegmentDetection%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.StartSegmentDetectionFilters.html#StartSegmentDetectionFilters"><span class="hs-identifier hs-type">StartSegmentDetectionFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- Video to publish the completion status of the segment detection</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- operation. Note that the Amazon SNS topic must have a topic name that</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- begins with /AmazonRekognition/ if you are using the</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- AmazonRekognitionServiceRole permissions policy to access the topic.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AnotificationChannel%3AStartSegmentDetection%27"><span class="annot"><span class="annottext">StartSegmentDetection -&gt; Maybe NotificationChannel
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AnotificationChannel%3AStartSegmentDetection%27"><span class="hs-identifier hs-var hs-var">notificationChannel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | Idempotent token used to identify the start request. If you use the same</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- token with multiple @StartSegmentDetection@ requests, the same @JobId@</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- is returned. Use @ClientRequestToken@ to prevent the same job from being</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- accidently started more than once.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AclientRequestToken%3AStartSegmentDetection%27"><span class="annot"><span class="annottext">StartSegmentDetection -&gt; Maybe Text
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AclientRequestToken%3AStartSegmentDetection%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3Avideo%3AStartSegmentDetection%27"><span class="annot"><span class="annottext">StartSegmentDetection -&gt; Video
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3Avideo%3AStartSegmentDetection%27"><span class="hs-identifier hs-var hs-var">video</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-type">Video</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | An array of segment types to detect in the video. Valid values are</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- TECHNICAL_CUE and SHOT.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AsegmentTypes%3AStartSegmentDetection%27"><span class="annot"><span class="annottext">StartSegmentDetection -&gt; NonEmpty SegmentType
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AsegmentTypes%3AStartSegmentDetection%27"><span class="hs-identifier hs-var hs-var">segmentTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType"><span class="hs-identifier hs-type">SegmentType</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337419"><span id="local-6989586621679337421"><span class="annot"><span class="annottext">StartSegmentDetection -&gt; StartSegmentDetection -&gt; Bool
+(StartSegmentDetection -&gt; StartSegmentDetection -&gt; Bool)
+-&gt; (StartSegmentDetection -&gt; StartSegmentDetection -&gt; Bool)
+-&gt; Eq StartSegmentDetection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartSegmentDetection -&gt; StartSegmentDetection -&gt; Bool
+$c/= :: StartSegmentDetection -&gt; StartSegmentDetection -&gt; Bool
+== :: StartSegmentDetection -&gt; StartSegmentDetection -&gt; Bool
+$c== :: StartSegmentDetection -&gt; StartSegmentDetection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337410"><span id="local-6989586621679337412"><span id="local-6989586621679337414"><span id="local-6989586621679337416"><span class="annot"><span class="annottext">ReadPrec [StartSegmentDetection]
+ReadPrec StartSegmentDetection
+Int -&gt; ReadS StartSegmentDetection
+ReadS [StartSegmentDetection]
+(Int -&gt; ReadS StartSegmentDetection)
+-&gt; ReadS [StartSegmentDetection]
+-&gt; ReadPrec StartSegmentDetection
+-&gt; ReadPrec [StartSegmentDetection]
+-&gt; Read StartSegmentDetection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartSegmentDetection]
+$creadListPrec :: ReadPrec [StartSegmentDetection]
+readPrec :: ReadPrec StartSegmentDetection
+$creadPrec :: ReadPrec StartSegmentDetection
+readList :: ReadS [StartSegmentDetection]
+$creadList :: ReadS [StartSegmentDetection]
+readsPrec :: Int -&gt; ReadS StartSegmentDetection
+$creadsPrec :: Int -&gt; ReadS StartSegmentDetection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337403"><span id="local-6989586621679337405"><span id="local-6989586621679337407"><span class="annot"><span class="annottext">Int -&gt; StartSegmentDetection -&gt; ShowS
+[StartSegmentDetection] -&gt; ShowS
+StartSegmentDetection -&gt; String
+(Int -&gt; StartSegmentDetection -&gt; ShowS)
+-&gt; (StartSegmentDetection -&gt; String)
+-&gt; ([StartSegmentDetection] -&gt; ShowS)
+-&gt; Show StartSegmentDetection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartSegmentDetection] -&gt; ShowS
+$cshowList :: [StartSegmentDetection] -&gt; ShowS
+show :: StartSegmentDetection -&gt; String
+$cshow :: StartSegmentDetection -&gt; String
+showsPrec :: Int -&gt; StartSegmentDetection -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartSegmentDetection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartSegmentDetection -&gt; Rep StartSegmentDetection x)
+-&gt; (forall x. Rep StartSegmentDetection x -&gt; StartSegmentDetection)
+-&gt; Generic StartSegmentDetection
+forall x. Rep StartSegmentDetection x -&gt; StartSegmentDetection
+forall x. StartSegmentDetection -&gt; Rep StartSegmentDetection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartSegmentDetection x -&gt; StartSegmentDetection
+$cfrom :: forall x. StartSegmentDetection -&gt; Rep StartSegmentDetection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Create a value of 'StartSegmentDetection' with all optional fields omitted.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'jobTag', 'startSegmentDetection_jobTag' - An identifier you specify that\'s returned in the completion</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- notification that\'s published to your Amazon Simple Notification</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Service topic. For example, you can use @JobTag@ to group related jobs</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- and identify them in the completion notification.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'filters', 'startSegmentDetection_filters' - Filters for technical cue or shot detection.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'notificationChannel', 'startSegmentDetection_notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Video to publish the completion status of the segment detection</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- operation. Note that the Amazon SNS topic must have a topic name that</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- begins with /AmazonRekognition/ if you are using the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- AmazonRekognitionServiceRole permissions policy to access the topic.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'clientRequestToken', 'startSegmentDetection_clientRequestToken' - Idempotent token used to identify the start request. If you use the same</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- token with multiple @StartSegmentDetection@ requests, the same @JobId@</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- is returned. Use @ClientRequestToken@ to prevent the same job from being</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- accidently started more than once.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'video', 'startSegmentDetection_video' - Undocumented member.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'segmentTypes', 'startSegmentDetection_segmentTypes' - An array of segment types to detect in the video. Valid values are</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- TECHNICAL_CUE and SHOT.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#newStartSegmentDetection"><span class="hs-identifier hs-type">newStartSegmentDetection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'video'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-type">Video</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'segmentTypes'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType"><span class="hs-identifier hs-type">SegmentType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span>
+</span><span id="line-139"></span><span id="newStartSegmentDetection"><span class="annot"><span class="annottext">newStartSegmentDetection :: Video -&gt; NonEmpty SegmentType -&gt; StartSegmentDetection
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#newStartSegmentDetection"><span class="hs-identifier hs-var hs-var">newStartSegmentDetection</span></a></span></span><span> </span><span id="local-6989586621679337398"><span class="annot"><span class="annottext">Video
+</span><a href="#local-6989586621679337398"><span class="hs-identifier hs-var">pVideo_</span></a></span></span><span> </span><span id="local-6989586621679337397"><span class="annot"><span class="annottext">NonEmpty SegmentType
+</span><a href="#local-6989586621679337397"><span class="hs-identifier hs-var">pSegmentTypes_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">StartSegmentDetection' :: Maybe Text
+-&gt; Maybe StartSegmentDetectionFilters
+-&gt; Maybe NotificationChannel
+-&gt; Maybe Text
+-&gt; Video
+-&gt; NonEmpty SegmentType
+-&gt; StartSegmentDetection
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection%27"><span class="hs-identifier hs-type">StartSegmentDetection'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobTag:StartSegmentDetection' :: Maybe Text
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AjobTag%3AStartSegmentDetection%27"><span class="hs-identifier hs-var">jobTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:StartSegmentDetection' :: Maybe StartSegmentDetectionFilters
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3Afilters%3AStartSegmentDetection%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StartSegmentDetectionFilters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:notificationChannel:StartSegmentDetection' :: Maybe NotificationChannel
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AnotificationChannel%3AStartSegmentDetection%27"><span class="hs-identifier hs-var">notificationChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationChannel
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartSegmentDetection' :: Maybe Text
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AclientRequestToken%3AStartSegmentDetection%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:video:StartSegmentDetection' :: Video
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3Avideo%3AStartSegmentDetection%27"><span class="hs-identifier hs-var">video</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Video
+</span><a href="#local-6989586621679337398"><span class="hs-identifier hs-var">pVideo_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentTypes:StartSegmentDetection' :: NonEmpty SegmentType
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AsegmentTypes%3AStartSegmentDetection%27"><span class="hs-identifier hs-var">segmentTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty SegmentType) (Identity (NonEmpty SegmentType))
+-&gt; Tagged (NonEmpty SegmentType) (Identity (NonEmpty SegmentType))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty SegmentType) (Identity (NonEmpty SegmentType))
+ -&gt; Tagged (NonEmpty SegmentType) (Identity (NonEmpty SegmentType)))
+-&gt; NonEmpty SegmentType -&gt; NonEmpty SegmentType
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty SegmentType
+</span><a href="#local-6989586621679337397"><span class="hs-identifier hs-var">pSegmentTypes_</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | An identifier you specify that\'s returned in the completion</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- notification that\'s published to your Amazon Simple Notification</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Service topic. For example, you can use @JobTag@ to group related jobs</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- and identify them in the completion notification.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_jobTag"><span class="hs-identifier hs-type">startSegmentDetection_jobTag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="startSegmentDetection_jobTag"><span class="annot"><span class="annottext">startSegmentDetection_jobTag :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartSegmentDetection -&gt; f StartSegmentDetection
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_jobTag"><span class="hs-identifier hs-var hs-var">startSegmentDetection_jobTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSegmentDetection -&gt; Maybe Text)
+-&gt; (StartSegmentDetection -&gt; Maybe Text -&gt; StartSegmentDetection)
+-&gt; Lens
+     StartSegmentDetection
+     StartSegmentDetection
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection%27"><span class="hs-identifier hs-type">StartSegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337392"><span class="annot"><span class="annottext">Maybe Text
+jobTag :: Maybe Text
+$sel:jobTag:StartSegmentDetection' :: StartSegmentDetection -&gt; Maybe Text
+</span><a href="#local-6989586621679337392"><span class="hs-identifier hs-var hs-var">jobTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337392"><span class="hs-identifier hs-var">jobTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337391"><span class="annot"><span class="annottext">s :: StartSegmentDetection
+</span><a href="#local-6989586621679337391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection%27"><span class="hs-identifier hs-type">StartSegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337390"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSegmentDetection
+</span><a href="#local-6989586621679337391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobTag:StartSegmentDetection' :: Maybe Text
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AjobTag%3AStartSegmentDetection%27"><span class="hs-identifier hs-var">jobTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Filters for technical cue or shot detection.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_filters"><span class="hs-identifier hs-type">startSegmentDetection_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.StartSegmentDetectionFilters.html#StartSegmentDetectionFilters"><span class="hs-identifier hs-type">StartSegmentDetectionFilters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="startSegmentDetection_filters"><span class="annot"><span class="annottext">startSegmentDetection_filters :: (Maybe StartSegmentDetectionFilters
+ -&gt; f (Maybe StartSegmentDetectionFilters))
+-&gt; StartSegmentDetection -&gt; f StartSegmentDetection
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_filters"><span class="hs-identifier hs-var hs-var">startSegmentDetection_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSegmentDetection -&gt; Maybe StartSegmentDetectionFilters)
+-&gt; (StartSegmentDetection
+    -&gt; Maybe StartSegmentDetectionFilters -&gt; StartSegmentDetection)
+-&gt; Lens
+     StartSegmentDetection
+     StartSegmentDetection
+     (Maybe StartSegmentDetectionFilters)
+     (Maybe StartSegmentDetectionFilters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection%27"><span class="hs-identifier hs-type">StartSegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337389"><span class="annot"><span class="annottext">Maybe StartSegmentDetectionFilters
+filters :: Maybe StartSegmentDetectionFilters
+$sel:filters:StartSegmentDetection' :: StartSegmentDetection -&gt; Maybe StartSegmentDetectionFilters
+</span><a href="#local-6989586621679337389"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StartSegmentDetectionFilters
+</span><a href="#local-6989586621679337389"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337388"><span class="annot"><span class="annottext">s :: StartSegmentDetection
+</span><a href="#local-6989586621679337388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection%27"><span class="hs-identifier hs-type">StartSegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337387"><span class="annot"><span class="annottext">Maybe StartSegmentDetectionFilters
+</span><a href="#local-6989586621679337387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSegmentDetection
+</span><a href="#local-6989586621679337388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:StartSegmentDetection' :: Maybe StartSegmentDetectionFilters
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3Afilters%3AStartSegmentDetection%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StartSegmentDetectionFilters
+</span><a href="#local-6989586621679337387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Video to publish the completion status of the segment detection</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- operation. Note that the Amazon SNS topic must have a topic name that</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- begins with /AmazonRekognition/ if you are using the</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- AmazonRekognitionServiceRole permissions policy to access the topic.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_notificationChannel"><span class="hs-identifier hs-type">startSegmentDetection_notificationChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="startSegmentDetection_notificationChannel"><span class="annot"><span class="annottext">startSegmentDetection_notificationChannel :: (Maybe NotificationChannel -&gt; f (Maybe NotificationChannel))
+-&gt; StartSegmentDetection -&gt; f StartSegmentDetection
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_notificationChannel"><span class="hs-identifier hs-var hs-var">startSegmentDetection_notificationChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSegmentDetection -&gt; Maybe NotificationChannel)
+-&gt; (StartSegmentDetection
+    -&gt; Maybe NotificationChannel -&gt; StartSegmentDetection)
+-&gt; Lens
+     StartSegmentDetection
+     StartSegmentDetection
+     (Maybe NotificationChannel)
+     (Maybe NotificationChannel)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection%27"><span class="hs-identifier hs-type">StartSegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337386"><span class="annot"><span class="annottext">Maybe NotificationChannel
+notificationChannel :: Maybe NotificationChannel
+$sel:notificationChannel:StartSegmentDetection' :: StartSegmentDetection -&gt; Maybe NotificationChannel
+</span><a href="#local-6989586621679337386"><span class="hs-identifier hs-var hs-var">notificationChannel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationChannel
+</span><a href="#local-6989586621679337386"><span class="hs-identifier hs-var">notificationChannel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337385"><span class="annot"><span class="annottext">s :: StartSegmentDetection
+</span><a href="#local-6989586621679337385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection%27"><span class="hs-identifier hs-type">StartSegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337384"><span class="annot"><span class="annottext">Maybe NotificationChannel
+</span><a href="#local-6989586621679337384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSegmentDetection
+</span><a href="#local-6989586621679337385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationChannel:StartSegmentDetection' :: Maybe NotificationChannel
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AnotificationChannel%3AStartSegmentDetection%27"><span class="hs-identifier hs-var">notificationChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationChannel
+</span><a href="#local-6989586621679337384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | Idempotent token used to identify the start request. If you use the same</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- token with multiple @StartSegmentDetection@ requests, the same @JobId@</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- is returned. Use @ClientRequestToken@ to prevent the same job from being</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- accidently started more than once.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_clientRequestToken"><span class="hs-identifier hs-type">startSegmentDetection_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="startSegmentDetection_clientRequestToken"><span class="annot"><span class="annottext">startSegmentDetection_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartSegmentDetection -&gt; f StartSegmentDetection
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_clientRequestToken"><span class="hs-identifier hs-var hs-var">startSegmentDetection_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSegmentDetection -&gt; Maybe Text)
+-&gt; (StartSegmentDetection -&gt; Maybe Text -&gt; StartSegmentDetection)
+-&gt; Lens
+     StartSegmentDetection
+     StartSegmentDetection
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection%27"><span class="hs-identifier hs-type">StartSegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337383"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:StartSegmentDetection' :: StartSegmentDetection -&gt; Maybe Text
+</span><a href="#local-6989586621679337383"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337383"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337382"><span class="annot"><span class="annottext">s :: StartSegmentDetection
+</span><a href="#local-6989586621679337382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection%27"><span class="hs-identifier hs-type">StartSegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337381"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSegmentDetection
+</span><a href="#local-6989586621679337382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartSegmentDetection' :: Maybe Text
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AclientRequestToken%3AStartSegmentDetection%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_video"><span class="hs-identifier hs-type">startSegmentDetection_video</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-type">Video</span></a></span><span>
+</span><span id="line-177"></span><span id="startSegmentDetection_video"><span class="annot"><span class="annottext">startSegmentDetection_video :: (Video -&gt; f Video)
+-&gt; StartSegmentDetection -&gt; f StartSegmentDetection
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_video"><span class="hs-identifier hs-var hs-var">startSegmentDetection_video</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSegmentDetection -&gt; Video)
+-&gt; (StartSegmentDetection -&gt; Video -&gt; StartSegmentDetection)
+-&gt; Lens StartSegmentDetection StartSegmentDetection Video Video
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection%27"><span class="hs-identifier hs-type">StartSegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337380"><span class="annot"><span class="annottext">Video
+video :: Video
+$sel:video:StartSegmentDetection' :: StartSegmentDetection -&gt; Video
+</span><a href="#local-6989586621679337380"><span class="hs-identifier hs-var hs-var">video</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Video
+</span><a href="#local-6989586621679337380"><span class="hs-identifier hs-var">video</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337379"><span class="annot"><span class="annottext">s :: StartSegmentDetection
+</span><a href="#local-6989586621679337379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection%27"><span class="hs-identifier hs-type">StartSegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337378"><span class="annot"><span class="annottext">Video
+</span><a href="#local-6989586621679337378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSegmentDetection
+</span><a href="#local-6989586621679337379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:video:StartSegmentDetection' :: Video
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3Avideo%3AStartSegmentDetection%27"><span class="hs-identifier hs-var">video</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Video
+</span><a href="#local-6989586621679337378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | An array of segment types to detect in the video. Valid values are</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- TECHNICAL_CUE and SHOT.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_segmentTypes"><span class="hs-identifier hs-type">startSegmentDetection_segmentTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType"><span class="hs-identifier hs-type">SegmentType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="startSegmentDetection_segmentTypes"><span class="annot"><span class="annottext">startSegmentDetection_segmentTypes :: (NonEmpty SegmentType -&gt; f (NonEmpty SegmentType))
+-&gt; StartSegmentDetection -&gt; f StartSegmentDetection
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetection_segmentTypes"><span class="hs-identifier hs-var hs-var">startSegmentDetection_segmentTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSegmentDetection -&gt; NonEmpty SegmentType)
+-&gt; (StartSegmentDetection
+    -&gt; NonEmpty SegmentType -&gt; StartSegmentDetection)
+-&gt; Lens
+     StartSegmentDetection
+     StartSegmentDetection
+     (NonEmpty SegmentType)
+     (NonEmpty SegmentType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection%27"><span class="hs-identifier hs-type">StartSegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337377"><span class="annot"><span class="annottext">NonEmpty SegmentType
+segmentTypes :: NonEmpty SegmentType
+$sel:segmentTypes:StartSegmentDetection' :: StartSegmentDetection -&gt; NonEmpty SegmentType
+</span><a href="#local-6989586621679337377"><span class="hs-identifier hs-var hs-var">segmentTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty SegmentType
+</span><a href="#local-6989586621679337377"><span class="hs-identifier hs-var">segmentTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337376"><span class="annot"><span class="annottext">s :: StartSegmentDetection
+</span><a href="#local-6989586621679337376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection%27"><span class="hs-identifier hs-type">StartSegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337375"><span class="annot"><span class="annottext">NonEmpty SegmentType
+</span><a href="#local-6989586621679337375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSegmentDetection
+</span><a href="#local-6989586621679337376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentTypes:StartSegmentDetection' :: NonEmpty SegmentType
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AsegmentTypes%3AStartSegmentDetection%27"><span class="hs-identifier hs-var">segmentTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty SegmentType
+</span><a href="#local-6989586621679337375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty SegmentType -&gt; f (NonEmpty SegmentType))
+ -&gt; StartSegmentDetection -&gt; f StartSegmentDetection)
+-&gt; ((NonEmpty SegmentType -&gt; f (NonEmpty SegmentType))
+    -&gt; NonEmpty SegmentType -&gt; f (NonEmpty SegmentType))
+-&gt; (NonEmpty SegmentType -&gt; f (NonEmpty SegmentType))
+-&gt; StartSegmentDetection
+-&gt; f StartSegmentDetection
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty SegmentType -&gt; f (NonEmpty SegmentType))
+-&gt; NonEmpty SegmentType -&gt; f (NonEmpty SegmentType)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-186"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse"><span class="hs-identifier hs-type">StartSegmentDetectionResponse</span></a></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679337370"><span class="annot"><span class="annottext">request :: StartSegmentDetection -&gt; Request StartSegmentDetection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartSegmentDetection -&gt; Request StartSegmentDetection
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679337366"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartSegmentDetection
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartSegmentDetection)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartSegmentDetection))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartSegmentDetection
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartSegmentDetection)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679337363"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679337363"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679337362"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679337362"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679337361"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337361"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; StartSegmentDetectionResponse
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse%27"><span class="hs-identifier hs-var">StartSegmentDetectionResponse'</span></a></span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; StartSegmentDetectionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; StartSegmentDetectionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartSegmentDetectionResponse)
+-&gt; Either String Int -&gt; Either String StartSegmentDetectionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679337363"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337353"><span id="local-6989586621679337355"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span></span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337350"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679337346"><span class="annot"><span class="annottext">toHeaders :: StartSegmentDetection -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartSegmentDetection -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-205"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RekognitionService.StartSegmentDetection&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-207"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-208"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-210"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-212"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337336"><span id="local-6989586621679337338"><span id="local-6989586621679337340"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679337334"><span class="annot"><span class="annottext">toJSON :: StartSegmentDetection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection%27"><span class="hs-identifier hs-type">StartSegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337327"><span id="local-6989586621679337328"><span id="local-6989586621679337329"><span id="local-6989586621679337330"><span id="local-6989586621679337331"><span id="local-6989586621679337332"><span class="annot"><span class="annottext">Maybe Text
+Maybe NotificationChannel
+Maybe StartSegmentDetectionFilters
+NonEmpty SegmentType
+Video
+segmentTypes :: NonEmpty SegmentType
+video :: Video
+clientRequestToken :: Maybe Text
+notificationChannel :: Maybe NotificationChannel
+filters :: Maybe StartSegmentDetectionFilters
+jobTag :: Maybe Text
+$sel:segmentTypes:StartSegmentDetection' :: StartSegmentDetection -&gt; NonEmpty SegmentType
+$sel:video:StartSegmentDetection' :: StartSegmentDetection -&gt; Video
+$sel:clientRequestToken:StartSegmentDetection' :: StartSegmentDetection -&gt; Maybe Text
+$sel:notificationChannel:StartSegmentDetection' :: StartSegmentDetection -&gt; Maybe NotificationChannel
+$sel:filters:StartSegmentDetection' :: StartSegmentDetection -&gt; Maybe StartSegmentDetectionFilters
+$sel:jobTag:StartSegmentDetection' :: StartSegmentDetection -&gt; Maybe Text
+</span><a href="#local-6989586621679337327"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobTag&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337332"><span class="hs-identifier hs-var">jobTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StartSegmentDetectionFilters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(StartSegmentDetectionFilters -&gt; Pair)
+-&gt; Maybe StartSegmentDetectionFilters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StartSegmentDetectionFilters
+</span><a href="#local-6989586621679337331"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotificationChannel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NotificationChannel -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>              </span><span class="annot"><span class="annottext">(NotificationChannel -&gt; Pair)
+-&gt; Maybe NotificationChannel -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NotificationChannel
+</span><a href="#local-6989586621679337330"><span class="hs-identifier hs-var">notificationChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337329"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Video&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Video -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Video
+</span><a href="#local-6989586621679337328"><span class="hs-identifier hs-var">video</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SegmentTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty SegmentType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty SegmentType
+</span><a href="#local-6989586621679337327"><span class="hs-identifier hs-var">segmentTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679337321"><span class="annot"><span class="annottext">toPath :: StartSegmentDetection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartSegmentDetection -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetection"><span class="hs-identifier hs-type">StartSegmentDetection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679337317"><span class="annot"><span class="annottext">toQuery :: StartSegmentDetection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartSegmentDetection -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | /See:/ 'newStartSegmentDetectionResponse' smart constructor.</span><span>
+</span><span id="line-238"></span><span id="local-6989586621679337314"><span id="local-6989586621679337315"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartSegmentDetectionResponse"><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse"><span class="hs-identifier hs-var">StartSegmentDetectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartSegmentDetectionResponse%27"><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse%27"><span class="hs-identifier hs-var">StartSegmentDetectionResponse'</span></a></span></span><span>
+</span><span id="line-239"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique identifier for the segment detection job. The @JobId@ is returned</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- from @StartSegmentDetection@.</span><span>
+</span><span id="line-241"></span><span>    </span><span id="%24sel%3AjobId%3AStartSegmentDetectionResponse%27"><span class="annot"><span class="annottext">StartSegmentDetectionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AjobId%3AStartSegmentDetectionResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-243"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartSegmentDetectionResponse%27"><span class="annot"><span class="annottext">StartSegmentDetectionResponse -&gt; Int
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AhttpStatus%3AStartSegmentDetectionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-244"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-245"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337308"><span id="local-6989586621679337310"><span class="annot"><span class="annottext">StartSegmentDetectionResponse
+-&gt; StartSegmentDetectionResponse -&gt; Bool
+(StartSegmentDetectionResponse
+ -&gt; StartSegmentDetectionResponse -&gt; Bool)
+-&gt; (StartSegmentDetectionResponse
+    -&gt; StartSegmentDetectionResponse -&gt; Bool)
+-&gt; Eq StartSegmentDetectionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartSegmentDetectionResponse
+-&gt; StartSegmentDetectionResponse -&gt; Bool
+$c/= :: StartSegmentDetectionResponse
+-&gt; StartSegmentDetectionResponse -&gt; Bool
+== :: StartSegmentDetectionResponse
+-&gt; StartSegmentDetectionResponse -&gt; Bool
+$c== :: StartSegmentDetectionResponse
+-&gt; StartSegmentDetectionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337300"><span id="local-6989586621679337302"><span id="local-6989586621679337304"><span id="local-6989586621679337306"><span class="annot"><span class="annottext">ReadPrec [StartSegmentDetectionResponse]
+ReadPrec StartSegmentDetectionResponse
+Int -&gt; ReadS StartSegmentDetectionResponse
+ReadS [StartSegmentDetectionResponse]
+(Int -&gt; ReadS StartSegmentDetectionResponse)
+-&gt; ReadS [StartSegmentDetectionResponse]
+-&gt; ReadPrec StartSegmentDetectionResponse
+-&gt; ReadPrec [StartSegmentDetectionResponse]
+-&gt; Read StartSegmentDetectionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartSegmentDetectionResponse]
+$creadListPrec :: ReadPrec [StartSegmentDetectionResponse]
+readPrec :: ReadPrec StartSegmentDetectionResponse
+$creadPrec :: ReadPrec StartSegmentDetectionResponse
+readList :: ReadS [StartSegmentDetectionResponse]
+$creadList :: ReadS [StartSegmentDetectionResponse]
+readsPrec :: Int -&gt; ReadS StartSegmentDetectionResponse
+$creadsPrec :: Int -&gt; ReadS StartSegmentDetectionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337294"><span id="local-6989586621679337296"><span id="local-6989586621679337298"><span class="annot"><span class="annottext">Int -&gt; StartSegmentDetectionResponse -&gt; ShowS
+[StartSegmentDetectionResponse] -&gt; ShowS
+StartSegmentDetectionResponse -&gt; String
+(Int -&gt; StartSegmentDetectionResponse -&gt; ShowS)
+-&gt; (StartSegmentDetectionResponse -&gt; String)
+-&gt; ([StartSegmentDetectionResponse] -&gt; ShowS)
+-&gt; Show StartSegmentDetectionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartSegmentDetectionResponse] -&gt; ShowS
+$cshowList :: [StartSegmentDetectionResponse] -&gt; ShowS
+show :: StartSegmentDetectionResponse -&gt; String
+$cshow :: StartSegmentDetectionResponse -&gt; String
+showsPrec :: Int -&gt; StartSegmentDetectionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartSegmentDetectionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartSegmentDetectionResponse
+ -&gt; Rep StartSegmentDetectionResponse x)
+-&gt; (forall x.
+    Rep StartSegmentDetectionResponse x
+    -&gt; StartSegmentDetectionResponse)
+-&gt; Generic StartSegmentDetectionResponse
+forall x.
+Rep StartSegmentDetectionResponse x
+-&gt; StartSegmentDetectionResponse
+forall x.
+StartSegmentDetectionResponse
+-&gt; Rep StartSegmentDetectionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartSegmentDetectionResponse x
+-&gt; StartSegmentDetectionResponse
+$cfrom :: forall x.
+StartSegmentDetectionResponse
+-&gt; Rep StartSegmentDetectionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- Create a value of 'StartSegmentDetectionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'jobId', 'startSegmentDetectionResponse_jobId' - Unique identifier for the segment detection job. The @JobId@ is returned</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- from @StartSegmentDetection@.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- 'httpStatus', 'startSegmentDetectionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#newStartSegmentDetectionResponse"><span class="hs-identifier hs-type">newStartSegmentDetectionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-262"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse"><span class="hs-identifier hs-type">StartSegmentDetectionResponse</span></a></span><span>
+</span><span id="line-263"></span><span id="newStartSegmentDetectionResponse"><span class="annot"><span class="annottext">newStartSegmentDetectionResponse :: Int -&gt; StartSegmentDetectionResponse
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#newStartSegmentDetectionResponse"><span class="hs-identifier hs-var hs-var">newStartSegmentDetectionResponse</span></a></span></span><span> </span><span id="local-6989586621679337291"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679337291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>  </span><span class="annot"><span class="annottext">StartSegmentDetectionResponse' :: Maybe Text -&gt; Int -&gt; StartSegmentDetectionResponse
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse%27"><span class="hs-identifier hs-type">StartSegmentDetectionResponse'</span></a></span><span>
+</span><span id="line-265"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobId:StartSegmentDetectionResponse' :: Maybe Text
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AjobId%3AStartSegmentDetectionResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartSegmentDetectionResponse' :: Int
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AhttpStatus%3AStartSegmentDetectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679337291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | Unique identifier for the segment detection job. The @JobId@ is returned</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- from @StartSegmentDetection@.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetectionResponse_jobId"><span class="hs-identifier hs-type">startSegmentDetectionResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse"><span class="hs-identifier hs-type">StartSegmentDetectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span id="startSegmentDetectionResponse_jobId"><span class="annot"><span class="annottext">startSegmentDetectionResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartSegmentDetectionResponse -&gt; f StartSegmentDetectionResponse
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetectionResponse_jobId"><span class="hs-identifier hs-var hs-var">startSegmentDetectionResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSegmentDetectionResponse -&gt; Maybe Text)
+-&gt; (StartSegmentDetectionResponse
+    -&gt; Maybe Text -&gt; StartSegmentDetectionResponse)
+-&gt; Lens
+     StartSegmentDetectionResponse
+     StartSegmentDetectionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse%27"><span class="hs-identifier hs-type">StartSegmentDetectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337290"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:StartSegmentDetectionResponse' :: StartSegmentDetectionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679337290"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337290"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337289"><span class="annot"><span class="annottext">s :: StartSegmentDetectionResponse
+</span><a href="#local-6989586621679337289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse%27"><span class="hs-identifier hs-type">StartSegmentDetectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337288"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSegmentDetectionResponse
+</span><a href="#local-6989586621679337289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StartSegmentDetectionResponse' :: Maybe Text
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AjobId%3AStartSegmentDetectionResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse"><span class="hs-identifier hs-type">StartSegmentDetectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetectionResponse_httpStatus"><span class="hs-identifier hs-type">startSegmentDetectionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse"><span class="hs-identifier hs-type">StartSegmentDetectionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-277"></span><span id="startSegmentDetectionResponse_httpStatus"><span class="annot"><span class="annottext">startSegmentDetectionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartSegmentDetectionResponse -&gt; f StartSegmentDetectionResponse
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#startSegmentDetectionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startSegmentDetectionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSegmentDetectionResponse -&gt; Int)
+-&gt; (StartSegmentDetectionResponse
+    -&gt; Int -&gt; StartSegmentDetectionResponse)
+-&gt; Lens
+     StartSegmentDetectionResponse StartSegmentDetectionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse%27"><span class="hs-identifier hs-type">StartSegmentDetectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337287"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartSegmentDetectionResponse' :: StartSegmentDetectionResponse -&gt; Int
+</span><a href="#local-6989586621679337287"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679337287"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337286"><span class="annot"><span class="annottext">s :: StartSegmentDetectionResponse
+</span><a href="#local-6989586621679337286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse%27"><span class="hs-identifier hs-type">StartSegmentDetectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337285"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679337285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSegmentDetectionResponse
+</span><a href="#local-6989586621679337286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartSegmentDetectionResponse' :: Int
+</span><a href="Amazonka.Rekognition.StartSegmentDetection.html#%24sel%3AhttpStatus%3AStartSegmentDetectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679337285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse"><span class="hs-identifier hs-type">StartSegmentDetectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.StartSegmentDetection.html#StartSegmentDetectionResponse"><span class="hs-identifier hs-type">StartSegmentDetectionResponse</span></a></span></span><span>
+</span><span id="line-280"></span></pre></body></html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.VoiceId.Types.FraudDetectionReason</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.VoiceId.Types.FraudDetectionReason</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.FraudDetectionReason.html#FraudDetectionReason"><span class="hs-identifier">FraudDetectionReason</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.VoiceId.Types.FraudDetectionReason.html#FraudDetectionReason_KNOWN_FRAUDSTER"><span class="hs-identifier">FraudDetectionReason_KNOWN_FRAUDSTER</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679201814"><span id="local-6989586621679201815"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FraudDetectionReason"><span class="annot"><a href="Amazonka.VoiceId.Types.FraudDetectionReason.html#FraudDetectionReason"><span class="hs-identifier hs-var">FraudDetectionReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FraudDetectionReason%27"><span class="annot"><a href="Amazonka.VoiceId.Types.FraudDetectionReason.html#FraudDetectionReason%27"><span class="hs-identifier hs-var">FraudDetectionReason'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFraudDetectionReason"><span class="annot"><span class="annottext">FraudDetectionReason -&gt; Text
+</span><a href="Amazonka.VoiceId.Types.FraudDetectionReason.html#fromFraudDetectionReason"><span class="hs-identifier hs-var hs-var">fromFraudDetectionReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201806"><span id="local-6989586621679201808"><span id="local-6989586621679201810"><span class="annot"><span class="annottext">Int -&gt; FraudDetectionReason -&gt; ShowS
+[FraudDetectionReason] -&gt; ShowS
+FraudDetectionReason -&gt; String
+(Int -&gt; FraudDetectionReason -&gt; ShowS)
+-&gt; (FraudDetectionReason -&gt; String)
+-&gt; ([FraudDetectionReason] -&gt; ShowS)
+-&gt; Show FraudDetectionReason
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FraudDetectionReason] -&gt; ShowS
+$cshowList :: [FraudDetectionReason] -&gt; ShowS
+show :: FraudDetectionReason -&gt; String
+$cshow :: FraudDetectionReason -&gt; String
+showsPrec :: Int -&gt; FraudDetectionReason -&gt; ShowS
+$cshowsPrec :: Int -&gt; FraudDetectionReason -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679201797"><span id="local-6989586621679201799"><span id="local-6989586621679201801"><span id="local-6989586621679201803"><span class="annot"><span class="annottext">ReadPrec [FraudDetectionReason]
+ReadPrec FraudDetectionReason
+Int -&gt; ReadS FraudDetectionReason
+ReadS [FraudDetectionReason]
+(Int -&gt; ReadS FraudDetectionReason)
+-&gt; ReadS [FraudDetectionReason]
+-&gt; ReadPrec FraudDetectionReason
+-&gt; ReadPrec [FraudDetectionReason]
+-&gt; Read FraudDetectionReason
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FraudDetectionReason]
+$creadListPrec :: ReadPrec [FraudDetectionReason]
+readPrec :: ReadPrec FraudDetectionReason
+$creadPrec :: ReadPrec FraudDetectionReason
+readList :: ReadS [FraudDetectionReason]
+$creadList :: ReadS [FraudDetectionReason]
+readsPrec :: Int -&gt; ReadS FraudDetectionReason
+$creadsPrec :: Int -&gt; ReadS FraudDetectionReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679201792"><span id="local-6989586621679201794"><span class="annot"><span class="annottext">FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool
+(FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool)
+-&gt; (FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool)
+-&gt; Eq FraudDetectionReason
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool
+$c/= :: FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool
+== :: FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool
+$c== :: FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679201776"><span id="local-6989586621679201778"><span id="local-6989586621679201780"><span id="local-6989586621679201782"><span id="local-6989586621679201784"><span id="local-6989586621679201786"><span id="local-6989586621679201788"><span class="annot"><span class="annottext">Eq FraudDetectionReason
+Eq FraudDetectionReason
+-&gt; (FraudDetectionReason -&gt; FraudDetectionReason -&gt; Ordering)
+-&gt; (FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool)
+-&gt; (FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool)
+-&gt; (FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool)
+-&gt; (FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool)
+-&gt; (FraudDetectionReason
+    -&gt; FraudDetectionReason -&gt; FraudDetectionReason)
+-&gt; (FraudDetectionReason
+    -&gt; FraudDetectionReason -&gt; FraudDetectionReason)
+-&gt; Ord FraudDetectionReason
+FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool
+FraudDetectionReason -&gt; FraudDetectionReason -&gt; Ordering
+FraudDetectionReason
+-&gt; FraudDetectionReason -&gt; FraudDetectionReason
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FraudDetectionReason
+-&gt; FraudDetectionReason -&gt; FraudDetectionReason
+$cmin :: FraudDetectionReason
+-&gt; FraudDetectionReason -&gt; FraudDetectionReason
+max :: FraudDetectionReason
+-&gt; FraudDetectionReason -&gt; FraudDetectionReason
+$cmax :: FraudDetectionReason
+-&gt; FraudDetectionReason -&gt; FraudDetectionReason
+&gt;= :: FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool
+$c&gt;= :: FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool
+&gt; :: FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool
+$c&gt; :: FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool
+&lt;= :: FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool
+$c&lt;= :: FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool
+&lt; :: FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool
+$c&lt; :: FraudDetectionReason -&gt; FraudDetectionReason -&gt; Bool
+compare :: FraudDetectionReason -&gt; FraudDetectionReason -&gt; Ordering
+$ccompare :: FraudDetectionReason -&gt; FraudDetectionReason -&gt; Ordering
+$cp1Ord :: Eq FraudDetectionReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FraudDetectionReason -&gt; Rep FraudDetectionReason x)
+-&gt; (forall x. Rep FraudDetectionReason x -&gt; FraudDetectionReason)
+-&gt; Generic FraudDetectionReason
+forall x. Rep FraudDetectionReason x -&gt; FraudDetectionReason
+forall x. FraudDetectionReason -&gt; Rep FraudDetectionReason x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FraudDetectionReason x -&gt; FraudDetectionReason
+$cfrom :: forall x. FraudDetectionReason -&gt; Rep FraudDetectionReason x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201768"><span id="local-6989586621679201770"><span class="annot"><span class="annottext">Int -&gt; FraudDetectionReason -&gt; Int
+FraudDetectionReason -&gt; Int
+(Int -&gt; FraudDetectionReason -&gt; Int)
+-&gt; (FraudDetectionReason -&gt; Int) -&gt; Hashable FraudDetectionReason
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FraudDetectionReason -&gt; Int
+$chash :: FraudDetectionReason -&gt; Int
+hashWithSalt :: Int -&gt; FraudDetectionReason -&gt; Int
+$chashWithSalt :: Int -&gt; FraudDetectionReason -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679201765"><span class="annot"><span class="annottext">FraudDetectionReason -&gt; ()
+(FraudDetectionReason -&gt; ()) -&gt; NFData FraudDetectionReason
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FraudDetectionReason -&gt; ()
+$crnf :: FraudDetectionReason -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679201762"><span class="annot"><span class="annottext">Text -&gt; Either String FraudDetectionReason
+(Text -&gt; Either String FraudDetectionReason)
+-&gt; FromText FraudDetectionReason
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FraudDetectionReason
+$cfromText :: Text -&gt; Either String FraudDetectionReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679201759"><span class="annot"><span class="annottext">FraudDetectionReason -&gt; Text
+(FraudDetectionReason -&gt; Text) -&gt; ToText FraudDetectionReason
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FraudDetectionReason -&gt; Text
+$ctoText :: FraudDetectionReason -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679201756"><span class="annot"><span class="annottext">FraudDetectionReason -&gt; ByteString
+(FraudDetectionReason -&gt; ByteString)
+-&gt; ToByteString FraudDetectionReason
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FraudDetectionReason -&gt; ByteString
+$ctoBS :: FraudDetectionReason -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679201753"><span class="annot"><span class="annottext">FraudDetectionReason -&gt; ByteStringBuilder
+(FraudDetectionReason -&gt; ByteStringBuilder)
+-&gt; ToLog FraudDetectionReason
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FraudDetectionReason -&gt; ByteStringBuilder
+$cbuild :: FraudDetectionReason -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679201750"><span class="annot"><span class="annottext">HeaderName -&gt; FraudDetectionReason -&gt; [Header]
+(HeaderName -&gt; FraudDetectionReason -&gt; [Header])
+-&gt; ToHeader FraudDetectionReason
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FraudDetectionReason -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FraudDetectionReason -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679201747"><span class="annot"><span class="annottext">FraudDetectionReason -&gt; QueryString
+(FraudDetectionReason -&gt; QueryString)
+-&gt; ToQuery FraudDetectionReason
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FraudDetectionReason -&gt; QueryString
+$ctoQuery :: FraudDetectionReason -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679201742"><span id="local-6989586621679201744"><span class="annot"><span class="annottext">Value -&gt; Parser [FraudDetectionReason]
+Value -&gt; Parser FraudDetectionReason
+(Value -&gt; Parser FraudDetectionReason)
+-&gt; (Value -&gt; Parser [FraudDetectionReason])
+-&gt; FromJSON FraudDetectionReason
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FraudDetectionReason]
+$cparseJSONList :: Value -&gt; Parser [FraudDetectionReason]
+parseJSON :: Value -&gt; Parser FraudDetectionReason
+$cparseJSON :: Value -&gt; Parser FraudDetectionReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679201737"><span id="local-6989586621679201739"><span class="annot"><span class="annottext">FromJSONKeyFunction [FraudDetectionReason]
+FromJSONKeyFunction FraudDetectionReason
+FromJSONKeyFunction FraudDetectionReason
+-&gt; FromJSONKeyFunction [FraudDetectionReason]
+-&gt; FromJSONKey FraudDetectionReason
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FraudDetectionReason]
+$cfromJSONKeyList :: FromJSONKeyFunction [FraudDetectionReason]
+fromJSONKey :: FromJSONKeyFunction FraudDetectionReason
+$cfromJSONKey :: FromJSONKeyFunction FraudDetectionReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679201728"><span id="local-6989586621679201730"><span id="local-6989586621679201732"><span id="local-6989586621679201734"><span class="annot"><span class="annottext">[FraudDetectionReason] -&gt; Encoding
+[FraudDetectionReason] -&gt; Value
+FraudDetectionReason -&gt; Encoding
+FraudDetectionReason -&gt; Value
+(FraudDetectionReason -&gt; Value)
+-&gt; (FraudDetectionReason -&gt; Encoding)
+-&gt; ([FraudDetectionReason] -&gt; Value)
+-&gt; ([FraudDetectionReason] -&gt; Encoding)
+-&gt; ToJSON FraudDetectionReason
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FraudDetectionReason] -&gt; Encoding
+$ctoEncodingList :: [FraudDetectionReason] -&gt; Encoding
+toJSONList :: [FraudDetectionReason] -&gt; Value
+$ctoJSONList :: [FraudDetectionReason] -&gt; Value
+toEncoding :: FraudDetectionReason -&gt; Encoding
+$ctoEncoding :: FraudDetectionReason -&gt; Encoding
+toJSON :: FraudDetectionReason -&gt; Value
+$ctoJSON :: FraudDetectionReason -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679201723"><span id="local-6989586621679201725"><span class="annot"><span class="annottext">ToJSONKeyFunction [FraudDetectionReason]
+ToJSONKeyFunction FraudDetectionReason
+ToJSONKeyFunction FraudDetectionReason
+-&gt; ToJSONKeyFunction [FraudDetectionReason]
+-&gt; ToJSONKey FraudDetectionReason
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FraudDetectionReason]
+$ctoJSONKeyList :: ToJSONKeyFunction [FraudDetectionReason]
+toJSONKey :: ToJSONKeyFunction FraudDetectionReason
+$ctoJSONKey :: ToJSONKeyFunction FraudDetectionReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679201720"><span class="annot"><span class="annottext">[Node] -&gt; Either String FraudDetectionReason
+([Node] -&gt; Either String FraudDetectionReason)
+-&gt; FromXML FraudDetectionReason
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FraudDetectionReason
+$cparseXML :: [Node] -&gt; Either String FraudDetectionReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679201717"><span class="annot"><span class="annottext">FraudDetectionReason -&gt; XML
+(FraudDetectionReason -&gt; XML) -&gt; ToXML FraudDetectionReason
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FraudDetectionReason -&gt; XML
+$ctoXML :: FraudDetectionReason -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.FraudDetectionReason.html#FraudDetectionReason_KNOWN_FRAUDSTER"><span class="hs-identifier hs-type">FraudDetectionReason_KNOWN_FRAUDSTER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.FraudDetectionReason.html#FraudDetectionReason"><span class="hs-identifier hs-type">FraudDetectionReason</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFraudDetectionReason_KNOWN_FRAUDSTER"><span id="%24mFraudDetectionReason_KNOWN_FRAUDSTER"><span id="FraudDetectionReason_KNOWN_FRAUDSTER"><span class="annot"><span class="annottext">$bFraudDetectionReason_KNOWN_FRAUDSTER :: FraudDetectionReason
+$mFraudDetectionReason_KNOWN_FRAUDSTER :: forall r. FraudDetectionReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.VoiceId.Types.FraudDetectionReason.html#%24bFraudDetectionReason_KNOWN_FRAUDSTER"><span class="hs-identifier hs-var hs-var hs-var">FraudDetectionReason_KNOWN_FRAUDSTER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.FraudDetectionReason.html#FraudDetectionReason%27"><span class="hs-identifier hs-type">FraudDetectionReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KNOWN_FRAUDSTER&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.VoiceId.Types.FraudDetectionReason.html#FraudDetectionReason_KNOWN_FRAUDSTER"><span class="hs-pragma hs-type">FraudDetectionReason_KNOWN_FRAUDSTER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.VoiceId.Types.FraudDetectionReason.html#FraudDetectionReason%27"><span class="hs-pragma hs-type">FraudDetectionReason'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

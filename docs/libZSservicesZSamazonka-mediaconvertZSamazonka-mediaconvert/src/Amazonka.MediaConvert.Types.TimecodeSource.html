@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.TimecodeSource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.TimecodeSource</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource"><span class="hs-identifier">TimecodeSource</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource_EMBEDDED"><span class="hs-identifier">TimecodeSource_EMBEDDED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource_SPECIFIEDSTART"><span class="hs-identifier">TimecodeSource_SPECIFIEDSTART</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource_ZEROBASED"><span class="hs-identifier">TimecodeSource_ZEROBASED</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Use Source (TimecodeSource) to set how timecodes are handled within this</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- job. To make sure that your video, audio, captions, and markers are</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- synchronized and that time-based features, such as image inserter, work</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- correctly, choose the Timecode source option that matches your assets.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). *</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Embedded (EMBEDDED) - Use the timecode that is in the input video. If no</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- embedded timecode is in the source, the service will use Start at 0</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- (ZEROBASED) instead. * Start at 0 (ZEROBASED) - Set the timecode of the</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- the timecode of the initial frame to a value other than zero. You use</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Start timecode (Start) to provide this value.</span><span>
+</span><span id="line-44"></span><span id="local-6989586621680009370"><span id="local-6989586621680009371"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TimecodeSource"><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource"><span class="hs-identifier hs-var">TimecodeSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimecodeSource%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource%27"><span class="hs-identifier hs-var">TimecodeSource'</span></a></span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTimecodeSource"><span class="annot"><span class="annottext">TimecodeSource -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#fromTimecodeSource"><span class="hs-identifier hs-var hs-var">fromTimecodeSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680009362"><span id="local-6989586621680009364"><span id="local-6989586621680009366"><span class="annot"><span class="annottext">Int -&gt; TimecodeSource -&gt; ShowS
+[TimecodeSource] -&gt; ShowS
+TimecodeSource -&gt; String
+(Int -&gt; TimecodeSource -&gt; ShowS)
+-&gt; (TimecodeSource -&gt; String)
+-&gt; ([TimecodeSource] -&gt; ShowS)
+-&gt; Show TimecodeSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TimecodeSource] -&gt; ShowS
+$cshowList :: [TimecodeSource] -&gt; ShowS
+show :: TimecodeSource -&gt; String
+$cshow :: TimecodeSource -&gt; String
+showsPrec :: Int -&gt; TimecodeSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; TimecodeSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680009353"><span id="local-6989586621680009355"><span id="local-6989586621680009357"><span id="local-6989586621680009359"><span class="annot"><span class="annottext">ReadPrec [TimecodeSource]
+ReadPrec TimecodeSource
+Int -&gt; ReadS TimecodeSource
+ReadS [TimecodeSource]
+(Int -&gt; ReadS TimecodeSource)
+-&gt; ReadS [TimecodeSource]
+-&gt; ReadPrec TimecodeSource
+-&gt; ReadPrec [TimecodeSource]
+-&gt; Read TimecodeSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TimecodeSource]
+$creadListPrec :: ReadPrec [TimecodeSource]
+readPrec :: ReadPrec TimecodeSource
+$creadPrec :: ReadPrec TimecodeSource
+readList :: ReadS [TimecodeSource]
+$creadList :: ReadS [TimecodeSource]
+readsPrec :: Int -&gt; ReadS TimecodeSource
+$creadsPrec :: Int -&gt; ReadS TimecodeSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680009348"><span id="local-6989586621680009350"><span class="annot"><span class="annottext">TimecodeSource -&gt; TimecodeSource -&gt; Bool
+(TimecodeSource -&gt; TimecodeSource -&gt; Bool)
+-&gt; (TimecodeSource -&gt; TimecodeSource -&gt; Bool) -&gt; Eq TimecodeSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TimecodeSource -&gt; TimecodeSource -&gt; Bool
+$c/= :: TimecodeSource -&gt; TimecodeSource -&gt; Bool
+== :: TimecodeSource -&gt; TimecodeSource -&gt; Bool
+$c== :: TimecodeSource -&gt; TimecodeSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680009332"><span id="local-6989586621680009334"><span id="local-6989586621680009336"><span id="local-6989586621680009338"><span id="local-6989586621680009340"><span id="local-6989586621680009342"><span id="local-6989586621680009344"><span class="annot"><span class="annottext">Eq TimecodeSource
+Eq TimecodeSource
+-&gt; (TimecodeSource -&gt; TimecodeSource -&gt; Ordering)
+-&gt; (TimecodeSource -&gt; TimecodeSource -&gt; Bool)
+-&gt; (TimecodeSource -&gt; TimecodeSource -&gt; Bool)
+-&gt; (TimecodeSource -&gt; TimecodeSource -&gt; Bool)
+-&gt; (TimecodeSource -&gt; TimecodeSource -&gt; Bool)
+-&gt; (TimecodeSource -&gt; TimecodeSource -&gt; TimecodeSource)
+-&gt; (TimecodeSource -&gt; TimecodeSource -&gt; TimecodeSource)
+-&gt; Ord TimecodeSource
+TimecodeSource -&gt; TimecodeSource -&gt; Bool
+TimecodeSource -&gt; TimecodeSource -&gt; Ordering
+TimecodeSource -&gt; TimecodeSource -&gt; TimecodeSource
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TimecodeSource -&gt; TimecodeSource -&gt; TimecodeSource
+$cmin :: TimecodeSource -&gt; TimecodeSource -&gt; TimecodeSource
+max :: TimecodeSource -&gt; TimecodeSource -&gt; TimecodeSource
+$cmax :: TimecodeSource -&gt; TimecodeSource -&gt; TimecodeSource
+&gt;= :: TimecodeSource -&gt; TimecodeSource -&gt; Bool
+$c&gt;= :: TimecodeSource -&gt; TimecodeSource -&gt; Bool
+&gt; :: TimecodeSource -&gt; TimecodeSource -&gt; Bool
+$c&gt; :: TimecodeSource -&gt; TimecodeSource -&gt; Bool
+&lt;= :: TimecodeSource -&gt; TimecodeSource -&gt; Bool
+$c&lt;= :: TimecodeSource -&gt; TimecodeSource -&gt; Bool
+&lt; :: TimecodeSource -&gt; TimecodeSource -&gt; Bool
+$c&lt; :: TimecodeSource -&gt; TimecodeSource -&gt; Bool
+compare :: TimecodeSource -&gt; TimecodeSource -&gt; Ordering
+$ccompare :: TimecodeSource -&gt; TimecodeSource -&gt; Ordering
+$cp1Ord :: Eq TimecodeSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TimecodeSource -&gt; Rep TimecodeSource x)
+-&gt; (forall x. Rep TimecodeSource x -&gt; TimecodeSource)
+-&gt; Generic TimecodeSource
+forall x. Rep TimecodeSource x -&gt; TimecodeSource
+forall x. TimecodeSource -&gt; Rep TimecodeSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TimecodeSource x -&gt; TimecodeSource
+$cfrom :: forall x. TimecodeSource -&gt; Rep TimecodeSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680009324"><span id="local-6989586621680009326"><span class="annot"><span class="annottext">Int -&gt; TimecodeSource -&gt; Int
+TimecodeSource -&gt; Int
+(Int -&gt; TimecodeSource -&gt; Int)
+-&gt; (TimecodeSource -&gt; Int) -&gt; Hashable TimecodeSource
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TimecodeSource -&gt; Int
+$chash :: TimecodeSource -&gt; Int
+hashWithSalt :: Int -&gt; TimecodeSource -&gt; Int
+$chashWithSalt :: Int -&gt; TimecodeSource -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680009321"><span class="annot"><span class="annottext">TimecodeSource -&gt; ()
+(TimecodeSource -&gt; ()) -&gt; NFData TimecodeSource
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TimecodeSource -&gt; ()
+$crnf :: TimecodeSource -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680009318"><span class="annot"><span class="annottext">Text -&gt; Either String TimecodeSource
+(Text -&gt; Either String TimecodeSource) -&gt; FromText TimecodeSource
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TimecodeSource
+$cfromText :: Text -&gt; Either String TimecodeSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680009315"><span class="annot"><span class="annottext">TimecodeSource -&gt; Text
+(TimecodeSource -&gt; Text) -&gt; ToText TimecodeSource
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TimecodeSource -&gt; Text
+$ctoText :: TimecodeSource -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680009312"><span class="annot"><span class="annottext">TimecodeSource -&gt; ByteString
+(TimecodeSource -&gt; ByteString) -&gt; ToByteString TimecodeSource
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TimecodeSource -&gt; ByteString
+$ctoBS :: TimecodeSource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680009309"><span class="annot"><span class="annottext">TimecodeSource -&gt; ByteStringBuilder
+(TimecodeSource -&gt; ByteStringBuilder) -&gt; ToLog TimecodeSource
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TimecodeSource -&gt; ByteStringBuilder
+$cbuild :: TimecodeSource -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680009306"><span class="annot"><span class="annottext">HeaderName -&gt; TimecodeSource -&gt; [Header]
+(HeaderName -&gt; TimecodeSource -&gt; [Header])
+-&gt; ToHeader TimecodeSource
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TimecodeSource -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TimecodeSource -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680009303"><span class="annot"><span class="annottext">TimecodeSource -&gt; QueryString
+(TimecodeSource -&gt; QueryString) -&gt; ToQuery TimecodeSource
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TimecodeSource -&gt; QueryString
+$ctoQuery :: TimecodeSource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680009298"><span id="local-6989586621680009300"><span class="annot"><span class="annottext">Value -&gt; Parser [TimecodeSource]
+Value -&gt; Parser TimecodeSource
+(Value -&gt; Parser TimecodeSource)
+-&gt; (Value -&gt; Parser [TimecodeSource]) -&gt; FromJSON TimecodeSource
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TimecodeSource]
+$cparseJSONList :: Value -&gt; Parser [TimecodeSource]
+parseJSON :: Value -&gt; Parser TimecodeSource
+$cparseJSON :: Value -&gt; Parser TimecodeSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680009293"><span id="local-6989586621680009295"><span class="annot"><span class="annottext">FromJSONKeyFunction [TimecodeSource]
+FromJSONKeyFunction TimecodeSource
+FromJSONKeyFunction TimecodeSource
+-&gt; FromJSONKeyFunction [TimecodeSource]
+-&gt; FromJSONKey TimecodeSource
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TimecodeSource]
+$cfromJSONKeyList :: FromJSONKeyFunction [TimecodeSource]
+fromJSONKey :: FromJSONKeyFunction TimecodeSource
+$cfromJSONKey :: FromJSONKeyFunction TimecodeSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680009284"><span id="local-6989586621680009286"><span id="local-6989586621680009288"><span id="local-6989586621680009290"><span class="annot"><span class="annottext">[TimecodeSource] -&gt; Encoding
+[TimecodeSource] -&gt; Value
+TimecodeSource -&gt; Encoding
+TimecodeSource -&gt; Value
+(TimecodeSource -&gt; Value)
+-&gt; (TimecodeSource -&gt; Encoding)
+-&gt; ([TimecodeSource] -&gt; Value)
+-&gt; ([TimecodeSource] -&gt; Encoding)
+-&gt; ToJSON TimecodeSource
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TimecodeSource] -&gt; Encoding
+$ctoEncodingList :: [TimecodeSource] -&gt; Encoding
+toJSONList :: [TimecodeSource] -&gt; Value
+$ctoJSONList :: [TimecodeSource] -&gt; Value
+toEncoding :: TimecodeSource -&gt; Encoding
+$ctoEncoding :: TimecodeSource -&gt; Encoding
+toJSON :: TimecodeSource -&gt; Value
+$ctoJSON :: TimecodeSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680009279"><span id="local-6989586621680009281"><span class="annot"><span class="annottext">ToJSONKeyFunction [TimecodeSource]
+ToJSONKeyFunction TimecodeSource
+ToJSONKeyFunction TimecodeSource
+-&gt; ToJSONKeyFunction [TimecodeSource] -&gt; ToJSONKey TimecodeSource
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TimecodeSource]
+$ctoJSONKeyList :: ToJSONKeyFunction [TimecodeSource]
+toJSONKey :: ToJSONKeyFunction TimecodeSource
+$ctoJSONKey :: ToJSONKeyFunction TimecodeSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680009276"><span class="annot"><span class="annottext">[Node] -&gt; Either String TimecodeSource
+([Node] -&gt; Either String TimecodeSource) -&gt; FromXML TimecodeSource
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TimecodeSource
+$cparseXML :: [Node] -&gt; Either String TimecodeSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680009273"><span class="annot"><span class="annottext">TimecodeSource -&gt; XML
+(TimecodeSource -&gt; XML) -&gt; ToXML TimecodeSource
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TimecodeSource -&gt; XML
+$ctoXML :: TimecodeSource -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource_EMBEDDED"><span class="hs-identifier hs-type">TimecodeSource_EMBEDDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource"><span class="hs-identifier hs-type">TimecodeSource</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTimecodeSource_EMBEDDED"><span id="%24mTimecodeSource_EMBEDDED"><span id="TimecodeSource_EMBEDDED"><span class="annot"><span class="annottext">$bTimecodeSource_EMBEDDED :: TimecodeSource
+$mTimecodeSource_EMBEDDED :: forall r. TimecodeSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#%24bTimecodeSource_EMBEDDED"><span class="hs-identifier hs-var hs-var hs-var">TimecodeSource_EMBEDDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource%27"><span class="hs-identifier hs-type">TimecodeSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMBEDDED&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource_SPECIFIEDSTART"><span class="hs-identifier hs-type">TimecodeSource_SPECIFIEDSTART</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource"><span class="hs-identifier hs-type">TimecodeSource</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTimecodeSource_SPECIFIEDSTART"><span id="%24mTimecodeSource_SPECIFIEDSTART"><span id="TimecodeSource_SPECIFIEDSTART"><span class="annot"><span class="annottext">$bTimecodeSource_SPECIFIEDSTART :: TimecodeSource
+$mTimecodeSource_SPECIFIEDSTART :: forall r. TimecodeSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#%24bTimecodeSource_SPECIFIEDSTART"><span class="hs-identifier hs-var hs-var hs-var">TimecodeSource_SPECIFIEDSTART</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource%27"><span class="hs-identifier hs-type">TimecodeSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPECIFIEDSTART&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource_ZEROBASED"><span class="hs-identifier hs-type">TimecodeSource_ZEROBASED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource"><span class="hs-identifier hs-type">TimecodeSource</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTimecodeSource_ZEROBASED"><span id="%24mTimecodeSource_ZEROBASED"><span id="TimecodeSource_ZEROBASED"><span class="annot"><span class="annottext">$bTimecodeSource_ZEROBASED :: TimecodeSource
+$mTimecodeSource_ZEROBASED :: forall r. TimecodeSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#%24bTimecodeSource_ZEROBASED"><span class="hs-identifier hs-var hs-var hs-var">TimecodeSource_ZEROBASED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource%27"><span class="hs-identifier hs-type">TimecodeSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ZEROBASED&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource_EMBEDDED"><span class="hs-pragma hs-type">TimecodeSource_EMBEDDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource_SPECIFIEDSTART"><span class="hs-pragma hs-type">TimecodeSource_SPECIFIEDSTART</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource_ZEROBASED"><span class="hs-pragma hs-type">TimecodeSource_ZEROBASED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.TimecodeSource.html#TimecodeSource%27"><span class="hs-pragma hs-type">TimecodeSource'</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-87"></span></pre></body></html>

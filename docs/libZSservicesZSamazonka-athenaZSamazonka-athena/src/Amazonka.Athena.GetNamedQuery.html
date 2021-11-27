@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Athena.GetNamedQuery</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about a single query. Requires that you have access</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- to the workgroup in which the query was saved.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Athena.GetNamedQuery</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery"><span class="hs-identifier">GetNamedQuery</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#newGetNamedQuery"><span class="hs-identifier">newGetNamedQuery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#getNamedQuery_namedQueryId"><span class="hs-identifier">getNamedQuery_namedQueryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse"><span class="hs-identifier">GetNamedQueryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#newGetNamedQueryResponse"><span class="hs-identifier">newGetNamedQueryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#getNamedQueryResponse_namedQuery"><span class="hs-identifier">getNamedQueryResponse_namedQuery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#getNamedQueryResponse_httpStatus"><span class="hs-identifier">getNamedQueryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.html"><span class="hs-identifier">Amazonka.Athena.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetNamedQuery' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679224593"><span id="local-6989586621679224594"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetNamedQuery"><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery"><span class="hs-identifier hs-var">GetNamedQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetNamedQuery%27"><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery%27"><span class="hs-identifier hs-var">GetNamedQuery'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the query. Use ListNamedQueries to get query IDs.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AnamedQueryId%3AGetNamedQuery%27"><span class="annot"><span class="annottext">GetNamedQuery -&gt; Text
+</span><a href="Amazonka.Athena.GetNamedQuery.html#%24sel%3AnamedQueryId%3AGetNamedQuery%27"><span class="hs-identifier hs-var hs-var">namedQueryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224587"><span id="local-6989586621679224589"><span class="annot"><span class="annottext">GetNamedQuery -&gt; GetNamedQuery -&gt; Bool
+(GetNamedQuery -&gt; GetNamedQuery -&gt; Bool)
+-&gt; (GetNamedQuery -&gt; GetNamedQuery -&gt; Bool) -&gt; Eq GetNamedQuery
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetNamedQuery -&gt; GetNamedQuery -&gt; Bool
+$c/= :: GetNamedQuery -&gt; GetNamedQuery -&gt; Bool
+== :: GetNamedQuery -&gt; GetNamedQuery -&gt; Bool
+$c== :: GetNamedQuery -&gt; GetNamedQuery -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224578"><span id="local-6989586621679224580"><span id="local-6989586621679224582"><span id="local-6989586621679224584"><span class="annot"><span class="annottext">ReadPrec [GetNamedQuery]
+ReadPrec GetNamedQuery
+Int -&gt; ReadS GetNamedQuery
+ReadS [GetNamedQuery]
+(Int -&gt; ReadS GetNamedQuery)
+-&gt; ReadS [GetNamedQuery]
+-&gt; ReadPrec GetNamedQuery
+-&gt; ReadPrec [GetNamedQuery]
+-&gt; Read GetNamedQuery
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetNamedQuery]
+$creadListPrec :: ReadPrec [GetNamedQuery]
+readPrec :: ReadPrec GetNamedQuery
+$creadPrec :: ReadPrec GetNamedQuery
+readList :: ReadS [GetNamedQuery]
+$creadList :: ReadS [GetNamedQuery]
+readsPrec :: Int -&gt; ReadS GetNamedQuery
+$creadsPrec :: Int -&gt; ReadS GetNamedQuery
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224571"><span id="local-6989586621679224573"><span id="local-6989586621679224575"><span class="annot"><span class="annottext">Int -&gt; GetNamedQuery -&gt; ShowS
+[GetNamedQuery] -&gt; ShowS
+GetNamedQuery -&gt; String
+(Int -&gt; GetNamedQuery -&gt; ShowS)
+-&gt; (GetNamedQuery -&gt; String)
+-&gt; ([GetNamedQuery] -&gt; ShowS)
+-&gt; Show GetNamedQuery
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetNamedQuery] -&gt; ShowS
+$cshowList :: [GetNamedQuery] -&gt; ShowS
+show :: GetNamedQuery -&gt; String
+$cshow :: GetNamedQuery -&gt; String
+showsPrec :: Int -&gt; GetNamedQuery -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetNamedQuery -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetNamedQuery -&gt; Rep GetNamedQuery x)
+-&gt; (forall x. Rep GetNamedQuery x -&gt; GetNamedQuery)
+-&gt; Generic GetNamedQuery
+forall x. Rep GetNamedQuery x -&gt; GetNamedQuery
+forall x. GetNamedQuery -&gt; Rep GetNamedQuery x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetNamedQuery x -&gt; GetNamedQuery
+$cfrom :: forall x. GetNamedQuery -&gt; Rep GetNamedQuery x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'GetNamedQuery' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'namedQueryId', 'getNamedQuery_namedQueryId' - The unique ID of the query. Use ListNamedQueries to get query IDs.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#newGetNamedQuery"><span class="hs-identifier hs-type">newGetNamedQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'namedQueryId'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery"><span class="hs-identifier hs-type">GetNamedQuery</span></a></span><span>
+</span><span id="line-70"></span><span id="newGetNamedQuery"><span class="annot"><span class="annottext">newGetNamedQuery :: Text -&gt; GetNamedQuery
+</span><a href="Amazonka.Athena.GetNamedQuery.html#newGetNamedQuery"><span class="hs-identifier hs-var hs-var">newGetNamedQuery</span></a></span></span><span> </span><span id="local-6989586621679224566"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224566"><span class="hs-identifier hs-var">pNamedQueryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">GetNamedQuery' :: Text -&gt; GetNamedQuery
+</span><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery%27"><span class="hs-identifier hs-type">GetNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namedQueryId:GetNamedQuery' :: Text
+</span><a href="Amazonka.Athena.GetNamedQuery.html#%24sel%3AnamedQueryId%3AGetNamedQuery%27"><span class="hs-identifier hs-var">namedQueryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224566"><span class="hs-identifier hs-var">pNamedQueryId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The unique ID of the query. Use ListNamedQueries to get query IDs.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#getNamedQuery_namedQueryId"><span class="hs-identifier hs-type">getNamedQuery_namedQueryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery"><span class="hs-identifier hs-type">GetNamedQuery</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span id="getNamedQuery_namedQueryId"><span class="annot"><span class="annottext">getNamedQuery_namedQueryId :: (Text -&gt; f Text) -&gt; GetNamedQuery -&gt; f GetNamedQuery
+</span><a href="Amazonka.Athena.GetNamedQuery.html#getNamedQuery_namedQueryId"><span class="hs-identifier hs-var hs-var">getNamedQuery_namedQueryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetNamedQuery -&gt; Text)
+-&gt; (GetNamedQuery -&gt; Text -&gt; GetNamedQuery)
+-&gt; Lens GetNamedQuery GetNamedQuery Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery%27"><span class="hs-identifier hs-type">GetNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224563"><span class="annot"><span class="annottext">Text
+namedQueryId :: Text
+$sel:namedQueryId:GetNamedQuery' :: GetNamedQuery -&gt; Text
+</span><a href="#local-6989586621679224563"><span class="hs-identifier hs-var hs-var">namedQueryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224563"><span class="hs-identifier hs-var">namedQueryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224562"><span class="annot"><span class="annottext">s :: GetNamedQuery
+</span><a href="#local-6989586621679224562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery%27"><span class="hs-identifier hs-type">GetNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224561"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetNamedQuery
+</span><a href="#local-6989586621679224562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namedQueryId:GetNamedQuery' :: Text
+</span><a href="Amazonka.Athena.GetNamedQuery.html#%24sel%3AnamedQueryId%3AGetNamedQuery%27"><span class="hs-identifier hs-var">namedQueryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery"><span class="hs-identifier hs-type">GetNamedQuery</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery"><span class="hs-identifier hs-type">GetNamedQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery"><span class="hs-identifier hs-type">GetNamedQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse"><span class="hs-identifier hs-type">GetNamedQueryResponse</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679224557"><span class="annot"><span class="annottext">request :: GetNamedQuery -&gt; Request GetNamedQuery
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetNamedQuery -&gt; Request GetNamedQuery
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Athena.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679224553"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetNamedQuery
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetNamedQuery)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetNamedQuery))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetNamedQuery
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetNamedQuery)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224550"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224550"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679224549"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679224549"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679224548"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224548"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe NamedQuery -&gt; Int -&gt; GetNamedQueryResponse
+</span><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse%27"><span class="hs-identifier hs-var">GetNamedQueryResponse'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe NamedQuery -&gt; Int -&gt; GetNamedQueryResponse)
+-&gt; Either String (Maybe NamedQuery)
+-&gt; Either String (Int -&gt; GetNamedQueryResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe NamedQuery)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NamedQuery&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetNamedQueryResponse)
+-&gt; Either String Int -&gt; Either String GetNamedQueryResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224550"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224540"><span id="local-6989586621679224542"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery"><span class="hs-identifier hs-type">GetNamedQuery</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery"><span class="hs-identifier hs-type">GetNamedQuery</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery"><span class="hs-identifier hs-type">GetNamedQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679224533"><span class="annot"><span class="annottext">toHeaders :: GetNamedQuery -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetNamedQuery -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonAthena.GetNamedQuery&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224523"><span id="local-6989586621679224525"><span id="local-6989586621679224527"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery"><span class="hs-identifier hs-type">GetNamedQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679224521"><span class="annot"><span class="annottext">toJSON :: GetNamedQuery -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery%27"><span class="hs-identifier hs-type">GetNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224519"><span class="annot"><span class="annottext">Text
+namedQueryId :: Text
+$sel:namedQueryId:GetNamedQuery' :: GetNamedQuery -&gt; Text
+</span><a href="#local-6989586621679224519"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NamedQueryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224519"><span class="hs-identifier hs-var">namedQueryId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery"><span class="hs-identifier hs-type">GetNamedQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679224513"><span class="annot"><span class="annottext">toPath :: GetNamedQuery -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetNamedQuery -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQuery"><span class="hs-identifier hs-type">GetNamedQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679224509"><span class="annot"><span class="annottext">toQuery :: GetNamedQuery -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetNamedQuery -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newGetNamedQueryResponse' smart constructor.</span><span>
+</span><span id="line-121"></span><span id="local-6989586621679224506"><span id="local-6989586621679224507"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetNamedQueryResponse"><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse"><span class="hs-identifier hs-var">GetNamedQueryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetNamedQueryResponse%27"><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse%27"><span class="hs-identifier hs-var">GetNamedQueryResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the query.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AnamedQuery%3AGetNamedQueryResponse%27"><span class="annot"><span class="annottext">GetNamedQueryResponse -&gt; Maybe NamedQuery
+</span><a href="Amazonka.Athena.GetNamedQuery.html#%24sel%3AnamedQuery%3AGetNamedQueryResponse%27"><span class="hs-identifier hs-var hs-var">namedQuery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.NamedQuery.html#NamedQuery"><span class="hs-identifier hs-type">NamedQuery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetNamedQueryResponse%27"><span class="annot"><span class="annottext">GetNamedQueryResponse -&gt; Int
+</span><a href="Amazonka.Athena.GetNamedQuery.html#%24sel%3AhttpStatus%3AGetNamedQueryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224500"><span id="local-6989586621679224502"><span class="annot"><span class="annottext">GetNamedQueryResponse -&gt; GetNamedQueryResponse -&gt; Bool
+(GetNamedQueryResponse -&gt; GetNamedQueryResponse -&gt; Bool)
+-&gt; (GetNamedQueryResponse -&gt; GetNamedQueryResponse -&gt; Bool)
+-&gt; Eq GetNamedQueryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetNamedQueryResponse -&gt; GetNamedQueryResponse -&gt; Bool
+$c/= :: GetNamedQueryResponse -&gt; GetNamedQueryResponse -&gt; Bool
+== :: GetNamedQueryResponse -&gt; GetNamedQueryResponse -&gt; Bool
+$c== :: GetNamedQueryResponse -&gt; GetNamedQueryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224492"><span id="local-6989586621679224494"><span id="local-6989586621679224496"><span id="local-6989586621679224498"><span class="annot"><span class="annottext">ReadPrec [GetNamedQueryResponse]
+ReadPrec GetNamedQueryResponse
+Int -&gt; ReadS GetNamedQueryResponse
+ReadS [GetNamedQueryResponse]
+(Int -&gt; ReadS GetNamedQueryResponse)
+-&gt; ReadS [GetNamedQueryResponse]
+-&gt; ReadPrec GetNamedQueryResponse
+-&gt; ReadPrec [GetNamedQueryResponse]
+-&gt; Read GetNamedQueryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetNamedQueryResponse]
+$creadListPrec :: ReadPrec [GetNamedQueryResponse]
+readPrec :: ReadPrec GetNamedQueryResponse
+$creadPrec :: ReadPrec GetNamedQueryResponse
+readList :: ReadS [GetNamedQueryResponse]
+$creadList :: ReadS [GetNamedQueryResponse]
+readsPrec :: Int -&gt; ReadS GetNamedQueryResponse
+$creadsPrec :: Int -&gt; ReadS GetNamedQueryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224486"><span id="local-6989586621679224488"><span id="local-6989586621679224490"><span class="annot"><span class="annottext">Int -&gt; GetNamedQueryResponse -&gt; ShowS
+[GetNamedQueryResponse] -&gt; ShowS
+GetNamedQueryResponse -&gt; String
+(Int -&gt; GetNamedQueryResponse -&gt; ShowS)
+-&gt; (GetNamedQueryResponse -&gt; String)
+-&gt; ([GetNamedQueryResponse] -&gt; ShowS)
+-&gt; Show GetNamedQueryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetNamedQueryResponse] -&gt; ShowS
+$cshowList :: [GetNamedQueryResponse] -&gt; ShowS
+show :: GetNamedQueryResponse -&gt; String
+$cshow :: GetNamedQueryResponse -&gt; String
+showsPrec :: Int -&gt; GetNamedQueryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetNamedQueryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetNamedQueryResponse -&gt; Rep GetNamedQueryResponse x)
+-&gt; (forall x. Rep GetNamedQueryResponse x -&gt; GetNamedQueryResponse)
+-&gt; Generic GetNamedQueryResponse
+forall x. Rep GetNamedQueryResponse x -&gt; GetNamedQueryResponse
+forall x. GetNamedQueryResponse -&gt; Rep GetNamedQueryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetNamedQueryResponse x -&gt; GetNamedQueryResponse
+$cfrom :: forall x. GetNamedQueryResponse -&gt; Rep GetNamedQueryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Create a value of 'GetNamedQueryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'namedQuery', 'getNamedQueryResponse_namedQuery' - Information about the query.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'httpStatus', 'getNamedQueryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#newGetNamedQueryResponse"><span class="hs-identifier hs-type">newGetNamedQueryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse"><span class="hs-identifier hs-type">GetNamedQueryResponse</span></a></span><span>
+</span><span id="line-144"></span><span id="newGetNamedQueryResponse"><span class="annot"><span class="annottext">newGetNamedQueryResponse :: Int -&gt; GetNamedQueryResponse
+</span><a href="Amazonka.Athena.GetNamedQuery.html#newGetNamedQueryResponse"><span class="hs-identifier hs-var hs-var">newGetNamedQueryResponse</span></a></span></span><span> </span><span id="local-6989586621679224483"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224483"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">GetNamedQueryResponse' :: Maybe NamedQuery -&gt; Int -&gt; GetNamedQueryResponse
+</span><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse%27"><span class="hs-identifier hs-type">GetNamedQueryResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:namedQuery:GetNamedQueryResponse' :: Maybe NamedQuery
+</span><a href="Amazonka.Athena.GetNamedQuery.html#%24sel%3AnamedQuery%3AGetNamedQueryResponse%27"><span class="hs-identifier hs-var">namedQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Maybe NamedQuery
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetNamedQueryResponse' :: Int
+</span><a href="Amazonka.Athena.GetNamedQuery.html#%24sel%3AhttpStatus%3AGetNamedQueryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224483"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | Information about the query.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#getNamedQueryResponse_namedQuery"><span class="hs-identifier hs-type">getNamedQueryResponse_namedQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse"><span class="hs-identifier hs-type">GetNamedQueryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.NamedQuery.html#NamedQuery"><span class="hs-identifier hs-type">NamedQuery</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="getNamedQueryResponse_namedQuery"><span class="annot"><span class="annottext">getNamedQueryResponse_namedQuery :: (Maybe NamedQuery -&gt; f (Maybe NamedQuery))
+-&gt; GetNamedQueryResponse -&gt; f GetNamedQueryResponse
+</span><a href="Amazonka.Athena.GetNamedQuery.html#getNamedQueryResponse_namedQuery"><span class="hs-identifier hs-var hs-var">getNamedQueryResponse_namedQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetNamedQueryResponse -&gt; Maybe NamedQuery)
+-&gt; (GetNamedQueryResponse
+    -&gt; Maybe NamedQuery -&gt; GetNamedQueryResponse)
+-&gt; Lens
+     GetNamedQueryResponse
+     GetNamedQueryResponse
+     (Maybe NamedQuery)
+     (Maybe NamedQuery)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse%27"><span class="hs-identifier hs-type">GetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224482"><span class="annot"><span class="annottext">Maybe NamedQuery
+namedQuery :: Maybe NamedQuery
+$sel:namedQuery:GetNamedQueryResponse' :: GetNamedQueryResponse -&gt; Maybe NamedQuery
+</span><a href="#local-6989586621679224482"><span class="hs-identifier hs-var hs-var">namedQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NamedQuery
+</span><a href="#local-6989586621679224482"><span class="hs-identifier hs-var">namedQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224481"><span class="annot"><span class="annottext">s :: GetNamedQueryResponse
+</span><a href="#local-6989586621679224481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse%27"><span class="hs-identifier hs-type">GetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224480"><span class="annot"><span class="annottext">Maybe NamedQuery
+</span><a href="#local-6989586621679224480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetNamedQueryResponse
+</span><a href="#local-6989586621679224481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namedQuery:GetNamedQueryResponse' :: Maybe NamedQuery
+</span><a href="Amazonka.Athena.GetNamedQuery.html#%24sel%3AnamedQuery%3AGetNamedQueryResponse%27"><span class="hs-identifier hs-var">namedQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NamedQuery
+</span><a href="#local-6989586621679224480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse"><span class="hs-identifier hs-type">GetNamedQueryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#getNamedQueryResponse_httpStatus"><span class="hs-identifier hs-type">getNamedQueryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse"><span class="hs-identifier hs-type">GetNamedQueryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-157"></span><span id="getNamedQueryResponse_httpStatus"><span class="annot"><span class="annottext">getNamedQueryResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetNamedQueryResponse -&gt; f GetNamedQueryResponse
+</span><a href="Amazonka.Athena.GetNamedQuery.html#getNamedQueryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getNamedQueryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetNamedQueryResponse -&gt; Int)
+-&gt; (GetNamedQueryResponse -&gt; Int -&gt; GetNamedQueryResponse)
+-&gt; Lens GetNamedQueryResponse GetNamedQueryResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse%27"><span class="hs-identifier hs-type">GetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224479"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetNamedQueryResponse' :: GetNamedQueryResponse -&gt; Int
+</span><a href="#local-6989586621679224479"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224479"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224478"><span class="annot"><span class="annottext">s :: GetNamedQueryResponse
+</span><a href="#local-6989586621679224478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse%27"><span class="hs-identifier hs-type">GetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224477"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetNamedQueryResponse
+</span><a href="#local-6989586621679224478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetNamedQueryResponse' :: Int
+</span><a href="Amazonka.Athena.GetNamedQuery.html#%24sel%3AhttpStatus%3AGetNamedQueryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse"><span class="hs-identifier hs-type">GetNamedQueryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224475"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.GetNamedQuery.html#GetNamedQueryResponse"><span class="hs-identifier hs-type">GetNamedQueryResponse</span></a></span></span><span>
+</span><span id="line-160"></span></pre></body></html>

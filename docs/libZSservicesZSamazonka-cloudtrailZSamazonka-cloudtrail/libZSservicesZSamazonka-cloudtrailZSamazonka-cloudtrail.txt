@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.CloudTrail.Types.AdvancedFieldSelector
+module Amazonka.CloudTrail.Types.AdvancedFieldSelector
 
 -- | A single selector statement in an advanced event selector.
 --   
@@ -335,17 +335,17 @@ advancedFieldSelector_startsWith :: Lens' AdvancedFieldSelector (Maybe (NonEmpty
 --   format:<ul><li><pre>arn:&lt;partition&gt;:ec2:&lt;region&gt;::snapshot/&lt;snapshot_ID&gt;</pre></li></ul></li>
 --   </ul>
 advancedFieldSelector_field :: Lens' AdvancedFieldSelector Text
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
+instance GHC.Show.Show Amazonka.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
+instance GHC.Read.Read Amazonka.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.Types.AdvancedFieldSelector.AdvancedFieldSelector
 
 
-module Network.AWS.CloudTrail.Types.AdvancedEventSelector
+module Amazonka.CloudTrail.Types.AdvancedEventSelector
 
 -- | Advanced event selectors let you create fine-grained selectors for the
 --   following CloudTrail event record ﬁelds. They help you control costs
@@ -401,17 +401,17 @@ advancedEventSelector_name :: Lens' AdvancedEventSelector (Maybe Text)
 
 -- | Contains all selector statements in an advanced event selector.
 advancedEventSelector_fieldSelectors :: Lens' AdvancedEventSelector (NonEmpty AdvancedFieldSelector)
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
+instance GHC.Show.Show Amazonka.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
+instance GHC.Read.Read Amazonka.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.Types.AdvancedEventSelector.AdvancedEventSelector
 
 
-module Network.AWS.CloudTrail.Types.DataResource
+module Amazonka.CloudTrail.Types.DataResource
 
 -- | The Amazon S3 buckets, Lambda functions, or Amazon DynamoDB tables
 --   that you specify in your event selectors for your trail to log data
@@ -631,69 +631,69 @@ dataResource_values :: Lens' DataResource (Maybe [Text])
 --   event selectors. To log data events on these resource types, use
 --   advanced event selectors.
 dataResource_type :: Lens' DataResource (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.DataResource.DataResource
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.DataResource.DataResource
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.DataResource.DataResource
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.DataResource.DataResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.DataResource.DataResource
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.DataResource.DataResource
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.DataResource.DataResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.Types.DataResource.DataResource
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.DataResource.DataResource
+instance GHC.Show.Show Amazonka.CloudTrail.Types.DataResource.DataResource
+instance GHC.Read.Read Amazonka.CloudTrail.Types.DataResource.DataResource
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.DataResource.DataResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.DataResource.DataResource
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.DataResource.DataResource
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.DataResource.DataResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.Types.DataResource.DataResource
 
 
-module Network.AWS.CloudTrail.Types.EventCategory
+module Amazonka.CloudTrail.Types.EventCategory
 newtype EventCategory
 EventCategory' :: Text -> EventCategory
 [fromEventCategory] :: EventCategory -> Text
 pattern EventCategory_Insight :: EventCategory
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance GHC.Classes.Ord Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.EventCategory.EventCategory
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.EventCategory.EventCategory
+instance Amazonka.Data.XML.ToXML Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance Amazonka.Data.XML.FromXML Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance Amazonka.Data.Log.ToLog Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance Amazonka.Data.Text.ToText Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance Amazonka.Data.Text.FromText Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance GHC.Classes.Ord Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance GHC.Read.Read Amazonka.CloudTrail.Types.EventCategory.EventCategory
+instance GHC.Show.Show Amazonka.CloudTrail.Types.EventCategory.EventCategory
 
 
-module Network.AWS.CloudTrail.Types.InsightType
+module Amazonka.CloudTrail.Types.InsightType
 newtype InsightType
 InsightType' :: Text -> InsightType
 [fromInsightType] :: InsightType -> Text
 pattern InsightType_ApiCallRateInsight :: InsightType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance GHC.Classes.Ord Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.InsightType.InsightType
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.InsightType.InsightType
+instance Amazonka.Data.XML.ToXML Amazonka.CloudTrail.Types.InsightType.InsightType
+instance Amazonka.Data.XML.FromXML Amazonka.CloudTrail.Types.InsightType.InsightType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudTrail.Types.InsightType.InsightType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.Types.InsightType.InsightType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudTrail.Types.InsightType.InsightType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.InsightType.InsightType
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.Types.InsightType.InsightType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudTrail.Types.InsightType.InsightType
+instance Amazonka.Data.Log.ToLog Amazonka.CloudTrail.Types.InsightType.InsightType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudTrail.Types.InsightType.InsightType
+instance Amazonka.Data.Text.ToText Amazonka.CloudTrail.Types.InsightType.InsightType
+instance Amazonka.Data.Text.FromText Amazonka.CloudTrail.Types.InsightType.InsightType
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.InsightType.InsightType
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.InsightType.InsightType
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.InsightType.InsightType
+instance GHC.Classes.Ord Amazonka.CloudTrail.Types.InsightType.InsightType
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.InsightType.InsightType
+instance GHC.Read.Read Amazonka.CloudTrail.Types.InsightType.InsightType
+instance GHC.Show.Show Amazonka.CloudTrail.Types.InsightType.InsightType
 
 
-module Network.AWS.CloudTrail.Types.InsightSelector
+module Amazonka.CloudTrail.Types.InsightSelector
 
 -- | A JSON string that contains a list of insight types that are logged on
 --   a trail.
@@ -724,17 +724,17 @@ newInsightSelector :: InsightSelector
 -- | The type of Insights events to log on a trail. The valid Insights type
 --   in this release is <tt>ApiCallRateInsight</tt>.
 insightSelector_insightType :: Lens' InsightSelector (Maybe InsightType)
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.InsightSelector.InsightSelector
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.InsightSelector.InsightSelector
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.InsightSelector.InsightSelector
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.InsightSelector.InsightSelector
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.InsightSelector.InsightSelector
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.InsightSelector.InsightSelector
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.InsightSelector.InsightSelector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.Types.InsightSelector.InsightSelector
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.InsightSelector.InsightSelector
+instance GHC.Show.Show Amazonka.CloudTrail.Types.InsightSelector.InsightSelector
+instance GHC.Read.Read Amazonka.CloudTrail.Types.InsightSelector.InsightSelector
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.InsightSelector.InsightSelector
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.InsightSelector.InsightSelector
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.InsightSelector.InsightSelector
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.InsightSelector.InsightSelector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.Types.InsightSelector.InsightSelector
 
 
-module Network.AWS.CloudTrail.Types.LookupAttributeKey
+module Amazonka.CloudTrail.Types.LookupAttributeKey
 newtype LookupAttributeKey
 LookupAttributeKey' :: Text -> LookupAttributeKey
 [fromLookupAttributeKey] :: LookupAttributeKey -> Text
@@ -746,28 +746,28 @@ pattern LookupAttributeKey_ReadOnly :: LookupAttributeKey
 pattern LookupAttributeKey_ResourceName :: LookupAttributeKey
 pattern LookupAttributeKey_ResourceType :: LookupAttributeKey
 pattern LookupAttributeKey_Username :: LookupAttributeKey
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance GHC.Classes.Ord Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance Amazonka.Data.XML.ToXML Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance Amazonka.Data.XML.FromXML Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance Amazonka.Data.Log.ToLog Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance Amazonka.Data.Text.ToText Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance Amazonka.Data.Text.FromText Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance GHC.Classes.Ord Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance GHC.Read.Read Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
+instance GHC.Show.Show Amazonka.CloudTrail.Types.LookupAttributeKey.LookupAttributeKey
 
 
-module Network.AWS.CloudTrail.Types.LookupAttribute
+module Amazonka.CloudTrail.Types.LookupAttribute
 
 -- | Specifies an attribute and value that filter the events returned.
 --   
@@ -804,16 +804,16 @@ lookupAttribute_attributeKey :: Lens' LookupAttribute LookupAttributeKey
 
 -- | Specifies a value for the specified AttributeKey.
 lookupAttribute_attributeValue :: Lens' LookupAttribute Text
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.LookupAttribute.LookupAttribute
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.LookupAttribute.LookupAttribute
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.LookupAttribute.LookupAttribute
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.LookupAttribute.LookupAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.LookupAttribute.LookupAttribute
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.LookupAttribute.LookupAttribute
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.Types.LookupAttribute.LookupAttribute
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.LookupAttribute.LookupAttribute
+instance GHC.Show.Show Amazonka.CloudTrail.Types.LookupAttribute.LookupAttribute
+instance GHC.Read.Read Amazonka.CloudTrail.Types.LookupAttribute.LookupAttribute
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.LookupAttribute.LookupAttribute
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.LookupAttribute.LookupAttribute
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.LookupAttribute.LookupAttribute
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.Types.LookupAttribute.LookupAttribute
 
 
-module Network.AWS.CloudTrail.Types.PublicKey
+module Amazonka.CloudTrail.Types.PublicKey
 
 -- | Contains information about a returned public key.
 --   
@@ -877,44 +877,44 @@ publicKey_value :: Lens' PublicKey (Maybe ByteString)
 
 -- | The starting time of validity of the public key.
 publicKey_validityStartTime :: Lens' PublicKey (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.PublicKey.PublicKey
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.PublicKey.PublicKey
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.PublicKey.PublicKey
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.PublicKey.PublicKey
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.PublicKey.PublicKey
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.PublicKey.PublicKey
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.PublicKey.PublicKey
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.PublicKey.PublicKey
+instance GHC.Show.Show Amazonka.CloudTrail.Types.PublicKey.PublicKey
+instance GHC.Read.Read Amazonka.CloudTrail.Types.PublicKey.PublicKey
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.PublicKey.PublicKey
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.PublicKey.PublicKey
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.PublicKey.PublicKey
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.PublicKey.PublicKey
 
 
-module Network.AWS.CloudTrail.Types.ReadWriteType
+module Amazonka.CloudTrail.Types.ReadWriteType
 newtype ReadWriteType
 ReadWriteType' :: Text -> ReadWriteType
 [fromReadWriteType] :: ReadWriteType -> Text
 pattern ReadWriteType_All :: ReadWriteType
 pattern ReadWriteType_ReadOnly :: ReadWriteType
 pattern ReadWriteType_WriteOnly :: ReadWriteType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance GHC.Classes.Ord Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance Amazonka.Data.XML.ToXML Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance Amazonka.Data.XML.FromXML Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance Amazonka.Data.Log.ToLog Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance Amazonka.Data.Text.ToText Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance Amazonka.Data.Text.FromText Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance GHC.Classes.Ord Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance GHC.Read.Read Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
+instance GHC.Show.Show Amazonka.CloudTrail.Types.ReadWriteType.ReadWriteType
 
 
-module Network.AWS.CloudTrail.Types.EventSelector
+module Amazonka.CloudTrail.Types.EventSelector
 
 -- | Use event selectors to further specify the management and data event
 --   settings for your trail. By default, trails created without specific
@@ -1071,17 +1071,17 @@ eventSelector_excludeManagementEventSources :: Lens' EventSelector (Maybe [Text]
 --   subsequent trail in the same region. For more information about
 --   CloudTrail pricing, see <a>CloudTrail Pricing</a>.
 eventSelector_includeManagementEvents :: Lens' EventSelector (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.EventSelector.EventSelector
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.EventSelector.EventSelector
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.EventSelector.EventSelector
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.EventSelector.EventSelector
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.EventSelector.EventSelector
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.EventSelector.EventSelector
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.EventSelector.EventSelector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.Types.EventSelector.EventSelector
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.EventSelector.EventSelector
+instance GHC.Show.Show Amazonka.CloudTrail.Types.EventSelector.EventSelector
+instance GHC.Read.Read Amazonka.CloudTrail.Types.EventSelector.EventSelector
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.EventSelector.EventSelector
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.EventSelector.EventSelector
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.EventSelector.EventSelector
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.EventSelector.EventSelector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.Types.EventSelector.EventSelector
 
 
-module Network.AWS.CloudTrail.Types.Resource
+module Amazonka.CloudTrail.Types.Resource
 
 -- | Specifies the type and name of a resource referenced by an event.
 --   
@@ -1141,16 +1141,16 @@ resource_resourceType :: Lens' Resource (Maybe Text)
 --   example, the resource name might be "auto-scaling-test-group" for an
 --   Auto Scaling Group or "i-1234567" for an EC2 Instance.
 resource_resourceName :: Lens' Resource (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.Resource.Resource
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.Resource.Resource
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.Resource.Resource
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.Resource.Resource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.Resource.Resource
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.Resource.Resource
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.Resource.Resource
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.Resource.Resource
+instance GHC.Show.Show Amazonka.CloudTrail.Types.Resource.Resource
+instance GHC.Read.Read Amazonka.CloudTrail.Types.Resource.Resource
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.Resource.Resource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.Resource.Resource
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.Resource.Resource
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.Resource.Resource
 
 
-module Network.AWS.CloudTrail.Types.Event
+module Amazonka.CloudTrail.Types.Event
 
 -- | Contains information about an event that was returned by a lookup
 --   request. The result includes a representation of a CloudTrail event.
@@ -1256,16 +1256,16 @@ event_eventSource :: Lens' Event (Maybe Text)
 
 -- | The CloudTrail ID of the event returned.
 event_eventId :: Lens' Event (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.Event.Event
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.Event.Event
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.Event.Event
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.Event.Event
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.Event.Event
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.Event.Event
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.Event.Event
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.Event.Event
+instance GHC.Show.Show Amazonka.CloudTrail.Types.Event.Event
+instance GHC.Read.Read Amazonka.CloudTrail.Types.Event.Event
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.Event.Event
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.Event.Event
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.Event.Event
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.Event.Event
 
 
-module Network.AWS.CloudTrail.Types.Tag
+module Amazonka.CloudTrail.Types.Tag
 
 -- | A custom key-value pair associated with a resource such as a
 --   CloudTrail trail.
@@ -1308,17 +1308,17 @@ tag_value :: Lens' Tag (Maybe Text)
 --   128 Unicode characters. The key must be unique for the resource to
 --   which it applies.
 tag_key :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.CloudTrail.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.CloudTrail.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.Types.Tag.Tag
 
 
-module Network.AWS.CloudTrail.Types.ResourceTag
+module Amazonka.CloudTrail.Types.ResourceTag
 
 -- | A resource tag.
 --   
@@ -1352,16 +1352,16 @@ resourceTag_resourceId :: Lens' ResourceTag (Maybe Text)
 
 -- | A list of tags.
 resourceTag_tagsList :: Lens' ResourceTag (Maybe [Tag])
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.ResourceTag.ResourceTag
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.ResourceTag.ResourceTag
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.ResourceTag.ResourceTag
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.ResourceTag.ResourceTag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.ResourceTag.ResourceTag
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.ResourceTag.ResourceTag
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.ResourceTag.ResourceTag
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.ResourceTag.ResourceTag
+instance GHC.Show.Show Amazonka.CloudTrail.Types.ResourceTag.ResourceTag
+instance GHC.Read.Read Amazonka.CloudTrail.Types.ResourceTag.ResourceTag
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.ResourceTag.ResourceTag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.ResourceTag.ResourceTag
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.ResourceTag.ResourceTag
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.ResourceTag.ResourceTag
 
 
-module Network.AWS.CloudTrail.Types.Trail
+module Amazonka.CloudTrail.Types.Trail
 
 -- | The settings for a trail.
 --   
@@ -1606,16 +1606,16 @@ trail_s3BucketName :: Lens' Trail (Maybe Text)
 -- | Specifies whether the trail exists only in one region or exists in all
 --   regions.
 trail_isMultiRegionTrail :: Lens' Trail (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.Trail.Trail
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.Trail.Trail
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.Trail.Trail
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.Trail.Trail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.Trail.Trail
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.Trail.Trail
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.Trail.Trail
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.Trail.Trail
+instance GHC.Show.Show Amazonka.CloudTrail.Types.Trail.Trail
+instance GHC.Read.Read Amazonka.CloudTrail.Types.Trail.Trail
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.Trail.Trail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.Trail.Trail
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.Trail.Trail
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.Trail.Trail
 
 
-module Network.AWS.CloudTrail.Types.TrailInfo
+module Amazonka.CloudTrail.Types.TrailInfo
 
 -- | Information about a CloudTrail trail, including the trail's name, home
 --   region, and Amazon Resource Name (ARN).
@@ -1659,16 +1659,16 @@ trailInfo_homeRegion :: Lens' TrailInfo (Maybe Text)
 
 -- | The name of a trail.
 trailInfo_name :: Lens' TrailInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudTrail.Types.TrailInfo.TrailInfo
-instance GHC.Show.Show Network.AWS.CloudTrail.Types.TrailInfo.TrailInfo
-instance GHC.Read.Read Network.AWS.CloudTrail.Types.TrailInfo.TrailInfo
-instance GHC.Classes.Eq Network.AWS.CloudTrail.Types.TrailInfo.TrailInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudTrail.Types.TrailInfo.TrailInfo
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.Types.TrailInfo.TrailInfo
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.Types.TrailInfo.TrailInfo
+instance GHC.Generics.Generic Amazonka.CloudTrail.Types.TrailInfo.TrailInfo
+instance GHC.Show.Show Amazonka.CloudTrail.Types.TrailInfo.TrailInfo
+instance GHC.Read.Read Amazonka.CloudTrail.Types.TrailInfo.TrailInfo
+instance GHC.Classes.Eq Amazonka.CloudTrail.Types.TrailInfo.TrailInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudTrail.Types.TrailInfo.TrailInfo
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.Types.TrailInfo.TrailInfo
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.Types.TrailInfo.TrailInfo
 
 
-module Network.AWS.CloudTrail.Types
+module Amazonka.CloudTrail.Types
 
 -- | API version <tt>2013-11-01</tt> of the Amazon CloudTrail SDK
 --   configuration.
@@ -3351,7 +3351,7 @@ trailInfo_name :: Lens' TrailInfo (Maybe Text)
 --   <tt>InvalidHomeRegionException</tt> will occur. This operation cannot
 --   be called on the shadow trails (replicated trails in other regions) of
 --   a trail enabled in all regions.
-module Network.AWS.CloudTrail.StopLogging
+module Amazonka.CloudTrail.StopLogging
 
 -- | Passes the request to CloudTrail to stop logging Amazon Web Services
 --   API calls for the specified account.
@@ -3422,22 +3422,22 @@ newStopLoggingResponse :: Int -> StopLoggingResponse
 
 -- | The response's http status code.
 stopLoggingResponse_httpStatus :: Lens' StopLoggingResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.StopLogging.StopLogging
-instance GHC.Show.Show Network.AWS.CloudTrail.StopLogging.StopLogging
-instance GHC.Read.Read Network.AWS.CloudTrail.StopLogging.StopLogging
-instance GHC.Classes.Eq Network.AWS.CloudTrail.StopLogging.StopLogging
-instance GHC.Generics.Generic Network.AWS.CloudTrail.StopLogging.StopLoggingResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.StopLogging.StopLoggingResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.StopLogging.StopLoggingResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.StopLogging.StopLoggingResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.StopLogging.StopLogging
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.StopLogging.StopLoggingResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.StopLogging.StopLogging
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.StopLogging.StopLogging
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.StopLogging.StopLogging
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.StopLogging.StopLogging
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.StopLogging.StopLogging
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.StopLogging.StopLogging
+instance GHC.Generics.Generic Amazonka.CloudTrail.StopLogging.StopLogging
+instance GHC.Show.Show Amazonka.CloudTrail.StopLogging.StopLogging
+instance GHC.Read.Read Amazonka.CloudTrail.StopLogging.StopLogging
+instance GHC.Classes.Eq Amazonka.CloudTrail.StopLogging.StopLogging
+instance GHC.Generics.Generic Amazonka.CloudTrail.StopLogging.StopLoggingResponse
+instance GHC.Show.Show Amazonka.CloudTrail.StopLogging.StopLoggingResponse
+instance GHC.Read.Read Amazonka.CloudTrail.StopLogging.StopLoggingResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.StopLogging.StopLoggingResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.StopLogging.StopLogging
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.StopLogging.StopLoggingResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.StopLogging.StopLogging
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.StopLogging.StopLogging
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.StopLogging.StopLogging
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.StopLogging.StopLogging
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.StopLogging.StopLogging
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.StopLogging.StopLogging
 
 
 -- | Starts the recording of Amazon Web Services API calls and log file
@@ -3446,7 +3446,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.StopLogging.StopL
 --   created. This operation cannot be called on the shadow trails
 --   (replicated trails in other regions) of a trail that is enabled in all
 --   regions.
-module Network.AWS.CloudTrail.StartLogging
+module Amazonka.CloudTrail.StartLogging
 
 -- | The request to CloudTrail to start logging Amazon Web Services API
 --   calls for an account.
@@ -3518,26 +3518,26 @@ newStartLoggingResponse :: Int -> StartLoggingResponse
 
 -- | The response's http status code.
 startLoggingResponse_httpStatus :: Lens' StartLoggingResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.StartLogging.StartLogging
-instance GHC.Show.Show Network.AWS.CloudTrail.StartLogging.StartLogging
-instance GHC.Read.Read Network.AWS.CloudTrail.StartLogging.StartLogging
-instance GHC.Classes.Eq Network.AWS.CloudTrail.StartLogging.StartLogging
-instance GHC.Generics.Generic Network.AWS.CloudTrail.StartLogging.StartLoggingResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.StartLogging.StartLoggingResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.StartLogging.StartLoggingResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.StartLogging.StartLoggingResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.StartLogging.StartLogging
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.StartLogging.StartLoggingResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.StartLogging.StartLogging
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.StartLogging.StartLogging
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.StartLogging.StartLogging
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.StartLogging.StartLogging
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.StartLogging.StartLogging
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.StartLogging.StartLogging
+instance GHC.Generics.Generic Amazonka.CloudTrail.StartLogging.StartLogging
+instance GHC.Show.Show Amazonka.CloudTrail.StartLogging.StartLogging
+instance GHC.Read.Read Amazonka.CloudTrail.StartLogging.StartLogging
+instance GHC.Classes.Eq Amazonka.CloudTrail.StartLogging.StartLogging
+instance GHC.Generics.Generic Amazonka.CloudTrail.StartLogging.StartLoggingResponse
+instance GHC.Show.Show Amazonka.CloudTrail.StartLogging.StartLoggingResponse
+instance GHC.Read.Read Amazonka.CloudTrail.StartLogging.StartLoggingResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.StartLogging.StartLoggingResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.StartLogging.StartLogging
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.StartLogging.StartLoggingResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.StartLogging.StartLogging
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.StartLogging.StartLogging
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.StartLogging.StartLogging
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.StartLogging.StartLogging
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.StartLogging.StartLogging
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.StartLogging.StartLogging
 
 
 -- | Removes the specified tags from a trail.
-module Network.AWS.CloudTrail.RemoveTags
+module Amazonka.CloudTrail.RemoveTags
 
 -- | Specifies the tags to remove from a trail.
 --   
@@ -3613,22 +3613,22 @@ newRemoveTagsResponse :: Int -> RemoveTagsResponse
 
 -- | The response's http status code.
 removeTagsResponse_httpStatus :: Lens' RemoveTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.RemoveTags.RemoveTags
-instance GHC.Show.Show Network.AWS.CloudTrail.RemoveTags.RemoveTags
-instance GHC.Read.Read Network.AWS.CloudTrail.RemoveTags.RemoveTags
-instance GHC.Classes.Eq Network.AWS.CloudTrail.RemoveTags.RemoveTags
-instance GHC.Generics.Generic Network.AWS.CloudTrail.RemoveTags.RemoveTagsResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.RemoveTags.RemoveTagsResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.RemoveTags.RemoveTagsResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.RemoveTags.RemoveTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.RemoveTags.RemoveTags
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.RemoveTags.RemoveTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.RemoveTags.RemoveTags
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.RemoveTags.RemoveTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.RemoveTags.RemoveTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.RemoveTags.RemoveTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.RemoveTags.RemoveTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.RemoveTags.RemoveTags
+instance GHC.Generics.Generic Amazonka.CloudTrail.RemoveTags.RemoveTags
+instance GHC.Show.Show Amazonka.CloudTrail.RemoveTags.RemoveTags
+instance GHC.Read.Read Amazonka.CloudTrail.RemoveTags.RemoveTags
+instance GHC.Classes.Eq Amazonka.CloudTrail.RemoveTags.RemoveTags
+instance GHC.Generics.Generic Amazonka.CloudTrail.RemoveTags.RemoveTagsResponse
+instance GHC.Show.Show Amazonka.CloudTrail.RemoveTags.RemoveTagsResponse
+instance GHC.Read.Read Amazonka.CloudTrail.RemoveTags.RemoveTagsResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.RemoveTags.RemoveTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.RemoveTags.RemoveTags
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.RemoveTags.RemoveTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.RemoveTags.RemoveTags
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.RemoveTags.RemoveTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.RemoveTags.RemoveTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.RemoveTags.RemoveTags
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.RemoveTags.RemoveTags
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.RemoveTags.RemoveTags
 
 
 -- | Lets you enable Insights event logging by specifying the Insights
@@ -3636,7 +3636,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.RemoveTags.Remove
 --   <tt>PutInsightSelectors</tt> to turn off Insights event logging, by
 --   passing an empty list of insight types. The valid Insights event type
 --   in this release is <tt>ApiCallRateInsight</tt>.
-module Network.AWS.CloudTrail.PutInsightSelectors
+module Amazonka.CloudTrail.PutInsightSelectors
 
 -- | <i>See:</i> <a>newPutInsightSelectors</a> smart constructor.
 data PutInsightSelectors
@@ -3731,22 +3731,22 @@ putInsightSelectorsResponse_insightSelectors :: Lens' PutInsightSelectorsRespons
 
 -- | The response's http status code.
 putInsightSelectorsResponse_httpStatus :: Lens' PutInsightSelectorsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectors
-instance GHC.Show.Show Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectors
-instance GHC.Read.Read Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectors
-instance GHC.Classes.Eq Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectors
-instance GHC.Generics.Generic Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectorsResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectorsResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectorsResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectorsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectors
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectorsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectors
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectors
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectors
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectors
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectors
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.PutInsightSelectors.PutInsightSelectors
+instance GHC.Generics.Generic Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectors
+instance GHC.Show.Show Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectors
+instance GHC.Read.Read Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectors
+instance GHC.Classes.Eq Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectors
+instance GHC.Generics.Generic Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectorsResponse
+instance GHC.Show.Show Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectorsResponse
+instance GHC.Read.Read Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectorsResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectorsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectors
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectorsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectors
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectors
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectors
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectors
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectors
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.PutInsightSelectors.PutInsightSelectors
 
 
 -- | Configures an event selector or advanced event selectors for your
@@ -3792,7 +3792,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.PutInsightSelecto
 --   existing <tt>EventSelectors</tt> are overwritten. For more information
 --   about advanced event selectors, see <a>Logging data events for
 --   trails</a> in the <i>CloudTrail User Guide</i>.
-module Network.AWS.CloudTrail.PutEventSelectors
+module Amazonka.CloudTrail.PutEventSelectors
 
 -- | <i>See:</i> <a>newPutEventSelectors</a> smart constructor.
 data PutEventSelectors
@@ -3998,22 +3998,22 @@ putEventSelectorsResponse_advancedEventSelectors :: Lens' PutEventSelectorsRespo
 
 -- | The response's http status code.
 putEventSelectorsResponse_httpStatus :: Lens' PutEventSelectorsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectors
-instance GHC.Show.Show Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectors
-instance GHC.Read.Read Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectors
-instance GHC.Classes.Eq Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectors
-instance GHC.Generics.Generic Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectorsResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectorsResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectorsResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectorsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectors
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectorsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectors
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectors
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectors
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectors
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectors
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.PutEventSelectors.PutEventSelectors
+instance GHC.Generics.Generic Amazonka.CloudTrail.PutEventSelectors.PutEventSelectors
+instance GHC.Show.Show Amazonka.CloudTrail.PutEventSelectors.PutEventSelectors
+instance GHC.Read.Read Amazonka.CloudTrail.PutEventSelectors.PutEventSelectors
+instance GHC.Classes.Eq Amazonka.CloudTrail.PutEventSelectors.PutEventSelectors
+instance GHC.Generics.Generic Amazonka.CloudTrail.PutEventSelectors.PutEventSelectorsResponse
+instance GHC.Show.Show Amazonka.CloudTrail.PutEventSelectors.PutEventSelectorsResponse
+instance GHC.Read.Read Amazonka.CloudTrail.PutEventSelectors.PutEventSelectorsResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.PutEventSelectors.PutEventSelectorsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.PutEventSelectors.PutEventSelectors
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.PutEventSelectors.PutEventSelectorsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.PutEventSelectors.PutEventSelectors
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.PutEventSelectors.PutEventSelectors
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.PutEventSelectors.PutEventSelectors
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.PutEventSelectors.PutEventSelectors
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.PutEventSelectors.PutEventSelectors
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.PutEventSelectors.PutEventSelectors
 
 
 -- | Looks up <a>management events</a> or <a>CloudTrail Insights events</a>
@@ -4048,7 +4048,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.PutEventSelectors
 --   per region. If this limit is exceeded, a throttling error occurs.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CloudTrail.LookupEvents
+module Amazonka.CloudTrail.LookupEvents
 
 -- | Contains a request for LookupEvents.
 --   
@@ -4224,29 +4224,29 @@ lookupEventsResponse_events :: Lens' LookupEventsResponse (Maybe [Event])
 
 -- | The response's http status code.
 lookupEventsResponse_httpStatus :: Lens' LookupEventsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.LookupEvents.LookupEvents
-instance GHC.Show.Show Network.AWS.CloudTrail.LookupEvents.LookupEvents
-instance GHC.Read.Read Network.AWS.CloudTrail.LookupEvents.LookupEvents
-instance GHC.Classes.Eq Network.AWS.CloudTrail.LookupEvents.LookupEvents
-instance GHC.Generics.Generic Network.AWS.CloudTrail.LookupEvents.LookupEventsResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.LookupEvents.LookupEventsResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.LookupEvents.LookupEventsResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.LookupEvents.LookupEventsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.LookupEvents.LookupEvents
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.LookupEvents.LookupEventsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CloudTrail.LookupEvents.LookupEvents
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.LookupEvents.LookupEvents
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.LookupEvents.LookupEvents
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.LookupEvents.LookupEvents
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.LookupEvents.LookupEvents
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.LookupEvents.LookupEvents
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.LookupEvents.LookupEvents
+instance GHC.Generics.Generic Amazonka.CloudTrail.LookupEvents.LookupEvents
+instance GHC.Show.Show Amazonka.CloudTrail.LookupEvents.LookupEvents
+instance GHC.Read.Read Amazonka.CloudTrail.LookupEvents.LookupEvents
+instance GHC.Classes.Eq Amazonka.CloudTrail.LookupEvents.LookupEvents
+instance GHC.Generics.Generic Amazonka.CloudTrail.LookupEvents.LookupEventsResponse
+instance GHC.Show.Show Amazonka.CloudTrail.LookupEvents.LookupEventsResponse
+instance GHC.Read.Read Amazonka.CloudTrail.LookupEvents.LookupEventsResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.LookupEvents.LookupEventsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.LookupEvents.LookupEvents
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.LookupEvents.LookupEventsResponse
+instance Amazonka.Pager.AWSPager Amazonka.CloudTrail.LookupEvents.LookupEvents
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.LookupEvents.LookupEvents
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.LookupEvents.LookupEvents
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.LookupEvents.LookupEvents
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.LookupEvents.LookupEvents
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.LookupEvents.LookupEvents
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.LookupEvents.LookupEvents
 
 
 -- | Lists trails that are in the current account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CloudTrail.ListTrails
+module Amazonka.CloudTrail.ListTrails
 
 -- | <i>See:</i> <a>newListTrails</a> smart constructor.
 data ListTrails
@@ -4341,29 +4341,29 @@ listTrailsResponse_trails :: Lens' ListTrailsResponse (Maybe [TrailInfo])
 
 -- | The response's http status code.
 listTrailsResponse_httpStatus :: Lens' ListTrailsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.ListTrails.ListTrails
-instance GHC.Show.Show Network.AWS.CloudTrail.ListTrails.ListTrails
-instance GHC.Read.Read Network.AWS.CloudTrail.ListTrails.ListTrails
-instance GHC.Classes.Eq Network.AWS.CloudTrail.ListTrails.ListTrails
-instance GHC.Generics.Generic Network.AWS.CloudTrail.ListTrails.ListTrailsResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.ListTrails.ListTrailsResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.ListTrails.ListTrailsResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.ListTrails.ListTrailsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.ListTrails.ListTrails
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.ListTrails.ListTrailsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CloudTrail.ListTrails.ListTrails
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.ListTrails.ListTrails
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.ListTrails.ListTrails
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.ListTrails.ListTrails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.ListTrails.ListTrails
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.ListTrails.ListTrails
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.ListTrails.ListTrails
+instance GHC.Generics.Generic Amazonka.CloudTrail.ListTrails.ListTrails
+instance GHC.Show.Show Amazonka.CloudTrail.ListTrails.ListTrails
+instance GHC.Read.Read Amazonka.CloudTrail.ListTrails.ListTrails
+instance GHC.Classes.Eq Amazonka.CloudTrail.ListTrails.ListTrails
+instance GHC.Generics.Generic Amazonka.CloudTrail.ListTrails.ListTrailsResponse
+instance GHC.Show.Show Amazonka.CloudTrail.ListTrails.ListTrailsResponse
+instance GHC.Read.Read Amazonka.CloudTrail.ListTrails.ListTrailsResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.ListTrails.ListTrailsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.ListTrails.ListTrails
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.ListTrails.ListTrailsResponse
+instance Amazonka.Pager.AWSPager Amazonka.CloudTrail.ListTrails.ListTrails
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.ListTrails.ListTrails
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.ListTrails.ListTrails
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.ListTrails.ListTrails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.ListTrails.ListTrails
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.ListTrails.ListTrails
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.ListTrails.ListTrails
 
 
 -- | Lists the tags for the trail in the current region.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CloudTrail.ListTags
+module Amazonka.CloudTrail.ListTags
 
 -- | Specifies a list of trail tags to return.
 --   
@@ -4456,23 +4456,23 @@ listTagsResponse_resourceTagList :: Lens' ListTagsResponse (Maybe [ResourceTag])
 
 -- | The response's http status code.
 listTagsResponse_httpStatus :: Lens' ListTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.ListTags.ListTags
-instance GHC.Show.Show Network.AWS.CloudTrail.ListTags.ListTags
-instance GHC.Read.Read Network.AWS.CloudTrail.ListTags.ListTags
-instance GHC.Classes.Eq Network.AWS.CloudTrail.ListTags.ListTags
-instance GHC.Generics.Generic Network.AWS.CloudTrail.ListTags.ListTagsResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.ListTags.ListTagsResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.ListTags.ListTagsResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.ListTags.ListTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.ListTags.ListTags
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.ListTags.ListTagsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CloudTrail.ListTags.ListTags
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.ListTags.ListTags
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.ListTags.ListTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.ListTags.ListTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.ListTags.ListTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.ListTags.ListTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.ListTags.ListTags
+instance GHC.Generics.Generic Amazonka.CloudTrail.ListTags.ListTags
+instance GHC.Show.Show Amazonka.CloudTrail.ListTags.ListTags
+instance GHC.Read.Read Amazonka.CloudTrail.ListTags.ListTags
+instance GHC.Classes.Eq Amazonka.CloudTrail.ListTags.ListTags
+instance GHC.Generics.Generic Amazonka.CloudTrail.ListTags.ListTagsResponse
+instance GHC.Show.Show Amazonka.CloudTrail.ListTags.ListTagsResponse
+instance GHC.Read.Read Amazonka.CloudTrail.ListTags.ListTagsResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.ListTags.ListTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.ListTags.ListTags
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.ListTags.ListTagsResponse
+instance Amazonka.Pager.AWSPager Amazonka.CloudTrail.ListTags.ListTags
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.ListTags.ListTags
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.ListTags.ListTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.ListTags.ListTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.ListTags.ListTags
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.ListTags.ListTags
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.ListTags.ListTags
 
 
 -- | Returns all public keys whose private keys were used to sign the
@@ -4486,7 +4486,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.ListTags.ListTags
 --   in the same region for its corresponding public key.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CloudTrail.ListPublicKeys
+module Amazonka.CloudTrail.ListPublicKeys
 
 -- | Requests the public keys for a specified time range.
 --   
@@ -4594,23 +4594,23 @@ listPublicKeysResponse_nextToken :: Lens' ListPublicKeysResponse (Maybe Text)
 
 -- | The response's http status code.
 listPublicKeysResponse_httpStatus :: Lens' ListPublicKeysResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeys
-instance GHC.Show.Show Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeys
-instance GHC.Read.Read Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeys
-instance GHC.Classes.Eq Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeys
-instance GHC.Generics.Generic Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeysResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeysResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeysResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeysResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeys
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeysResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeys
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeys
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeys
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeys
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeys
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeys
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.ListPublicKeys.ListPublicKeys
+instance GHC.Generics.Generic Amazonka.CloudTrail.ListPublicKeys.ListPublicKeys
+instance GHC.Show.Show Amazonka.CloudTrail.ListPublicKeys.ListPublicKeys
+instance GHC.Read.Read Amazonka.CloudTrail.ListPublicKeys.ListPublicKeys
+instance GHC.Classes.Eq Amazonka.CloudTrail.ListPublicKeys.ListPublicKeys
+instance GHC.Generics.Generic Amazonka.CloudTrail.ListPublicKeys.ListPublicKeysResponse
+instance GHC.Show.Show Amazonka.CloudTrail.ListPublicKeys.ListPublicKeysResponse
+instance GHC.Read.Read Amazonka.CloudTrail.ListPublicKeys.ListPublicKeysResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.ListPublicKeys.ListPublicKeysResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.ListPublicKeys.ListPublicKeys
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.ListPublicKeys.ListPublicKeysResponse
+instance Amazonka.Pager.AWSPager Amazonka.CloudTrail.ListPublicKeys.ListPublicKeys
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.ListPublicKeys.ListPublicKeys
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.ListPublicKeys.ListPublicKeys
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.ListPublicKeys.ListPublicKeys
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.ListPublicKeys.ListPublicKeys
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.ListPublicKeys.ListPublicKeys
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.ListPublicKeys.ListPublicKeys
 
 
 -- | Returns a JSON-formatted list of information about the specified
@@ -4619,7 +4619,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.ListPublicKeys.Li
 --   This operation returns trail status from a single region. To return
 --   trail status from all regions, you must call the operation on each
 --   region.
-module Network.AWS.CloudTrail.GetTrailStatus
+module Amazonka.CloudTrail.GetTrailStatus
 
 -- | The name of a trail about which you want the current status.
 --   
@@ -4948,26 +4948,26 @@ getTrailStatusResponse_stopLoggingTime :: Lens' GetTrailStatusResponse (Maybe UT
 
 -- | The response's http status code.
 getTrailStatusResponse_httpStatus :: Lens' GetTrailStatusResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatus
-instance GHC.Show.Show Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatus
-instance GHC.Read.Read Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatus
-instance GHC.Classes.Eq Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatus
-instance GHC.Generics.Generic Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatusResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatusResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatusResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatusResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.GetTrailStatus.GetTrailStatus
+instance GHC.Generics.Generic Amazonka.CloudTrail.GetTrailStatus.GetTrailStatus
+instance GHC.Show.Show Amazonka.CloudTrail.GetTrailStatus.GetTrailStatus
+instance GHC.Read.Read Amazonka.CloudTrail.GetTrailStatus.GetTrailStatus
+instance GHC.Classes.Eq Amazonka.CloudTrail.GetTrailStatus.GetTrailStatus
+instance GHC.Generics.Generic Amazonka.CloudTrail.GetTrailStatus.GetTrailStatusResponse
+instance GHC.Show.Show Amazonka.CloudTrail.GetTrailStatus.GetTrailStatusResponse
+instance GHC.Read.Read Amazonka.CloudTrail.GetTrailStatus.GetTrailStatusResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.GetTrailStatus.GetTrailStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.GetTrailStatus.GetTrailStatus
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.GetTrailStatus.GetTrailStatusResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.GetTrailStatus.GetTrailStatus
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.GetTrailStatus.GetTrailStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.GetTrailStatus.GetTrailStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.GetTrailStatus.GetTrailStatus
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.GetTrailStatus.GetTrailStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.GetTrailStatus.GetTrailStatus
 
 
 -- | Returns settings information for a specified trail.
-module Network.AWS.CloudTrail.GetTrail
+module Amazonka.CloudTrail.GetTrail
 
 -- | <i>See:</i> <a>newGetTrail</a> smart constructor.
 data GetTrail
@@ -5023,22 +5023,22 @@ getTrailResponse_trail :: Lens' GetTrailResponse (Maybe Trail)
 
 -- | The response's http status code.
 getTrailResponse_httpStatus :: Lens' GetTrailResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.GetTrail.GetTrail
-instance GHC.Show.Show Network.AWS.CloudTrail.GetTrail.GetTrail
-instance GHC.Read.Read Network.AWS.CloudTrail.GetTrail.GetTrail
-instance GHC.Classes.Eq Network.AWS.CloudTrail.GetTrail.GetTrail
-instance GHC.Generics.Generic Network.AWS.CloudTrail.GetTrail.GetTrailResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.GetTrail.GetTrailResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.GetTrail.GetTrailResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.GetTrail.GetTrailResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.GetTrail.GetTrail
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.GetTrail.GetTrailResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.GetTrail.GetTrail
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.GetTrail.GetTrail
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.GetTrail.GetTrail
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.GetTrail.GetTrail
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.GetTrail.GetTrail
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.GetTrail.GetTrail
+instance GHC.Generics.Generic Amazonka.CloudTrail.GetTrail.GetTrail
+instance GHC.Show.Show Amazonka.CloudTrail.GetTrail.GetTrail
+instance GHC.Read.Read Amazonka.CloudTrail.GetTrail.GetTrail
+instance GHC.Classes.Eq Amazonka.CloudTrail.GetTrail.GetTrail
+instance GHC.Generics.Generic Amazonka.CloudTrail.GetTrail.GetTrailResponse
+instance GHC.Show.Show Amazonka.CloudTrail.GetTrail.GetTrailResponse
+instance GHC.Read.Read Amazonka.CloudTrail.GetTrail.GetTrailResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.GetTrail.GetTrailResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.GetTrail.GetTrail
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.GetTrail.GetTrailResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.GetTrail.GetTrail
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.GetTrail.GetTrail
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.GetTrail.GetTrail
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.GetTrail.GetTrail
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.GetTrail.GetTrail
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.GetTrail.GetTrail
 
 
 -- | Describes the settings for the Insights event selectors that you
@@ -5051,7 +5051,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.GetTrail.GetTrail
 --   
 --   For more information, see <a>Logging CloudTrail Insights Events for
 --   Trails</a> in the <i>CloudTrail User Guide</i>.
-module Network.AWS.CloudTrail.GetInsightSelectors
+module Amazonka.CloudTrail.GetInsightSelectors
 
 -- | <i>See:</i> <a>newGetInsightSelectors</a> smart constructor.
 data GetInsightSelectors
@@ -5182,22 +5182,22 @@ getInsightSelectorsResponse_insightSelectors :: Lens' GetInsightSelectorsRespons
 
 -- | The response's http status code.
 getInsightSelectorsResponse_httpStatus :: Lens' GetInsightSelectorsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectors
-instance GHC.Show.Show Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectors
-instance GHC.Read.Read Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectors
-instance GHC.Classes.Eq Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectors
-instance GHC.Generics.Generic Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectorsResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectorsResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectorsResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectorsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectors
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectorsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectors
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectors
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectors
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectors
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectors
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.GetInsightSelectors.GetInsightSelectors
+instance GHC.Generics.Generic Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectors
+instance GHC.Show.Show Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectors
+instance GHC.Read.Read Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectors
+instance GHC.Classes.Eq Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectors
+instance GHC.Generics.Generic Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectorsResponse
+instance GHC.Show.Show Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectorsResponse
+instance GHC.Read.Read Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectorsResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectorsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectors
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectorsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectors
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectors
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectors
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectors
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectors
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.GetInsightSelectors.GetInsightSelectors
 
 
 -- | Describes the settings for the event selectors that you configured for
@@ -5215,7 +5215,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.GetInsightSelecto
 --   
 --   For more information, see <a>Logging Data and Management Events for
 --   Trails</a> in the <i>CloudTrail User Guide</i>.
-module Network.AWS.CloudTrail.GetEventSelectors
+module Amazonka.CloudTrail.GetEventSelectors
 
 -- | <i>See:</i> <a>newGetEventSelectors</a> smart constructor.
 data GetEventSelectors
@@ -5348,27 +5348,27 @@ getEventSelectorsResponse_advancedEventSelectors :: Lens' GetEventSelectorsRespo
 
 -- | The response's http status code.
 getEventSelectorsResponse_httpStatus :: Lens' GetEventSelectorsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectors
-instance GHC.Show.Show Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectors
-instance GHC.Read.Read Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectors
-instance GHC.Classes.Eq Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectors
-instance GHC.Generics.Generic Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectorsResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectorsResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectorsResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectorsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectors
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectorsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectors
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectors
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectors
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectors
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectors
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.GetEventSelectors.GetEventSelectors
+instance GHC.Generics.Generic Amazonka.CloudTrail.GetEventSelectors.GetEventSelectors
+instance GHC.Show.Show Amazonka.CloudTrail.GetEventSelectors.GetEventSelectors
+instance GHC.Read.Read Amazonka.CloudTrail.GetEventSelectors.GetEventSelectors
+instance GHC.Classes.Eq Amazonka.CloudTrail.GetEventSelectors.GetEventSelectors
+instance GHC.Generics.Generic Amazonka.CloudTrail.GetEventSelectors.GetEventSelectorsResponse
+instance GHC.Show.Show Amazonka.CloudTrail.GetEventSelectors.GetEventSelectorsResponse
+instance GHC.Read.Read Amazonka.CloudTrail.GetEventSelectors.GetEventSelectorsResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.GetEventSelectors.GetEventSelectorsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.GetEventSelectors.GetEventSelectors
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.GetEventSelectors.GetEventSelectorsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.GetEventSelectors.GetEventSelectors
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.GetEventSelectors.GetEventSelectors
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.GetEventSelectors.GetEventSelectors
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.GetEventSelectors.GetEventSelectors
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.GetEventSelectors.GetEventSelectors
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.GetEventSelectors.GetEventSelectors
 
 
 -- | Retrieves settings for one or more trails associated with the current
 --   region for your account.
-module Network.AWS.CloudTrail.DescribeTrails
+module Amazonka.CloudTrail.DescribeTrails
 
 -- | Returns information about the trail.
 --   
@@ -5538,29 +5538,29 @@ describeTrailsResponse_trailList :: Lens' DescribeTrailsResponse (Maybe [Trail])
 
 -- | The response's http status code.
 describeTrailsResponse_httpStatus :: Lens' DescribeTrailsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.DescribeTrails.DescribeTrails
-instance GHC.Show.Show Network.AWS.CloudTrail.DescribeTrails.DescribeTrails
-instance GHC.Read.Read Network.AWS.CloudTrail.DescribeTrails.DescribeTrails
-instance GHC.Classes.Eq Network.AWS.CloudTrail.DescribeTrails.DescribeTrails
-instance GHC.Generics.Generic Network.AWS.CloudTrail.DescribeTrails.DescribeTrailsResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.DescribeTrails.DescribeTrailsResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.DescribeTrails.DescribeTrailsResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.DescribeTrails.DescribeTrailsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.DescribeTrails.DescribeTrails
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.DescribeTrails.DescribeTrailsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.DescribeTrails.DescribeTrails
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.DescribeTrails.DescribeTrails
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.DescribeTrails.DescribeTrails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.DescribeTrails.DescribeTrails
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.DescribeTrails.DescribeTrails
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.DescribeTrails.DescribeTrails
+instance GHC.Generics.Generic Amazonka.CloudTrail.DescribeTrails.DescribeTrails
+instance GHC.Show.Show Amazonka.CloudTrail.DescribeTrails.DescribeTrails
+instance GHC.Read.Read Amazonka.CloudTrail.DescribeTrails.DescribeTrails
+instance GHC.Classes.Eq Amazonka.CloudTrail.DescribeTrails.DescribeTrails
+instance GHC.Generics.Generic Amazonka.CloudTrail.DescribeTrails.DescribeTrailsResponse
+instance GHC.Show.Show Amazonka.CloudTrail.DescribeTrails.DescribeTrailsResponse
+instance GHC.Read.Read Amazonka.CloudTrail.DescribeTrails.DescribeTrailsResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.DescribeTrails.DescribeTrailsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.DescribeTrails.DescribeTrails
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.DescribeTrails.DescribeTrailsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.DescribeTrails.DescribeTrails
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.DescribeTrails.DescribeTrails
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.DescribeTrails.DescribeTrails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.DescribeTrails.DescribeTrails
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.DescribeTrails.DescribeTrails
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.DescribeTrails.DescribeTrails
 
 
 -- | Deletes a trail. This operation must be called from the region in
 --   which the trail was created. <tt>DeleteTrail</tt> cannot be called on
 --   the shadow trails (replicated trails in other regions) of a trail that
 --   is enabled in all regions.
-module Network.AWS.CloudTrail.DeleteTrail
+module Amazonka.CloudTrail.DeleteTrail
 
 -- | The request that specifies the name of a trail to delete.
 --   
@@ -5618,27 +5618,27 @@ newDeleteTrailResponse :: Int -> DeleteTrailResponse
 
 -- | The response's http status code.
 deleteTrailResponse_httpStatus :: Lens' DeleteTrailResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.DeleteTrail.DeleteTrail
-instance GHC.Show.Show Network.AWS.CloudTrail.DeleteTrail.DeleteTrail
-instance GHC.Read.Read Network.AWS.CloudTrail.DeleteTrail.DeleteTrail
-instance GHC.Classes.Eq Network.AWS.CloudTrail.DeleteTrail.DeleteTrail
-instance GHC.Generics.Generic Network.AWS.CloudTrail.DeleteTrail.DeleteTrailResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.DeleteTrail.DeleteTrailResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.DeleteTrail.DeleteTrailResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.DeleteTrail.DeleteTrailResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.DeleteTrail.DeleteTrail
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.DeleteTrail.DeleteTrailResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.DeleteTrail.DeleteTrail
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.DeleteTrail.DeleteTrail
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.DeleteTrail.DeleteTrail
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.DeleteTrail.DeleteTrail
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.DeleteTrail.DeleteTrail
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.DeleteTrail.DeleteTrail
+instance GHC.Generics.Generic Amazonka.CloudTrail.DeleteTrail.DeleteTrail
+instance GHC.Show.Show Amazonka.CloudTrail.DeleteTrail.DeleteTrail
+instance GHC.Read.Read Amazonka.CloudTrail.DeleteTrail.DeleteTrail
+instance GHC.Classes.Eq Amazonka.CloudTrail.DeleteTrail.DeleteTrail
+instance GHC.Generics.Generic Amazonka.CloudTrail.DeleteTrail.DeleteTrailResponse
+instance GHC.Show.Show Amazonka.CloudTrail.DeleteTrail.DeleteTrailResponse
+instance GHC.Read.Read Amazonka.CloudTrail.DeleteTrail.DeleteTrailResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.DeleteTrail.DeleteTrailResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.DeleteTrail.DeleteTrail
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.DeleteTrail.DeleteTrailResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.DeleteTrail.DeleteTrail
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.DeleteTrail.DeleteTrail
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.DeleteTrail.DeleteTrail
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.DeleteTrail.DeleteTrail
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.DeleteTrail.DeleteTrail
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.DeleteTrail.DeleteTrail
 
 
 -- | Creates a trail that specifies the settings for delivery of log data
 --   to an Amazon S3 bucket.
-module Network.AWS.CloudTrail.CreateTrail
+module Amazonka.CloudTrail.CreateTrail
 
 -- | Specifies the settings for each trail.
 --   
@@ -6154,22 +6154,22 @@ createTrailResponse_isMultiRegionTrail :: Lens' CreateTrailResponse (Maybe Bool)
 
 -- | The response's http status code.
 createTrailResponse_httpStatus :: Lens' CreateTrailResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.CreateTrail.CreateTrail
-instance GHC.Show.Show Network.AWS.CloudTrail.CreateTrail.CreateTrail
-instance GHC.Read.Read Network.AWS.CloudTrail.CreateTrail.CreateTrail
-instance GHC.Classes.Eq Network.AWS.CloudTrail.CreateTrail.CreateTrail
-instance GHC.Generics.Generic Network.AWS.CloudTrail.CreateTrail.CreateTrailResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.CreateTrail.CreateTrailResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.CreateTrail.CreateTrailResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.CreateTrail.CreateTrailResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.CreateTrail.CreateTrail
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.CreateTrail.CreateTrailResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.CreateTrail.CreateTrail
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.CreateTrail.CreateTrail
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.CreateTrail.CreateTrail
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.CreateTrail.CreateTrail
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.CreateTrail.CreateTrail
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.CreateTrail.CreateTrail
+instance GHC.Generics.Generic Amazonka.CloudTrail.CreateTrail.CreateTrail
+instance GHC.Show.Show Amazonka.CloudTrail.CreateTrail.CreateTrail
+instance GHC.Read.Read Amazonka.CloudTrail.CreateTrail.CreateTrail
+instance GHC.Classes.Eq Amazonka.CloudTrail.CreateTrail.CreateTrail
+instance GHC.Generics.Generic Amazonka.CloudTrail.CreateTrail.CreateTrailResponse
+instance GHC.Show.Show Amazonka.CloudTrail.CreateTrail.CreateTrailResponse
+instance GHC.Read.Read Amazonka.CloudTrail.CreateTrail.CreateTrailResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.CreateTrail.CreateTrailResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.CreateTrail.CreateTrail
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.CreateTrail.CreateTrailResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.CreateTrail.CreateTrail
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.CreateTrail.CreateTrail
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.CreateTrail.CreateTrail
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.CreateTrail.CreateTrail
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.CreateTrail.CreateTrail
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.CreateTrail.CreateTrail
 
 
 -- | Adds one or more tags to a trail, up to a limit of 50. Overwrites an
@@ -6180,7 +6180,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.CreateTrail.Creat
 --   value of null. You can tag a trail that applies to all Amazon Web
 --   Services Regions only from the Region in which the trail was created
 --   (also known as its home region).
-module Network.AWS.CloudTrail.AddTags
+module Amazonka.CloudTrail.AddTags
 
 -- | Specifies the tags to add to a trail.
 --   
@@ -6255,22 +6255,22 @@ newAddTagsResponse :: Int -> AddTagsResponse
 
 -- | The response's http status code.
 addTagsResponse_httpStatus :: Lens' AddTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.AddTags.AddTags
-instance GHC.Show.Show Network.AWS.CloudTrail.AddTags.AddTags
-instance GHC.Read.Read Network.AWS.CloudTrail.AddTags.AddTags
-instance GHC.Classes.Eq Network.AWS.CloudTrail.AddTags.AddTags
-instance GHC.Generics.Generic Network.AWS.CloudTrail.AddTags.AddTagsResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.AddTags.AddTagsResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.AddTags.AddTagsResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.AddTags.AddTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.AddTags.AddTags
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.AddTags.AddTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.AddTags.AddTags
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.AddTags.AddTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.AddTags.AddTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.AddTags.AddTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.AddTags.AddTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.AddTags.AddTags
+instance GHC.Generics.Generic Amazonka.CloudTrail.AddTags.AddTags
+instance GHC.Show.Show Amazonka.CloudTrail.AddTags.AddTags
+instance GHC.Read.Read Amazonka.CloudTrail.AddTags.AddTags
+instance GHC.Classes.Eq Amazonka.CloudTrail.AddTags.AddTags
+instance GHC.Generics.Generic Amazonka.CloudTrail.AddTags.AddTagsResponse
+instance GHC.Show.Show Amazonka.CloudTrail.AddTags.AddTagsResponse
+instance GHC.Read.Read Amazonka.CloudTrail.AddTags.AddTagsResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.AddTags.AddTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.AddTags.AddTags
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.AddTags.AddTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.AddTags.AddTags
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.AddTags.AddTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.AddTags.AddTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.AddTags.AddTags
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.AddTags.AddTags
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.AddTags.AddTags
 
 
 -- | Updates trail settings that control what events you are logging, and
@@ -6281,7 +6281,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.AddTags.AddTags
 --   <tt>UpdateTrail</tt> must be called from the region in which the trail
 --   was created; otherwise, an <tt>InvalidHomeRegionException</tt> is
 --   thrown.
-module Network.AWS.CloudTrail.UpdateTrail
+module Amazonka.CloudTrail.UpdateTrail
 
 -- | Specifies settings to update for the trail.
 --   
@@ -6838,25 +6838,25 @@ updateTrailResponse_isMultiRegionTrail :: Lens' UpdateTrailResponse (Maybe Bool)
 
 -- | The response's http status code.
 updateTrailResponse_httpStatus :: Lens' UpdateTrailResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudTrail.UpdateTrail.UpdateTrail
-instance GHC.Show.Show Network.AWS.CloudTrail.UpdateTrail.UpdateTrail
-instance GHC.Read.Read Network.AWS.CloudTrail.UpdateTrail.UpdateTrail
-instance GHC.Classes.Eq Network.AWS.CloudTrail.UpdateTrail.UpdateTrail
-instance GHC.Generics.Generic Network.AWS.CloudTrail.UpdateTrail.UpdateTrailResponse
-instance GHC.Show.Show Network.AWS.CloudTrail.UpdateTrail.UpdateTrailResponse
-instance GHC.Read.Read Network.AWS.CloudTrail.UpdateTrail.UpdateTrailResponse
-instance GHC.Classes.Eq Network.AWS.CloudTrail.UpdateTrail.UpdateTrailResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudTrail.UpdateTrail.UpdateTrail
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.UpdateTrail.UpdateTrailResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudTrail.UpdateTrail.UpdateTrail
-instance Control.DeepSeq.NFData Network.AWS.CloudTrail.UpdateTrail.UpdateTrail
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudTrail.UpdateTrail.UpdateTrail
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudTrail.UpdateTrail.UpdateTrail
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudTrail.UpdateTrail.UpdateTrail
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudTrail.UpdateTrail.UpdateTrail
+instance GHC.Generics.Generic Amazonka.CloudTrail.UpdateTrail.UpdateTrail
+instance GHC.Show.Show Amazonka.CloudTrail.UpdateTrail.UpdateTrail
+instance GHC.Read.Read Amazonka.CloudTrail.UpdateTrail.UpdateTrail
+instance GHC.Classes.Eq Amazonka.CloudTrail.UpdateTrail.UpdateTrail
+instance GHC.Generics.Generic Amazonka.CloudTrail.UpdateTrail.UpdateTrailResponse
+instance GHC.Show.Show Amazonka.CloudTrail.UpdateTrail.UpdateTrailResponse
+instance GHC.Read.Read Amazonka.CloudTrail.UpdateTrail.UpdateTrailResponse
+instance GHC.Classes.Eq Amazonka.CloudTrail.UpdateTrail.UpdateTrailResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudTrail.UpdateTrail.UpdateTrail
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.UpdateTrail.UpdateTrailResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudTrail.UpdateTrail.UpdateTrail
+instance Control.DeepSeq.NFData Amazonka.CloudTrail.UpdateTrail.UpdateTrail
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudTrail.UpdateTrail.UpdateTrail
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudTrail.UpdateTrail.UpdateTrail
+instance Amazonka.Data.Path.ToPath Amazonka.CloudTrail.UpdateTrail.UpdateTrail
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudTrail.UpdateTrail.UpdateTrail
 
 
-module Network.AWS.CloudTrail.Lens
+module Amazonka.CloudTrail.Lens
 
 -- | Specifies whether to include shadow trails in the response. A shadow
 --   trail is the replication in a region of a trail that was created in a
@@ -8025,7 +8025,7 @@ trailInfo_homeRegion :: Lens' TrailInfo (Maybe Text)
 trailInfo_name :: Lens' TrailInfo (Maybe Text)
 
 
-module Network.AWS.CloudTrail.Waiters
+module Amazonka.CloudTrail.Waiters
 
 
 -- | Derived from API version <tt>2013-11-01</tt> of the AWS service
@@ -8056,7 +8056,7 @@ module Network.AWS.CloudTrail.Waiters
 --   See the <a>CloudTrail User Guide</a> for information about the data
 --   that is included with each Amazon Web Services API call listed in the
 --   log files.
-module Network.AWS.CloudTrail
+module Amazonka.CloudTrail
 
 -- | API version <tt>2013-11-01</tt> of the Amazon CloudTrail SDK
 --   configuration.

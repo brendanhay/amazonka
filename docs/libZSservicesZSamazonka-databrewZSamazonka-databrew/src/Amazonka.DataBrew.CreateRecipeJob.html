@@ -1,0 +1,1164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DataBrew.CreateRecipeJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new job to transform input data, using steps defined in an</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- existing Glue DataBrew recipe</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataBrew.CreateRecipeJob</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier">CreateRecipeJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#newCreateRecipeJob"><span class="hs-identifier">newCreateRecipeJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_dataCatalogOutputs"><span class="hs-identifier">createRecipeJob_dataCatalogOutputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_recipeReference"><span class="hs-identifier">createRecipeJob_recipeReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_databaseOutputs"><span class="hs-identifier">createRecipeJob_databaseOutputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_encryptionMode"><span class="hs-identifier">createRecipeJob_encryptionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_outputs"><span class="hs-identifier">createRecipeJob_outputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_logSubscription"><span class="hs-identifier">createRecipeJob_logSubscription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_projectName"><span class="hs-identifier">createRecipeJob_projectName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_maxRetries"><span class="hs-identifier">createRecipeJob_maxRetries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_datasetName"><span class="hs-identifier">createRecipeJob_datasetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_encryptionKeyArn"><span class="hs-identifier">createRecipeJob_encryptionKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_maxCapacity"><span class="hs-identifier">createRecipeJob_maxCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_timeout"><span class="hs-identifier">createRecipeJob_timeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_tags"><span class="hs-identifier">createRecipeJob_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_name"><span class="hs-identifier">createRecipeJob_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_roleArn"><span class="hs-identifier">createRecipeJob_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse"><span class="hs-identifier">CreateRecipeJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#newCreateRecipeJobResponse"><span class="hs-identifier">newCreateRecipeJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJobResponse_httpStatus"><span class="hs-identifier">createRecipeJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJobResponse_name"><span class="hs-identifier">createRecipeJobResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.html"><span class="hs-identifier">Amazonka.DataBrew.Types</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newCreateRecipeJob' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679307904"><span id="local-6989586621679307905"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRecipeJob"><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-var">CreateRecipeJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRecipeJob%27"><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-var">CreateRecipeJob'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more artifacts that represent the Glue Data Catalog output from</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- running the job.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AdataCatalogOutputs%3ACreateRecipeJob%27"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; Maybe (NonEmpty DataCatalogOutput)
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AdataCatalogOutputs%3ACreateRecipeJob%27"><span class="hs-identifier hs-var hs-var">dataCatalogOutputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DataCatalogOutput.html#DataCatalogOutput"><span class="hs-identifier hs-type">DataCatalogOutput</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3ArecipeReference%3ACreateRecipeJob%27"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; Maybe RecipeReference
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3ArecipeReference%3ACreateRecipeJob%27"><span class="hs-identifier hs-var hs-var">recipeReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.RecipeReference.html#RecipeReference"><span class="hs-identifier hs-type">RecipeReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Represents a list of JDBC database output objects which defines the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- output destination for a DataBrew recipe job to write to.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AdatabaseOutputs%3ACreateRecipeJob%27"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; Maybe (NonEmpty DatabaseOutput)
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AdatabaseOutputs%3ACreateRecipeJob%27"><span class="hs-identifier hs-var hs-var">databaseOutputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput"><span class="hs-identifier hs-type">DatabaseOutput</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The encryption mode for the job, which can be one of the following:</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   @SSE-KMS@ - Server-side encryption with keys managed by KMS.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AencryptionMode%3ACreateRecipeJob%27"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; Maybe EncryptionMode
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AencryptionMode%3ACreateRecipeJob%27"><span class="hs-identifier hs-var hs-var">encryptionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.EncryptionMode.html#EncryptionMode"><span class="hs-identifier hs-type">EncryptionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | One or more artifacts that represent the output from running the job.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Aoutputs%3ACreateRecipeJob%27"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; Maybe (NonEmpty Output)
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3Aoutputs%3ACreateRecipeJob%27"><span class="hs-identifier hs-var hs-var">outputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Enables or disables Amazon CloudWatch logging for the job. If logging is</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- enabled, CloudWatch writes one log stream for each job run.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AlogSubscription%3ACreateRecipeJob%27"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; Maybe LogSubscription
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AlogSubscription%3ACreateRecipeJob%27"><span class="hs-identifier hs-var hs-var">logSubscription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.LogSubscription.html#LogSubscription"><span class="hs-identifier hs-type">LogSubscription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | Either the name of an existing project, or a combination of a recipe and</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- a dataset to associate with the recipe.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AprojectName%3ACreateRecipeJob%27"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AprojectName%3ACreateRecipeJob%27"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The maximum number of times to retry the job after a job run fails.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AmaxRetries%3ACreateRecipeJob%27"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; Maybe Natural
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AmaxRetries%3ACreateRecipeJob%27"><span class="hs-identifier hs-var hs-var">maxRetries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The name of the dataset that this job processes.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AdatasetName%3ACreateRecipeJob%27"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AdatasetName%3ACreateRecipeJob%27"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an encryption key that is used to</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- protect the job.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AencryptionKeyArn%3ACreateRecipeJob%27"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AencryptionKeyArn%3ACreateRecipeJob%27"><span class="hs-identifier hs-var hs-var">encryptionKeyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The maximum number of nodes that DataBrew can consume when the job</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- processes data.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AmaxCapacity%3ACreateRecipeJob%27"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; Maybe Int
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AmaxCapacity%3ACreateRecipeJob%27"><span class="hs-identifier hs-var hs-var">maxCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The job\'s timeout in minutes. A job that attempts to run longer than</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- this timeout period ends with a status of @TIMEOUT@.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3Atimeout%3ACreateRecipeJob%27"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; Maybe Natural
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3Atimeout%3ACreateRecipeJob%27"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | Metadata tags to apply to this job.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3Atags%3ACreateRecipeJob%27"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3Atags%3ACreateRecipeJob%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | A unique name for the job. Valid characters are alphanumeric (A-Z, a-z,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- 0-9), hyphen (-), period (.), and space.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3Aname%3ACreateRecipeJob%27"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3Aname%3ACreateRecipeJob%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- (IAM) role to be assumed when DataBrew runs the job.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateRecipeJob%27"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AroleArn%3ACreateRecipeJob%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307884"><span id="local-6989586621679307886"><span class="annot"><span class="annottext">CreateRecipeJob -&gt; CreateRecipeJob -&gt; Bool
+(CreateRecipeJob -&gt; CreateRecipeJob -&gt; Bool)
+-&gt; (CreateRecipeJob -&gt; CreateRecipeJob -&gt; Bool)
+-&gt; Eq CreateRecipeJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRecipeJob -&gt; CreateRecipeJob -&gt; Bool
+$c/= :: CreateRecipeJob -&gt; CreateRecipeJob -&gt; Bool
+== :: CreateRecipeJob -&gt; CreateRecipeJob -&gt; Bool
+$c== :: CreateRecipeJob -&gt; CreateRecipeJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307875"><span id="local-6989586621679307877"><span id="local-6989586621679307879"><span id="local-6989586621679307881"><span class="annot"><span class="annottext">ReadPrec [CreateRecipeJob]
+ReadPrec CreateRecipeJob
+Int -&gt; ReadS CreateRecipeJob
+ReadS [CreateRecipeJob]
+(Int -&gt; ReadS CreateRecipeJob)
+-&gt; ReadS [CreateRecipeJob]
+-&gt; ReadPrec CreateRecipeJob
+-&gt; ReadPrec [CreateRecipeJob]
+-&gt; Read CreateRecipeJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRecipeJob]
+$creadListPrec :: ReadPrec [CreateRecipeJob]
+readPrec :: ReadPrec CreateRecipeJob
+$creadPrec :: ReadPrec CreateRecipeJob
+readList :: ReadS [CreateRecipeJob]
+$creadList :: ReadS [CreateRecipeJob]
+readsPrec :: Int -&gt; ReadS CreateRecipeJob
+$creadsPrec :: Int -&gt; ReadS CreateRecipeJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307868"><span id="local-6989586621679307870"><span id="local-6989586621679307872"><span class="annot"><span class="annottext">Int -&gt; CreateRecipeJob -&gt; ShowS
+[CreateRecipeJob] -&gt; ShowS
+CreateRecipeJob -&gt; String
+(Int -&gt; CreateRecipeJob -&gt; ShowS)
+-&gt; (CreateRecipeJob -&gt; String)
+-&gt; ([CreateRecipeJob] -&gt; ShowS)
+-&gt; Show CreateRecipeJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRecipeJob] -&gt; ShowS
+$cshowList :: [CreateRecipeJob] -&gt; ShowS
+show :: CreateRecipeJob -&gt; String
+$cshow :: CreateRecipeJob -&gt; String
+showsPrec :: Int -&gt; CreateRecipeJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRecipeJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateRecipeJob -&gt; Rep CreateRecipeJob x)
+-&gt; (forall x. Rep CreateRecipeJob x -&gt; CreateRecipeJob)
+-&gt; Generic CreateRecipeJob
+forall x. Rep CreateRecipeJob x -&gt; CreateRecipeJob
+forall x. CreateRecipeJob -&gt; Rep CreateRecipeJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateRecipeJob x -&gt; CreateRecipeJob
+$cfrom :: forall x. CreateRecipeJob -&gt; Rep CreateRecipeJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Create a value of 'CreateRecipeJob' with all optional fields omitted.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'dataCatalogOutputs', 'createRecipeJob_dataCatalogOutputs' - One or more artifacts that represent the Glue Data Catalog output from</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- running the job.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'recipeReference', 'createRecipeJob_recipeReference' - Undocumented member.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'databaseOutputs', 'createRecipeJob_databaseOutputs' - Represents a list of JDBC database output objects which defines the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- output destination for a DataBrew recipe job to write to.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'encryptionMode', 'createRecipeJob_encryptionMode' - The encryption mode for the job, which can be one of the following:</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   @SSE-KMS@ - Server-side encryption with keys managed by KMS.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'outputs', 'createRecipeJob_outputs' - One or more artifacts that represent the output from running the job.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'logSubscription', 'createRecipeJob_logSubscription' - Enables or disables Amazon CloudWatch logging for the job. If logging is</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- enabled, CloudWatch writes one log stream for each job run.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'projectName', 'createRecipeJob_projectName' - Either the name of an existing project, or a combination of a recipe and</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- a dataset to associate with the recipe.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'maxRetries', 'createRecipeJob_maxRetries' - The maximum number of times to retry the job after a job run fails.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'datasetName', 'createRecipeJob_datasetName' - The name of the dataset that this job processes.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'encryptionKeyArn', 'createRecipeJob_encryptionKeyArn' - The Amazon Resource Name (ARN) of an encryption key that is used to</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- protect the job.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'maxCapacity', 'createRecipeJob_maxCapacity' - The maximum number of nodes that DataBrew can consume when the job</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- processes data.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'timeout', 'createRecipeJob_timeout' - The job\'s timeout in minutes. A job that attempts to run longer than</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- this timeout period ends with a status of @TIMEOUT@.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'tags', 'createRecipeJob_tags' - Metadata tags to apply to this job.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'name', 'createRecipeJob_name' - A unique name for the job. Valid characters are alphanumeric (A-Z, a-z,</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 0-9), hyphen (-), period (.), and space.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'roleArn', 'createRecipeJob_roleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- (IAM) role to be assumed when DataBrew runs the job.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#newCreateRecipeJob"><span class="hs-identifier hs-type">newCreateRecipeJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span>
+</span><span id="line-167"></span><span id="newCreateRecipeJob"><span class="annot"><span class="annottext">newCreateRecipeJob :: Text -&gt; Text -&gt; CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#newCreateRecipeJob"><span class="hs-identifier hs-var hs-var">newCreateRecipeJob</span></a></span></span><span> </span><span id="local-6989586621679307863"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307863"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679307862"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307862"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">CreateRecipeJob' :: Maybe (NonEmpty DataCatalogOutput)
+-&gt; Maybe RecipeReference
+-&gt; Maybe (NonEmpty DatabaseOutput)
+-&gt; Maybe EncryptionMode
+-&gt; Maybe (NonEmpty Output)
+-&gt; Maybe LogSubscription
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Natural
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataCatalogOutputs:CreateRecipeJob' :: Maybe (NonEmpty DataCatalogOutput)
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AdataCatalogOutputs%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">dataCatalogOutputs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty DataCatalogOutput)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:recipeReference:CreateRecipeJob' :: Maybe RecipeReference
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3ArecipeReference%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">recipeReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecipeReference
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseOutputs:CreateRecipeJob' :: Maybe (NonEmpty DatabaseOutput)
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AdatabaseOutputs%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">databaseOutputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DatabaseOutput)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionMode:CreateRecipeJob' :: Maybe EncryptionMode
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AencryptionMode%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputs:CreateRecipeJob' :: Maybe (NonEmpty Output)
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3Aoutputs%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">outputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Output)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:logSubscription:CreateRecipeJob' :: Maybe LogSubscription
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AlogSubscription%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">logSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogSubscription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectName:CreateRecipeJob' :: Maybe Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AprojectName%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRetries:CreateRecipeJob' :: Maybe Natural
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AmaxRetries%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">maxRetries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetName:CreateRecipeJob' :: Maybe Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AdatasetName%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionKeyArn:CreateRecipeJob' :: Maybe Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AencryptionKeyArn%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">encryptionKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxCapacity:CreateRecipeJob' :: Maybe Int
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AmaxCapacity%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeout:CreateRecipeJob' :: Maybe Natural
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3Atimeout%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateRecipeJob' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3Atags%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateRecipeJob' :: Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3Aname%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307863"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:CreateRecipeJob' :: Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AroleArn%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307862"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | One or more artifacts that represent the Glue Data Catalog output from</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- running the job.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_dataCatalogOutputs"><span class="hs-identifier hs-type">createRecipeJob_dataCatalogOutputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DataCatalogOutput.html#DataCatalogOutput"><span class="hs-identifier hs-type">DataCatalogOutput</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="createRecipeJob_dataCatalogOutputs"><span class="annot"><span class="annottext">createRecipeJob_dataCatalogOutputs :: (Maybe (NonEmpty DataCatalogOutput)
+ -&gt; f (Maybe (NonEmpty DataCatalogOutput)))
+-&gt; CreateRecipeJob -&gt; f CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_dataCatalogOutputs"><span class="hs-identifier hs-var hs-var">createRecipeJob_dataCatalogOutputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJob -&gt; Maybe (NonEmpty DataCatalogOutput))
+-&gt; (CreateRecipeJob
+    -&gt; Maybe (NonEmpty DataCatalogOutput) -&gt; CreateRecipeJob)
+-&gt; Lens
+     CreateRecipeJob
+     CreateRecipeJob
+     (Maybe (NonEmpty DataCatalogOutput))
+     (Maybe (NonEmpty DataCatalogOutput))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307859"><span class="annot"><span class="annottext">Maybe (NonEmpty DataCatalogOutput)
+dataCatalogOutputs :: Maybe (NonEmpty DataCatalogOutput)
+$sel:dataCatalogOutputs:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe (NonEmpty DataCatalogOutput)
+</span><a href="#local-6989586621679307859"><span class="hs-identifier hs-var hs-var">dataCatalogOutputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DataCatalogOutput)
+</span><a href="#local-6989586621679307859"><span class="hs-identifier hs-var">dataCatalogOutputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307858"><span class="annot"><span class="annottext">s :: CreateRecipeJob
+</span><a href="#local-6989586621679307858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307857"><span class="annot"><span class="annottext">Maybe (NonEmpty DataCatalogOutput)
+</span><a href="#local-6989586621679307857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJob
+</span><a href="#local-6989586621679307858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataCatalogOutputs:CreateRecipeJob' :: Maybe (NonEmpty DataCatalogOutput)
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AdataCatalogOutputs%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">dataCatalogOutputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DataCatalogOutput)
+</span><a href="#local-6989586621679307857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty DataCatalogOutput)
+  -&gt; f (Maybe (NonEmpty DataCatalogOutput)))
+ -&gt; CreateRecipeJob -&gt; f CreateRecipeJob)
+-&gt; ((Maybe (NonEmpty DataCatalogOutput)
+     -&gt; f (Maybe (NonEmpty DataCatalogOutput)))
+    -&gt; Maybe (NonEmpty DataCatalogOutput)
+    -&gt; f (Maybe (NonEmpty DataCatalogOutput)))
+-&gt; (Maybe (NonEmpty DataCatalogOutput)
+    -&gt; f (Maybe (NonEmpty DataCatalogOutput)))
+-&gt; CreateRecipeJob
+-&gt; f CreateRecipeJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty DataCatalogOutput)
+  (NonEmpty DataCatalogOutput)
+  (NonEmpty DataCatalogOutput)
+  (NonEmpty DataCatalogOutput)
+-&gt; Iso
+     (Maybe (NonEmpty DataCatalogOutput))
+     (Maybe (NonEmpty DataCatalogOutput))
+     (Maybe (NonEmpty DataCatalogOutput))
+     (Maybe (NonEmpty DataCatalogOutput))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty DataCatalogOutput)
+  (NonEmpty DataCatalogOutput)
+  (NonEmpty DataCatalogOutput)
+  (NonEmpty DataCatalogOutput)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_recipeReference"><span class="hs-identifier hs-type">createRecipeJob_recipeReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.RecipeReference.html#RecipeReference"><span class="hs-identifier hs-type">RecipeReference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="createRecipeJob_recipeReference"><span class="annot"><span class="annottext">createRecipeJob_recipeReference :: (Maybe RecipeReference -&gt; f (Maybe RecipeReference))
+-&gt; CreateRecipeJob -&gt; f CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_recipeReference"><span class="hs-identifier hs-var hs-var">createRecipeJob_recipeReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJob -&gt; Maybe RecipeReference)
+-&gt; (CreateRecipeJob -&gt; Maybe RecipeReference -&gt; CreateRecipeJob)
+-&gt; Lens
+     CreateRecipeJob
+     CreateRecipeJob
+     (Maybe RecipeReference)
+     (Maybe RecipeReference)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307853"><span class="annot"><span class="annottext">Maybe RecipeReference
+recipeReference :: Maybe RecipeReference
+$sel:recipeReference:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe RecipeReference
+</span><a href="#local-6989586621679307853"><span class="hs-identifier hs-var hs-var">recipeReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecipeReference
+</span><a href="#local-6989586621679307853"><span class="hs-identifier hs-var">recipeReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307852"><span class="annot"><span class="annottext">s :: CreateRecipeJob
+</span><a href="#local-6989586621679307852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307851"><span class="annot"><span class="annottext">Maybe RecipeReference
+</span><a href="#local-6989586621679307851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJob
+</span><a href="#local-6989586621679307852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recipeReference:CreateRecipeJob' :: Maybe RecipeReference
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3ArecipeReference%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">recipeReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecipeReference
+</span><a href="#local-6989586621679307851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | Represents a list of JDBC database output objects which defines the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- output destination for a DataBrew recipe job to write to.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_databaseOutputs"><span class="hs-identifier hs-type">createRecipeJob_databaseOutputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput"><span class="hs-identifier hs-type">DatabaseOutput</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="createRecipeJob_databaseOutputs"><span class="annot"><span class="annottext">createRecipeJob_databaseOutputs :: (Maybe (NonEmpty DatabaseOutput)
+ -&gt; f (Maybe (NonEmpty DatabaseOutput)))
+-&gt; CreateRecipeJob -&gt; f CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_databaseOutputs"><span class="hs-identifier hs-var hs-var">createRecipeJob_databaseOutputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJob -&gt; Maybe (NonEmpty DatabaseOutput))
+-&gt; (CreateRecipeJob
+    -&gt; Maybe (NonEmpty DatabaseOutput) -&gt; CreateRecipeJob)
+-&gt; Lens
+     CreateRecipeJob
+     CreateRecipeJob
+     (Maybe (NonEmpty DatabaseOutput))
+     (Maybe (NonEmpty DatabaseOutput))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307850"><span class="annot"><span class="annottext">Maybe (NonEmpty DatabaseOutput)
+databaseOutputs :: Maybe (NonEmpty DatabaseOutput)
+$sel:databaseOutputs:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe (NonEmpty DatabaseOutput)
+</span><a href="#local-6989586621679307850"><span class="hs-identifier hs-var hs-var">databaseOutputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DatabaseOutput)
+</span><a href="#local-6989586621679307850"><span class="hs-identifier hs-var">databaseOutputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307849"><span class="annot"><span class="annottext">s :: CreateRecipeJob
+</span><a href="#local-6989586621679307849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307848"><span class="annot"><span class="annottext">Maybe (NonEmpty DatabaseOutput)
+</span><a href="#local-6989586621679307848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJob
+</span><a href="#local-6989586621679307849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseOutputs:CreateRecipeJob' :: Maybe (NonEmpty DatabaseOutput)
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AdatabaseOutputs%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">databaseOutputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DatabaseOutput)
+</span><a href="#local-6989586621679307848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty DatabaseOutput)
+  -&gt; f (Maybe (NonEmpty DatabaseOutput)))
+ -&gt; CreateRecipeJob -&gt; f CreateRecipeJob)
+-&gt; ((Maybe (NonEmpty DatabaseOutput)
+     -&gt; f (Maybe (NonEmpty DatabaseOutput)))
+    -&gt; Maybe (NonEmpty DatabaseOutput)
+    -&gt; f (Maybe (NonEmpty DatabaseOutput)))
+-&gt; (Maybe (NonEmpty DatabaseOutput)
+    -&gt; f (Maybe (NonEmpty DatabaseOutput)))
+-&gt; CreateRecipeJob
+-&gt; f CreateRecipeJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty DatabaseOutput)
+  (NonEmpty DatabaseOutput)
+  (NonEmpty DatabaseOutput)
+  (NonEmpty DatabaseOutput)
+-&gt; Iso
+     (Maybe (NonEmpty DatabaseOutput))
+     (Maybe (NonEmpty DatabaseOutput))
+     (Maybe (NonEmpty DatabaseOutput))
+     (Maybe (NonEmpty DatabaseOutput))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty DatabaseOutput)
+  (NonEmpty DatabaseOutput)
+  (NonEmpty DatabaseOutput)
+  (NonEmpty DatabaseOutput)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The encryption mode for the job, which can be one of the following:</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- -   @SSE-KMS@ - Server-side encryption with keys managed by KMS.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_encryptionMode"><span class="hs-identifier hs-type">createRecipeJob_encryptionMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.EncryptionMode.html#EncryptionMode"><span class="hs-identifier hs-type">EncryptionMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="createRecipeJob_encryptionMode"><span class="annot"><span class="annottext">createRecipeJob_encryptionMode :: (Maybe EncryptionMode -&gt; f (Maybe EncryptionMode))
+-&gt; CreateRecipeJob -&gt; f CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_encryptionMode"><span class="hs-identifier hs-var hs-var">createRecipeJob_encryptionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJob -&gt; Maybe EncryptionMode)
+-&gt; (CreateRecipeJob -&gt; Maybe EncryptionMode -&gt; CreateRecipeJob)
+-&gt; Lens
+     CreateRecipeJob
+     CreateRecipeJob
+     (Maybe EncryptionMode)
+     (Maybe EncryptionMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307847"><span class="annot"><span class="annottext">Maybe EncryptionMode
+encryptionMode :: Maybe EncryptionMode
+$sel:encryptionMode:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe EncryptionMode
+</span><a href="#local-6989586621679307847"><span class="hs-identifier hs-var hs-var">encryptionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionMode
+</span><a href="#local-6989586621679307847"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307846"><span class="annot"><span class="annottext">s :: CreateRecipeJob
+</span><a href="#local-6989586621679307846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307845"><span class="annot"><span class="annottext">Maybe EncryptionMode
+</span><a href="#local-6989586621679307845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJob
+</span><a href="#local-6989586621679307846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionMode:CreateRecipeJob' :: Maybe EncryptionMode
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AencryptionMode%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionMode
+</span><a href="#local-6989586621679307845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | One or more artifacts that represent the output from running the job.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_outputs"><span class="hs-identifier hs-type">createRecipeJob_outputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="createRecipeJob_outputs"><span class="annot"><span class="annottext">createRecipeJob_outputs :: (Maybe (NonEmpty Output) -&gt; f (Maybe (NonEmpty Output)))
+-&gt; CreateRecipeJob -&gt; f CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_outputs"><span class="hs-identifier hs-var hs-var">createRecipeJob_outputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJob -&gt; Maybe (NonEmpty Output))
+-&gt; (CreateRecipeJob -&gt; Maybe (NonEmpty Output) -&gt; CreateRecipeJob)
+-&gt; Lens
+     CreateRecipeJob
+     CreateRecipeJob
+     (Maybe (NonEmpty Output))
+     (Maybe (NonEmpty Output))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307844"><span class="annot"><span class="annottext">Maybe (NonEmpty Output)
+outputs :: Maybe (NonEmpty Output)
+$sel:outputs:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe (NonEmpty Output)
+</span><a href="#local-6989586621679307844"><span class="hs-identifier hs-var hs-var">outputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Output)
+</span><a href="#local-6989586621679307844"><span class="hs-identifier hs-var">outputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307843"><span class="annot"><span class="annottext">s :: CreateRecipeJob
+</span><a href="#local-6989586621679307843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307842"><span class="annot"><span class="annottext">Maybe (NonEmpty Output)
+</span><a href="#local-6989586621679307842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJob
+</span><a href="#local-6989586621679307843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputs:CreateRecipeJob' :: Maybe (NonEmpty Output)
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3Aoutputs%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">outputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Output)
+</span><a href="#local-6989586621679307842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Output) -&gt; f (Maybe (NonEmpty Output)))
+ -&gt; CreateRecipeJob -&gt; f CreateRecipeJob)
+-&gt; ((Maybe (NonEmpty Output) -&gt; f (Maybe (NonEmpty Output)))
+    -&gt; Maybe (NonEmpty Output) -&gt; f (Maybe (NonEmpty Output)))
+-&gt; (Maybe (NonEmpty Output) -&gt; f (Maybe (NonEmpty Output)))
+-&gt; CreateRecipeJob
+-&gt; f CreateRecipeJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Output)
+  (NonEmpty Output)
+  (NonEmpty Output)
+  (NonEmpty Output)
+-&gt; Iso
+     (Maybe (NonEmpty Output))
+     (Maybe (NonEmpty Output))
+     (Maybe (NonEmpty Output))
+     (Maybe (NonEmpty Output))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Output)
+  (NonEmpty Output)
+  (NonEmpty Output)
+  (NonEmpty Output)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Enables or disables Amazon CloudWatch logging for the job. If logging is</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- enabled, CloudWatch writes one log stream for each job run.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_logSubscription"><span class="hs-identifier hs-type">createRecipeJob_logSubscription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.LogSubscription.html#LogSubscription"><span class="hs-identifier hs-type">LogSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="createRecipeJob_logSubscription"><span class="annot"><span class="annottext">createRecipeJob_logSubscription :: (Maybe LogSubscription -&gt; f (Maybe LogSubscription))
+-&gt; CreateRecipeJob -&gt; f CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_logSubscription"><span class="hs-identifier hs-var hs-var">createRecipeJob_logSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJob -&gt; Maybe LogSubscription)
+-&gt; (CreateRecipeJob -&gt; Maybe LogSubscription -&gt; CreateRecipeJob)
+-&gt; Lens
+     CreateRecipeJob
+     CreateRecipeJob
+     (Maybe LogSubscription)
+     (Maybe LogSubscription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307841"><span class="annot"><span class="annottext">Maybe LogSubscription
+logSubscription :: Maybe LogSubscription
+$sel:logSubscription:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe LogSubscription
+</span><a href="#local-6989586621679307841"><span class="hs-identifier hs-var hs-var">logSubscription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogSubscription
+</span><a href="#local-6989586621679307841"><span class="hs-identifier hs-var">logSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307840"><span class="annot"><span class="annottext">s :: CreateRecipeJob
+</span><a href="#local-6989586621679307840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307839"><span class="annot"><span class="annottext">Maybe LogSubscription
+</span><a href="#local-6989586621679307839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJob
+</span><a href="#local-6989586621679307840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logSubscription:CreateRecipeJob' :: Maybe LogSubscription
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AlogSubscription%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">logSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogSubscription
+</span><a href="#local-6989586621679307839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | Either the name of an existing project, or a combination of a recipe and</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- a dataset to associate with the recipe.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_projectName"><span class="hs-identifier hs-type">createRecipeJob_projectName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="createRecipeJob_projectName"><span class="annot"><span class="annottext">createRecipeJob_projectName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRecipeJob -&gt; f CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_projectName"><span class="hs-identifier hs-var hs-var">createRecipeJob_projectName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJob -&gt; Maybe Text)
+-&gt; (CreateRecipeJob -&gt; Maybe Text -&gt; CreateRecipeJob)
+-&gt; Lens CreateRecipeJob CreateRecipeJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307838"><span class="annot"><span class="annottext">Maybe Text
+projectName :: Maybe Text
+$sel:projectName:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe Text
+</span><a href="#local-6989586621679307838"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307838"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307837"><span class="annot"><span class="annottext">s :: CreateRecipeJob
+</span><a href="#local-6989586621679307837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307836"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJob
+</span><a href="#local-6989586621679307837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:CreateRecipeJob' :: Maybe Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AprojectName%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The maximum number of times to retry the job after a job run fails.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_maxRetries"><span class="hs-identifier hs-type">createRecipeJob_maxRetries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="createRecipeJob_maxRetries"><span class="annot"><span class="annottext">createRecipeJob_maxRetries :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CreateRecipeJob -&gt; f CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_maxRetries"><span class="hs-identifier hs-var hs-var">createRecipeJob_maxRetries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJob -&gt; Maybe Natural)
+-&gt; (CreateRecipeJob -&gt; Maybe Natural -&gt; CreateRecipeJob)
+-&gt; Lens
+     CreateRecipeJob CreateRecipeJob (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307835"><span class="annot"><span class="annottext">Maybe Natural
+maxRetries :: Maybe Natural
+$sel:maxRetries:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe Natural
+</span><a href="#local-6989586621679307835"><span class="hs-identifier hs-var hs-var">maxRetries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679307835"><span class="hs-identifier hs-var">maxRetries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307834"><span class="annot"><span class="annottext">s :: CreateRecipeJob
+</span><a href="#local-6989586621679307834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307833"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679307833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJob
+</span><a href="#local-6989586621679307834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRetries:CreateRecipeJob' :: Maybe Natural
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AmaxRetries%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">maxRetries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679307833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The name of the dataset that this job processes.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_datasetName"><span class="hs-identifier hs-type">createRecipeJob_datasetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="createRecipeJob_datasetName"><span class="annot"><span class="annottext">createRecipeJob_datasetName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRecipeJob -&gt; f CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_datasetName"><span class="hs-identifier hs-var hs-var">createRecipeJob_datasetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJob -&gt; Maybe Text)
+-&gt; (CreateRecipeJob -&gt; Maybe Text -&gt; CreateRecipeJob)
+-&gt; Lens CreateRecipeJob CreateRecipeJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307832"><span class="annot"><span class="annottext">Maybe Text
+datasetName :: Maybe Text
+$sel:datasetName:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe Text
+</span><a href="#local-6989586621679307832"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307832"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307831"><span class="annot"><span class="annottext">s :: CreateRecipeJob
+</span><a href="#local-6989586621679307831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307830"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJob
+</span><a href="#local-6989586621679307831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetName:CreateRecipeJob' :: Maybe Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AdatasetName%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an encryption key that is used to</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- protect the job.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_encryptionKeyArn"><span class="hs-identifier hs-type">createRecipeJob_encryptionKeyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="createRecipeJob_encryptionKeyArn"><span class="annot"><span class="annottext">createRecipeJob_encryptionKeyArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRecipeJob -&gt; f CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_encryptionKeyArn"><span class="hs-identifier hs-var hs-var">createRecipeJob_encryptionKeyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJob -&gt; Maybe Text)
+-&gt; (CreateRecipeJob -&gt; Maybe Text -&gt; CreateRecipeJob)
+-&gt; Lens CreateRecipeJob CreateRecipeJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307829"><span class="annot"><span class="annottext">Maybe Text
+encryptionKeyArn :: Maybe Text
+$sel:encryptionKeyArn:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe Text
+</span><a href="#local-6989586621679307829"><span class="hs-identifier hs-var hs-var">encryptionKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307829"><span class="hs-identifier hs-var">encryptionKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307828"><span class="annot"><span class="annottext">s :: CreateRecipeJob
+</span><a href="#local-6989586621679307828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307827"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJob
+</span><a href="#local-6989586621679307828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionKeyArn:CreateRecipeJob' :: Maybe Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AencryptionKeyArn%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">encryptionKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The maximum number of nodes that DataBrew can consume when the job</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- processes data.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_maxCapacity"><span class="hs-identifier hs-type">createRecipeJob_maxCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="createRecipeJob_maxCapacity"><span class="annot"><span class="annottext">createRecipeJob_maxCapacity :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; CreateRecipeJob -&gt; f CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_maxCapacity"><span class="hs-identifier hs-var hs-var">createRecipeJob_maxCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJob -&gt; Maybe Int)
+-&gt; (CreateRecipeJob -&gt; Maybe Int -&gt; CreateRecipeJob)
+-&gt; Lens CreateRecipeJob CreateRecipeJob (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307826"><span class="annot"><span class="annottext">Maybe Int
+maxCapacity :: Maybe Int
+$sel:maxCapacity:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe Int
+</span><a href="#local-6989586621679307826"><span class="hs-identifier hs-var hs-var">maxCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307826"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307825"><span class="annot"><span class="annottext">s :: CreateRecipeJob
+</span><a href="#local-6989586621679307825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307824"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJob
+</span><a href="#local-6989586621679307825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxCapacity:CreateRecipeJob' :: Maybe Int
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AmaxCapacity%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The job\'s timeout in minutes. A job that attempts to run longer than</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- this timeout period ends with a status of @TIMEOUT@.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_timeout"><span class="hs-identifier hs-type">createRecipeJob_timeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="createRecipeJob_timeout"><span class="annot"><span class="annottext">createRecipeJob_timeout :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CreateRecipeJob -&gt; f CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_timeout"><span class="hs-identifier hs-var hs-var">createRecipeJob_timeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJob -&gt; Maybe Natural)
+-&gt; (CreateRecipeJob -&gt; Maybe Natural -&gt; CreateRecipeJob)
+-&gt; Lens
+     CreateRecipeJob CreateRecipeJob (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307823"><span class="annot"><span class="annottext">Maybe Natural
+timeout :: Maybe Natural
+$sel:timeout:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe Natural
+</span><a href="#local-6989586621679307823"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679307823"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307822"><span class="annot"><span class="annottext">s :: CreateRecipeJob
+</span><a href="#local-6989586621679307822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307821"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679307821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJob
+</span><a href="#local-6989586621679307822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeout:CreateRecipeJob' :: Maybe Natural
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3Atimeout%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679307821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | Metadata tags to apply to this job.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_tags"><span class="hs-identifier hs-type">createRecipeJob_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="createRecipeJob_tags"><span class="annot"><span class="annottext">createRecipeJob_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateRecipeJob -&gt; f CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_tags"><span class="hs-identifier hs-var hs-var">createRecipeJob_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJob -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateRecipeJob
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateRecipeJob)
+-&gt; Lens
+     CreateRecipeJob
+     CreateRecipeJob
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307820"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679307820"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679307820"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307819"><span class="annot"><span class="annottext">s :: CreateRecipeJob
+</span><a href="#local-6989586621679307819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307818"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679307818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJob
+</span><a href="#local-6989586621679307819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRecipeJob' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3Atags%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679307818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateRecipeJob -&gt; f CreateRecipeJob)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateRecipeJob
+-&gt; f CreateRecipeJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | A unique name for the job. Valid characters are alphanumeric (A-Z, a-z,</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- 0-9), hyphen (-), period (.), and space.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_name"><span class="hs-identifier hs-type">createRecipeJob_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-253"></span><span id="createRecipeJob_name"><span class="annot"><span class="annottext">createRecipeJob_name :: (Text -&gt; f Text) -&gt; CreateRecipeJob -&gt; f CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_name"><span class="hs-identifier hs-var hs-var">createRecipeJob_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJob -&gt; Text)
+-&gt; (CreateRecipeJob -&gt; Text -&gt; CreateRecipeJob)
+-&gt; Lens CreateRecipeJob CreateRecipeJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307817"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateRecipeJob' :: CreateRecipeJob -&gt; Text
+</span><a href="#local-6989586621679307817"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307817"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307816"><span class="annot"><span class="annottext">s :: CreateRecipeJob
+</span><a href="#local-6989586621679307816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307815"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJob
+</span><a href="#local-6989586621679307816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateRecipeJob' :: Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3Aname%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- (IAM) role to be assumed when DataBrew runs the job.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_roleArn"><span class="hs-identifier hs-type">createRecipeJob_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-258"></span><span id="createRecipeJob_roleArn"><span class="annot"><span class="annottext">createRecipeJob_roleArn :: (Text -&gt; f Text) -&gt; CreateRecipeJob -&gt; f CreateRecipeJob
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJob_roleArn"><span class="hs-identifier hs-var hs-var">createRecipeJob_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJob -&gt; Text)
+-&gt; (CreateRecipeJob -&gt; Text -&gt; CreateRecipeJob)
+-&gt; Lens CreateRecipeJob CreateRecipeJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307814"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:CreateRecipeJob' :: CreateRecipeJob -&gt; Text
+</span><a href="#local-6989586621679307814"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307814"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307813"><span class="annot"><span class="annottext">s :: CreateRecipeJob
+</span><a href="#local-6989586621679307813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307812"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJob
+</span><a href="#local-6989586621679307813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateRecipeJob' :: Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AroleArn%3ACreateRecipeJob%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-261"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-262"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>      </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse"><span class="hs-identifier hs-type">CreateRecipeJobResponse</span></a></span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679307808"><span class="annot"><span class="annottext">request :: CreateRecipeJob -&gt; Request CreateRecipeJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateRecipeJob -&gt; Request CreateRecipeJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataBrew.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-265"></span><span>  </span><span id="local-6989586621679307804"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateRecipeJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateRecipeJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateRecipeJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateRecipeJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateRecipeJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-267"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307801"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307801"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679307800"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679307800"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679307799"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307799"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-268"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateRecipeJobResponse
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse%27"><span class="hs-identifier hs-var">CreateRecipeJobResponse'</span></a></span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateRecipeJobResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; CreateRecipeJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307801"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateRecipeJobResponse)
+-&gt; Either String Text -&gt; Either String CreateRecipeJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307799"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307791"><span id="local-6989586621679307793"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span></span></span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307788"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span></span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-278"></span><span>  </span><span id="local-6989586621679307784"><span class="annot"><span class="annottext">toHeaders :: CreateRecipeJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRecipeJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-280"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-281"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-282"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-283"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-284"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-286"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307774"><span id="local-6989586621679307776"><span id="local-6989586621679307778"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-289"></span><span>  </span><span id="local-6989586621679307772"><span class="annot"><span class="annottext">toJSON :: CreateRecipeJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob%27"><span class="hs-identifier hs-type">CreateRecipeJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307756"><span id="local-6989586621679307757"><span id="local-6989586621679307758"><span id="local-6989586621679307759"><span id="local-6989586621679307760"><span id="local-6989586621679307761"><span id="local-6989586621679307762"><span id="local-6989586621679307763"><span id="local-6989586621679307764"><span id="local-6989586621679307765"><span id="local-6989586621679307766"><span id="local-6989586621679307767"><span id="local-6989586621679307768"><span id="local-6989586621679307769"><span id="local-6989586621679307770"><span class="annot"><span class="annottext">Maybe Int
+Maybe Natural
+Maybe (NonEmpty Output)
+Maybe (NonEmpty DatabaseOutput)
+Maybe (NonEmpty DataCatalogOutput)
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe EncryptionMode
+Maybe LogSubscription
+Maybe RecipeReference
+Text
+roleArn :: Text
+name :: Text
+tags :: Maybe (HashMap Text Text)
+timeout :: Maybe Natural
+maxCapacity :: Maybe Int
+encryptionKeyArn :: Maybe Text
+datasetName :: Maybe Text
+maxRetries :: Maybe Natural
+projectName :: Maybe Text
+logSubscription :: Maybe LogSubscription
+outputs :: Maybe (NonEmpty Output)
+encryptionMode :: Maybe EncryptionMode
+databaseOutputs :: Maybe (NonEmpty DatabaseOutput)
+recipeReference :: Maybe RecipeReference
+dataCatalogOutputs :: Maybe (NonEmpty DataCatalogOutput)
+$sel:roleArn:CreateRecipeJob' :: CreateRecipeJob -&gt; Text
+$sel:name:CreateRecipeJob' :: CreateRecipeJob -&gt; Text
+$sel:tags:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe (HashMap Text Text)
+$sel:timeout:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe Natural
+$sel:maxCapacity:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe Int
+$sel:encryptionKeyArn:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe Text
+$sel:datasetName:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe Text
+$sel:maxRetries:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe Natural
+$sel:projectName:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe Text
+$sel:logSubscription:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe LogSubscription
+$sel:outputs:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe (NonEmpty Output)
+$sel:encryptionMode:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe EncryptionMode
+$sel:databaseOutputs:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe (NonEmpty DatabaseOutput)
+$sel:recipeReference:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe RecipeReference
+$sel:dataCatalogOutputs:CreateRecipeJob' :: CreateRecipeJob -&gt; Maybe (NonEmpty DataCatalogOutput)
+</span><a href="#local-6989586621679307756"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-291"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-292"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataCatalogOutputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty DataCatalogOutput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty DataCatalogOutput -&gt; Pair)
+-&gt; Maybe (NonEmpty DataCatalogOutput) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DataCatalogOutput)
+</span><a href="#local-6989586621679307770"><span class="hs-identifier hs-var">dataCatalogOutputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecipeReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RecipeReference -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>              </span><span class="annot"><span class="annottext">(RecipeReference -&gt; Pair) -&gt; Maybe RecipeReference -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RecipeReference
+</span><a href="#local-6989586621679307769"><span class="hs-identifier hs-var">recipeReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseOutputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty DatabaseOutput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty DatabaseOutput -&gt; Pair)
+-&gt; Maybe (NonEmpty DatabaseOutput) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DatabaseOutput)
+</span><a href="#local-6989586621679307768"><span class="hs-identifier hs-var">databaseOutputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>              </span><span class="annot"><span class="annottext">(EncryptionMode -&gt; Pair) -&gt; Maybe EncryptionMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionMode
+</span><a href="#local-6989586621679307767"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Outputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Output -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Output -&gt; Pair) -&gt; Maybe (NonEmpty Output) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Output)
+</span><a href="#local-6989586621679307766"><span class="hs-identifier hs-var">outputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogSubscription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogSubscription -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>              </span><span class="annot"><span class="annottext">(LogSubscription -&gt; Pair) -&gt; Maybe LogSubscription -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LogSubscription
+</span><a href="#local-6989586621679307765"><span class="hs-identifier hs-var">logSubscription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307764"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxRetries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679307763"><span class="hs-identifier hs-var">maxRetries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatasetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307762"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionKeyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307761"><span class="hs-identifier hs-var">encryptionKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307760"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679307759"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679307758"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307757"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307756"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-314"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-317"></span><span>  </span><span id="local-6989586621679307750"><span class="annot"><span class="annottext">toPath :: CreateRecipeJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateRecipeJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/recipeJobs&quot;</span></span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJob"><span class="hs-identifier hs-type">CreateRecipeJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-320"></span><span>  </span><span id="local-6989586621679307746"><span class="annot"><span class="annottext">toQuery :: CreateRecipeJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateRecipeJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-321"></span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- | /See:/ 'newCreateRecipeJobResponse' smart constructor.</span><span>
+</span><span id="line-323"></span><span id="local-6989586621679307743"><span id="local-6989586621679307744"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRecipeJobResponse"><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse"><span class="hs-identifier hs-var">CreateRecipeJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRecipeJobResponse%27"><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse%27"><span class="hs-identifier hs-var">CreateRecipeJobResponse'</span></a></span></span><span>
+</span><span id="line-324"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-325"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateRecipeJobResponse%27"><span class="annot"><span class="annottext">CreateRecipeJobResponse -&gt; Int
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AhttpStatus%3ACreateRecipeJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>    </span><span class="hs-comment">-- | The name of the job that you created.</span><span>
+</span><span id="line-327"></span><span>    </span><span id="%24sel%3Aname%3ACreateRecipeJobResponse%27"><span class="annot"><span class="annottext">CreateRecipeJobResponse -&gt; Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3Aname%3ACreateRecipeJobResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-328"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-329"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307737"><span id="local-6989586621679307739"><span class="annot"><span class="annottext">CreateRecipeJobResponse -&gt; CreateRecipeJobResponse -&gt; Bool
+(CreateRecipeJobResponse -&gt; CreateRecipeJobResponse -&gt; Bool)
+-&gt; (CreateRecipeJobResponse -&gt; CreateRecipeJobResponse -&gt; Bool)
+-&gt; Eq CreateRecipeJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRecipeJobResponse -&gt; CreateRecipeJobResponse -&gt; Bool
+$c/= :: CreateRecipeJobResponse -&gt; CreateRecipeJobResponse -&gt; Bool
+== :: CreateRecipeJobResponse -&gt; CreateRecipeJobResponse -&gt; Bool
+$c== :: CreateRecipeJobResponse -&gt; CreateRecipeJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307729"><span id="local-6989586621679307731"><span id="local-6989586621679307733"><span id="local-6989586621679307735"><span class="annot"><span class="annottext">ReadPrec [CreateRecipeJobResponse]
+ReadPrec CreateRecipeJobResponse
+Int -&gt; ReadS CreateRecipeJobResponse
+ReadS [CreateRecipeJobResponse]
+(Int -&gt; ReadS CreateRecipeJobResponse)
+-&gt; ReadS [CreateRecipeJobResponse]
+-&gt; ReadPrec CreateRecipeJobResponse
+-&gt; ReadPrec [CreateRecipeJobResponse]
+-&gt; Read CreateRecipeJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRecipeJobResponse]
+$creadListPrec :: ReadPrec [CreateRecipeJobResponse]
+readPrec :: ReadPrec CreateRecipeJobResponse
+$creadPrec :: ReadPrec CreateRecipeJobResponse
+readList :: ReadS [CreateRecipeJobResponse]
+$creadList :: ReadS [CreateRecipeJobResponse]
+readsPrec :: Int -&gt; ReadS CreateRecipeJobResponse
+$creadsPrec :: Int -&gt; ReadS CreateRecipeJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307723"><span id="local-6989586621679307725"><span id="local-6989586621679307727"><span class="annot"><span class="annottext">Int -&gt; CreateRecipeJobResponse -&gt; ShowS
+[CreateRecipeJobResponse] -&gt; ShowS
+CreateRecipeJobResponse -&gt; String
+(Int -&gt; CreateRecipeJobResponse -&gt; ShowS)
+-&gt; (CreateRecipeJobResponse -&gt; String)
+-&gt; ([CreateRecipeJobResponse] -&gt; ShowS)
+-&gt; Show CreateRecipeJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRecipeJobResponse] -&gt; ShowS
+$cshowList :: [CreateRecipeJobResponse] -&gt; ShowS
+show :: CreateRecipeJobResponse -&gt; String
+$cshow :: CreateRecipeJobResponse -&gt; String
+showsPrec :: Int -&gt; CreateRecipeJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRecipeJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateRecipeJobResponse -&gt; Rep CreateRecipeJobResponse x)
+-&gt; (forall x.
+    Rep CreateRecipeJobResponse x -&gt; CreateRecipeJobResponse)
+-&gt; Generic CreateRecipeJobResponse
+forall x. Rep CreateRecipeJobResponse x -&gt; CreateRecipeJobResponse
+forall x. CreateRecipeJobResponse -&gt; Rep CreateRecipeJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateRecipeJobResponse x -&gt; CreateRecipeJobResponse
+$cfrom :: forall x. CreateRecipeJobResponse -&gt; Rep CreateRecipeJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- Create a value of 'CreateRecipeJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- 'httpStatus', 'createRecipeJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- 'name', 'createRecipeJobResponse_name' - The name of the job that you created.</span><span>
+</span><span id="line-342"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#newCreateRecipeJobResponse"><span class="hs-identifier hs-type">newCreateRecipeJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-343"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-344"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-345"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-346"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-347"></span><span>  </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse"><span class="hs-identifier hs-type">CreateRecipeJobResponse</span></a></span><span>
+</span><span id="line-348"></span><span id="newCreateRecipeJobResponse"><span class="annot"><span class="annottext">newCreateRecipeJobResponse :: Int -&gt; Text -&gt; CreateRecipeJobResponse
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#newCreateRecipeJobResponse"><span class="hs-identifier hs-var hs-var">newCreateRecipeJobResponse</span></a></span></span><span> </span><span id="local-6989586621679307720"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307720"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679307719"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307719"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-349"></span><span>  </span><span class="annot"><span class="annottext">CreateRecipeJobResponse' :: Int -&gt; Text -&gt; CreateRecipeJobResponse
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse%27"><span class="hs-identifier hs-type">CreateRecipeJobResponse'</span></a></span><span>
+</span><span id="line-350"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRecipeJobResponse' :: Int
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AhttpStatus%3ACreateRecipeJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307720"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateRecipeJobResponse' :: Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3Aname%3ACreateRecipeJobResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307719"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-352"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-355"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJobResponse_httpStatus"><span class="hs-identifier hs-type">createRecipeJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse"><span class="hs-identifier hs-type">CreateRecipeJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-356"></span><span id="createRecipeJobResponse_httpStatus"><span class="annot"><span class="annottext">createRecipeJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateRecipeJobResponse -&gt; f CreateRecipeJobResponse
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createRecipeJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJobResponse -&gt; Int)
+-&gt; (CreateRecipeJobResponse -&gt; Int -&gt; CreateRecipeJobResponse)
+-&gt; Lens CreateRecipeJobResponse CreateRecipeJobResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse%27"><span class="hs-identifier hs-type">CreateRecipeJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307718"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateRecipeJobResponse' :: CreateRecipeJobResponse -&gt; Int
+</span><a href="#local-6989586621679307718"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307718"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307717"><span class="annot"><span class="annottext">s :: CreateRecipeJobResponse
+</span><a href="#local-6989586621679307717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse%27"><span class="hs-identifier hs-type">CreateRecipeJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307716"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJobResponse
+</span><a href="#local-6989586621679307717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRecipeJobResponse' :: Int
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3AhttpStatus%3ACreateRecipeJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse"><span class="hs-identifier hs-type">CreateRecipeJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- | The name of the job that you created.</span><span>
+</span><span id="line-359"></span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJobResponse_name"><span class="hs-identifier hs-type">createRecipeJobResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse"><span class="hs-identifier hs-type">CreateRecipeJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-360"></span><span id="createRecipeJobResponse_name"><span class="annot"><span class="annottext">createRecipeJobResponse_name :: (Text -&gt; f Text)
+-&gt; CreateRecipeJobResponse -&gt; f CreateRecipeJobResponse
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#createRecipeJobResponse_name"><span class="hs-identifier hs-var hs-var">createRecipeJobResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRecipeJobResponse -&gt; Text)
+-&gt; (CreateRecipeJobResponse -&gt; Text -&gt; CreateRecipeJobResponse)
+-&gt; Lens CreateRecipeJobResponse CreateRecipeJobResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse%27"><span class="hs-identifier hs-type">CreateRecipeJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307715"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateRecipeJobResponse' :: CreateRecipeJobResponse -&gt; Text
+</span><a href="#local-6989586621679307715"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307715"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307714"><span class="annot"><span class="annottext">s :: CreateRecipeJobResponse
+</span><a href="#local-6989586621679307714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse%27"><span class="hs-identifier hs-type">CreateRecipeJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307713"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRecipeJobResponse
+</span><a href="#local-6989586621679307714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateRecipeJobResponse' :: Text
+</span><a href="Amazonka.DataBrew.CreateRecipeJob.html#%24sel%3Aname%3ACreateRecipeJobResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse"><span class="hs-identifier hs-type">CreateRecipeJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307711"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.CreateRecipeJob.html#CreateRecipeJobResponse"><span class="hs-identifier hs-type">CreateRecipeJobResponse</span></a></span></span><span>
+</span><span id="line-363"></span></pre></body></html>

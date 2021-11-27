@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#FileSourceTimeDeltaUnits"><span class="hs-identifier">FileSourceTimeDeltaUnits</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#FileSourceTimeDeltaUnits_MILLISECONDS"><span class="hs-identifier">FileSourceTimeDeltaUnits_MILLISECONDS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#FileSourceTimeDeltaUnits_SECONDS"><span class="hs-identifier">FileSourceTimeDeltaUnits_SECONDS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | When you use the setting Time delta (TimeDelta) to adjust the sync</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- between your sidecar captions and your video, use this setting to</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- specify the units for the delta that you specify. When you don\'t</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- specify a value for Time delta units (TimeDeltaUnits), MediaConvert uses</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- seconds by default.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679965403"><span id="local-6989586621679965404"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FileSourceTimeDeltaUnits"><span class="annot"><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#FileSourceTimeDeltaUnits"><span class="hs-identifier hs-var">FileSourceTimeDeltaUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileSourceTimeDeltaUnits%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#FileSourceTimeDeltaUnits%27"><span class="hs-identifier hs-var">FileSourceTimeDeltaUnits'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFileSourceTimeDeltaUnits"><span class="annot"><span class="annottext">FileSourceTimeDeltaUnits -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#fromFileSourceTimeDeltaUnits"><span class="hs-identifier hs-var hs-var">fromFileSourceTimeDeltaUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679965395"><span id="local-6989586621679965397"><span id="local-6989586621679965399"><span class="annot"><span class="annottext">Int -&gt; FileSourceTimeDeltaUnits -&gt; ShowS
+[FileSourceTimeDeltaUnits] -&gt; ShowS
+FileSourceTimeDeltaUnits -&gt; String
+(Int -&gt; FileSourceTimeDeltaUnits -&gt; ShowS)
+-&gt; (FileSourceTimeDeltaUnits -&gt; String)
+-&gt; ([FileSourceTimeDeltaUnits] -&gt; ShowS)
+-&gt; Show FileSourceTimeDeltaUnits
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FileSourceTimeDeltaUnits] -&gt; ShowS
+$cshowList :: [FileSourceTimeDeltaUnits] -&gt; ShowS
+show :: FileSourceTimeDeltaUnits -&gt; String
+$cshow :: FileSourceTimeDeltaUnits -&gt; String
+showsPrec :: Int -&gt; FileSourceTimeDeltaUnits -&gt; ShowS
+$cshowsPrec :: Int -&gt; FileSourceTimeDeltaUnits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679965386"><span id="local-6989586621679965388"><span id="local-6989586621679965390"><span id="local-6989586621679965392"><span class="annot"><span class="annottext">ReadPrec [FileSourceTimeDeltaUnits]
+ReadPrec FileSourceTimeDeltaUnits
+Int -&gt; ReadS FileSourceTimeDeltaUnits
+ReadS [FileSourceTimeDeltaUnits]
+(Int -&gt; ReadS FileSourceTimeDeltaUnits)
+-&gt; ReadS [FileSourceTimeDeltaUnits]
+-&gt; ReadPrec FileSourceTimeDeltaUnits
+-&gt; ReadPrec [FileSourceTimeDeltaUnits]
+-&gt; Read FileSourceTimeDeltaUnits
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FileSourceTimeDeltaUnits]
+$creadListPrec :: ReadPrec [FileSourceTimeDeltaUnits]
+readPrec :: ReadPrec FileSourceTimeDeltaUnits
+$creadPrec :: ReadPrec FileSourceTimeDeltaUnits
+readList :: ReadS [FileSourceTimeDeltaUnits]
+$creadList :: ReadS [FileSourceTimeDeltaUnits]
+readsPrec :: Int -&gt; ReadS FileSourceTimeDeltaUnits
+$creadsPrec :: Int -&gt; ReadS FileSourceTimeDeltaUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679965381"><span id="local-6989586621679965383"><span class="annot"><span class="annottext">FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool
+(FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool)
+-&gt; (FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool)
+-&gt; Eq FileSourceTimeDeltaUnits
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool
+$c/= :: FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool
+== :: FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool
+$c== :: FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679965365"><span id="local-6989586621679965367"><span id="local-6989586621679965369"><span id="local-6989586621679965371"><span id="local-6989586621679965373"><span id="local-6989586621679965375"><span id="local-6989586621679965377"><span class="annot"><span class="annottext">Eq FileSourceTimeDeltaUnits
+Eq FileSourceTimeDeltaUnits
+-&gt; (FileSourceTimeDeltaUnits
+    -&gt; FileSourceTimeDeltaUnits -&gt; Ordering)
+-&gt; (FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool)
+-&gt; (FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool)
+-&gt; (FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool)
+-&gt; (FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool)
+-&gt; (FileSourceTimeDeltaUnits
+    -&gt; FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits)
+-&gt; (FileSourceTimeDeltaUnits
+    -&gt; FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits)
+-&gt; Ord FileSourceTimeDeltaUnits
+FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool
+FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Ordering
+FileSourceTimeDeltaUnits
+-&gt; FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FileSourceTimeDeltaUnits
+-&gt; FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits
+$cmin :: FileSourceTimeDeltaUnits
+-&gt; FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits
+max :: FileSourceTimeDeltaUnits
+-&gt; FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits
+$cmax :: FileSourceTimeDeltaUnits
+-&gt; FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits
+&gt;= :: FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool
+$c&gt;= :: FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool
+&gt; :: FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool
+$c&gt; :: FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool
+&lt;= :: FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool
+$c&lt;= :: FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool
+&lt; :: FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool
+$c&lt; :: FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Bool
+compare :: FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Ordering
+$ccompare :: FileSourceTimeDeltaUnits -&gt; FileSourceTimeDeltaUnits -&gt; Ordering
+$cp1Ord :: Eq FileSourceTimeDeltaUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ FileSourceTimeDeltaUnits -&gt; Rep FileSourceTimeDeltaUnits x)
+-&gt; (forall x.
+    Rep FileSourceTimeDeltaUnits x -&gt; FileSourceTimeDeltaUnits)
+-&gt; Generic FileSourceTimeDeltaUnits
+forall x.
+Rep FileSourceTimeDeltaUnits x -&gt; FileSourceTimeDeltaUnits
+forall x.
+FileSourceTimeDeltaUnits -&gt; Rep FileSourceTimeDeltaUnits x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FileSourceTimeDeltaUnits x -&gt; FileSourceTimeDeltaUnits
+$cfrom :: forall x.
+FileSourceTimeDeltaUnits -&gt; Rep FileSourceTimeDeltaUnits x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679965357"><span id="local-6989586621679965359"><span class="annot"><span class="annottext">Int -&gt; FileSourceTimeDeltaUnits -&gt; Int
+FileSourceTimeDeltaUnits -&gt; Int
+(Int -&gt; FileSourceTimeDeltaUnits -&gt; Int)
+-&gt; (FileSourceTimeDeltaUnits -&gt; Int)
+-&gt; Hashable FileSourceTimeDeltaUnits
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FileSourceTimeDeltaUnits -&gt; Int
+$chash :: FileSourceTimeDeltaUnits -&gt; Int
+hashWithSalt :: Int -&gt; FileSourceTimeDeltaUnits -&gt; Int
+$chashWithSalt :: Int -&gt; FileSourceTimeDeltaUnits -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679965354"><span class="annot"><span class="annottext">FileSourceTimeDeltaUnits -&gt; ()
+(FileSourceTimeDeltaUnits -&gt; ()) -&gt; NFData FileSourceTimeDeltaUnits
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FileSourceTimeDeltaUnits -&gt; ()
+$crnf :: FileSourceTimeDeltaUnits -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679965351"><span class="annot"><span class="annottext">Text -&gt; Either String FileSourceTimeDeltaUnits
+(Text -&gt; Either String FileSourceTimeDeltaUnits)
+-&gt; FromText FileSourceTimeDeltaUnits
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FileSourceTimeDeltaUnits
+$cfromText :: Text -&gt; Either String FileSourceTimeDeltaUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679965348"><span class="annot"><span class="annottext">FileSourceTimeDeltaUnits -&gt; Text
+(FileSourceTimeDeltaUnits -&gt; Text)
+-&gt; ToText FileSourceTimeDeltaUnits
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FileSourceTimeDeltaUnits -&gt; Text
+$ctoText :: FileSourceTimeDeltaUnits -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679965345"><span class="annot"><span class="annottext">FileSourceTimeDeltaUnits -&gt; ByteString
+(FileSourceTimeDeltaUnits -&gt; ByteString)
+-&gt; ToByteString FileSourceTimeDeltaUnits
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FileSourceTimeDeltaUnits -&gt; ByteString
+$ctoBS :: FileSourceTimeDeltaUnits -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679965342"><span class="annot"><span class="annottext">FileSourceTimeDeltaUnits -&gt; ByteStringBuilder
+(FileSourceTimeDeltaUnits -&gt; ByteStringBuilder)
+-&gt; ToLog FileSourceTimeDeltaUnits
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FileSourceTimeDeltaUnits -&gt; ByteStringBuilder
+$cbuild :: FileSourceTimeDeltaUnits -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679965339"><span class="annot"><span class="annottext">HeaderName -&gt; FileSourceTimeDeltaUnits -&gt; [Header]
+(HeaderName -&gt; FileSourceTimeDeltaUnits -&gt; [Header])
+-&gt; ToHeader FileSourceTimeDeltaUnits
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FileSourceTimeDeltaUnits -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FileSourceTimeDeltaUnits -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679965336"><span class="annot"><span class="annottext">FileSourceTimeDeltaUnits -&gt; QueryString
+(FileSourceTimeDeltaUnits -&gt; QueryString)
+-&gt; ToQuery FileSourceTimeDeltaUnits
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FileSourceTimeDeltaUnits -&gt; QueryString
+$ctoQuery :: FileSourceTimeDeltaUnits -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679965331"><span id="local-6989586621679965333"><span class="annot"><span class="annottext">Value -&gt; Parser [FileSourceTimeDeltaUnits]
+Value -&gt; Parser FileSourceTimeDeltaUnits
+(Value -&gt; Parser FileSourceTimeDeltaUnits)
+-&gt; (Value -&gt; Parser [FileSourceTimeDeltaUnits])
+-&gt; FromJSON FileSourceTimeDeltaUnits
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FileSourceTimeDeltaUnits]
+$cparseJSONList :: Value -&gt; Parser [FileSourceTimeDeltaUnits]
+parseJSON :: Value -&gt; Parser FileSourceTimeDeltaUnits
+$cparseJSON :: Value -&gt; Parser FileSourceTimeDeltaUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679965326"><span id="local-6989586621679965328"><span class="annot"><span class="annottext">FromJSONKeyFunction [FileSourceTimeDeltaUnits]
+FromJSONKeyFunction FileSourceTimeDeltaUnits
+FromJSONKeyFunction FileSourceTimeDeltaUnits
+-&gt; FromJSONKeyFunction [FileSourceTimeDeltaUnits]
+-&gt; FromJSONKey FileSourceTimeDeltaUnits
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FileSourceTimeDeltaUnits]
+$cfromJSONKeyList :: FromJSONKeyFunction [FileSourceTimeDeltaUnits]
+fromJSONKey :: FromJSONKeyFunction FileSourceTimeDeltaUnits
+$cfromJSONKey :: FromJSONKeyFunction FileSourceTimeDeltaUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679965317"><span id="local-6989586621679965319"><span id="local-6989586621679965321"><span id="local-6989586621679965323"><span class="annot"><span class="annottext">[FileSourceTimeDeltaUnits] -&gt; Encoding
+[FileSourceTimeDeltaUnits] -&gt; Value
+FileSourceTimeDeltaUnits -&gt; Encoding
+FileSourceTimeDeltaUnits -&gt; Value
+(FileSourceTimeDeltaUnits -&gt; Value)
+-&gt; (FileSourceTimeDeltaUnits -&gt; Encoding)
+-&gt; ([FileSourceTimeDeltaUnits] -&gt; Value)
+-&gt; ([FileSourceTimeDeltaUnits] -&gt; Encoding)
+-&gt; ToJSON FileSourceTimeDeltaUnits
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FileSourceTimeDeltaUnits] -&gt; Encoding
+$ctoEncodingList :: [FileSourceTimeDeltaUnits] -&gt; Encoding
+toJSONList :: [FileSourceTimeDeltaUnits] -&gt; Value
+$ctoJSONList :: [FileSourceTimeDeltaUnits] -&gt; Value
+toEncoding :: FileSourceTimeDeltaUnits -&gt; Encoding
+$ctoEncoding :: FileSourceTimeDeltaUnits -&gt; Encoding
+toJSON :: FileSourceTimeDeltaUnits -&gt; Value
+$ctoJSON :: FileSourceTimeDeltaUnits -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679965312"><span id="local-6989586621679965314"><span class="annot"><span class="annottext">ToJSONKeyFunction [FileSourceTimeDeltaUnits]
+ToJSONKeyFunction FileSourceTimeDeltaUnits
+ToJSONKeyFunction FileSourceTimeDeltaUnits
+-&gt; ToJSONKeyFunction [FileSourceTimeDeltaUnits]
+-&gt; ToJSONKey FileSourceTimeDeltaUnits
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FileSourceTimeDeltaUnits]
+$ctoJSONKeyList :: ToJSONKeyFunction [FileSourceTimeDeltaUnits]
+toJSONKey :: ToJSONKeyFunction FileSourceTimeDeltaUnits
+$ctoJSONKey :: ToJSONKeyFunction FileSourceTimeDeltaUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679965309"><span class="annot"><span class="annottext">[Node] -&gt; Either String FileSourceTimeDeltaUnits
+([Node] -&gt; Either String FileSourceTimeDeltaUnits)
+-&gt; FromXML FileSourceTimeDeltaUnits
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FileSourceTimeDeltaUnits
+$cparseXML :: [Node] -&gt; Either String FileSourceTimeDeltaUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679965306"><span class="annot"><span class="annottext">FileSourceTimeDeltaUnits -&gt; XML
+(FileSourceTimeDeltaUnits -&gt; XML) -&gt; ToXML FileSourceTimeDeltaUnits
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FileSourceTimeDeltaUnits -&gt; XML
+$ctoXML :: FileSourceTimeDeltaUnits -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#FileSourceTimeDeltaUnits_MILLISECONDS"><span class="hs-identifier hs-type">FileSourceTimeDeltaUnits_MILLISECONDS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#FileSourceTimeDeltaUnits"><span class="hs-identifier hs-type">FileSourceTimeDeltaUnits</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileSourceTimeDeltaUnits_MILLISECONDS"><span id="%24mFileSourceTimeDeltaUnits_MILLISECONDS"><span id="FileSourceTimeDeltaUnits_MILLISECONDS"><span class="annot"><span class="annottext">$bFileSourceTimeDeltaUnits_MILLISECONDS :: FileSourceTimeDeltaUnits
+$mFileSourceTimeDeltaUnits_MILLISECONDS :: forall r.
+FileSourceTimeDeltaUnits -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#%24bFileSourceTimeDeltaUnits_MILLISECONDS"><span class="hs-identifier hs-var hs-var hs-var">FileSourceTimeDeltaUnits_MILLISECONDS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#FileSourceTimeDeltaUnits%27"><span class="hs-identifier hs-type">FileSourceTimeDeltaUnits'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MILLISECONDS&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#FileSourceTimeDeltaUnits_SECONDS"><span class="hs-identifier hs-type">FileSourceTimeDeltaUnits_SECONDS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#FileSourceTimeDeltaUnits"><span class="hs-identifier hs-type">FileSourceTimeDeltaUnits</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileSourceTimeDeltaUnits_SECONDS"><span id="%24mFileSourceTimeDeltaUnits_SECONDS"><span id="FileSourceTimeDeltaUnits_SECONDS"><span class="annot"><span class="annottext">$bFileSourceTimeDeltaUnits_SECONDS :: FileSourceTimeDeltaUnits
+$mFileSourceTimeDeltaUnits_SECONDS :: forall r.
+FileSourceTimeDeltaUnits -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#%24bFileSourceTimeDeltaUnits_SECONDS"><span class="hs-identifier hs-var hs-var hs-var">FileSourceTimeDeltaUnits_SECONDS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#FileSourceTimeDeltaUnits%27"><span class="hs-identifier hs-type">FileSourceTimeDeltaUnits'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SECONDS&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#FileSourceTimeDeltaUnits_MILLISECONDS"><span class="hs-pragma hs-type">FileSourceTimeDeltaUnits_MILLISECONDS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#FileSourceTimeDeltaUnits_SECONDS"><span class="hs-pragma hs-type">FileSourceTimeDeltaUnits_SECONDS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits.html#FileSourceTimeDeltaUnits%27"><span class="hs-pragma hs-type">FileSourceTimeDeltaUnits'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

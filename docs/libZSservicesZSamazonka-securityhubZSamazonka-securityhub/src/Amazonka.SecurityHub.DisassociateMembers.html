@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.DisassociateMembers</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disassociates the specified member accounts from the associated</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- administrator account.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Can be used to disassociate both accounts that are managed using</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Organizations and accounts that were invited manually.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.DisassociateMembers</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers"><span class="hs-identifier">DisassociateMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#newDisassociateMembers"><span class="hs-identifier">newDisassociateMembers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#disassociateMembers_accountIds"><span class="hs-identifier">disassociateMembers_accountIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembersResponse"><span class="hs-identifier">DisassociateMembersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#newDisassociateMembersResponse"><span class="hs-identifier">newDisassociateMembersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#disassociateMembersResponse_httpStatus"><span class="hs-identifier">disassociateMembersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.html"><span class="hs-identifier">Amazonka.SecurityHub.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDisassociateMembers' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621680002366"><span id="local-6989586621680002367"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateMembers"><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers"><span class="hs-identifier hs-var">DisassociateMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateMembers%27"><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers%27"><span class="hs-identifier hs-var">DisassociateMembers'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account IDs of the member accounts to disassociate from the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- administrator account.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AaccountIds%3ADisassociateMembers%27"><span class="annot"><span class="annottext">DisassociateMembers -&gt; [Text]
+</span><a href="Amazonka.SecurityHub.DisassociateMembers.html#%24sel%3AaccountIds%3ADisassociateMembers%27"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680002360"><span id="local-6989586621680002362"><span class="annot"><span class="annottext">DisassociateMembers -&gt; DisassociateMembers -&gt; Bool
+(DisassociateMembers -&gt; DisassociateMembers -&gt; Bool)
+-&gt; (DisassociateMembers -&gt; DisassociateMembers -&gt; Bool)
+-&gt; Eq DisassociateMembers
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateMembers -&gt; DisassociateMembers -&gt; Bool
+$c/= :: DisassociateMembers -&gt; DisassociateMembers -&gt; Bool
+== :: DisassociateMembers -&gt; DisassociateMembers -&gt; Bool
+$c== :: DisassociateMembers -&gt; DisassociateMembers -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680002351"><span id="local-6989586621680002353"><span id="local-6989586621680002355"><span id="local-6989586621680002357"><span class="annot"><span class="annottext">ReadPrec [DisassociateMembers]
+ReadPrec DisassociateMembers
+Int -&gt; ReadS DisassociateMembers
+ReadS [DisassociateMembers]
+(Int -&gt; ReadS DisassociateMembers)
+-&gt; ReadS [DisassociateMembers]
+-&gt; ReadPrec DisassociateMembers
+-&gt; ReadPrec [DisassociateMembers]
+-&gt; Read DisassociateMembers
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateMembers]
+$creadListPrec :: ReadPrec [DisassociateMembers]
+readPrec :: ReadPrec DisassociateMembers
+$creadPrec :: ReadPrec DisassociateMembers
+readList :: ReadS [DisassociateMembers]
+$creadList :: ReadS [DisassociateMembers]
+readsPrec :: Int -&gt; ReadS DisassociateMembers
+$creadsPrec :: Int -&gt; ReadS DisassociateMembers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680002344"><span id="local-6989586621680002346"><span id="local-6989586621680002348"><span class="annot"><span class="annottext">Int -&gt; DisassociateMembers -&gt; ShowS
+[DisassociateMembers] -&gt; ShowS
+DisassociateMembers -&gt; String
+(Int -&gt; DisassociateMembers -&gt; ShowS)
+-&gt; (DisassociateMembers -&gt; String)
+-&gt; ([DisassociateMembers] -&gt; ShowS)
+-&gt; Show DisassociateMembers
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateMembers] -&gt; ShowS
+$cshowList :: [DisassociateMembers] -&gt; ShowS
+show :: DisassociateMembers -&gt; String
+$cshow :: DisassociateMembers -&gt; String
+showsPrec :: Int -&gt; DisassociateMembers -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateMembers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DisassociateMembers -&gt; Rep DisassociateMembers x)
+-&gt; (forall x. Rep DisassociateMembers x -&gt; DisassociateMembers)
+-&gt; Generic DisassociateMembers
+forall x. Rep DisassociateMembers x -&gt; DisassociateMembers
+forall x. DisassociateMembers -&gt; Rep DisassociateMembers x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DisassociateMembers x -&gt; DisassociateMembers
+$cfrom :: forall x. DisassociateMembers -&gt; Rep DisassociateMembers x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DisassociateMembers' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'accountIds', 'disassociateMembers_accountIds' - The account IDs of the member accounts to disassociate from the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- administrator account.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#newDisassociateMembers"><span class="hs-identifier hs-type">newDisassociateMembers</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers"><span class="hs-identifier hs-type">DisassociateMembers</span></a></span><span>
+</span><span id="line-72"></span><span id="newDisassociateMembers"><span class="annot"><span class="annottext">newDisassociateMembers :: DisassociateMembers
+</span><a href="Amazonka.SecurityHub.DisassociateMembers.html#newDisassociateMembers"><span class="hs-identifier hs-var hs-var">newDisassociateMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DisassociateMembers' :: [Text] -&gt; DisassociateMembers
+</span><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers%27"><span class="hs-identifier hs-type">DisassociateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:DisassociateMembers' :: [Text]
+</span><a href="Amazonka.SecurityHub.DisassociateMembers.html#%24sel%3AaccountIds%3ADisassociateMembers%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The account IDs of the member accounts to disassociate from the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- administrator account.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#disassociateMembers_accountIds"><span class="hs-identifier hs-type">disassociateMembers_accountIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers"><span class="hs-identifier hs-type">DisassociateMembers</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-78"></span><span id="disassociateMembers_accountIds"><span class="annot"><span class="annottext">disassociateMembers_accountIds :: ([Text] -&gt; f [Text])
+-&gt; DisassociateMembers -&gt; f DisassociateMembers
+</span><a href="Amazonka.SecurityHub.DisassociateMembers.html#disassociateMembers_accountIds"><span class="hs-identifier hs-var hs-var">disassociateMembers_accountIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateMembers -&gt; [Text])
+-&gt; (DisassociateMembers -&gt; [Text] -&gt; DisassociateMembers)
+-&gt; Lens DisassociateMembers DisassociateMembers [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers%27"><span class="hs-identifier hs-type">DisassociateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002337"><span class="annot"><span class="annottext">[Text]
+accountIds :: [Text]
+$sel:accountIds:DisassociateMembers' :: DisassociateMembers -&gt; [Text]
+</span><a href="#local-6989586621680002337"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621680002337"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002336"><span class="annot"><span class="annottext">s :: DisassociateMembers
+</span><a href="#local-6989586621680002336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers%27"><span class="hs-identifier hs-type">DisassociateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002335"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621680002335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateMembers
+</span><a href="#local-6989586621680002336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:DisassociateMembers' :: [Text]
+</span><a href="Amazonka.SecurityHub.DisassociateMembers.html#%24sel%3AaccountIds%3ADisassociateMembers%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621680002335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers"><span class="hs-identifier hs-type">DisassociateMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; DisassociateMembers -&gt; f DisassociateMembers)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; DisassociateMembers
+-&gt; f DisassociateMembers
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers"><span class="hs-identifier hs-type">DisassociateMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers"><span class="hs-identifier hs-type">DisassociateMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembersResponse"><span class="hs-identifier hs-type">DisassociateMembersResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621680002329"><span class="annot"><span class="annottext">request :: DisassociateMembers -&gt; Request DisassociateMembers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DisassociateMembers -&gt; Request DisassociateMembers
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SecurityHub.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621680002325"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisassociateMembers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisassociateMembers)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DisassociateMembers))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisassociateMembers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisassociateMembers)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680002322"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680002322"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680002321"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680002321"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680002320"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621680002320"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DisassociateMembersResponse
+</span><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembersResponse%27"><span class="hs-identifier hs-var">DisassociateMembersResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DisassociateMembersResponse)
+-&gt; Either String Int -&gt; Either String DisassociateMembersResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680002322"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002313"><span id="local-6989586621680002315"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers"><span class="hs-identifier hs-type">DisassociateMembers</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers"><span class="hs-identifier hs-type">DisassociateMembers</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers"><span class="hs-identifier hs-type">DisassociateMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621680002306"><span class="annot"><span class="annottext">toHeaders :: DisassociateMembers -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DisassociateMembers -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002296"><span id="local-6989586621680002298"><span id="local-6989586621680002300"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers"><span class="hs-identifier hs-type">DisassociateMembers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621680002294"><span class="annot"><span class="annottext">toJSON :: DisassociateMembers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers%27"><span class="hs-identifier hs-type">DisassociateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002292"><span class="annot"><span class="annottext">[Text]
+accountIds :: [Text]
+$sel:accountIds:DisassociateMembers' :: DisassociateMembers -&gt; [Text]
+</span><a href="#local-6989586621680002292"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621680002292"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers"><span class="hs-identifier hs-type">DisassociateMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621680002286"><span class="annot"><span class="annottext">toPath :: DisassociateMembers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisassociateMembers -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/members/disassociate&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembers"><span class="hs-identifier hs-type">DisassociateMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621680002282"><span class="annot"><span class="annottext">toQuery :: DisassociateMembers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisassociateMembers -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newDisassociateMembersResponse' smart constructor.</span><span>
+</span><span id="line-121"></span><span id="local-6989586621680002279"><span id="local-6989586621680002280"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateMembersResponse"><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembersResponse"><span class="hs-identifier hs-var">DisassociateMembersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateMembersResponse%27"><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembersResponse%27"><span class="hs-identifier hs-var">DisassociateMembersResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisassociateMembersResponse%27"><span class="annot"><span class="annottext">DisassociateMembersResponse -&gt; Int
+</span><a href="Amazonka.SecurityHub.DisassociateMembers.html#%24sel%3AhttpStatus%3ADisassociateMembersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680002274"><span id="local-6989586621680002276"><span class="annot"><span class="annottext">DisassociateMembersResponse -&gt; DisassociateMembersResponse -&gt; Bool
+(DisassociateMembersResponse
+ -&gt; DisassociateMembersResponse -&gt; Bool)
+-&gt; (DisassociateMembersResponse
+    -&gt; DisassociateMembersResponse -&gt; Bool)
+-&gt; Eq DisassociateMembersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateMembersResponse -&gt; DisassociateMembersResponse -&gt; Bool
+$c/= :: DisassociateMembersResponse -&gt; DisassociateMembersResponse -&gt; Bool
+== :: DisassociateMembersResponse -&gt; DisassociateMembersResponse -&gt; Bool
+$c== :: DisassociateMembersResponse -&gt; DisassociateMembersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680002266"><span id="local-6989586621680002268"><span id="local-6989586621680002270"><span id="local-6989586621680002272"><span class="annot"><span class="annottext">ReadPrec [DisassociateMembersResponse]
+ReadPrec DisassociateMembersResponse
+Int -&gt; ReadS DisassociateMembersResponse
+ReadS [DisassociateMembersResponse]
+(Int -&gt; ReadS DisassociateMembersResponse)
+-&gt; ReadS [DisassociateMembersResponse]
+-&gt; ReadPrec DisassociateMembersResponse
+-&gt; ReadPrec [DisassociateMembersResponse]
+-&gt; Read DisassociateMembersResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateMembersResponse]
+$creadListPrec :: ReadPrec [DisassociateMembersResponse]
+readPrec :: ReadPrec DisassociateMembersResponse
+$creadPrec :: ReadPrec DisassociateMembersResponse
+readList :: ReadS [DisassociateMembersResponse]
+$creadList :: ReadS [DisassociateMembersResponse]
+readsPrec :: Int -&gt; ReadS DisassociateMembersResponse
+$creadsPrec :: Int -&gt; ReadS DisassociateMembersResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680002260"><span id="local-6989586621680002262"><span id="local-6989586621680002264"><span class="annot"><span class="annottext">Int -&gt; DisassociateMembersResponse -&gt; ShowS
+[DisassociateMembersResponse] -&gt; ShowS
+DisassociateMembersResponse -&gt; String
+(Int -&gt; DisassociateMembersResponse -&gt; ShowS)
+-&gt; (DisassociateMembersResponse -&gt; String)
+-&gt; ([DisassociateMembersResponse] -&gt; ShowS)
+-&gt; Show DisassociateMembersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateMembersResponse] -&gt; ShowS
+$cshowList :: [DisassociateMembersResponse] -&gt; ShowS
+show :: DisassociateMembersResponse -&gt; String
+$cshow :: DisassociateMembersResponse -&gt; String
+showsPrec :: Int -&gt; DisassociateMembersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateMembersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociateMembersResponse -&gt; Rep DisassociateMembersResponse x)
+-&gt; (forall x.
+    Rep DisassociateMembersResponse x -&gt; DisassociateMembersResponse)
+-&gt; Generic DisassociateMembersResponse
+forall x.
+Rep DisassociateMembersResponse x -&gt; DisassociateMembersResponse
+forall x.
+DisassociateMembersResponse -&gt; Rep DisassociateMembersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociateMembersResponse x -&gt; DisassociateMembersResponse
+$cfrom :: forall x.
+DisassociateMembersResponse -&gt; Rep DisassociateMembersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Create a value of 'DisassociateMembersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'httpStatus', 'disassociateMembersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#newDisassociateMembersResponse"><span class="hs-identifier hs-type">newDisassociateMembersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembersResponse"><span class="hs-identifier hs-type">DisassociateMembersResponse</span></a></span><span>
+</span><span id="line-140"></span><span id="newDisassociateMembersResponse"><span class="annot"><span class="annottext">newDisassociateMembersResponse :: Int -&gt; DisassociateMembersResponse
+</span><a href="Amazonka.SecurityHub.DisassociateMembers.html#newDisassociateMembersResponse"><span class="hs-identifier hs-var hs-var">newDisassociateMembersResponse</span></a></span></span><span> </span><span id="local-6989586621680002257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680002257"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">DisassociateMembersResponse' :: Int -&gt; DisassociateMembersResponse
+</span><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembersResponse%27"><span class="hs-identifier hs-type">DisassociateMembersResponse'</span></a></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateMembersResponse' :: Int
+</span><a href="Amazonka.SecurityHub.DisassociateMembers.html#%24sel%3AhttpStatus%3ADisassociateMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680002257"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#disassociateMembersResponse_httpStatus"><span class="hs-identifier hs-type">disassociateMembersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembersResponse"><span class="hs-identifier hs-type">DisassociateMembersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-148"></span><span id="disassociateMembersResponse_httpStatus"><span class="annot"><span class="annottext">disassociateMembersResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DisassociateMembersResponse -&gt; f DisassociateMembersResponse
+</span><a href="Amazonka.SecurityHub.DisassociateMembers.html#disassociateMembersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">disassociateMembersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateMembersResponse -&gt; Int)
+-&gt; (DisassociateMembersResponse
+    -&gt; Int -&gt; DisassociateMembersResponse)
+-&gt; Lens
+     DisassociateMembersResponse DisassociateMembersResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembersResponse%27"><span class="hs-identifier hs-type">DisassociateMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002256"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DisassociateMembersResponse' :: DisassociateMembersResponse -&gt; Int
+</span><a href="#local-6989586621680002256"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680002256"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002255"><span class="annot"><span class="annottext">s :: DisassociateMembersResponse
+</span><a href="#local-6989586621680002255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembersResponse%27"><span class="hs-identifier hs-type">DisassociateMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002254"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680002254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateMembersResponse
+</span><a href="#local-6989586621680002255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateMembersResponse' :: Int
+</span><a href="Amazonka.SecurityHub.DisassociateMembers.html#%24sel%3AhttpStatus%3ADisassociateMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680002254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembersResponse"><span class="hs-identifier hs-type">DisassociateMembersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.DisassociateMembers.html#DisassociateMembersResponse"><span class="hs-identifier hs-type">DisassociateMembersResponse</span></a></span></span><span>
+</span><span id="line-151"></span></pre></body></html>

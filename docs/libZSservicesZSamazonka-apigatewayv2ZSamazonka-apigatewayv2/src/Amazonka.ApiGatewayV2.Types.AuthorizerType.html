@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ApiGatewayV2.Types.AuthorizerType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ApiGatewayV2.Types.AuthorizerType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType"><span class="hs-identifier">AuthorizerType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType_JWT"><span class="hs-identifier">AuthorizerType_JWT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType_REQUEST"><span class="hs-identifier">AuthorizerType_REQUEST</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The authorizer type. Specify REQUEST for a Lambda function using</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- incoming request parameters. Specify JWT to use JSON Web Tokens</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- (supported only for HTTP APIs).</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679405706"><span id="local-6989586621679405707"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthorizerType"><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType"><span class="hs-identifier hs-var">AuthorizerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizerType%27"><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType%27"><span class="hs-identifier hs-var">AuthorizerType'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuthorizerType"><span class="annot"><span class="annottext">AuthorizerType -&gt; Text
+</span><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#fromAuthorizerType"><span class="hs-identifier hs-var hs-var">fromAuthorizerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405698"><span id="local-6989586621679405700"><span id="local-6989586621679405702"><span class="annot"><span class="annottext">Int -&gt; AuthorizerType -&gt; ShowS
+[AuthorizerType] -&gt; ShowS
+AuthorizerType -&gt; String
+(Int -&gt; AuthorizerType -&gt; ShowS)
+-&gt; (AuthorizerType -&gt; String)
+-&gt; ([AuthorizerType] -&gt; ShowS)
+-&gt; Show AuthorizerType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AuthorizerType] -&gt; ShowS
+$cshowList :: [AuthorizerType] -&gt; ShowS
+show :: AuthorizerType -&gt; String
+$cshow :: AuthorizerType -&gt; String
+showsPrec :: Int -&gt; AuthorizerType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AuthorizerType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679405689"><span id="local-6989586621679405691"><span id="local-6989586621679405693"><span id="local-6989586621679405695"><span class="annot"><span class="annottext">ReadPrec [AuthorizerType]
+ReadPrec AuthorizerType
+Int -&gt; ReadS AuthorizerType
+ReadS [AuthorizerType]
+(Int -&gt; ReadS AuthorizerType)
+-&gt; ReadS [AuthorizerType]
+-&gt; ReadPrec AuthorizerType
+-&gt; ReadPrec [AuthorizerType]
+-&gt; Read AuthorizerType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AuthorizerType]
+$creadListPrec :: ReadPrec [AuthorizerType]
+readPrec :: ReadPrec AuthorizerType
+$creadPrec :: ReadPrec AuthorizerType
+readList :: ReadS [AuthorizerType]
+$creadList :: ReadS [AuthorizerType]
+readsPrec :: Int -&gt; ReadS AuthorizerType
+$creadsPrec :: Int -&gt; ReadS AuthorizerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679405684"><span id="local-6989586621679405686"><span class="annot"><span class="annottext">AuthorizerType -&gt; AuthorizerType -&gt; Bool
+(AuthorizerType -&gt; AuthorizerType -&gt; Bool)
+-&gt; (AuthorizerType -&gt; AuthorizerType -&gt; Bool) -&gt; Eq AuthorizerType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AuthorizerType -&gt; AuthorizerType -&gt; Bool
+$c/= :: AuthorizerType -&gt; AuthorizerType -&gt; Bool
+== :: AuthorizerType -&gt; AuthorizerType -&gt; Bool
+$c== :: AuthorizerType -&gt; AuthorizerType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679405668"><span id="local-6989586621679405670"><span id="local-6989586621679405672"><span id="local-6989586621679405674"><span id="local-6989586621679405676"><span id="local-6989586621679405678"><span id="local-6989586621679405680"><span class="annot"><span class="annottext">Eq AuthorizerType
+Eq AuthorizerType
+-&gt; (AuthorizerType -&gt; AuthorizerType -&gt; Ordering)
+-&gt; (AuthorizerType -&gt; AuthorizerType -&gt; Bool)
+-&gt; (AuthorizerType -&gt; AuthorizerType -&gt; Bool)
+-&gt; (AuthorizerType -&gt; AuthorizerType -&gt; Bool)
+-&gt; (AuthorizerType -&gt; AuthorizerType -&gt; Bool)
+-&gt; (AuthorizerType -&gt; AuthorizerType -&gt; AuthorizerType)
+-&gt; (AuthorizerType -&gt; AuthorizerType -&gt; AuthorizerType)
+-&gt; Ord AuthorizerType
+AuthorizerType -&gt; AuthorizerType -&gt; Bool
+AuthorizerType -&gt; AuthorizerType -&gt; Ordering
+AuthorizerType -&gt; AuthorizerType -&gt; AuthorizerType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AuthorizerType -&gt; AuthorizerType -&gt; AuthorizerType
+$cmin :: AuthorizerType -&gt; AuthorizerType -&gt; AuthorizerType
+max :: AuthorizerType -&gt; AuthorizerType -&gt; AuthorizerType
+$cmax :: AuthorizerType -&gt; AuthorizerType -&gt; AuthorizerType
+&gt;= :: AuthorizerType -&gt; AuthorizerType -&gt; Bool
+$c&gt;= :: AuthorizerType -&gt; AuthorizerType -&gt; Bool
+&gt; :: AuthorizerType -&gt; AuthorizerType -&gt; Bool
+$c&gt; :: AuthorizerType -&gt; AuthorizerType -&gt; Bool
+&lt;= :: AuthorizerType -&gt; AuthorizerType -&gt; Bool
+$c&lt;= :: AuthorizerType -&gt; AuthorizerType -&gt; Bool
+&lt; :: AuthorizerType -&gt; AuthorizerType -&gt; Bool
+$c&lt; :: AuthorizerType -&gt; AuthorizerType -&gt; Bool
+compare :: AuthorizerType -&gt; AuthorizerType -&gt; Ordering
+$ccompare :: AuthorizerType -&gt; AuthorizerType -&gt; Ordering
+$cp1Ord :: Eq AuthorizerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AuthorizerType -&gt; Rep AuthorizerType x)
+-&gt; (forall x. Rep AuthorizerType x -&gt; AuthorizerType)
+-&gt; Generic AuthorizerType
+forall x. Rep AuthorizerType x -&gt; AuthorizerType
+forall x. AuthorizerType -&gt; Rep AuthorizerType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AuthorizerType x -&gt; AuthorizerType
+$cfrom :: forall x. AuthorizerType -&gt; Rep AuthorizerType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405660"><span id="local-6989586621679405662"><span class="annot"><span class="annottext">Int -&gt; AuthorizerType -&gt; Int
+AuthorizerType -&gt; Int
+(Int -&gt; AuthorizerType -&gt; Int)
+-&gt; (AuthorizerType -&gt; Int) -&gt; Hashable AuthorizerType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AuthorizerType -&gt; Int
+$chash :: AuthorizerType -&gt; Int
+hashWithSalt :: Int -&gt; AuthorizerType -&gt; Int
+$chashWithSalt :: Int -&gt; AuthorizerType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679405657"><span class="annot"><span class="annottext">AuthorizerType -&gt; ()
+(AuthorizerType -&gt; ()) -&gt; NFData AuthorizerType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AuthorizerType -&gt; ()
+$crnf :: AuthorizerType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679405654"><span class="annot"><span class="annottext">Text -&gt; Either String AuthorizerType
+(Text -&gt; Either String AuthorizerType) -&gt; FromText AuthorizerType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AuthorizerType
+$cfromText :: Text -&gt; Either String AuthorizerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679405651"><span class="annot"><span class="annottext">AuthorizerType -&gt; Text
+(AuthorizerType -&gt; Text) -&gt; ToText AuthorizerType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AuthorizerType -&gt; Text
+$ctoText :: AuthorizerType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679405648"><span class="annot"><span class="annottext">AuthorizerType -&gt; ByteString
+(AuthorizerType -&gt; ByteString) -&gt; ToByteString AuthorizerType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AuthorizerType -&gt; ByteString
+$ctoBS :: AuthorizerType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679405645"><span class="annot"><span class="annottext">AuthorizerType -&gt; ByteStringBuilder
+(AuthorizerType -&gt; ByteStringBuilder) -&gt; ToLog AuthorizerType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AuthorizerType -&gt; ByteStringBuilder
+$cbuild :: AuthorizerType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679405642"><span class="annot"><span class="annottext">HeaderName -&gt; AuthorizerType -&gt; [Header]
+(HeaderName -&gt; AuthorizerType -&gt; [Header])
+-&gt; ToHeader AuthorizerType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AuthorizerType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AuthorizerType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679405639"><span class="annot"><span class="annottext">AuthorizerType -&gt; QueryString
+(AuthorizerType -&gt; QueryString) -&gt; ToQuery AuthorizerType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AuthorizerType -&gt; QueryString
+$ctoQuery :: AuthorizerType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679405634"><span id="local-6989586621679405636"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthorizerType]
+Value -&gt; Parser AuthorizerType
+(Value -&gt; Parser AuthorizerType)
+-&gt; (Value -&gt; Parser [AuthorizerType]) -&gt; FromJSON AuthorizerType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AuthorizerType]
+$cparseJSONList :: Value -&gt; Parser [AuthorizerType]
+parseJSON :: Value -&gt; Parser AuthorizerType
+$cparseJSON :: Value -&gt; Parser AuthorizerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679405629"><span id="local-6989586621679405631"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthorizerType]
+FromJSONKeyFunction AuthorizerType
+FromJSONKeyFunction AuthorizerType
+-&gt; FromJSONKeyFunction [AuthorizerType]
+-&gt; FromJSONKey AuthorizerType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AuthorizerType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AuthorizerType]
+fromJSONKey :: FromJSONKeyFunction AuthorizerType
+$cfromJSONKey :: FromJSONKeyFunction AuthorizerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679405620"><span id="local-6989586621679405622"><span id="local-6989586621679405624"><span id="local-6989586621679405626"><span class="annot"><span class="annottext">[AuthorizerType] -&gt; Encoding
+[AuthorizerType] -&gt; Value
+AuthorizerType -&gt; Encoding
+AuthorizerType -&gt; Value
+(AuthorizerType -&gt; Value)
+-&gt; (AuthorizerType -&gt; Encoding)
+-&gt; ([AuthorizerType] -&gt; Value)
+-&gt; ([AuthorizerType] -&gt; Encoding)
+-&gt; ToJSON AuthorizerType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AuthorizerType] -&gt; Encoding
+$ctoEncodingList :: [AuthorizerType] -&gt; Encoding
+toJSONList :: [AuthorizerType] -&gt; Value
+$ctoJSONList :: [AuthorizerType] -&gt; Value
+toEncoding :: AuthorizerType -&gt; Encoding
+$ctoEncoding :: AuthorizerType -&gt; Encoding
+toJSON :: AuthorizerType -&gt; Value
+$ctoJSON :: AuthorizerType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679405615"><span id="local-6989586621679405617"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthorizerType]
+ToJSONKeyFunction AuthorizerType
+ToJSONKeyFunction AuthorizerType
+-&gt; ToJSONKeyFunction [AuthorizerType] -&gt; ToJSONKey AuthorizerType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AuthorizerType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AuthorizerType]
+toJSONKey :: ToJSONKeyFunction AuthorizerType
+$ctoJSONKey :: ToJSONKeyFunction AuthorizerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679405612"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthorizerType
+([Node] -&gt; Either String AuthorizerType) -&gt; FromXML AuthorizerType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AuthorizerType
+$cparseXML :: [Node] -&gt; Either String AuthorizerType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679405609"><span class="annot"><span class="annottext">AuthorizerType -&gt; XML
+(AuthorizerType -&gt; XML) -&gt; ToXML AuthorizerType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AuthorizerType -&gt; XML
+$ctoXML :: AuthorizerType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType_JWT"><span class="hs-identifier hs-type">AuthorizerType_JWT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType"><span class="hs-identifier hs-type">AuthorizerType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthorizerType_JWT"><span id="%24mAuthorizerType_JWT"><span id="AuthorizerType_JWT"><span class="annot"><span class="annottext">$bAuthorizerType_JWT :: AuthorizerType
+$mAuthorizerType_JWT :: forall r. AuthorizerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#%24bAuthorizerType_JWT"><span class="hs-identifier hs-var hs-var hs-var">AuthorizerType_JWT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType%27"><span class="hs-identifier hs-type">AuthorizerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;JWT&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType_REQUEST"><span class="hs-identifier hs-type">AuthorizerType_REQUEST</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType"><span class="hs-identifier hs-type">AuthorizerType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthorizerType_REQUEST"><span id="%24mAuthorizerType_REQUEST"><span id="AuthorizerType_REQUEST"><span class="annot"><span class="annottext">$bAuthorizerType_REQUEST :: AuthorizerType
+$mAuthorizerType_REQUEST :: forall r. AuthorizerType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#%24bAuthorizerType_REQUEST"><span class="hs-identifier hs-var hs-var hs-var">AuthorizerType_REQUEST</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType%27"><span class="hs-identifier hs-type">AuthorizerType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REQUEST&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType_JWT"><span class="hs-pragma hs-type">AuthorizerType_JWT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType_REQUEST"><span class="hs-pragma hs-type">AuthorizerType_REQUEST</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.AuthorizerType.html#AuthorizerType%27"><span class="hs-pragma hs-type">AuthorizerType'</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-74"></span></pre></body></html>

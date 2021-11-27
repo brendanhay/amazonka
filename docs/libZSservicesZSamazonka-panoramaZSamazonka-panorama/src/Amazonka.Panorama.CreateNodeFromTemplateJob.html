@@ -1,0 +1,752 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Panorama.CreateNodeFromTemplateJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a camera stream node.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Panorama.CreateNodeFromTemplateJob</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier">CreateNodeFromTemplateJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#newCreateNodeFromTemplateJob"><span class="hs-identifier">newCreateNodeFromTemplateJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_jobTags"><span class="hs-identifier">createNodeFromTemplateJob_jobTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_nodeDescription"><span class="hs-identifier">createNodeFromTemplateJob_nodeDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_templateType"><span class="hs-identifier">createNodeFromTemplateJob_templateType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_outputPackageName"><span class="hs-identifier">createNodeFromTemplateJob_outputPackageName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_outputPackageVersion"><span class="hs-identifier">createNodeFromTemplateJob_outputPackageVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_nodeName"><span class="hs-identifier">createNodeFromTemplateJob_nodeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_templateParameters"><span class="hs-identifier">createNodeFromTemplateJob_templateParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse"><span class="hs-identifier">CreateNodeFromTemplateJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#newCreateNodeFromTemplateJobResponse"><span class="hs-identifier">newCreateNodeFromTemplateJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJobResponse_httpStatus"><span class="hs-identifier">createNodeFromTemplateJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJobResponse_jobId"><span class="hs-identifier">createNodeFromTemplateJobResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.html"><span class="hs-identifier">Amazonka.Panorama.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newCreateNodeFromTemplateJob' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679267736"><span id="local-6989586621679267737"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateNodeFromTemplateJob"><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-var">CreateNodeFromTemplateJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateNodeFromTemplateJob%27"><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var">CreateNodeFromTemplateJob'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Tags for the job.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AjobTags%3ACreateNodeFromTemplateJob%27"><span class="annot"><span class="annottext">CreateNodeFromTemplateJob -&gt; Maybe [JobResourceTags]
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AjobTags%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var hs-var">jobTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Panorama.Types.JobResourceTags.html#JobResourceTags"><span class="hs-identifier hs-type">JobResourceTags</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | A description for the node.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnodeDescription%3ACreateNodeFromTemplateJob%27"><span class="annot"><span class="annottext">CreateNodeFromTemplateJob -&gt; Maybe Text
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AnodeDescription%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var hs-var">nodeDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The type of node.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AtemplateType%3ACreateNodeFromTemplateJob%27"><span class="annot"><span class="annottext">CreateNodeFromTemplateJob -&gt; TemplateType
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AtemplateType%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var hs-var">templateType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.TemplateType.html#TemplateType"><span class="hs-identifier hs-type">TemplateType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | An output package name for the node.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AoutputPackageName%3ACreateNodeFromTemplateJob%27"><span class="annot"><span class="annottext">CreateNodeFromTemplateJob -&gt; Text
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AoutputPackageName%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var hs-var">outputPackageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | An output package version for the node.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AoutputPackageVersion%3ACreateNodeFromTemplateJob%27"><span class="annot"><span class="annottext">CreateNodeFromTemplateJob -&gt; Text
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AoutputPackageVersion%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var hs-var">outputPackageVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A name for the node.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AnodeName%3ACreateNodeFromTemplateJob%27"><span class="annot"><span class="annottext">CreateNodeFromTemplateJob -&gt; Text
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AnodeName%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var hs-var">nodeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Template parameters for the node.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AtemplateParameters%3ACreateNodeFromTemplateJob%27"><span class="annot"><span class="annottext">CreateNodeFromTemplateJob -&gt; HashMap Text (Sensitive Text)
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AtemplateParameters%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var hs-var">templateParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267724"><span id="local-6989586621679267726"><span class="annot"><span class="annottext">CreateNodeFromTemplateJob -&gt; CreateNodeFromTemplateJob -&gt; Bool
+(CreateNodeFromTemplateJob -&gt; CreateNodeFromTemplateJob -&gt; Bool)
+-&gt; (CreateNodeFromTemplateJob -&gt; CreateNodeFromTemplateJob -&gt; Bool)
+-&gt; Eq CreateNodeFromTemplateJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateNodeFromTemplateJob -&gt; CreateNodeFromTemplateJob -&gt; Bool
+$c/= :: CreateNodeFromTemplateJob -&gt; CreateNodeFromTemplateJob -&gt; Bool
+== :: CreateNodeFromTemplateJob -&gt; CreateNodeFromTemplateJob -&gt; Bool
+$c== :: CreateNodeFromTemplateJob -&gt; CreateNodeFromTemplateJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267717"><span id="local-6989586621679267719"><span id="local-6989586621679267721"><span class="annot"><span class="annottext">Int -&gt; CreateNodeFromTemplateJob -&gt; ShowS
+[CreateNodeFromTemplateJob] -&gt; ShowS
+CreateNodeFromTemplateJob -&gt; String
+(Int -&gt; CreateNodeFromTemplateJob -&gt; ShowS)
+-&gt; (CreateNodeFromTemplateJob -&gt; String)
+-&gt; ([CreateNodeFromTemplateJob] -&gt; ShowS)
+-&gt; Show CreateNodeFromTemplateJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateNodeFromTemplateJob] -&gt; ShowS
+$cshowList :: [CreateNodeFromTemplateJob] -&gt; ShowS
+show :: CreateNodeFromTemplateJob -&gt; String
+$cshow :: CreateNodeFromTemplateJob -&gt; String
+showsPrec :: Int -&gt; CreateNodeFromTemplateJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateNodeFromTemplateJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateNodeFromTemplateJob -&gt; Rep CreateNodeFromTemplateJob x)
+-&gt; (forall x.
+    Rep CreateNodeFromTemplateJob x -&gt; CreateNodeFromTemplateJob)
+-&gt; Generic CreateNodeFromTemplateJob
+forall x.
+Rep CreateNodeFromTemplateJob x -&gt; CreateNodeFromTemplateJob
+forall x.
+CreateNodeFromTemplateJob -&gt; Rep CreateNodeFromTemplateJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateNodeFromTemplateJob x -&gt; CreateNodeFromTemplateJob
+$cfrom :: forall x.
+CreateNodeFromTemplateJob -&gt; Rep CreateNodeFromTemplateJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'CreateNodeFromTemplateJob' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'jobTags', 'createNodeFromTemplateJob_jobTags' - Tags for the job.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'nodeDescription', 'createNodeFromTemplateJob_nodeDescription' - A description for the node.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'templateType', 'createNodeFromTemplateJob_templateType' - The type of node.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'outputPackageName', 'createNodeFromTemplateJob_outputPackageName' - An output package name for the node.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'outputPackageVersion', 'createNodeFromTemplateJob_outputPackageVersion' - An output package version for the node.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'nodeName', 'createNodeFromTemplateJob_nodeName' - A name for the node.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'templateParameters', 'createNodeFromTemplateJob_templateParameters' - Template parameters for the node.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#newCreateNodeFromTemplateJob"><span class="hs-identifier hs-type">newCreateNodeFromTemplateJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'templateType'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.Panorama.Types.TemplateType.html#TemplateType"><span class="hs-identifier hs-type">TemplateType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'outputPackageName'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'outputPackageVersion'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'nodeName'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span>
+</span><span id="line-105"></span><span id="newCreateNodeFromTemplateJob"><span class="annot"><span class="annottext">newCreateNodeFromTemplateJob :: TemplateType -&gt; Text -&gt; Text -&gt; Text -&gt; CreateNodeFromTemplateJob
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#newCreateNodeFromTemplateJob"><span class="hs-identifier hs-var hs-var">newCreateNodeFromTemplateJob</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679267712"><span class="annot"><span class="annottext">TemplateType
+</span><a href="#local-6989586621679267712"><span class="hs-identifier hs-var">pTemplateType_</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679267711"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267711"><span class="hs-identifier hs-var">pOutputPackageName_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679267710"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267710"><span class="hs-identifier hs-var">pOutputPackageVersion_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679267709"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267709"><span class="hs-identifier hs-var">pNodeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">CreateNodeFromTemplateJob' :: Maybe [JobResourceTags]
+-&gt; Maybe Text
+-&gt; TemplateType
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; HashMap Text (Sensitive Text)
+-&gt; CreateNodeFromTemplateJob
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobTags:CreateNodeFromTemplateJob' :: Maybe [JobResourceTags]
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AjobTags%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var">jobTags</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe [JobResourceTags]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:nodeDescription:CreateNodeFromTemplateJob' :: Maybe Text
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AnodeDescription%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var">nodeDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateType:CreateNodeFromTemplateJob' :: TemplateType
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AtemplateType%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var">templateType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TemplateType
+</span><a href="#local-6989586621679267712"><span class="hs-identifier hs-var">pTemplateType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputPackageName:CreateNodeFromTemplateJob' :: Text
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AoutputPackageName%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var">outputPackageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267711"><span class="hs-identifier hs-var">pOutputPackageName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputPackageVersion:CreateNodeFromTemplateJob' :: Text
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AoutputPackageVersion%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var">outputPackageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267710"><span class="hs-identifier hs-var">pOutputPackageVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:nodeName:CreateNodeFromTemplateJob' :: Text
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AnodeName%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var">nodeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267709"><span class="hs-identifier hs-var">pNodeName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateParameters:CreateNodeFromTemplateJob' :: HashMap Text (Sensitive Text)
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AtemplateParameters%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var">templateParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text (Sensitive Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Tags for the job.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_jobTags"><span class="hs-identifier hs-type">createNodeFromTemplateJob_jobTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Panorama.Types.JobResourceTags.html#JobResourceTags"><span class="hs-identifier hs-type">JobResourceTags</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="createNodeFromTemplateJob_jobTags"><span class="annot"><span class="annottext">createNodeFromTemplateJob_jobTags :: (Maybe [JobResourceTags] -&gt; f (Maybe [JobResourceTags]))
+-&gt; CreateNodeFromTemplateJob -&gt; f CreateNodeFromTemplateJob
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_jobTags"><span class="hs-identifier hs-var hs-var">createNodeFromTemplateJob_jobTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNodeFromTemplateJob -&gt; Maybe [JobResourceTags])
+-&gt; (CreateNodeFromTemplateJob
+    -&gt; Maybe [JobResourceTags] -&gt; CreateNodeFromTemplateJob)
+-&gt; Lens
+     CreateNodeFromTemplateJob
+     CreateNodeFromTemplateJob
+     (Maybe [JobResourceTags])
+     (Maybe [JobResourceTags])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267706"><span class="annot"><span class="annottext">Maybe [JobResourceTags]
+jobTags :: Maybe [JobResourceTags]
+$sel:jobTags:CreateNodeFromTemplateJob' :: CreateNodeFromTemplateJob -&gt; Maybe [JobResourceTags]
+</span><a href="#local-6989586621679267706"><span class="hs-identifier hs-var hs-var">jobTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobResourceTags]
+</span><a href="#local-6989586621679267706"><span class="hs-identifier hs-var">jobTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267705"><span class="annot"><span class="annottext">s :: CreateNodeFromTemplateJob
+</span><a href="#local-6989586621679267705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267704"><span class="annot"><span class="annottext">Maybe [JobResourceTags]
+</span><a href="#local-6989586621679267704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNodeFromTemplateJob
+</span><a href="#local-6989586621679267705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobTags:CreateNodeFromTemplateJob' :: Maybe [JobResourceTags]
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AjobTags%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var">jobTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobResourceTags]
+</span><a href="#local-6989586621679267704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobResourceTags] -&gt; f (Maybe [JobResourceTags]))
+ -&gt; CreateNodeFromTemplateJob -&gt; f CreateNodeFromTemplateJob)
+-&gt; ((Maybe [JobResourceTags] -&gt; f (Maybe [JobResourceTags]))
+    -&gt; Maybe [JobResourceTags] -&gt; f (Maybe [JobResourceTags]))
+-&gt; (Maybe [JobResourceTags] -&gt; f (Maybe [JobResourceTags]))
+-&gt; CreateNodeFromTemplateJob
+-&gt; f CreateNodeFromTemplateJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [JobResourceTags]
+  [JobResourceTags]
+  [JobResourceTags]
+  [JobResourceTags]
+-&gt; Iso
+     (Maybe [JobResourceTags])
+     (Maybe [JobResourceTags])
+     (Maybe [JobResourceTags])
+     (Maybe [JobResourceTags])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [JobResourceTags]
+  [JobResourceTags]
+  [JobResourceTags]
+  [JobResourceTags]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | A description for the node.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_nodeDescription"><span class="hs-identifier hs-type">createNodeFromTemplateJob_nodeDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="createNodeFromTemplateJob_nodeDescription"><span class="annot"><span class="annottext">createNodeFromTemplateJob_nodeDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateNodeFromTemplateJob -&gt; f CreateNodeFromTemplateJob
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_nodeDescription"><span class="hs-identifier hs-var hs-var">createNodeFromTemplateJob_nodeDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNodeFromTemplateJob -&gt; Maybe Text)
+-&gt; (CreateNodeFromTemplateJob
+    -&gt; Maybe Text -&gt; CreateNodeFromTemplateJob)
+-&gt; Lens
+     CreateNodeFromTemplateJob
+     CreateNodeFromTemplateJob
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267700"><span class="annot"><span class="annottext">Maybe Text
+nodeDescription :: Maybe Text
+$sel:nodeDescription:CreateNodeFromTemplateJob' :: CreateNodeFromTemplateJob -&gt; Maybe Text
+</span><a href="#local-6989586621679267700"><span class="hs-identifier hs-var hs-var">nodeDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679267700"><span class="hs-identifier hs-var">nodeDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267699"><span class="annot"><span class="annottext">s :: CreateNodeFromTemplateJob
+</span><a href="#local-6989586621679267699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267698"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679267698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNodeFromTemplateJob
+</span><a href="#local-6989586621679267699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeDescription:CreateNodeFromTemplateJob' :: Maybe Text
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AnodeDescription%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var">nodeDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679267698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The type of node.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_templateType"><span class="hs-identifier hs-type">createNodeFromTemplateJob_templateType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.TemplateType.html#TemplateType"><span class="hs-identifier hs-type">TemplateType</span></a></span><span>
+</span><span id="line-131"></span><span id="createNodeFromTemplateJob_templateType"><span class="annot"><span class="annottext">createNodeFromTemplateJob_templateType :: (TemplateType -&gt; f TemplateType)
+-&gt; CreateNodeFromTemplateJob -&gt; f CreateNodeFromTemplateJob
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_templateType"><span class="hs-identifier hs-var hs-var">createNodeFromTemplateJob_templateType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNodeFromTemplateJob -&gt; TemplateType)
+-&gt; (CreateNodeFromTemplateJob
+    -&gt; TemplateType -&gt; CreateNodeFromTemplateJob)
+-&gt; Lens
+     CreateNodeFromTemplateJob
+     CreateNodeFromTemplateJob
+     TemplateType
+     TemplateType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267697"><span class="annot"><span class="annottext">TemplateType
+templateType :: TemplateType
+$sel:templateType:CreateNodeFromTemplateJob' :: CreateNodeFromTemplateJob -&gt; TemplateType
+</span><a href="#local-6989586621679267697"><span class="hs-identifier hs-var hs-var">templateType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateType
+</span><a href="#local-6989586621679267697"><span class="hs-identifier hs-var">templateType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267696"><span class="annot"><span class="annottext">s :: CreateNodeFromTemplateJob
+</span><a href="#local-6989586621679267696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267695"><span class="annot"><span class="annottext">TemplateType
+</span><a href="#local-6989586621679267695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNodeFromTemplateJob
+</span><a href="#local-6989586621679267696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateType:CreateNodeFromTemplateJob' :: TemplateType
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AtemplateType%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var">templateType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TemplateType
+</span><a href="#local-6989586621679267695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | An output package name for the node.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_outputPackageName"><span class="hs-identifier hs-type">createNodeFromTemplateJob_outputPackageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-135"></span><span id="createNodeFromTemplateJob_outputPackageName"><span class="annot"><span class="annottext">createNodeFromTemplateJob_outputPackageName :: (Text -&gt; f Text)
+-&gt; CreateNodeFromTemplateJob -&gt; f CreateNodeFromTemplateJob
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_outputPackageName"><span class="hs-identifier hs-var hs-var">createNodeFromTemplateJob_outputPackageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNodeFromTemplateJob -&gt; Text)
+-&gt; (CreateNodeFromTemplateJob -&gt; Text -&gt; CreateNodeFromTemplateJob)
+-&gt; Lens
+     CreateNodeFromTemplateJob CreateNodeFromTemplateJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267694"><span class="annot"><span class="annottext">Text
+outputPackageName :: Text
+$sel:outputPackageName:CreateNodeFromTemplateJob' :: CreateNodeFromTemplateJob -&gt; Text
+</span><a href="#local-6989586621679267694"><span class="hs-identifier hs-var hs-var">outputPackageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267694"><span class="hs-identifier hs-var">outputPackageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267693"><span class="annot"><span class="annottext">s :: CreateNodeFromTemplateJob
+</span><a href="#local-6989586621679267693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267692"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNodeFromTemplateJob
+</span><a href="#local-6989586621679267693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputPackageName:CreateNodeFromTemplateJob' :: Text
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AoutputPackageName%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var">outputPackageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | An output package version for the node.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_outputPackageVersion"><span class="hs-identifier hs-type">createNodeFromTemplateJob_outputPackageVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-139"></span><span id="createNodeFromTemplateJob_outputPackageVersion"><span class="annot"><span class="annottext">createNodeFromTemplateJob_outputPackageVersion :: (Text -&gt; f Text)
+-&gt; CreateNodeFromTemplateJob -&gt; f CreateNodeFromTemplateJob
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_outputPackageVersion"><span class="hs-identifier hs-var hs-var">createNodeFromTemplateJob_outputPackageVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNodeFromTemplateJob -&gt; Text)
+-&gt; (CreateNodeFromTemplateJob -&gt; Text -&gt; CreateNodeFromTemplateJob)
+-&gt; Lens
+     CreateNodeFromTemplateJob CreateNodeFromTemplateJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267691"><span class="annot"><span class="annottext">Text
+outputPackageVersion :: Text
+$sel:outputPackageVersion:CreateNodeFromTemplateJob' :: CreateNodeFromTemplateJob -&gt; Text
+</span><a href="#local-6989586621679267691"><span class="hs-identifier hs-var hs-var">outputPackageVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267691"><span class="hs-identifier hs-var">outputPackageVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267690"><span class="annot"><span class="annottext">s :: CreateNodeFromTemplateJob
+</span><a href="#local-6989586621679267690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267689"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNodeFromTemplateJob
+</span><a href="#local-6989586621679267690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputPackageVersion:CreateNodeFromTemplateJob' :: Text
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AoutputPackageVersion%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var">outputPackageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | A name for the node.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_nodeName"><span class="hs-identifier hs-type">createNodeFromTemplateJob_nodeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-143"></span><span id="createNodeFromTemplateJob_nodeName"><span class="annot"><span class="annottext">createNodeFromTemplateJob_nodeName :: (Text -&gt; f Text)
+-&gt; CreateNodeFromTemplateJob -&gt; f CreateNodeFromTemplateJob
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_nodeName"><span class="hs-identifier hs-var hs-var">createNodeFromTemplateJob_nodeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNodeFromTemplateJob -&gt; Text)
+-&gt; (CreateNodeFromTemplateJob -&gt; Text -&gt; CreateNodeFromTemplateJob)
+-&gt; Lens
+     CreateNodeFromTemplateJob CreateNodeFromTemplateJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267688"><span class="annot"><span class="annottext">Text
+nodeName :: Text
+$sel:nodeName:CreateNodeFromTemplateJob' :: CreateNodeFromTemplateJob -&gt; Text
+</span><a href="#local-6989586621679267688"><span class="hs-identifier hs-var hs-var">nodeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267688"><span class="hs-identifier hs-var">nodeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267687"><span class="annot"><span class="annottext">s :: CreateNodeFromTemplateJob
+</span><a href="#local-6989586621679267687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267686"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNodeFromTemplateJob
+</span><a href="#local-6989586621679267687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeName:CreateNodeFromTemplateJob' :: Text
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AnodeName%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var">nodeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Template parameters for the node.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_templateParameters"><span class="hs-identifier hs-type">createNodeFromTemplateJob_templateParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="createNodeFromTemplateJob_templateParameters"><span class="annot"><span class="annottext">createNodeFromTemplateJob_templateParameters :: (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; CreateNodeFromTemplateJob -&gt; f CreateNodeFromTemplateJob
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJob_templateParameters"><span class="hs-identifier hs-var hs-var">createNodeFromTemplateJob_templateParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNodeFromTemplateJob -&gt; HashMap Text (Sensitive Text))
+-&gt; (CreateNodeFromTemplateJob
+    -&gt; HashMap Text (Sensitive Text) -&gt; CreateNodeFromTemplateJob)
+-&gt; Lens
+     CreateNodeFromTemplateJob
+     CreateNodeFromTemplateJob
+     (HashMap Text (Sensitive Text))
+     (HashMap Text (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267685"><span class="annot"><span class="annottext">HashMap Text (Sensitive Text)
+templateParameters :: HashMap Text (Sensitive Text)
+$sel:templateParameters:CreateNodeFromTemplateJob' :: CreateNodeFromTemplateJob -&gt; HashMap Text (Sensitive Text)
+</span><a href="#local-6989586621679267685"><span class="hs-identifier hs-var hs-var">templateParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text (Sensitive Text)
+</span><a href="#local-6989586621679267685"><span class="hs-identifier hs-var">templateParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267684"><span class="annot"><span class="annottext">s :: CreateNodeFromTemplateJob
+</span><a href="#local-6989586621679267684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267683"><span class="annot"><span class="annottext">HashMap Text (Sensitive Text)
+</span><a href="#local-6989586621679267683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNodeFromTemplateJob
+</span><a href="#local-6989586621679267684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateParameters:CreateNodeFromTemplateJob' :: HashMap Text (Sensitive Text)
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AtemplateParameters%3ACreateNodeFromTemplateJob%27"><span class="hs-identifier hs-var">templateParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text (Sensitive Text)
+</span><a href="#local-6989586621679267683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text (Sensitive Text)
+  -&gt; f (HashMap Text (Sensitive Text)))
+ -&gt; CreateNodeFromTemplateJob -&gt; f CreateNodeFromTemplateJob)
+-&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
+    -&gt; HashMap Text (Sensitive Text)
+    -&gt; f (HashMap Text (Sensitive Text)))
+-&gt; (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; CreateNodeFromTemplateJob
+-&gt; f CreateNodeFromTemplateJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; HashMap Text (Sensitive Text)
+-&gt; f (HashMap Text (Sensitive Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-151"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse"><span class="hs-identifier hs-type">CreateNodeFromTemplateJobResponse</span></a></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679267679"><span class="annot"><span class="annottext">request :: CreateNodeFromTemplateJob -&gt; Request CreateNodeFromTemplateJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateNodeFromTemplateJob -&gt; Request CreateNodeFromTemplateJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Panorama.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679267675"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateNodeFromTemplateJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateNodeFromTemplateJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateNodeFromTemplateJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateNodeFromTemplateJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateNodeFromTemplateJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267672"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267672"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679267671"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679267671"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679267670"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267670"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateNodeFromTemplateJobResponse
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse%27"><span class="hs-identifier hs-var">CreateNodeFromTemplateJobResponse'</span></a></span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateNodeFromTemplateJobResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; CreateNodeFromTemplateJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267672"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateNodeFromTemplateJobResponse)
+-&gt; Either String Text
+-&gt; Either String CreateNodeFromTemplateJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267662"><span id="local-6989586621679267664"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267659"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679267655"><span class="annot"><span class="annottext">toHeaders :: CreateNodeFromTemplateJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateNodeFromTemplateJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-173"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267645"><span id="local-6989586621679267647"><span id="local-6989586621679267649"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679267643"><span class="annot"><span class="annottext">toJSON :: CreateNodeFromTemplateJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267635"><span id="local-6989586621679267636"><span id="local-6989586621679267637"><span id="local-6989586621679267638"><span id="local-6989586621679267639"><span id="local-6989586621679267640"><span id="local-6989586621679267641"><span class="annot"><span class="annottext">Maybe [JobResourceTags]
+Maybe Text
+Text
+HashMap Text (Sensitive Text)
+TemplateType
+templateParameters :: HashMap Text (Sensitive Text)
+nodeName :: Text
+outputPackageVersion :: Text
+outputPackageName :: Text
+templateType :: TemplateType
+nodeDescription :: Maybe Text
+jobTags :: Maybe [JobResourceTags]
+$sel:templateParameters:CreateNodeFromTemplateJob' :: CreateNodeFromTemplateJob -&gt; HashMap Text (Sensitive Text)
+$sel:nodeName:CreateNodeFromTemplateJob' :: CreateNodeFromTemplateJob -&gt; Text
+$sel:outputPackageVersion:CreateNodeFromTemplateJob' :: CreateNodeFromTemplateJob -&gt; Text
+$sel:outputPackageName:CreateNodeFromTemplateJob' :: CreateNodeFromTemplateJob -&gt; Text
+$sel:templateType:CreateNodeFromTemplateJob' :: CreateNodeFromTemplateJob -&gt; TemplateType
+$sel:nodeDescription:CreateNodeFromTemplateJob' :: CreateNodeFromTemplateJob -&gt; Maybe Text
+$sel:jobTags:CreateNodeFromTemplateJob' :: CreateNodeFromTemplateJob -&gt; Maybe [JobResourceTags]
+</span><a href="#local-6989586621679267635"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [JobResourceTags] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([JobResourceTags] -&gt; Pair)
+-&gt; Maybe [JobResourceTags] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [JobResourceTags]
+</span><a href="#local-6989586621679267641"><span class="hs-identifier hs-var">jobTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679267640"><span class="hs-identifier hs-var">nodeDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemplateType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TemplateType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TemplateType
+</span><a href="#local-6989586621679267639"><span class="hs-identifier hs-var">templateType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-186"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputPackageName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267638"><span class="hs-identifier hs-var">outputPackageName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-188"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputPackageVersion&quot;</span></span><span>
+</span><span id="line-189"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267637"><span class="hs-identifier hs-var">outputPackageVersion</span></a></span><span>
+</span><span id="line-190"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267636"><span class="hs-identifier hs-var">nodeName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-193"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemplateParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text (Sensitive Text) -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text (Sensitive Text)
+</span><a href="#local-6989586621679267635"><span class="hs-identifier hs-var">templateParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679267629"><span class="annot"><span class="annottext">toPath :: CreateNodeFromTemplateJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateNodeFromTemplateJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/packages/template-job&quot;</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJob"><span class="hs-identifier hs-type">CreateNodeFromTemplateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679267625"><span class="annot"><span class="annottext">toQuery :: CreateNodeFromTemplateJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateNodeFromTemplateJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | /See:/ 'newCreateNodeFromTemplateJobResponse' smart constructor.</span><span>
+</span><span id="line-204"></span><span id="local-6989586621679267622"><span id="local-6989586621679267623"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateNodeFromTemplateJobResponse"><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse"><span class="hs-identifier hs-var">CreateNodeFromTemplateJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateNodeFromTemplateJobResponse%27"><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse%27"><span class="hs-identifier hs-var">CreateNodeFromTemplateJobResponse'</span></a></span></span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateNodeFromTemplateJobResponse%27"><span class="annot"><span class="annottext">CreateNodeFromTemplateJobResponse -&gt; Int
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AhttpStatus%3ACreateNodeFromTemplateJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- | The job\'s ID.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3AjobId%3ACreateNodeFromTemplateJobResponse%27"><span class="annot"><span class="annottext">CreateNodeFromTemplateJobResponse -&gt; Text
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AjobId%3ACreateNodeFromTemplateJobResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267616"><span id="local-6989586621679267618"><span class="annot"><span class="annottext">CreateNodeFromTemplateJobResponse
+-&gt; CreateNodeFromTemplateJobResponse -&gt; Bool
+(CreateNodeFromTemplateJobResponse
+ -&gt; CreateNodeFromTemplateJobResponse -&gt; Bool)
+-&gt; (CreateNodeFromTemplateJobResponse
+    -&gt; CreateNodeFromTemplateJobResponse -&gt; Bool)
+-&gt; Eq CreateNodeFromTemplateJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateNodeFromTemplateJobResponse
+-&gt; CreateNodeFromTemplateJobResponse -&gt; Bool
+$c/= :: CreateNodeFromTemplateJobResponse
+-&gt; CreateNodeFromTemplateJobResponse -&gt; Bool
+== :: CreateNodeFromTemplateJobResponse
+-&gt; CreateNodeFromTemplateJobResponse -&gt; Bool
+$c== :: CreateNodeFromTemplateJobResponse
+-&gt; CreateNodeFromTemplateJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267608"><span id="local-6989586621679267610"><span id="local-6989586621679267612"><span id="local-6989586621679267614"><span class="annot"><span class="annottext">ReadPrec [CreateNodeFromTemplateJobResponse]
+ReadPrec CreateNodeFromTemplateJobResponse
+Int -&gt; ReadS CreateNodeFromTemplateJobResponse
+ReadS [CreateNodeFromTemplateJobResponse]
+(Int -&gt; ReadS CreateNodeFromTemplateJobResponse)
+-&gt; ReadS [CreateNodeFromTemplateJobResponse]
+-&gt; ReadPrec CreateNodeFromTemplateJobResponse
+-&gt; ReadPrec [CreateNodeFromTemplateJobResponse]
+-&gt; Read CreateNodeFromTemplateJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateNodeFromTemplateJobResponse]
+$creadListPrec :: ReadPrec [CreateNodeFromTemplateJobResponse]
+readPrec :: ReadPrec CreateNodeFromTemplateJobResponse
+$creadPrec :: ReadPrec CreateNodeFromTemplateJobResponse
+readList :: ReadS [CreateNodeFromTemplateJobResponse]
+$creadList :: ReadS [CreateNodeFromTemplateJobResponse]
+readsPrec :: Int -&gt; ReadS CreateNodeFromTemplateJobResponse
+$creadsPrec :: Int -&gt; ReadS CreateNodeFromTemplateJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267601"><span id="local-6989586621679267603"><span id="local-6989586621679267605"><span class="annot"><span class="annottext">Int -&gt; CreateNodeFromTemplateJobResponse -&gt; ShowS
+[CreateNodeFromTemplateJobResponse] -&gt; ShowS
+CreateNodeFromTemplateJobResponse -&gt; String
+(Int -&gt; CreateNodeFromTemplateJobResponse -&gt; ShowS)
+-&gt; (CreateNodeFromTemplateJobResponse -&gt; String)
+-&gt; ([CreateNodeFromTemplateJobResponse] -&gt; ShowS)
+-&gt; Show CreateNodeFromTemplateJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateNodeFromTemplateJobResponse] -&gt; ShowS
+$cshowList :: [CreateNodeFromTemplateJobResponse] -&gt; ShowS
+show :: CreateNodeFromTemplateJobResponse -&gt; String
+$cshow :: CreateNodeFromTemplateJobResponse -&gt; String
+showsPrec :: Int -&gt; CreateNodeFromTemplateJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateNodeFromTemplateJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateNodeFromTemplateJobResponse
+ -&gt; Rep CreateNodeFromTemplateJobResponse x)
+-&gt; (forall x.
+    Rep CreateNodeFromTemplateJobResponse x
+    -&gt; CreateNodeFromTemplateJobResponse)
+-&gt; Generic CreateNodeFromTemplateJobResponse
+forall x.
+Rep CreateNodeFromTemplateJobResponse x
+-&gt; CreateNodeFromTemplateJobResponse
+forall x.
+CreateNodeFromTemplateJobResponse
+-&gt; Rep CreateNodeFromTemplateJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateNodeFromTemplateJobResponse x
+-&gt; CreateNodeFromTemplateJobResponse
+$cfrom :: forall x.
+CreateNodeFromTemplateJobResponse
+-&gt; Rep CreateNodeFromTemplateJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Create a value of 'CreateNodeFromTemplateJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'httpStatus', 'createNodeFromTemplateJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'jobId', 'createNodeFromTemplateJobResponse_jobId' - The job\'s ID.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#newCreateNodeFromTemplateJobResponse"><span class="hs-identifier hs-type">newCreateNodeFromTemplateJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-228"></span><span>  </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse"><span class="hs-identifier hs-type">CreateNodeFromTemplateJobResponse</span></a></span><span>
+</span><span id="line-229"></span><span id="newCreateNodeFromTemplateJobResponse"><span class="annot"><span class="annottext">newCreateNodeFromTemplateJobResponse :: Int -&gt; Text -&gt; CreateNodeFromTemplateJobResponse
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#newCreateNodeFromTemplateJobResponse"><span class="hs-identifier hs-var hs-var">newCreateNodeFromTemplateJobResponse</span></a></span></span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679267598"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267598"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679267597"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267597"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">CreateNodeFromTemplateJobResponse' :: Int -&gt; Text -&gt; CreateNodeFromTemplateJobResponse
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJobResponse'</span></a></span><span>
+</span><span id="line-233"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateNodeFromTemplateJobResponse' :: Int
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AhttpStatus%3ACreateNodeFromTemplateJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267598"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobId:CreateNodeFromTemplateJobResponse' :: Text
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AjobId%3ACreateNodeFromTemplateJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267597"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJobResponse_httpStatus"><span class="hs-identifier hs-type">createNodeFromTemplateJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse"><span class="hs-identifier hs-type">CreateNodeFromTemplateJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-240"></span><span id="createNodeFromTemplateJobResponse_httpStatus"><span class="annot"><span class="annottext">createNodeFromTemplateJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateNodeFromTemplateJobResponse
+-&gt; f CreateNodeFromTemplateJobResponse
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createNodeFromTemplateJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNodeFromTemplateJobResponse -&gt; Int)
+-&gt; (CreateNodeFromTemplateJobResponse
+    -&gt; Int -&gt; CreateNodeFromTemplateJobResponse)
+-&gt; Lens
+     CreateNodeFromTemplateJobResponse
+     CreateNodeFromTemplateJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267596"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateNodeFromTemplateJobResponse' :: CreateNodeFromTemplateJobResponse -&gt; Int
+</span><a href="#local-6989586621679267596"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267596"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267595"><span class="annot"><span class="annottext">s :: CreateNodeFromTemplateJobResponse
+</span><a href="#local-6989586621679267595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267594"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNodeFromTemplateJobResponse
+</span><a href="#local-6989586621679267595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateNodeFromTemplateJobResponse' :: Int
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AhttpStatus%3ACreateNodeFromTemplateJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse"><span class="hs-identifier hs-type">CreateNodeFromTemplateJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The job\'s ID.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJobResponse_jobId"><span class="hs-identifier hs-type">createNodeFromTemplateJobResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse"><span class="hs-identifier hs-type">CreateNodeFromTemplateJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-244"></span><span id="createNodeFromTemplateJobResponse_jobId"><span class="annot"><span class="annottext">createNodeFromTemplateJobResponse_jobId :: (Text -&gt; f Text)
+-&gt; CreateNodeFromTemplateJobResponse
+-&gt; f CreateNodeFromTemplateJobResponse
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#createNodeFromTemplateJobResponse_jobId"><span class="hs-identifier hs-var hs-var">createNodeFromTemplateJobResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNodeFromTemplateJobResponse -&gt; Text)
+-&gt; (CreateNodeFromTemplateJobResponse
+    -&gt; Text -&gt; CreateNodeFromTemplateJobResponse)
+-&gt; Lens
+     CreateNodeFromTemplateJobResponse
+     CreateNodeFromTemplateJobResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267593"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:CreateNodeFromTemplateJobResponse' :: CreateNodeFromTemplateJobResponse -&gt; Text
+</span><a href="#local-6989586621679267593"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267593"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267592"><span class="annot"><span class="annottext">s :: CreateNodeFromTemplateJobResponse
+</span><a href="#local-6989586621679267592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse%27"><span class="hs-identifier hs-type">CreateNodeFromTemplateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267591"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNodeFromTemplateJobResponse
+</span><a href="#local-6989586621679267592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:CreateNodeFromTemplateJobResponse' :: Text
+</span><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#%24sel%3AjobId%3ACreateNodeFromTemplateJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse"><span class="hs-identifier hs-type">CreateNodeFromTemplateJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679267589"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.CreateNodeFromTemplateJob.html#CreateNodeFromTemplateJobResponse"><span class="hs-identifier hs-type">CreateNodeFromTemplateJobResponse</span></a></span></span><span>
+</span><span id="line-249"></span></pre></body></html>

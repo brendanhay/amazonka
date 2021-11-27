@@ -1,0 +1,845 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.LicenseManager.CreateLicenseManagerReportGenerator</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a report generator.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LicenseManager.CreateLicenseManagerReportGenerator</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier">CreateLicenseManagerReportGenerator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#newCreateLicenseManagerReportGenerator"><span class="hs-identifier">newCreateLicenseManagerReportGenerator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_description"><span class="hs-identifier">createLicenseManagerReportGenerator_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_tags"><span class="hs-identifier">createLicenseManagerReportGenerator_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_reportGeneratorName"><span class="hs-identifier">createLicenseManagerReportGenerator_reportGeneratorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_type"><span class="hs-identifier">createLicenseManagerReportGenerator_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_reportContext"><span class="hs-identifier">createLicenseManagerReportGenerator_reportContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_reportFrequency"><span class="hs-identifier">createLicenseManagerReportGenerator_reportFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_clientToken"><span class="hs-identifier">createLicenseManagerReportGenerator_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse"><span class="hs-identifier">CreateLicenseManagerReportGeneratorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#newCreateLicenseManagerReportGeneratorResponse"><span class="hs-identifier">newCreateLicenseManagerReportGeneratorResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGeneratorResponse_licenseManagerReportGeneratorArn"><span class="hs-identifier">createLicenseManagerReportGeneratorResponse_licenseManagerReportGeneratorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGeneratorResponse_httpStatus"><span class="hs-identifier">createLicenseManagerReportGeneratorResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.html"><span class="hs-identifier">Amazonka.LicenseManager.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newCreateLicenseManagerReportGenerator' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679312138"><span id="local-6989586621679312139"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLicenseManagerReportGenerator"><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-var">CreateLicenseManagerReportGenerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLicenseManagerReportGenerator%27"><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">CreateLicenseManagerReportGenerator'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Description of the report generator.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Adescription%3ACreateLicenseManagerReportGenerator%27"><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3Adescription%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Tags to add to the report generator.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Atags%3ACreateLicenseManagerReportGenerator%27"><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator -&gt; Maybe [Tag]
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3Atags%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LicenseManager.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Name of the report generator.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AreportGeneratorName%3ACreateLicenseManagerReportGenerator%27"><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator -&gt; Text
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AreportGeneratorName%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var hs-var">reportGeneratorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Type of reports to generate. The following report types an be generated:</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   License configuration report - Reports the number and details of</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     consumed licenses for a license configuration.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   Resource report - Reports the tracked licenses and resource</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     consumption for a license configuration.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Atype%27%3ACreateLicenseManagerReportGenerator%27"><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator -&gt; [ReportType]
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3Atype%27%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LicenseManager.Types.ReportType.html#ReportType"><span class="hs-identifier hs-type">ReportType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Defines the type of license configuration the report generator tracks.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AreportContext%3ACreateLicenseManagerReportGenerator%27"><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator -&gt; ReportContext
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AreportContext%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var hs-var">reportContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.ReportContext.html#ReportContext"><span class="hs-identifier hs-type">ReportContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Frequency by which reports are generated. Reports can be generated</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- daily, monthly, or weekly.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AreportFrequency%3ACreateLicenseManagerReportGenerator%27"><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator -&gt; ReportFrequency
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AreportFrequency%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var hs-var">reportFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.ReportFrequency.html#ReportFrequency"><span class="hs-identifier hs-type">ReportFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateLicenseManagerReportGenerator%27"><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator -&gt; Text
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AclientToken%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312126"><span id="local-6989586621679312128"><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator
+-&gt; CreateLicenseManagerReportGenerator -&gt; Bool
+(CreateLicenseManagerReportGenerator
+ -&gt; CreateLicenseManagerReportGenerator -&gt; Bool)
+-&gt; (CreateLicenseManagerReportGenerator
+    -&gt; CreateLicenseManagerReportGenerator -&gt; Bool)
+-&gt; Eq CreateLicenseManagerReportGenerator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateLicenseManagerReportGenerator
+-&gt; CreateLicenseManagerReportGenerator -&gt; Bool
+$c/= :: CreateLicenseManagerReportGenerator
+-&gt; CreateLicenseManagerReportGenerator -&gt; Bool
+== :: CreateLicenseManagerReportGenerator
+-&gt; CreateLicenseManagerReportGenerator -&gt; Bool
+$c== :: CreateLicenseManagerReportGenerator
+-&gt; CreateLicenseManagerReportGenerator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312117"><span id="local-6989586621679312119"><span id="local-6989586621679312121"><span id="local-6989586621679312123"><span class="annot"><span class="annottext">ReadPrec [CreateLicenseManagerReportGenerator]
+ReadPrec CreateLicenseManagerReportGenerator
+Int -&gt; ReadS CreateLicenseManagerReportGenerator
+ReadS [CreateLicenseManagerReportGenerator]
+(Int -&gt; ReadS CreateLicenseManagerReportGenerator)
+-&gt; ReadS [CreateLicenseManagerReportGenerator]
+-&gt; ReadPrec CreateLicenseManagerReportGenerator
+-&gt; ReadPrec [CreateLicenseManagerReportGenerator]
+-&gt; Read CreateLicenseManagerReportGenerator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateLicenseManagerReportGenerator]
+$creadListPrec :: ReadPrec [CreateLicenseManagerReportGenerator]
+readPrec :: ReadPrec CreateLicenseManagerReportGenerator
+$creadPrec :: ReadPrec CreateLicenseManagerReportGenerator
+readList :: ReadS [CreateLicenseManagerReportGenerator]
+$creadList :: ReadS [CreateLicenseManagerReportGenerator]
+readsPrec :: Int -&gt; ReadS CreateLicenseManagerReportGenerator
+$creadsPrec :: Int -&gt; ReadS CreateLicenseManagerReportGenerator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312110"><span id="local-6989586621679312112"><span id="local-6989586621679312114"><span class="annot"><span class="annottext">Int -&gt; CreateLicenseManagerReportGenerator -&gt; ShowS
+[CreateLicenseManagerReportGenerator] -&gt; ShowS
+CreateLicenseManagerReportGenerator -&gt; String
+(Int -&gt; CreateLicenseManagerReportGenerator -&gt; ShowS)
+-&gt; (CreateLicenseManagerReportGenerator -&gt; String)
+-&gt; ([CreateLicenseManagerReportGenerator] -&gt; ShowS)
+-&gt; Show CreateLicenseManagerReportGenerator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateLicenseManagerReportGenerator] -&gt; ShowS
+$cshowList :: [CreateLicenseManagerReportGenerator] -&gt; ShowS
+show :: CreateLicenseManagerReportGenerator -&gt; String
+$cshow :: CreateLicenseManagerReportGenerator -&gt; String
+showsPrec :: Int -&gt; CreateLicenseManagerReportGenerator -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateLicenseManagerReportGenerator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateLicenseManagerReportGenerator
+ -&gt; Rep CreateLicenseManagerReportGenerator x)
+-&gt; (forall x.
+    Rep CreateLicenseManagerReportGenerator x
+    -&gt; CreateLicenseManagerReportGenerator)
+-&gt; Generic CreateLicenseManagerReportGenerator
+forall x.
+Rep CreateLicenseManagerReportGenerator x
+-&gt; CreateLicenseManagerReportGenerator
+forall x.
+CreateLicenseManagerReportGenerator
+-&gt; Rep CreateLicenseManagerReportGenerator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateLicenseManagerReportGenerator x
+-&gt; CreateLicenseManagerReportGenerator
+$cfrom :: forall x.
+CreateLicenseManagerReportGenerator
+-&gt; Rep CreateLicenseManagerReportGenerator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Create a value of 'CreateLicenseManagerReportGenerator' with all optional fields omitted.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'description', 'createLicenseManagerReportGenerator_description' - Description of the report generator.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'tags', 'createLicenseManagerReportGenerator_tags' - Tags to add to the report generator.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'reportGeneratorName', 'createLicenseManagerReportGenerator_reportGeneratorName' - Name of the report generator.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'type'', 'createLicenseManagerReportGenerator_type' - Type of reports to generate. The following report types an be generated:</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   License configuration report - Reports the number and details of</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--     consumed licenses for a license configuration.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- -   Resource report - Reports the tracked licenses and resource</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--     consumption for a license configuration.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'reportContext', 'createLicenseManagerReportGenerator_reportContext' - Defines the type of license configuration the report generator tracks.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'reportFrequency', 'createLicenseManagerReportGenerator_reportFrequency' - Frequency by which reports are generated. Reports can be generated</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- daily, monthly, or weekly.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'clientToken', 'createLicenseManagerReportGenerator_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#newCreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">newCreateLicenseManagerReportGenerator</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'reportGeneratorName'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'reportContext'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.ReportContext.html#ReportContext"><span class="hs-identifier hs-type">ReportContext</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'reportFrequency'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.ReportFrequency.html#ReportFrequency"><span class="hs-identifier hs-type">ReportFrequency</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-comment">-- | 'clientToken'</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span>
+</span><span id="line-121"></span><span id="newCreateLicenseManagerReportGenerator"><span class="annot"><span class="annottext">newCreateLicenseManagerReportGenerator :: Text
+-&gt; ReportContext
+-&gt; ReportFrequency
+-&gt; Text
+-&gt; CreateLicenseManagerReportGenerator
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#newCreateLicenseManagerReportGenerator"><span class="hs-identifier hs-var hs-var">newCreateLicenseManagerReportGenerator</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679312105"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312105"><span class="hs-identifier hs-var">pReportGeneratorName_</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679312104"><span class="annot"><span class="annottext">ReportContext
+</span><a href="#local-6989586621679312104"><span class="hs-identifier hs-var">pReportContext_</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679312103"><span class="annot"><span class="annottext">ReportFrequency
+</span><a href="#local-6989586621679312103"><span class="hs-identifier hs-var">pReportFrequency_</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679312102"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312102"><span class="hs-identifier hs-var">pClientToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator' :: Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Text
+-&gt; [ReportType]
+-&gt; ReportContext
+-&gt; ReportFrequency
+-&gt; Text
+-&gt; CreateLicenseManagerReportGenerator
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:CreateLicenseManagerReportGenerator' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3Adescription%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateLicenseManagerReportGenerator' :: Maybe [Tag]
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3Atags%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:reportGeneratorName:CreateLicenseManagerReportGenerator' :: Text
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AreportGeneratorName%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">reportGeneratorName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312105"><span class="hs-identifier hs-var">pReportGeneratorName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':CreateLicenseManagerReportGenerator' :: [ReportType]
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3Atype%27%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ReportType]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">$sel:reportContext:CreateLicenseManagerReportGenerator' :: ReportContext
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AreportContext%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">reportContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportContext
+</span><a href="#local-6989586621679312104"><span class="hs-identifier hs-var">pReportContext_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:reportFrequency:CreateLicenseManagerReportGenerator' :: ReportFrequency
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AreportFrequency%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">reportFrequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportFrequency
+</span><a href="#local-6989586621679312103"><span class="hs-identifier hs-var">pReportFrequency_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:CreateLicenseManagerReportGenerator' :: Text
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AclientToken%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312102"><span class="hs-identifier hs-var">pClientToken_</span></a></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Description of the report generator.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_description"><span class="hs-identifier hs-type">createLicenseManagerReportGenerator_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="createLicenseManagerReportGenerator_description"><span class="annot"><span class="annottext">createLicenseManagerReportGenerator_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateLicenseManagerReportGenerator
+-&gt; f CreateLicenseManagerReportGenerator
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_description"><span class="hs-identifier hs-var hs-var">createLicenseManagerReportGenerator_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicenseManagerReportGenerator -&gt; Maybe Text)
+-&gt; (CreateLicenseManagerReportGenerator
+    -&gt; Maybe Text -&gt; CreateLicenseManagerReportGenerator)
+-&gt; Lens
+     CreateLicenseManagerReportGenerator
+     CreateLicenseManagerReportGenerator
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312099"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateLicenseManagerReportGenerator' :: CreateLicenseManagerReportGenerator -&gt; Maybe Text
+</span><a href="#local-6989586621679312099"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312099"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312098"><span class="annot"><span class="annottext">s :: CreateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679312098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312097"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679312098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateLicenseManagerReportGenerator' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3Adescription%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | Tags to add to the report generator.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_tags"><span class="hs-identifier hs-type">createLicenseManagerReportGenerator_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LicenseManager.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="createLicenseManagerReportGenerator_tags"><span class="annot"><span class="annottext">createLicenseManagerReportGenerator_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateLicenseManagerReportGenerator
+-&gt; f CreateLicenseManagerReportGenerator
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_tags"><span class="hs-identifier hs-var hs-var">createLicenseManagerReportGenerator_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicenseManagerReportGenerator -&gt; Maybe [Tag])
+-&gt; (CreateLicenseManagerReportGenerator
+    -&gt; Maybe [Tag] -&gt; CreateLicenseManagerReportGenerator)
+-&gt; Lens
+     CreateLicenseManagerReportGenerator
+     CreateLicenseManagerReportGenerator
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312096"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateLicenseManagerReportGenerator' :: CreateLicenseManagerReportGenerator -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679312096"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679312096"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312095"><span class="annot"><span class="annottext">s :: CreateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679312095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312094"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679312094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679312095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateLicenseManagerReportGenerator' :: Maybe [Tag]
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3Atags%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679312094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateLicenseManagerReportGenerator
+ -&gt; f CreateLicenseManagerReportGenerator)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateLicenseManagerReportGenerator
+-&gt; f CreateLicenseManagerReportGenerator
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | Name of the report generator.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_reportGeneratorName"><span class="hs-identifier hs-type">createLicenseManagerReportGenerator_reportGeneratorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-148"></span><span id="createLicenseManagerReportGenerator_reportGeneratorName"><span class="annot"><span class="annottext">createLicenseManagerReportGenerator_reportGeneratorName :: (Text -&gt; f Text)
+-&gt; CreateLicenseManagerReportGenerator
+-&gt; f CreateLicenseManagerReportGenerator
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_reportGeneratorName"><span class="hs-identifier hs-var hs-var">createLicenseManagerReportGenerator_reportGeneratorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicenseManagerReportGenerator -&gt; Text)
+-&gt; (CreateLicenseManagerReportGenerator
+    -&gt; Text -&gt; CreateLicenseManagerReportGenerator)
+-&gt; Lens
+     CreateLicenseManagerReportGenerator
+     CreateLicenseManagerReportGenerator
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312090"><span class="annot"><span class="annottext">Text
+reportGeneratorName :: Text
+$sel:reportGeneratorName:CreateLicenseManagerReportGenerator' :: CreateLicenseManagerReportGenerator -&gt; Text
+</span><a href="#local-6989586621679312090"><span class="hs-identifier hs-var hs-var">reportGeneratorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312090"><span class="hs-identifier hs-var">reportGeneratorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312089"><span class="annot"><span class="annottext">s :: CreateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679312089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312088"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679312089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportGeneratorName:CreateLicenseManagerReportGenerator' :: Text
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AreportGeneratorName%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">reportGeneratorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | Type of reports to generate. The following report types an be generated:</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- -   License configuration report - Reports the number and details of</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     consumed licenses for a license configuration.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- -   Resource report - Reports the tracked licenses and resource</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--     consumption for a license configuration.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_type"><span class="hs-identifier hs-type">createLicenseManagerReportGenerator_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LicenseManager.Types.ReportType.html#ReportType"><span class="hs-identifier hs-type">ReportType</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span id="createLicenseManagerReportGenerator_type"><span class="annot"><span class="annottext">createLicenseManagerReportGenerator_type :: ([ReportType] -&gt; f [ReportType])
+-&gt; CreateLicenseManagerReportGenerator
+-&gt; f CreateLicenseManagerReportGenerator
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_type"><span class="hs-identifier hs-var hs-var">createLicenseManagerReportGenerator_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicenseManagerReportGenerator -&gt; [ReportType])
+-&gt; (CreateLicenseManagerReportGenerator
+    -&gt; [ReportType] -&gt; CreateLicenseManagerReportGenerator)
+-&gt; Lens
+     CreateLicenseManagerReportGenerator
+     CreateLicenseManagerReportGenerator
+     [ReportType]
+     [ReportType]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312087"><span class="annot"><span class="annottext">[ReportType]
+type' :: [ReportType]
+$sel:type':CreateLicenseManagerReportGenerator' :: CreateLicenseManagerReportGenerator -&gt; [ReportType]
+</span><a href="#local-6989586621679312087"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ReportType]
+</span><a href="#local-6989586621679312087"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312086"><span class="annot"><span class="annottext">s :: CreateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679312086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312085"><span class="annot"><span class="annottext">[ReportType]
+</span><a href="#local-6989586621679312085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679312086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CreateLicenseManagerReportGenerator' :: [ReportType]
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3Atype%27%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ReportType]
+</span><a href="#local-6989586621679312085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ReportType] -&gt; f [ReportType])
+ -&gt; CreateLicenseManagerReportGenerator
+ -&gt; f CreateLicenseManagerReportGenerator)
+-&gt; (([ReportType] -&gt; f [ReportType])
+    -&gt; [ReportType] -&gt; f [ReportType])
+-&gt; ([ReportType] -&gt; f [ReportType])
+-&gt; CreateLicenseManagerReportGenerator
+-&gt; f CreateLicenseManagerReportGenerator
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ReportType] -&gt; f [ReportType]) -&gt; [ReportType] -&gt; f [ReportType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | Defines the type of license configuration the report generator tracks.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_reportContext"><span class="hs-identifier hs-type">createLicenseManagerReportGenerator_reportContext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.ReportContext.html#ReportContext"><span class="hs-identifier hs-type">ReportContext</span></a></span><span>
+</span><span id="line-162"></span><span id="createLicenseManagerReportGenerator_reportContext"><span class="annot"><span class="annottext">createLicenseManagerReportGenerator_reportContext :: (ReportContext -&gt; f ReportContext)
+-&gt; CreateLicenseManagerReportGenerator
+-&gt; f CreateLicenseManagerReportGenerator
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_reportContext"><span class="hs-identifier hs-var hs-var">createLicenseManagerReportGenerator_reportContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicenseManagerReportGenerator -&gt; ReportContext)
+-&gt; (CreateLicenseManagerReportGenerator
+    -&gt; ReportContext -&gt; CreateLicenseManagerReportGenerator)
+-&gt; Lens
+     CreateLicenseManagerReportGenerator
+     CreateLicenseManagerReportGenerator
+     ReportContext
+     ReportContext
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312084"><span class="annot"><span class="annottext">ReportContext
+reportContext :: ReportContext
+$sel:reportContext:CreateLicenseManagerReportGenerator' :: CreateLicenseManagerReportGenerator -&gt; ReportContext
+</span><a href="#local-6989586621679312084"><span class="hs-identifier hs-var hs-var">reportContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportContext
+</span><a href="#local-6989586621679312084"><span class="hs-identifier hs-var">reportContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312083"><span class="annot"><span class="annottext">s :: CreateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679312083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312082"><span class="annot"><span class="annottext">ReportContext
+</span><a href="#local-6989586621679312082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679312083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportContext:CreateLicenseManagerReportGenerator' :: ReportContext
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AreportContext%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">reportContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportContext
+</span><a href="#local-6989586621679312082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Frequency by which reports are generated. Reports can be generated</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- daily, monthly, or weekly.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_reportFrequency"><span class="hs-identifier hs-type">createLicenseManagerReportGenerator_reportFrequency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.ReportFrequency.html#ReportFrequency"><span class="hs-identifier hs-type">ReportFrequency</span></a></span><span>
+</span><span id="line-167"></span><span id="createLicenseManagerReportGenerator_reportFrequency"><span class="annot"><span class="annottext">createLicenseManagerReportGenerator_reportFrequency :: (ReportFrequency -&gt; f ReportFrequency)
+-&gt; CreateLicenseManagerReportGenerator
+-&gt; f CreateLicenseManagerReportGenerator
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_reportFrequency"><span class="hs-identifier hs-var hs-var">createLicenseManagerReportGenerator_reportFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicenseManagerReportGenerator -&gt; ReportFrequency)
+-&gt; (CreateLicenseManagerReportGenerator
+    -&gt; ReportFrequency -&gt; CreateLicenseManagerReportGenerator)
+-&gt; Lens
+     CreateLicenseManagerReportGenerator
+     CreateLicenseManagerReportGenerator
+     ReportFrequency
+     ReportFrequency
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312081"><span class="annot"><span class="annottext">ReportFrequency
+reportFrequency :: ReportFrequency
+$sel:reportFrequency:CreateLicenseManagerReportGenerator' :: CreateLicenseManagerReportGenerator -&gt; ReportFrequency
+</span><a href="#local-6989586621679312081"><span class="hs-identifier hs-var hs-var">reportFrequency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportFrequency
+</span><a href="#local-6989586621679312081"><span class="hs-identifier hs-var">reportFrequency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312080"><span class="annot"><span class="annottext">s :: CreateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679312080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312079"><span class="annot"><span class="annottext">ReportFrequency
+</span><a href="#local-6989586621679312079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679312080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportFrequency:CreateLicenseManagerReportGenerator' :: ReportFrequency
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AreportFrequency%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">reportFrequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportFrequency
+</span><a href="#local-6989586621679312079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_clientToken"><span class="hs-identifier hs-type">createLicenseManagerReportGenerator_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-172"></span><span id="createLicenseManagerReportGenerator_clientToken"><span class="annot"><span class="annottext">createLicenseManagerReportGenerator_clientToken :: (Text -&gt; f Text)
+-&gt; CreateLicenseManagerReportGenerator
+-&gt; f CreateLicenseManagerReportGenerator
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGenerator_clientToken"><span class="hs-identifier hs-var hs-var">createLicenseManagerReportGenerator_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicenseManagerReportGenerator -&gt; Text)
+-&gt; (CreateLicenseManagerReportGenerator
+    -&gt; Text -&gt; CreateLicenseManagerReportGenerator)
+-&gt; Lens
+     CreateLicenseManagerReportGenerator
+     CreateLicenseManagerReportGenerator
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312078"><span class="annot"><span class="annottext">Text
+clientToken :: Text
+$sel:clientToken:CreateLicenseManagerReportGenerator' :: CreateLicenseManagerReportGenerator -&gt; Text
+</span><a href="#local-6989586621679312078"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312078"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312077"><span class="annot"><span class="annottext">s :: CreateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679312077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312076"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679312077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateLicenseManagerReportGenerator' :: Text
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AclientToken%3ACreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-179"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-type">CreateLicenseManagerReportGeneratorResponse</span></a></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679312072"><span class="annot"><span class="annottext">request :: CreateLicenseManagerReportGenerator
+-&gt; Request CreateLicenseManagerReportGenerator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateLicenseManagerReportGenerator
+-&gt; Request CreateLicenseManagerReportGenerator
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.LicenseManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679312068"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateLicenseManagerReportGenerator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateLicenseManagerReportGenerator)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateLicenseManagerReportGenerator))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateLicenseManagerReportGenerator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateLicenseManagerReportGenerator)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312065"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312065"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312064"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312064"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312063"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312063"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateLicenseManagerReportGeneratorResponse
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-var">CreateLicenseManagerReportGeneratorResponse'</span></a></span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateLicenseManagerReportGeneratorResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; CreateLicenseManagerReportGeneratorResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseManagerReportGeneratorArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateLicenseManagerReportGeneratorResponse)
+-&gt; Either String Int
+-&gt; Either String CreateLicenseManagerReportGeneratorResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312065"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679312055"><span id="local-6989586621679312057"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span></span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679312052"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679312048"><span class="annot"><span class="annottext">toHeaders :: CreateLicenseManagerReportGenerator -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; CreateLicenseManagerReportGenerator -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-205"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSLicenseManager.CreateLicenseManagerReportGenerator&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-207"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-208"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-210"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-212"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679312038"><span id="local-6989586621679312040"><span id="local-6989586621679312042"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span></span></span></span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679312036"><span class="annot"><span class="annottext">toJSON :: CreateLicenseManagerReportGenerator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312028"><span id="local-6989586621679312029"><span id="local-6989586621679312030"><span id="local-6989586621679312031"><span id="local-6989586621679312032"><span id="local-6989586621679312033"><span id="local-6989586621679312034"><span class="annot"><span class="annottext">[ReportType]
+Maybe [Tag]
+Maybe Text
+Text
+ReportContext
+ReportFrequency
+clientToken :: Text
+reportFrequency :: ReportFrequency
+reportContext :: ReportContext
+type' :: [ReportType]
+reportGeneratorName :: Text
+tags :: Maybe [Tag]
+description :: Maybe Text
+$sel:clientToken:CreateLicenseManagerReportGenerator' :: CreateLicenseManagerReportGenerator -&gt; Text
+$sel:reportFrequency:CreateLicenseManagerReportGenerator' :: CreateLicenseManagerReportGenerator -&gt; ReportFrequency
+$sel:reportContext:CreateLicenseManagerReportGenerator' :: CreateLicenseManagerReportGenerator -&gt; ReportContext
+$sel:type':CreateLicenseManagerReportGenerator' :: CreateLicenseManagerReportGenerator -&gt; [ReportType]
+$sel:reportGeneratorName:CreateLicenseManagerReportGenerator' :: CreateLicenseManagerReportGenerator -&gt; Text
+$sel:tags:CreateLicenseManagerReportGenerator' :: CreateLicenseManagerReportGenerator -&gt; Maybe [Tag]
+$sel:description:CreateLicenseManagerReportGenerator' :: CreateLicenseManagerReportGenerator -&gt; Maybe Text
+</span><a href="#local-6989586621679312028"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-223"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312034"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679312033"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-226"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportGeneratorName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312032"><span class="hs-identifier hs-var">reportGeneratorName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ReportType] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[ReportType]
+</span><a href="#local-6989586621679312031"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportContext&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReportContext -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ReportContext
+</span><a href="#local-6989586621679312030"><span class="hs-identifier hs-var">reportContext</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-230"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportFrequency&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReportFrequency -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ReportFrequency
+</span><a href="#local-6989586621679312029"><span class="hs-identifier hs-var">reportFrequency</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312028"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-233"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-236"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679312022"><span class="annot"><span class="annottext">toPath :: CreateLicenseManagerReportGenerator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateLicenseManagerReportGenerator -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">CreateLicenseManagerReportGenerator</span></a></span><span>
+</span><span id="line-244"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679312018"><span class="annot"><span class="annottext">toQuery :: CreateLicenseManagerReportGenerator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateLicenseManagerReportGenerator -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | /See:/ 'newCreateLicenseManagerReportGeneratorResponse' smart constructor.</span><span>
+</span><span id="line-248"></span><span id="local-6989586621679312015"><span id="local-6989586621679312016"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLicenseManagerReportGeneratorResponse"><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-var">CreateLicenseManagerReportGeneratorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLicenseManagerReportGeneratorResponse%27"><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-var">CreateLicenseManagerReportGeneratorResponse'</span></a></span></span><span>
+</span><span id="line-249"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the new report generator.</span><span>
+</span><span id="line-250"></span><span>    </span><span id="%24sel%3AlicenseManagerReportGeneratorArn%3ACreateLicenseManagerReportGeneratorResponse%27"><span class="annot"><span class="annottext">CreateLicenseManagerReportGeneratorResponse -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AlicenseManagerReportGeneratorArn%3ACreateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-var hs-var">licenseManagerReportGeneratorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-252"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateLicenseManagerReportGeneratorResponse%27"><span class="annot"><span class="annottext">CreateLicenseManagerReportGeneratorResponse -&gt; Int
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AhttpStatus%3ACreateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-253"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-254"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312009"><span id="local-6989586621679312011"><span class="annot"><span class="annottext">CreateLicenseManagerReportGeneratorResponse
+-&gt; CreateLicenseManagerReportGeneratorResponse -&gt; Bool
+(CreateLicenseManagerReportGeneratorResponse
+ -&gt; CreateLicenseManagerReportGeneratorResponse -&gt; Bool)
+-&gt; (CreateLicenseManagerReportGeneratorResponse
+    -&gt; CreateLicenseManagerReportGeneratorResponse -&gt; Bool)
+-&gt; Eq CreateLicenseManagerReportGeneratorResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateLicenseManagerReportGeneratorResponse
+-&gt; CreateLicenseManagerReportGeneratorResponse -&gt; Bool
+$c/= :: CreateLicenseManagerReportGeneratorResponse
+-&gt; CreateLicenseManagerReportGeneratorResponse -&gt; Bool
+== :: CreateLicenseManagerReportGeneratorResponse
+-&gt; CreateLicenseManagerReportGeneratorResponse -&gt; Bool
+$c== :: CreateLicenseManagerReportGeneratorResponse
+-&gt; CreateLicenseManagerReportGeneratorResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312001"><span id="local-6989586621679312003"><span id="local-6989586621679312005"><span id="local-6989586621679312007"><span class="annot"><span class="annottext">ReadPrec [CreateLicenseManagerReportGeneratorResponse]
+ReadPrec CreateLicenseManagerReportGeneratorResponse
+Int -&gt; ReadS CreateLicenseManagerReportGeneratorResponse
+ReadS [CreateLicenseManagerReportGeneratorResponse]
+(Int -&gt; ReadS CreateLicenseManagerReportGeneratorResponse)
+-&gt; ReadS [CreateLicenseManagerReportGeneratorResponse]
+-&gt; ReadPrec CreateLicenseManagerReportGeneratorResponse
+-&gt; ReadPrec [CreateLicenseManagerReportGeneratorResponse]
+-&gt; Read CreateLicenseManagerReportGeneratorResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateLicenseManagerReportGeneratorResponse]
+$creadListPrec :: ReadPrec [CreateLicenseManagerReportGeneratorResponse]
+readPrec :: ReadPrec CreateLicenseManagerReportGeneratorResponse
+$creadPrec :: ReadPrec CreateLicenseManagerReportGeneratorResponse
+readList :: ReadS [CreateLicenseManagerReportGeneratorResponse]
+$creadList :: ReadS [CreateLicenseManagerReportGeneratorResponse]
+readsPrec :: Int -&gt; ReadS CreateLicenseManagerReportGeneratorResponse
+$creadsPrec :: Int -&gt; ReadS CreateLicenseManagerReportGeneratorResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311995"><span id="local-6989586621679311997"><span id="local-6989586621679311999"><span class="annot"><span class="annottext">Int -&gt; CreateLicenseManagerReportGeneratorResponse -&gt; ShowS
+[CreateLicenseManagerReportGeneratorResponse] -&gt; ShowS
+CreateLicenseManagerReportGeneratorResponse -&gt; String
+(Int -&gt; CreateLicenseManagerReportGeneratorResponse -&gt; ShowS)
+-&gt; (CreateLicenseManagerReportGeneratorResponse -&gt; String)
+-&gt; ([CreateLicenseManagerReportGeneratorResponse] -&gt; ShowS)
+-&gt; Show CreateLicenseManagerReportGeneratorResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateLicenseManagerReportGeneratorResponse] -&gt; ShowS
+$cshowList :: [CreateLicenseManagerReportGeneratorResponse] -&gt; ShowS
+show :: CreateLicenseManagerReportGeneratorResponse -&gt; String
+$cshow :: CreateLicenseManagerReportGeneratorResponse -&gt; String
+showsPrec :: Int -&gt; CreateLicenseManagerReportGeneratorResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateLicenseManagerReportGeneratorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateLicenseManagerReportGeneratorResponse
+ -&gt; Rep CreateLicenseManagerReportGeneratorResponse x)
+-&gt; (forall x.
+    Rep CreateLicenseManagerReportGeneratorResponse x
+    -&gt; CreateLicenseManagerReportGeneratorResponse)
+-&gt; Generic CreateLicenseManagerReportGeneratorResponse
+forall x.
+Rep CreateLicenseManagerReportGeneratorResponse x
+-&gt; CreateLicenseManagerReportGeneratorResponse
+forall x.
+CreateLicenseManagerReportGeneratorResponse
+-&gt; Rep CreateLicenseManagerReportGeneratorResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateLicenseManagerReportGeneratorResponse x
+-&gt; CreateLicenseManagerReportGeneratorResponse
+$cfrom :: forall x.
+CreateLicenseManagerReportGeneratorResponse
+-&gt; Rep CreateLicenseManagerReportGeneratorResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- Create a value of 'CreateLicenseManagerReportGeneratorResponse' with all optional fields omitted.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- 'licenseManagerReportGeneratorArn', 'createLicenseManagerReportGeneratorResponse_licenseManagerReportGeneratorArn' - The Amazon Resource Name (ARN) of the new report generator.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- 'httpStatus', 'createLicenseManagerReportGeneratorResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#newCreateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-type">newCreateLicenseManagerReportGeneratorResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-268"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-269"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-type">CreateLicenseManagerReportGeneratorResponse</span></a></span><span>
+</span><span id="line-271"></span><span id="newCreateLicenseManagerReportGeneratorResponse"><span class="annot"><span class="annottext">newCreateLicenseManagerReportGeneratorResponse :: Int -&gt; CreateLicenseManagerReportGeneratorResponse
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#newCreateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-var hs-var">newCreateLicenseManagerReportGeneratorResponse</span></a></span></span><span>
+</span><span id="line-272"></span><span>  </span><span id="local-6989586621679311992"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311992"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><span class="annottext">CreateLicenseManagerReportGeneratorResponse' :: Maybe Text -&gt; Int -&gt; CreateLicenseManagerReportGeneratorResponse
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGeneratorResponse'</span></a></span><span>
+</span><span id="line-274"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:licenseManagerReportGeneratorArn:CreateLicenseManagerReportGeneratorResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AlicenseManagerReportGeneratorArn%3ACreateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-var">licenseManagerReportGeneratorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-275"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLicenseManagerReportGeneratorResponse' :: Int
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AhttpStatus%3ACreateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311992"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-277"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the new report generator.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGeneratorResponse_licenseManagerReportGeneratorArn"><span class="hs-identifier hs-type">createLicenseManagerReportGeneratorResponse_licenseManagerReportGeneratorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-type">CreateLicenseManagerReportGeneratorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="createLicenseManagerReportGeneratorResponse_licenseManagerReportGeneratorArn"><span class="annot"><span class="annottext">createLicenseManagerReportGeneratorResponse_licenseManagerReportGeneratorArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateLicenseManagerReportGeneratorResponse
+-&gt; f CreateLicenseManagerReportGeneratorResponse
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGeneratorResponse_licenseManagerReportGeneratorArn"><span class="hs-identifier hs-var hs-var">createLicenseManagerReportGeneratorResponse_licenseManagerReportGeneratorArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicenseManagerReportGeneratorResponse -&gt; Maybe Text)
+-&gt; (CreateLicenseManagerReportGeneratorResponse
+    -&gt; Maybe Text -&gt; CreateLicenseManagerReportGeneratorResponse)
+-&gt; Lens
+     CreateLicenseManagerReportGeneratorResponse
+     CreateLicenseManagerReportGeneratorResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGeneratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311991"><span class="annot"><span class="annottext">Maybe Text
+licenseManagerReportGeneratorArn :: Maybe Text
+$sel:licenseManagerReportGeneratorArn:CreateLicenseManagerReportGeneratorResponse' :: CreateLicenseManagerReportGeneratorResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679311991"><span class="hs-identifier hs-var hs-var">licenseManagerReportGeneratorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311991"><span class="hs-identifier hs-var">licenseManagerReportGeneratorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311990"><span class="annot"><span class="annottext">s :: CreateLicenseManagerReportGeneratorResponse
+</span><a href="#local-6989586621679311990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGeneratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311989"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicenseManagerReportGeneratorResponse
+</span><a href="#local-6989586621679311990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseManagerReportGeneratorArn:CreateLicenseManagerReportGeneratorResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AlicenseManagerReportGeneratorArn%3ACreateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-var">licenseManagerReportGeneratorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-type">CreateLicenseManagerReportGeneratorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGeneratorResponse_httpStatus"><span class="hs-identifier hs-type">createLicenseManagerReportGeneratorResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-type">CreateLicenseManagerReportGeneratorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-285"></span><span id="createLicenseManagerReportGeneratorResponse_httpStatus"><span class="annot"><span class="annottext">createLicenseManagerReportGeneratorResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateLicenseManagerReportGeneratorResponse
+-&gt; f CreateLicenseManagerReportGeneratorResponse
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#createLicenseManagerReportGeneratorResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createLicenseManagerReportGeneratorResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicenseManagerReportGeneratorResponse -&gt; Int)
+-&gt; (CreateLicenseManagerReportGeneratorResponse
+    -&gt; Int -&gt; CreateLicenseManagerReportGeneratorResponse)
+-&gt; Lens
+     CreateLicenseManagerReportGeneratorResponse
+     CreateLicenseManagerReportGeneratorResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGeneratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311988"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateLicenseManagerReportGeneratorResponse' :: CreateLicenseManagerReportGeneratorResponse -&gt; Int
+</span><a href="#local-6989586621679311988"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311988"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311987"><span class="annot"><span class="annottext">s :: CreateLicenseManagerReportGeneratorResponse
+</span><a href="#local-6989586621679311987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-type">CreateLicenseManagerReportGeneratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311986"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicenseManagerReportGeneratorResponse
+</span><a href="#local-6989586621679311987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLicenseManagerReportGeneratorResponse' :: Int
+</span><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#%24sel%3AhttpStatus%3ACreateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-type">CreateLicenseManagerReportGeneratorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-288"></span><span>  </span><span id="local-6989586621679311984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.CreateLicenseManagerReportGenerator.html#CreateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-type">CreateLicenseManagerReportGeneratorResponse</span></a></span></span><span>
+</span><span id="line-290"></span></pre></body></html>

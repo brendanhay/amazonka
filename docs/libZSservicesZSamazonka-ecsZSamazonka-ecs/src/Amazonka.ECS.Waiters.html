@@ -1,0 +1,507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-6"></span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-8"></span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Module      : Amazonka.ECS.Waiters</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-16"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECS.Waiters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-17"></span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-19"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECS.DescribeServices.html"><span class="hs-identifier">Amazonka.ECS.DescribeServices</span></a></span><span>
+</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECS.DescribeTasks.html"><span class="hs-identifier">Amazonka.ECS.DescribeTasks</span></a></span><span>
+</span><span id="line-21"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECS.Lens.html"><span class="hs-identifier">Amazonka.ECS.Lens</span></a></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.html"><span class="hs-identifier">Amazonka.ECS.Types</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Polls 'Amazonka.ECS.DescribeServices' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.</span><span>
+</span><span id="line-27"></span><span class="annot"><a href="Amazonka.ECS.Waiters.html#newServicesInactive"><span class="hs-identifier hs-type">newServicesInactive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DescribeServices.html#DescribeServices"><span class="hs-identifier hs-type">DescribeServices</span></a></span><span>
+</span><span id="line-28"></span><span id="newServicesInactive"><span class="annot"><span class="annottext">newServicesInactive :: Wait DescribeServices
+</span><a href="Amazonka.ECS.Waiters.html#newServicesInactive"><span class="hs-identifier hs-var hs-var">newServicesInactive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-29"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ServicesInactive&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">40</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">15</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeServices]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-34"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeServices) (CI Text)
+-&gt; Acceptor DescribeServices
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAny</span></span><span>
+</span><span id="line-35"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;MISSING&quot;</span></span><span>
+</span><span id="line-36"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-37"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(DescribeServicesResponse -&gt; [Failure])
+-&gt; Fold DescribeServicesResponse Failure
+forall (f :: * -&gt; *) s a. Foldable f =&gt; (s -&gt; f a) -&gt; Fold s a
+</span><span class="hs-identifier hs-var">Lens.folding</span></span><span>
+</span><span id="line-38"></span><span>                </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Getting [Failure] DescribeServicesResponse [Failure]
+-&gt; DescribeServicesResponse -&gt; [Failure]
+forall r s. Getting [r] s [r] -&gt; s -&gt; [r]
+</span><span class="hs-identifier hs-var">Lens.concatOf</span></span><span>
+</span><span id="line-39"></span><span>                    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe [Failure] -&gt; Const [Failure] (Maybe [Failure]))
+-&gt; DescribeServicesResponse
+-&gt; Const [Failure] DescribeServicesResponse
+Lens' DescribeServicesResponse (Maybe [Failure])
+</span><a href="Amazonka.ECS.DescribeServices.html#describeServicesResponse_failures"><span class="hs-identifier hs-var">describeServicesResponse_failures</span></a></span><span>
+</span><span id="line-40"></span><span>                        </span><span class="annot"><span class="annottext">((Maybe [Failure] -&gt; Const [Failure] (Maybe [Failure]))
+ -&gt; DescribeServicesResponse
+ -&gt; Const [Failure] DescribeServicesResponse)
+-&gt; (([Failure] -&gt; Const [Failure] [Failure])
+    -&gt; Maybe [Failure] -&gt; Const [Failure] (Maybe [Failure]))
+-&gt; Getting [Failure] DescribeServicesResponse [Failure]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Failure] -&gt; Const [Failure] [Failure])
+-&gt; Maybe [Failure] -&gt; Const [Failure] (Maybe [Failure])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-41"></span><span>                    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>                </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>                </span><span class="annot"><span class="annottext">((Failure -&gt; f Failure)
+ -&gt; DescribeServicesResponse -&gt; f DescribeServicesResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Failure -&gt; f Failure)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeServicesResponse
+-&gt; f DescribeServicesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; f (Maybe Text)) -&gt; Failure -&gt; f Failure
+Lens' Failure (Maybe Text)
+</span><a href="Amazonka.ECS.Types.Failure.html#failure_reason"><span class="hs-identifier hs-var">failure_reason</span></a></span><span>
+</span><span id="line-44"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Text -&gt; f (Maybe Text)) -&gt; Failure -&gt; f Failure)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Text -&gt; f (Maybe Text))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Failure
+-&gt; f Failure
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Maybe Text -&gt; f (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-45"></span><span>                </span><span class="annot"><span class="annottext">((Text -&gt; f Text) -&gt; Maybe Text -&gt; f (Maybe Text))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Text
+-&gt; f (Maybe Text)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; CI Text) -&gt; (CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-46"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeServices) (CI Text)
+-&gt; Acceptor DescribeServices
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAny</span></span><span>
+</span><span id="line-48"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;INACTIVE&quot;</span></span><span>
+</span><span id="line-49"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-50"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(DescribeServicesResponse -&gt; [ContainerService])
+-&gt; Fold DescribeServicesResponse ContainerService
+forall (f :: * -&gt; *) s a. Foldable f =&gt; (s -&gt; f a) -&gt; Fold s a
+</span><span class="hs-identifier hs-var">Lens.folding</span></span><span>
+</span><span id="line-51"></span><span>                </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Getting
+  [ContainerService] DescribeServicesResponse [ContainerService]
+-&gt; DescribeServicesResponse -&gt; [ContainerService]
+forall r s. Getting [r] s [r] -&gt; s -&gt; [r]
+</span><span class="hs-identifier hs-var">Lens.concatOf</span></span><span>
+</span><span id="line-52"></span><span>                    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe [ContainerService]
+ -&gt; Const [ContainerService] (Maybe [ContainerService]))
+-&gt; DescribeServicesResponse
+-&gt; Const [ContainerService] DescribeServicesResponse
+Lens' DescribeServicesResponse (Maybe [ContainerService])
+</span><a href="Amazonka.ECS.DescribeServices.html#describeServicesResponse_services"><span class="hs-identifier hs-var">describeServicesResponse_services</span></a></span><span>
+</span><span id="line-53"></span><span>                        </span><span class="annot"><span class="annottext">((Maybe [ContainerService]
+  -&gt; Const [ContainerService] (Maybe [ContainerService]))
+ -&gt; DescribeServicesResponse
+ -&gt; Const [ContainerService] DescribeServicesResponse)
+-&gt; (([ContainerService]
+     -&gt; Const [ContainerService] [ContainerService])
+    -&gt; Maybe [ContainerService]
+    -&gt; Const [ContainerService] (Maybe [ContainerService]))
+-&gt; Getting
+     [ContainerService] DescribeServicesResponse [ContainerService]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ContainerService] -&gt; Const [ContainerService] [ContainerService])
+-&gt; Maybe [ContainerService]
+-&gt; Const [ContainerService] (Maybe [ContainerService])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-54"></span><span>                    </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>                </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>                </span><span class="annot"><span class="annottext">((ContainerService -&gt; f ContainerService)
+ -&gt; DescribeServicesResponse -&gt; f DescribeServicesResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; ContainerService -&gt; f ContainerService)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeServicesResponse
+-&gt; f DescribeServicesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; f (Maybe Text))
+-&gt; ContainerService -&gt; f ContainerService
+Lens' ContainerService (Maybe Text)
+</span><a href="Amazonka.ECS.Types.ContainerService.html#containerService_status"><span class="hs-identifier hs-var">containerService_status</span></a></span><span>
+</span><span id="line-57"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Text -&gt; f (Maybe Text))
+ -&gt; ContainerService -&gt; f ContainerService)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Text -&gt; f (Maybe Text))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; ContainerService
+-&gt; f ContainerService
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Maybe Text -&gt; f (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-58"></span><span>                </span><span class="annot"><span class="annottext">((Text -&gt; f Text) -&gt; Maybe Text -&gt; f (Maybe Text))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Text
+-&gt; f (Maybe Text)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; CI Text) -&gt; (CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-59"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Polls 'Amazonka.ECS.DescribeTasks' every 6 seconds until a successful state is reached. An error is returned after 100 failed checks.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.ECS.Waiters.html#newTasksRunning"><span class="hs-identifier hs-type">newTasksRunning</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span><span>
+</span><span id="line-65"></span><span id="newTasksRunning"><span class="annot"><span class="annottext">newTasksRunning :: Wait DescribeTasks
+</span><a href="Amazonka.ECS.Waiters.html#newTasksRunning"><span class="hs-identifier hs-var hs-var">newTasksRunning</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TasksRunning&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">100</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">6</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeTasks]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeTasks) (CI Text)
+-&gt; Acceptor DescribeTasks
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAny</span></span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;STOPPED&quot;</span></span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-74"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(DescribeTasksResponse -&gt; [Task])
+-&gt; Fold DescribeTasksResponse Task
+forall (f :: * -&gt; *) s a. Foldable f =&gt; (s -&gt; f a) -&gt; Fold s a
+</span><span class="hs-identifier hs-var">Lens.folding</span></span><span>
+</span><span id="line-75"></span><span>                </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Getting [Task] DescribeTasksResponse [Task]
+-&gt; DescribeTasksResponse -&gt; [Task]
+forall r s. Getting [r] s [r] -&gt; s -&gt; [r]
+</span><span class="hs-identifier hs-var">Lens.concatOf</span></span><span>
+</span><span id="line-76"></span><span>                    </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Maybe [Task] -&gt; Const [Task] (Maybe [Task]))
+-&gt; DescribeTasksResponse -&gt; Const [Task] DescribeTasksResponse
+Lens' DescribeTasksResponse (Maybe [Task])
+</span><a href="Amazonka.ECS.DescribeTasks.html#describeTasksResponse_tasks"><span class="hs-identifier hs-var">describeTasksResponse_tasks</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [Task] -&gt; Const [Task] (Maybe [Task]))
+ -&gt; DescribeTasksResponse -&gt; Const [Task] DescribeTasksResponse)
+-&gt; (([Task] -&gt; Const [Task] [Task])
+    -&gt; Maybe [Task] -&gt; Const [Task] (Maybe [Task]))
+-&gt; Getting [Task] DescribeTasksResponse [Task]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Task] -&gt; Const [Task] [Task])
+-&gt; Maybe [Task] -&gt; Const [Task] (Maybe [Task])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>                </span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>                </span><span class="annot"><span class="annottext">((Task -&gt; f Task)
+ -&gt; DescribeTasksResponse -&gt; f DescribeTasksResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Task -&gt; f Task)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeTasksResponse
+-&gt; f DescribeTasksResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; f (Maybe Text)) -&gt; Task -&gt; f Task
+Lens' Task (Maybe Text)
+</span><a href="Amazonka.ECS.Types.Task.html#task_lastStatus"><span class="hs-identifier hs-var">task_lastStatus</span></a></span><span>
+</span><span id="line-79"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Text -&gt; f (Maybe Text)) -&gt; Task -&gt; f Task)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Text -&gt; f (Maybe Text))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Task
+-&gt; f Task
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Maybe Text -&gt; f (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-80"></span><span>                </span><span class="annot"><span class="annottext">((Text -&gt; f Text) -&gt; Maybe Text -&gt; f (Maybe Text))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Text
+-&gt; f (Maybe Text)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; CI Text) -&gt; (CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-81"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeTasks) (CI Text)
+-&gt; Acceptor DescribeTasks
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAny</span></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;MISSING&quot;</span></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-85"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(DescribeTasksResponse -&gt; [Failure])
+-&gt; Fold DescribeTasksResponse Failure
+forall (f :: * -&gt; *) s a. Foldable f =&gt; (s -&gt; f a) -&gt; Fold s a
+</span><span class="hs-identifier hs-var">Lens.folding</span></span><span>
+</span><span id="line-86"></span><span>                </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Getting [Failure] DescribeTasksResponse [Failure]
+-&gt; DescribeTasksResponse -&gt; [Failure]
+forall r s. Getting [r] s [r] -&gt; s -&gt; [r]
+</span><span class="hs-identifier hs-var">Lens.concatOf</span></span><span>
+</span><span id="line-87"></span><span>                    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe [Failure] -&gt; Const [Failure] (Maybe [Failure]))
+-&gt; DescribeTasksResponse -&gt; Const [Failure] DescribeTasksResponse
+Lens' DescribeTasksResponse (Maybe [Failure])
+</span><a href="Amazonka.ECS.DescribeTasks.html#describeTasksResponse_failures"><span class="hs-identifier hs-var">describeTasksResponse_failures</span></a></span><span>
+</span><span id="line-88"></span><span>                        </span><span class="annot"><span class="annottext">((Maybe [Failure] -&gt; Const [Failure] (Maybe [Failure]))
+ -&gt; DescribeTasksResponse -&gt; Const [Failure] DescribeTasksResponse)
+-&gt; (([Failure] -&gt; Const [Failure] [Failure])
+    -&gt; Maybe [Failure] -&gt; Const [Failure] (Maybe [Failure]))
+-&gt; Getting [Failure] DescribeTasksResponse [Failure]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Failure] -&gt; Const [Failure] [Failure])
+-&gt; Maybe [Failure] -&gt; Const [Failure] (Maybe [Failure])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-89"></span><span>                    </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>                </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>                </span><span class="annot"><span class="annottext">((Failure -&gt; f Failure)
+ -&gt; DescribeTasksResponse -&gt; f DescribeTasksResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Failure -&gt; f Failure)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeTasksResponse
+-&gt; f DescribeTasksResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; f (Maybe Text)) -&gt; Failure -&gt; f Failure
+Lens' Failure (Maybe Text)
+</span><a href="Amazonka.ECS.Types.Failure.html#failure_reason"><span class="hs-identifier hs-var">failure_reason</span></a></span><span>
+</span><span id="line-92"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Text -&gt; f (Maybe Text)) -&gt; Failure -&gt; f Failure)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Text -&gt; f (Maybe Text))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Failure
+-&gt; f Failure
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Maybe Text -&gt; f (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-93"></span><span>                </span><span class="annot"><span class="annottext">((Text -&gt; f Text) -&gt; Maybe Text -&gt; f (Maybe Text))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Text
+-&gt; f (Maybe Text)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; CI Text) -&gt; (CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-94"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeTasks) (CI Text)
+-&gt; Acceptor DescribeTasks
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;RUNNING&quot;</span></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(DescribeTasksResponse -&gt; [Task])
+-&gt; Fold DescribeTasksResponse Task
+forall (f :: * -&gt; *) s a. Foldable f =&gt; (s -&gt; f a) -&gt; Fold s a
+</span><span class="hs-identifier hs-var">Lens.folding</span></span><span>
+</span><span id="line-99"></span><span>                </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Getting [Task] DescribeTasksResponse [Task]
+-&gt; DescribeTasksResponse -&gt; [Task]
+forall r s. Getting [r] s [r] -&gt; s -&gt; [r]
+</span><span class="hs-identifier hs-var">Lens.concatOf</span></span><span>
+</span><span id="line-100"></span><span>                    </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Maybe [Task] -&gt; Const [Task] (Maybe [Task]))
+-&gt; DescribeTasksResponse -&gt; Const [Task] DescribeTasksResponse
+Lens' DescribeTasksResponse (Maybe [Task])
+</span><a href="Amazonka.ECS.DescribeTasks.html#describeTasksResponse_tasks"><span class="hs-identifier hs-var">describeTasksResponse_tasks</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [Task] -&gt; Const [Task] (Maybe [Task]))
+ -&gt; DescribeTasksResponse -&gt; Const [Task] DescribeTasksResponse)
+-&gt; (([Task] -&gt; Const [Task] [Task])
+    -&gt; Maybe [Task] -&gt; Const [Task] (Maybe [Task]))
+-&gt; Getting [Task] DescribeTasksResponse [Task]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Task] -&gt; Const [Task] [Task])
+-&gt; Maybe [Task] -&gt; Const [Task] (Maybe [Task])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>                </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>                </span><span class="annot"><span class="annottext">((Task -&gt; f Task)
+ -&gt; DescribeTasksResponse -&gt; f DescribeTasksResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Task -&gt; f Task)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeTasksResponse
+-&gt; f DescribeTasksResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; f (Maybe Text)) -&gt; Task -&gt; f Task
+Lens' Task (Maybe Text)
+</span><a href="Amazonka.ECS.Types.Task.html#task_lastStatus"><span class="hs-identifier hs-var">task_lastStatus</span></a></span><span>
+</span><span id="line-103"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Text -&gt; f (Maybe Text)) -&gt; Task -&gt; f Task)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Text -&gt; f (Maybe Text))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Task
+-&gt; f Task
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Maybe Text -&gt; f (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-104"></span><span>                </span><span class="annot"><span class="annottext">((Text -&gt; f Text) -&gt; Maybe Text -&gt; f (Maybe Text))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Text
+-&gt; f (Maybe Text)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; CI Text) -&gt; (CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-105"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Polls 'Amazonka.ECS.DescribeTasks' every 6 seconds until a successful state is reached. An error is returned after 100 failed checks.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.ECS.Waiters.html#newTasksStopped"><span class="hs-identifier hs-type">newTasksStopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span><span>
+</span><span id="line-111"></span><span id="newTasksStopped"><span class="annot"><span class="annottext">newTasksStopped :: Wait DescribeTasks
+</span><a href="Amazonka.ECS.Waiters.html#newTasksStopped"><span class="hs-identifier hs-var hs-var">newTasksStopped</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TasksStopped&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">100</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">6</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeTasks]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeTasks) (CI Text)
+-&gt; Acceptor DescribeTasks
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;STOPPED&quot;</span></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(DescribeTasksResponse -&gt; [Task])
+-&gt; Fold DescribeTasksResponse Task
+forall (f :: * -&gt; *) s a. Foldable f =&gt; (s -&gt; f a) -&gt; Fold s a
+</span><span class="hs-identifier hs-var">Lens.folding</span></span><span>
+</span><span id="line-121"></span><span>                </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Getting [Task] DescribeTasksResponse [Task]
+-&gt; DescribeTasksResponse -&gt; [Task]
+forall r s. Getting [r] s [r] -&gt; s -&gt; [r]
+</span><span class="hs-identifier hs-var">Lens.concatOf</span></span><span>
+</span><span id="line-122"></span><span>                    </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Maybe [Task] -&gt; Const [Task] (Maybe [Task]))
+-&gt; DescribeTasksResponse -&gt; Const [Task] DescribeTasksResponse
+Lens' DescribeTasksResponse (Maybe [Task])
+</span><a href="Amazonka.ECS.DescribeTasks.html#describeTasksResponse_tasks"><span class="hs-identifier hs-var">describeTasksResponse_tasks</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [Task] -&gt; Const [Task] (Maybe [Task]))
+ -&gt; DescribeTasksResponse -&gt; Const [Task] DescribeTasksResponse)
+-&gt; (([Task] -&gt; Const [Task] [Task])
+    -&gt; Maybe [Task] -&gt; Const [Task] (Maybe [Task]))
+-&gt; Getting [Task] DescribeTasksResponse [Task]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Task] -&gt; Const [Task] [Task])
+-&gt; Maybe [Task] -&gt; Const [Task] (Maybe [Task])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>                </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>                </span><span class="annot"><span class="annottext">((Task -&gt; f Task)
+ -&gt; DescribeTasksResponse -&gt; f DescribeTasksResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Task -&gt; f Task)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeTasksResponse
+-&gt; f DescribeTasksResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; f (Maybe Text)) -&gt; Task -&gt; f Task
+Lens' Task (Maybe Text)
+</span><a href="Amazonka.ECS.Types.Task.html#task_lastStatus"><span class="hs-identifier hs-var">task_lastStatus</span></a></span><span>
+</span><span id="line-125"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Text -&gt; f (Maybe Text)) -&gt; Task -&gt; f Task)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Text -&gt; f (Maybe Text))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Task
+-&gt; f Task
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Maybe Text -&gt; f (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-126"></span><span>                </span><span class="annot"><span class="annottext">((Text -&gt; f Text) -&gt; Maybe Text -&gt; f (Maybe Text))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Text
+-&gt; f (Maybe Text)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; CI Text) -&gt; (CI Text -&gt; f (CI Text)) -&gt; Text -&gt; f Text
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-127"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span></pre></body></html>

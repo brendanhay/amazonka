@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Location.Types.PositionFiltering</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Location.Types.PositionFiltering</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.PositionFiltering.html#PositionFiltering"><span class="hs-identifier">PositionFiltering</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Location.Types.PositionFiltering.html#PositionFiltering_DistanceBased"><span class="hs-identifier">PositionFiltering_DistanceBased</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Location.Types.PositionFiltering.html#PositionFiltering_TimeBased"><span class="hs-identifier">PositionFiltering_TimeBased</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679261050"><span id="local-6989586621679261051"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PositionFiltering"><span class="annot"><a href="Amazonka.Location.Types.PositionFiltering.html#PositionFiltering"><span class="hs-identifier hs-var">PositionFiltering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PositionFiltering%27"><span class="annot"><a href="Amazonka.Location.Types.PositionFiltering.html#PositionFiltering%27"><span class="hs-identifier hs-var">PositionFiltering'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPositionFiltering"><span class="annot"><span class="annottext">PositionFiltering -&gt; Text
+</span><a href="Amazonka.Location.Types.PositionFiltering.html#fromPositionFiltering"><span class="hs-identifier hs-var hs-var">fromPositionFiltering</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679261042"><span id="local-6989586621679261044"><span id="local-6989586621679261046"><span class="annot"><span class="annottext">Int -&gt; PositionFiltering -&gt; ShowS
+[PositionFiltering] -&gt; ShowS
+PositionFiltering -&gt; String
+(Int -&gt; PositionFiltering -&gt; ShowS)
+-&gt; (PositionFiltering -&gt; String)
+-&gt; ([PositionFiltering] -&gt; ShowS)
+-&gt; Show PositionFiltering
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PositionFiltering] -&gt; ShowS
+$cshowList :: [PositionFiltering] -&gt; ShowS
+show :: PositionFiltering -&gt; String
+$cshow :: PositionFiltering -&gt; String
+showsPrec :: Int -&gt; PositionFiltering -&gt; ShowS
+$cshowsPrec :: Int -&gt; PositionFiltering -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679261033"><span id="local-6989586621679261035"><span id="local-6989586621679261037"><span id="local-6989586621679261039"><span class="annot"><span class="annottext">ReadPrec [PositionFiltering]
+ReadPrec PositionFiltering
+Int -&gt; ReadS PositionFiltering
+ReadS [PositionFiltering]
+(Int -&gt; ReadS PositionFiltering)
+-&gt; ReadS [PositionFiltering]
+-&gt; ReadPrec PositionFiltering
+-&gt; ReadPrec [PositionFiltering]
+-&gt; Read PositionFiltering
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PositionFiltering]
+$creadListPrec :: ReadPrec [PositionFiltering]
+readPrec :: ReadPrec PositionFiltering
+$creadPrec :: ReadPrec PositionFiltering
+readList :: ReadS [PositionFiltering]
+$creadList :: ReadS [PositionFiltering]
+readsPrec :: Int -&gt; ReadS PositionFiltering
+$creadsPrec :: Int -&gt; ReadS PositionFiltering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679261028"><span id="local-6989586621679261030"><span class="annot"><span class="annottext">PositionFiltering -&gt; PositionFiltering -&gt; Bool
+(PositionFiltering -&gt; PositionFiltering -&gt; Bool)
+-&gt; (PositionFiltering -&gt; PositionFiltering -&gt; Bool)
+-&gt; Eq PositionFiltering
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PositionFiltering -&gt; PositionFiltering -&gt; Bool
+$c/= :: PositionFiltering -&gt; PositionFiltering -&gt; Bool
+== :: PositionFiltering -&gt; PositionFiltering -&gt; Bool
+$c== :: PositionFiltering -&gt; PositionFiltering -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679261012"><span id="local-6989586621679261014"><span id="local-6989586621679261016"><span id="local-6989586621679261018"><span id="local-6989586621679261020"><span id="local-6989586621679261022"><span id="local-6989586621679261024"><span class="annot"><span class="annottext">Eq PositionFiltering
+Eq PositionFiltering
+-&gt; (PositionFiltering -&gt; PositionFiltering -&gt; Ordering)
+-&gt; (PositionFiltering -&gt; PositionFiltering -&gt; Bool)
+-&gt; (PositionFiltering -&gt; PositionFiltering -&gt; Bool)
+-&gt; (PositionFiltering -&gt; PositionFiltering -&gt; Bool)
+-&gt; (PositionFiltering -&gt; PositionFiltering -&gt; Bool)
+-&gt; (PositionFiltering -&gt; PositionFiltering -&gt; PositionFiltering)
+-&gt; (PositionFiltering -&gt; PositionFiltering -&gt; PositionFiltering)
+-&gt; Ord PositionFiltering
+PositionFiltering -&gt; PositionFiltering -&gt; Bool
+PositionFiltering -&gt; PositionFiltering -&gt; Ordering
+PositionFiltering -&gt; PositionFiltering -&gt; PositionFiltering
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PositionFiltering -&gt; PositionFiltering -&gt; PositionFiltering
+$cmin :: PositionFiltering -&gt; PositionFiltering -&gt; PositionFiltering
+max :: PositionFiltering -&gt; PositionFiltering -&gt; PositionFiltering
+$cmax :: PositionFiltering -&gt; PositionFiltering -&gt; PositionFiltering
+&gt;= :: PositionFiltering -&gt; PositionFiltering -&gt; Bool
+$c&gt;= :: PositionFiltering -&gt; PositionFiltering -&gt; Bool
+&gt; :: PositionFiltering -&gt; PositionFiltering -&gt; Bool
+$c&gt; :: PositionFiltering -&gt; PositionFiltering -&gt; Bool
+&lt;= :: PositionFiltering -&gt; PositionFiltering -&gt; Bool
+$c&lt;= :: PositionFiltering -&gt; PositionFiltering -&gt; Bool
+&lt; :: PositionFiltering -&gt; PositionFiltering -&gt; Bool
+$c&lt; :: PositionFiltering -&gt; PositionFiltering -&gt; Bool
+compare :: PositionFiltering -&gt; PositionFiltering -&gt; Ordering
+$ccompare :: PositionFiltering -&gt; PositionFiltering -&gt; Ordering
+$cp1Ord :: Eq PositionFiltering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PositionFiltering -&gt; Rep PositionFiltering x)
+-&gt; (forall x. Rep PositionFiltering x -&gt; PositionFiltering)
+-&gt; Generic PositionFiltering
+forall x. Rep PositionFiltering x -&gt; PositionFiltering
+forall x. PositionFiltering -&gt; Rep PositionFiltering x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PositionFiltering x -&gt; PositionFiltering
+$cfrom :: forall x. PositionFiltering -&gt; Rep PositionFiltering x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679261004"><span id="local-6989586621679261006"><span class="annot"><span class="annottext">Int -&gt; PositionFiltering -&gt; Int
+PositionFiltering -&gt; Int
+(Int -&gt; PositionFiltering -&gt; Int)
+-&gt; (PositionFiltering -&gt; Int) -&gt; Hashable PositionFiltering
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PositionFiltering -&gt; Int
+$chash :: PositionFiltering -&gt; Int
+hashWithSalt :: Int -&gt; PositionFiltering -&gt; Int
+$chashWithSalt :: Int -&gt; PositionFiltering -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679261001"><span class="annot"><span class="annottext">PositionFiltering -&gt; ()
+(PositionFiltering -&gt; ()) -&gt; NFData PositionFiltering
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PositionFiltering -&gt; ()
+$crnf :: PositionFiltering -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679260998"><span class="annot"><span class="annottext">Text -&gt; Either String PositionFiltering
+(Text -&gt; Either String PositionFiltering)
+-&gt; FromText PositionFiltering
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PositionFiltering
+$cfromText :: Text -&gt; Either String PositionFiltering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679260995"><span class="annot"><span class="annottext">PositionFiltering -&gt; Text
+(PositionFiltering -&gt; Text) -&gt; ToText PositionFiltering
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PositionFiltering -&gt; Text
+$ctoText :: PositionFiltering -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679260992"><span class="annot"><span class="annottext">PositionFiltering -&gt; ByteString
+(PositionFiltering -&gt; ByteString) -&gt; ToByteString PositionFiltering
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PositionFiltering -&gt; ByteString
+$ctoBS :: PositionFiltering -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679260989"><span class="annot"><span class="annottext">PositionFiltering -&gt; ByteStringBuilder
+(PositionFiltering -&gt; ByteStringBuilder) -&gt; ToLog PositionFiltering
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PositionFiltering -&gt; ByteStringBuilder
+$cbuild :: PositionFiltering -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679260986"><span class="annot"><span class="annottext">HeaderName -&gt; PositionFiltering -&gt; [Header]
+(HeaderName -&gt; PositionFiltering -&gt; [Header])
+-&gt; ToHeader PositionFiltering
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PositionFiltering -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PositionFiltering -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679260983"><span class="annot"><span class="annottext">PositionFiltering -&gt; QueryString
+(PositionFiltering -&gt; QueryString) -&gt; ToQuery PositionFiltering
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PositionFiltering -&gt; QueryString
+$ctoQuery :: PositionFiltering -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679260978"><span id="local-6989586621679260980"><span class="annot"><span class="annottext">Value -&gt; Parser [PositionFiltering]
+Value -&gt; Parser PositionFiltering
+(Value -&gt; Parser PositionFiltering)
+-&gt; (Value -&gt; Parser [PositionFiltering])
+-&gt; FromJSON PositionFiltering
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PositionFiltering]
+$cparseJSONList :: Value -&gt; Parser [PositionFiltering]
+parseJSON :: Value -&gt; Parser PositionFiltering
+$cparseJSON :: Value -&gt; Parser PositionFiltering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679260973"><span id="local-6989586621679260975"><span class="annot"><span class="annottext">FromJSONKeyFunction [PositionFiltering]
+FromJSONKeyFunction PositionFiltering
+FromJSONKeyFunction PositionFiltering
+-&gt; FromJSONKeyFunction [PositionFiltering]
+-&gt; FromJSONKey PositionFiltering
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PositionFiltering]
+$cfromJSONKeyList :: FromJSONKeyFunction [PositionFiltering]
+fromJSONKey :: FromJSONKeyFunction PositionFiltering
+$cfromJSONKey :: FromJSONKeyFunction PositionFiltering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679260964"><span id="local-6989586621679260966"><span id="local-6989586621679260968"><span id="local-6989586621679260970"><span class="annot"><span class="annottext">[PositionFiltering] -&gt; Encoding
+[PositionFiltering] -&gt; Value
+PositionFiltering -&gt; Encoding
+PositionFiltering -&gt; Value
+(PositionFiltering -&gt; Value)
+-&gt; (PositionFiltering -&gt; Encoding)
+-&gt; ([PositionFiltering] -&gt; Value)
+-&gt; ([PositionFiltering] -&gt; Encoding)
+-&gt; ToJSON PositionFiltering
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PositionFiltering] -&gt; Encoding
+$ctoEncodingList :: [PositionFiltering] -&gt; Encoding
+toJSONList :: [PositionFiltering] -&gt; Value
+$ctoJSONList :: [PositionFiltering] -&gt; Value
+toEncoding :: PositionFiltering -&gt; Encoding
+$ctoEncoding :: PositionFiltering -&gt; Encoding
+toJSON :: PositionFiltering -&gt; Value
+$ctoJSON :: PositionFiltering -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679260959"><span id="local-6989586621679260961"><span class="annot"><span class="annottext">ToJSONKeyFunction [PositionFiltering]
+ToJSONKeyFunction PositionFiltering
+ToJSONKeyFunction PositionFiltering
+-&gt; ToJSONKeyFunction [PositionFiltering]
+-&gt; ToJSONKey PositionFiltering
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PositionFiltering]
+$ctoJSONKeyList :: ToJSONKeyFunction [PositionFiltering]
+toJSONKey :: ToJSONKeyFunction PositionFiltering
+$ctoJSONKey :: ToJSONKeyFunction PositionFiltering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679260956"><span class="annot"><span class="annottext">[Node] -&gt; Either String PositionFiltering
+([Node] -&gt; Either String PositionFiltering)
+-&gt; FromXML PositionFiltering
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PositionFiltering
+$cparseXML :: [Node] -&gt; Either String PositionFiltering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679260953"><span class="annot"><span class="annottext">PositionFiltering -&gt; XML
+(PositionFiltering -&gt; XML) -&gt; ToXML PositionFiltering
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PositionFiltering -&gt; XML
+$ctoXML :: PositionFiltering -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.PositionFiltering.html#PositionFiltering_DistanceBased"><span class="hs-identifier hs-type">PositionFiltering_DistanceBased</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.PositionFiltering.html#PositionFiltering"><span class="hs-identifier hs-type">PositionFiltering</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPositionFiltering_DistanceBased"><span id="%24mPositionFiltering_DistanceBased"><span id="PositionFiltering_DistanceBased"><span class="annot"><span class="annottext">$bPositionFiltering_DistanceBased :: PositionFiltering
+$mPositionFiltering_DistanceBased :: forall r. PositionFiltering -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Location.Types.PositionFiltering.html#%24bPositionFiltering_DistanceBased"><span class="hs-identifier hs-var hs-var hs-var">PositionFiltering_DistanceBased</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.PositionFiltering.html#PositionFiltering%27"><span class="hs-identifier hs-type">PositionFiltering'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DistanceBased&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.PositionFiltering.html#PositionFiltering_TimeBased"><span class="hs-identifier hs-type">PositionFiltering_TimeBased</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.PositionFiltering.html#PositionFiltering"><span class="hs-identifier hs-type">PositionFiltering</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPositionFiltering_TimeBased"><span id="%24mPositionFiltering_TimeBased"><span id="PositionFiltering_TimeBased"><span class="annot"><span class="annottext">$bPositionFiltering_TimeBased :: PositionFiltering
+$mPositionFiltering_TimeBased :: forall r. PositionFiltering -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Location.Types.PositionFiltering.html#%24bPositionFiltering_TimeBased"><span class="hs-identifier hs-var hs-var hs-var">PositionFiltering_TimeBased</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.PositionFiltering.html#PositionFiltering%27"><span class="hs-identifier hs-type">PositionFiltering'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TimeBased&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Location.Types.PositionFiltering.html#PositionFiltering_DistanceBased"><span class="hs-pragma hs-type">PositionFiltering_DistanceBased</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Location.Types.PositionFiltering.html#PositionFiltering_TimeBased"><span class="hs-pragma hs-type">PositionFiltering_TimeBased</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Location.Types.PositionFiltering.html#PositionFiltering%27"><span class="hs-pragma hs-type">PositionFiltering'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.WebvttStylePassthrough</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.WebvttStylePassthrough</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#WebvttStylePassthrough"><span class="hs-identifier">WebvttStylePassthrough</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#WebvttStylePassthrough_DISABLED"><span class="hs-identifier">WebvttStylePassthrough_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#WebvttStylePassthrough_ENABLED"><span class="hs-identifier">WebvttStylePassthrough_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Set Style passthrough (StylePassthrough) to ENABLED to use the available</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- style, color, and position information from your input captions.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- MediaConvert uses default settings for any missing style and position</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- information in your input captions. Set Style passthrough to DISABLED,</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- or leave blank, to ignore the style and position information from your</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- input captions and use simplified output captions.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621680018090"><span id="local-6989586621680018091"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WebvttStylePassthrough"><span class="annot"><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#WebvttStylePassthrough"><span class="hs-identifier hs-var">WebvttStylePassthrough</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebvttStylePassthrough%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#WebvttStylePassthrough%27"><span class="hs-identifier hs-var">WebvttStylePassthrough'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWebvttStylePassthrough"><span class="annot"><span class="annottext">WebvttStylePassthrough -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#fromWebvttStylePassthrough"><span class="hs-identifier hs-var hs-var">fromWebvttStylePassthrough</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680018082"><span id="local-6989586621680018084"><span id="local-6989586621680018086"><span class="annot"><span class="annottext">Int -&gt; WebvttStylePassthrough -&gt; ShowS
+[WebvttStylePassthrough] -&gt; ShowS
+WebvttStylePassthrough -&gt; String
+(Int -&gt; WebvttStylePassthrough -&gt; ShowS)
+-&gt; (WebvttStylePassthrough -&gt; String)
+-&gt; ([WebvttStylePassthrough] -&gt; ShowS)
+-&gt; Show WebvttStylePassthrough
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WebvttStylePassthrough] -&gt; ShowS
+$cshowList :: [WebvttStylePassthrough] -&gt; ShowS
+show :: WebvttStylePassthrough -&gt; String
+$cshow :: WebvttStylePassthrough -&gt; String
+showsPrec :: Int -&gt; WebvttStylePassthrough -&gt; ShowS
+$cshowsPrec :: Int -&gt; WebvttStylePassthrough -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680018073"><span id="local-6989586621680018075"><span id="local-6989586621680018077"><span id="local-6989586621680018079"><span class="annot"><span class="annottext">ReadPrec [WebvttStylePassthrough]
+ReadPrec WebvttStylePassthrough
+Int -&gt; ReadS WebvttStylePassthrough
+ReadS [WebvttStylePassthrough]
+(Int -&gt; ReadS WebvttStylePassthrough)
+-&gt; ReadS [WebvttStylePassthrough]
+-&gt; ReadPrec WebvttStylePassthrough
+-&gt; ReadPrec [WebvttStylePassthrough]
+-&gt; Read WebvttStylePassthrough
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WebvttStylePassthrough]
+$creadListPrec :: ReadPrec [WebvttStylePassthrough]
+readPrec :: ReadPrec WebvttStylePassthrough
+$creadPrec :: ReadPrec WebvttStylePassthrough
+readList :: ReadS [WebvttStylePassthrough]
+$creadList :: ReadS [WebvttStylePassthrough]
+readsPrec :: Int -&gt; ReadS WebvttStylePassthrough
+$creadsPrec :: Int -&gt; ReadS WebvttStylePassthrough
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680018068"><span id="local-6989586621680018070"><span class="annot"><span class="annottext">WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool
+(WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool)
+-&gt; (WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool)
+-&gt; Eq WebvttStylePassthrough
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool
+$c/= :: WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool
+== :: WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool
+$c== :: WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680018052"><span id="local-6989586621680018054"><span id="local-6989586621680018056"><span id="local-6989586621680018058"><span id="local-6989586621680018060"><span id="local-6989586621680018062"><span id="local-6989586621680018064"><span class="annot"><span class="annottext">Eq WebvttStylePassthrough
+Eq WebvttStylePassthrough
+-&gt; (WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Ordering)
+-&gt; (WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool)
+-&gt; (WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool)
+-&gt; (WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool)
+-&gt; (WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool)
+-&gt; (WebvttStylePassthrough
+    -&gt; WebvttStylePassthrough -&gt; WebvttStylePassthrough)
+-&gt; (WebvttStylePassthrough
+    -&gt; WebvttStylePassthrough -&gt; WebvttStylePassthrough)
+-&gt; Ord WebvttStylePassthrough
+WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool
+WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Ordering
+WebvttStylePassthrough
+-&gt; WebvttStylePassthrough -&gt; WebvttStylePassthrough
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: WebvttStylePassthrough
+-&gt; WebvttStylePassthrough -&gt; WebvttStylePassthrough
+$cmin :: WebvttStylePassthrough
+-&gt; WebvttStylePassthrough -&gt; WebvttStylePassthrough
+max :: WebvttStylePassthrough
+-&gt; WebvttStylePassthrough -&gt; WebvttStylePassthrough
+$cmax :: WebvttStylePassthrough
+-&gt; WebvttStylePassthrough -&gt; WebvttStylePassthrough
+&gt;= :: WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool
+$c&gt;= :: WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool
+&gt; :: WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool
+$c&gt; :: WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool
+&lt;= :: WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool
+$c&lt;= :: WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool
+&lt; :: WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool
+$c&lt; :: WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Bool
+compare :: WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Ordering
+$ccompare :: WebvttStylePassthrough -&gt; WebvttStylePassthrough -&gt; Ordering
+$cp1Ord :: Eq WebvttStylePassthrough
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. WebvttStylePassthrough -&gt; Rep WebvttStylePassthrough x)
+-&gt; (forall x.
+    Rep WebvttStylePassthrough x -&gt; WebvttStylePassthrough)
+-&gt; Generic WebvttStylePassthrough
+forall x. Rep WebvttStylePassthrough x -&gt; WebvttStylePassthrough
+forall x. WebvttStylePassthrough -&gt; Rep WebvttStylePassthrough x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WebvttStylePassthrough x -&gt; WebvttStylePassthrough
+$cfrom :: forall x. WebvttStylePassthrough -&gt; Rep WebvttStylePassthrough x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680018044"><span id="local-6989586621680018046"><span class="annot"><span class="annottext">Int -&gt; WebvttStylePassthrough -&gt; Int
+WebvttStylePassthrough -&gt; Int
+(Int -&gt; WebvttStylePassthrough -&gt; Int)
+-&gt; (WebvttStylePassthrough -&gt; Int)
+-&gt; Hashable WebvttStylePassthrough
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: WebvttStylePassthrough -&gt; Int
+$chash :: WebvttStylePassthrough -&gt; Int
+hashWithSalt :: Int -&gt; WebvttStylePassthrough -&gt; Int
+$chashWithSalt :: Int -&gt; WebvttStylePassthrough -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680018041"><span class="annot"><span class="annottext">WebvttStylePassthrough -&gt; ()
+(WebvttStylePassthrough -&gt; ()) -&gt; NFData WebvttStylePassthrough
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: WebvttStylePassthrough -&gt; ()
+$crnf :: WebvttStylePassthrough -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680018038"><span class="annot"><span class="annottext">Text -&gt; Either String WebvttStylePassthrough
+(Text -&gt; Either String WebvttStylePassthrough)
+-&gt; FromText WebvttStylePassthrough
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String WebvttStylePassthrough
+$cfromText :: Text -&gt; Either String WebvttStylePassthrough
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680018035"><span class="annot"><span class="annottext">WebvttStylePassthrough -&gt; Text
+(WebvttStylePassthrough -&gt; Text) -&gt; ToText WebvttStylePassthrough
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: WebvttStylePassthrough -&gt; Text
+$ctoText :: WebvttStylePassthrough -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680018032"><span class="annot"><span class="annottext">WebvttStylePassthrough -&gt; ByteString
+(WebvttStylePassthrough -&gt; ByteString)
+-&gt; ToByteString WebvttStylePassthrough
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: WebvttStylePassthrough -&gt; ByteString
+$ctoBS :: WebvttStylePassthrough -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680018029"><span class="annot"><span class="annottext">WebvttStylePassthrough -&gt; ByteStringBuilder
+(WebvttStylePassthrough -&gt; ByteStringBuilder)
+-&gt; ToLog WebvttStylePassthrough
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: WebvttStylePassthrough -&gt; ByteStringBuilder
+$cbuild :: WebvttStylePassthrough -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680018026"><span class="annot"><span class="annottext">HeaderName -&gt; WebvttStylePassthrough -&gt; [Header]
+(HeaderName -&gt; WebvttStylePassthrough -&gt; [Header])
+-&gt; ToHeader WebvttStylePassthrough
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; WebvttStylePassthrough -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; WebvttStylePassthrough -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680018023"><span class="annot"><span class="annottext">WebvttStylePassthrough -&gt; QueryString
+(WebvttStylePassthrough -&gt; QueryString)
+-&gt; ToQuery WebvttStylePassthrough
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: WebvttStylePassthrough -&gt; QueryString
+$ctoQuery :: WebvttStylePassthrough -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680018018"><span id="local-6989586621680018020"><span class="annot"><span class="annottext">Value -&gt; Parser [WebvttStylePassthrough]
+Value -&gt; Parser WebvttStylePassthrough
+(Value -&gt; Parser WebvttStylePassthrough)
+-&gt; (Value -&gt; Parser [WebvttStylePassthrough])
+-&gt; FromJSON WebvttStylePassthrough
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [WebvttStylePassthrough]
+$cparseJSONList :: Value -&gt; Parser [WebvttStylePassthrough]
+parseJSON :: Value -&gt; Parser WebvttStylePassthrough
+$cparseJSON :: Value -&gt; Parser WebvttStylePassthrough
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680018013"><span id="local-6989586621680018015"><span class="annot"><span class="annottext">FromJSONKeyFunction [WebvttStylePassthrough]
+FromJSONKeyFunction WebvttStylePassthrough
+FromJSONKeyFunction WebvttStylePassthrough
+-&gt; FromJSONKeyFunction [WebvttStylePassthrough]
+-&gt; FromJSONKey WebvttStylePassthrough
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [WebvttStylePassthrough]
+$cfromJSONKeyList :: FromJSONKeyFunction [WebvttStylePassthrough]
+fromJSONKey :: FromJSONKeyFunction WebvttStylePassthrough
+$cfromJSONKey :: FromJSONKeyFunction WebvttStylePassthrough
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680018004"><span id="local-6989586621680018006"><span id="local-6989586621680018008"><span id="local-6989586621680018010"><span class="annot"><span class="annottext">[WebvttStylePassthrough] -&gt; Encoding
+[WebvttStylePassthrough] -&gt; Value
+WebvttStylePassthrough -&gt; Encoding
+WebvttStylePassthrough -&gt; Value
+(WebvttStylePassthrough -&gt; Value)
+-&gt; (WebvttStylePassthrough -&gt; Encoding)
+-&gt; ([WebvttStylePassthrough] -&gt; Value)
+-&gt; ([WebvttStylePassthrough] -&gt; Encoding)
+-&gt; ToJSON WebvttStylePassthrough
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [WebvttStylePassthrough] -&gt; Encoding
+$ctoEncodingList :: [WebvttStylePassthrough] -&gt; Encoding
+toJSONList :: [WebvttStylePassthrough] -&gt; Value
+$ctoJSONList :: [WebvttStylePassthrough] -&gt; Value
+toEncoding :: WebvttStylePassthrough -&gt; Encoding
+$ctoEncoding :: WebvttStylePassthrough -&gt; Encoding
+toJSON :: WebvttStylePassthrough -&gt; Value
+$ctoJSON :: WebvttStylePassthrough -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680017999"><span id="local-6989586621680018001"><span class="annot"><span class="annottext">ToJSONKeyFunction [WebvttStylePassthrough]
+ToJSONKeyFunction WebvttStylePassthrough
+ToJSONKeyFunction WebvttStylePassthrough
+-&gt; ToJSONKeyFunction [WebvttStylePassthrough]
+-&gt; ToJSONKey WebvttStylePassthrough
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [WebvttStylePassthrough]
+$ctoJSONKeyList :: ToJSONKeyFunction [WebvttStylePassthrough]
+toJSONKey :: ToJSONKeyFunction WebvttStylePassthrough
+$ctoJSONKey :: ToJSONKeyFunction WebvttStylePassthrough
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680017996"><span class="annot"><span class="annottext">[Node] -&gt; Either String WebvttStylePassthrough
+([Node] -&gt; Either String WebvttStylePassthrough)
+-&gt; FromXML WebvttStylePassthrough
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String WebvttStylePassthrough
+$cparseXML :: [Node] -&gt; Either String WebvttStylePassthrough
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680017993"><span class="annot"><span class="annottext">WebvttStylePassthrough -&gt; XML
+(WebvttStylePassthrough -&gt; XML) -&gt; ToXML WebvttStylePassthrough
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: WebvttStylePassthrough -&gt; XML
+$ctoXML :: WebvttStylePassthrough -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#WebvttStylePassthrough_DISABLED"><span class="hs-identifier hs-type">WebvttStylePassthrough_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#WebvttStylePassthrough"><span class="hs-identifier hs-type">WebvttStylePassthrough</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWebvttStylePassthrough_DISABLED"><span id="%24mWebvttStylePassthrough_DISABLED"><span id="WebvttStylePassthrough_DISABLED"><span class="annot"><span class="annottext">$bWebvttStylePassthrough_DISABLED :: WebvttStylePassthrough
+$mWebvttStylePassthrough_DISABLED :: forall r.
+WebvttStylePassthrough -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#%24bWebvttStylePassthrough_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">WebvttStylePassthrough_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#WebvttStylePassthrough%27"><span class="hs-identifier hs-type">WebvttStylePassthrough'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#WebvttStylePassthrough_ENABLED"><span class="hs-identifier hs-type">WebvttStylePassthrough_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#WebvttStylePassthrough"><span class="hs-identifier hs-type">WebvttStylePassthrough</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWebvttStylePassthrough_ENABLED"><span id="%24mWebvttStylePassthrough_ENABLED"><span id="WebvttStylePassthrough_ENABLED"><span class="annot"><span class="annottext">$bWebvttStylePassthrough_ENABLED :: WebvttStylePassthrough
+$mWebvttStylePassthrough_ENABLED :: forall r.
+WebvttStylePassthrough -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#%24bWebvttStylePassthrough_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">WebvttStylePassthrough_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#WebvttStylePassthrough%27"><span class="hs-identifier hs-type">WebvttStylePassthrough'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#WebvttStylePassthrough_DISABLED"><span class="hs-pragma hs-type">WebvttStylePassthrough_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#WebvttStylePassthrough_ENABLED"><span class="hs-pragma hs-type">WebvttStylePassthrough_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WebvttStylePassthrough.html#WebvttStylePassthrough%27"><span class="hs-pragma hs-type">WebvttStylePassthrough'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

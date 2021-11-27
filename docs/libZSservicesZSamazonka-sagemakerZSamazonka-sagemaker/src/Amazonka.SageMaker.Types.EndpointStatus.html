@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.EndpointStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.EndpointStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus"><span class="hs-identifier">EndpointStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_Creating"><span class="hs-identifier">EndpointStatus_Creating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_Deleting"><span class="hs-identifier">EndpointStatus_Deleting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_Failed"><span class="hs-identifier">EndpointStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_InService"><span class="hs-identifier">EndpointStatus_InService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_OutOfService"><span class="hs-identifier">EndpointStatus_OutOfService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_RollingBack"><span class="hs-identifier">EndpointStatus_RollingBack</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_SystemUpdating"><span class="hs-identifier">EndpointStatus_SystemUpdating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_Updating"><span class="hs-identifier">EndpointStatus_Updating</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span id="local-6989586621680304078"><span id="local-6989586621680304079"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EndpointStatus"><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus"><span class="hs-identifier hs-var">EndpointStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointStatus%27"><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus%27"><span class="hs-identifier hs-var">EndpointStatus'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEndpointStatus"><span class="annot"><span class="annottext">EndpointStatus -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.EndpointStatus.html#fromEndpointStatus"><span class="hs-identifier hs-var hs-var">fromEndpointStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680304070"><span id="local-6989586621680304072"><span id="local-6989586621680304074"><span class="annot"><span class="annottext">Int -&gt; EndpointStatus -&gt; ShowS
+[EndpointStatus] -&gt; ShowS
+EndpointStatus -&gt; String
+(Int -&gt; EndpointStatus -&gt; ShowS)
+-&gt; (EndpointStatus -&gt; String)
+-&gt; ([EndpointStatus] -&gt; ShowS)
+-&gt; Show EndpointStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EndpointStatus] -&gt; ShowS
+$cshowList :: [EndpointStatus] -&gt; ShowS
+show :: EndpointStatus -&gt; String
+$cshow :: EndpointStatus -&gt; String
+showsPrec :: Int -&gt; EndpointStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; EndpointStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680304061"><span id="local-6989586621680304063"><span id="local-6989586621680304065"><span id="local-6989586621680304067"><span class="annot"><span class="annottext">ReadPrec [EndpointStatus]
+ReadPrec EndpointStatus
+Int -&gt; ReadS EndpointStatus
+ReadS [EndpointStatus]
+(Int -&gt; ReadS EndpointStatus)
+-&gt; ReadS [EndpointStatus]
+-&gt; ReadPrec EndpointStatus
+-&gt; ReadPrec [EndpointStatus]
+-&gt; Read EndpointStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EndpointStatus]
+$creadListPrec :: ReadPrec [EndpointStatus]
+readPrec :: ReadPrec EndpointStatus
+$creadPrec :: ReadPrec EndpointStatus
+readList :: ReadS [EndpointStatus]
+$creadList :: ReadS [EndpointStatus]
+readsPrec :: Int -&gt; ReadS EndpointStatus
+$creadsPrec :: Int -&gt; ReadS EndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680304056"><span id="local-6989586621680304058"><span class="annot"><span class="annottext">EndpointStatus -&gt; EndpointStatus -&gt; Bool
+(EndpointStatus -&gt; EndpointStatus -&gt; Bool)
+-&gt; (EndpointStatus -&gt; EndpointStatus -&gt; Bool) -&gt; Eq EndpointStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EndpointStatus -&gt; EndpointStatus -&gt; Bool
+$c/= :: EndpointStatus -&gt; EndpointStatus -&gt; Bool
+== :: EndpointStatus -&gt; EndpointStatus -&gt; Bool
+$c== :: EndpointStatus -&gt; EndpointStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680304040"><span id="local-6989586621680304042"><span id="local-6989586621680304044"><span id="local-6989586621680304046"><span id="local-6989586621680304048"><span id="local-6989586621680304050"><span id="local-6989586621680304052"><span class="annot"><span class="annottext">Eq EndpointStatus
+Eq EndpointStatus
+-&gt; (EndpointStatus -&gt; EndpointStatus -&gt; Ordering)
+-&gt; (EndpointStatus -&gt; EndpointStatus -&gt; Bool)
+-&gt; (EndpointStatus -&gt; EndpointStatus -&gt; Bool)
+-&gt; (EndpointStatus -&gt; EndpointStatus -&gt; Bool)
+-&gt; (EndpointStatus -&gt; EndpointStatus -&gt; Bool)
+-&gt; (EndpointStatus -&gt; EndpointStatus -&gt; EndpointStatus)
+-&gt; (EndpointStatus -&gt; EndpointStatus -&gt; EndpointStatus)
+-&gt; Ord EndpointStatus
+EndpointStatus -&gt; EndpointStatus -&gt; Bool
+EndpointStatus -&gt; EndpointStatus -&gt; Ordering
+EndpointStatus -&gt; EndpointStatus -&gt; EndpointStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EndpointStatus -&gt; EndpointStatus -&gt; EndpointStatus
+$cmin :: EndpointStatus -&gt; EndpointStatus -&gt; EndpointStatus
+max :: EndpointStatus -&gt; EndpointStatus -&gt; EndpointStatus
+$cmax :: EndpointStatus -&gt; EndpointStatus -&gt; EndpointStatus
+&gt;= :: EndpointStatus -&gt; EndpointStatus -&gt; Bool
+$c&gt;= :: EndpointStatus -&gt; EndpointStatus -&gt; Bool
+&gt; :: EndpointStatus -&gt; EndpointStatus -&gt; Bool
+$c&gt; :: EndpointStatus -&gt; EndpointStatus -&gt; Bool
+&lt;= :: EndpointStatus -&gt; EndpointStatus -&gt; Bool
+$c&lt;= :: EndpointStatus -&gt; EndpointStatus -&gt; Bool
+&lt; :: EndpointStatus -&gt; EndpointStatus -&gt; Bool
+$c&lt; :: EndpointStatus -&gt; EndpointStatus -&gt; Bool
+compare :: EndpointStatus -&gt; EndpointStatus -&gt; Ordering
+$ccompare :: EndpointStatus -&gt; EndpointStatus -&gt; Ordering
+$cp1Ord :: Eq EndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EndpointStatus -&gt; Rep EndpointStatus x)
+-&gt; (forall x. Rep EndpointStatus x -&gt; EndpointStatus)
+-&gt; Generic EndpointStatus
+forall x. Rep EndpointStatus x -&gt; EndpointStatus
+forall x. EndpointStatus -&gt; Rep EndpointStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EndpointStatus x -&gt; EndpointStatus
+$cfrom :: forall x. EndpointStatus -&gt; Rep EndpointStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680304032"><span id="local-6989586621680304034"><span class="annot"><span class="annottext">Int -&gt; EndpointStatus -&gt; Int
+EndpointStatus -&gt; Int
+(Int -&gt; EndpointStatus -&gt; Int)
+-&gt; (EndpointStatus -&gt; Int) -&gt; Hashable EndpointStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EndpointStatus -&gt; Int
+$chash :: EndpointStatus -&gt; Int
+hashWithSalt :: Int -&gt; EndpointStatus -&gt; Int
+$chashWithSalt :: Int -&gt; EndpointStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680304029"><span class="annot"><span class="annottext">EndpointStatus -&gt; ()
+(EndpointStatus -&gt; ()) -&gt; NFData EndpointStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EndpointStatus -&gt; ()
+$crnf :: EndpointStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680304026"><span class="annot"><span class="annottext">Text -&gt; Either String EndpointStatus
+(Text -&gt; Either String EndpointStatus) -&gt; FromText EndpointStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EndpointStatus
+$cfromText :: Text -&gt; Either String EndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680304023"><span class="annot"><span class="annottext">EndpointStatus -&gt; Text
+(EndpointStatus -&gt; Text) -&gt; ToText EndpointStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EndpointStatus -&gt; Text
+$ctoText :: EndpointStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680304020"><span class="annot"><span class="annottext">EndpointStatus -&gt; ByteString
+(EndpointStatus -&gt; ByteString) -&gt; ToByteString EndpointStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EndpointStatus -&gt; ByteString
+$ctoBS :: EndpointStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680304017"><span class="annot"><span class="annottext">EndpointStatus -&gt; ByteStringBuilder
+(EndpointStatus -&gt; ByteStringBuilder) -&gt; ToLog EndpointStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EndpointStatus -&gt; ByteStringBuilder
+$cbuild :: EndpointStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680304014"><span class="annot"><span class="annottext">HeaderName -&gt; EndpointStatus -&gt; [Header]
+(HeaderName -&gt; EndpointStatus -&gt; [Header])
+-&gt; ToHeader EndpointStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EndpointStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EndpointStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680304011"><span class="annot"><span class="annottext">EndpointStatus -&gt; QueryString
+(EndpointStatus -&gt; QueryString) -&gt; ToQuery EndpointStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EndpointStatus -&gt; QueryString
+$ctoQuery :: EndpointStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680304006"><span id="local-6989586621680304008"><span class="annot"><span class="annottext">Value -&gt; Parser [EndpointStatus]
+Value -&gt; Parser EndpointStatus
+(Value -&gt; Parser EndpointStatus)
+-&gt; (Value -&gt; Parser [EndpointStatus]) -&gt; FromJSON EndpointStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EndpointStatus]
+$cparseJSONList :: Value -&gt; Parser [EndpointStatus]
+parseJSON :: Value -&gt; Parser EndpointStatus
+$cparseJSON :: Value -&gt; Parser EndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680304001"><span id="local-6989586621680304003"><span class="annot"><span class="annottext">FromJSONKeyFunction [EndpointStatus]
+FromJSONKeyFunction EndpointStatus
+FromJSONKeyFunction EndpointStatus
+-&gt; FromJSONKeyFunction [EndpointStatus]
+-&gt; FromJSONKey EndpointStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EndpointStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [EndpointStatus]
+fromJSONKey :: FromJSONKeyFunction EndpointStatus
+$cfromJSONKey :: FromJSONKeyFunction EndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680303992"><span id="local-6989586621680303994"><span id="local-6989586621680303996"><span id="local-6989586621680303998"><span class="annot"><span class="annottext">[EndpointStatus] -&gt; Encoding
+[EndpointStatus] -&gt; Value
+EndpointStatus -&gt; Encoding
+EndpointStatus -&gt; Value
+(EndpointStatus -&gt; Value)
+-&gt; (EndpointStatus -&gt; Encoding)
+-&gt; ([EndpointStatus] -&gt; Value)
+-&gt; ([EndpointStatus] -&gt; Encoding)
+-&gt; ToJSON EndpointStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EndpointStatus] -&gt; Encoding
+$ctoEncodingList :: [EndpointStatus] -&gt; Encoding
+toJSONList :: [EndpointStatus] -&gt; Value
+$ctoJSONList :: [EndpointStatus] -&gt; Value
+toEncoding :: EndpointStatus -&gt; Encoding
+$ctoEncoding :: EndpointStatus -&gt; Encoding
+toJSON :: EndpointStatus -&gt; Value
+$ctoJSON :: EndpointStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680303987"><span id="local-6989586621680303989"><span class="annot"><span class="annottext">ToJSONKeyFunction [EndpointStatus]
+ToJSONKeyFunction EndpointStatus
+ToJSONKeyFunction EndpointStatus
+-&gt; ToJSONKeyFunction [EndpointStatus] -&gt; ToJSONKey EndpointStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EndpointStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [EndpointStatus]
+toJSONKey :: ToJSONKeyFunction EndpointStatus
+$ctoJSONKey :: ToJSONKeyFunction EndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680303984"><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointStatus
+([Node] -&gt; Either String EndpointStatus) -&gt; FromXML EndpointStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EndpointStatus
+$cparseXML :: [Node] -&gt; Either String EndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680303981"><span class="annot"><span class="annottext">EndpointStatus -&gt; XML
+(EndpointStatus -&gt; XML) -&gt; ToXML EndpointStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EndpointStatus -&gt; XML
+$ctoXML :: EndpointStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_Creating"><span class="hs-identifier hs-type">EndpointStatus_Creating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus"><span class="hs-identifier hs-type">EndpointStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEndpointStatus_Creating"><span id="%24mEndpointStatus_Creating"><span id="EndpointStatus_Creating"><span class="annot"><span class="annottext">$bEndpointStatus_Creating :: EndpointStatus
+$mEndpointStatus_Creating :: forall r. EndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.EndpointStatus.html#%24bEndpointStatus_Creating"><span class="hs-identifier hs-var hs-var hs-var">EndpointStatus_Creating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus%27"><span class="hs-identifier hs-type">EndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Creating&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_Deleting"><span class="hs-identifier hs-type">EndpointStatus_Deleting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus"><span class="hs-identifier hs-type">EndpointStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEndpointStatus_Deleting"><span id="%24mEndpointStatus_Deleting"><span id="EndpointStatus_Deleting"><span class="annot"><span class="annottext">$bEndpointStatus_Deleting :: EndpointStatus
+$mEndpointStatus_Deleting :: forall r. EndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.EndpointStatus.html#%24bEndpointStatus_Deleting"><span class="hs-identifier hs-var hs-var hs-var">EndpointStatus_Deleting</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus%27"><span class="hs-identifier hs-type">EndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Deleting&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_Failed"><span class="hs-identifier hs-type">EndpointStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus"><span class="hs-identifier hs-type">EndpointStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEndpointStatus_Failed"><span id="%24mEndpointStatus_Failed"><span id="EndpointStatus_Failed"><span class="annot"><span class="annottext">$bEndpointStatus_Failed :: EndpointStatus
+$mEndpointStatus_Failed :: forall r. EndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.EndpointStatus.html#%24bEndpointStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">EndpointStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus%27"><span class="hs-identifier hs-type">EndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_InService"><span class="hs-identifier hs-type">EndpointStatus_InService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus"><span class="hs-identifier hs-type">EndpointStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEndpointStatus_InService"><span id="%24mEndpointStatus_InService"><span id="EndpointStatus_InService"><span class="annot"><span class="annottext">$bEndpointStatus_InService :: EndpointStatus
+$mEndpointStatus_InService :: forall r. EndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.EndpointStatus.html#%24bEndpointStatus_InService"><span class="hs-identifier hs-var hs-var hs-var">EndpointStatus_InService</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus%27"><span class="hs-identifier hs-type">EndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InService&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_OutOfService"><span class="hs-identifier hs-type">EndpointStatus_OutOfService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus"><span class="hs-identifier hs-type">EndpointStatus</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEndpointStatus_OutOfService"><span id="%24mEndpointStatus_OutOfService"><span id="EndpointStatus_OutOfService"><span class="annot"><span class="annottext">$bEndpointStatus_OutOfService :: EndpointStatus
+$mEndpointStatus_OutOfService :: forall r. EndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.EndpointStatus.html#%24bEndpointStatus_OutOfService"><span class="hs-identifier hs-var hs-var hs-var">EndpointStatus_OutOfService</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus%27"><span class="hs-identifier hs-type">EndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OutOfService&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_RollingBack"><span class="hs-identifier hs-type">EndpointStatus_RollingBack</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus"><span class="hs-identifier hs-type">EndpointStatus</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEndpointStatus_RollingBack"><span id="%24mEndpointStatus_RollingBack"><span id="EndpointStatus_RollingBack"><span class="annot"><span class="annottext">$bEndpointStatus_RollingBack :: EndpointStatus
+$mEndpointStatus_RollingBack :: forall r. EndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.EndpointStatus.html#%24bEndpointStatus_RollingBack"><span class="hs-identifier hs-var hs-var hs-var">EndpointStatus_RollingBack</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus%27"><span class="hs-identifier hs-type">EndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RollingBack&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_SystemUpdating"><span class="hs-identifier hs-type">EndpointStatus_SystemUpdating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus"><span class="hs-identifier hs-type">EndpointStatus</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEndpointStatus_SystemUpdating"><span id="%24mEndpointStatus_SystemUpdating"><span id="EndpointStatus_SystemUpdating"><span class="annot"><span class="annottext">$bEndpointStatus_SystemUpdating :: EndpointStatus
+$mEndpointStatus_SystemUpdating :: forall r. EndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.EndpointStatus.html#%24bEndpointStatus_SystemUpdating"><span class="hs-identifier hs-var hs-var hs-var">EndpointStatus_SystemUpdating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus%27"><span class="hs-identifier hs-type">EndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SystemUpdating&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_Updating"><span class="hs-identifier hs-type">EndpointStatus_Updating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus"><span class="hs-identifier hs-type">EndpointStatus</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEndpointStatus_Updating"><span id="%24mEndpointStatus_Updating"><span id="EndpointStatus_Updating"><span class="annot"><span class="annottext">$bEndpointStatus_Updating :: EndpointStatus
+$mEndpointStatus_Updating :: forall r. EndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.EndpointStatus.html#%24bEndpointStatus_Updating"><span class="hs-identifier hs-var hs-var hs-var">EndpointStatus_Updating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus%27"><span class="hs-identifier hs-type">EndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Updating&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_Creating"><span class="hs-pragma hs-type">EndpointStatus_Creating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_Deleting"><span class="hs-pragma hs-type">EndpointStatus_Deleting</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_Failed"><span class="hs-pragma hs-type">EndpointStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_InService"><span class="hs-pragma hs-type">EndpointStatus_InService</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_OutOfService"><span class="hs-pragma hs-type">EndpointStatus_OutOfService</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_RollingBack"><span class="hs-pragma hs-type">EndpointStatus_RollingBack</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_SystemUpdating"><span class="hs-pragma hs-type">EndpointStatus_SystemUpdating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus_Updating"><span class="hs-pragma hs-type">EndpointStatus_Updating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.EndpointStatus.html#EndpointStatus%27"><span class="hs-pragma hs-type">EndpointStatus'</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-101"></span></pre></body></html>

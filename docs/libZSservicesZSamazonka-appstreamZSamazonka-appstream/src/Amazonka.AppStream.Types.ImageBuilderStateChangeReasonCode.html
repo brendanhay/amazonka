@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#ImageBuilderStateChangeReasonCode"><span class="hs-identifier">ImageBuilderStateChangeReasonCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#ImageBuilderStateChangeReasonCode_IMAGE_UNAVAILABLE"><span class="hs-identifier">ImageBuilderStateChangeReasonCode_IMAGE_UNAVAILABLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#ImageBuilderStateChangeReasonCode_INTERNAL_ERROR"><span class="hs-identifier">ImageBuilderStateChangeReasonCode_INTERNAL_ERROR</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679286648"><span id="local-6989586621679286649"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageBuilderStateChangeReasonCode"><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#ImageBuilderStateChangeReasonCode"><span class="hs-identifier hs-var">ImageBuilderStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageBuilderStateChangeReasonCode%27"><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#ImageBuilderStateChangeReasonCode%27"><span class="hs-identifier hs-var">ImageBuilderStateChangeReasonCode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromImageBuilderStateChangeReasonCode"><span class="annot"><span class="annottext">ImageBuilderStateChangeReasonCode -&gt; Text
+</span><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#fromImageBuilderStateChangeReasonCode"><span class="hs-identifier hs-var hs-var">fromImageBuilderStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679286640"><span id="local-6989586621679286642"><span id="local-6989586621679286644"><span class="annot"><span class="annottext">Int -&gt; ImageBuilderStateChangeReasonCode -&gt; ShowS
+[ImageBuilderStateChangeReasonCode] -&gt; ShowS
+ImageBuilderStateChangeReasonCode -&gt; String
+(Int -&gt; ImageBuilderStateChangeReasonCode -&gt; ShowS)
+-&gt; (ImageBuilderStateChangeReasonCode -&gt; String)
+-&gt; ([ImageBuilderStateChangeReasonCode] -&gt; ShowS)
+-&gt; Show ImageBuilderStateChangeReasonCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImageBuilderStateChangeReasonCode] -&gt; ShowS
+$cshowList :: [ImageBuilderStateChangeReasonCode] -&gt; ShowS
+show :: ImageBuilderStateChangeReasonCode -&gt; String
+$cshow :: ImageBuilderStateChangeReasonCode -&gt; String
+showsPrec :: Int -&gt; ImageBuilderStateChangeReasonCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImageBuilderStateChangeReasonCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679286631"><span id="local-6989586621679286633"><span id="local-6989586621679286635"><span id="local-6989586621679286637"><span class="annot"><span class="annottext">ReadPrec [ImageBuilderStateChangeReasonCode]
+ReadPrec ImageBuilderStateChangeReasonCode
+Int -&gt; ReadS ImageBuilderStateChangeReasonCode
+ReadS [ImageBuilderStateChangeReasonCode]
+(Int -&gt; ReadS ImageBuilderStateChangeReasonCode)
+-&gt; ReadS [ImageBuilderStateChangeReasonCode]
+-&gt; ReadPrec ImageBuilderStateChangeReasonCode
+-&gt; ReadPrec [ImageBuilderStateChangeReasonCode]
+-&gt; Read ImageBuilderStateChangeReasonCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImageBuilderStateChangeReasonCode]
+$creadListPrec :: ReadPrec [ImageBuilderStateChangeReasonCode]
+readPrec :: ReadPrec ImageBuilderStateChangeReasonCode
+$creadPrec :: ReadPrec ImageBuilderStateChangeReasonCode
+readList :: ReadS [ImageBuilderStateChangeReasonCode]
+$creadList :: ReadS [ImageBuilderStateChangeReasonCode]
+readsPrec :: Int -&gt; ReadS ImageBuilderStateChangeReasonCode
+$creadsPrec :: Int -&gt; ReadS ImageBuilderStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679286626"><span id="local-6989586621679286628"><span class="annot"><span class="annottext">ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Bool
+(ImageBuilderStateChangeReasonCode
+ -&gt; ImageBuilderStateChangeReasonCode -&gt; Bool)
+-&gt; (ImageBuilderStateChangeReasonCode
+    -&gt; ImageBuilderStateChangeReasonCode -&gt; Bool)
+-&gt; Eq ImageBuilderStateChangeReasonCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Bool
+$c/= :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Bool
+== :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Bool
+$c== :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679286610"><span id="local-6989586621679286612"><span id="local-6989586621679286614"><span id="local-6989586621679286616"><span id="local-6989586621679286618"><span id="local-6989586621679286620"><span id="local-6989586621679286622"><span class="annot"><span class="annottext">Eq ImageBuilderStateChangeReasonCode
+Eq ImageBuilderStateChangeReasonCode
+-&gt; (ImageBuilderStateChangeReasonCode
+    -&gt; ImageBuilderStateChangeReasonCode -&gt; Ordering)
+-&gt; (ImageBuilderStateChangeReasonCode
+    -&gt; ImageBuilderStateChangeReasonCode -&gt; Bool)
+-&gt; (ImageBuilderStateChangeReasonCode
+    -&gt; ImageBuilderStateChangeReasonCode -&gt; Bool)
+-&gt; (ImageBuilderStateChangeReasonCode
+    -&gt; ImageBuilderStateChangeReasonCode -&gt; Bool)
+-&gt; (ImageBuilderStateChangeReasonCode
+    -&gt; ImageBuilderStateChangeReasonCode -&gt; Bool)
+-&gt; (ImageBuilderStateChangeReasonCode
+    -&gt; ImageBuilderStateChangeReasonCode
+    -&gt; ImageBuilderStateChangeReasonCode)
+-&gt; (ImageBuilderStateChangeReasonCode
+    -&gt; ImageBuilderStateChangeReasonCode
+    -&gt; ImageBuilderStateChangeReasonCode)
+-&gt; Ord ImageBuilderStateChangeReasonCode
+ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Bool
+ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Ordering
+ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode
+$cmin :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode
+max :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode
+$cmax :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode
+&gt;= :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Bool
+$c&gt;= :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Bool
+&gt; :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Bool
+$c&gt; :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Bool
+&lt;= :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Bool
+$c&lt;= :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Bool
+&lt; :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Bool
+$c&lt; :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Bool
+compare :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Ordering
+$ccompare :: ImageBuilderStateChangeReasonCode
+-&gt; ImageBuilderStateChangeReasonCode -&gt; Ordering
+$cp1Ord :: Eq ImageBuilderStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ImageBuilderStateChangeReasonCode
+ -&gt; Rep ImageBuilderStateChangeReasonCode x)
+-&gt; (forall x.
+    Rep ImageBuilderStateChangeReasonCode x
+    -&gt; ImageBuilderStateChangeReasonCode)
+-&gt; Generic ImageBuilderStateChangeReasonCode
+forall x.
+Rep ImageBuilderStateChangeReasonCode x
+-&gt; ImageBuilderStateChangeReasonCode
+forall x.
+ImageBuilderStateChangeReasonCode
+-&gt; Rep ImageBuilderStateChangeReasonCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ImageBuilderStateChangeReasonCode x
+-&gt; ImageBuilderStateChangeReasonCode
+$cfrom :: forall x.
+ImageBuilderStateChangeReasonCode
+-&gt; Rep ImageBuilderStateChangeReasonCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679286602"><span id="local-6989586621679286604"><span class="annot"><span class="annottext">Int -&gt; ImageBuilderStateChangeReasonCode -&gt; Int
+ImageBuilderStateChangeReasonCode -&gt; Int
+(Int -&gt; ImageBuilderStateChangeReasonCode -&gt; Int)
+-&gt; (ImageBuilderStateChangeReasonCode -&gt; Int)
+-&gt; Hashable ImageBuilderStateChangeReasonCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ImageBuilderStateChangeReasonCode -&gt; Int
+$chash :: ImageBuilderStateChangeReasonCode -&gt; Int
+hashWithSalt :: Int -&gt; ImageBuilderStateChangeReasonCode -&gt; Int
+$chashWithSalt :: Int -&gt; ImageBuilderStateChangeReasonCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679286599"><span class="annot"><span class="annottext">ImageBuilderStateChangeReasonCode -&gt; ()
+(ImageBuilderStateChangeReasonCode -&gt; ())
+-&gt; NFData ImageBuilderStateChangeReasonCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ImageBuilderStateChangeReasonCode -&gt; ()
+$crnf :: ImageBuilderStateChangeReasonCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679286596"><span class="annot"><span class="annottext">Text -&gt; Either String ImageBuilderStateChangeReasonCode
+(Text -&gt; Either String ImageBuilderStateChangeReasonCode)
+-&gt; FromText ImageBuilderStateChangeReasonCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ImageBuilderStateChangeReasonCode
+$cfromText :: Text -&gt; Either String ImageBuilderStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679286593"><span class="annot"><span class="annottext">ImageBuilderStateChangeReasonCode -&gt; Text
+(ImageBuilderStateChangeReasonCode -&gt; Text)
+-&gt; ToText ImageBuilderStateChangeReasonCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ImageBuilderStateChangeReasonCode -&gt; Text
+$ctoText :: ImageBuilderStateChangeReasonCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679286590"><span class="annot"><span class="annottext">ImageBuilderStateChangeReasonCode -&gt; ByteString
+(ImageBuilderStateChangeReasonCode -&gt; ByteString)
+-&gt; ToByteString ImageBuilderStateChangeReasonCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ImageBuilderStateChangeReasonCode -&gt; ByteString
+$ctoBS :: ImageBuilderStateChangeReasonCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679286587"><span class="annot"><span class="annottext">ImageBuilderStateChangeReasonCode -&gt; ByteStringBuilder
+(ImageBuilderStateChangeReasonCode -&gt; ByteStringBuilder)
+-&gt; ToLog ImageBuilderStateChangeReasonCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ImageBuilderStateChangeReasonCode -&gt; ByteStringBuilder
+$cbuild :: ImageBuilderStateChangeReasonCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679286584"><span class="annot"><span class="annottext">HeaderName -&gt; ImageBuilderStateChangeReasonCode -&gt; [Header]
+(HeaderName -&gt; ImageBuilderStateChangeReasonCode -&gt; [Header])
+-&gt; ToHeader ImageBuilderStateChangeReasonCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ImageBuilderStateChangeReasonCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ImageBuilderStateChangeReasonCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679286581"><span class="annot"><span class="annottext">ImageBuilderStateChangeReasonCode -&gt; QueryString
+(ImageBuilderStateChangeReasonCode -&gt; QueryString)
+-&gt; ToQuery ImageBuilderStateChangeReasonCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ImageBuilderStateChangeReasonCode -&gt; QueryString
+$ctoQuery :: ImageBuilderStateChangeReasonCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679286576"><span id="local-6989586621679286578"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageBuilderStateChangeReasonCode]
+Value -&gt; Parser ImageBuilderStateChangeReasonCode
+(Value -&gt; Parser ImageBuilderStateChangeReasonCode)
+-&gt; (Value -&gt; Parser [ImageBuilderStateChangeReasonCode])
+-&gt; FromJSON ImageBuilderStateChangeReasonCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ImageBuilderStateChangeReasonCode]
+$cparseJSONList :: Value -&gt; Parser [ImageBuilderStateChangeReasonCode]
+parseJSON :: Value -&gt; Parser ImageBuilderStateChangeReasonCode
+$cparseJSON :: Value -&gt; Parser ImageBuilderStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679286571"><span id="local-6989586621679286573"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageBuilderStateChangeReasonCode]
+FromJSONKeyFunction ImageBuilderStateChangeReasonCode
+FromJSONKeyFunction ImageBuilderStateChangeReasonCode
+-&gt; FromJSONKeyFunction [ImageBuilderStateChangeReasonCode]
+-&gt; FromJSONKey ImageBuilderStateChangeReasonCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ImageBuilderStateChangeReasonCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [ImageBuilderStateChangeReasonCode]
+fromJSONKey :: FromJSONKeyFunction ImageBuilderStateChangeReasonCode
+$cfromJSONKey :: FromJSONKeyFunction ImageBuilderStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679286562"><span id="local-6989586621679286564"><span id="local-6989586621679286566"><span id="local-6989586621679286568"><span class="annot"><span class="annottext">[ImageBuilderStateChangeReasonCode] -&gt; Encoding
+[ImageBuilderStateChangeReasonCode] -&gt; Value
+ImageBuilderStateChangeReasonCode -&gt; Encoding
+ImageBuilderStateChangeReasonCode -&gt; Value
+(ImageBuilderStateChangeReasonCode -&gt; Value)
+-&gt; (ImageBuilderStateChangeReasonCode -&gt; Encoding)
+-&gt; ([ImageBuilderStateChangeReasonCode] -&gt; Value)
+-&gt; ([ImageBuilderStateChangeReasonCode] -&gt; Encoding)
+-&gt; ToJSON ImageBuilderStateChangeReasonCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ImageBuilderStateChangeReasonCode] -&gt; Encoding
+$ctoEncodingList :: [ImageBuilderStateChangeReasonCode] -&gt; Encoding
+toJSONList :: [ImageBuilderStateChangeReasonCode] -&gt; Value
+$ctoJSONList :: [ImageBuilderStateChangeReasonCode] -&gt; Value
+toEncoding :: ImageBuilderStateChangeReasonCode -&gt; Encoding
+$ctoEncoding :: ImageBuilderStateChangeReasonCode -&gt; Encoding
+toJSON :: ImageBuilderStateChangeReasonCode -&gt; Value
+$ctoJSON :: ImageBuilderStateChangeReasonCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679286557"><span id="local-6989586621679286559"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageBuilderStateChangeReasonCode]
+ToJSONKeyFunction ImageBuilderStateChangeReasonCode
+ToJSONKeyFunction ImageBuilderStateChangeReasonCode
+-&gt; ToJSONKeyFunction [ImageBuilderStateChangeReasonCode]
+-&gt; ToJSONKey ImageBuilderStateChangeReasonCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ImageBuilderStateChangeReasonCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [ImageBuilderStateChangeReasonCode]
+toJSONKey :: ToJSONKeyFunction ImageBuilderStateChangeReasonCode
+$ctoJSONKey :: ToJSONKeyFunction ImageBuilderStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679286554"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageBuilderStateChangeReasonCode
+([Node] -&gt; Either String ImageBuilderStateChangeReasonCode)
+-&gt; FromXML ImageBuilderStateChangeReasonCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ImageBuilderStateChangeReasonCode
+$cparseXML :: [Node] -&gt; Either String ImageBuilderStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679286551"><span class="annot"><span class="annottext">ImageBuilderStateChangeReasonCode -&gt; XML
+(ImageBuilderStateChangeReasonCode -&gt; XML)
+-&gt; ToXML ImageBuilderStateChangeReasonCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ImageBuilderStateChangeReasonCode -&gt; XML
+$ctoXML :: ImageBuilderStateChangeReasonCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#ImageBuilderStateChangeReasonCode_IMAGE_UNAVAILABLE"><span class="hs-identifier hs-type">ImageBuilderStateChangeReasonCode_IMAGE_UNAVAILABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#ImageBuilderStateChangeReasonCode"><span class="hs-identifier hs-type">ImageBuilderStateChangeReasonCode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageBuilderStateChangeReasonCode_IMAGE_UNAVAILABLE"><span id="%24mImageBuilderStateChangeReasonCode_IMAGE_UNAVAILABLE"><span id="ImageBuilderStateChangeReasonCode_IMAGE_UNAVAILABLE"><span class="annot"><span class="annottext">$bImageBuilderStateChangeReasonCode_IMAGE_UNAVAILABLE :: ImageBuilderStateChangeReasonCode
+$mImageBuilderStateChangeReasonCode_IMAGE_UNAVAILABLE :: forall r.
+ImageBuilderStateChangeReasonCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#%24bImageBuilderStateChangeReasonCode_IMAGE_UNAVAILABLE"><span class="hs-identifier hs-var hs-var hs-var">ImageBuilderStateChangeReasonCode_IMAGE_UNAVAILABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#ImageBuilderStateChangeReasonCode%27"><span class="hs-identifier hs-type">ImageBuilderStateChangeReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IMAGE_UNAVAILABLE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#ImageBuilderStateChangeReasonCode_INTERNAL_ERROR"><span class="hs-identifier hs-type">ImageBuilderStateChangeReasonCode_INTERNAL_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#ImageBuilderStateChangeReasonCode"><span class="hs-identifier hs-type">ImageBuilderStateChangeReasonCode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageBuilderStateChangeReasonCode_INTERNAL_ERROR"><span id="%24mImageBuilderStateChangeReasonCode_INTERNAL_ERROR"><span id="ImageBuilderStateChangeReasonCode_INTERNAL_ERROR"><span class="annot"><span class="annottext">$bImageBuilderStateChangeReasonCode_INTERNAL_ERROR :: ImageBuilderStateChangeReasonCode
+$mImageBuilderStateChangeReasonCode_INTERNAL_ERROR :: forall r.
+ImageBuilderStateChangeReasonCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#%24bImageBuilderStateChangeReasonCode_INTERNAL_ERROR"><span class="hs-identifier hs-var hs-var hs-var">ImageBuilderStateChangeReasonCode_INTERNAL_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#ImageBuilderStateChangeReasonCode%27"><span class="hs-identifier hs-type">ImageBuilderStateChangeReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERNAL_ERROR&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#ImageBuilderStateChangeReasonCode_IMAGE_UNAVAILABLE"><span class="hs-pragma hs-type">ImageBuilderStateChangeReasonCode_IMAGE_UNAVAILABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#ImageBuilderStateChangeReasonCode_INTERNAL_ERROR"><span class="hs-pragma hs-type">ImageBuilderStateChangeReasonCode_INTERNAL_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode.html#ImageBuilderStateChangeReasonCode%27"><span class="hs-pragma hs-type">ImageBuilderStateChangeReasonCode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

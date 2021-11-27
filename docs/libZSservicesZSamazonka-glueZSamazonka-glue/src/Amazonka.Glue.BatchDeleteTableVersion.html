@@ -1,0 +1,635 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Glue.BatchDeleteTableVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a specified batch of versions of a table.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.BatchDeleteTableVersion</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier">BatchDeleteTableVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#newBatchDeleteTableVersion"><span class="hs-identifier">newBatchDeleteTableVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersion_catalogId"><span class="hs-identifier">batchDeleteTableVersion_catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersion_databaseName"><span class="hs-identifier">batchDeleteTableVersion_databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersion_tableName"><span class="hs-identifier">batchDeleteTableVersion_tableName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersion_versionIds"><span class="hs-identifier">batchDeleteTableVersion_versionIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse"><span class="hs-identifier">BatchDeleteTableVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#newBatchDeleteTableVersionResponse"><span class="hs-identifier">newBatchDeleteTableVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersionResponse_errors"><span class="hs-identifier">batchDeleteTableVersionResponse_errors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersionResponse_httpStatus"><span class="hs-identifier">batchDeleteTableVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.html"><span class="hs-identifier">Amazonka.Glue.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newBatchDeleteTableVersion' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679744878"><span id="local-6989586621679744879"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteTableVersion"><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-var">BatchDeleteTableVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteTableVersion%27"><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion%27"><span class="hs-identifier hs-var">BatchDeleteTableVersion'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Data Catalog where the tables reside. If none is provided,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- the Amazon Web Services account ID is used by default.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AcatalogId%3ABatchDeleteTableVersion%27"><span class="annot"><span class="annottext">BatchDeleteTableVersion -&gt; Maybe Text
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3AcatalogId%3ABatchDeleteTableVersion%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The database in the catalog in which the table resides. For Hive</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- compatibility, this name is entirely lowercase.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdatabaseName%3ABatchDeleteTableVersion%27"><span class="annot"><span class="annottext">BatchDeleteTableVersion -&gt; Text
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3AdatabaseName%3ABatchDeleteTableVersion%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the table. For Hive compatibility, this name is entirely</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- lowercase.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AtableName%3ABatchDeleteTableVersion%27"><span class="annot"><span class="annottext">BatchDeleteTableVersion -&gt; Text
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3AtableName%3ABatchDeleteTableVersion%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A list of the IDs of versions to be deleted. A @VersionId@ is a string</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- representation of an integer. Each version is incremented by 1.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AversionIds%3ABatchDeleteTableVersion%27"><span class="annot"><span class="annottext">BatchDeleteTableVersion -&gt; [Text]
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3AversionIds%3ABatchDeleteTableVersion%27"><span class="hs-identifier hs-var hs-var">versionIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679744869"><span id="local-6989586621679744871"><span class="annot"><span class="annottext">BatchDeleteTableVersion -&gt; BatchDeleteTableVersion -&gt; Bool
+(BatchDeleteTableVersion -&gt; BatchDeleteTableVersion -&gt; Bool)
+-&gt; (BatchDeleteTableVersion -&gt; BatchDeleteTableVersion -&gt; Bool)
+-&gt; Eq BatchDeleteTableVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchDeleteTableVersion -&gt; BatchDeleteTableVersion -&gt; Bool
+$c/= :: BatchDeleteTableVersion -&gt; BatchDeleteTableVersion -&gt; Bool
+== :: BatchDeleteTableVersion -&gt; BatchDeleteTableVersion -&gt; Bool
+$c== :: BatchDeleteTableVersion -&gt; BatchDeleteTableVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744860"><span id="local-6989586621679744862"><span id="local-6989586621679744864"><span id="local-6989586621679744866"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteTableVersion]
+ReadPrec BatchDeleteTableVersion
+Int -&gt; ReadS BatchDeleteTableVersion
+ReadS [BatchDeleteTableVersion]
+(Int -&gt; ReadS BatchDeleteTableVersion)
+-&gt; ReadS [BatchDeleteTableVersion]
+-&gt; ReadPrec BatchDeleteTableVersion
+-&gt; ReadPrec [BatchDeleteTableVersion]
+-&gt; Read BatchDeleteTableVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchDeleteTableVersion]
+$creadListPrec :: ReadPrec [BatchDeleteTableVersion]
+readPrec :: ReadPrec BatchDeleteTableVersion
+$creadPrec :: ReadPrec BatchDeleteTableVersion
+readList :: ReadS [BatchDeleteTableVersion]
+$creadList :: ReadS [BatchDeleteTableVersion]
+readsPrec :: Int -&gt; ReadS BatchDeleteTableVersion
+$creadsPrec :: Int -&gt; ReadS BatchDeleteTableVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744853"><span id="local-6989586621679744855"><span id="local-6989586621679744857"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteTableVersion -&gt; ShowS
+[BatchDeleteTableVersion] -&gt; ShowS
+BatchDeleteTableVersion -&gt; String
+(Int -&gt; BatchDeleteTableVersion -&gt; ShowS)
+-&gt; (BatchDeleteTableVersion -&gt; String)
+-&gt; ([BatchDeleteTableVersion] -&gt; ShowS)
+-&gt; Show BatchDeleteTableVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchDeleteTableVersion] -&gt; ShowS
+$cshowList :: [BatchDeleteTableVersion] -&gt; ShowS
+show :: BatchDeleteTableVersion -&gt; String
+$cshow :: BatchDeleteTableVersion -&gt; String
+showsPrec :: Int -&gt; BatchDeleteTableVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchDeleteTableVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchDeleteTableVersion -&gt; Rep BatchDeleteTableVersion x)
+-&gt; (forall x.
+    Rep BatchDeleteTableVersion x -&gt; BatchDeleteTableVersion)
+-&gt; Generic BatchDeleteTableVersion
+forall x. Rep BatchDeleteTableVersion x -&gt; BatchDeleteTableVersion
+forall x. BatchDeleteTableVersion -&gt; Rep BatchDeleteTableVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchDeleteTableVersion x -&gt; BatchDeleteTableVersion
+$cfrom :: forall x. BatchDeleteTableVersion -&gt; Rep BatchDeleteTableVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'BatchDeleteTableVersion' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'catalogId', 'batchDeleteTableVersion_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- the Amazon Web Services account ID is used by default.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'databaseName', 'batchDeleteTableVersion_databaseName' - The database in the catalog in which the table resides. For Hive</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- compatibility, this name is entirely lowercase.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'tableName', 'batchDeleteTableVersion_tableName' - The name of the table. For Hive compatibility, this name is entirely</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- lowercase.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'versionIds', 'batchDeleteTableVersion_versionIds' - A list of the IDs of versions to be deleted. A @VersionId@ is a string</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- representation of an integer. Each version is incremented by 1.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#newBatchDeleteTableVersion"><span class="hs-identifier hs-type">newBatchDeleteTableVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'databaseName'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'tableName'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span><span>
+</span><span id="line-94"></span><span id="newBatchDeleteTableVersion"><span class="annot"><span class="annottext">newBatchDeleteTableVersion :: Text -&gt; Text -&gt; BatchDeleteTableVersion
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#newBatchDeleteTableVersion"><span class="hs-identifier hs-var hs-var">newBatchDeleteTableVersion</span></a></span></span><span> </span><span id="local-6989586621679744848"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679744848"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679744847"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679744847"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">BatchDeleteTableVersion' :: Maybe Text -&gt; Text -&gt; Text -&gt; [Text] -&gt; BatchDeleteTableVersion
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion%27"><span class="hs-identifier hs-type">BatchDeleteTableVersion'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalogId:BatchDeleteTableVersion' :: Maybe Text
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3AcatalogId%3ABatchDeleteTableVersion%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:BatchDeleteTableVersion' :: Text
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3AdatabaseName%3ABatchDeleteTableVersion%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679744848"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:BatchDeleteTableVersion' :: Text
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3AtableName%3ABatchDeleteTableVersion%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679744847"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionIds:BatchDeleteTableVersion' :: [Text]
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3AversionIds%3ABatchDeleteTableVersion%27"><span class="hs-identifier hs-var">versionIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The ID of the Data Catalog where the tables reside. If none is provided,</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- the Amazon Web Services account ID is used by default.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersion_catalogId"><span class="hs-identifier hs-type">batchDeleteTableVersion_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="batchDeleteTableVersion_catalogId"><span class="annot"><span class="annottext">batchDeleteTableVersion_catalogId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchDeleteTableVersion -&gt; f BatchDeleteTableVersion
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersion_catalogId"><span class="hs-identifier hs-var hs-var">batchDeleteTableVersion_catalogId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteTableVersion -&gt; Maybe Text)
+-&gt; (BatchDeleteTableVersion
+    -&gt; Maybe Text -&gt; BatchDeleteTableVersion)
+-&gt; Lens
+     BatchDeleteTableVersion
+     BatchDeleteTableVersion
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion%27"><span class="hs-identifier hs-type">BatchDeleteTableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744844"><span class="annot"><span class="annottext">Maybe Text
+catalogId :: Maybe Text
+$sel:catalogId:BatchDeleteTableVersion' :: BatchDeleteTableVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679744844"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679744844"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744843"><span class="annot"><span class="annottext">s :: BatchDeleteTableVersion
+</span><a href="#local-6989586621679744843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion%27"><span class="hs-identifier hs-type">BatchDeleteTableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744842"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679744842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteTableVersion
+</span><a href="#local-6989586621679744843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:BatchDeleteTableVersion' :: Maybe Text
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3AcatalogId%3ABatchDeleteTableVersion%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679744842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The database in the catalog in which the table resides. For Hive</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- compatibility, this name is entirely lowercase.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersion_databaseName"><span class="hs-identifier hs-type">batchDeleteTableVersion_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="batchDeleteTableVersion_databaseName"><span class="annot"><span class="annottext">batchDeleteTableVersion_databaseName :: (Text -&gt; f Text)
+-&gt; BatchDeleteTableVersion -&gt; f BatchDeleteTableVersion
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersion_databaseName"><span class="hs-identifier hs-var hs-var">batchDeleteTableVersion_databaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteTableVersion -&gt; Text)
+-&gt; (BatchDeleteTableVersion -&gt; Text -&gt; BatchDeleteTableVersion)
+-&gt; Lens BatchDeleteTableVersion BatchDeleteTableVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion%27"><span class="hs-identifier hs-type">BatchDeleteTableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744841"><span class="annot"><span class="annottext">Text
+databaseName :: Text
+$sel:databaseName:BatchDeleteTableVersion' :: BatchDeleteTableVersion -&gt; Text
+</span><a href="#local-6989586621679744841"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679744841"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744840"><span class="annot"><span class="annottext">s :: BatchDeleteTableVersion
+</span><a href="#local-6989586621679744840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion%27"><span class="hs-identifier hs-type">BatchDeleteTableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744839"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679744839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteTableVersion
+</span><a href="#local-6989586621679744840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:BatchDeleteTableVersion' :: Text
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3AdatabaseName%3ABatchDeleteTableVersion%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679744839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The name of the table. For Hive compatibility, this name is entirely</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- lowercase.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersion_tableName"><span class="hs-identifier hs-type">batchDeleteTableVersion_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="batchDeleteTableVersion_tableName"><span class="annot"><span class="annottext">batchDeleteTableVersion_tableName :: (Text -&gt; f Text)
+-&gt; BatchDeleteTableVersion -&gt; f BatchDeleteTableVersion
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersion_tableName"><span class="hs-identifier hs-var hs-var">batchDeleteTableVersion_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteTableVersion -&gt; Text)
+-&gt; (BatchDeleteTableVersion -&gt; Text -&gt; BatchDeleteTableVersion)
+-&gt; Lens BatchDeleteTableVersion BatchDeleteTableVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion%27"><span class="hs-identifier hs-type">BatchDeleteTableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744838"><span class="annot"><span class="annottext">Text
+tableName :: Text
+$sel:tableName:BatchDeleteTableVersion' :: BatchDeleteTableVersion -&gt; Text
+</span><a href="#local-6989586621679744838"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679744838"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744837"><span class="annot"><span class="annottext">s :: BatchDeleteTableVersion
+</span><a href="#local-6989586621679744837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion%27"><span class="hs-identifier hs-type">BatchDeleteTableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744836"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679744836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteTableVersion
+</span><a href="#local-6989586621679744837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:BatchDeleteTableVersion' :: Text
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3AtableName%3ABatchDeleteTableVersion%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679744836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | A list of the IDs of versions to be deleted. A @VersionId@ is a string</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- representation of an integer. Each version is incremented by 1.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersion_versionIds"><span class="hs-identifier hs-type">batchDeleteTableVersion_versionIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span id="batchDeleteTableVersion_versionIds"><span class="annot"><span class="annottext">batchDeleteTableVersion_versionIds :: ([Text] -&gt; f [Text])
+-&gt; BatchDeleteTableVersion -&gt; f BatchDeleteTableVersion
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersion_versionIds"><span class="hs-identifier hs-var hs-var">batchDeleteTableVersion_versionIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteTableVersion -&gt; [Text])
+-&gt; (BatchDeleteTableVersion -&gt; [Text] -&gt; BatchDeleteTableVersion)
+-&gt; Lens
+     BatchDeleteTableVersion BatchDeleteTableVersion [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion%27"><span class="hs-identifier hs-type">BatchDeleteTableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744835"><span class="annot"><span class="annottext">[Text]
+versionIds :: [Text]
+$sel:versionIds:BatchDeleteTableVersion' :: BatchDeleteTableVersion -&gt; [Text]
+</span><a href="#local-6989586621679744835"><span class="hs-identifier hs-var hs-var">versionIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679744835"><span class="hs-identifier hs-var">versionIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744834"><span class="annot"><span class="annottext">s :: BatchDeleteTableVersion
+</span><a href="#local-6989586621679744834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion%27"><span class="hs-identifier hs-type">BatchDeleteTableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744833"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679744833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteTableVersion
+</span><a href="#local-6989586621679744834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionIds:BatchDeleteTableVersion' :: [Text]
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3AversionIds%3ABatchDeleteTableVersion%27"><span class="hs-identifier hs-var">versionIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679744833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; BatchDeleteTableVersion -&gt; f BatchDeleteTableVersion)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; BatchDeleteTableVersion
+-&gt; f BatchDeleteTableVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse"><span class="hs-identifier hs-type">BatchDeleteTableVersionResponse</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679744827"><span class="annot"><span class="annottext">request :: BatchDeleteTableVersion -&gt; Request BatchDeleteTableVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; BatchDeleteTableVersion -&gt; Request BatchDeleteTableVersion
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679744823"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchDeleteTableVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchDeleteTableVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchDeleteTableVersion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchDeleteTableVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchDeleteTableVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679744820"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744820"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679744819"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679744819"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679744818"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679744818"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TableVersionError] -&gt; Int -&gt; BatchDeleteTableVersionResponse
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse%27"><span class="hs-identifier hs-var">BatchDeleteTableVersionResponse'</span></a></span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [TableVersionError]
+ -&gt; Int -&gt; BatchDeleteTableVersionResponse)
+-&gt; Either String (Maybe [TableVersionError])
+-&gt; Either String (Int -&gt; BatchDeleteTableVersionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679744818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [TableVersionError]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [TableVersionError]))
+-&gt; Maybe [TableVersionError]
+-&gt; Either String (Maybe [TableVersionError])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TableVersionError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchDeleteTableVersionResponse)
+-&gt; Either String Int
+-&gt; Either String BatchDeleteTableVersionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744820"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744809"><span id="local-6989586621679744811"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744806"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679744802"><span class="annot"><span class="annottext">toHeaders :: BatchDeleteTableVersion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchDeleteTableVersion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSGlue.BatchDeleteTableVersion&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-147"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-151"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744792"><span id="local-6989586621679744794"><span id="local-6989586621679744796"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679744790"><span class="annot"><span class="annottext">toJSON :: BatchDeleteTableVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion%27"><span class="hs-identifier hs-type">BatchDeleteTableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744785"><span id="local-6989586621679744786"><span id="local-6989586621679744787"><span id="local-6989586621679744788"><span class="annot"><span class="annottext">[Text]
+Maybe Text
+Text
+versionIds :: [Text]
+tableName :: Text
+databaseName :: Text
+catalogId :: Maybe Text
+$sel:versionIds:BatchDeleteTableVersion' :: BatchDeleteTableVersion -&gt; [Text]
+$sel:tableName:BatchDeleteTableVersion' :: BatchDeleteTableVersion -&gt; Text
+$sel:databaseName:BatchDeleteTableVersion' :: BatchDeleteTableVersion -&gt; Text
+$sel:catalogId:BatchDeleteTableVersion' :: BatchDeleteTableVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679744785"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679744788"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679744787"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679744786"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VersionIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679744785"><span class="hs-identifier hs-var">versionIds</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679744779"><span class="annot"><span class="annottext">toPath :: BatchDeleteTableVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchDeleteTableVersion -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersion"><span class="hs-identifier hs-type">BatchDeleteTableVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679744775"><span class="annot"><span class="annottext">toQuery :: BatchDeleteTableVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchDeleteTableVersion -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newBatchDeleteTableVersionResponse' smart constructor.</span><span>
+</span><span id="line-173"></span><span id="local-6989586621679744772"><span id="local-6989586621679744773"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteTableVersionResponse"><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse"><span class="hs-identifier hs-var">BatchDeleteTableVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteTableVersionResponse%27"><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse%27"><span class="hs-identifier hs-var">BatchDeleteTableVersionResponse'</span></a></span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of errors encountered while trying to delete the specified table</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- versions.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3Aerrors%3ABatchDeleteTableVersionResponse%27"><span class="annot"><span class="annottext">BatchDeleteTableVersionResponse -&gt; Maybe [TableVersionError]
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3Aerrors%3ABatchDeleteTableVersionResponse%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Glue.Types.TableVersionError.html#TableVersionError"><span class="hs-identifier hs-type">TableVersionError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchDeleteTableVersionResponse%27"><span class="annot"><span class="annottext">BatchDeleteTableVersionResponse -&gt; Int
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3AhttpStatus%3ABatchDeleteTableVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679744766"><span id="local-6989586621679744768"><span class="annot"><span class="annottext">BatchDeleteTableVersionResponse
+-&gt; BatchDeleteTableVersionResponse -&gt; Bool
+(BatchDeleteTableVersionResponse
+ -&gt; BatchDeleteTableVersionResponse -&gt; Bool)
+-&gt; (BatchDeleteTableVersionResponse
+    -&gt; BatchDeleteTableVersionResponse -&gt; Bool)
+-&gt; Eq BatchDeleteTableVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchDeleteTableVersionResponse
+-&gt; BatchDeleteTableVersionResponse -&gt; Bool
+$c/= :: BatchDeleteTableVersionResponse
+-&gt; BatchDeleteTableVersionResponse -&gt; Bool
+== :: BatchDeleteTableVersionResponse
+-&gt; BatchDeleteTableVersionResponse -&gt; Bool
+$c== :: BatchDeleteTableVersionResponse
+-&gt; BatchDeleteTableVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744758"><span id="local-6989586621679744760"><span id="local-6989586621679744762"><span id="local-6989586621679744764"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteTableVersionResponse]
+ReadPrec BatchDeleteTableVersionResponse
+Int -&gt; ReadS BatchDeleteTableVersionResponse
+ReadS [BatchDeleteTableVersionResponse]
+(Int -&gt; ReadS BatchDeleteTableVersionResponse)
+-&gt; ReadS [BatchDeleteTableVersionResponse]
+-&gt; ReadPrec BatchDeleteTableVersionResponse
+-&gt; ReadPrec [BatchDeleteTableVersionResponse]
+-&gt; Read BatchDeleteTableVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchDeleteTableVersionResponse]
+$creadListPrec :: ReadPrec [BatchDeleteTableVersionResponse]
+readPrec :: ReadPrec BatchDeleteTableVersionResponse
+$creadPrec :: ReadPrec BatchDeleteTableVersionResponse
+readList :: ReadS [BatchDeleteTableVersionResponse]
+$creadList :: ReadS [BatchDeleteTableVersionResponse]
+readsPrec :: Int -&gt; ReadS BatchDeleteTableVersionResponse
+$creadsPrec :: Int -&gt; ReadS BatchDeleteTableVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744752"><span id="local-6989586621679744754"><span id="local-6989586621679744756"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteTableVersionResponse -&gt; ShowS
+[BatchDeleteTableVersionResponse] -&gt; ShowS
+BatchDeleteTableVersionResponse -&gt; String
+(Int -&gt; BatchDeleteTableVersionResponse -&gt; ShowS)
+-&gt; (BatchDeleteTableVersionResponse -&gt; String)
+-&gt; ([BatchDeleteTableVersionResponse] -&gt; ShowS)
+-&gt; Show BatchDeleteTableVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchDeleteTableVersionResponse] -&gt; ShowS
+$cshowList :: [BatchDeleteTableVersionResponse] -&gt; ShowS
+show :: BatchDeleteTableVersionResponse -&gt; String
+$cshow :: BatchDeleteTableVersionResponse -&gt; String
+showsPrec :: Int -&gt; BatchDeleteTableVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchDeleteTableVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchDeleteTableVersionResponse
+ -&gt; Rep BatchDeleteTableVersionResponse x)
+-&gt; (forall x.
+    Rep BatchDeleteTableVersionResponse x
+    -&gt; BatchDeleteTableVersionResponse)
+-&gt; Generic BatchDeleteTableVersionResponse
+forall x.
+Rep BatchDeleteTableVersionResponse x
+-&gt; BatchDeleteTableVersionResponse
+forall x.
+BatchDeleteTableVersionResponse
+-&gt; Rep BatchDeleteTableVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchDeleteTableVersionResponse x
+-&gt; BatchDeleteTableVersionResponse
+$cfrom :: forall x.
+BatchDeleteTableVersionResponse
+-&gt; Rep BatchDeleteTableVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'BatchDeleteTableVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'errors', 'batchDeleteTableVersionResponse_errors' - A list of errors encountered while trying to delete the specified table</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- versions.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'batchDeleteTableVersionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#newBatchDeleteTableVersionResponse"><span class="hs-identifier hs-type">newBatchDeleteTableVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse"><span class="hs-identifier hs-type">BatchDeleteTableVersionResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newBatchDeleteTableVersionResponse"><span class="annot"><span class="annottext">newBatchDeleteTableVersionResponse :: Int -&gt; BatchDeleteTableVersionResponse
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#newBatchDeleteTableVersionResponse"><span class="hs-identifier hs-var hs-var">newBatchDeleteTableVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679744749"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744749"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">BatchDeleteTableVersionResponse' :: Maybe [TableVersionError] -&gt; Int -&gt; BatchDeleteTableVersionResponse
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse%27"><span class="hs-identifier hs-type">BatchDeleteTableVersionResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errors:BatchDeleteTableVersionResponse' :: Maybe [TableVersionError]
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3Aerrors%3ABatchDeleteTableVersionResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Maybe [TableVersionError]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeleteTableVersionResponse' :: Int
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3AhttpStatus%3ABatchDeleteTableVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744749"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | A list of errors encountered while trying to delete the specified table</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- versions.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersionResponse_errors"><span class="hs-identifier hs-type">batchDeleteTableVersionResponse_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse"><span class="hs-identifier hs-type">BatchDeleteTableVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Glue.Types.TableVersionError.html#TableVersionError"><span class="hs-identifier hs-type">TableVersionError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="batchDeleteTableVersionResponse_errors"><span class="annot"><span class="annottext">batchDeleteTableVersionResponse_errors :: (Maybe [TableVersionError] -&gt; f (Maybe [TableVersionError]))
+-&gt; BatchDeleteTableVersionResponse
+-&gt; f BatchDeleteTableVersionResponse
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersionResponse_errors"><span class="hs-identifier hs-var hs-var">batchDeleteTableVersionResponse_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteTableVersionResponse -&gt; Maybe [TableVersionError])
+-&gt; (BatchDeleteTableVersionResponse
+    -&gt; Maybe [TableVersionError] -&gt; BatchDeleteTableVersionResponse)
+-&gt; Lens
+     BatchDeleteTableVersionResponse
+     BatchDeleteTableVersionResponse
+     (Maybe [TableVersionError])
+     (Maybe [TableVersionError])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse%27"><span class="hs-identifier hs-type">BatchDeleteTableVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744748"><span class="annot"><span class="annottext">Maybe [TableVersionError]
+errors :: Maybe [TableVersionError]
+$sel:errors:BatchDeleteTableVersionResponse' :: BatchDeleteTableVersionResponse -&gt; Maybe [TableVersionError]
+</span><a href="#local-6989586621679744748"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TableVersionError]
+</span><a href="#local-6989586621679744748"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744747"><span class="annot"><span class="annottext">s :: BatchDeleteTableVersionResponse
+</span><a href="#local-6989586621679744747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse%27"><span class="hs-identifier hs-type">BatchDeleteTableVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744746"><span class="annot"><span class="annottext">Maybe [TableVersionError]
+</span><a href="#local-6989586621679744746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteTableVersionResponse
+</span><a href="#local-6989586621679744747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchDeleteTableVersionResponse' :: Maybe [TableVersionError]
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3Aerrors%3ABatchDeleteTableVersionResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TableVersionError]
+</span><a href="#local-6989586621679744746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse"><span class="hs-identifier hs-type">BatchDeleteTableVersionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TableVersionError] -&gt; f (Maybe [TableVersionError]))
+ -&gt; BatchDeleteTableVersionResponse
+ -&gt; f BatchDeleteTableVersionResponse)
+-&gt; ((Maybe [TableVersionError] -&gt; f (Maybe [TableVersionError]))
+    -&gt; Maybe [TableVersionError] -&gt; f (Maybe [TableVersionError]))
+-&gt; (Maybe [TableVersionError] -&gt; f (Maybe [TableVersionError]))
+-&gt; BatchDeleteTableVersionResponse
+-&gt; f BatchDeleteTableVersionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TableVersionError]
+  [TableVersionError]
+  [TableVersionError]
+  [TableVersionError]
+-&gt; Iso
+     (Maybe [TableVersionError])
+     (Maybe [TableVersionError])
+     (Maybe [TableVersionError])
+     (Maybe [TableVersionError])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TableVersionError]
+  [TableVersionError]
+  [TableVersionError]
+  [TableVersionError]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersionResponse_httpStatus"><span class="hs-identifier hs-type">batchDeleteTableVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse"><span class="hs-identifier hs-type">BatchDeleteTableVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-212"></span><span id="batchDeleteTableVersionResponse_httpStatus"><span class="annot"><span class="annottext">batchDeleteTableVersionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchDeleteTableVersionResponse
+-&gt; f BatchDeleteTableVersionResponse
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#batchDeleteTableVersionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchDeleteTableVersionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteTableVersionResponse -&gt; Int)
+-&gt; (BatchDeleteTableVersionResponse
+    -&gt; Int -&gt; BatchDeleteTableVersionResponse)
+-&gt; Lens
+     BatchDeleteTableVersionResponse
+     BatchDeleteTableVersionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse%27"><span class="hs-identifier hs-type">BatchDeleteTableVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744744"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchDeleteTableVersionResponse' :: BatchDeleteTableVersionResponse -&gt; Int
+</span><a href="#local-6989586621679744744"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744744"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744743"><span class="annot"><span class="annottext">s :: BatchDeleteTableVersionResponse
+</span><a href="#local-6989586621679744743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse%27"><span class="hs-identifier hs-type">BatchDeleteTableVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744742"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteTableVersionResponse
+</span><a href="#local-6989586621679744743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeleteTableVersionResponse' :: Int
+</span><a href="Amazonka.Glue.BatchDeleteTableVersion.html#%24sel%3AhttpStatus%3ABatchDeleteTableVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse"><span class="hs-identifier hs-type">BatchDeleteTableVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679744740"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.BatchDeleteTableVersion.html#BatchDeleteTableVersionResponse"><span class="hs-identifier hs-type">BatchDeleteTableVersionResponse</span></a></span></span><span>
+</span><span id="line-217"></span></pre></body></html>

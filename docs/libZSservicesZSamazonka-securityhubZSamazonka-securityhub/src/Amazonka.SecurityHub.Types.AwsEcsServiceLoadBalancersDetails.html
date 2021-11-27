@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information about a load balancer that the service uses.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAwsEcsServiceLoadBalancersDetails' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679947947"><span id="local-6989586621679947948"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsEcsServiceLoadBalancersDetails"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-var">AwsEcsServiceLoadBalancersDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsEcsServiceLoadBalancersDetails%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-var">AwsEcsServiceLoadBalancersDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the load balancer to associate with the Amazon ECS service</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- or task set.</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Only specified when using a Classic Load Balancer. For an Application</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Load Balancer or a Network Load Balancer, the load balancer name is</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- omitted.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AloadBalancerName%3AAwsEcsServiceLoadBalancersDetails%27"><span class="annot"><span class="annottext">AwsEcsServiceLoadBalancersDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#%24sel%3AloadBalancerName%3AAwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the container to associate with the load balancer.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcontainerName%3AAwsEcsServiceLoadBalancersDetails%27"><span class="annot"><span class="annottext">AwsEcsServiceLoadBalancersDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#%24sel%3AcontainerName%3AAwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ARN of the Elastic Load Balancing target group or groups associated</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- with a service or task set.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Only specified when using an Application Load Balancer or a Network Load</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Balancer. For a Classic Load Balancer, the target group ARN is omitted.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AtargetGroupArn%3AAwsEcsServiceLoadBalancersDetails%27"><span class="annot"><span class="annottext">AwsEcsServiceLoadBalancersDetails -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#%24sel%3AtargetGroupArn%3AAwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-var hs-var">targetGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The port on the container to associate with the load balancer. This port</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- must correspond to a @containerPort@ in the task definition the tasks in</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- the service are using. For tasks that use the EC2 launch type, the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- container instance they are launched on must allow ingress traffic on</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- the @hostPort@ of the port mapping.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AcontainerPort%3AAwsEcsServiceLoadBalancersDetails%27"><span class="annot"><span class="annottext">AwsEcsServiceLoadBalancersDetails -&gt; Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#%24sel%3AcontainerPort%3AAwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-var hs-var">containerPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679947938"><span id="local-6989586621679947940"><span class="annot"><span class="annottext">AwsEcsServiceLoadBalancersDetails
+-&gt; AwsEcsServiceLoadBalancersDetails -&gt; Bool
+(AwsEcsServiceLoadBalancersDetails
+ -&gt; AwsEcsServiceLoadBalancersDetails -&gt; Bool)
+-&gt; (AwsEcsServiceLoadBalancersDetails
+    -&gt; AwsEcsServiceLoadBalancersDetails -&gt; Bool)
+-&gt; Eq AwsEcsServiceLoadBalancersDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsEcsServiceLoadBalancersDetails
+-&gt; AwsEcsServiceLoadBalancersDetails -&gt; Bool
+$c/= :: AwsEcsServiceLoadBalancersDetails
+-&gt; AwsEcsServiceLoadBalancersDetails -&gt; Bool
+== :: AwsEcsServiceLoadBalancersDetails
+-&gt; AwsEcsServiceLoadBalancersDetails -&gt; Bool
+$c== :: AwsEcsServiceLoadBalancersDetails
+-&gt; AwsEcsServiceLoadBalancersDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679947929"><span id="local-6989586621679947931"><span id="local-6989586621679947933"><span id="local-6989586621679947935"><span class="annot"><span class="annottext">ReadPrec [AwsEcsServiceLoadBalancersDetails]
+ReadPrec AwsEcsServiceLoadBalancersDetails
+Int -&gt; ReadS AwsEcsServiceLoadBalancersDetails
+ReadS [AwsEcsServiceLoadBalancersDetails]
+(Int -&gt; ReadS AwsEcsServiceLoadBalancersDetails)
+-&gt; ReadS [AwsEcsServiceLoadBalancersDetails]
+-&gt; ReadPrec AwsEcsServiceLoadBalancersDetails
+-&gt; ReadPrec [AwsEcsServiceLoadBalancersDetails]
+-&gt; Read AwsEcsServiceLoadBalancersDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsEcsServiceLoadBalancersDetails]
+$creadListPrec :: ReadPrec [AwsEcsServiceLoadBalancersDetails]
+readPrec :: ReadPrec AwsEcsServiceLoadBalancersDetails
+$creadPrec :: ReadPrec AwsEcsServiceLoadBalancersDetails
+readList :: ReadS [AwsEcsServiceLoadBalancersDetails]
+$creadList :: ReadS [AwsEcsServiceLoadBalancersDetails]
+readsPrec :: Int -&gt; ReadS AwsEcsServiceLoadBalancersDetails
+$creadsPrec :: Int -&gt; ReadS AwsEcsServiceLoadBalancersDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679947922"><span id="local-6989586621679947924"><span id="local-6989586621679947926"><span class="annot"><span class="annottext">Int -&gt; AwsEcsServiceLoadBalancersDetails -&gt; ShowS
+[AwsEcsServiceLoadBalancersDetails] -&gt; ShowS
+AwsEcsServiceLoadBalancersDetails -&gt; String
+(Int -&gt; AwsEcsServiceLoadBalancersDetails -&gt; ShowS)
+-&gt; (AwsEcsServiceLoadBalancersDetails -&gt; String)
+-&gt; ([AwsEcsServiceLoadBalancersDetails] -&gt; ShowS)
+-&gt; Show AwsEcsServiceLoadBalancersDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsEcsServiceLoadBalancersDetails] -&gt; ShowS
+$cshowList :: [AwsEcsServiceLoadBalancersDetails] -&gt; ShowS
+show :: AwsEcsServiceLoadBalancersDetails -&gt; String
+$cshow :: AwsEcsServiceLoadBalancersDetails -&gt; String
+showsPrec :: Int -&gt; AwsEcsServiceLoadBalancersDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsEcsServiceLoadBalancersDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsEcsServiceLoadBalancersDetails
+ -&gt; Rep AwsEcsServiceLoadBalancersDetails x)
+-&gt; (forall x.
+    Rep AwsEcsServiceLoadBalancersDetails x
+    -&gt; AwsEcsServiceLoadBalancersDetails)
+-&gt; Generic AwsEcsServiceLoadBalancersDetails
+forall x.
+Rep AwsEcsServiceLoadBalancersDetails x
+-&gt; AwsEcsServiceLoadBalancersDetails
+forall x.
+AwsEcsServiceLoadBalancersDetails
+-&gt; Rep AwsEcsServiceLoadBalancersDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AwsEcsServiceLoadBalancersDetails x
+-&gt; AwsEcsServiceLoadBalancersDetails
+$cfrom :: forall x.
+AwsEcsServiceLoadBalancersDetails
+-&gt; Rep AwsEcsServiceLoadBalancersDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'AwsEcsServiceLoadBalancersDetails' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'loadBalancerName', 'awsEcsServiceLoadBalancersDetails_loadBalancerName' - The name of the load balancer to associate with the Amazon ECS service</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- or task set.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Only specified when using a Classic Load Balancer. For an Application</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Load Balancer or a Network Load Balancer, the load balancer name is</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'containerName', 'awsEcsServiceLoadBalancersDetails_containerName' - The name of the container to associate with the load balancer.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'targetGroupArn', 'awsEcsServiceLoadBalancersDetails_targetGroupArn' - The ARN of the Elastic Load Balancing target group or groups associated</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- with a service or task set.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Only specified when using an Application Load Balancer or a Network Load</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Balancer. For a Classic Load Balancer, the target group ARN is omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'containerPort', 'awsEcsServiceLoadBalancersDetails_containerPort' - The port on the container to associate with the load balancer. This port</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- must correspond to a @containerPort@ in the task definition the tasks in</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- the service are using. For tasks that use the EC2 launch type, the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- container instance they are launched on must allow ingress traffic on</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- the @hostPort@ of the port mapping.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#newAwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-type">newAwsEcsServiceLoadBalancersDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails</span></a></span><span>
+</span><span id="line-84"></span><span id="newAwsEcsServiceLoadBalancersDetails"><span class="annot"><span class="annottext">newAwsEcsServiceLoadBalancersDetails :: AwsEcsServiceLoadBalancersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#newAwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-var hs-var">newAwsEcsServiceLoadBalancersDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">AwsEcsServiceLoadBalancersDetails' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; AwsEcsServiceLoadBalancersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loadBalancerName:AwsEcsServiceLoadBalancersDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#%24sel%3AloadBalancerName%3AAwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerName:AwsEcsServiceLoadBalancersDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#%24sel%3AcontainerName%3AAwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetGroupArn:AwsEcsServiceLoadBalancersDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#%24sel%3AtargetGroupArn%3AAwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerPort:AwsEcsServiceLoadBalancersDetails' :: Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#%24sel%3AcontainerPort%3AAwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-var">containerPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The name of the load balancer to associate with the Amazon ECS service</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- or task set.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Only specified when using a Classic Load Balancer. For an Application</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Load Balancer or a Network Load Balancer, the load balancer name is</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- omitted.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#awsEcsServiceLoadBalancersDetails_loadBalancerName"><span class="hs-identifier hs-type">awsEcsServiceLoadBalancersDetails_loadBalancerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="awsEcsServiceLoadBalancersDetails_loadBalancerName"><span class="annot"><span class="annottext">awsEcsServiceLoadBalancersDetails_loadBalancerName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEcsServiceLoadBalancersDetails
+-&gt; f AwsEcsServiceLoadBalancersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#awsEcsServiceLoadBalancersDetails_loadBalancerName"><span class="hs-identifier hs-var hs-var">awsEcsServiceLoadBalancersDetails_loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsServiceLoadBalancersDetails -&gt; Maybe Text)
+-&gt; (AwsEcsServiceLoadBalancersDetails
+    -&gt; Maybe Text -&gt; AwsEcsServiceLoadBalancersDetails)
+-&gt; Lens
+     AwsEcsServiceLoadBalancersDetails
+     AwsEcsServiceLoadBalancersDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679947913"><span class="annot"><span class="annottext">Maybe Text
+loadBalancerName :: Maybe Text
+$sel:loadBalancerName:AwsEcsServiceLoadBalancersDetails' :: AwsEcsServiceLoadBalancersDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679947913"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679947913"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679947912"><span class="annot"><span class="annottext">s :: AwsEcsServiceLoadBalancersDetails
+</span><a href="#local-6989586621679947912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679947911"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679947911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsServiceLoadBalancersDetails
+</span><a href="#local-6989586621679947912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:AwsEcsServiceLoadBalancersDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#%24sel%3AloadBalancerName%3AAwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679947911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The name of the container to associate with the load balancer.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#awsEcsServiceLoadBalancersDetails_containerName"><span class="hs-identifier hs-type">awsEcsServiceLoadBalancersDetails_containerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="awsEcsServiceLoadBalancersDetails_containerName"><span class="annot"><span class="annottext">awsEcsServiceLoadBalancersDetails_containerName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEcsServiceLoadBalancersDetails
+-&gt; f AwsEcsServiceLoadBalancersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#awsEcsServiceLoadBalancersDetails_containerName"><span class="hs-identifier hs-var hs-var">awsEcsServiceLoadBalancersDetails_containerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsServiceLoadBalancersDetails -&gt; Maybe Text)
+-&gt; (AwsEcsServiceLoadBalancersDetails
+    -&gt; Maybe Text -&gt; AwsEcsServiceLoadBalancersDetails)
+-&gt; Lens
+     AwsEcsServiceLoadBalancersDetails
+     AwsEcsServiceLoadBalancersDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679947909"><span class="annot"><span class="annottext">Maybe Text
+containerName :: Maybe Text
+$sel:containerName:AwsEcsServiceLoadBalancersDetails' :: AwsEcsServiceLoadBalancersDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679947909"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679947909"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679947908"><span class="annot"><span class="annottext">s :: AwsEcsServiceLoadBalancersDetails
+</span><a href="#local-6989586621679947908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679947907"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679947907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsServiceLoadBalancersDetails
+</span><a href="#local-6989586621679947908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:AwsEcsServiceLoadBalancersDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#%24sel%3AcontainerName%3AAwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679947907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The ARN of the Elastic Load Balancing target group or groups associated</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- with a service or task set.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Only specified when using an Application Load Balancer or a Network Load</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Balancer. For a Classic Load Balancer, the target group ARN is omitted.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#awsEcsServiceLoadBalancersDetails_targetGroupArn"><span class="hs-identifier hs-type">awsEcsServiceLoadBalancersDetails_targetGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="awsEcsServiceLoadBalancersDetails_targetGroupArn"><span class="annot"><span class="annottext">awsEcsServiceLoadBalancersDetails_targetGroupArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEcsServiceLoadBalancersDetails
+-&gt; f AwsEcsServiceLoadBalancersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#awsEcsServiceLoadBalancersDetails_targetGroupArn"><span class="hs-identifier hs-var hs-var">awsEcsServiceLoadBalancersDetails_targetGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsServiceLoadBalancersDetails -&gt; Maybe Text)
+-&gt; (AwsEcsServiceLoadBalancersDetails
+    -&gt; Maybe Text -&gt; AwsEcsServiceLoadBalancersDetails)
+-&gt; Lens
+     AwsEcsServiceLoadBalancersDetails
+     AwsEcsServiceLoadBalancersDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679947905"><span class="annot"><span class="annottext">Maybe Text
+targetGroupArn :: Maybe Text
+$sel:targetGroupArn:AwsEcsServiceLoadBalancersDetails' :: AwsEcsServiceLoadBalancersDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679947905"><span class="hs-identifier hs-var hs-var">targetGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679947905"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679947904"><span class="annot"><span class="annottext">s :: AwsEcsServiceLoadBalancersDetails
+</span><a href="#local-6989586621679947904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679947903"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679947903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsServiceLoadBalancersDetails
+</span><a href="#local-6989586621679947904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroupArn:AwsEcsServiceLoadBalancersDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#%24sel%3AtargetGroupArn%3AAwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679947903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The port on the container to associate with the load balancer. This port</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- must correspond to a @containerPort@ in the task definition the tasks in</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- the service are using. For tasks that use the EC2 launch type, the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- container instance they are launched on must allow ingress traffic on</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- the @hostPort@ of the port mapping.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#awsEcsServiceLoadBalancersDetails_containerPort"><span class="hs-identifier hs-type">awsEcsServiceLoadBalancersDetails_containerPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="awsEcsServiceLoadBalancersDetails_containerPort"><span class="annot"><span class="annottext">awsEcsServiceLoadBalancersDetails_containerPort :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsEcsServiceLoadBalancersDetails
+-&gt; f AwsEcsServiceLoadBalancersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#awsEcsServiceLoadBalancersDetails_containerPort"><span class="hs-identifier hs-var hs-var">awsEcsServiceLoadBalancersDetails_containerPort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsServiceLoadBalancersDetails -&gt; Maybe Int)
+-&gt; (AwsEcsServiceLoadBalancersDetails
+    -&gt; Maybe Int -&gt; AwsEcsServiceLoadBalancersDetails)
+-&gt; Lens
+     AwsEcsServiceLoadBalancersDetails
+     AwsEcsServiceLoadBalancersDetails
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679947901"><span class="annot"><span class="annottext">Maybe Int
+containerPort :: Maybe Int
+$sel:containerPort:AwsEcsServiceLoadBalancersDetails' :: AwsEcsServiceLoadBalancersDetails -&gt; Maybe Int
+</span><a href="#local-6989586621679947901"><span class="hs-identifier hs-var hs-var">containerPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679947901"><span class="hs-identifier hs-var">containerPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679947900"><span class="annot"><span class="annottext">s :: AwsEcsServiceLoadBalancersDetails
+</span><a href="#local-6989586621679947900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679947899"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679947899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsServiceLoadBalancersDetails
+</span><a href="#local-6989586621679947900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerPort:AwsEcsServiceLoadBalancersDetails' :: Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#%24sel%3AcontainerPort%3AAwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-var">containerPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679947899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679947896"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679947894"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsEcsServiceLoadBalancersDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsEcsServiceLoadBalancersDetails)
+-&gt; Value
+-&gt; Parser AwsEcsServiceLoadBalancersDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsEcsServiceLoadBalancersDetails&quot;</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679947891"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679947891"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; AwsEcsServiceLoadBalancersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-var">AwsEcsServiceLoadBalancersDetails'</span></a></span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; AwsEcsServiceLoadBalancersDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Int -&gt; AwsEcsServiceLoadBalancersDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679947891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LoadBalancerName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Int -&gt; AwsEcsServiceLoadBalancersDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Int -&gt; AwsEcsServiceLoadBalancersDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679947891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainerName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Int -&gt; AwsEcsServiceLoadBalancersDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int -&gt; AwsEcsServiceLoadBalancersDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679947891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetGroupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; AwsEcsServiceLoadBalancersDetails)
+-&gt; Parser (Maybe Int) -&gt; Parser AwsEcsServiceLoadBalancersDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679947891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainerPort&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679947885"><span id="local-6989586621679947887"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679947882"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails</span></a></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679947874"><span id="local-6989586621679947876"><span id="local-6989586621679947878"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails</span></a></span></span></span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679947872"><span class="annot"><span class="annottext">toJSON :: AwsEcsServiceLoadBalancersDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails.html#AwsEcsServiceLoadBalancersDetails%27"><span class="hs-identifier hs-type">AwsEcsServiceLoadBalancersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679947867"><span id="local-6989586621679947868"><span id="local-6989586621679947869"><span id="local-6989586621679947870"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+containerPort :: Maybe Int
+targetGroupArn :: Maybe Text
+containerName :: Maybe Text
+loadBalancerName :: Maybe Text
+$sel:containerPort:AwsEcsServiceLoadBalancersDetails' :: AwsEcsServiceLoadBalancersDetails -&gt; Maybe Int
+$sel:targetGroupArn:AwsEcsServiceLoadBalancersDetails' :: AwsEcsServiceLoadBalancersDetails -&gt; Maybe Text
+$sel:containerName:AwsEcsServiceLoadBalancersDetails' :: AwsEcsServiceLoadBalancersDetails -&gt; Maybe Text
+$sel:loadBalancerName:AwsEcsServiceLoadBalancersDetails' :: AwsEcsServiceLoadBalancersDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679947867"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LoadBalancerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679947870"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679947869"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679947868"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainerPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679947867"><span class="hs-identifier hs-var">containerPort</span></a></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span></pre></body></html>

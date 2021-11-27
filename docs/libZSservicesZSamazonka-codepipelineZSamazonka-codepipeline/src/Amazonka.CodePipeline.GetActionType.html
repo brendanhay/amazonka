@@ -1,0 +1,588 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodePipeline.GetActionType</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about an action type created for an external</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- provider, where the action is to be used by customers of the external</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- provider. The action can be created with any supported integration</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- model.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodePipeline.GetActionType</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier">GetActionType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#newGetActionType"><span class="hs-identifier">newGetActionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#getActionType_category"><span class="hs-identifier">getActionType_category</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#getActionType_owner"><span class="hs-identifier">getActionType_owner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#getActionType_provider"><span class="hs-identifier">getActionType_provider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#getActionType_version"><span class="hs-identifier">getActionType_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse"><span class="hs-identifier">GetActionTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#newGetActionTypeResponse"><span class="hs-identifier">newGetActionTypeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#getActionTypeResponse_actionType"><span class="hs-identifier">getActionTypeResponse_actionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#getActionTypeResponse_httpStatus"><span class="hs-identifier">getActionTypeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.html"><span class="hs-identifier">Amazonka.CodePipeline.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newGetActionType' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679291453"><span id="local-6989586621679291454"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetActionType"><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-var">GetActionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetActionType%27"><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType%27"><span class="hs-identifier hs-var">GetActionType'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Defines what kind of action can be taken in the stage. The following are</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the valid values:</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   @Source@</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   @Build@</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @Test@</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   @Deploy@</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @Approval@</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   @Invoke@</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Acategory%3AGetActionType%27"><span class="annot"><span class="annottext">GetActionType -&gt; ActionCategory
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3Acategory%3AGetActionType%27"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionCategory.html#ActionCategory"><span class="hs-identifier hs-type">ActionCategory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The creator of an action type that was created with any supported</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- integration model. There are two valid values: @AWS@ and @ThirdParty@.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Aowner%3AGetActionType%27"><span class="annot"><span class="annottext">GetActionType -&gt; Text
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3Aowner%3AGetActionType%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The provider of the action type being called. The provider name is</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- specified when the action type is created.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Aprovider%3AGetActionType%27"><span class="annot"><span class="annottext">GetActionType -&gt; Text
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3Aprovider%3AGetActionType%27"><span class="hs-identifier hs-var hs-var">provider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | A string that describes the action type version.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aversion%3AGetActionType%27"><span class="annot"><span class="annottext">GetActionType -&gt; Text
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3Aversion%3AGetActionType%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291444"><span id="local-6989586621679291446"><span class="annot"><span class="annottext">GetActionType -&gt; GetActionType -&gt; Bool
+(GetActionType -&gt; GetActionType -&gt; Bool)
+-&gt; (GetActionType -&gt; GetActionType -&gt; Bool) -&gt; Eq GetActionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetActionType -&gt; GetActionType -&gt; Bool
+$c/= :: GetActionType -&gt; GetActionType -&gt; Bool
+== :: GetActionType -&gt; GetActionType -&gt; Bool
+$c== :: GetActionType -&gt; GetActionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291435"><span id="local-6989586621679291437"><span id="local-6989586621679291439"><span id="local-6989586621679291441"><span class="annot"><span class="annottext">ReadPrec [GetActionType]
+ReadPrec GetActionType
+Int -&gt; ReadS GetActionType
+ReadS [GetActionType]
+(Int -&gt; ReadS GetActionType)
+-&gt; ReadS [GetActionType]
+-&gt; ReadPrec GetActionType
+-&gt; ReadPrec [GetActionType]
+-&gt; Read GetActionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetActionType]
+$creadListPrec :: ReadPrec [GetActionType]
+readPrec :: ReadPrec GetActionType
+$creadPrec :: ReadPrec GetActionType
+readList :: ReadS [GetActionType]
+$creadList :: ReadS [GetActionType]
+readsPrec :: Int -&gt; ReadS GetActionType
+$creadsPrec :: Int -&gt; ReadS GetActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291428"><span id="local-6989586621679291430"><span id="local-6989586621679291432"><span class="annot"><span class="annottext">Int -&gt; GetActionType -&gt; ShowS
+[GetActionType] -&gt; ShowS
+GetActionType -&gt; String
+(Int -&gt; GetActionType -&gt; ShowS)
+-&gt; (GetActionType -&gt; String)
+-&gt; ([GetActionType] -&gt; ShowS)
+-&gt; Show GetActionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetActionType] -&gt; ShowS
+$cshowList :: [GetActionType] -&gt; ShowS
+show :: GetActionType -&gt; String
+$cshow :: GetActionType -&gt; String
+showsPrec :: Int -&gt; GetActionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetActionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetActionType -&gt; Rep GetActionType x)
+-&gt; (forall x. Rep GetActionType x -&gt; GetActionType)
+-&gt; Generic GetActionType
+forall x. Rep GetActionType x -&gt; GetActionType
+forall x. GetActionType -&gt; Rep GetActionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetActionType x -&gt; GetActionType
+$cfrom :: forall x. GetActionType -&gt; Rep GetActionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'GetActionType' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'category', 'getActionType_category' - Defines what kind of action can be taken in the stage. The following are</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- the valid values:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   @Source@</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   @Build@</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   @Test@</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- -   @Deploy@</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- -   @Approval@</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- -   @Invoke@</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'owner', 'getActionType_owner' - The creator of an action type that was created with any supported</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- integration model. There are two valid values: @AWS@ and @ThirdParty@.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'provider', 'getActionType_provider' - The provider of the action type being called. The provider name is</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- specified when the action type is created.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'version', 'getActionType_version' - A string that describes the action type version.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#newGetActionType"><span class="hs-identifier hs-type">newGetActionType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'category'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionCategory.html#ActionCategory"><span class="hs-identifier hs-type">ActionCategory</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'owner'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-comment">-- | 'provider'</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'version'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span><span>
+</span><span id="line-123"></span><span id="newGetActionType"><span class="annot"><span class="annottext">newGetActionType :: ActionCategory -&gt; Text -&gt; Text -&gt; Text -&gt; GetActionType
+</span><a href="Amazonka.CodePipeline.GetActionType.html#newGetActionType"><span class="hs-identifier hs-var hs-var">newGetActionType</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679291423"><span class="annot"><span class="annottext">ActionCategory
+</span><a href="#local-6989586621679291423"><span class="hs-identifier hs-var">pCategory_</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679291422"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291422"><span class="hs-identifier hs-var">pOwner_</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679291421"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291421"><span class="hs-identifier hs-var">pProvider_</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679291420"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291420"><span class="hs-identifier hs-var">pVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">GetActionType' :: ActionCategory -&gt; Text -&gt; Text -&gt; Text -&gt; GetActionType
+</span><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType%27"><span class="hs-identifier hs-type">GetActionType'</span></a></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:category:GetActionType' :: ActionCategory
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3Acategory%3AGetActionType%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionCategory
+</span><a href="#local-6989586621679291423"><span class="hs-identifier hs-var">pCategory_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:owner:GetActionType' :: Text
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3Aowner%3AGetActionType%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291422"><span class="hs-identifier hs-var">pOwner_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:provider:GetActionType' :: Text
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3Aprovider%3AGetActionType%27"><span class="hs-identifier hs-var">provider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291421"><span class="hs-identifier hs-var">pProvider_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">$sel:version:GetActionType' :: Text
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3Aversion%3AGetActionType%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291420"><span class="hs-identifier hs-var">pVersion_</span></a></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | Defines what kind of action can be taken in the stage. The following are</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- the valid values:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   @Source@</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   @Build@</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- -   @Test@</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   @Deploy@</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- -   @Approval@</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   @Invoke@</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#getActionType_category"><span class="hs-identifier hs-type">getActionType_category</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionCategory.html#ActionCategory"><span class="hs-identifier hs-type">ActionCategory</span></a></span><span>
+</span><span id="line-150"></span><span id="getActionType_category"><span class="annot"><span class="annottext">getActionType_category :: (ActionCategory -&gt; f ActionCategory)
+-&gt; GetActionType -&gt; f GetActionType
+</span><a href="Amazonka.CodePipeline.GetActionType.html#getActionType_category"><span class="hs-identifier hs-var hs-var">getActionType_category</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetActionType -&gt; ActionCategory)
+-&gt; (GetActionType -&gt; ActionCategory -&gt; GetActionType)
+-&gt; Lens GetActionType GetActionType ActionCategory ActionCategory
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType%27"><span class="hs-identifier hs-type">GetActionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291417"><span class="annot"><span class="annottext">ActionCategory
+category :: ActionCategory
+$sel:category:GetActionType' :: GetActionType -&gt; ActionCategory
+</span><a href="#local-6989586621679291417"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionCategory
+</span><a href="#local-6989586621679291417"><span class="hs-identifier hs-var">category</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291416"><span class="annot"><span class="annottext">s :: GetActionType
+</span><a href="#local-6989586621679291416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType%27"><span class="hs-identifier hs-type">GetActionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291415"><span class="annot"><span class="annottext">ActionCategory
+</span><a href="#local-6989586621679291415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetActionType
+</span><a href="#local-6989586621679291416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:category:GetActionType' :: ActionCategory
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3Acategory%3AGetActionType%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionCategory
+</span><a href="#local-6989586621679291415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The creator of an action type that was created with any supported</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- integration model. There are two valid values: @AWS@ and @ThirdParty@.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#getActionType_owner"><span class="hs-identifier hs-type">getActionType_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-155"></span><span id="getActionType_owner"><span class="annot"><span class="annottext">getActionType_owner :: (Text -&gt; f Text) -&gt; GetActionType -&gt; f GetActionType
+</span><a href="Amazonka.CodePipeline.GetActionType.html#getActionType_owner"><span class="hs-identifier hs-var hs-var">getActionType_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetActionType -&gt; Text)
+-&gt; (GetActionType -&gt; Text -&gt; GetActionType)
+-&gt; Lens GetActionType GetActionType Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType%27"><span class="hs-identifier hs-type">GetActionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291414"><span class="annot"><span class="annottext">Text
+owner :: Text
+$sel:owner:GetActionType' :: GetActionType -&gt; Text
+</span><a href="#local-6989586621679291414"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291414"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291413"><span class="annot"><span class="annottext">s :: GetActionType
+</span><a href="#local-6989586621679291413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType%27"><span class="hs-identifier hs-type">GetActionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291412"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetActionType
+</span><a href="#local-6989586621679291413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:GetActionType' :: Text
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3Aowner%3AGetActionType%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The provider of the action type being called. The provider name is</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- specified when the action type is created.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#getActionType_provider"><span class="hs-identifier hs-type">getActionType_provider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-160"></span><span id="getActionType_provider"><span class="annot"><span class="annottext">getActionType_provider :: (Text -&gt; f Text) -&gt; GetActionType -&gt; f GetActionType
+</span><a href="Amazonka.CodePipeline.GetActionType.html#getActionType_provider"><span class="hs-identifier hs-var hs-var">getActionType_provider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetActionType -&gt; Text)
+-&gt; (GetActionType -&gt; Text -&gt; GetActionType)
+-&gt; Lens GetActionType GetActionType Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType%27"><span class="hs-identifier hs-type">GetActionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291411"><span class="annot"><span class="annottext">Text
+provider :: Text
+$sel:provider:GetActionType' :: GetActionType -&gt; Text
+</span><a href="#local-6989586621679291411"><span class="hs-identifier hs-var hs-var">provider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291411"><span class="hs-identifier hs-var">provider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291410"><span class="annot"><span class="annottext">s :: GetActionType
+</span><a href="#local-6989586621679291410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType%27"><span class="hs-identifier hs-type">GetActionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291409"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetActionType
+</span><a href="#local-6989586621679291410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provider:GetActionType' :: Text
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3Aprovider%3AGetActionType%27"><span class="hs-identifier hs-var">provider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | A string that describes the action type version.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#getActionType_version"><span class="hs-identifier hs-type">getActionType_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-164"></span><span id="getActionType_version"><span class="annot"><span class="annottext">getActionType_version :: (Text -&gt; f Text) -&gt; GetActionType -&gt; f GetActionType
+</span><a href="Amazonka.CodePipeline.GetActionType.html#getActionType_version"><span class="hs-identifier hs-var hs-var">getActionType_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetActionType -&gt; Text)
+-&gt; (GetActionType -&gt; Text -&gt; GetActionType)
+-&gt; Lens GetActionType GetActionType Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType%27"><span class="hs-identifier hs-type">GetActionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291408"><span class="annot"><span class="annottext">Text
+version :: Text
+$sel:version:GetActionType' :: GetActionType -&gt; Text
+</span><a href="#local-6989586621679291408"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291408"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291407"><span class="annot"><span class="annottext">s :: GetActionType
+</span><a href="#local-6989586621679291407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType%27"><span class="hs-identifier hs-type">GetActionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291406"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetActionType
+</span><a href="#local-6989586621679291407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:GetActionType' :: Text
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3Aversion%3AGetActionType%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-168"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse"><span class="hs-identifier hs-type">GetActionTypeResponse</span></a></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679291402"><span class="annot"><span class="annottext">request :: GetActionType -&gt; Request GetActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetActionType -&gt; Request GetActionType
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodePipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679291398"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetActionType
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetActionType)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetActionType))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetActionType
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetActionType)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679291395"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291395"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679291394"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679291394"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679291393"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291393"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">Maybe ActionTypeDeclaration -&gt; Int -&gt; GetActionTypeResponse
+</span><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse%27"><span class="hs-identifier hs-var">GetActionTypeResponse'</span></a></span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ActionTypeDeclaration -&gt; Int -&gt; GetActionTypeResponse)
+-&gt; Either String (Maybe ActionTypeDeclaration)
+-&gt; Either String (Int -&gt; GetActionTypeResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291393"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ActionTypeDeclaration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;actionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetActionTypeResponse)
+-&gt; Either String Int -&gt; Either String GetActionTypeResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291395"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291385"><span id="local-6989586621679291387"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span></span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291382"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679291378"><span class="annot"><span class="annottext">toHeaders :: GetActionType -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetActionType -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-187"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodePipeline_20150709.GetActionType&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-189"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-190"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-192"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-193"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-194"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291368"><span id="local-6989586621679291370"><span id="local-6989586621679291372"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679291366"><span class="annot"><span class="annottext">toJSON :: GetActionType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType%27"><span class="hs-identifier hs-type">GetActionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291361"><span id="local-6989586621679291362"><span id="local-6989586621679291363"><span id="local-6989586621679291364"><span class="annot"><span class="annottext">Text
+ActionCategory
+version :: Text
+provider :: Text
+owner :: Text
+category :: ActionCategory
+$sel:version:GetActionType' :: GetActionType -&gt; Text
+$sel:provider:GetActionType' :: GetActionType -&gt; Text
+$sel:owner:GetActionType' :: GetActionType -&gt; Text
+$sel:category:GetActionType' :: GetActionType -&gt; ActionCategory
+</span><a href="#local-6989586621679291361"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-202"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;category&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ActionCategory -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ActionCategory
+</span><a href="#local-6989586621679291364"><span class="hs-identifier hs-var">category</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;owner&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291363"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;provider&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291362"><span class="hs-identifier hs-var">provider</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291361"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679291355"><span class="annot"><span class="annottext">toPath :: GetActionType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetActionType -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionType"><span class="hs-identifier hs-type">GetActionType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679291351"><span class="annot"><span class="annottext">toQuery :: GetActionType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetActionType -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | /See:/ 'newGetActionTypeResponse' smart constructor.</span><span>
+</span><span id="line-216"></span><span id="local-6989586621679291348"><span id="local-6989586621679291349"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetActionTypeResponse"><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse"><span class="hs-identifier hs-var">GetActionTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetActionTypeResponse%27"><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse%27"><span class="hs-identifier hs-var">GetActionTypeResponse'</span></a></span></span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The action type information for the requested action type, such as the</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- action type ID.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AactionType%3AGetActionTypeResponse%27"><span class="annot"><span class="annottext">GetActionTypeResponse -&gt; Maybe ActionTypeDeclaration
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3AactionType%3AGetActionTypeResponse%27"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-221"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetActionTypeResponse%27"><span class="annot"><span class="annottext">GetActionTypeResponse -&gt; Int
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3AhttpStatus%3AGetActionTypeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291342"><span id="local-6989586621679291344"><span class="annot"><span class="annottext">GetActionTypeResponse -&gt; GetActionTypeResponse -&gt; Bool
+(GetActionTypeResponse -&gt; GetActionTypeResponse -&gt; Bool)
+-&gt; (GetActionTypeResponse -&gt; GetActionTypeResponse -&gt; Bool)
+-&gt; Eq GetActionTypeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetActionTypeResponse -&gt; GetActionTypeResponse -&gt; Bool
+$c/= :: GetActionTypeResponse -&gt; GetActionTypeResponse -&gt; Bool
+== :: GetActionTypeResponse -&gt; GetActionTypeResponse -&gt; Bool
+$c== :: GetActionTypeResponse -&gt; GetActionTypeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291334"><span id="local-6989586621679291336"><span id="local-6989586621679291338"><span id="local-6989586621679291340"><span class="annot"><span class="annottext">ReadPrec [GetActionTypeResponse]
+ReadPrec GetActionTypeResponse
+Int -&gt; ReadS GetActionTypeResponse
+ReadS [GetActionTypeResponse]
+(Int -&gt; ReadS GetActionTypeResponse)
+-&gt; ReadS [GetActionTypeResponse]
+-&gt; ReadPrec GetActionTypeResponse
+-&gt; ReadPrec [GetActionTypeResponse]
+-&gt; Read GetActionTypeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetActionTypeResponse]
+$creadListPrec :: ReadPrec [GetActionTypeResponse]
+readPrec :: ReadPrec GetActionTypeResponse
+$creadPrec :: ReadPrec GetActionTypeResponse
+readList :: ReadS [GetActionTypeResponse]
+$creadList :: ReadS [GetActionTypeResponse]
+readsPrec :: Int -&gt; ReadS GetActionTypeResponse
+$creadsPrec :: Int -&gt; ReadS GetActionTypeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291328"><span id="local-6989586621679291330"><span id="local-6989586621679291332"><span class="annot"><span class="annottext">Int -&gt; GetActionTypeResponse -&gt; ShowS
+[GetActionTypeResponse] -&gt; ShowS
+GetActionTypeResponse -&gt; String
+(Int -&gt; GetActionTypeResponse -&gt; ShowS)
+-&gt; (GetActionTypeResponse -&gt; String)
+-&gt; ([GetActionTypeResponse] -&gt; ShowS)
+-&gt; Show GetActionTypeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetActionTypeResponse] -&gt; ShowS
+$cshowList :: [GetActionTypeResponse] -&gt; ShowS
+show :: GetActionTypeResponse -&gt; String
+$cshow :: GetActionTypeResponse -&gt; String
+showsPrec :: Int -&gt; GetActionTypeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetActionTypeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetActionTypeResponse -&gt; Rep GetActionTypeResponse x)
+-&gt; (forall x. Rep GetActionTypeResponse x -&gt; GetActionTypeResponse)
+-&gt; Generic GetActionTypeResponse
+forall x. Rep GetActionTypeResponse x -&gt; GetActionTypeResponse
+forall x. GetActionTypeResponse -&gt; Rep GetActionTypeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetActionTypeResponse x -&gt; GetActionTypeResponse
+$cfrom :: forall x. GetActionTypeResponse -&gt; Rep GetActionTypeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Create a value of 'GetActionTypeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'actionType', 'getActionTypeResponse_actionType' - The action type information for the requested action type, such as the</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- action type ID.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'httpStatus', 'getActionTypeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#newGetActionTypeResponse"><span class="hs-identifier hs-type">newGetActionTypeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse"><span class="hs-identifier hs-type">GetActionTypeResponse</span></a></span><span>
+</span><span id="line-241"></span><span id="newGetActionTypeResponse"><span class="annot"><span class="annottext">newGetActionTypeResponse :: Int -&gt; GetActionTypeResponse
+</span><a href="Amazonka.CodePipeline.GetActionType.html#newGetActionTypeResponse"><span class="hs-identifier hs-var hs-var">newGetActionTypeResponse</span></a></span></span><span> </span><span id="local-6989586621679291325"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><span class="annottext">GetActionTypeResponse' :: Maybe ActionTypeDeclaration -&gt; Int -&gt; GetActionTypeResponse
+</span><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse%27"><span class="hs-identifier hs-type">GetActionTypeResponse'</span></a></span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:actionType:GetActionTypeResponse' :: Maybe ActionTypeDeclaration
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3AactionType%3AGetActionTypeResponse%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">Maybe ActionTypeDeclaration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetActionTypeResponse' :: Int
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3AhttpStatus%3AGetActionTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The action type information for the requested action type, such as the</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- action type ID.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#getActionTypeResponse_actionType"><span class="hs-identifier hs-type">getActionTypeResponse_actionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse"><span class="hs-identifier hs-type">GetActionTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="getActionTypeResponse_actionType"><span class="annot"><span class="annottext">getActionTypeResponse_actionType :: (Maybe ActionTypeDeclaration -&gt; f (Maybe ActionTypeDeclaration))
+-&gt; GetActionTypeResponse -&gt; f GetActionTypeResponse
+</span><a href="Amazonka.CodePipeline.GetActionType.html#getActionTypeResponse_actionType"><span class="hs-identifier hs-var hs-var">getActionTypeResponse_actionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetActionTypeResponse -&gt; Maybe ActionTypeDeclaration)
+-&gt; (GetActionTypeResponse
+    -&gt; Maybe ActionTypeDeclaration -&gt; GetActionTypeResponse)
+-&gt; Lens
+     GetActionTypeResponse
+     GetActionTypeResponse
+     (Maybe ActionTypeDeclaration)
+     (Maybe ActionTypeDeclaration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse%27"><span class="hs-identifier hs-type">GetActionTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291324"><span class="annot"><span class="annottext">Maybe ActionTypeDeclaration
+actionType :: Maybe ActionTypeDeclaration
+$sel:actionType:GetActionTypeResponse' :: GetActionTypeResponse -&gt; Maybe ActionTypeDeclaration
+</span><a href="#local-6989586621679291324"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionTypeDeclaration
+</span><a href="#local-6989586621679291324"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291323"><span class="annot"><span class="annottext">s :: GetActionTypeResponse
+</span><a href="#local-6989586621679291323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse%27"><span class="hs-identifier hs-type">GetActionTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291322"><span class="annot"><span class="annottext">Maybe ActionTypeDeclaration
+</span><a href="#local-6989586621679291322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetActionTypeResponse
+</span><a href="#local-6989586621679291323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionType:GetActionTypeResponse' :: Maybe ActionTypeDeclaration
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3AactionType%3AGetActionTypeResponse%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionTypeDeclaration
+</span><a href="#local-6989586621679291322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse"><span class="hs-identifier hs-type">GetActionTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#getActionTypeResponse_httpStatus"><span class="hs-identifier hs-type">getActionTypeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse"><span class="hs-identifier hs-type">GetActionTypeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-255"></span><span id="getActionTypeResponse_httpStatus"><span class="annot"><span class="annottext">getActionTypeResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetActionTypeResponse -&gt; f GetActionTypeResponse
+</span><a href="Amazonka.CodePipeline.GetActionType.html#getActionTypeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getActionTypeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetActionTypeResponse -&gt; Int)
+-&gt; (GetActionTypeResponse -&gt; Int -&gt; GetActionTypeResponse)
+-&gt; Lens GetActionTypeResponse GetActionTypeResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse%27"><span class="hs-identifier hs-type">GetActionTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291321"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetActionTypeResponse' :: GetActionTypeResponse -&gt; Int
+</span><a href="#local-6989586621679291321"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291321"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291320"><span class="annot"><span class="annottext">s :: GetActionTypeResponse
+</span><a href="#local-6989586621679291320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse%27"><span class="hs-identifier hs-type">GetActionTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291319"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetActionTypeResponse
+</span><a href="#local-6989586621679291320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetActionTypeResponse' :: Int
+</span><a href="Amazonka.CodePipeline.GetActionType.html#%24sel%3AhttpStatus%3AGetActionTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse"><span class="hs-identifier hs-type">GetActionTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.GetActionType.html#GetActionTypeResponse"><span class="hs-identifier hs-type">GetActionTypeResponse</span></a></span></span><span>
+</span><span id="line-258"></span></pre></body></html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum"><span class="hs-identifier">DedicatedTenancySupportResultEnum</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum_DISABLED"><span class="hs-identifier">DedicatedTenancySupportResultEnum_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum_ENABLED"><span class="hs-identifier">DedicatedTenancySupportResultEnum_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679270901"><span id="local-6989586621679270902"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DedicatedTenancySupportResultEnum"><span class="annot"><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum"><span class="hs-identifier hs-var">DedicatedTenancySupportResultEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DedicatedTenancySupportResultEnum%27"><span class="annot"><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum%27"><span class="hs-identifier hs-var">DedicatedTenancySupportResultEnum'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDedicatedTenancySupportResultEnum"><span class="annot"><span class="annottext">DedicatedTenancySupportResultEnum -&gt; Text
+</span><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#fromDedicatedTenancySupportResultEnum"><span class="hs-identifier hs-var hs-var">fromDedicatedTenancySupportResultEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270893"><span id="local-6989586621679270895"><span id="local-6989586621679270897"><span class="annot"><span class="annottext">Int -&gt; DedicatedTenancySupportResultEnum -&gt; ShowS
+[DedicatedTenancySupportResultEnum] -&gt; ShowS
+DedicatedTenancySupportResultEnum -&gt; String
+(Int -&gt; DedicatedTenancySupportResultEnum -&gt; ShowS)
+-&gt; (DedicatedTenancySupportResultEnum -&gt; String)
+-&gt; ([DedicatedTenancySupportResultEnum] -&gt; ShowS)
+-&gt; Show DedicatedTenancySupportResultEnum
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DedicatedTenancySupportResultEnum] -&gt; ShowS
+$cshowList :: [DedicatedTenancySupportResultEnum] -&gt; ShowS
+show :: DedicatedTenancySupportResultEnum -&gt; String
+$cshow :: DedicatedTenancySupportResultEnum -&gt; String
+showsPrec :: Int -&gt; DedicatedTenancySupportResultEnum -&gt; ShowS
+$cshowsPrec :: Int -&gt; DedicatedTenancySupportResultEnum -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679270884"><span id="local-6989586621679270886"><span id="local-6989586621679270888"><span id="local-6989586621679270890"><span class="annot"><span class="annottext">ReadPrec [DedicatedTenancySupportResultEnum]
+ReadPrec DedicatedTenancySupportResultEnum
+Int -&gt; ReadS DedicatedTenancySupportResultEnum
+ReadS [DedicatedTenancySupportResultEnum]
+(Int -&gt; ReadS DedicatedTenancySupportResultEnum)
+-&gt; ReadS [DedicatedTenancySupportResultEnum]
+-&gt; ReadPrec DedicatedTenancySupportResultEnum
+-&gt; ReadPrec [DedicatedTenancySupportResultEnum]
+-&gt; Read DedicatedTenancySupportResultEnum
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DedicatedTenancySupportResultEnum]
+$creadListPrec :: ReadPrec [DedicatedTenancySupportResultEnum]
+readPrec :: ReadPrec DedicatedTenancySupportResultEnum
+$creadPrec :: ReadPrec DedicatedTenancySupportResultEnum
+readList :: ReadS [DedicatedTenancySupportResultEnum]
+$creadList :: ReadS [DedicatedTenancySupportResultEnum]
+readsPrec :: Int -&gt; ReadS DedicatedTenancySupportResultEnum
+$creadsPrec :: Int -&gt; ReadS DedicatedTenancySupportResultEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679270879"><span id="local-6989586621679270881"><span class="annot"><span class="annottext">DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Bool
+(DedicatedTenancySupportResultEnum
+ -&gt; DedicatedTenancySupportResultEnum -&gt; Bool)
+-&gt; (DedicatedTenancySupportResultEnum
+    -&gt; DedicatedTenancySupportResultEnum -&gt; Bool)
+-&gt; Eq DedicatedTenancySupportResultEnum
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Bool
+$c/= :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Bool
+== :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Bool
+$c== :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679270863"><span id="local-6989586621679270865"><span id="local-6989586621679270867"><span id="local-6989586621679270869"><span id="local-6989586621679270871"><span id="local-6989586621679270873"><span id="local-6989586621679270875"><span class="annot"><span class="annottext">Eq DedicatedTenancySupportResultEnum
+Eq DedicatedTenancySupportResultEnum
+-&gt; (DedicatedTenancySupportResultEnum
+    -&gt; DedicatedTenancySupportResultEnum -&gt; Ordering)
+-&gt; (DedicatedTenancySupportResultEnum
+    -&gt; DedicatedTenancySupportResultEnum -&gt; Bool)
+-&gt; (DedicatedTenancySupportResultEnum
+    -&gt; DedicatedTenancySupportResultEnum -&gt; Bool)
+-&gt; (DedicatedTenancySupportResultEnum
+    -&gt; DedicatedTenancySupportResultEnum -&gt; Bool)
+-&gt; (DedicatedTenancySupportResultEnum
+    -&gt; DedicatedTenancySupportResultEnum -&gt; Bool)
+-&gt; (DedicatedTenancySupportResultEnum
+    -&gt; DedicatedTenancySupportResultEnum
+    -&gt; DedicatedTenancySupportResultEnum)
+-&gt; (DedicatedTenancySupportResultEnum
+    -&gt; DedicatedTenancySupportResultEnum
+    -&gt; DedicatedTenancySupportResultEnum)
+-&gt; Ord DedicatedTenancySupportResultEnum
+DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Bool
+DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Ordering
+DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum
+$cmin :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum
+max :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum
+$cmax :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum
+&gt;= :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Bool
+$c&gt;= :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Bool
+&gt; :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Bool
+$c&gt; :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Bool
+&lt;= :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Bool
+$c&lt;= :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Bool
+&lt; :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Bool
+$c&lt; :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Bool
+compare :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Ordering
+$ccompare :: DedicatedTenancySupportResultEnum
+-&gt; DedicatedTenancySupportResultEnum -&gt; Ordering
+$cp1Ord :: Eq DedicatedTenancySupportResultEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DedicatedTenancySupportResultEnum
+ -&gt; Rep DedicatedTenancySupportResultEnum x)
+-&gt; (forall x.
+    Rep DedicatedTenancySupportResultEnum x
+    -&gt; DedicatedTenancySupportResultEnum)
+-&gt; Generic DedicatedTenancySupportResultEnum
+forall x.
+Rep DedicatedTenancySupportResultEnum x
+-&gt; DedicatedTenancySupportResultEnum
+forall x.
+DedicatedTenancySupportResultEnum
+-&gt; Rep DedicatedTenancySupportResultEnum x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DedicatedTenancySupportResultEnum x
+-&gt; DedicatedTenancySupportResultEnum
+$cfrom :: forall x.
+DedicatedTenancySupportResultEnum
+-&gt; Rep DedicatedTenancySupportResultEnum x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270855"><span id="local-6989586621679270857"><span class="annot"><span class="annottext">Int -&gt; DedicatedTenancySupportResultEnum -&gt; Int
+DedicatedTenancySupportResultEnum -&gt; Int
+(Int -&gt; DedicatedTenancySupportResultEnum -&gt; Int)
+-&gt; (DedicatedTenancySupportResultEnum -&gt; Int)
+-&gt; Hashable DedicatedTenancySupportResultEnum
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DedicatedTenancySupportResultEnum -&gt; Int
+$chash :: DedicatedTenancySupportResultEnum -&gt; Int
+hashWithSalt :: Int -&gt; DedicatedTenancySupportResultEnum -&gt; Int
+$chashWithSalt :: Int -&gt; DedicatedTenancySupportResultEnum -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679270852"><span class="annot"><span class="annottext">DedicatedTenancySupportResultEnum -&gt; ()
+(DedicatedTenancySupportResultEnum -&gt; ())
+-&gt; NFData DedicatedTenancySupportResultEnum
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DedicatedTenancySupportResultEnum -&gt; ()
+$crnf :: DedicatedTenancySupportResultEnum -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679270849"><span class="annot"><span class="annottext">Text -&gt; Either String DedicatedTenancySupportResultEnum
+(Text -&gt; Either String DedicatedTenancySupportResultEnum)
+-&gt; FromText DedicatedTenancySupportResultEnum
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DedicatedTenancySupportResultEnum
+$cfromText :: Text -&gt; Either String DedicatedTenancySupportResultEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679270846"><span class="annot"><span class="annottext">DedicatedTenancySupportResultEnum -&gt; Text
+(DedicatedTenancySupportResultEnum -&gt; Text)
+-&gt; ToText DedicatedTenancySupportResultEnum
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DedicatedTenancySupportResultEnum -&gt; Text
+$ctoText :: DedicatedTenancySupportResultEnum -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679270843"><span class="annot"><span class="annottext">DedicatedTenancySupportResultEnum -&gt; ByteString
+(DedicatedTenancySupportResultEnum -&gt; ByteString)
+-&gt; ToByteString DedicatedTenancySupportResultEnum
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DedicatedTenancySupportResultEnum -&gt; ByteString
+$ctoBS :: DedicatedTenancySupportResultEnum -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679270840"><span class="annot"><span class="annottext">DedicatedTenancySupportResultEnum -&gt; ByteStringBuilder
+(DedicatedTenancySupportResultEnum -&gt; ByteStringBuilder)
+-&gt; ToLog DedicatedTenancySupportResultEnum
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DedicatedTenancySupportResultEnum -&gt; ByteStringBuilder
+$cbuild :: DedicatedTenancySupportResultEnum -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679270837"><span class="annot"><span class="annottext">HeaderName -&gt; DedicatedTenancySupportResultEnum -&gt; [Header]
+(HeaderName -&gt; DedicatedTenancySupportResultEnum -&gt; [Header])
+-&gt; ToHeader DedicatedTenancySupportResultEnum
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DedicatedTenancySupportResultEnum -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DedicatedTenancySupportResultEnum -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679270834"><span class="annot"><span class="annottext">DedicatedTenancySupportResultEnum -&gt; QueryString
+(DedicatedTenancySupportResultEnum -&gt; QueryString)
+-&gt; ToQuery DedicatedTenancySupportResultEnum
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DedicatedTenancySupportResultEnum -&gt; QueryString
+$ctoQuery :: DedicatedTenancySupportResultEnum -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679270829"><span id="local-6989586621679270831"><span class="annot"><span class="annottext">Value -&gt; Parser [DedicatedTenancySupportResultEnum]
+Value -&gt; Parser DedicatedTenancySupportResultEnum
+(Value -&gt; Parser DedicatedTenancySupportResultEnum)
+-&gt; (Value -&gt; Parser [DedicatedTenancySupportResultEnum])
+-&gt; FromJSON DedicatedTenancySupportResultEnum
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DedicatedTenancySupportResultEnum]
+$cparseJSONList :: Value -&gt; Parser [DedicatedTenancySupportResultEnum]
+parseJSON :: Value -&gt; Parser DedicatedTenancySupportResultEnum
+$cparseJSON :: Value -&gt; Parser DedicatedTenancySupportResultEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679270824"><span id="local-6989586621679270826"><span class="annot"><span class="annottext">FromJSONKeyFunction [DedicatedTenancySupportResultEnum]
+FromJSONKeyFunction DedicatedTenancySupportResultEnum
+FromJSONKeyFunction DedicatedTenancySupportResultEnum
+-&gt; FromJSONKeyFunction [DedicatedTenancySupportResultEnum]
+-&gt; FromJSONKey DedicatedTenancySupportResultEnum
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DedicatedTenancySupportResultEnum]
+$cfromJSONKeyList :: FromJSONKeyFunction [DedicatedTenancySupportResultEnum]
+fromJSONKey :: FromJSONKeyFunction DedicatedTenancySupportResultEnum
+$cfromJSONKey :: FromJSONKeyFunction DedicatedTenancySupportResultEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679270815"><span id="local-6989586621679270817"><span id="local-6989586621679270819"><span id="local-6989586621679270821"><span class="annot"><span class="annottext">[DedicatedTenancySupportResultEnum] -&gt; Encoding
+[DedicatedTenancySupportResultEnum] -&gt; Value
+DedicatedTenancySupportResultEnum -&gt; Encoding
+DedicatedTenancySupportResultEnum -&gt; Value
+(DedicatedTenancySupportResultEnum -&gt; Value)
+-&gt; (DedicatedTenancySupportResultEnum -&gt; Encoding)
+-&gt; ([DedicatedTenancySupportResultEnum] -&gt; Value)
+-&gt; ([DedicatedTenancySupportResultEnum] -&gt; Encoding)
+-&gt; ToJSON DedicatedTenancySupportResultEnum
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DedicatedTenancySupportResultEnum] -&gt; Encoding
+$ctoEncodingList :: [DedicatedTenancySupportResultEnum] -&gt; Encoding
+toJSONList :: [DedicatedTenancySupportResultEnum] -&gt; Value
+$ctoJSONList :: [DedicatedTenancySupportResultEnum] -&gt; Value
+toEncoding :: DedicatedTenancySupportResultEnum -&gt; Encoding
+$ctoEncoding :: DedicatedTenancySupportResultEnum -&gt; Encoding
+toJSON :: DedicatedTenancySupportResultEnum -&gt; Value
+$ctoJSON :: DedicatedTenancySupportResultEnum -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679270810"><span id="local-6989586621679270812"><span class="annot"><span class="annottext">ToJSONKeyFunction [DedicatedTenancySupportResultEnum]
+ToJSONKeyFunction DedicatedTenancySupportResultEnum
+ToJSONKeyFunction DedicatedTenancySupportResultEnum
+-&gt; ToJSONKeyFunction [DedicatedTenancySupportResultEnum]
+-&gt; ToJSONKey DedicatedTenancySupportResultEnum
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DedicatedTenancySupportResultEnum]
+$ctoJSONKeyList :: ToJSONKeyFunction [DedicatedTenancySupportResultEnum]
+toJSONKey :: ToJSONKeyFunction DedicatedTenancySupportResultEnum
+$ctoJSONKey :: ToJSONKeyFunction DedicatedTenancySupportResultEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679270807"><span class="annot"><span class="annottext">[Node] -&gt; Either String DedicatedTenancySupportResultEnum
+([Node] -&gt; Either String DedicatedTenancySupportResultEnum)
+-&gt; FromXML DedicatedTenancySupportResultEnum
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DedicatedTenancySupportResultEnum
+$cparseXML :: [Node] -&gt; Either String DedicatedTenancySupportResultEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679270804"><span class="annot"><span class="annottext">DedicatedTenancySupportResultEnum -&gt; XML
+(DedicatedTenancySupportResultEnum -&gt; XML)
+-&gt; ToXML DedicatedTenancySupportResultEnum
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DedicatedTenancySupportResultEnum -&gt; XML
+$ctoXML :: DedicatedTenancySupportResultEnum -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum_DISABLED"><span class="hs-identifier hs-type">DedicatedTenancySupportResultEnum_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum"><span class="hs-identifier hs-type">DedicatedTenancySupportResultEnum</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDedicatedTenancySupportResultEnum_DISABLED"><span id="%24mDedicatedTenancySupportResultEnum_DISABLED"><span id="DedicatedTenancySupportResultEnum_DISABLED"><span class="annot"><span class="annottext">$bDedicatedTenancySupportResultEnum_DISABLED :: DedicatedTenancySupportResultEnum
+$mDedicatedTenancySupportResultEnum_DISABLED :: forall r.
+DedicatedTenancySupportResultEnum
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#%24bDedicatedTenancySupportResultEnum_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">DedicatedTenancySupportResultEnum_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum%27"><span class="hs-identifier hs-type">DedicatedTenancySupportResultEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum_ENABLED"><span class="hs-identifier hs-type">DedicatedTenancySupportResultEnum_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum"><span class="hs-identifier hs-type">DedicatedTenancySupportResultEnum</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDedicatedTenancySupportResultEnum_ENABLED"><span id="%24mDedicatedTenancySupportResultEnum_ENABLED"><span id="DedicatedTenancySupportResultEnum_ENABLED"><span class="annot"><span class="annottext">$bDedicatedTenancySupportResultEnum_ENABLED :: DedicatedTenancySupportResultEnum
+$mDedicatedTenancySupportResultEnum_ENABLED :: forall r.
+DedicatedTenancySupportResultEnum
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#%24bDedicatedTenancySupportResultEnum_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">DedicatedTenancySupportResultEnum_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum%27"><span class="hs-identifier hs-type">DedicatedTenancySupportResultEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum_DISABLED"><span class="hs-pragma hs-type">DedicatedTenancySupportResultEnum_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum_ENABLED"><span class="hs-pragma hs-type">DedicatedTenancySupportResultEnum_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum%27"><span class="hs-pragma hs-type">DedicatedTenancySupportResultEnum'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

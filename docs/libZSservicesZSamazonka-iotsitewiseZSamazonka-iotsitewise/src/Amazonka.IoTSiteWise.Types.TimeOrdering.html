@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTSiteWise.Types.TimeOrdering</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTSiteWise.Types.TimeOrdering</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering"><span class="hs-identifier">TimeOrdering</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering_ASCENDING"><span class="hs-identifier">TimeOrdering_ASCENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering_DESCENDING"><span class="hs-identifier">TimeOrdering_DESCENDING</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679343977"><span id="local-6989586621679343978"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TimeOrdering"><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering"><span class="hs-identifier hs-var">TimeOrdering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeOrdering%27"><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering%27"><span class="hs-identifier hs-var">TimeOrdering'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTimeOrdering"><span class="annot"><span class="annottext">TimeOrdering -&gt; Text
+</span><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#fromTimeOrdering"><span class="hs-identifier hs-var hs-var">fromTimeOrdering</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679343969"><span id="local-6989586621679343971"><span id="local-6989586621679343973"><span class="annot"><span class="annottext">Int -&gt; TimeOrdering -&gt; ShowS
+[TimeOrdering] -&gt; ShowS
+TimeOrdering -&gt; String
+(Int -&gt; TimeOrdering -&gt; ShowS)
+-&gt; (TimeOrdering -&gt; String)
+-&gt; ([TimeOrdering] -&gt; ShowS)
+-&gt; Show TimeOrdering
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TimeOrdering] -&gt; ShowS
+$cshowList :: [TimeOrdering] -&gt; ShowS
+show :: TimeOrdering -&gt; String
+$cshow :: TimeOrdering -&gt; String
+showsPrec :: Int -&gt; TimeOrdering -&gt; ShowS
+$cshowsPrec :: Int -&gt; TimeOrdering -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679343960"><span id="local-6989586621679343962"><span id="local-6989586621679343964"><span id="local-6989586621679343966"><span class="annot"><span class="annottext">ReadPrec [TimeOrdering]
+ReadPrec TimeOrdering
+Int -&gt; ReadS TimeOrdering
+ReadS [TimeOrdering]
+(Int -&gt; ReadS TimeOrdering)
+-&gt; ReadS [TimeOrdering]
+-&gt; ReadPrec TimeOrdering
+-&gt; ReadPrec [TimeOrdering]
+-&gt; Read TimeOrdering
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TimeOrdering]
+$creadListPrec :: ReadPrec [TimeOrdering]
+readPrec :: ReadPrec TimeOrdering
+$creadPrec :: ReadPrec TimeOrdering
+readList :: ReadS [TimeOrdering]
+$creadList :: ReadS [TimeOrdering]
+readsPrec :: Int -&gt; ReadS TimeOrdering
+$creadsPrec :: Int -&gt; ReadS TimeOrdering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679343955"><span id="local-6989586621679343957"><span class="annot"><span class="annottext">TimeOrdering -&gt; TimeOrdering -&gt; Bool
+(TimeOrdering -&gt; TimeOrdering -&gt; Bool)
+-&gt; (TimeOrdering -&gt; TimeOrdering -&gt; Bool) -&gt; Eq TimeOrdering
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TimeOrdering -&gt; TimeOrdering -&gt; Bool
+$c/= :: TimeOrdering -&gt; TimeOrdering -&gt; Bool
+== :: TimeOrdering -&gt; TimeOrdering -&gt; Bool
+$c== :: TimeOrdering -&gt; TimeOrdering -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679343939"><span id="local-6989586621679343941"><span id="local-6989586621679343943"><span id="local-6989586621679343945"><span id="local-6989586621679343947"><span id="local-6989586621679343949"><span id="local-6989586621679343951"><span class="annot"><span class="annottext">Eq TimeOrdering
+Eq TimeOrdering
+-&gt; (TimeOrdering -&gt; TimeOrdering -&gt; Ordering)
+-&gt; (TimeOrdering -&gt; TimeOrdering -&gt; Bool)
+-&gt; (TimeOrdering -&gt; TimeOrdering -&gt; Bool)
+-&gt; (TimeOrdering -&gt; TimeOrdering -&gt; Bool)
+-&gt; (TimeOrdering -&gt; TimeOrdering -&gt; Bool)
+-&gt; (TimeOrdering -&gt; TimeOrdering -&gt; TimeOrdering)
+-&gt; (TimeOrdering -&gt; TimeOrdering -&gt; TimeOrdering)
+-&gt; Ord TimeOrdering
+TimeOrdering -&gt; TimeOrdering -&gt; Bool
+TimeOrdering -&gt; TimeOrdering -&gt; Ordering
+TimeOrdering -&gt; TimeOrdering -&gt; TimeOrdering
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TimeOrdering -&gt; TimeOrdering -&gt; TimeOrdering
+$cmin :: TimeOrdering -&gt; TimeOrdering -&gt; TimeOrdering
+max :: TimeOrdering -&gt; TimeOrdering -&gt; TimeOrdering
+$cmax :: TimeOrdering -&gt; TimeOrdering -&gt; TimeOrdering
+&gt;= :: TimeOrdering -&gt; TimeOrdering -&gt; Bool
+$c&gt;= :: TimeOrdering -&gt; TimeOrdering -&gt; Bool
+&gt; :: TimeOrdering -&gt; TimeOrdering -&gt; Bool
+$c&gt; :: TimeOrdering -&gt; TimeOrdering -&gt; Bool
+&lt;= :: TimeOrdering -&gt; TimeOrdering -&gt; Bool
+$c&lt;= :: TimeOrdering -&gt; TimeOrdering -&gt; Bool
+&lt; :: TimeOrdering -&gt; TimeOrdering -&gt; Bool
+$c&lt; :: TimeOrdering -&gt; TimeOrdering -&gt; Bool
+compare :: TimeOrdering -&gt; TimeOrdering -&gt; Ordering
+$ccompare :: TimeOrdering -&gt; TimeOrdering -&gt; Ordering
+$cp1Ord :: Eq TimeOrdering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TimeOrdering -&gt; Rep TimeOrdering x)
+-&gt; (forall x. Rep TimeOrdering x -&gt; TimeOrdering)
+-&gt; Generic TimeOrdering
+forall x. Rep TimeOrdering x -&gt; TimeOrdering
+forall x. TimeOrdering -&gt; Rep TimeOrdering x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TimeOrdering x -&gt; TimeOrdering
+$cfrom :: forall x. TimeOrdering -&gt; Rep TimeOrdering x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679343931"><span id="local-6989586621679343933"><span class="annot"><span class="annottext">Int -&gt; TimeOrdering -&gt; Int
+TimeOrdering -&gt; Int
+(Int -&gt; TimeOrdering -&gt; Int)
+-&gt; (TimeOrdering -&gt; Int) -&gt; Hashable TimeOrdering
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TimeOrdering -&gt; Int
+$chash :: TimeOrdering -&gt; Int
+hashWithSalt :: Int -&gt; TimeOrdering -&gt; Int
+$chashWithSalt :: Int -&gt; TimeOrdering -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679343928"><span class="annot"><span class="annottext">TimeOrdering -&gt; ()
+(TimeOrdering -&gt; ()) -&gt; NFData TimeOrdering
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TimeOrdering -&gt; ()
+$crnf :: TimeOrdering -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679343925"><span class="annot"><span class="annottext">Text -&gt; Either String TimeOrdering
+(Text -&gt; Either String TimeOrdering) -&gt; FromText TimeOrdering
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TimeOrdering
+$cfromText :: Text -&gt; Either String TimeOrdering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679343922"><span class="annot"><span class="annottext">TimeOrdering -&gt; Text
+(TimeOrdering -&gt; Text) -&gt; ToText TimeOrdering
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TimeOrdering -&gt; Text
+$ctoText :: TimeOrdering -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679343919"><span class="annot"><span class="annottext">TimeOrdering -&gt; ByteString
+(TimeOrdering -&gt; ByteString) -&gt; ToByteString TimeOrdering
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TimeOrdering -&gt; ByteString
+$ctoBS :: TimeOrdering -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679343916"><span class="annot"><span class="annottext">TimeOrdering -&gt; ByteStringBuilder
+(TimeOrdering -&gt; ByteStringBuilder) -&gt; ToLog TimeOrdering
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TimeOrdering -&gt; ByteStringBuilder
+$cbuild :: TimeOrdering -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679343913"><span class="annot"><span class="annottext">HeaderName -&gt; TimeOrdering -&gt; [Header]
+(HeaderName -&gt; TimeOrdering -&gt; [Header]) -&gt; ToHeader TimeOrdering
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TimeOrdering -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TimeOrdering -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679343910"><span class="annot"><span class="annottext">TimeOrdering -&gt; QueryString
+(TimeOrdering -&gt; QueryString) -&gt; ToQuery TimeOrdering
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TimeOrdering -&gt; QueryString
+$ctoQuery :: TimeOrdering -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679343905"><span id="local-6989586621679343907"><span class="annot"><span class="annottext">Value -&gt; Parser [TimeOrdering]
+Value -&gt; Parser TimeOrdering
+(Value -&gt; Parser TimeOrdering)
+-&gt; (Value -&gt; Parser [TimeOrdering]) -&gt; FromJSON TimeOrdering
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TimeOrdering]
+$cparseJSONList :: Value -&gt; Parser [TimeOrdering]
+parseJSON :: Value -&gt; Parser TimeOrdering
+$cparseJSON :: Value -&gt; Parser TimeOrdering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679343900"><span id="local-6989586621679343902"><span class="annot"><span class="annottext">FromJSONKeyFunction [TimeOrdering]
+FromJSONKeyFunction TimeOrdering
+FromJSONKeyFunction TimeOrdering
+-&gt; FromJSONKeyFunction [TimeOrdering] -&gt; FromJSONKey TimeOrdering
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TimeOrdering]
+$cfromJSONKeyList :: FromJSONKeyFunction [TimeOrdering]
+fromJSONKey :: FromJSONKeyFunction TimeOrdering
+$cfromJSONKey :: FromJSONKeyFunction TimeOrdering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679343891"><span id="local-6989586621679343893"><span id="local-6989586621679343895"><span id="local-6989586621679343897"><span class="annot"><span class="annottext">[TimeOrdering] -&gt; Encoding
+[TimeOrdering] -&gt; Value
+TimeOrdering -&gt; Encoding
+TimeOrdering -&gt; Value
+(TimeOrdering -&gt; Value)
+-&gt; (TimeOrdering -&gt; Encoding)
+-&gt; ([TimeOrdering] -&gt; Value)
+-&gt; ([TimeOrdering] -&gt; Encoding)
+-&gt; ToJSON TimeOrdering
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TimeOrdering] -&gt; Encoding
+$ctoEncodingList :: [TimeOrdering] -&gt; Encoding
+toJSONList :: [TimeOrdering] -&gt; Value
+$ctoJSONList :: [TimeOrdering] -&gt; Value
+toEncoding :: TimeOrdering -&gt; Encoding
+$ctoEncoding :: TimeOrdering -&gt; Encoding
+toJSON :: TimeOrdering -&gt; Value
+$ctoJSON :: TimeOrdering -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679343886"><span id="local-6989586621679343888"><span class="annot"><span class="annottext">ToJSONKeyFunction [TimeOrdering]
+ToJSONKeyFunction TimeOrdering
+ToJSONKeyFunction TimeOrdering
+-&gt; ToJSONKeyFunction [TimeOrdering] -&gt; ToJSONKey TimeOrdering
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TimeOrdering]
+$ctoJSONKeyList :: ToJSONKeyFunction [TimeOrdering]
+toJSONKey :: ToJSONKeyFunction TimeOrdering
+$ctoJSONKey :: ToJSONKeyFunction TimeOrdering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679343883"><span class="annot"><span class="annottext">[Node] -&gt; Either String TimeOrdering
+([Node] -&gt; Either String TimeOrdering) -&gt; FromXML TimeOrdering
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TimeOrdering
+$cparseXML :: [Node] -&gt; Either String TimeOrdering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679343880"><span class="annot"><span class="annottext">TimeOrdering -&gt; XML
+(TimeOrdering -&gt; XML) -&gt; ToXML TimeOrdering
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TimeOrdering -&gt; XML
+$ctoXML :: TimeOrdering -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering_ASCENDING"><span class="hs-identifier hs-type">TimeOrdering_ASCENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering"><span class="hs-identifier hs-type">TimeOrdering</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTimeOrdering_ASCENDING"><span id="%24mTimeOrdering_ASCENDING"><span id="TimeOrdering_ASCENDING"><span class="annot"><span class="annottext">$bTimeOrdering_ASCENDING :: TimeOrdering
+$mTimeOrdering_ASCENDING :: forall r. TimeOrdering -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#%24bTimeOrdering_ASCENDING"><span class="hs-identifier hs-var hs-var hs-var">TimeOrdering_ASCENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering%27"><span class="hs-identifier hs-type">TimeOrdering'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASCENDING&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering_DESCENDING"><span class="hs-identifier hs-type">TimeOrdering_DESCENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering"><span class="hs-identifier hs-type">TimeOrdering</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTimeOrdering_DESCENDING"><span id="%24mTimeOrdering_DESCENDING"><span id="TimeOrdering_DESCENDING"><span class="annot"><span class="annottext">$bTimeOrdering_DESCENDING :: TimeOrdering
+$mTimeOrdering_DESCENDING :: forall r. TimeOrdering -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#%24bTimeOrdering_DESCENDING"><span class="hs-identifier hs-var hs-var hs-var">TimeOrdering_DESCENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering%27"><span class="hs-identifier hs-type">TimeOrdering'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DESCENDING&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering_ASCENDING"><span class="hs-pragma hs-type">TimeOrdering_ASCENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering_DESCENDING"><span class="hs-pragma hs-type">TimeOrdering_DESCENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering%27"><span class="hs-pragma hs-type">TimeOrdering'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

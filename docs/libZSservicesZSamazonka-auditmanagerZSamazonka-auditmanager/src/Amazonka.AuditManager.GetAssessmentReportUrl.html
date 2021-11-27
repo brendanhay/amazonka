@@ -1,0 +1,473 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AuditManager.GetAssessmentReportUrl</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the URL of a specified assessment report in Audit Manager.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AuditManager.GetAssessmentReportUrl</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl"><span class="hs-identifier">GetAssessmentReportUrl</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#newGetAssessmentReportUrl"><span class="hs-identifier">newGetAssessmentReportUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#getAssessmentReportUrl_assessmentReportId"><span class="hs-identifier">getAssessmentReportUrl_assessmentReportId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#getAssessmentReportUrl_assessmentId"><span class="hs-identifier">getAssessmentReportUrl_assessmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse"><span class="hs-identifier">GetAssessmentReportUrlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#newGetAssessmentReportUrlResponse"><span class="hs-identifier">newGetAssessmentReportUrlResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#getAssessmentReportUrlResponse_preSignedUrl"><span class="hs-identifier">getAssessmentReportUrlResponse_preSignedUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#getAssessmentReportUrlResponse_httpStatus"><span class="hs-identifier">getAssessmentReportUrlResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.html"><span class="hs-identifier">Amazonka.AuditManager.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetAssessmentReportUrl' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679303172"><span id="local-6989586621679303173"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAssessmentReportUrl"><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl"><span class="hs-identifier hs-var">GetAssessmentReportUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAssessmentReportUrl%27"><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl%27"><span class="hs-identifier hs-var">GetAssessmentReportUrl'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the assessment report.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AassessmentReportId%3AGetAssessmentReportUrl%27"><span class="annot"><span class="annottext">GetAssessmentReportUrl -&gt; Text
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#%24sel%3AassessmentReportId%3AGetAssessmentReportUrl%27"><span class="hs-identifier hs-var hs-var">assessmentReportId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The identifier for the specified assessment.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AassessmentId%3AGetAssessmentReportUrl%27"><span class="annot"><span class="annottext">GetAssessmentReportUrl -&gt; Text
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#%24sel%3AassessmentId%3AGetAssessmentReportUrl%27"><span class="hs-identifier hs-var hs-var">assessmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303165"><span id="local-6989586621679303167"><span class="annot"><span class="annottext">GetAssessmentReportUrl -&gt; GetAssessmentReportUrl -&gt; Bool
+(GetAssessmentReportUrl -&gt; GetAssessmentReportUrl -&gt; Bool)
+-&gt; (GetAssessmentReportUrl -&gt; GetAssessmentReportUrl -&gt; Bool)
+-&gt; Eq GetAssessmentReportUrl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAssessmentReportUrl -&gt; GetAssessmentReportUrl -&gt; Bool
+$c/= :: GetAssessmentReportUrl -&gt; GetAssessmentReportUrl -&gt; Bool
+== :: GetAssessmentReportUrl -&gt; GetAssessmentReportUrl -&gt; Bool
+$c== :: GetAssessmentReportUrl -&gt; GetAssessmentReportUrl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303156"><span id="local-6989586621679303158"><span id="local-6989586621679303160"><span id="local-6989586621679303162"><span class="annot"><span class="annottext">ReadPrec [GetAssessmentReportUrl]
+ReadPrec GetAssessmentReportUrl
+Int -&gt; ReadS GetAssessmentReportUrl
+ReadS [GetAssessmentReportUrl]
+(Int -&gt; ReadS GetAssessmentReportUrl)
+-&gt; ReadS [GetAssessmentReportUrl]
+-&gt; ReadPrec GetAssessmentReportUrl
+-&gt; ReadPrec [GetAssessmentReportUrl]
+-&gt; Read GetAssessmentReportUrl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetAssessmentReportUrl]
+$creadListPrec :: ReadPrec [GetAssessmentReportUrl]
+readPrec :: ReadPrec GetAssessmentReportUrl
+$creadPrec :: ReadPrec GetAssessmentReportUrl
+readList :: ReadS [GetAssessmentReportUrl]
+$creadList :: ReadS [GetAssessmentReportUrl]
+readsPrec :: Int -&gt; ReadS GetAssessmentReportUrl
+$creadsPrec :: Int -&gt; ReadS GetAssessmentReportUrl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303149"><span id="local-6989586621679303151"><span id="local-6989586621679303153"><span class="annot"><span class="annottext">Int -&gt; GetAssessmentReportUrl -&gt; ShowS
+[GetAssessmentReportUrl] -&gt; ShowS
+GetAssessmentReportUrl -&gt; String
+(Int -&gt; GetAssessmentReportUrl -&gt; ShowS)
+-&gt; (GetAssessmentReportUrl -&gt; String)
+-&gt; ([GetAssessmentReportUrl] -&gt; ShowS)
+-&gt; Show GetAssessmentReportUrl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAssessmentReportUrl] -&gt; ShowS
+$cshowList :: [GetAssessmentReportUrl] -&gt; ShowS
+show :: GetAssessmentReportUrl -&gt; String
+$cshow :: GetAssessmentReportUrl -&gt; String
+showsPrec :: Int -&gt; GetAssessmentReportUrl -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAssessmentReportUrl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetAssessmentReportUrl -&gt; Rep GetAssessmentReportUrl x)
+-&gt; (forall x.
+    Rep GetAssessmentReportUrl x -&gt; GetAssessmentReportUrl)
+-&gt; Generic GetAssessmentReportUrl
+forall x. Rep GetAssessmentReportUrl x -&gt; GetAssessmentReportUrl
+forall x. GetAssessmentReportUrl -&gt; Rep GetAssessmentReportUrl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetAssessmentReportUrl x -&gt; GetAssessmentReportUrl
+$cfrom :: forall x. GetAssessmentReportUrl -&gt; Rep GetAssessmentReportUrl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'GetAssessmentReportUrl' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'assessmentReportId', 'getAssessmentReportUrl_assessmentReportId' - The identifier for the assessment report.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'assessmentId', 'getAssessmentReportUrl_assessmentId' - The identifier for the specified assessment.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#newGetAssessmentReportUrl"><span class="hs-identifier hs-type">newGetAssessmentReportUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'assessmentReportId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'assessmentId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl"><span class="hs-identifier hs-type">GetAssessmentReportUrl</span></a></span><span>
+</span><span id="line-76"></span><span id="newGetAssessmentReportUrl"><span class="annot"><span class="annottext">newGetAssessmentReportUrl :: Text -&gt; Text -&gt; GetAssessmentReportUrl
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#newGetAssessmentReportUrl"><span class="hs-identifier hs-var hs-var">newGetAssessmentReportUrl</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679303144"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303144"><span class="hs-identifier hs-var">pAssessmentReportId_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679303143"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303143"><span class="hs-identifier hs-var">pAssessmentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">GetAssessmentReportUrl' :: Text -&gt; Text -&gt; GetAssessmentReportUrl
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl%27"><span class="hs-identifier hs-type">GetAssessmentReportUrl'</span></a></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:assessmentReportId:GetAssessmentReportUrl' :: Text
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#%24sel%3AassessmentReportId%3AGetAssessmentReportUrl%27"><span class="hs-identifier hs-var">assessmentReportId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303144"><span class="hs-identifier hs-var">pAssessmentReportId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:assessmentId:GetAssessmentReportUrl' :: Text
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#%24sel%3AassessmentId%3AGetAssessmentReportUrl%27"><span class="hs-identifier hs-var">assessmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303143"><span class="hs-identifier hs-var">pAssessmentId_</span></a></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The identifier for the assessment report.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#getAssessmentReportUrl_assessmentReportId"><span class="hs-identifier hs-type">getAssessmentReportUrl_assessmentReportId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl"><span class="hs-identifier hs-type">GetAssessmentReportUrl</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="getAssessmentReportUrl_assessmentReportId"><span class="annot"><span class="annottext">getAssessmentReportUrl_assessmentReportId :: (Text -&gt; f Text)
+-&gt; GetAssessmentReportUrl -&gt; f GetAssessmentReportUrl
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#getAssessmentReportUrl_assessmentReportId"><span class="hs-identifier hs-var hs-var">getAssessmentReportUrl_assessmentReportId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssessmentReportUrl -&gt; Text)
+-&gt; (GetAssessmentReportUrl -&gt; Text -&gt; GetAssessmentReportUrl)
+-&gt; Lens GetAssessmentReportUrl GetAssessmentReportUrl Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl%27"><span class="hs-identifier hs-type">GetAssessmentReportUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303140"><span class="annot"><span class="annottext">Text
+assessmentReportId :: Text
+$sel:assessmentReportId:GetAssessmentReportUrl' :: GetAssessmentReportUrl -&gt; Text
+</span><a href="#local-6989586621679303140"><span class="hs-identifier hs-var hs-var">assessmentReportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303140"><span class="hs-identifier hs-var">assessmentReportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303139"><span class="annot"><span class="annottext">s :: GetAssessmentReportUrl
+</span><a href="#local-6989586621679303139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl%27"><span class="hs-identifier hs-type">GetAssessmentReportUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303138"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssessmentReportUrl
+</span><a href="#local-6989586621679303139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentReportId:GetAssessmentReportUrl' :: Text
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#%24sel%3AassessmentReportId%3AGetAssessmentReportUrl%27"><span class="hs-identifier hs-var">assessmentReportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl"><span class="hs-identifier hs-type">GetAssessmentReportUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The identifier for the specified assessment.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#getAssessmentReportUrl_assessmentId"><span class="hs-identifier hs-type">getAssessmentReportUrl_assessmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl"><span class="hs-identifier hs-type">GetAssessmentReportUrl</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="getAssessmentReportUrl_assessmentId"><span class="annot"><span class="annottext">getAssessmentReportUrl_assessmentId :: (Text -&gt; f Text)
+-&gt; GetAssessmentReportUrl -&gt; f GetAssessmentReportUrl
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#getAssessmentReportUrl_assessmentId"><span class="hs-identifier hs-var hs-var">getAssessmentReportUrl_assessmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssessmentReportUrl -&gt; Text)
+-&gt; (GetAssessmentReportUrl -&gt; Text -&gt; GetAssessmentReportUrl)
+-&gt; Lens GetAssessmentReportUrl GetAssessmentReportUrl Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl%27"><span class="hs-identifier hs-type">GetAssessmentReportUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303137"><span class="annot"><span class="annottext">Text
+assessmentId :: Text
+$sel:assessmentId:GetAssessmentReportUrl' :: GetAssessmentReportUrl -&gt; Text
+</span><a href="#local-6989586621679303137"><span class="hs-identifier hs-var hs-var">assessmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303137"><span class="hs-identifier hs-var">assessmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303136"><span class="annot"><span class="annottext">s :: GetAssessmentReportUrl
+</span><a href="#local-6989586621679303136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl%27"><span class="hs-identifier hs-type">GetAssessmentReportUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303135"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssessmentReportUrl
+</span><a href="#local-6989586621679303136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentId:GetAssessmentReportUrl' :: Text
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#%24sel%3AassessmentId%3AGetAssessmentReportUrl%27"><span class="hs-identifier hs-var">assessmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl"><span class="hs-identifier hs-type">GetAssessmentReportUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl"><span class="hs-identifier hs-type">GetAssessmentReportUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl"><span class="hs-identifier hs-type">GetAssessmentReportUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse"><span class="hs-identifier hs-type">GetAssessmentReportUrlResponse</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679303131"><span class="annot"><span class="annottext">request :: GetAssessmentReportUrl -&gt; Request GetAssessmentReportUrl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetAssessmentReportUrl -&gt; Request GetAssessmentReportUrl
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679303127"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetAssessmentReportUrl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetAssessmentReportUrl)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetAssessmentReportUrl))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetAssessmentReportUrl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetAssessmentReportUrl)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303124"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303124"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679303123"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679303123"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679303122"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303122"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe URL -&gt; Int -&gt; GetAssessmentReportUrlResponse
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse%27"><span class="hs-identifier hs-var">GetAssessmentReportUrlResponse'</span></a></span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe URL -&gt; Int -&gt; GetAssessmentReportUrlResponse)
+-&gt; Either String (Maybe URL)
+-&gt; Either String (Int -&gt; GetAssessmentReportUrlResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe URL)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;preSignedUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetAssessmentReportUrlResponse)
+-&gt; Either String Int
+-&gt; Either String GetAssessmentReportUrlResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303124"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303114"><span id="local-6989586621679303116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl"><span class="hs-identifier hs-type">GetAssessmentReportUrl</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl"><span class="hs-identifier hs-type">GetAssessmentReportUrl</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl"><span class="hs-identifier hs-type">GetAssessmentReportUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679303107"><span class="annot"><span class="annottext">toHeaders :: GetAssessmentReportUrl -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetAssessmentReportUrl -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl"><span class="hs-identifier hs-type">GetAssessmentReportUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679303101"><span class="annot"><span class="annottext">toPath :: GetAssessmentReportUrl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl%27"><span class="hs-identifier hs-type">GetAssessmentReportUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303098"><span id="local-6989586621679303099"><span class="annot"><span class="annottext">Text
+assessmentId :: Text
+assessmentReportId :: Text
+$sel:assessmentId:GetAssessmentReportUrl' :: GetAssessmentReportUrl -&gt; Text
+$sel:assessmentReportId:GetAssessmentReportUrl' :: GetAssessmentReportUrl -&gt; Text
+</span><a href="#local-6989586621679303098"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/assessments/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303098"><span class="hs-identifier hs-var">assessmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/reports/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303099"><span class="hs-identifier hs-var">assessmentReportId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/url&quot;</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrl"><span class="hs-identifier hs-type">GetAssessmentReportUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679303094"><span class="annot"><span class="annottext">toQuery :: GetAssessmentReportUrl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetAssessmentReportUrl -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newGetAssessmentReportUrlResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621679303091"><span id="local-6989586621679303092"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAssessmentReportUrlResponse"><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse"><span class="hs-identifier hs-var">GetAssessmentReportUrlResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAssessmentReportUrlResponse%27"><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse%27"><span class="hs-identifier hs-var">GetAssessmentReportUrlResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ApreSignedUrl%3AGetAssessmentReportUrlResponse%27"><span class="annot"><span class="annottext">GetAssessmentReportUrlResponse -&gt; Maybe URL
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#%24sel%3ApreSignedUrl%3AGetAssessmentReportUrlResponse%27"><span class="hs-identifier hs-var hs-var">preSignedUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.URL.html#URL"><span class="hs-identifier hs-type">URL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAssessmentReportUrlResponse%27"><span class="annot"><span class="annottext">GetAssessmentReportUrlResponse -&gt; Int
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#%24sel%3AhttpStatus%3AGetAssessmentReportUrlResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303085"><span id="local-6989586621679303087"><span class="annot"><span class="annottext">GetAssessmentReportUrlResponse
+-&gt; GetAssessmentReportUrlResponse -&gt; Bool
+(GetAssessmentReportUrlResponse
+ -&gt; GetAssessmentReportUrlResponse -&gt; Bool)
+-&gt; (GetAssessmentReportUrlResponse
+    -&gt; GetAssessmentReportUrlResponse -&gt; Bool)
+-&gt; Eq GetAssessmentReportUrlResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAssessmentReportUrlResponse
+-&gt; GetAssessmentReportUrlResponse -&gt; Bool
+$c/= :: GetAssessmentReportUrlResponse
+-&gt; GetAssessmentReportUrlResponse -&gt; Bool
+== :: GetAssessmentReportUrlResponse
+-&gt; GetAssessmentReportUrlResponse -&gt; Bool
+$c== :: GetAssessmentReportUrlResponse
+-&gt; GetAssessmentReportUrlResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303077"><span id="local-6989586621679303079"><span id="local-6989586621679303081"><span id="local-6989586621679303083"><span class="annot"><span class="annottext">ReadPrec [GetAssessmentReportUrlResponse]
+ReadPrec GetAssessmentReportUrlResponse
+Int -&gt; ReadS GetAssessmentReportUrlResponse
+ReadS [GetAssessmentReportUrlResponse]
+(Int -&gt; ReadS GetAssessmentReportUrlResponse)
+-&gt; ReadS [GetAssessmentReportUrlResponse]
+-&gt; ReadPrec GetAssessmentReportUrlResponse
+-&gt; ReadPrec [GetAssessmentReportUrlResponse]
+-&gt; Read GetAssessmentReportUrlResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetAssessmentReportUrlResponse]
+$creadListPrec :: ReadPrec [GetAssessmentReportUrlResponse]
+readPrec :: ReadPrec GetAssessmentReportUrlResponse
+$creadPrec :: ReadPrec GetAssessmentReportUrlResponse
+readList :: ReadS [GetAssessmentReportUrlResponse]
+$creadList :: ReadS [GetAssessmentReportUrlResponse]
+readsPrec :: Int -&gt; ReadS GetAssessmentReportUrlResponse
+$creadsPrec :: Int -&gt; ReadS GetAssessmentReportUrlResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303071"><span id="local-6989586621679303073"><span id="local-6989586621679303075"><span class="annot"><span class="annottext">Int -&gt; GetAssessmentReportUrlResponse -&gt; ShowS
+[GetAssessmentReportUrlResponse] -&gt; ShowS
+GetAssessmentReportUrlResponse -&gt; String
+(Int -&gt; GetAssessmentReportUrlResponse -&gt; ShowS)
+-&gt; (GetAssessmentReportUrlResponse -&gt; String)
+-&gt; ([GetAssessmentReportUrlResponse] -&gt; ShowS)
+-&gt; Show GetAssessmentReportUrlResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAssessmentReportUrlResponse] -&gt; ShowS
+$cshowList :: [GetAssessmentReportUrlResponse] -&gt; ShowS
+show :: GetAssessmentReportUrlResponse -&gt; String
+$cshow :: GetAssessmentReportUrlResponse -&gt; String
+showsPrec :: Int -&gt; GetAssessmentReportUrlResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAssessmentReportUrlResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetAssessmentReportUrlResponse
+ -&gt; Rep GetAssessmentReportUrlResponse x)
+-&gt; (forall x.
+    Rep GetAssessmentReportUrlResponse x
+    -&gt; GetAssessmentReportUrlResponse)
+-&gt; Generic GetAssessmentReportUrlResponse
+forall x.
+Rep GetAssessmentReportUrlResponse x
+-&gt; GetAssessmentReportUrlResponse
+forall x.
+GetAssessmentReportUrlResponse
+-&gt; Rep GetAssessmentReportUrlResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetAssessmentReportUrlResponse x
+-&gt; GetAssessmentReportUrlResponse
+$cfrom :: forall x.
+GetAssessmentReportUrlResponse
+-&gt; Rep GetAssessmentReportUrlResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'GetAssessmentReportUrlResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'preSignedUrl', 'getAssessmentReportUrlResponse_preSignedUrl' - Undocumented member.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'getAssessmentReportUrlResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#newGetAssessmentReportUrlResponse"><span class="hs-identifier hs-type">newGetAssessmentReportUrlResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse"><span class="hs-identifier hs-type">GetAssessmentReportUrlResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newGetAssessmentReportUrlResponse"><span class="annot"><span class="annottext">newGetAssessmentReportUrlResponse :: Int -&gt; GetAssessmentReportUrlResponse
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#newGetAssessmentReportUrlResponse"><span class="hs-identifier hs-var hs-var">newGetAssessmentReportUrlResponse</span></a></span></span><span> </span><span id="local-6989586621679303068"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303068"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">GetAssessmentReportUrlResponse' :: Maybe URL -&gt; Int -&gt; GetAssessmentReportUrlResponse
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse%27"><span class="hs-identifier hs-type">GetAssessmentReportUrlResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:preSignedUrl:GetAssessmentReportUrlResponse' :: Maybe URL
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#%24sel%3ApreSignedUrl%3AGetAssessmentReportUrlResponse%27"><span class="hs-identifier hs-var">preSignedUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Maybe URL
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAssessmentReportUrlResponse' :: Int
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#%24sel%3AhttpStatus%3AGetAssessmentReportUrlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303068"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#getAssessmentReportUrlResponse_preSignedUrl"><span class="hs-identifier hs-type">getAssessmentReportUrlResponse_preSignedUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse"><span class="hs-identifier hs-type">GetAssessmentReportUrlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.URL.html#URL"><span class="hs-identifier hs-type">URL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="getAssessmentReportUrlResponse_preSignedUrl"><span class="annot"><span class="annottext">getAssessmentReportUrlResponse_preSignedUrl :: (Maybe URL -&gt; f (Maybe URL))
+-&gt; GetAssessmentReportUrlResponse
+-&gt; f GetAssessmentReportUrlResponse
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#getAssessmentReportUrlResponse_preSignedUrl"><span class="hs-identifier hs-var hs-var">getAssessmentReportUrlResponse_preSignedUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssessmentReportUrlResponse -&gt; Maybe URL)
+-&gt; (GetAssessmentReportUrlResponse
+    -&gt; Maybe URL -&gt; GetAssessmentReportUrlResponse)
+-&gt; Lens
+     GetAssessmentReportUrlResponse
+     GetAssessmentReportUrlResponse
+     (Maybe URL)
+     (Maybe URL)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse%27"><span class="hs-identifier hs-type">GetAssessmentReportUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303067"><span class="annot"><span class="annottext">Maybe URL
+preSignedUrl :: Maybe URL
+$sel:preSignedUrl:GetAssessmentReportUrlResponse' :: GetAssessmentReportUrlResponse -&gt; Maybe URL
+</span><a href="#local-6989586621679303067"><span class="hs-identifier hs-var hs-var">preSignedUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe URL
+</span><a href="#local-6989586621679303067"><span class="hs-identifier hs-var">preSignedUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303066"><span class="annot"><span class="annottext">s :: GetAssessmentReportUrlResponse
+</span><a href="#local-6989586621679303066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse%27"><span class="hs-identifier hs-type">GetAssessmentReportUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303065"><span class="annot"><span class="annottext">Maybe URL
+</span><a href="#local-6989586621679303065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssessmentReportUrlResponse
+</span><a href="#local-6989586621679303066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preSignedUrl:GetAssessmentReportUrlResponse' :: Maybe URL
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#%24sel%3ApreSignedUrl%3AGetAssessmentReportUrlResponse%27"><span class="hs-identifier hs-var">preSignedUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe URL
+</span><a href="#local-6989586621679303065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse"><span class="hs-identifier hs-type">GetAssessmentReportUrlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#getAssessmentReportUrlResponse_httpStatus"><span class="hs-identifier hs-type">getAssessmentReportUrlResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse"><span class="hs-identifier hs-type">GetAssessmentReportUrlResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="getAssessmentReportUrlResponse_httpStatus"><span class="annot"><span class="annottext">getAssessmentReportUrlResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetAssessmentReportUrlResponse
+-&gt; f GetAssessmentReportUrlResponse
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#getAssessmentReportUrlResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getAssessmentReportUrlResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssessmentReportUrlResponse -&gt; Int)
+-&gt; (GetAssessmentReportUrlResponse
+    -&gt; Int -&gt; GetAssessmentReportUrlResponse)
+-&gt; Lens
+     GetAssessmentReportUrlResponse
+     GetAssessmentReportUrlResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse%27"><span class="hs-identifier hs-type">GetAssessmentReportUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303064"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetAssessmentReportUrlResponse' :: GetAssessmentReportUrlResponse -&gt; Int
+</span><a href="#local-6989586621679303064"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303064"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303063"><span class="annot"><span class="annottext">s :: GetAssessmentReportUrlResponse
+</span><a href="#local-6989586621679303063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse%27"><span class="hs-identifier hs-type">GetAssessmentReportUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303062"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssessmentReportUrlResponse
+</span><a href="#local-6989586621679303063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAssessmentReportUrlResponse' :: Int
+</span><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#%24sel%3AhttpStatus%3AGetAssessmentReportUrlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse"><span class="hs-identifier hs-type">GetAssessmentReportUrlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679303060"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetAssessmentReportUrl.html#GetAssessmentReportUrlResponse"><span class="hs-identifier hs-type">GetAssessmentReportUrlResponse</span></a></span></span><span>
+</span><span id="line-175"></span></pre></body></html>

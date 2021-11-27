@@ -1,0 +1,409 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.KMS.DisableKeyRotation</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disables</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html automatic rotation of the key material&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- for the specified symmetric KMS key.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- You cannot enable automatic rotation of</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks asymmetric KMS keys&gt;,</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- KMS keys with</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html imported key material&gt;,</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- or KMS keys in a</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store&gt;.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- To enable or disable automatic rotation of a set of related</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-replica-key multi-Region keys&gt;,</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- set the property on the primary key.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- The KMS key that you use for this operation must be in a compatible key</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- state. For details, see</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key&gt;</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- __Cross-account use__: No. You cannot perform this operation on a KMS</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- key in a different Amazon Web Services account.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- __Required permissions__:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:DisableKeyRotation&gt;</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- (key policy)</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- __Related operations:__</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- -   EnableKeyRotation</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- -   GetKeyRotationStatus</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KMS.DisableKeyRotation</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation"><span class="hs-identifier">DisableKeyRotation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#newDisableKeyRotation"><span class="hs-identifier">newDisableKeyRotation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#disableKeyRotation_keyId"><span class="hs-identifier">disableKeyRotation_keyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotationResponse"><span class="hs-identifier">DisableKeyRotationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#newDisableKeyRotationResponse"><span class="hs-identifier">newDisableKeyRotationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.html"><span class="hs-identifier">Amazonka.KMS.Types</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | /See:/ 'newDisableKeyRotation' smart constructor.</span><span>
+</span><span id="line-76"></span><span id="local-6989586621679257750"><span id="local-6989586621679257751"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableKeyRotation"><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation"><span class="hs-identifier hs-var">DisableKeyRotation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableKeyRotation%27"><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation%27"><span class="hs-identifier hs-var">DisableKeyRotation'</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies a symmetric KMS key. You cannot enable or disable automatic</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- rotation of</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks asymmetric KMS keys&gt;,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- KMS keys with</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html imported key material&gt;,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- or KMS keys in a</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store&gt;.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- Specify the key ID or key ARN of the KMS key.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   Key ARN:</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- To get the key ID and key ARN for a KMS key, use ListKeys or</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- DescribeKey.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AkeyId%3ADisableKeyRotation%27"><span class="annot"><span class="annottext">DisableKeyRotation -&gt; Text
+</span><a href="Amazonka.KMS.DisableKeyRotation.html#%24sel%3AkeyId%3ADisableKeyRotation%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257744"><span id="local-6989586621679257746"><span class="annot"><span class="annottext">DisableKeyRotation -&gt; DisableKeyRotation -&gt; Bool
+(DisableKeyRotation -&gt; DisableKeyRotation -&gt; Bool)
+-&gt; (DisableKeyRotation -&gt; DisableKeyRotation -&gt; Bool)
+-&gt; Eq DisableKeyRotation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisableKeyRotation -&gt; DisableKeyRotation -&gt; Bool
+$c/= :: DisableKeyRotation -&gt; DisableKeyRotation -&gt; Bool
+== :: DisableKeyRotation -&gt; DisableKeyRotation -&gt; Bool
+$c== :: DisableKeyRotation -&gt; DisableKeyRotation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257735"><span id="local-6989586621679257737"><span id="local-6989586621679257739"><span id="local-6989586621679257741"><span class="annot"><span class="annottext">ReadPrec [DisableKeyRotation]
+ReadPrec DisableKeyRotation
+Int -&gt; ReadS DisableKeyRotation
+ReadS [DisableKeyRotation]
+(Int -&gt; ReadS DisableKeyRotation)
+-&gt; ReadS [DisableKeyRotation]
+-&gt; ReadPrec DisableKeyRotation
+-&gt; ReadPrec [DisableKeyRotation]
+-&gt; Read DisableKeyRotation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisableKeyRotation]
+$creadListPrec :: ReadPrec [DisableKeyRotation]
+readPrec :: ReadPrec DisableKeyRotation
+$creadPrec :: ReadPrec DisableKeyRotation
+readList :: ReadS [DisableKeyRotation]
+$creadList :: ReadS [DisableKeyRotation]
+readsPrec :: Int -&gt; ReadS DisableKeyRotation
+$creadsPrec :: Int -&gt; ReadS DisableKeyRotation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257728"><span id="local-6989586621679257730"><span id="local-6989586621679257732"><span class="annot"><span class="annottext">Int -&gt; DisableKeyRotation -&gt; ShowS
+[DisableKeyRotation] -&gt; ShowS
+DisableKeyRotation -&gt; String
+(Int -&gt; DisableKeyRotation -&gt; ShowS)
+-&gt; (DisableKeyRotation -&gt; String)
+-&gt; ([DisableKeyRotation] -&gt; ShowS)
+-&gt; Show DisableKeyRotation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisableKeyRotation] -&gt; ShowS
+$cshowList :: [DisableKeyRotation] -&gt; ShowS
+show :: DisableKeyRotation -&gt; String
+$cshow :: DisableKeyRotation -&gt; String
+showsPrec :: Int -&gt; DisableKeyRotation -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisableKeyRotation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DisableKeyRotation -&gt; Rep DisableKeyRotation x)
+-&gt; (forall x. Rep DisableKeyRotation x -&gt; DisableKeyRotation)
+-&gt; Generic DisableKeyRotation
+forall x. Rep DisableKeyRotation x -&gt; DisableKeyRotation
+forall x. DisableKeyRotation -&gt; Rep DisableKeyRotation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DisableKeyRotation x -&gt; DisableKeyRotation
+$cfrom :: forall x. DisableKeyRotation -&gt; Rep DisableKeyRotation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Create a value of 'DisableKeyRotation' with all optional fields omitted.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'keyId', 'disableKeyRotation_keyId' - Identifies a symmetric KMS key. You cannot enable or disable automatic</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- rotation of</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks asymmetric KMS keys&gt;,</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- KMS keys with</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html imported key material&gt;,</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- or KMS keys in a</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store&gt;.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Specify the key ID or key ARN of the KMS key.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   Key ARN:</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- To get the key ID and key ARN for a KMS key, use ListKeys or</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- DescribeKey.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#newDisableKeyRotation"><span class="hs-identifier hs-type">newDisableKeyRotation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'keyId'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation"><span class="hs-identifier hs-type">DisableKeyRotation</span></a></span><span>
+</span><span id="line-131"></span><span id="newDisableKeyRotation"><span class="annot"><span class="annottext">newDisableKeyRotation :: Text -&gt; DisableKeyRotation
+</span><a href="Amazonka.KMS.DisableKeyRotation.html#newDisableKeyRotation"><span class="hs-identifier hs-var hs-var">newDisableKeyRotation</span></a></span></span><span> </span><span id="local-6989586621679257723"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257723"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">DisableKeyRotation' :: Text -&gt; DisableKeyRotation
+</span><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation%27"><span class="hs-identifier hs-type">DisableKeyRotation'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:DisableKeyRotation' :: Text
+</span><a href="Amazonka.KMS.DisableKeyRotation.html#%24sel%3AkeyId%3ADisableKeyRotation%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257723"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | Identifies a symmetric KMS key. You cannot enable or disable automatic</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- rotation of</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks asymmetric KMS keys&gt;,</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- KMS keys with</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html imported key material&gt;,</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- or KMS keys in a</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store&gt;.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Specify the key ID or key ARN of the KMS key.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   Key ARN:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- To get the key ID and key ARN for a KMS key, use ListKeys or</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- DescribeKey.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#disableKeyRotation_keyId"><span class="hs-identifier hs-type">disableKeyRotation_keyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation"><span class="hs-identifier hs-type">DisableKeyRotation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-154"></span><span id="disableKeyRotation_keyId"><span class="annot"><span class="annottext">disableKeyRotation_keyId :: (Text -&gt; f Text) -&gt; DisableKeyRotation -&gt; f DisableKeyRotation
+</span><a href="Amazonka.KMS.DisableKeyRotation.html#disableKeyRotation_keyId"><span class="hs-identifier hs-var hs-var">disableKeyRotation_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableKeyRotation -&gt; Text)
+-&gt; (DisableKeyRotation -&gt; Text -&gt; DisableKeyRotation)
+-&gt; Lens DisableKeyRotation DisableKeyRotation Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation%27"><span class="hs-identifier hs-type">DisableKeyRotation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257720"><span class="annot"><span class="annottext">Text
+keyId :: Text
+$sel:keyId:DisableKeyRotation' :: DisableKeyRotation -&gt; Text
+</span><a href="#local-6989586621679257720"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257720"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257719"><span class="annot"><span class="annottext">s :: DisableKeyRotation
+</span><a href="#local-6989586621679257719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation%27"><span class="hs-identifier hs-type">DisableKeyRotation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257718"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableKeyRotation
+</span><a href="#local-6989586621679257719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:DisableKeyRotation' :: Text
+</span><a href="Amazonka.KMS.DisableKeyRotation.html#%24sel%3AkeyId%3ADisableKeyRotation%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation"><span class="hs-identifier hs-type">DisableKeyRotation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation"><span class="hs-identifier hs-type">DisableKeyRotation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-158"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation"><span class="hs-identifier hs-type">DisableKeyRotation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotationResponse"><span class="hs-identifier hs-type">DisableKeyRotationResponse</span></a></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679257714"><span class="annot"><span class="annottext">request :: DisableKeyRotation -&gt; Request DisableKeyRotation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DisableKeyRotation -&gt; Request DisableKeyRotation
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679257710"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisableKeyRotation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisableKeyRotation)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DisableKeyRotation
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisableKeyRotation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisableKeyRotation)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DisableKeyRotation
+DisableKeyRotationResponse
+</span><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotationResponse%27"><span class="hs-identifier hs-var">DisableKeyRotationResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257703"><span id="local-6989586621679257705"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation"><span class="hs-identifier hs-type">DisableKeyRotation</span></a></span></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation"><span class="hs-identifier hs-type">DisableKeyRotation</span></a></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation"><span class="hs-identifier hs-type">DisableKeyRotation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679257696"><span class="annot"><span class="annottext">toHeaders :: DisableKeyRotation -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DisableKeyRotation -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TrentService.DisableKeyRotation&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-175"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-179"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257686"><span id="local-6989586621679257688"><span id="local-6989586621679257690"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation"><span class="hs-identifier hs-type">DisableKeyRotation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679257684"><span class="annot"><span class="annottext">toJSON :: DisableKeyRotation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation%27"><span class="hs-identifier hs-type">DisableKeyRotation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257682"><span class="annot"><span class="annottext">Text
+keyId :: Text
+$sel:keyId:DisableKeyRotation' :: DisableKeyRotation -&gt; Text
+</span><a href="#local-6989586621679257682"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-187"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257682"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation"><span class="hs-identifier hs-type">DisableKeyRotation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679257676"><span class="annot"><span class="annottext">toPath :: DisableKeyRotation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisableKeyRotation -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotation"><span class="hs-identifier hs-type">DisableKeyRotation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679257672"><span class="annot"><span class="annottext">toQuery :: DisableKeyRotation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisableKeyRotation -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | /See:/ 'newDisableKeyRotationResponse' smart constructor.</span><span>
+</span><span id="line-197"></span><span id="local-6989586621679257669"><span id="local-6989586621679257670"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableKeyRotationResponse"><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotationResponse"><span class="hs-identifier hs-var">DisableKeyRotationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableKeyRotationResponse%27"><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotationResponse%27"><span class="hs-identifier hs-var">DisableKeyRotationResponse'</span></a></span></span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257665"><span id="local-6989586621679257667"><span class="annot"><span class="annottext">DisableKeyRotationResponse -&gt; DisableKeyRotationResponse -&gt; Bool
+(DisableKeyRotationResponse -&gt; DisableKeyRotationResponse -&gt; Bool)
+-&gt; (DisableKeyRotationResponse
+    -&gt; DisableKeyRotationResponse -&gt; Bool)
+-&gt; Eq DisableKeyRotationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisableKeyRotationResponse -&gt; DisableKeyRotationResponse -&gt; Bool
+$c/= :: DisableKeyRotationResponse -&gt; DisableKeyRotationResponse -&gt; Bool
+== :: DisableKeyRotationResponse -&gt; DisableKeyRotationResponse -&gt; Bool
+$c== :: DisableKeyRotationResponse -&gt; DisableKeyRotationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257657"><span id="local-6989586621679257659"><span id="local-6989586621679257661"><span id="local-6989586621679257663"><span class="annot"><span class="annottext">ReadPrec [DisableKeyRotationResponse]
+ReadPrec DisableKeyRotationResponse
+Int -&gt; ReadS DisableKeyRotationResponse
+ReadS [DisableKeyRotationResponse]
+(Int -&gt; ReadS DisableKeyRotationResponse)
+-&gt; ReadS [DisableKeyRotationResponse]
+-&gt; ReadPrec DisableKeyRotationResponse
+-&gt; ReadPrec [DisableKeyRotationResponse]
+-&gt; Read DisableKeyRotationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisableKeyRotationResponse]
+$creadListPrec :: ReadPrec [DisableKeyRotationResponse]
+readPrec :: ReadPrec DisableKeyRotationResponse
+$creadPrec :: ReadPrec DisableKeyRotationResponse
+readList :: ReadS [DisableKeyRotationResponse]
+$creadList :: ReadS [DisableKeyRotationResponse]
+readsPrec :: Int -&gt; ReadS DisableKeyRotationResponse
+$creadsPrec :: Int -&gt; ReadS DisableKeyRotationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257651"><span id="local-6989586621679257653"><span id="local-6989586621679257655"><span class="annot"><span class="annottext">Int -&gt; DisableKeyRotationResponse -&gt; ShowS
+[DisableKeyRotationResponse] -&gt; ShowS
+DisableKeyRotationResponse -&gt; String
+(Int -&gt; DisableKeyRotationResponse -&gt; ShowS)
+-&gt; (DisableKeyRotationResponse -&gt; String)
+-&gt; ([DisableKeyRotationResponse] -&gt; ShowS)
+-&gt; Show DisableKeyRotationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisableKeyRotationResponse] -&gt; ShowS
+$cshowList :: [DisableKeyRotationResponse] -&gt; ShowS
+show :: DisableKeyRotationResponse -&gt; String
+$cshow :: DisableKeyRotationResponse -&gt; String
+showsPrec :: Int -&gt; DisableKeyRotationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisableKeyRotationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisableKeyRotationResponse -&gt; Rep DisableKeyRotationResponse x)
+-&gt; (forall x.
+    Rep DisableKeyRotationResponse x -&gt; DisableKeyRotationResponse)
+-&gt; Generic DisableKeyRotationResponse
+forall x.
+Rep DisableKeyRotationResponse x -&gt; DisableKeyRotationResponse
+forall x.
+DisableKeyRotationResponse -&gt; Rep DisableKeyRotationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisableKeyRotationResponse x -&gt; DisableKeyRotationResponse
+$cfrom :: forall x.
+DisableKeyRotationResponse -&gt; Rep DisableKeyRotationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Create a value of 'DisableKeyRotationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#newDisableKeyRotationResponse"><span class="hs-identifier hs-type">newDisableKeyRotationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotationResponse"><span class="hs-identifier hs-type">DisableKeyRotationResponse</span></a></span><span>
+</span><span id="line-208"></span><span id="newDisableKeyRotationResponse"><span class="annot"><span class="annottext">newDisableKeyRotationResponse :: DisableKeyRotationResponse
+</span><a href="Amazonka.KMS.DisableKeyRotation.html#newDisableKeyRotationResponse"><span class="hs-identifier hs-var hs-var">newDisableKeyRotationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="annottext">DisableKeyRotationResponse
+</span><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotationResponse%27"><span class="hs-identifier hs-var">DisableKeyRotationResponse'</span></a></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257647"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.DisableKeyRotation.html#DisableKeyRotationResponse"><span class="hs-identifier hs-type">DisableKeyRotationResponse</span></a></span></span><span>
+</span><span id="line-212"></span></pre></body></html>

@@ -1,0 +1,654 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.AdMarkers.html"><span class="hs-identifier">Amazonka.MediaPackage.Types.AdMarkers</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.AdTriggersElement.html"><span class="hs-identifier">Amazonka.MediaPackage.Types.AdTriggersElement</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.html"><span class="hs-identifier">Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html"><span class="hs-identifier">Amazonka.MediaPackage.Types.PlaylistType</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | A HTTP Live Streaming (HLS) manifest configuration.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newHlsManifestCreateOrUpdateParameters' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679236642"><span id="local-6989586621679236643"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsManifestCreateOrUpdateParameters"><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-var">HlsManifestCreateOrUpdateParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsManifestCreateOrUpdateParameters%27"><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">HlsManifestCreateOrUpdateParameters'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AadsOnDeliveryRestrictions%3AHlsManifestCreateOrUpdateParameters%27"><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters
+-&gt; Maybe AdsOnDeliveryRestrictions
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AadsOnDeliveryRestrictions%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var hs-var">adsOnDeliveryRestrictions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.html#AdsOnDeliveryRestrictions"><span class="hs-identifier hs-type">AdsOnDeliveryRestrictions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | An optional short string appended to the end of the OriginEndpoint URL.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- If not specified, defaults to the manifestName for the OriginEndpoint.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AmanifestName%3AHlsManifestCreateOrUpdateParameters%27"><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AmanifestName%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var hs-var">manifestName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The HTTP Live Streaming (HLS) playlist type. When either \&quot;EVENT\&quot; or</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- \&quot;VOD\&quot; is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- included in the media playlist.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AplaylistType%3AHlsManifestCreateOrUpdateParameters%27"><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters -&gt; Maybe PlaylistType
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AplaylistType%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var hs-var">playlistType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType"><span class="hs-identifier hs-type">PlaylistType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- inserted into manifests. Additionally, when an interval is specified</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- ID3Timed Metadata messages will be generated every 5 seconds using the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- ingest time of the content. If the interval is not specified, or set to</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- and no ID3Timed Metadata messages will be generated. Note that</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- irrespective of this parameter, if any ID3 Timed Metadata is found in</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- HTTP Live Streaming (HLS) input, it will be passed through to HLS</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AprogramDateTimeIntervalSeconds%3AHlsManifestCreateOrUpdateParameters%27"><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters -&gt; Maybe Int
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AprogramDateTimeIntervalSeconds%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var hs-var">programDateTimeIntervalSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | This setting controls how ad markers are included in the packaged</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- OriginEndpoint. \&quot;NONE\&quot; will omit all SCTE-35 ad markers from the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- output. \&quot;PASSTHROUGH\&quot; causes the manifest to contain a copy of the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- SCTE-35 ad markers (comments) taken directly from the input HTTP Live</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Streaming (HLS) manifest. \&quot;SCTE35_ENHANCED\&quot; generates ad markers and</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- blackout tags based on SCTE-35 messages in the input source.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- \&quot;DATERANGE\&quot; inserts EXT-X-DATERANGE tags to signal ad and program</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- transition events in HLS and CMAF manifests. For this option, you must</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- set a programDateTimeIntervalSeconds value that is greater than 0.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AadMarkers%3AHlsManifestCreateOrUpdateParameters%27"><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters -&gt; Maybe AdMarkers
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AadMarkers%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var hs-var">adMarkers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.AdMarkers.html#AdMarkers"><span class="hs-identifier hs-type">AdMarkers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | When enabled, an I-Frame only stream will be included in the output.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AincludeIframeOnlyStream%3AHlsManifestCreateOrUpdateParameters%27"><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters -&gt; Maybe Bool
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AincludeIframeOnlyStream%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var hs-var">includeIframeOnlyStream</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AadTriggers%3AHlsManifestCreateOrUpdateParameters%27"><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters -&gt; Maybe [AdTriggersElement]
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AadTriggers%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var hs-var">adTriggers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaPackage.Types.AdTriggersElement.html#AdTriggersElement"><span class="hs-identifier hs-type">AdTriggersElement</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Time window (in seconds) contained in each parent manifest.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AplaylistWindowSeconds%3AHlsManifestCreateOrUpdateParameters%27"><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters -&gt; Maybe Int
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AplaylistWindowSeconds%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var hs-var">playlistWindowSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ID of the manifest. The ID must be unique within the OriginEndpoint</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- and it cannot be changed after it is created.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Aid%3AHlsManifestCreateOrUpdateParameters%27"><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters -&gt; Text
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3Aid%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236628"><span id="local-6989586621679236630"><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters
+-&gt; HlsManifestCreateOrUpdateParameters -&gt; Bool
+(HlsManifestCreateOrUpdateParameters
+ -&gt; HlsManifestCreateOrUpdateParameters -&gt; Bool)
+-&gt; (HlsManifestCreateOrUpdateParameters
+    -&gt; HlsManifestCreateOrUpdateParameters -&gt; Bool)
+-&gt; Eq HlsManifestCreateOrUpdateParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HlsManifestCreateOrUpdateParameters
+-&gt; HlsManifestCreateOrUpdateParameters -&gt; Bool
+$c/= :: HlsManifestCreateOrUpdateParameters
+-&gt; HlsManifestCreateOrUpdateParameters -&gt; Bool
+== :: HlsManifestCreateOrUpdateParameters
+-&gt; HlsManifestCreateOrUpdateParameters -&gt; Bool
+$c== :: HlsManifestCreateOrUpdateParameters
+-&gt; HlsManifestCreateOrUpdateParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236619"><span id="local-6989586621679236621"><span id="local-6989586621679236623"><span id="local-6989586621679236625"><span class="annot"><span class="annottext">ReadPrec [HlsManifestCreateOrUpdateParameters]
+ReadPrec HlsManifestCreateOrUpdateParameters
+Int -&gt; ReadS HlsManifestCreateOrUpdateParameters
+ReadS [HlsManifestCreateOrUpdateParameters]
+(Int -&gt; ReadS HlsManifestCreateOrUpdateParameters)
+-&gt; ReadS [HlsManifestCreateOrUpdateParameters]
+-&gt; ReadPrec HlsManifestCreateOrUpdateParameters
+-&gt; ReadPrec [HlsManifestCreateOrUpdateParameters]
+-&gt; Read HlsManifestCreateOrUpdateParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HlsManifestCreateOrUpdateParameters]
+$creadListPrec :: ReadPrec [HlsManifestCreateOrUpdateParameters]
+readPrec :: ReadPrec HlsManifestCreateOrUpdateParameters
+$creadPrec :: ReadPrec HlsManifestCreateOrUpdateParameters
+readList :: ReadS [HlsManifestCreateOrUpdateParameters]
+$creadList :: ReadS [HlsManifestCreateOrUpdateParameters]
+readsPrec :: Int -&gt; ReadS HlsManifestCreateOrUpdateParameters
+$creadsPrec :: Int -&gt; ReadS HlsManifestCreateOrUpdateParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236612"><span id="local-6989586621679236614"><span id="local-6989586621679236616"><span class="annot"><span class="annottext">Int -&gt; HlsManifestCreateOrUpdateParameters -&gt; ShowS
+[HlsManifestCreateOrUpdateParameters] -&gt; ShowS
+HlsManifestCreateOrUpdateParameters -&gt; String
+(Int -&gt; HlsManifestCreateOrUpdateParameters -&gt; ShowS)
+-&gt; (HlsManifestCreateOrUpdateParameters -&gt; String)
+-&gt; ([HlsManifestCreateOrUpdateParameters] -&gt; ShowS)
+-&gt; Show HlsManifestCreateOrUpdateParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HlsManifestCreateOrUpdateParameters] -&gt; ShowS
+$cshowList :: [HlsManifestCreateOrUpdateParameters] -&gt; ShowS
+show :: HlsManifestCreateOrUpdateParameters -&gt; String
+$cshow :: HlsManifestCreateOrUpdateParameters -&gt; String
+showsPrec :: Int -&gt; HlsManifestCreateOrUpdateParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; HlsManifestCreateOrUpdateParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ HlsManifestCreateOrUpdateParameters
+ -&gt; Rep HlsManifestCreateOrUpdateParameters x)
+-&gt; (forall x.
+    Rep HlsManifestCreateOrUpdateParameters x
+    -&gt; HlsManifestCreateOrUpdateParameters)
+-&gt; Generic HlsManifestCreateOrUpdateParameters
+forall x.
+Rep HlsManifestCreateOrUpdateParameters x
+-&gt; HlsManifestCreateOrUpdateParameters
+forall x.
+HlsManifestCreateOrUpdateParameters
+-&gt; Rep HlsManifestCreateOrUpdateParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep HlsManifestCreateOrUpdateParameters x
+-&gt; HlsManifestCreateOrUpdateParameters
+$cfrom :: forall x.
+HlsManifestCreateOrUpdateParameters
+-&gt; Rep HlsManifestCreateOrUpdateParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'HlsManifestCreateOrUpdateParameters' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'adsOnDeliveryRestrictions', 'hlsManifestCreateOrUpdateParameters_adsOnDeliveryRestrictions' - Undocumented member.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'manifestName', 'hlsManifestCreateOrUpdateParameters_manifestName' - An optional short string appended to the end of the OriginEndpoint URL.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- If not specified, defaults to the manifestName for the OriginEndpoint.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'playlistType', 'hlsManifestCreateOrUpdateParameters_playlistType' - The HTTP Live Streaming (HLS) playlist type. When either \&quot;EVENT\&quot; or</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- \&quot;VOD\&quot; is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- included in the media playlist.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'programDateTimeIntervalSeconds', 'hlsManifestCreateOrUpdateParameters_programDateTimeIntervalSeconds' - The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- inserted into manifests. Additionally, when an interval is specified</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- ID3Timed Metadata messages will be generated every 5 seconds using the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- ingest time of the content. If the interval is not specified, or set to</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- and no ID3Timed Metadata messages will be generated. Note that</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- irrespective of this parameter, if any ID3 Timed Metadata is found in</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- HTTP Live Streaming (HLS) input, it will be passed through to HLS</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'adMarkers', 'hlsManifestCreateOrUpdateParameters_adMarkers' - This setting controls how ad markers are included in the packaged</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- OriginEndpoint. \&quot;NONE\&quot; will omit all SCTE-35 ad markers from the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- output. \&quot;PASSTHROUGH\&quot; causes the manifest to contain a copy of the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- SCTE-35 ad markers (comments) taken directly from the input HTTP Live</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Streaming (HLS) manifest. \&quot;SCTE35_ENHANCED\&quot; generates ad markers and</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- blackout tags based on SCTE-35 messages in the input source.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- \&quot;DATERANGE\&quot; inserts EXT-X-DATERANGE tags to signal ad and program</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- transition events in HLS and CMAF manifests. For this option, you must</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- set a programDateTimeIntervalSeconds value that is greater than 0.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'includeIframeOnlyStream', 'hlsManifestCreateOrUpdateParameters_includeIframeOnlyStream' - When enabled, an I-Frame only stream will be included in the output.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'adTriggers', 'hlsManifestCreateOrUpdateParameters_adTriggers' - Undocumented member.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'playlistWindowSeconds', 'hlsManifestCreateOrUpdateParameters_playlistWindowSeconds' - Time window (in seconds) contained in each parent manifest.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'id', 'hlsManifestCreateOrUpdateParameters_id' - The ID of the manifest. The ID must be unique within the OriginEndpoint</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- and it cannot be changed after it is created.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#newHlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">newHlsManifestCreateOrUpdateParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span>
+</span><span id="line-122"></span><span id="newHlsManifestCreateOrUpdateParameters"><span class="annot"><span class="annottext">newHlsManifestCreateOrUpdateParameters :: Text -&gt; HlsManifestCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#newHlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-var hs-var">newHlsManifestCreateOrUpdateParameters</span></a></span></span><span> </span><span id="local-6989586621679236606"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236606"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters' :: Maybe AdsOnDeliveryRestrictions
+-&gt; Maybe Text
+-&gt; Maybe PlaylistType
+-&gt; Maybe Int
+-&gt; Maybe AdMarkers
+-&gt; Maybe Bool
+-&gt; Maybe [AdTriggersElement]
+-&gt; Maybe Int
+-&gt; Text
+-&gt; HlsManifestCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:adsOnDeliveryRestrictions:HlsManifestCreateOrUpdateParameters' :: Maybe AdsOnDeliveryRestrictions
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AadsOnDeliveryRestrictions%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">adsOnDeliveryRestrictions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Maybe AdsOnDeliveryRestrictions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:manifestName:HlsManifestCreateOrUpdateParameters' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AmanifestName%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">manifestName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:playlistType:HlsManifestCreateOrUpdateParameters' :: Maybe PlaylistType
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AplaylistType%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">playlistType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlaylistType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:programDateTimeIntervalSeconds:HlsManifestCreateOrUpdateParameters' :: Maybe Int
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AprogramDateTimeIntervalSeconds%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">programDateTimeIntervalSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:adMarkers:HlsManifestCreateOrUpdateParameters' :: Maybe AdMarkers
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AadMarkers%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">adMarkers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AdMarkers
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:includeIframeOnlyStream:HlsManifestCreateOrUpdateParameters' :: Maybe Bool
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AincludeIframeOnlyStream%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">includeIframeOnlyStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:adTriggers:HlsManifestCreateOrUpdateParameters' :: Maybe [AdTriggersElement]
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AadTriggers%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">adTriggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AdTriggersElement]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:playlistWindowSeconds:HlsManifestCreateOrUpdateParameters' :: Maybe Int
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AplaylistWindowSeconds%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">playlistWindowSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:HlsManifestCreateOrUpdateParameters' :: Text
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3Aid%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236606"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_adsOnDeliveryRestrictions"><span class="hs-identifier hs-type">hlsManifestCreateOrUpdateParameters_adsOnDeliveryRestrictions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.html#AdsOnDeliveryRestrictions"><span class="hs-identifier hs-type">AdsOnDeliveryRestrictions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="hlsManifestCreateOrUpdateParameters_adsOnDeliveryRestrictions"><span class="annot"><span class="annottext">hlsManifestCreateOrUpdateParameters_adsOnDeliveryRestrictions :: (Maybe AdsOnDeliveryRestrictions
+ -&gt; f (Maybe AdsOnDeliveryRestrictions))
+-&gt; HlsManifestCreateOrUpdateParameters
+-&gt; f HlsManifestCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_adsOnDeliveryRestrictions"><span class="hs-identifier hs-var hs-var">hlsManifestCreateOrUpdateParameters_adsOnDeliveryRestrictions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsManifestCreateOrUpdateParameters
+ -&gt; Maybe AdsOnDeliveryRestrictions)
+-&gt; (HlsManifestCreateOrUpdateParameters
+    -&gt; Maybe AdsOnDeliveryRestrictions
+    -&gt; HlsManifestCreateOrUpdateParameters)
+-&gt; Lens
+     HlsManifestCreateOrUpdateParameters
+     HlsManifestCreateOrUpdateParameters
+     (Maybe AdsOnDeliveryRestrictions)
+     (Maybe AdsOnDeliveryRestrictions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236602"><span class="annot"><span class="annottext">Maybe AdsOnDeliveryRestrictions
+adsOnDeliveryRestrictions :: Maybe AdsOnDeliveryRestrictions
+$sel:adsOnDeliveryRestrictions:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters
+-&gt; Maybe AdsOnDeliveryRestrictions
+</span><a href="#local-6989586621679236602"><span class="hs-identifier hs-var hs-var">adsOnDeliveryRestrictions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AdsOnDeliveryRestrictions
+</span><a href="#local-6989586621679236602"><span class="hs-identifier hs-var">adsOnDeliveryRestrictions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236601"><span class="annot"><span class="annottext">s :: HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236600"><span class="annot"><span class="annottext">Maybe AdsOnDeliveryRestrictions
+</span><a href="#local-6989586621679236600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adsOnDeliveryRestrictions:HlsManifestCreateOrUpdateParameters' :: Maybe AdsOnDeliveryRestrictions
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AadsOnDeliveryRestrictions%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">adsOnDeliveryRestrictions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AdsOnDeliveryRestrictions
+</span><a href="#local-6989586621679236600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | An optional short string appended to the end of the OriginEndpoint URL.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- If not specified, defaults to the manifestName for the OriginEndpoint.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_manifestName"><span class="hs-identifier hs-type">hlsManifestCreateOrUpdateParameters_manifestName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="hlsManifestCreateOrUpdateParameters_manifestName"><span class="annot"><span class="annottext">hlsManifestCreateOrUpdateParameters_manifestName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; HlsManifestCreateOrUpdateParameters
+-&gt; f HlsManifestCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_manifestName"><span class="hs-identifier hs-var hs-var">hlsManifestCreateOrUpdateParameters_manifestName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsManifestCreateOrUpdateParameters -&gt; Maybe Text)
+-&gt; (HlsManifestCreateOrUpdateParameters
+    -&gt; Maybe Text -&gt; HlsManifestCreateOrUpdateParameters)
+-&gt; Lens
+     HlsManifestCreateOrUpdateParameters
+     HlsManifestCreateOrUpdateParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236598"><span class="annot"><span class="annottext">Maybe Text
+manifestName :: Maybe Text
+$sel:manifestName:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679236598"><span class="hs-identifier hs-var hs-var">manifestName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236598"><span class="hs-identifier hs-var">manifestName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236597"><span class="annot"><span class="annottext">s :: HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236596"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manifestName:HlsManifestCreateOrUpdateParameters' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AmanifestName%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">manifestName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The HTTP Live Streaming (HLS) playlist type. When either \&quot;EVENT\&quot; or</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- \&quot;VOD\&quot; is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- included in the media playlist.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_playlistType"><span class="hs-identifier hs-type">hlsManifestCreateOrUpdateParameters_playlistType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType"><span class="hs-identifier hs-type">PlaylistType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="hlsManifestCreateOrUpdateParameters_playlistType"><span class="annot"><span class="annottext">hlsManifestCreateOrUpdateParameters_playlistType :: (Maybe PlaylistType -&gt; f (Maybe PlaylistType))
+-&gt; HlsManifestCreateOrUpdateParameters
+-&gt; f HlsManifestCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_playlistType"><span class="hs-identifier hs-var hs-var">hlsManifestCreateOrUpdateParameters_playlistType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsManifestCreateOrUpdateParameters -&gt; Maybe PlaylistType)
+-&gt; (HlsManifestCreateOrUpdateParameters
+    -&gt; Maybe PlaylistType -&gt; HlsManifestCreateOrUpdateParameters)
+-&gt; Lens
+     HlsManifestCreateOrUpdateParameters
+     HlsManifestCreateOrUpdateParameters
+     (Maybe PlaylistType)
+     (Maybe PlaylistType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236594"><span class="annot"><span class="annottext">Maybe PlaylistType
+playlistType :: Maybe PlaylistType
+$sel:playlistType:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Maybe PlaylistType
+</span><a href="#local-6989586621679236594"><span class="hs-identifier hs-var hs-var">playlistType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlaylistType
+</span><a href="#local-6989586621679236594"><span class="hs-identifier hs-var">playlistType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236593"><span class="annot"><span class="annottext">s :: HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236592"><span class="annot"><span class="annottext">Maybe PlaylistType
+</span><a href="#local-6989586621679236592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playlistType:HlsManifestCreateOrUpdateParameters' :: Maybe PlaylistType
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AplaylistType%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">playlistType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlaylistType
+</span><a href="#local-6989586621679236592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- inserted into manifests. Additionally, when an interval is specified</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- ID3Timed Metadata messages will be generated every 5 seconds using the</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- ingest time of the content. If the interval is not specified, or set to</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- and no ID3Timed Metadata messages will be generated. Note that</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- irrespective of this parameter, if any ID3 Timed Metadata is found in</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- HTTP Live Streaming (HLS) input, it will be passed through to HLS</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_programDateTimeIntervalSeconds"><span class="hs-identifier hs-type">hlsManifestCreateOrUpdateParameters_programDateTimeIntervalSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="hlsManifestCreateOrUpdateParameters_programDateTimeIntervalSeconds"><span class="annot"><span class="annottext">hlsManifestCreateOrUpdateParameters_programDateTimeIntervalSeconds :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; HlsManifestCreateOrUpdateParameters
+-&gt; f HlsManifestCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_programDateTimeIntervalSeconds"><span class="hs-identifier hs-var hs-var">hlsManifestCreateOrUpdateParameters_programDateTimeIntervalSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsManifestCreateOrUpdateParameters -&gt; Maybe Int)
+-&gt; (HlsManifestCreateOrUpdateParameters
+    -&gt; Maybe Int -&gt; HlsManifestCreateOrUpdateParameters)
+-&gt; Lens
+     HlsManifestCreateOrUpdateParameters
+     HlsManifestCreateOrUpdateParameters
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236590"><span class="annot"><span class="annottext">Maybe Int
+programDateTimeIntervalSeconds :: Maybe Int
+$sel:programDateTimeIntervalSeconds:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679236590"><span class="hs-identifier hs-var hs-var">programDateTimeIntervalSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679236590"><span class="hs-identifier hs-var">programDateTimeIntervalSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236589"><span class="annot"><span class="annottext">s :: HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236588"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679236588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:programDateTimeIntervalSeconds:HlsManifestCreateOrUpdateParameters' :: Maybe Int
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AprogramDateTimeIntervalSeconds%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">programDateTimeIntervalSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679236588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | This setting controls how ad markers are included in the packaged</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- OriginEndpoint. \&quot;NONE\&quot; will omit all SCTE-35 ad markers from the</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- output. \&quot;PASSTHROUGH\&quot; causes the manifest to contain a copy of the</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- SCTE-35 ad markers (comments) taken directly from the input HTTP Live</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Streaming (HLS) manifest. \&quot;SCTE35_ENHANCED\&quot; generates ad markers and</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- blackout tags based on SCTE-35 messages in the input source.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- \&quot;DATERANGE\&quot; inserts EXT-X-DATERANGE tags to signal ad and program</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- transition events in HLS and CMAF manifests. For this option, you must</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- set a programDateTimeIntervalSeconds value that is greater than 0.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_adMarkers"><span class="hs-identifier hs-type">hlsManifestCreateOrUpdateParameters_adMarkers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.AdMarkers.html#AdMarkers"><span class="hs-identifier hs-type">AdMarkers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="hlsManifestCreateOrUpdateParameters_adMarkers"><span class="annot"><span class="annottext">hlsManifestCreateOrUpdateParameters_adMarkers :: (Maybe AdMarkers -&gt; f (Maybe AdMarkers))
+-&gt; HlsManifestCreateOrUpdateParameters
+-&gt; f HlsManifestCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_adMarkers"><span class="hs-identifier hs-var hs-var">hlsManifestCreateOrUpdateParameters_adMarkers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsManifestCreateOrUpdateParameters -&gt; Maybe AdMarkers)
+-&gt; (HlsManifestCreateOrUpdateParameters
+    -&gt; Maybe AdMarkers -&gt; HlsManifestCreateOrUpdateParameters)
+-&gt; Lens
+     HlsManifestCreateOrUpdateParameters
+     HlsManifestCreateOrUpdateParameters
+     (Maybe AdMarkers)
+     (Maybe AdMarkers)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236586"><span class="annot"><span class="annottext">Maybe AdMarkers
+adMarkers :: Maybe AdMarkers
+$sel:adMarkers:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Maybe AdMarkers
+</span><a href="#local-6989586621679236586"><span class="hs-identifier hs-var hs-var">adMarkers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AdMarkers
+</span><a href="#local-6989586621679236586"><span class="hs-identifier hs-var">adMarkers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236585"><span class="annot"><span class="annottext">s :: HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236584"><span class="annot"><span class="annottext">Maybe AdMarkers
+</span><a href="#local-6989586621679236584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adMarkers:HlsManifestCreateOrUpdateParameters' :: Maybe AdMarkers
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AadMarkers%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">adMarkers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AdMarkers
+</span><a href="#local-6989586621679236584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | When enabled, an I-Frame only stream will be included in the output.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_includeIframeOnlyStream"><span class="hs-identifier hs-type">hlsManifestCreateOrUpdateParameters_includeIframeOnlyStream</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="hlsManifestCreateOrUpdateParameters_includeIframeOnlyStream"><span class="annot"><span class="annottext">hlsManifestCreateOrUpdateParameters_includeIframeOnlyStream :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; HlsManifestCreateOrUpdateParameters
+-&gt; f HlsManifestCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_includeIframeOnlyStream"><span class="hs-identifier hs-var hs-var">hlsManifestCreateOrUpdateParameters_includeIframeOnlyStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsManifestCreateOrUpdateParameters -&gt; Maybe Bool)
+-&gt; (HlsManifestCreateOrUpdateParameters
+    -&gt; Maybe Bool -&gt; HlsManifestCreateOrUpdateParameters)
+-&gt; Lens
+     HlsManifestCreateOrUpdateParameters
+     HlsManifestCreateOrUpdateParameters
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236582"><span class="annot"><span class="annottext">Maybe Bool
+includeIframeOnlyStream :: Maybe Bool
+$sel:includeIframeOnlyStream:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Maybe Bool
+</span><a href="#local-6989586621679236582"><span class="hs-identifier hs-var hs-var">includeIframeOnlyStream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236582"><span class="hs-identifier hs-var">includeIframeOnlyStream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236581"><span class="annot"><span class="annottext">s :: HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236580"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeIframeOnlyStream:HlsManifestCreateOrUpdateParameters' :: Maybe Bool
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AincludeIframeOnlyStream%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">includeIframeOnlyStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_adTriggers"><span class="hs-identifier hs-type">hlsManifestCreateOrUpdateParameters_adTriggers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaPackage.Types.AdTriggersElement.html#AdTriggersElement"><span class="hs-identifier hs-type">AdTriggersElement</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="hlsManifestCreateOrUpdateParameters_adTriggers"><span class="annot"><span class="annottext">hlsManifestCreateOrUpdateParameters_adTriggers :: (Maybe [AdTriggersElement] -&gt; f (Maybe [AdTriggersElement]))
+-&gt; HlsManifestCreateOrUpdateParameters
+-&gt; f HlsManifestCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_adTriggers"><span class="hs-identifier hs-var hs-var">hlsManifestCreateOrUpdateParameters_adTriggers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsManifestCreateOrUpdateParameters -&gt; Maybe [AdTriggersElement])
+-&gt; (HlsManifestCreateOrUpdateParameters
+    -&gt; Maybe [AdTriggersElement]
+    -&gt; HlsManifestCreateOrUpdateParameters)
+-&gt; Lens
+     HlsManifestCreateOrUpdateParameters
+     HlsManifestCreateOrUpdateParameters
+     (Maybe [AdTriggersElement])
+     (Maybe [AdTriggersElement])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236578"><span class="annot"><span class="annottext">Maybe [AdTriggersElement]
+adTriggers :: Maybe [AdTriggersElement]
+$sel:adTriggers:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Maybe [AdTriggersElement]
+</span><a href="#local-6989586621679236578"><span class="hs-identifier hs-var hs-var">adTriggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AdTriggersElement]
+</span><a href="#local-6989586621679236578"><span class="hs-identifier hs-var">adTriggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236577"><span class="annot"><span class="annottext">s :: HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236576"><span class="annot"><span class="annottext">Maybe [AdTriggersElement]
+</span><a href="#local-6989586621679236576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adTriggers:HlsManifestCreateOrUpdateParameters' :: Maybe [AdTriggersElement]
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AadTriggers%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">adTriggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AdTriggersElement]
+</span><a href="#local-6989586621679236576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AdTriggersElement] -&gt; f (Maybe [AdTriggersElement]))
+ -&gt; HlsManifestCreateOrUpdateParameters
+ -&gt; f HlsManifestCreateOrUpdateParameters)
+-&gt; ((Maybe [AdTriggersElement] -&gt; f (Maybe [AdTriggersElement]))
+    -&gt; Maybe [AdTriggersElement] -&gt; f (Maybe [AdTriggersElement]))
+-&gt; (Maybe [AdTriggersElement] -&gt; f (Maybe [AdTriggersElement]))
+-&gt; HlsManifestCreateOrUpdateParameters
+-&gt; f HlsManifestCreateOrUpdateParameters
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AdTriggersElement]
+  [AdTriggersElement]
+  [AdTriggersElement]
+  [AdTriggersElement]
+-&gt; Iso
+     (Maybe [AdTriggersElement])
+     (Maybe [AdTriggersElement])
+     (Maybe [AdTriggersElement])
+     (Maybe [AdTriggersElement])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AdTriggersElement]
+  [AdTriggersElement]
+  [AdTriggersElement]
+  [AdTriggersElement]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | Time window (in seconds) contained in each parent manifest.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_playlistWindowSeconds"><span class="hs-identifier hs-type">hlsManifestCreateOrUpdateParameters_playlistWindowSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="hlsManifestCreateOrUpdateParameters_playlistWindowSeconds"><span class="annot"><span class="annottext">hlsManifestCreateOrUpdateParameters_playlistWindowSeconds :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; HlsManifestCreateOrUpdateParameters
+-&gt; f HlsManifestCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_playlistWindowSeconds"><span class="hs-identifier hs-var hs-var">hlsManifestCreateOrUpdateParameters_playlistWindowSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsManifestCreateOrUpdateParameters -&gt; Maybe Int)
+-&gt; (HlsManifestCreateOrUpdateParameters
+    -&gt; Maybe Int -&gt; HlsManifestCreateOrUpdateParameters)
+-&gt; Lens
+     HlsManifestCreateOrUpdateParameters
+     HlsManifestCreateOrUpdateParameters
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236571"><span class="annot"><span class="annottext">Maybe Int
+playlistWindowSeconds :: Maybe Int
+$sel:playlistWindowSeconds:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679236571"><span class="hs-identifier hs-var hs-var">playlistWindowSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679236571"><span class="hs-identifier hs-var">playlistWindowSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236570"><span class="annot"><span class="annottext">s :: HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236569"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679236569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playlistWindowSeconds:HlsManifestCreateOrUpdateParameters' :: Maybe Int
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3AplaylistWindowSeconds%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">playlistWindowSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679236569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The ID of the manifest. The ID must be unique within the OriginEndpoint</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- and it cannot be changed after it is created.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_id"><span class="hs-identifier hs-type">hlsManifestCreateOrUpdateParameters_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-193"></span><span id="hlsManifestCreateOrUpdateParameters_id"><span class="annot"><span class="annottext">hlsManifestCreateOrUpdateParameters_id :: (Text -&gt; f Text)
+-&gt; HlsManifestCreateOrUpdateParameters
+-&gt; f HlsManifestCreateOrUpdateParameters
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#hlsManifestCreateOrUpdateParameters_id"><span class="hs-identifier hs-var hs-var">hlsManifestCreateOrUpdateParameters_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsManifestCreateOrUpdateParameters -&gt; Text)
+-&gt; (HlsManifestCreateOrUpdateParameters
+    -&gt; Text -&gt; HlsManifestCreateOrUpdateParameters)
+-&gt; Lens
+     HlsManifestCreateOrUpdateParameters
+     HlsManifestCreateOrUpdateParameters
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236567"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Text
+</span><a href="#local-6989586621679236567"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236567"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236566"><span class="annot"><span class="annottext">s :: HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236565"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsManifestCreateOrUpdateParameters
+</span><a href="#local-6989586621679236566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:HlsManifestCreateOrUpdateParameters' :: Text
+</span><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#%24sel%3Aid%3AHlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679236561"><span id="local-6989586621679236563"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span></span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679236558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679236550"><span id="local-6989586621679236552"><span id="local-6989586621679236554"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters</span></a></span></span></span></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679236548"><span class="annot"><span class="annottext">toJSON :: HlsManifestCreateOrUpdateParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.html#HlsManifestCreateOrUpdateParameters%27"><span class="hs-identifier hs-type">HlsManifestCreateOrUpdateParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236538"><span id="local-6989586621679236539"><span id="local-6989586621679236540"><span id="local-6989586621679236541"><span id="local-6989586621679236542"><span id="local-6989586621679236543"><span id="local-6989586621679236544"><span id="local-6989586621679236545"><span id="local-6989586621679236546"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe [AdTriggersElement]
+Maybe Text
+Maybe AdMarkers
+Maybe AdsOnDeliveryRestrictions
+Maybe PlaylistType
+Text
+id :: Text
+playlistWindowSeconds :: Maybe Int
+adTriggers :: Maybe [AdTriggersElement]
+includeIframeOnlyStream :: Maybe Bool
+adMarkers :: Maybe AdMarkers
+programDateTimeIntervalSeconds :: Maybe Int
+playlistType :: Maybe PlaylistType
+manifestName :: Maybe Text
+adsOnDeliveryRestrictions :: Maybe AdsOnDeliveryRestrictions
+$sel:id:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Text
+$sel:playlistWindowSeconds:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Maybe Int
+$sel:adTriggers:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Maybe [AdTriggersElement]
+$sel:includeIframeOnlyStream:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Maybe Bool
+$sel:adMarkers:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Maybe AdMarkers
+$sel:programDateTimeIntervalSeconds:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Maybe Int
+$sel:playlistType:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Maybe PlaylistType
+$sel:manifestName:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters -&gt; Maybe Text
+$sel:adsOnDeliveryRestrictions:HlsManifestCreateOrUpdateParameters' :: HlsManifestCreateOrUpdateParameters
+-&gt; Maybe AdsOnDeliveryRestrictions
+</span><a href="#local-6989586621679236538"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-210"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;adsOnDeliveryRestrictions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AdsOnDeliveryRestrictions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>              </span><span class="annot"><span class="annottext">(AdsOnDeliveryRestrictions -&gt; Pair)
+-&gt; Maybe AdsOnDeliveryRestrictions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AdsOnDeliveryRestrictions
+</span><a href="#local-6989586621679236546"><span class="hs-identifier hs-var">adsOnDeliveryRestrictions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;manifestName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236545"><span class="hs-identifier hs-var">manifestName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;playlistType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PlaylistType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PlaylistType -&gt; Pair) -&gt; Maybe PlaylistType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PlaylistType
+</span><a href="#local-6989586621679236544"><span class="hs-identifier hs-var">playlistType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;programDateTimeIntervalSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679236543"><span class="hs-identifier hs-var">programDateTimeIntervalSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;adMarkers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AdMarkers -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AdMarkers -&gt; Pair) -&gt; Maybe AdMarkers -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AdMarkers
+</span><a href="#local-6989586621679236542"><span class="hs-identifier hs-var">adMarkers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;includeIframeOnlyStream&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236541"><span class="hs-identifier hs-var">includeIframeOnlyStream</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;adTriggers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AdTriggersElement] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([AdTriggersElement] -&gt; Pair)
+-&gt; Maybe [AdTriggersElement] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AdTriggersElement]
+</span><a href="#local-6989586621679236540"><span class="hs-identifier hs-var">adTriggers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;playlistWindowSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679236539"><span class="hs-identifier hs-var">playlistWindowSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236538"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span></pre></body></html>

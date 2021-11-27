@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.InternetConfiguration.html"><span class="hs-identifier">Amazonka.AccessAnalyzer.Types.InternetConfiguration</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.VpcConfiguration.html"><span class="hs-identifier">Amazonka.AccessAnalyzer.Types.VpcConfiguration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The proposed @InternetConfiguration@ or @VpcConfiguration@ to apply to</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- the Amazon S3 access point. @VpcConfiguration@ does not apply to</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- multi-region access points. You can make the access point accessible</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- from the internet, or you can specify that all requests made through</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- that access point must originate from a specific virtual private cloud</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- (VPC). You can specify only one type of network configuration. For more</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html Creating access points&gt;.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newNetworkOriginConfiguration' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679252022"><span id="local-6989586621679252023"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkOriginConfiguration"><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration"><span class="hs-identifier hs-var">NetworkOriginConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkOriginConfiguration%27"><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration%27"><span class="hs-identifier hs-var">NetworkOriginConfiguration'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration for the Amazon S3 access point or multi-region access</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- point with an @Internet@ origin.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AinternetConfiguration%3ANetworkOriginConfiguration%27"><span class="annot"><span class="annottext">NetworkOriginConfiguration -&gt; Maybe InternetConfiguration
+</span><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#%24sel%3AinternetConfiguration%3ANetworkOriginConfiguration%27"><span class="hs-identifier hs-var hs-var">internetConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.InternetConfiguration.html#InternetConfiguration"><span class="hs-identifier hs-type">InternetConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AvpcConfiguration%3ANetworkOriginConfiguration%27"><span class="annot"><span class="annottext">NetworkOriginConfiguration -&gt; Maybe VpcConfiguration
+</span><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#%24sel%3AvpcConfiguration%3ANetworkOriginConfiguration%27"><span class="hs-identifier hs-var hs-var">vpcConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.VpcConfiguration.html#VpcConfiguration"><span class="hs-identifier hs-type">VpcConfiguration</span></a></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252015"><span id="local-6989586621679252017"><span class="annot"><span class="annottext">NetworkOriginConfiguration -&gt; NetworkOriginConfiguration -&gt; Bool
+(NetworkOriginConfiguration -&gt; NetworkOriginConfiguration -&gt; Bool)
+-&gt; (NetworkOriginConfiguration
+    -&gt; NetworkOriginConfiguration -&gt; Bool)
+-&gt; Eq NetworkOriginConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NetworkOriginConfiguration -&gt; NetworkOriginConfiguration -&gt; Bool
+$c/= :: NetworkOriginConfiguration -&gt; NetworkOriginConfiguration -&gt; Bool
+== :: NetworkOriginConfiguration -&gt; NetworkOriginConfiguration -&gt; Bool
+$c== :: NetworkOriginConfiguration -&gt; NetworkOriginConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252006"><span id="local-6989586621679252008"><span id="local-6989586621679252010"><span id="local-6989586621679252012"><span class="annot"><span class="annottext">ReadPrec [NetworkOriginConfiguration]
+ReadPrec NetworkOriginConfiguration
+Int -&gt; ReadS NetworkOriginConfiguration
+ReadS [NetworkOriginConfiguration]
+(Int -&gt; ReadS NetworkOriginConfiguration)
+-&gt; ReadS [NetworkOriginConfiguration]
+-&gt; ReadPrec NetworkOriginConfiguration
+-&gt; ReadPrec [NetworkOriginConfiguration]
+-&gt; Read NetworkOriginConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NetworkOriginConfiguration]
+$creadListPrec :: ReadPrec [NetworkOriginConfiguration]
+readPrec :: ReadPrec NetworkOriginConfiguration
+$creadPrec :: ReadPrec NetworkOriginConfiguration
+readList :: ReadS [NetworkOriginConfiguration]
+$creadList :: ReadS [NetworkOriginConfiguration]
+readsPrec :: Int -&gt; ReadS NetworkOriginConfiguration
+$creadsPrec :: Int -&gt; ReadS NetworkOriginConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251999"><span id="local-6989586621679252001"><span id="local-6989586621679252003"><span class="annot"><span class="annottext">Int -&gt; NetworkOriginConfiguration -&gt; ShowS
+[NetworkOriginConfiguration] -&gt; ShowS
+NetworkOriginConfiguration -&gt; String
+(Int -&gt; NetworkOriginConfiguration -&gt; ShowS)
+-&gt; (NetworkOriginConfiguration -&gt; String)
+-&gt; ([NetworkOriginConfiguration] -&gt; ShowS)
+-&gt; Show NetworkOriginConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NetworkOriginConfiguration] -&gt; ShowS
+$cshowList :: [NetworkOriginConfiguration] -&gt; ShowS
+show :: NetworkOriginConfiguration -&gt; String
+$cshow :: NetworkOriginConfiguration -&gt; String
+showsPrec :: Int -&gt; NetworkOriginConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; NetworkOriginConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ NetworkOriginConfiguration -&gt; Rep NetworkOriginConfiguration x)
+-&gt; (forall x.
+    Rep NetworkOriginConfiguration x -&gt; NetworkOriginConfiguration)
+-&gt; Generic NetworkOriginConfiguration
+forall x.
+Rep NetworkOriginConfiguration x -&gt; NetworkOriginConfiguration
+forall x.
+NetworkOriginConfiguration -&gt; Rep NetworkOriginConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NetworkOriginConfiguration x -&gt; NetworkOriginConfiguration
+$cfrom :: forall x.
+NetworkOriginConfiguration -&gt; Rep NetworkOriginConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'NetworkOriginConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'internetConfiguration', 'networkOriginConfiguration_internetConfiguration' - The configuration for the Amazon S3 access point or multi-region access</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- point with an @Internet@ origin.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'vpcConfiguration', 'networkOriginConfiguration_vpcConfiguration' - Undocumented member.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#newNetworkOriginConfiguration"><span class="hs-identifier hs-type">newNetworkOriginConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration"><span class="hs-identifier hs-type">NetworkOriginConfiguration</span></a></span><span>
+</span><span id="line-60"></span><span id="newNetworkOriginConfiguration"><span class="annot"><span class="annottext">newNetworkOriginConfiguration :: NetworkOriginConfiguration
+</span><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#newNetworkOriginConfiguration"><span class="hs-identifier hs-var hs-var">newNetworkOriginConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">NetworkOriginConfiguration' :: Maybe InternetConfiguration
+-&gt; Maybe VpcConfiguration -&gt; NetworkOriginConfiguration
+</span><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration%27"><span class="hs-identifier hs-type">NetworkOriginConfiguration'</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:internetConfiguration:NetworkOriginConfiguration' :: Maybe InternetConfiguration
+</span><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#%24sel%3AinternetConfiguration%3ANetworkOriginConfiguration%27"><span class="hs-identifier hs-var">internetConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe InternetConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcConfiguration:NetworkOriginConfiguration' :: Maybe VpcConfiguration
+</span><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#%24sel%3AvpcConfiguration%3ANetworkOriginConfiguration%27"><span class="hs-identifier hs-var">vpcConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The configuration for the Amazon S3 access point or multi-region access</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- point with an @Internet@ origin.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#networkOriginConfiguration_internetConfiguration"><span class="hs-identifier hs-type">networkOriginConfiguration_internetConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration"><span class="hs-identifier hs-type">NetworkOriginConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.InternetConfiguration.html#InternetConfiguration"><span class="hs-identifier hs-type">InternetConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="networkOriginConfiguration_internetConfiguration"><span class="annot"><span class="annottext">networkOriginConfiguration_internetConfiguration :: (Maybe InternetConfiguration -&gt; f (Maybe InternetConfiguration))
+-&gt; NetworkOriginConfiguration -&gt; f NetworkOriginConfiguration
+</span><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#networkOriginConfiguration_internetConfiguration"><span class="hs-identifier hs-var hs-var">networkOriginConfiguration_internetConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkOriginConfiguration -&gt; Maybe InternetConfiguration)
+-&gt; (NetworkOriginConfiguration
+    -&gt; Maybe InternetConfiguration -&gt; NetworkOriginConfiguration)
+-&gt; Lens
+     NetworkOriginConfiguration
+     NetworkOriginConfiguration
+     (Maybe InternetConfiguration)
+     (Maybe InternetConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration%27"><span class="hs-identifier hs-type">NetworkOriginConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251990"><span class="annot"><span class="annottext">Maybe InternetConfiguration
+internetConfiguration :: Maybe InternetConfiguration
+$sel:internetConfiguration:NetworkOriginConfiguration' :: NetworkOriginConfiguration -&gt; Maybe InternetConfiguration
+</span><a href="#local-6989586621679251990"><span class="hs-identifier hs-var hs-var">internetConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InternetConfiguration
+</span><a href="#local-6989586621679251990"><span class="hs-identifier hs-var">internetConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251989"><span class="annot"><span class="annottext">s :: NetworkOriginConfiguration
+</span><a href="#local-6989586621679251989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration%27"><span class="hs-identifier hs-type">NetworkOriginConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251988"><span class="annot"><span class="annottext">Maybe InternetConfiguration
+</span><a href="#local-6989586621679251988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkOriginConfiguration
+</span><a href="#local-6989586621679251989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:internetConfiguration:NetworkOriginConfiguration' :: Maybe InternetConfiguration
+</span><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#%24sel%3AinternetConfiguration%3ANetworkOriginConfiguration%27"><span class="hs-identifier hs-var">internetConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InternetConfiguration
+</span><a href="#local-6989586621679251988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration"><span class="hs-identifier hs-type">NetworkOriginConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#networkOriginConfiguration_vpcConfiguration"><span class="hs-identifier hs-type">networkOriginConfiguration_vpcConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration"><span class="hs-identifier hs-type">NetworkOriginConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.VpcConfiguration.html#VpcConfiguration"><span class="hs-identifier hs-type">VpcConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="networkOriginConfiguration_vpcConfiguration"><span class="annot"><span class="annottext">networkOriginConfiguration_vpcConfiguration :: (Maybe VpcConfiguration -&gt; f (Maybe VpcConfiguration))
+-&gt; NetworkOriginConfiguration -&gt; f NetworkOriginConfiguration
+</span><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#networkOriginConfiguration_vpcConfiguration"><span class="hs-identifier hs-var hs-var">networkOriginConfiguration_vpcConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkOriginConfiguration -&gt; Maybe VpcConfiguration)
+-&gt; (NetworkOriginConfiguration
+    -&gt; Maybe VpcConfiguration -&gt; NetworkOriginConfiguration)
+-&gt; Lens
+     NetworkOriginConfiguration
+     NetworkOriginConfiguration
+     (Maybe VpcConfiguration)
+     (Maybe VpcConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration%27"><span class="hs-identifier hs-type">NetworkOriginConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251986"><span class="annot"><span class="annottext">Maybe VpcConfiguration
+vpcConfiguration :: Maybe VpcConfiguration
+$sel:vpcConfiguration:NetworkOriginConfiguration' :: NetworkOriginConfiguration -&gt; Maybe VpcConfiguration
+</span><a href="#local-6989586621679251986"><span class="hs-identifier hs-var hs-var">vpcConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfiguration
+</span><a href="#local-6989586621679251986"><span class="hs-identifier hs-var">vpcConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251985"><span class="annot"><span class="annottext">s :: NetworkOriginConfiguration
+</span><a href="#local-6989586621679251985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration%27"><span class="hs-identifier hs-type">NetworkOriginConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251984"><span class="annot"><span class="annottext">Maybe VpcConfiguration
+</span><a href="#local-6989586621679251984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkOriginConfiguration
+</span><a href="#local-6989586621679251985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfiguration:NetworkOriginConfiguration' :: Maybe VpcConfiguration
+</span><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#%24sel%3AvpcConfiguration%3ANetworkOriginConfiguration%27"><span class="hs-identifier hs-var">vpcConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfiguration
+</span><a href="#local-6989586621679251984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration"><span class="hs-identifier hs-type">NetworkOriginConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251981"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration"><span class="hs-identifier hs-type">NetworkOriginConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679251979"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NetworkOriginConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser NetworkOriginConfiguration)
+-&gt; Value
+-&gt; Parser NetworkOriginConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NetworkOriginConfiguration&quot;</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251976"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251976"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe InternetConfiguration
+-&gt; Maybe VpcConfiguration -&gt; NetworkOriginConfiguration
+</span><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration%27"><span class="hs-identifier hs-var">NetworkOriginConfiguration'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InternetConfiguration
+ -&gt; Maybe VpcConfiguration -&gt; NetworkOriginConfiguration)
+-&gt; Parser (Maybe InternetConfiguration)
+-&gt; Parser (Maybe VpcConfiguration -&gt; NetworkOriginConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InternetConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;internetConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe VpcConfiguration -&gt; NetworkOriginConfiguration)
+-&gt; Parser (Maybe VpcConfiguration)
+-&gt; Parser NetworkOriginConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VpcConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251970"><span id="local-6989586621679251972"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration"><span class="hs-identifier hs-type">NetworkOriginConfiguration</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251967"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration"><span class="hs-identifier hs-type">NetworkOriginConfiguration</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251959"><span id="local-6989586621679251961"><span id="local-6989586621679251963"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration"><span class="hs-identifier hs-type">NetworkOriginConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679251957"><span class="annot"><span class="annottext">toJSON :: NetworkOriginConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration.html#NetworkOriginConfiguration%27"><span class="hs-identifier hs-type">NetworkOriginConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251954"><span id="local-6989586621679251955"><span class="annot"><span class="annottext">Maybe InternetConfiguration
+Maybe VpcConfiguration
+vpcConfiguration :: Maybe VpcConfiguration
+internetConfiguration :: Maybe InternetConfiguration
+$sel:vpcConfiguration:NetworkOriginConfiguration' :: NetworkOriginConfiguration -&gt; Maybe VpcConfiguration
+$sel:internetConfiguration:NetworkOriginConfiguration' :: NetworkOriginConfiguration -&gt; Maybe InternetConfiguration
+</span><a href="#local-6989586621679251954"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;internetConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InternetConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">(InternetConfiguration -&gt; Pair)
+-&gt; Maybe InternetConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InternetConfiguration
+</span><a href="#local-6989586621679251955"><span class="hs-identifier hs-var">internetConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VpcConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">(VpcConfiguration -&gt; Pair) -&gt; Maybe VpcConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfiguration
+</span><a href="#local-6989586621679251954"><span class="hs-identifier hs-var">vpcConfiguration</span></a></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span></pre></body></html>

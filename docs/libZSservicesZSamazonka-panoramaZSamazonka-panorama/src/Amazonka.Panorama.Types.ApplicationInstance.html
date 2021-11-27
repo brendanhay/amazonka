@@ -1,0 +1,752 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Panorama.Types.ApplicationInstance</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Panorama.Types.ApplicationInstance</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstanceHealthStatus.html"><span class="hs-identifier">Amazonka.Panorama.Types.ApplicationInstanceHealthStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstanceStatus.html"><span class="hs-identifier">Amazonka.Panorama.Types.ApplicationInstanceStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | An application instance on a device.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newApplicationInstance' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679253690"><span id="local-6989586621679253691"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationInstance"><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-var">ApplicationInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationInstance%27"><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-var">ApplicationInstance'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The application instance\'s status.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3AApplicationInstance%27"><span class="annot"><span class="annottext">ApplicationInstance -&gt; Maybe ApplicationInstanceStatus
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3Astatus%3AApplicationInstance%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstanceStatus.html#ApplicationInstanceStatus"><span class="hs-identifier hs-type">ApplicationInstanceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The application instance\'s status description.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AstatusDescription%3AApplicationInstance%27"><span class="annot"><span class="annottext">ApplicationInstance -&gt; Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AstatusDescription%3AApplicationInstance%27"><span class="hs-identifier hs-var hs-var">statusDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The application instance\'s ARN.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aarn%3AApplicationInstance%27"><span class="annot"><span class="annottext">ApplicationInstance -&gt; Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3Aarn%3AApplicationInstance%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | When the application instance was created.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcreatedTime%3AApplicationInstance%27"><span class="annot"><span class="annottext">ApplicationInstance -&gt; Maybe POSIX
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AcreatedTime%3AApplicationInstance%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The device\'s ID.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdefaultRuntimeContextDevice%3AApplicationInstance%27"><span class="annot"><span class="annottext">ApplicationInstance -&gt; Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AdefaultRuntimeContextDevice%3AApplicationInstance%27"><span class="hs-identifier hs-var hs-var">defaultRuntimeContextDevice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The device\'s name.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AdefaultRuntimeContextDeviceName%3AApplicationInstance%27"><span class="annot"><span class="annottext">ApplicationInstance -&gt; Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AdefaultRuntimeContextDeviceName%3AApplicationInstance%27"><span class="hs-identifier hs-var hs-var">defaultRuntimeContextDeviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The application instance\'s name.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aname%3AApplicationInstance%27"><span class="annot"><span class="annottext">ApplicationInstance -&gt; Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3Aname%3AApplicationInstance%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The application instance\'s health status.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AhealthStatus%3AApplicationInstance%27"><span class="annot"><span class="annottext">ApplicationInstance -&gt; Maybe ApplicationInstanceHealthStatus
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AhealthStatus%3AApplicationInstance%27"><span class="hs-identifier hs-var hs-var">healthStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus"><span class="hs-identifier hs-type">ApplicationInstanceHealthStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The application instance\'s ID.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AapplicationInstanceId%3AApplicationInstance%27"><span class="annot"><span class="annottext">ApplicationInstance -&gt; Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AapplicationInstanceId%3AApplicationInstance%27"><span class="hs-identifier hs-var hs-var">applicationInstanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The application instance\'s description.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Adescription%3AApplicationInstance%27"><span class="annot"><span class="annottext">ApplicationInstance -&gt; Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3Adescription%3AApplicationInstance%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The application instance\'s tags.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Atags%3AApplicationInstance%27"><span class="annot"><span class="annottext">ApplicationInstance -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3Atags%3AApplicationInstance%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253674"><span id="local-6989586621679253676"><span class="annot"><span class="annottext">ApplicationInstance -&gt; ApplicationInstance -&gt; Bool
+(ApplicationInstance -&gt; ApplicationInstance -&gt; Bool)
+-&gt; (ApplicationInstance -&gt; ApplicationInstance -&gt; Bool)
+-&gt; Eq ApplicationInstance
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplicationInstance -&gt; ApplicationInstance -&gt; Bool
+$c/= :: ApplicationInstance -&gt; ApplicationInstance -&gt; Bool
+== :: ApplicationInstance -&gt; ApplicationInstance -&gt; Bool
+$c== :: ApplicationInstance -&gt; ApplicationInstance -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253665"><span id="local-6989586621679253667"><span id="local-6989586621679253669"><span id="local-6989586621679253671"><span class="annot"><span class="annottext">ReadPrec [ApplicationInstance]
+ReadPrec ApplicationInstance
+Int -&gt; ReadS ApplicationInstance
+ReadS [ApplicationInstance]
+(Int -&gt; ReadS ApplicationInstance)
+-&gt; ReadS [ApplicationInstance]
+-&gt; ReadPrec ApplicationInstance
+-&gt; ReadPrec [ApplicationInstance]
+-&gt; Read ApplicationInstance
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplicationInstance]
+$creadListPrec :: ReadPrec [ApplicationInstance]
+readPrec :: ReadPrec ApplicationInstance
+$creadPrec :: ReadPrec ApplicationInstance
+readList :: ReadS [ApplicationInstance]
+$creadList :: ReadS [ApplicationInstance]
+readsPrec :: Int -&gt; ReadS ApplicationInstance
+$creadsPrec :: Int -&gt; ReadS ApplicationInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253658"><span id="local-6989586621679253660"><span id="local-6989586621679253662"><span class="annot"><span class="annottext">Int -&gt; ApplicationInstance -&gt; ShowS
+[ApplicationInstance] -&gt; ShowS
+ApplicationInstance -&gt; String
+(Int -&gt; ApplicationInstance -&gt; ShowS)
+-&gt; (ApplicationInstance -&gt; String)
+-&gt; ([ApplicationInstance] -&gt; ShowS)
+-&gt; Show ApplicationInstance
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplicationInstance] -&gt; ShowS
+$cshowList :: [ApplicationInstance] -&gt; ShowS
+show :: ApplicationInstance -&gt; String
+$cshow :: ApplicationInstance -&gt; String
+showsPrec :: Int -&gt; ApplicationInstance -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplicationInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ApplicationInstance -&gt; Rep ApplicationInstance x)
+-&gt; (forall x. Rep ApplicationInstance x -&gt; ApplicationInstance)
+-&gt; Generic ApplicationInstance
+forall x. Rep ApplicationInstance x -&gt; ApplicationInstance
+forall x. ApplicationInstance -&gt; Rep ApplicationInstance x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ApplicationInstance x -&gt; ApplicationInstance
+$cfrom :: forall x. ApplicationInstance -&gt; Rep ApplicationInstance x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'ApplicationInstance' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'status', 'applicationInstance_status' - The application instance\'s status.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'statusDescription', 'applicationInstance_statusDescription' - The application instance\'s status description.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'arn', 'applicationInstance_arn' - The application instance\'s ARN.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'createdTime', 'applicationInstance_createdTime' - When the application instance was created.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'defaultRuntimeContextDevice', 'applicationInstance_defaultRuntimeContextDevice' - The device\'s ID.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'defaultRuntimeContextDeviceName', 'applicationInstance_defaultRuntimeContextDeviceName' - The device\'s name.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'name', 'applicationInstance_name' - The application instance\'s name.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'healthStatus', 'applicationInstance_healthStatus' - The application instance\'s health status.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'applicationInstanceId', 'applicationInstance_applicationInstanceId' - The application instance\'s ID.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'description', 'applicationInstance_description' - The application instance\'s description.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'tags', 'applicationInstance_tags' - The application instance\'s tags.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#newApplicationInstance"><span class="hs-identifier hs-type">newApplicationInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span>
+</span><span id="line-88"></span><span id="newApplicationInstance"><span class="annot"><span class="annottext">newApplicationInstance :: ApplicationInstance
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#newApplicationInstance"><span class="hs-identifier hs-var hs-var">newApplicationInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">ApplicationInstance' :: Maybe ApplicationInstanceStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ApplicationInstanceHealthStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; ApplicationInstance
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ApplicationInstance' :: Maybe ApplicationInstanceStatus
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3Astatus%3AApplicationInstance%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationInstanceStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusDescription:ApplicationInstance' :: Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AstatusDescription%3AApplicationInstance%27"><span class="hs-identifier hs-var">statusDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ApplicationInstance' :: Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3Aarn%3AApplicationInstance%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:ApplicationInstance' :: Maybe POSIX
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AcreatedTime%3AApplicationInstance%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultRuntimeContextDevice:ApplicationInstance' :: Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AdefaultRuntimeContextDevice%3AApplicationInstance%27"><span class="hs-identifier hs-var">defaultRuntimeContextDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultRuntimeContextDeviceName:ApplicationInstance' :: Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AdefaultRuntimeContextDeviceName%3AApplicationInstance%27"><span class="hs-identifier hs-var">defaultRuntimeContextDeviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ApplicationInstance' :: Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3Aname%3AApplicationInstance%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:healthStatus:ApplicationInstance' :: Maybe ApplicationInstanceHealthStatus
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AhealthStatus%3AApplicationInstance%27"><span class="hs-identifier hs-var">healthStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationInstanceHealthStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationInstanceId:ApplicationInstance' :: Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AapplicationInstanceId%3AApplicationInstance%27"><span class="hs-identifier hs-var">applicationInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ApplicationInstance' :: Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3Adescription%3AApplicationInstance%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ApplicationInstance' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3Atags%3AApplicationInstance%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The application instance\'s status.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_status"><span class="hs-identifier hs-type">applicationInstance_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstanceStatus.html#ApplicationInstanceStatus"><span class="hs-identifier hs-type">ApplicationInstanceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="applicationInstance_status"><span class="annot"><span class="annottext">applicationInstance_status :: (Maybe ApplicationInstanceStatus
+ -&gt; f (Maybe ApplicationInstanceStatus))
+-&gt; ApplicationInstance -&gt; f ApplicationInstance
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_status"><span class="hs-identifier hs-var hs-var">applicationInstance_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationInstance -&gt; Maybe ApplicationInstanceStatus)
+-&gt; (ApplicationInstance
+    -&gt; Maybe ApplicationInstanceStatus -&gt; ApplicationInstance)
+-&gt; Lens
+     ApplicationInstance
+     ApplicationInstance
+     (Maybe ApplicationInstanceStatus)
+     (Maybe ApplicationInstanceStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253649"><span class="annot"><span class="annottext">Maybe ApplicationInstanceStatus
+status :: Maybe ApplicationInstanceStatus
+$sel:status:ApplicationInstance' :: ApplicationInstance -&gt; Maybe ApplicationInstanceStatus
+</span><a href="#local-6989586621679253649"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationInstanceStatus
+</span><a href="#local-6989586621679253649"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253648"><span class="annot"><span class="annottext">s :: ApplicationInstance
+</span><a href="#local-6989586621679253648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253647"><span class="annot"><span class="annottext">Maybe ApplicationInstanceStatus
+</span><a href="#local-6989586621679253647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationInstance
+</span><a href="#local-6989586621679253648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ApplicationInstance' :: Maybe ApplicationInstanceStatus
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3Astatus%3AApplicationInstance%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationInstanceStatus
+</span><a href="#local-6989586621679253647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The application instance\'s status description.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_statusDescription"><span class="hs-identifier hs-type">applicationInstance_statusDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="applicationInstance_statusDescription"><span class="annot"><span class="annottext">applicationInstance_statusDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationInstance -&gt; f ApplicationInstance
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_statusDescription"><span class="hs-identifier hs-var hs-var">applicationInstance_statusDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationInstance -&gt; Maybe Text)
+-&gt; (ApplicationInstance -&gt; Maybe Text -&gt; ApplicationInstance)
+-&gt; Lens
+     ApplicationInstance ApplicationInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253645"><span class="annot"><span class="annottext">Maybe Text
+statusDescription :: Maybe Text
+$sel:statusDescription:ApplicationInstance' :: ApplicationInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679253645"><span class="hs-identifier hs-var hs-var">statusDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253645"><span class="hs-identifier hs-var">statusDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253644"><span class="annot"><span class="annottext">s :: ApplicationInstance
+</span><a href="#local-6989586621679253644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253643"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationInstance
+</span><a href="#local-6989586621679253644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusDescription:ApplicationInstance' :: Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AstatusDescription%3AApplicationInstance%27"><span class="hs-identifier hs-var">statusDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The application instance\'s ARN.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_arn"><span class="hs-identifier hs-type">applicationInstance_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="applicationInstance_arn"><span class="annot"><span class="annottext">applicationInstance_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationInstance -&gt; f ApplicationInstance
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_arn"><span class="hs-identifier hs-var hs-var">applicationInstance_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationInstance -&gt; Maybe Text)
+-&gt; (ApplicationInstance -&gt; Maybe Text -&gt; ApplicationInstance)
+-&gt; Lens
+     ApplicationInstance ApplicationInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253641"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:ApplicationInstance' :: ApplicationInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679253641"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253641"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253640"><span class="annot"><span class="annottext">s :: ApplicationInstance
+</span><a href="#local-6989586621679253640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253639"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationInstance
+</span><a href="#local-6989586621679253640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ApplicationInstance' :: Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3Aarn%3AApplicationInstance%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | When the application instance was created.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_createdTime"><span class="hs-identifier hs-type">applicationInstance_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="applicationInstance_createdTime"><span class="annot"><span class="annottext">applicationInstance_createdTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApplicationInstance -&gt; f ApplicationInstance
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_createdTime"><span class="hs-identifier hs-var hs-var">applicationInstance_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationInstance -&gt; Maybe POSIX)
+-&gt; (ApplicationInstance -&gt; Maybe POSIX -&gt; ApplicationInstance)
+-&gt; Lens
+     ApplicationInstance ApplicationInstance (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253637"><span class="annot"><span class="annottext">Maybe POSIX
+createdTime :: Maybe POSIX
+$sel:createdTime:ApplicationInstance' :: ApplicationInstance -&gt; Maybe POSIX
+</span><a href="#local-6989586621679253637"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679253637"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253636"><span class="annot"><span class="annottext">s :: ApplicationInstance
+</span><a href="#local-6989586621679253636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253635"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679253635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationInstance
+</span><a href="#local-6989586621679253636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:ApplicationInstance' :: Maybe POSIX
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AcreatedTime%3AApplicationInstance%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679253635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ApplicationInstance -&gt; f ApplicationInstance)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ApplicationInstance
+-&gt; f ApplicationInstance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The device\'s ID.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_defaultRuntimeContextDevice"><span class="hs-identifier hs-type">applicationInstance_defaultRuntimeContextDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="applicationInstance_defaultRuntimeContextDevice"><span class="annot"><span class="annottext">applicationInstance_defaultRuntimeContextDevice :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationInstance -&gt; f ApplicationInstance
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_defaultRuntimeContextDevice"><span class="hs-identifier hs-var hs-var">applicationInstance_defaultRuntimeContextDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationInstance -&gt; Maybe Text)
+-&gt; (ApplicationInstance -&gt; Maybe Text -&gt; ApplicationInstance)
+-&gt; Lens
+     ApplicationInstance ApplicationInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253630"><span class="annot"><span class="annottext">Maybe Text
+defaultRuntimeContextDevice :: Maybe Text
+$sel:defaultRuntimeContextDevice:ApplicationInstance' :: ApplicationInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679253630"><span class="hs-identifier hs-var hs-var">defaultRuntimeContextDevice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253630"><span class="hs-identifier hs-var">defaultRuntimeContextDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253629"><span class="annot"><span class="annottext">s :: ApplicationInstance
+</span><a href="#local-6989586621679253629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253628"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationInstance
+</span><a href="#local-6989586621679253629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultRuntimeContextDevice:ApplicationInstance' :: Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AdefaultRuntimeContextDevice%3AApplicationInstance%27"><span class="hs-identifier hs-var">defaultRuntimeContextDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The device\'s name.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_defaultRuntimeContextDeviceName"><span class="hs-identifier hs-type">applicationInstance_defaultRuntimeContextDeviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="applicationInstance_defaultRuntimeContextDeviceName"><span class="annot"><span class="annottext">applicationInstance_defaultRuntimeContextDeviceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationInstance -&gt; f ApplicationInstance
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_defaultRuntimeContextDeviceName"><span class="hs-identifier hs-var hs-var">applicationInstance_defaultRuntimeContextDeviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationInstance -&gt; Maybe Text)
+-&gt; (ApplicationInstance -&gt; Maybe Text -&gt; ApplicationInstance)
+-&gt; Lens
+     ApplicationInstance ApplicationInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253626"><span class="annot"><span class="annottext">Maybe Text
+defaultRuntimeContextDeviceName :: Maybe Text
+$sel:defaultRuntimeContextDeviceName:ApplicationInstance' :: ApplicationInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679253626"><span class="hs-identifier hs-var hs-var">defaultRuntimeContextDeviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253626"><span class="hs-identifier hs-var">defaultRuntimeContextDeviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253625"><span class="annot"><span class="annottext">s :: ApplicationInstance
+</span><a href="#local-6989586621679253625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253624"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationInstance
+</span><a href="#local-6989586621679253625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultRuntimeContextDeviceName:ApplicationInstance' :: Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AdefaultRuntimeContextDeviceName%3AApplicationInstance%27"><span class="hs-identifier hs-var">defaultRuntimeContextDeviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The application instance\'s name.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_name"><span class="hs-identifier hs-type">applicationInstance_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="applicationInstance_name"><span class="annot"><span class="annottext">applicationInstance_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationInstance -&gt; f ApplicationInstance
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_name"><span class="hs-identifier hs-var hs-var">applicationInstance_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationInstance -&gt; Maybe Text)
+-&gt; (ApplicationInstance -&gt; Maybe Text -&gt; ApplicationInstance)
+-&gt; Lens
+     ApplicationInstance ApplicationInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253622"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ApplicationInstance' :: ApplicationInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679253622"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253622"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253621"><span class="annot"><span class="annottext">s :: ApplicationInstance
+</span><a href="#local-6989586621679253621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253620"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationInstance
+</span><a href="#local-6989586621679253621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ApplicationInstance' :: Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3Aname%3AApplicationInstance%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The application instance\'s health status.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_healthStatus"><span class="hs-identifier hs-type">applicationInstance_healthStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus"><span class="hs-identifier hs-type">ApplicationInstanceHealthStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="applicationInstance_healthStatus"><span class="annot"><span class="annottext">applicationInstance_healthStatus :: (Maybe ApplicationInstanceHealthStatus
+ -&gt; f (Maybe ApplicationInstanceHealthStatus))
+-&gt; ApplicationInstance -&gt; f ApplicationInstance
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_healthStatus"><span class="hs-identifier hs-var hs-var">applicationInstance_healthStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationInstance -&gt; Maybe ApplicationInstanceHealthStatus)
+-&gt; (ApplicationInstance
+    -&gt; Maybe ApplicationInstanceHealthStatus -&gt; ApplicationInstance)
+-&gt; Lens
+     ApplicationInstance
+     ApplicationInstance
+     (Maybe ApplicationInstanceHealthStatus)
+     (Maybe ApplicationInstanceHealthStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253618"><span class="annot"><span class="annottext">Maybe ApplicationInstanceHealthStatus
+healthStatus :: Maybe ApplicationInstanceHealthStatus
+$sel:healthStatus:ApplicationInstance' :: ApplicationInstance -&gt; Maybe ApplicationInstanceHealthStatus
+</span><a href="#local-6989586621679253618"><span class="hs-identifier hs-var hs-var">healthStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationInstanceHealthStatus
+</span><a href="#local-6989586621679253618"><span class="hs-identifier hs-var">healthStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253617"><span class="annot"><span class="annottext">s :: ApplicationInstance
+</span><a href="#local-6989586621679253617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253616"><span class="annot"><span class="annottext">Maybe ApplicationInstanceHealthStatus
+</span><a href="#local-6989586621679253616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationInstance
+</span><a href="#local-6989586621679253617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthStatus:ApplicationInstance' :: Maybe ApplicationInstanceHealthStatus
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AhealthStatus%3AApplicationInstance%27"><span class="hs-identifier hs-var">healthStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationInstanceHealthStatus
+</span><a href="#local-6989586621679253616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The application instance\'s ID.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_applicationInstanceId"><span class="hs-identifier hs-type">applicationInstance_applicationInstanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="applicationInstance_applicationInstanceId"><span class="annot"><span class="annottext">applicationInstance_applicationInstanceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationInstance -&gt; f ApplicationInstance
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_applicationInstanceId"><span class="hs-identifier hs-var hs-var">applicationInstance_applicationInstanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationInstance -&gt; Maybe Text)
+-&gt; (ApplicationInstance -&gt; Maybe Text -&gt; ApplicationInstance)
+-&gt; Lens
+     ApplicationInstance ApplicationInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253614"><span class="annot"><span class="annottext">Maybe Text
+applicationInstanceId :: Maybe Text
+$sel:applicationInstanceId:ApplicationInstance' :: ApplicationInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679253614"><span class="hs-identifier hs-var hs-var">applicationInstanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253614"><span class="hs-identifier hs-var">applicationInstanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253613"><span class="annot"><span class="annottext">s :: ApplicationInstance
+</span><a href="#local-6989586621679253613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253612"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationInstance
+</span><a href="#local-6989586621679253613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationInstanceId:ApplicationInstance' :: Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3AapplicationInstanceId%3AApplicationInstance%27"><span class="hs-identifier hs-var">applicationInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The application instance\'s description.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_description"><span class="hs-identifier hs-type">applicationInstance_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="applicationInstance_description"><span class="annot"><span class="annottext">applicationInstance_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationInstance -&gt; f ApplicationInstance
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_description"><span class="hs-identifier hs-var hs-var">applicationInstance_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationInstance -&gt; Maybe Text)
+-&gt; (ApplicationInstance -&gt; Maybe Text -&gt; ApplicationInstance)
+-&gt; Lens
+     ApplicationInstance ApplicationInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253610"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ApplicationInstance' :: ApplicationInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679253610"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253610"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253609"><span class="annot"><span class="annottext">s :: ApplicationInstance
+</span><a href="#local-6989586621679253609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253608"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationInstance
+</span><a href="#local-6989586621679253609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ApplicationInstance' :: Maybe Text
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3Adescription%3AApplicationInstance%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The application instance\'s tags.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_tags"><span class="hs-identifier hs-type">applicationInstance_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="applicationInstance_tags"><span class="annot"><span class="annottext">applicationInstance_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ApplicationInstance -&gt; f ApplicationInstance
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#applicationInstance_tags"><span class="hs-identifier hs-var hs-var">applicationInstance_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationInstance -&gt; Maybe (HashMap Text Text))
+-&gt; (ApplicationInstance
+    -&gt; Maybe (HashMap Text Text) -&gt; ApplicationInstance)
+-&gt; Lens
+     ApplicationInstance
+     ApplicationInstance
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253606"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:ApplicationInstance' :: ApplicationInstance -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679253606"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679253606"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253605"><span class="annot"><span class="annottext">s :: ApplicationInstance
+</span><a href="#local-6989586621679253605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-type">ApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253604"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679253604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationInstance
+</span><a href="#local-6989586621679253605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ApplicationInstance' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#%24sel%3Atags%3AApplicationInstance%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679253604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; ApplicationInstance -&gt; f ApplicationInstance)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ApplicationInstance
+-&gt; f ApplicationInstance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253600"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679253598"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApplicationInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ApplicationInstance)
+-&gt; Value
+-&gt; Parser ApplicationInstance
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ApplicationInstance&quot;</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253595"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253595"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe ApplicationInstanceStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ApplicationInstanceHealthStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; ApplicationInstance
+</span><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance%27"><span class="hs-identifier hs-var">ApplicationInstance'</span></a></span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ApplicationInstanceStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ApplicationInstanceHealthStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; ApplicationInstance)
+-&gt; Parser (Maybe ApplicationInstanceStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ApplicationInstance)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ApplicationInstanceStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ApplicationInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ApplicationInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ApplicationInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ApplicationInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ApplicationInstance)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ApplicationInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ApplicationInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ApplicationInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultRuntimeContextDevice&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ApplicationInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ApplicationInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultRuntimeContextDeviceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ApplicationInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ApplicationInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ApplicationInstance)
+-&gt; Parser (Maybe ApplicationInstanceHealthStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; ApplicationInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ApplicationInstanceHealthStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HealthStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; ApplicationInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; ApplicationInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationInstanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; ApplicationInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (HashMap Text Text) -&gt; ApplicationInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; ApplicationInstance)
+-&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser ApplicationInstance
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253588"><span id="local-6989586621679253590"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253585"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.ApplicationInstance.html#ApplicationInstance"><span class="hs-identifier hs-type">ApplicationInstance</span></a></span></span><span>
+</span><span id="line-169"></span></pre></body></html>

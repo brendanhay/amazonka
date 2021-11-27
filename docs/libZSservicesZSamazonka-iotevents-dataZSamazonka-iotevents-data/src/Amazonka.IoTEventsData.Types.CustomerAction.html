@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTEventsData.Types.CustomerAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTEventsData.Types.CustomerAction</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerActionName.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.CustomerActionName</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DisableActionConfiguration.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.DisableActionConfiguration</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EnableActionConfiguration.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.EnableActionConfiguration</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ResetActionConfiguration.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.ResetActionConfiguration</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeActionConfiguration.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.SnoozeActionConfiguration</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Contains information about the action that you can take to respond to</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- the alarm.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newCustomerAction' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679182855"><span id="local-6989586621679182856"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomerAction"><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-var">CustomerAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomerAction%27"><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction%27"><span class="hs-identifier hs-var">CustomerAction'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the configuration information of a reset action.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AresetActionConfiguration%3ACustomerAction%27"><span class="annot"><span class="annottext">CustomerAction -&gt; Maybe ResetActionConfiguration
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AresetActionConfiguration%3ACustomerAction%27"><span class="hs-identifier hs-var hs-var">resetActionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ResetActionConfiguration.html#ResetActionConfiguration"><span class="hs-identifier hs-type">ResetActionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the action. The action name can be one of the following</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- values:</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   @SNOOZE@ - When you snooze the alarm, the alarm state changes to</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     @SNOOZE_DISABLED@.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   @ENABLE@ - When you enable the alarm, the alarm state changes to</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     @NORMAL@.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   @DISABLE@ - When you disable the alarm, the alarm state changes to</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     @DISABLED@.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   @ACKNOWLEDGE@ - When you acknowledge the alarm, the alarm state</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     changes to @ACKNOWLEDGED@.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   @RESET@ - When you reset the alarm, the alarm state changes to</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     @NORMAL@.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- For more information, see the</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_AlarmState.html AlarmState&gt;</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AactionName%3ACustomerAction%27"><span class="annot"><span class="annottext">CustomerAction -&gt; Maybe CustomerActionName
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AactionName%3ACustomerAction%27"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerActionName.html#CustomerActionName"><span class="hs-identifier hs-type">CustomerActionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Contains the configuration information of a snooze action.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AsnoozeActionConfiguration%3ACustomerAction%27"><span class="annot"><span class="annottext">CustomerAction -&gt; Maybe SnoozeActionConfiguration
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AsnoozeActionConfiguration%3ACustomerAction%27"><span class="hs-identifier hs-var hs-var">snoozeActionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeActionConfiguration.html#SnoozeActionConfiguration"><span class="hs-identifier hs-type">SnoozeActionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Contains the configuration information of an enable action.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AenableActionConfiguration%3ACustomerAction%27"><span class="annot"><span class="annottext">CustomerAction -&gt; Maybe EnableActionConfiguration
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AenableActionConfiguration%3ACustomerAction%27"><span class="hs-identifier hs-var hs-var">enableActionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EnableActionConfiguration.html#EnableActionConfiguration"><span class="hs-identifier hs-type">EnableActionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Contains the configuration information of a disable action.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AdisableActionConfiguration%3ACustomerAction%27"><span class="annot"><span class="annottext">CustomerAction -&gt; Maybe DisableActionConfiguration
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AdisableActionConfiguration%3ACustomerAction%27"><span class="hs-identifier hs-var hs-var">disableActionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DisableActionConfiguration.html#DisableActionConfiguration"><span class="hs-identifier hs-type">DisableActionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Contains the configuration information of an acknowledge action.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AacknowledgeActionConfiguration%3ACustomerAction%27"><span class="annot"><span class="annottext">CustomerAction -&gt; Maybe AcknowledgeActionConfiguration
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AacknowledgeActionConfiguration%3ACustomerAction%27"><span class="hs-identifier hs-var hs-var">acknowledgeActionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration.html#AcknowledgeActionConfiguration"><span class="hs-identifier hs-type">AcknowledgeActionConfiguration</span></a></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182844"><span id="local-6989586621679182846"><span class="annot"><span class="annottext">CustomerAction -&gt; CustomerAction -&gt; Bool
+(CustomerAction -&gt; CustomerAction -&gt; Bool)
+-&gt; (CustomerAction -&gt; CustomerAction -&gt; Bool) -&gt; Eq CustomerAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CustomerAction -&gt; CustomerAction -&gt; Bool
+$c/= :: CustomerAction -&gt; CustomerAction -&gt; Bool
+== :: CustomerAction -&gt; CustomerAction -&gt; Bool
+$c== :: CustomerAction -&gt; CustomerAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182835"><span id="local-6989586621679182837"><span id="local-6989586621679182839"><span id="local-6989586621679182841"><span class="annot"><span class="annottext">ReadPrec [CustomerAction]
+ReadPrec CustomerAction
+Int -&gt; ReadS CustomerAction
+ReadS [CustomerAction]
+(Int -&gt; ReadS CustomerAction)
+-&gt; ReadS [CustomerAction]
+-&gt; ReadPrec CustomerAction
+-&gt; ReadPrec [CustomerAction]
+-&gt; Read CustomerAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CustomerAction]
+$creadListPrec :: ReadPrec [CustomerAction]
+readPrec :: ReadPrec CustomerAction
+$creadPrec :: ReadPrec CustomerAction
+readList :: ReadS [CustomerAction]
+$creadList :: ReadS [CustomerAction]
+readsPrec :: Int -&gt; ReadS CustomerAction
+$creadsPrec :: Int -&gt; ReadS CustomerAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182828"><span id="local-6989586621679182830"><span id="local-6989586621679182832"><span class="annot"><span class="annottext">Int -&gt; CustomerAction -&gt; ShowS
+[CustomerAction] -&gt; ShowS
+CustomerAction -&gt; String
+(Int -&gt; CustomerAction -&gt; ShowS)
+-&gt; (CustomerAction -&gt; String)
+-&gt; ([CustomerAction] -&gt; ShowS)
+-&gt; Show CustomerAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CustomerAction] -&gt; ShowS
+$cshowList :: [CustomerAction] -&gt; ShowS
+show :: CustomerAction -&gt; String
+$cshow :: CustomerAction -&gt; String
+showsPrec :: Int -&gt; CustomerAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; CustomerAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CustomerAction -&gt; Rep CustomerAction x)
+-&gt; (forall x. Rep CustomerAction x -&gt; CustomerAction)
+-&gt; Generic CustomerAction
+forall x. Rep CustomerAction x -&gt; CustomerAction
+forall x. CustomerAction -&gt; Rep CustomerAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CustomerAction x -&gt; CustomerAction
+$cfrom :: forall x. CustomerAction -&gt; Rep CustomerAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'CustomerAction' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'resetActionConfiguration', 'customerAction_resetActionConfiguration' - Contains the configuration information of a reset action.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'actionName', 'customerAction_actionName' - The name of the action. The action name can be one of the following</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- values:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -   @SNOOZE@ - When you snooze the alarm, the alarm state changes to</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--     @SNOOZE_DISABLED@.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- -   @ENABLE@ - When you enable the alarm, the alarm state changes to</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--     @NORMAL@.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- -   @DISABLE@ - When you disable the alarm, the alarm state changes to</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--     @DISABLED@.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   @ACKNOWLEDGE@ - When you acknowledge the alarm, the alarm state</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--     changes to @ACKNOWLEDGED@.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   @RESET@ - When you reset the alarm, the alarm state changes to</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     @NORMAL@.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- For more information, see the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_AlarmState.html AlarmState&gt;</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'snoozeActionConfiguration', 'customerAction_snoozeActionConfiguration' - Contains the configuration information of a snooze action.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'enableActionConfiguration', 'customerAction_enableActionConfiguration' - Contains the configuration information of an enable action.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'disableActionConfiguration', 'customerAction_disableActionConfiguration' - Contains the configuration information of a disable action.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'acknowledgeActionConfiguration', 'customerAction_acknowledgeActionConfiguration' - Contains the configuration information of an acknowledge action.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#newCustomerAction"><span class="hs-identifier hs-type">newCustomerAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span><span>
+</span><span id="line-113"></span><span id="newCustomerAction"><span class="annot"><span class="annottext">newCustomerAction :: CustomerAction
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#newCustomerAction"><span class="hs-identifier hs-var hs-var">newCustomerAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">CustomerAction' :: Maybe ResetActionConfiguration
+-&gt; Maybe CustomerActionName
+-&gt; Maybe SnoozeActionConfiguration
+-&gt; Maybe EnableActionConfiguration
+-&gt; Maybe DisableActionConfiguration
+-&gt; Maybe AcknowledgeActionConfiguration
+-&gt; CustomerAction
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction%27"><span class="hs-identifier hs-type">CustomerAction'</span></a></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resetActionConfiguration:CustomerAction' :: Maybe ResetActionConfiguration
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AresetActionConfiguration%3ACustomerAction%27"><span class="hs-identifier hs-var">resetActionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">Maybe ResetActionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionName:CustomerAction' :: Maybe CustomerActionName
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AactionName%3ACustomerAction%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerActionName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:snoozeActionConfiguration:CustomerAction' :: Maybe SnoozeActionConfiguration
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AsnoozeActionConfiguration%3ACustomerAction%27"><span class="hs-identifier hs-var">snoozeActionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnoozeActionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableActionConfiguration:CustomerAction' :: Maybe EnableActionConfiguration
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AenableActionConfiguration%3ACustomerAction%27"><span class="hs-identifier hs-var">enableActionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EnableActionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:disableActionConfiguration:CustomerAction' :: Maybe DisableActionConfiguration
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AdisableActionConfiguration%3ACustomerAction%27"><span class="hs-identifier hs-var">disableActionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DisableActionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:acknowledgeActionConfiguration:CustomerAction' :: Maybe AcknowledgeActionConfiguration
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AacknowledgeActionConfiguration%3ACustomerAction%27"><span class="hs-identifier hs-var">acknowledgeActionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AcknowledgeActionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | Contains the configuration information of a reset action.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_resetActionConfiguration"><span class="hs-identifier hs-type">customerAction_resetActionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ResetActionConfiguration.html#ResetActionConfiguration"><span class="hs-identifier hs-type">ResetActionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="customerAction_resetActionConfiguration"><span class="annot"><span class="annottext">customerAction_resetActionConfiguration :: (Maybe ResetActionConfiguration
+ -&gt; f (Maybe ResetActionConfiguration))
+-&gt; CustomerAction -&gt; f CustomerAction
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_resetActionConfiguration"><span class="hs-identifier hs-var hs-var">customerAction_resetActionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomerAction -&gt; Maybe ResetActionConfiguration)
+-&gt; (CustomerAction
+    -&gt; Maybe ResetActionConfiguration -&gt; CustomerAction)
+-&gt; Lens
+     CustomerAction
+     CustomerAction
+     (Maybe ResetActionConfiguration)
+     (Maybe ResetActionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction%27"><span class="hs-identifier hs-type">CustomerAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182819"><span class="annot"><span class="annottext">Maybe ResetActionConfiguration
+resetActionConfiguration :: Maybe ResetActionConfiguration
+$sel:resetActionConfiguration:CustomerAction' :: CustomerAction -&gt; Maybe ResetActionConfiguration
+</span><a href="#local-6989586621679182819"><span class="hs-identifier hs-var hs-var">resetActionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResetActionConfiguration
+</span><a href="#local-6989586621679182819"><span class="hs-identifier hs-var">resetActionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182818"><span class="annot"><span class="annottext">s :: CustomerAction
+</span><a href="#local-6989586621679182818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction%27"><span class="hs-identifier hs-type">CustomerAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182817"><span class="annot"><span class="annottext">Maybe ResetActionConfiguration
+</span><a href="#local-6989586621679182817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerAction
+</span><a href="#local-6989586621679182818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resetActionConfiguration:CustomerAction' :: Maybe ResetActionConfiguration
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AresetActionConfiguration%3ACustomerAction%27"><span class="hs-identifier hs-var">resetActionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResetActionConfiguration
+</span><a href="#local-6989586621679182817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The name of the action. The action name can be one of the following</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- values:</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   @SNOOZE@ - When you snooze the alarm, the alarm state changes to</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--     @SNOOZE_DISABLED@.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   @ENABLE@ - When you enable the alarm, the alarm state changes to</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     @NORMAL@.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   @DISABLE@ - When you disable the alarm, the alarm state changes to</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--     @DISABLED@.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   @ACKNOWLEDGE@ - When you acknowledge the alarm, the alarm state</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     changes to @ACKNOWLEDGED@.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- -   @RESET@ - When you reset the alarm, the alarm state changes to</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     @NORMAL@.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- For more information, see the</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_AlarmState.html AlarmState&gt;</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_actionName"><span class="hs-identifier hs-type">customerAction_actionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerActionName.html#CustomerActionName"><span class="hs-identifier hs-type">CustomerActionName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="customerAction_actionName"><span class="annot"><span class="annottext">customerAction_actionName :: (Maybe CustomerActionName -&gt; f (Maybe CustomerActionName))
+-&gt; CustomerAction -&gt; f CustomerAction
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_actionName"><span class="hs-identifier hs-var hs-var">customerAction_actionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomerAction -&gt; Maybe CustomerActionName)
+-&gt; (CustomerAction -&gt; Maybe CustomerActionName -&gt; CustomerAction)
+-&gt; Lens
+     CustomerAction
+     CustomerAction
+     (Maybe CustomerActionName)
+     (Maybe CustomerActionName)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction%27"><span class="hs-identifier hs-type">CustomerAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182815"><span class="annot"><span class="annottext">Maybe CustomerActionName
+actionName :: Maybe CustomerActionName
+$sel:actionName:CustomerAction' :: CustomerAction -&gt; Maybe CustomerActionName
+</span><a href="#local-6989586621679182815"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerActionName
+</span><a href="#local-6989586621679182815"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182814"><span class="annot"><span class="annottext">s :: CustomerAction
+</span><a href="#local-6989586621679182814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction%27"><span class="hs-identifier hs-type">CustomerAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182813"><span class="annot"><span class="annottext">Maybe CustomerActionName
+</span><a href="#local-6989586621679182813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerAction
+</span><a href="#local-6989586621679182814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:CustomerAction' :: Maybe CustomerActionName
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AactionName%3ACustomerAction%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerActionName
+</span><a href="#local-6989586621679182813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Contains the configuration information of a snooze action.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_snoozeActionConfiguration"><span class="hs-identifier hs-type">customerAction_snoozeActionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeActionConfiguration.html#SnoozeActionConfiguration"><span class="hs-identifier hs-type">SnoozeActionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="customerAction_snoozeActionConfiguration"><span class="annot"><span class="annottext">customerAction_snoozeActionConfiguration :: (Maybe SnoozeActionConfiguration
+ -&gt; f (Maybe SnoozeActionConfiguration))
+-&gt; CustomerAction -&gt; f CustomerAction
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_snoozeActionConfiguration"><span class="hs-identifier hs-var hs-var">customerAction_snoozeActionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomerAction -&gt; Maybe SnoozeActionConfiguration)
+-&gt; (CustomerAction
+    -&gt; Maybe SnoozeActionConfiguration -&gt; CustomerAction)
+-&gt; Lens
+     CustomerAction
+     CustomerAction
+     (Maybe SnoozeActionConfiguration)
+     (Maybe SnoozeActionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction%27"><span class="hs-identifier hs-type">CustomerAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182811"><span class="annot"><span class="annottext">Maybe SnoozeActionConfiguration
+snoozeActionConfiguration :: Maybe SnoozeActionConfiguration
+$sel:snoozeActionConfiguration:CustomerAction' :: CustomerAction -&gt; Maybe SnoozeActionConfiguration
+</span><a href="#local-6989586621679182811"><span class="hs-identifier hs-var hs-var">snoozeActionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SnoozeActionConfiguration
+</span><a href="#local-6989586621679182811"><span class="hs-identifier hs-var">snoozeActionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182810"><span class="annot"><span class="annottext">s :: CustomerAction
+</span><a href="#local-6989586621679182810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction%27"><span class="hs-identifier hs-type">CustomerAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182809"><span class="annot"><span class="annottext">Maybe SnoozeActionConfiguration
+</span><a href="#local-6989586621679182809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerAction
+</span><a href="#local-6989586621679182810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snoozeActionConfiguration:CustomerAction' :: Maybe SnoozeActionConfiguration
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AsnoozeActionConfiguration%3ACustomerAction%27"><span class="hs-identifier hs-var">snoozeActionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnoozeActionConfiguration
+</span><a href="#local-6989586621679182809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Contains the configuration information of an enable action.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_enableActionConfiguration"><span class="hs-identifier hs-type">customerAction_enableActionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EnableActionConfiguration.html#EnableActionConfiguration"><span class="hs-identifier hs-type">EnableActionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="customerAction_enableActionConfiguration"><span class="annot"><span class="annottext">customerAction_enableActionConfiguration :: (Maybe EnableActionConfiguration
+ -&gt; f (Maybe EnableActionConfiguration))
+-&gt; CustomerAction -&gt; f CustomerAction
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_enableActionConfiguration"><span class="hs-identifier hs-var hs-var">customerAction_enableActionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomerAction -&gt; Maybe EnableActionConfiguration)
+-&gt; (CustomerAction
+    -&gt; Maybe EnableActionConfiguration -&gt; CustomerAction)
+-&gt; Lens
+     CustomerAction
+     CustomerAction
+     (Maybe EnableActionConfiguration)
+     (Maybe EnableActionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction%27"><span class="hs-identifier hs-type">CustomerAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182807"><span class="annot"><span class="annottext">Maybe EnableActionConfiguration
+enableActionConfiguration :: Maybe EnableActionConfiguration
+$sel:enableActionConfiguration:CustomerAction' :: CustomerAction -&gt; Maybe EnableActionConfiguration
+</span><a href="#local-6989586621679182807"><span class="hs-identifier hs-var hs-var">enableActionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EnableActionConfiguration
+</span><a href="#local-6989586621679182807"><span class="hs-identifier hs-var">enableActionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182806"><span class="annot"><span class="annottext">s :: CustomerAction
+</span><a href="#local-6989586621679182806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction%27"><span class="hs-identifier hs-type">CustomerAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182805"><span class="annot"><span class="annottext">Maybe EnableActionConfiguration
+</span><a href="#local-6989586621679182805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerAction
+</span><a href="#local-6989586621679182806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableActionConfiguration:CustomerAction' :: Maybe EnableActionConfiguration
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AenableActionConfiguration%3ACustomerAction%27"><span class="hs-identifier hs-var">enableActionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EnableActionConfiguration
+</span><a href="#local-6989586621679182805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | Contains the configuration information of a disable action.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_disableActionConfiguration"><span class="hs-identifier hs-type">customerAction_disableActionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DisableActionConfiguration.html#DisableActionConfiguration"><span class="hs-identifier hs-type">DisableActionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="customerAction_disableActionConfiguration"><span class="annot"><span class="annottext">customerAction_disableActionConfiguration :: (Maybe DisableActionConfiguration
+ -&gt; f (Maybe DisableActionConfiguration))
+-&gt; CustomerAction -&gt; f CustomerAction
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_disableActionConfiguration"><span class="hs-identifier hs-var hs-var">customerAction_disableActionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomerAction -&gt; Maybe DisableActionConfiguration)
+-&gt; (CustomerAction
+    -&gt; Maybe DisableActionConfiguration -&gt; CustomerAction)
+-&gt; Lens
+     CustomerAction
+     CustomerAction
+     (Maybe DisableActionConfiguration)
+     (Maybe DisableActionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction%27"><span class="hs-identifier hs-type">CustomerAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182803"><span class="annot"><span class="annottext">Maybe DisableActionConfiguration
+disableActionConfiguration :: Maybe DisableActionConfiguration
+$sel:disableActionConfiguration:CustomerAction' :: CustomerAction -&gt; Maybe DisableActionConfiguration
+</span><a href="#local-6989586621679182803"><span class="hs-identifier hs-var hs-var">disableActionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DisableActionConfiguration
+</span><a href="#local-6989586621679182803"><span class="hs-identifier hs-var">disableActionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182802"><span class="annot"><span class="annottext">s :: CustomerAction
+</span><a href="#local-6989586621679182802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction%27"><span class="hs-identifier hs-type">CustomerAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182801"><span class="annot"><span class="annottext">Maybe DisableActionConfiguration
+</span><a href="#local-6989586621679182801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerAction
+</span><a href="#local-6989586621679182802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disableActionConfiguration:CustomerAction' :: Maybe DisableActionConfiguration
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AdisableActionConfiguration%3ACustomerAction%27"><span class="hs-identifier hs-var">disableActionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DisableActionConfiguration
+</span><a href="#local-6989586621679182801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Contains the configuration information of an acknowledge action.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_acknowledgeActionConfiguration"><span class="hs-identifier hs-type">customerAction_acknowledgeActionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration.html#AcknowledgeActionConfiguration"><span class="hs-identifier hs-type">AcknowledgeActionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="customerAction_acknowledgeActionConfiguration"><span class="annot"><span class="annottext">customerAction_acknowledgeActionConfiguration :: (Maybe AcknowledgeActionConfiguration
+ -&gt; f (Maybe AcknowledgeActionConfiguration))
+-&gt; CustomerAction -&gt; f CustomerAction
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_acknowledgeActionConfiguration"><span class="hs-identifier hs-var hs-var">customerAction_acknowledgeActionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomerAction -&gt; Maybe AcknowledgeActionConfiguration)
+-&gt; (CustomerAction
+    -&gt; Maybe AcknowledgeActionConfiguration -&gt; CustomerAction)
+-&gt; Lens
+     CustomerAction
+     CustomerAction
+     (Maybe AcknowledgeActionConfiguration)
+     (Maybe AcknowledgeActionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction%27"><span class="hs-identifier hs-type">CustomerAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182799"><span class="annot"><span class="annottext">Maybe AcknowledgeActionConfiguration
+acknowledgeActionConfiguration :: Maybe AcknowledgeActionConfiguration
+$sel:acknowledgeActionConfiguration:CustomerAction' :: CustomerAction -&gt; Maybe AcknowledgeActionConfiguration
+</span><a href="#local-6989586621679182799"><span class="hs-identifier hs-var hs-var">acknowledgeActionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AcknowledgeActionConfiguration
+</span><a href="#local-6989586621679182799"><span class="hs-identifier hs-var">acknowledgeActionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182798"><span class="annot"><span class="annottext">s :: CustomerAction
+</span><a href="#local-6989586621679182798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction%27"><span class="hs-identifier hs-type">CustomerAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182797"><span class="annot"><span class="annottext">Maybe AcknowledgeActionConfiguration
+</span><a href="#local-6989586621679182797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerAction
+</span><a href="#local-6989586621679182798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acknowledgeActionConfiguration:CustomerAction' :: Maybe AcknowledgeActionConfiguration
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#%24sel%3AacknowledgeActionConfiguration%3ACustomerAction%27"><span class="hs-identifier hs-var">acknowledgeActionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AcknowledgeActionConfiguration
+</span><a href="#local-6989586621679182797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182794"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679182792"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CustomerAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CustomerAction)
+-&gt; Value
+-&gt; Parser CustomerAction
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CustomerAction&quot;</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182789"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182789"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResetActionConfiguration
+-&gt; Maybe CustomerActionName
+-&gt; Maybe SnoozeActionConfiguration
+-&gt; Maybe EnableActionConfiguration
+-&gt; Maybe DisableActionConfiguration
+-&gt; Maybe AcknowledgeActionConfiguration
+-&gt; CustomerAction
+</span><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction%27"><span class="hs-identifier hs-var">CustomerAction'</span></a></span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ResetActionConfiguration
+ -&gt; Maybe CustomerActionName
+ -&gt; Maybe SnoozeActionConfiguration
+ -&gt; Maybe EnableActionConfiguration
+ -&gt; Maybe DisableActionConfiguration
+ -&gt; Maybe AcknowledgeActionConfiguration
+ -&gt; CustomerAction)
+-&gt; Parser (Maybe ResetActionConfiguration)
+-&gt; Parser
+     (Maybe CustomerActionName
+      -&gt; Maybe SnoozeActionConfiguration
+      -&gt; Maybe EnableActionConfiguration
+      -&gt; Maybe DisableActionConfiguration
+      -&gt; Maybe AcknowledgeActionConfiguration
+      -&gt; CustomerAction)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResetActionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resetActionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CustomerActionName
+   -&gt; Maybe SnoozeActionConfiguration
+   -&gt; Maybe EnableActionConfiguration
+   -&gt; Maybe DisableActionConfiguration
+   -&gt; Maybe AcknowledgeActionConfiguration
+   -&gt; CustomerAction)
+-&gt; Parser (Maybe CustomerActionName)
+-&gt; Parser
+     (Maybe SnoozeActionConfiguration
+      -&gt; Maybe EnableActionConfiguration
+      -&gt; Maybe DisableActionConfiguration
+      -&gt; Maybe AcknowledgeActionConfiguration
+      -&gt; CustomerAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomerActionName)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;actionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SnoozeActionConfiguration
+   -&gt; Maybe EnableActionConfiguration
+   -&gt; Maybe DisableActionConfiguration
+   -&gt; Maybe AcknowledgeActionConfiguration
+   -&gt; CustomerAction)
+-&gt; Parser (Maybe SnoozeActionConfiguration)
+-&gt; Parser
+     (Maybe EnableActionConfiguration
+      -&gt; Maybe DisableActionConfiguration
+      -&gt; Maybe AcknowledgeActionConfiguration
+      -&gt; CustomerAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SnoozeActionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;snoozeActionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EnableActionConfiguration
+   -&gt; Maybe DisableActionConfiguration
+   -&gt; Maybe AcknowledgeActionConfiguration
+   -&gt; CustomerAction)
+-&gt; Parser (Maybe EnableActionConfiguration)
+-&gt; Parser
+     (Maybe DisableActionConfiguration
+      -&gt; Maybe AcknowledgeActionConfiguration -&gt; CustomerAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EnableActionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enableActionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DisableActionConfiguration
+   -&gt; Maybe AcknowledgeActionConfiguration -&gt; CustomerAction)
+-&gt; Parser (Maybe DisableActionConfiguration)
+-&gt; Parser (Maybe AcknowledgeActionConfiguration -&gt; CustomerAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DisableActionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;disableActionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AcknowledgeActionConfiguration -&gt; CustomerAction)
+-&gt; Parser (Maybe AcknowledgeActionConfiguration)
+-&gt; Parser CustomerAction
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AcknowledgeActionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;acknowledgeActionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182783"><span id="local-6989586621679182785"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span></span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182780"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span></span><span>
+</span><span id="line-185"></span></pre></body></html>

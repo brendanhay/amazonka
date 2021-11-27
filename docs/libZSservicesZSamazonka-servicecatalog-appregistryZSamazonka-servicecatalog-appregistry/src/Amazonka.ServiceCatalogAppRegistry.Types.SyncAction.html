@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ServiceCatalogAppRegistry.Types.SyncAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ServiceCatalogAppRegistry.Types.SyncAction</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#SyncAction"><span class="hs-identifier">SyncAction</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#SyncAction_NO_ACTION"><span class="hs-identifier">SyncAction_NO_ACTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#SyncAction_START_SYNC"><span class="hs-identifier">SyncAction_START_SYNC</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679179736"><span id="local-6989586621679179737"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SyncAction"><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#SyncAction"><span class="hs-identifier hs-var">SyncAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SyncAction%27"><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#SyncAction%27"><span class="hs-identifier hs-var">SyncAction'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSyncAction"><span class="annot"><span class="annottext">SyncAction -&gt; Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#fromSyncAction"><span class="hs-identifier hs-var hs-var">fromSyncAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679179728"><span id="local-6989586621679179730"><span id="local-6989586621679179732"><span class="annot"><span class="annottext">Int -&gt; SyncAction -&gt; ShowS
+[SyncAction] -&gt; ShowS
+SyncAction -&gt; String
+(Int -&gt; SyncAction -&gt; ShowS)
+-&gt; (SyncAction -&gt; String)
+-&gt; ([SyncAction] -&gt; ShowS)
+-&gt; Show SyncAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SyncAction] -&gt; ShowS
+$cshowList :: [SyncAction] -&gt; ShowS
+show :: SyncAction -&gt; String
+$cshow :: SyncAction -&gt; String
+showsPrec :: Int -&gt; SyncAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; SyncAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679179719"><span id="local-6989586621679179721"><span id="local-6989586621679179723"><span id="local-6989586621679179725"><span class="annot"><span class="annottext">ReadPrec [SyncAction]
+ReadPrec SyncAction
+Int -&gt; ReadS SyncAction
+ReadS [SyncAction]
+(Int -&gt; ReadS SyncAction)
+-&gt; ReadS [SyncAction]
+-&gt; ReadPrec SyncAction
+-&gt; ReadPrec [SyncAction]
+-&gt; Read SyncAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SyncAction]
+$creadListPrec :: ReadPrec [SyncAction]
+readPrec :: ReadPrec SyncAction
+$creadPrec :: ReadPrec SyncAction
+readList :: ReadS [SyncAction]
+$creadList :: ReadS [SyncAction]
+readsPrec :: Int -&gt; ReadS SyncAction
+$creadsPrec :: Int -&gt; ReadS SyncAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679179714"><span id="local-6989586621679179716"><span class="annot"><span class="annottext">SyncAction -&gt; SyncAction -&gt; Bool
+(SyncAction -&gt; SyncAction -&gt; Bool)
+-&gt; (SyncAction -&gt; SyncAction -&gt; Bool) -&gt; Eq SyncAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SyncAction -&gt; SyncAction -&gt; Bool
+$c/= :: SyncAction -&gt; SyncAction -&gt; Bool
+== :: SyncAction -&gt; SyncAction -&gt; Bool
+$c== :: SyncAction -&gt; SyncAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679179698"><span id="local-6989586621679179700"><span id="local-6989586621679179702"><span id="local-6989586621679179704"><span id="local-6989586621679179706"><span id="local-6989586621679179708"><span id="local-6989586621679179710"><span class="annot"><span class="annottext">Eq SyncAction
+Eq SyncAction
+-&gt; (SyncAction -&gt; SyncAction -&gt; Ordering)
+-&gt; (SyncAction -&gt; SyncAction -&gt; Bool)
+-&gt; (SyncAction -&gt; SyncAction -&gt; Bool)
+-&gt; (SyncAction -&gt; SyncAction -&gt; Bool)
+-&gt; (SyncAction -&gt; SyncAction -&gt; Bool)
+-&gt; (SyncAction -&gt; SyncAction -&gt; SyncAction)
+-&gt; (SyncAction -&gt; SyncAction -&gt; SyncAction)
+-&gt; Ord SyncAction
+SyncAction -&gt; SyncAction -&gt; Bool
+SyncAction -&gt; SyncAction -&gt; Ordering
+SyncAction -&gt; SyncAction -&gt; SyncAction
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SyncAction -&gt; SyncAction -&gt; SyncAction
+$cmin :: SyncAction -&gt; SyncAction -&gt; SyncAction
+max :: SyncAction -&gt; SyncAction -&gt; SyncAction
+$cmax :: SyncAction -&gt; SyncAction -&gt; SyncAction
+&gt;= :: SyncAction -&gt; SyncAction -&gt; Bool
+$c&gt;= :: SyncAction -&gt; SyncAction -&gt; Bool
+&gt; :: SyncAction -&gt; SyncAction -&gt; Bool
+$c&gt; :: SyncAction -&gt; SyncAction -&gt; Bool
+&lt;= :: SyncAction -&gt; SyncAction -&gt; Bool
+$c&lt;= :: SyncAction -&gt; SyncAction -&gt; Bool
+&lt; :: SyncAction -&gt; SyncAction -&gt; Bool
+$c&lt; :: SyncAction -&gt; SyncAction -&gt; Bool
+compare :: SyncAction -&gt; SyncAction -&gt; Ordering
+$ccompare :: SyncAction -&gt; SyncAction -&gt; Ordering
+$cp1Ord :: Eq SyncAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SyncAction -&gt; Rep SyncAction x)
+-&gt; (forall x. Rep SyncAction x -&gt; SyncAction) -&gt; Generic SyncAction
+forall x. Rep SyncAction x -&gt; SyncAction
+forall x. SyncAction -&gt; Rep SyncAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SyncAction x -&gt; SyncAction
+$cfrom :: forall x. SyncAction -&gt; Rep SyncAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679179690"><span id="local-6989586621679179692"><span class="annot"><span class="annottext">Int -&gt; SyncAction -&gt; Int
+SyncAction -&gt; Int
+(Int -&gt; SyncAction -&gt; Int)
+-&gt; (SyncAction -&gt; Int) -&gt; Hashable SyncAction
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SyncAction -&gt; Int
+$chash :: SyncAction -&gt; Int
+hashWithSalt :: Int -&gt; SyncAction -&gt; Int
+$chashWithSalt :: Int -&gt; SyncAction -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679179687"><span class="annot"><span class="annottext">SyncAction -&gt; ()
+(SyncAction -&gt; ()) -&gt; NFData SyncAction
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SyncAction -&gt; ()
+$crnf :: SyncAction -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679179684"><span class="annot"><span class="annottext">Text -&gt; Either String SyncAction
+(Text -&gt; Either String SyncAction) -&gt; FromText SyncAction
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SyncAction
+$cfromText :: Text -&gt; Either String SyncAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679179681"><span class="annot"><span class="annottext">SyncAction -&gt; Text
+(SyncAction -&gt; Text) -&gt; ToText SyncAction
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SyncAction -&gt; Text
+$ctoText :: SyncAction -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679179678"><span class="annot"><span class="annottext">SyncAction -&gt; ByteString
+(SyncAction -&gt; ByteString) -&gt; ToByteString SyncAction
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SyncAction -&gt; ByteString
+$ctoBS :: SyncAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679179675"><span class="annot"><span class="annottext">SyncAction -&gt; ByteStringBuilder
+(SyncAction -&gt; ByteStringBuilder) -&gt; ToLog SyncAction
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SyncAction -&gt; ByteStringBuilder
+$cbuild :: SyncAction -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679179672"><span class="annot"><span class="annottext">HeaderName -&gt; SyncAction -&gt; [Header]
+(HeaderName -&gt; SyncAction -&gt; [Header]) -&gt; ToHeader SyncAction
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SyncAction -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SyncAction -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679179669"><span class="annot"><span class="annottext">SyncAction -&gt; QueryString
+(SyncAction -&gt; QueryString) -&gt; ToQuery SyncAction
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SyncAction -&gt; QueryString
+$ctoQuery :: SyncAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679179664"><span id="local-6989586621679179666"><span class="annot"><span class="annottext">Value -&gt; Parser [SyncAction]
+Value -&gt; Parser SyncAction
+(Value -&gt; Parser SyncAction)
+-&gt; (Value -&gt; Parser [SyncAction]) -&gt; FromJSON SyncAction
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SyncAction]
+$cparseJSONList :: Value -&gt; Parser [SyncAction]
+parseJSON :: Value -&gt; Parser SyncAction
+$cparseJSON :: Value -&gt; Parser SyncAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679179659"><span id="local-6989586621679179661"><span class="annot"><span class="annottext">FromJSONKeyFunction [SyncAction]
+FromJSONKeyFunction SyncAction
+FromJSONKeyFunction SyncAction
+-&gt; FromJSONKeyFunction [SyncAction] -&gt; FromJSONKey SyncAction
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SyncAction]
+$cfromJSONKeyList :: FromJSONKeyFunction [SyncAction]
+fromJSONKey :: FromJSONKeyFunction SyncAction
+$cfromJSONKey :: FromJSONKeyFunction SyncAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679179650"><span id="local-6989586621679179652"><span id="local-6989586621679179654"><span id="local-6989586621679179656"><span class="annot"><span class="annottext">[SyncAction] -&gt; Encoding
+[SyncAction] -&gt; Value
+SyncAction -&gt; Encoding
+SyncAction -&gt; Value
+(SyncAction -&gt; Value)
+-&gt; (SyncAction -&gt; Encoding)
+-&gt; ([SyncAction] -&gt; Value)
+-&gt; ([SyncAction] -&gt; Encoding)
+-&gt; ToJSON SyncAction
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SyncAction] -&gt; Encoding
+$ctoEncodingList :: [SyncAction] -&gt; Encoding
+toJSONList :: [SyncAction] -&gt; Value
+$ctoJSONList :: [SyncAction] -&gt; Value
+toEncoding :: SyncAction -&gt; Encoding
+$ctoEncoding :: SyncAction -&gt; Encoding
+toJSON :: SyncAction -&gt; Value
+$ctoJSON :: SyncAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679179645"><span id="local-6989586621679179647"><span class="annot"><span class="annottext">ToJSONKeyFunction [SyncAction]
+ToJSONKeyFunction SyncAction
+ToJSONKeyFunction SyncAction
+-&gt; ToJSONKeyFunction [SyncAction] -&gt; ToJSONKey SyncAction
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SyncAction]
+$ctoJSONKeyList :: ToJSONKeyFunction [SyncAction]
+toJSONKey :: ToJSONKeyFunction SyncAction
+$ctoJSONKey :: ToJSONKeyFunction SyncAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679179642"><span class="annot"><span class="annottext">[Node] -&gt; Either String SyncAction
+([Node] -&gt; Either String SyncAction) -&gt; FromXML SyncAction
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SyncAction
+$cparseXML :: [Node] -&gt; Either String SyncAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679179639"><span class="annot"><span class="annottext">SyncAction -&gt; XML
+(SyncAction -&gt; XML) -&gt; ToXML SyncAction
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SyncAction -&gt; XML
+$ctoXML :: SyncAction -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#SyncAction_NO_ACTION"><span class="hs-identifier hs-type">SyncAction_NO_ACTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#SyncAction"><span class="hs-identifier hs-type">SyncAction</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSyncAction_NO_ACTION"><span id="%24mSyncAction_NO_ACTION"><span id="SyncAction_NO_ACTION"><span class="annot"><span class="annottext">$bSyncAction_NO_ACTION :: SyncAction
+$mSyncAction_NO_ACTION :: forall r. SyncAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#%24bSyncAction_NO_ACTION"><span class="hs-identifier hs-var hs-var hs-var">SyncAction_NO_ACTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#SyncAction%27"><span class="hs-identifier hs-type">SyncAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_ACTION&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#SyncAction_START_SYNC"><span class="hs-identifier hs-type">SyncAction_START_SYNC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#SyncAction"><span class="hs-identifier hs-type">SyncAction</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSyncAction_START_SYNC"><span id="%24mSyncAction_START_SYNC"><span id="SyncAction_START_SYNC"><span class="annot"><span class="annottext">$bSyncAction_START_SYNC :: SyncAction
+$mSyncAction_START_SYNC :: forall r. SyncAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#%24bSyncAction_START_SYNC"><span class="hs-identifier hs-var hs-var hs-var">SyncAction_START_SYNC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#SyncAction%27"><span class="hs-identifier hs-type">SyncAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;START_SYNC&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#SyncAction_NO_ACTION"><span class="hs-pragma hs-type">SyncAction_NO_ACTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#SyncAction_START_SYNC"><span class="hs-pragma hs-type">SyncAction_START_SYNC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.html#SyncAction%27"><span class="hs-pragma hs-type">SyncAction'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-3"></span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Module      : Amazonka.CloudControl</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-11"></span><span class="hs-comment">--</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Derived from API version @2021-09-30@ of the AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">--</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Use Amazon Web Services Cloud Control API to create, read, update,</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- delete, and list (CRUD-L) your cloud resources that belong to a wide</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- range of services--both Amazon Web Services and third-party. With the</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Cloud Control API standardized set of application programming interfaces</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- (APIs), you can perform CRUD-L operations on any supported resources in</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- your Amazon Web Services account. Using Cloud Control API, you won\'t</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- have to generate code or scripts specific to each individual service</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- responsible for those resources.</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- For more information about Amazon Web Services Cloud Control API, see</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html Amazon Web Services Cloud Control API User Guide&gt;.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudControl</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- $errors</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** TypeNotFoundException</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_TypeNotFoundException"><span class="hs-identifier">_TypeNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GeneralServiceException</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_GeneralServiceException"><span class="hs-identifier">_GeneralServiceException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** HandlerFailureException</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_HandlerFailureException"><span class="hs-identifier">_HandlerFailureException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidRequestException</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_InvalidRequestException"><span class="hs-identifier">_InvalidRequestException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PrivateTypeException</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_PrivateTypeException"><span class="hs-identifier">_PrivateTypeException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ServiceInternalErrorException</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_ServiceInternalErrorException"><span class="hs-identifier">_ServiceInternalErrorException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** HandlerInternalFailureException</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_HandlerInternalFailureException"><span class="hs-identifier">_HandlerInternalFailureException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ClientTokenConflictException</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_ClientTokenConflictException"><span class="hs-identifier">_ClientTokenConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** RequestTokenNotFoundException</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_RequestTokenNotFoundException"><span class="hs-identifier">_RequestTokenNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** NetworkFailureException</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_NetworkFailureException"><span class="hs-identifier">_NetworkFailureException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** NotStabilizedException</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_NotStabilizedException"><span class="hs-identifier">_NotStabilizedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** NotUpdatableException</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_NotUpdatableException"><span class="hs-identifier">_NotUpdatableException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UnsupportedActionException</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_UnsupportedActionException"><span class="hs-identifier">_UnsupportedActionException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ServiceLimitExceededException</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_ServiceLimitExceededException"><span class="hs-identifier">_ServiceLimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ThrottlingException</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_ThrottlingException"><span class="hs-identifier">_ThrottlingException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ConcurrentModificationException</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_ConcurrentModificationException"><span class="hs-identifier">_ConcurrentModificationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ResourceConflictException</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_ResourceConflictException"><span class="hs-identifier">_ResourceConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidCredentialsException</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_InvalidCredentialsException"><span class="hs-identifier">_InvalidCredentialsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ResourceNotFoundException</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ConcurrentOperationException</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_ConcurrentOperationException"><span class="hs-identifier">_ConcurrentOperationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** AlreadyExistsException</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.html#_AlreadyExistsException"><span class="hs-identifier">_AlreadyExistsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Waiters</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="hs-comment">-- $waiters</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ResourceRequestSuccess</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Waiters.html#newResourceRequestSuccess"><span class="hs-identifier">newResourceRequestSuccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="hs-comment">-- $operations</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetResource</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.GetResource.html#GetResource"><span class="hs-identifier">GetResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.GetResource.html#GetResource%27"><span class="hs-identifier">GetResource'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.GetResource.html#newGetResource"><span class="hs-identifier">newGetResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.GetResource.html#GetResourceResponse"><span class="hs-identifier">GetResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.GetResource.html#GetResourceResponse%27"><span class="hs-identifier">GetResourceResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.GetResource.html#newGetResourceResponse"><span class="hs-identifier">newGetResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListResourceRequests</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.ListResourceRequests.html#ListResourceRequests"><span class="hs-identifier">ListResourceRequests</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.ListResourceRequests.html#ListResourceRequests%27"><span class="hs-identifier">ListResourceRequests'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.ListResourceRequests.html#newListResourceRequests"><span class="hs-identifier">newListResourceRequests</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.ListResourceRequests.html#ListResourceRequestsResponse"><span class="hs-identifier">ListResourceRequestsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.ListResourceRequests.html#ListResourceRequestsResponse%27"><span class="hs-identifier">ListResourceRequestsResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.ListResourceRequests.html#newListResourceRequestsResponse"><span class="hs-identifier">newListResourceRequestsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** CancelResourceRequest</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.CancelResourceRequest.html#CancelResourceRequest"><span class="hs-identifier">CancelResourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.CancelResourceRequest.html#CancelResourceRequest%27"><span class="hs-identifier">CancelResourceRequest'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.CancelResourceRequest.html#newCancelResourceRequest"><span class="hs-identifier">newCancelResourceRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.CancelResourceRequest.html#CancelResourceRequestResponse"><span class="hs-identifier">CancelResourceRequestResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.CancelResourceRequest.html#CancelResourceRequestResponse%27"><span class="hs-identifier">CancelResourceRequestResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.CancelResourceRequest.html#newCancelResourceRequestResponse"><span class="hs-identifier">newCancelResourceRequestResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteResource</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.DeleteResource.html#DeleteResource"><span class="hs-identifier">DeleteResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.DeleteResource.html#DeleteResource%27"><span class="hs-identifier">DeleteResource'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.DeleteResource.html#newDeleteResource"><span class="hs-identifier">newDeleteResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.DeleteResource.html#DeleteResourceResponse"><span class="hs-identifier">DeleteResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.DeleteResource.html#DeleteResourceResponse%27"><span class="hs-identifier">DeleteResourceResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.DeleteResource.html#newDeleteResourceResponse"><span class="hs-identifier">newDeleteResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UpdateResource</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier">UpdateResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier">UpdateResource'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#newUpdateResource"><span class="hs-identifier">newUpdateResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse"><span class="hs-identifier">UpdateResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse%27"><span class="hs-identifier">UpdateResourceResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#newUpdateResourceResponse"><span class="hs-identifier">newUpdateResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListResources</span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.ListResources.html#ListResources"><span class="hs-identifier">ListResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.ListResources.html#ListResources%27"><span class="hs-identifier">ListResources'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.ListResources.html#newListResources"><span class="hs-identifier">newListResources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.ListResources.html#ListResourcesResponse"><span class="hs-identifier">ListResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier">ListResourcesResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.ListResources.html#newListResourcesResponse"><span class="hs-identifier">newListResourcesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** CreateResource</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.CreateResource.html#CreateResource"><span class="hs-identifier">CreateResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.CreateResource.html#CreateResource%27"><span class="hs-identifier">CreateResource'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.CreateResource.html#newCreateResource"><span class="hs-identifier">newCreateResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.CreateResource.html#CreateResourceResponse"><span class="hs-identifier">CreateResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.CreateResource.html#CreateResourceResponse%27"><span class="hs-identifier">CreateResourceResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.CreateResource.html#newCreateResourceResponse"><span class="hs-identifier">newCreateResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetResourceRequestStatus</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus"><span class="hs-identifier">GetResourceRequestStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus%27"><span class="hs-identifier">GetResourceRequestStatus'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.GetResourceRequestStatus.html#newGetResourceRequestStatus"><span class="hs-identifier">newGetResourceRequestStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse"><span class="hs-identifier">GetResourceRequestStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse%27"><span class="hs-identifier">GetResourceRequestStatusResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.GetResourceRequestStatus.html#newGetResourceRequestStatusResponse"><span class="hs-identifier">newGetResourceRequestStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** HandlerErrorCode</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.HandlerErrorCode.html#HandlerErrorCode"><span class="hs-identifier">HandlerErrorCode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Operation</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.Operation.html#Operation"><span class="hs-identifier">Operation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** OperationStatus</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.OperationStatus.html#OperationStatus"><span class="hs-identifier">OperationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ProgressEvent</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier">ProgressEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier">ProgressEvent'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.ProgressEvent.html#newProgressEvent"><span class="hs-identifier">newProgressEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ResourceDescription</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.ResourceDescription.html#ResourceDescription"><span class="hs-identifier">ResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.Types.ResourceDescription.html#ResourceDescription%27"><span class="hs-identifier">ResourceDescription'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.ResourceDescription.html#newResourceDescription"><span class="hs-identifier">newResourceDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ResourceRequestStatusFilter</span></span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.ResourceRequestStatusFilter.html#ResourceRequestStatusFilter"><span class="hs-identifier">ResourceRequestStatusFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CloudControl.Types.ResourceRequestStatusFilter.html#ResourceRequestStatusFilter%27"><span class="hs-identifier">ResourceRequestStatusFilter'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.Types.ResourceRequestStatusFilter.html#newResourceRequestStatusFilter"><span class="hs-identifier">newResourceRequestStatusFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.CancelResourceRequest.html"><span class="hs-identifier">Amazonka.CloudControl.CancelResourceRequest</span></a></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.CreateResource.html"><span class="hs-identifier">Amazonka.CloudControl.CreateResource</span></a></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.DeleteResource.html"><span class="hs-identifier">Amazonka.CloudControl.DeleteResource</span></a></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.GetResource.html"><span class="hs-identifier">Amazonka.CloudControl.GetResource</span></a></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.GetResourceRequestStatus.html"><span class="hs-identifier">Amazonka.CloudControl.GetResourceRequestStatus</span></a></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.Lens.html"><span class="hs-identifier">Amazonka.CloudControl.Lens</span></a></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.ListResourceRequests.html"><span class="hs-identifier">Amazonka.CloudControl.ListResourceRequests</span></a></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.ListResources.html"><span class="hs-identifier">Amazonka.CloudControl.ListResources</span></a></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.Types.html"><span class="hs-identifier">Amazonka.CloudControl.Types</span></a></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html"><span class="hs-identifier">Amazonka.CloudControl.UpdateResource</span></a></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.Waiters.html"><span class="hs-identifier">Amazonka.CloudControl.Waiters</span></a></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- $errors</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Error matchers are designed for use with the functions provided by</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens&gt;.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- This allows catching (and rethrowing) service specific errors returned</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- by 'CloudControl'.</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- $operations</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Some AWS operations return results that are incomplete and require subsequent</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- requests in order to obtain the entire result set. The process of sending</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- subsequent requests to continue where a previous request left off is called</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 1000 objects at a time, and you must send subsequent requests with the</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- appropriate Marker in order to retrieve the next page of results.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Operations that have an 'AWSPager' instance can transparently perform subsequent</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- requests, correctly setting Markers and other request facets to iterate through</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- the entire result set of a truncated API operation. Operations which support</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- this have an additional note in the documentation.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- Many operations have the ability to filter results on the server side. See the</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- individual operation parameters for details.</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- $waiters</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Waiters poll by repeatedly sending a request until some remote success condition</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- determines how many attempts should be made, in addition to delay and retry strategies.</span><span>
+</span><span id="line-216"></span></pre></body></html>

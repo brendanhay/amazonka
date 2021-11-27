@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ServiceQuotas.Types.RequestStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ServiceQuotas.Types.RequestStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus"><span class="hs-identifier">RequestStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus_APPROVED"><span class="hs-identifier">RequestStatus_APPROVED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus_CASE_CLOSED"><span class="hs-identifier">RequestStatus_CASE_CLOSED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus_CASE_OPENED"><span class="hs-identifier">RequestStatus_CASE_OPENED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus_DENIED"><span class="hs-identifier">RequestStatus_DENIED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus_PENDING"><span class="hs-identifier">RequestStatus_PENDING</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679176463"><span id="local-6989586621679176464"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RequestStatus"><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus"><span class="hs-identifier hs-var">RequestStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequestStatus%27"><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus%27"><span class="hs-identifier hs-var">RequestStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRequestStatus"><span class="annot"><span class="annottext">RequestStatus -&gt; Text
+</span><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#fromRequestStatus"><span class="hs-identifier hs-var hs-var">fromRequestStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176455"><span id="local-6989586621679176457"><span id="local-6989586621679176459"><span class="annot"><span class="annottext">Int -&gt; RequestStatus -&gt; ShowS
+[RequestStatus] -&gt; ShowS
+RequestStatus -&gt; String
+(Int -&gt; RequestStatus -&gt; ShowS)
+-&gt; (RequestStatus -&gt; String)
+-&gt; ([RequestStatus] -&gt; ShowS)
+-&gt; Show RequestStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RequestStatus] -&gt; ShowS
+$cshowList :: [RequestStatus] -&gt; ShowS
+show :: RequestStatus -&gt; String
+$cshow :: RequestStatus -&gt; String
+showsPrec :: Int -&gt; RequestStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; RequestStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679176446"><span id="local-6989586621679176448"><span id="local-6989586621679176450"><span id="local-6989586621679176452"><span class="annot"><span class="annottext">ReadPrec [RequestStatus]
+ReadPrec RequestStatus
+Int -&gt; ReadS RequestStatus
+ReadS [RequestStatus]
+(Int -&gt; ReadS RequestStatus)
+-&gt; ReadS [RequestStatus]
+-&gt; ReadPrec RequestStatus
+-&gt; ReadPrec [RequestStatus]
+-&gt; Read RequestStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RequestStatus]
+$creadListPrec :: ReadPrec [RequestStatus]
+readPrec :: ReadPrec RequestStatus
+$creadPrec :: ReadPrec RequestStatus
+readList :: ReadS [RequestStatus]
+$creadList :: ReadS [RequestStatus]
+readsPrec :: Int -&gt; ReadS RequestStatus
+$creadsPrec :: Int -&gt; ReadS RequestStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679176441"><span id="local-6989586621679176443"><span class="annot"><span class="annottext">RequestStatus -&gt; RequestStatus -&gt; Bool
+(RequestStatus -&gt; RequestStatus -&gt; Bool)
+-&gt; (RequestStatus -&gt; RequestStatus -&gt; Bool) -&gt; Eq RequestStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RequestStatus -&gt; RequestStatus -&gt; Bool
+$c/= :: RequestStatus -&gt; RequestStatus -&gt; Bool
+== :: RequestStatus -&gt; RequestStatus -&gt; Bool
+$c== :: RequestStatus -&gt; RequestStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679176425"><span id="local-6989586621679176427"><span id="local-6989586621679176429"><span id="local-6989586621679176431"><span id="local-6989586621679176433"><span id="local-6989586621679176435"><span id="local-6989586621679176437"><span class="annot"><span class="annottext">Eq RequestStatus
+Eq RequestStatus
+-&gt; (RequestStatus -&gt; RequestStatus -&gt; Ordering)
+-&gt; (RequestStatus -&gt; RequestStatus -&gt; Bool)
+-&gt; (RequestStatus -&gt; RequestStatus -&gt; Bool)
+-&gt; (RequestStatus -&gt; RequestStatus -&gt; Bool)
+-&gt; (RequestStatus -&gt; RequestStatus -&gt; Bool)
+-&gt; (RequestStatus -&gt; RequestStatus -&gt; RequestStatus)
+-&gt; (RequestStatus -&gt; RequestStatus -&gt; RequestStatus)
+-&gt; Ord RequestStatus
+RequestStatus -&gt; RequestStatus -&gt; Bool
+RequestStatus -&gt; RequestStatus -&gt; Ordering
+RequestStatus -&gt; RequestStatus -&gt; RequestStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RequestStatus -&gt; RequestStatus -&gt; RequestStatus
+$cmin :: RequestStatus -&gt; RequestStatus -&gt; RequestStatus
+max :: RequestStatus -&gt; RequestStatus -&gt; RequestStatus
+$cmax :: RequestStatus -&gt; RequestStatus -&gt; RequestStatus
+&gt;= :: RequestStatus -&gt; RequestStatus -&gt; Bool
+$c&gt;= :: RequestStatus -&gt; RequestStatus -&gt; Bool
+&gt; :: RequestStatus -&gt; RequestStatus -&gt; Bool
+$c&gt; :: RequestStatus -&gt; RequestStatus -&gt; Bool
+&lt;= :: RequestStatus -&gt; RequestStatus -&gt; Bool
+$c&lt;= :: RequestStatus -&gt; RequestStatus -&gt; Bool
+&lt; :: RequestStatus -&gt; RequestStatus -&gt; Bool
+$c&lt; :: RequestStatus -&gt; RequestStatus -&gt; Bool
+compare :: RequestStatus -&gt; RequestStatus -&gt; Ordering
+$ccompare :: RequestStatus -&gt; RequestStatus -&gt; Ordering
+$cp1Ord :: Eq RequestStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RequestStatus -&gt; Rep RequestStatus x)
+-&gt; (forall x. Rep RequestStatus x -&gt; RequestStatus)
+-&gt; Generic RequestStatus
+forall x. Rep RequestStatus x -&gt; RequestStatus
+forall x. RequestStatus -&gt; Rep RequestStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RequestStatus x -&gt; RequestStatus
+$cfrom :: forall x. RequestStatus -&gt; Rep RequestStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176417"><span id="local-6989586621679176419"><span class="annot"><span class="annottext">Int -&gt; RequestStatus -&gt; Int
+RequestStatus -&gt; Int
+(Int -&gt; RequestStatus -&gt; Int)
+-&gt; (RequestStatus -&gt; Int) -&gt; Hashable RequestStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RequestStatus -&gt; Int
+$chash :: RequestStatus -&gt; Int
+hashWithSalt :: Int -&gt; RequestStatus -&gt; Int
+$chashWithSalt :: Int -&gt; RequestStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679176414"><span class="annot"><span class="annottext">RequestStatus -&gt; ()
+(RequestStatus -&gt; ()) -&gt; NFData RequestStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RequestStatus -&gt; ()
+$crnf :: RequestStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679176411"><span class="annot"><span class="annottext">Text -&gt; Either String RequestStatus
+(Text -&gt; Either String RequestStatus) -&gt; FromText RequestStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RequestStatus
+$cfromText :: Text -&gt; Either String RequestStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679176408"><span class="annot"><span class="annottext">RequestStatus -&gt; Text
+(RequestStatus -&gt; Text) -&gt; ToText RequestStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RequestStatus -&gt; Text
+$ctoText :: RequestStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679176405"><span class="annot"><span class="annottext">RequestStatus -&gt; ByteString
+(RequestStatus -&gt; ByteString) -&gt; ToByteString RequestStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RequestStatus -&gt; ByteString
+$ctoBS :: RequestStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679176402"><span class="annot"><span class="annottext">RequestStatus -&gt; ByteStringBuilder
+(RequestStatus -&gt; ByteStringBuilder) -&gt; ToLog RequestStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RequestStatus -&gt; ByteStringBuilder
+$cbuild :: RequestStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679176399"><span class="annot"><span class="annottext">HeaderName -&gt; RequestStatus -&gt; [Header]
+(HeaderName -&gt; RequestStatus -&gt; [Header]) -&gt; ToHeader RequestStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RequestStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RequestStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679176396"><span class="annot"><span class="annottext">RequestStatus -&gt; QueryString
+(RequestStatus -&gt; QueryString) -&gt; ToQuery RequestStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RequestStatus -&gt; QueryString
+$ctoQuery :: RequestStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679176391"><span id="local-6989586621679176393"><span class="annot"><span class="annottext">Value -&gt; Parser [RequestStatus]
+Value -&gt; Parser RequestStatus
+(Value -&gt; Parser RequestStatus)
+-&gt; (Value -&gt; Parser [RequestStatus]) -&gt; FromJSON RequestStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RequestStatus]
+$cparseJSONList :: Value -&gt; Parser [RequestStatus]
+parseJSON :: Value -&gt; Parser RequestStatus
+$cparseJSON :: Value -&gt; Parser RequestStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679176386"><span id="local-6989586621679176388"><span class="annot"><span class="annottext">FromJSONKeyFunction [RequestStatus]
+FromJSONKeyFunction RequestStatus
+FromJSONKeyFunction RequestStatus
+-&gt; FromJSONKeyFunction [RequestStatus] -&gt; FromJSONKey RequestStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RequestStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [RequestStatus]
+fromJSONKey :: FromJSONKeyFunction RequestStatus
+$cfromJSONKey :: FromJSONKeyFunction RequestStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679176377"><span id="local-6989586621679176379"><span id="local-6989586621679176381"><span id="local-6989586621679176383"><span class="annot"><span class="annottext">[RequestStatus] -&gt; Encoding
+[RequestStatus] -&gt; Value
+RequestStatus -&gt; Encoding
+RequestStatus -&gt; Value
+(RequestStatus -&gt; Value)
+-&gt; (RequestStatus -&gt; Encoding)
+-&gt; ([RequestStatus] -&gt; Value)
+-&gt; ([RequestStatus] -&gt; Encoding)
+-&gt; ToJSON RequestStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RequestStatus] -&gt; Encoding
+$ctoEncodingList :: [RequestStatus] -&gt; Encoding
+toJSONList :: [RequestStatus] -&gt; Value
+$ctoJSONList :: [RequestStatus] -&gt; Value
+toEncoding :: RequestStatus -&gt; Encoding
+$ctoEncoding :: RequestStatus -&gt; Encoding
+toJSON :: RequestStatus -&gt; Value
+$ctoJSON :: RequestStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679176372"><span id="local-6989586621679176374"><span class="annot"><span class="annottext">ToJSONKeyFunction [RequestStatus]
+ToJSONKeyFunction RequestStatus
+ToJSONKeyFunction RequestStatus
+-&gt; ToJSONKeyFunction [RequestStatus] -&gt; ToJSONKey RequestStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RequestStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [RequestStatus]
+toJSONKey :: ToJSONKeyFunction RequestStatus
+$ctoJSONKey :: ToJSONKeyFunction RequestStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679176369"><span class="annot"><span class="annottext">[Node] -&gt; Either String RequestStatus
+([Node] -&gt; Either String RequestStatus) -&gt; FromXML RequestStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RequestStatus
+$cparseXML :: [Node] -&gt; Either String RequestStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679176366"><span class="annot"><span class="annottext">RequestStatus -&gt; XML
+(RequestStatus -&gt; XML) -&gt; ToXML RequestStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RequestStatus -&gt; XML
+$ctoXML :: RequestStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus_APPROVED"><span class="hs-identifier hs-type">RequestStatus_APPROVED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus"><span class="hs-identifier hs-type">RequestStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequestStatus_APPROVED"><span id="%24mRequestStatus_APPROVED"><span id="RequestStatus_APPROVED"><span class="annot"><span class="annottext">$bRequestStatus_APPROVED :: RequestStatus
+$mRequestStatus_APPROVED :: forall r. RequestStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#%24bRequestStatus_APPROVED"><span class="hs-identifier hs-var hs-var hs-var">RequestStatus_APPROVED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus%27"><span class="hs-identifier hs-type">RequestStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;APPROVED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus_CASE_CLOSED"><span class="hs-identifier hs-type">RequestStatus_CASE_CLOSED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus"><span class="hs-identifier hs-type">RequestStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequestStatus_CASE_CLOSED"><span id="%24mRequestStatus_CASE_CLOSED"><span id="RequestStatus_CASE_CLOSED"><span class="annot"><span class="annottext">$bRequestStatus_CASE_CLOSED :: RequestStatus
+$mRequestStatus_CASE_CLOSED :: forall r. RequestStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#%24bRequestStatus_CASE_CLOSED"><span class="hs-identifier hs-var hs-var hs-var">RequestStatus_CASE_CLOSED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus%27"><span class="hs-identifier hs-type">RequestStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CASE_CLOSED&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus_CASE_OPENED"><span class="hs-identifier hs-type">RequestStatus_CASE_OPENED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus"><span class="hs-identifier hs-type">RequestStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequestStatus_CASE_OPENED"><span id="%24mRequestStatus_CASE_OPENED"><span id="RequestStatus_CASE_OPENED"><span class="annot"><span class="annottext">$bRequestStatus_CASE_OPENED :: RequestStatus
+$mRequestStatus_CASE_OPENED :: forall r. RequestStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#%24bRequestStatus_CASE_OPENED"><span class="hs-identifier hs-var hs-var hs-var">RequestStatus_CASE_OPENED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus%27"><span class="hs-identifier hs-type">RequestStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CASE_OPENED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus_DENIED"><span class="hs-identifier hs-type">RequestStatus_DENIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus"><span class="hs-identifier hs-type">RequestStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequestStatus_DENIED"><span id="%24mRequestStatus_DENIED"><span id="RequestStatus_DENIED"><span class="annot"><span class="annottext">$bRequestStatus_DENIED :: RequestStatus
+$mRequestStatus_DENIED :: forall r. RequestStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#%24bRequestStatus_DENIED"><span class="hs-identifier hs-var hs-var hs-var">RequestStatus_DENIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus%27"><span class="hs-identifier hs-type">RequestStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DENIED&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus_PENDING"><span class="hs-identifier hs-type">RequestStatus_PENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus"><span class="hs-identifier hs-type">RequestStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequestStatus_PENDING"><span id="%24mRequestStatus_PENDING"><span id="RequestStatus_PENDING"><span class="annot"><span class="annottext">$bRequestStatus_PENDING :: RequestStatus
+$mRequestStatus_PENDING :: forall r. RequestStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#%24bRequestStatus_PENDING"><span class="hs-identifier hs-var hs-var hs-var">RequestStatus_PENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus%27"><span class="hs-identifier hs-type">RequestStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus_APPROVED"><span class="hs-pragma hs-type">RequestStatus_APPROVED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus_CASE_CLOSED"><span class="hs-pragma hs-type">RequestStatus_CASE_CLOSED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus_CASE_OPENED"><span class="hs-pragma hs-type">RequestStatus_CASE_OPENED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus_DENIED"><span class="hs-pragma hs-type">RequestStatus_DENIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus_PENDING"><span class="hs-pragma hs-type">RequestStatus_PENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus%27"><span class="hs-pragma hs-type">RequestStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

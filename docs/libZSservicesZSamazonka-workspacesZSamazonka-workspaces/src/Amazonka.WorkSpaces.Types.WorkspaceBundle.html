@@ -1,0 +1,665 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WorkSpaces.Types.WorkspaceBundle</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkSpaces.Types.WorkspaceBundle</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.ComputeType.html"><span class="hs-identifier">Amazonka.WorkSpaces.Types.ComputeType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.RootStorage.html"><span class="hs-identifier">Amazonka.WorkSpaces.Types.RootStorage</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.UserStorage.html"><span class="hs-identifier">Amazonka.WorkSpaces.Types.UserStorage</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes a WorkSpace bundle.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newWorkspaceBundle' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679274659"><span id="local-6989586621679274660"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkspaceBundle"><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-var">WorkspaceBundle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceBundle%27"><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-var">WorkspaceBundle'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time when the bundle was created.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreationTime%3AWorkspaceBundle%27"><span class="annot"><span class="annottext">WorkspaceBundle -&gt; Maybe POSIX
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AcreationTime%3AWorkspaceBundle%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The last time that the bundle was updated.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3AWorkspaceBundle%27"><span class="annot"><span class="annottext">WorkspaceBundle -&gt; Maybe POSIX
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AlastUpdatedTime%3AWorkspaceBundle%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The identifier of the bundle.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AbundleId%3AWorkspaceBundle%27"><span class="annot"><span class="annottext">WorkspaceBundle -&gt; Maybe Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AbundleId%3AWorkspaceBundle%27"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The owner of the bundle. This is the account identifier of the owner, or</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @AMAZON@ if the bundle is provided by Amazon Web Services.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aowner%3AWorkspaceBundle%27"><span class="annot"><span class="annottext">WorkspaceBundle -&gt; Maybe Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3Aowner%3AWorkspaceBundle%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The size of the root volume.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3ArootStorage%3AWorkspaceBundle%27"><span class="annot"><span class="annottext">WorkspaceBundle -&gt; Maybe RootStorage
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3ArootStorage%3AWorkspaceBundle%27"><span class="hs-identifier hs-var hs-var">rootStorage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.RootStorage.html#RootStorage"><span class="hs-identifier hs-type">RootStorage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the bundle.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aname%3AWorkspaceBundle%27"><span class="annot"><span class="annottext">WorkspaceBundle -&gt; Maybe Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3Aname%3AWorkspaceBundle%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The identifier of the image that was used to create the bundle.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AimageId%3AWorkspaceBundle%27"><span class="annot"><span class="annottext">WorkspaceBundle -&gt; Maybe Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AimageId%3AWorkspaceBundle%27"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The compute type of the bundle. For more information, see</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- &lt;http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles&gt;.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AcomputeType%3AWorkspaceBundle%27"><span class="annot"><span class="annottext">WorkspaceBundle -&gt; Maybe ComputeType
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AcomputeType%3AWorkspaceBundle%27"><span class="hs-identifier hs-var hs-var">computeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The size of the user volume.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AuserStorage%3AWorkspaceBundle%27"><span class="annot"><span class="annottext">WorkspaceBundle -&gt; Maybe UserStorage
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AuserStorage%3AWorkspaceBundle%27"><span class="hs-identifier hs-var hs-var">userStorage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.UserStorage.html#UserStorage"><span class="hs-identifier hs-type">UserStorage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The description of the bundle.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Adescription%3AWorkspaceBundle%27"><span class="annot"><span class="annottext">WorkspaceBundle -&gt; Maybe Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3Adescription%3AWorkspaceBundle%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274644"><span id="local-6989586621679274646"><span class="annot"><span class="annottext">WorkspaceBundle -&gt; WorkspaceBundle -&gt; Bool
+(WorkspaceBundle -&gt; WorkspaceBundle -&gt; Bool)
+-&gt; (WorkspaceBundle -&gt; WorkspaceBundle -&gt; Bool)
+-&gt; Eq WorkspaceBundle
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WorkspaceBundle -&gt; WorkspaceBundle -&gt; Bool
+$c/= :: WorkspaceBundle -&gt; WorkspaceBundle -&gt; Bool
+== :: WorkspaceBundle -&gt; WorkspaceBundle -&gt; Bool
+$c== :: WorkspaceBundle -&gt; WorkspaceBundle -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274635"><span id="local-6989586621679274637"><span id="local-6989586621679274639"><span id="local-6989586621679274641"><span class="annot"><span class="annottext">ReadPrec [WorkspaceBundle]
+ReadPrec WorkspaceBundle
+Int -&gt; ReadS WorkspaceBundle
+ReadS [WorkspaceBundle]
+(Int -&gt; ReadS WorkspaceBundle)
+-&gt; ReadS [WorkspaceBundle]
+-&gt; ReadPrec WorkspaceBundle
+-&gt; ReadPrec [WorkspaceBundle]
+-&gt; Read WorkspaceBundle
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WorkspaceBundle]
+$creadListPrec :: ReadPrec [WorkspaceBundle]
+readPrec :: ReadPrec WorkspaceBundle
+$creadPrec :: ReadPrec WorkspaceBundle
+readList :: ReadS [WorkspaceBundle]
+$creadList :: ReadS [WorkspaceBundle]
+readsPrec :: Int -&gt; ReadS WorkspaceBundle
+$creadsPrec :: Int -&gt; ReadS WorkspaceBundle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274628"><span id="local-6989586621679274630"><span id="local-6989586621679274632"><span class="annot"><span class="annottext">Int -&gt; WorkspaceBundle -&gt; ShowS
+[WorkspaceBundle] -&gt; ShowS
+WorkspaceBundle -&gt; String
+(Int -&gt; WorkspaceBundle -&gt; ShowS)
+-&gt; (WorkspaceBundle -&gt; String)
+-&gt; ([WorkspaceBundle] -&gt; ShowS)
+-&gt; Show WorkspaceBundle
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WorkspaceBundle] -&gt; ShowS
+$cshowList :: [WorkspaceBundle] -&gt; ShowS
+show :: WorkspaceBundle -&gt; String
+$cshow :: WorkspaceBundle -&gt; String
+showsPrec :: Int -&gt; WorkspaceBundle -&gt; ShowS
+$cshowsPrec :: Int -&gt; WorkspaceBundle -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. WorkspaceBundle -&gt; Rep WorkspaceBundle x)
+-&gt; (forall x. Rep WorkspaceBundle x -&gt; WorkspaceBundle)
+-&gt; Generic WorkspaceBundle
+forall x. Rep WorkspaceBundle x -&gt; WorkspaceBundle
+forall x. WorkspaceBundle -&gt; Rep WorkspaceBundle x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WorkspaceBundle x -&gt; WorkspaceBundle
+$cfrom :: forall x. WorkspaceBundle -&gt; Rep WorkspaceBundle x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'WorkspaceBundle' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'creationTime', 'workspaceBundle_creationTime' - The time when the bundle was created.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'lastUpdatedTime', 'workspaceBundle_lastUpdatedTime' - The last time that the bundle was updated.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'bundleId', 'workspaceBundle_bundleId' - The identifier of the bundle.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'owner', 'workspaceBundle_owner' - The owner of the bundle. This is the account identifier of the owner, or</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- @AMAZON@ if the bundle is provided by Amazon Web Services.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'rootStorage', 'workspaceBundle_rootStorage' - The size of the root volume.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'name', 'workspaceBundle_name' - The name of the bundle.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'imageId', 'workspaceBundle_imageId' - The identifier of the image that was used to create the bundle.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'computeType', 'workspaceBundle_computeType' - The compute type of the bundle. For more information, see</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles&gt;.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'userStorage', 'workspaceBundle_userStorage' - The size of the user volume.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'description', 'workspaceBundle_description' - The description of the bundle.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#newWorkspaceBundle"><span class="hs-identifier hs-type">newWorkspaceBundle</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span>
+</span><span id="line-89"></span><span id="newWorkspaceBundle"><span class="annot"><span class="annottext">newWorkspaceBundle :: WorkspaceBundle
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#newWorkspaceBundle"><span class="hs-identifier hs-var hs-var">newWorkspaceBundle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">WorkspaceBundle' :: Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe RootStorage
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ComputeType
+-&gt; Maybe UserStorage
+-&gt; Maybe Text
+-&gt; WorkspaceBundle
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:WorkspaceBundle' :: Maybe POSIX
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AcreationTime%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:WorkspaceBundle' :: Maybe POSIX
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AlastUpdatedTime%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:bundleId:WorkspaceBundle' :: Maybe Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AbundleId%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:owner:WorkspaceBundle' :: Maybe Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3Aowner%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:rootStorage:WorkspaceBundle' :: Maybe RootStorage
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3ArootStorage%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">rootStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RootStorage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:WorkspaceBundle' :: Maybe Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3Aname%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageId:WorkspaceBundle' :: Maybe Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AimageId%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:computeType:WorkspaceBundle' :: Maybe ComputeType
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AcomputeType%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">computeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComputeType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:userStorage:WorkspaceBundle' :: Maybe UserStorage
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AuserStorage%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">userStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserStorage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:WorkspaceBundle' :: Maybe Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3Adescription%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The time when the bundle was created.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_creationTime"><span class="hs-identifier hs-type">workspaceBundle_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="workspaceBundle_creationTime"><span class="annot"><span class="annottext">workspaceBundle_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; WorkspaceBundle -&gt; f WorkspaceBundle
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_creationTime"><span class="hs-identifier hs-var hs-var">workspaceBundle_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceBundle -&gt; Maybe POSIX)
+-&gt; (WorkspaceBundle -&gt; Maybe POSIX -&gt; WorkspaceBundle)
+-&gt; Lens WorkspaceBundle WorkspaceBundle (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274619"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:WorkspaceBundle' :: WorkspaceBundle -&gt; Maybe POSIX
+</span><a href="#local-6989586621679274619"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679274619"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274618"><span class="annot"><span class="annottext">s :: WorkspaceBundle
+</span><a href="#local-6989586621679274618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274617"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679274617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceBundle
+</span><a href="#local-6989586621679274618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:WorkspaceBundle' :: Maybe POSIX
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AcreationTime%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679274617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; WorkspaceBundle -&gt; f WorkspaceBundle)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; WorkspaceBundle
+-&gt; f WorkspaceBundle
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The last time that the bundle was updated.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_lastUpdatedTime"><span class="hs-identifier hs-type">workspaceBundle_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="workspaceBundle_lastUpdatedTime"><span class="annot"><span class="annottext">workspaceBundle_lastUpdatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; WorkspaceBundle -&gt; f WorkspaceBundle
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">workspaceBundle_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceBundle -&gt; Maybe POSIX)
+-&gt; (WorkspaceBundle -&gt; Maybe POSIX -&gt; WorkspaceBundle)
+-&gt; Lens WorkspaceBundle WorkspaceBundle (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274612"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedTime :: Maybe POSIX
+$sel:lastUpdatedTime:WorkspaceBundle' :: WorkspaceBundle -&gt; Maybe POSIX
+</span><a href="#local-6989586621679274612"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679274612"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274611"><span class="annot"><span class="annottext">s :: WorkspaceBundle
+</span><a href="#local-6989586621679274611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274610"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679274610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceBundle
+</span><a href="#local-6989586621679274611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:WorkspaceBundle' :: Maybe POSIX
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AlastUpdatedTime%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679274610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; WorkspaceBundle -&gt; f WorkspaceBundle)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; WorkspaceBundle
+-&gt; f WorkspaceBundle
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The identifier of the bundle.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_bundleId"><span class="hs-identifier hs-type">workspaceBundle_bundleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="workspaceBundle_bundleId"><span class="annot"><span class="annottext">workspaceBundle_bundleId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceBundle -&gt; f WorkspaceBundle
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_bundleId"><span class="hs-identifier hs-var hs-var">workspaceBundle_bundleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceBundle -&gt; Maybe Text)
+-&gt; (WorkspaceBundle -&gt; Maybe Text -&gt; WorkspaceBundle)
+-&gt; Lens WorkspaceBundle WorkspaceBundle (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274608"><span class="annot"><span class="annottext">Maybe Text
+bundleId :: Maybe Text
+$sel:bundleId:WorkspaceBundle' :: WorkspaceBundle -&gt; Maybe Text
+</span><a href="#local-6989586621679274608"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274608"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274607"><span class="annot"><span class="annottext">s :: WorkspaceBundle
+</span><a href="#local-6989586621679274607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274606"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceBundle
+</span><a href="#local-6989586621679274607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:WorkspaceBundle' :: Maybe Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AbundleId%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The owner of the bundle. This is the account identifier of the owner, or</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- @AMAZON@ if the bundle is provided by Amazon Web Services.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_owner"><span class="hs-identifier hs-type">workspaceBundle_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="workspaceBundle_owner"><span class="annot"><span class="annottext">workspaceBundle_owner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceBundle -&gt; f WorkspaceBundle
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_owner"><span class="hs-identifier hs-var hs-var">workspaceBundle_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceBundle -&gt; Maybe Text)
+-&gt; (WorkspaceBundle -&gt; Maybe Text -&gt; WorkspaceBundle)
+-&gt; Lens WorkspaceBundle WorkspaceBundle (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274604"><span class="annot"><span class="annottext">Maybe Text
+owner :: Maybe Text
+$sel:owner:WorkspaceBundle' :: WorkspaceBundle -&gt; Maybe Text
+</span><a href="#local-6989586621679274604"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274604"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274603"><span class="annot"><span class="annottext">s :: WorkspaceBundle
+</span><a href="#local-6989586621679274603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274602"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceBundle
+</span><a href="#local-6989586621679274603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:WorkspaceBundle' :: Maybe Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3Aowner%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The size of the root volume.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_rootStorage"><span class="hs-identifier hs-type">workspaceBundle_rootStorage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.RootStorage.html#RootStorage"><span class="hs-identifier hs-type">RootStorage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="workspaceBundle_rootStorage"><span class="annot"><span class="annottext">workspaceBundle_rootStorage :: (Maybe RootStorage -&gt; f (Maybe RootStorage))
+-&gt; WorkspaceBundle -&gt; f WorkspaceBundle
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_rootStorage"><span class="hs-identifier hs-var hs-var">workspaceBundle_rootStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceBundle -&gt; Maybe RootStorage)
+-&gt; (WorkspaceBundle -&gt; Maybe RootStorage -&gt; WorkspaceBundle)
+-&gt; Lens
+     WorkspaceBundle
+     WorkspaceBundle
+     (Maybe RootStorage)
+     (Maybe RootStorage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274600"><span class="annot"><span class="annottext">Maybe RootStorage
+rootStorage :: Maybe RootStorage
+$sel:rootStorage:WorkspaceBundle' :: WorkspaceBundle -&gt; Maybe RootStorage
+</span><a href="#local-6989586621679274600"><span class="hs-identifier hs-var hs-var">rootStorage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RootStorage
+</span><a href="#local-6989586621679274600"><span class="hs-identifier hs-var">rootStorage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274599"><span class="annot"><span class="annottext">s :: WorkspaceBundle
+</span><a href="#local-6989586621679274599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274598"><span class="annot"><span class="annottext">Maybe RootStorage
+</span><a href="#local-6989586621679274598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceBundle
+</span><a href="#local-6989586621679274599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootStorage:WorkspaceBundle' :: Maybe RootStorage
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3ArootStorage%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">rootStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RootStorage
+</span><a href="#local-6989586621679274598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The name of the bundle.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_name"><span class="hs-identifier hs-type">workspaceBundle_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="workspaceBundle_name"><span class="annot"><span class="annottext">workspaceBundle_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceBundle -&gt; f WorkspaceBundle
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_name"><span class="hs-identifier hs-var hs-var">workspaceBundle_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceBundle -&gt; Maybe Text)
+-&gt; (WorkspaceBundle -&gt; Maybe Text -&gt; WorkspaceBundle)
+-&gt; Lens WorkspaceBundle WorkspaceBundle (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274596"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:WorkspaceBundle' :: WorkspaceBundle -&gt; Maybe Text
+</span><a href="#local-6989586621679274596"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274596"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274595"><span class="annot"><span class="annottext">s :: WorkspaceBundle
+</span><a href="#local-6989586621679274595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274594"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceBundle
+</span><a href="#local-6989586621679274595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:WorkspaceBundle' :: Maybe Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3Aname%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The identifier of the image that was used to create the bundle.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_imageId"><span class="hs-identifier hs-type">workspaceBundle_imageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="workspaceBundle_imageId"><span class="annot"><span class="annottext">workspaceBundle_imageId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceBundle -&gt; f WorkspaceBundle
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_imageId"><span class="hs-identifier hs-var hs-var">workspaceBundle_imageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceBundle -&gt; Maybe Text)
+-&gt; (WorkspaceBundle -&gt; Maybe Text -&gt; WorkspaceBundle)
+-&gt; Lens WorkspaceBundle WorkspaceBundle (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274592"><span class="annot"><span class="annottext">Maybe Text
+imageId :: Maybe Text
+$sel:imageId:WorkspaceBundle' :: WorkspaceBundle -&gt; Maybe Text
+</span><a href="#local-6989586621679274592"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274592"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274591"><span class="annot"><span class="annottext">s :: WorkspaceBundle
+</span><a href="#local-6989586621679274591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274590"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceBundle
+</span><a href="#local-6989586621679274591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:WorkspaceBundle' :: Maybe Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AimageId%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The compute type of the bundle. For more information, see</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles&gt;.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_computeType"><span class="hs-identifier hs-type">workspaceBundle_computeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="workspaceBundle_computeType"><span class="annot"><span class="annottext">workspaceBundle_computeType :: (Maybe ComputeType -&gt; f (Maybe ComputeType))
+-&gt; WorkspaceBundle -&gt; f WorkspaceBundle
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_computeType"><span class="hs-identifier hs-var hs-var">workspaceBundle_computeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceBundle -&gt; Maybe ComputeType)
+-&gt; (WorkspaceBundle -&gt; Maybe ComputeType -&gt; WorkspaceBundle)
+-&gt; Lens
+     WorkspaceBundle
+     WorkspaceBundle
+     (Maybe ComputeType)
+     (Maybe ComputeType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274588"><span class="annot"><span class="annottext">Maybe ComputeType
+computeType :: Maybe ComputeType
+$sel:computeType:WorkspaceBundle' :: WorkspaceBundle -&gt; Maybe ComputeType
+</span><a href="#local-6989586621679274588"><span class="hs-identifier hs-var hs-var">computeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComputeType
+</span><a href="#local-6989586621679274588"><span class="hs-identifier hs-var">computeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274587"><span class="annot"><span class="annottext">s :: WorkspaceBundle
+</span><a href="#local-6989586621679274587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274586"><span class="annot"><span class="annottext">Maybe ComputeType
+</span><a href="#local-6989586621679274586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceBundle
+</span><a href="#local-6989586621679274587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeType:WorkspaceBundle' :: Maybe ComputeType
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AcomputeType%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">computeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComputeType
+</span><a href="#local-6989586621679274586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The size of the user volume.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_userStorage"><span class="hs-identifier hs-type">workspaceBundle_userStorage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.UserStorage.html#UserStorage"><span class="hs-identifier hs-type">UserStorage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="workspaceBundle_userStorage"><span class="annot"><span class="annottext">workspaceBundle_userStorage :: (Maybe UserStorage -&gt; f (Maybe UserStorage))
+-&gt; WorkspaceBundle -&gt; f WorkspaceBundle
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_userStorage"><span class="hs-identifier hs-var hs-var">workspaceBundle_userStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceBundle -&gt; Maybe UserStorage)
+-&gt; (WorkspaceBundle -&gt; Maybe UserStorage -&gt; WorkspaceBundle)
+-&gt; Lens
+     WorkspaceBundle
+     WorkspaceBundle
+     (Maybe UserStorage)
+     (Maybe UserStorage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274584"><span class="annot"><span class="annottext">Maybe UserStorage
+userStorage :: Maybe UserStorage
+$sel:userStorage:WorkspaceBundle' :: WorkspaceBundle -&gt; Maybe UserStorage
+</span><a href="#local-6989586621679274584"><span class="hs-identifier hs-var hs-var">userStorage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserStorage
+</span><a href="#local-6989586621679274584"><span class="hs-identifier hs-var">userStorage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274583"><span class="annot"><span class="annottext">s :: WorkspaceBundle
+</span><a href="#local-6989586621679274583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274582"><span class="annot"><span class="annottext">Maybe UserStorage
+</span><a href="#local-6989586621679274582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceBundle
+</span><a href="#local-6989586621679274583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userStorage:WorkspaceBundle' :: Maybe UserStorage
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3AuserStorage%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">userStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserStorage
+</span><a href="#local-6989586621679274582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The description of the bundle.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_description"><span class="hs-identifier hs-type">workspaceBundle_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="workspaceBundle_description"><span class="annot"><span class="annottext">workspaceBundle_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceBundle -&gt; f WorkspaceBundle
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#workspaceBundle_description"><span class="hs-identifier hs-var hs-var">workspaceBundle_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceBundle -&gt; Maybe Text)
+-&gt; (WorkspaceBundle -&gt; Maybe Text -&gt; WorkspaceBundle)
+-&gt; Lens WorkspaceBundle WorkspaceBundle (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274580"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:WorkspaceBundle' :: WorkspaceBundle -&gt; Maybe Text
+</span><a href="#local-6989586621679274580"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274580"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274579"><span class="annot"><span class="annottext">s :: WorkspaceBundle
+</span><a href="#local-6989586621679274579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-type">WorkspaceBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274578"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceBundle
+</span><a href="#local-6989586621679274579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:WorkspaceBundle' :: Maybe Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#%24sel%3Adescription%3AWorkspaceBundle%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274575"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679274573"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkspaceBundle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser WorkspaceBundle)
+-&gt; Value
+-&gt; Parser WorkspaceBundle
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;WorkspaceBundle&quot;</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274570"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274570"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe RootStorage
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ComputeType
+-&gt; Maybe UserStorage
+-&gt; Maybe Text
+-&gt; WorkspaceBundle
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle%27"><span class="hs-identifier hs-var">WorkspaceBundle'</span></a></span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe RootStorage
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ComputeType
+ -&gt; Maybe UserStorage
+ -&gt; Maybe Text
+ -&gt; WorkspaceBundle)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RootStorage
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ComputeType
+      -&gt; Maybe UserStorage
+      -&gt; Maybe Text
+      -&gt; WorkspaceBundle)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RootStorage
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ComputeType
+   -&gt; Maybe UserStorage
+   -&gt; Maybe Text
+   -&gt; WorkspaceBundle)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RootStorage
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ComputeType
+      -&gt; Maybe UserStorage
+      -&gt; Maybe Text
+      -&gt; WorkspaceBundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RootStorage
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ComputeType
+   -&gt; Maybe UserStorage
+   -&gt; Maybe Text
+   -&gt; WorkspaceBundle)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe RootStorage
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ComputeType
+      -&gt; Maybe UserStorage
+      -&gt; Maybe Text
+      -&gt; WorkspaceBundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BundleId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe RootStorage
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ComputeType
+   -&gt; Maybe UserStorage
+   -&gt; Maybe Text
+   -&gt; WorkspaceBundle)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe RootStorage
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ComputeType
+      -&gt; Maybe UserStorage
+      -&gt; Maybe Text
+      -&gt; WorkspaceBundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Owner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RootStorage
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ComputeType
+   -&gt; Maybe UserStorage
+   -&gt; Maybe Text
+   -&gt; WorkspaceBundle)
+-&gt; Parser (Maybe RootStorage)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ComputeType
+      -&gt; Maybe UserStorage
+      -&gt; Maybe Text
+      -&gt; WorkspaceBundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RootStorage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RootStorage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ComputeType
+   -&gt; Maybe UserStorage
+   -&gt; Maybe Text
+   -&gt; WorkspaceBundle)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ComputeType
+      -&gt; Maybe UserStorage
+      -&gt; Maybe Text
+      -&gt; WorkspaceBundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ComputeType
+   -&gt; Maybe UserStorage
+   -&gt; Maybe Text
+   -&gt; WorkspaceBundle)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ComputeType
+      -&gt; Maybe UserStorage -&gt; Maybe Text -&gt; WorkspaceBundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImageId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ComputeType
+   -&gt; Maybe UserStorage -&gt; Maybe Text -&gt; WorkspaceBundle)
+-&gt; Parser (Maybe ComputeType)
+-&gt; Parser (Maybe UserStorage -&gt; Maybe Text -&gt; WorkspaceBundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComputeType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComputeType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe UserStorage -&gt; Maybe Text -&gt; WorkspaceBundle)
+-&gt; Parser (Maybe UserStorage)
+-&gt; Parser (Maybe Text -&gt; WorkspaceBundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UserStorage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserStorage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; WorkspaceBundle)
+-&gt; Parser (Maybe Text) -&gt; Parser WorkspaceBundle
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274564"><span id="local-6989586621679274566"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span></span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274561"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceBundle.html#WorkspaceBundle"><span class="hs-identifier hs-type">WorkspaceBundle</span></a></span></span><span>
+</span><span id="line-166"></span></pre></body></html>

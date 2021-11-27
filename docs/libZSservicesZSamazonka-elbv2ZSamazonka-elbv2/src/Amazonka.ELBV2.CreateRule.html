@@ -1,0 +1,646 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ELBV2.CreateRule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a rule for the specified listener. The listener must be</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- associated with an Application Load Balancer.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Each rule consists of a priority, one or more actions, and one or more</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- conditions. Rules are evaluated in priority order, from the lowest value</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- to the highest value. When the conditions for a rule are met, its</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- actions are performed. If the conditions for no rules are met, the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- actions for the default rule are performed. For more information, see</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules Listener rules&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- in the /Application Load Balancers Guide/.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ELBV2.CreateRule</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier">CreateRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#newCreateRule"><span class="hs-identifier">newCreateRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#createRule_tags"><span class="hs-identifier">createRule_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#createRule_listenerArn"><span class="hs-identifier">createRule_listenerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#createRule_conditions"><span class="hs-identifier">createRule_conditions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#createRule_priority"><span class="hs-identifier">createRule_priority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#createRule_actions"><span class="hs-identifier">createRule_actions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse"><span class="hs-identifier">CreateRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#newCreateRuleResponse"><span class="hs-identifier">newCreateRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#createRuleResponse_rules"><span class="hs-identifier">createRuleResponse_rules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#createRuleResponse_httpStatus"><span class="hs-identifier">createRuleResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.html"><span class="hs-identifier">Amazonka.ELBV2.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newCreateRule' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679262634"><span id="local-6989586621679262635"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRule"><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-var">CreateRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRule%27"><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-var">CreateRule'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags to assign to the rule.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Atags%3ACreateRule%27"><span class="annot"><span class="annottext">CreateRule -&gt; Maybe (NonEmpty Tag)
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3Atags%3ACreateRule%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the listener.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AlistenerArn%3ACreateRule%27"><span class="annot"><span class="annottext">CreateRule -&gt; Text
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3AlistenerArn%3ACreateRule%27"><span class="hs-identifier hs-var hs-var">listenerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The conditions.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Aconditions%3ACreateRule%27"><span class="annot"><span class="annottext">CreateRule -&gt; [RuleCondition]
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3Aconditions%3ACreateRule%27"><span class="hs-identifier hs-var hs-var">conditions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ELBV2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The rule priority. A listener can\'t have multiple rules with the same</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- priority.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Apriority%3ACreateRule%27"><span class="annot"><span class="annottext">CreateRule -&gt; Natural
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3Apriority%3ACreateRule%27"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The actions.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Aactions%3ACreateRule%27"><span class="annot"><span class="annottext">CreateRule -&gt; [Action]
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3Aactions%3ACreateRule%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ELBV2.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262624"><span id="local-6989586621679262626"><span class="annot"><span class="annottext">CreateRule -&gt; CreateRule -&gt; Bool
+(CreateRule -&gt; CreateRule -&gt; Bool)
+-&gt; (CreateRule -&gt; CreateRule -&gt; Bool) -&gt; Eq CreateRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRule -&gt; CreateRule -&gt; Bool
+$c/= :: CreateRule -&gt; CreateRule -&gt; Bool
+== :: CreateRule -&gt; CreateRule -&gt; Bool
+$c== :: CreateRule -&gt; CreateRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262615"><span id="local-6989586621679262617"><span id="local-6989586621679262619"><span id="local-6989586621679262621"><span class="annot"><span class="annottext">ReadPrec [CreateRule]
+ReadPrec CreateRule
+Int -&gt; ReadS CreateRule
+ReadS [CreateRule]
+(Int -&gt; ReadS CreateRule)
+-&gt; ReadS [CreateRule]
+-&gt; ReadPrec CreateRule
+-&gt; ReadPrec [CreateRule]
+-&gt; Read CreateRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRule]
+$creadListPrec :: ReadPrec [CreateRule]
+readPrec :: ReadPrec CreateRule
+$creadPrec :: ReadPrec CreateRule
+readList :: ReadS [CreateRule]
+$creadList :: ReadS [CreateRule]
+readsPrec :: Int -&gt; ReadS CreateRule
+$creadsPrec :: Int -&gt; ReadS CreateRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262608"><span id="local-6989586621679262610"><span id="local-6989586621679262612"><span class="annot"><span class="annottext">Int -&gt; CreateRule -&gt; ShowS
+[CreateRule] -&gt; ShowS
+CreateRule -&gt; String
+(Int -&gt; CreateRule -&gt; ShowS)
+-&gt; (CreateRule -&gt; String)
+-&gt; ([CreateRule] -&gt; ShowS)
+-&gt; Show CreateRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRule] -&gt; ShowS
+$cshowList :: [CreateRule] -&gt; ShowS
+show :: CreateRule -&gt; String
+$cshow :: CreateRule -&gt; String
+showsPrec :: Int -&gt; CreateRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateRule -&gt; Rep CreateRule x)
+-&gt; (forall x. Rep CreateRule x -&gt; CreateRule) -&gt; Generic CreateRule
+forall x. Rep CreateRule x -&gt; CreateRule
+forall x. CreateRule -&gt; Rep CreateRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateRule x -&gt; CreateRule
+$cfrom :: forall x. CreateRule -&gt; Rep CreateRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'CreateRule' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'tags', 'createRule_tags' - The tags to assign to the rule.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'listenerArn', 'createRule_listenerArn' - The Amazon Resource Name (ARN) of the listener.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'conditions', 'createRule_conditions' - The conditions.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'priority', 'createRule_priority' - The rule priority. A listener can\'t have multiple rules with the same</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- priority.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'actions', 'createRule_actions' - The actions.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#newCreateRule"><span class="hs-identifier hs-type">newCreateRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'listenerArn'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'priority'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span>
+</span><span id="line-102"></span><span id="newCreateRule"><span class="annot"><span class="annottext">newCreateRule :: Text -&gt; Natural -&gt; CreateRule
+</span><a href="Amazonka.ELBV2.CreateRule.html#newCreateRule"><span class="hs-identifier hs-var hs-var">newCreateRule</span></a></span></span><span> </span><span id="local-6989586621679262603"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262603"><span class="hs-identifier hs-var">pListenerArn_</span></a></span></span><span> </span><span id="local-6989586621679262602"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679262602"><span class="hs-identifier hs-var">pPriority_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">CreateRule' :: Maybe (NonEmpty Tag)
+-&gt; Text -&gt; [RuleCondition] -&gt; Natural -&gt; [Action] -&gt; CreateRule
+</span><a href="Amazonka.ELBV2.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateRule' :: Maybe (NonEmpty Tag)
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3Atags%3ACreateRule%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:listenerArn:CreateRule' :: Text
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3AlistenerArn%3ACreateRule%27"><span class="hs-identifier hs-var">listenerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262603"><span class="hs-identifier hs-var">pListenerArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:conditions:CreateRule' :: [RuleCondition]
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3Aconditions%3ACreateRule%27"><span class="hs-identifier hs-var">conditions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RuleCondition]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:priority:CreateRule' :: Natural
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3Apriority%3ACreateRule%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679262602"><span class="hs-identifier hs-var">pPriority_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:actions:CreateRule' :: [Action]
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3Aactions%3ACreateRule%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Action]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The tags to assign to the rule.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#createRule_tags"><span class="hs-identifier hs-type">createRule_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="createRule_tags"><span class="annot"><span class="annottext">createRule_tags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; CreateRule -&gt; f CreateRule
+</span><a href="Amazonka.ELBV2.CreateRule.html#createRule_tags"><span class="hs-identifier hs-var hs-var">createRule_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRule -&gt; Maybe (NonEmpty Tag))
+-&gt; (CreateRule -&gt; Maybe (NonEmpty Tag) -&gt; CreateRule)
+-&gt; Lens
+     CreateRule CreateRule (Maybe (NonEmpty Tag)) (Maybe (NonEmpty Tag))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262599"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+tags :: Maybe (NonEmpty Tag)
+$sel:tags:CreateRule' :: CreateRule -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679262599"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679262599"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262598"><span class="annot"><span class="annottext">s :: CreateRule
+</span><a href="#local-6989586621679262598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262597"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679262597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRule
+</span><a href="#local-6989586621679262598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRule' :: Maybe (NonEmpty Tag)
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3Atags%3ACreateRule%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679262597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+ -&gt; CreateRule -&gt; f CreateRule)
+-&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+    -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; CreateRule
+-&gt; f CreateRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+-&gt; Iso
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the listener.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#createRule_listenerArn"><span class="hs-identifier hs-type">createRule_listenerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="createRule_listenerArn"><span class="annot"><span class="annottext">createRule_listenerArn :: (Text -&gt; f Text) -&gt; CreateRule -&gt; f CreateRule
+</span><a href="Amazonka.ELBV2.CreateRule.html#createRule_listenerArn"><span class="hs-identifier hs-var hs-var">createRule_listenerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRule -&gt; Text)
+-&gt; (CreateRule -&gt; Text -&gt; CreateRule)
+-&gt; Lens CreateRule CreateRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262593"><span class="annot"><span class="annottext">Text
+listenerArn :: Text
+$sel:listenerArn:CreateRule' :: CreateRule -&gt; Text
+</span><a href="#local-6989586621679262593"><span class="hs-identifier hs-var hs-var">listenerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262593"><span class="hs-identifier hs-var">listenerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262592"><span class="annot"><span class="annottext">s :: CreateRule
+</span><a href="#local-6989586621679262592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262591"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRule
+</span><a href="#local-6989586621679262592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listenerArn:CreateRule' :: Text
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3AlistenerArn%3ACreateRule%27"><span class="hs-identifier hs-var">listenerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The conditions.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#createRule_conditions"><span class="hs-identifier hs-type">createRule_conditions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ELBV2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span id="createRule_conditions"><span class="annot"><span class="annottext">createRule_conditions :: ([RuleCondition] -&gt; f [RuleCondition])
+-&gt; CreateRule -&gt; f CreateRule
+</span><a href="Amazonka.ELBV2.CreateRule.html#createRule_conditions"><span class="hs-identifier hs-var hs-var">createRule_conditions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRule -&gt; [RuleCondition])
+-&gt; (CreateRule -&gt; [RuleCondition] -&gt; CreateRule)
+-&gt; Lens CreateRule CreateRule [RuleCondition] [RuleCondition]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262590"><span class="annot"><span class="annottext">[RuleCondition]
+conditions :: [RuleCondition]
+$sel:conditions:CreateRule' :: CreateRule -&gt; [RuleCondition]
+</span><a href="#local-6989586621679262590"><span class="hs-identifier hs-var hs-var">conditions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RuleCondition]
+</span><a href="#local-6989586621679262590"><span class="hs-identifier hs-var">conditions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262589"><span class="annot"><span class="annottext">s :: CreateRule
+</span><a href="#local-6989586621679262589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262588"><span class="annot"><span class="annottext">[RuleCondition]
+</span><a href="#local-6989586621679262588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRule
+</span><a href="#local-6989586621679262589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditions:CreateRule' :: [RuleCondition]
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3Aconditions%3ACreateRule%27"><span class="hs-identifier hs-var">conditions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RuleCondition]
+</span><a href="#local-6989586621679262588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RuleCondition] -&gt; f [RuleCondition])
+ -&gt; CreateRule -&gt; f CreateRule)
+-&gt; (([RuleCondition] -&gt; f [RuleCondition])
+    -&gt; [RuleCondition] -&gt; f [RuleCondition])
+-&gt; ([RuleCondition] -&gt; f [RuleCondition])
+-&gt; CreateRule
+-&gt; f CreateRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([RuleCondition] -&gt; f [RuleCondition])
+-&gt; [RuleCondition] -&gt; f [RuleCondition]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The rule priority. A listener can\'t have multiple rules with the same</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- priority.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#createRule_priority"><span class="hs-identifier hs-type">createRule_priority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-126"></span><span id="createRule_priority"><span class="annot"><span class="annottext">createRule_priority :: (Natural -&gt; f Natural) -&gt; CreateRule -&gt; f CreateRule
+</span><a href="Amazonka.ELBV2.CreateRule.html#createRule_priority"><span class="hs-identifier hs-var hs-var">createRule_priority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRule -&gt; Natural)
+-&gt; (CreateRule -&gt; Natural -&gt; CreateRule)
+-&gt; Lens CreateRule CreateRule Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262587"><span class="annot"><span class="annottext">Natural
+priority :: Natural
+$sel:priority:CreateRule' :: CreateRule -&gt; Natural
+</span><a href="#local-6989586621679262587"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679262587"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262586"><span class="annot"><span class="annottext">s :: CreateRule
+</span><a href="#local-6989586621679262586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262585"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679262585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRule
+</span><a href="#local-6989586621679262586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:CreateRule' :: Natural
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3Apriority%3ACreateRule%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679262585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The actions.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#createRule_actions"><span class="hs-identifier hs-type">createRule_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ELBV2.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span id="createRule_actions"><span class="annot"><span class="annottext">createRule_actions :: ([Action] -&gt; f [Action]) -&gt; CreateRule -&gt; f CreateRule
+</span><a href="Amazonka.ELBV2.CreateRule.html#createRule_actions"><span class="hs-identifier hs-var hs-var">createRule_actions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRule -&gt; [Action])
+-&gt; (CreateRule -&gt; [Action] -&gt; CreateRule)
+-&gt; Lens CreateRule CreateRule [Action] [Action]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262584"><span class="annot"><span class="annottext">[Action]
+actions :: [Action]
+$sel:actions:CreateRule' :: CreateRule -&gt; [Action]
+</span><a href="#local-6989586621679262584"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Action]
+</span><a href="#local-6989586621679262584"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262583"><span class="annot"><span class="annottext">s :: CreateRule
+</span><a href="#local-6989586621679262583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262582"><span class="annot"><span class="annottext">[Action]
+</span><a href="#local-6989586621679262582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRule
+</span><a href="#local-6989586621679262583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:CreateRule' :: [Action]
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3Aactions%3ACreateRule%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Action]
+</span><a href="#local-6989586621679262582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Action] -&gt; f [Action]) -&gt; CreateRule -&gt; f CreateRule)
+-&gt; (([Action] -&gt; f [Action]) -&gt; [Action] -&gt; f [Action])
+-&gt; ([Action] -&gt; f [Action])
+-&gt; CreateRule
+-&gt; f CreateRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Action] -&gt; f [Action]) -&gt; [Action] -&gt; f [Action]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679262578"><span class="annot"><span class="annottext">request :: CreateRule -&gt; Request CreateRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateRule -&gt; Request CreateRule
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ELBV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679262574"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateRule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse CreateRule))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateRule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateRuleResult&quot;</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262571"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262571"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679262570"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679262570"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679262569"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679262569"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Rule] -&gt; Int -&gt; CreateRuleResponse
+</span><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-var">CreateRuleResponse'</span></a></span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Rule] -&gt; Int -&gt; CreateRuleResponse)
+-&gt; Either String (Maybe [Rule])
+-&gt; Either String (Int -&gt; CreateRuleResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679262569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-141"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Rule]))
+-&gt; Either String (Maybe [Rule])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Rule])
+-&gt; [Node] -&gt; Either String (Maybe [Rule])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Rule]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateRuleResponse)
+-&gt; Either String Int -&gt; Either String CreateRuleResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262571"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262558"><span id="local-6989586621679262560"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262555"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679262551"><span class="annot"><span class="annottext">toHeaders :: CreateRule -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRule -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679262546"><span class="annot"><span class="annottext">toPath :: CreateRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateRule -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679262542"><span class="annot"><span class="annottext">toQuery :: CreateRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262536"><span id="local-6989586621679262537"><span id="local-6989586621679262538"><span id="local-6989586621679262539"><span id="local-6989586621679262540"><span class="annot"><span class="annottext">Natural
+[RuleCondition]
+[Action]
+Maybe (NonEmpty Tag)
+Text
+actions :: [Action]
+priority :: Natural
+conditions :: [RuleCondition]
+listenerArn :: Text
+tags :: Maybe (NonEmpty Tag)
+$sel:actions:CreateRule' :: CreateRule -&gt; [Action]
+$sel:priority:CreateRule' :: CreateRule -&gt; Natural
+$sel:conditions:CreateRule' :: CreateRule -&gt; [RuleCondition]
+$sel:listenerArn:CreateRule' :: CreateRule -&gt; Text
+$sel:tags:CreateRule' :: CreateRule -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679262536"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateRule&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2015-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span>
+</span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; NonEmpty Tag -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; QueryString)
+-&gt; Maybe (NonEmpty Tag) -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679262540"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ListenerArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262539"><span class="hs-identifier hs-var">listenerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Conditions&quot;</span></span><span>
+</span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [RuleCondition] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[RuleCondition]
+</span><a href="#local-6989586621679262538"><span class="hs-identifier hs-var">conditions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Priority&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679262537"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Action] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Action]
+</span><a href="#local-6989586621679262536"><span class="hs-identifier hs-var">actions</span></a></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | /See:/ 'newCreateRuleResponse' smart constructor.</span><span>
+</span><span id="line-174"></span><span id="local-6989586621679262532"><span id="local-6989586621679262533"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRuleResponse"><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-var">CreateRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRuleResponse%27"><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-var">CreateRuleResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the rule.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3Arules%3ACreateRuleResponse%27"><span class="annot"><span class="annottext">CreateRuleResponse -&gt; Maybe [Rule]
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3Arules%3ACreateRuleResponse%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ELBV2.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateRuleResponse%27"><span class="annot"><span class="annottext">CreateRuleResponse -&gt; Int
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3AhttpStatus%3ACreateRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262526"><span id="local-6989586621679262528"><span class="annot"><span class="annottext">CreateRuleResponse -&gt; CreateRuleResponse -&gt; Bool
+(CreateRuleResponse -&gt; CreateRuleResponse -&gt; Bool)
+-&gt; (CreateRuleResponse -&gt; CreateRuleResponse -&gt; Bool)
+-&gt; Eq CreateRuleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRuleResponse -&gt; CreateRuleResponse -&gt; Bool
+$c/= :: CreateRuleResponse -&gt; CreateRuleResponse -&gt; Bool
+== :: CreateRuleResponse -&gt; CreateRuleResponse -&gt; Bool
+$c== :: CreateRuleResponse -&gt; CreateRuleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262518"><span id="local-6989586621679262520"><span id="local-6989586621679262522"><span id="local-6989586621679262524"><span class="annot"><span class="annottext">ReadPrec [CreateRuleResponse]
+ReadPrec CreateRuleResponse
+Int -&gt; ReadS CreateRuleResponse
+ReadS [CreateRuleResponse]
+(Int -&gt; ReadS CreateRuleResponse)
+-&gt; ReadS [CreateRuleResponse]
+-&gt; ReadPrec CreateRuleResponse
+-&gt; ReadPrec [CreateRuleResponse]
+-&gt; Read CreateRuleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRuleResponse]
+$creadListPrec :: ReadPrec [CreateRuleResponse]
+readPrec :: ReadPrec CreateRuleResponse
+$creadPrec :: ReadPrec CreateRuleResponse
+readList :: ReadS [CreateRuleResponse]
+$creadList :: ReadS [CreateRuleResponse]
+readsPrec :: Int -&gt; ReadS CreateRuleResponse
+$creadsPrec :: Int -&gt; ReadS CreateRuleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262512"><span id="local-6989586621679262514"><span id="local-6989586621679262516"><span class="annot"><span class="annottext">Int -&gt; CreateRuleResponse -&gt; ShowS
+[CreateRuleResponse] -&gt; ShowS
+CreateRuleResponse -&gt; String
+(Int -&gt; CreateRuleResponse -&gt; ShowS)
+-&gt; (CreateRuleResponse -&gt; String)
+-&gt; ([CreateRuleResponse] -&gt; ShowS)
+-&gt; Show CreateRuleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRuleResponse] -&gt; ShowS
+$cshowList :: [CreateRuleResponse] -&gt; ShowS
+show :: CreateRuleResponse -&gt; String
+$cshow :: CreateRuleResponse -&gt; String
+showsPrec :: Int -&gt; CreateRuleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateRuleResponse -&gt; Rep CreateRuleResponse x)
+-&gt; (forall x. Rep CreateRuleResponse x -&gt; CreateRuleResponse)
+-&gt; Generic CreateRuleResponse
+forall x. Rep CreateRuleResponse x -&gt; CreateRuleResponse
+forall x. CreateRuleResponse -&gt; Rep CreateRuleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateRuleResponse x -&gt; CreateRuleResponse
+$cfrom :: forall x. CreateRuleResponse -&gt; Rep CreateRuleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'CreateRuleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'rules', 'createRuleResponse_rules' - Information about the rule.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'httpStatus', 'createRuleResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#newCreateRuleResponse"><span class="hs-identifier hs-type">newCreateRuleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span><span>
+</span><span id="line-197"></span><span id="newCreateRuleResponse"><span class="annot"><span class="annottext">newCreateRuleResponse :: Int -&gt; CreateRuleResponse
+</span><a href="Amazonka.ELBV2.CreateRule.html#newCreateRuleResponse"><span class="hs-identifier hs-var hs-var">newCreateRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679262509"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262509"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="annottext">CreateRuleResponse' :: Maybe [Rule] -&gt; Int -&gt; CreateRuleResponse
+</span><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rules:CreateRuleResponse' :: Maybe [Rule]
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3Arules%3ACreateRuleResponse%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRuleResponse' :: Int
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3AhttpStatus%3ACreateRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262509"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | Information about the rule.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#createRuleResponse_rules"><span class="hs-identifier hs-type">createRuleResponse_rules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ELBV2.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="createRuleResponse_rules"><span class="annot"><span class="annottext">createRuleResponse_rules :: (Maybe [Rule] -&gt; f (Maybe [Rule]))
+-&gt; CreateRuleResponse -&gt; f CreateRuleResponse
+</span><a href="Amazonka.ELBV2.CreateRule.html#createRuleResponse_rules"><span class="hs-identifier hs-var hs-var">createRuleResponse_rules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRuleResponse -&gt; Maybe [Rule])
+-&gt; (CreateRuleResponse -&gt; Maybe [Rule] -&gt; CreateRuleResponse)
+-&gt; Lens
+     CreateRuleResponse CreateRuleResponse (Maybe [Rule]) (Maybe [Rule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262508"><span class="annot"><span class="annottext">Maybe [Rule]
+rules :: Maybe [Rule]
+$sel:rules:CreateRuleResponse' :: CreateRuleResponse -&gt; Maybe [Rule]
+</span><a href="#local-6989586621679262508"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679262508"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262507"><span class="annot"><span class="annottext">s :: CreateRuleResponse
+</span><a href="#local-6989586621679262507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262506"><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679262506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleResponse
+</span><a href="#local-6989586621679262507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:CreateRuleResponse' :: Maybe [Rule]
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3Arules%3ACreateRuleResponse%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679262506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Rule] -&gt; f (Maybe [Rule]))
+ -&gt; CreateRuleResponse -&gt; f CreateRuleResponse)
+-&gt; ((Maybe [Rule] -&gt; f (Maybe [Rule]))
+    -&gt; Maybe [Rule] -&gt; f (Maybe [Rule]))
+-&gt; (Maybe [Rule] -&gt; f (Maybe [Rule]))
+-&gt; CreateRuleResponse
+-&gt; f CreateRuleResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Rule] [Rule] [Rule] [Rule]
+-&gt; Iso (Maybe [Rule]) (Maybe [Rule]) (Maybe [Rule]) (Maybe [Rule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Rule] [Rule] [Rule] [Rule]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#createRuleResponse_httpStatus"><span class="hs-identifier hs-type">createRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-209"></span><span id="createRuleResponse_httpStatus"><span class="annot"><span class="annottext">createRuleResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateRuleResponse -&gt; f CreateRuleResponse
+</span><a href="Amazonka.ELBV2.CreateRule.html#createRuleResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createRuleResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRuleResponse -&gt; Int)
+-&gt; (CreateRuleResponse -&gt; Int -&gt; CreateRuleResponse)
+-&gt; Lens CreateRuleResponse CreateRuleResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262505"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateRuleResponse' :: CreateRuleResponse -&gt; Int
+</span><a href="#local-6989586621679262505"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262505"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262504"><span class="annot"><span class="annottext">s :: CreateRuleResponse
+</span><a href="#local-6989586621679262504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262503"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleResponse
+</span><a href="#local-6989586621679262504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRuleResponse' :: Int
+</span><a href="Amazonka.ELBV2.CreateRule.html#%24sel%3AhttpStatus%3ACreateRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span></span><span>
+</span><span id="line-212"></span></pre></body></html>

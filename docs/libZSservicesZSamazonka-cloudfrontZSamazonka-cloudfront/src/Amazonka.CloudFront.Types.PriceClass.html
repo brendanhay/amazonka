@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.PriceClass</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.PriceClass</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass"><span class="hs-identifier">PriceClass</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass_PriceClass_100"><span class="hs-identifier">PriceClass_PriceClass_100</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass_PriceClass_200"><span class="hs-identifier">PriceClass_PriceClass_200</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass_PriceClass_All"><span class="hs-identifier">PriceClass_PriceClass_All</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679397383"><span id="local-6989586621679397384"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PriceClass"><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass"><span class="hs-identifier hs-var">PriceClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PriceClass%27"><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass%27"><span class="hs-identifier hs-var">PriceClass'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPriceClass"><span class="annot"><span class="annottext">PriceClass -&gt; Text
+</span><a href="Amazonka.CloudFront.Types.PriceClass.html#fromPriceClass"><span class="hs-identifier hs-var hs-var">fromPriceClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397375"><span id="local-6989586621679397377"><span id="local-6989586621679397379"><span class="annot"><span class="annottext">Int -&gt; PriceClass -&gt; ShowS
+[PriceClass] -&gt; ShowS
+PriceClass -&gt; String
+(Int -&gt; PriceClass -&gt; ShowS)
+-&gt; (PriceClass -&gt; String)
+-&gt; ([PriceClass] -&gt; ShowS)
+-&gt; Show PriceClass
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PriceClass] -&gt; ShowS
+$cshowList :: [PriceClass] -&gt; ShowS
+show :: PriceClass -&gt; String
+$cshow :: PriceClass -&gt; String
+showsPrec :: Int -&gt; PriceClass -&gt; ShowS
+$cshowsPrec :: Int -&gt; PriceClass -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679397366"><span id="local-6989586621679397368"><span id="local-6989586621679397370"><span id="local-6989586621679397372"><span class="annot"><span class="annottext">ReadPrec [PriceClass]
+ReadPrec PriceClass
+Int -&gt; ReadS PriceClass
+ReadS [PriceClass]
+(Int -&gt; ReadS PriceClass)
+-&gt; ReadS [PriceClass]
+-&gt; ReadPrec PriceClass
+-&gt; ReadPrec [PriceClass]
+-&gt; Read PriceClass
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PriceClass]
+$creadListPrec :: ReadPrec [PriceClass]
+readPrec :: ReadPrec PriceClass
+$creadPrec :: ReadPrec PriceClass
+readList :: ReadS [PriceClass]
+$creadList :: ReadS [PriceClass]
+readsPrec :: Int -&gt; ReadS PriceClass
+$creadsPrec :: Int -&gt; ReadS PriceClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679397361"><span id="local-6989586621679397363"><span class="annot"><span class="annottext">PriceClass -&gt; PriceClass -&gt; Bool
+(PriceClass -&gt; PriceClass -&gt; Bool)
+-&gt; (PriceClass -&gt; PriceClass -&gt; Bool) -&gt; Eq PriceClass
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PriceClass -&gt; PriceClass -&gt; Bool
+$c/= :: PriceClass -&gt; PriceClass -&gt; Bool
+== :: PriceClass -&gt; PriceClass -&gt; Bool
+$c== :: PriceClass -&gt; PriceClass -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679397345"><span id="local-6989586621679397347"><span id="local-6989586621679397349"><span id="local-6989586621679397351"><span id="local-6989586621679397353"><span id="local-6989586621679397355"><span id="local-6989586621679397357"><span class="annot"><span class="annottext">Eq PriceClass
+Eq PriceClass
+-&gt; (PriceClass -&gt; PriceClass -&gt; Ordering)
+-&gt; (PriceClass -&gt; PriceClass -&gt; Bool)
+-&gt; (PriceClass -&gt; PriceClass -&gt; Bool)
+-&gt; (PriceClass -&gt; PriceClass -&gt; Bool)
+-&gt; (PriceClass -&gt; PriceClass -&gt; Bool)
+-&gt; (PriceClass -&gt; PriceClass -&gt; PriceClass)
+-&gt; (PriceClass -&gt; PriceClass -&gt; PriceClass)
+-&gt; Ord PriceClass
+PriceClass -&gt; PriceClass -&gt; Bool
+PriceClass -&gt; PriceClass -&gt; Ordering
+PriceClass -&gt; PriceClass -&gt; PriceClass
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PriceClass -&gt; PriceClass -&gt; PriceClass
+$cmin :: PriceClass -&gt; PriceClass -&gt; PriceClass
+max :: PriceClass -&gt; PriceClass -&gt; PriceClass
+$cmax :: PriceClass -&gt; PriceClass -&gt; PriceClass
+&gt;= :: PriceClass -&gt; PriceClass -&gt; Bool
+$c&gt;= :: PriceClass -&gt; PriceClass -&gt; Bool
+&gt; :: PriceClass -&gt; PriceClass -&gt; Bool
+$c&gt; :: PriceClass -&gt; PriceClass -&gt; Bool
+&lt;= :: PriceClass -&gt; PriceClass -&gt; Bool
+$c&lt;= :: PriceClass -&gt; PriceClass -&gt; Bool
+&lt; :: PriceClass -&gt; PriceClass -&gt; Bool
+$c&lt; :: PriceClass -&gt; PriceClass -&gt; Bool
+compare :: PriceClass -&gt; PriceClass -&gt; Ordering
+$ccompare :: PriceClass -&gt; PriceClass -&gt; Ordering
+$cp1Ord :: Eq PriceClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PriceClass -&gt; Rep PriceClass x)
+-&gt; (forall x. Rep PriceClass x -&gt; PriceClass) -&gt; Generic PriceClass
+forall x. Rep PriceClass x -&gt; PriceClass
+forall x. PriceClass -&gt; Rep PriceClass x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PriceClass x -&gt; PriceClass
+$cfrom :: forall x. PriceClass -&gt; Rep PriceClass x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397337"><span id="local-6989586621679397339"><span class="annot"><span class="annottext">Int -&gt; PriceClass -&gt; Int
+PriceClass -&gt; Int
+(Int -&gt; PriceClass -&gt; Int)
+-&gt; (PriceClass -&gt; Int) -&gt; Hashable PriceClass
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PriceClass -&gt; Int
+$chash :: PriceClass -&gt; Int
+hashWithSalt :: Int -&gt; PriceClass -&gt; Int
+$chashWithSalt :: Int -&gt; PriceClass -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679397334"><span class="annot"><span class="annottext">PriceClass -&gt; ()
+(PriceClass -&gt; ()) -&gt; NFData PriceClass
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PriceClass -&gt; ()
+$crnf :: PriceClass -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679397331"><span class="annot"><span class="annottext">Text -&gt; Either String PriceClass
+(Text -&gt; Either String PriceClass) -&gt; FromText PriceClass
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PriceClass
+$cfromText :: Text -&gt; Either String PriceClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679397328"><span class="annot"><span class="annottext">PriceClass -&gt; Text
+(PriceClass -&gt; Text) -&gt; ToText PriceClass
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PriceClass -&gt; Text
+$ctoText :: PriceClass -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679397325"><span class="annot"><span class="annottext">PriceClass -&gt; ByteString
+(PriceClass -&gt; ByteString) -&gt; ToByteString PriceClass
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PriceClass -&gt; ByteString
+$ctoBS :: PriceClass -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679397322"><span class="annot"><span class="annottext">PriceClass -&gt; ByteStringBuilder
+(PriceClass -&gt; ByteStringBuilder) -&gt; ToLog PriceClass
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PriceClass -&gt; ByteStringBuilder
+$cbuild :: PriceClass -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679397319"><span class="annot"><span class="annottext">HeaderName -&gt; PriceClass -&gt; [Header]
+(HeaderName -&gt; PriceClass -&gt; [Header]) -&gt; ToHeader PriceClass
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PriceClass -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PriceClass -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679397316"><span class="annot"><span class="annottext">PriceClass -&gt; QueryString
+(PriceClass -&gt; QueryString) -&gt; ToQuery PriceClass
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PriceClass -&gt; QueryString
+$ctoQuery :: PriceClass -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679397311"><span id="local-6989586621679397313"><span class="annot"><span class="annottext">Value -&gt; Parser [PriceClass]
+Value -&gt; Parser PriceClass
+(Value -&gt; Parser PriceClass)
+-&gt; (Value -&gt; Parser [PriceClass]) -&gt; FromJSON PriceClass
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PriceClass]
+$cparseJSONList :: Value -&gt; Parser [PriceClass]
+parseJSON :: Value -&gt; Parser PriceClass
+$cparseJSON :: Value -&gt; Parser PriceClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679397306"><span id="local-6989586621679397308"><span class="annot"><span class="annottext">FromJSONKeyFunction [PriceClass]
+FromJSONKeyFunction PriceClass
+FromJSONKeyFunction PriceClass
+-&gt; FromJSONKeyFunction [PriceClass] -&gt; FromJSONKey PriceClass
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PriceClass]
+$cfromJSONKeyList :: FromJSONKeyFunction [PriceClass]
+fromJSONKey :: FromJSONKeyFunction PriceClass
+$cfromJSONKey :: FromJSONKeyFunction PriceClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679397297"><span id="local-6989586621679397299"><span id="local-6989586621679397301"><span id="local-6989586621679397303"><span class="annot"><span class="annottext">[PriceClass] -&gt; Encoding
+[PriceClass] -&gt; Value
+PriceClass -&gt; Encoding
+PriceClass -&gt; Value
+(PriceClass -&gt; Value)
+-&gt; (PriceClass -&gt; Encoding)
+-&gt; ([PriceClass] -&gt; Value)
+-&gt; ([PriceClass] -&gt; Encoding)
+-&gt; ToJSON PriceClass
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PriceClass] -&gt; Encoding
+$ctoEncodingList :: [PriceClass] -&gt; Encoding
+toJSONList :: [PriceClass] -&gt; Value
+$ctoJSONList :: [PriceClass] -&gt; Value
+toEncoding :: PriceClass -&gt; Encoding
+$ctoEncoding :: PriceClass -&gt; Encoding
+toJSON :: PriceClass -&gt; Value
+$ctoJSON :: PriceClass -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679397292"><span id="local-6989586621679397294"><span class="annot"><span class="annottext">ToJSONKeyFunction [PriceClass]
+ToJSONKeyFunction PriceClass
+ToJSONKeyFunction PriceClass
+-&gt; ToJSONKeyFunction [PriceClass] -&gt; ToJSONKey PriceClass
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PriceClass]
+$ctoJSONKeyList :: ToJSONKeyFunction [PriceClass]
+toJSONKey :: ToJSONKeyFunction PriceClass
+$ctoJSONKey :: ToJSONKeyFunction PriceClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679397289"><span class="annot"><span class="annottext">[Node] -&gt; Either String PriceClass
+([Node] -&gt; Either String PriceClass) -&gt; FromXML PriceClass
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PriceClass
+$cparseXML :: [Node] -&gt; Either String PriceClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679397286"><span class="annot"><span class="annottext">PriceClass -&gt; XML
+(PriceClass -&gt; XML) -&gt; ToXML PriceClass
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PriceClass -&gt; XML
+$ctoXML :: PriceClass -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass_PriceClass_100"><span class="hs-identifier hs-type">PriceClass_PriceClass_100</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass"><span class="hs-identifier hs-type">PriceClass</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPriceClass_PriceClass_100"><span id="%24mPriceClass_PriceClass_100"><span id="PriceClass_PriceClass_100"><span class="annot"><span class="annottext">$bPriceClass_PriceClass_100 :: PriceClass
+$mPriceClass_PriceClass_100 :: forall r. PriceClass -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.PriceClass.html#%24bPriceClass_PriceClass_100"><span class="hs-identifier hs-var hs-var hs-var">PriceClass_PriceClass_100</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass%27"><span class="hs-identifier hs-type">PriceClass'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PriceClass_100&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass_PriceClass_200"><span class="hs-identifier hs-type">PriceClass_PriceClass_200</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass"><span class="hs-identifier hs-type">PriceClass</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPriceClass_PriceClass_200"><span id="%24mPriceClass_PriceClass_200"><span id="PriceClass_PriceClass_200"><span class="annot"><span class="annottext">$bPriceClass_PriceClass_200 :: PriceClass
+$mPriceClass_PriceClass_200 :: forall r. PriceClass -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.PriceClass.html#%24bPriceClass_PriceClass_200"><span class="hs-identifier hs-var hs-var hs-var">PriceClass_PriceClass_200</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass%27"><span class="hs-identifier hs-type">PriceClass'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PriceClass_200&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass_PriceClass_All"><span class="hs-identifier hs-type">PriceClass_PriceClass_All</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass"><span class="hs-identifier hs-type">PriceClass</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPriceClass_PriceClass_All"><span id="%24mPriceClass_PriceClass_All"><span id="PriceClass_PriceClass_All"><span class="annot"><span class="annottext">$bPriceClass_PriceClass_All :: PriceClass
+$mPriceClass_PriceClass_All :: forall r. PriceClass -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.PriceClass.html#%24bPriceClass_PriceClass_All"><span class="hs-identifier hs-var hs-var hs-var">PriceClass_PriceClass_All</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass%27"><span class="hs-identifier hs-type">PriceClass'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PriceClass_All&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass_PriceClass_100"><span class="hs-pragma hs-type">PriceClass_PriceClass_100</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass_PriceClass_200"><span class="hs-pragma hs-type">PriceClass_PriceClass_200</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass_PriceClass_All"><span class="hs-pragma hs-type">PriceClass_PriceClass_All</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.PriceClass.html#PriceClass%27"><span class="hs-pragma hs-type">PriceClass'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

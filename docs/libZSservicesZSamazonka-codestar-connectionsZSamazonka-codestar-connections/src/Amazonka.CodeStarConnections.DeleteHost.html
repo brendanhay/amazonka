@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeStarConnections.DeleteHost</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- The host to be deleted. Before you delete a host, all connections</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- associated to the host must be deleted.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- A host cannot be deleted if it is in the VPC_CONFIG_INITIALIZING or</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- VPC_CONFIG_DELETING state.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeStarConnections.DeleteHost</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost"><span class="hs-identifier">DeleteHost</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#newDeleteHost"><span class="hs-identifier">newDeleteHost</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#deleteHost_hostArn"><span class="hs-identifier">deleteHost_hostArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHostResponse"><span class="hs-identifier">DeleteHostResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#newDeleteHostResponse"><span class="hs-identifier">newDeleteHostResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#deleteHostResponse_httpStatus"><span class="hs-identifier">deleteHostResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.html"><span class="hs-identifier">Amazonka.CodeStarConnections.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteHost' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679159115"><span id="local-6989586621679159116"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteHost"><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost"><span class="hs-identifier hs-var">DeleteHost</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteHost%27"><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost%27"><span class="hs-identifier hs-var">DeleteHost'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the host to be deleted.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AhostArn%3ADeleteHost%27"><span class="annot"><span class="annottext">DeleteHost -&gt; Text
+</span><a href="Amazonka.CodeStarConnections.DeleteHost.html#%24sel%3AhostArn%3ADeleteHost%27"><span class="hs-identifier hs-var hs-var">hostArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159109"><span id="local-6989586621679159111"><span class="annot"><span class="annottext">DeleteHost -&gt; DeleteHost -&gt; Bool
+(DeleteHost -&gt; DeleteHost -&gt; Bool)
+-&gt; (DeleteHost -&gt; DeleteHost -&gt; Bool) -&gt; Eq DeleteHost
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteHost -&gt; DeleteHost -&gt; Bool
+$c/= :: DeleteHost -&gt; DeleteHost -&gt; Bool
+== :: DeleteHost -&gt; DeleteHost -&gt; Bool
+$c== :: DeleteHost -&gt; DeleteHost -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159100"><span id="local-6989586621679159102"><span id="local-6989586621679159104"><span id="local-6989586621679159106"><span class="annot"><span class="annottext">ReadPrec [DeleteHost]
+ReadPrec DeleteHost
+Int -&gt; ReadS DeleteHost
+ReadS [DeleteHost]
+(Int -&gt; ReadS DeleteHost)
+-&gt; ReadS [DeleteHost]
+-&gt; ReadPrec DeleteHost
+-&gt; ReadPrec [DeleteHost]
+-&gt; Read DeleteHost
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteHost]
+$creadListPrec :: ReadPrec [DeleteHost]
+readPrec :: ReadPrec DeleteHost
+$creadPrec :: ReadPrec DeleteHost
+readList :: ReadS [DeleteHost]
+$creadList :: ReadS [DeleteHost]
+readsPrec :: Int -&gt; ReadS DeleteHost
+$creadsPrec :: Int -&gt; ReadS DeleteHost
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159093"><span id="local-6989586621679159095"><span id="local-6989586621679159097"><span class="annot"><span class="annottext">Int -&gt; DeleteHost -&gt; ShowS
+[DeleteHost] -&gt; ShowS
+DeleteHost -&gt; String
+(Int -&gt; DeleteHost -&gt; ShowS)
+-&gt; (DeleteHost -&gt; String)
+-&gt; ([DeleteHost] -&gt; ShowS)
+-&gt; Show DeleteHost
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteHost] -&gt; ShowS
+$cshowList :: [DeleteHost] -&gt; ShowS
+show :: DeleteHost -&gt; String
+$cshow :: DeleteHost -&gt; String
+showsPrec :: Int -&gt; DeleteHost -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteHost -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteHost -&gt; Rep DeleteHost x)
+-&gt; (forall x. Rep DeleteHost x -&gt; DeleteHost) -&gt; Generic DeleteHost
+forall x. Rep DeleteHost x -&gt; DeleteHost
+forall x. DeleteHost -&gt; Rep DeleteHost x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteHost x -&gt; DeleteHost
+$cfrom :: forall x. DeleteHost -&gt; Rep DeleteHost x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DeleteHost' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'hostArn', 'deleteHost_hostArn' - The Amazon Resource Name (ARN) of the host to be deleted.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#newDeleteHost"><span class="hs-identifier hs-type">newDeleteHost</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'hostArn'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost"><span class="hs-identifier hs-type">DeleteHost</span></a></span><span>
+</span><span id="line-72"></span><span id="newDeleteHost"><span class="annot"><span class="annottext">newDeleteHost :: Text -&gt; DeleteHost
+</span><a href="Amazonka.CodeStarConnections.DeleteHost.html#newDeleteHost"><span class="hs-identifier hs-var hs-var">newDeleteHost</span></a></span></span><span> </span><span id="local-6989586621679159088"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159088"><span class="hs-identifier hs-var">pHostArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteHost' :: Text -&gt; DeleteHost
+</span><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost%27"><span class="hs-identifier hs-type">DeleteHost'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostArn:DeleteHost' :: Text
+</span><a href="Amazonka.CodeStarConnections.DeleteHost.html#%24sel%3AhostArn%3ADeleteHost%27"><span class="hs-identifier hs-var">hostArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159088"><span class="hs-identifier hs-var">pHostArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the host to be deleted.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#deleteHost_hostArn"><span class="hs-identifier hs-type">deleteHost_hostArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost"><span class="hs-identifier hs-type">DeleteHost</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="deleteHost_hostArn"><span class="annot"><span class="annottext">deleteHost_hostArn :: (Text -&gt; f Text) -&gt; DeleteHost -&gt; f DeleteHost
+</span><a href="Amazonka.CodeStarConnections.DeleteHost.html#deleteHost_hostArn"><span class="hs-identifier hs-var hs-var">deleteHost_hostArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteHost -&gt; Text)
+-&gt; (DeleteHost -&gt; Text -&gt; DeleteHost)
+-&gt; Lens DeleteHost DeleteHost Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost%27"><span class="hs-identifier hs-type">DeleteHost'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159085"><span class="annot"><span class="annottext">Text
+hostArn :: Text
+$sel:hostArn:DeleteHost' :: DeleteHost -&gt; Text
+</span><a href="#local-6989586621679159085"><span class="hs-identifier hs-var hs-var">hostArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159085"><span class="hs-identifier hs-var">hostArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159084"><span class="annot"><span class="annottext">s :: DeleteHost
+</span><a href="#local-6989586621679159084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost%27"><span class="hs-identifier hs-type">DeleteHost'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159083"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteHost
+</span><a href="#local-6989586621679159084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostArn:DeleteHost' :: Text
+</span><a href="Amazonka.CodeStarConnections.DeleteHost.html#%24sel%3AhostArn%3ADeleteHost%27"><span class="hs-identifier hs-var">hostArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost"><span class="hs-identifier hs-type">DeleteHost</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost"><span class="hs-identifier hs-type">DeleteHost</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost"><span class="hs-identifier hs-type">DeleteHost</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHostResponse"><span class="hs-identifier hs-type">DeleteHostResponse</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679159079"><span class="annot"><span class="annottext">request :: DeleteHost -&gt; Request DeleteHost
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteHost -&gt; Request DeleteHost
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeStarConnections.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679159075"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteHost
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteHost)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse DeleteHost))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteHost
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteHost)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679159072"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159072"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679159071"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679159071"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679159070"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679159070"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteHostResponse
+</span><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHostResponse%27"><span class="hs-identifier hs-var">DeleteHostResponse'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteHostResponse)
+-&gt; Either String Int -&gt; Either String DeleteHostResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159072"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159063"><span id="local-6989586621679159065"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost"><span class="hs-identifier hs-type">DeleteHost</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159060"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost"><span class="hs-identifier hs-type">DeleteHost</span></a></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost"><span class="hs-identifier hs-type">DeleteHost</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679159056"><span class="annot"><span class="annottext">toHeaders :: DeleteHost -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteHost -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;com.amazonaws.codestar.connections.CodeStar_connections_20191201.DeleteHost&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-100"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-104"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159046"><span id="local-6989586621679159048"><span id="local-6989586621679159050"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost"><span class="hs-identifier hs-type">DeleteHost</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679159044"><span class="annot"><span class="annottext">toJSON :: DeleteHost -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost%27"><span class="hs-identifier hs-type">DeleteHost'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159042"><span class="annot"><span class="annottext">Text
+hostArn :: Text
+$sel:hostArn:DeleteHost' :: DeleteHost -&gt; Text
+</span><a href="#local-6989586621679159042"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HostArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159042"><span class="hs-identifier hs-var">hostArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost"><span class="hs-identifier hs-type">DeleteHost</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679159036"><span class="annot"><span class="annottext">toPath :: DeleteHost -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteHost -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost"><span class="hs-identifier hs-type">DeleteHost</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679159032"><span class="annot"><span class="annottext">toQuery :: DeleteHost -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteHost -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newDeleteHostResponse' smart constructor.</span><span>
+</span><span id="line-122"></span><span id="local-6989586621679159029"><span id="local-6989586621679159030"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteHostResponse"><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHostResponse"><span class="hs-identifier hs-var">DeleteHostResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteHostResponse%27"><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHostResponse%27"><span class="hs-identifier hs-var">DeleteHostResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteHostResponse%27"><span class="annot"><span class="annottext">DeleteHostResponse -&gt; Int
+</span><a href="Amazonka.CodeStarConnections.DeleteHost.html#%24sel%3AhttpStatus%3ADeleteHostResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159024"><span id="local-6989586621679159026"><span class="annot"><span class="annottext">DeleteHostResponse -&gt; DeleteHostResponse -&gt; Bool
+(DeleteHostResponse -&gt; DeleteHostResponse -&gt; Bool)
+-&gt; (DeleteHostResponse -&gt; DeleteHostResponse -&gt; Bool)
+-&gt; Eq DeleteHostResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteHostResponse -&gt; DeleteHostResponse -&gt; Bool
+$c/= :: DeleteHostResponse -&gt; DeleteHostResponse -&gt; Bool
+== :: DeleteHostResponse -&gt; DeleteHostResponse -&gt; Bool
+$c== :: DeleteHostResponse -&gt; DeleteHostResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159016"><span id="local-6989586621679159018"><span id="local-6989586621679159020"><span id="local-6989586621679159022"><span class="annot"><span class="annottext">ReadPrec [DeleteHostResponse]
+ReadPrec DeleteHostResponse
+Int -&gt; ReadS DeleteHostResponse
+ReadS [DeleteHostResponse]
+(Int -&gt; ReadS DeleteHostResponse)
+-&gt; ReadS [DeleteHostResponse]
+-&gt; ReadPrec DeleteHostResponse
+-&gt; ReadPrec [DeleteHostResponse]
+-&gt; Read DeleteHostResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteHostResponse]
+$creadListPrec :: ReadPrec [DeleteHostResponse]
+readPrec :: ReadPrec DeleteHostResponse
+$creadPrec :: ReadPrec DeleteHostResponse
+readList :: ReadS [DeleteHostResponse]
+$creadList :: ReadS [DeleteHostResponse]
+readsPrec :: Int -&gt; ReadS DeleteHostResponse
+$creadsPrec :: Int -&gt; ReadS DeleteHostResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159010"><span id="local-6989586621679159012"><span id="local-6989586621679159014"><span class="annot"><span class="annottext">Int -&gt; DeleteHostResponse -&gt; ShowS
+[DeleteHostResponse] -&gt; ShowS
+DeleteHostResponse -&gt; String
+(Int -&gt; DeleteHostResponse -&gt; ShowS)
+-&gt; (DeleteHostResponse -&gt; String)
+-&gt; ([DeleteHostResponse] -&gt; ShowS)
+-&gt; Show DeleteHostResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteHostResponse] -&gt; ShowS
+$cshowList :: [DeleteHostResponse] -&gt; ShowS
+show :: DeleteHostResponse -&gt; String
+$cshow :: DeleteHostResponse -&gt; String
+showsPrec :: Int -&gt; DeleteHostResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteHostResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteHostResponse -&gt; Rep DeleteHostResponse x)
+-&gt; (forall x. Rep DeleteHostResponse x -&gt; DeleteHostResponse)
+-&gt; Generic DeleteHostResponse
+forall x. Rep DeleteHostResponse x -&gt; DeleteHostResponse
+forall x. DeleteHostResponse -&gt; Rep DeleteHostResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteHostResponse x -&gt; DeleteHostResponse
+$cfrom :: forall x. DeleteHostResponse -&gt; Rep DeleteHostResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Create a value of 'DeleteHostResponse' with all optional fields omitted.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'httpStatus', 'deleteHostResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#newDeleteHostResponse"><span class="hs-identifier hs-type">newDeleteHostResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHostResponse"><span class="hs-identifier hs-type">DeleteHostResponse</span></a></span><span>
+</span><span id="line-141"></span><span id="newDeleteHostResponse"><span class="annot"><span class="annottext">newDeleteHostResponse :: Int -&gt; DeleteHostResponse
+</span><a href="Amazonka.CodeStarConnections.DeleteHost.html#newDeleteHostResponse"><span class="hs-identifier hs-var hs-var">newDeleteHostResponse</span></a></span></span><span> </span><span id="local-6989586621679159007"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159007"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">DeleteHostResponse' :: Int -&gt; DeleteHostResponse
+</span><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHostResponse%27"><span class="hs-identifier hs-type">DeleteHostResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteHostResponse' :: Int
+</span><a href="Amazonka.CodeStarConnections.DeleteHost.html#%24sel%3AhttpStatus%3ADeleteHostResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159007"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#deleteHostResponse_httpStatus"><span class="hs-identifier hs-type">deleteHostResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHostResponse"><span class="hs-identifier hs-type">DeleteHostResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-146"></span><span id="deleteHostResponse_httpStatus"><span class="annot"><span class="annottext">deleteHostResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteHostResponse -&gt; f DeleteHostResponse
+</span><a href="Amazonka.CodeStarConnections.DeleteHost.html#deleteHostResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteHostResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteHostResponse -&gt; Int)
+-&gt; (DeleteHostResponse -&gt; Int -&gt; DeleteHostResponse)
+-&gt; Lens DeleteHostResponse DeleteHostResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHostResponse%27"><span class="hs-identifier hs-type">DeleteHostResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159006"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteHostResponse' :: DeleteHostResponse -&gt; Int
+</span><a href="#local-6989586621679159006"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159006"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159005"><span class="annot"><span class="annottext">s :: DeleteHostResponse
+</span><a href="#local-6989586621679159005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHostResponse%27"><span class="hs-identifier hs-type">DeleteHostResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159004"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteHostResponse
+</span><a href="#local-6989586621679159005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteHostResponse' :: Int
+</span><a href="Amazonka.CodeStarConnections.DeleteHost.html#%24sel%3AhttpStatus%3ADeleteHostResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHostResponse"><span class="hs-identifier hs-type">DeleteHostResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHostResponse"><span class="hs-identifier hs-type">DeleteHostResponse</span></a></span></span><span>
+</span><span id="line-149"></span></pre></body></html>

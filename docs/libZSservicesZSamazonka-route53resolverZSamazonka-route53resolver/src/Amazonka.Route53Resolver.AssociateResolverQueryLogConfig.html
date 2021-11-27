@@ -1,0 +1,576 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53Resolver.AssociateResolverQueryLogConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Associates an Amazon VPC with a specified query logging configuration.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Route 53 Resolver logs DNS queries that originate in all of the Amazon</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- VPCs that are associated with a specified query logging configuration.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- To associate more than one VPC with a configuration, submit one</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @AssociateResolverQueryLogConfig@ request for each VPC.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- The VPCs that you associate with a query logging configuration must be</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- in the same Region as the configuration.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- To remove a VPC from a query logging configuration, see</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html DisassociateResolverQueryLogConfig&gt;.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53Resolver.AssociateResolverQueryLogConfig</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig"><span class="hs-identifier">AssociateResolverQueryLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#newAssociateResolverQueryLogConfig"><span class="hs-identifier">newAssociateResolverQueryLogConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#associateResolverQueryLogConfig_resolverQueryLogConfigId"><span class="hs-identifier">associateResolverQueryLogConfig_resolverQueryLogConfigId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#associateResolverQueryLogConfig_resourceId"><span class="hs-identifier">associateResolverQueryLogConfig_resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse"><span class="hs-identifier">AssociateResolverQueryLogConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#newAssociateResolverQueryLogConfigResponse"><span class="hs-identifier">newAssociateResolverQueryLogConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#associateResolverQueryLogConfigResponse_resolverQueryLogConfigAssociation"><span class="hs-identifier">associateResolverQueryLogConfigResponse_resolverQueryLogConfigAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#associateResolverQueryLogConfigResponse_httpStatus"><span class="hs-identifier">associateResolverQueryLogConfigResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.html"><span class="hs-identifier">Amazonka.Route53Resolver.Types</span></a></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newAssociateResolverQueryLogConfig' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679300109"><span id="local-6989586621679300110"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateResolverQueryLogConfig"><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig"><span class="hs-identifier hs-var">AssociateResolverQueryLogConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateResolverQueryLogConfig%27"><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig%27"><span class="hs-identifier hs-var">AssociateResolverQueryLogConfig'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the query logging configuration that you want to associate a</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- VPC with.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AresolverQueryLogConfigId%3AAssociateResolverQueryLogConfig%27"><span class="annot"><span class="annottext">AssociateResolverQueryLogConfig -&gt; Text
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#%24sel%3AresolverQueryLogConfigId%3AAssociateResolverQueryLogConfig%27"><span class="hs-identifier hs-var hs-var">resolverQueryLogConfigId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ID of an Amazon VPC that you want this query logging configuration</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- to log queries for.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- The VPCs and the query logging configuration must be in the same Region.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AresourceId%3AAssociateResolverQueryLogConfig%27"><span class="annot"><span class="annottext">AssociateResolverQueryLogConfig -&gt; Text
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#%24sel%3AresourceId%3AAssociateResolverQueryLogConfig%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300102"><span id="local-6989586621679300104"><span class="annot"><span class="annottext">AssociateResolverQueryLogConfig
+-&gt; AssociateResolverQueryLogConfig -&gt; Bool
+(AssociateResolverQueryLogConfig
+ -&gt; AssociateResolverQueryLogConfig -&gt; Bool)
+-&gt; (AssociateResolverQueryLogConfig
+    -&gt; AssociateResolverQueryLogConfig -&gt; Bool)
+-&gt; Eq AssociateResolverQueryLogConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateResolverQueryLogConfig
+-&gt; AssociateResolverQueryLogConfig -&gt; Bool
+$c/= :: AssociateResolverQueryLogConfig
+-&gt; AssociateResolverQueryLogConfig -&gt; Bool
+== :: AssociateResolverQueryLogConfig
+-&gt; AssociateResolverQueryLogConfig -&gt; Bool
+$c== :: AssociateResolverQueryLogConfig
+-&gt; AssociateResolverQueryLogConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300093"><span id="local-6989586621679300095"><span id="local-6989586621679300097"><span id="local-6989586621679300099"><span class="annot"><span class="annottext">ReadPrec [AssociateResolverQueryLogConfig]
+ReadPrec AssociateResolverQueryLogConfig
+Int -&gt; ReadS AssociateResolverQueryLogConfig
+ReadS [AssociateResolverQueryLogConfig]
+(Int -&gt; ReadS AssociateResolverQueryLogConfig)
+-&gt; ReadS [AssociateResolverQueryLogConfig]
+-&gt; ReadPrec AssociateResolverQueryLogConfig
+-&gt; ReadPrec [AssociateResolverQueryLogConfig]
+-&gt; Read AssociateResolverQueryLogConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateResolverQueryLogConfig]
+$creadListPrec :: ReadPrec [AssociateResolverQueryLogConfig]
+readPrec :: ReadPrec AssociateResolverQueryLogConfig
+$creadPrec :: ReadPrec AssociateResolverQueryLogConfig
+readList :: ReadS [AssociateResolverQueryLogConfig]
+$creadList :: ReadS [AssociateResolverQueryLogConfig]
+readsPrec :: Int -&gt; ReadS AssociateResolverQueryLogConfig
+$creadsPrec :: Int -&gt; ReadS AssociateResolverQueryLogConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300086"><span id="local-6989586621679300088"><span id="local-6989586621679300090"><span class="annot"><span class="annottext">Int -&gt; AssociateResolverQueryLogConfig -&gt; ShowS
+[AssociateResolverQueryLogConfig] -&gt; ShowS
+AssociateResolverQueryLogConfig -&gt; String
+(Int -&gt; AssociateResolverQueryLogConfig -&gt; ShowS)
+-&gt; (AssociateResolverQueryLogConfig -&gt; String)
+-&gt; ([AssociateResolverQueryLogConfig] -&gt; ShowS)
+-&gt; Show AssociateResolverQueryLogConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateResolverQueryLogConfig] -&gt; ShowS
+$cshowList :: [AssociateResolverQueryLogConfig] -&gt; ShowS
+show :: AssociateResolverQueryLogConfig -&gt; String
+$cshow :: AssociateResolverQueryLogConfig -&gt; String
+showsPrec :: Int -&gt; AssociateResolverQueryLogConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateResolverQueryLogConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateResolverQueryLogConfig
+ -&gt; Rep AssociateResolverQueryLogConfig x)
+-&gt; (forall x.
+    Rep AssociateResolverQueryLogConfig x
+    -&gt; AssociateResolverQueryLogConfig)
+-&gt; Generic AssociateResolverQueryLogConfig
+forall x.
+Rep AssociateResolverQueryLogConfig x
+-&gt; AssociateResolverQueryLogConfig
+forall x.
+AssociateResolverQueryLogConfig
+-&gt; Rep AssociateResolverQueryLogConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateResolverQueryLogConfig x
+-&gt; AssociateResolverQueryLogConfig
+$cfrom :: forall x.
+AssociateResolverQueryLogConfig
+-&gt; Rep AssociateResolverQueryLogConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'AssociateResolverQueryLogConfig' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'resolverQueryLogConfigId', 'associateResolverQueryLogConfig_resolverQueryLogConfigId' - The ID of the query logging configuration that you want to associate a</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- VPC with.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'resourceId', 'associateResolverQueryLogConfig_resourceId' - The ID of an Amazon VPC that you want this query logging configuration</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- to log queries for.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The VPCs and the query logging configuration must be in the same Region.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#newAssociateResolverQueryLogConfig"><span class="hs-identifier hs-type">newAssociateResolverQueryLogConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'resolverQueryLogConfigId'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'resourceId'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig</span></a></span><span>
+</span><span id="line-94"></span><span id="newAssociateResolverQueryLogConfig"><span class="annot"><span class="annottext">newAssociateResolverQueryLogConfig :: Text -&gt; Text -&gt; AssociateResolverQueryLogConfig
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#newAssociateResolverQueryLogConfig"><span class="hs-identifier hs-var hs-var">newAssociateResolverQueryLogConfig</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679300081"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300081"><span class="hs-identifier hs-var">pResolverQueryLogConfigId_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679300080"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300080"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">AssociateResolverQueryLogConfig' :: Text -&gt; Text -&gt; AssociateResolverQueryLogConfig
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig%27"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig'</span></a></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resolverQueryLogConfigId:AssociateResolverQueryLogConfig' :: Text
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#%24sel%3AresolverQueryLogConfigId%3AAssociateResolverQueryLogConfig%27"><span class="hs-identifier hs-var">resolverQueryLogConfigId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300081"><span class="hs-identifier hs-var">pResolverQueryLogConfigId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:AssociateResolverQueryLogConfig' :: Text
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#%24sel%3AresourceId%3AAssociateResolverQueryLogConfig%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300080"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The ID of the query logging configuration that you want to associate a</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- VPC with.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#associateResolverQueryLogConfig_resolverQueryLogConfigId"><span class="hs-identifier hs-type">associateResolverQueryLogConfig_resolverQueryLogConfigId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-106"></span><span id="associateResolverQueryLogConfig_resolverQueryLogConfigId"><span class="annot"><span class="annottext">associateResolverQueryLogConfig_resolverQueryLogConfigId :: (Text -&gt; f Text)
+-&gt; AssociateResolverQueryLogConfig
+-&gt; f AssociateResolverQueryLogConfig
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#associateResolverQueryLogConfig_resolverQueryLogConfigId"><span class="hs-identifier hs-var hs-var">associateResolverQueryLogConfig_resolverQueryLogConfigId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateResolverQueryLogConfig -&gt; Text)
+-&gt; (AssociateResolverQueryLogConfig
+    -&gt; Text -&gt; AssociateResolverQueryLogConfig)
+-&gt; Lens
+     AssociateResolverQueryLogConfig
+     AssociateResolverQueryLogConfig
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig%27"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300077"><span class="annot"><span class="annottext">Text
+resolverQueryLogConfigId :: Text
+$sel:resolverQueryLogConfigId:AssociateResolverQueryLogConfig' :: AssociateResolverQueryLogConfig -&gt; Text
+</span><a href="#local-6989586621679300077"><span class="hs-identifier hs-var hs-var">resolverQueryLogConfigId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300077"><span class="hs-identifier hs-var">resolverQueryLogConfigId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300076"><span class="annot"><span class="annottext">s :: AssociateResolverQueryLogConfig
+</span><a href="#local-6989586621679300076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig%27"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300075"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateResolverQueryLogConfig
+</span><a href="#local-6989586621679300076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolverQueryLogConfigId:AssociateResolverQueryLogConfig' :: Text
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#%24sel%3AresolverQueryLogConfigId%3AAssociateResolverQueryLogConfig%27"><span class="hs-identifier hs-var">resolverQueryLogConfigId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The ID of an Amazon VPC that you want this query logging configuration</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- to log queries for.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- The VPCs and the query logging configuration must be in the same Region.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#associateResolverQueryLogConfig_resourceId"><span class="hs-identifier hs-type">associateResolverQueryLogConfig_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="associateResolverQueryLogConfig_resourceId"><span class="annot"><span class="annottext">associateResolverQueryLogConfig_resourceId :: (Text -&gt; f Text)
+-&gt; AssociateResolverQueryLogConfig
+-&gt; f AssociateResolverQueryLogConfig
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#associateResolverQueryLogConfig_resourceId"><span class="hs-identifier hs-var hs-var">associateResolverQueryLogConfig_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateResolverQueryLogConfig -&gt; Text)
+-&gt; (AssociateResolverQueryLogConfig
+    -&gt; Text -&gt; AssociateResolverQueryLogConfig)
+-&gt; Lens
+     AssociateResolverQueryLogConfig
+     AssociateResolverQueryLogConfig
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig%27"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300074"><span class="annot"><span class="annottext">Text
+resourceId :: Text
+$sel:resourceId:AssociateResolverQueryLogConfig' :: AssociateResolverQueryLogConfig -&gt; Text
+</span><a href="#local-6989586621679300074"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300074"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300073"><span class="annot"><span class="annottext">s :: AssociateResolverQueryLogConfig
+</span><a href="#local-6989586621679300073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig%27"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300072"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateResolverQueryLogConfig
+</span><a href="#local-6989586621679300073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:AssociateResolverQueryLogConfig' :: Text
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#%24sel%3AresourceId%3AAssociateResolverQueryLogConfig%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-120"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfigResponse</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679300068"><span class="annot"><span class="annottext">request :: AssociateResolverQueryLogConfig
+-&gt; Request AssociateResolverQueryLogConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; AssociateResolverQueryLogConfig
+-&gt; Request AssociateResolverQueryLogConfig
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53Resolver.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679300064"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AssociateResolverQueryLogConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse AssociateResolverQueryLogConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse AssociateResolverQueryLogConfig))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AssociateResolverQueryLogConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse AssociateResolverQueryLogConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300061"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300061"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679300060"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679300060"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679300059"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300059"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResolverQueryLogConfigAssociation
+-&gt; Int -&gt; AssociateResolverQueryLogConfigResponse
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse%27"><span class="hs-identifier hs-var">AssociateResolverQueryLogConfigResponse'</span></a></span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ResolverQueryLogConfigAssociation
+ -&gt; Int -&gt; AssociateResolverQueryLogConfigResponse)
+-&gt; Either String (Maybe ResolverQueryLogConfigAssociation)
+-&gt; Either String (Int -&gt; AssociateResolverQueryLogConfigResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe ResolverQueryLogConfigAssociation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResolverQueryLogConfigAssociation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; AssociateResolverQueryLogConfigResponse)
+-&gt; Either String Int
+-&gt; Either String AssociateResolverQueryLogConfigResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300061"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679300051"><span id="local-6989586621679300053"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig</span></a></span></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679300048"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig</span></a></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679300044"><span class="annot"><span class="annottext">toHeaders :: AssociateResolverQueryLogConfig -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; AssociateResolverQueryLogConfig -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Route53Resolver.AssociateResolverQueryLogConfig&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-149"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300034"><span id="local-6989586621679300036"><span id="local-6989586621679300038"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679300032"><span class="annot"><span class="annottext">toJSON :: AssociateResolverQueryLogConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig%27"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300029"><span id="local-6989586621679300030"><span class="annot"><span class="annottext">Text
+resourceId :: Text
+resolverQueryLogConfigId :: Text
+$sel:resourceId:AssociateResolverQueryLogConfig' :: AssociateResolverQueryLogConfig -&gt; Text
+$sel:resolverQueryLogConfigId:AssociateResolverQueryLogConfig' :: AssociateResolverQueryLogConfig -&gt; Text
+</span><a href="#local-6989586621679300029"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResolverQueryLogConfigId&quot;</span></span><span>
+</span><span id="line-163"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300030"><span class="hs-identifier hs-var">resolverQueryLogConfigId</span></a></span><span>
+</span><span id="line-164"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300029"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679300023"><span class="annot"><span class="annottext">toPath :: AssociateResolverQueryLogConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateResolverQueryLogConfig -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfig"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679300019"><span class="annot"><span class="annottext">toQuery :: AssociateResolverQueryLogConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateResolverQueryLogConfig -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newAssociateResolverQueryLogConfigResponse' smart constructor.</span><span>
+</span><span id="line-176"></span><span id="local-6989586621679300016"><span id="local-6989586621679300017"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateResolverQueryLogConfigResponse"><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse"><span class="hs-identifier hs-var">AssociateResolverQueryLogConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateResolverQueryLogConfigResponse%27"><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse%27"><span class="hs-identifier hs-var">AssociateResolverQueryLogConfigResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A complex type that contains settings for a specified association</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- between an Amazon VPC and a query logging configuration.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AresolverQueryLogConfigAssociation%3AAssociateResolverQueryLogConfigResponse%27"><span class="annot"><span class="annottext">AssociateResolverQueryLogConfigResponse
+-&gt; Maybe ResolverQueryLogConfigAssociation
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#%24sel%3AresolverQueryLogConfigAssociation%3AAssociateResolverQueryLogConfigResponse%27"><span class="hs-identifier hs-var hs-var">resolverQueryLogConfigAssociation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigAssociation.html#ResolverQueryLogConfigAssociation"><span class="hs-identifier hs-type">ResolverQueryLogConfigAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateResolverQueryLogConfigResponse%27"><span class="annot"><span class="annottext">AssociateResolverQueryLogConfigResponse -&gt; Int
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#%24sel%3AhttpStatus%3AAssociateResolverQueryLogConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300010"><span id="local-6989586621679300012"><span class="annot"><span class="annottext">AssociateResolverQueryLogConfigResponse
+-&gt; AssociateResolverQueryLogConfigResponse -&gt; Bool
+(AssociateResolverQueryLogConfigResponse
+ -&gt; AssociateResolverQueryLogConfigResponse -&gt; Bool)
+-&gt; (AssociateResolverQueryLogConfigResponse
+    -&gt; AssociateResolverQueryLogConfigResponse -&gt; Bool)
+-&gt; Eq AssociateResolverQueryLogConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateResolverQueryLogConfigResponse
+-&gt; AssociateResolverQueryLogConfigResponse -&gt; Bool
+$c/= :: AssociateResolverQueryLogConfigResponse
+-&gt; AssociateResolverQueryLogConfigResponse -&gt; Bool
+== :: AssociateResolverQueryLogConfigResponse
+-&gt; AssociateResolverQueryLogConfigResponse -&gt; Bool
+$c== :: AssociateResolverQueryLogConfigResponse
+-&gt; AssociateResolverQueryLogConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300002"><span id="local-6989586621679300004"><span id="local-6989586621679300006"><span id="local-6989586621679300008"><span class="annot"><span class="annottext">ReadPrec [AssociateResolverQueryLogConfigResponse]
+ReadPrec AssociateResolverQueryLogConfigResponse
+Int -&gt; ReadS AssociateResolverQueryLogConfigResponse
+ReadS [AssociateResolverQueryLogConfigResponse]
+(Int -&gt; ReadS AssociateResolverQueryLogConfigResponse)
+-&gt; ReadS [AssociateResolverQueryLogConfigResponse]
+-&gt; ReadPrec AssociateResolverQueryLogConfigResponse
+-&gt; ReadPrec [AssociateResolverQueryLogConfigResponse]
+-&gt; Read AssociateResolverQueryLogConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateResolverQueryLogConfigResponse]
+$creadListPrec :: ReadPrec [AssociateResolverQueryLogConfigResponse]
+readPrec :: ReadPrec AssociateResolverQueryLogConfigResponse
+$creadPrec :: ReadPrec AssociateResolverQueryLogConfigResponse
+readList :: ReadS [AssociateResolverQueryLogConfigResponse]
+$creadList :: ReadS [AssociateResolverQueryLogConfigResponse]
+readsPrec :: Int -&gt; ReadS AssociateResolverQueryLogConfigResponse
+$creadsPrec :: Int -&gt; ReadS AssociateResolverQueryLogConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299996"><span id="local-6989586621679299998"><span id="local-6989586621679300000"><span class="annot"><span class="annottext">Int -&gt; AssociateResolverQueryLogConfigResponse -&gt; ShowS
+[AssociateResolverQueryLogConfigResponse] -&gt; ShowS
+AssociateResolverQueryLogConfigResponse -&gt; String
+(Int -&gt; AssociateResolverQueryLogConfigResponse -&gt; ShowS)
+-&gt; (AssociateResolverQueryLogConfigResponse -&gt; String)
+-&gt; ([AssociateResolverQueryLogConfigResponse] -&gt; ShowS)
+-&gt; Show AssociateResolverQueryLogConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateResolverQueryLogConfigResponse] -&gt; ShowS
+$cshowList :: [AssociateResolverQueryLogConfigResponse] -&gt; ShowS
+show :: AssociateResolverQueryLogConfigResponse -&gt; String
+$cshow :: AssociateResolverQueryLogConfigResponse -&gt; String
+showsPrec :: Int -&gt; AssociateResolverQueryLogConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateResolverQueryLogConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateResolverQueryLogConfigResponse
+ -&gt; Rep AssociateResolverQueryLogConfigResponse x)
+-&gt; (forall x.
+    Rep AssociateResolverQueryLogConfigResponse x
+    -&gt; AssociateResolverQueryLogConfigResponse)
+-&gt; Generic AssociateResolverQueryLogConfigResponse
+forall x.
+Rep AssociateResolverQueryLogConfigResponse x
+-&gt; AssociateResolverQueryLogConfigResponse
+forall x.
+AssociateResolverQueryLogConfigResponse
+-&gt; Rep AssociateResolverQueryLogConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateResolverQueryLogConfigResponse x
+-&gt; AssociateResolverQueryLogConfigResponse
+$cfrom :: forall x.
+AssociateResolverQueryLogConfigResponse
+-&gt; Rep AssociateResolverQueryLogConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Create a value of 'AssociateResolverQueryLogConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'resolverQueryLogConfigAssociation', 'associateResolverQueryLogConfigResponse_resolverQueryLogConfigAssociation' - A complex type that contains settings for a specified association</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- between an Amazon VPC and a query logging configuration.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'httpStatus', 'associateResolverQueryLogConfigResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#newAssociateResolverQueryLogConfigResponse"><span class="hs-identifier hs-type">newAssociateResolverQueryLogConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfigResponse</span></a></span><span>
+</span><span id="line-201"></span><span id="newAssociateResolverQueryLogConfigResponse"><span class="annot"><span class="annottext">newAssociateResolverQueryLogConfigResponse :: Int -&gt; AssociateResolverQueryLogConfigResponse
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#newAssociateResolverQueryLogConfigResponse"><span class="hs-identifier hs-var hs-var">newAssociateResolverQueryLogConfigResponse</span></a></span></span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679299993"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299993"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">AssociateResolverQueryLogConfigResponse' :: Maybe ResolverQueryLogConfigAssociation
+-&gt; Int -&gt; AssociateResolverQueryLogConfigResponse
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse%27"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfigResponse'</span></a></span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resolverQueryLogConfigAssociation:AssociateResolverQueryLogConfigResponse' :: Maybe ResolverQueryLogConfigAssociation
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#%24sel%3AresolverQueryLogConfigAssociation%3AAssociateResolverQueryLogConfigResponse%27"><span class="hs-identifier hs-var">resolverQueryLogConfigAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResolverQueryLogConfigAssociation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateResolverQueryLogConfigResponse' :: Int
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#%24sel%3AhttpStatus%3AAssociateResolverQueryLogConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299993"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | A complex type that contains settings for a specified association</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- between an Amazon VPC and a query logging configuration.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#associateResolverQueryLogConfigResponse_resolverQueryLogConfigAssociation"><span class="hs-identifier hs-type">associateResolverQueryLogConfigResponse_resolverQueryLogConfigAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.ResolverQueryLogConfigAssociation.html#ResolverQueryLogConfigAssociation"><span class="hs-identifier hs-type">ResolverQueryLogConfigAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="associateResolverQueryLogConfigResponse_resolverQueryLogConfigAssociation"><span class="annot"><span class="annottext">associateResolverQueryLogConfigResponse_resolverQueryLogConfigAssociation :: (Maybe ResolverQueryLogConfigAssociation
+ -&gt; f (Maybe ResolverQueryLogConfigAssociation))
+-&gt; AssociateResolverQueryLogConfigResponse
+-&gt; f AssociateResolverQueryLogConfigResponse
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#associateResolverQueryLogConfigResponse_resolverQueryLogConfigAssociation"><span class="hs-identifier hs-var hs-var">associateResolverQueryLogConfigResponse_resolverQueryLogConfigAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateResolverQueryLogConfigResponse
+ -&gt; Maybe ResolverQueryLogConfigAssociation)
+-&gt; (AssociateResolverQueryLogConfigResponse
+    -&gt; Maybe ResolverQueryLogConfigAssociation
+    -&gt; AssociateResolverQueryLogConfigResponse)
+-&gt; Lens
+     AssociateResolverQueryLogConfigResponse
+     AssociateResolverQueryLogConfigResponse
+     (Maybe ResolverQueryLogConfigAssociation)
+     (Maybe ResolverQueryLogConfigAssociation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse%27"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299992"><span class="annot"><span class="annottext">Maybe ResolverQueryLogConfigAssociation
+resolverQueryLogConfigAssociation :: Maybe ResolverQueryLogConfigAssociation
+$sel:resolverQueryLogConfigAssociation:AssociateResolverQueryLogConfigResponse' :: AssociateResolverQueryLogConfigResponse
+-&gt; Maybe ResolverQueryLogConfigAssociation
+</span><a href="#local-6989586621679299992"><span class="hs-identifier hs-var hs-var">resolverQueryLogConfigAssociation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResolverQueryLogConfigAssociation
+</span><a href="#local-6989586621679299992"><span class="hs-identifier hs-var">resolverQueryLogConfigAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299991"><span class="annot"><span class="annottext">s :: AssociateResolverQueryLogConfigResponse
+</span><a href="#local-6989586621679299991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse%27"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299990"><span class="annot"><span class="annottext">Maybe ResolverQueryLogConfigAssociation
+</span><a href="#local-6989586621679299990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateResolverQueryLogConfigResponse
+</span><a href="#local-6989586621679299991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolverQueryLogConfigAssociation:AssociateResolverQueryLogConfigResponse' :: Maybe ResolverQueryLogConfigAssociation
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#%24sel%3AresolverQueryLogConfigAssociation%3AAssociateResolverQueryLogConfigResponse%27"><span class="hs-identifier hs-var">resolverQueryLogConfigAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResolverQueryLogConfigAssociation
+</span><a href="#local-6989586621679299990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#associateResolverQueryLogConfigResponse_httpStatus"><span class="hs-identifier hs-type">associateResolverQueryLogConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-216"></span><span id="associateResolverQueryLogConfigResponse_httpStatus"><span class="annot"><span class="annottext">associateResolverQueryLogConfigResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AssociateResolverQueryLogConfigResponse
+-&gt; f AssociateResolverQueryLogConfigResponse
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#associateResolverQueryLogConfigResponse_httpStatus"><span class="hs-identifier hs-var hs-var">associateResolverQueryLogConfigResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateResolverQueryLogConfigResponse -&gt; Int)
+-&gt; (AssociateResolverQueryLogConfigResponse
+    -&gt; Int -&gt; AssociateResolverQueryLogConfigResponse)
+-&gt; Lens
+     AssociateResolverQueryLogConfigResponse
+     AssociateResolverQueryLogConfigResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse%27"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299989"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AssociateResolverQueryLogConfigResponse' :: AssociateResolverQueryLogConfigResponse -&gt; Int
+</span><a href="#local-6989586621679299989"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299989"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299988"><span class="annot"><span class="annottext">s :: AssociateResolverQueryLogConfigResponse
+</span><a href="#local-6989586621679299988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse%27"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299987"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateResolverQueryLogConfigResponse
+</span><a href="#local-6989586621679299988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateResolverQueryLogConfigResponse' :: Int
+</span><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#%24sel%3AhttpStatus%3AAssociateResolverQueryLogConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679299985"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.AssociateResolverQueryLogConfig.html#AssociateResolverQueryLogConfigResponse"><span class="hs-identifier hs-type">AssociateResolverQueryLogConfigResponse</span></a></span></span><span>
+</span><span id="line-221"></span></pre></body></html>

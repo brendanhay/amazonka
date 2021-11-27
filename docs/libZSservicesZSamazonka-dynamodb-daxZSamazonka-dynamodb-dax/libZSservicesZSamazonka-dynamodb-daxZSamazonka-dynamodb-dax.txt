@@ -5,61 +5,61 @@
 @version 2.0
 
 
-module Network.AWS.DAX.Types.ChangeType
+module Amazonka.DAX.Types.ChangeType
 newtype ChangeType
 ChangeType' :: Text -> ChangeType
 [fromChangeType] :: ChangeType -> Text
 pattern ChangeType_IMMEDIATE :: ChangeType
 pattern ChangeType_REQUIRES_REBOOT :: ChangeType
-instance Network.AWS.Data.XML.ToXML Network.AWS.DAX.Types.ChangeType.ChangeType
-instance Network.AWS.Data.XML.FromXML Network.AWS.DAX.Types.ChangeType.ChangeType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DAX.Types.ChangeType.ChangeType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.Types.ChangeType.ChangeType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DAX.Types.ChangeType.ChangeType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.ChangeType.ChangeType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.Types.ChangeType.ChangeType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DAX.Types.ChangeType.ChangeType
-instance Network.AWS.Data.Log.ToLog Network.AWS.DAX.Types.ChangeType.ChangeType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DAX.Types.ChangeType.ChangeType
-instance Network.AWS.Data.Text.ToText Network.AWS.DAX.Types.ChangeType.ChangeType
-instance Network.AWS.Data.Text.FromText Network.AWS.DAX.Types.ChangeType.ChangeType
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.ChangeType.ChangeType
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.ChangeType.ChangeType
-instance GHC.Generics.Generic Network.AWS.DAX.Types.ChangeType.ChangeType
-instance GHC.Classes.Ord Network.AWS.DAX.Types.ChangeType.ChangeType
-instance GHC.Classes.Eq Network.AWS.DAX.Types.ChangeType.ChangeType
-instance GHC.Read.Read Network.AWS.DAX.Types.ChangeType.ChangeType
-instance GHC.Show.Show Network.AWS.DAX.Types.ChangeType.ChangeType
+instance Amazonka.Data.XML.ToXML Amazonka.DAX.Types.ChangeType.ChangeType
+instance Amazonka.Data.XML.FromXML Amazonka.DAX.Types.ChangeType.ChangeType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DAX.Types.ChangeType.ChangeType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.Types.ChangeType.ChangeType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DAX.Types.ChangeType.ChangeType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.ChangeType.ChangeType
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.Types.ChangeType.ChangeType
+instance Amazonka.Data.Headers.ToHeader Amazonka.DAX.Types.ChangeType.ChangeType
+instance Amazonka.Data.Log.ToLog Amazonka.DAX.Types.ChangeType.ChangeType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DAX.Types.ChangeType.ChangeType
+instance Amazonka.Data.Text.ToText Amazonka.DAX.Types.ChangeType.ChangeType
+instance Amazonka.Data.Text.FromText Amazonka.DAX.Types.ChangeType.ChangeType
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.ChangeType.ChangeType
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.ChangeType.ChangeType
+instance GHC.Generics.Generic Amazonka.DAX.Types.ChangeType.ChangeType
+instance GHC.Classes.Ord Amazonka.DAX.Types.ChangeType.ChangeType
+instance GHC.Classes.Eq Amazonka.DAX.Types.ChangeType.ChangeType
+instance GHC.Read.Read Amazonka.DAX.Types.ChangeType.ChangeType
+instance GHC.Show.Show Amazonka.DAX.Types.ChangeType.ChangeType
 
 
-module Network.AWS.DAX.Types.ClusterEndpointEncryptionType
+module Amazonka.DAX.Types.ClusterEndpointEncryptionType
 newtype ClusterEndpointEncryptionType
 ClusterEndpointEncryptionType' :: Text -> ClusterEndpointEncryptionType
 [fromClusterEndpointEncryptionType] :: ClusterEndpointEncryptionType -> Text
 pattern ClusterEndpointEncryptionType_NONE :: ClusterEndpointEncryptionType
 pattern ClusterEndpointEncryptionType_TLS :: ClusterEndpointEncryptionType
-instance Network.AWS.Data.XML.ToXML Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance Network.AWS.Data.XML.FromXML Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance Network.AWS.Data.Log.ToLog Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance Network.AWS.Data.Text.ToText Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance Network.AWS.Data.Text.FromText Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance GHC.Generics.Generic Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance GHC.Classes.Ord Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance GHC.Classes.Eq Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance GHC.Read.Read Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
-instance GHC.Show.Show Network.AWS.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance Amazonka.Data.XML.ToXML Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance Amazonka.Data.XML.FromXML Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance Amazonka.Data.Headers.ToHeader Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance Amazonka.Data.Log.ToLog Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance Amazonka.Data.Text.ToText Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance Amazonka.Data.Text.FromText Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance GHC.Generics.Generic Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance GHC.Classes.Ord Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance GHC.Classes.Eq Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance GHC.Read.Read Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
+instance GHC.Show.Show Amazonka.DAX.Types.ClusterEndpointEncryptionType.ClusterEndpointEncryptionType
 
 
-module Network.AWS.DAX.Types.Endpoint
+module Amazonka.DAX.Types.Endpoint
 
 -- | Represents the information required for client programs to connect to
 --   the endpoint for a DAX cluster.
@@ -110,44 +110,44 @@ endpoint_address :: Lens' Endpoint (Maybe Text)
 -- | The port number that applications should use to connect to the
 --   endpoint.
 endpoint_port :: Lens' Endpoint (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.DAX.Types.Endpoint.Endpoint
-instance GHC.Show.Show Network.AWS.DAX.Types.Endpoint.Endpoint
-instance GHC.Read.Read Network.AWS.DAX.Types.Endpoint.Endpoint
-instance GHC.Classes.Eq Network.AWS.DAX.Types.Endpoint.Endpoint
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.Endpoint.Endpoint
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.Endpoint.Endpoint
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.Endpoint.Endpoint
+instance GHC.Generics.Generic Amazonka.DAX.Types.Endpoint.Endpoint
+instance GHC.Show.Show Amazonka.DAX.Types.Endpoint.Endpoint
+instance GHC.Read.Read Amazonka.DAX.Types.Endpoint.Endpoint
+instance GHC.Classes.Eq Amazonka.DAX.Types.Endpoint.Endpoint
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.Endpoint.Endpoint
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.Endpoint.Endpoint
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.Endpoint.Endpoint
 
 
-module Network.AWS.DAX.Types.IsModifiable
+module Amazonka.DAX.Types.IsModifiable
 newtype IsModifiable
 IsModifiable' :: Text -> IsModifiable
 [fromIsModifiable] :: IsModifiable -> Text
 pattern IsModifiable_CONDITIONAL :: IsModifiable
 pattern IsModifiable_FALSE :: IsModifiable
 pattern IsModifiable_TRUE :: IsModifiable
-instance Network.AWS.Data.XML.ToXML Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance Network.AWS.Data.XML.FromXML Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance Network.AWS.Data.Log.ToLog Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance Network.AWS.Data.Text.ToText Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance Network.AWS.Data.Text.FromText Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance GHC.Generics.Generic Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance GHC.Classes.Ord Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance GHC.Classes.Eq Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance GHC.Read.Read Network.AWS.DAX.Types.IsModifiable.IsModifiable
-instance GHC.Show.Show Network.AWS.DAX.Types.IsModifiable.IsModifiable
+instance Amazonka.Data.XML.ToXML Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance Amazonka.Data.XML.FromXML Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance Amazonka.Data.Headers.ToHeader Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance Amazonka.Data.Log.ToLog Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance Amazonka.Data.Text.ToText Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance Amazonka.Data.Text.FromText Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance GHC.Generics.Generic Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance GHC.Classes.Ord Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance GHC.Classes.Eq Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance GHC.Read.Read Amazonka.DAX.Types.IsModifiable.IsModifiable
+instance GHC.Show.Show Amazonka.DAX.Types.IsModifiable.IsModifiable
 
 
-module Network.AWS.DAX.Types.Node
+module Amazonka.DAX.Types.Node
 
 -- | Represents an individual node within a DAX cluster.
 --   
@@ -231,16 +231,16 @@ node_endpoint :: Lens' Node (Maybe Endpoint)
 
 -- | The date and time (in UNIX epoch format) when the node was launched.
 node_nodeCreateTime :: Lens' Node (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.DAX.Types.Node.Node
-instance GHC.Show.Show Network.AWS.DAX.Types.Node.Node
-instance GHC.Read.Read Network.AWS.DAX.Types.Node.Node
-instance GHC.Classes.Eq Network.AWS.DAX.Types.Node.Node
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.Node.Node
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.Node.Node
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.Node.Node
+instance GHC.Generics.Generic Amazonka.DAX.Types.Node.Node
+instance GHC.Show.Show Amazonka.DAX.Types.Node.Node
+instance GHC.Read.Read Amazonka.DAX.Types.Node.Node
+instance GHC.Classes.Eq Amazonka.DAX.Types.Node.Node
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.Node.Node
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.Node.Node
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.Node.Node
 
 
-module Network.AWS.DAX.Types.NodeTypeSpecificValue
+module Amazonka.DAX.Types.NodeTypeSpecificValue
 
 -- | Represents a parameter value that is applicable to a particular node
 --   type.
@@ -278,16 +278,16 @@ nodeTypeSpecificValue_value :: Lens' NodeTypeSpecificValue (Maybe Text)
 
 -- | A node type to which the parameter value applies.
 nodeTypeSpecificValue_nodeType :: Lens' NodeTypeSpecificValue (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DAX.Types.NodeTypeSpecificValue.NodeTypeSpecificValue
-instance GHC.Show.Show Network.AWS.DAX.Types.NodeTypeSpecificValue.NodeTypeSpecificValue
-instance GHC.Read.Read Network.AWS.DAX.Types.NodeTypeSpecificValue.NodeTypeSpecificValue
-instance GHC.Classes.Eq Network.AWS.DAX.Types.NodeTypeSpecificValue.NodeTypeSpecificValue
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.NodeTypeSpecificValue.NodeTypeSpecificValue
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.NodeTypeSpecificValue.NodeTypeSpecificValue
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.NodeTypeSpecificValue.NodeTypeSpecificValue
+instance GHC.Generics.Generic Amazonka.DAX.Types.NodeTypeSpecificValue.NodeTypeSpecificValue
+instance GHC.Show.Show Amazonka.DAX.Types.NodeTypeSpecificValue.NodeTypeSpecificValue
+instance GHC.Read.Read Amazonka.DAX.Types.NodeTypeSpecificValue.NodeTypeSpecificValue
+instance GHC.Classes.Eq Amazonka.DAX.Types.NodeTypeSpecificValue.NodeTypeSpecificValue
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.NodeTypeSpecificValue.NodeTypeSpecificValue
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.NodeTypeSpecificValue.NodeTypeSpecificValue
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.NodeTypeSpecificValue.NodeTypeSpecificValue
 
 
-module Network.AWS.DAX.Types.NotificationConfiguration
+module Amazonka.DAX.Types.NotificationConfiguration
 
 -- | Describes a notification topic and its status. Notification topics are
 --   used for publishing DAX events to subscribers using Amazon Simple
@@ -332,16 +332,16 @@ notificationConfiguration_topicStatus :: Lens' NotificationConfiguration (Maybe 
 
 -- | The Amazon Resource Name (ARN) that identifies the topic.
 notificationConfiguration_topicArn :: Lens' NotificationConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DAX.Types.NotificationConfiguration.NotificationConfiguration
-instance GHC.Show.Show Network.AWS.DAX.Types.NotificationConfiguration.NotificationConfiguration
-instance GHC.Read.Read Network.AWS.DAX.Types.NotificationConfiguration.NotificationConfiguration
-instance GHC.Classes.Eq Network.AWS.DAX.Types.NotificationConfiguration.NotificationConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.NotificationConfiguration.NotificationConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.NotificationConfiguration.NotificationConfiguration
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.NotificationConfiguration.NotificationConfiguration
+instance GHC.Generics.Generic Amazonka.DAX.Types.NotificationConfiguration.NotificationConfiguration
+instance GHC.Show.Show Amazonka.DAX.Types.NotificationConfiguration.NotificationConfiguration
+instance GHC.Read.Read Amazonka.DAX.Types.NotificationConfiguration.NotificationConfiguration
+instance GHC.Classes.Eq Amazonka.DAX.Types.NotificationConfiguration.NotificationConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.NotificationConfiguration.NotificationConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.NotificationConfiguration.NotificationConfiguration
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.NotificationConfiguration.NotificationConfiguration
 
 
-module Network.AWS.DAX.Types.ParameterGroup
+module Amazonka.DAX.Types.ParameterGroup
 
 -- | A named set of parameters that are applied to all of the nodes in a
 --   DAX cluster.
@@ -379,16 +379,16 @@ parameterGroup_description :: Lens' ParameterGroup (Maybe Text)
 
 -- | The name of the parameter group.
 parameterGroup_parameterGroupName :: Lens' ParameterGroup (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DAX.Types.ParameterGroup.ParameterGroup
-instance GHC.Show.Show Network.AWS.DAX.Types.ParameterGroup.ParameterGroup
-instance GHC.Read.Read Network.AWS.DAX.Types.ParameterGroup.ParameterGroup
-instance GHC.Classes.Eq Network.AWS.DAX.Types.ParameterGroup.ParameterGroup
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.ParameterGroup.ParameterGroup
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.ParameterGroup.ParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.ParameterGroup.ParameterGroup
+instance GHC.Generics.Generic Amazonka.DAX.Types.ParameterGroup.ParameterGroup
+instance GHC.Show.Show Amazonka.DAX.Types.ParameterGroup.ParameterGroup
+instance GHC.Read.Read Amazonka.DAX.Types.ParameterGroup.ParameterGroup
+instance GHC.Classes.Eq Amazonka.DAX.Types.ParameterGroup.ParameterGroup
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.ParameterGroup.ParameterGroup
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.ParameterGroup.ParameterGroup
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.ParameterGroup.ParameterGroup
 
 
-module Network.AWS.DAX.Types.ParameterGroupStatus
+module Amazonka.DAX.Types.ParameterGroupStatus
 
 -- | The status of a parameter group.
 --   
@@ -435,16 +435,16 @@ parameterGroupStatus_parameterApplyStatus :: Lens' ParameterGroupStatus (Maybe T
 
 -- | The name of the parameter group.
 parameterGroupStatus_parameterGroupName :: Lens' ParameterGroupStatus (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DAX.Types.ParameterGroupStatus.ParameterGroupStatus
-instance GHC.Show.Show Network.AWS.DAX.Types.ParameterGroupStatus.ParameterGroupStatus
-instance GHC.Read.Read Network.AWS.DAX.Types.ParameterGroupStatus.ParameterGroupStatus
-instance GHC.Classes.Eq Network.AWS.DAX.Types.ParameterGroupStatus.ParameterGroupStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.ParameterGroupStatus.ParameterGroupStatus
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.ParameterGroupStatus.ParameterGroupStatus
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.ParameterGroupStatus.ParameterGroupStatus
+instance GHC.Generics.Generic Amazonka.DAX.Types.ParameterGroupStatus.ParameterGroupStatus
+instance GHC.Show.Show Amazonka.DAX.Types.ParameterGroupStatus.ParameterGroupStatus
+instance GHC.Read.Read Amazonka.DAX.Types.ParameterGroupStatus.ParameterGroupStatus
+instance GHC.Classes.Eq Amazonka.DAX.Types.ParameterGroupStatus.ParameterGroupStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.ParameterGroupStatus.ParameterGroupStatus
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.ParameterGroupStatus.ParameterGroupStatus
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.ParameterGroupStatus.ParameterGroupStatus
 
 
-module Network.AWS.DAX.Types.ParameterNameValue
+module Amazonka.DAX.Types.ParameterNameValue
 
 -- | An individual DAX parameter.
 --   
@@ -479,43 +479,43 @@ parameterNameValue_parameterValue :: Lens' ParameterNameValue (Maybe Text)
 
 -- | The name of the parameter.
 parameterNameValue_parameterName :: Lens' ParameterNameValue (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DAX.Types.ParameterNameValue.ParameterNameValue
-instance GHC.Show.Show Network.AWS.DAX.Types.ParameterNameValue.ParameterNameValue
-instance GHC.Read.Read Network.AWS.DAX.Types.ParameterNameValue.ParameterNameValue
-instance GHC.Classes.Eq Network.AWS.DAX.Types.ParameterNameValue.ParameterNameValue
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.ParameterNameValue.ParameterNameValue
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.ParameterNameValue.ParameterNameValue
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.Types.ParameterNameValue.ParameterNameValue
+instance GHC.Generics.Generic Amazonka.DAX.Types.ParameterNameValue.ParameterNameValue
+instance GHC.Show.Show Amazonka.DAX.Types.ParameterNameValue.ParameterNameValue
+instance GHC.Read.Read Amazonka.DAX.Types.ParameterNameValue.ParameterNameValue
+instance GHC.Classes.Eq Amazonka.DAX.Types.ParameterNameValue.ParameterNameValue
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.ParameterNameValue.ParameterNameValue
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.ParameterNameValue.ParameterNameValue
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.Types.ParameterNameValue.ParameterNameValue
 
 
-module Network.AWS.DAX.Types.ParameterType
+module Amazonka.DAX.Types.ParameterType
 newtype ParameterType
 ParameterType' :: Text -> ParameterType
 [fromParameterType] :: ParameterType -> Text
 pattern ParameterType_DEFAULT :: ParameterType
 pattern ParameterType_NODE_TYPE_SPECIFIC :: ParameterType
-instance Network.AWS.Data.XML.ToXML Network.AWS.DAX.Types.ParameterType.ParameterType
-instance Network.AWS.Data.XML.FromXML Network.AWS.DAX.Types.ParameterType.ParameterType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DAX.Types.ParameterType.ParameterType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.Types.ParameterType.ParameterType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DAX.Types.ParameterType.ParameterType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.ParameterType.ParameterType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.Types.ParameterType.ParameterType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DAX.Types.ParameterType.ParameterType
-instance Network.AWS.Data.Log.ToLog Network.AWS.DAX.Types.ParameterType.ParameterType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DAX.Types.ParameterType.ParameterType
-instance Network.AWS.Data.Text.ToText Network.AWS.DAX.Types.ParameterType.ParameterType
-instance Network.AWS.Data.Text.FromText Network.AWS.DAX.Types.ParameterType.ParameterType
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.ParameterType.ParameterType
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.ParameterType.ParameterType
-instance GHC.Generics.Generic Network.AWS.DAX.Types.ParameterType.ParameterType
-instance GHC.Classes.Ord Network.AWS.DAX.Types.ParameterType.ParameterType
-instance GHC.Classes.Eq Network.AWS.DAX.Types.ParameterType.ParameterType
-instance GHC.Read.Read Network.AWS.DAX.Types.ParameterType.ParameterType
-instance GHC.Show.Show Network.AWS.DAX.Types.ParameterType.ParameterType
+instance Amazonka.Data.XML.ToXML Amazonka.DAX.Types.ParameterType.ParameterType
+instance Amazonka.Data.XML.FromXML Amazonka.DAX.Types.ParameterType.ParameterType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DAX.Types.ParameterType.ParameterType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.Types.ParameterType.ParameterType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DAX.Types.ParameterType.ParameterType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.ParameterType.ParameterType
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.Types.ParameterType.ParameterType
+instance Amazonka.Data.Headers.ToHeader Amazonka.DAX.Types.ParameterType.ParameterType
+instance Amazonka.Data.Log.ToLog Amazonka.DAX.Types.ParameterType.ParameterType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DAX.Types.ParameterType.ParameterType
+instance Amazonka.Data.Text.ToText Amazonka.DAX.Types.ParameterType.ParameterType
+instance Amazonka.Data.Text.FromText Amazonka.DAX.Types.ParameterType.ParameterType
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.ParameterType.ParameterType
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.ParameterType.ParameterType
+instance GHC.Generics.Generic Amazonka.DAX.Types.ParameterType.ParameterType
+instance GHC.Classes.Ord Amazonka.DAX.Types.ParameterType.ParameterType
+instance GHC.Classes.Eq Amazonka.DAX.Types.ParameterType.ParameterType
+instance GHC.Read.Read Amazonka.DAX.Types.ParameterType.ParameterType
+instance GHC.Show.Show Amazonka.DAX.Types.ParameterType.ParameterType
 
 
-module Network.AWS.DAX.Types.Parameter
+module Amazonka.DAX.Types.Parameter
 
 -- | Describes an individual setting that controls some aspect of DAX
 --   behavior.
@@ -635,16 +635,16 @@ parameter_description :: Lens' Parameter (Maybe Text)
 --   For example, <tt>requires-reboot</tt> indicates that a new value for
 --   this parameter will only take effect if a node is rebooted.
 parameter_changeType :: Lens' Parameter (Maybe ChangeType)
-instance GHC.Generics.Generic Network.AWS.DAX.Types.Parameter.Parameter
-instance GHC.Show.Show Network.AWS.DAX.Types.Parameter.Parameter
-instance GHC.Read.Read Network.AWS.DAX.Types.Parameter.Parameter
-instance GHC.Classes.Eq Network.AWS.DAX.Types.Parameter.Parameter
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.Parameter.Parameter
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.Parameter.Parameter
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.Parameter.Parameter
+instance GHC.Generics.Generic Amazonka.DAX.Types.Parameter.Parameter
+instance GHC.Show.Show Amazonka.DAX.Types.Parameter.Parameter
+instance GHC.Read.Read Amazonka.DAX.Types.Parameter.Parameter
+instance GHC.Classes.Eq Amazonka.DAX.Types.Parameter.Parameter
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.Parameter.Parameter
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.Parameter.Parameter
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.Parameter.Parameter
 
 
-module Network.AWS.DAX.Types.SSESpecification
+module Amazonka.DAX.Types.SSESpecification
 
 -- | Represents the settings used to enable server-side encryption.
 --   
@@ -673,16 +673,16 @@ newSSESpecification :: Bool -> SSESpecification
 -- | Indicates whether server-side encryption is enabled (true) or disabled
 --   (false) on the cluster.
 sSESpecification_enabled :: Lens' SSESpecification Bool
-instance GHC.Generics.Generic Network.AWS.DAX.Types.SSESpecification.SSESpecification
-instance GHC.Show.Show Network.AWS.DAX.Types.SSESpecification.SSESpecification
-instance GHC.Read.Read Network.AWS.DAX.Types.SSESpecification.SSESpecification
-instance GHC.Classes.Eq Network.AWS.DAX.Types.SSESpecification.SSESpecification
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.SSESpecification.SSESpecification
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.SSESpecification.SSESpecification
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.Types.SSESpecification.SSESpecification
+instance GHC.Generics.Generic Amazonka.DAX.Types.SSESpecification.SSESpecification
+instance GHC.Show.Show Amazonka.DAX.Types.SSESpecification.SSESpecification
+instance GHC.Read.Read Amazonka.DAX.Types.SSESpecification.SSESpecification
+instance GHC.Classes.Eq Amazonka.DAX.Types.SSESpecification.SSESpecification
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.SSESpecification.SSESpecification
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.SSESpecification.SSESpecification
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.Types.SSESpecification.SSESpecification
 
 
-module Network.AWS.DAX.Types.SSEStatus
+module Amazonka.DAX.Types.SSEStatus
 newtype SSEStatus
 SSEStatus' :: Text -> SSEStatus
 [fromSSEStatus] :: SSEStatus -> Text
@@ -690,28 +690,28 @@ pattern SSEStatus_DISABLED :: SSEStatus
 pattern SSEStatus_DISABLING :: SSEStatus
 pattern SSEStatus_ENABLED :: SSEStatus
 pattern SSEStatus_ENABLING :: SSEStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance GHC.Generics.Generic Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance GHC.Classes.Ord Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance GHC.Classes.Eq Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance GHC.Read.Read Network.AWS.DAX.Types.SSEStatus.SSEStatus
-instance GHC.Show.Show Network.AWS.DAX.Types.SSEStatus.SSEStatus
+instance Amazonka.Data.XML.ToXML Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance Amazonka.Data.XML.FromXML Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance Amazonka.Data.Log.ToLog Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance Amazonka.Data.Text.ToText Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance Amazonka.Data.Text.FromText Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance GHC.Generics.Generic Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance GHC.Classes.Ord Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance GHC.Classes.Eq Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance GHC.Read.Read Amazonka.DAX.Types.SSEStatus.SSEStatus
+instance GHC.Show.Show Amazonka.DAX.Types.SSEStatus.SSEStatus
 
 
-module Network.AWS.DAX.Types.SSEDescription
+module Amazonka.DAX.Types.SSEDescription
 
 -- | The description of the server-side encryption status on the specified
 --   DAX cluster.
@@ -762,16 +762,16 @@ newSSEDescription :: SSEDescription
 --   <li><tt>DISABLED</tt> - Server-side encryption is disabled.</li>
 --   </ul>
 sSEDescription_status :: Lens' SSEDescription (Maybe SSEStatus)
-instance GHC.Generics.Generic Network.AWS.DAX.Types.SSEDescription.SSEDescription
-instance GHC.Show.Show Network.AWS.DAX.Types.SSEDescription.SSEDescription
-instance GHC.Read.Read Network.AWS.DAX.Types.SSEDescription.SSEDescription
-instance GHC.Classes.Eq Network.AWS.DAX.Types.SSEDescription.SSEDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.SSEDescription.SSEDescription
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.SSEDescription.SSEDescription
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.SSEDescription.SSEDescription
+instance GHC.Generics.Generic Amazonka.DAX.Types.SSEDescription.SSEDescription
+instance GHC.Show.Show Amazonka.DAX.Types.SSEDescription.SSEDescription
+instance GHC.Read.Read Amazonka.DAX.Types.SSEDescription.SSEDescription
+instance GHC.Classes.Eq Amazonka.DAX.Types.SSEDescription.SSEDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.SSEDescription.SSEDescription
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.SSEDescription.SSEDescription
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.SSEDescription.SSEDescription
 
 
-module Network.AWS.DAX.Types.SecurityGroupMembership
+module Amazonka.DAX.Types.SecurityGroupMembership
 
 -- | An individual VPC security group and its status.
 --   
@@ -808,16 +808,16 @@ securityGroupMembership_status :: Lens' SecurityGroupMembership (Maybe Text)
 
 -- | The unique ID for this security group.
 securityGroupMembership_securityGroupIdentifier :: Lens' SecurityGroupMembership (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DAX.Types.SecurityGroupMembership.SecurityGroupMembership
-instance GHC.Show.Show Network.AWS.DAX.Types.SecurityGroupMembership.SecurityGroupMembership
-instance GHC.Read.Read Network.AWS.DAX.Types.SecurityGroupMembership.SecurityGroupMembership
-instance GHC.Classes.Eq Network.AWS.DAX.Types.SecurityGroupMembership.SecurityGroupMembership
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.SecurityGroupMembership.SecurityGroupMembership
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.SecurityGroupMembership.SecurityGroupMembership
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.SecurityGroupMembership.SecurityGroupMembership
+instance GHC.Generics.Generic Amazonka.DAX.Types.SecurityGroupMembership.SecurityGroupMembership
+instance GHC.Show.Show Amazonka.DAX.Types.SecurityGroupMembership.SecurityGroupMembership
+instance GHC.Read.Read Amazonka.DAX.Types.SecurityGroupMembership.SecurityGroupMembership
+instance GHC.Classes.Eq Amazonka.DAX.Types.SecurityGroupMembership.SecurityGroupMembership
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.SecurityGroupMembership.SecurityGroupMembership
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.SecurityGroupMembership.SecurityGroupMembership
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.SecurityGroupMembership.SecurityGroupMembership
 
 
-module Network.AWS.DAX.Types.Cluster
+module Amazonka.DAX.Types.Cluster
 
 -- | Contains all of the attributes of a specific DAX cluster.
 --   
@@ -1054,44 +1054,44 @@ cluster_description :: Lens' Cluster (Maybe Text)
 
 -- | The parameter group being used by nodes in the cluster.
 cluster_parameterGroup :: Lens' Cluster (Maybe ParameterGroupStatus)
-instance GHC.Generics.Generic Network.AWS.DAX.Types.Cluster.Cluster
-instance GHC.Show.Show Network.AWS.DAX.Types.Cluster.Cluster
-instance GHC.Read.Read Network.AWS.DAX.Types.Cluster.Cluster
-instance GHC.Classes.Eq Network.AWS.DAX.Types.Cluster.Cluster
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.Cluster.Cluster
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.Cluster.Cluster
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.Cluster.Cluster
+instance GHC.Generics.Generic Amazonka.DAX.Types.Cluster.Cluster
+instance GHC.Show.Show Amazonka.DAX.Types.Cluster.Cluster
+instance GHC.Read.Read Amazonka.DAX.Types.Cluster.Cluster
+instance GHC.Classes.Eq Amazonka.DAX.Types.Cluster.Cluster
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.Cluster.Cluster
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.Cluster.Cluster
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.Cluster.Cluster
 
 
-module Network.AWS.DAX.Types.SourceType
+module Amazonka.DAX.Types.SourceType
 newtype SourceType
 SourceType' :: Text -> SourceType
 [fromSourceType] :: SourceType -> Text
 pattern SourceType_CLUSTER :: SourceType
 pattern SourceType_PARAMETER_GROUP :: SourceType
 pattern SourceType_SUBNET_GROUP :: SourceType
-instance Network.AWS.Data.XML.ToXML Network.AWS.DAX.Types.SourceType.SourceType
-instance Network.AWS.Data.XML.FromXML Network.AWS.DAX.Types.SourceType.SourceType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DAX.Types.SourceType.SourceType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.Types.SourceType.SourceType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DAX.Types.SourceType.SourceType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.SourceType.SourceType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.Types.SourceType.SourceType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DAX.Types.SourceType.SourceType
-instance Network.AWS.Data.Log.ToLog Network.AWS.DAX.Types.SourceType.SourceType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DAX.Types.SourceType.SourceType
-instance Network.AWS.Data.Text.ToText Network.AWS.DAX.Types.SourceType.SourceType
-instance Network.AWS.Data.Text.FromText Network.AWS.DAX.Types.SourceType.SourceType
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.SourceType.SourceType
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.SourceType.SourceType
-instance GHC.Generics.Generic Network.AWS.DAX.Types.SourceType.SourceType
-instance GHC.Classes.Ord Network.AWS.DAX.Types.SourceType.SourceType
-instance GHC.Classes.Eq Network.AWS.DAX.Types.SourceType.SourceType
-instance GHC.Read.Read Network.AWS.DAX.Types.SourceType.SourceType
-instance GHC.Show.Show Network.AWS.DAX.Types.SourceType.SourceType
+instance Amazonka.Data.XML.ToXML Amazonka.DAX.Types.SourceType.SourceType
+instance Amazonka.Data.XML.FromXML Amazonka.DAX.Types.SourceType.SourceType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DAX.Types.SourceType.SourceType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.Types.SourceType.SourceType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DAX.Types.SourceType.SourceType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.SourceType.SourceType
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.Types.SourceType.SourceType
+instance Amazonka.Data.Headers.ToHeader Amazonka.DAX.Types.SourceType.SourceType
+instance Amazonka.Data.Log.ToLog Amazonka.DAX.Types.SourceType.SourceType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DAX.Types.SourceType.SourceType
+instance Amazonka.Data.Text.ToText Amazonka.DAX.Types.SourceType.SourceType
+instance Amazonka.Data.Text.FromText Amazonka.DAX.Types.SourceType.SourceType
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.SourceType.SourceType
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.SourceType.SourceType
+instance GHC.Generics.Generic Amazonka.DAX.Types.SourceType.SourceType
+instance GHC.Classes.Ord Amazonka.DAX.Types.SourceType.SourceType
+instance GHC.Classes.Eq Amazonka.DAX.Types.SourceType.SourceType
+instance GHC.Read.Read Amazonka.DAX.Types.SourceType.SourceType
+instance GHC.Show.Show Amazonka.DAX.Types.SourceType.SourceType
 
 
-module Network.AWS.DAX.Types.Event
+module Amazonka.DAX.Types.Event
 
 -- | Represents a single occurrence of something interesting within the
 --   system. Some examples of events are creating a DAX cluster, adding or
@@ -1150,16 +1150,16 @@ event_date :: Lens' Event (Maybe UTCTime)
 
 -- | A user-defined message associated with the event.
 event_message :: Lens' Event (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DAX.Types.Event.Event
-instance GHC.Show.Show Network.AWS.DAX.Types.Event.Event
-instance GHC.Read.Read Network.AWS.DAX.Types.Event.Event
-instance GHC.Classes.Eq Network.AWS.DAX.Types.Event.Event
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.Event.Event
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.Event.Event
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.Event.Event
+instance GHC.Generics.Generic Amazonka.DAX.Types.Event.Event
+instance GHC.Show.Show Amazonka.DAX.Types.Event.Event
+instance GHC.Read.Read Amazonka.DAX.Types.Event.Event
+instance GHC.Classes.Eq Amazonka.DAX.Types.Event.Event
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.Event.Event
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.Event.Event
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.Event.Event
 
 
-module Network.AWS.DAX.Types.Subnet
+module Amazonka.DAX.Types.Subnet
 
 -- | Represents the subnet associated with a DAX cluster. This parameter
 --   refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC)
@@ -1196,16 +1196,16 @@ subnet_subnetIdentifier :: Lens' Subnet (Maybe Text)
 
 -- | The Availability Zone (AZ) for the subnet.
 subnet_subnetAvailabilityZone :: Lens' Subnet (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DAX.Types.Subnet.Subnet
-instance GHC.Show.Show Network.AWS.DAX.Types.Subnet.Subnet
-instance GHC.Read.Read Network.AWS.DAX.Types.Subnet.Subnet
-instance GHC.Classes.Eq Network.AWS.DAX.Types.Subnet.Subnet
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.Subnet.Subnet
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.Subnet.Subnet
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.Subnet.Subnet
+instance GHC.Generics.Generic Amazonka.DAX.Types.Subnet.Subnet
+instance GHC.Show.Show Amazonka.DAX.Types.Subnet.Subnet
+instance GHC.Read.Read Amazonka.DAX.Types.Subnet.Subnet
+instance GHC.Classes.Eq Amazonka.DAX.Types.Subnet.Subnet
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.Subnet.Subnet
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.Subnet.Subnet
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.Subnet.Subnet
 
 
-module Network.AWS.DAX.Types.SubnetGroup
+module Amazonka.DAX.Types.SubnetGroup
 
 -- | Represents the output of one of the following actions:
 --   
@@ -1264,16 +1264,16 @@ subnetGroup_subnetGroupName :: Lens' SubnetGroup (Maybe Text)
 
 -- | The description of the subnet group.
 subnetGroup_description :: Lens' SubnetGroup (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DAX.Types.SubnetGroup.SubnetGroup
-instance GHC.Show.Show Network.AWS.DAX.Types.SubnetGroup.SubnetGroup
-instance GHC.Read.Read Network.AWS.DAX.Types.SubnetGroup.SubnetGroup
-instance GHC.Classes.Eq Network.AWS.DAX.Types.SubnetGroup.SubnetGroup
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.SubnetGroup.SubnetGroup
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.SubnetGroup.SubnetGroup
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.SubnetGroup.SubnetGroup
+instance GHC.Generics.Generic Amazonka.DAX.Types.SubnetGroup.SubnetGroup
+instance GHC.Show.Show Amazonka.DAX.Types.SubnetGroup.SubnetGroup
+instance GHC.Read.Read Amazonka.DAX.Types.SubnetGroup.SubnetGroup
+instance GHC.Classes.Eq Amazonka.DAX.Types.SubnetGroup.SubnetGroup
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.SubnetGroup.SubnetGroup
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.SubnetGroup.SubnetGroup
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.SubnetGroup.SubnetGroup
 
 
-module Network.AWS.DAX.Types.Tag
+module Amazonka.DAX.Types.Tag
 
 -- | A description of a tag. Every tag is a key-value pair. You can add up
 --   to 50 tags to a single DAX cluster.
@@ -1323,17 +1323,17 @@ tag_value :: Lens' Tag (Maybe Text)
 --   tag (same key), the existing tag value will be updated to the new
 --   value.
 tag_key :: Lens' Tag (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DAX.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.DAX.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.DAX.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.DAX.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DAX.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.DAX.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.DAX.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.DAX.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.DAX.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.DAX.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DAX.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.DAX.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.DAX.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.Types.Tag.Tag
 
 
-module Network.AWS.DAX.Types
+module Amazonka.DAX.Types
 
 -- | API version <tt>2017-04-19</tt> of the Amazon DynamoDB Accelerator
 --   (DAX) SDK configuration.
@@ -2468,7 +2468,7 @@ tag_key :: Lens' Tag (Maybe Text)
 
 -- | Associates a set of tags with a DAX resource. You can call
 --   <tt>TagResource</tt> up to 5 times per second, per account.
-module Network.AWS.DAX.TagResource
+module Amazonka.DAX.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2533,22 +2533,22 @@ tagResourceResponse_tags :: Lens' TagResourceResponse (Maybe [Tag])
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.DAX.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.DAX.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.DAX.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.DAX.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.DAX.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.DAX.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.DAX.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.DAX.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.DAX.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.DAX.TagResource.TagResource
+instance GHC.Show.Show Amazonka.DAX.TagResource.TagResource
+instance GHC.Read.Read Amazonka.DAX.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.DAX.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.DAX.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.DAX.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.DAX.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.DAX.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.DAX.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.DAX.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.DAX.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.TagResource.TagResource
 
 
 -- | Reboots a single node of a DAX cluster. The reboot action takes place
@@ -2557,7 +2557,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.TagResource.TagResource
 --   
 --   <tt>RebootNode</tt> restarts the DAX engine process and does not
 --   remove the contents of the cache.
-module Network.AWS.DAX.RebootNode
+module Amazonka.DAX.RebootNode
 
 -- | <i>See:</i> <a>newRebootNode</a> smart constructor.
 data RebootNode
@@ -2623,29 +2623,29 @@ rebootNodeResponse_cluster :: Lens' RebootNodeResponse (Maybe Cluster)
 
 -- | The response's http status code.
 rebootNodeResponse_httpStatus :: Lens' RebootNodeResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.RebootNode.RebootNode
-instance GHC.Show.Show Network.AWS.DAX.RebootNode.RebootNode
-instance GHC.Read.Read Network.AWS.DAX.RebootNode.RebootNode
-instance GHC.Classes.Eq Network.AWS.DAX.RebootNode.RebootNode
-instance GHC.Generics.Generic Network.AWS.DAX.RebootNode.RebootNodeResponse
-instance GHC.Show.Show Network.AWS.DAX.RebootNode.RebootNodeResponse
-instance GHC.Read.Read Network.AWS.DAX.RebootNode.RebootNodeResponse
-instance GHC.Classes.Eq Network.AWS.DAX.RebootNode.RebootNodeResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.RebootNode.RebootNode
-instance Control.DeepSeq.NFData Network.AWS.DAX.RebootNode.RebootNodeResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.RebootNode.RebootNode
-instance Control.DeepSeq.NFData Network.AWS.DAX.RebootNode.RebootNode
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.RebootNode.RebootNode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.RebootNode.RebootNode
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.RebootNode.RebootNode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.RebootNode.RebootNode
+instance GHC.Generics.Generic Amazonka.DAX.RebootNode.RebootNode
+instance GHC.Show.Show Amazonka.DAX.RebootNode.RebootNode
+instance GHC.Read.Read Amazonka.DAX.RebootNode.RebootNode
+instance GHC.Classes.Eq Amazonka.DAX.RebootNode.RebootNode
+instance GHC.Generics.Generic Amazonka.DAX.RebootNode.RebootNodeResponse
+instance GHC.Show.Show Amazonka.DAX.RebootNode.RebootNodeResponse
+instance GHC.Read.Read Amazonka.DAX.RebootNode.RebootNodeResponse
+instance GHC.Classes.Eq Amazonka.DAX.RebootNode.RebootNodeResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.RebootNode.RebootNode
+instance Control.DeepSeq.NFData Amazonka.DAX.RebootNode.RebootNodeResponse
+instance Data.Hashable.Class.Hashable Amazonka.DAX.RebootNode.RebootNode
+instance Control.DeepSeq.NFData Amazonka.DAX.RebootNode.RebootNode
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.RebootNode.RebootNode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.RebootNode.RebootNode
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.RebootNode.RebootNode
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.RebootNode.RebootNode
 
 
 -- | List all of the tags for a DAX cluster. You can call <tt>ListTags</tt>
 --   up to 10 times per second, per account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.DAX.ListTags
+module Amazonka.DAX.ListTags
 
 -- | <i>See:</i> <a>newListTags</a> smart constructor.
 data ListTags
@@ -2730,27 +2730,27 @@ listTagsResponse_tags :: Lens' ListTagsResponse (Maybe [Tag])
 
 -- | The response's http status code.
 listTagsResponse_httpStatus :: Lens' ListTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.ListTags.ListTags
-instance GHC.Show.Show Network.AWS.DAX.ListTags.ListTags
-instance GHC.Read.Read Network.AWS.DAX.ListTags.ListTags
-instance GHC.Classes.Eq Network.AWS.DAX.ListTags.ListTags
-instance GHC.Generics.Generic Network.AWS.DAX.ListTags.ListTagsResponse
-instance GHC.Show.Show Network.AWS.DAX.ListTags.ListTagsResponse
-instance GHC.Read.Read Network.AWS.DAX.ListTags.ListTagsResponse
-instance GHC.Classes.Eq Network.AWS.DAX.ListTags.ListTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.ListTags.ListTags
-instance Control.DeepSeq.NFData Network.AWS.DAX.ListTags.ListTagsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.DAX.ListTags.ListTags
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.ListTags.ListTags
-instance Control.DeepSeq.NFData Network.AWS.DAX.ListTags.ListTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.ListTags.ListTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.ListTags.ListTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.ListTags.ListTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.ListTags.ListTags
+instance GHC.Generics.Generic Amazonka.DAX.ListTags.ListTags
+instance GHC.Show.Show Amazonka.DAX.ListTags.ListTags
+instance GHC.Read.Read Amazonka.DAX.ListTags.ListTags
+instance GHC.Classes.Eq Amazonka.DAX.ListTags.ListTags
+instance GHC.Generics.Generic Amazonka.DAX.ListTags.ListTagsResponse
+instance GHC.Show.Show Amazonka.DAX.ListTags.ListTagsResponse
+instance GHC.Read.Read Amazonka.DAX.ListTags.ListTagsResponse
+instance GHC.Classes.Eq Amazonka.DAX.ListTags.ListTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.ListTags.ListTags
+instance Control.DeepSeq.NFData Amazonka.DAX.ListTags.ListTagsResponse
+instance Amazonka.Pager.AWSPager Amazonka.DAX.ListTags.ListTags
+instance Data.Hashable.Class.Hashable Amazonka.DAX.ListTags.ListTags
+instance Control.DeepSeq.NFData Amazonka.DAX.ListTags.ListTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.ListTags.ListTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.ListTags.ListTags
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.ListTags.ListTags
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.ListTags.ListTags
 
 
 -- | Adds one or more nodes to a DAX cluster.
-module Network.AWS.DAX.IncreaseReplicationFactor
+module Amazonka.DAX.IncreaseReplicationFactor
 
 -- | <i>See:</i> <a>newIncreaseReplicationFactor</a> smart constructor.
 data IncreaseReplicationFactor
@@ -2839,29 +2839,29 @@ increaseReplicationFactorResponse_cluster :: Lens' IncreaseReplicationFactorResp
 
 -- | The response's http status code.
 increaseReplicationFactorResponse_httpStatus :: Lens' IncreaseReplicationFactorResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
-instance GHC.Show.Show Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
-instance GHC.Read.Read Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
-instance GHC.Classes.Eq Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
-instance GHC.Generics.Generic Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactorResponse
-instance GHC.Show.Show Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactorResponse
-instance GHC.Read.Read Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactorResponse
-instance GHC.Classes.Eq Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
-instance Control.DeepSeq.NFData Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
-instance Control.DeepSeq.NFData Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
+instance GHC.Generics.Generic Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
+instance GHC.Show.Show Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
+instance GHC.Read.Read Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
+instance GHC.Classes.Eq Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
+instance GHC.Generics.Generic Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactorResponse
+instance GHC.Show.Show Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactorResponse
+instance GHC.Read.Read Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactorResponse
+instance GHC.Classes.Eq Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactorResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
+instance Control.DeepSeq.NFData Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactorResponse
+instance Data.Hashable.Class.Hashable Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
+instance Control.DeepSeq.NFData Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.IncreaseReplicationFactor.IncreaseReplicationFactor
 
 
 -- | Returns a list of subnet group descriptions. If a subnet group name is
 --   specified, the list will contain only the description of that group.
 --   
 --   This operation returns paginated results.
-module Network.AWS.DAX.DescribeSubnetGroups
+module Amazonka.DAX.DescribeSubnetGroups
 
 -- | <i>See:</i> <a>newDescribeSubnetGroups</a> smart constructor.
 data DescribeSubnetGroups
@@ -2975,29 +2975,29 @@ describeSubnetGroupsResponse_nextToken :: Lens' DescribeSubnetGroupsResponse (Ma
 
 -- | The response's http status code.
 describeSubnetGroupsResponse_httpStatus :: Lens' DescribeSubnetGroupsResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroups
-instance GHC.Show.Show Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroups
-instance GHC.Read.Read Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroups
-instance GHC.Classes.Eq Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroups
-instance GHC.Generics.Generic Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroupsResponse
-instance GHC.Show.Show Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroupsResponse
-instance GHC.Read.Read Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroupsResponse
-instance GHC.Classes.Eq Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroups
-instance Control.DeepSeq.NFData Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroupsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroups
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroups
-instance Control.DeepSeq.NFData Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroups
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroups
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.DescribeSubnetGroups.DescribeSubnetGroups
+instance GHC.Generics.Generic Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroups
+instance GHC.Show.Show Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroups
+instance GHC.Read.Read Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroups
+instance GHC.Classes.Eq Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroups
+instance GHC.Generics.Generic Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroupsResponse
+instance GHC.Show.Show Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroupsResponse
+instance GHC.Read.Read Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroupsResponse
+instance GHC.Classes.Eq Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroups
+instance Control.DeepSeq.NFData Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroupsResponse
+instance Amazonka.Pager.AWSPager Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroups
+instance Data.Hashable.Class.Hashable Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroups
+instance Control.DeepSeq.NFData Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroups
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroups
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroups
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.DescribeSubnetGroups.DescribeSubnetGroups
 
 
 -- | Returns the detailed parameter list for a particular parameter group.
 --   
 --   This operation returns paginated results.
-module Network.AWS.DAX.DescribeParameters
+module Amazonka.DAX.DescribeParameters
 
 -- | <i>See:</i> <a>newDescribeParameters</a> smart constructor.
 data DescribeParameters
@@ -3124,23 +3124,23 @@ describeParametersResponse_parameters :: Lens' DescribeParametersResponse (Maybe
 
 -- | The response's http status code.
 describeParametersResponse_httpStatus :: Lens' DescribeParametersResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.DescribeParameters.DescribeParameters
-instance GHC.Show.Show Network.AWS.DAX.DescribeParameters.DescribeParameters
-instance GHC.Read.Read Network.AWS.DAX.DescribeParameters.DescribeParameters
-instance GHC.Classes.Eq Network.AWS.DAX.DescribeParameters.DescribeParameters
-instance GHC.Generics.Generic Network.AWS.DAX.DescribeParameters.DescribeParametersResponse
-instance GHC.Show.Show Network.AWS.DAX.DescribeParameters.DescribeParametersResponse
-instance GHC.Read.Read Network.AWS.DAX.DescribeParameters.DescribeParametersResponse
-instance GHC.Classes.Eq Network.AWS.DAX.DescribeParameters.DescribeParametersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.DescribeParameters.DescribeParameters
-instance Control.DeepSeq.NFData Network.AWS.DAX.DescribeParameters.DescribeParametersResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.DAX.DescribeParameters.DescribeParameters
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.DescribeParameters.DescribeParameters
-instance Control.DeepSeq.NFData Network.AWS.DAX.DescribeParameters.DescribeParameters
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.DescribeParameters.DescribeParameters
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.DescribeParameters.DescribeParameters
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.DescribeParameters.DescribeParameters
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.DescribeParameters.DescribeParameters
+instance GHC.Generics.Generic Amazonka.DAX.DescribeParameters.DescribeParameters
+instance GHC.Show.Show Amazonka.DAX.DescribeParameters.DescribeParameters
+instance GHC.Read.Read Amazonka.DAX.DescribeParameters.DescribeParameters
+instance GHC.Classes.Eq Amazonka.DAX.DescribeParameters.DescribeParameters
+instance GHC.Generics.Generic Amazonka.DAX.DescribeParameters.DescribeParametersResponse
+instance GHC.Show.Show Amazonka.DAX.DescribeParameters.DescribeParametersResponse
+instance GHC.Read.Read Amazonka.DAX.DescribeParameters.DescribeParametersResponse
+instance GHC.Classes.Eq Amazonka.DAX.DescribeParameters.DescribeParametersResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.DescribeParameters.DescribeParameters
+instance Control.DeepSeq.NFData Amazonka.DAX.DescribeParameters.DescribeParametersResponse
+instance Amazonka.Pager.AWSPager Amazonka.DAX.DescribeParameters.DescribeParameters
+instance Data.Hashable.Class.Hashable Amazonka.DAX.DescribeParameters.DescribeParameters
+instance Control.DeepSeq.NFData Amazonka.DAX.DescribeParameters.DescribeParameters
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.DescribeParameters.DescribeParameters
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.DescribeParameters.DescribeParameters
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.DescribeParameters.DescribeParameters
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.DescribeParameters.DescribeParameters
 
 
 -- | Returns a list of parameter group descriptions. If a parameter group
@@ -3148,7 +3148,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.DescribeParameters.Descr
 --   that group.
 --   
 --   This operation returns paginated results.
-module Network.AWS.DAX.DescribeParameterGroups
+module Amazonka.DAX.DescribeParameterGroups
 
 -- | <i>See:</i> <a>newDescribeParameterGroups</a> smart constructor.
 data DescribeParameterGroups
@@ -3264,23 +3264,23 @@ describeParameterGroupsResponse_parameterGroups :: Lens' DescribeParameterGroups
 
 -- | The response's http status code.
 describeParameterGroupsResponse_httpStatus :: Lens' DescribeParameterGroupsResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroups
-instance GHC.Show.Show Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroups
-instance GHC.Read.Read Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroups
-instance GHC.Classes.Eq Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroups
-instance GHC.Generics.Generic Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroupsResponse
-instance GHC.Show.Show Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroupsResponse
-instance GHC.Read.Read Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroupsResponse
-instance GHC.Classes.Eq Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroups
-instance Control.DeepSeq.NFData Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroupsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroups
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroups
-instance Control.DeepSeq.NFData Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroups
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroups
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.DescribeParameterGroups.DescribeParameterGroups
+instance GHC.Generics.Generic Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroups
+instance GHC.Show.Show Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroups
+instance GHC.Read.Read Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroups
+instance GHC.Classes.Eq Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroups
+instance GHC.Generics.Generic Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroupsResponse
+instance GHC.Show.Show Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroupsResponse
+instance GHC.Read.Read Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroupsResponse
+instance GHC.Classes.Eq Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroups
+instance Control.DeepSeq.NFData Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroupsResponse
+instance Amazonka.Pager.AWSPager Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroups
+instance Data.Hashable.Class.Hashable Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroups
+instance Control.DeepSeq.NFData Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroups
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroups
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroups
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.DescribeParameterGroups.DescribeParameterGroups
 
 
 -- | Returns events related to DAX clusters and parameter groups. You can
@@ -3292,7 +3292,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.DescribeParameterGroups.
 --   necessary.
 --   
 --   This operation returns paginated results.
-module Network.AWS.DAX.DescribeEvents
+module Amazonka.DAX.DescribeEvents
 
 -- | <i>See:</i> <a>newDescribeEvents</a> smart constructor.
 data DescribeEvents
@@ -3451,30 +3451,30 @@ describeEventsResponse_events :: Lens' DescribeEventsResponse (Maybe [Event])
 
 -- | The response's http status code.
 describeEventsResponse_httpStatus :: Lens' DescribeEventsResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.DescribeEvents.DescribeEvents
-instance GHC.Show.Show Network.AWS.DAX.DescribeEvents.DescribeEvents
-instance GHC.Read.Read Network.AWS.DAX.DescribeEvents.DescribeEvents
-instance GHC.Classes.Eq Network.AWS.DAX.DescribeEvents.DescribeEvents
-instance GHC.Generics.Generic Network.AWS.DAX.DescribeEvents.DescribeEventsResponse
-instance GHC.Show.Show Network.AWS.DAX.DescribeEvents.DescribeEventsResponse
-instance GHC.Read.Read Network.AWS.DAX.DescribeEvents.DescribeEventsResponse
-instance GHC.Classes.Eq Network.AWS.DAX.DescribeEvents.DescribeEventsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.DescribeEvents.DescribeEvents
-instance Control.DeepSeq.NFData Network.AWS.DAX.DescribeEvents.DescribeEventsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.DAX.DescribeEvents.DescribeEvents
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.DescribeEvents.DescribeEvents
-instance Control.DeepSeq.NFData Network.AWS.DAX.DescribeEvents.DescribeEvents
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.DescribeEvents.DescribeEvents
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.DescribeEvents.DescribeEvents
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.DescribeEvents.DescribeEvents
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.DescribeEvents.DescribeEvents
+instance GHC.Generics.Generic Amazonka.DAX.DescribeEvents.DescribeEvents
+instance GHC.Show.Show Amazonka.DAX.DescribeEvents.DescribeEvents
+instance GHC.Read.Read Amazonka.DAX.DescribeEvents.DescribeEvents
+instance GHC.Classes.Eq Amazonka.DAX.DescribeEvents.DescribeEvents
+instance GHC.Generics.Generic Amazonka.DAX.DescribeEvents.DescribeEventsResponse
+instance GHC.Show.Show Amazonka.DAX.DescribeEvents.DescribeEventsResponse
+instance GHC.Read.Read Amazonka.DAX.DescribeEvents.DescribeEventsResponse
+instance GHC.Classes.Eq Amazonka.DAX.DescribeEvents.DescribeEventsResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.DescribeEvents.DescribeEvents
+instance Control.DeepSeq.NFData Amazonka.DAX.DescribeEvents.DescribeEventsResponse
+instance Amazonka.Pager.AWSPager Amazonka.DAX.DescribeEvents.DescribeEvents
+instance Data.Hashable.Class.Hashable Amazonka.DAX.DescribeEvents.DescribeEvents
+instance Control.DeepSeq.NFData Amazonka.DAX.DescribeEvents.DescribeEvents
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.DescribeEvents.DescribeEvents
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.DescribeEvents.DescribeEvents
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.DescribeEvents.DescribeEvents
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.DescribeEvents.DescribeEvents
 
 
 -- | Returns the default system parameter information for the DAX caching
 --   software.
 --   
 --   This operation returns paginated results.
-module Network.AWS.DAX.DescribeDefaultParameters
+module Amazonka.DAX.DescribeDefaultParameters
 
 -- | <i>See:</i> <a>newDescribeDefaultParameters</a> smart constructor.
 data DescribeDefaultParameters
@@ -3579,23 +3579,23 @@ describeDefaultParametersResponse_parameters :: Lens' DescribeDefaultParametersR
 
 -- | The response's http status code.
 describeDefaultParametersResponse_httpStatus :: Lens' DescribeDefaultParametersResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParameters
-instance GHC.Show.Show Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParameters
-instance GHC.Read.Read Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParameters
-instance GHC.Classes.Eq Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParameters
-instance GHC.Generics.Generic Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParametersResponse
-instance GHC.Show.Show Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParametersResponse
-instance GHC.Read.Read Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParametersResponse
-instance GHC.Classes.Eq Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParametersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParameters
-instance Control.DeepSeq.NFData Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParametersResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParameters
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParameters
-instance Control.DeepSeq.NFData Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParameters
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParameters
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParameters
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParameters
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.DescribeDefaultParameters.DescribeDefaultParameters
+instance GHC.Generics.Generic Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParameters
+instance GHC.Show.Show Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParameters
+instance GHC.Read.Read Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParameters
+instance GHC.Classes.Eq Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParameters
+instance GHC.Generics.Generic Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParametersResponse
+instance GHC.Show.Show Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParametersResponse
+instance GHC.Read.Read Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParametersResponse
+instance GHC.Classes.Eq Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParametersResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParameters
+instance Control.DeepSeq.NFData Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParametersResponse
+instance Amazonka.Pager.AWSPager Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParameters
+instance Data.Hashable.Class.Hashable Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParameters
+instance Control.DeepSeq.NFData Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParameters
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParameters
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParameters
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParameters
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.DescribeDefaultParameters.DescribeDefaultParameters
 
 
 -- | Returns information about all provisioned DAX clusters if no cluster
@@ -3618,7 +3618,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.DescribeDefaultParameter
 --   information for the removed nodes is displayed.
 --   
 --   This operation returns paginated results.
-module Network.AWS.DAX.DescribeClusters
+module Amazonka.DAX.DescribeClusters
 
 -- | <i>See:</i> <a>newDescribeClusters</a> smart constructor.
 data DescribeClusters
@@ -3732,30 +3732,30 @@ describeClustersResponse_clusters :: Lens' DescribeClustersResponse (Maybe [Clus
 
 -- | The response's http status code.
 describeClustersResponse_httpStatus :: Lens' DescribeClustersResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.DescribeClusters.DescribeClusters
-instance GHC.Show.Show Network.AWS.DAX.DescribeClusters.DescribeClusters
-instance GHC.Read.Read Network.AWS.DAX.DescribeClusters.DescribeClusters
-instance GHC.Classes.Eq Network.AWS.DAX.DescribeClusters.DescribeClusters
-instance GHC.Generics.Generic Network.AWS.DAX.DescribeClusters.DescribeClustersResponse
-instance GHC.Show.Show Network.AWS.DAX.DescribeClusters.DescribeClustersResponse
-instance GHC.Read.Read Network.AWS.DAX.DescribeClusters.DescribeClustersResponse
-instance GHC.Classes.Eq Network.AWS.DAX.DescribeClusters.DescribeClustersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.DescribeClusters.DescribeClusters
-instance Control.DeepSeq.NFData Network.AWS.DAX.DescribeClusters.DescribeClustersResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.DAX.DescribeClusters.DescribeClusters
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.DescribeClusters.DescribeClusters
-instance Control.DeepSeq.NFData Network.AWS.DAX.DescribeClusters.DescribeClusters
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.DescribeClusters.DescribeClusters
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.DescribeClusters.DescribeClusters
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.DescribeClusters.DescribeClusters
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.DescribeClusters.DescribeClusters
+instance GHC.Generics.Generic Amazonka.DAX.DescribeClusters.DescribeClusters
+instance GHC.Show.Show Amazonka.DAX.DescribeClusters.DescribeClusters
+instance GHC.Read.Read Amazonka.DAX.DescribeClusters.DescribeClusters
+instance GHC.Classes.Eq Amazonka.DAX.DescribeClusters.DescribeClusters
+instance GHC.Generics.Generic Amazonka.DAX.DescribeClusters.DescribeClustersResponse
+instance GHC.Show.Show Amazonka.DAX.DescribeClusters.DescribeClustersResponse
+instance GHC.Read.Read Amazonka.DAX.DescribeClusters.DescribeClustersResponse
+instance GHC.Classes.Eq Amazonka.DAX.DescribeClusters.DescribeClustersResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.DescribeClusters.DescribeClusters
+instance Control.DeepSeq.NFData Amazonka.DAX.DescribeClusters.DescribeClustersResponse
+instance Amazonka.Pager.AWSPager Amazonka.DAX.DescribeClusters.DescribeClusters
+instance Data.Hashable.Class.Hashable Amazonka.DAX.DescribeClusters.DescribeClusters
+instance Control.DeepSeq.NFData Amazonka.DAX.DescribeClusters.DescribeClusters
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.DescribeClusters.DescribeClusters
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.DescribeClusters.DescribeClusters
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.DescribeClusters.DescribeClusters
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.DescribeClusters.DescribeClusters
 
 
 -- | Deletes a subnet group.
 --   
 --   You cannot delete a subnet group if it is associated with any DAX
 --   clusters.
-module Network.AWS.DAX.DeleteSubnetGroup
+module Amazonka.DAX.DeleteSubnetGroup
 
 -- | <i>See:</i> <a>newDeleteSubnetGroup</a> smart constructor.
 data DeleteSubnetGroup
@@ -3817,27 +3817,27 @@ deleteSubnetGroupResponse_deletionMessage :: Lens' DeleteSubnetGroupResponse (Ma
 
 -- | The response's http status code.
 deleteSubnetGroupResponse_httpStatus :: Lens' DeleteSubnetGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroup
-instance GHC.Show.Show Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroup
-instance GHC.Read.Read Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroup
-instance GHC.Classes.Eq Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroup
-instance GHC.Generics.Generic Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroupResponse
-instance GHC.Show.Show Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroupResponse
-instance GHC.Read.Read Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroupResponse
-instance GHC.Classes.Eq Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroup
-instance Control.DeepSeq.NFData Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroup
-instance Control.DeepSeq.NFData Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.DeleteSubnetGroup.DeleteSubnetGroup
+instance GHC.Generics.Generic Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroup
+instance GHC.Show.Show Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroup
+instance GHC.Read.Read Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroup
+instance GHC.Classes.Eq Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroup
+instance GHC.Generics.Generic Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroupResponse
+instance GHC.Show.Show Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroupResponse
+instance GHC.Read.Read Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroupResponse
+instance GHC.Classes.Eq Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroup
+instance Control.DeepSeq.NFData Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroup
+instance Control.DeepSeq.NFData Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroup
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.DeleteSubnetGroup.DeleteSubnetGroup
 
 
 -- | Deletes the specified parameter group. You cannot delete a parameter
 --   group if it is associated with any DAX clusters.
-module Network.AWS.DAX.DeleteParameterGroup
+module Amazonka.DAX.DeleteParameterGroup
 
 -- | <i>See:</i> <a>newDeleteParameterGroup</a> smart constructor.
 data DeleteParameterGroup
@@ -3899,22 +3899,22 @@ deleteParameterGroupResponse_deletionMessage :: Lens' DeleteParameterGroupRespon
 
 -- | The response's http status code.
 deleteParameterGroupResponse_httpStatus :: Lens' DeleteParameterGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroup
-instance GHC.Show.Show Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroup
-instance GHC.Read.Read Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroup
-instance GHC.Classes.Eq Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroup
-instance GHC.Generics.Generic Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroupResponse
-instance GHC.Show.Show Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroupResponse
-instance GHC.Read.Read Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroupResponse
-instance GHC.Classes.Eq Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.DeleteParameterGroup.DeleteParameterGroup
+instance GHC.Generics.Generic Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroup
+instance GHC.Show.Show Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroup
+instance GHC.Read.Read Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroup
+instance GHC.Classes.Eq Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroup
+instance GHC.Generics.Generic Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroupResponse
+instance GHC.Show.Show Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroupResponse
+instance GHC.Read.Read Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroupResponse
+instance GHC.Classes.Eq Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroup
+instance Control.DeepSeq.NFData Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroup
+instance Control.DeepSeq.NFData Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroup
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.DeleteParameterGroup.DeleteParameterGroup
 
 
 -- | Deletes a previously provisioned DAX cluster. <i>DeleteCluster</i>
@@ -3922,7 +3922,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.DeleteParameterGroup.Del
 --   itself. When you receive a successful response from this action, DAX
 --   immediately begins deleting the cluster; you cannot cancel or revert
 --   this action.
-module Network.AWS.DAX.DeleteCluster
+module Amazonka.DAX.DeleteCluster
 
 -- | <i>See:</i> <a>newDeleteCluster</a> smart constructor.
 data DeleteCluster
@@ -3981,22 +3981,22 @@ deleteClusterResponse_cluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 
 -- | The response's http status code.
 deleteClusterResponse_httpStatus :: Lens' DeleteClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.DeleteCluster.DeleteCluster
-instance GHC.Show.Show Network.AWS.DAX.DeleteCluster.DeleteCluster
-instance GHC.Read.Read Network.AWS.DAX.DeleteCluster.DeleteCluster
-instance GHC.Classes.Eq Network.AWS.DAX.DeleteCluster.DeleteCluster
-instance GHC.Generics.Generic Network.AWS.DAX.DeleteCluster.DeleteClusterResponse
-instance GHC.Show.Show Network.AWS.DAX.DeleteCluster.DeleteClusterResponse
-instance GHC.Read.Read Network.AWS.DAX.DeleteCluster.DeleteClusterResponse
-instance GHC.Classes.Eq Network.AWS.DAX.DeleteCluster.DeleteClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.DeleteCluster.DeleteCluster
-instance Control.DeepSeq.NFData Network.AWS.DAX.DeleteCluster.DeleteClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.DeleteCluster.DeleteCluster
-instance Control.DeepSeq.NFData Network.AWS.DAX.DeleteCluster.DeleteCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.DeleteCluster.DeleteCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.DeleteCluster.DeleteCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.DeleteCluster.DeleteCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.DeleteCluster.DeleteCluster
+instance GHC.Generics.Generic Amazonka.DAX.DeleteCluster.DeleteCluster
+instance GHC.Show.Show Amazonka.DAX.DeleteCluster.DeleteCluster
+instance GHC.Read.Read Amazonka.DAX.DeleteCluster.DeleteCluster
+instance GHC.Classes.Eq Amazonka.DAX.DeleteCluster.DeleteCluster
+instance GHC.Generics.Generic Amazonka.DAX.DeleteCluster.DeleteClusterResponse
+instance GHC.Show.Show Amazonka.DAX.DeleteCluster.DeleteClusterResponse
+instance GHC.Read.Read Amazonka.DAX.DeleteCluster.DeleteClusterResponse
+instance GHC.Classes.Eq Amazonka.DAX.DeleteCluster.DeleteClusterResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.DeleteCluster.DeleteCluster
+instance Control.DeepSeq.NFData Amazonka.DAX.DeleteCluster.DeleteClusterResponse
+instance Data.Hashable.Class.Hashable Amazonka.DAX.DeleteCluster.DeleteCluster
+instance Control.DeepSeq.NFData Amazonka.DAX.DeleteCluster.DeleteCluster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.DeleteCluster.DeleteCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.DeleteCluster.DeleteCluster
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.DeleteCluster.DeleteCluster
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.DeleteCluster.DeleteCluster
 
 
 -- | Removes one or more nodes from a DAX cluster.
@@ -4004,7 +4004,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.DeleteCluster.DeleteClus
 --   You cannot use <tt>DecreaseReplicationFactor</tt> to remove the last
 --   node in a DAX cluster. If you need to do this, use
 --   <tt>DeleteCluster</tt> instead.
-module Network.AWS.DAX.DecreaseReplicationFactor
+module Amazonka.DAX.DecreaseReplicationFactor
 
 -- | <i>See:</i> <a>newDecreaseReplicationFactor</a> smart constructor.
 data DecreaseReplicationFactor
@@ -4096,26 +4096,26 @@ decreaseReplicationFactorResponse_cluster :: Lens' DecreaseReplicationFactorResp
 
 -- | The response's http status code.
 decreaseReplicationFactorResponse_httpStatus :: Lens' DecreaseReplicationFactorResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
-instance GHC.Show.Show Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
-instance GHC.Read.Read Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
-instance GHC.Classes.Eq Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
-instance GHC.Generics.Generic Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactorResponse
-instance GHC.Show.Show Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactorResponse
-instance GHC.Read.Read Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactorResponse
-instance GHC.Classes.Eq Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
-instance Control.DeepSeq.NFData Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
-instance Control.DeepSeq.NFData Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
+instance GHC.Generics.Generic Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
+instance GHC.Show.Show Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
+instance GHC.Read.Read Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
+instance GHC.Classes.Eq Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
+instance GHC.Generics.Generic Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactorResponse
+instance GHC.Show.Show Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactorResponse
+instance GHC.Read.Read Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactorResponse
+instance GHC.Classes.Eq Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactorResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
+instance Control.DeepSeq.NFData Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactorResponse
+instance Data.Hashable.Class.Hashable Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
+instance Control.DeepSeq.NFData Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.DecreaseReplicationFactor.DecreaseReplicationFactor
 
 
 -- | Creates a new subnet group.
-module Network.AWS.DAX.CreateSubnetGroup
+module Amazonka.DAX.CreateSubnetGroup
 
 -- | <i>See:</i> <a>newCreateSubnetGroup</a> smart constructor.
 data CreateSubnetGroup
@@ -4196,27 +4196,27 @@ createSubnetGroupResponse_subnetGroup :: Lens' CreateSubnetGroupResponse (Maybe 
 
 -- | The response's http status code.
 createSubnetGroupResponse_httpStatus :: Lens' CreateSubnetGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroup
-instance GHC.Show.Show Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroup
-instance GHC.Read.Read Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroup
-instance GHC.Classes.Eq Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroup
-instance GHC.Generics.Generic Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroupResponse
-instance GHC.Show.Show Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroupResponse
-instance GHC.Read.Read Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroupResponse
-instance GHC.Classes.Eq Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroup
-instance Control.DeepSeq.NFData Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroup
-instance Control.DeepSeq.NFData Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.CreateSubnetGroup.CreateSubnetGroup
+instance GHC.Generics.Generic Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroup
+instance GHC.Show.Show Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroup
+instance GHC.Read.Read Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroup
+instance GHC.Classes.Eq Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroup
+instance GHC.Generics.Generic Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroupResponse
+instance GHC.Show.Show Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroupResponse
+instance GHC.Read.Read Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroupResponse
+instance GHC.Classes.Eq Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroup
+instance Control.DeepSeq.NFData Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroup
+instance Control.DeepSeq.NFData Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroup
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.CreateSubnetGroup.CreateSubnetGroup
 
 
 -- | Creates a new parameter group. A parameter group is a collection of
 --   parameters that you apply to all of the nodes in a DAX cluster.
-module Network.AWS.DAX.CreateParameterGroup
+module Amazonka.DAX.CreateParameterGroup
 
 -- | <i>See:</i> <a>newCreateParameterGroup</a> smart constructor.
 data CreateParameterGroup
@@ -4288,27 +4288,27 @@ createParameterGroupResponse_parameterGroup :: Lens' CreateParameterGroupRespons
 
 -- | The response's http status code.
 createParameterGroupResponse_httpStatus :: Lens' CreateParameterGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.CreateParameterGroup.CreateParameterGroup
-instance GHC.Show.Show Network.AWS.DAX.CreateParameterGroup.CreateParameterGroup
-instance GHC.Read.Read Network.AWS.DAX.CreateParameterGroup.CreateParameterGroup
-instance GHC.Classes.Eq Network.AWS.DAX.CreateParameterGroup.CreateParameterGroup
-instance GHC.Generics.Generic Network.AWS.DAX.CreateParameterGroup.CreateParameterGroupResponse
-instance GHC.Show.Show Network.AWS.DAX.CreateParameterGroup.CreateParameterGroupResponse
-instance GHC.Read.Read Network.AWS.DAX.CreateParameterGroup.CreateParameterGroupResponse
-instance GHC.Classes.Eq Network.AWS.DAX.CreateParameterGroup.CreateParameterGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.CreateParameterGroup.CreateParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.DAX.CreateParameterGroup.CreateParameterGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.CreateParameterGroup.CreateParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.DAX.CreateParameterGroup.CreateParameterGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.CreateParameterGroup.CreateParameterGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.CreateParameterGroup.CreateParameterGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.CreateParameterGroup.CreateParameterGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.CreateParameterGroup.CreateParameterGroup
+instance GHC.Generics.Generic Amazonka.DAX.CreateParameterGroup.CreateParameterGroup
+instance GHC.Show.Show Amazonka.DAX.CreateParameterGroup.CreateParameterGroup
+instance GHC.Read.Read Amazonka.DAX.CreateParameterGroup.CreateParameterGroup
+instance GHC.Classes.Eq Amazonka.DAX.CreateParameterGroup.CreateParameterGroup
+instance GHC.Generics.Generic Amazonka.DAX.CreateParameterGroup.CreateParameterGroupResponse
+instance GHC.Show.Show Amazonka.DAX.CreateParameterGroup.CreateParameterGroupResponse
+instance GHC.Read.Read Amazonka.DAX.CreateParameterGroup.CreateParameterGroupResponse
+instance GHC.Classes.Eq Amazonka.DAX.CreateParameterGroup.CreateParameterGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.CreateParameterGroup.CreateParameterGroup
+instance Control.DeepSeq.NFData Amazonka.DAX.CreateParameterGroup.CreateParameterGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.DAX.CreateParameterGroup.CreateParameterGroup
+instance Control.DeepSeq.NFData Amazonka.DAX.CreateParameterGroup.CreateParameterGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.CreateParameterGroup.CreateParameterGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.CreateParameterGroup.CreateParameterGroup
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.CreateParameterGroup.CreateParameterGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.CreateParameterGroup.CreateParameterGroup
 
 
 -- | Creates a DAX cluster. All nodes in the cluster run the same DAX
 --   caching software.
-module Network.AWS.DAX.CreateCluster
+module Amazonka.DAX.CreateCluster
 
 -- | <i>See:</i> <a>newCreateCluster</a> smart constructor.
 data CreateCluster
@@ -4674,27 +4674,27 @@ createClusterResponse_cluster :: Lens' CreateClusterResponse (Maybe Cluster)
 
 -- | The response's http status code.
 createClusterResponse_httpStatus :: Lens' CreateClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.CreateCluster.CreateCluster
-instance GHC.Show.Show Network.AWS.DAX.CreateCluster.CreateCluster
-instance GHC.Read.Read Network.AWS.DAX.CreateCluster.CreateCluster
-instance GHC.Classes.Eq Network.AWS.DAX.CreateCluster.CreateCluster
-instance GHC.Generics.Generic Network.AWS.DAX.CreateCluster.CreateClusterResponse
-instance GHC.Show.Show Network.AWS.DAX.CreateCluster.CreateClusterResponse
-instance GHC.Read.Read Network.AWS.DAX.CreateCluster.CreateClusterResponse
-instance GHC.Classes.Eq Network.AWS.DAX.CreateCluster.CreateClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.CreateCluster.CreateCluster
-instance Control.DeepSeq.NFData Network.AWS.DAX.CreateCluster.CreateClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.CreateCluster.CreateCluster
-instance Control.DeepSeq.NFData Network.AWS.DAX.CreateCluster.CreateCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.CreateCluster.CreateCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.CreateCluster.CreateCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.CreateCluster.CreateCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.CreateCluster.CreateCluster
+instance GHC.Generics.Generic Amazonka.DAX.CreateCluster.CreateCluster
+instance GHC.Show.Show Amazonka.DAX.CreateCluster.CreateCluster
+instance GHC.Read.Read Amazonka.DAX.CreateCluster.CreateCluster
+instance GHC.Classes.Eq Amazonka.DAX.CreateCluster.CreateCluster
+instance GHC.Generics.Generic Amazonka.DAX.CreateCluster.CreateClusterResponse
+instance GHC.Show.Show Amazonka.DAX.CreateCluster.CreateClusterResponse
+instance GHC.Read.Read Amazonka.DAX.CreateCluster.CreateClusterResponse
+instance GHC.Classes.Eq Amazonka.DAX.CreateCluster.CreateClusterResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.CreateCluster.CreateCluster
+instance Control.DeepSeq.NFData Amazonka.DAX.CreateCluster.CreateClusterResponse
+instance Data.Hashable.Class.Hashable Amazonka.DAX.CreateCluster.CreateCluster
+instance Control.DeepSeq.NFData Amazonka.DAX.CreateCluster.CreateCluster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.CreateCluster.CreateCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.CreateCluster.CreateCluster
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.CreateCluster.CreateCluster
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.CreateCluster.CreateCluster
 
 
 -- | Removes the association of tags from a DAX resource. You can call
 --   <tt>UntagResource</tt> up to 5 times per second, per account.
-module Network.AWS.DAX.UntagResource
+module Amazonka.DAX.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -4765,28 +4765,28 @@ untagResourceResponse_tags :: Lens' UntagResourceResponse (Maybe [Tag])
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.DAX.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.DAX.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.DAX.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.DAX.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.DAX.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.DAX.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.DAX.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.DAX.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.DAX.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.DAX.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.DAX.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.DAX.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.DAX.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.DAX.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.DAX.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.DAX.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.DAX.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.DAX.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.DAX.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.DAX.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.UntagResource.UntagResource
 
 
 -- | Modifies the settings for a DAX cluster. You can use this action to
 --   change one or more cluster configuration parameters by specifying the
 --   parameters and the new values.
-module Network.AWS.DAX.UpdateCluster
+module Amazonka.DAX.UpdateCluster
 
 -- | <i>See:</i> <a>newUpdateCluster</a> smart constructor.
 data UpdateCluster
@@ -4926,28 +4926,28 @@ updateClusterResponse_cluster :: Lens' UpdateClusterResponse (Maybe Cluster)
 
 -- | The response's http status code.
 updateClusterResponse_httpStatus :: Lens' UpdateClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.UpdateCluster.UpdateCluster
-instance GHC.Show.Show Network.AWS.DAX.UpdateCluster.UpdateCluster
-instance GHC.Read.Read Network.AWS.DAX.UpdateCluster.UpdateCluster
-instance GHC.Classes.Eq Network.AWS.DAX.UpdateCluster.UpdateCluster
-instance GHC.Generics.Generic Network.AWS.DAX.UpdateCluster.UpdateClusterResponse
-instance GHC.Show.Show Network.AWS.DAX.UpdateCluster.UpdateClusterResponse
-instance GHC.Read.Read Network.AWS.DAX.UpdateCluster.UpdateClusterResponse
-instance GHC.Classes.Eq Network.AWS.DAX.UpdateCluster.UpdateClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.UpdateCluster.UpdateCluster
-instance Control.DeepSeq.NFData Network.AWS.DAX.UpdateCluster.UpdateClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.UpdateCluster.UpdateCluster
-instance Control.DeepSeq.NFData Network.AWS.DAX.UpdateCluster.UpdateCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.UpdateCluster.UpdateCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.UpdateCluster.UpdateCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.UpdateCluster.UpdateCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.UpdateCluster.UpdateCluster
+instance GHC.Generics.Generic Amazonka.DAX.UpdateCluster.UpdateCluster
+instance GHC.Show.Show Amazonka.DAX.UpdateCluster.UpdateCluster
+instance GHC.Read.Read Amazonka.DAX.UpdateCluster.UpdateCluster
+instance GHC.Classes.Eq Amazonka.DAX.UpdateCluster.UpdateCluster
+instance GHC.Generics.Generic Amazonka.DAX.UpdateCluster.UpdateClusterResponse
+instance GHC.Show.Show Amazonka.DAX.UpdateCluster.UpdateClusterResponse
+instance GHC.Read.Read Amazonka.DAX.UpdateCluster.UpdateClusterResponse
+instance GHC.Classes.Eq Amazonka.DAX.UpdateCluster.UpdateClusterResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.UpdateCluster.UpdateCluster
+instance Control.DeepSeq.NFData Amazonka.DAX.UpdateCluster.UpdateClusterResponse
+instance Data.Hashable.Class.Hashable Amazonka.DAX.UpdateCluster.UpdateCluster
+instance Control.DeepSeq.NFData Amazonka.DAX.UpdateCluster.UpdateCluster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.UpdateCluster.UpdateCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.UpdateCluster.UpdateCluster
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.UpdateCluster.UpdateCluster
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.UpdateCluster.UpdateCluster
 
 
 -- | Modifies the parameters of a parameter group. You can modify up to 20
 --   parameters in a single request by submitting a list parameter name and
 --   value pairs.
-module Network.AWS.DAX.UpdateParameterGroup
+module Amazonka.DAX.UpdateParameterGroup
 
 -- | <i>See:</i> <a>newUpdateParameterGroup</a> smart constructor.
 data UpdateParameterGroup
@@ -5031,26 +5031,26 @@ updateParameterGroupResponse_parameterGroup :: Lens' UpdateParameterGroupRespons
 
 -- | The response's http status code.
 updateParameterGroupResponse_httpStatus :: Lens' UpdateParameterGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroup
-instance GHC.Show.Show Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroup
-instance GHC.Read.Read Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroup
-instance GHC.Classes.Eq Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroup
-instance GHC.Generics.Generic Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroupResponse
-instance GHC.Show.Show Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroupResponse
-instance GHC.Read.Read Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroupResponse
-instance GHC.Classes.Eq Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.UpdateParameterGroup.UpdateParameterGroup
+instance GHC.Generics.Generic Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroup
+instance GHC.Show.Show Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroup
+instance GHC.Read.Read Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroup
+instance GHC.Classes.Eq Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroup
+instance GHC.Generics.Generic Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroupResponse
+instance GHC.Show.Show Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroupResponse
+instance GHC.Read.Read Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroupResponse
+instance GHC.Classes.Eq Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroup
+instance Control.DeepSeq.NFData Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroup
+instance Control.DeepSeq.NFData Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroup
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.UpdateParameterGroup.UpdateParameterGroup
 
 
 -- | Modifies an existing subnet group.
-module Network.AWS.DAX.UpdateSubnetGroup
+module Amazonka.DAX.UpdateSubnetGroup
 
 -- | <i>See:</i> <a>newUpdateSubnetGroup</a> smart constructor.
 data UpdateSubnetGroup
@@ -5129,25 +5129,25 @@ updateSubnetGroupResponse_subnetGroup :: Lens' UpdateSubnetGroupResponse (Maybe 
 
 -- | The response's http status code.
 updateSubnetGroupResponse_httpStatus :: Lens' UpdateSubnetGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroup
-instance GHC.Show.Show Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroup
-instance GHC.Read.Read Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroup
-instance GHC.Classes.Eq Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroup
-instance GHC.Generics.Generic Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroupResponse
-instance GHC.Show.Show Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroupResponse
-instance GHC.Read.Read Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroupResponse
-instance GHC.Classes.Eq Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroup
-instance Control.DeepSeq.NFData Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroup
-instance Control.DeepSeq.NFData Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DAX.UpdateSubnetGroup.UpdateSubnetGroup
+instance GHC.Generics.Generic Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroup
+instance GHC.Show.Show Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroup
+instance GHC.Read.Read Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroup
+instance GHC.Classes.Eq Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroup
+instance GHC.Generics.Generic Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroupResponse
+instance GHC.Show.Show Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroupResponse
+instance GHC.Read.Read Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroupResponse
+instance GHC.Classes.Eq Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroup
+instance Control.DeepSeq.NFData Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroup
+instance Control.DeepSeq.NFData Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroup
+instance Amazonka.Data.Path.ToPath Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.DAX.UpdateSubnetGroup.UpdateSubnetGroup
 
 
-module Network.AWS.DAX.Lens
+module Amazonka.DAX.Lens
 
 -- | The names of the DAX clusters being described.
 describeClusters_clusterNames :: Lens' DescribeClusters (Maybe [Text])
@@ -5895,7 +5895,7 @@ tag_value :: Lens' Tag (Maybe Text)
 tag_key :: Lens' Tag (Maybe Text)
 
 
-module Network.AWS.DAX.Waiters
+module Amazonka.DAX.Waiters
 
 
 -- | Derived from API version <tt>2017-04-19</tt> of the AWS service
@@ -5908,7 +5908,7 @@ module Network.AWS.DAX.Waiters
 --   the AWS Management Console. With a few simple modifications to your
 --   code, your application can begin taking advantage of the DAX cluster
 --   and realize significant improvements in read performance.
-module Network.AWS.DAX
+module Amazonka.DAX
 
 -- | API version <tt>2017-04-19</tt> of the Amazon DynamoDB Accelerator
 --   (DAX) SDK configuration.

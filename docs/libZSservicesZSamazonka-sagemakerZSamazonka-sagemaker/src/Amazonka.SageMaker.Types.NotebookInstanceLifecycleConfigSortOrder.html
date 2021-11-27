@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#NotebookInstanceLifecycleConfigSortOrder"><span class="hs-identifier">NotebookInstanceLifecycleConfigSortOrder</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#NotebookInstanceLifecycleConfigSortOrder_Ascending"><span class="hs-identifier">NotebookInstanceLifecycleConfigSortOrder_Ascending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#NotebookInstanceLifecycleConfigSortOrder_Descending"><span class="hs-identifier">NotebookInstanceLifecycleConfigSortOrder_Descending</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680323167"><span id="local-6989586621680323168"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NotebookInstanceLifecycleConfigSortOrder"><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#NotebookInstanceLifecycleConfigSortOrder"><span class="hs-identifier hs-var">NotebookInstanceLifecycleConfigSortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotebookInstanceLifecycleConfigSortOrder%27"><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#NotebookInstanceLifecycleConfigSortOrder%27"><span class="hs-identifier hs-var">NotebookInstanceLifecycleConfigSortOrder'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNotebookInstanceLifecycleConfigSortOrder"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortOrder -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#fromNotebookInstanceLifecycleConfigSortOrder"><span class="hs-identifier hs-var hs-var">fromNotebookInstanceLifecycleConfigSortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680323159"><span id="local-6989586621680323161"><span id="local-6989586621680323163"><span class="annot"><span class="annottext">Int -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; ShowS
+[NotebookInstanceLifecycleConfigSortOrder] -&gt; ShowS
+NotebookInstanceLifecycleConfigSortOrder -&gt; String
+(Int -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; ShowS)
+-&gt; (NotebookInstanceLifecycleConfigSortOrder -&gt; String)
+-&gt; ([NotebookInstanceLifecycleConfigSortOrder] -&gt; ShowS)
+-&gt; Show NotebookInstanceLifecycleConfigSortOrder
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NotebookInstanceLifecycleConfigSortOrder] -&gt; ShowS
+$cshowList :: [NotebookInstanceLifecycleConfigSortOrder] -&gt; ShowS
+show :: NotebookInstanceLifecycleConfigSortOrder -&gt; String
+$cshow :: NotebookInstanceLifecycleConfigSortOrder -&gt; String
+showsPrec :: Int -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; ShowS
+$cshowsPrec :: Int -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680323150"><span id="local-6989586621680323152"><span id="local-6989586621680323154"><span id="local-6989586621680323156"><span class="annot"><span class="annottext">ReadPrec [NotebookInstanceLifecycleConfigSortOrder]
+ReadPrec NotebookInstanceLifecycleConfigSortOrder
+Int -&gt; ReadS NotebookInstanceLifecycleConfigSortOrder
+ReadS [NotebookInstanceLifecycleConfigSortOrder]
+(Int -&gt; ReadS NotebookInstanceLifecycleConfigSortOrder)
+-&gt; ReadS [NotebookInstanceLifecycleConfigSortOrder]
+-&gt; ReadPrec NotebookInstanceLifecycleConfigSortOrder
+-&gt; ReadPrec [NotebookInstanceLifecycleConfigSortOrder]
+-&gt; Read NotebookInstanceLifecycleConfigSortOrder
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NotebookInstanceLifecycleConfigSortOrder]
+$creadListPrec :: ReadPrec [NotebookInstanceLifecycleConfigSortOrder]
+readPrec :: ReadPrec NotebookInstanceLifecycleConfigSortOrder
+$creadPrec :: ReadPrec NotebookInstanceLifecycleConfigSortOrder
+readList :: ReadS [NotebookInstanceLifecycleConfigSortOrder]
+$creadList :: ReadS [NotebookInstanceLifecycleConfigSortOrder]
+readsPrec :: Int -&gt; ReadS NotebookInstanceLifecycleConfigSortOrder
+$creadsPrec :: Int -&gt; ReadS NotebookInstanceLifecycleConfigSortOrder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680323145"><span id="local-6989586621680323147"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool
+(NotebookInstanceLifecycleConfigSortOrder
+ -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool)
+-&gt; (NotebookInstanceLifecycleConfigSortOrder
+    -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool)
+-&gt; Eq NotebookInstanceLifecycleConfigSortOrder
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool
+$c/= :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool
+== :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool
+$c== :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680323129"><span id="local-6989586621680323131"><span id="local-6989586621680323133"><span id="local-6989586621680323135"><span id="local-6989586621680323137"><span id="local-6989586621680323139"><span id="local-6989586621680323141"><span class="annot"><span class="annottext">Eq NotebookInstanceLifecycleConfigSortOrder
+Eq NotebookInstanceLifecycleConfigSortOrder
+-&gt; (NotebookInstanceLifecycleConfigSortOrder
+    -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Ordering)
+-&gt; (NotebookInstanceLifecycleConfigSortOrder
+    -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool)
+-&gt; (NotebookInstanceLifecycleConfigSortOrder
+    -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool)
+-&gt; (NotebookInstanceLifecycleConfigSortOrder
+    -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool)
+-&gt; (NotebookInstanceLifecycleConfigSortOrder
+    -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool)
+-&gt; (NotebookInstanceLifecycleConfigSortOrder
+    -&gt; NotebookInstanceLifecycleConfigSortOrder
+    -&gt; NotebookInstanceLifecycleConfigSortOrder)
+-&gt; (NotebookInstanceLifecycleConfigSortOrder
+    -&gt; NotebookInstanceLifecycleConfigSortOrder
+    -&gt; NotebookInstanceLifecycleConfigSortOrder)
+-&gt; Ord NotebookInstanceLifecycleConfigSortOrder
+NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool
+NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Ordering
+NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder
+$cmin :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder
+max :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder
+$cmax :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder
+&gt;= :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool
+$c&gt;= :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool
+&gt; :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool
+$c&gt; :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool
+&lt;= :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool
+$c&lt;= :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool
+&lt; :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool
+$c&lt; :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Bool
+compare :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Ordering
+$ccompare :: NotebookInstanceLifecycleConfigSortOrder
+-&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Ordering
+$cp1Ord :: Eq NotebookInstanceLifecycleConfigSortOrder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ NotebookInstanceLifecycleConfigSortOrder
+ -&gt; Rep NotebookInstanceLifecycleConfigSortOrder x)
+-&gt; (forall x.
+    Rep NotebookInstanceLifecycleConfigSortOrder x
+    -&gt; NotebookInstanceLifecycleConfigSortOrder)
+-&gt; Generic NotebookInstanceLifecycleConfigSortOrder
+forall x.
+Rep NotebookInstanceLifecycleConfigSortOrder x
+-&gt; NotebookInstanceLifecycleConfigSortOrder
+forall x.
+NotebookInstanceLifecycleConfigSortOrder
+-&gt; Rep NotebookInstanceLifecycleConfigSortOrder x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NotebookInstanceLifecycleConfigSortOrder x
+-&gt; NotebookInstanceLifecycleConfigSortOrder
+$cfrom :: forall x.
+NotebookInstanceLifecycleConfigSortOrder
+-&gt; Rep NotebookInstanceLifecycleConfigSortOrder x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680323121"><span id="local-6989586621680323123"><span class="annot"><span class="annottext">Int -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Int
+NotebookInstanceLifecycleConfigSortOrder -&gt; Int
+(Int -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Int)
+-&gt; (NotebookInstanceLifecycleConfigSortOrder -&gt; Int)
+-&gt; Hashable NotebookInstanceLifecycleConfigSortOrder
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NotebookInstanceLifecycleConfigSortOrder -&gt; Int
+$chash :: NotebookInstanceLifecycleConfigSortOrder -&gt; Int
+hashWithSalt :: Int -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Int
+$chashWithSalt :: Int -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680323118"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortOrder -&gt; ()
+(NotebookInstanceLifecycleConfigSortOrder -&gt; ())
+-&gt; NFData NotebookInstanceLifecycleConfigSortOrder
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NotebookInstanceLifecycleConfigSortOrder -&gt; ()
+$crnf :: NotebookInstanceLifecycleConfigSortOrder -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680323115"><span class="annot"><span class="annottext">Text -&gt; Either String NotebookInstanceLifecycleConfigSortOrder
+(Text -&gt; Either String NotebookInstanceLifecycleConfigSortOrder)
+-&gt; FromText NotebookInstanceLifecycleConfigSortOrder
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NotebookInstanceLifecycleConfigSortOrder
+$cfromText :: Text -&gt; Either String NotebookInstanceLifecycleConfigSortOrder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680323112"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortOrder -&gt; Text
+(NotebookInstanceLifecycleConfigSortOrder -&gt; Text)
+-&gt; ToText NotebookInstanceLifecycleConfigSortOrder
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NotebookInstanceLifecycleConfigSortOrder -&gt; Text
+$ctoText :: NotebookInstanceLifecycleConfigSortOrder -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680323109"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortOrder -&gt; ByteString
+(NotebookInstanceLifecycleConfigSortOrder -&gt; ByteString)
+-&gt; ToByteString NotebookInstanceLifecycleConfigSortOrder
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NotebookInstanceLifecycleConfigSortOrder -&gt; ByteString
+$ctoBS :: NotebookInstanceLifecycleConfigSortOrder -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680323106"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortOrder -&gt; ByteStringBuilder
+(NotebookInstanceLifecycleConfigSortOrder -&gt; ByteStringBuilder)
+-&gt; ToLog NotebookInstanceLifecycleConfigSortOrder
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NotebookInstanceLifecycleConfigSortOrder -&gt; ByteStringBuilder
+$cbuild :: NotebookInstanceLifecycleConfigSortOrder -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680323103"><span class="annot"><span class="annottext">HeaderName -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; [Header]
+(HeaderName
+ -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; [Header])
+-&gt; ToHeader NotebookInstanceLifecycleConfigSortOrder
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NotebookInstanceLifecycleConfigSortOrder -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680323100"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortOrder -&gt; QueryString
+(NotebookInstanceLifecycleConfigSortOrder -&gt; QueryString)
+-&gt; ToQuery NotebookInstanceLifecycleConfigSortOrder
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NotebookInstanceLifecycleConfigSortOrder -&gt; QueryString
+$ctoQuery :: NotebookInstanceLifecycleConfigSortOrder -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680323095"><span id="local-6989586621680323097"><span class="annot"><span class="annottext">Value -&gt; Parser [NotebookInstanceLifecycleConfigSortOrder]
+Value -&gt; Parser NotebookInstanceLifecycleConfigSortOrder
+(Value -&gt; Parser NotebookInstanceLifecycleConfigSortOrder)
+-&gt; (Value -&gt; Parser [NotebookInstanceLifecycleConfigSortOrder])
+-&gt; FromJSON NotebookInstanceLifecycleConfigSortOrder
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NotebookInstanceLifecycleConfigSortOrder]
+$cparseJSONList :: Value -&gt; Parser [NotebookInstanceLifecycleConfigSortOrder]
+parseJSON :: Value -&gt; Parser NotebookInstanceLifecycleConfigSortOrder
+$cparseJSON :: Value -&gt; Parser NotebookInstanceLifecycleConfigSortOrder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680323090"><span id="local-6989586621680323092"><span class="annot"><span class="annottext">FromJSONKeyFunction [NotebookInstanceLifecycleConfigSortOrder]
+FromJSONKeyFunction NotebookInstanceLifecycleConfigSortOrder
+FromJSONKeyFunction NotebookInstanceLifecycleConfigSortOrder
+-&gt; FromJSONKeyFunction [NotebookInstanceLifecycleConfigSortOrder]
+-&gt; FromJSONKey NotebookInstanceLifecycleConfigSortOrder
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NotebookInstanceLifecycleConfigSortOrder]
+$cfromJSONKeyList :: FromJSONKeyFunction [NotebookInstanceLifecycleConfigSortOrder]
+fromJSONKey :: FromJSONKeyFunction NotebookInstanceLifecycleConfigSortOrder
+$cfromJSONKey :: FromJSONKeyFunction NotebookInstanceLifecycleConfigSortOrder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680323081"><span id="local-6989586621680323083"><span id="local-6989586621680323085"><span id="local-6989586621680323087"><span class="annot"><span class="annottext">[NotebookInstanceLifecycleConfigSortOrder] -&gt; Encoding
+[NotebookInstanceLifecycleConfigSortOrder] -&gt; Value
+NotebookInstanceLifecycleConfigSortOrder -&gt; Encoding
+NotebookInstanceLifecycleConfigSortOrder -&gt; Value
+(NotebookInstanceLifecycleConfigSortOrder -&gt; Value)
+-&gt; (NotebookInstanceLifecycleConfigSortOrder -&gt; Encoding)
+-&gt; ([NotebookInstanceLifecycleConfigSortOrder] -&gt; Value)
+-&gt; ([NotebookInstanceLifecycleConfigSortOrder] -&gt; Encoding)
+-&gt; ToJSON NotebookInstanceLifecycleConfigSortOrder
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NotebookInstanceLifecycleConfigSortOrder] -&gt; Encoding
+$ctoEncodingList :: [NotebookInstanceLifecycleConfigSortOrder] -&gt; Encoding
+toJSONList :: [NotebookInstanceLifecycleConfigSortOrder] -&gt; Value
+$ctoJSONList :: [NotebookInstanceLifecycleConfigSortOrder] -&gt; Value
+toEncoding :: NotebookInstanceLifecycleConfigSortOrder -&gt; Encoding
+$ctoEncoding :: NotebookInstanceLifecycleConfigSortOrder -&gt; Encoding
+toJSON :: NotebookInstanceLifecycleConfigSortOrder -&gt; Value
+$ctoJSON :: NotebookInstanceLifecycleConfigSortOrder -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680323076"><span id="local-6989586621680323078"><span class="annot"><span class="annottext">ToJSONKeyFunction [NotebookInstanceLifecycleConfigSortOrder]
+ToJSONKeyFunction NotebookInstanceLifecycleConfigSortOrder
+ToJSONKeyFunction NotebookInstanceLifecycleConfigSortOrder
+-&gt; ToJSONKeyFunction [NotebookInstanceLifecycleConfigSortOrder]
+-&gt; ToJSONKey NotebookInstanceLifecycleConfigSortOrder
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NotebookInstanceLifecycleConfigSortOrder]
+$ctoJSONKeyList :: ToJSONKeyFunction [NotebookInstanceLifecycleConfigSortOrder]
+toJSONKey :: ToJSONKeyFunction NotebookInstanceLifecycleConfigSortOrder
+$ctoJSONKey :: ToJSONKeyFunction NotebookInstanceLifecycleConfigSortOrder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680323073"><span class="annot"><span class="annottext">[Node] -&gt; Either String NotebookInstanceLifecycleConfigSortOrder
+([Node] -&gt; Either String NotebookInstanceLifecycleConfigSortOrder)
+-&gt; FromXML NotebookInstanceLifecycleConfigSortOrder
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NotebookInstanceLifecycleConfigSortOrder
+$cparseXML :: [Node] -&gt; Either String NotebookInstanceLifecycleConfigSortOrder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680323070"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortOrder -&gt; XML
+(NotebookInstanceLifecycleConfigSortOrder -&gt; XML)
+-&gt; ToXML NotebookInstanceLifecycleConfigSortOrder
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NotebookInstanceLifecycleConfigSortOrder -&gt; XML
+$ctoXML :: NotebookInstanceLifecycleConfigSortOrder -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#NotebookInstanceLifecycleConfigSortOrder_Ascending"><span class="hs-identifier hs-type">NotebookInstanceLifecycleConfigSortOrder_Ascending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#NotebookInstanceLifecycleConfigSortOrder"><span class="hs-identifier hs-type">NotebookInstanceLifecycleConfigSortOrder</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNotebookInstanceLifecycleConfigSortOrder_Ascending"><span id="%24mNotebookInstanceLifecycleConfigSortOrder_Ascending"><span id="NotebookInstanceLifecycleConfigSortOrder_Ascending"><span class="annot"><span class="annottext">$bNotebookInstanceLifecycleConfigSortOrder_Ascending :: NotebookInstanceLifecycleConfigSortOrder
+$mNotebookInstanceLifecycleConfigSortOrder_Ascending :: forall r.
+NotebookInstanceLifecycleConfigSortOrder
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#%24bNotebookInstanceLifecycleConfigSortOrder_Ascending"><span class="hs-identifier hs-var hs-var hs-var">NotebookInstanceLifecycleConfigSortOrder_Ascending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#NotebookInstanceLifecycleConfigSortOrder%27"><span class="hs-identifier hs-type">NotebookInstanceLifecycleConfigSortOrder'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Ascending&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#NotebookInstanceLifecycleConfigSortOrder_Descending"><span class="hs-identifier hs-type">NotebookInstanceLifecycleConfigSortOrder_Descending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#NotebookInstanceLifecycleConfigSortOrder"><span class="hs-identifier hs-type">NotebookInstanceLifecycleConfigSortOrder</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNotebookInstanceLifecycleConfigSortOrder_Descending"><span id="%24mNotebookInstanceLifecycleConfigSortOrder_Descending"><span id="NotebookInstanceLifecycleConfigSortOrder_Descending"><span class="annot"><span class="annottext">$bNotebookInstanceLifecycleConfigSortOrder_Descending :: NotebookInstanceLifecycleConfigSortOrder
+$mNotebookInstanceLifecycleConfigSortOrder_Descending :: forall r.
+NotebookInstanceLifecycleConfigSortOrder
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#%24bNotebookInstanceLifecycleConfigSortOrder_Descending"><span class="hs-identifier hs-var hs-var hs-var">NotebookInstanceLifecycleConfigSortOrder_Descending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#NotebookInstanceLifecycleConfigSortOrder%27"><span class="hs-identifier hs-type">NotebookInstanceLifecycleConfigSortOrder'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Descending&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#NotebookInstanceLifecycleConfigSortOrder_Ascending"><span class="hs-pragma hs-type">NotebookInstanceLifecycleConfigSortOrder_Ascending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#NotebookInstanceLifecycleConfigSortOrder_Descending"><span class="hs-pragma hs-type">NotebookInstanceLifecycleConfigSortOrder_Descending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleConfigSortOrder.html#NotebookInstanceLifecycleConfigSortOrder%27"><span class="hs-pragma hs-type">NotebookInstanceLifecycleConfigSortOrder'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

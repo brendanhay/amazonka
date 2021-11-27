@@ -1,0 +1,690 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.GetOperationsForResource</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets operations for a specific resource (e.g., an instance or a static</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- IP).</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.GetOperationsForResource</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource"><span class="hs-identifier">GetOperationsForResource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#newGetOperationsForResource"><span class="hs-identifier">newGetOperationsForResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResource_pageToken"><span class="hs-identifier">getOperationsForResource_pageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResource_resourceName"><span class="hs-identifier">getOperationsForResource_resourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse"><span class="hs-identifier">GetOperationsForResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#newGetOperationsForResourceResponse"><span class="hs-identifier">newGetOperationsForResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResourceResponse_nextPageCount"><span class="hs-identifier">getOperationsForResourceResponse_nextPageCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResourceResponse_nextPageToken"><span class="hs-identifier">getOperationsForResourceResponse_nextPageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResourceResponse_operations"><span class="hs-identifier">getOperationsForResourceResponse_operations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResourceResponse_httpStatus"><span class="hs-identifier">getOperationsForResourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.html"><span class="hs-identifier">Amazonka.Lightsail.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newGetOperationsForResource' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679638057"><span id="local-6989586621679638058"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOperationsForResource"><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource"><span class="hs-identifier hs-var">GetOperationsForResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOperationsForResource%27"><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource%27"><span class="hs-identifier hs-var">GetOperationsForResource'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- To get a page token, perform an initial @GetOperationsForResource@</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- request. If your results are paginated, the response will return a next</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- page token that you can specify as the page token in a subsequent</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3ApageToken%3AGetOperationsForResource%27"><span class="annot"><span class="annottext">GetOperationsForResource -&gt; Maybe Text
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3ApageToken%3AGetOperationsForResource%27"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The name of the resource for which you are requesting information.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AresourceName%3AGetOperationsForResource%27"><span class="annot"><span class="annottext">GetOperationsForResource -&gt; Text
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3AresourceName%3AGetOperationsForResource%27"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679638050"><span id="local-6989586621679638052"><span class="annot"><span class="annottext">GetOperationsForResource -&gt; GetOperationsForResource -&gt; Bool
+(GetOperationsForResource -&gt; GetOperationsForResource -&gt; Bool)
+-&gt; (GetOperationsForResource -&gt; GetOperationsForResource -&gt; Bool)
+-&gt; Eq GetOperationsForResource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetOperationsForResource -&gt; GetOperationsForResource -&gt; Bool
+$c/= :: GetOperationsForResource -&gt; GetOperationsForResource -&gt; Bool
+== :: GetOperationsForResource -&gt; GetOperationsForResource -&gt; Bool
+$c== :: GetOperationsForResource -&gt; GetOperationsForResource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638041"><span id="local-6989586621679638043"><span id="local-6989586621679638045"><span id="local-6989586621679638047"><span class="annot"><span class="annottext">ReadPrec [GetOperationsForResource]
+ReadPrec GetOperationsForResource
+Int -&gt; ReadS GetOperationsForResource
+ReadS [GetOperationsForResource]
+(Int -&gt; ReadS GetOperationsForResource)
+-&gt; ReadS [GetOperationsForResource]
+-&gt; ReadPrec GetOperationsForResource
+-&gt; ReadPrec [GetOperationsForResource]
+-&gt; Read GetOperationsForResource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetOperationsForResource]
+$creadListPrec :: ReadPrec [GetOperationsForResource]
+readPrec :: ReadPrec GetOperationsForResource
+$creadPrec :: ReadPrec GetOperationsForResource
+readList :: ReadS [GetOperationsForResource]
+$creadList :: ReadS [GetOperationsForResource]
+readsPrec :: Int -&gt; ReadS GetOperationsForResource
+$creadsPrec :: Int -&gt; ReadS GetOperationsForResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638034"><span id="local-6989586621679638036"><span id="local-6989586621679638038"><span class="annot"><span class="annottext">Int -&gt; GetOperationsForResource -&gt; ShowS
+[GetOperationsForResource] -&gt; ShowS
+GetOperationsForResource -&gt; String
+(Int -&gt; GetOperationsForResource -&gt; ShowS)
+-&gt; (GetOperationsForResource -&gt; String)
+-&gt; ([GetOperationsForResource] -&gt; ShowS)
+-&gt; Show GetOperationsForResource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetOperationsForResource] -&gt; ShowS
+$cshowList :: [GetOperationsForResource] -&gt; ShowS
+show :: GetOperationsForResource -&gt; String
+$cshow :: GetOperationsForResource -&gt; String
+showsPrec :: Int -&gt; GetOperationsForResource -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetOperationsForResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetOperationsForResource -&gt; Rep GetOperationsForResource x)
+-&gt; (forall x.
+    Rep GetOperationsForResource x -&gt; GetOperationsForResource)
+-&gt; Generic GetOperationsForResource
+forall x.
+Rep GetOperationsForResource x -&gt; GetOperationsForResource
+forall x.
+GetOperationsForResource -&gt; Rep GetOperationsForResource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetOperationsForResource x -&gt; GetOperationsForResource
+$cfrom :: forall x.
+GetOperationsForResource -&gt; Rep GetOperationsForResource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'GetOperationsForResource' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'pageToken', 'getOperationsForResource_pageToken' - The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- To get a page token, perform an initial @GetOperationsForResource@</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- request. If your results are paginated, the response will return a next</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- page token that you can specify as the page token in a subsequent</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'resourceName', 'getOperationsForResource_resourceName' - The name of the resource for which you are requesting information.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#newGetOperationsForResource"><span class="hs-identifier hs-type">newGetOperationsForResource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'resourceName'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource"><span class="hs-identifier hs-type">GetOperationsForResource</span></a></span><span>
+</span><span id="line-87"></span><span id="newGetOperationsForResource"><span class="annot"><span class="annottext">newGetOperationsForResource :: Text -&gt; GetOperationsForResource
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#newGetOperationsForResource"><span class="hs-identifier hs-var hs-var">newGetOperationsForResource</span></a></span></span><span> </span><span id="local-6989586621679638029"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679638029"><span class="hs-identifier hs-var">pResourceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">GetOperationsForResource' :: Maybe Text -&gt; Text -&gt; GetOperationsForResource
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource%27"><span class="hs-identifier hs-type">GetOperationsForResource'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pageToken:GetOperationsForResource' :: Maybe Text
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3ApageToken%3AGetOperationsForResource%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceName:GetOperationsForResource' :: Text
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3AresourceName%3AGetOperationsForResource%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679638029"><span class="hs-identifier hs-var">pResourceName_</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- To get a page token, perform an initial @GetOperationsForResource@</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- request. If your results are paginated, the response will return a next</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- page token that you can specify as the page token in a subsequent</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResource_pageToken"><span class="hs-identifier hs-type">getOperationsForResource_pageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource"><span class="hs-identifier hs-type">GetOperationsForResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="getOperationsForResource_pageToken"><span class="annot"><span class="annottext">getOperationsForResource_pageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetOperationsForResource -&gt; f GetOperationsForResource
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResource_pageToken"><span class="hs-identifier hs-var hs-var">getOperationsForResource_pageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOperationsForResource -&gt; Maybe Text)
+-&gt; (GetOperationsForResource
+    -&gt; Maybe Text -&gt; GetOperationsForResource)
+-&gt; Lens
+     GetOperationsForResource
+     GetOperationsForResource
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource%27"><span class="hs-identifier hs-type">GetOperationsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638026"><span class="annot"><span class="annottext">Maybe Text
+pageToken :: Maybe Text
+$sel:pageToken:GetOperationsForResource' :: GetOperationsForResource -&gt; Maybe Text
+</span><a href="#local-6989586621679638026"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679638026"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679638025"><span class="annot"><span class="annottext">s :: GetOperationsForResource
+</span><a href="#local-6989586621679638025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource%27"><span class="hs-identifier hs-type">GetOperationsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679638024"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679638024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOperationsForResource
+</span><a href="#local-6989586621679638025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:GetOperationsForResource' :: Maybe Text
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3ApageToken%3AGetOperationsForResource%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679638024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource"><span class="hs-identifier hs-type">GetOperationsForResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The name of the resource for which you are requesting information.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResource_resourceName"><span class="hs-identifier hs-type">getOperationsForResource_resourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource"><span class="hs-identifier hs-type">GetOperationsForResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="getOperationsForResource_resourceName"><span class="annot"><span class="annottext">getOperationsForResource_resourceName :: (Text -&gt; f Text)
+-&gt; GetOperationsForResource -&gt; f GetOperationsForResource
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResource_resourceName"><span class="hs-identifier hs-var hs-var">getOperationsForResource_resourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOperationsForResource -&gt; Text)
+-&gt; (GetOperationsForResource -&gt; Text -&gt; GetOperationsForResource)
+-&gt; Lens GetOperationsForResource GetOperationsForResource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource%27"><span class="hs-identifier hs-type">GetOperationsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638023"><span class="annot"><span class="annottext">Text
+resourceName :: Text
+$sel:resourceName:GetOperationsForResource' :: GetOperationsForResource -&gt; Text
+</span><a href="#local-6989586621679638023"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679638023"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679638022"><span class="annot"><span class="annottext">s :: GetOperationsForResource
+</span><a href="#local-6989586621679638022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource%27"><span class="hs-identifier hs-type">GetOperationsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679638021"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679638021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOperationsForResource
+</span><a href="#local-6989586621679638022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:GetOperationsForResource' :: Text
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3AresourceName%3AGetOperationsForResource%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679638021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource"><span class="hs-identifier hs-type">GetOperationsForResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource"><span class="hs-identifier hs-type">GetOperationsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource"><span class="hs-identifier hs-type">GetOperationsForResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse"><span class="hs-identifier hs-type">GetOperationsForResourceResponse</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679638017"><span class="annot"><span class="annottext">request :: GetOperationsForResource -&gt; Request GetOperationsForResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetOperationsForResource -&gt; Request GetOperationsForResource
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679638013"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetOperationsForResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetOperationsForResource)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetOperationsForResource))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetOperationsForResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetOperationsForResource)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679638010"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679638010"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679638009"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679638009"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679638008"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679638008"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Operation]
+-&gt; Int
+-&gt; GetOperationsForResourceResponse
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse%27"><span class="hs-identifier hs-var">GetOperationsForResourceResponse'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Operation]
+ -&gt; Int
+ -&gt; GetOperationsForResourceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Operation] -&gt; Int -&gt; GetOperationsForResourceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679638008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextPageCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Operation] -&gt; Int -&gt; GetOperationsForResourceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Operation] -&gt; Int -&gt; GetOperationsForResourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679638008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextPageToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Operation] -&gt; Int -&gt; GetOperationsForResourceResponse)
+-&gt; Either String (Maybe [Operation])
+-&gt; Either String (Int -&gt; GetOperationsForResourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679638008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
+-&gt; Maybe [Operation] -&gt; Either String (Maybe [Operation])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetOperationsForResourceResponse)
+-&gt; Either String Int
+-&gt; Either String GetOperationsForResourceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679638010"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637999"><span id="local-6989586621679638001"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource"><span class="hs-identifier hs-type">GetOperationsForResource</span></a></span></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637996"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource"><span class="hs-identifier hs-type">GetOperationsForResource</span></a></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource"><span class="hs-identifier hs-type">GetOperationsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679637992"><span class="annot"><span class="annottext">toHeaders :: GetOperationsForResource -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetOperationsForResource -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Lightsail_20161128.GetOperationsForResource&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-133"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-137"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637982"><span id="local-6989586621679637984"><span id="local-6989586621679637986"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource"><span class="hs-identifier hs-type">GetOperationsForResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679637980"><span class="annot"><span class="annottext">toJSON :: GetOperationsForResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource%27"><span class="hs-identifier hs-type">GetOperationsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637977"><span id="local-6989586621679637978"><span class="annot"><span class="annottext">Maybe Text
+Text
+resourceName :: Text
+pageToken :: Maybe Text
+$sel:resourceName:GetOperationsForResource' :: GetOperationsForResource -&gt; Text
+$sel:pageToken:GetOperationsForResource' :: GetOperationsForResource -&gt; Maybe Text
+</span><a href="#local-6989586621679637977"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pageToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679637978"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637977"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource"><span class="hs-identifier hs-type">GetOperationsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679637971"><span class="annot"><span class="annottext">toPath :: GetOperationsForResource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetOperationsForResource -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResource"><span class="hs-identifier hs-type">GetOperationsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679637967"><span class="annot"><span class="annottext">toQuery :: GetOperationsForResource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetOperationsForResource -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | /See:/ 'newGetOperationsForResourceResponse' smart constructor.</span><span>
+</span><span id="line-157"></span><span id="local-6989586621679637964"><span id="local-6989586621679637965"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOperationsForResourceResponse"><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse"><span class="hs-identifier hs-var">GetOperationsForResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOperationsForResourceResponse%27"><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse%27"><span class="hs-identifier hs-var">GetOperationsForResourceResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Deprecated) Returns the number of pages of results that remain.</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- In releases prior to June 12, 2017, this parameter returned @null@ by</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- the API. It is now deprecated, and the API returns the @next page token@</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- parameter instead.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AnextPageCount%3AGetOperationsForResourceResponse%27"><span class="annot"><span class="annottext">GetOperationsForResourceResponse -&gt; Maybe Text
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3AnextPageCount%3AGetOperationsForResourceResponse%27"><span class="hs-identifier hs-var hs-var">nextPageCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- A next page token is not returned if there are no more results to</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- display.</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- To get the next page of results, perform another</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- @GetOperationsForResource@ request and specify the next page token using</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- the @pageToken@ parameter.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AnextPageToken%3AGetOperationsForResourceResponse%27"><span class="annot"><span class="annottext">GetOperationsForResourceResponse -&gt; Maybe Text
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3AnextPageToken%3AGetOperationsForResourceResponse%27"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3Aoperations%3AGetOperationsForResourceResponse%27"><span class="annot"><span class="annottext">GetOperationsForResourceResponse -&gt; Maybe [Operation]
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3Aoperations%3AGetOperationsForResourceResponse%27"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetOperationsForResourceResponse%27"><span class="annot"><span class="annottext">GetOperationsForResourceResponse -&gt; Int
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3AhttpStatus%3AGetOperationsForResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679637956"><span id="local-6989586621679637958"><span class="annot"><span class="annottext">GetOperationsForResourceResponse
+-&gt; GetOperationsForResourceResponse -&gt; Bool
+(GetOperationsForResourceResponse
+ -&gt; GetOperationsForResourceResponse -&gt; Bool)
+-&gt; (GetOperationsForResourceResponse
+    -&gt; GetOperationsForResourceResponse -&gt; Bool)
+-&gt; Eq GetOperationsForResourceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetOperationsForResourceResponse
+-&gt; GetOperationsForResourceResponse -&gt; Bool
+$c/= :: GetOperationsForResourceResponse
+-&gt; GetOperationsForResourceResponse -&gt; Bool
+== :: GetOperationsForResourceResponse
+-&gt; GetOperationsForResourceResponse -&gt; Bool
+$c== :: GetOperationsForResourceResponse
+-&gt; GetOperationsForResourceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637948"><span id="local-6989586621679637950"><span id="local-6989586621679637952"><span id="local-6989586621679637954"><span class="annot"><span class="annottext">ReadPrec [GetOperationsForResourceResponse]
+ReadPrec GetOperationsForResourceResponse
+Int -&gt; ReadS GetOperationsForResourceResponse
+ReadS [GetOperationsForResourceResponse]
+(Int -&gt; ReadS GetOperationsForResourceResponse)
+-&gt; ReadS [GetOperationsForResourceResponse]
+-&gt; ReadPrec GetOperationsForResourceResponse
+-&gt; ReadPrec [GetOperationsForResourceResponse]
+-&gt; Read GetOperationsForResourceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetOperationsForResourceResponse]
+$creadListPrec :: ReadPrec [GetOperationsForResourceResponse]
+readPrec :: ReadPrec GetOperationsForResourceResponse
+$creadPrec :: ReadPrec GetOperationsForResourceResponse
+readList :: ReadS [GetOperationsForResourceResponse]
+$creadList :: ReadS [GetOperationsForResourceResponse]
+readsPrec :: Int -&gt; ReadS GetOperationsForResourceResponse
+$creadsPrec :: Int -&gt; ReadS GetOperationsForResourceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637942"><span id="local-6989586621679637944"><span id="local-6989586621679637946"><span class="annot"><span class="annottext">Int -&gt; GetOperationsForResourceResponse -&gt; ShowS
+[GetOperationsForResourceResponse] -&gt; ShowS
+GetOperationsForResourceResponse -&gt; String
+(Int -&gt; GetOperationsForResourceResponse -&gt; ShowS)
+-&gt; (GetOperationsForResourceResponse -&gt; String)
+-&gt; ([GetOperationsForResourceResponse] -&gt; ShowS)
+-&gt; Show GetOperationsForResourceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetOperationsForResourceResponse] -&gt; ShowS
+$cshowList :: [GetOperationsForResourceResponse] -&gt; ShowS
+show :: GetOperationsForResourceResponse -&gt; String
+$cshow :: GetOperationsForResourceResponse -&gt; String
+showsPrec :: Int -&gt; GetOperationsForResourceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetOperationsForResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetOperationsForResourceResponse
+ -&gt; Rep GetOperationsForResourceResponse x)
+-&gt; (forall x.
+    Rep GetOperationsForResourceResponse x
+    -&gt; GetOperationsForResourceResponse)
+-&gt; Generic GetOperationsForResourceResponse
+forall x.
+Rep GetOperationsForResourceResponse x
+-&gt; GetOperationsForResourceResponse
+forall x.
+GetOperationsForResourceResponse
+-&gt; Rep GetOperationsForResourceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetOperationsForResourceResponse x
+-&gt; GetOperationsForResourceResponse
+$cfrom :: forall x.
+GetOperationsForResourceResponse
+-&gt; Rep GetOperationsForResourceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'GetOperationsForResourceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'nextPageCount', 'getOperationsForResourceResponse_nextPageCount' - (Deprecated) Returns the number of pages of results that remain.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- In releases prior to June 12, 2017, this parameter returned @null@ by</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- the API. It is now deprecated, and the API returns the @next page token@</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- parameter instead.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'nextPageToken', 'getOperationsForResourceResponse_nextPageToken' - The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- A next page token is not returned if there are no more results to</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- display.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- To get the next page of results, perform another</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- @GetOperationsForResource@ request and specify the next page token using</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- the @pageToken@ parameter.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'operations', 'getOperationsForResourceResponse_operations' - An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'httpStatus', 'getOperationsForResourceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#newGetOperationsForResourceResponse"><span class="hs-identifier hs-type">newGetOperationsForResourceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse"><span class="hs-identifier hs-type">GetOperationsForResourceResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newGetOperationsForResourceResponse"><span class="annot"><span class="annottext">newGetOperationsForResourceResponse :: Int -&gt; GetOperationsForResourceResponse
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#newGetOperationsForResourceResponse"><span class="hs-identifier hs-var hs-var">newGetOperationsForResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679637939"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637939"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">GetOperationsForResourceResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Operation]
+-&gt; Int
+-&gt; GetOperationsForResourceResponse
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse%27"><span class="hs-identifier hs-type">GetOperationsForResourceResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextPageCount:GetOperationsForResourceResponse' :: Maybe Text
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3AnextPageCount%3AGetOperationsForResourceResponse%27"><span class="hs-identifier hs-var">nextPageCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextPageToken:GetOperationsForResourceResponse' :: Maybe Text
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3AnextPageToken%3AGetOperationsForResourceResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:operations:GetOperationsForResourceResponse' :: Maybe [Operation]
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3Aoperations%3AGetOperationsForResourceResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetOperationsForResourceResponse' :: Int
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3AhttpStatus%3AGetOperationsForResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637939"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | (Deprecated) Returns the number of pages of results that remain.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- In releases prior to June 12, 2017, this parameter returned @null@ by</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- the API. It is now deprecated, and the API returns the @next page token@</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- parameter instead.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResourceResponse_nextPageCount"><span class="hs-identifier hs-type">getOperationsForResourceResponse_nextPageCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse"><span class="hs-identifier hs-type">GetOperationsForResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="getOperationsForResourceResponse_nextPageCount"><span class="annot"><span class="annottext">getOperationsForResourceResponse_nextPageCount :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetOperationsForResourceResponse
+-&gt; f GetOperationsForResourceResponse
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResourceResponse_nextPageCount"><span class="hs-identifier hs-var hs-var">getOperationsForResourceResponse_nextPageCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOperationsForResourceResponse -&gt; Maybe Text)
+-&gt; (GetOperationsForResourceResponse
+    -&gt; Maybe Text -&gt; GetOperationsForResourceResponse)
+-&gt; Lens
+     GetOperationsForResourceResponse
+     GetOperationsForResourceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse%27"><span class="hs-identifier hs-type">GetOperationsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637938"><span class="annot"><span class="annottext">Maybe Text
+nextPageCount :: Maybe Text
+$sel:nextPageCount:GetOperationsForResourceResponse' :: GetOperationsForResourceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679637938"><span class="hs-identifier hs-var hs-var">nextPageCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679637938"><span class="hs-identifier hs-var">nextPageCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637937"><span class="annot"><span class="annottext">s :: GetOperationsForResourceResponse
+</span><a href="#local-6989586621679637937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse%27"><span class="hs-identifier hs-type">GetOperationsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637936"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679637936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOperationsForResourceResponse
+</span><a href="#local-6989586621679637937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageCount:GetOperationsForResourceResponse' :: Maybe Text
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3AnextPageCount%3AGetOperationsForResourceResponse%27"><span class="hs-identifier hs-var">nextPageCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679637936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse"><span class="hs-identifier hs-type">GetOperationsForResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- A next page token is not returned if there are no more results to</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- display.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- To get the next page of results, perform another</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- @GetOperationsForResource@ request and specify the next page token using</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- the @pageToken@ parameter.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResourceResponse_nextPageToken"><span class="hs-identifier hs-type">getOperationsForResourceResponse_nextPageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse"><span class="hs-identifier hs-type">GetOperationsForResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="getOperationsForResourceResponse_nextPageToken"><span class="annot"><span class="annottext">getOperationsForResourceResponse_nextPageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetOperationsForResourceResponse
+-&gt; f GetOperationsForResourceResponse
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResourceResponse_nextPageToken"><span class="hs-identifier hs-var hs-var">getOperationsForResourceResponse_nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOperationsForResourceResponse -&gt; Maybe Text)
+-&gt; (GetOperationsForResourceResponse
+    -&gt; Maybe Text -&gt; GetOperationsForResourceResponse)
+-&gt; Lens
+     GetOperationsForResourceResponse
+     GetOperationsForResourceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse%27"><span class="hs-identifier hs-type">GetOperationsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637935"><span class="annot"><span class="annottext">Maybe Text
+nextPageToken :: Maybe Text
+$sel:nextPageToken:GetOperationsForResourceResponse' :: GetOperationsForResourceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679637935"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679637935"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637934"><span class="annot"><span class="annottext">s :: GetOperationsForResourceResponse
+</span><a href="#local-6989586621679637934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse%27"><span class="hs-identifier hs-type">GetOperationsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637933"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679637933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOperationsForResourceResponse
+</span><a href="#local-6989586621679637934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:GetOperationsForResourceResponse' :: Maybe Text
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3AnextPageToken%3AGetOperationsForResourceResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679637933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse"><span class="hs-identifier hs-type">GetOperationsForResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResourceResponse_operations"><span class="hs-identifier hs-type">getOperationsForResourceResponse_operations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse"><span class="hs-identifier hs-type">GetOperationsForResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="getOperationsForResourceResponse_operations"><span class="annot"><span class="annottext">getOperationsForResourceResponse_operations :: (Maybe [Operation] -&gt; f (Maybe [Operation]))
+-&gt; GetOperationsForResourceResponse
+-&gt; f GetOperationsForResourceResponse
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResourceResponse_operations"><span class="hs-identifier hs-var hs-var">getOperationsForResourceResponse_operations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOperationsForResourceResponse -&gt; Maybe [Operation])
+-&gt; (GetOperationsForResourceResponse
+    -&gt; Maybe [Operation] -&gt; GetOperationsForResourceResponse)
+-&gt; Lens
+     GetOperationsForResourceResponse
+     GetOperationsForResourceResponse
+     (Maybe [Operation])
+     (Maybe [Operation])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse%27"><span class="hs-identifier hs-type">GetOperationsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637932"><span class="annot"><span class="annottext">Maybe [Operation]
+operations :: Maybe [Operation]
+$sel:operations:GetOperationsForResourceResponse' :: GetOperationsForResourceResponse -&gt; Maybe [Operation]
+</span><a href="#local-6989586621679637932"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679637932"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637931"><span class="annot"><span class="annottext">s :: GetOperationsForResourceResponse
+</span><a href="#local-6989586621679637931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse%27"><span class="hs-identifier hs-type">GetOperationsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637930"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679637930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOperationsForResourceResponse
+</span><a href="#local-6989586621679637931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:GetOperationsForResourceResponse' :: Maybe [Operation]
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3Aoperations%3AGetOperationsForResourceResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679637930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse"><span class="hs-identifier hs-type">GetOperationsForResourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+ -&gt; GetOperationsForResourceResponse
+ -&gt; f GetOperationsForResourceResponse)
+-&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
+    -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
+-&gt; (Maybe [Operation] -&gt; f (Maybe [Operation]))
+-&gt; GetOperationsForResourceResponse
+-&gt; f GetOperationsForResourceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
+-&gt; Iso
+     (Maybe [Operation])
+     (Maybe [Operation])
+     (Maybe [Operation])
+     (Maybe [Operation])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResourceResponse_httpStatus"><span class="hs-identifier hs-type">getOperationsForResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse"><span class="hs-identifier hs-type">GetOperationsForResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-250"></span><span id="getOperationsForResourceResponse_httpStatus"><span class="annot"><span class="annottext">getOperationsForResourceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetOperationsForResourceResponse
+-&gt; f GetOperationsForResourceResponse
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#getOperationsForResourceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getOperationsForResourceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOperationsForResourceResponse -&gt; Int)
+-&gt; (GetOperationsForResourceResponse
+    -&gt; Int -&gt; GetOperationsForResourceResponse)
+-&gt; Lens
+     GetOperationsForResourceResponse
+     GetOperationsForResourceResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse%27"><span class="hs-identifier hs-type">GetOperationsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637926"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetOperationsForResourceResponse' :: GetOperationsForResourceResponse -&gt; Int
+</span><a href="#local-6989586621679637926"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637926"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637925"><span class="annot"><span class="annottext">s :: GetOperationsForResourceResponse
+</span><a href="#local-6989586621679637925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse%27"><span class="hs-identifier hs-type">GetOperationsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637924"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOperationsForResourceResponse
+</span><a href="#local-6989586621679637925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetOperationsForResourceResponse' :: Int
+</span><a href="Amazonka.Lightsail.GetOperationsForResource.html#%24sel%3AhttpStatus%3AGetOperationsForResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse"><span class="hs-identifier hs-type">GetOperationsForResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679637922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetOperationsForResource.html#GetOperationsForResourceResponse"><span class="hs-identifier hs-type">GetOperationsForResourceResponse</span></a></span></span><span>
+</span><span id="line-255"></span></pre></body></html>

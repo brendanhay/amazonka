@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-3"></span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Module      : Amazonka.EBS</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-11"></span><span class="hs-comment">--</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Derived from API version @2019-11-02@ of the AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">--</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- You can use the Amazon Elastic Block Store (Amazon EBS) direct APIs to</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- create Amazon EBS snapshots, write data directly to your snapshots, read</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- data on your snapshots, and identify the differences or changes between</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- two snapshots. If you&#8217;re an independent software vendor (ISV) who offers</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- backup services for Amazon EBS, the EBS direct APIs make it more</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- efficient and cost-effective to track incremental changes on your Amazon</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- EBS volumes through snapshots. This can be done without having to create</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- new volumes from snapshots, and then use Amazon Elastic Compute Cloud</span><span>
+</span><span id="line-22"></span><span class="hs-comment">-- (Amazon EC2) instances to compare the differences.</span><span>
+</span><span id="line-23"></span><span class="hs-comment">--</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- You can create incremental snapshots directly from data on-premises into</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- volumes and the cloud to use for quick disaster recovery. With the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- ability to write and read snapshots, you can write your on-premises data</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- to an snapshot during a disaster. Then after recovery, you can restore</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- it back to Amazon Web Services or on-premises from the snapshot. You no</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- longer need to build and maintain complex mechanisms to copy data to and</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- from Amazon EBS.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- This API reference provides detailed information about the actions, data</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- types, parameters, and errors of the EBS direct APIs. For more</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- information about the elements that make up the EBS direct APIs, and</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- examples of how to use them effectively, see</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html Accessing the Contents of an Amazon EBS Snapshot&gt;</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/. For more information</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- about the supported Amazon Web Services Regions, endpoints, and service</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- quotas for the EBS direct APIs, see</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/ebs-service.html Amazon Elastic Block Store Endpoints and Quotas&gt;</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EBS</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- $errors</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ValidationException</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** AccessDeniedException</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.html#_AccessDeniedException"><span class="hs-identifier">_AccessDeniedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ConflictException</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.html#_ConflictException"><span class="hs-identifier">_ConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ServiceQuotaExceededException</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.html#_ServiceQuotaExceededException"><span class="hs-identifier">_ServiceQuotaExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ConcurrentLimitExceededException</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.html#_ConcurrentLimitExceededException"><span class="hs-identifier">_ConcurrentLimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** RequestThrottledException</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.html#_RequestThrottledException"><span class="hs-identifier">_RequestThrottledException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InternalServerException</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.html#_InternalServerException"><span class="hs-identifier">_InternalServerException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ResourceNotFoundException</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Waiters</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="hs-comment">-- $waiters</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- $operations</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** StartSnapshot</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.StartSnapshot.html#StartSnapshot"><span class="hs-identifier">StartSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.EBS.StartSnapshot.html#StartSnapshot%27"><span class="hs-identifier">StartSnapshot'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.StartSnapshot.html#newStartSnapshot"><span class="hs-identifier">newStartSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.StartSnapshot.html#StartSnapshotResponse"><span class="hs-identifier">StartSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.EBS.StartSnapshot.html#StartSnapshotResponse%27"><span class="hs-identifier">StartSnapshotResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.StartSnapshot.html#newStartSnapshotResponse"><span class="hs-identifier">newStartSnapshotResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListSnapshotBlocks</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.ListSnapshotBlocks.html#ListSnapshotBlocks"><span class="hs-identifier">ListSnapshotBlocks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.EBS.ListSnapshotBlocks.html#ListSnapshotBlocks%27"><span class="hs-identifier">ListSnapshotBlocks'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.ListSnapshotBlocks.html#newListSnapshotBlocks"><span class="hs-identifier">newListSnapshotBlocks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.ListSnapshotBlocks.html#ListSnapshotBlocksResponse"><span class="hs-identifier">ListSnapshotBlocksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.EBS.ListSnapshotBlocks.html#ListSnapshotBlocksResponse%27"><span class="hs-identifier">ListSnapshotBlocksResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.ListSnapshotBlocks.html#newListSnapshotBlocksResponse"><span class="hs-identifier">newListSnapshotBlocksResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PutSnapshotBlock</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier">PutSnapshotBlock</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier">PutSnapshotBlock'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.PutSnapshotBlock.html#newPutSnapshotBlock"><span class="hs-identifier">newPutSnapshotBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse"><span class="hs-identifier">PutSnapshotBlockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse%27"><span class="hs-identifier">PutSnapshotBlockResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.PutSnapshotBlock.html#newPutSnapshotBlockResponse"><span class="hs-identifier">newPutSnapshotBlockResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListChangedBlocks</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.ListChangedBlocks.html#ListChangedBlocks"><span class="hs-identifier">ListChangedBlocks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.EBS.ListChangedBlocks.html#ListChangedBlocks%27"><span class="hs-identifier">ListChangedBlocks'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.ListChangedBlocks.html#newListChangedBlocks"><span class="hs-identifier">newListChangedBlocks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.ListChangedBlocks.html#ListChangedBlocksResponse"><span class="hs-identifier">ListChangedBlocksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.EBS.ListChangedBlocks.html#ListChangedBlocksResponse%27"><span class="hs-identifier">ListChangedBlocksResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.ListChangedBlocks.html#newListChangedBlocksResponse"><span class="hs-identifier">newListChangedBlocksResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** CompleteSnapshot</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.CompleteSnapshot.html#CompleteSnapshot"><span class="hs-identifier">CompleteSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.EBS.CompleteSnapshot.html#CompleteSnapshot%27"><span class="hs-identifier">CompleteSnapshot'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.CompleteSnapshot.html#newCompleteSnapshot"><span class="hs-identifier">newCompleteSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.CompleteSnapshot.html#CompleteSnapshotResponse"><span class="hs-identifier">CompleteSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.EBS.CompleteSnapshot.html#CompleteSnapshotResponse%27"><span class="hs-identifier">CompleteSnapshotResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.CompleteSnapshot.html#newCompleteSnapshotResponse"><span class="hs-identifier">newCompleteSnapshotResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetSnapshotBlock</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier">GetSnapshotBlock</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.EBS.GetSnapshotBlock.html#GetSnapshotBlock%27"><span class="hs-identifier">GetSnapshotBlock'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.GetSnapshotBlock.html#newGetSnapshotBlock"><span class="hs-identifier">newGetSnapshotBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse"><span class="hs-identifier">GetSnapshotBlockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse%27"><span class="hs-identifier">GetSnapshotBlockResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.GetSnapshotBlock.html#newGetSnapshotBlockResponse"><span class="hs-identifier">newGetSnapshotBlockResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ChecksumAggregationMethod</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.ChecksumAggregationMethod.html#ChecksumAggregationMethod"><span class="hs-identifier">ChecksumAggregationMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ChecksumAlgorithm</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.ChecksumAlgorithm.html#ChecksumAlgorithm"><span class="hs-identifier">ChecksumAlgorithm</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Status</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.Status.html#Status"><span class="hs-identifier">Status</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Block</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.Block.html#Block"><span class="hs-identifier">Block</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.EBS.Types.Block.html#Block%27"><span class="hs-identifier">Block'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.Block.html#newBlock"><span class="hs-identifier">newBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ChangedBlock</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.ChangedBlock.html#ChangedBlock"><span class="hs-identifier">ChangedBlock</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.EBS.Types.ChangedBlock.html#ChangedBlock%27"><span class="hs-identifier">ChangedBlock'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.ChangedBlock.html#newChangedBlock"><span class="hs-identifier">newChangedBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Tag</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.Tag.html#Tag"><span class="hs-identifier">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.EBS.Types.Tag.html#Tag%27"><span class="hs-identifier">Tag'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.EBS.Types.Tag.html#newTag"><span class="hs-identifier">newTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EBS.CompleteSnapshot.html"><span class="hs-identifier">Amazonka.EBS.CompleteSnapshot</span></a></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EBS.GetSnapshotBlock.html"><span class="hs-identifier">Amazonka.EBS.GetSnapshotBlock</span></a></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EBS.Lens.html"><span class="hs-identifier">Amazonka.EBS.Lens</span></a></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EBS.ListChangedBlocks.html"><span class="hs-identifier">Amazonka.EBS.ListChangedBlocks</span></a></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EBS.ListSnapshotBlocks.html"><span class="hs-identifier">Amazonka.EBS.ListSnapshotBlocks</span></a></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EBS.PutSnapshotBlock.html"><span class="hs-identifier">Amazonka.EBS.PutSnapshotBlock</span></a></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EBS.StartSnapshot.html"><span class="hs-identifier">Amazonka.EBS.StartSnapshot</span></a></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EBS.Types.html"><span class="hs-identifier">Amazonka.EBS.Types</span></a></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EBS.Waiters.html"><span class="hs-identifier">Amazonka.EBS.Waiters</span></a></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- $errors</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Error matchers are designed for use with the functions provided by</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens&gt;.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- This allows catching (and rethrowing) service specific errors returned</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- by 'EBS'.</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- $operations</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Some AWS operations return results that are incomplete and require subsequent</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- requests in order to obtain the entire result set. The process of sending</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- subsequent requests to continue where a previous request left off is called</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 1000 objects at a time, and you must send subsequent requests with the</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- appropriate Marker in order to retrieve the next page of results.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Operations that have an 'AWSPager' instance can transparently perform subsequent</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- requests, correctly setting Markers and other request facets to iterate through</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- the entire result set of a truncated API operation. Operations which support</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- this have an additional note in the documentation.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Many operations have the ability to filter results on the server side. See the</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- individual operation parameters for details.</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- $waiters</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Waiters poll by repeatedly sending a request until some remote success condition</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- determines how many attempts should be made, in addition to delay and retry strategies.</span><span>
+</span><span id="line-176"></span></pre></body></html>

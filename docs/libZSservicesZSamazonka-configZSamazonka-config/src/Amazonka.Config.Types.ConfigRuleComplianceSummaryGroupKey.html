@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#ConfigRuleComplianceSummaryGroupKey"><span class="hs-identifier">ConfigRuleComplianceSummaryGroupKey</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#ConfigRuleComplianceSummaryGroupKey_ACCOUNT_ID"><span class="hs-identifier">ConfigRuleComplianceSummaryGroupKey_ACCOUNT_ID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#ConfigRuleComplianceSummaryGroupKey_AWS_REGION"><span class="hs-identifier">ConfigRuleComplianceSummaryGroupKey_AWS_REGION</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679396657"><span id="local-6989586621679396658"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConfigRuleComplianceSummaryGroupKey"><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#ConfigRuleComplianceSummaryGroupKey"><span class="hs-identifier hs-var">ConfigRuleComplianceSummaryGroupKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigRuleComplianceSummaryGroupKey%27"><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#ConfigRuleComplianceSummaryGroupKey%27"><span class="hs-identifier hs-var">ConfigRuleComplianceSummaryGroupKey'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConfigRuleComplianceSummaryGroupKey"><span class="annot"><span class="annottext">ConfigRuleComplianceSummaryGroupKey -&gt; Text
+</span><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#fromConfigRuleComplianceSummaryGroupKey"><span class="hs-identifier hs-var hs-var">fromConfigRuleComplianceSummaryGroupKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396649"><span id="local-6989586621679396651"><span id="local-6989586621679396653"><span class="annot"><span class="annottext">Int -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; ShowS
+[ConfigRuleComplianceSummaryGroupKey] -&gt; ShowS
+ConfigRuleComplianceSummaryGroupKey -&gt; String
+(Int -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; ShowS)
+-&gt; (ConfigRuleComplianceSummaryGroupKey -&gt; String)
+-&gt; ([ConfigRuleComplianceSummaryGroupKey] -&gt; ShowS)
+-&gt; Show ConfigRuleComplianceSummaryGroupKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConfigRuleComplianceSummaryGroupKey] -&gt; ShowS
+$cshowList :: [ConfigRuleComplianceSummaryGroupKey] -&gt; ShowS
+show :: ConfigRuleComplianceSummaryGroupKey -&gt; String
+$cshow :: ConfigRuleComplianceSummaryGroupKey -&gt; String
+showsPrec :: Int -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679396640"><span id="local-6989586621679396642"><span id="local-6989586621679396644"><span id="local-6989586621679396646"><span class="annot"><span class="annottext">ReadPrec [ConfigRuleComplianceSummaryGroupKey]
+ReadPrec ConfigRuleComplianceSummaryGroupKey
+Int -&gt; ReadS ConfigRuleComplianceSummaryGroupKey
+ReadS [ConfigRuleComplianceSummaryGroupKey]
+(Int -&gt; ReadS ConfigRuleComplianceSummaryGroupKey)
+-&gt; ReadS [ConfigRuleComplianceSummaryGroupKey]
+-&gt; ReadPrec ConfigRuleComplianceSummaryGroupKey
+-&gt; ReadPrec [ConfigRuleComplianceSummaryGroupKey]
+-&gt; Read ConfigRuleComplianceSummaryGroupKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConfigRuleComplianceSummaryGroupKey]
+$creadListPrec :: ReadPrec [ConfigRuleComplianceSummaryGroupKey]
+readPrec :: ReadPrec ConfigRuleComplianceSummaryGroupKey
+$creadPrec :: ReadPrec ConfigRuleComplianceSummaryGroupKey
+readList :: ReadS [ConfigRuleComplianceSummaryGroupKey]
+$creadList :: ReadS [ConfigRuleComplianceSummaryGroupKey]
+readsPrec :: Int -&gt; ReadS ConfigRuleComplianceSummaryGroupKey
+$creadsPrec :: Int -&gt; ReadS ConfigRuleComplianceSummaryGroupKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679396635"><span id="local-6989586621679396637"><span class="annot"><span class="annottext">ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool
+(ConfigRuleComplianceSummaryGroupKey
+ -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool)
+-&gt; (ConfigRuleComplianceSummaryGroupKey
+    -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool)
+-&gt; Eq ConfigRuleComplianceSummaryGroupKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool
+$c/= :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool
+== :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool
+$c== :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679396619"><span id="local-6989586621679396621"><span id="local-6989586621679396623"><span id="local-6989586621679396625"><span id="local-6989586621679396627"><span id="local-6989586621679396629"><span id="local-6989586621679396631"><span class="annot"><span class="annottext">Eq ConfigRuleComplianceSummaryGroupKey
+Eq ConfigRuleComplianceSummaryGroupKey
+-&gt; (ConfigRuleComplianceSummaryGroupKey
+    -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Ordering)
+-&gt; (ConfigRuleComplianceSummaryGroupKey
+    -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool)
+-&gt; (ConfigRuleComplianceSummaryGroupKey
+    -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool)
+-&gt; (ConfigRuleComplianceSummaryGroupKey
+    -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool)
+-&gt; (ConfigRuleComplianceSummaryGroupKey
+    -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool)
+-&gt; (ConfigRuleComplianceSummaryGroupKey
+    -&gt; ConfigRuleComplianceSummaryGroupKey
+    -&gt; ConfigRuleComplianceSummaryGroupKey)
+-&gt; (ConfigRuleComplianceSummaryGroupKey
+    -&gt; ConfigRuleComplianceSummaryGroupKey
+    -&gt; ConfigRuleComplianceSummaryGroupKey)
+-&gt; Ord ConfigRuleComplianceSummaryGroupKey
+ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool
+ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Ordering
+ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey
+$cmin :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey
+max :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey
+$cmax :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey
+&gt;= :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool
+$c&gt;= :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool
+&gt; :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool
+$c&gt; :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool
+&lt;= :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool
+$c&lt;= :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool
+&lt; :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool
+$c&lt; :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Bool
+compare :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Ordering
+$ccompare :: ConfigRuleComplianceSummaryGroupKey
+-&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Ordering
+$cp1Ord :: Eq ConfigRuleComplianceSummaryGroupKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ConfigRuleComplianceSummaryGroupKey
+ -&gt; Rep ConfigRuleComplianceSummaryGroupKey x)
+-&gt; (forall x.
+    Rep ConfigRuleComplianceSummaryGroupKey x
+    -&gt; ConfigRuleComplianceSummaryGroupKey)
+-&gt; Generic ConfigRuleComplianceSummaryGroupKey
+forall x.
+Rep ConfigRuleComplianceSummaryGroupKey x
+-&gt; ConfigRuleComplianceSummaryGroupKey
+forall x.
+ConfigRuleComplianceSummaryGroupKey
+-&gt; Rep ConfigRuleComplianceSummaryGroupKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ConfigRuleComplianceSummaryGroupKey x
+-&gt; ConfigRuleComplianceSummaryGroupKey
+$cfrom :: forall x.
+ConfigRuleComplianceSummaryGroupKey
+-&gt; Rep ConfigRuleComplianceSummaryGroupKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396611"><span id="local-6989586621679396613"><span class="annot"><span class="annottext">Int -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Int
+ConfigRuleComplianceSummaryGroupKey -&gt; Int
+(Int -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Int)
+-&gt; (ConfigRuleComplianceSummaryGroupKey -&gt; Int)
+-&gt; Hashable ConfigRuleComplianceSummaryGroupKey
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ConfigRuleComplianceSummaryGroupKey -&gt; Int
+$chash :: ConfigRuleComplianceSummaryGroupKey -&gt; Int
+hashWithSalt :: Int -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Int
+$chashWithSalt :: Int -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679396608"><span class="annot"><span class="annottext">ConfigRuleComplianceSummaryGroupKey -&gt; ()
+(ConfigRuleComplianceSummaryGroupKey -&gt; ())
+-&gt; NFData ConfigRuleComplianceSummaryGroupKey
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ConfigRuleComplianceSummaryGroupKey -&gt; ()
+$crnf :: ConfigRuleComplianceSummaryGroupKey -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679396605"><span class="annot"><span class="annottext">Text -&gt; Either String ConfigRuleComplianceSummaryGroupKey
+(Text -&gt; Either String ConfigRuleComplianceSummaryGroupKey)
+-&gt; FromText ConfigRuleComplianceSummaryGroupKey
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ConfigRuleComplianceSummaryGroupKey
+$cfromText :: Text -&gt; Either String ConfigRuleComplianceSummaryGroupKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679396602"><span class="annot"><span class="annottext">ConfigRuleComplianceSummaryGroupKey -&gt; Text
+(ConfigRuleComplianceSummaryGroupKey -&gt; Text)
+-&gt; ToText ConfigRuleComplianceSummaryGroupKey
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ConfigRuleComplianceSummaryGroupKey -&gt; Text
+$ctoText :: ConfigRuleComplianceSummaryGroupKey -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679396599"><span class="annot"><span class="annottext">ConfigRuleComplianceSummaryGroupKey -&gt; ByteString
+(ConfigRuleComplianceSummaryGroupKey -&gt; ByteString)
+-&gt; ToByteString ConfigRuleComplianceSummaryGroupKey
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ConfigRuleComplianceSummaryGroupKey -&gt; ByteString
+$ctoBS :: ConfigRuleComplianceSummaryGroupKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679396596"><span class="annot"><span class="annottext">ConfigRuleComplianceSummaryGroupKey -&gt; ByteStringBuilder
+(ConfigRuleComplianceSummaryGroupKey -&gt; ByteStringBuilder)
+-&gt; ToLog ConfigRuleComplianceSummaryGroupKey
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ConfigRuleComplianceSummaryGroupKey -&gt; ByteStringBuilder
+$cbuild :: ConfigRuleComplianceSummaryGroupKey -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679396593"><span class="annot"><span class="annottext">HeaderName -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; [Header]
+(HeaderName -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; [Header])
+-&gt; ToHeader ConfigRuleComplianceSummaryGroupKey
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ConfigRuleComplianceSummaryGroupKey -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679396590"><span class="annot"><span class="annottext">ConfigRuleComplianceSummaryGroupKey -&gt; QueryString
+(ConfigRuleComplianceSummaryGroupKey -&gt; QueryString)
+-&gt; ToQuery ConfigRuleComplianceSummaryGroupKey
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ConfigRuleComplianceSummaryGroupKey -&gt; QueryString
+$ctoQuery :: ConfigRuleComplianceSummaryGroupKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679396585"><span id="local-6989586621679396587"><span class="annot"><span class="annottext">Value -&gt; Parser [ConfigRuleComplianceSummaryGroupKey]
+Value -&gt; Parser ConfigRuleComplianceSummaryGroupKey
+(Value -&gt; Parser ConfigRuleComplianceSummaryGroupKey)
+-&gt; (Value -&gt; Parser [ConfigRuleComplianceSummaryGroupKey])
+-&gt; FromJSON ConfigRuleComplianceSummaryGroupKey
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ConfigRuleComplianceSummaryGroupKey]
+$cparseJSONList :: Value -&gt; Parser [ConfigRuleComplianceSummaryGroupKey]
+parseJSON :: Value -&gt; Parser ConfigRuleComplianceSummaryGroupKey
+$cparseJSON :: Value -&gt; Parser ConfigRuleComplianceSummaryGroupKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679396580"><span id="local-6989586621679396582"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConfigRuleComplianceSummaryGroupKey]
+FromJSONKeyFunction ConfigRuleComplianceSummaryGroupKey
+FromJSONKeyFunction ConfigRuleComplianceSummaryGroupKey
+-&gt; FromJSONKeyFunction [ConfigRuleComplianceSummaryGroupKey]
+-&gt; FromJSONKey ConfigRuleComplianceSummaryGroupKey
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ConfigRuleComplianceSummaryGroupKey]
+$cfromJSONKeyList :: FromJSONKeyFunction [ConfigRuleComplianceSummaryGroupKey]
+fromJSONKey :: FromJSONKeyFunction ConfigRuleComplianceSummaryGroupKey
+$cfromJSONKey :: FromJSONKeyFunction ConfigRuleComplianceSummaryGroupKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679396571"><span id="local-6989586621679396573"><span id="local-6989586621679396575"><span id="local-6989586621679396577"><span class="annot"><span class="annottext">[ConfigRuleComplianceSummaryGroupKey] -&gt; Encoding
+[ConfigRuleComplianceSummaryGroupKey] -&gt; Value
+ConfigRuleComplianceSummaryGroupKey -&gt; Encoding
+ConfigRuleComplianceSummaryGroupKey -&gt; Value
+(ConfigRuleComplianceSummaryGroupKey -&gt; Value)
+-&gt; (ConfigRuleComplianceSummaryGroupKey -&gt; Encoding)
+-&gt; ([ConfigRuleComplianceSummaryGroupKey] -&gt; Value)
+-&gt; ([ConfigRuleComplianceSummaryGroupKey] -&gt; Encoding)
+-&gt; ToJSON ConfigRuleComplianceSummaryGroupKey
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ConfigRuleComplianceSummaryGroupKey] -&gt; Encoding
+$ctoEncodingList :: [ConfigRuleComplianceSummaryGroupKey] -&gt; Encoding
+toJSONList :: [ConfigRuleComplianceSummaryGroupKey] -&gt; Value
+$ctoJSONList :: [ConfigRuleComplianceSummaryGroupKey] -&gt; Value
+toEncoding :: ConfigRuleComplianceSummaryGroupKey -&gt; Encoding
+$ctoEncoding :: ConfigRuleComplianceSummaryGroupKey -&gt; Encoding
+toJSON :: ConfigRuleComplianceSummaryGroupKey -&gt; Value
+$ctoJSON :: ConfigRuleComplianceSummaryGroupKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679396566"><span id="local-6989586621679396568"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConfigRuleComplianceSummaryGroupKey]
+ToJSONKeyFunction ConfigRuleComplianceSummaryGroupKey
+ToJSONKeyFunction ConfigRuleComplianceSummaryGroupKey
+-&gt; ToJSONKeyFunction [ConfigRuleComplianceSummaryGroupKey]
+-&gt; ToJSONKey ConfigRuleComplianceSummaryGroupKey
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ConfigRuleComplianceSummaryGroupKey]
+$ctoJSONKeyList :: ToJSONKeyFunction [ConfigRuleComplianceSummaryGroupKey]
+toJSONKey :: ToJSONKeyFunction ConfigRuleComplianceSummaryGroupKey
+$ctoJSONKey :: ToJSONKeyFunction ConfigRuleComplianceSummaryGroupKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679396563"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConfigRuleComplianceSummaryGroupKey
+([Node] -&gt; Either String ConfigRuleComplianceSummaryGroupKey)
+-&gt; FromXML ConfigRuleComplianceSummaryGroupKey
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ConfigRuleComplianceSummaryGroupKey
+$cparseXML :: [Node] -&gt; Either String ConfigRuleComplianceSummaryGroupKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679396560"><span class="annot"><span class="annottext">ConfigRuleComplianceSummaryGroupKey -&gt; XML
+(ConfigRuleComplianceSummaryGroupKey -&gt; XML)
+-&gt; ToXML ConfigRuleComplianceSummaryGroupKey
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ConfigRuleComplianceSummaryGroupKey -&gt; XML
+$ctoXML :: ConfigRuleComplianceSummaryGroupKey -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#ConfigRuleComplianceSummaryGroupKey_ACCOUNT_ID"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryGroupKey_ACCOUNT_ID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#ConfigRuleComplianceSummaryGroupKey"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryGroupKey</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConfigRuleComplianceSummaryGroupKey_ACCOUNT_ID"><span id="%24mConfigRuleComplianceSummaryGroupKey_ACCOUNT_ID"><span id="ConfigRuleComplianceSummaryGroupKey_ACCOUNT_ID"><span class="annot"><span class="annottext">$bConfigRuleComplianceSummaryGroupKey_ACCOUNT_ID :: ConfigRuleComplianceSummaryGroupKey
+$mConfigRuleComplianceSummaryGroupKey_ACCOUNT_ID :: forall r.
+ConfigRuleComplianceSummaryGroupKey
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#%24bConfigRuleComplianceSummaryGroupKey_ACCOUNT_ID"><span class="hs-identifier hs-var hs-var hs-var">ConfigRuleComplianceSummaryGroupKey_ACCOUNT_ID</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#ConfigRuleComplianceSummaryGroupKey%27"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryGroupKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACCOUNT_ID&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#ConfigRuleComplianceSummaryGroupKey_AWS_REGION"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryGroupKey_AWS_REGION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#ConfigRuleComplianceSummaryGroupKey"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryGroupKey</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConfigRuleComplianceSummaryGroupKey_AWS_REGION"><span id="%24mConfigRuleComplianceSummaryGroupKey_AWS_REGION"><span id="ConfigRuleComplianceSummaryGroupKey_AWS_REGION"><span class="annot"><span class="annottext">$bConfigRuleComplianceSummaryGroupKey_AWS_REGION :: ConfigRuleComplianceSummaryGroupKey
+$mConfigRuleComplianceSummaryGroupKey_AWS_REGION :: forall r.
+ConfigRuleComplianceSummaryGroupKey
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#%24bConfigRuleComplianceSummaryGroupKey_AWS_REGION"><span class="hs-identifier hs-var hs-var hs-var">ConfigRuleComplianceSummaryGroupKey_AWS_REGION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#ConfigRuleComplianceSummaryGroupKey%27"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryGroupKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWS_REGION&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#ConfigRuleComplianceSummaryGroupKey_ACCOUNT_ID"><span class="hs-pragma hs-type">ConfigRuleComplianceSummaryGroupKey_ACCOUNT_ID</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#ConfigRuleComplianceSummaryGroupKey_AWS_REGION"><span class="hs-pragma hs-type">ConfigRuleComplianceSummaryGroupKey_AWS_REGION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey.html#ConfigRuleComplianceSummaryGroupKey%27"><span class="hs-pragma hs-type">ConfigRuleComplianceSummaryGroupKey'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

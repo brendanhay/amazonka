@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppFlow.Types.DynatraceConnectorOperator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppFlow.Types.DynatraceConnectorOperator</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_ADDITION"><span class="hs-identifier">DynatraceConnectorOperator_ADDITION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_BETWEEN"><span class="hs-identifier">DynatraceConnectorOperator_BETWEEN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_DIVISION"><span class="hs-identifier">DynatraceConnectorOperator_DIVISION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_EQUAL_TO"><span class="hs-identifier">DynatraceConnectorOperator_EQUAL_TO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_MASK_ALL"><span class="hs-identifier">DynatraceConnectorOperator_MASK_ALL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_MASK_FIRST_N"><span class="hs-identifier">DynatraceConnectorOperator_MASK_FIRST_N</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_MASK_LAST_N"><span class="hs-identifier">DynatraceConnectorOperator_MASK_LAST_N</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_MULTIPLICATION"><span class="hs-identifier">DynatraceConnectorOperator_MULTIPLICATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_NO_OP"><span class="hs-identifier">DynatraceConnectorOperator_NO_OP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_PROJECTION"><span class="hs-identifier">DynatraceConnectorOperator_PROJECTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_SUBTRACTION"><span class="hs-identifier">DynatraceConnectorOperator_SUBTRACTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier">DynatraceConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier">DynatraceConnectorOperator_VALIDATE_NON_NULL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier">DynatraceConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier">DynatraceConnectorOperator_VALIDATE_NUMERIC</span></a></span><span>
+</span><span id="line-38"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679313948"><span id="local-6989586621679313949"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DynatraceConnectorOperator"><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-var">DynatraceConnectorOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DynatraceConnectorOperator%27"><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-var">DynatraceConnectorOperator'</span></a></span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDynatraceConnectorOperator"><span class="annot"><span class="annottext">DynatraceConnectorOperator -&gt; Text
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#fromDynatraceConnectorOperator"><span class="hs-identifier hs-var hs-var">fromDynatraceConnectorOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679313940"><span id="local-6989586621679313942"><span id="local-6989586621679313944"><span class="annot"><span class="annottext">Int -&gt; DynatraceConnectorOperator -&gt; ShowS
+[DynatraceConnectorOperator] -&gt; ShowS
+DynatraceConnectorOperator -&gt; String
+(Int -&gt; DynatraceConnectorOperator -&gt; ShowS)
+-&gt; (DynatraceConnectorOperator -&gt; String)
+-&gt; ([DynatraceConnectorOperator] -&gt; ShowS)
+-&gt; Show DynatraceConnectorOperator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DynatraceConnectorOperator] -&gt; ShowS
+$cshowList :: [DynatraceConnectorOperator] -&gt; ShowS
+show :: DynatraceConnectorOperator -&gt; String
+$cshow :: DynatraceConnectorOperator -&gt; String
+showsPrec :: Int -&gt; DynatraceConnectorOperator -&gt; ShowS
+$cshowsPrec :: Int -&gt; DynatraceConnectorOperator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679313931"><span id="local-6989586621679313933"><span id="local-6989586621679313935"><span id="local-6989586621679313937"><span class="annot"><span class="annottext">ReadPrec [DynatraceConnectorOperator]
+ReadPrec DynatraceConnectorOperator
+Int -&gt; ReadS DynatraceConnectorOperator
+ReadS [DynatraceConnectorOperator]
+(Int -&gt; ReadS DynatraceConnectorOperator)
+-&gt; ReadS [DynatraceConnectorOperator]
+-&gt; ReadPrec DynatraceConnectorOperator
+-&gt; ReadPrec [DynatraceConnectorOperator]
+-&gt; Read DynatraceConnectorOperator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DynatraceConnectorOperator]
+$creadListPrec :: ReadPrec [DynatraceConnectorOperator]
+readPrec :: ReadPrec DynatraceConnectorOperator
+$creadPrec :: ReadPrec DynatraceConnectorOperator
+readList :: ReadS [DynatraceConnectorOperator]
+$creadList :: ReadS [DynatraceConnectorOperator]
+readsPrec :: Int -&gt; ReadS DynatraceConnectorOperator
+$creadsPrec :: Int -&gt; ReadS DynatraceConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679313926"><span id="local-6989586621679313928"><span class="annot"><span class="annottext">DynatraceConnectorOperator -&gt; DynatraceConnectorOperator -&gt; Bool
+(DynatraceConnectorOperator -&gt; DynatraceConnectorOperator -&gt; Bool)
+-&gt; (DynatraceConnectorOperator
+    -&gt; DynatraceConnectorOperator -&gt; Bool)
+-&gt; Eq DynatraceConnectorOperator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DynatraceConnectorOperator -&gt; DynatraceConnectorOperator -&gt; Bool
+$c/= :: DynatraceConnectorOperator -&gt; DynatraceConnectorOperator -&gt; Bool
+== :: DynatraceConnectorOperator -&gt; DynatraceConnectorOperator -&gt; Bool
+$c== :: DynatraceConnectorOperator -&gt; DynatraceConnectorOperator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679313910"><span id="local-6989586621679313912"><span id="local-6989586621679313914"><span id="local-6989586621679313916"><span id="local-6989586621679313918"><span id="local-6989586621679313920"><span id="local-6989586621679313922"><span class="annot"><span class="annottext">Eq DynatraceConnectorOperator
+Eq DynatraceConnectorOperator
+-&gt; (DynatraceConnectorOperator
+    -&gt; DynatraceConnectorOperator -&gt; Ordering)
+-&gt; (DynatraceConnectorOperator
+    -&gt; DynatraceConnectorOperator -&gt; Bool)
+-&gt; (DynatraceConnectorOperator
+    -&gt; DynatraceConnectorOperator -&gt; Bool)
+-&gt; (DynatraceConnectorOperator
+    -&gt; DynatraceConnectorOperator -&gt; Bool)
+-&gt; (DynatraceConnectorOperator
+    -&gt; DynatraceConnectorOperator -&gt; Bool)
+-&gt; (DynatraceConnectorOperator
+    -&gt; DynatraceConnectorOperator -&gt; DynatraceConnectorOperator)
+-&gt; (DynatraceConnectorOperator
+    -&gt; DynatraceConnectorOperator -&gt; DynatraceConnectorOperator)
+-&gt; Ord DynatraceConnectorOperator
+DynatraceConnectorOperator -&gt; DynatraceConnectorOperator -&gt; Bool
+DynatraceConnectorOperator
+-&gt; DynatraceConnectorOperator -&gt; Ordering
+DynatraceConnectorOperator
+-&gt; DynatraceConnectorOperator -&gt; DynatraceConnectorOperator
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DynatraceConnectorOperator
+-&gt; DynatraceConnectorOperator -&gt; DynatraceConnectorOperator
+$cmin :: DynatraceConnectorOperator
+-&gt; DynatraceConnectorOperator -&gt; DynatraceConnectorOperator
+max :: DynatraceConnectorOperator
+-&gt; DynatraceConnectorOperator -&gt; DynatraceConnectorOperator
+$cmax :: DynatraceConnectorOperator
+-&gt; DynatraceConnectorOperator -&gt; DynatraceConnectorOperator
+&gt;= :: DynatraceConnectorOperator -&gt; DynatraceConnectorOperator -&gt; Bool
+$c&gt;= :: DynatraceConnectorOperator -&gt; DynatraceConnectorOperator -&gt; Bool
+&gt; :: DynatraceConnectorOperator -&gt; DynatraceConnectorOperator -&gt; Bool
+$c&gt; :: DynatraceConnectorOperator -&gt; DynatraceConnectorOperator -&gt; Bool
+&lt;= :: DynatraceConnectorOperator -&gt; DynatraceConnectorOperator -&gt; Bool
+$c&lt;= :: DynatraceConnectorOperator -&gt; DynatraceConnectorOperator -&gt; Bool
+&lt; :: DynatraceConnectorOperator -&gt; DynatraceConnectorOperator -&gt; Bool
+$c&lt; :: DynatraceConnectorOperator -&gt; DynatraceConnectorOperator -&gt; Bool
+compare :: DynatraceConnectorOperator
+-&gt; DynatraceConnectorOperator -&gt; Ordering
+$ccompare :: DynatraceConnectorOperator
+-&gt; DynatraceConnectorOperator -&gt; Ordering
+$cp1Ord :: Eq DynatraceConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DynatraceConnectorOperator -&gt; Rep DynatraceConnectorOperator x)
+-&gt; (forall x.
+    Rep DynatraceConnectorOperator x -&gt; DynatraceConnectorOperator)
+-&gt; Generic DynatraceConnectorOperator
+forall x.
+Rep DynatraceConnectorOperator x -&gt; DynatraceConnectorOperator
+forall x.
+DynatraceConnectorOperator -&gt; Rep DynatraceConnectorOperator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DynatraceConnectorOperator x -&gt; DynatraceConnectorOperator
+$cfrom :: forall x.
+DynatraceConnectorOperator -&gt; Rep DynatraceConnectorOperator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679313902"><span id="local-6989586621679313904"><span class="annot"><span class="annottext">Int -&gt; DynatraceConnectorOperator -&gt; Int
+DynatraceConnectorOperator -&gt; Int
+(Int -&gt; DynatraceConnectorOperator -&gt; Int)
+-&gt; (DynatraceConnectorOperator -&gt; Int)
+-&gt; Hashable DynatraceConnectorOperator
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DynatraceConnectorOperator -&gt; Int
+$chash :: DynatraceConnectorOperator -&gt; Int
+hashWithSalt :: Int -&gt; DynatraceConnectorOperator -&gt; Int
+$chashWithSalt :: Int -&gt; DynatraceConnectorOperator -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679313899"><span class="annot"><span class="annottext">DynatraceConnectorOperator -&gt; ()
+(DynatraceConnectorOperator -&gt; ())
+-&gt; NFData DynatraceConnectorOperator
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DynatraceConnectorOperator -&gt; ()
+$crnf :: DynatraceConnectorOperator -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679313896"><span class="annot"><span class="annottext">Text -&gt; Either String DynatraceConnectorOperator
+(Text -&gt; Either String DynatraceConnectorOperator)
+-&gt; FromText DynatraceConnectorOperator
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DynatraceConnectorOperator
+$cfromText :: Text -&gt; Either String DynatraceConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679313893"><span class="annot"><span class="annottext">DynatraceConnectorOperator -&gt; Text
+(DynatraceConnectorOperator -&gt; Text)
+-&gt; ToText DynatraceConnectorOperator
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DynatraceConnectorOperator -&gt; Text
+$ctoText :: DynatraceConnectorOperator -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679313890"><span class="annot"><span class="annottext">DynatraceConnectorOperator -&gt; ByteString
+(DynatraceConnectorOperator -&gt; ByteString)
+-&gt; ToByteString DynatraceConnectorOperator
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DynatraceConnectorOperator -&gt; ByteString
+$ctoBS :: DynatraceConnectorOperator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679313887"><span class="annot"><span class="annottext">DynatraceConnectorOperator -&gt; ByteStringBuilder
+(DynatraceConnectorOperator -&gt; ByteStringBuilder)
+-&gt; ToLog DynatraceConnectorOperator
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DynatraceConnectorOperator -&gt; ByteStringBuilder
+$cbuild :: DynatraceConnectorOperator -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679313884"><span class="annot"><span class="annottext">HeaderName -&gt; DynatraceConnectorOperator -&gt; [Header]
+(HeaderName -&gt; DynatraceConnectorOperator -&gt; [Header])
+-&gt; ToHeader DynatraceConnectorOperator
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DynatraceConnectorOperator -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DynatraceConnectorOperator -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679313881"><span class="annot"><span class="annottext">DynatraceConnectorOperator -&gt; QueryString
+(DynatraceConnectorOperator -&gt; QueryString)
+-&gt; ToQuery DynatraceConnectorOperator
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DynatraceConnectorOperator -&gt; QueryString
+$ctoQuery :: DynatraceConnectorOperator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679313876"><span id="local-6989586621679313878"><span class="annot"><span class="annottext">Value -&gt; Parser [DynatraceConnectorOperator]
+Value -&gt; Parser DynatraceConnectorOperator
+(Value -&gt; Parser DynatraceConnectorOperator)
+-&gt; (Value -&gt; Parser [DynatraceConnectorOperator])
+-&gt; FromJSON DynatraceConnectorOperator
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DynatraceConnectorOperator]
+$cparseJSONList :: Value -&gt; Parser [DynatraceConnectorOperator]
+parseJSON :: Value -&gt; Parser DynatraceConnectorOperator
+$cparseJSON :: Value -&gt; Parser DynatraceConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679313871"><span id="local-6989586621679313873"><span class="annot"><span class="annottext">FromJSONKeyFunction [DynatraceConnectorOperator]
+FromJSONKeyFunction DynatraceConnectorOperator
+FromJSONKeyFunction DynatraceConnectorOperator
+-&gt; FromJSONKeyFunction [DynatraceConnectorOperator]
+-&gt; FromJSONKey DynatraceConnectorOperator
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DynatraceConnectorOperator]
+$cfromJSONKeyList :: FromJSONKeyFunction [DynatraceConnectorOperator]
+fromJSONKey :: FromJSONKeyFunction DynatraceConnectorOperator
+$cfromJSONKey :: FromJSONKeyFunction DynatraceConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679313862"><span id="local-6989586621679313864"><span id="local-6989586621679313866"><span id="local-6989586621679313868"><span class="annot"><span class="annottext">[DynatraceConnectorOperator] -&gt; Encoding
+[DynatraceConnectorOperator] -&gt; Value
+DynatraceConnectorOperator -&gt; Encoding
+DynatraceConnectorOperator -&gt; Value
+(DynatraceConnectorOperator -&gt; Value)
+-&gt; (DynatraceConnectorOperator -&gt; Encoding)
+-&gt; ([DynatraceConnectorOperator] -&gt; Value)
+-&gt; ([DynatraceConnectorOperator] -&gt; Encoding)
+-&gt; ToJSON DynatraceConnectorOperator
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DynatraceConnectorOperator] -&gt; Encoding
+$ctoEncodingList :: [DynatraceConnectorOperator] -&gt; Encoding
+toJSONList :: [DynatraceConnectorOperator] -&gt; Value
+$ctoJSONList :: [DynatraceConnectorOperator] -&gt; Value
+toEncoding :: DynatraceConnectorOperator -&gt; Encoding
+$ctoEncoding :: DynatraceConnectorOperator -&gt; Encoding
+toJSON :: DynatraceConnectorOperator -&gt; Value
+$ctoJSON :: DynatraceConnectorOperator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679313857"><span id="local-6989586621679313859"><span class="annot"><span class="annottext">ToJSONKeyFunction [DynatraceConnectorOperator]
+ToJSONKeyFunction DynatraceConnectorOperator
+ToJSONKeyFunction DynatraceConnectorOperator
+-&gt; ToJSONKeyFunction [DynatraceConnectorOperator]
+-&gt; ToJSONKey DynatraceConnectorOperator
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DynatraceConnectorOperator]
+$ctoJSONKeyList :: ToJSONKeyFunction [DynatraceConnectorOperator]
+toJSONKey :: ToJSONKeyFunction DynatraceConnectorOperator
+$ctoJSONKey :: ToJSONKeyFunction DynatraceConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679313854"><span class="annot"><span class="annottext">[Node] -&gt; Either String DynatraceConnectorOperator
+([Node] -&gt; Either String DynatraceConnectorOperator)
+-&gt; FromXML DynatraceConnectorOperator
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DynatraceConnectorOperator
+$cparseXML :: [Node] -&gt; Either String DynatraceConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679313851"><span class="annot"><span class="annottext">DynatraceConnectorOperator -&gt; XML
+(DynatraceConnectorOperator -&gt; XML)
+-&gt; ToXML DynatraceConnectorOperator
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DynatraceConnectorOperator -&gt; XML
+$ctoXML :: DynatraceConnectorOperator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_ADDITION"><span class="hs-identifier hs-type">DynatraceConnectorOperator_ADDITION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-type">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDynatraceConnectorOperator_ADDITION"><span id="%24mDynatraceConnectorOperator_ADDITION"><span id="DynatraceConnectorOperator_ADDITION"><span class="annot"><span class="annottext">$bDynatraceConnectorOperator_ADDITION :: DynatraceConnectorOperator
+$mDynatraceConnectorOperator_ADDITION :: forall r.
+DynatraceConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#%24bDynatraceConnectorOperator_ADDITION"><span class="hs-identifier hs-var hs-var hs-var">DynatraceConnectorOperator_ADDITION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-type">DynatraceConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADDITION&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_BETWEEN"><span class="hs-identifier hs-type">DynatraceConnectorOperator_BETWEEN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-type">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDynatraceConnectorOperator_BETWEEN"><span id="%24mDynatraceConnectorOperator_BETWEEN"><span id="DynatraceConnectorOperator_BETWEEN"><span class="annot"><span class="annottext">$bDynatraceConnectorOperator_BETWEEN :: DynatraceConnectorOperator
+$mDynatraceConnectorOperator_BETWEEN :: forall r.
+DynatraceConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#%24bDynatraceConnectorOperator_BETWEEN"><span class="hs-identifier hs-var hs-var hs-var">DynatraceConnectorOperator_BETWEEN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-type">DynatraceConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BETWEEN&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_DIVISION"><span class="hs-identifier hs-type">DynatraceConnectorOperator_DIVISION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-type">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDynatraceConnectorOperator_DIVISION"><span id="%24mDynatraceConnectorOperator_DIVISION"><span id="DynatraceConnectorOperator_DIVISION"><span class="annot"><span class="annottext">$bDynatraceConnectorOperator_DIVISION :: DynatraceConnectorOperator
+$mDynatraceConnectorOperator_DIVISION :: forall r.
+DynatraceConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#%24bDynatraceConnectorOperator_DIVISION"><span class="hs-identifier hs-var hs-var hs-var">DynatraceConnectorOperator_DIVISION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-type">DynatraceConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DIVISION&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_EQUAL_TO"><span class="hs-identifier hs-type">DynatraceConnectorOperator_EQUAL_TO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-type">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDynatraceConnectorOperator_EQUAL_TO"><span id="%24mDynatraceConnectorOperator_EQUAL_TO"><span id="DynatraceConnectorOperator_EQUAL_TO"><span class="annot"><span class="annottext">$bDynatraceConnectorOperator_EQUAL_TO :: DynatraceConnectorOperator
+$mDynatraceConnectorOperator_EQUAL_TO :: forall r.
+DynatraceConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#%24bDynatraceConnectorOperator_EQUAL_TO"><span class="hs-identifier hs-var hs-var hs-var">DynatraceConnectorOperator_EQUAL_TO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-type">DynatraceConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EQUAL_TO&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_MASK_ALL"><span class="hs-identifier hs-type">DynatraceConnectorOperator_MASK_ALL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-type">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDynatraceConnectorOperator_MASK_ALL"><span id="%24mDynatraceConnectorOperator_MASK_ALL"><span id="DynatraceConnectorOperator_MASK_ALL"><span class="annot"><span class="annottext">$bDynatraceConnectorOperator_MASK_ALL :: DynatraceConnectorOperator
+$mDynatraceConnectorOperator_MASK_ALL :: forall r.
+DynatraceConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#%24bDynatraceConnectorOperator_MASK_ALL"><span class="hs-identifier hs-var hs-var hs-var">DynatraceConnectorOperator_MASK_ALL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-type">DynatraceConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_ALL&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_MASK_FIRST_N"><span class="hs-identifier hs-type">DynatraceConnectorOperator_MASK_FIRST_N</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-type">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDynatraceConnectorOperator_MASK_FIRST_N"><span id="%24mDynatraceConnectorOperator_MASK_FIRST_N"><span id="DynatraceConnectorOperator_MASK_FIRST_N"><span class="annot"><span class="annottext">$bDynatraceConnectorOperator_MASK_FIRST_N :: DynatraceConnectorOperator
+$mDynatraceConnectorOperator_MASK_FIRST_N :: forall r.
+DynatraceConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#%24bDynatraceConnectorOperator_MASK_FIRST_N"><span class="hs-identifier hs-var hs-var hs-var">DynatraceConnectorOperator_MASK_FIRST_N</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-type">DynatraceConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_FIRST_N&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_MASK_LAST_N"><span class="hs-identifier hs-type">DynatraceConnectorOperator_MASK_LAST_N</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-type">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDynatraceConnectorOperator_MASK_LAST_N"><span id="%24mDynatraceConnectorOperator_MASK_LAST_N"><span id="DynatraceConnectorOperator_MASK_LAST_N"><span class="annot"><span class="annottext">$bDynatraceConnectorOperator_MASK_LAST_N :: DynatraceConnectorOperator
+$mDynatraceConnectorOperator_MASK_LAST_N :: forall r.
+DynatraceConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#%24bDynatraceConnectorOperator_MASK_LAST_N"><span class="hs-identifier hs-var hs-var hs-var">DynatraceConnectorOperator_MASK_LAST_N</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-type">DynatraceConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_LAST_N&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_MULTIPLICATION"><span class="hs-identifier hs-type">DynatraceConnectorOperator_MULTIPLICATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-type">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDynatraceConnectorOperator_MULTIPLICATION"><span id="%24mDynatraceConnectorOperator_MULTIPLICATION"><span id="DynatraceConnectorOperator_MULTIPLICATION"><span class="annot"><span class="annottext">$bDynatraceConnectorOperator_MULTIPLICATION :: DynatraceConnectorOperator
+$mDynatraceConnectorOperator_MULTIPLICATION :: forall r.
+DynatraceConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#%24bDynatraceConnectorOperator_MULTIPLICATION"><span class="hs-identifier hs-var hs-var hs-var">DynatraceConnectorOperator_MULTIPLICATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-type">DynatraceConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MULTIPLICATION&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_NO_OP"><span class="hs-identifier hs-type">DynatraceConnectorOperator_NO_OP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-type">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDynatraceConnectorOperator_NO_OP"><span id="%24mDynatraceConnectorOperator_NO_OP"><span id="DynatraceConnectorOperator_NO_OP"><span class="annot"><span class="annottext">$bDynatraceConnectorOperator_NO_OP :: DynatraceConnectorOperator
+$mDynatraceConnectorOperator_NO_OP :: forall r.
+DynatraceConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#%24bDynatraceConnectorOperator_NO_OP"><span class="hs-identifier hs-var hs-var hs-var">DynatraceConnectorOperator_NO_OP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-type">DynatraceConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_OP&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_PROJECTION"><span class="hs-identifier hs-type">DynatraceConnectorOperator_PROJECTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-type">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDynatraceConnectorOperator_PROJECTION"><span id="%24mDynatraceConnectorOperator_PROJECTION"><span id="DynatraceConnectorOperator_PROJECTION"><span class="annot"><span class="annottext">$bDynatraceConnectorOperator_PROJECTION :: DynatraceConnectorOperator
+$mDynatraceConnectorOperator_PROJECTION :: forall r.
+DynatraceConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#%24bDynatraceConnectorOperator_PROJECTION"><span class="hs-identifier hs-var hs-var hs-var">DynatraceConnectorOperator_PROJECTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-type">DynatraceConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROJECTION&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_SUBTRACTION"><span class="hs-identifier hs-type">DynatraceConnectorOperator_SUBTRACTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-type">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDynatraceConnectorOperator_SUBTRACTION"><span id="%24mDynatraceConnectorOperator_SUBTRACTION"><span id="DynatraceConnectorOperator_SUBTRACTION"><span class="annot"><span class="annottext">$bDynatraceConnectorOperator_SUBTRACTION :: DynatraceConnectorOperator
+$mDynatraceConnectorOperator_SUBTRACTION :: forall r.
+DynatraceConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#%24bDynatraceConnectorOperator_SUBTRACTION"><span class="hs-identifier hs-var hs-var hs-var">DynatraceConnectorOperator_SUBTRACTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-type">DynatraceConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUBTRACTION&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier hs-type">DynatraceConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-type">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDynatraceConnectorOperator_VALIDATE_NON_NEGATIVE"><span id="%24mDynatraceConnectorOperator_VALIDATE_NON_NEGATIVE"><span id="DynatraceConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="annot"><span class="annottext">$bDynatraceConnectorOperator_VALIDATE_NON_NEGATIVE :: DynatraceConnectorOperator
+$mDynatraceConnectorOperator_VALIDATE_NON_NEGATIVE :: forall r.
+DynatraceConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#%24bDynatraceConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier hs-var hs-var hs-var">DynatraceConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-type">DynatraceConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_NEGATIVE&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier hs-type">DynatraceConnectorOperator_VALIDATE_NON_NULL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-type">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDynatraceConnectorOperator_VALIDATE_NON_NULL"><span id="%24mDynatraceConnectorOperator_VALIDATE_NON_NULL"><span id="DynatraceConnectorOperator_VALIDATE_NON_NULL"><span class="annot"><span class="annottext">$bDynatraceConnectorOperator_VALIDATE_NON_NULL :: DynatraceConnectorOperator
+$mDynatraceConnectorOperator_VALIDATE_NON_NULL :: forall r.
+DynatraceConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#%24bDynatraceConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier hs-var hs-var hs-var">DynatraceConnectorOperator_VALIDATE_NON_NULL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-type">DynatraceConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_NULL&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier hs-type">DynatraceConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-type">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDynatraceConnectorOperator_VALIDATE_NON_ZERO"><span id="%24mDynatraceConnectorOperator_VALIDATE_NON_ZERO"><span id="DynatraceConnectorOperator_VALIDATE_NON_ZERO"><span class="annot"><span class="annottext">$bDynatraceConnectorOperator_VALIDATE_NON_ZERO :: DynatraceConnectorOperator
+$mDynatraceConnectorOperator_VALIDATE_NON_ZERO :: forall r.
+DynatraceConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#%24bDynatraceConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier hs-var hs-var hs-var">DynatraceConnectorOperator_VALIDATE_NON_ZERO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-type">DynatraceConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_ZERO&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier hs-type">DynatraceConnectorOperator_VALIDATE_NUMERIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator"><span class="hs-identifier hs-type">DynatraceConnectorOperator</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDynatraceConnectorOperator_VALIDATE_NUMERIC"><span id="%24mDynatraceConnectorOperator_VALIDATE_NUMERIC"><span id="DynatraceConnectorOperator_VALIDATE_NUMERIC"><span class="annot"><span class="annottext">$bDynatraceConnectorOperator_VALIDATE_NUMERIC :: DynatraceConnectorOperator
+$mDynatraceConnectorOperator_VALIDATE_NUMERIC :: forall r.
+DynatraceConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#%24bDynatraceConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier hs-var hs-var hs-var">DynatraceConnectorOperator_VALIDATE_NUMERIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-identifier hs-type">DynatraceConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NUMERIC&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_ADDITION"><span class="hs-pragma hs-type">DynatraceConnectorOperator_ADDITION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_BETWEEN"><span class="hs-pragma hs-type">DynatraceConnectorOperator_BETWEEN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_DIVISION"><span class="hs-pragma hs-type">DynatraceConnectorOperator_DIVISION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_EQUAL_TO"><span class="hs-pragma hs-type">DynatraceConnectorOperator_EQUAL_TO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_MASK_ALL"><span class="hs-pragma hs-type">DynatraceConnectorOperator_MASK_ALL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_MASK_FIRST_N"><span class="hs-pragma hs-type">DynatraceConnectorOperator_MASK_FIRST_N</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_MASK_LAST_N"><span class="hs-pragma hs-type">DynatraceConnectorOperator_MASK_LAST_N</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_MULTIPLICATION"><span class="hs-pragma hs-type">DynatraceConnectorOperator_MULTIPLICATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_NO_OP"><span class="hs-pragma hs-type">DynatraceConnectorOperator_NO_OP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_PROJECTION"><span class="hs-pragma hs-type">DynatraceConnectorOperator_PROJECTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_SUBTRACTION"><span class="hs-pragma hs-type">DynatraceConnectorOperator_SUBTRACTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-pragma hs-type">DynatraceConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_VALIDATE_NON_NULL"><span class="hs-pragma hs-type">DynatraceConnectorOperator_VALIDATE_NON_NULL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-pragma hs-type">DynatraceConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator_VALIDATE_NUMERIC"><span class="hs-pragma hs-type">DynatraceConnectorOperator_VALIDATE_NUMERIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.DynatraceConnectorOperator.html#DynatraceConnectorOperator%27"><span class="hs-pragma hs-type">DynatraceConnectorOperator'</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-136"></span></pre></body></html>

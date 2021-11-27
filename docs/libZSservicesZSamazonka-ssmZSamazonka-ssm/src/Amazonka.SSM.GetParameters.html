@@ -1,0 +1,560 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SSM.GetParameters</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Get information about one or more parameters by specifying multiple</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- parameter names.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- To get information about a single parameter, you can use the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- GetParameter operation instead.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.GetParameters</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters"><span class="hs-identifier">GetParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#newGetParameters"><span class="hs-identifier">newGetParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#getParameters_withDecryption"><span class="hs-identifier">getParameters_withDecryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#getParameters_names"><span class="hs-identifier">getParameters_names</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse"><span class="hs-identifier">GetParametersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#newGetParametersResponse"><span class="hs-identifier">newGetParametersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#getParametersResponse_parameters"><span class="hs-identifier">getParametersResponse_parameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#getParametersResponse_invalidParameters"><span class="hs-identifier">getParametersResponse_invalidParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#getParametersResponse_httpStatus"><span class="hs-identifier">getParametersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.html"><span class="hs-identifier">Amazonka.SSM.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newGetParameters' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679834698"><span id="local-6989586621679834699"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetParameters"><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters"><span class="hs-identifier hs-var">GetParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetParameters%27"><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters%27"><span class="hs-identifier hs-var">GetParameters'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Return decrypted secure string value. Return decrypted values for secure</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- string parameters. This flag is ignored for @String@ and @StringList@</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- parameter types.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AwithDecryption%3AGetParameters%27"><span class="annot"><span class="annottext">GetParameters -&gt; Maybe Bool
+</span><a href="Amazonka.SSM.GetParameters.html#%24sel%3AwithDecryption%3AGetParameters%27"><span class="hs-identifier hs-var hs-var">withDecryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Names of the parameters for which you want to query information.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- To query by parameter label, use @\&quot;Name\&quot;: \&quot;name:label\&quot;@. To query by</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- parameter version, use @\&quot;Name\&quot;: \&quot;name:version\&quot;@.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Anames%3AGetParameters%27"><span class="annot"><span class="annottext">GetParameters -&gt; NonEmpty Text
+</span><a href="Amazonka.SSM.GetParameters.html#%24sel%3Anames%3AGetParameters%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679834691"><span id="local-6989586621679834693"><span class="annot"><span class="annottext">GetParameters -&gt; GetParameters -&gt; Bool
+(GetParameters -&gt; GetParameters -&gt; Bool)
+-&gt; (GetParameters -&gt; GetParameters -&gt; Bool) -&gt; Eq GetParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetParameters -&gt; GetParameters -&gt; Bool
+$c/= :: GetParameters -&gt; GetParameters -&gt; Bool
+== :: GetParameters -&gt; GetParameters -&gt; Bool
+$c== :: GetParameters -&gt; GetParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679834682"><span id="local-6989586621679834684"><span id="local-6989586621679834686"><span id="local-6989586621679834688"><span class="annot"><span class="annottext">ReadPrec [GetParameters]
+ReadPrec GetParameters
+Int -&gt; ReadS GetParameters
+ReadS [GetParameters]
+(Int -&gt; ReadS GetParameters)
+-&gt; ReadS [GetParameters]
+-&gt; ReadPrec GetParameters
+-&gt; ReadPrec [GetParameters]
+-&gt; Read GetParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetParameters]
+$creadListPrec :: ReadPrec [GetParameters]
+readPrec :: ReadPrec GetParameters
+$creadPrec :: ReadPrec GetParameters
+readList :: ReadS [GetParameters]
+$creadList :: ReadS [GetParameters]
+readsPrec :: Int -&gt; ReadS GetParameters
+$creadsPrec :: Int -&gt; ReadS GetParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679834675"><span id="local-6989586621679834677"><span id="local-6989586621679834679"><span class="annot"><span class="annottext">Int -&gt; GetParameters -&gt; ShowS
+[GetParameters] -&gt; ShowS
+GetParameters -&gt; String
+(Int -&gt; GetParameters -&gt; ShowS)
+-&gt; (GetParameters -&gt; String)
+-&gt; ([GetParameters] -&gt; ShowS)
+-&gt; Show GetParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetParameters] -&gt; ShowS
+$cshowList :: [GetParameters] -&gt; ShowS
+show :: GetParameters -&gt; String
+$cshow :: GetParameters -&gt; String
+showsPrec :: Int -&gt; GetParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetParameters -&gt; Rep GetParameters x)
+-&gt; (forall x. Rep GetParameters x -&gt; GetParameters)
+-&gt; Generic GetParameters
+forall x. Rep GetParameters x -&gt; GetParameters
+forall x. GetParameters -&gt; Rep GetParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetParameters x -&gt; GetParameters
+$cfrom :: forall x. GetParameters -&gt; Rep GetParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'GetParameters' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'withDecryption', 'getParameters_withDecryption' - Return decrypted secure string value. Return decrypted values for secure</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- string parameters. This flag is ignored for @String@ and @StringList@</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- parameter types.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'names', 'getParameters_names' - Names of the parameters for which you want to query information.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- To query by parameter label, use @\&quot;Name\&quot;: \&quot;name:label\&quot;@. To query by</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- parameter version, use @\&quot;Name\&quot;: \&quot;name:version\&quot;@.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#newGetParameters"><span class="hs-identifier hs-type">newGetParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'names'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters"><span class="hs-identifier hs-type">GetParameters</span></a></span><span>
+</span><span id="line-89"></span><span id="newGetParameters"><span class="annot"><span class="annottext">newGetParameters :: NonEmpty Text -&gt; GetParameters
+</span><a href="Amazonka.SSM.GetParameters.html#newGetParameters"><span class="hs-identifier hs-var hs-var">newGetParameters</span></a></span></span><span> </span><span id="local-6989586621679834670"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679834670"><span class="hs-identifier hs-var">pNames_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">GetParameters' :: Maybe Bool -&gt; NonEmpty Text -&gt; GetParameters
+</span><a href="Amazonka.SSM.GetParameters.html#GetParameters%27"><span class="hs-identifier hs-type">GetParameters'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:withDecryption:GetParameters' :: Maybe Bool
+</span><a href="Amazonka.SSM.GetParameters.html#%24sel%3AwithDecryption%3AGetParameters%27"><span class="hs-identifier hs-var">withDecryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:names:GetParameters' :: NonEmpty Text
+</span><a href="Amazonka.SSM.GetParameters.html#%24sel%3Anames%3AGetParameters%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679834670"><span class="hs-identifier hs-var">pNames_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Return decrypted secure string value. Return decrypted values for secure</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- string parameters. This flag is ignored for @String@ and @StringList@</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- parameter types.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#getParameters_withDecryption"><span class="hs-identifier hs-type">getParameters_withDecryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters"><span class="hs-identifier hs-type">GetParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="getParameters_withDecryption"><span class="annot"><span class="annottext">getParameters_withDecryption :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; GetParameters -&gt; f GetParameters
+</span><a href="Amazonka.SSM.GetParameters.html#getParameters_withDecryption"><span class="hs-identifier hs-var hs-var">getParameters_withDecryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetParameters -&gt; Maybe Bool)
+-&gt; (GetParameters -&gt; Maybe Bool -&gt; GetParameters)
+-&gt; Lens GetParameters GetParameters (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters%27"><span class="hs-identifier hs-type">GetParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834665"><span class="annot"><span class="annottext">Maybe Bool
+withDecryption :: Maybe Bool
+$sel:withDecryption:GetParameters' :: GetParameters -&gt; Maybe Bool
+</span><a href="#local-6989586621679834665"><span class="hs-identifier hs-var hs-var">withDecryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679834665"><span class="hs-identifier hs-var">withDecryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834664"><span class="annot"><span class="annottext">s :: GetParameters
+</span><a href="#local-6989586621679834664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters%27"><span class="hs-identifier hs-type">GetParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834663"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679834663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetParameters
+</span><a href="#local-6989586621679834664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:withDecryption:GetParameters' :: Maybe Bool
+</span><a href="Amazonka.SSM.GetParameters.html#%24sel%3AwithDecryption%3AGetParameters%27"><span class="hs-identifier hs-var">withDecryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679834663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters"><span class="hs-identifier hs-type">GetParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Names of the parameters for which you want to query information.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- To query by parameter label, use @\&quot;Name\&quot;: \&quot;name:label\&quot;@. To query by</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- parameter version, use @\&quot;Name\&quot;: \&quot;name:version\&quot;@.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#getParameters_names"><span class="hs-identifier hs-type">getParameters_names</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters"><span class="hs-identifier hs-type">GetParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="getParameters_names"><span class="annot"><span class="annottext">getParameters_names :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; GetParameters -&gt; f GetParameters
+</span><a href="Amazonka.SSM.GetParameters.html#getParameters_names"><span class="hs-identifier hs-var hs-var">getParameters_names</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetParameters -&gt; NonEmpty Text)
+-&gt; (GetParameters -&gt; NonEmpty Text -&gt; GetParameters)
+-&gt; Lens GetParameters GetParameters (NonEmpty Text) (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters%27"><span class="hs-identifier hs-type">GetParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834662"><span class="annot"><span class="annottext">NonEmpty Text
+names :: NonEmpty Text
+$sel:names:GetParameters' :: GetParameters -&gt; NonEmpty Text
+</span><a href="#local-6989586621679834662"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679834662"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834661"><span class="annot"><span class="annottext">s :: GetParameters
+</span><a href="#local-6989586621679834661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters%27"><span class="hs-identifier hs-type">GetParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834660"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679834660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetParameters
+</span><a href="#local-6989586621679834661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:GetParameters' :: NonEmpty Text
+</span><a href="Amazonka.SSM.GetParameters.html#%24sel%3Anames%3AGetParameters%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679834660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters"><span class="hs-identifier hs-type">GetParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; GetParameters -&gt; f GetParameters)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; GetParameters
+-&gt; f GetParameters
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters"><span class="hs-identifier hs-type">GetParameters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters"><span class="hs-identifier hs-type">GetParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse"><span class="hs-identifier hs-type">GetParametersResponse</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679834655"><span class="annot"><span class="annottext">request :: GetParameters -&gt; Request GetParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetParameters -&gt; Request GetParameters
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679834651"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetParameters
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetParameters)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetParameters))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetParameters
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetParameters)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679834648"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679834648"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679834647"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679834647"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679834646"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679834646"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Parameter] -&gt; Maybe [Text] -&gt; Int -&gt; GetParametersResponse
+</span><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse%27"><span class="hs-identifier hs-var">GetParametersResponse'</span></a></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Parameter] -&gt; Maybe [Text] -&gt; Int -&gt; GetParametersResponse)
+-&gt; Either String (Maybe [Parameter])
+-&gt; Either String (Maybe [Text] -&gt; Int -&gt; GetParametersResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679834646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Parameter]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Parameter]))
+-&gt; Maybe [Parameter] -&gt; Either String (Maybe [Parameter])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; Int -&gt; GetParametersResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Int -&gt; GetParametersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679834646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InvalidParameters&quot;</span></span><span>
+</span><span id="line-119"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-120"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetParametersResponse)
+-&gt; Either String Int -&gt; Either String GetParametersResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679834648"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679834637"><span id="local-6989586621679834639"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters"><span class="hs-identifier hs-type">GetParameters</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679834634"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters"><span class="hs-identifier hs-type">GetParameters</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters"><span class="hs-identifier hs-type">GetParameters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679834630"><span class="annot"><span class="annottext">toHeaders :: GetParameters -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetParameters -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonSSM.GetParameters&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-137"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679834620"><span id="local-6989586621679834622"><span id="local-6989586621679834624"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters"><span class="hs-identifier hs-type">GetParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679834618"><span class="annot"><span class="annottext">toJSON :: GetParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters%27"><span class="hs-identifier hs-type">GetParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834615"><span id="local-6989586621679834616"><span class="annot"><span class="annottext">Maybe Bool
+NonEmpty Text
+names :: NonEmpty Text
+withDecryption :: Maybe Bool
+$sel:names:GetParameters' :: GetParameters -&gt; NonEmpty Text
+$sel:withDecryption:GetParameters' :: GetParameters -&gt; Maybe Bool
+</span><a href="#local-6989586621679834615"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WithDecryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679834616"><span class="hs-identifier hs-var">withDecryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Names&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679834615"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters"><span class="hs-identifier hs-type">GetParameters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679834609"><span class="annot"><span class="annottext">toPath :: GetParameters -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetParameters -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParameters"><span class="hs-identifier hs-type">GetParameters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679834605"><span class="annot"><span class="annottext">toQuery :: GetParameters -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetParameters -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newGetParametersResponse' smart constructor.</span><span>
+</span><span id="line-158"></span><span id="local-6989586621679834602"><span id="local-6989586621679834603"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetParametersResponse"><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse"><span class="hs-identifier hs-var">GetParametersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetParametersResponse%27"><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse%27"><span class="hs-identifier hs-var">GetParametersResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of details for a parameter.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3Aparameters%3AGetParametersResponse%27"><span class="annot"><span class="annottext">GetParametersResponse -&gt; Maybe [Parameter]
+</span><a href="Amazonka.SSM.GetParameters.html#%24sel%3Aparameters%3AGetParametersResponse%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | A list of parameters that aren\'t formatted correctly or don\'t run</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- during an execution.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AinvalidParameters%3AGetParametersResponse%27"><span class="annot"><span class="annottext">GetParametersResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.SSM.GetParameters.html#%24sel%3AinvalidParameters%3AGetParametersResponse%27"><span class="hs-identifier hs-var hs-var">invalidParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetParametersResponse%27"><span class="annot"><span class="annottext">GetParametersResponse -&gt; Int
+</span><a href="Amazonka.SSM.GetParameters.html#%24sel%3AhttpStatus%3AGetParametersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679834595"><span id="local-6989586621679834597"><span class="annot"><span class="annottext">GetParametersResponse -&gt; GetParametersResponse -&gt; Bool
+(GetParametersResponse -&gt; GetParametersResponse -&gt; Bool)
+-&gt; (GetParametersResponse -&gt; GetParametersResponse -&gt; Bool)
+-&gt; Eq GetParametersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetParametersResponse -&gt; GetParametersResponse -&gt; Bool
+$c/= :: GetParametersResponse -&gt; GetParametersResponse -&gt; Bool
+== :: GetParametersResponse -&gt; GetParametersResponse -&gt; Bool
+$c== :: GetParametersResponse -&gt; GetParametersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679834589"><span id="local-6989586621679834591"><span id="local-6989586621679834593"><span class="annot"><span class="annottext">Int -&gt; GetParametersResponse -&gt; ShowS
+[GetParametersResponse] -&gt; ShowS
+GetParametersResponse -&gt; String
+(Int -&gt; GetParametersResponse -&gt; ShowS)
+-&gt; (GetParametersResponse -&gt; String)
+-&gt; ([GetParametersResponse] -&gt; ShowS)
+-&gt; Show GetParametersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetParametersResponse] -&gt; ShowS
+$cshowList :: [GetParametersResponse] -&gt; ShowS
+show :: GetParametersResponse -&gt; String
+$cshow :: GetParametersResponse -&gt; String
+showsPrec :: Int -&gt; GetParametersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetParametersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetParametersResponse -&gt; Rep GetParametersResponse x)
+-&gt; (forall x. Rep GetParametersResponse x -&gt; GetParametersResponse)
+-&gt; Generic GetParametersResponse
+forall x. Rep GetParametersResponse x -&gt; GetParametersResponse
+forall x. GetParametersResponse -&gt; Rep GetParametersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetParametersResponse x -&gt; GetParametersResponse
+$cfrom :: forall x. GetParametersResponse -&gt; Rep GetParametersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Create a value of 'GetParametersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'parameters', 'getParametersResponse_parameters' - A list of details for a parameter.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'invalidParameters', 'getParametersResponse_invalidParameters' - A list of parameters that aren\'t formatted correctly or don\'t run</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- during an execution.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'httpStatus', 'getParametersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#newGetParametersResponse"><span class="hs-identifier hs-type">newGetParametersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse"><span class="hs-identifier hs-type">GetParametersResponse</span></a></span><span>
+</span><span id="line-187"></span><span id="newGetParametersResponse"><span class="annot"><span class="annottext">newGetParametersResponse :: Int -&gt; GetParametersResponse
+</span><a href="Amazonka.SSM.GetParameters.html#newGetParametersResponse"><span class="hs-identifier hs-var hs-var">newGetParametersResponse</span></a></span></span><span> </span><span id="local-6989586621679834586"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679834586"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">GetParametersResponse' :: Maybe [Parameter] -&gt; Maybe [Text] -&gt; Int -&gt; GetParametersResponse
+</span><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse%27"><span class="hs-identifier hs-type">GetParametersResponse'</span></a></span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameters:GetParametersResponse' :: Maybe [Parameter]
+</span><a href="Amazonka.SSM.GetParameters.html#%24sel%3Aparameters%3AGetParametersResponse%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Parameter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:invalidParameters:GetParametersResponse' :: Maybe [Text]
+</span><a href="Amazonka.SSM.GetParameters.html#%24sel%3AinvalidParameters%3AGetParametersResponse%27"><span class="hs-identifier hs-var">invalidParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetParametersResponse' :: Int
+</span><a href="Amazonka.SSM.GetParameters.html#%24sel%3AhttpStatus%3AGetParametersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679834586"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | A list of details for a parameter.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#getParametersResponse_parameters"><span class="hs-identifier hs-type">getParametersResponse_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse"><span class="hs-identifier hs-type">GetParametersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="getParametersResponse_parameters"><span class="annot"><span class="annottext">getParametersResponse_parameters :: (Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+-&gt; GetParametersResponse -&gt; f GetParametersResponse
+</span><a href="Amazonka.SSM.GetParameters.html#getParametersResponse_parameters"><span class="hs-identifier hs-var hs-var">getParametersResponse_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetParametersResponse -&gt; Maybe [Parameter])
+-&gt; (GetParametersResponse
+    -&gt; Maybe [Parameter] -&gt; GetParametersResponse)
+-&gt; Lens
+     GetParametersResponse
+     GetParametersResponse
+     (Maybe [Parameter])
+     (Maybe [Parameter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse%27"><span class="hs-identifier hs-type">GetParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834585"><span class="annot"><span class="annottext">Maybe [Parameter]
+parameters :: Maybe [Parameter]
+$sel:parameters:GetParametersResponse' :: GetParametersResponse -&gt; Maybe [Parameter]
+</span><a href="#local-6989586621679834585"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679834585"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834584"><span class="annot"><span class="annottext">s :: GetParametersResponse
+</span><a href="#local-6989586621679834584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse%27"><span class="hs-identifier hs-type">GetParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834583"><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679834583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetParametersResponse
+</span><a href="#local-6989586621679834584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:GetParametersResponse' :: Maybe [Parameter]
+</span><a href="Amazonka.SSM.GetParameters.html#%24sel%3Aparameters%3AGetParametersResponse%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679834583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse"><span class="hs-identifier hs-type">GetParametersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+ -&gt; GetParametersResponse -&gt; f GetParametersResponse)
+-&gt; ((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+    -&gt; Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+-&gt; (Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+-&gt; GetParametersResponse
+-&gt; f GetParametersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Parameter] [Parameter] [Parameter] [Parameter]
+-&gt; Iso
+     (Maybe [Parameter])
+     (Maybe [Parameter])
+     (Maybe [Parameter])
+     (Maybe [Parameter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Parameter] [Parameter] [Parameter] [Parameter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | A list of parameters that aren\'t formatted correctly or don\'t run</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- during an execution.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#getParametersResponse_invalidParameters"><span class="hs-identifier hs-type">getParametersResponse_invalidParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse"><span class="hs-identifier hs-type">GetParametersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="getParametersResponse_invalidParameters"><span class="annot"><span class="annottext">getParametersResponse_invalidParameters :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetParametersResponse -&gt; f GetParametersResponse
+</span><a href="Amazonka.SSM.GetParameters.html#getParametersResponse_invalidParameters"><span class="hs-identifier hs-var hs-var">getParametersResponse_invalidParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetParametersResponse -&gt; Maybe [Text])
+-&gt; (GetParametersResponse -&gt; Maybe [Text] -&gt; GetParametersResponse)
+-&gt; Lens
+     GetParametersResponse
+     GetParametersResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse%27"><span class="hs-identifier hs-type">GetParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834581"><span class="annot"><span class="annottext">Maybe [Text]
+invalidParameters :: Maybe [Text]
+$sel:invalidParameters:GetParametersResponse' :: GetParametersResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679834581"><span class="hs-identifier hs-var hs-var">invalidParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679834581"><span class="hs-identifier hs-var">invalidParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834580"><span class="annot"><span class="annottext">s :: GetParametersResponse
+</span><a href="#local-6989586621679834580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse%27"><span class="hs-identifier hs-type">GetParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834579"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679834579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetParametersResponse
+</span><a href="#local-6989586621679834580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invalidParameters:GetParametersResponse' :: Maybe [Text]
+</span><a href="Amazonka.SSM.GetParameters.html#%24sel%3AinvalidParameters%3AGetParametersResponse%27"><span class="hs-identifier hs-var">invalidParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679834579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse"><span class="hs-identifier hs-type">GetParametersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetParametersResponse -&gt; f GetParametersResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetParametersResponse
+-&gt; f GetParametersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#getParametersResponse_httpStatus"><span class="hs-identifier hs-type">getParametersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse"><span class="hs-identifier hs-type">GetParametersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-206"></span><span id="getParametersResponse_httpStatus"><span class="annot"><span class="annottext">getParametersResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetParametersResponse -&gt; f GetParametersResponse
+</span><a href="Amazonka.SSM.GetParameters.html#getParametersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getParametersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetParametersResponse -&gt; Int)
+-&gt; (GetParametersResponse -&gt; Int -&gt; GetParametersResponse)
+-&gt; Lens GetParametersResponse GetParametersResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse%27"><span class="hs-identifier hs-type">GetParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834578"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetParametersResponse' :: GetParametersResponse -&gt; Int
+</span><a href="#local-6989586621679834578"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679834578"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834577"><span class="annot"><span class="annottext">s :: GetParametersResponse
+</span><a href="#local-6989586621679834577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse%27"><span class="hs-identifier hs-type">GetParametersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834576"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679834576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetParametersResponse
+</span><a href="#local-6989586621679834577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetParametersResponse' :: Int
+</span><a href="Amazonka.SSM.GetParameters.html#%24sel%3AhttpStatus%3AGetParametersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679834576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse"><span class="hs-identifier hs-type">GetParametersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679834574"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetParameters.html#GetParametersResponse"><span class="hs-identifier hs-type">GetParametersResponse</span></a></span></span><span>
+</span><span id="line-209"></span></pre></body></html>

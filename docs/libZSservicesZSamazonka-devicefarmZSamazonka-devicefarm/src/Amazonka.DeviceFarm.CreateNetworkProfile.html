@@ -1,0 +1,945 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.CreateNetworkProfile</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a network profile.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.CreateNetworkProfile</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier">CreateNetworkProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#newCreateNetworkProfile"><span class="hs-identifier">newCreateNetworkProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_uplinkJitterMs"><span class="hs-identifier">createNetworkProfile_uplinkJitterMs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_uplinkLossPercent"><span class="hs-identifier">createNetworkProfile_uplinkLossPercent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_downlinkJitterMs"><span class="hs-identifier">createNetworkProfile_downlinkJitterMs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_downlinkLossPercent"><span class="hs-identifier">createNetworkProfile_downlinkLossPercent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_type"><span class="hs-identifier">createNetworkProfile_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_uplinkDelayMs"><span class="hs-identifier">createNetworkProfile_uplinkDelayMs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_uplinkBandwidthBits"><span class="hs-identifier">createNetworkProfile_uplinkBandwidthBits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_description"><span class="hs-identifier">createNetworkProfile_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_downlinkDelayMs"><span class="hs-identifier">createNetworkProfile_downlinkDelayMs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_downlinkBandwidthBits"><span class="hs-identifier">createNetworkProfile_downlinkBandwidthBits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_projectArn"><span class="hs-identifier">createNetworkProfile_projectArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_name"><span class="hs-identifier">createNetworkProfile_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse"><span class="hs-identifier">CreateNetworkProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#newCreateNetworkProfileResponse"><span class="hs-identifier">newCreateNetworkProfileResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfileResponse_networkProfile"><span class="hs-identifier">createNetworkProfileResponse_networkProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfileResponse_httpStatus"><span class="hs-identifier">createNetworkProfileResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.html"><span class="hs-identifier">Amazonka.DeviceFarm.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newCreateNetworkProfile' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679388388"><span id="local-6989586621679388389"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateNetworkProfile"><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-var">CreateNetworkProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateNetworkProfile%27"><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-var">CreateNetworkProfile'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Time variation in the delay of received packets in milliseconds as an</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- integer from 0 to 2000.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AuplinkJitterMs%3ACreateNetworkProfile%27"><span class="annot"><span class="annottext">CreateNetworkProfile -&gt; Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AuplinkJitterMs%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var hs-var">uplinkJitterMs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Proportion of transmitted packets that fail to arrive from 0 to 100</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- percent.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AuplinkLossPercent%3ACreateNetworkProfile%27"><span class="annot"><span class="annottext">CreateNetworkProfile -&gt; Maybe Natural
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AuplinkLossPercent%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var hs-var">uplinkLossPercent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Time variation in the delay of received packets in milliseconds as an</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- integer from 0 to 2000.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AdownlinkJitterMs%3ACreateNetworkProfile%27"><span class="annot"><span class="annottext">CreateNetworkProfile -&gt; Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AdownlinkJitterMs%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var hs-var">downlinkJitterMs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Proportion of received packets that fail to arrive from 0 to 100</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- percent.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AdownlinkLossPercent%3ACreateNetworkProfile%27"><span class="annot"><span class="annottext">CreateNetworkProfile -&gt; Maybe Natural
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AdownlinkLossPercent%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var hs-var">downlinkLossPercent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The type of network profile to create. Valid values are listed here.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Atype%27%3ACreateNetworkProfile%27"><span class="annot"><span class="annottext">CreateNetworkProfile -&gt; Maybe NetworkProfileType
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3Atype%27%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.NetworkProfileType.html#NetworkProfileType"><span class="hs-identifier hs-type">NetworkProfileType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | Delay time for all packets to destination in milliseconds as an integer</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- from 0 to 2000.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AuplinkDelayMs%3ACreateNetworkProfile%27"><span class="annot"><span class="annottext">CreateNetworkProfile -&gt; Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AuplinkDelayMs%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var hs-var">uplinkDelayMs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The data throughput rate in bits per second, as an integer from 0 to</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- 104857600.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AuplinkBandwidthBits%3ACreateNetworkProfile%27"><span class="annot"><span class="annottext">CreateNetworkProfile -&gt; Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AuplinkBandwidthBits%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var hs-var">uplinkBandwidthBits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The description of the network profile.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Adescription%3ACreateNetworkProfile%27"><span class="annot"><span class="annottext">CreateNetworkProfile -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3Adescription%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | Delay time for all packets to destination in milliseconds as an integer</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- from 0 to 2000.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AdownlinkDelayMs%3ACreateNetworkProfile%27"><span class="annot"><span class="annottext">CreateNetworkProfile -&gt; Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AdownlinkDelayMs%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var hs-var">downlinkDelayMs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The data throughput rate in bits per second, as an integer from 0 to</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- 104857600.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AdownlinkBandwidthBits%3ACreateNetworkProfile%27"><span class="annot"><span class="annottext">CreateNetworkProfile -&gt; Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AdownlinkBandwidthBits%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var hs-var">downlinkBandwidthBits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the project for which you want to</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- create a network profile.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AprojectArn%3ACreateNetworkProfile%27"><span class="annot"><span class="annottext">CreateNetworkProfile -&gt; Text
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AprojectArn%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The name for the new network profile.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Aname%3ACreateNetworkProfile%27"><span class="annot"><span class="annottext">CreateNetworkProfile -&gt; Text
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3Aname%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388371"><span id="local-6989586621679388373"><span class="annot"><span class="annottext">CreateNetworkProfile -&gt; CreateNetworkProfile -&gt; Bool
+(CreateNetworkProfile -&gt; CreateNetworkProfile -&gt; Bool)
+-&gt; (CreateNetworkProfile -&gt; CreateNetworkProfile -&gt; Bool)
+-&gt; Eq CreateNetworkProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateNetworkProfile -&gt; CreateNetworkProfile -&gt; Bool
+$c/= :: CreateNetworkProfile -&gt; CreateNetworkProfile -&gt; Bool
+== :: CreateNetworkProfile -&gt; CreateNetworkProfile -&gt; Bool
+$c== :: CreateNetworkProfile -&gt; CreateNetworkProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388362"><span id="local-6989586621679388364"><span id="local-6989586621679388366"><span id="local-6989586621679388368"><span class="annot"><span class="annottext">ReadPrec [CreateNetworkProfile]
+ReadPrec CreateNetworkProfile
+Int -&gt; ReadS CreateNetworkProfile
+ReadS [CreateNetworkProfile]
+(Int -&gt; ReadS CreateNetworkProfile)
+-&gt; ReadS [CreateNetworkProfile]
+-&gt; ReadPrec CreateNetworkProfile
+-&gt; ReadPrec [CreateNetworkProfile]
+-&gt; Read CreateNetworkProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateNetworkProfile]
+$creadListPrec :: ReadPrec [CreateNetworkProfile]
+readPrec :: ReadPrec CreateNetworkProfile
+$creadPrec :: ReadPrec CreateNetworkProfile
+readList :: ReadS [CreateNetworkProfile]
+$creadList :: ReadS [CreateNetworkProfile]
+readsPrec :: Int -&gt; ReadS CreateNetworkProfile
+$creadsPrec :: Int -&gt; ReadS CreateNetworkProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388355"><span id="local-6989586621679388357"><span id="local-6989586621679388359"><span class="annot"><span class="annottext">Int -&gt; CreateNetworkProfile -&gt; ShowS
+[CreateNetworkProfile] -&gt; ShowS
+CreateNetworkProfile -&gt; String
+(Int -&gt; CreateNetworkProfile -&gt; ShowS)
+-&gt; (CreateNetworkProfile -&gt; String)
+-&gt; ([CreateNetworkProfile] -&gt; ShowS)
+-&gt; Show CreateNetworkProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateNetworkProfile] -&gt; ShowS
+$cshowList :: [CreateNetworkProfile] -&gt; ShowS
+show :: CreateNetworkProfile -&gt; String
+$cshow :: CreateNetworkProfile -&gt; String
+showsPrec :: Int -&gt; CreateNetworkProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateNetworkProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateNetworkProfile -&gt; Rep CreateNetworkProfile x)
+-&gt; (forall x. Rep CreateNetworkProfile x -&gt; CreateNetworkProfile)
+-&gt; Generic CreateNetworkProfile
+forall x. Rep CreateNetworkProfile x -&gt; CreateNetworkProfile
+forall x. CreateNetworkProfile -&gt; Rep CreateNetworkProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateNetworkProfile x -&gt; CreateNetworkProfile
+$cfrom :: forall x. CreateNetworkProfile -&gt; Rep CreateNetworkProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Create a value of 'CreateNetworkProfile' with all optional fields omitted.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'uplinkJitterMs', 'createNetworkProfile_uplinkJitterMs' - Time variation in the delay of received packets in milliseconds as an</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- integer from 0 to 2000.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'uplinkLossPercent', 'createNetworkProfile_uplinkLossPercent' - Proportion of transmitted packets that fail to arrive from 0 to 100</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- percent.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'downlinkJitterMs', 'createNetworkProfile_downlinkJitterMs' - Time variation in the delay of received packets in milliseconds as an</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- integer from 0 to 2000.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'downlinkLossPercent', 'createNetworkProfile_downlinkLossPercent' - Proportion of received packets that fail to arrive from 0 to 100</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- percent.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'type'', 'createNetworkProfile_type' - The type of network profile to create. Valid values are listed here.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'uplinkDelayMs', 'createNetworkProfile_uplinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- from 0 to 2000.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'uplinkBandwidthBits', 'createNetworkProfile_uplinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 104857600.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'description', 'createNetworkProfile_description' - The description of the network profile.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'downlinkDelayMs', 'createNetworkProfile_downlinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- from 0 to 2000.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'downlinkBandwidthBits', 'createNetworkProfile_downlinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 104857600.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'projectArn', 'createNetworkProfile_projectArn' - The Amazon Resource Name (ARN) of the project for which you want to</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- create a network profile.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'name', 'createNetworkProfile_name' - The name for the new network profile.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#newCreateNetworkProfile"><span class="hs-identifier hs-type">newCreateNetworkProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-comment">-- | 'projectArn'</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span>
+</span><span id="line-144"></span><span id="newCreateNetworkProfile"><span class="annot"><span class="annottext">newCreateNetworkProfile :: Text -&gt; Text -&gt; CreateNetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#newCreateNetworkProfile"><span class="hs-identifier hs-var hs-var">newCreateNetworkProfile</span></a></span></span><span> </span><span id="local-6989586621679388350"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388350"><span class="hs-identifier hs-var">pProjectArn_</span></a></span></span><span> </span><span id="local-6989586621679388349"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388349"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">CreateNetworkProfile' :: Maybe Integer
+-&gt; Maybe Natural
+-&gt; Maybe Integer
+-&gt; Maybe Natural
+-&gt; Maybe NetworkProfileType
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Text
+-&gt; Text
+-&gt; CreateNetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:uplinkJitterMs:CreateNetworkProfile' :: Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AuplinkJitterMs%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">uplinkJitterMs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:uplinkLossPercent:CreateNetworkProfile' :: Maybe Natural
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AuplinkLossPercent%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">uplinkLossPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:downlinkJitterMs:CreateNetworkProfile' :: Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AdownlinkJitterMs%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">downlinkJitterMs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:downlinkLossPercent:CreateNetworkProfile' :: Maybe Natural
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AdownlinkLossPercent%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">downlinkLossPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':CreateNetworkProfile' :: Maybe NetworkProfileType
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3Atype%27%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkProfileType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:uplinkDelayMs:CreateNetworkProfile' :: Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AuplinkDelayMs%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">uplinkDelayMs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:uplinkBandwidthBits:CreateNetworkProfile' :: Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AuplinkBandwidthBits%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">uplinkBandwidthBits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateNetworkProfile' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3Adescription%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:downlinkDelayMs:CreateNetworkProfile' :: Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AdownlinkDelayMs%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">downlinkDelayMs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:downlinkBandwidthBits:CreateNetworkProfile' :: Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AdownlinkBandwidthBits%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">downlinkBandwidthBits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectArn:CreateNetworkProfile' :: Text
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AprojectArn%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388350"><span class="hs-identifier hs-var">pProjectArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateNetworkProfile' :: Text
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3Aname%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388349"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Time variation in the delay of received packets in milliseconds as an</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- integer from 0 to 2000.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_uplinkJitterMs"><span class="hs-identifier hs-type">createNetworkProfile_uplinkJitterMs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="createNetworkProfile_uplinkJitterMs"><span class="annot"><span class="annottext">createNetworkProfile_uplinkJitterMs :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; CreateNetworkProfile -&gt; f CreateNetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_uplinkJitterMs"><span class="hs-identifier hs-var hs-var">createNetworkProfile_uplinkJitterMs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkProfile -&gt; Maybe Integer)
+-&gt; (CreateNetworkProfile -&gt; Maybe Integer -&gt; CreateNetworkProfile)
+-&gt; Lens
+     CreateNetworkProfile
+     CreateNetworkProfile
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388346"><span class="annot"><span class="annottext">Maybe Integer
+uplinkJitterMs :: Maybe Integer
+$sel:uplinkJitterMs:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Integer
+</span><a href="#local-6989586621679388346"><span class="hs-identifier hs-var hs-var">uplinkJitterMs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388346"><span class="hs-identifier hs-var">uplinkJitterMs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388345"><span class="annot"><span class="annottext">s :: CreateNetworkProfile
+</span><a href="#local-6989586621679388345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388344"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkProfile
+</span><a href="#local-6989586621679388345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uplinkJitterMs:CreateNetworkProfile' :: Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AuplinkJitterMs%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">uplinkJitterMs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | Proportion of transmitted packets that fail to arrive from 0 to 100</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- percent.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_uplinkLossPercent"><span class="hs-identifier hs-type">createNetworkProfile_uplinkLossPercent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="createNetworkProfile_uplinkLossPercent"><span class="annot"><span class="annottext">createNetworkProfile_uplinkLossPercent :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CreateNetworkProfile -&gt; f CreateNetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_uplinkLossPercent"><span class="hs-identifier hs-var hs-var">createNetworkProfile_uplinkLossPercent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkProfile -&gt; Maybe Natural)
+-&gt; (CreateNetworkProfile -&gt; Maybe Natural -&gt; CreateNetworkProfile)
+-&gt; Lens
+     CreateNetworkProfile
+     CreateNetworkProfile
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388343"><span class="annot"><span class="annottext">Maybe Natural
+uplinkLossPercent :: Maybe Natural
+$sel:uplinkLossPercent:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Natural
+</span><a href="#local-6989586621679388343"><span class="hs-identifier hs-var hs-var">uplinkLossPercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679388343"><span class="hs-identifier hs-var">uplinkLossPercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388342"><span class="annot"><span class="annottext">s :: CreateNetworkProfile
+</span><a href="#local-6989586621679388342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388341"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679388341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkProfile
+</span><a href="#local-6989586621679388342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uplinkLossPercent:CreateNetworkProfile' :: Maybe Natural
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AuplinkLossPercent%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">uplinkLossPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679388341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Time variation in the delay of received packets in milliseconds as an</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- integer from 0 to 2000.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_downlinkJitterMs"><span class="hs-identifier hs-type">createNetworkProfile_downlinkJitterMs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="createNetworkProfile_downlinkJitterMs"><span class="annot"><span class="annottext">createNetworkProfile_downlinkJitterMs :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; CreateNetworkProfile -&gt; f CreateNetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_downlinkJitterMs"><span class="hs-identifier hs-var hs-var">createNetworkProfile_downlinkJitterMs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkProfile -&gt; Maybe Integer)
+-&gt; (CreateNetworkProfile -&gt; Maybe Integer -&gt; CreateNetworkProfile)
+-&gt; Lens
+     CreateNetworkProfile
+     CreateNetworkProfile
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388340"><span class="annot"><span class="annottext">Maybe Integer
+downlinkJitterMs :: Maybe Integer
+$sel:downlinkJitterMs:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Integer
+</span><a href="#local-6989586621679388340"><span class="hs-identifier hs-var hs-var">downlinkJitterMs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388340"><span class="hs-identifier hs-var">downlinkJitterMs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388339"><span class="annot"><span class="annottext">s :: CreateNetworkProfile
+</span><a href="#local-6989586621679388339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388338"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkProfile
+</span><a href="#local-6989586621679388339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:downlinkJitterMs:CreateNetworkProfile' :: Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AdownlinkJitterMs%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">downlinkJitterMs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | Proportion of received packets that fail to arrive from 0 to 100</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- percent.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_downlinkLossPercent"><span class="hs-identifier hs-type">createNetworkProfile_downlinkLossPercent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="createNetworkProfile_downlinkLossPercent"><span class="annot"><span class="annottext">createNetworkProfile_downlinkLossPercent :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CreateNetworkProfile -&gt; f CreateNetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_downlinkLossPercent"><span class="hs-identifier hs-var hs-var">createNetworkProfile_downlinkLossPercent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkProfile -&gt; Maybe Natural)
+-&gt; (CreateNetworkProfile -&gt; Maybe Natural -&gt; CreateNetworkProfile)
+-&gt; Lens
+     CreateNetworkProfile
+     CreateNetworkProfile
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388337"><span class="annot"><span class="annottext">Maybe Natural
+downlinkLossPercent :: Maybe Natural
+$sel:downlinkLossPercent:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Natural
+</span><a href="#local-6989586621679388337"><span class="hs-identifier hs-var hs-var">downlinkLossPercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679388337"><span class="hs-identifier hs-var">downlinkLossPercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388336"><span class="annot"><span class="annottext">s :: CreateNetworkProfile
+</span><a href="#local-6989586621679388336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388335"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679388335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkProfile
+</span><a href="#local-6989586621679388336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:downlinkLossPercent:CreateNetworkProfile' :: Maybe Natural
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AdownlinkLossPercent%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">downlinkLossPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679388335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The type of network profile to create. Valid values are listed here.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_type"><span class="hs-identifier hs-type">createNetworkProfile_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.NetworkProfileType.html#NetworkProfileType"><span class="hs-identifier hs-type">NetworkProfileType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="createNetworkProfile_type"><span class="annot"><span class="annottext">createNetworkProfile_type :: (Maybe NetworkProfileType -&gt; f (Maybe NetworkProfileType))
+-&gt; CreateNetworkProfile -&gt; f CreateNetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_type"><span class="hs-identifier hs-var hs-var">createNetworkProfile_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkProfile -&gt; Maybe NetworkProfileType)
+-&gt; (CreateNetworkProfile
+    -&gt; Maybe NetworkProfileType -&gt; CreateNetworkProfile)
+-&gt; Lens
+     CreateNetworkProfile
+     CreateNetworkProfile
+     (Maybe NetworkProfileType)
+     (Maybe NetworkProfileType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388334"><span class="annot"><span class="annottext">Maybe NetworkProfileType
+type' :: Maybe NetworkProfileType
+$sel:type':CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe NetworkProfileType
+</span><a href="#local-6989586621679388334"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkProfileType
+</span><a href="#local-6989586621679388334"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388333"><span class="annot"><span class="annottext">s :: CreateNetworkProfile
+</span><a href="#local-6989586621679388333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388332"><span class="annot"><span class="annottext">Maybe NetworkProfileType
+</span><a href="#local-6989586621679388332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkProfile
+</span><a href="#local-6989586621679388333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CreateNetworkProfile' :: Maybe NetworkProfileType
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3Atype%27%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkProfileType
+</span><a href="#local-6989586621679388332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | Delay time for all packets to destination in milliseconds as an integer</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- from 0 to 2000.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_uplinkDelayMs"><span class="hs-identifier hs-type">createNetworkProfile_uplinkDelayMs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="createNetworkProfile_uplinkDelayMs"><span class="annot"><span class="annottext">createNetworkProfile_uplinkDelayMs :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; CreateNetworkProfile -&gt; f CreateNetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_uplinkDelayMs"><span class="hs-identifier hs-var hs-var">createNetworkProfile_uplinkDelayMs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkProfile -&gt; Maybe Integer)
+-&gt; (CreateNetworkProfile -&gt; Maybe Integer -&gt; CreateNetworkProfile)
+-&gt; Lens
+     CreateNetworkProfile
+     CreateNetworkProfile
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388331"><span class="annot"><span class="annottext">Maybe Integer
+uplinkDelayMs :: Maybe Integer
+$sel:uplinkDelayMs:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Integer
+</span><a href="#local-6989586621679388331"><span class="hs-identifier hs-var hs-var">uplinkDelayMs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388331"><span class="hs-identifier hs-var">uplinkDelayMs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388330"><span class="annot"><span class="annottext">s :: CreateNetworkProfile
+</span><a href="#local-6989586621679388330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388329"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkProfile
+</span><a href="#local-6989586621679388330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uplinkDelayMs:CreateNetworkProfile' :: Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AuplinkDelayMs%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">uplinkDelayMs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The data throughput rate in bits per second, as an integer from 0 to</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 104857600.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_uplinkBandwidthBits"><span class="hs-identifier hs-type">createNetworkProfile_uplinkBandwidthBits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="createNetworkProfile_uplinkBandwidthBits"><span class="annot"><span class="annottext">createNetworkProfile_uplinkBandwidthBits :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; CreateNetworkProfile -&gt; f CreateNetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_uplinkBandwidthBits"><span class="hs-identifier hs-var hs-var">createNetworkProfile_uplinkBandwidthBits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkProfile -&gt; Maybe Integer)
+-&gt; (CreateNetworkProfile -&gt; Maybe Integer -&gt; CreateNetworkProfile)
+-&gt; Lens
+     CreateNetworkProfile
+     CreateNetworkProfile
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388328"><span class="annot"><span class="annottext">Maybe Integer
+uplinkBandwidthBits :: Maybe Integer
+$sel:uplinkBandwidthBits:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Integer
+</span><a href="#local-6989586621679388328"><span class="hs-identifier hs-var hs-var">uplinkBandwidthBits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388328"><span class="hs-identifier hs-var">uplinkBandwidthBits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388327"><span class="annot"><span class="annottext">s :: CreateNetworkProfile
+</span><a href="#local-6989586621679388327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388326"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkProfile
+</span><a href="#local-6989586621679388327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uplinkBandwidthBits:CreateNetworkProfile' :: Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AuplinkBandwidthBits%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">uplinkBandwidthBits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The description of the network profile.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_description"><span class="hs-identifier hs-type">createNetworkProfile_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="createNetworkProfile_description"><span class="annot"><span class="annottext">createNetworkProfile_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateNetworkProfile -&gt; f CreateNetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_description"><span class="hs-identifier hs-var hs-var">createNetworkProfile_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkProfile -&gt; Maybe Text)
+-&gt; (CreateNetworkProfile -&gt; Maybe Text -&gt; CreateNetworkProfile)
+-&gt; Lens
+     CreateNetworkProfile CreateNetworkProfile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388325"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679388325"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388325"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388324"><span class="annot"><span class="annottext">s :: CreateNetworkProfile
+</span><a href="#local-6989586621679388324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388323"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkProfile
+</span><a href="#local-6989586621679388324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateNetworkProfile' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3Adescription%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | Delay time for all packets to destination in milliseconds as an integer</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- from 0 to 2000.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_downlinkDelayMs"><span class="hs-identifier hs-type">createNetworkProfile_downlinkDelayMs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="createNetworkProfile_downlinkDelayMs"><span class="annot"><span class="annottext">createNetworkProfile_downlinkDelayMs :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; CreateNetworkProfile -&gt; f CreateNetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_downlinkDelayMs"><span class="hs-identifier hs-var hs-var">createNetworkProfile_downlinkDelayMs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkProfile -&gt; Maybe Integer)
+-&gt; (CreateNetworkProfile -&gt; Maybe Integer -&gt; CreateNetworkProfile)
+-&gt; Lens
+     CreateNetworkProfile
+     CreateNetworkProfile
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388322"><span class="annot"><span class="annottext">Maybe Integer
+downlinkDelayMs :: Maybe Integer
+$sel:downlinkDelayMs:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Integer
+</span><a href="#local-6989586621679388322"><span class="hs-identifier hs-var hs-var">downlinkDelayMs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388322"><span class="hs-identifier hs-var">downlinkDelayMs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388321"><span class="annot"><span class="annottext">s :: CreateNetworkProfile
+</span><a href="#local-6989586621679388321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388320"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkProfile
+</span><a href="#local-6989586621679388321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:downlinkDelayMs:CreateNetworkProfile' :: Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AdownlinkDelayMs%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">downlinkDelayMs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The data throughput rate in bits per second, as an integer from 0 to</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 104857600.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_downlinkBandwidthBits"><span class="hs-identifier hs-type">createNetworkProfile_downlinkBandwidthBits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="createNetworkProfile_downlinkBandwidthBits"><span class="annot"><span class="annottext">createNetworkProfile_downlinkBandwidthBits :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; CreateNetworkProfile -&gt; f CreateNetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_downlinkBandwidthBits"><span class="hs-identifier hs-var hs-var">createNetworkProfile_downlinkBandwidthBits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkProfile -&gt; Maybe Integer)
+-&gt; (CreateNetworkProfile -&gt; Maybe Integer -&gt; CreateNetworkProfile)
+-&gt; Lens
+     CreateNetworkProfile
+     CreateNetworkProfile
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388319"><span class="annot"><span class="annottext">Maybe Integer
+downlinkBandwidthBits :: Maybe Integer
+$sel:downlinkBandwidthBits:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Integer
+</span><a href="#local-6989586621679388319"><span class="hs-identifier hs-var hs-var">downlinkBandwidthBits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388319"><span class="hs-identifier hs-var">downlinkBandwidthBits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388318"><span class="annot"><span class="annottext">s :: CreateNetworkProfile
+</span><a href="#local-6989586621679388318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388317"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkProfile
+</span><a href="#local-6989586621679388318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:downlinkBandwidthBits:CreateNetworkProfile' :: Maybe Integer
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AdownlinkBandwidthBits%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">downlinkBandwidthBits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the project for which you want to</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- create a network profile.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_projectArn"><span class="hs-identifier hs-type">createNetworkProfile_projectArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-212"></span><span id="createNetworkProfile_projectArn"><span class="annot"><span class="annottext">createNetworkProfile_projectArn :: (Text -&gt; f Text) -&gt; CreateNetworkProfile -&gt; f CreateNetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_projectArn"><span class="hs-identifier hs-var hs-var">createNetworkProfile_projectArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkProfile -&gt; Text)
+-&gt; (CreateNetworkProfile -&gt; Text -&gt; CreateNetworkProfile)
+-&gt; Lens CreateNetworkProfile CreateNetworkProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388316"><span class="annot"><span class="annottext">Text
+projectArn :: Text
+$sel:projectArn:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Text
+</span><a href="#local-6989586621679388316"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388316"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388315"><span class="annot"><span class="annottext">s :: CreateNetworkProfile
+</span><a href="#local-6989586621679388315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388314"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkProfile
+</span><a href="#local-6989586621679388315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectArn:CreateNetworkProfile' :: Text
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AprojectArn%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The name for the new network profile.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_name"><span class="hs-identifier hs-type">createNetworkProfile_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-216"></span><span id="createNetworkProfile_name"><span class="annot"><span class="annottext">createNetworkProfile_name :: (Text -&gt; f Text) -&gt; CreateNetworkProfile -&gt; f CreateNetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfile_name"><span class="hs-identifier hs-var hs-var">createNetworkProfile_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkProfile -&gt; Text)
+-&gt; (CreateNetworkProfile -&gt; Text -&gt; CreateNetworkProfile)
+-&gt; Lens CreateNetworkProfile CreateNetworkProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388313"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Text
+</span><a href="#local-6989586621679388313"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388313"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388312"><span class="annot"><span class="annottext">s :: CreateNetworkProfile
+</span><a href="#local-6989586621679388312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388311"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkProfile
+</span><a href="#local-6989586621679388312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateNetworkProfile' :: Text
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3Aname%3ACreateNetworkProfile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-220"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse"><span class="hs-identifier hs-type">CreateNetworkProfileResponse</span></a></span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679388307"><span class="annot"><span class="annottext">request :: CreateNetworkProfile -&gt; Request CreateNetworkProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateNetworkProfile -&gt; Request CreateNetworkProfile
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679388303"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateNetworkProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateNetworkProfile)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateNetworkProfile))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateNetworkProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateNetworkProfile)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388300"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388300"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388299"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679388299"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388298"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388298"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-226"></span><span>          </span><span class="annot"><span class="annottext">Maybe NetworkProfile -&gt; Int -&gt; CreateNetworkProfileResponse
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse%27"><span class="hs-identifier hs-var">CreateNetworkProfileResponse'</span></a></span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">(Maybe NetworkProfile -&gt; Int -&gt; CreateNetworkProfileResponse)
+-&gt; Either String (Maybe NetworkProfile)
+-&gt; Either String (Int -&gt; CreateNetworkProfileResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388298"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe NetworkProfile)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkProfile&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateNetworkProfileResponse)
+-&gt; Either String Int -&gt; Either String CreateNetworkProfileResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388300"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388290"><span id="local-6989586621679388292"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span></span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388287"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679388283"><span class="annot"><span class="annottext">toHeaders :: CreateNetworkProfile -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateNetworkProfile -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-239"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-240"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeviceFarm_20150623.CreateNetworkProfile&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-241"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-242"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-244"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-245"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-246"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-248"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388273"><span id="local-6989586621679388275"><span id="local-6989586621679388277"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679388271"><span class="annot"><span class="annottext">toJSON :: CreateNetworkProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile%27"><span class="hs-identifier hs-type">CreateNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388258"><span id="local-6989586621679388259"><span id="local-6989586621679388260"><span id="local-6989586621679388261"><span id="local-6989586621679388262"><span id="local-6989586621679388263"><span id="local-6989586621679388264"><span id="local-6989586621679388265"><span id="local-6989586621679388266"><span id="local-6989586621679388267"><span id="local-6989586621679388268"><span id="local-6989586621679388269"><span class="annot"><span class="annottext">Maybe Integer
+Maybe Natural
+Maybe Text
+Maybe NetworkProfileType
+Text
+name :: Text
+projectArn :: Text
+downlinkBandwidthBits :: Maybe Integer
+downlinkDelayMs :: Maybe Integer
+description :: Maybe Text
+uplinkBandwidthBits :: Maybe Integer
+uplinkDelayMs :: Maybe Integer
+type' :: Maybe NetworkProfileType
+downlinkLossPercent :: Maybe Natural
+downlinkJitterMs :: Maybe Integer
+uplinkLossPercent :: Maybe Natural
+uplinkJitterMs :: Maybe Integer
+$sel:name:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Text
+$sel:projectArn:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Text
+$sel:downlinkBandwidthBits:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Integer
+$sel:downlinkDelayMs:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Integer
+$sel:description:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Text
+$sel:uplinkBandwidthBits:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Integer
+$sel:uplinkDelayMs:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Integer
+$sel:type':CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe NetworkProfileType
+$sel:downlinkLossPercent:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Natural
+$sel:downlinkJitterMs:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Integer
+$sel:uplinkLossPercent:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Natural
+$sel:uplinkJitterMs:CreateNetworkProfile' :: CreateNetworkProfile -&gt; Maybe Integer
+</span><a href="#local-6989586621679388258"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-253"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-254"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uplinkJitterMs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>              </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388269"><span class="hs-identifier hs-var">uplinkJitterMs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uplinkLossPercent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679388268"><span class="hs-identifier hs-var">uplinkLossPercent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;downlinkJitterMs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>              </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388267"><span class="hs-identifier hs-var">downlinkJitterMs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;downlinkLossPercent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679388266"><span class="hs-identifier hs-var">downlinkLossPercent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NetworkProfileType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NetworkProfileType -&gt; Pair)
+-&gt; Maybe NetworkProfileType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NetworkProfileType
+</span><a href="#local-6989586621679388265"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uplinkDelayMs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388264"><span class="hs-identifier hs-var">uplinkDelayMs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uplinkBandwidthBits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>              </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388263"><span class="hs-identifier hs-var">uplinkBandwidthBits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388262"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;downlinkDelayMs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>              </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388261"><span class="hs-identifier hs-var">downlinkDelayMs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;downlinkBandwidthBits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>              </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388260"><span class="hs-identifier hs-var">downlinkBandwidthBits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;projectArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388259"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388258"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-274"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621679388252"><span class="annot"><span class="annottext">toPath :: CreateNetworkProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateNetworkProfile -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfile"><span class="hs-identifier hs-type">CreateNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621679388248"><span class="annot"><span class="annottext">toQuery :: CreateNetworkProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateNetworkProfile -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | /See:/ 'newCreateNetworkProfileResponse' smart constructor.</span><span>
+</span><span id="line-283"></span><span id="local-6989586621679388245"><span id="local-6989586621679388246"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateNetworkProfileResponse"><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse"><span class="hs-identifier hs-var">CreateNetworkProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateNetworkProfileResponse%27"><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse%27"><span class="hs-identifier hs-var">CreateNetworkProfileResponse'</span></a></span></span><span>
+</span><span id="line-284"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The network profile that is returned by the create network profile</span><span>
+</span><span id="line-285"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-286"></span><span>    </span><span id="%24sel%3AnetworkProfile%3ACreateNetworkProfileResponse%27"><span class="annot"><span class="annottext">CreateNetworkProfileResponse -&gt; Maybe NetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AnetworkProfile%3ACreateNetworkProfileResponse%27"><span class="hs-identifier hs-var hs-var">networkProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.NetworkProfile.html#NetworkProfile"><span class="hs-identifier hs-type">NetworkProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-288"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateNetworkProfileResponse%27"><span class="annot"><span class="annottext">CreateNetworkProfileResponse -&gt; Int
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AhttpStatus%3ACreateNetworkProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-289"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-290"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388239"><span id="local-6989586621679388241"><span class="annot"><span class="annottext">CreateNetworkProfileResponse
+-&gt; CreateNetworkProfileResponse -&gt; Bool
+(CreateNetworkProfileResponse
+ -&gt; CreateNetworkProfileResponse -&gt; Bool)
+-&gt; (CreateNetworkProfileResponse
+    -&gt; CreateNetworkProfileResponse -&gt; Bool)
+-&gt; Eq CreateNetworkProfileResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateNetworkProfileResponse
+-&gt; CreateNetworkProfileResponse -&gt; Bool
+$c/= :: CreateNetworkProfileResponse
+-&gt; CreateNetworkProfileResponse -&gt; Bool
+== :: CreateNetworkProfileResponse
+-&gt; CreateNetworkProfileResponse -&gt; Bool
+$c== :: CreateNetworkProfileResponse
+-&gt; CreateNetworkProfileResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388231"><span id="local-6989586621679388233"><span id="local-6989586621679388235"><span id="local-6989586621679388237"><span class="annot"><span class="annottext">ReadPrec [CreateNetworkProfileResponse]
+ReadPrec CreateNetworkProfileResponse
+Int -&gt; ReadS CreateNetworkProfileResponse
+ReadS [CreateNetworkProfileResponse]
+(Int -&gt; ReadS CreateNetworkProfileResponse)
+-&gt; ReadS [CreateNetworkProfileResponse]
+-&gt; ReadPrec CreateNetworkProfileResponse
+-&gt; ReadPrec [CreateNetworkProfileResponse]
+-&gt; Read CreateNetworkProfileResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateNetworkProfileResponse]
+$creadListPrec :: ReadPrec [CreateNetworkProfileResponse]
+readPrec :: ReadPrec CreateNetworkProfileResponse
+$creadPrec :: ReadPrec CreateNetworkProfileResponse
+readList :: ReadS [CreateNetworkProfileResponse]
+$creadList :: ReadS [CreateNetworkProfileResponse]
+readsPrec :: Int -&gt; ReadS CreateNetworkProfileResponse
+$creadsPrec :: Int -&gt; ReadS CreateNetworkProfileResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388225"><span id="local-6989586621679388227"><span id="local-6989586621679388229"><span class="annot"><span class="annottext">Int -&gt; CreateNetworkProfileResponse -&gt; ShowS
+[CreateNetworkProfileResponse] -&gt; ShowS
+CreateNetworkProfileResponse -&gt; String
+(Int -&gt; CreateNetworkProfileResponse -&gt; ShowS)
+-&gt; (CreateNetworkProfileResponse -&gt; String)
+-&gt; ([CreateNetworkProfileResponse] -&gt; ShowS)
+-&gt; Show CreateNetworkProfileResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateNetworkProfileResponse] -&gt; ShowS
+$cshowList :: [CreateNetworkProfileResponse] -&gt; ShowS
+show :: CreateNetworkProfileResponse -&gt; String
+$cshow :: CreateNetworkProfileResponse -&gt; String
+showsPrec :: Int -&gt; CreateNetworkProfileResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateNetworkProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateNetworkProfileResponse -&gt; Rep CreateNetworkProfileResponse x)
+-&gt; (forall x.
+    Rep CreateNetworkProfileResponse x -&gt; CreateNetworkProfileResponse)
+-&gt; Generic CreateNetworkProfileResponse
+forall x.
+Rep CreateNetworkProfileResponse x -&gt; CreateNetworkProfileResponse
+forall x.
+CreateNetworkProfileResponse -&gt; Rep CreateNetworkProfileResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateNetworkProfileResponse x -&gt; CreateNetworkProfileResponse
+$cfrom :: forall x.
+CreateNetworkProfileResponse -&gt; Rep CreateNetworkProfileResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- Create a value of 'CreateNetworkProfileResponse' with all optional fields omitted.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- 'networkProfile', 'createNetworkProfileResponse_networkProfile' - The network profile that is returned by the create network profile</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- 'httpStatus', 'createNetworkProfileResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-304"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#newCreateNetworkProfileResponse"><span class="hs-identifier hs-type">newCreateNetworkProfileResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-305"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-306"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-307"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse"><span class="hs-identifier hs-type">CreateNetworkProfileResponse</span></a></span><span>
+</span><span id="line-308"></span><span id="newCreateNetworkProfileResponse"><span class="annot"><span class="annottext">newCreateNetworkProfileResponse :: Int -&gt; CreateNetworkProfileResponse
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#newCreateNetworkProfileResponse"><span class="hs-identifier hs-var hs-var">newCreateNetworkProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679388222"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388222"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-309"></span><span>  </span><span class="annot"><span class="annottext">CreateNetworkProfileResponse' :: Maybe NetworkProfile -&gt; Int -&gt; CreateNetworkProfileResponse
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse%27"><span class="hs-identifier hs-type">CreateNetworkProfileResponse'</span></a></span><span>
+</span><span id="line-310"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networkProfile:CreateNetworkProfileResponse' :: Maybe NetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AnetworkProfile%3ACreateNetworkProfileResponse%27"><span class="hs-identifier hs-var">networkProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-311"></span><span>        </span><span class="annot"><span class="annottext">Maybe NetworkProfile
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateNetworkProfileResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AhttpStatus%3ACreateNetworkProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388222"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-313"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | The network profile that is returned by the create network profile</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfileResponse_networkProfile"><span class="hs-identifier hs-type">createNetworkProfileResponse_networkProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse"><span class="hs-identifier hs-type">CreateNetworkProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.NetworkProfile.html#NetworkProfile"><span class="hs-identifier hs-type">NetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span id="createNetworkProfileResponse_networkProfile"><span class="annot"><span class="annottext">createNetworkProfileResponse_networkProfile :: (Maybe NetworkProfile -&gt; f (Maybe NetworkProfile))
+-&gt; CreateNetworkProfileResponse -&gt; f CreateNetworkProfileResponse
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfileResponse_networkProfile"><span class="hs-identifier hs-var hs-var">createNetworkProfileResponse_networkProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkProfileResponse -&gt; Maybe NetworkProfile)
+-&gt; (CreateNetworkProfileResponse
+    -&gt; Maybe NetworkProfile -&gt; CreateNetworkProfileResponse)
+-&gt; Lens
+     CreateNetworkProfileResponse
+     CreateNetworkProfileResponse
+     (Maybe NetworkProfile)
+     (Maybe NetworkProfile)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse%27"><span class="hs-identifier hs-type">CreateNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388221"><span class="annot"><span class="annottext">Maybe NetworkProfile
+networkProfile :: Maybe NetworkProfile
+$sel:networkProfile:CreateNetworkProfileResponse' :: CreateNetworkProfileResponse -&gt; Maybe NetworkProfile
+</span><a href="#local-6989586621679388221"><span class="hs-identifier hs-var hs-var">networkProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkProfile
+</span><a href="#local-6989586621679388221"><span class="hs-identifier hs-var">networkProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388220"><span class="annot"><span class="annottext">s :: CreateNetworkProfileResponse
+</span><a href="#local-6989586621679388220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse%27"><span class="hs-identifier hs-type">CreateNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388219"><span class="annot"><span class="annottext">Maybe NetworkProfile
+</span><a href="#local-6989586621679388219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkProfileResponse
+</span><a href="#local-6989586621679388220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkProfile:CreateNetworkProfileResponse' :: Maybe NetworkProfile
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AnetworkProfile%3ACreateNetworkProfileResponse%27"><span class="hs-identifier hs-var">networkProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkProfile
+</span><a href="#local-6989586621679388219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse"><span class="hs-identifier hs-type">CreateNetworkProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfileResponse_httpStatus"><span class="hs-identifier hs-type">createNetworkProfileResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse"><span class="hs-identifier hs-type">CreateNetworkProfileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-322"></span><span id="createNetworkProfileResponse_httpStatus"><span class="annot"><span class="annottext">createNetworkProfileResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateNetworkProfileResponse -&gt; f CreateNetworkProfileResponse
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#createNetworkProfileResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createNetworkProfileResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkProfileResponse -&gt; Int)
+-&gt; (CreateNetworkProfileResponse
+    -&gt; Int -&gt; CreateNetworkProfileResponse)
+-&gt; Lens
+     CreateNetworkProfileResponse CreateNetworkProfileResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse%27"><span class="hs-identifier hs-type">CreateNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388218"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateNetworkProfileResponse' :: CreateNetworkProfileResponse -&gt; Int
+</span><a href="#local-6989586621679388218"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388218"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388217"><span class="annot"><span class="annottext">s :: CreateNetworkProfileResponse
+</span><a href="#local-6989586621679388217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse%27"><span class="hs-identifier hs-type">CreateNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388216"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkProfileResponse
+</span><a href="#local-6989586621679388217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateNetworkProfileResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#%24sel%3AhttpStatus%3ACreateNetworkProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse"><span class="hs-identifier hs-type">CreateNetworkProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388214"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateNetworkProfile.html#CreateNetworkProfileResponse"><span class="hs-identifier hs-type">CreateNetworkProfileResponse</span></a></span></span><span>
+</span><span id="line-325"></span></pre></body></html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatchEvents.Types.RedshiftDataParameters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.RedshiftDataParameters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | These are custom parameters to be used when the target is a Amazon</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Redshift cluster to invoke the Amazon Redshift Data API ExecuteStatement</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- based on EventBridge events.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRedshiftDataParameters' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679304765"><span id="local-6989586621679304766"></span></span><span class="hs-keyword">data</span><span> </span><span id="RedshiftDataParameters"><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-var">RedshiftDataParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedshiftDataParameters%27"><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-var">RedshiftDataParameters'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The database user name. Required when authenticating using temporary</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- credentials.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdbUser%3ARedshiftDataParameters%27"><span class="annot"><span class="annottext">RedshiftDataParameters -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3AdbUser%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var hs-var">dbUser</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name or ARN of the secret that enables access to the database.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Required when authenticating using Amazon Web Services Secrets Manager.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsecretManagerArn%3ARedshiftDataParameters%27"><span class="annot"><span class="annottext">RedshiftDataParameters -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3AsecretManagerArn%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var hs-var">secretManagerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the SQL statement. You can name the SQL statement when you</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- create it to identify the query.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AstatementName%3ARedshiftDataParameters%27"><span class="annot"><span class="annottext">RedshiftDataParameters -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3AstatementName%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var hs-var">statementName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Indicates whether to send an event back to EventBridge after the SQL</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- statement runs.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AwithEvent%3ARedshiftDataParameters%27"><span class="annot"><span class="annottext">RedshiftDataParameters -&gt; Maybe Bool
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3AwithEvent%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var hs-var">withEvent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the database. Required when authenticating using temporary</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- credentials.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Adatabase%3ARedshiftDataParameters%27"><span class="annot"><span class="annottext">RedshiftDataParameters -&gt; Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3Adatabase%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The SQL statement text to run.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Asql%3ARedshiftDataParameters%27"><span class="annot"><span class="annottext">RedshiftDataParameters -&gt; Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3Asql%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var hs-var">sql</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304754"><span id="local-6989586621679304756"><span class="annot"><span class="annottext">RedshiftDataParameters -&gt; RedshiftDataParameters -&gt; Bool
+(RedshiftDataParameters -&gt; RedshiftDataParameters -&gt; Bool)
+-&gt; (RedshiftDataParameters -&gt; RedshiftDataParameters -&gt; Bool)
+-&gt; Eq RedshiftDataParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RedshiftDataParameters -&gt; RedshiftDataParameters -&gt; Bool
+$c/= :: RedshiftDataParameters -&gt; RedshiftDataParameters -&gt; Bool
+== :: RedshiftDataParameters -&gt; RedshiftDataParameters -&gt; Bool
+$c== :: RedshiftDataParameters -&gt; RedshiftDataParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304745"><span id="local-6989586621679304747"><span id="local-6989586621679304749"><span id="local-6989586621679304751"><span class="annot"><span class="annottext">ReadPrec [RedshiftDataParameters]
+ReadPrec RedshiftDataParameters
+Int -&gt; ReadS RedshiftDataParameters
+ReadS [RedshiftDataParameters]
+(Int -&gt; ReadS RedshiftDataParameters)
+-&gt; ReadS [RedshiftDataParameters]
+-&gt; ReadPrec RedshiftDataParameters
+-&gt; ReadPrec [RedshiftDataParameters]
+-&gt; Read RedshiftDataParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RedshiftDataParameters]
+$creadListPrec :: ReadPrec [RedshiftDataParameters]
+readPrec :: ReadPrec RedshiftDataParameters
+$creadPrec :: ReadPrec RedshiftDataParameters
+readList :: ReadS [RedshiftDataParameters]
+$creadList :: ReadS [RedshiftDataParameters]
+readsPrec :: Int -&gt; ReadS RedshiftDataParameters
+$creadsPrec :: Int -&gt; ReadS RedshiftDataParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304738"><span id="local-6989586621679304740"><span id="local-6989586621679304742"><span class="annot"><span class="annottext">Int -&gt; RedshiftDataParameters -&gt; ShowS
+[RedshiftDataParameters] -&gt; ShowS
+RedshiftDataParameters -&gt; String
+(Int -&gt; RedshiftDataParameters -&gt; ShowS)
+-&gt; (RedshiftDataParameters -&gt; String)
+-&gt; ([RedshiftDataParameters] -&gt; ShowS)
+-&gt; Show RedshiftDataParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RedshiftDataParameters] -&gt; ShowS
+$cshowList :: [RedshiftDataParameters] -&gt; ShowS
+show :: RedshiftDataParameters -&gt; String
+$cshow :: RedshiftDataParameters -&gt; String
+showsPrec :: Int -&gt; RedshiftDataParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; RedshiftDataParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RedshiftDataParameters -&gt; Rep RedshiftDataParameters x)
+-&gt; (forall x.
+    Rep RedshiftDataParameters x -&gt; RedshiftDataParameters)
+-&gt; Generic RedshiftDataParameters
+forall x. Rep RedshiftDataParameters x -&gt; RedshiftDataParameters
+forall x. RedshiftDataParameters -&gt; Rep RedshiftDataParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RedshiftDataParameters x -&gt; RedshiftDataParameters
+$cfrom :: forall x. RedshiftDataParameters -&gt; Rep RedshiftDataParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'RedshiftDataParameters' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'dbUser', 'redshiftDataParameters_dbUser' - The database user name. Required when authenticating using temporary</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- credentials.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'secretManagerArn', 'redshiftDataParameters_secretManagerArn' - The name or ARN of the secret that enables access to the database.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Required when authenticating using Amazon Web Services Secrets Manager.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'statementName', 'redshiftDataParameters_statementName' - The name of the SQL statement. You can name the SQL statement when you</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- create it to identify the query.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'withEvent', 'redshiftDataParameters_withEvent' - Indicates whether to send an event back to EventBridge after the SQL</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- statement runs.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'database', 'redshiftDataParameters_database' - The name of the database. Required when authenticating using temporary</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- credentials.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'sql', 'redshiftDataParameters_sql' - The SQL statement text to run.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#newRedshiftDataParameters"><span class="hs-identifier hs-type">newRedshiftDataParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'database'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'sql'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span><span>
+</span><span id="line-82"></span><span id="newRedshiftDataParameters"><span class="annot"><span class="annottext">newRedshiftDataParameters :: Text -&gt; Text -&gt; RedshiftDataParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#newRedshiftDataParameters"><span class="hs-identifier hs-var hs-var">newRedshiftDataParameters</span></a></span></span><span> </span><span id="local-6989586621679304732"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304732"><span class="hs-identifier hs-var">pDatabase_</span></a></span></span><span> </span><span id="local-6989586621679304731"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304731"><span class="hs-identifier hs-var">pSql_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">RedshiftDataParameters' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; Text
+-&gt; RedshiftDataParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-type">RedshiftDataParameters'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbUser:RedshiftDataParameters' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3AdbUser%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var">dbUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:secretManagerArn:RedshiftDataParameters' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3AsecretManagerArn%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var">secretManagerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:statementName:RedshiftDataParameters' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3AstatementName%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var">statementName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:withEvent:RedshiftDataParameters' :: Maybe Bool
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3AwithEvent%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var">withEvent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:database:RedshiftDataParameters' :: Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3Adatabase%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var">database</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304732"><span class="hs-identifier hs-var">pDatabase_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:sql:RedshiftDataParameters' :: Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3Asql%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var">sql</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304731"><span class="hs-identifier hs-var">pSql_</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The database user name. Required when authenticating using temporary</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- credentials.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#redshiftDataParameters_dbUser"><span class="hs-identifier hs-type">redshiftDataParameters_dbUser</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="redshiftDataParameters_dbUser"><span class="annot"><span class="annottext">redshiftDataParameters_dbUser :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RedshiftDataParameters -&gt; f RedshiftDataParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#redshiftDataParameters_dbUser"><span class="hs-identifier hs-var hs-var">redshiftDataParameters_dbUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDataParameters -&gt; Maybe Text)
+-&gt; (RedshiftDataParameters -&gt; Maybe Text -&gt; RedshiftDataParameters)
+-&gt; Lens
+     RedshiftDataParameters
+     RedshiftDataParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-type">RedshiftDataParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304727"><span class="annot"><span class="annottext">Maybe Text
+dbUser :: Maybe Text
+$sel:dbUser:RedshiftDataParameters' :: RedshiftDataParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679304727"><span class="hs-identifier hs-var hs-var">dbUser</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304727"><span class="hs-identifier hs-var">dbUser</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304726"><span class="annot"><span class="annottext">s :: RedshiftDataParameters
+</span><a href="#local-6989586621679304726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-type">RedshiftDataParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304725"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDataParameters
+</span><a href="#local-6989586621679304726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbUser:RedshiftDataParameters' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3AdbUser%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var">dbUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The name or ARN of the secret that enables access to the database.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Required when authenticating using Amazon Web Services Secrets Manager.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#redshiftDataParameters_secretManagerArn"><span class="hs-identifier hs-type">redshiftDataParameters_secretManagerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="redshiftDataParameters_secretManagerArn"><span class="annot"><span class="annottext">redshiftDataParameters_secretManagerArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RedshiftDataParameters -&gt; f RedshiftDataParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#redshiftDataParameters_secretManagerArn"><span class="hs-identifier hs-var hs-var">redshiftDataParameters_secretManagerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDataParameters -&gt; Maybe Text)
+-&gt; (RedshiftDataParameters -&gt; Maybe Text -&gt; RedshiftDataParameters)
+-&gt; Lens
+     RedshiftDataParameters
+     RedshiftDataParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-type">RedshiftDataParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304723"><span class="annot"><span class="annottext">Maybe Text
+secretManagerArn :: Maybe Text
+$sel:secretManagerArn:RedshiftDataParameters' :: RedshiftDataParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679304723"><span class="hs-identifier hs-var hs-var">secretManagerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304723"><span class="hs-identifier hs-var">secretManagerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304722"><span class="annot"><span class="annottext">s :: RedshiftDataParameters
+</span><a href="#local-6989586621679304722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-type">RedshiftDataParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304721"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDataParameters
+</span><a href="#local-6989586621679304722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretManagerArn:RedshiftDataParameters' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3AsecretManagerArn%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var">secretManagerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The name of the SQL statement. You can name the SQL statement when you</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- create it to identify the query.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#redshiftDataParameters_statementName"><span class="hs-identifier hs-type">redshiftDataParameters_statementName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="redshiftDataParameters_statementName"><span class="annot"><span class="annottext">redshiftDataParameters_statementName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RedshiftDataParameters -&gt; f RedshiftDataParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#redshiftDataParameters_statementName"><span class="hs-identifier hs-var hs-var">redshiftDataParameters_statementName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDataParameters -&gt; Maybe Text)
+-&gt; (RedshiftDataParameters -&gt; Maybe Text -&gt; RedshiftDataParameters)
+-&gt; Lens
+     RedshiftDataParameters
+     RedshiftDataParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-type">RedshiftDataParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304719"><span class="annot"><span class="annottext">Maybe Text
+statementName :: Maybe Text
+$sel:statementName:RedshiftDataParameters' :: RedshiftDataParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679304719"><span class="hs-identifier hs-var hs-var">statementName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304719"><span class="hs-identifier hs-var">statementName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304718"><span class="annot"><span class="annottext">s :: RedshiftDataParameters
+</span><a href="#local-6989586621679304718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-type">RedshiftDataParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304717"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDataParameters
+</span><a href="#local-6989586621679304718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementName:RedshiftDataParameters' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3AstatementName%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var">statementName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Indicates whether to send an event back to EventBridge after the SQL</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- statement runs.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#redshiftDataParameters_withEvent"><span class="hs-identifier hs-type">redshiftDataParameters_withEvent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="redshiftDataParameters_withEvent"><span class="annot"><span class="annottext">redshiftDataParameters_withEvent :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; RedshiftDataParameters -&gt; f RedshiftDataParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#redshiftDataParameters_withEvent"><span class="hs-identifier hs-var hs-var">redshiftDataParameters_withEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDataParameters -&gt; Maybe Bool)
+-&gt; (RedshiftDataParameters -&gt; Maybe Bool -&gt; RedshiftDataParameters)
+-&gt; Lens
+     RedshiftDataParameters
+     RedshiftDataParameters
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-type">RedshiftDataParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304715"><span class="annot"><span class="annottext">Maybe Bool
+withEvent :: Maybe Bool
+$sel:withEvent:RedshiftDataParameters' :: RedshiftDataParameters -&gt; Maybe Bool
+</span><a href="#local-6989586621679304715"><span class="hs-identifier hs-var hs-var">withEvent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304715"><span class="hs-identifier hs-var">withEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304714"><span class="annot"><span class="annottext">s :: RedshiftDataParameters
+</span><a href="#local-6989586621679304714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-type">RedshiftDataParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304713"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDataParameters
+</span><a href="#local-6989586621679304714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:withEvent:RedshiftDataParameters' :: Maybe Bool
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3AwithEvent%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var">withEvent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The name of the database. Required when authenticating using temporary</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- credentials.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#redshiftDataParameters_database"><span class="hs-identifier hs-type">redshiftDataParameters_database</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="redshiftDataParameters_database"><span class="annot"><span class="annottext">redshiftDataParameters_database :: (Text -&gt; f Text)
+-&gt; RedshiftDataParameters -&gt; f RedshiftDataParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#redshiftDataParameters_database"><span class="hs-identifier hs-var hs-var">redshiftDataParameters_database</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDataParameters -&gt; Text)
+-&gt; (RedshiftDataParameters -&gt; Text -&gt; RedshiftDataParameters)
+-&gt; Lens RedshiftDataParameters RedshiftDataParameters Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-type">RedshiftDataParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304711"><span class="annot"><span class="annottext">Text
+database :: Text
+$sel:database:RedshiftDataParameters' :: RedshiftDataParameters -&gt; Text
+</span><a href="#local-6989586621679304711"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304711"><span class="hs-identifier hs-var">database</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304710"><span class="annot"><span class="annottext">s :: RedshiftDataParameters
+</span><a href="#local-6989586621679304710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-type">RedshiftDataParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304709"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDataParameters
+</span><a href="#local-6989586621679304710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:database:RedshiftDataParameters' :: Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3Adatabase%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var">database</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The SQL statement text to run.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#redshiftDataParameters_sql"><span class="hs-identifier hs-type">redshiftDataParameters_sql</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-119"></span><span id="redshiftDataParameters_sql"><span class="annot"><span class="annottext">redshiftDataParameters_sql :: (Text -&gt; f Text)
+-&gt; RedshiftDataParameters -&gt; f RedshiftDataParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#redshiftDataParameters_sql"><span class="hs-identifier hs-var hs-var">redshiftDataParameters_sql</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedshiftDataParameters -&gt; Text)
+-&gt; (RedshiftDataParameters -&gt; Text -&gt; RedshiftDataParameters)
+-&gt; Lens RedshiftDataParameters RedshiftDataParameters Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-type">RedshiftDataParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304707"><span class="annot"><span class="annottext">Text
+sql :: Text
+$sel:sql:RedshiftDataParameters' :: RedshiftDataParameters -&gt; Text
+</span><a href="#local-6989586621679304707"><span class="hs-identifier hs-var hs-var">sql</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304707"><span class="hs-identifier hs-var">sql</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304706"><span class="annot"><span class="annottext">s :: RedshiftDataParameters
+</span><a href="#local-6989586621679304706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-type">RedshiftDataParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304705"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDataParameters
+</span><a href="#local-6989586621679304706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sql:RedshiftDataParameters' :: Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#%24sel%3Asql%3ARedshiftDataParameters%27"><span class="hs-identifier hs-var">sql</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304702"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679304700"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RedshiftDataParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RedshiftDataParameters)
+-&gt; Value
+-&gt; Parser RedshiftDataParameters
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RedshiftDataParameters&quot;</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304697"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304697"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; Text
+-&gt; RedshiftDataParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-var">RedshiftDataParameters'</span></a></span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Text
+ -&gt; Text
+ -&gt; RedshiftDataParameters)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; Text
+      -&gt; RedshiftDataParameters)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DbUser&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; Text
+   -&gt; RedshiftDataParameters)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool -&gt; Text -&gt; Text -&gt; RedshiftDataParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretManagerArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool -&gt; Text -&gt; Text -&gt; RedshiftDataParameters)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Bool -&gt; Text -&gt; Text -&gt; RedshiftDataParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatementName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Text -&gt; Text -&gt; RedshiftDataParameters)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Text -&gt; Text -&gt; RedshiftDataParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WithEvent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; RedshiftDataParameters)
+-&gt; Parser Text -&gt; Parser (Text -&gt; RedshiftDataParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Database&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; RedshiftDataParameters)
+-&gt; Parser Text -&gt; Parser RedshiftDataParameters
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sql&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304690"><span id="local-6989586621679304692"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304687"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304679"><span id="local-6989586621679304681"><span id="local-6989586621679304683"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679304677"><span class="annot"><span class="annottext">toJSON :: RedshiftDataParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters%27"><span class="hs-identifier hs-type">RedshiftDataParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304670"><span id="local-6989586621679304671"><span id="local-6989586621679304672"><span id="local-6989586621679304673"><span id="local-6989586621679304674"><span id="local-6989586621679304675"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Text
+sql :: Text
+database :: Text
+withEvent :: Maybe Bool
+statementName :: Maybe Text
+secretManagerArn :: Maybe Text
+dbUser :: Maybe Text
+$sel:sql:RedshiftDataParameters' :: RedshiftDataParameters -&gt; Text
+$sel:database:RedshiftDataParameters' :: RedshiftDataParameters -&gt; Text
+$sel:withEvent:RedshiftDataParameters' :: RedshiftDataParameters -&gt; Maybe Bool
+$sel:statementName:RedshiftDataParameters' :: RedshiftDataParameters -&gt; Maybe Text
+$sel:secretManagerArn:RedshiftDataParameters' :: RedshiftDataParameters -&gt; Maybe Text
+$sel:dbUser:RedshiftDataParameters' :: RedshiftDataParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679304670"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DbUser&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304675"><span class="hs-identifier hs-var">dbUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretManagerArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304674"><span class="hs-identifier hs-var">secretManagerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatementName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304673"><span class="hs-identifier hs-var">statementName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WithEvent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679304672"><span class="hs-identifier hs-var">withEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Database&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304671"><span class="hs-identifier hs-var">database</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sql&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304670"><span class="hs-identifier hs-var">sql</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span></pre></body></html>

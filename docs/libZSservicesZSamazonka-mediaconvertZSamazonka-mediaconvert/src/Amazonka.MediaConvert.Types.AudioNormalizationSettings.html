@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.AudioNormalizationSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.AudioNormalizationSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationAlgorithm.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.AudioNormalizationAlgorithm</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationAlgorithmControl.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.AudioNormalizationAlgorithmControl</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationLoudnessLogging.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.AudioNormalizationLoudnessLogging</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationPeakCalculation.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.AudioNormalizationPeakCalculation</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Advanced audio normalization settings. Ignore these settings unless you</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- need to comply with a loudness standard.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newAudioNormalizationSettings' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679942115"><span id="local-6989586621679942116"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioNormalizationSettings"><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-var">AudioNormalizationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioNormalizationSettings%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-var">AudioNormalizationSettings'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When enabled the output audio is corrected using the chosen algorithm.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- If disabled, the audio will be measured but not adjusted.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AalgorithmControl%3AAudioNormalizationSettings%27"><span class="annot"><span class="annottext">AudioNormalizationSettings
+-&gt; Maybe AudioNormalizationAlgorithmControl
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3AalgorithmControl%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var hs-var">algorithmControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationAlgorithmControl.html#AudioNormalizationAlgorithmControl"><span class="hs-identifier hs-type">AudioNormalizationAlgorithmControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | When you use Audio normalization (AudioNormalizationSettings),</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- optionally use this setting to specify a target loudness. If you don\'t</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- specify a value here, the encoder chooses a value for you, based on the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- algorithm that you choose for Algorithm (algorithm). If you choose</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- encoder will choose -23 LKFS.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AtargetLkfs%3AAudioNormalizationSettings%27"><span class="annot"><span class="annottext">AudioNormalizationSettings -&gt; Maybe Double
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3AtargetLkfs%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var hs-var">targetLkfs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | If set to TRUE_PEAK, calculate and log the TruePeak for each output\'s</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- audio track loudness.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3ApeakCalculation%3AAudioNormalizationSettings%27"><span class="annot"><span class="annottext">AudioNormalizationSettings
+-&gt; Maybe AudioNormalizationPeakCalculation
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3ApeakCalculation%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var hs-var">peakCalculation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationPeakCalculation.html#AudioNormalizationPeakCalculation"><span class="hs-identifier hs-type">AudioNormalizationPeakCalculation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Content measuring above this level will be corrected to the target</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- level. Content measuring below this level will not be corrected.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AcorrectionGateLevel%3AAudioNormalizationSettings%27"><span class="annot"><span class="annottext">AudioNormalizationSettings -&gt; Maybe Int
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3AcorrectionGateLevel%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var hs-var">correctionGateLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Choose one of the following audio normalization algorithms: ITU-R</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- BS.1770-1: Ungated loudness. A measurement of ungated average loudness</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- for an entire piece of content, suitable for measurement of short-form</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- content under ATSC recommendation A\/85. Supports up to 5.1 audio</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- channels. ITU-R BS.1770-2: Gated loudness. A measurement of gated</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- average loudness compliant with the requirements of EBU-R128. Supports</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- up to 5.1 audio channels. ITU-R BS.1770-3: Modified peak. The same</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- loudness measurement algorithm as 1770-2, with an updated true peak</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- measurement. ITU-R BS.1770-4: Higher channel count. Allows for more</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- audio channels than the other algorithms, including configurations such</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- as 7.1.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Aalgorithm%3AAudioNormalizationSettings%27"><span class="annot"><span class="annottext">AudioNormalizationSettings -&gt; Maybe AudioNormalizationAlgorithm
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3Aalgorithm%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var hs-var">algorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm"><span class="hs-identifier hs-type">AudioNormalizationAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | If set to LOG, log each output\'s audio track loudness to a CSV file.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AloudnessLogging%3AAudioNormalizationSettings%27"><span class="annot"><span class="annottext">AudioNormalizationSettings
+-&gt; Maybe AudioNormalizationLoudnessLogging
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3AloudnessLogging%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var hs-var">loudnessLogging</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationLoudnessLogging.html#AudioNormalizationLoudnessLogging"><span class="hs-identifier hs-type">AudioNormalizationLoudnessLogging</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679942104"><span id="local-6989586621679942106"><span class="annot"><span class="annottext">AudioNormalizationSettings -&gt; AudioNormalizationSettings -&gt; Bool
+(AudioNormalizationSettings -&gt; AudioNormalizationSettings -&gt; Bool)
+-&gt; (AudioNormalizationSettings
+    -&gt; AudioNormalizationSettings -&gt; Bool)
+-&gt; Eq AudioNormalizationSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AudioNormalizationSettings -&gt; AudioNormalizationSettings -&gt; Bool
+$c/= :: AudioNormalizationSettings -&gt; AudioNormalizationSettings -&gt; Bool
+== :: AudioNormalizationSettings -&gt; AudioNormalizationSettings -&gt; Bool
+$c== :: AudioNormalizationSettings -&gt; AudioNormalizationSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679942095"><span id="local-6989586621679942097"><span id="local-6989586621679942099"><span id="local-6989586621679942101"><span class="annot"><span class="annottext">ReadPrec [AudioNormalizationSettings]
+ReadPrec AudioNormalizationSettings
+Int -&gt; ReadS AudioNormalizationSettings
+ReadS [AudioNormalizationSettings]
+(Int -&gt; ReadS AudioNormalizationSettings)
+-&gt; ReadS [AudioNormalizationSettings]
+-&gt; ReadPrec AudioNormalizationSettings
+-&gt; ReadPrec [AudioNormalizationSettings]
+-&gt; Read AudioNormalizationSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AudioNormalizationSettings]
+$creadListPrec :: ReadPrec [AudioNormalizationSettings]
+readPrec :: ReadPrec AudioNormalizationSettings
+$creadPrec :: ReadPrec AudioNormalizationSettings
+readList :: ReadS [AudioNormalizationSettings]
+$creadList :: ReadS [AudioNormalizationSettings]
+readsPrec :: Int -&gt; ReadS AudioNormalizationSettings
+$creadsPrec :: Int -&gt; ReadS AudioNormalizationSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679942088"><span id="local-6989586621679942090"><span id="local-6989586621679942092"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationSettings -&gt; ShowS
+[AudioNormalizationSettings] -&gt; ShowS
+AudioNormalizationSettings -&gt; String
+(Int -&gt; AudioNormalizationSettings -&gt; ShowS)
+-&gt; (AudioNormalizationSettings -&gt; String)
+-&gt; ([AudioNormalizationSettings] -&gt; ShowS)
+-&gt; Show AudioNormalizationSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AudioNormalizationSettings] -&gt; ShowS
+$cshowList :: [AudioNormalizationSettings] -&gt; ShowS
+show :: AudioNormalizationSettings -&gt; String
+$cshow :: AudioNormalizationSettings -&gt; String
+showsPrec :: Int -&gt; AudioNormalizationSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; AudioNormalizationSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AudioNormalizationSettings -&gt; Rep AudioNormalizationSettings x)
+-&gt; (forall x.
+    Rep AudioNormalizationSettings x -&gt; AudioNormalizationSettings)
+-&gt; Generic AudioNormalizationSettings
+forall x.
+Rep AudioNormalizationSettings x -&gt; AudioNormalizationSettings
+forall x.
+AudioNormalizationSettings -&gt; Rep AudioNormalizationSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AudioNormalizationSettings x -&gt; AudioNormalizationSettings
+$cfrom :: forall x.
+AudioNormalizationSettings -&gt; Rep AudioNormalizationSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'AudioNormalizationSettings' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'algorithmControl', 'audioNormalizationSettings_algorithmControl' - When enabled the output audio is corrected using the chosen algorithm.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- If disabled, the audio will be measured but not adjusted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'targetLkfs', 'audioNormalizationSettings_targetLkfs' - When you use Audio normalization (AudioNormalizationSettings),</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- optionally use this setting to specify a target loudness. If you don\'t</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- specify a value here, the encoder chooses a value for you, based on the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- algorithm that you choose for Algorithm (algorithm). If you choose</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- encoder will choose -23 LKFS.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'peakCalculation', 'audioNormalizationSettings_peakCalculation' - If set to TRUE_PEAK, calculate and log the TruePeak for each output\'s</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- audio track loudness.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'correctionGateLevel', 'audioNormalizationSettings_correctionGateLevel' - Content measuring above this level will be corrected to the target</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- level. Content measuring below this level will not be corrected.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'algorithm', 'audioNormalizationSettings_algorithm' - Choose one of the following audio normalization algorithms: ITU-R</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- BS.1770-1: Ungated loudness. A measurement of ungated average loudness</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- for an entire piece of content, suitable for measurement of short-form</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- content under ATSC recommendation A\/85. Supports up to 5.1 audio</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- channels. ITU-R BS.1770-2: Gated loudness. A measurement of gated</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- average loudness compliant with the requirements of EBU-R128. Supports</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- up to 5.1 audio channels. ITU-R BS.1770-3: Modified peak. The same</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- loudness measurement algorithm as 1770-2, with an updated true peak</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- measurement. ITU-R BS.1770-4: Higher channel count. Allows for more</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- audio channels than the other algorithms, including configurations such</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- as 7.1.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'loudnessLogging', 'audioNormalizationSettings_loudnessLogging' - If set to LOG, log each output\'s audio track loudness to a CSV file.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#newAudioNormalizationSettings"><span class="hs-identifier hs-type">newAudioNormalizationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span>
+</span><span id="line-107"></span><span id="newAudioNormalizationSettings"><span class="annot"><span class="annottext">newAudioNormalizationSettings :: AudioNormalizationSettings
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#newAudioNormalizationSettings"><span class="hs-identifier hs-var hs-var">newAudioNormalizationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">AudioNormalizationSettings' :: Maybe AudioNormalizationAlgorithmControl
+-&gt; Maybe Double
+-&gt; Maybe AudioNormalizationPeakCalculation
+-&gt; Maybe Int
+-&gt; Maybe AudioNormalizationAlgorithm
+-&gt; Maybe AudioNormalizationLoudnessLogging
+-&gt; AudioNormalizationSettings
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:algorithmControl:AudioNormalizationSettings' :: Maybe AudioNormalizationAlgorithmControl
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3AalgorithmControl%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var">algorithmControl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetLkfs:AudioNormalizationSettings' :: Maybe Double
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3AtargetLkfs%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var">targetLkfs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:peakCalculation:AudioNormalizationSettings' :: Maybe AudioNormalizationPeakCalculation
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3ApeakCalculation%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var">peakCalculation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationPeakCalculation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:correctionGateLevel:AudioNormalizationSettings' :: Maybe Int
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3AcorrectionGateLevel%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var">correctionGateLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:algorithm:AudioNormalizationSettings' :: Maybe AudioNormalizationAlgorithm
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3Aalgorithm%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var">algorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithm
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:loudnessLogging:AudioNormalizationSettings' :: Maybe AudioNormalizationLoudnessLogging
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3AloudnessLogging%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var">loudnessLogging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationLoudnessLogging
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | When enabled the output audio is corrected using the chosen algorithm.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- If disabled, the audio will be measured but not adjusted.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#audioNormalizationSettings_algorithmControl"><span class="hs-identifier hs-type">audioNormalizationSettings_algorithmControl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationAlgorithmControl.html#AudioNormalizationAlgorithmControl"><span class="hs-identifier hs-type">AudioNormalizationAlgorithmControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="audioNormalizationSettings_algorithmControl"><span class="annot"><span class="annottext">audioNormalizationSettings_algorithmControl :: (Maybe AudioNormalizationAlgorithmControl
+ -&gt; f (Maybe AudioNormalizationAlgorithmControl))
+-&gt; AudioNormalizationSettings -&gt; f AudioNormalizationSettings
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#audioNormalizationSettings_algorithmControl"><span class="hs-identifier hs-var hs-var">audioNormalizationSettings_algorithmControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioNormalizationSettings
+ -&gt; Maybe AudioNormalizationAlgorithmControl)
+-&gt; (AudioNormalizationSettings
+    -&gt; Maybe AudioNormalizationAlgorithmControl
+    -&gt; AudioNormalizationSettings)
+-&gt; Lens
+     AudioNormalizationSettings
+     AudioNormalizationSettings
+     (Maybe AudioNormalizationAlgorithmControl)
+     (Maybe AudioNormalizationAlgorithmControl)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942079"><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
+algorithmControl :: Maybe AudioNormalizationAlgorithmControl
+$sel:algorithmControl:AudioNormalizationSettings' :: AudioNormalizationSettings
+-&gt; Maybe AudioNormalizationAlgorithmControl
+</span><a href="#local-6989586621679942079"><span class="hs-identifier hs-var hs-var">algorithmControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
+</span><a href="#local-6989586621679942079"><span class="hs-identifier hs-var">algorithmControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942078"><span class="annot"><span class="annottext">s :: AudioNormalizationSettings
+</span><a href="#local-6989586621679942078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942077"><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
+</span><a href="#local-6989586621679942077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioNormalizationSettings
+</span><a href="#local-6989586621679942078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmControl:AudioNormalizationSettings' :: Maybe AudioNormalizationAlgorithmControl
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3AalgorithmControl%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var">algorithmControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
+</span><a href="#local-6989586621679942077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | When you use Audio normalization (AudioNormalizationSettings),</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- optionally use this setting to specify a target loudness. If you don\'t</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- specify a value here, the encoder chooses a value for you, based on the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- algorithm that you choose for Algorithm (algorithm). If you choose</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- encoder will choose -23 LKFS.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#audioNormalizationSettings_targetLkfs"><span class="hs-identifier hs-type">audioNormalizationSettings_targetLkfs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="audioNormalizationSettings_targetLkfs"><span class="annot"><span class="annottext">audioNormalizationSettings_targetLkfs :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; AudioNormalizationSettings -&gt; f AudioNormalizationSettings
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#audioNormalizationSettings_targetLkfs"><span class="hs-identifier hs-var hs-var">audioNormalizationSettings_targetLkfs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioNormalizationSettings -&gt; Maybe Double)
+-&gt; (AudioNormalizationSettings
+    -&gt; Maybe Double -&gt; AudioNormalizationSettings)
+-&gt; Lens
+     AudioNormalizationSettings
+     AudioNormalizationSettings
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942075"><span class="annot"><span class="annottext">Maybe Double
+targetLkfs :: Maybe Double
+$sel:targetLkfs:AudioNormalizationSettings' :: AudioNormalizationSettings -&gt; Maybe Double
+</span><a href="#local-6989586621679942075"><span class="hs-identifier hs-var hs-var">targetLkfs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679942075"><span class="hs-identifier hs-var">targetLkfs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942074"><span class="annot"><span class="annottext">s :: AudioNormalizationSettings
+</span><a href="#local-6989586621679942074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942073"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679942073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioNormalizationSettings
+</span><a href="#local-6989586621679942074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetLkfs:AudioNormalizationSettings' :: Maybe Double
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3AtargetLkfs%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var">targetLkfs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679942073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | If set to TRUE_PEAK, calculate and log the TruePeak for each output\'s</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- audio track loudness.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#audioNormalizationSettings_peakCalculation"><span class="hs-identifier hs-type">audioNormalizationSettings_peakCalculation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationPeakCalculation.html#AudioNormalizationPeakCalculation"><span class="hs-identifier hs-type">AudioNormalizationPeakCalculation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="audioNormalizationSettings_peakCalculation"><span class="annot"><span class="annottext">audioNormalizationSettings_peakCalculation :: (Maybe AudioNormalizationPeakCalculation
+ -&gt; f (Maybe AudioNormalizationPeakCalculation))
+-&gt; AudioNormalizationSettings -&gt; f AudioNormalizationSettings
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#audioNormalizationSettings_peakCalculation"><span class="hs-identifier hs-var hs-var">audioNormalizationSettings_peakCalculation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioNormalizationSettings
+ -&gt; Maybe AudioNormalizationPeakCalculation)
+-&gt; (AudioNormalizationSettings
+    -&gt; Maybe AudioNormalizationPeakCalculation
+    -&gt; AudioNormalizationSettings)
+-&gt; Lens
+     AudioNormalizationSettings
+     AudioNormalizationSettings
+     (Maybe AudioNormalizationPeakCalculation)
+     (Maybe AudioNormalizationPeakCalculation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942071"><span class="annot"><span class="annottext">Maybe AudioNormalizationPeakCalculation
+peakCalculation :: Maybe AudioNormalizationPeakCalculation
+$sel:peakCalculation:AudioNormalizationSettings' :: AudioNormalizationSettings
+-&gt; Maybe AudioNormalizationPeakCalculation
+</span><a href="#local-6989586621679942071"><span class="hs-identifier hs-var hs-var">peakCalculation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationPeakCalculation
+</span><a href="#local-6989586621679942071"><span class="hs-identifier hs-var">peakCalculation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942070"><span class="annot"><span class="annottext">s :: AudioNormalizationSettings
+</span><a href="#local-6989586621679942070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942069"><span class="annot"><span class="annottext">Maybe AudioNormalizationPeakCalculation
+</span><a href="#local-6989586621679942069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioNormalizationSettings
+</span><a href="#local-6989586621679942070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:peakCalculation:AudioNormalizationSettings' :: Maybe AudioNormalizationPeakCalculation
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3ApeakCalculation%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var">peakCalculation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationPeakCalculation
+</span><a href="#local-6989586621679942069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Content measuring above this level will be corrected to the target</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- level. Content measuring below this level will not be corrected.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#audioNormalizationSettings_correctionGateLevel"><span class="hs-identifier hs-type">audioNormalizationSettings_correctionGateLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="audioNormalizationSettings_correctionGateLevel"><span class="annot"><span class="annottext">audioNormalizationSettings_correctionGateLevel :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AudioNormalizationSettings -&gt; f AudioNormalizationSettings
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#audioNormalizationSettings_correctionGateLevel"><span class="hs-identifier hs-var hs-var">audioNormalizationSettings_correctionGateLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioNormalizationSettings -&gt; Maybe Int)
+-&gt; (AudioNormalizationSettings
+    -&gt; Maybe Int -&gt; AudioNormalizationSettings)
+-&gt; Lens
+     AudioNormalizationSettings
+     AudioNormalizationSettings
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942067"><span class="annot"><span class="annottext">Maybe Int
+correctionGateLevel :: Maybe Int
+$sel:correctionGateLevel:AudioNormalizationSettings' :: AudioNormalizationSettings -&gt; Maybe Int
+</span><a href="#local-6989586621679942067"><span class="hs-identifier hs-var hs-var">correctionGateLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679942067"><span class="hs-identifier hs-var">correctionGateLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942066"><span class="annot"><span class="annottext">s :: AudioNormalizationSettings
+</span><a href="#local-6989586621679942066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942065"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679942065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioNormalizationSettings
+</span><a href="#local-6989586621679942066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:correctionGateLevel:AudioNormalizationSettings' :: Maybe Int
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3AcorrectionGateLevel%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var">correctionGateLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679942065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | Choose one of the following audio normalization algorithms: ITU-R</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- BS.1770-1: Ungated loudness. A measurement of ungated average loudness</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- for an entire piece of content, suitable for measurement of short-form</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- content under ATSC recommendation A\/85. Supports up to 5.1 audio</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- channels. ITU-R BS.1770-2: Gated loudness. A measurement of gated</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- average loudness compliant with the requirements of EBU-R128. Supports</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- up to 5.1 audio channels. ITU-R BS.1770-3: Modified peak. The same</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- loudness measurement algorithm as 1770-2, with an updated true peak</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- measurement. ITU-R BS.1770-4: Higher channel count. Allows for more</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- audio channels than the other algorithms, including configurations such</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- as 7.1.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#audioNormalizationSettings_algorithm"><span class="hs-identifier hs-type">audioNormalizationSettings_algorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationAlgorithm.html#AudioNormalizationAlgorithm"><span class="hs-identifier hs-type">AudioNormalizationAlgorithm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="audioNormalizationSettings_algorithm"><span class="annot"><span class="annottext">audioNormalizationSettings_algorithm :: (Maybe AudioNormalizationAlgorithm
+ -&gt; f (Maybe AudioNormalizationAlgorithm))
+-&gt; AudioNormalizationSettings -&gt; f AudioNormalizationSettings
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#audioNormalizationSettings_algorithm"><span class="hs-identifier hs-var hs-var">audioNormalizationSettings_algorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioNormalizationSettings -&gt; Maybe AudioNormalizationAlgorithm)
+-&gt; (AudioNormalizationSettings
+    -&gt; Maybe AudioNormalizationAlgorithm -&gt; AudioNormalizationSettings)
+-&gt; Lens
+     AudioNormalizationSettings
+     AudioNormalizationSettings
+     (Maybe AudioNormalizationAlgorithm)
+     (Maybe AudioNormalizationAlgorithm)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942063"><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithm
+algorithm :: Maybe AudioNormalizationAlgorithm
+$sel:algorithm:AudioNormalizationSettings' :: AudioNormalizationSettings -&gt; Maybe AudioNormalizationAlgorithm
+</span><a href="#local-6989586621679942063"><span class="hs-identifier hs-var hs-var">algorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithm
+</span><a href="#local-6989586621679942063"><span class="hs-identifier hs-var">algorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942062"><span class="annot"><span class="annottext">s :: AudioNormalizationSettings
+</span><a href="#local-6989586621679942062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942061"><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithm
+</span><a href="#local-6989586621679942061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioNormalizationSettings
+</span><a href="#local-6989586621679942062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithm:AudioNormalizationSettings' :: Maybe AudioNormalizationAlgorithm
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3Aalgorithm%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var">algorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithm
+</span><a href="#local-6989586621679942061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | If set to LOG, log each output\'s audio track loudness to a CSV file.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#audioNormalizationSettings_loudnessLogging"><span class="hs-identifier hs-type">audioNormalizationSettings_loudnessLogging</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationLoudnessLogging.html#AudioNormalizationLoudnessLogging"><span class="hs-identifier hs-type">AudioNormalizationLoudnessLogging</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="audioNormalizationSettings_loudnessLogging"><span class="annot"><span class="annottext">audioNormalizationSettings_loudnessLogging :: (Maybe AudioNormalizationLoudnessLogging
+ -&gt; f (Maybe AudioNormalizationLoudnessLogging))
+-&gt; AudioNormalizationSettings -&gt; f AudioNormalizationSettings
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#audioNormalizationSettings_loudnessLogging"><span class="hs-identifier hs-var hs-var">audioNormalizationSettings_loudnessLogging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioNormalizationSettings
+ -&gt; Maybe AudioNormalizationLoudnessLogging)
+-&gt; (AudioNormalizationSettings
+    -&gt; Maybe AudioNormalizationLoudnessLogging
+    -&gt; AudioNormalizationSettings)
+-&gt; Lens
+     AudioNormalizationSettings
+     AudioNormalizationSettings
+     (Maybe AudioNormalizationLoudnessLogging)
+     (Maybe AudioNormalizationLoudnessLogging)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942059"><span class="annot"><span class="annottext">Maybe AudioNormalizationLoudnessLogging
+loudnessLogging :: Maybe AudioNormalizationLoudnessLogging
+$sel:loudnessLogging:AudioNormalizationSettings' :: AudioNormalizationSettings
+-&gt; Maybe AudioNormalizationLoudnessLogging
+</span><a href="#local-6989586621679942059"><span class="hs-identifier hs-var hs-var">loudnessLogging</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationLoudnessLogging
+</span><a href="#local-6989586621679942059"><span class="hs-identifier hs-var">loudnessLogging</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942058"><span class="annot"><span class="annottext">s :: AudioNormalizationSettings
+</span><a href="#local-6989586621679942058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942057"><span class="annot"><span class="annottext">Maybe AudioNormalizationLoudnessLogging
+</span><a href="#local-6989586621679942057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioNormalizationSettings
+</span><a href="#local-6989586621679942058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loudnessLogging:AudioNormalizationSettings' :: Maybe AudioNormalizationLoudnessLogging
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#%24sel%3AloudnessLogging%3AAudioNormalizationSettings%27"><span class="hs-identifier hs-var">loudnessLogging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationLoudnessLogging
+</span><a href="#local-6989586621679942057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942054"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679942052"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioNormalizationSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AudioNormalizationSettings)
+-&gt; Value
+-&gt; Parser AudioNormalizationSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AudioNormalizationSettings&quot;</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679942049"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679942049"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
+-&gt; Maybe Double
+-&gt; Maybe AudioNormalizationPeakCalculation
+-&gt; Maybe Int
+-&gt; Maybe AudioNormalizationAlgorithm
+-&gt; Maybe AudioNormalizationLoudnessLogging
+-&gt; AudioNormalizationSettings
+</span><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-var">AudioNormalizationSettings'</span></a></span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AudioNormalizationAlgorithmControl
+ -&gt; Maybe Double
+ -&gt; Maybe AudioNormalizationPeakCalculation
+ -&gt; Maybe Int
+ -&gt; Maybe AudioNormalizationAlgorithm
+ -&gt; Maybe AudioNormalizationLoudnessLogging
+ -&gt; AudioNormalizationSettings)
+-&gt; Parser (Maybe AudioNormalizationAlgorithmControl)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe AudioNormalizationPeakCalculation
+      -&gt; Maybe Int
+      -&gt; Maybe AudioNormalizationAlgorithm
+      -&gt; Maybe AudioNormalizationLoudnessLogging
+      -&gt; AudioNormalizationSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679942049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioNormalizationAlgorithmControl)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;algorithmControl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe AudioNormalizationPeakCalculation
+   -&gt; Maybe Int
+   -&gt; Maybe AudioNormalizationAlgorithm
+   -&gt; Maybe AudioNormalizationLoudnessLogging
+   -&gt; AudioNormalizationSettings)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe AudioNormalizationPeakCalculation
+      -&gt; Maybe Int
+      -&gt; Maybe AudioNormalizationAlgorithm
+      -&gt; Maybe AudioNormalizationLoudnessLogging
+      -&gt; AudioNormalizationSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679942049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targetLkfs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AudioNormalizationPeakCalculation
+   -&gt; Maybe Int
+   -&gt; Maybe AudioNormalizationAlgorithm
+   -&gt; Maybe AudioNormalizationLoudnessLogging
+   -&gt; AudioNormalizationSettings)
+-&gt; Parser (Maybe AudioNormalizationPeakCalculation)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe AudioNormalizationAlgorithm
+      -&gt; Maybe AudioNormalizationLoudnessLogging
+      -&gt; AudioNormalizationSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679942049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioNormalizationPeakCalculation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;peakCalculation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe AudioNormalizationAlgorithm
+   -&gt; Maybe AudioNormalizationLoudnessLogging
+   -&gt; AudioNormalizationSettings)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe AudioNormalizationAlgorithm
+      -&gt; Maybe AudioNormalizationLoudnessLogging
+      -&gt; AudioNormalizationSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679942049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;correctionGateLevel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AudioNormalizationAlgorithm
+   -&gt; Maybe AudioNormalizationLoudnessLogging
+   -&gt; AudioNormalizationSettings)
+-&gt; Parser (Maybe AudioNormalizationAlgorithm)
+-&gt; Parser
+     (Maybe AudioNormalizationLoudnessLogging
+      -&gt; AudioNormalizationSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679942049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioNormalizationAlgorithm)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;algorithm&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AudioNormalizationLoudnessLogging
+   -&gt; AudioNormalizationSettings)
+-&gt; Parser (Maybe AudioNormalizationLoudnessLogging)
+-&gt; Parser AudioNormalizationSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679942049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioNormalizationLoudnessLogging)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;loudnessLogging&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942043"><span id="local-6989586621679942045"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942040"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942032"><span id="local-6989586621679942034"><span id="local-6989586621679942036"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings"><span class="hs-identifier hs-type">AudioNormalizationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679942030"><span class="annot"><span class="annottext">toJSON :: AudioNormalizationSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AudioNormalizationSettings.html#AudioNormalizationSettings%27"><span class="hs-identifier hs-type">AudioNormalizationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942023"><span id="local-6989586621679942024"><span id="local-6989586621679942025"><span id="local-6989586621679942026"><span id="local-6989586621679942027"><span id="local-6989586621679942028"><span class="annot"><span class="annottext">Maybe Double
+Maybe Int
+Maybe AudioNormalizationAlgorithm
+Maybe AudioNormalizationAlgorithmControl
+Maybe AudioNormalizationLoudnessLogging
+Maybe AudioNormalizationPeakCalculation
+loudnessLogging :: Maybe AudioNormalizationLoudnessLogging
+algorithm :: Maybe AudioNormalizationAlgorithm
+correctionGateLevel :: Maybe Int
+peakCalculation :: Maybe AudioNormalizationPeakCalculation
+targetLkfs :: Maybe Double
+algorithmControl :: Maybe AudioNormalizationAlgorithmControl
+$sel:loudnessLogging:AudioNormalizationSettings' :: AudioNormalizationSettings
+-&gt; Maybe AudioNormalizationLoudnessLogging
+$sel:algorithm:AudioNormalizationSettings' :: AudioNormalizationSettings -&gt; Maybe AudioNormalizationAlgorithm
+$sel:correctionGateLevel:AudioNormalizationSettings' :: AudioNormalizationSettings -&gt; Maybe Int
+$sel:peakCalculation:AudioNormalizationSettings' :: AudioNormalizationSettings
+-&gt; Maybe AudioNormalizationPeakCalculation
+$sel:targetLkfs:AudioNormalizationSettings' :: AudioNormalizationSettings -&gt; Maybe Double
+$sel:algorithmControl:AudioNormalizationSettings' :: AudioNormalizationSettings
+-&gt; Maybe AudioNormalizationAlgorithmControl
+</span><a href="#local-6989586621679942023"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;algorithmControl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AudioNormalizationAlgorithmControl -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">(AudioNormalizationAlgorithmControl -&gt; Pair)
+-&gt; Maybe AudioNormalizationAlgorithmControl -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithmControl
+</span><a href="#local-6989586621679942028"><span class="hs-identifier hs-var">algorithmControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targetLkfs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679942027"><span class="hs-identifier hs-var">targetLkfs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;peakCalculation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AudioNormalizationPeakCalculation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">(AudioNormalizationPeakCalculation -&gt; Pair)
+-&gt; Maybe AudioNormalizationPeakCalculation -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationPeakCalculation
+</span><a href="#local-6989586621679942026"><span class="hs-identifier hs-var">peakCalculation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;correctionGateLevel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679942025"><span class="hs-identifier hs-var">correctionGateLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;algorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AudioNormalizationAlgorithm -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AudioNormalizationAlgorithm -&gt; Pair)
+-&gt; Maybe AudioNormalizationAlgorithm -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationAlgorithm
+</span><a href="#local-6989586621679942024"><span class="hs-identifier hs-var">algorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;loudnessLogging&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AudioNormalizationLoudnessLogging -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>              </span><span class="annot"><span class="annottext">(AudioNormalizationLoudnessLogging -&gt; Pair)
+-&gt; Maybe AudioNormalizationLoudnessLogging -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioNormalizationLoudnessLogging
+</span><a href="#local-6989586621679942023"><span class="hs-identifier hs-var">loudnessLogging</span></a></span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span></pre></body></html>

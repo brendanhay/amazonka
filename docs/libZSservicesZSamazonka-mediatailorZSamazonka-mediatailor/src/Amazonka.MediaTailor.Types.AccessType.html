@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaTailor.Types.AccessType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaTailor.Types.AccessType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html#AccessType"><span class="hs-identifier">AccessType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html#AccessType_S3_SIGV4"><span class="hs-identifier">AccessType_S3_SIGV4</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html#AccessType_SECRETS_MANAGER_ACCESS_TOKEN"><span class="hs-identifier">AccessType_SECRETS_MANAGER_ACCESS_TOKEN</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679262962"><span id="local-6989586621679262963"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccessType"><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html#AccessType"><span class="hs-identifier hs-var">AccessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessType%27"><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html#AccessType%27"><span class="hs-identifier hs-var">AccessType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccessType"><span class="annot"><span class="annottext">AccessType -&gt; Text
+</span><a href="Amazonka.MediaTailor.Types.AccessType.html#fromAccessType"><span class="hs-identifier hs-var hs-var">fromAccessType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262954"><span id="local-6989586621679262956"><span id="local-6989586621679262958"><span class="annot"><span class="annottext">Int -&gt; AccessType -&gt; ShowS
+[AccessType] -&gt; ShowS
+AccessType -&gt; String
+(Int -&gt; AccessType -&gt; ShowS)
+-&gt; (AccessType -&gt; String)
+-&gt; ([AccessType] -&gt; ShowS)
+-&gt; Show AccessType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AccessType] -&gt; ShowS
+$cshowList :: [AccessType] -&gt; ShowS
+show :: AccessType -&gt; String
+$cshow :: AccessType -&gt; String
+showsPrec :: Int -&gt; AccessType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AccessType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679262945"><span id="local-6989586621679262947"><span id="local-6989586621679262949"><span id="local-6989586621679262951"><span class="annot"><span class="annottext">ReadPrec [AccessType]
+ReadPrec AccessType
+Int -&gt; ReadS AccessType
+ReadS [AccessType]
+(Int -&gt; ReadS AccessType)
+-&gt; ReadS [AccessType]
+-&gt; ReadPrec AccessType
+-&gt; ReadPrec [AccessType]
+-&gt; Read AccessType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AccessType]
+$creadListPrec :: ReadPrec [AccessType]
+readPrec :: ReadPrec AccessType
+$creadPrec :: ReadPrec AccessType
+readList :: ReadS [AccessType]
+$creadList :: ReadS [AccessType]
+readsPrec :: Int -&gt; ReadS AccessType
+$creadsPrec :: Int -&gt; ReadS AccessType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679262940"><span id="local-6989586621679262942"><span class="annot"><span class="annottext">AccessType -&gt; AccessType -&gt; Bool
+(AccessType -&gt; AccessType -&gt; Bool)
+-&gt; (AccessType -&gt; AccessType -&gt; Bool) -&gt; Eq AccessType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AccessType -&gt; AccessType -&gt; Bool
+$c/= :: AccessType -&gt; AccessType -&gt; Bool
+== :: AccessType -&gt; AccessType -&gt; Bool
+$c== :: AccessType -&gt; AccessType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679262924"><span id="local-6989586621679262926"><span id="local-6989586621679262928"><span id="local-6989586621679262930"><span id="local-6989586621679262932"><span id="local-6989586621679262934"><span id="local-6989586621679262936"><span class="annot"><span class="annottext">Eq AccessType
+Eq AccessType
+-&gt; (AccessType -&gt; AccessType -&gt; Ordering)
+-&gt; (AccessType -&gt; AccessType -&gt; Bool)
+-&gt; (AccessType -&gt; AccessType -&gt; Bool)
+-&gt; (AccessType -&gt; AccessType -&gt; Bool)
+-&gt; (AccessType -&gt; AccessType -&gt; Bool)
+-&gt; (AccessType -&gt; AccessType -&gt; AccessType)
+-&gt; (AccessType -&gt; AccessType -&gt; AccessType)
+-&gt; Ord AccessType
+AccessType -&gt; AccessType -&gt; Bool
+AccessType -&gt; AccessType -&gt; Ordering
+AccessType -&gt; AccessType -&gt; AccessType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AccessType -&gt; AccessType -&gt; AccessType
+$cmin :: AccessType -&gt; AccessType -&gt; AccessType
+max :: AccessType -&gt; AccessType -&gt; AccessType
+$cmax :: AccessType -&gt; AccessType -&gt; AccessType
+&gt;= :: AccessType -&gt; AccessType -&gt; Bool
+$c&gt;= :: AccessType -&gt; AccessType -&gt; Bool
+&gt; :: AccessType -&gt; AccessType -&gt; Bool
+$c&gt; :: AccessType -&gt; AccessType -&gt; Bool
+&lt;= :: AccessType -&gt; AccessType -&gt; Bool
+$c&lt;= :: AccessType -&gt; AccessType -&gt; Bool
+&lt; :: AccessType -&gt; AccessType -&gt; Bool
+$c&lt; :: AccessType -&gt; AccessType -&gt; Bool
+compare :: AccessType -&gt; AccessType -&gt; Ordering
+$ccompare :: AccessType -&gt; AccessType -&gt; Ordering
+$cp1Ord :: Eq AccessType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AccessType -&gt; Rep AccessType x)
+-&gt; (forall x. Rep AccessType x -&gt; AccessType) -&gt; Generic AccessType
+forall x. Rep AccessType x -&gt; AccessType
+forall x. AccessType -&gt; Rep AccessType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AccessType x -&gt; AccessType
+$cfrom :: forall x. AccessType -&gt; Rep AccessType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262916"><span id="local-6989586621679262918"><span class="annot"><span class="annottext">Int -&gt; AccessType -&gt; Int
+AccessType -&gt; Int
+(Int -&gt; AccessType -&gt; Int)
+-&gt; (AccessType -&gt; Int) -&gt; Hashable AccessType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AccessType -&gt; Int
+$chash :: AccessType -&gt; Int
+hashWithSalt :: Int -&gt; AccessType -&gt; Int
+$chashWithSalt :: Int -&gt; AccessType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679262913"><span class="annot"><span class="annottext">AccessType -&gt; ()
+(AccessType -&gt; ()) -&gt; NFData AccessType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AccessType -&gt; ()
+$crnf :: AccessType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679262910"><span class="annot"><span class="annottext">Text -&gt; Either String AccessType
+(Text -&gt; Either String AccessType) -&gt; FromText AccessType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AccessType
+$cfromText :: Text -&gt; Either String AccessType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679262907"><span class="annot"><span class="annottext">AccessType -&gt; Text
+(AccessType -&gt; Text) -&gt; ToText AccessType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AccessType -&gt; Text
+$ctoText :: AccessType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679262904"><span class="annot"><span class="annottext">AccessType -&gt; ByteString
+(AccessType -&gt; ByteString) -&gt; ToByteString AccessType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AccessType -&gt; ByteString
+$ctoBS :: AccessType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679262901"><span class="annot"><span class="annottext">AccessType -&gt; ByteStringBuilder
+(AccessType -&gt; ByteStringBuilder) -&gt; ToLog AccessType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AccessType -&gt; ByteStringBuilder
+$cbuild :: AccessType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679262898"><span class="annot"><span class="annottext">HeaderName -&gt; AccessType -&gt; [Header]
+(HeaderName -&gt; AccessType -&gt; [Header]) -&gt; ToHeader AccessType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AccessType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AccessType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679262895"><span class="annot"><span class="annottext">AccessType -&gt; QueryString
+(AccessType -&gt; QueryString) -&gt; ToQuery AccessType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AccessType -&gt; QueryString
+$ctoQuery :: AccessType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679262890"><span id="local-6989586621679262892"><span class="annot"><span class="annottext">Value -&gt; Parser [AccessType]
+Value -&gt; Parser AccessType
+(Value -&gt; Parser AccessType)
+-&gt; (Value -&gt; Parser [AccessType]) -&gt; FromJSON AccessType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AccessType]
+$cparseJSONList :: Value -&gt; Parser [AccessType]
+parseJSON :: Value -&gt; Parser AccessType
+$cparseJSON :: Value -&gt; Parser AccessType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679262885"><span id="local-6989586621679262887"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccessType]
+FromJSONKeyFunction AccessType
+FromJSONKeyFunction AccessType
+-&gt; FromJSONKeyFunction [AccessType] -&gt; FromJSONKey AccessType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AccessType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AccessType]
+fromJSONKey :: FromJSONKeyFunction AccessType
+$cfromJSONKey :: FromJSONKeyFunction AccessType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679262876"><span id="local-6989586621679262878"><span id="local-6989586621679262880"><span id="local-6989586621679262882"><span class="annot"><span class="annottext">[AccessType] -&gt; Encoding
+[AccessType] -&gt; Value
+AccessType -&gt; Encoding
+AccessType -&gt; Value
+(AccessType -&gt; Value)
+-&gt; (AccessType -&gt; Encoding)
+-&gt; ([AccessType] -&gt; Value)
+-&gt; ([AccessType] -&gt; Encoding)
+-&gt; ToJSON AccessType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AccessType] -&gt; Encoding
+$ctoEncodingList :: [AccessType] -&gt; Encoding
+toJSONList :: [AccessType] -&gt; Value
+$ctoJSONList :: [AccessType] -&gt; Value
+toEncoding :: AccessType -&gt; Encoding
+$ctoEncoding :: AccessType -&gt; Encoding
+toJSON :: AccessType -&gt; Value
+$ctoJSON :: AccessType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679262871"><span id="local-6989586621679262873"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccessType]
+ToJSONKeyFunction AccessType
+ToJSONKeyFunction AccessType
+-&gt; ToJSONKeyFunction [AccessType] -&gt; ToJSONKey AccessType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AccessType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AccessType]
+toJSONKey :: ToJSONKeyFunction AccessType
+$ctoJSONKey :: ToJSONKeyFunction AccessType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679262868"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccessType
+([Node] -&gt; Either String AccessType) -&gt; FromXML AccessType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AccessType
+$cparseXML :: [Node] -&gt; Either String AccessType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679262865"><span class="annot"><span class="annottext">AccessType -&gt; XML
+(AccessType -&gt; XML) -&gt; ToXML AccessType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AccessType -&gt; XML
+$ctoXML :: AccessType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html#AccessType_S3_SIGV4"><span class="hs-identifier hs-type">AccessType_S3_SIGV4</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html#AccessType"><span class="hs-identifier hs-type">AccessType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccessType_S3_SIGV4"><span id="%24mAccessType_S3_SIGV4"><span id="AccessType_S3_SIGV4"><span class="annot"><span class="annottext">$bAccessType_S3_SIGV4 :: AccessType
+$mAccessType_S3_SIGV4 :: forall r. AccessType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaTailor.Types.AccessType.html#%24bAccessType_S3_SIGV4"><span class="hs-identifier hs-var hs-var hs-var">AccessType_S3_SIGV4</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html#AccessType%27"><span class="hs-identifier hs-type">AccessType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;S3_SIGV4&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html#AccessType_SECRETS_MANAGER_ACCESS_TOKEN"><span class="hs-identifier hs-type">AccessType_SECRETS_MANAGER_ACCESS_TOKEN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html#AccessType"><span class="hs-identifier hs-type">AccessType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccessType_SECRETS_MANAGER_ACCESS_TOKEN"><span id="%24mAccessType_SECRETS_MANAGER_ACCESS_TOKEN"><span id="AccessType_SECRETS_MANAGER_ACCESS_TOKEN"><span class="annot"><span class="annottext">$bAccessType_SECRETS_MANAGER_ACCESS_TOKEN :: AccessType
+$mAccessType_SECRETS_MANAGER_ACCESS_TOKEN :: forall r. AccessType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaTailor.Types.AccessType.html#%24bAccessType_SECRETS_MANAGER_ACCESS_TOKEN"><span class="hs-identifier hs-var hs-var hs-var">AccessType_SECRETS_MANAGER_ACCESS_TOKEN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html#AccessType%27"><span class="hs-identifier hs-type">AccessType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SECRETS_MANAGER_ACCESS_TOKEN&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html#AccessType_S3_SIGV4"><span class="hs-pragma hs-type">AccessType_S3_SIGV4</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html#AccessType_SECRETS_MANAGER_ACCESS_TOKEN"><span class="hs-pragma hs-type">AccessType_SECRETS_MANAGER_ACCESS_TOKEN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html#AccessType%27"><span class="hs-pragma hs-type">AccessType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

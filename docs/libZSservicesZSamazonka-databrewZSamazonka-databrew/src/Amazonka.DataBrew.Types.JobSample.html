@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DataBrew.Types.JobSample</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataBrew.Types.JobSample</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.SampleMode.html"><span class="hs-identifier">Amazonka.DataBrew.Types.SampleMode</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A sample configuration for profile jobs only, which determines the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- number of rows on which the profile job is run. If a @JobSample@ value</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- isn\'t provided, the default is used. The default value is CUSTOM_ROWS</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- for the mode parameter and 20,000 for the size parameter.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newJobSample' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679298169"><span id="local-6989586621679298170"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobSample"><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample"><span class="hs-identifier hs-var">JobSample</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobSample%27"><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample%27"><span class="hs-identifier hs-var">JobSample'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @Size@ parameter is only required when the mode is CUSTOM_ROWS. The</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- profile job is run on the specified number of rows. The maximum value</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- for size is Long.MAX_VALUE.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Long.MAX_VALUE = 9223372036854775807</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Asize%3AJobSample%27"><span class="annot"><span class="annottext">JobSample -&gt; Maybe Integer
+</span><a href="Amazonka.DataBrew.Types.JobSample.html#%24sel%3Asize%3AJobSample%27"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A value that determines whether the profile job is run on the entire</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- dataset or a specified number of rows. This value must be one of the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- following:</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   FULL_DATASET - The profile job is run on the entire dataset.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   CUSTOM_ROWS - The profile job is run on the number of rows specified</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     in the @Size@ parameter.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Amode%3AJobSample%27"><span class="annot"><span class="annottext">JobSample -&gt; Maybe SampleMode
+</span><a href="Amazonka.DataBrew.Types.JobSample.html#%24sel%3Amode%3AJobSample%27"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.SampleMode.html#SampleMode"><span class="hs-identifier hs-type">SampleMode</span></a></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298162"><span id="local-6989586621679298164"><span class="annot"><span class="annottext">JobSample -&gt; JobSample -&gt; Bool
+(JobSample -&gt; JobSample -&gt; Bool)
+-&gt; (JobSample -&gt; JobSample -&gt; Bool) -&gt; Eq JobSample
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JobSample -&gt; JobSample -&gt; Bool
+$c/= :: JobSample -&gt; JobSample -&gt; Bool
+== :: JobSample -&gt; JobSample -&gt; Bool
+$c== :: JobSample -&gt; JobSample -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298153"><span id="local-6989586621679298155"><span id="local-6989586621679298157"><span id="local-6989586621679298159"><span class="annot"><span class="annottext">ReadPrec [JobSample]
+ReadPrec JobSample
+Int -&gt; ReadS JobSample
+ReadS [JobSample]
+(Int -&gt; ReadS JobSample)
+-&gt; ReadS [JobSample]
+-&gt; ReadPrec JobSample
+-&gt; ReadPrec [JobSample]
+-&gt; Read JobSample
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JobSample]
+$creadListPrec :: ReadPrec [JobSample]
+readPrec :: ReadPrec JobSample
+$creadPrec :: ReadPrec JobSample
+readList :: ReadS [JobSample]
+$creadList :: ReadS [JobSample]
+readsPrec :: Int -&gt; ReadS JobSample
+$creadsPrec :: Int -&gt; ReadS JobSample
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298146"><span id="local-6989586621679298148"><span id="local-6989586621679298150"><span class="annot"><span class="annottext">Int -&gt; JobSample -&gt; ShowS
+[JobSample] -&gt; ShowS
+JobSample -&gt; String
+(Int -&gt; JobSample -&gt; ShowS)
+-&gt; (JobSample -&gt; String)
+-&gt; ([JobSample] -&gt; ShowS)
+-&gt; Show JobSample
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JobSample] -&gt; ShowS
+$cshowList :: [JobSample] -&gt; ShowS
+show :: JobSample -&gt; String
+$cshow :: JobSample -&gt; String
+showsPrec :: Int -&gt; JobSample -&gt; ShowS
+$cshowsPrec :: Int -&gt; JobSample -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. JobSample -&gt; Rep JobSample x)
+-&gt; (forall x. Rep JobSample x -&gt; JobSample) -&gt; Generic JobSample
+forall x. Rep JobSample x -&gt; JobSample
+forall x. JobSample -&gt; Rep JobSample x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JobSample x -&gt; JobSample
+$cfrom :: forall x. JobSample -&gt; Rep JobSample x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'JobSample' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'size', 'jobSample_size' - The @Size@ parameter is only required when the mode is CUSTOM_ROWS. The</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- profile job is run on the specified number of rows. The maximum value</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for size is Long.MAX_VALUE.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Long.MAX_VALUE = 9223372036854775807</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'mode', 'jobSample_mode' - A value that determines whether the profile job is run on the entire</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- dataset or a specified number of rows. This value must be one of the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- following:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- -   FULL_DATASET - The profile job is run on the entire dataset.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- -   CUSTOM_ROWS - The profile job is run on the number of rows specified</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--     in the @Size@ parameter.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#newJobSample"><span class="hs-identifier hs-type">newJobSample</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample"><span class="hs-identifier hs-type">JobSample</span></a></span><span>
+</span><span id="line-76"></span><span id="newJobSample"><span class="annot"><span class="annottext">newJobSample :: JobSample
+</span><a href="Amazonka.DataBrew.Types.JobSample.html#newJobSample"><span class="hs-identifier hs-var hs-var">newJobSample</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">JobSample' :: Maybe Integer -&gt; Maybe SampleMode -&gt; JobSample
+</span><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample%27"><span class="hs-identifier hs-type">JobSample'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:size:JobSample' :: Maybe Integer
+</span><a href="Amazonka.DataBrew.Types.JobSample.html#%24sel%3Asize%3AJobSample%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:mode:JobSample' :: Maybe SampleMode
+</span><a href="Amazonka.DataBrew.Types.JobSample.html#%24sel%3Amode%3AJobSample%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SampleMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The @Size@ parameter is only required when the mode is CUSTOM_ROWS. The</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- profile job is run on the specified number of rows. The maximum value</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for size is Long.MAX_VALUE.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Long.MAX_VALUE = 9223372036854775807</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#jobSample_size"><span class="hs-identifier hs-type">jobSample_size</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample"><span class="hs-identifier hs-type">JobSample</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="jobSample_size"><span class="annot"><span class="annottext">jobSample_size :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; JobSample -&gt; f JobSample
+</span><a href="Amazonka.DataBrew.Types.JobSample.html#jobSample_size"><span class="hs-identifier hs-var hs-var">jobSample_size</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSample -&gt; Maybe Integer)
+-&gt; (JobSample -&gt; Maybe Integer -&gt; JobSample)
+-&gt; Lens JobSample JobSample (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample%27"><span class="hs-identifier hs-type">JobSample'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298137"><span class="annot"><span class="annottext">Maybe Integer
+size :: Maybe Integer
+$sel:size:JobSample' :: JobSample -&gt; Maybe Integer
+</span><a href="#local-6989586621679298137"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679298137"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298136"><span class="annot"><span class="annottext">s :: JobSample
+</span><a href="#local-6989586621679298136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample%27"><span class="hs-identifier hs-type">JobSample'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298135"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679298135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSample
+</span><a href="#local-6989586621679298136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:JobSample' :: Maybe Integer
+</span><a href="Amazonka.DataBrew.Types.JobSample.html#%24sel%3Asize%3AJobSample%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679298135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample"><span class="hs-identifier hs-type">JobSample</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | A value that determines whether the profile job is run on the entire</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- dataset or a specified number of rows. This value must be one of the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- following:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   FULL_DATASET - The profile job is run on the entire dataset.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   CUSTOM_ROWS - The profile job is run on the number of rows specified</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--     in the @Size@ parameter.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#jobSample_mode"><span class="hs-identifier hs-type">jobSample_mode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample"><span class="hs-identifier hs-type">JobSample</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.SampleMode.html#SampleMode"><span class="hs-identifier hs-type">SampleMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="jobSample_mode"><span class="annot"><span class="annottext">jobSample_mode :: (Maybe SampleMode -&gt; f (Maybe SampleMode))
+-&gt; JobSample -&gt; f JobSample
+</span><a href="Amazonka.DataBrew.Types.JobSample.html#jobSample_mode"><span class="hs-identifier hs-var hs-var">jobSample_mode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSample -&gt; Maybe SampleMode)
+-&gt; (JobSample -&gt; Maybe SampleMode -&gt; JobSample)
+-&gt; Lens JobSample JobSample (Maybe SampleMode) (Maybe SampleMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample%27"><span class="hs-identifier hs-type">JobSample'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298133"><span class="annot"><span class="annottext">Maybe SampleMode
+mode :: Maybe SampleMode
+$sel:mode:JobSample' :: JobSample -&gt; Maybe SampleMode
+</span><a href="#local-6989586621679298133"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SampleMode
+</span><a href="#local-6989586621679298133"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298132"><span class="annot"><span class="annottext">s :: JobSample
+</span><a href="#local-6989586621679298132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample%27"><span class="hs-identifier hs-type">JobSample'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298131"><span class="annot"><span class="annottext">Maybe SampleMode
+</span><a href="#local-6989586621679298131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSample
+</span><a href="#local-6989586621679298132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:JobSample' :: Maybe SampleMode
+</span><a href="Amazonka.DataBrew.Types.JobSample.html#%24sel%3Amode%3AJobSample%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SampleMode
+</span><a href="#local-6989586621679298131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample"><span class="hs-identifier hs-type">JobSample</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298128"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample"><span class="hs-identifier hs-type">JobSample</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679298126"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobSample
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser JobSample) -&gt; Value -&gt; Parser JobSample
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;JobSample&quot;</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298123"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298123"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Maybe SampleMode -&gt; JobSample
+</span><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample%27"><span class="hs-identifier hs-var">JobSample'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; Maybe SampleMode -&gt; JobSample)
+-&gt; Parser (Maybe Integer) -&gt; Parser (Maybe SampleMode -&gt; JobSample)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Size&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe SampleMode -&gt; JobSample)
+-&gt; Parser (Maybe SampleMode) -&gt; Parser JobSample
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SampleMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Mode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298117"><span id="local-6989586621679298119"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample"><span class="hs-identifier hs-type">JobSample</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298114"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample"><span class="hs-identifier hs-type">JobSample</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298106"><span id="local-6989586621679298108"><span id="local-6989586621679298110"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample"><span class="hs-identifier hs-type">JobSample</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679298104"><span class="annot"><span class="annottext">toJSON :: JobSample -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.JobSample.html#JobSample%27"><span class="hs-identifier hs-type">JobSample'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298101"><span id="local-6989586621679298102"><span class="annot"><span class="annottext">Maybe Integer
+Maybe SampleMode
+mode :: Maybe SampleMode
+size :: Maybe Integer
+$sel:mode:JobSample' :: JobSample -&gt; Maybe SampleMode
+$sel:size:JobSample' :: JobSample -&gt; Maybe Integer
+</span><a href="#local-6989586621679298101"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Size&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679298102"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Mode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SampleMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SampleMode -&gt; Pair) -&gt; Maybe SampleMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SampleMode
+</span><a href="#local-6989586621679298101"><span class="hs-identifier hs-var">mode</span></a></span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span></pre></body></html>

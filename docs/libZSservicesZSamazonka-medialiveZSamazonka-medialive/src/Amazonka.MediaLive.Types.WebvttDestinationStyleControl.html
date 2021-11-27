@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.WebvttDestinationStyleControl</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.WebvttDestinationStyleControl</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl"><span class="hs-identifier">WebvttDestinationStyleControl</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl_NO_STYLE_DATA"><span class="hs-identifier">WebvttDestinationStyleControl_NO_STYLE_DATA</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl_PASSTHROUGH"><span class="hs-identifier">WebvttDestinationStyleControl_PASSTHROUGH</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Webvtt Destination Style Control</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679932337"><span id="local-6989586621679932338"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WebvttDestinationStyleControl"><span class="annot"><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl"><span class="hs-identifier hs-var">WebvttDestinationStyleControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebvttDestinationStyleControl%27"><span class="annot"><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl%27"><span class="hs-identifier hs-var">WebvttDestinationStyleControl'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWebvttDestinationStyleControl"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#fromWebvttDestinationStyleControl"><span class="hs-identifier hs-var hs-var">fromWebvttDestinationStyleControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679932329"><span id="local-6989586621679932331"><span id="local-6989586621679932333"><span class="annot"><span class="annottext">Int -&gt; WebvttDestinationStyleControl -&gt; ShowS
+[WebvttDestinationStyleControl] -&gt; ShowS
+WebvttDestinationStyleControl -&gt; String
+(Int -&gt; WebvttDestinationStyleControl -&gt; ShowS)
+-&gt; (WebvttDestinationStyleControl -&gt; String)
+-&gt; ([WebvttDestinationStyleControl] -&gt; ShowS)
+-&gt; Show WebvttDestinationStyleControl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WebvttDestinationStyleControl] -&gt; ShowS
+$cshowList :: [WebvttDestinationStyleControl] -&gt; ShowS
+show :: WebvttDestinationStyleControl -&gt; String
+$cshow :: WebvttDestinationStyleControl -&gt; String
+showsPrec :: Int -&gt; WebvttDestinationStyleControl -&gt; ShowS
+$cshowsPrec :: Int -&gt; WebvttDestinationStyleControl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679932320"><span id="local-6989586621679932322"><span id="local-6989586621679932324"><span id="local-6989586621679932326"><span class="annot"><span class="annottext">ReadPrec [WebvttDestinationStyleControl]
+ReadPrec WebvttDestinationStyleControl
+Int -&gt; ReadS WebvttDestinationStyleControl
+ReadS [WebvttDestinationStyleControl]
+(Int -&gt; ReadS WebvttDestinationStyleControl)
+-&gt; ReadS [WebvttDestinationStyleControl]
+-&gt; ReadPrec WebvttDestinationStyleControl
+-&gt; ReadPrec [WebvttDestinationStyleControl]
+-&gt; Read WebvttDestinationStyleControl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WebvttDestinationStyleControl]
+$creadListPrec :: ReadPrec [WebvttDestinationStyleControl]
+readPrec :: ReadPrec WebvttDestinationStyleControl
+$creadPrec :: ReadPrec WebvttDestinationStyleControl
+readList :: ReadS [WebvttDestinationStyleControl]
+$creadList :: ReadS [WebvttDestinationStyleControl]
+readsPrec :: Int -&gt; ReadS WebvttDestinationStyleControl
+$creadsPrec :: Int -&gt; ReadS WebvttDestinationStyleControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679932315"><span id="local-6989586621679932317"><span class="annot"><span class="annottext">WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Bool
+(WebvttDestinationStyleControl
+ -&gt; WebvttDestinationStyleControl -&gt; Bool)
+-&gt; (WebvttDestinationStyleControl
+    -&gt; WebvttDestinationStyleControl -&gt; Bool)
+-&gt; Eq WebvttDestinationStyleControl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Bool
+$c/= :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Bool
+== :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Bool
+$c== :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679932299"><span id="local-6989586621679932301"><span id="local-6989586621679932303"><span id="local-6989586621679932305"><span id="local-6989586621679932307"><span id="local-6989586621679932309"><span id="local-6989586621679932311"><span class="annot"><span class="annottext">Eq WebvttDestinationStyleControl
+Eq WebvttDestinationStyleControl
+-&gt; (WebvttDestinationStyleControl
+    -&gt; WebvttDestinationStyleControl -&gt; Ordering)
+-&gt; (WebvttDestinationStyleControl
+    -&gt; WebvttDestinationStyleControl -&gt; Bool)
+-&gt; (WebvttDestinationStyleControl
+    -&gt; WebvttDestinationStyleControl -&gt; Bool)
+-&gt; (WebvttDestinationStyleControl
+    -&gt; WebvttDestinationStyleControl -&gt; Bool)
+-&gt; (WebvttDestinationStyleControl
+    -&gt; WebvttDestinationStyleControl -&gt; Bool)
+-&gt; (WebvttDestinationStyleControl
+    -&gt; WebvttDestinationStyleControl -&gt; WebvttDestinationStyleControl)
+-&gt; (WebvttDestinationStyleControl
+    -&gt; WebvttDestinationStyleControl -&gt; WebvttDestinationStyleControl)
+-&gt; Ord WebvttDestinationStyleControl
+WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Bool
+WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Ordering
+WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; WebvttDestinationStyleControl
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; WebvttDestinationStyleControl
+$cmin :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; WebvttDestinationStyleControl
+max :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; WebvttDestinationStyleControl
+$cmax :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; WebvttDestinationStyleControl
+&gt;= :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Bool
+$c&gt;= :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Bool
+&gt; :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Bool
+$c&gt; :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Bool
+&lt;= :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Bool
+$c&lt;= :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Bool
+&lt; :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Bool
+$c&lt; :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Bool
+compare :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Ordering
+$ccompare :: WebvttDestinationStyleControl
+-&gt; WebvttDestinationStyleControl -&gt; Ordering
+$cp1Ord :: Eq WebvttDestinationStyleControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ WebvttDestinationStyleControl
+ -&gt; Rep WebvttDestinationStyleControl x)
+-&gt; (forall x.
+    Rep WebvttDestinationStyleControl x
+    -&gt; WebvttDestinationStyleControl)
+-&gt; Generic WebvttDestinationStyleControl
+forall x.
+Rep WebvttDestinationStyleControl x
+-&gt; WebvttDestinationStyleControl
+forall x.
+WebvttDestinationStyleControl
+-&gt; Rep WebvttDestinationStyleControl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep WebvttDestinationStyleControl x
+-&gt; WebvttDestinationStyleControl
+$cfrom :: forall x.
+WebvttDestinationStyleControl
+-&gt; Rep WebvttDestinationStyleControl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679932291"><span id="local-6989586621679932293"><span class="annot"><span class="annottext">Int -&gt; WebvttDestinationStyleControl -&gt; Int
+WebvttDestinationStyleControl -&gt; Int
+(Int -&gt; WebvttDestinationStyleControl -&gt; Int)
+-&gt; (WebvttDestinationStyleControl -&gt; Int)
+-&gt; Hashable WebvttDestinationStyleControl
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: WebvttDestinationStyleControl -&gt; Int
+$chash :: WebvttDestinationStyleControl -&gt; Int
+hashWithSalt :: Int -&gt; WebvttDestinationStyleControl -&gt; Int
+$chashWithSalt :: Int -&gt; WebvttDestinationStyleControl -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679932288"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; ()
+(WebvttDestinationStyleControl -&gt; ())
+-&gt; NFData WebvttDestinationStyleControl
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: WebvttDestinationStyleControl -&gt; ()
+$crnf :: WebvttDestinationStyleControl -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679932285"><span class="annot"><span class="annottext">Text -&gt; Either String WebvttDestinationStyleControl
+(Text -&gt; Either String WebvttDestinationStyleControl)
+-&gt; FromText WebvttDestinationStyleControl
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String WebvttDestinationStyleControl
+$cfromText :: Text -&gt; Either String WebvttDestinationStyleControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679932282"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; Text
+(WebvttDestinationStyleControl -&gt; Text)
+-&gt; ToText WebvttDestinationStyleControl
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: WebvttDestinationStyleControl -&gt; Text
+$ctoText :: WebvttDestinationStyleControl -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679932279"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; ByteString
+(WebvttDestinationStyleControl -&gt; ByteString)
+-&gt; ToByteString WebvttDestinationStyleControl
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: WebvttDestinationStyleControl -&gt; ByteString
+$ctoBS :: WebvttDestinationStyleControl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679932276"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; ByteStringBuilder
+(WebvttDestinationStyleControl -&gt; ByteStringBuilder)
+-&gt; ToLog WebvttDestinationStyleControl
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: WebvttDestinationStyleControl -&gt; ByteStringBuilder
+$cbuild :: WebvttDestinationStyleControl -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679932273"><span class="annot"><span class="annottext">HeaderName -&gt; WebvttDestinationStyleControl -&gt; [Header]
+(HeaderName -&gt; WebvttDestinationStyleControl -&gt; [Header])
+-&gt; ToHeader WebvttDestinationStyleControl
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; WebvttDestinationStyleControl -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; WebvttDestinationStyleControl -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679932270"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; QueryString
+(WebvttDestinationStyleControl -&gt; QueryString)
+-&gt; ToQuery WebvttDestinationStyleControl
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: WebvttDestinationStyleControl -&gt; QueryString
+$ctoQuery :: WebvttDestinationStyleControl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679932265"><span id="local-6989586621679932267"><span class="annot"><span class="annottext">Value -&gt; Parser [WebvttDestinationStyleControl]
+Value -&gt; Parser WebvttDestinationStyleControl
+(Value -&gt; Parser WebvttDestinationStyleControl)
+-&gt; (Value -&gt; Parser [WebvttDestinationStyleControl])
+-&gt; FromJSON WebvttDestinationStyleControl
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [WebvttDestinationStyleControl]
+$cparseJSONList :: Value -&gt; Parser [WebvttDestinationStyleControl]
+parseJSON :: Value -&gt; Parser WebvttDestinationStyleControl
+$cparseJSON :: Value -&gt; Parser WebvttDestinationStyleControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679932260"><span id="local-6989586621679932262"><span class="annot"><span class="annottext">FromJSONKeyFunction [WebvttDestinationStyleControl]
+FromJSONKeyFunction WebvttDestinationStyleControl
+FromJSONKeyFunction WebvttDestinationStyleControl
+-&gt; FromJSONKeyFunction [WebvttDestinationStyleControl]
+-&gt; FromJSONKey WebvttDestinationStyleControl
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [WebvttDestinationStyleControl]
+$cfromJSONKeyList :: FromJSONKeyFunction [WebvttDestinationStyleControl]
+fromJSONKey :: FromJSONKeyFunction WebvttDestinationStyleControl
+$cfromJSONKey :: FromJSONKeyFunction WebvttDestinationStyleControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679932251"><span id="local-6989586621679932253"><span id="local-6989586621679932255"><span id="local-6989586621679932257"><span class="annot"><span class="annottext">[WebvttDestinationStyleControl] -&gt; Encoding
+[WebvttDestinationStyleControl] -&gt; Value
+WebvttDestinationStyleControl -&gt; Encoding
+WebvttDestinationStyleControl -&gt; Value
+(WebvttDestinationStyleControl -&gt; Value)
+-&gt; (WebvttDestinationStyleControl -&gt; Encoding)
+-&gt; ([WebvttDestinationStyleControl] -&gt; Value)
+-&gt; ([WebvttDestinationStyleControl] -&gt; Encoding)
+-&gt; ToJSON WebvttDestinationStyleControl
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [WebvttDestinationStyleControl] -&gt; Encoding
+$ctoEncodingList :: [WebvttDestinationStyleControl] -&gt; Encoding
+toJSONList :: [WebvttDestinationStyleControl] -&gt; Value
+$ctoJSONList :: [WebvttDestinationStyleControl] -&gt; Value
+toEncoding :: WebvttDestinationStyleControl -&gt; Encoding
+$ctoEncoding :: WebvttDestinationStyleControl -&gt; Encoding
+toJSON :: WebvttDestinationStyleControl -&gt; Value
+$ctoJSON :: WebvttDestinationStyleControl -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679932246"><span id="local-6989586621679932248"><span class="annot"><span class="annottext">ToJSONKeyFunction [WebvttDestinationStyleControl]
+ToJSONKeyFunction WebvttDestinationStyleControl
+ToJSONKeyFunction WebvttDestinationStyleControl
+-&gt; ToJSONKeyFunction [WebvttDestinationStyleControl]
+-&gt; ToJSONKey WebvttDestinationStyleControl
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [WebvttDestinationStyleControl]
+$ctoJSONKeyList :: ToJSONKeyFunction [WebvttDestinationStyleControl]
+toJSONKey :: ToJSONKeyFunction WebvttDestinationStyleControl
+$ctoJSONKey :: ToJSONKeyFunction WebvttDestinationStyleControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679932243"><span class="annot"><span class="annottext">[Node] -&gt; Either String WebvttDestinationStyleControl
+([Node] -&gt; Either String WebvttDestinationStyleControl)
+-&gt; FromXML WebvttDestinationStyleControl
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String WebvttDestinationStyleControl
+$cparseXML :: [Node] -&gt; Either String WebvttDestinationStyleControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679932240"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; XML
+(WebvttDestinationStyleControl -&gt; XML)
+-&gt; ToXML WebvttDestinationStyleControl
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: WebvttDestinationStyleControl -&gt; XML
+$ctoXML :: WebvttDestinationStyleControl -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl_NO_STYLE_DATA"><span class="hs-identifier hs-type">WebvttDestinationStyleControl_NO_STYLE_DATA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl"><span class="hs-identifier hs-type">WebvttDestinationStyleControl</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWebvttDestinationStyleControl_NO_STYLE_DATA"><span id="%24mWebvttDestinationStyleControl_NO_STYLE_DATA"><span id="WebvttDestinationStyleControl_NO_STYLE_DATA"><span class="annot"><span class="annottext">$bWebvttDestinationStyleControl_NO_STYLE_DATA :: WebvttDestinationStyleControl
+$mWebvttDestinationStyleControl_NO_STYLE_DATA :: forall r.
+WebvttDestinationStyleControl -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#%24bWebvttDestinationStyleControl_NO_STYLE_DATA"><span class="hs-identifier hs-var hs-var hs-var">WebvttDestinationStyleControl_NO_STYLE_DATA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl%27"><span class="hs-identifier hs-type">WebvttDestinationStyleControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_STYLE_DATA&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl_PASSTHROUGH"><span class="hs-identifier hs-type">WebvttDestinationStyleControl_PASSTHROUGH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl"><span class="hs-identifier hs-type">WebvttDestinationStyleControl</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWebvttDestinationStyleControl_PASSTHROUGH"><span id="%24mWebvttDestinationStyleControl_PASSTHROUGH"><span id="WebvttDestinationStyleControl_PASSTHROUGH"><span class="annot"><span class="annottext">$bWebvttDestinationStyleControl_PASSTHROUGH :: WebvttDestinationStyleControl
+$mWebvttDestinationStyleControl_PASSTHROUGH :: forall r.
+WebvttDestinationStyleControl -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#%24bWebvttDestinationStyleControl_PASSTHROUGH"><span class="hs-identifier hs-var hs-var hs-var">WebvttDestinationStyleControl_PASSTHROUGH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl%27"><span class="hs-identifier hs-type">WebvttDestinationStyleControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PASSTHROUGH&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl_NO_STYLE_DATA"><span class="hs-pragma hs-type">WebvttDestinationStyleControl_NO_STYLE_DATA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl_PASSTHROUGH"><span class="hs-pragma hs-type">WebvttDestinationStyleControl_PASSTHROUGH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl%27"><span class="hs-pragma hs-type">WebvttDestinationStyleControl'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

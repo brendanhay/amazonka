@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.DiskImageFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.DiskImageFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat"><span class="hs-identifier">DiskImageFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat_RAW"><span class="hs-identifier">DiskImageFormat_RAW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat_VHD"><span class="hs-identifier">DiskImageFormat_VHD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat_VMDK"><span class="hs-identifier">DiskImageFormat_VMDK</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681099971"><span id="local-6989586621681099972"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DiskImageFormat"><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat"><span class="hs-identifier hs-var">DiskImageFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiskImageFormat%27"><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat%27"><span class="hs-identifier hs-var">DiskImageFormat'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDiskImageFormat"><span class="annot"><span class="annottext">DiskImageFormat -&gt; Text
+</span><a href="Amazonka.EC2.Types.DiskImageFormat.html#fromDiskImageFormat"><span class="hs-identifier hs-var hs-var">fromDiskImageFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681099963"><span id="local-6989586621681099965"><span id="local-6989586621681099967"><span class="annot"><span class="annottext">Int -&gt; DiskImageFormat -&gt; ShowS
+[DiskImageFormat] -&gt; ShowS
+DiskImageFormat -&gt; String
+(Int -&gt; DiskImageFormat -&gt; ShowS)
+-&gt; (DiskImageFormat -&gt; String)
+-&gt; ([DiskImageFormat] -&gt; ShowS)
+-&gt; Show DiskImageFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DiskImageFormat] -&gt; ShowS
+$cshowList :: [DiskImageFormat] -&gt; ShowS
+show :: DiskImageFormat -&gt; String
+$cshow :: DiskImageFormat -&gt; String
+showsPrec :: Int -&gt; DiskImageFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; DiskImageFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681099954"><span id="local-6989586621681099956"><span id="local-6989586621681099958"><span id="local-6989586621681099960"><span class="annot"><span class="annottext">ReadPrec [DiskImageFormat]
+ReadPrec DiskImageFormat
+Int -&gt; ReadS DiskImageFormat
+ReadS [DiskImageFormat]
+(Int -&gt; ReadS DiskImageFormat)
+-&gt; ReadS [DiskImageFormat]
+-&gt; ReadPrec DiskImageFormat
+-&gt; ReadPrec [DiskImageFormat]
+-&gt; Read DiskImageFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DiskImageFormat]
+$creadListPrec :: ReadPrec [DiskImageFormat]
+readPrec :: ReadPrec DiskImageFormat
+$creadPrec :: ReadPrec DiskImageFormat
+readList :: ReadS [DiskImageFormat]
+$creadList :: ReadS [DiskImageFormat]
+readsPrec :: Int -&gt; ReadS DiskImageFormat
+$creadsPrec :: Int -&gt; ReadS DiskImageFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681099949"><span id="local-6989586621681099951"><span class="annot"><span class="annottext">DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
+(DiskImageFormat -&gt; DiskImageFormat -&gt; Bool)
+-&gt; (DiskImageFormat -&gt; DiskImageFormat -&gt; Bool)
+-&gt; Eq DiskImageFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
+$c/= :: DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
+== :: DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
+$c== :: DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681099933"><span id="local-6989586621681099935"><span id="local-6989586621681099937"><span id="local-6989586621681099939"><span id="local-6989586621681099941"><span id="local-6989586621681099943"><span id="local-6989586621681099945"><span class="annot"><span class="annottext">Eq DiskImageFormat
+Eq DiskImageFormat
+-&gt; (DiskImageFormat -&gt; DiskImageFormat -&gt; Ordering)
+-&gt; (DiskImageFormat -&gt; DiskImageFormat -&gt; Bool)
+-&gt; (DiskImageFormat -&gt; DiskImageFormat -&gt; Bool)
+-&gt; (DiskImageFormat -&gt; DiskImageFormat -&gt; Bool)
+-&gt; (DiskImageFormat -&gt; DiskImageFormat -&gt; Bool)
+-&gt; (DiskImageFormat -&gt; DiskImageFormat -&gt; DiskImageFormat)
+-&gt; (DiskImageFormat -&gt; DiskImageFormat -&gt; DiskImageFormat)
+-&gt; Ord DiskImageFormat
+DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
+DiskImageFormat -&gt; DiskImageFormat -&gt; Ordering
+DiskImageFormat -&gt; DiskImageFormat -&gt; DiskImageFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DiskImageFormat -&gt; DiskImageFormat -&gt; DiskImageFormat
+$cmin :: DiskImageFormat -&gt; DiskImageFormat -&gt; DiskImageFormat
+max :: DiskImageFormat -&gt; DiskImageFormat -&gt; DiskImageFormat
+$cmax :: DiskImageFormat -&gt; DiskImageFormat -&gt; DiskImageFormat
+&gt;= :: DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
+$c&gt;= :: DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
+&gt; :: DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
+$c&gt; :: DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
+&lt;= :: DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
+$c&lt;= :: DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
+&lt; :: DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
+$c&lt; :: DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
+compare :: DiskImageFormat -&gt; DiskImageFormat -&gt; Ordering
+$ccompare :: DiskImageFormat -&gt; DiskImageFormat -&gt; Ordering
+$cp1Ord :: Eq DiskImageFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DiskImageFormat -&gt; Rep DiskImageFormat x)
+-&gt; (forall x. Rep DiskImageFormat x -&gt; DiskImageFormat)
+-&gt; Generic DiskImageFormat
+forall x. Rep DiskImageFormat x -&gt; DiskImageFormat
+forall x. DiskImageFormat -&gt; Rep DiskImageFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DiskImageFormat x -&gt; DiskImageFormat
+$cfrom :: forall x. DiskImageFormat -&gt; Rep DiskImageFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681099925"><span id="local-6989586621681099927"><span class="annot"><span class="annottext">Int -&gt; DiskImageFormat -&gt; Int
+DiskImageFormat -&gt; Int
+(Int -&gt; DiskImageFormat -&gt; Int)
+-&gt; (DiskImageFormat -&gt; Int) -&gt; Hashable DiskImageFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DiskImageFormat -&gt; Int
+$chash :: DiskImageFormat -&gt; Int
+hashWithSalt :: Int -&gt; DiskImageFormat -&gt; Int
+$chashWithSalt :: Int -&gt; DiskImageFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681099922"><span class="annot"><span class="annottext">DiskImageFormat -&gt; ()
+(DiskImageFormat -&gt; ()) -&gt; NFData DiskImageFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DiskImageFormat -&gt; ()
+$crnf :: DiskImageFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681099919"><span class="annot"><span class="annottext">Text -&gt; Either String DiskImageFormat
+(Text -&gt; Either String DiskImageFormat) -&gt; FromText DiskImageFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DiskImageFormat
+$cfromText :: Text -&gt; Either String DiskImageFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681099916"><span class="annot"><span class="annottext">DiskImageFormat -&gt; Text
+(DiskImageFormat -&gt; Text) -&gt; ToText DiskImageFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DiskImageFormat -&gt; Text
+$ctoText :: DiskImageFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681099913"><span class="annot"><span class="annottext">DiskImageFormat -&gt; ByteString
+(DiskImageFormat -&gt; ByteString) -&gt; ToByteString DiskImageFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DiskImageFormat -&gt; ByteString
+$ctoBS :: DiskImageFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681099910"><span class="annot"><span class="annottext">DiskImageFormat -&gt; ByteStringBuilder
+(DiskImageFormat -&gt; ByteStringBuilder) -&gt; ToLog DiskImageFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DiskImageFormat -&gt; ByteStringBuilder
+$cbuild :: DiskImageFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681099907"><span class="annot"><span class="annottext">HeaderName -&gt; DiskImageFormat -&gt; [Header]
+(HeaderName -&gt; DiskImageFormat -&gt; [Header])
+-&gt; ToHeader DiskImageFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DiskImageFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DiskImageFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681099904"><span class="annot"><span class="annottext">DiskImageFormat -&gt; QueryString
+(DiskImageFormat -&gt; QueryString) -&gt; ToQuery DiskImageFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DiskImageFormat -&gt; QueryString
+$ctoQuery :: DiskImageFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681099899"><span id="local-6989586621681099901"><span class="annot"><span class="annottext">Value -&gt; Parser [DiskImageFormat]
+Value -&gt; Parser DiskImageFormat
+(Value -&gt; Parser DiskImageFormat)
+-&gt; (Value -&gt; Parser [DiskImageFormat]) -&gt; FromJSON DiskImageFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DiskImageFormat]
+$cparseJSONList :: Value -&gt; Parser [DiskImageFormat]
+parseJSON :: Value -&gt; Parser DiskImageFormat
+$cparseJSON :: Value -&gt; Parser DiskImageFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681099894"><span id="local-6989586621681099896"><span class="annot"><span class="annottext">FromJSONKeyFunction [DiskImageFormat]
+FromJSONKeyFunction DiskImageFormat
+FromJSONKeyFunction DiskImageFormat
+-&gt; FromJSONKeyFunction [DiskImageFormat]
+-&gt; FromJSONKey DiskImageFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DiskImageFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [DiskImageFormat]
+fromJSONKey :: FromJSONKeyFunction DiskImageFormat
+$cfromJSONKey :: FromJSONKeyFunction DiskImageFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681099885"><span id="local-6989586621681099887"><span id="local-6989586621681099889"><span id="local-6989586621681099891"><span class="annot"><span class="annottext">[DiskImageFormat] -&gt; Encoding
+[DiskImageFormat] -&gt; Value
+DiskImageFormat -&gt; Encoding
+DiskImageFormat -&gt; Value
+(DiskImageFormat -&gt; Value)
+-&gt; (DiskImageFormat -&gt; Encoding)
+-&gt; ([DiskImageFormat] -&gt; Value)
+-&gt; ([DiskImageFormat] -&gt; Encoding)
+-&gt; ToJSON DiskImageFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DiskImageFormat] -&gt; Encoding
+$ctoEncodingList :: [DiskImageFormat] -&gt; Encoding
+toJSONList :: [DiskImageFormat] -&gt; Value
+$ctoJSONList :: [DiskImageFormat] -&gt; Value
+toEncoding :: DiskImageFormat -&gt; Encoding
+$ctoEncoding :: DiskImageFormat -&gt; Encoding
+toJSON :: DiskImageFormat -&gt; Value
+$ctoJSON :: DiskImageFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681099880"><span id="local-6989586621681099882"><span class="annot"><span class="annottext">ToJSONKeyFunction [DiskImageFormat]
+ToJSONKeyFunction DiskImageFormat
+ToJSONKeyFunction DiskImageFormat
+-&gt; ToJSONKeyFunction [DiskImageFormat] -&gt; ToJSONKey DiskImageFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DiskImageFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [DiskImageFormat]
+toJSONKey :: ToJSONKeyFunction DiskImageFormat
+$ctoJSONKey :: ToJSONKeyFunction DiskImageFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681099877"><span class="annot"><span class="annottext">[Node] -&gt; Either String DiskImageFormat
+([Node] -&gt; Either String DiskImageFormat)
+-&gt; FromXML DiskImageFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DiskImageFormat
+$cparseXML :: [Node] -&gt; Either String DiskImageFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681099874"><span class="annot"><span class="annottext">DiskImageFormat -&gt; XML
+(DiskImageFormat -&gt; XML) -&gt; ToXML DiskImageFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DiskImageFormat -&gt; XML
+$ctoXML :: DiskImageFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat_RAW"><span class="hs-identifier hs-type">DiskImageFormat_RAW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat"><span class="hs-identifier hs-type">DiskImageFormat</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDiskImageFormat_RAW"><span id="%24mDiskImageFormat_RAW"><span id="DiskImageFormat_RAW"><span class="annot"><span class="annottext">$bDiskImageFormat_RAW :: DiskImageFormat
+$mDiskImageFormat_RAW :: forall r. DiskImageFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.DiskImageFormat.html#%24bDiskImageFormat_RAW"><span class="hs-identifier hs-var hs-var hs-var">DiskImageFormat_RAW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat%27"><span class="hs-identifier hs-type">DiskImageFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RAW&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat_VHD"><span class="hs-identifier hs-type">DiskImageFormat_VHD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat"><span class="hs-identifier hs-type">DiskImageFormat</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDiskImageFormat_VHD"><span id="%24mDiskImageFormat_VHD"><span id="DiskImageFormat_VHD"><span class="annot"><span class="annottext">$bDiskImageFormat_VHD :: DiskImageFormat
+$mDiskImageFormat_VHD :: forall r. DiskImageFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.DiskImageFormat.html#%24bDiskImageFormat_VHD"><span class="hs-identifier hs-var hs-var hs-var">DiskImageFormat_VHD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat%27"><span class="hs-identifier hs-type">DiskImageFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VHD&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat_VMDK"><span class="hs-identifier hs-type">DiskImageFormat_VMDK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat"><span class="hs-identifier hs-type">DiskImageFormat</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDiskImageFormat_VMDK"><span id="%24mDiskImageFormat_VMDK"><span id="DiskImageFormat_VMDK"><span class="annot"><span class="annottext">$bDiskImageFormat_VMDK :: DiskImageFormat
+$mDiskImageFormat_VMDK :: forall r. DiskImageFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.DiskImageFormat.html#%24bDiskImageFormat_VMDK"><span class="hs-identifier hs-var hs-var hs-var">DiskImageFormat_VMDK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat%27"><span class="hs-identifier hs-type">DiskImageFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VMDK&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat_RAW"><span class="hs-pragma hs-type">DiskImageFormat_RAW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat_VHD"><span class="hs-pragma hs-type">DiskImageFormat_VHD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat_VMDK"><span class="hs-pragma hs-type">DiskImageFormat_VMDK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat%27"><span class="hs-pragma hs-type">DiskImageFormat'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

@@ -1,0 +1,858 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.DescribeAccountCustomization</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the customizations associated with the provided Amazon Web</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Services account and Amazon Amazon QuickSight namespace in an Amazon Web</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Services Region. The Amazon QuickSight console evaluates which</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- customizations to apply by running this API operation with the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @Resolved@ flag included.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- To determine what customizations display when you run this command, it</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- can help to visualize the relationship of the entities involved.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   @Amazon Web Services account@ - The Amazon Web Services account</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     exists at the top of the hierarchy. It has the potential to use all</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     of the Amazon Web Services Regions and AWS Services. When you</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     subscribe to Amazon QuickSight, you choose one Amazon Web Services</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     Region to use as your home Region. That\'s where your free SPICE</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     capacity is located. You can use Amazon QuickSight in any supported</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     Amazon Web Services Region.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- -   @Amazon Web Services Region@ - In each Amazon Web Services Region</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     where you sign in to Amazon QuickSight at least once, Amazon</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     QuickSight acts as a separate instance of the same service. If you</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     have a user directory, it resides in us-east-1, which is the US East</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--     (N. Virginia). Generally speaking, these users have access to Amazon</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--     QuickSight in any Amazon Web Services Region, unless they are</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     constrained to a namespace.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     To run the command in a different Amazon Web Services Region, you</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     change your Region settings. If you\'re using the AWS CLI, you can</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--     use one of the following options:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--     -   Use</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--         &lt;https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html command line options&gt;.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--     -   Use</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--         &lt;https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html named profiles&gt;.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--     -   Run @aws configure@ to change your default Amazon Web Services</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--         Region. Use Enter to key the same settings for your keys. For</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--         more information, see</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--         &lt;https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html Configuring the AWS CLI&gt;.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- -   @Namespace@ - A Amazon QuickSight namespace is a partition that</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--     contains users and assets (data sources, datasets, dashboards, and</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--     so on). To access assets that are in a specific namespace, users and</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--     groups must also be part of the same namespace. People who share a</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--     namespace are completely isolated from users and assets in other</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--     namespaces, even if they are in the same Amazon Web Services account</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--     and Amazon Web Services Region.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- -   @Applied customizations@ - Within an Amazon Web Services Region, a</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--     set of Amazon QuickSight customizations can apply to an Amazon Web</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--     Services account or to a namespace. Settings that you apply to a</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--     namespace override settings that you apply to an Amazon Web Services</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--     account. All settings are isolated to a single Amazon Web Services</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--     Region. To apply them in other Amazon Web Services Regions, run the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--     @CreateAccountCustomization@ command in each Amazon Web Services</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--     Region where you want to apply the same customizations.</span><span>
+</span><span id="line-79"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.DescribeAccountCustomization</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier">DescribeAccountCustomization</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#newDescribeAccountCustomization"><span class="hs-identifier">newDescribeAccountCustomization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomization_resolved"><span class="hs-identifier">describeAccountCustomization_resolved</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomization_namespace"><span class="hs-identifier">describeAccountCustomization_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomization_awsAccountId"><span class="hs-identifier">describeAccountCustomization_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier">DescribeAccountCustomizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#newDescribeAccountCustomizationResponse"><span class="hs-identifier">newDescribeAccountCustomizationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_requestId"><span class="hs-identifier">describeAccountCustomizationResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_accountCustomization"><span class="hs-identifier">describeAccountCustomizationResponse_accountCustomization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_arn"><span class="hs-identifier">describeAccountCustomizationResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_namespace"><span class="hs-identifier">describeAccountCustomizationResponse_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_awsAccountId"><span class="hs-identifier">describeAccountCustomizationResponse_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_status"><span class="hs-identifier">describeAccountCustomizationResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | /See:/ 'newDescribeAccountCustomization' smart constructor.</span><span>
+</span><span id="line-111"></span><span id="local-6989586621679588511"><span id="local-6989586621679588512"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAccountCustomization"><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier hs-var">DescribeAccountCustomization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAccountCustomization%27"><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization%27"><span class="hs-identifier hs-var">DescribeAccountCustomization'</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @Resolved@ flag works with the other parameters to determine which</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- view of Amazon QuickSight customizations is returned. You can add this</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- flag to your command to use the same view that Amazon QuickSight uses to</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- identify which customizations to apply to the console. Omit this flag,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- or set it to @no-resolved@, to reveal customizations that are configured</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- at different levels.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3Aresolved%3ADescribeAccountCustomization%27"><span class="annot"><span class="annottext">DescribeAccountCustomization -&gt; Maybe Bool
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3Aresolved%3ADescribeAccountCustomization%27"><span class="hs-identifier hs-var hs-var">resolved</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The Amazon QuickSight namespace that you want to describe Amazon</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- QuickSight customizations for.</span><span>
+</span><span id="line-121"></span><span>    </span><span id="%24sel%3Anamespace%3ADescribeAccountCustomization%27"><span class="annot"><span class="annottext">DescribeAccountCustomization -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3Anamespace%3ADescribeAccountCustomization%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | The ID for the Amazon Web Services account that you want to describe</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- Amazon QuickSight customizations for.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AawsAccountId%3ADescribeAccountCustomization%27"><span class="annot"><span class="annottext">DescribeAccountCustomization -&gt; Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3AawsAccountId%3ADescribeAccountCustomization%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679588503"><span id="local-6989586621679588505"><span class="annot"><span class="annottext">DescribeAccountCustomization
+-&gt; DescribeAccountCustomization -&gt; Bool
+(DescribeAccountCustomization
+ -&gt; DescribeAccountCustomization -&gt; Bool)
+-&gt; (DescribeAccountCustomization
+    -&gt; DescribeAccountCustomization -&gt; Bool)
+-&gt; Eq DescribeAccountCustomization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAccountCustomization
+-&gt; DescribeAccountCustomization -&gt; Bool
+$c/= :: DescribeAccountCustomization
+-&gt; DescribeAccountCustomization -&gt; Bool
+== :: DescribeAccountCustomization
+-&gt; DescribeAccountCustomization -&gt; Bool
+$c== :: DescribeAccountCustomization
+-&gt; DescribeAccountCustomization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679588494"><span id="local-6989586621679588496"><span id="local-6989586621679588498"><span id="local-6989586621679588500"><span class="annot"><span class="annottext">ReadPrec [DescribeAccountCustomization]
+ReadPrec DescribeAccountCustomization
+Int -&gt; ReadS DescribeAccountCustomization
+ReadS [DescribeAccountCustomization]
+(Int -&gt; ReadS DescribeAccountCustomization)
+-&gt; ReadS [DescribeAccountCustomization]
+-&gt; ReadPrec DescribeAccountCustomization
+-&gt; ReadPrec [DescribeAccountCustomization]
+-&gt; Read DescribeAccountCustomization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAccountCustomization]
+$creadListPrec :: ReadPrec [DescribeAccountCustomization]
+readPrec :: ReadPrec DescribeAccountCustomization
+$creadPrec :: ReadPrec DescribeAccountCustomization
+readList :: ReadS [DescribeAccountCustomization]
+$creadList :: ReadS [DescribeAccountCustomization]
+readsPrec :: Int -&gt; ReadS DescribeAccountCustomization
+$creadsPrec :: Int -&gt; ReadS DescribeAccountCustomization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679588487"><span id="local-6989586621679588489"><span id="local-6989586621679588491"><span class="annot"><span class="annottext">Int -&gt; DescribeAccountCustomization -&gt; ShowS
+[DescribeAccountCustomization] -&gt; ShowS
+DescribeAccountCustomization -&gt; String
+(Int -&gt; DescribeAccountCustomization -&gt; ShowS)
+-&gt; (DescribeAccountCustomization -&gt; String)
+-&gt; ([DescribeAccountCustomization] -&gt; ShowS)
+-&gt; Show DescribeAccountCustomization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAccountCustomization] -&gt; ShowS
+$cshowList :: [DescribeAccountCustomization] -&gt; ShowS
+show :: DescribeAccountCustomization -&gt; String
+$cshow :: DescribeAccountCustomization -&gt; String
+showsPrec :: Int -&gt; DescribeAccountCustomization -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAccountCustomization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAccountCustomization -&gt; Rep DescribeAccountCustomization x)
+-&gt; (forall x.
+    Rep DescribeAccountCustomization x -&gt; DescribeAccountCustomization)
+-&gt; Generic DescribeAccountCustomization
+forall x.
+Rep DescribeAccountCustomization x -&gt; DescribeAccountCustomization
+forall x.
+DescribeAccountCustomization -&gt; Rep DescribeAccountCustomization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeAccountCustomization x -&gt; DescribeAccountCustomization
+$cfrom :: forall x.
+DescribeAccountCustomization -&gt; Rep DescribeAccountCustomization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Create a value of 'DescribeAccountCustomization' with all optional fields omitted.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'resolved', 'describeAccountCustomization_resolved' - The @Resolved@ flag works with the other parameters to determine which</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- view of Amazon QuickSight customizations is returned. You can add this</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- flag to your command to use the same view that Amazon QuickSight uses to</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- identify which customizations to apply to the console. Omit this flag,</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- or set it to @no-resolved@, to reveal customizations that are configured</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- at different levels.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'namespace', 'describeAccountCustomization_namespace' - The Amazon QuickSight namespace that you want to describe Amazon</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- QuickSight customizations for.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'awsAccountId', 'describeAccountCustomization_awsAccountId' - The ID for the Amazon Web Services account that you want to describe</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Amazon QuickSight customizations for.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#newDescribeAccountCustomization"><span class="hs-identifier hs-type">newDescribeAccountCustomization</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier hs-type">DescribeAccountCustomization</span></a></span><span>
+</span><span id="line-152"></span><span id="newDescribeAccountCustomization"><span class="annot"><span class="annottext">newDescribeAccountCustomization :: Text -&gt; DescribeAccountCustomization
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#newDescribeAccountCustomization"><span class="hs-identifier hs-var hs-var">newDescribeAccountCustomization</span></a></span></span><span> </span><span id="local-6989586621679588482"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679588482"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">DescribeAccountCustomization' :: Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; DescribeAccountCustomization
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization%27"><span class="hs-identifier hs-type">DescribeAccountCustomization'</span></a></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resolved:DescribeAccountCustomization' :: Maybe Bool
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3Aresolved%3ADescribeAccountCustomization%27"><span class="hs-identifier hs-var">resolved</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespace:DescribeAccountCustomization' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3Anamespace%3ADescribeAccountCustomization%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeAccountCustomization' :: Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3AawsAccountId%3ADescribeAccountCustomization%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679588482"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The @Resolved@ flag works with the other parameters to determine which</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- view of Amazon QuickSight customizations is returned. You can add this</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- flag to your command to use the same view that Amazon QuickSight uses to</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- identify which customizations to apply to the console. Omit this flag,</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- or set it to @no-resolved@, to reveal customizations that are configured</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- at different levels.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomization_resolved"><span class="hs-identifier hs-type">describeAccountCustomization_resolved</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier hs-type">DescribeAccountCustomization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="describeAccountCustomization_resolved"><span class="annot"><span class="annottext">describeAccountCustomization_resolved :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeAccountCustomization -&gt; f DescribeAccountCustomization
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomization_resolved"><span class="hs-identifier hs-var hs-var">describeAccountCustomization_resolved</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountCustomization -&gt; Maybe Bool)
+-&gt; (DescribeAccountCustomization
+    -&gt; Maybe Bool -&gt; DescribeAccountCustomization)
+-&gt; Lens
+     DescribeAccountCustomization
+     DescribeAccountCustomization
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization%27"><span class="hs-identifier hs-type">DescribeAccountCustomization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588479"><span class="annot"><span class="annottext">Maybe Bool
+resolved :: Maybe Bool
+$sel:resolved:DescribeAccountCustomization' :: DescribeAccountCustomization -&gt; Maybe Bool
+</span><a href="#local-6989586621679588479"><span class="hs-identifier hs-var hs-var">resolved</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679588479"><span class="hs-identifier hs-var">resolved</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588478"><span class="annot"><span class="annottext">s :: DescribeAccountCustomization
+</span><a href="#local-6989586621679588478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization%27"><span class="hs-identifier hs-type">DescribeAccountCustomization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588477"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679588477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountCustomization
+</span><a href="#local-6989586621679588478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolved:DescribeAccountCustomization' :: Maybe Bool
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3Aresolved%3ADescribeAccountCustomization%27"><span class="hs-identifier hs-var">resolved</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679588477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier hs-type">DescribeAccountCustomization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The Amazon QuickSight namespace that you want to describe Amazon</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- QuickSight customizations for.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomization_namespace"><span class="hs-identifier hs-type">describeAccountCustomization_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier hs-type">DescribeAccountCustomization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="describeAccountCustomization_namespace"><span class="annot"><span class="annottext">describeAccountCustomization_namespace :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAccountCustomization -&gt; f DescribeAccountCustomization
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomization_namespace"><span class="hs-identifier hs-var hs-var">describeAccountCustomization_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountCustomization -&gt; Maybe Text)
+-&gt; (DescribeAccountCustomization
+    -&gt; Maybe Text -&gt; DescribeAccountCustomization)
+-&gt; Lens
+     DescribeAccountCustomization
+     DescribeAccountCustomization
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization%27"><span class="hs-identifier hs-type">DescribeAccountCustomization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588476"><span class="annot"><span class="annottext">Maybe Text
+namespace :: Maybe Text
+$sel:namespace:DescribeAccountCustomization' :: DescribeAccountCustomization -&gt; Maybe Text
+</span><a href="#local-6989586621679588476"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588476"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588475"><span class="annot"><span class="annottext">s :: DescribeAccountCustomization
+</span><a href="#local-6989586621679588475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization%27"><span class="hs-identifier hs-type">DescribeAccountCustomization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588474"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountCustomization
+</span><a href="#local-6989586621679588475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:DescribeAccountCustomization' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3Anamespace%3ADescribeAccountCustomization%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier hs-type">DescribeAccountCustomization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The ID for the Amazon Web Services account that you want to describe</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Amazon QuickSight customizations for.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomization_awsAccountId"><span class="hs-identifier hs-type">describeAccountCustomization_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier hs-type">DescribeAccountCustomization</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-177"></span><span id="describeAccountCustomization_awsAccountId"><span class="annot"><span class="annottext">describeAccountCustomization_awsAccountId :: (Text -&gt; f Text)
+-&gt; DescribeAccountCustomization -&gt; f DescribeAccountCustomization
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomization_awsAccountId"><span class="hs-identifier hs-var hs-var">describeAccountCustomization_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountCustomization -&gt; Text)
+-&gt; (DescribeAccountCustomization
+    -&gt; Text -&gt; DescribeAccountCustomization)
+-&gt; Lens
+     DescribeAccountCustomization DescribeAccountCustomization Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization%27"><span class="hs-identifier hs-type">DescribeAccountCustomization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588473"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:DescribeAccountCustomization' :: DescribeAccountCustomization -&gt; Text
+</span><a href="#local-6989586621679588473"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679588473"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588472"><span class="annot"><span class="annottext">s :: DescribeAccountCustomization
+</span><a href="#local-6989586621679588472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization%27"><span class="hs-identifier hs-type">DescribeAccountCustomization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588471"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679588471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountCustomization
+</span><a href="#local-6989586621679588472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeAccountCustomization' :: Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3AawsAccountId%3ADescribeAccountCustomization%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679588471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier hs-type">DescribeAccountCustomization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier hs-type">DescribeAccountCustomization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-181"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier hs-type">DescribeAccountCustomization</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse</span></a></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679588467"><span class="annot"><span class="annottext">request :: DescribeAccountCustomization
+-&gt; Request DescribeAccountCustomization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeAccountCustomization
+-&gt; Request DescribeAccountCustomization
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679588463"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeAccountCustomization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAccountCustomization)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeAccountCustomization))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeAccountCustomization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAccountCustomization)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679588460"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679588460"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679588459"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679588459"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679588458"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679588458"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe AccountCustomization
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeAccountCustomizationResponse
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var">DescribeAccountCustomizationResponse'</span></a></span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe AccountCustomization
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeAccountCustomizationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe AccountCustomization
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeAccountCustomizationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679588458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe AccountCustomization
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeAccountCustomizationResponse)
+-&gt; Either String (Maybe AccountCustomization)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeAccountCustomizationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679588458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AccountCustomization)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountCustomization&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeAccountCustomizationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Int -&gt; DescribeAccountCustomizationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679588458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Int -&gt; DescribeAccountCustomizationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeAccountCustomizationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679588458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Namespace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribeAccountCustomizationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeAccountCustomizationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679588458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AwsAccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeAccountCustomizationResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeAccountCustomizationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679588460"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679588450"><span id="local-6989586621679588452"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier hs-type">DescribeAccountCustomization</span></a></span></span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679588447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier hs-type">DescribeAccountCustomization</span></a></span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier hs-type">DescribeAccountCustomization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679588443"><span class="annot"><span class="annottext">toHeaders :: DescribeAccountCustomization -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAccountCustomization -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-206"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-207"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-208"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-209"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier hs-type">DescribeAccountCustomization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679588437"><span class="annot"><span class="annottext">toPath :: DescribeAccountCustomization -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization%27"><span class="hs-identifier hs-type">DescribeAccountCustomization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588433"><span id="local-6989586621679588434"><span id="local-6989586621679588435"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Text
+awsAccountId :: Text
+namespace :: Maybe Text
+resolved :: Maybe Bool
+$sel:awsAccountId:DescribeAccountCustomization' :: DescribeAccountCustomization -&gt; Text
+$sel:namespace:DescribeAccountCustomization' :: DescribeAccountCustomization -&gt; Maybe Text
+$sel:resolved:DescribeAccountCustomization' :: DescribeAccountCustomization -&gt; Maybe Bool
+</span><a href="#local-6989586621679588433"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679588433"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/customizations&quot;</span></span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization"><span class="hs-identifier hs-type">DescribeAccountCustomization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679588429"><span class="annot"><span class="annottext">toQuery :: DescribeAccountCustomization -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomization%27"><span class="hs-identifier hs-type">DescribeAccountCustomization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588425"><span id="local-6989586621679588426"><span id="local-6989586621679588427"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Text
+awsAccountId :: Text
+namespace :: Maybe Text
+resolved :: Maybe Bool
+$sel:awsAccountId:DescribeAccountCustomization' :: DescribeAccountCustomization -&gt; Text
+$sel:namespace:DescribeAccountCustomization' :: DescribeAccountCustomization -&gt; Maybe Text
+$sel:resolved:DescribeAccountCustomization' :: DescribeAccountCustomization -&gt; Maybe Bool
+</span><a href="#local-6989586621679588425"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;resolved&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679588427"><span class="hs-identifier hs-var">resolved</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588426"><span class="hs-identifier hs-var">namespace</span></a></span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | /See:/ 'newDescribeAccountCustomizationResponse' smart constructor.</span><span>
+</span><span id="line-229"></span><span id="local-6989586621679588422"><span id="local-6989586621679588423"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAccountCustomizationResponse"><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-var">DescribeAccountCustomizationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAccountCustomizationResponse%27"><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var">DescribeAccountCustomizationResponse'</span></a></span></span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-231"></span><span>    </span><span id="%24sel%3ArequestId%3ADescribeAccountCustomizationResponse%27"><span class="annot"><span class="annottext">DescribeAccountCustomizationResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3ArequestId%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- | The Amazon QuickSight customizations that exist in the current Amazon</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- Web Services Region.</span><span>
+</span><span id="line-234"></span><span>    </span><span id="%24sel%3AaccountCustomization%3ADescribeAccountCustomizationResponse%27"><span class="annot"><span class="annottext">DescribeAccountCustomizationResponse -&gt; Maybe AccountCustomization
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3AaccountCustomization%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var hs-var">accountCustomization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.AccountCustomization.html#AccountCustomization"><span class="hs-identifier hs-type">AccountCustomization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the customization that\'s associated</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- with this Amazon Web Services account.</span><span>
+</span><span id="line-237"></span><span>    </span><span id="%24sel%3Aarn%3ADescribeAccountCustomizationResponse%27"><span class="annot"><span class="annottext">DescribeAccountCustomizationResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3Aarn%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- | The Amazon QuickSight namespace that you\'re describing.</span><span>
+</span><span id="line-239"></span><span>    </span><span id="%24sel%3Anamespace%3ADescribeAccountCustomizationResponse%27"><span class="annot"><span class="annottext">DescribeAccountCustomizationResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3Anamespace%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- | The ID for the Amazon Web Services account that you\'re describing.</span><span>
+</span><span id="line-241"></span><span>    </span><span id="%24sel%3AawsAccountId%3ADescribeAccountCustomizationResponse%27"><span class="annot"><span class="annottext">DescribeAccountCustomizationResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3AawsAccountId%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-243"></span><span>    </span><span id="%24sel%3Astatus%3ADescribeAccountCustomizationResponse%27"><span class="annot"><span class="annottext">DescribeAccountCustomizationResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3Astatus%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-244"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-245"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679588412"><span id="local-6989586621679588414"><span class="annot"><span class="annottext">DescribeAccountCustomizationResponse
+-&gt; DescribeAccountCustomizationResponse -&gt; Bool
+(DescribeAccountCustomizationResponse
+ -&gt; DescribeAccountCustomizationResponse -&gt; Bool)
+-&gt; (DescribeAccountCustomizationResponse
+    -&gt; DescribeAccountCustomizationResponse -&gt; Bool)
+-&gt; Eq DescribeAccountCustomizationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAccountCustomizationResponse
+-&gt; DescribeAccountCustomizationResponse -&gt; Bool
+$c/= :: DescribeAccountCustomizationResponse
+-&gt; DescribeAccountCustomizationResponse -&gt; Bool
+== :: DescribeAccountCustomizationResponse
+-&gt; DescribeAccountCustomizationResponse -&gt; Bool
+$c== :: DescribeAccountCustomizationResponse
+-&gt; DescribeAccountCustomizationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679588404"><span id="local-6989586621679588406"><span id="local-6989586621679588408"><span id="local-6989586621679588410"><span class="annot"><span class="annottext">ReadPrec [DescribeAccountCustomizationResponse]
+ReadPrec DescribeAccountCustomizationResponse
+Int -&gt; ReadS DescribeAccountCustomizationResponse
+ReadS [DescribeAccountCustomizationResponse]
+(Int -&gt; ReadS DescribeAccountCustomizationResponse)
+-&gt; ReadS [DescribeAccountCustomizationResponse]
+-&gt; ReadPrec DescribeAccountCustomizationResponse
+-&gt; ReadPrec [DescribeAccountCustomizationResponse]
+-&gt; Read DescribeAccountCustomizationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAccountCustomizationResponse]
+$creadListPrec :: ReadPrec [DescribeAccountCustomizationResponse]
+readPrec :: ReadPrec DescribeAccountCustomizationResponse
+$creadPrec :: ReadPrec DescribeAccountCustomizationResponse
+readList :: ReadS [DescribeAccountCustomizationResponse]
+$creadList :: ReadS [DescribeAccountCustomizationResponse]
+readsPrec :: Int -&gt; ReadS DescribeAccountCustomizationResponse
+$creadsPrec :: Int -&gt; ReadS DescribeAccountCustomizationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679588398"><span id="local-6989586621679588400"><span id="local-6989586621679588402"><span class="annot"><span class="annottext">Int -&gt; DescribeAccountCustomizationResponse -&gt; ShowS
+[DescribeAccountCustomizationResponse] -&gt; ShowS
+DescribeAccountCustomizationResponse -&gt; String
+(Int -&gt; DescribeAccountCustomizationResponse -&gt; ShowS)
+-&gt; (DescribeAccountCustomizationResponse -&gt; String)
+-&gt; ([DescribeAccountCustomizationResponse] -&gt; ShowS)
+-&gt; Show DescribeAccountCustomizationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAccountCustomizationResponse] -&gt; ShowS
+$cshowList :: [DescribeAccountCustomizationResponse] -&gt; ShowS
+show :: DescribeAccountCustomizationResponse -&gt; String
+$cshow :: DescribeAccountCustomizationResponse -&gt; String
+showsPrec :: Int -&gt; DescribeAccountCustomizationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAccountCustomizationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAccountCustomizationResponse
+ -&gt; Rep DescribeAccountCustomizationResponse x)
+-&gt; (forall x.
+    Rep DescribeAccountCustomizationResponse x
+    -&gt; DescribeAccountCustomizationResponse)
+-&gt; Generic DescribeAccountCustomizationResponse
+forall x.
+Rep DescribeAccountCustomizationResponse x
+-&gt; DescribeAccountCustomizationResponse
+forall x.
+DescribeAccountCustomizationResponse
+-&gt; Rep DescribeAccountCustomizationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeAccountCustomizationResponse x
+-&gt; DescribeAccountCustomizationResponse
+$cfrom :: forall x.
+DescribeAccountCustomizationResponse
+-&gt; Rep DescribeAccountCustomizationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- Create a value of 'DescribeAccountCustomizationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'requestId', 'describeAccountCustomizationResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'accountCustomization', 'describeAccountCustomizationResponse_accountCustomization' - The Amazon QuickSight customizations that exist in the current Amazon</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- Web Services Region.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- 'arn', 'describeAccountCustomizationResponse_arn' - The Amazon Resource Name (ARN) of the customization that\'s associated</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- with this Amazon Web Services account.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- 'namespace', 'describeAccountCustomizationResponse_namespace' - The Amazon QuickSight namespace that you\'re describing.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- 'awsAccountId', 'describeAccountCustomizationResponse_awsAccountId' - The ID for the Amazon Web Services account that you\'re describing.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 'status', 'describeAccountCustomizationResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#newDescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">newDescribeAccountCustomizationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-269"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-271"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse</span></a></span><span>
+</span><span id="line-272"></span><span id="newDescribeAccountCustomizationResponse"><span class="annot"><span class="annottext">newDescribeAccountCustomizationResponse :: Int -&gt; DescribeAccountCustomizationResponse
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#newDescribeAccountCustomizationResponse"><span class="hs-identifier hs-var hs-var">newDescribeAccountCustomizationResponse</span></a></span></span><span> </span><span id="local-6989586621679588395"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679588395"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-273"></span><span>  </span><span class="annot"><span class="annottext">DescribeAccountCustomizationResponse' :: Maybe Text
+-&gt; Maybe AccountCustomization
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeAccountCustomizationResponse
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse'</span></a></span><span>
+</span><span id="line-274"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:DescribeAccountCustomizationResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3ArequestId%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountCustomization:DescribeAccountCustomizationResponse' :: Maybe AccountCustomization
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3AaccountCustomization%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var">accountCustomization</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-277"></span><span>        </span><span class="annot"><span class="annottext">Maybe AccountCustomization
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DescribeAccountCustomizationResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3Aarn%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespace:DescribeAccountCustomizationResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3Anamespace%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeAccountCustomizationResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3AawsAccountId%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DescribeAccountCustomizationResponse' :: Int
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3Astatus%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679588395"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-282"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_requestId"><span class="hs-identifier hs-type">describeAccountCustomizationResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="describeAccountCustomizationResponse_requestId"><span class="annot"><span class="annottext">describeAccountCustomizationResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAccountCustomizationResponse
+-&gt; f DescribeAccountCustomizationResponse
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_requestId"><span class="hs-identifier hs-var hs-var">describeAccountCustomizationResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountCustomizationResponse -&gt; Maybe Text)
+-&gt; (DescribeAccountCustomizationResponse
+    -&gt; Maybe Text -&gt; DescribeAccountCustomizationResponse)
+-&gt; Lens
+     DescribeAccountCustomizationResponse
+     DescribeAccountCustomizationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588394"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:DescribeAccountCustomizationResponse' :: DescribeAccountCustomizationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679588394"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588394"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588393"><span class="annot"><span class="annottext">s :: DescribeAccountCustomizationResponse
+</span><a href="#local-6989586621679588393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588392"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountCustomizationResponse
+</span><a href="#local-6989586621679588393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:DescribeAccountCustomizationResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3ArequestId%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The Amazon QuickSight customizations that exist in the current Amazon</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- Web Services Region.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_accountCustomization"><span class="hs-identifier hs-type">describeAccountCustomizationResponse_accountCustomization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.AccountCustomization.html#AccountCustomization"><span class="hs-identifier hs-type">AccountCustomization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="describeAccountCustomizationResponse_accountCustomization"><span class="annot"><span class="annottext">describeAccountCustomizationResponse_accountCustomization :: (Maybe AccountCustomization -&gt; f (Maybe AccountCustomization))
+-&gt; DescribeAccountCustomizationResponse
+-&gt; f DescribeAccountCustomizationResponse
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_accountCustomization"><span class="hs-identifier hs-var hs-var">describeAccountCustomizationResponse_accountCustomization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountCustomizationResponse
+ -&gt; Maybe AccountCustomization)
+-&gt; (DescribeAccountCustomizationResponse
+    -&gt; Maybe AccountCustomization
+    -&gt; DescribeAccountCustomizationResponse)
+-&gt; Lens
+     DescribeAccountCustomizationResponse
+     DescribeAccountCustomizationResponse
+     (Maybe AccountCustomization)
+     (Maybe AccountCustomization)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588391"><span class="annot"><span class="annottext">Maybe AccountCustomization
+accountCustomization :: Maybe AccountCustomization
+$sel:accountCustomization:DescribeAccountCustomizationResponse' :: DescribeAccountCustomizationResponse -&gt; Maybe AccountCustomization
+</span><a href="#local-6989586621679588391"><span class="hs-identifier hs-var hs-var">accountCustomization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccountCustomization
+</span><a href="#local-6989586621679588391"><span class="hs-identifier hs-var">accountCustomization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588390"><span class="annot"><span class="annottext">s :: DescribeAccountCustomizationResponse
+</span><a href="#local-6989586621679588390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588389"><span class="annot"><span class="annottext">Maybe AccountCustomization
+</span><a href="#local-6989586621679588389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountCustomizationResponse
+</span><a href="#local-6989586621679588390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountCustomization:DescribeAccountCustomizationResponse' :: Maybe AccountCustomization
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3AaccountCustomization%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var">accountCustomization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountCustomization
+</span><a href="#local-6989586621679588389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the customization that\'s associated</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- with this Amazon Web Services account.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_arn"><span class="hs-identifier hs-type">describeAccountCustomizationResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="describeAccountCustomizationResponse_arn"><span class="annot"><span class="annottext">describeAccountCustomizationResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAccountCustomizationResponse
+-&gt; f DescribeAccountCustomizationResponse
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_arn"><span class="hs-identifier hs-var hs-var">describeAccountCustomizationResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountCustomizationResponse -&gt; Maybe Text)
+-&gt; (DescribeAccountCustomizationResponse
+    -&gt; Maybe Text -&gt; DescribeAccountCustomizationResponse)
+-&gt; Lens
+     DescribeAccountCustomizationResponse
+     DescribeAccountCustomizationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588388"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DescribeAccountCustomizationResponse' :: DescribeAccountCustomizationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679588388"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588388"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588387"><span class="annot"><span class="annottext">s :: DescribeAccountCustomizationResponse
+</span><a href="#local-6989586621679588387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588386"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountCustomizationResponse
+</span><a href="#local-6989586621679588387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DescribeAccountCustomizationResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3Aarn%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The Amazon QuickSight namespace that you\'re describing.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_namespace"><span class="hs-identifier hs-type">describeAccountCustomizationResponse_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span id="describeAccountCustomizationResponse_namespace"><span class="annot"><span class="annottext">describeAccountCustomizationResponse_namespace :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAccountCustomizationResponse
+-&gt; f DescribeAccountCustomizationResponse
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_namespace"><span class="hs-identifier hs-var hs-var">describeAccountCustomizationResponse_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountCustomizationResponse -&gt; Maybe Text)
+-&gt; (DescribeAccountCustomizationResponse
+    -&gt; Maybe Text -&gt; DescribeAccountCustomizationResponse)
+-&gt; Lens
+     DescribeAccountCustomizationResponse
+     DescribeAccountCustomizationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588385"><span class="annot"><span class="annottext">Maybe Text
+namespace :: Maybe Text
+$sel:namespace:DescribeAccountCustomizationResponse' :: DescribeAccountCustomizationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679588385"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588385"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588384"><span class="annot"><span class="annottext">s :: DescribeAccountCustomizationResponse
+</span><a href="#local-6989586621679588384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588383"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountCustomizationResponse
+</span><a href="#local-6989586621679588384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:DescribeAccountCustomizationResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3Anamespace%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- | The ID for the Amazon Web Services account that you\'re describing.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_awsAccountId"><span class="hs-identifier hs-type">describeAccountCustomizationResponse_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span id="describeAccountCustomizationResponse_awsAccountId"><span class="annot"><span class="annottext">describeAccountCustomizationResponse_awsAccountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAccountCustomizationResponse
+-&gt; f DescribeAccountCustomizationResponse
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_awsAccountId"><span class="hs-identifier hs-var hs-var">describeAccountCustomizationResponse_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountCustomizationResponse -&gt; Maybe Text)
+-&gt; (DescribeAccountCustomizationResponse
+    -&gt; Maybe Text -&gt; DescribeAccountCustomizationResponse)
+-&gt; Lens
+     DescribeAccountCustomizationResponse
+     DescribeAccountCustomizationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588382"><span class="annot"><span class="annottext">Maybe Text
+awsAccountId :: Maybe Text
+$sel:awsAccountId:DescribeAccountCustomizationResponse' :: DescribeAccountCustomizationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679588382"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588382"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588381"><span class="annot"><span class="annottext">s :: DescribeAccountCustomizationResponse
+</span><a href="#local-6989586621679588381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588380"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountCustomizationResponse
+</span><a href="#local-6989586621679588381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeAccountCustomizationResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3AawsAccountId%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679588380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-307"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_status"><span class="hs-identifier hs-type">describeAccountCustomizationResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-308"></span><span id="describeAccountCustomizationResponse_status"><span class="annot"><span class="annottext">describeAccountCustomizationResponse_status :: (Int -&gt; f Int)
+-&gt; DescribeAccountCustomizationResponse
+-&gt; f DescribeAccountCustomizationResponse
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#describeAccountCustomizationResponse_status"><span class="hs-identifier hs-var hs-var">describeAccountCustomizationResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountCustomizationResponse -&gt; Int)
+-&gt; (DescribeAccountCustomizationResponse
+    -&gt; Int -&gt; DescribeAccountCustomizationResponse)
+-&gt; Lens
+     DescribeAccountCustomizationResponse
+     DescribeAccountCustomizationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588379"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:DescribeAccountCustomizationResponse' :: DescribeAccountCustomizationResponse -&gt; Int
+</span><a href="#local-6989586621679588379"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679588379"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588378"><span class="annot"><span class="annottext">s :: DescribeAccountCustomizationResponse
+</span><a href="#local-6989586621679588378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588377"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679588377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountCustomizationResponse
+</span><a href="#local-6989586621679588378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DescribeAccountCustomizationResponse' :: Int
+</span><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#%24sel%3Astatus%3ADescribeAccountCustomizationResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679588377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-311"></span><span>  </span><span id="local-6989586621679588375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAccountCustomization.html#DescribeAccountCustomizationResponse"><span class="hs-identifier hs-type">DescribeAccountCustomizationResponse</span></a></span></span><span>
+</span><span id="line-313"></span></pre></body></html>

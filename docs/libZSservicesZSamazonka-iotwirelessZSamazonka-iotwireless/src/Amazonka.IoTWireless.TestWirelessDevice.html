@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.TestWirelessDevice</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Simulates a provisioned device by sending an uplink data payload of</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- @Hello@.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.TestWirelessDevice</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice"><span class="hs-identifier">TestWirelessDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#newTestWirelessDevice"><span class="hs-identifier">newTestWirelessDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#testWirelessDevice_id"><span class="hs-identifier">testWirelessDevice_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse"><span class="hs-identifier">TestWirelessDeviceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#newTestWirelessDeviceResponse"><span class="hs-identifier">newTestWirelessDeviceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#testWirelessDeviceResponse_result"><span class="hs-identifier">testWirelessDeviceResponse_result</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#testWirelessDeviceResponse_httpStatus"><span class="hs-identifier">testWirelessDeviceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.html"><span class="hs-identifier">Amazonka.IoTWireless.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newTestWirelessDevice' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679281722"><span id="local-6989586621679281723"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestWirelessDevice"><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice"><span class="hs-identifier hs-var">TestWirelessDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestWirelessDevice%27"><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice%27"><span class="hs-identifier hs-var">TestWirelessDevice'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the wireless device to test.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aid%3ATestWirelessDevice%27"><span class="annot"><span class="annottext">TestWirelessDevice -&gt; Text
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#%24sel%3Aid%3ATestWirelessDevice%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281716"><span id="local-6989586621679281718"><span class="annot"><span class="annottext">TestWirelessDevice -&gt; TestWirelessDevice -&gt; Bool
+(TestWirelessDevice -&gt; TestWirelessDevice -&gt; Bool)
+-&gt; (TestWirelessDevice -&gt; TestWirelessDevice -&gt; Bool)
+-&gt; Eq TestWirelessDevice
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TestWirelessDevice -&gt; TestWirelessDevice -&gt; Bool
+$c/= :: TestWirelessDevice -&gt; TestWirelessDevice -&gt; Bool
+== :: TestWirelessDevice -&gt; TestWirelessDevice -&gt; Bool
+$c== :: TestWirelessDevice -&gt; TestWirelessDevice -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281707"><span id="local-6989586621679281709"><span id="local-6989586621679281711"><span id="local-6989586621679281713"><span class="annot"><span class="annottext">ReadPrec [TestWirelessDevice]
+ReadPrec TestWirelessDevice
+Int -&gt; ReadS TestWirelessDevice
+ReadS [TestWirelessDevice]
+(Int -&gt; ReadS TestWirelessDevice)
+-&gt; ReadS [TestWirelessDevice]
+-&gt; ReadPrec TestWirelessDevice
+-&gt; ReadPrec [TestWirelessDevice]
+-&gt; Read TestWirelessDevice
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TestWirelessDevice]
+$creadListPrec :: ReadPrec [TestWirelessDevice]
+readPrec :: ReadPrec TestWirelessDevice
+$creadPrec :: ReadPrec TestWirelessDevice
+readList :: ReadS [TestWirelessDevice]
+$creadList :: ReadS [TestWirelessDevice]
+readsPrec :: Int -&gt; ReadS TestWirelessDevice
+$creadsPrec :: Int -&gt; ReadS TestWirelessDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281700"><span id="local-6989586621679281702"><span id="local-6989586621679281704"><span class="annot"><span class="annottext">Int -&gt; TestWirelessDevice -&gt; ShowS
+[TestWirelessDevice] -&gt; ShowS
+TestWirelessDevice -&gt; String
+(Int -&gt; TestWirelessDevice -&gt; ShowS)
+-&gt; (TestWirelessDevice -&gt; String)
+-&gt; ([TestWirelessDevice] -&gt; ShowS)
+-&gt; Show TestWirelessDevice
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TestWirelessDevice] -&gt; ShowS
+$cshowList :: [TestWirelessDevice] -&gt; ShowS
+show :: TestWirelessDevice -&gt; String
+$cshow :: TestWirelessDevice -&gt; String
+showsPrec :: Int -&gt; TestWirelessDevice -&gt; ShowS
+$cshowsPrec :: Int -&gt; TestWirelessDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TestWirelessDevice -&gt; Rep TestWirelessDevice x)
+-&gt; (forall x. Rep TestWirelessDevice x -&gt; TestWirelessDevice)
+-&gt; Generic TestWirelessDevice
+forall x. Rep TestWirelessDevice x -&gt; TestWirelessDevice
+forall x. TestWirelessDevice -&gt; Rep TestWirelessDevice x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TestWirelessDevice x -&gt; TestWirelessDevice
+$cfrom :: forall x. TestWirelessDevice -&gt; Rep TestWirelessDevice x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'TestWirelessDevice' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'id', 'testWirelessDevice_id' - The ID of the wireless device to test.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#newTestWirelessDevice"><span class="hs-identifier hs-type">newTestWirelessDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice"><span class="hs-identifier hs-type">TestWirelessDevice</span></a></span><span>
+</span><span id="line-70"></span><span id="newTestWirelessDevice"><span class="annot"><span class="annottext">newTestWirelessDevice :: Text -&gt; TestWirelessDevice
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#newTestWirelessDevice"><span class="hs-identifier hs-var hs-var">newTestWirelessDevice</span></a></span></span><span> </span><span id="local-6989586621679281695"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281695"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">TestWirelessDevice' :: Text -&gt; TestWirelessDevice
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice%27"><span class="hs-identifier hs-type">TestWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:TestWirelessDevice' :: Text
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#%24sel%3Aid%3ATestWirelessDevice%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281695"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The ID of the wireless device to test.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#testWirelessDevice_id"><span class="hs-identifier hs-type">testWirelessDevice_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice"><span class="hs-identifier hs-type">TestWirelessDevice</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span id="testWirelessDevice_id"><span class="annot"><span class="annottext">testWirelessDevice_id :: (Text -&gt; f Text) -&gt; TestWirelessDevice -&gt; f TestWirelessDevice
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#testWirelessDevice_id"><span class="hs-identifier hs-var hs-var">testWirelessDevice_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestWirelessDevice -&gt; Text)
+-&gt; (TestWirelessDevice -&gt; Text -&gt; TestWirelessDevice)
+-&gt; Lens TestWirelessDevice TestWirelessDevice Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice%27"><span class="hs-identifier hs-type">TestWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281692"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:TestWirelessDevice' :: TestWirelessDevice -&gt; Text
+</span><a href="#local-6989586621679281692"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281692"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281691"><span class="annot"><span class="annottext">s :: TestWirelessDevice
+</span><a href="#local-6989586621679281691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice%27"><span class="hs-identifier hs-type">TestWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281690"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestWirelessDevice
+</span><a href="#local-6989586621679281691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:TestWirelessDevice' :: Text
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#%24sel%3Aid%3ATestWirelessDevice%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice"><span class="hs-identifier hs-type">TestWirelessDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice"><span class="hs-identifier hs-type">TestWirelessDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice"><span class="hs-identifier hs-type">TestWirelessDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse"><span class="hs-identifier hs-type">TestWirelessDeviceResponse</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679281686"><span class="annot"><span class="annottext">request :: TestWirelessDevice -&gt; Request TestWirelessDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TestWirelessDevice -&gt; Request TestWirelessDevice
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679281682"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy TestWirelessDevice
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse TestWirelessDevice)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse TestWirelessDevice))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy TestWirelessDevice
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse TestWirelessDevice)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281679"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281679"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679281678"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679281678"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679281677"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281677"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; TestWirelessDeviceResponse
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse%27"><span class="hs-identifier hs-var">TestWirelessDeviceResponse'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; TestWirelessDeviceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; TestWirelessDeviceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Result&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; TestWirelessDeviceResponse)
+-&gt; Either String Int -&gt; Either String TestWirelessDeviceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281679"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281669"><span id="local-6989586621679281671"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice"><span class="hs-identifier hs-type">TestWirelessDevice</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281666"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice"><span class="hs-identifier hs-type">TestWirelessDevice</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice"><span class="hs-identifier hs-type">TestWirelessDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679281662"><span class="annot"><span class="annottext">toHeaders :: TestWirelessDevice -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TestWirelessDevice -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281653"><span id="local-6989586621679281655"><span id="local-6989586621679281657"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice"><span class="hs-identifier hs-type">TestWirelessDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679281651"><span class="annot"><span class="annottext">toJSON :: TestWirelessDevice -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; TestWirelessDevice -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice"><span class="hs-identifier hs-type">TestWirelessDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679281646"><span class="annot"><span class="annottext">toPath :: TestWirelessDevice -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice%27"><span class="hs-identifier hs-type">TestWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281644"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:TestWirelessDevice' :: TestWirelessDevice -&gt; Text
+</span><a href="#local-6989586621679281644"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/wireless-devices/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281644"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/test&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDevice"><span class="hs-identifier hs-type">TestWirelessDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679281640"><span class="annot"><span class="annottext">toQuery :: TestWirelessDevice -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TestWirelessDevice -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | /See:/ 'newTestWirelessDeviceResponse' smart constructor.</span><span>
+</span><span id="line-109"></span><span id="local-6989586621679281637"><span id="local-6989586621679281638"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestWirelessDeviceResponse"><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse"><span class="hs-identifier hs-var">TestWirelessDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestWirelessDeviceResponse%27"><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse%27"><span class="hs-identifier hs-var">TestWirelessDeviceResponse'</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The result returned by the test.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3Aresult%3ATestWirelessDeviceResponse%27"><span class="annot"><span class="annottext">TestWirelessDeviceResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#%24sel%3Aresult%3ATestWirelessDeviceResponse%27"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATestWirelessDeviceResponse%27"><span class="annot"><span class="annottext">TestWirelessDeviceResponse -&gt; Int
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#%24sel%3AhttpStatus%3ATestWirelessDeviceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281631"><span id="local-6989586621679281633"><span class="annot"><span class="annottext">TestWirelessDeviceResponse -&gt; TestWirelessDeviceResponse -&gt; Bool
+(TestWirelessDeviceResponse -&gt; TestWirelessDeviceResponse -&gt; Bool)
+-&gt; (TestWirelessDeviceResponse
+    -&gt; TestWirelessDeviceResponse -&gt; Bool)
+-&gt; Eq TestWirelessDeviceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TestWirelessDeviceResponse -&gt; TestWirelessDeviceResponse -&gt; Bool
+$c/= :: TestWirelessDeviceResponse -&gt; TestWirelessDeviceResponse -&gt; Bool
+== :: TestWirelessDeviceResponse -&gt; TestWirelessDeviceResponse -&gt; Bool
+$c== :: TestWirelessDeviceResponse -&gt; TestWirelessDeviceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281623"><span id="local-6989586621679281625"><span id="local-6989586621679281627"><span id="local-6989586621679281629"><span class="annot"><span class="annottext">ReadPrec [TestWirelessDeviceResponse]
+ReadPrec TestWirelessDeviceResponse
+Int -&gt; ReadS TestWirelessDeviceResponse
+ReadS [TestWirelessDeviceResponse]
+(Int -&gt; ReadS TestWirelessDeviceResponse)
+-&gt; ReadS [TestWirelessDeviceResponse]
+-&gt; ReadPrec TestWirelessDeviceResponse
+-&gt; ReadPrec [TestWirelessDeviceResponse]
+-&gt; Read TestWirelessDeviceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TestWirelessDeviceResponse]
+$creadListPrec :: ReadPrec [TestWirelessDeviceResponse]
+readPrec :: ReadPrec TestWirelessDeviceResponse
+$creadPrec :: ReadPrec TestWirelessDeviceResponse
+readList :: ReadS [TestWirelessDeviceResponse]
+$creadList :: ReadS [TestWirelessDeviceResponse]
+readsPrec :: Int -&gt; ReadS TestWirelessDeviceResponse
+$creadsPrec :: Int -&gt; ReadS TestWirelessDeviceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281617"><span id="local-6989586621679281619"><span id="local-6989586621679281621"><span class="annot"><span class="annottext">Int -&gt; TestWirelessDeviceResponse -&gt; ShowS
+[TestWirelessDeviceResponse] -&gt; ShowS
+TestWirelessDeviceResponse -&gt; String
+(Int -&gt; TestWirelessDeviceResponse -&gt; ShowS)
+-&gt; (TestWirelessDeviceResponse -&gt; String)
+-&gt; ([TestWirelessDeviceResponse] -&gt; ShowS)
+-&gt; Show TestWirelessDeviceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TestWirelessDeviceResponse] -&gt; ShowS
+$cshowList :: [TestWirelessDeviceResponse] -&gt; ShowS
+show :: TestWirelessDeviceResponse -&gt; String
+$cshow :: TestWirelessDeviceResponse -&gt; String
+showsPrec :: Int -&gt; TestWirelessDeviceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; TestWirelessDeviceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ TestWirelessDeviceResponse -&gt; Rep TestWirelessDeviceResponse x)
+-&gt; (forall x.
+    Rep TestWirelessDeviceResponse x -&gt; TestWirelessDeviceResponse)
+-&gt; Generic TestWirelessDeviceResponse
+forall x.
+Rep TestWirelessDeviceResponse x -&gt; TestWirelessDeviceResponse
+forall x.
+TestWirelessDeviceResponse -&gt; Rep TestWirelessDeviceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TestWirelessDeviceResponse x -&gt; TestWirelessDeviceResponse
+$cfrom :: forall x.
+TestWirelessDeviceResponse -&gt; Rep TestWirelessDeviceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Create a value of 'TestWirelessDeviceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'result', 'testWirelessDeviceResponse_result' - The result returned by the test.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'httpStatus', 'testWirelessDeviceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#newTestWirelessDeviceResponse"><span class="hs-identifier hs-type">newTestWirelessDeviceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse"><span class="hs-identifier hs-type">TestWirelessDeviceResponse</span></a></span><span>
+</span><span id="line-132"></span><span id="newTestWirelessDeviceResponse"><span class="annot"><span class="annottext">newTestWirelessDeviceResponse :: Int -&gt; TestWirelessDeviceResponse
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#newTestWirelessDeviceResponse"><span class="hs-identifier hs-var hs-var">newTestWirelessDeviceResponse</span></a></span></span><span> </span><span id="local-6989586621679281614"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281614"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">TestWirelessDeviceResponse' :: Maybe Text -&gt; Int -&gt; TestWirelessDeviceResponse
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse%27"><span class="hs-identifier hs-type">TestWirelessDeviceResponse'</span></a></span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:result:TestWirelessDeviceResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#%24sel%3Aresult%3ATestWirelessDeviceResponse%27"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:TestWirelessDeviceResponse' :: Int
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#%24sel%3AhttpStatus%3ATestWirelessDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281614"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The result returned by the test.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#testWirelessDeviceResponse_result"><span class="hs-identifier hs-type">testWirelessDeviceResponse_result</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse"><span class="hs-identifier hs-type">TestWirelessDeviceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="testWirelessDeviceResponse_result"><span class="annot"><span class="annottext">testWirelessDeviceResponse_result :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TestWirelessDeviceResponse -&gt; f TestWirelessDeviceResponse
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#testWirelessDeviceResponse_result"><span class="hs-identifier hs-var hs-var">testWirelessDeviceResponse_result</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestWirelessDeviceResponse -&gt; Maybe Text)
+-&gt; (TestWirelessDeviceResponse
+    -&gt; Maybe Text -&gt; TestWirelessDeviceResponse)
+-&gt; Lens
+     TestWirelessDeviceResponse
+     TestWirelessDeviceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse%27"><span class="hs-identifier hs-type">TestWirelessDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281613"><span class="annot"><span class="annottext">Maybe Text
+result :: Maybe Text
+$sel:result:TestWirelessDeviceResponse' :: TestWirelessDeviceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679281613"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281613"><span class="hs-identifier hs-var">result</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281612"><span class="annot"><span class="annottext">s :: TestWirelessDeviceResponse
+</span><a href="#local-6989586621679281612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse%27"><span class="hs-identifier hs-type">TestWirelessDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281611"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestWirelessDeviceResponse
+</span><a href="#local-6989586621679281612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:result:TestWirelessDeviceResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#%24sel%3Aresult%3ATestWirelessDeviceResponse%27"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse"><span class="hs-identifier hs-type">TestWirelessDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#testWirelessDeviceResponse_httpStatus"><span class="hs-identifier hs-type">testWirelessDeviceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse"><span class="hs-identifier hs-type">TestWirelessDeviceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span id="testWirelessDeviceResponse_httpStatus"><span class="annot"><span class="annottext">testWirelessDeviceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; TestWirelessDeviceResponse -&gt; f TestWirelessDeviceResponse
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#testWirelessDeviceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">testWirelessDeviceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestWirelessDeviceResponse -&gt; Int)
+-&gt; (TestWirelessDeviceResponse
+    -&gt; Int -&gt; TestWirelessDeviceResponse)
+-&gt; Lens
+     TestWirelessDeviceResponse TestWirelessDeviceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse%27"><span class="hs-identifier hs-type">TestWirelessDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281610"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:TestWirelessDeviceResponse' :: TestWirelessDeviceResponse -&gt; Int
+</span><a href="#local-6989586621679281610"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281610"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281609"><span class="annot"><span class="annottext">s :: TestWirelessDeviceResponse
+</span><a href="#local-6989586621679281609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse%27"><span class="hs-identifier hs-type">TestWirelessDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281608"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestWirelessDeviceResponse
+</span><a href="#local-6989586621679281609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TestWirelessDeviceResponse' :: Int
+</span><a href="Amazonka.IoTWireless.TestWirelessDevice.html#%24sel%3AhttpStatus%3ATestWirelessDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse"><span class="hs-identifier hs-type">TestWirelessDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281606"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.TestWirelessDevice.html#TestWirelessDeviceResponse"><span class="hs-identifier hs-type">TestWirelessDeviceResponse</span></a></span></span><span>
+</span><span id="line-148"></span></pre></body></html>

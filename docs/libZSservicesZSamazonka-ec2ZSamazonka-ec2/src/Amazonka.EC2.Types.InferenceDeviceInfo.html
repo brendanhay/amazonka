@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.InferenceDeviceInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.InferenceDeviceInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes the Inference accelerators for the instance type.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInferenceDeviceInfo' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621681114006"><span id="local-6989586621681114007"></span></span><span class="hs-keyword">data</span><span> </span><span id="InferenceDeviceInfo"><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo"><span class="hs-identifier hs-var">InferenceDeviceInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InferenceDeviceInfo%27"><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo%27"><span class="hs-identifier hs-var">InferenceDeviceInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The manufacturer of the Inference accelerator.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Amanufacturer%3AInferenceDeviceInfo%27"><span class="annot"><span class="annottext">InferenceDeviceInfo -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#%24sel%3Amanufacturer%3AInferenceDeviceInfo%27"><span class="hs-identifier hs-var hs-var">manufacturer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The number of Inference accelerators for the instance type.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Acount%3AInferenceDeviceInfo%27"><span class="annot"><span class="annottext">InferenceDeviceInfo -&gt; Maybe Int
+</span><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#%24sel%3Acount%3AInferenceDeviceInfo%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the Inference accelerator.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aname%3AInferenceDeviceInfo%27"><span class="annot"><span class="annottext">InferenceDeviceInfo -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#%24sel%3Aname%3AInferenceDeviceInfo%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681113998"><span id="local-6989586621681114000"><span class="annot"><span class="annottext">InferenceDeviceInfo -&gt; InferenceDeviceInfo -&gt; Bool
+(InferenceDeviceInfo -&gt; InferenceDeviceInfo -&gt; Bool)
+-&gt; (InferenceDeviceInfo -&gt; InferenceDeviceInfo -&gt; Bool)
+-&gt; Eq InferenceDeviceInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InferenceDeviceInfo -&gt; InferenceDeviceInfo -&gt; Bool
+$c/= :: InferenceDeviceInfo -&gt; InferenceDeviceInfo -&gt; Bool
+== :: InferenceDeviceInfo -&gt; InferenceDeviceInfo -&gt; Bool
+$c== :: InferenceDeviceInfo -&gt; InferenceDeviceInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681113989"><span id="local-6989586621681113991"><span id="local-6989586621681113993"><span id="local-6989586621681113995"><span class="annot"><span class="annottext">ReadPrec [InferenceDeviceInfo]
+ReadPrec InferenceDeviceInfo
+Int -&gt; ReadS InferenceDeviceInfo
+ReadS [InferenceDeviceInfo]
+(Int -&gt; ReadS InferenceDeviceInfo)
+-&gt; ReadS [InferenceDeviceInfo]
+-&gt; ReadPrec InferenceDeviceInfo
+-&gt; ReadPrec [InferenceDeviceInfo]
+-&gt; Read InferenceDeviceInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InferenceDeviceInfo]
+$creadListPrec :: ReadPrec [InferenceDeviceInfo]
+readPrec :: ReadPrec InferenceDeviceInfo
+$creadPrec :: ReadPrec InferenceDeviceInfo
+readList :: ReadS [InferenceDeviceInfo]
+$creadList :: ReadS [InferenceDeviceInfo]
+readsPrec :: Int -&gt; ReadS InferenceDeviceInfo
+$creadsPrec :: Int -&gt; ReadS InferenceDeviceInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681113982"><span id="local-6989586621681113984"><span id="local-6989586621681113986"><span class="annot"><span class="annottext">Int -&gt; InferenceDeviceInfo -&gt; ShowS
+[InferenceDeviceInfo] -&gt; ShowS
+InferenceDeviceInfo -&gt; String
+(Int -&gt; InferenceDeviceInfo -&gt; ShowS)
+-&gt; (InferenceDeviceInfo -&gt; String)
+-&gt; ([InferenceDeviceInfo] -&gt; ShowS)
+-&gt; Show InferenceDeviceInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InferenceDeviceInfo] -&gt; ShowS
+$cshowList :: [InferenceDeviceInfo] -&gt; ShowS
+show :: InferenceDeviceInfo -&gt; String
+$cshow :: InferenceDeviceInfo -&gt; String
+showsPrec :: Int -&gt; InferenceDeviceInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; InferenceDeviceInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InferenceDeviceInfo -&gt; Rep InferenceDeviceInfo x)
+-&gt; (forall x. Rep InferenceDeviceInfo x -&gt; InferenceDeviceInfo)
+-&gt; Generic InferenceDeviceInfo
+forall x. Rep InferenceDeviceInfo x -&gt; InferenceDeviceInfo
+forall x. InferenceDeviceInfo -&gt; Rep InferenceDeviceInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InferenceDeviceInfo x -&gt; InferenceDeviceInfo
+$cfrom :: forall x. InferenceDeviceInfo -&gt; Rep InferenceDeviceInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'InferenceDeviceInfo' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'manufacturer', 'inferenceDeviceInfo_manufacturer' - The manufacturer of the Inference accelerator.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'count', 'inferenceDeviceInfo_count' - The number of Inference accelerators for the instance type.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'name', 'inferenceDeviceInfo_name' - The name of the Inference accelerator.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#newInferenceDeviceInfo"><span class="hs-identifier hs-type">newInferenceDeviceInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo"><span class="hs-identifier hs-type">InferenceDeviceInfo</span></a></span><span>
+</span><span id="line-55"></span><span id="newInferenceDeviceInfo"><span class="annot"><span class="annottext">newInferenceDeviceInfo :: InferenceDeviceInfo
+</span><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#newInferenceDeviceInfo"><span class="hs-identifier hs-var hs-var">newInferenceDeviceInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">InferenceDeviceInfo' :: Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; InferenceDeviceInfo
+</span><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo%27"><span class="hs-identifier hs-type">InferenceDeviceInfo'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:manufacturer:InferenceDeviceInfo' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#%24sel%3Amanufacturer%3AInferenceDeviceInfo%27"><span class="hs-identifier hs-var">manufacturer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:count:InferenceDeviceInfo' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#%24sel%3Acount%3AInferenceDeviceInfo%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:InferenceDeviceInfo' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#%24sel%3Aname%3AInferenceDeviceInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The manufacturer of the Inference accelerator.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#inferenceDeviceInfo_manufacturer"><span class="hs-identifier hs-type">inferenceDeviceInfo_manufacturer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo"><span class="hs-identifier hs-type">InferenceDeviceInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="inferenceDeviceInfo_manufacturer"><span class="annot"><span class="annottext">inferenceDeviceInfo_manufacturer :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InferenceDeviceInfo -&gt; f InferenceDeviceInfo
+</span><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#inferenceDeviceInfo_manufacturer"><span class="hs-identifier hs-var hs-var">inferenceDeviceInfo_manufacturer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InferenceDeviceInfo -&gt; Maybe Text)
+-&gt; (InferenceDeviceInfo -&gt; Maybe Text -&gt; InferenceDeviceInfo)
+-&gt; Lens
+     InferenceDeviceInfo InferenceDeviceInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo%27"><span class="hs-identifier hs-type">InferenceDeviceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681113973"><span class="annot"><span class="annottext">Maybe Text
+manufacturer :: Maybe Text
+$sel:manufacturer:InferenceDeviceInfo' :: InferenceDeviceInfo -&gt; Maybe Text
+</span><a href="#local-6989586621681113973"><span class="hs-identifier hs-var hs-var">manufacturer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681113973"><span class="hs-identifier hs-var">manufacturer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681113972"><span class="annot"><span class="annottext">s :: InferenceDeviceInfo
+</span><a href="#local-6989586621681113972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo%27"><span class="hs-identifier hs-type">InferenceDeviceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681113971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681113971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceDeviceInfo
+</span><a href="#local-6989586621681113972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manufacturer:InferenceDeviceInfo' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#%24sel%3Amanufacturer%3AInferenceDeviceInfo%27"><span class="hs-identifier hs-var">manufacturer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681113971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo"><span class="hs-identifier hs-type">InferenceDeviceInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The number of Inference accelerators for the instance type.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#inferenceDeviceInfo_count"><span class="hs-identifier hs-type">inferenceDeviceInfo_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo"><span class="hs-identifier hs-type">InferenceDeviceInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="inferenceDeviceInfo_count"><span class="annot"><span class="annottext">inferenceDeviceInfo_count :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; InferenceDeviceInfo -&gt; f InferenceDeviceInfo
+</span><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#inferenceDeviceInfo_count"><span class="hs-identifier hs-var hs-var">inferenceDeviceInfo_count</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InferenceDeviceInfo -&gt; Maybe Int)
+-&gt; (InferenceDeviceInfo -&gt; Maybe Int -&gt; InferenceDeviceInfo)
+-&gt; Lens
+     InferenceDeviceInfo InferenceDeviceInfo (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo%27"><span class="hs-identifier hs-type">InferenceDeviceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681113969"><span class="annot"><span class="annottext">Maybe Int
+count :: Maybe Int
+$sel:count:InferenceDeviceInfo' :: InferenceDeviceInfo -&gt; Maybe Int
+</span><a href="#local-6989586621681113969"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681113969"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681113968"><span class="annot"><span class="annottext">s :: InferenceDeviceInfo
+</span><a href="#local-6989586621681113968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo%27"><span class="hs-identifier hs-type">InferenceDeviceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681113967"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681113967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceDeviceInfo
+</span><a href="#local-6989586621681113968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:InferenceDeviceInfo' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#%24sel%3Acount%3AInferenceDeviceInfo%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681113967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo"><span class="hs-identifier hs-type">InferenceDeviceInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The name of the Inference accelerator.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#inferenceDeviceInfo_name"><span class="hs-identifier hs-type">inferenceDeviceInfo_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo"><span class="hs-identifier hs-type">InferenceDeviceInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="inferenceDeviceInfo_name"><span class="annot"><span class="annottext">inferenceDeviceInfo_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InferenceDeviceInfo -&gt; f InferenceDeviceInfo
+</span><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#inferenceDeviceInfo_name"><span class="hs-identifier hs-var hs-var">inferenceDeviceInfo_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InferenceDeviceInfo -&gt; Maybe Text)
+-&gt; (InferenceDeviceInfo -&gt; Maybe Text -&gt; InferenceDeviceInfo)
+-&gt; Lens
+     InferenceDeviceInfo InferenceDeviceInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo%27"><span class="hs-identifier hs-type">InferenceDeviceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681113965"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:InferenceDeviceInfo' :: InferenceDeviceInfo -&gt; Maybe Text
+</span><a href="#local-6989586621681113965"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681113965"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681113964"><span class="annot"><span class="annottext">s :: InferenceDeviceInfo
+</span><a href="#local-6989586621681113964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo%27"><span class="hs-identifier hs-type">InferenceDeviceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681113963"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681113963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceDeviceInfo
+</span><a href="#local-6989586621681113964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InferenceDeviceInfo' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#%24sel%3Aname%3AInferenceDeviceInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681113963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo"><span class="hs-identifier hs-type">InferenceDeviceInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo"><span class="hs-identifier hs-type">InferenceDeviceInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621681113960"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InferenceDeviceInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681113958"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681113958"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; InferenceDeviceInfo
+</span><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo%27"><span class="hs-identifier hs-var">InferenceDeviceInfo'</span></a></span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; InferenceDeviceInfo)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Int -&gt; Maybe Text -&gt; InferenceDeviceInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681113958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;manufacturer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Maybe Text -&gt; InferenceDeviceInfo)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Maybe Text -&gt; InferenceDeviceInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681113958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;count&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; InferenceDeviceInfo)
+-&gt; Either String (Maybe Text) -&gt; Either String InferenceDeviceInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681113958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681113952"><span id="local-6989586621681113954"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo"><span class="hs-identifier hs-type">InferenceDeviceInfo</span></a></span></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681113949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InferenceDeviceInfo.html#InferenceDeviceInfo"><span class="hs-identifier hs-type">InferenceDeviceInfo</span></a></span></span><span>
+</span><span id="line-85"></span></pre></body></html>

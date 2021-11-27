@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ELBV2.Types.HttpHeaderConditionConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ELBV2.Types.HttpHeaderConditionConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information about an HTTP header condition.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- There is a set of standard HTTP header fields. You can also define</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- custom HTTP header fields.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newHttpHeaderConditionConfig' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679249610"><span id="local-6989586621679249611"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpHeaderConditionConfig"><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-var">HttpHeaderConditionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpHeaderConditionConfig%27"><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-var">HttpHeaderConditionConfig'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more strings to compare against the value of the HTTP header. The</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- maximum size of each string is 128 characters. The comparison strings</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- are case insensitive. The following wildcard characters are supported: *</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- (matches 0 or more characters) and ? (matches exactly 1 character).</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- If the same header appears multiple times in the request, we search them</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- in order until a match is found.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- If you specify multiple strings, the condition is satisfied if one of</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the strings matches the value of the HTTP header. To require that all of</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- the strings are a match, create one condition per string.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Avalues%3AHttpHeaderConditionConfig%27"><span class="annot"><span class="annottext">HttpHeaderConditionConfig -&gt; Maybe [Text]
+</span><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#%24sel%3Avalues%3AHttpHeaderConditionConfig%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name of the HTTP header field. The maximum size is 40 characters.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- The header name is case insensitive. The allowed characters are</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- specified by RFC 7230. Wildcards are not supported.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- You can\'t use an HTTP header condition to specify the host header. Use</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- HostHeaderConditionConfig to specify a host header condition.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AhttpHeaderName%3AHttpHeaderConditionConfig%27"><span class="annot"><span class="annottext">HttpHeaderConditionConfig -&gt; Maybe Text
+</span><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#%24sel%3AhttpHeaderName%3AHttpHeaderConditionConfig%27"><span class="hs-identifier hs-var hs-var">httpHeaderName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249603"><span id="local-6989586621679249605"><span class="annot"><span class="annottext">HttpHeaderConditionConfig -&gt; HttpHeaderConditionConfig -&gt; Bool
+(HttpHeaderConditionConfig -&gt; HttpHeaderConditionConfig -&gt; Bool)
+-&gt; (HttpHeaderConditionConfig -&gt; HttpHeaderConditionConfig -&gt; Bool)
+-&gt; Eq HttpHeaderConditionConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HttpHeaderConditionConfig -&gt; HttpHeaderConditionConfig -&gt; Bool
+$c/= :: HttpHeaderConditionConfig -&gt; HttpHeaderConditionConfig -&gt; Bool
+== :: HttpHeaderConditionConfig -&gt; HttpHeaderConditionConfig -&gt; Bool
+$c== :: HttpHeaderConditionConfig -&gt; HttpHeaderConditionConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249594"><span id="local-6989586621679249596"><span id="local-6989586621679249598"><span id="local-6989586621679249600"><span class="annot"><span class="annottext">ReadPrec [HttpHeaderConditionConfig]
+ReadPrec HttpHeaderConditionConfig
+Int -&gt; ReadS HttpHeaderConditionConfig
+ReadS [HttpHeaderConditionConfig]
+(Int -&gt; ReadS HttpHeaderConditionConfig)
+-&gt; ReadS [HttpHeaderConditionConfig]
+-&gt; ReadPrec HttpHeaderConditionConfig
+-&gt; ReadPrec [HttpHeaderConditionConfig]
+-&gt; Read HttpHeaderConditionConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HttpHeaderConditionConfig]
+$creadListPrec :: ReadPrec [HttpHeaderConditionConfig]
+readPrec :: ReadPrec HttpHeaderConditionConfig
+$creadPrec :: ReadPrec HttpHeaderConditionConfig
+readList :: ReadS [HttpHeaderConditionConfig]
+$creadList :: ReadS [HttpHeaderConditionConfig]
+readsPrec :: Int -&gt; ReadS HttpHeaderConditionConfig
+$creadsPrec :: Int -&gt; ReadS HttpHeaderConditionConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249587"><span id="local-6989586621679249589"><span id="local-6989586621679249591"><span class="annot"><span class="annottext">Int -&gt; HttpHeaderConditionConfig -&gt; ShowS
+[HttpHeaderConditionConfig] -&gt; ShowS
+HttpHeaderConditionConfig -&gt; String
+(Int -&gt; HttpHeaderConditionConfig -&gt; ShowS)
+-&gt; (HttpHeaderConditionConfig -&gt; String)
+-&gt; ([HttpHeaderConditionConfig] -&gt; ShowS)
+-&gt; Show HttpHeaderConditionConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HttpHeaderConditionConfig] -&gt; ShowS
+$cshowList :: [HttpHeaderConditionConfig] -&gt; ShowS
+show :: HttpHeaderConditionConfig -&gt; String
+$cshow :: HttpHeaderConditionConfig -&gt; String
+showsPrec :: Int -&gt; HttpHeaderConditionConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; HttpHeaderConditionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ HttpHeaderConditionConfig -&gt; Rep HttpHeaderConditionConfig x)
+-&gt; (forall x.
+    Rep HttpHeaderConditionConfig x -&gt; HttpHeaderConditionConfig)
+-&gt; Generic HttpHeaderConditionConfig
+forall x.
+Rep HttpHeaderConditionConfig x -&gt; HttpHeaderConditionConfig
+forall x.
+HttpHeaderConditionConfig -&gt; Rep HttpHeaderConditionConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep HttpHeaderConditionConfig x -&gt; HttpHeaderConditionConfig
+$cfrom :: forall x.
+HttpHeaderConditionConfig -&gt; Rep HttpHeaderConditionConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'HttpHeaderConditionConfig' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'values', 'httpHeaderConditionConfig_values' - One or more strings to compare against the value of the HTTP header. The</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- maximum size of each string is 128 characters. The comparison strings</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- are case insensitive. The following wildcard characters are supported: *</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- (matches 0 or more characters) and ? (matches exactly 1 character).</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- If the same header appears multiple times in the request, we search them</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- in order until a match is found.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- If you specify multiple strings, the condition is satisfied if one of</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the strings matches the value of the HTTP header. To require that all of</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the strings are a match, create one condition per string.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'httpHeaderName', 'httpHeaderConditionConfig_httpHeaderName' - The name of the HTTP header field. The maximum size is 40 characters.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The header name is case insensitive. The allowed characters are</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- specified by RFC 7230. Wildcards are not supported.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- You can\'t use an HTTP header condition to specify the host header. Use</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- HostHeaderConditionConfig to specify a host header condition.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#newHttpHeaderConditionConfig"><span class="hs-identifier hs-type">newHttpHeaderConditionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span>
+</span><span id="line-83"></span><span id="newHttpHeaderConditionConfig"><span class="annot"><span class="annottext">newHttpHeaderConditionConfig :: HttpHeaderConditionConfig
+</span><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#newHttpHeaderConditionConfig"><span class="hs-identifier hs-var hs-var">newHttpHeaderConditionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">HttpHeaderConditionConfig' :: Maybe [Text] -&gt; Maybe Text -&gt; HttpHeaderConditionConfig
+</span><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:values:HttpHeaderConditionConfig' :: Maybe [Text]
+</span><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#%24sel%3Avalues%3AHttpHeaderConditionConfig%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpHeaderName:HttpHeaderConditionConfig' :: Maybe Text
+</span><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#%24sel%3AhttpHeaderName%3AHttpHeaderConditionConfig%27"><span class="hs-identifier hs-var">httpHeaderName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | One or more strings to compare against the value of the HTTP header. The</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- maximum size of each string is 128 characters. The comparison strings</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- are case insensitive. The following wildcard characters are supported: *</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- (matches 0 or more characters) and ? (matches exactly 1 character).</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- If the same header appears multiple times in the request, we search them</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- in order until a match is found.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- If you specify multiple strings, the condition is satisfied if one of</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- the strings matches the value of the HTTP header. To require that all of</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- the strings are a match, create one condition per string.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#httpHeaderConditionConfig_values"><span class="hs-identifier hs-type">httpHeaderConditionConfig_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="httpHeaderConditionConfig_values"><span class="annot"><span class="annottext">httpHeaderConditionConfig_values :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; HttpHeaderConditionConfig -&gt; f HttpHeaderConditionConfig
+</span><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#httpHeaderConditionConfig_values"><span class="hs-identifier hs-var hs-var">httpHeaderConditionConfig_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpHeaderConditionConfig -&gt; Maybe [Text])
+-&gt; (HttpHeaderConditionConfig
+    -&gt; Maybe [Text] -&gt; HttpHeaderConditionConfig)
+-&gt; Lens
+     HttpHeaderConditionConfig
+     HttpHeaderConditionConfig
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249578"><span class="annot"><span class="annottext">Maybe [Text]
+values :: Maybe [Text]
+$sel:values:HttpHeaderConditionConfig' :: HttpHeaderConditionConfig -&gt; Maybe [Text]
+</span><a href="#local-6989586621679249578"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249578"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249577"><span class="annot"><span class="annottext">s :: HttpHeaderConditionConfig
+</span><a href="#local-6989586621679249577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249576"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpHeaderConditionConfig
+</span><a href="#local-6989586621679249577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:HttpHeaderConditionConfig' :: Maybe [Text]
+</span><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#%24sel%3Avalues%3AHttpHeaderConditionConfig%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; HttpHeaderConditionConfig -&gt; f HttpHeaderConditionConfig)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; HttpHeaderConditionConfig
+-&gt; f HttpHeaderConditionConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The name of the HTTP header field. The maximum size is 40 characters.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- The header name is case insensitive. The allowed characters are</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- specified by RFC 7230. Wildcards are not supported.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- You can\'t use an HTTP header condition to specify the host header. Use</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- HostHeaderConditionConfig to specify a host header condition.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#httpHeaderConditionConfig_httpHeaderName"><span class="hs-identifier hs-type">httpHeaderConditionConfig_httpHeaderName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="httpHeaderConditionConfig_httpHeaderName"><span class="annot"><span class="annottext">httpHeaderConditionConfig_httpHeaderName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; HttpHeaderConditionConfig -&gt; f HttpHeaderConditionConfig
+</span><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#httpHeaderConditionConfig_httpHeaderName"><span class="hs-identifier hs-var hs-var">httpHeaderConditionConfig_httpHeaderName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpHeaderConditionConfig -&gt; Maybe Text)
+-&gt; (HttpHeaderConditionConfig
+    -&gt; Maybe Text -&gt; HttpHeaderConditionConfig)
+-&gt; Lens
+     HttpHeaderConditionConfig
+     HttpHeaderConditionConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249571"><span class="annot"><span class="annottext">Maybe Text
+httpHeaderName :: Maybe Text
+$sel:httpHeaderName:HttpHeaderConditionConfig' :: HttpHeaderConditionConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679249571"><span class="hs-identifier hs-var hs-var">httpHeaderName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249571"><span class="hs-identifier hs-var">httpHeaderName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249570"><span class="annot"><span class="annottext">s :: HttpHeaderConditionConfig
+</span><a href="#local-6989586621679249570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249569"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpHeaderConditionConfig
+</span><a href="#local-6989586621679249570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpHeaderName:HttpHeaderConditionConfig' :: Maybe Text
+</span><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#%24sel%3AhttpHeaderName%3AHttpHeaderConditionConfig%27"><span class="hs-identifier hs-var">httpHeaderName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679249566"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HttpHeaderConditionConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679249564"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679249564"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; HttpHeaderConditionConfig
+</span><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-var">HttpHeaderConditionConfig'</span></a></span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; HttpHeaderConditionConfig)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Maybe Text -&gt; HttpHeaderConditionConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679249564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; HttpHeaderConditionConfig)
+-&gt; Either String (Maybe Text)
+-&gt; Either String HttpHeaderConditionConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679249564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HttpHeaderName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249555"><span id="local-6989586621679249557"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249552"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679249548"><span class="annot"><span class="annottext">toQuery :: HttpHeaderConditionConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249545"><span id="local-6989586621679249546"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe Text
+httpHeaderName :: Maybe Text
+values :: Maybe [Text]
+$sel:httpHeaderName:HttpHeaderConditionConfig' :: HttpHeaderConditionConfig -&gt; Maybe Text
+$sel:values:HttpHeaderConditionConfig' :: HttpHeaderConditionConfig -&gt; Maybe [Text]
+</span><a href="#local-6989586621679249545"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Values&quot;</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249546"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;HttpHeaderName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249545"><span class="hs-identifier hs-var">httpHeaderName</span></a></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span></pre></body></html>

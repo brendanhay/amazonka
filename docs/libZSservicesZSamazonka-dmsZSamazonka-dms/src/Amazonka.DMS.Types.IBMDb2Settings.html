@@ -1,0 +1,766 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DMS.Types.IBMDb2Settings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DMS.Types.IBMDb2Settings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Provides information that defines an IBM Db2 LUW endpoint.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newIBMDb2Settings' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679432367"><span id="local-6989586621679432368"></span></span><span class="hs-keyword">data</span><span> </span><span id="IBMDb2Settings"><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-var">IBMDb2Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IBMDb2Settings%27"><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-var">IBMDb2Settings'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Fully qualified domain name of the endpoint.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AserverName%3AIBMDb2Settings%27"><span class="annot"><span class="annottext">IBMDb2Settings -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AserverName%3AIBMDb2Settings%27"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | For ongoing replication (CDC), use CurrentLSN to specify a log sequence</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- number (LSN) where you want the replication to start.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcurrentLsn%3AIBMDb2Settings%27"><span class="annot"><span class="annottext">IBMDb2Settings -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AcurrentLsn%3AIBMDb2Settings%27"><span class="hs-identifier hs-var hs-var">currentLsn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Enables ongoing replication (CDC) as a BOOLEAN value. The default is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- true.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsetDataCaptureChanges%3AIBMDb2Settings%27"><span class="annot"><span class="annottext">IBMDb2Settings -&gt; Maybe Bool
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AsetDataCaptureChanges%3AIBMDb2Settings%27"><span class="hs-identifier hs-var hs-var">setDataCaptureChanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- as the trusted entity and grants the required permissions to access the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Secrets Manager secret that allows access to the Db2 LUW endpoint.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- You can specify one of two sets of values for these permissions. You can</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- specify the values for this setting and @SecretsManagerSecretId@. Or you</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- can specify clear-text values for @UserName@, @Password@, @ServerName@,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- and @Port@. You can\'t specify both. For more information on creating</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @SecretsManagerSecretId@ required to access it, see</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources&gt;</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- in the /Database Migration Service User Guide/.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AsecretsManagerAccessRoleArn%3AIBMDb2Settings%27"><span class="annot"><span class="annottext">IBMDb2Settings -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AsecretsManagerAccessRoleArn%3AIBMDb2Settings%27"><span class="hs-identifier hs-var hs-var">secretsManagerAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Endpoint connection user name.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Ausername%3AIBMDb2Settings%27"><span class="annot"><span class="annottext">IBMDb2Settings -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3Ausername%3AIBMDb2Settings%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Endpoint connection password.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Apassword%3AIBMDb2Settings%27"><span class="annot"><span class="annottext">IBMDb2Settings -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3Apassword%3AIBMDb2Settings%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Database name for the endpoint.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdatabaseName%3AIBMDb2Settings%27"><span class="annot"><span class="annottext">IBMDb2Settings -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AdatabaseName%3AIBMDb2Settings%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The full ARN, partial ARN, or friendly name of the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- @SecretsManagerSecret@ that contains the Db2 LUW endpoint connection</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- details.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AsecretsManagerSecretId%3AIBMDb2Settings%27"><span class="annot"><span class="annottext">IBMDb2Settings -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AsecretsManagerSecretId%3AIBMDb2Settings%27"><span class="hs-identifier hs-var hs-var">secretsManagerSecretId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Maximum number of bytes per read, as a NUMBER value. The default is 64</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- KB.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxKBytesPerRead%3AIBMDb2Settings%27"><span class="annot"><span class="annottext">IBMDb2Settings -&gt; Maybe Int
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AmaxKBytesPerRead%3AIBMDb2Settings%27"><span class="hs-identifier hs-var hs-var">maxKBytesPerRead</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Endpoint TCP port. The default value is 50000.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Aport%3AIBMDb2Settings%27"><span class="annot"><span class="annottext">IBMDb2Settings -&gt; Maybe Int
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3Aport%3AIBMDb2Settings%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432352"><span id="local-6989586621679432354"><span class="annot"><span class="annottext">IBMDb2Settings -&gt; IBMDb2Settings -&gt; Bool
+(IBMDb2Settings -&gt; IBMDb2Settings -&gt; Bool)
+-&gt; (IBMDb2Settings -&gt; IBMDb2Settings -&gt; Bool) -&gt; Eq IBMDb2Settings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: IBMDb2Settings -&gt; IBMDb2Settings -&gt; Bool
+$c/= :: IBMDb2Settings -&gt; IBMDb2Settings -&gt; Bool
+== :: IBMDb2Settings -&gt; IBMDb2Settings -&gt; Bool
+$c== :: IBMDb2Settings -&gt; IBMDb2Settings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432345"><span id="local-6989586621679432347"><span id="local-6989586621679432349"><span class="annot"><span class="annottext">Int -&gt; IBMDb2Settings -&gt; ShowS
+[IBMDb2Settings] -&gt; ShowS
+IBMDb2Settings -&gt; String
+(Int -&gt; IBMDb2Settings -&gt; ShowS)
+-&gt; (IBMDb2Settings -&gt; String)
+-&gt; ([IBMDb2Settings] -&gt; ShowS)
+-&gt; Show IBMDb2Settings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [IBMDb2Settings] -&gt; ShowS
+$cshowList :: [IBMDb2Settings] -&gt; ShowS
+show :: IBMDb2Settings -&gt; String
+$cshow :: IBMDb2Settings -&gt; String
+showsPrec :: Int -&gt; IBMDb2Settings -&gt; ShowS
+$cshowsPrec :: Int -&gt; IBMDb2Settings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. IBMDb2Settings -&gt; Rep IBMDb2Settings x)
+-&gt; (forall x. Rep IBMDb2Settings x -&gt; IBMDb2Settings)
+-&gt; Generic IBMDb2Settings
+forall x. Rep IBMDb2Settings x -&gt; IBMDb2Settings
+forall x. IBMDb2Settings -&gt; Rep IBMDb2Settings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep IBMDb2Settings x -&gt; IBMDb2Settings
+$cfrom :: forall x. IBMDb2Settings -&gt; Rep IBMDb2Settings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'IBMDb2Settings' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'serverName', 'iBMDb2Settings_serverName' - Fully qualified domain name of the endpoint.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'currentLsn', 'iBMDb2Settings_currentLsn' - For ongoing replication (CDC), use CurrentLSN to specify a log sequence</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- number (LSN) where you want the replication to start.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'setDataCaptureChanges', 'iBMDb2Settings_setDataCaptureChanges' - Enables ongoing replication (CDC) as a BOOLEAN value. The default is</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- true.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'secretsManagerAccessRoleArn', 'iBMDb2Settings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies DMS</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- as the trusted entity and grants the required permissions to access the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Secrets Manager secret that allows access to the Db2 LUW endpoint.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- You can specify one of two sets of values for these permissions. You can</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- specify the values for this setting and @SecretsManagerSecretId@. Or you</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- can specify clear-text values for @UserName@, @Password@, @ServerName@,</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- and @Port@. You can\'t specify both. For more information on creating</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- @SecretsManagerSecretId@ required to access it, see</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources&gt;</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- in the /Database Migration Service User Guide/.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'username', 'iBMDb2Settings_username' - Endpoint connection user name.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'password', 'iBMDb2Settings_password' - Endpoint connection password.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'databaseName', 'iBMDb2Settings_databaseName' - Database name for the endpoint.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'secretsManagerSecretId', 'iBMDb2Settings_secretsManagerSecretId' - The full ARN, partial ARN, or friendly name of the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- @SecretsManagerSecret@ that contains the Db2 LUW endpoint connection</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- details.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'maxKBytesPerRead', 'iBMDb2Settings_maxKBytesPerRead' - Maximum number of bytes per read, as a NUMBER value. The default is 64</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- KB.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'port', 'iBMDb2Settings_port' - Endpoint TCP port. The default value is 50000.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#newIBMDb2Settings"><span class="hs-identifier hs-type">newIBMDb2Settings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span>
+</span><span id="line-118"></span><span id="newIBMDb2Settings"><span class="annot"><span class="annottext">newIBMDb2Settings :: IBMDb2Settings
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#newIBMDb2Settings"><span class="hs-identifier hs-var hs-var">newIBMDb2Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">IBMDb2Settings' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; IBMDb2Settings
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serverName:IBMDb2Settings' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AserverName%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">serverName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:currentLsn:IBMDb2Settings' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AcurrentLsn%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">currentLsn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:setDataCaptureChanges:IBMDb2Settings' :: Maybe Bool
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AsetDataCaptureChanges%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">setDataCaptureChanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:secretsManagerAccessRoleArn:IBMDb2Settings' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AsecretsManagerAccessRoleArn%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:IBMDb2Settings' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3Ausername%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:password:IBMDb2Settings' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3Apassword%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:IBMDb2Settings' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AdatabaseName%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:secretsManagerSecretId:IBMDb2Settings' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AsecretsManagerSecretId%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxKBytesPerRead:IBMDb2Settings' :: Maybe Int
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AmaxKBytesPerRead%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">maxKBytesPerRead</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:port:IBMDb2Settings' :: Maybe Int
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3Aport%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Fully qualified domain name of the endpoint.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_serverName"><span class="hs-identifier hs-type">iBMDb2Settings_serverName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="iBMDb2Settings_serverName"><span class="annot"><span class="annottext">iBMDb2Settings_serverName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IBMDb2Settings -&gt; f IBMDb2Settings
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_serverName"><span class="hs-identifier hs-var hs-var">iBMDb2Settings_serverName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IBMDb2Settings -&gt; Maybe Text)
+-&gt; (IBMDb2Settings -&gt; Maybe Text -&gt; IBMDb2Settings)
+-&gt; Lens IBMDb2Settings IBMDb2Settings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432336"><span class="annot"><span class="annottext">Maybe Text
+serverName :: Maybe Text
+$sel:serverName:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Text
+</span><a href="#local-6989586621679432336"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432336"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432335"><span class="annot"><span class="annottext">s :: IBMDb2Settings
+</span><a href="#local-6989586621679432335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432334"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IBMDb2Settings
+</span><a href="#local-6989586621679432335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:IBMDb2Settings' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AserverName%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">serverName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | For ongoing replication (CDC), use CurrentLSN to specify a log sequence</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- number (LSN) where you want the replication to start.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_currentLsn"><span class="hs-identifier hs-type">iBMDb2Settings_currentLsn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="iBMDb2Settings_currentLsn"><span class="annot"><span class="annottext">iBMDb2Settings_currentLsn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IBMDb2Settings -&gt; f IBMDb2Settings
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_currentLsn"><span class="hs-identifier hs-var hs-var">iBMDb2Settings_currentLsn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IBMDb2Settings -&gt; Maybe Text)
+-&gt; (IBMDb2Settings -&gt; Maybe Text -&gt; IBMDb2Settings)
+-&gt; Lens IBMDb2Settings IBMDb2Settings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432332"><span class="annot"><span class="annottext">Maybe Text
+currentLsn :: Maybe Text
+$sel:currentLsn:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Text
+</span><a href="#local-6989586621679432332"><span class="hs-identifier hs-var hs-var">currentLsn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432332"><span class="hs-identifier hs-var">currentLsn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432331"><span class="annot"><span class="annottext">s :: IBMDb2Settings
+</span><a href="#local-6989586621679432331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432330"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IBMDb2Settings
+</span><a href="#local-6989586621679432331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentLsn:IBMDb2Settings' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AcurrentLsn%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">currentLsn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | Enables ongoing replication (CDC) as a BOOLEAN value. The default is</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- true.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_setDataCaptureChanges"><span class="hs-identifier hs-type">iBMDb2Settings_setDataCaptureChanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="iBMDb2Settings_setDataCaptureChanges"><span class="annot"><span class="annottext">iBMDb2Settings_setDataCaptureChanges :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; IBMDb2Settings -&gt; f IBMDb2Settings
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_setDataCaptureChanges"><span class="hs-identifier hs-var hs-var">iBMDb2Settings_setDataCaptureChanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IBMDb2Settings -&gt; Maybe Bool)
+-&gt; (IBMDb2Settings -&gt; Maybe Bool -&gt; IBMDb2Settings)
+-&gt; Lens IBMDb2Settings IBMDb2Settings (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432328"><span class="annot"><span class="annottext">Maybe Bool
+setDataCaptureChanges :: Maybe Bool
+$sel:setDataCaptureChanges:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Bool
+</span><a href="#local-6989586621679432328"><span class="hs-identifier hs-var hs-var">setDataCaptureChanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679432328"><span class="hs-identifier hs-var">setDataCaptureChanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432327"><span class="annot"><span class="annottext">s :: IBMDb2Settings
+</span><a href="#local-6989586621679432327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432326"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679432326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IBMDb2Settings
+</span><a href="#local-6989586621679432327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:setDataCaptureChanges:IBMDb2Settings' :: Maybe Bool
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AsetDataCaptureChanges%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">setDataCaptureChanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679432326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- as the trusted entity and grants the required permissions to access the</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Secrets Manager secret that allows access to the Db2 LUW endpoint.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- You can specify one of two sets of values for these permissions. You can</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- specify the values for this setting and @SecretsManagerSecretId@. Or you</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- can specify clear-text values for @UserName@, @Password@, @ServerName@,</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- and @Port@. You can\'t specify both. For more information on creating</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- @SecretsManagerSecretId@ required to access it, see</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources&gt;</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- in the /Database Migration Service User Guide/.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_secretsManagerAccessRoleArn"><span class="hs-identifier hs-type">iBMDb2Settings_secretsManagerAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="iBMDb2Settings_secretsManagerAccessRoleArn"><span class="annot"><span class="annottext">iBMDb2Settings_secretsManagerAccessRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IBMDb2Settings -&gt; f IBMDb2Settings
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_secretsManagerAccessRoleArn"><span class="hs-identifier hs-var hs-var">iBMDb2Settings_secretsManagerAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IBMDb2Settings -&gt; Maybe Text)
+-&gt; (IBMDb2Settings -&gt; Maybe Text -&gt; IBMDb2Settings)
+-&gt; Lens IBMDb2Settings IBMDb2Settings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432324"><span class="annot"><span class="annottext">Maybe Text
+secretsManagerAccessRoleArn :: Maybe Text
+$sel:secretsManagerAccessRoleArn:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Text
+</span><a href="#local-6989586621679432324"><span class="hs-identifier hs-var hs-var">secretsManagerAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432324"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432323"><span class="annot"><span class="annottext">s :: IBMDb2Settings
+</span><a href="#local-6989586621679432323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432322"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IBMDb2Settings
+</span><a href="#local-6989586621679432323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretsManagerAccessRoleArn:IBMDb2Settings' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AsecretsManagerAccessRoleArn%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Endpoint connection user name.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_username"><span class="hs-identifier hs-type">iBMDb2Settings_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="iBMDb2Settings_username"><span class="annot"><span class="annottext">iBMDb2Settings_username :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IBMDb2Settings -&gt; f IBMDb2Settings
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_username"><span class="hs-identifier hs-var hs-var">iBMDb2Settings_username</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IBMDb2Settings -&gt; Maybe Text)
+-&gt; (IBMDb2Settings -&gt; Maybe Text -&gt; IBMDb2Settings)
+-&gt; Lens IBMDb2Settings IBMDb2Settings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432320"><span class="annot"><span class="annottext">Maybe Text
+username :: Maybe Text
+$sel:username:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Text
+</span><a href="#local-6989586621679432320"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432320"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432319"><span class="annot"><span class="annottext">s :: IBMDb2Settings
+</span><a href="#local-6989586621679432319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432318"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IBMDb2Settings
+</span><a href="#local-6989586621679432319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:IBMDb2Settings' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3Ausername%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | Endpoint connection password.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_password"><span class="hs-identifier hs-type">iBMDb2Settings_password</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="iBMDb2Settings_password"><span class="annot"><span class="annottext">iBMDb2Settings_password :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IBMDb2Settings -&gt; f IBMDb2Settings
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_password"><span class="hs-identifier hs-var hs-var">iBMDb2Settings_password</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IBMDb2Settings -&gt; Maybe (Sensitive Text))
+-&gt; (IBMDb2Settings -&gt; Maybe (Sensitive Text) -&gt; IBMDb2Settings)
+-&gt; Lens
+     IBMDb2Settings
+     IBMDb2Settings
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432316"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+password :: Maybe (Sensitive Text)
+$sel:password:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679432316"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679432316"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432315"><span class="annot"><span class="annottext">s :: IBMDb2Settings
+</span><a href="#local-6989586621679432315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432314"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679432314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IBMDb2Settings
+</span><a href="#local-6989586621679432315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:IBMDb2Settings' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3Apassword%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679432314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; IBMDb2Settings -&gt; f IBMDb2Settings)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; IBMDb2Settings
+-&gt; f IBMDb2Settings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Database name for the endpoint.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_databaseName"><span class="hs-identifier hs-type">iBMDb2Settings_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="iBMDb2Settings_databaseName"><span class="annot"><span class="annottext">iBMDb2Settings_databaseName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IBMDb2Settings -&gt; f IBMDb2Settings
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_databaseName"><span class="hs-identifier hs-var hs-var">iBMDb2Settings_databaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IBMDb2Settings -&gt; Maybe Text)
+-&gt; (IBMDb2Settings -&gt; Maybe Text -&gt; IBMDb2Settings)
+-&gt; Lens IBMDb2Settings IBMDb2Settings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432309"><span class="annot"><span class="annottext">Maybe Text
+databaseName :: Maybe Text
+$sel:databaseName:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Text
+</span><a href="#local-6989586621679432309"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432309"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432308"><span class="annot"><span class="annottext">s :: IBMDb2Settings
+</span><a href="#local-6989586621679432308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432307"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IBMDb2Settings
+</span><a href="#local-6989586621679432308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:IBMDb2Settings' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AdatabaseName%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The full ARN, partial ARN, or friendly name of the</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- @SecretsManagerSecret@ that contains the Db2 LUW endpoint connection</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- details.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_secretsManagerSecretId"><span class="hs-identifier hs-type">iBMDb2Settings_secretsManagerSecretId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="iBMDb2Settings_secretsManagerSecretId"><span class="annot"><span class="annottext">iBMDb2Settings_secretsManagerSecretId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IBMDb2Settings -&gt; f IBMDb2Settings
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_secretsManagerSecretId"><span class="hs-identifier hs-var hs-var">iBMDb2Settings_secretsManagerSecretId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IBMDb2Settings -&gt; Maybe Text)
+-&gt; (IBMDb2Settings -&gt; Maybe Text -&gt; IBMDb2Settings)
+-&gt; Lens IBMDb2Settings IBMDb2Settings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432305"><span class="annot"><span class="annottext">Maybe Text
+secretsManagerSecretId :: Maybe Text
+$sel:secretsManagerSecretId:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Text
+</span><a href="#local-6989586621679432305"><span class="hs-identifier hs-var hs-var">secretsManagerSecretId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432305"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432304"><span class="annot"><span class="annottext">s :: IBMDb2Settings
+</span><a href="#local-6989586621679432304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432303"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IBMDb2Settings
+</span><a href="#local-6989586621679432304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretsManagerSecretId:IBMDb2Settings' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AsecretsManagerSecretId%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | Maximum number of bytes per read, as a NUMBER value. The default is 64</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- KB.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_maxKBytesPerRead"><span class="hs-identifier hs-type">iBMDb2Settings_maxKBytesPerRead</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="iBMDb2Settings_maxKBytesPerRead"><span class="annot"><span class="annottext">iBMDb2Settings_maxKBytesPerRead :: (Maybe Int -&gt; f (Maybe Int)) -&gt; IBMDb2Settings -&gt; f IBMDb2Settings
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_maxKBytesPerRead"><span class="hs-identifier hs-var hs-var">iBMDb2Settings_maxKBytesPerRead</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IBMDb2Settings -&gt; Maybe Int)
+-&gt; (IBMDb2Settings -&gt; Maybe Int -&gt; IBMDb2Settings)
+-&gt; Lens IBMDb2Settings IBMDb2Settings (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432301"><span class="annot"><span class="annottext">Maybe Int
+maxKBytesPerRead :: Maybe Int
+$sel:maxKBytesPerRead:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Int
+</span><a href="#local-6989586621679432301"><span class="hs-identifier hs-var hs-var">maxKBytesPerRead</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679432301"><span class="hs-identifier hs-var">maxKBytesPerRead</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432300"><span class="annot"><span class="annottext">s :: IBMDb2Settings
+</span><a href="#local-6989586621679432300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432299"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679432299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IBMDb2Settings
+</span><a href="#local-6989586621679432300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxKBytesPerRead:IBMDb2Settings' :: Maybe Int
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3AmaxKBytesPerRead%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">maxKBytesPerRead</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679432299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | Endpoint TCP port. The default value is 50000.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_port"><span class="hs-identifier hs-type">iBMDb2Settings_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="iBMDb2Settings_port"><span class="annot"><span class="annottext">iBMDb2Settings_port :: (Maybe Int -&gt; f (Maybe Int)) -&gt; IBMDb2Settings -&gt; f IBMDb2Settings
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#iBMDb2Settings_port"><span class="hs-identifier hs-var hs-var">iBMDb2Settings_port</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IBMDb2Settings -&gt; Maybe Int)
+-&gt; (IBMDb2Settings -&gt; Maybe Int -&gt; IBMDb2Settings)
+-&gt; Lens IBMDb2Settings IBMDb2Settings (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432297"><span class="annot"><span class="annottext">Maybe Int
+port :: Maybe Int
+$sel:port:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Int
+</span><a href="#local-6989586621679432297"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679432297"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432296"><span class="annot"><span class="annottext">s :: IBMDb2Settings
+</span><a href="#local-6989586621679432296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432295"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679432295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IBMDb2Settings
+</span><a href="#local-6989586621679432296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:IBMDb2Settings' :: Maybe Int
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#%24sel%3Aport%3AIBMDb2Settings%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679432295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432292"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679432290"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IBMDb2Settings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser IBMDb2Settings)
+-&gt; Value
+-&gt; Parser IBMDb2Settings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;IBMDb2Settings&quot;</span></span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679432287"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432287"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; IBMDb2Settings
+</span><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-var">IBMDb2Settings'</span></a></span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; IBMDb2Settings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; IBMDb2Settings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; IBMDb2Settings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; IBMDb2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CurrentLsn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; IBMDb2Settings)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; IBMDb2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SetDataCaptureChanges&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; IBMDb2Settings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; IBMDb2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretsManagerAccessRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; IBMDb2Settings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; IBMDb2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Username&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; IBMDb2Settings)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe Int -&gt; IBMDb2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Password&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe Int -&gt; IBMDb2Settings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; Maybe Int -&gt; IBMDb2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Int -&gt; Maybe Int -&gt; IBMDb2Settings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; IBMDb2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretsManagerSecretId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Int -&gt; IBMDb2Settings)
+-&gt; Parser (Maybe Int) -&gt; Parser (Maybe Int -&gt; IBMDb2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxKBytesPerRead&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; IBMDb2Settings)
+-&gt; Parser (Maybe Int) -&gt; Parser IBMDb2Settings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Port&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432281"><span id="local-6989586621679432283"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span></span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432278"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432270"><span id="local-6989586621679432272"><span id="local-6989586621679432274"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings"><span class="hs-identifier hs-type">IBMDb2Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679432268"><span class="annot"><span class="annottext">toJSON :: IBMDb2Settings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.IBMDb2Settings.html#IBMDb2Settings%27"><span class="hs-identifier hs-type">IBMDb2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432257"><span id="local-6989586621679432258"><span id="local-6989586621679432259"><span id="local-6989586621679432260"><span id="local-6989586621679432261"><span id="local-6989586621679432262"><span id="local-6989586621679432263"><span id="local-6989586621679432264"><span id="local-6989586621679432265"><span id="local-6989586621679432266"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe Text
+Maybe (Sensitive Text)
+port :: Maybe Int
+maxKBytesPerRead :: Maybe Int
+secretsManagerSecretId :: Maybe Text
+databaseName :: Maybe Text
+password :: Maybe (Sensitive Text)
+username :: Maybe Text
+secretsManagerAccessRoleArn :: Maybe Text
+setDataCaptureChanges :: Maybe Bool
+currentLsn :: Maybe Text
+serverName :: Maybe Text
+$sel:port:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Int
+$sel:maxKBytesPerRead:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Int
+$sel:secretsManagerSecretId:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Text
+$sel:databaseName:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Text
+$sel:password:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe (Sensitive Text)
+$sel:username:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Text
+$sel:secretsManagerAccessRoleArn:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Text
+$sel:setDataCaptureChanges:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Bool
+$sel:currentLsn:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Text
+$sel:serverName:IBMDb2Settings' :: IBMDb2Settings -&gt; Maybe Text
+</span><a href="#local-6989586621679432257"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-216"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432266"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CurrentLsn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432265"><span class="hs-identifier hs-var">currentLsn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SetDataCaptureChanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679432264"><span class="hs-identifier hs-var">setDataCaptureChanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretsManagerAccessRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432263"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432262"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679432261"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432260"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretsManagerSecretId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432259"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxKBytesPerRead&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679432258"><span class="hs-identifier hs-var">maxKBytesPerRead</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Port&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679432257"><span class="hs-identifier hs-var">port</span></a></span><span>
+</span><span id="line-230"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span></pre></body></html>

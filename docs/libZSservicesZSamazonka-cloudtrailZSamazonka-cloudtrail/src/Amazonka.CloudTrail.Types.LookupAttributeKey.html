@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudTrail.Types.LookupAttributeKey</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudTrail.Types.LookupAttributeKey</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey"><span class="hs-identifier">LookupAttributeKey</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_AccessKeyId"><span class="hs-identifier">LookupAttributeKey_AccessKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_EventId"><span class="hs-identifier">LookupAttributeKey_EventId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_EventName"><span class="hs-identifier">LookupAttributeKey_EventName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_EventSource"><span class="hs-identifier">LookupAttributeKey_EventSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_ReadOnly"><span class="hs-identifier">LookupAttributeKey_ReadOnly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_ResourceName"><span class="hs-identifier">LookupAttributeKey_ResourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_ResourceType"><span class="hs-identifier">LookupAttributeKey_ResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_Username"><span class="hs-identifier">LookupAttributeKey_Username</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679195291"><span id="local-6989586621679195292"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LookupAttributeKey"><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey"><span class="hs-identifier hs-var">LookupAttributeKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LookupAttributeKey%27"><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey%27"><span class="hs-identifier hs-var">LookupAttributeKey'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLookupAttributeKey"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; Text
+</span><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#fromLookupAttributeKey"><span class="hs-identifier hs-var hs-var">fromLookupAttributeKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679195283"><span id="local-6989586621679195285"><span id="local-6989586621679195287"><span class="annot"><span class="annottext">Int -&gt; LookupAttributeKey -&gt; ShowS
+[LookupAttributeKey] -&gt; ShowS
+LookupAttributeKey -&gt; String
+(Int -&gt; LookupAttributeKey -&gt; ShowS)
+-&gt; (LookupAttributeKey -&gt; String)
+-&gt; ([LookupAttributeKey] -&gt; ShowS)
+-&gt; Show LookupAttributeKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LookupAttributeKey] -&gt; ShowS
+$cshowList :: [LookupAttributeKey] -&gt; ShowS
+show :: LookupAttributeKey -&gt; String
+$cshow :: LookupAttributeKey -&gt; String
+showsPrec :: Int -&gt; LookupAttributeKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; LookupAttributeKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679195274"><span id="local-6989586621679195276"><span id="local-6989586621679195278"><span id="local-6989586621679195280"><span class="annot"><span class="annottext">ReadPrec [LookupAttributeKey]
+ReadPrec LookupAttributeKey
+Int -&gt; ReadS LookupAttributeKey
+ReadS [LookupAttributeKey]
+(Int -&gt; ReadS LookupAttributeKey)
+-&gt; ReadS [LookupAttributeKey]
+-&gt; ReadPrec LookupAttributeKey
+-&gt; ReadPrec [LookupAttributeKey]
+-&gt; Read LookupAttributeKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LookupAttributeKey]
+$creadListPrec :: ReadPrec [LookupAttributeKey]
+readPrec :: ReadPrec LookupAttributeKey
+$creadPrec :: ReadPrec LookupAttributeKey
+readList :: ReadS [LookupAttributeKey]
+$creadList :: ReadS [LookupAttributeKey]
+readsPrec :: Int -&gt; ReadS LookupAttributeKey
+$creadsPrec :: Int -&gt; ReadS LookupAttributeKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679195269"><span id="local-6989586621679195271"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
+(LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool)
+-&gt; (LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool)
+-&gt; Eq LookupAttributeKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
+$c/= :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
+== :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
+$c== :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679195253"><span id="local-6989586621679195255"><span id="local-6989586621679195257"><span id="local-6989586621679195259"><span id="local-6989586621679195261"><span id="local-6989586621679195263"><span id="local-6989586621679195265"><span class="annot"><span class="annottext">Eq LookupAttributeKey
+Eq LookupAttributeKey
+-&gt; (LookupAttributeKey -&gt; LookupAttributeKey -&gt; Ordering)
+-&gt; (LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool)
+-&gt; (LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool)
+-&gt; (LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool)
+-&gt; (LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool)
+-&gt; (LookupAttributeKey -&gt; LookupAttributeKey -&gt; LookupAttributeKey)
+-&gt; (LookupAttributeKey -&gt; LookupAttributeKey -&gt; LookupAttributeKey)
+-&gt; Ord LookupAttributeKey
+LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
+LookupAttributeKey -&gt; LookupAttributeKey -&gt; Ordering
+LookupAttributeKey -&gt; LookupAttributeKey -&gt; LookupAttributeKey
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; LookupAttributeKey
+$cmin :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; LookupAttributeKey
+max :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; LookupAttributeKey
+$cmax :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; LookupAttributeKey
+&gt;= :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
+$c&gt;= :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
+&gt; :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
+$c&gt; :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
+&lt;= :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
+$c&lt;= :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
+&lt; :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
+$c&lt; :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
+compare :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Ordering
+$ccompare :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Ordering
+$cp1Ord :: Eq LookupAttributeKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. LookupAttributeKey -&gt; Rep LookupAttributeKey x)
+-&gt; (forall x. Rep LookupAttributeKey x -&gt; LookupAttributeKey)
+-&gt; Generic LookupAttributeKey
+forall x. Rep LookupAttributeKey x -&gt; LookupAttributeKey
+forall x. LookupAttributeKey -&gt; Rep LookupAttributeKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LookupAttributeKey x -&gt; LookupAttributeKey
+$cfrom :: forall x. LookupAttributeKey -&gt; Rep LookupAttributeKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679195245"><span id="local-6989586621679195247"><span class="annot"><span class="annottext">Int -&gt; LookupAttributeKey -&gt; Int
+LookupAttributeKey -&gt; Int
+(Int -&gt; LookupAttributeKey -&gt; Int)
+-&gt; (LookupAttributeKey -&gt; Int) -&gt; Hashable LookupAttributeKey
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LookupAttributeKey -&gt; Int
+$chash :: LookupAttributeKey -&gt; Int
+hashWithSalt :: Int -&gt; LookupAttributeKey -&gt; Int
+$chashWithSalt :: Int -&gt; LookupAttributeKey -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679195242"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; ()
+(LookupAttributeKey -&gt; ()) -&gt; NFData LookupAttributeKey
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LookupAttributeKey -&gt; ()
+$crnf :: LookupAttributeKey -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679195239"><span class="annot"><span class="annottext">Text -&gt; Either String LookupAttributeKey
+(Text -&gt; Either String LookupAttributeKey)
+-&gt; FromText LookupAttributeKey
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LookupAttributeKey
+$cfromText :: Text -&gt; Either String LookupAttributeKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679195236"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; Text
+(LookupAttributeKey -&gt; Text) -&gt; ToText LookupAttributeKey
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LookupAttributeKey -&gt; Text
+$ctoText :: LookupAttributeKey -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679195233"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; ByteString
+(LookupAttributeKey -&gt; ByteString)
+-&gt; ToByteString LookupAttributeKey
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LookupAttributeKey -&gt; ByteString
+$ctoBS :: LookupAttributeKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679195230"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; ByteStringBuilder
+(LookupAttributeKey -&gt; ByteStringBuilder)
+-&gt; ToLog LookupAttributeKey
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LookupAttributeKey -&gt; ByteStringBuilder
+$cbuild :: LookupAttributeKey -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679195227"><span class="annot"><span class="annottext">HeaderName -&gt; LookupAttributeKey -&gt; [Header]
+(HeaderName -&gt; LookupAttributeKey -&gt; [Header])
+-&gt; ToHeader LookupAttributeKey
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LookupAttributeKey -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LookupAttributeKey -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679195224"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; QueryString
+(LookupAttributeKey -&gt; QueryString) -&gt; ToQuery LookupAttributeKey
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LookupAttributeKey -&gt; QueryString
+$ctoQuery :: LookupAttributeKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679195219"><span id="local-6989586621679195221"><span class="annot"><span class="annottext">Value -&gt; Parser [LookupAttributeKey]
+Value -&gt; Parser LookupAttributeKey
+(Value -&gt; Parser LookupAttributeKey)
+-&gt; (Value -&gt; Parser [LookupAttributeKey])
+-&gt; FromJSON LookupAttributeKey
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LookupAttributeKey]
+$cparseJSONList :: Value -&gt; Parser [LookupAttributeKey]
+parseJSON :: Value -&gt; Parser LookupAttributeKey
+$cparseJSON :: Value -&gt; Parser LookupAttributeKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679195214"><span id="local-6989586621679195216"><span class="annot"><span class="annottext">FromJSONKeyFunction [LookupAttributeKey]
+FromJSONKeyFunction LookupAttributeKey
+FromJSONKeyFunction LookupAttributeKey
+-&gt; FromJSONKeyFunction [LookupAttributeKey]
+-&gt; FromJSONKey LookupAttributeKey
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LookupAttributeKey]
+$cfromJSONKeyList :: FromJSONKeyFunction [LookupAttributeKey]
+fromJSONKey :: FromJSONKeyFunction LookupAttributeKey
+$cfromJSONKey :: FromJSONKeyFunction LookupAttributeKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679195205"><span id="local-6989586621679195207"><span id="local-6989586621679195209"><span id="local-6989586621679195211"><span class="annot"><span class="annottext">[LookupAttributeKey] -&gt; Encoding
+[LookupAttributeKey] -&gt; Value
+LookupAttributeKey -&gt; Encoding
+LookupAttributeKey -&gt; Value
+(LookupAttributeKey -&gt; Value)
+-&gt; (LookupAttributeKey -&gt; Encoding)
+-&gt; ([LookupAttributeKey] -&gt; Value)
+-&gt; ([LookupAttributeKey] -&gt; Encoding)
+-&gt; ToJSON LookupAttributeKey
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LookupAttributeKey] -&gt; Encoding
+$ctoEncodingList :: [LookupAttributeKey] -&gt; Encoding
+toJSONList :: [LookupAttributeKey] -&gt; Value
+$ctoJSONList :: [LookupAttributeKey] -&gt; Value
+toEncoding :: LookupAttributeKey -&gt; Encoding
+$ctoEncoding :: LookupAttributeKey -&gt; Encoding
+toJSON :: LookupAttributeKey -&gt; Value
+$ctoJSON :: LookupAttributeKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679195200"><span id="local-6989586621679195202"><span class="annot"><span class="annottext">ToJSONKeyFunction [LookupAttributeKey]
+ToJSONKeyFunction LookupAttributeKey
+ToJSONKeyFunction LookupAttributeKey
+-&gt; ToJSONKeyFunction [LookupAttributeKey]
+-&gt; ToJSONKey LookupAttributeKey
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LookupAttributeKey]
+$ctoJSONKeyList :: ToJSONKeyFunction [LookupAttributeKey]
+toJSONKey :: ToJSONKeyFunction LookupAttributeKey
+$ctoJSONKey :: ToJSONKeyFunction LookupAttributeKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679195197"><span class="annot"><span class="annottext">[Node] -&gt; Either String LookupAttributeKey
+([Node] -&gt; Either String LookupAttributeKey)
+-&gt; FromXML LookupAttributeKey
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LookupAttributeKey
+$cparseXML :: [Node] -&gt; Either String LookupAttributeKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679195194"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; XML
+(LookupAttributeKey -&gt; XML) -&gt; ToXML LookupAttributeKey
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LookupAttributeKey -&gt; XML
+$ctoXML :: LookupAttributeKey -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_AccessKeyId"><span class="hs-identifier hs-type">LookupAttributeKey_AccessKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey"><span class="hs-identifier hs-type">LookupAttributeKey</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLookupAttributeKey_AccessKeyId"><span id="%24mLookupAttributeKey_AccessKeyId"><span id="LookupAttributeKey_AccessKeyId"><span class="annot"><span class="annottext">$bLookupAttributeKey_AccessKeyId :: LookupAttributeKey
+$mLookupAttributeKey_AccessKeyId :: forall r. LookupAttributeKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#%24bLookupAttributeKey_AccessKeyId"><span class="hs-identifier hs-var hs-var hs-var">LookupAttributeKey_AccessKeyId</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey%27"><span class="hs-identifier hs-type">LookupAttributeKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AccessKeyId&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_EventId"><span class="hs-identifier hs-type">LookupAttributeKey_EventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey"><span class="hs-identifier hs-type">LookupAttributeKey</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLookupAttributeKey_EventId"><span id="%24mLookupAttributeKey_EventId"><span id="LookupAttributeKey_EventId"><span class="annot"><span class="annottext">$bLookupAttributeKey_EventId :: LookupAttributeKey
+$mLookupAttributeKey_EventId :: forall r. LookupAttributeKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#%24bLookupAttributeKey_EventId"><span class="hs-identifier hs-var hs-var hs-var">LookupAttributeKey_EventId</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey%27"><span class="hs-identifier hs-type">LookupAttributeKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EventId&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_EventName"><span class="hs-identifier hs-type">LookupAttributeKey_EventName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey"><span class="hs-identifier hs-type">LookupAttributeKey</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLookupAttributeKey_EventName"><span id="%24mLookupAttributeKey_EventName"><span id="LookupAttributeKey_EventName"><span class="annot"><span class="annottext">$bLookupAttributeKey_EventName :: LookupAttributeKey
+$mLookupAttributeKey_EventName :: forall r. LookupAttributeKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#%24bLookupAttributeKey_EventName"><span class="hs-identifier hs-var hs-var hs-var">LookupAttributeKey_EventName</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey%27"><span class="hs-identifier hs-type">LookupAttributeKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EventName&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_EventSource"><span class="hs-identifier hs-type">LookupAttributeKey_EventSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey"><span class="hs-identifier hs-type">LookupAttributeKey</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLookupAttributeKey_EventSource"><span id="%24mLookupAttributeKey_EventSource"><span id="LookupAttributeKey_EventSource"><span class="annot"><span class="annottext">$bLookupAttributeKey_EventSource :: LookupAttributeKey
+$mLookupAttributeKey_EventSource :: forall r. LookupAttributeKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#%24bLookupAttributeKey_EventSource"><span class="hs-identifier hs-var hs-var hs-var">LookupAttributeKey_EventSource</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey%27"><span class="hs-identifier hs-type">LookupAttributeKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EventSource&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_ReadOnly"><span class="hs-identifier hs-type">LookupAttributeKey_ReadOnly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey"><span class="hs-identifier hs-type">LookupAttributeKey</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLookupAttributeKey_ReadOnly"><span id="%24mLookupAttributeKey_ReadOnly"><span id="LookupAttributeKey_ReadOnly"><span class="annot"><span class="annottext">$bLookupAttributeKey_ReadOnly :: LookupAttributeKey
+$mLookupAttributeKey_ReadOnly :: forall r. LookupAttributeKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#%24bLookupAttributeKey_ReadOnly"><span class="hs-identifier hs-var hs-var hs-var">LookupAttributeKey_ReadOnly</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey%27"><span class="hs-identifier hs-type">LookupAttributeKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ReadOnly&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_ResourceName"><span class="hs-identifier hs-type">LookupAttributeKey_ResourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey"><span class="hs-identifier hs-type">LookupAttributeKey</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLookupAttributeKey_ResourceName"><span id="%24mLookupAttributeKey_ResourceName"><span id="LookupAttributeKey_ResourceName"><span class="annot"><span class="annottext">$bLookupAttributeKey_ResourceName :: LookupAttributeKey
+$mLookupAttributeKey_ResourceName :: forall r. LookupAttributeKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#%24bLookupAttributeKey_ResourceName"><span class="hs-identifier hs-var hs-var hs-var">LookupAttributeKey_ResourceName</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey%27"><span class="hs-identifier hs-type">LookupAttributeKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ResourceName&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_ResourceType"><span class="hs-identifier hs-type">LookupAttributeKey_ResourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey"><span class="hs-identifier hs-type">LookupAttributeKey</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLookupAttributeKey_ResourceType"><span id="%24mLookupAttributeKey_ResourceType"><span id="LookupAttributeKey_ResourceType"><span class="annot"><span class="annottext">$bLookupAttributeKey_ResourceType :: LookupAttributeKey
+$mLookupAttributeKey_ResourceType :: forall r. LookupAttributeKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#%24bLookupAttributeKey_ResourceType"><span class="hs-identifier hs-var hs-var hs-var">LookupAttributeKey_ResourceType</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey%27"><span class="hs-identifier hs-type">LookupAttributeKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ResourceType&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_Username"><span class="hs-identifier hs-type">LookupAttributeKey_Username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey"><span class="hs-identifier hs-type">LookupAttributeKey</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLookupAttributeKey_Username"><span id="%24mLookupAttributeKey_Username"><span id="LookupAttributeKey_Username"><span class="annot"><span class="annottext">$bLookupAttributeKey_Username :: LookupAttributeKey
+$mLookupAttributeKey_Username :: forall r. LookupAttributeKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#%24bLookupAttributeKey_Username"><span class="hs-identifier hs-var hs-var hs-var">LookupAttributeKey_Username</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey%27"><span class="hs-identifier hs-type">LookupAttributeKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Username&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_AccessKeyId"><span class="hs-pragma hs-type">LookupAttributeKey_AccessKeyId</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_EventId"><span class="hs-pragma hs-type">LookupAttributeKey_EventId</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_EventName"><span class="hs-pragma hs-type">LookupAttributeKey_EventName</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_EventSource"><span class="hs-pragma hs-type">LookupAttributeKey_EventSource</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_ReadOnly"><span class="hs-pragma hs-type">LookupAttributeKey_ReadOnly</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_ResourceName"><span class="hs-pragma hs-type">LookupAttributeKey_ResourceName</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_ResourceType"><span class="hs-pragma hs-type">LookupAttributeKey_ResourceType</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey_Username"><span class="hs-pragma hs-type">LookupAttributeKey_Username</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey%27"><span class="hs-pragma hs-type">LookupAttributeKey'</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-101"></span></pre></body></html>

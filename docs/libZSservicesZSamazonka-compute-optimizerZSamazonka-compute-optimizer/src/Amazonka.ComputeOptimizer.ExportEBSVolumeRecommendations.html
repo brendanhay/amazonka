@@ -1,0 +1,980 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Exports optimization recommendations for Amazon EBS volumes.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Recommendations are exported in a comma-separated values (.csv) file,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- and its metadata in a JavaScript Object Notation (JSON) (.json) file, to</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- an existing Amazon Simple Storage Service (Amazon S3) bucket that you</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- specify. For more information, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html Exporting Recommendations&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- in the /Compute Optimizer User Guide/.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- You can have only one Amazon EBS volume export job in progress per</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Amazon Web Services Region.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier">ExportEBSVolumeRecommendations</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#newExportEBSVolumeRecommendations"><span class="hs-identifier">newExportEBSVolumeRecommendations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_accountIds"><span class="hs-identifier">exportEBSVolumeRecommendations_accountIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_fileFormat"><span class="hs-identifier">exportEBSVolumeRecommendations_fileFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_filters"><span class="hs-identifier">exportEBSVolumeRecommendations_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_fieldsToExport"><span class="hs-identifier">exportEBSVolumeRecommendations_fieldsToExport</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_includeMemberAccounts"><span class="hs-identifier">exportEBSVolumeRecommendations_includeMemberAccounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_s3DestinationConfig"><span class="hs-identifier">exportEBSVolumeRecommendations_s3DestinationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse"><span class="hs-identifier">ExportEBSVolumeRecommendationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#newExportEBSVolumeRecommendationsResponse"><span class="hs-identifier">newExportEBSVolumeRecommendationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendationsResponse_jobId"><span class="hs-identifier">exportEBSVolumeRecommendationsResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendationsResponse_s3Destination"><span class="hs-identifier">exportEBSVolumeRecommendationsResponse_s3Destination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendationsResponse_httpStatus"><span class="hs-identifier">exportEBSVolumeRecommendationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.html"><span class="hs-identifier">Amazonka.ComputeOptimizer.Types</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newExportEBSVolumeRecommendations' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679247782"><span id="local-6989586621679247783"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportEBSVolumeRecommendations"><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-var">ExportEBSVolumeRecommendations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportEBSVolumeRecommendations%27"><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var">ExportEBSVolumeRecommendations'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the Amazon Web Services accounts for which to export Amazon</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- EBS volume recommendations.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- If your account is the management account of an organization, use this</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- parameter to specify the member account for which you want to export</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- recommendations.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- This parameter cannot be specified together with the include member</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- accounts parameter. The parameters are mutually exclusive.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Recommendations for member accounts are not included in the export if</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- this parameter, or the include member accounts parameter, is omitted.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- You can specify multiple account IDs per request.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AaccountIds%3AExportEBSVolumeRecommendations%27"><span class="annot"><span class="annottext">ExportEBSVolumeRecommendations -&gt; Maybe [Text]
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AaccountIds%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The format of the export file.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- The only export file format currently supported is @Csv@.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AfileFormat%3AExportEBSVolumeRecommendations%27"><span class="annot"><span class="annottext">ExportEBSVolumeRecommendations -&gt; Maybe FileFormat
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AfileFormat%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var hs-var">fileFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FileFormat.html#FileFormat"><span class="hs-identifier hs-type">FileFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | An array of objects to specify a filter that exports a more specific set</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- of Amazon EBS volume recommendations.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Afilters%3AExportEBSVolumeRecommendations%27"><span class="annot"><span class="annottext">ExportEBSVolumeRecommendations -&gt; Maybe [EBSFilter]
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3Afilters%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.EBSFilter.html#EBSFilter"><span class="hs-identifier hs-type">EBSFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The recommendations data to include in the export file. For more</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- information about the fields that can be exported, see</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files&gt;</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- in the /Compute Optimizer User Guide/.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AfieldsToExport%3AExportEBSVolumeRecommendations%27"><span class="annot"><span class="annottext">ExportEBSVolumeRecommendations -&gt; Maybe [ExportableVolumeField]
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AfieldsToExport%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var hs-var">fieldsToExport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | Indicates whether to include recommendations for resources in all member</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- accounts of the organization if your account is the management account</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- of an organization.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- The member accounts must also be opted in to Compute Optimizer, and</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- trusted access for Compute Optimizer must be enabled in the organization</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- account. For more information, see</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access Compute Optimizer and Amazon Web Services Organizations trusted access&gt;</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- in the /Compute Optimizer User Guide/.</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- Recommendations for member accounts of the organization are not included</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- in the export file if this parameter is omitted.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- This parameter cannot be specified together with the account IDs</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- parameter. The parameters are mutually exclusive.</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- Recommendations for member accounts are not included in the export if</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- this parameter, or the account IDs parameter, is omitted.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AincludeMemberAccounts%3AExportEBSVolumeRecommendations%27"><span class="annot"><span class="annottext">ExportEBSVolumeRecommendations -&gt; Maybe Bool
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AincludeMemberAccounts%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var hs-var">includeMemberAccounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3As3DestinationConfig%3AExportEBSVolumeRecommendations%27"><span class="annot"><span class="annottext">ExportEBSVolumeRecommendations -&gt; S3DestinationConfig
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3As3DestinationConfig%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var hs-var">s3DestinationConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.S3DestinationConfig.html#S3DestinationConfig"><span class="hs-identifier hs-type">S3DestinationConfig</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247771"><span id="local-6989586621679247773"><span class="annot"><span class="annottext">ExportEBSVolumeRecommendations
+-&gt; ExportEBSVolumeRecommendations -&gt; Bool
+(ExportEBSVolumeRecommendations
+ -&gt; ExportEBSVolumeRecommendations -&gt; Bool)
+-&gt; (ExportEBSVolumeRecommendations
+    -&gt; ExportEBSVolumeRecommendations -&gt; Bool)
+-&gt; Eq ExportEBSVolumeRecommendations
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExportEBSVolumeRecommendations
+-&gt; ExportEBSVolumeRecommendations -&gt; Bool
+$c/= :: ExportEBSVolumeRecommendations
+-&gt; ExportEBSVolumeRecommendations -&gt; Bool
+== :: ExportEBSVolumeRecommendations
+-&gt; ExportEBSVolumeRecommendations -&gt; Bool
+$c== :: ExportEBSVolumeRecommendations
+-&gt; ExportEBSVolumeRecommendations -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247762"><span id="local-6989586621679247764"><span id="local-6989586621679247766"><span id="local-6989586621679247768"><span class="annot"><span class="annottext">ReadPrec [ExportEBSVolumeRecommendations]
+ReadPrec ExportEBSVolumeRecommendations
+Int -&gt; ReadS ExportEBSVolumeRecommendations
+ReadS [ExportEBSVolumeRecommendations]
+(Int -&gt; ReadS ExportEBSVolumeRecommendations)
+-&gt; ReadS [ExportEBSVolumeRecommendations]
+-&gt; ReadPrec ExportEBSVolumeRecommendations
+-&gt; ReadPrec [ExportEBSVolumeRecommendations]
+-&gt; Read ExportEBSVolumeRecommendations
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExportEBSVolumeRecommendations]
+$creadListPrec :: ReadPrec [ExportEBSVolumeRecommendations]
+readPrec :: ReadPrec ExportEBSVolumeRecommendations
+$creadPrec :: ReadPrec ExportEBSVolumeRecommendations
+readList :: ReadS [ExportEBSVolumeRecommendations]
+$creadList :: ReadS [ExportEBSVolumeRecommendations]
+readsPrec :: Int -&gt; ReadS ExportEBSVolumeRecommendations
+$creadsPrec :: Int -&gt; ReadS ExportEBSVolumeRecommendations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247755"><span id="local-6989586621679247757"><span id="local-6989586621679247759"><span class="annot"><span class="annottext">Int -&gt; ExportEBSVolumeRecommendations -&gt; ShowS
+[ExportEBSVolumeRecommendations] -&gt; ShowS
+ExportEBSVolumeRecommendations -&gt; String
+(Int -&gt; ExportEBSVolumeRecommendations -&gt; ShowS)
+-&gt; (ExportEBSVolumeRecommendations -&gt; String)
+-&gt; ([ExportEBSVolumeRecommendations] -&gt; ShowS)
+-&gt; Show ExportEBSVolumeRecommendations
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExportEBSVolumeRecommendations] -&gt; ShowS
+$cshowList :: [ExportEBSVolumeRecommendations] -&gt; ShowS
+show :: ExportEBSVolumeRecommendations -&gt; String
+$cshow :: ExportEBSVolumeRecommendations -&gt; String
+showsPrec :: Int -&gt; ExportEBSVolumeRecommendations -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExportEBSVolumeRecommendations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ExportEBSVolumeRecommendations
+ -&gt; Rep ExportEBSVolumeRecommendations x)
+-&gt; (forall x.
+    Rep ExportEBSVolumeRecommendations x
+    -&gt; ExportEBSVolumeRecommendations)
+-&gt; Generic ExportEBSVolumeRecommendations
+forall x.
+Rep ExportEBSVolumeRecommendations x
+-&gt; ExportEBSVolumeRecommendations
+forall x.
+ExportEBSVolumeRecommendations
+-&gt; Rep ExportEBSVolumeRecommendations x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ExportEBSVolumeRecommendations x
+-&gt; ExportEBSVolumeRecommendations
+$cfrom :: forall x.
+ExportEBSVolumeRecommendations
+-&gt; Rep ExportEBSVolumeRecommendations x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Create a value of 'ExportEBSVolumeRecommendations' with all optional fields omitted.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'accountIds', 'exportEBSVolumeRecommendations_accountIds' - The IDs of the Amazon Web Services accounts for which to export Amazon</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- EBS volume recommendations.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- If your account is the management account of an organization, use this</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- parameter to specify the member account for which you want to export</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- recommendations.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- This parameter cannot be specified together with the include member</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- accounts parameter. The parameters are mutually exclusive.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Recommendations for member accounts are not included in the export if</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- this parameter, or the include member accounts parameter, is omitted.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- You can specify multiple account IDs per request.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'fileFormat', 'exportEBSVolumeRecommendations_fileFormat' - The format of the export file.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- The only export file format currently supported is @Csv@.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'filters', 'exportEBSVolumeRecommendations_filters' - An array of objects to specify a filter that exports a more specific set</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- of Amazon EBS volume recommendations.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'fieldsToExport', 'exportEBSVolumeRecommendations_fieldsToExport' - The recommendations data to include in the export file. For more</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- information about the fields that can be exported, see</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files&gt;</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- in the /Compute Optimizer User Guide/.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'includeMemberAccounts', 'exportEBSVolumeRecommendations_includeMemberAccounts' - Indicates whether to include recommendations for resources in all member</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- accounts of the organization if your account is the management account</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- of an organization.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- The member accounts must also be opted in to Compute Optimizer, and</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- trusted access for Compute Optimizer must be enabled in the organization</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- account. For more information, see</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access Compute Optimizer and Amazon Web Services Organizations trusted access&gt;</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- in the /Compute Optimizer User Guide/.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Recommendations for member accounts of the organization are not included</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- in the export file if this parameter is omitted.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- This parameter cannot be specified together with the account IDs</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- parameter. The parameters are mutually exclusive.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Recommendations for member accounts are not included in the export if</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- this parameter, or the account IDs parameter, is omitted.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 's3DestinationConfig', 'exportEBSVolumeRecommendations_s3DestinationConfig' - Undocumented member.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#newExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">newExportEBSVolumeRecommendations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 's3DestinationConfig'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.S3DestinationConfig.html#S3DestinationConfig"><span class="hs-identifier hs-type">S3DestinationConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span>
+</span><span id="line-176"></span><span id="newExportEBSVolumeRecommendations"><span class="annot"><span class="annottext">newExportEBSVolumeRecommendations :: S3DestinationConfig -&gt; ExportEBSVolumeRecommendations
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#newExportEBSVolumeRecommendations"><span class="hs-identifier hs-var hs-var">newExportEBSVolumeRecommendations</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679247750"><span class="annot"><span class="annottext">S3DestinationConfig
+</span><a href="#local-6989586621679247750"><span class="hs-identifier hs-var">pS3DestinationConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">ExportEBSVolumeRecommendations' :: Maybe [Text]
+-&gt; Maybe FileFormat
+-&gt; Maybe [EBSFilter]
+-&gt; Maybe [ExportableVolumeField]
+-&gt; Maybe Bool
+-&gt; S3DestinationConfig
+-&gt; ExportEBSVolumeRecommendations
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations'</span></a></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountIds:ExportEBSVolumeRecommendations' :: Maybe [Text]
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AaccountIds%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">$sel:fileFormat:ExportEBSVolumeRecommendations' :: Maybe FileFormat
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AfileFormat%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var">fileFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileFormat
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">$sel:filters:ExportEBSVolumeRecommendations' :: Maybe [EBSFilter]
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3Afilters%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EBSFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">$sel:fieldsToExport:ExportEBSVolumeRecommendations' :: Maybe [ExportableVolumeField]
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AfieldsToExport%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var">fieldsToExport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ExportableVolumeField]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">$sel:includeMemberAccounts:ExportEBSVolumeRecommendations' :: Maybe Bool
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AincludeMemberAccounts%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var">includeMemberAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3DestinationConfig:ExportEBSVolumeRecommendations' :: S3DestinationConfig
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3As3DestinationConfig%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var">s3DestinationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfig
+</span><a href="#local-6989586621679247750"><span class="hs-identifier hs-var">pS3DestinationConfig_</span></a></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The IDs of the Amazon Web Services accounts for which to export Amazon</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- EBS volume recommendations.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- If your account is the management account of an organization, use this</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- parameter to specify the member account for which you want to export</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- recommendations.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- This parameter cannot be specified together with the include member</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- accounts parameter. The parameters are mutually exclusive.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Recommendations for member accounts are not included in the export if</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- this parameter, or the include member accounts parameter, is omitted.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- You can specify multiple account IDs per request.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_accountIds"><span class="hs-identifier hs-type">exportEBSVolumeRecommendations_accountIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="exportEBSVolumeRecommendations_accountIds"><span class="annot"><span class="annottext">exportEBSVolumeRecommendations_accountIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ExportEBSVolumeRecommendations
+-&gt; f ExportEBSVolumeRecommendations
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_accountIds"><span class="hs-identifier hs-var hs-var">exportEBSVolumeRecommendations_accountIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportEBSVolumeRecommendations -&gt; Maybe [Text])
+-&gt; (ExportEBSVolumeRecommendations
+    -&gt; Maybe [Text] -&gt; ExportEBSVolumeRecommendations)
+-&gt; Lens
+     ExportEBSVolumeRecommendations
+     ExportEBSVolumeRecommendations
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247747"><span class="annot"><span class="annottext">Maybe [Text]
+accountIds :: Maybe [Text]
+$sel:accountIds:ExportEBSVolumeRecommendations' :: ExportEBSVolumeRecommendations -&gt; Maybe [Text]
+</span><a href="#local-6989586621679247747"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679247747"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247746"><span class="annot"><span class="annottext">s :: ExportEBSVolumeRecommendations
+</span><a href="#local-6989586621679247746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247745"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679247745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportEBSVolumeRecommendations
+</span><a href="#local-6989586621679247746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:ExportEBSVolumeRecommendations' :: Maybe [Text]
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AaccountIds%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679247745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ExportEBSVolumeRecommendations
+ -&gt; f ExportEBSVolumeRecommendations)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ExportEBSVolumeRecommendations
+-&gt; f ExportEBSVolumeRecommendations
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The format of the export file.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- The only export file format currently supported is @Csv@.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_fileFormat"><span class="hs-identifier hs-type">exportEBSVolumeRecommendations_fileFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.FileFormat.html#FileFormat"><span class="hs-identifier hs-type">FileFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="exportEBSVolumeRecommendations_fileFormat"><span class="annot"><span class="annottext">exportEBSVolumeRecommendations_fileFormat :: (Maybe FileFormat -&gt; f (Maybe FileFormat))
+-&gt; ExportEBSVolumeRecommendations
+-&gt; f ExportEBSVolumeRecommendations
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_fileFormat"><span class="hs-identifier hs-var hs-var">exportEBSVolumeRecommendations_fileFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportEBSVolumeRecommendations -&gt; Maybe FileFormat)
+-&gt; (ExportEBSVolumeRecommendations
+    -&gt; Maybe FileFormat -&gt; ExportEBSVolumeRecommendations)
+-&gt; Lens
+     ExportEBSVolumeRecommendations
+     ExportEBSVolumeRecommendations
+     (Maybe FileFormat)
+     (Maybe FileFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247741"><span class="annot"><span class="annottext">Maybe FileFormat
+fileFormat :: Maybe FileFormat
+$sel:fileFormat:ExportEBSVolumeRecommendations' :: ExportEBSVolumeRecommendations -&gt; Maybe FileFormat
+</span><a href="#local-6989586621679247741"><span class="hs-identifier hs-var hs-var">fileFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileFormat
+</span><a href="#local-6989586621679247741"><span class="hs-identifier hs-var">fileFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247740"><span class="annot"><span class="annottext">s :: ExportEBSVolumeRecommendations
+</span><a href="#local-6989586621679247740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247739"><span class="annot"><span class="annottext">Maybe FileFormat
+</span><a href="#local-6989586621679247739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportEBSVolumeRecommendations
+</span><a href="#local-6989586621679247740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileFormat:ExportEBSVolumeRecommendations' :: Maybe FileFormat
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AfileFormat%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var">fileFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileFormat
+</span><a href="#local-6989586621679247739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | An array of objects to specify a filter that exports a more specific set</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- of Amazon EBS volume recommendations.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_filters"><span class="hs-identifier hs-type">exportEBSVolumeRecommendations_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.EBSFilter.html#EBSFilter"><span class="hs-identifier hs-type">EBSFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="exportEBSVolumeRecommendations_filters"><span class="annot"><span class="annottext">exportEBSVolumeRecommendations_filters :: (Maybe [EBSFilter] -&gt; f (Maybe [EBSFilter]))
+-&gt; ExportEBSVolumeRecommendations
+-&gt; f ExportEBSVolumeRecommendations
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_filters"><span class="hs-identifier hs-var hs-var">exportEBSVolumeRecommendations_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportEBSVolumeRecommendations -&gt; Maybe [EBSFilter])
+-&gt; (ExportEBSVolumeRecommendations
+    -&gt; Maybe [EBSFilter] -&gt; ExportEBSVolumeRecommendations)
+-&gt; Lens
+     ExportEBSVolumeRecommendations
+     ExportEBSVolumeRecommendations
+     (Maybe [EBSFilter])
+     (Maybe [EBSFilter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247738"><span class="annot"><span class="annottext">Maybe [EBSFilter]
+filters :: Maybe [EBSFilter]
+$sel:filters:ExportEBSVolumeRecommendations' :: ExportEBSVolumeRecommendations -&gt; Maybe [EBSFilter]
+</span><a href="#local-6989586621679247738"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EBSFilter]
+</span><a href="#local-6989586621679247738"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247737"><span class="annot"><span class="annottext">s :: ExportEBSVolumeRecommendations
+</span><a href="#local-6989586621679247737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247736"><span class="annot"><span class="annottext">Maybe [EBSFilter]
+</span><a href="#local-6989586621679247736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportEBSVolumeRecommendations
+</span><a href="#local-6989586621679247737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ExportEBSVolumeRecommendations' :: Maybe [EBSFilter]
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3Afilters%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EBSFilter]
+</span><a href="#local-6989586621679247736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EBSFilter] -&gt; f (Maybe [EBSFilter]))
+ -&gt; ExportEBSVolumeRecommendations
+ -&gt; f ExportEBSVolumeRecommendations)
+-&gt; ((Maybe [EBSFilter] -&gt; f (Maybe [EBSFilter]))
+    -&gt; Maybe [EBSFilter] -&gt; f (Maybe [EBSFilter]))
+-&gt; (Maybe [EBSFilter] -&gt; f (Maybe [EBSFilter]))
+-&gt; ExportEBSVolumeRecommendations
+-&gt; f ExportEBSVolumeRecommendations
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [EBSFilter] [EBSFilter] [EBSFilter] [EBSFilter]
+-&gt; Iso
+     (Maybe [EBSFilter])
+     (Maybe [EBSFilter])
+     (Maybe [EBSFilter])
+     (Maybe [EBSFilter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [EBSFilter] [EBSFilter] [EBSFilter] [EBSFilter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The recommendations data to include in the export file. For more</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- information about the fields that can be exported, see</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files&gt;</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- in the /Compute Optimizer User Guide/.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_fieldsToExport"><span class="hs-identifier hs-type">exportEBSVolumeRecommendations_fieldsToExport</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="exportEBSVolumeRecommendations_fieldsToExport"><span class="annot"><span class="annottext">exportEBSVolumeRecommendations_fieldsToExport :: (Maybe [ExportableVolumeField]
+ -&gt; f (Maybe [ExportableVolumeField]))
+-&gt; ExportEBSVolumeRecommendations
+-&gt; f ExportEBSVolumeRecommendations
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_fieldsToExport"><span class="hs-identifier hs-var hs-var">exportEBSVolumeRecommendations_fieldsToExport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportEBSVolumeRecommendations -&gt; Maybe [ExportableVolumeField])
+-&gt; (ExportEBSVolumeRecommendations
+    -&gt; Maybe [ExportableVolumeField] -&gt; ExportEBSVolumeRecommendations)
+-&gt; Lens
+     ExportEBSVolumeRecommendations
+     ExportEBSVolumeRecommendations
+     (Maybe [ExportableVolumeField])
+     (Maybe [ExportableVolumeField])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247735"><span class="annot"><span class="annottext">Maybe [ExportableVolumeField]
+fieldsToExport :: Maybe [ExportableVolumeField]
+$sel:fieldsToExport:ExportEBSVolumeRecommendations' :: ExportEBSVolumeRecommendations -&gt; Maybe [ExportableVolumeField]
+</span><a href="#local-6989586621679247735"><span class="hs-identifier hs-var hs-var">fieldsToExport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ExportableVolumeField]
+</span><a href="#local-6989586621679247735"><span class="hs-identifier hs-var">fieldsToExport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247734"><span class="annot"><span class="annottext">s :: ExportEBSVolumeRecommendations
+</span><a href="#local-6989586621679247734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247733"><span class="annot"><span class="annottext">Maybe [ExportableVolumeField]
+</span><a href="#local-6989586621679247733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportEBSVolumeRecommendations
+</span><a href="#local-6989586621679247734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldsToExport:ExportEBSVolumeRecommendations' :: Maybe [ExportableVolumeField]
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AfieldsToExport%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var">fieldsToExport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ExportableVolumeField]
+</span><a href="#local-6989586621679247733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ExportableVolumeField]
+  -&gt; f (Maybe [ExportableVolumeField]))
+ -&gt; ExportEBSVolumeRecommendations
+ -&gt; f ExportEBSVolumeRecommendations)
+-&gt; ((Maybe [ExportableVolumeField]
+     -&gt; f (Maybe [ExportableVolumeField]))
+    -&gt; Maybe [ExportableVolumeField]
+    -&gt; f (Maybe [ExportableVolumeField]))
+-&gt; (Maybe [ExportableVolumeField]
+    -&gt; f (Maybe [ExportableVolumeField]))
+-&gt; ExportEBSVolumeRecommendations
+-&gt; f ExportEBSVolumeRecommendations
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ExportableVolumeField]
+  [ExportableVolumeField]
+  [ExportableVolumeField]
+  [ExportableVolumeField]
+-&gt; Iso
+     (Maybe [ExportableVolumeField])
+     (Maybe [ExportableVolumeField])
+     (Maybe [ExportableVolumeField])
+     (Maybe [ExportableVolumeField])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ExportableVolumeField]
+  [ExportableVolumeField]
+  [ExportableVolumeField]
+  [ExportableVolumeField]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | Indicates whether to include recommendations for resources in all member</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- accounts of the organization if your account is the management account</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- of an organization.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- The member accounts must also be opted in to Compute Optimizer, and</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- trusted access for Compute Optimizer must be enabled in the organization</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- account. For more information, see</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access Compute Optimizer and Amazon Web Services Organizations trusted access&gt;</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- in the /Compute Optimizer User Guide/.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- Recommendations for member accounts of the organization are not included</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- in the export file if this parameter is omitted.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- This parameter cannot be specified together with the account IDs</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- parameter. The parameters are mutually exclusive.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- Recommendations for member accounts are not included in the export if</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- this parameter, or the account IDs parameter, is omitted.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_includeMemberAccounts"><span class="hs-identifier hs-type">exportEBSVolumeRecommendations_includeMemberAccounts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="exportEBSVolumeRecommendations_includeMemberAccounts"><span class="annot"><span class="annottext">exportEBSVolumeRecommendations_includeMemberAccounts :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ExportEBSVolumeRecommendations
+-&gt; f ExportEBSVolumeRecommendations
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_includeMemberAccounts"><span class="hs-identifier hs-var hs-var">exportEBSVolumeRecommendations_includeMemberAccounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportEBSVolumeRecommendations -&gt; Maybe Bool)
+-&gt; (ExportEBSVolumeRecommendations
+    -&gt; Maybe Bool -&gt; ExportEBSVolumeRecommendations)
+-&gt; Lens
+     ExportEBSVolumeRecommendations
+     ExportEBSVolumeRecommendations
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247732"><span class="annot"><span class="annottext">Maybe Bool
+includeMemberAccounts :: Maybe Bool
+$sel:includeMemberAccounts:ExportEBSVolumeRecommendations' :: ExportEBSVolumeRecommendations -&gt; Maybe Bool
+</span><a href="#local-6989586621679247732"><span class="hs-identifier hs-var hs-var">includeMemberAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679247732"><span class="hs-identifier hs-var">includeMemberAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247731"><span class="annot"><span class="annottext">s :: ExportEBSVolumeRecommendations
+</span><a href="#local-6989586621679247731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247730"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679247730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportEBSVolumeRecommendations
+</span><a href="#local-6989586621679247731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeMemberAccounts:ExportEBSVolumeRecommendations' :: Maybe Bool
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AincludeMemberAccounts%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var">includeMemberAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679247730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_s3DestinationConfig"><span class="hs-identifier hs-type">exportEBSVolumeRecommendations_s3DestinationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.S3DestinationConfig.html#S3DestinationConfig"><span class="hs-identifier hs-type">S3DestinationConfig</span></a></span><span>
+</span><span id="line-246"></span><span id="exportEBSVolumeRecommendations_s3DestinationConfig"><span class="annot"><span class="annottext">exportEBSVolumeRecommendations_s3DestinationConfig :: (S3DestinationConfig -&gt; f S3DestinationConfig)
+-&gt; ExportEBSVolumeRecommendations
+-&gt; f ExportEBSVolumeRecommendations
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendations_s3DestinationConfig"><span class="hs-identifier hs-var hs-var">exportEBSVolumeRecommendations_s3DestinationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportEBSVolumeRecommendations -&gt; S3DestinationConfig)
+-&gt; (ExportEBSVolumeRecommendations
+    -&gt; S3DestinationConfig -&gt; ExportEBSVolumeRecommendations)
+-&gt; Lens
+     ExportEBSVolumeRecommendations
+     ExportEBSVolumeRecommendations
+     S3DestinationConfig
+     S3DestinationConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247729"><span class="annot"><span class="annottext">S3DestinationConfig
+s3DestinationConfig :: S3DestinationConfig
+$sel:s3DestinationConfig:ExportEBSVolumeRecommendations' :: ExportEBSVolumeRecommendations -&gt; S3DestinationConfig
+</span><a href="#local-6989586621679247729"><span class="hs-identifier hs-var hs-var">s3DestinationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfig
+</span><a href="#local-6989586621679247729"><span class="hs-identifier hs-var">s3DestinationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247728"><span class="annot"><span class="annottext">s :: ExportEBSVolumeRecommendations
+</span><a href="#local-6989586621679247728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247727"><span class="annot"><span class="annottext">S3DestinationConfig
+</span><a href="#local-6989586621679247727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportEBSVolumeRecommendations
+</span><a href="#local-6989586621679247728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DestinationConfig:ExportEBSVolumeRecommendations' :: S3DestinationConfig
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3As3DestinationConfig%3AExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-var">s3DestinationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfig
+</span><a href="#local-6989586621679247727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-249"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span>
+</span><span id="line-251"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-252"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-253"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse</span></a></span><span>
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679247723"><span class="annot"><span class="annottext">request :: ExportEBSVolumeRecommendations
+-&gt; Request ExportEBSVolumeRecommendations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ExportEBSVolumeRecommendations
+-&gt; Request ExportEBSVolumeRecommendations
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ComputeOptimizer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679247719"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ExportEBSVolumeRecommendations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ExportEBSVolumeRecommendations)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ExportEBSVolumeRecommendations))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ExportEBSVolumeRecommendations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ExportEBSVolumeRecommendations)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247716"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247716"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679247715"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679247715"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679247714"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247714"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-259"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe S3Destination
+-&gt; Int
+-&gt; ExportEBSVolumeRecommendationsResponse
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-var">ExportEBSVolumeRecommendationsResponse'</span></a></span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe S3Destination
+ -&gt; Int
+ -&gt; ExportEBSVolumeRecommendationsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe S3Destination
+      -&gt; Int -&gt; ExportEBSVolumeRecommendationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe S3Destination
+   -&gt; Int -&gt; ExportEBSVolumeRecommendationsResponse)
+-&gt; Either String (Maybe S3Destination)
+-&gt; Either String (Int -&gt; ExportEBSVolumeRecommendationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe S3Destination)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3Destination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ExportEBSVolumeRecommendationsResponse)
+-&gt; Either String Int
+-&gt; Either String ExportEBSVolumeRecommendationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247716"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679247706"><span id="local-6989586621679247708"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span></span></span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621679247703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-274"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span>
+</span><span id="line-276"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621679247699"><span class="annot"><span class="annottext">toHeaders :: ExportEBSVolumeRecommendations -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ExportEBSVolumeRecommendations -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-279"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-280"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-281"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ComputeOptimizerService.ExportEBSVolumeRecommendations&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-282"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-283"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-285"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-286"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-287"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-289"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247689"><span id="local-6989586621679247691"><span id="local-6989586621679247693"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621679247687"><span class="annot"><span class="annottext">toJSON :: ExportEBSVolumeRecommendations -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247680"><span id="local-6989586621679247681"><span id="local-6989586621679247682"><span id="local-6989586621679247683"><span id="local-6989586621679247684"><span id="local-6989586621679247685"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Text]
+Maybe [EBSFilter]
+Maybe [ExportableVolumeField]
+Maybe FileFormat
+S3DestinationConfig
+s3DestinationConfig :: S3DestinationConfig
+includeMemberAccounts :: Maybe Bool
+fieldsToExport :: Maybe [ExportableVolumeField]
+filters :: Maybe [EBSFilter]
+fileFormat :: Maybe FileFormat
+accountIds :: Maybe [Text]
+$sel:s3DestinationConfig:ExportEBSVolumeRecommendations' :: ExportEBSVolumeRecommendations -&gt; S3DestinationConfig
+$sel:includeMemberAccounts:ExportEBSVolumeRecommendations' :: ExportEBSVolumeRecommendations -&gt; Maybe Bool
+$sel:fieldsToExport:ExportEBSVolumeRecommendations' :: ExportEBSVolumeRecommendations -&gt; Maybe [ExportableVolumeField]
+$sel:filters:ExportEBSVolumeRecommendations' :: ExportEBSVolumeRecommendations -&gt; Maybe [EBSFilter]
+$sel:fileFormat:ExportEBSVolumeRecommendations' :: ExportEBSVolumeRecommendations -&gt; Maybe FileFormat
+$sel:accountIds:ExportEBSVolumeRecommendations' :: ExportEBSVolumeRecommendations -&gt; Maybe [Text]
+</span><a href="#local-6989586621679247680"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-294"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-295"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;accountIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679247685"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fileFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FileFormat -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FileFormat -&gt; Pair) -&gt; Maybe FileFormat -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FileFormat
+</span><a href="#local-6989586621679247684"><span class="hs-identifier hs-var">fileFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [EBSFilter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([EBSFilter] -&gt; Pair) -&gt; Maybe [EBSFilter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EBSFilter]
+</span><a href="#local-6989586621679247683"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fieldsToExport&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ExportableVolumeField] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>              </span><span class="annot"><span class="annottext">([ExportableVolumeField] -&gt; Pair)
+-&gt; Maybe [ExportableVolumeField] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ExportableVolumeField]
+</span><a href="#local-6989586621679247682"><span class="hs-identifier hs-var">fieldsToExport</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;includeMemberAccounts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679247681"><span class="hs-identifier hs-var">includeMemberAccounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-303"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3DestinationConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3DestinationConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">S3DestinationConfig
+</span><a href="#local-6989586621679247680"><span class="hs-identifier hs-var">s3DestinationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-305"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-308"></span><span>  </span><span id="local-6989586621679247674"><span class="annot"><span class="annottext">toPath :: ExportEBSVolumeRecommendations -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ExportEBSVolumeRecommendations -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendations"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-311"></span><span>  </span><span id="local-6989586621679247670"><span class="annot"><span class="annottext">toQuery :: ExportEBSVolumeRecommendations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ExportEBSVolumeRecommendations -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | /See:/ 'newExportEBSVolumeRecommendationsResponse' smart constructor.</span><span>
+</span><span id="line-314"></span><span id="local-6989586621679247667"><span id="local-6989586621679247668"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportEBSVolumeRecommendationsResponse"><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse"><span class="hs-identifier hs-var">ExportEBSVolumeRecommendationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportEBSVolumeRecommendationsResponse%27"><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-var">ExportEBSVolumeRecommendationsResponse'</span></a></span></span><span>
+</span><span id="line-315"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identification number of the export job.</span><span>
+</span><span id="line-316"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span>    </span><span class="hs-comment">-- Use the DescribeRecommendationExportJobs action, and specify the job ID</span><span>
+</span><span id="line-318"></span><span>    </span><span class="hs-comment">-- to view the status of an export job.</span><span>
+</span><span id="line-319"></span><span>    </span><span id="%24sel%3AjobId%3AExportEBSVolumeRecommendationsResponse%27"><span class="annot"><span class="annottext">ExportEBSVolumeRecommendationsResponse -&gt; Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AjobId%3AExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>    </span><span id="%24sel%3As3Destination%3AExportEBSVolumeRecommendationsResponse%27"><span class="annot"><span class="annottext">ExportEBSVolumeRecommendationsResponse -&gt; Maybe S3Destination
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3As3Destination%3AExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-var hs-var">s3Destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-322"></span><span>    </span><span id="%24sel%3AhttpStatus%3AExportEBSVolumeRecommendationsResponse%27"><span class="annot"><span class="annottext">ExportEBSVolumeRecommendationsResponse -&gt; Int
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AhttpStatus%3AExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-323"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-324"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247660"><span id="local-6989586621679247662"><span class="annot"><span class="annottext">ExportEBSVolumeRecommendationsResponse
+-&gt; ExportEBSVolumeRecommendationsResponse -&gt; Bool
+(ExportEBSVolumeRecommendationsResponse
+ -&gt; ExportEBSVolumeRecommendationsResponse -&gt; Bool)
+-&gt; (ExportEBSVolumeRecommendationsResponse
+    -&gt; ExportEBSVolumeRecommendationsResponse -&gt; Bool)
+-&gt; Eq ExportEBSVolumeRecommendationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExportEBSVolumeRecommendationsResponse
+-&gt; ExportEBSVolumeRecommendationsResponse -&gt; Bool
+$c/= :: ExportEBSVolumeRecommendationsResponse
+-&gt; ExportEBSVolumeRecommendationsResponse -&gt; Bool
+== :: ExportEBSVolumeRecommendationsResponse
+-&gt; ExportEBSVolumeRecommendationsResponse -&gt; Bool
+$c== :: ExportEBSVolumeRecommendationsResponse
+-&gt; ExportEBSVolumeRecommendationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247652"><span id="local-6989586621679247654"><span id="local-6989586621679247656"><span id="local-6989586621679247658"><span class="annot"><span class="annottext">ReadPrec [ExportEBSVolumeRecommendationsResponse]
+ReadPrec ExportEBSVolumeRecommendationsResponse
+Int -&gt; ReadS ExportEBSVolumeRecommendationsResponse
+ReadS [ExportEBSVolumeRecommendationsResponse]
+(Int -&gt; ReadS ExportEBSVolumeRecommendationsResponse)
+-&gt; ReadS [ExportEBSVolumeRecommendationsResponse]
+-&gt; ReadPrec ExportEBSVolumeRecommendationsResponse
+-&gt; ReadPrec [ExportEBSVolumeRecommendationsResponse]
+-&gt; Read ExportEBSVolumeRecommendationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExportEBSVolumeRecommendationsResponse]
+$creadListPrec :: ReadPrec [ExportEBSVolumeRecommendationsResponse]
+readPrec :: ReadPrec ExportEBSVolumeRecommendationsResponse
+$creadPrec :: ReadPrec ExportEBSVolumeRecommendationsResponse
+readList :: ReadS [ExportEBSVolumeRecommendationsResponse]
+$creadList :: ReadS [ExportEBSVolumeRecommendationsResponse]
+readsPrec :: Int -&gt; ReadS ExportEBSVolumeRecommendationsResponse
+$creadsPrec :: Int -&gt; ReadS ExportEBSVolumeRecommendationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247646"><span id="local-6989586621679247648"><span id="local-6989586621679247650"><span class="annot"><span class="annottext">Int -&gt; ExportEBSVolumeRecommendationsResponse -&gt; ShowS
+[ExportEBSVolumeRecommendationsResponse] -&gt; ShowS
+ExportEBSVolumeRecommendationsResponse -&gt; String
+(Int -&gt; ExportEBSVolumeRecommendationsResponse -&gt; ShowS)
+-&gt; (ExportEBSVolumeRecommendationsResponse -&gt; String)
+-&gt; ([ExportEBSVolumeRecommendationsResponse] -&gt; ShowS)
+-&gt; Show ExportEBSVolumeRecommendationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExportEBSVolumeRecommendationsResponse] -&gt; ShowS
+$cshowList :: [ExportEBSVolumeRecommendationsResponse] -&gt; ShowS
+show :: ExportEBSVolumeRecommendationsResponse -&gt; String
+$cshow :: ExportEBSVolumeRecommendationsResponse -&gt; String
+showsPrec :: Int -&gt; ExportEBSVolumeRecommendationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExportEBSVolumeRecommendationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ExportEBSVolumeRecommendationsResponse
+ -&gt; Rep ExportEBSVolumeRecommendationsResponse x)
+-&gt; (forall x.
+    Rep ExportEBSVolumeRecommendationsResponse x
+    -&gt; ExportEBSVolumeRecommendationsResponse)
+-&gt; Generic ExportEBSVolumeRecommendationsResponse
+forall x.
+Rep ExportEBSVolumeRecommendationsResponse x
+-&gt; ExportEBSVolumeRecommendationsResponse
+forall x.
+ExportEBSVolumeRecommendationsResponse
+-&gt; Rep ExportEBSVolumeRecommendationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ExportEBSVolumeRecommendationsResponse x
+-&gt; ExportEBSVolumeRecommendationsResponse
+$cfrom :: forall x.
+ExportEBSVolumeRecommendationsResponse
+-&gt; Rep ExportEBSVolumeRecommendationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- Create a value of 'ExportEBSVolumeRecommendationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- 'jobId', 'exportEBSVolumeRecommendationsResponse_jobId' - The identification number of the export job.</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- Use the DescribeRecommendationExportJobs action, and specify the job ID</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- to view the status of an export job.</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- 's3Destination', 'exportEBSVolumeRecommendationsResponse_s3Destination' - Undocumented member.</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- 'httpStatus', 'exportEBSVolumeRecommendationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-342"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#newExportEBSVolumeRecommendationsResponse"><span class="hs-identifier hs-type">newExportEBSVolumeRecommendationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-343"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-344"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-345"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse</span></a></span><span>
+</span><span id="line-346"></span><span id="newExportEBSVolumeRecommendationsResponse"><span class="annot"><span class="annottext">newExportEBSVolumeRecommendationsResponse :: Int -&gt; ExportEBSVolumeRecommendationsResponse
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#newExportEBSVolumeRecommendationsResponse"><span class="hs-identifier hs-var hs-var">newExportEBSVolumeRecommendationsResponse</span></a></span></span><span>
+</span><span id="line-347"></span><span>  </span><span id="local-6989586621679247643"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247643"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-348"></span><span>    </span><span class="annot"><span class="annottext">ExportEBSVolumeRecommendationsResponse' :: Maybe Text
+-&gt; Maybe S3Destination
+-&gt; Int
+-&gt; ExportEBSVolumeRecommendationsResponse
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse'</span></a></span><span>
+</span><span id="line-349"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobId:ExportEBSVolumeRecommendationsResponse' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AjobId%3AExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-350"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3Destination:ExportEBSVolumeRecommendationsResponse' :: Maybe S3Destination
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3As3Destination%3AExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-var">s3Destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Destination
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-352"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ExportEBSVolumeRecommendationsResponse' :: Int
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AhttpStatus%3AExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247643"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-353"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-354"></span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- | The identification number of the export job.</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- Use the DescribeRecommendationExportJobs action, and specify the job ID</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- to view the status of an export job.</span><span>
+</span><span id="line-359"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendationsResponse_jobId"><span class="hs-identifier hs-type">exportEBSVolumeRecommendationsResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-360"></span><span id="exportEBSVolumeRecommendationsResponse_jobId"><span class="annot"><span class="annottext">exportEBSVolumeRecommendationsResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportEBSVolumeRecommendationsResponse
+-&gt; f ExportEBSVolumeRecommendationsResponse
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendationsResponse_jobId"><span class="hs-identifier hs-var hs-var">exportEBSVolumeRecommendationsResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportEBSVolumeRecommendationsResponse -&gt; Maybe Text)
+-&gt; (ExportEBSVolumeRecommendationsResponse
+    -&gt; Maybe Text -&gt; ExportEBSVolumeRecommendationsResponse)
+-&gt; Lens
+     ExportEBSVolumeRecommendationsResponse
+     ExportEBSVolumeRecommendationsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247642"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:ExportEBSVolumeRecommendationsResponse' :: ExportEBSVolumeRecommendationsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679247642"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247642"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247641"><span class="annot"><span class="annottext">s :: ExportEBSVolumeRecommendationsResponse
+</span><a href="#local-6989586621679247641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247640"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportEBSVolumeRecommendationsResponse
+</span><a href="#local-6989586621679247641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:ExportEBSVolumeRecommendationsResponse' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AjobId%3AExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-363"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendationsResponse_s3Destination"><span class="hs-identifier hs-type">exportEBSVolumeRecommendationsResponse_s3Destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-364"></span><span id="exportEBSVolumeRecommendationsResponse_s3Destination"><span class="annot"><span class="annottext">exportEBSVolumeRecommendationsResponse_s3Destination :: (Maybe S3Destination -&gt; f (Maybe S3Destination))
+-&gt; ExportEBSVolumeRecommendationsResponse
+-&gt; f ExportEBSVolumeRecommendationsResponse
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendationsResponse_s3Destination"><span class="hs-identifier hs-var hs-var">exportEBSVolumeRecommendationsResponse_s3Destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportEBSVolumeRecommendationsResponse -&gt; Maybe S3Destination)
+-&gt; (ExportEBSVolumeRecommendationsResponse
+    -&gt; Maybe S3Destination -&gt; ExportEBSVolumeRecommendationsResponse)
+-&gt; Lens
+     ExportEBSVolumeRecommendationsResponse
+     ExportEBSVolumeRecommendationsResponse
+     (Maybe S3Destination)
+     (Maybe S3Destination)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247639"><span class="annot"><span class="annottext">Maybe S3Destination
+s3Destination :: Maybe S3Destination
+$sel:s3Destination:ExportEBSVolumeRecommendationsResponse' :: ExportEBSVolumeRecommendationsResponse -&gt; Maybe S3Destination
+</span><a href="#local-6989586621679247639"><span class="hs-identifier hs-var hs-var">s3Destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Destination
+</span><a href="#local-6989586621679247639"><span class="hs-identifier hs-var">s3Destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247638"><span class="annot"><span class="annottext">s :: ExportEBSVolumeRecommendationsResponse
+</span><a href="#local-6989586621679247638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247637"><span class="annot"><span class="annottext">Maybe S3Destination
+</span><a href="#local-6989586621679247637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportEBSVolumeRecommendationsResponse
+</span><a href="#local-6989586621679247638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Destination:ExportEBSVolumeRecommendationsResponse' :: Maybe S3Destination
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3As3Destination%3AExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-var">s3Destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Destination
+</span><a href="#local-6989586621679247637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-365"></span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-367"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendationsResponse_httpStatus"><span class="hs-identifier hs-type">exportEBSVolumeRecommendationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-368"></span><span id="exportEBSVolumeRecommendationsResponse_httpStatus"><span class="annot"><span class="annottext">exportEBSVolumeRecommendationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ExportEBSVolumeRecommendationsResponse
+-&gt; f ExportEBSVolumeRecommendationsResponse
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#exportEBSVolumeRecommendationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">exportEBSVolumeRecommendationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportEBSVolumeRecommendationsResponse -&gt; Int)
+-&gt; (ExportEBSVolumeRecommendationsResponse
+    -&gt; Int -&gt; ExportEBSVolumeRecommendationsResponse)
+-&gt; Lens
+     ExportEBSVolumeRecommendationsResponse
+     ExportEBSVolumeRecommendationsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247636"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ExportEBSVolumeRecommendationsResponse' :: ExportEBSVolumeRecommendationsResponse -&gt; Int
+</span><a href="#local-6989586621679247636"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247636"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247635"><span class="annot"><span class="annottext">s :: ExportEBSVolumeRecommendationsResponse
+</span><a href="#local-6989586621679247635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247634"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportEBSVolumeRecommendationsResponse
+</span><a href="#local-6989586621679247635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ExportEBSVolumeRecommendationsResponse' :: Int
+</span><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#%24sel%3AhttpStatus%3AExportEBSVolumeRecommendationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-369"></span><span>
+</span><span id="line-370"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-371"></span><span>  </span><span id="local-6989586621679247632"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-372"></span><span>    </span><span class="annot"><a href="Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations.html#ExportEBSVolumeRecommendationsResponse"><span class="hs-identifier hs-type">ExportEBSVolumeRecommendationsResponse</span></a></span></span><span>
+</span><span id="line-373"></span></pre></body></html>

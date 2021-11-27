@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Signer.RevokeSignature</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Changes the state of a signing job to REVOKED. This indicates that the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- signature is no longer valid.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Signer.RevokeSignature</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier">RevokeSignature</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#newRevokeSignature"><span class="hs-identifier">newRevokeSignature</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#revokeSignature_jobOwner"><span class="hs-identifier">revokeSignature_jobOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#revokeSignature_reason"><span class="hs-identifier">revokeSignature_reason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#revokeSignature_jobId"><span class="hs-identifier">revokeSignature_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignatureResponse"><span class="hs-identifier">RevokeSignatureResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#newRevokeSignatureResponse"><span class="hs-identifier">newRevokeSignatureResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.html"><span class="hs-identifier">Amazonka.Signer.Types</span></a></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newRevokeSignature' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679202790"><span id="local-6989586621679202791"></span></span><span class="hs-keyword">data</span><span> </span><span id="RevokeSignature"><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-var">RevokeSignature</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RevokeSignature%27"><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature%27"><span class="hs-identifier hs-var">RevokeSignature'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | AWS account ID of the job owner.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AjobOwner%3ARevokeSignature%27"><span class="annot"><span class="annottext">RevokeSignature -&gt; Maybe Text
+</span><a href="Amazonka.Signer.RevokeSignature.html#%24sel%3AjobOwner%3ARevokeSignature%27"><span class="hs-identifier hs-var hs-var">jobOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The reason for revoking the signing job.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Areason%3ARevokeSignature%27"><span class="annot"><span class="annottext">RevokeSignature -&gt; Text
+</span><a href="Amazonka.Signer.RevokeSignature.html#%24sel%3Areason%3ARevokeSignature%27"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | ID of the signing job to be revoked.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AjobId%3ARevokeSignature%27"><span class="annot"><span class="annottext">RevokeSignature -&gt; Text
+</span><a href="Amazonka.Signer.RevokeSignature.html#%24sel%3AjobId%3ARevokeSignature%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202782"><span id="local-6989586621679202784"><span class="annot"><span class="annottext">RevokeSignature -&gt; RevokeSignature -&gt; Bool
+(RevokeSignature -&gt; RevokeSignature -&gt; Bool)
+-&gt; (RevokeSignature -&gt; RevokeSignature -&gt; Bool)
+-&gt; Eq RevokeSignature
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RevokeSignature -&gt; RevokeSignature -&gt; Bool
+$c/= :: RevokeSignature -&gt; RevokeSignature -&gt; Bool
+== :: RevokeSignature -&gt; RevokeSignature -&gt; Bool
+$c== :: RevokeSignature -&gt; RevokeSignature -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202773"><span id="local-6989586621679202775"><span id="local-6989586621679202777"><span id="local-6989586621679202779"><span class="annot"><span class="annottext">ReadPrec [RevokeSignature]
+ReadPrec RevokeSignature
+Int -&gt; ReadS RevokeSignature
+ReadS [RevokeSignature]
+(Int -&gt; ReadS RevokeSignature)
+-&gt; ReadS [RevokeSignature]
+-&gt; ReadPrec RevokeSignature
+-&gt; ReadPrec [RevokeSignature]
+-&gt; Read RevokeSignature
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RevokeSignature]
+$creadListPrec :: ReadPrec [RevokeSignature]
+readPrec :: ReadPrec RevokeSignature
+$creadPrec :: ReadPrec RevokeSignature
+readList :: ReadS [RevokeSignature]
+$creadList :: ReadS [RevokeSignature]
+readsPrec :: Int -&gt; ReadS RevokeSignature
+$creadsPrec :: Int -&gt; ReadS RevokeSignature
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202766"><span id="local-6989586621679202768"><span id="local-6989586621679202770"><span class="annot"><span class="annottext">Int -&gt; RevokeSignature -&gt; ShowS
+[RevokeSignature] -&gt; ShowS
+RevokeSignature -&gt; String
+(Int -&gt; RevokeSignature -&gt; ShowS)
+-&gt; (RevokeSignature -&gt; String)
+-&gt; ([RevokeSignature] -&gt; ShowS)
+-&gt; Show RevokeSignature
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RevokeSignature] -&gt; ShowS
+$cshowList :: [RevokeSignature] -&gt; ShowS
+show :: RevokeSignature -&gt; String
+$cshow :: RevokeSignature -&gt; String
+showsPrec :: Int -&gt; RevokeSignature -&gt; ShowS
+$cshowsPrec :: Int -&gt; RevokeSignature -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RevokeSignature -&gt; Rep RevokeSignature x)
+-&gt; (forall x. Rep RevokeSignature x -&gt; RevokeSignature)
+-&gt; Generic RevokeSignature
+forall x. Rep RevokeSignature x -&gt; RevokeSignature
+forall x. RevokeSignature -&gt; Rep RevokeSignature x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RevokeSignature x -&gt; RevokeSignature
+$cfrom :: forall x. RevokeSignature -&gt; Rep RevokeSignature x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'RevokeSignature' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'jobOwner', 'revokeSignature_jobOwner' - AWS account ID of the job owner.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'reason', 'revokeSignature_reason' - The reason for revoking the signing job.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'jobId', 'revokeSignature_jobId' - ID of the signing job to be revoked.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#newRevokeSignature"><span class="hs-identifier hs-type">newRevokeSignature</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'reason'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-type">RevokeSignature</span></a></span><span>
+</span><span id="line-78"></span><span id="newRevokeSignature"><span class="annot"><span class="annottext">newRevokeSignature :: Text -&gt; Text -&gt; RevokeSignature
+</span><a href="Amazonka.Signer.RevokeSignature.html#newRevokeSignature"><span class="hs-identifier hs-var hs-var">newRevokeSignature</span></a></span></span><span> </span><span id="local-6989586621679202761"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202761"><span class="hs-identifier hs-var">pReason_</span></a></span></span><span> </span><span id="local-6989586621679202760"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202760"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">RevokeSignature' :: Maybe Text -&gt; Text -&gt; Text -&gt; RevokeSignature
+</span><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature%27"><span class="hs-identifier hs-type">RevokeSignature'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobOwner:RevokeSignature' :: Maybe Text
+</span><a href="Amazonka.Signer.RevokeSignature.html#%24sel%3AjobOwner%3ARevokeSignature%27"><span class="hs-identifier hs-var">jobOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:reason:RevokeSignature' :: Text
+</span><a href="Amazonka.Signer.RevokeSignature.html#%24sel%3Areason%3ARevokeSignature%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202761"><span class="hs-identifier hs-var">pReason_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:RevokeSignature' :: Text
+</span><a href="Amazonka.Signer.RevokeSignature.html#%24sel%3AjobId%3ARevokeSignature%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202760"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | AWS account ID of the job owner.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#revokeSignature_jobOwner"><span class="hs-identifier hs-type">revokeSignature_jobOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-type">RevokeSignature</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="revokeSignature_jobOwner"><span class="annot"><span class="annottext">revokeSignature_jobOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RevokeSignature -&gt; f RevokeSignature
+</span><a href="Amazonka.Signer.RevokeSignature.html#revokeSignature_jobOwner"><span class="hs-identifier hs-var hs-var">revokeSignature_jobOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevokeSignature -&gt; Maybe Text)
+-&gt; (RevokeSignature -&gt; Maybe Text -&gt; RevokeSignature)
+-&gt; Lens RevokeSignature RevokeSignature (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature%27"><span class="hs-identifier hs-type">RevokeSignature'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202757"><span class="annot"><span class="annottext">Maybe Text
+jobOwner :: Maybe Text
+$sel:jobOwner:RevokeSignature' :: RevokeSignature -&gt; Maybe Text
+</span><a href="#local-6989586621679202757"><span class="hs-identifier hs-var hs-var">jobOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202757"><span class="hs-identifier hs-var">jobOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202756"><span class="annot"><span class="annottext">s :: RevokeSignature
+</span><a href="#local-6989586621679202756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature%27"><span class="hs-identifier hs-type">RevokeSignature'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202755"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeSignature
+</span><a href="#local-6989586621679202756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobOwner:RevokeSignature' :: Maybe Text
+</span><a href="Amazonka.Signer.RevokeSignature.html#%24sel%3AjobOwner%3ARevokeSignature%27"><span class="hs-identifier hs-var">jobOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-type">RevokeSignature</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The reason for revoking the signing job.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#revokeSignature_reason"><span class="hs-identifier hs-type">revokeSignature_reason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-type">RevokeSignature</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="revokeSignature_reason"><span class="annot"><span class="annottext">revokeSignature_reason :: (Text -&gt; f Text) -&gt; RevokeSignature -&gt; f RevokeSignature
+</span><a href="Amazonka.Signer.RevokeSignature.html#revokeSignature_reason"><span class="hs-identifier hs-var hs-var">revokeSignature_reason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevokeSignature -&gt; Text)
+-&gt; (RevokeSignature -&gt; Text -&gt; RevokeSignature)
+-&gt; Lens RevokeSignature RevokeSignature Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature%27"><span class="hs-identifier hs-type">RevokeSignature'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202754"><span class="annot"><span class="annottext">Text
+reason :: Text
+$sel:reason:RevokeSignature' :: RevokeSignature -&gt; Text
+</span><a href="#local-6989586621679202754"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202754"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202753"><span class="annot"><span class="annottext">s :: RevokeSignature
+</span><a href="#local-6989586621679202753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature%27"><span class="hs-identifier hs-type">RevokeSignature'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202752"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeSignature
+</span><a href="#local-6989586621679202753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:RevokeSignature' :: Text
+</span><a href="Amazonka.Signer.RevokeSignature.html#%24sel%3Areason%3ARevokeSignature%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-type">RevokeSignature</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | ID of the signing job to be revoked.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#revokeSignature_jobId"><span class="hs-identifier hs-type">revokeSignature_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-type">RevokeSignature</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="revokeSignature_jobId"><span class="annot"><span class="annottext">revokeSignature_jobId :: (Text -&gt; f Text) -&gt; RevokeSignature -&gt; f RevokeSignature
+</span><a href="Amazonka.Signer.RevokeSignature.html#revokeSignature_jobId"><span class="hs-identifier hs-var hs-var">revokeSignature_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevokeSignature -&gt; Text)
+-&gt; (RevokeSignature -&gt; Text -&gt; RevokeSignature)
+-&gt; Lens RevokeSignature RevokeSignature Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature%27"><span class="hs-identifier hs-type">RevokeSignature'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202751"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:RevokeSignature' :: RevokeSignature -&gt; Text
+</span><a href="#local-6989586621679202751"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202751"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202750"><span class="annot"><span class="annottext">s :: RevokeSignature
+</span><a href="#local-6989586621679202750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature%27"><span class="hs-identifier hs-type">RevokeSignature'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202749"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeSignature
+</span><a href="#local-6989586621679202750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:RevokeSignature' :: Text
+</span><a href="Amazonka.Signer.RevokeSignature.html#%24sel%3AjobId%3ARevokeSignature%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-type">RevokeSignature</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-type">RevokeSignature</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-type">RevokeSignature</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignatureResponse"><span class="hs-identifier hs-type">RevokeSignatureResponse</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679202745"><span class="annot"><span class="annottext">request :: RevokeSignature -&gt; Request RevokeSignature
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RevokeSignature -&gt; Request RevokeSignature
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Signer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679202741"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RevokeSignature
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse RevokeSignature)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse RevokeSignature
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RevokeSignature
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse RevokeSignature)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse RevokeSignature
+RevokeSignatureResponse
+</span><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignatureResponse%27"><span class="hs-identifier hs-var">RevokeSignatureResponse'</span></a></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202734"><span id="local-6989586621679202736"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-type">RevokeSignature</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202731"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-type">RevokeSignature</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-type">RevokeSignature</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679202727"><span class="annot"><span class="annottext">toHeaders :: RevokeSignature -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; RevokeSignature -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202717"><span id="local-6989586621679202719"><span id="local-6989586621679202721"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-type">RevokeSignature</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679202715"><span class="annot"><span class="annottext">toJSON :: RevokeSignature -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature%27"><span class="hs-identifier hs-type">RevokeSignature'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202711"><span id="local-6989586621679202712"><span id="local-6989586621679202713"><span class="annot"><span class="annottext">Maybe Text
+Text
+jobId :: Text
+reason :: Text
+jobOwner :: Maybe Text
+$sel:jobId:RevokeSignature' :: RevokeSignature -&gt; Text
+$sel:reason:RevokeSignature' :: RevokeSignature -&gt; Text
+$sel:jobOwner:RevokeSignature' :: RevokeSignature -&gt; Maybe Text
+</span><a href="#local-6989586621679202711"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobOwner&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202713"><span class="hs-identifier hs-var">jobOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reason&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202712"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-type">RevokeSignature</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679202704"><span class="annot"><span class="annottext">toPath :: RevokeSignature -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature%27"><span class="hs-identifier hs-type">RevokeSignature'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202700"><span id="local-6989586621679202701"><span id="local-6989586621679202702"><span class="annot"><span class="annottext">Maybe Text
+Text
+jobId :: Text
+reason :: Text
+jobOwner :: Maybe Text
+$sel:jobId:RevokeSignature' :: RevokeSignature -&gt; Text
+$sel:reason:RevokeSignature' :: RevokeSignature -&gt; Text
+$sel:jobOwner:RevokeSignature' :: RevokeSignature -&gt; Maybe Text
+</span><a href="#local-6989586621679202700"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/signing-jobs/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202700"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/revoke&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignature"><span class="hs-identifier hs-type">RevokeSignature</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679202696"><span class="annot"><span class="annottext">toQuery :: RevokeSignature -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RevokeSignature -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newRevokeSignatureResponse' smart constructor.</span><span>
+</span><span id="line-138"></span><span id="local-6989586621679202693"><span id="local-6989586621679202694"></span></span><span class="hs-keyword">data</span><span> </span><span id="RevokeSignatureResponse"><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignatureResponse"><span class="hs-identifier hs-var">RevokeSignatureResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RevokeSignatureResponse%27"><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignatureResponse%27"><span class="hs-identifier hs-var">RevokeSignatureResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202689"><span id="local-6989586621679202691"><span class="annot"><span class="annottext">RevokeSignatureResponse -&gt; RevokeSignatureResponse -&gt; Bool
+(RevokeSignatureResponse -&gt; RevokeSignatureResponse -&gt; Bool)
+-&gt; (RevokeSignatureResponse -&gt; RevokeSignatureResponse -&gt; Bool)
+-&gt; Eq RevokeSignatureResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RevokeSignatureResponse -&gt; RevokeSignatureResponse -&gt; Bool
+$c/= :: RevokeSignatureResponse -&gt; RevokeSignatureResponse -&gt; Bool
+== :: RevokeSignatureResponse -&gt; RevokeSignatureResponse -&gt; Bool
+$c== :: RevokeSignatureResponse -&gt; RevokeSignatureResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202681"><span id="local-6989586621679202683"><span id="local-6989586621679202685"><span id="local-6989586621679202687"><span class="annot"><span class="annottext">ReadPrec [RevokeSignatureResponse]
+ReadPrec RevokeSignatureResponse
+Int -&gt; ReadS RevokeSignatureResponse
+ReadS [RevokeSignatureResponse]
+(Int -&gt; ReadS RevokeSignatureResponse)
+-&gt; ReadS [RevokeSignatureResponse]
+-&gt; ReadPrec RevokeSignatureResponse
+-&gt; ReadPrec [RevokeSignatureResponse]
+-&gt; Read RevokeSignatureResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RevokeSignatureResponse]
+$creadListPrec :: ReadPrec [RevokeSignatureResponse]
+readPrec :: ReadPrec RevokeSignatureResponse
+$creadPrec :: ReadPrec RevokeSignatureResponse
+readList :: ReadS [RevokeSignatureResponse]
+$creadList :: ReadS [RevokeSignatureResponse]
+readsPrec :: Int -&gt; ReadS RevokeSignatureResponse
+$creadsPrec :: Int -&gt; ReadS RevokeSignatureResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202675"><span id="local-6989586621679202677"><span id="local-6989586621679202679"><span class="annot"><span class="annottext">Int -&gt; RevokeSignatureResponse -&gt; ShowS
+[RevokeSignatureResponse] -&gt; ShowS
+RevokeSignatureResponse -&gt; String
+(Int -&gt; RevokeSignatureResponse -&gt; ShowS)
+-&gt; (RevokeSignatureResponse -&gt; String)
+-&gt; ([RevokeSignatureResponse] -&gt; ShowS)
+-&gt; Show RevokeSignatureResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RevokeSignatureResponse] -&gt; ShowS
+$cshowList :: [RevokeSignatureResponse] -&gt; ShowS
+show :: RevokeSignatureResponse -&gt; String
+$cshow :: RevokeSignatureResponse -&gt; String
+showsPrec :: Int -&gt; RevokeSignatureResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RevokeSignatureResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RevokeSignatureResponse -&gt; Rep RevokeSignatureResponse x)
+-&gt; (forall x.
+    Rep RevokeSignatureResponse x -&gt; RevokeSignatureResponse)
+-&gt; Generic RevokeSignatureResponse
+forall x. Rep RevokeSignatureResponse x -&gt; RevokeSignatureResponse
+forall x. RevokeSignatureResponse -&gt; Rep RevokeSignatureResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RevokeSignatureResponse x -&gt; RevokeSignatureResponse
+$cfrom :: forall x. RevokeSignatureResponse -&gt; Rep RevokeSignatureResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Create a value of 'RevokeSignatureResponse' with all optional fields omitted.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#newRevokeSignatureResponse"><span class="hs-identifier hs-type">newRevokeSignatureResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignatureResponse"><span class="hs-identifier hs-type">RevokeSignatureResponse</span></a></span><span>
+</span><span id="line-149"></span><span id="newRevokeSignatureResponse"><span class="annot"><span class="annottext">newRevokeSignatureResponse :: RevokeSignatureResponse
+</span><a href="Amazonka.Signer.RevokeSignature.html#newRevokeSignatureResponse"><span class="hs-identifier hs-var hs-var">newRevokeSignatureResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RevokeSignatureResponse
+</span><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignatureResponse%27"><span class="hs-identifier hs-var">RevokeSignatureResponse'</span></a></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.RevokeSignature.html#RevokeSignatureResponse"><span class="hs-identifier hs-type">RevokeSignatureResponse</span></a></span></span><span>
+</span><span id="line-152"></span></pre></body></html>

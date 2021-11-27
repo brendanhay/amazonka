@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTSiteWise.Types.ImageFile</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTSiteWise.Types.ImageFile</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFileType.html"><span class="hs-identifier">Amazonka.IoTSiteWise.Types.ImageFileType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains an image file.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newImageFile' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679339723"><span id="local-6989586621679339724"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImageFile"><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile"><span class="hs-identifier hs-var">ImageFile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageFile%27"><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile%27"><span class="hs-identifier hs-var">ImageFile'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The image file contents, represented as a base64-encoded string. The</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- file size must be less than 1 MB.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Adata%27%3AImageFile%27"><span class="annot"><span class="annottext">ImageFile -&gt; Base64
+</span><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#%24sel%3Adata%27%3AImageFile%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The file type of the image.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Atype%27%3AImageFile%27"><span class="annot"><span class="annottext">ImageFile -&gt; ImageFileType
+</span><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#%24sel%3Atype%27%3AImageFile%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFileType.html#ImageFileType"><span class="hs-identifier hs-type">ImageFileType</span></a></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339716"><span id="local-6989586621679339718"><span class="annot"><span class="annottext">ImageFile -&gt; ImageFile -&gt; Bool
+(ImageFile -&gt; ImageFile -&gt; Bool)
+-&gt; (ImageFile -&gt; ImageFile -&gt; Bool) -&gt; Eq ImageFile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImageFile -&gt; ImageFile -&gt; Bool
+$c/= :: ImageFile -&gt; ImageFile -&gt; Bool
+== :: ImageFile -&gt; ImageFile -&gt; Bool
+$c== :: ImageFile -&gt; ImageFile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339707"><span id="local-6989586621679339709"><span id="local-6989586621679339711"><span id="local-6989586621679339713"><span class="annot"><span class="annottext">ReadPrec [ImageFile]
+ReadPrec ImageFile
+Int -&gt; ReadS ImageFile
+ReadS [ImageFile]
+(Int -&gt; ReadS ImageFile)
+-&gt; ReadS [ImageFile]
+-&gt; ReadPrec ImageFile
+-&gt; ReadPrec [ImageFile]
+-&gt; Read ImageFile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImageFile]
+$creadListPrec :: ReadPrec [ImageFile]
+readPrec :: ReadPrec ImageFile
+$creadPrec :: ReadPrec ImageFile
+readList :: ReadS [ImageFile]
+$creadList :: ReadS [ImageFile]
+readsPrec :: Int -&gt; ReadS ImageFile
+$creadsPrec :: Int -&gt; ReadS ImageFile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339700"><span id="local-6989586621679339702"><span id="local-6989586621679339704"><span class="annot"><span class="annottext">Int -&gt; ImageFile -&gt; ShowS
+[ImageFile] -&gt; ShowS
+ImageFile -&gt; String
+(Int -&gt; ImageFile -&gt; ShowS)
+-&gt; (ImageFile -&gt; String)
+-&gt; ([ImageFile] -&gt; ShowS)
+-&gt; Show ImageFile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImageFile] -&gt; ShowS
+$cshowList :: [ImageFile] -&gt; ShowS
+show :: ImageFile -&gt; String
+$cshow :: ImageFile -&gt; String
+showsPrec :: Int -&gt; ImageFile -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImageFile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ImageFile -&gt; Rep ImageFile x)
+-&gt; (forall x. Rep ImageFile x -&gt; ImageFile) -&gt; Generic ImageFile
+forall x. Rep ImageFile x -&gt; ImageFile
+forall x. ImageFile -&gt; Rep ImageFile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ImageFile x -&gt; ImageFile
+$cfrom :: forall x. ImageFile -&gt; Rep ImageFile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'ImageFile' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'data'', 'imageFile_data' - The image file contents, represented as a base64-encoded string. The</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- file size must be less than 1 MB.--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'type'', 'imageFile_type' - The file type of the image.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#newImageFile"><span class="hs-identifier hs-type">newImageFile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-comment">-- | 'data''</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFileType.html#ImageFileType"><span class="hs-identifier hs-type">ImageFileType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile"><span class="hs-identifier hs-type">ImageFile</span></a></span><span>
+</span><span id="line-61"></span><span id="newImageFile"><span class="annot"><span class="annottext">newImageFile :: ByteString -&gt; ImageFileType -&gt; ImageFile
+</span><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#newImageFile"><span class="hs-identifier hs-var hs-var">newImageFile</span></a></span></span><span> </span><span id="local-6989586621679339694"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679339694"><span class="hs-identifier hs-var">pData_</span></a></span></span><span> </span><span id="local-6989586621679339693"><span class="annot"><span class="annottext">ImageFileType
+</span><a href="#local-6989586621679339693"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">ImageFile' :: Base64 -&gt; ImageFileType -&gt; ImageFile
+</span><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile%27"><span class="hs-identifier hs-type">ImageFile'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:data':ImageFile' :: Base64
+</span><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#%24sel%3Adata%27%3AImageFile%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
+-&gt; Tagged Base64 (Identity Base64)
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span> </span><span class="annot"><span class="annottext">(Tagged ByteString (Identity ByteString)
+ -&gt; Tagged Base64 (Identity Base64))
+-&gt; ByteString -&gt; Base64
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679339694"><span class="hs-identifier hs-var">pData_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ImageFile' :: ImageFileType
+</span><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#%24sel%3Atype%27%3AImageFile%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImageFileType
+</span><a href="#local-6989586621679339693"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The image file contents, represented as a base64-encoded string. The</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- file size must be less than 1 MB.--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#imageFile_data"><span class="hs-identifier hs-type">imageFile_data</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile"><span class="hs-identifier hs-type">ImageFile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-74"></span><span id="imageFile_data"><span class="annot"><span class="annottext">imageFile_data :: (ByteString -&gt; f ByteString) -&gt; ImageFile -&gt; f ImageFile
+</span><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#imageFile_data"><span class="hs-identifier hs-var hs-var">imageFile_data</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageFile -&gt; Base64)
+-&gt; (ImageFile -&gt; Base64 -&gt; ImageFile)
+-&gt; Lens ImageFile ImageFile Base64 Base64
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile%27"><span class="hs-identifier hs-type">ImageFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339687"><span class="annot"><span class="annottext">Base64
+data' :: Base64
+$sel:data':ImageFile' :: ImageFile -&gt; Base64
+</span><a href="#local-6989586621679339687"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679339687"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339686"><span class="annot"><span class="annottext">s :: ImageFile
+</span><a href="#local-6989586621679339686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile%27"><span class="hs-identifier hs-type">ImageFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339685"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679339685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageFile
+</span><a href="#local-6989586621679339686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':ImageFile' :: Base64
+</span><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#%24sel%3Adata%27%3AImageFile%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679339685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile"><span class="hs-identifier hs-type">ImageFile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; ImageFile -&gt; f ImageFile)
+-&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
+-&gt; (ByteString -&gt; f ByteString)
+-&gt; ImageFile
+-&gt; f ImageFile
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The file type of the image.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#imageFile_type"><span class="hs-identifier hs-type">imageFile_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile"><span class="hs-identifier hs-type">ImageFile</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFileType.html#ImageFileType"><span class="hs-identifier hs-type">ImageFileType</span></a></span><span>
+</span><span id="line-78"></span><span id="imageFile_type"><span class="annot"><span class="annottext">imageFile_type :: (ImageFileType -&gt; f ImageFileType) -&gt; ImageFile -&gt; f ImageFile
+</span><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#imageFile_type"><span class="hs-identifier hs-var hs-var">imageFile_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageFile -&gt; ImageFileType)
+-&gt; (ImageFile -&gt; ImageFileType -&gt; ImageFile)
+-&gt; Lens ImageFile ImageFile ImageFileType ImageFileType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile%27"><span class="hs-identifier hs-type">ImageFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339682"><span class="annot"><span class="annottext">ImageFileType
+type' :: ImageFileType
+$sel:type':ImageFile' :: ImageFile -&gt; ImageFileType
+</span><a href="#local-6989586621679339682"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageFileType
+</span><a href="#local-6989586621679339682"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339681"><span class="annot"><span class="annottext">s :: ImageFile
+</span><a href="#local-6989586621679339681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile%27"><span class="hs-identifier hs-type">ImageFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339680"><span class="annot"><span class="annottext">ImageFileType
+</span><a href="#local-6989586621679339680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageFile
+</span><a href="#local-6989586621679339681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ImageFile' :: ImageFileType
+</span><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#%24sel%3Atype%27%3AImageFile%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImageFileType
+</span><a href="#local-6989586621679339680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile"><span class="hs-identifier hs-type">ImageFile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339676"><span id="local-6989586621679339678"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile"><span class="hs-identifier hs-type">ImageFile</span></a></span></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile"><span class="hs-identifier hs-type">ImageFile</span></a></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339665"><span id="local-6989586621679339667"><span id="local-6989586621679339669"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile"><span class="hs-identifier hs-type">ImageFile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679339663"><span class="annot"><span class="annottext">toJSON :: ImageFile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.ImageFile.html#ImageFile%27"><span class="hs-identifier hs-type">ImageFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339660"><span id="local-6989586621679339661"><span class="annot"><span class="annottext">Base64
+ImageFileType
+type' :: ImageFileType
+data' :: Base64
+$sel:type':ImageFile' :: ImageFile -&gt; ImageFileType
+$sel:data':ImageFile' :: ImageFile -&gt; Base64
+</span><a href="#local-6989586621679339660"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;data&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679339661"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ImageFileType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ImageFileType
+</span><a href="#local-6989586621679339660"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span></pre></body></html>

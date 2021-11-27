@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.Types.ConditionalSplitActivity</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.Types.ConditionalSplitActivity</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.Condition.html"><span class="hs-identifier">Amazonka.Pinpoint.Types.Condition</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.WaitTime.html"><span class="hs-identifier">Amazonka.Pinpoint.Types.WaitTime</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Specifies the settings for a yes\/no split activity in a journey. This</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- type of activity sends participants down one of two paths in a journey,</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- based on conditions that you specify.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- To create yes\/no split activities that send participants down different</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- paths based on push notification events (such as Open or Received</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- events), your mobile app has to specify the User ID and Endpoint ID</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- values. For more information, see</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/pinpoint/latest/developerguide/integrate.html Integrating Amazon Pinpoint with your application&gt;</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- in the /Amazon Pinpoint Developer Guide/.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newConditionalSplitActivity' smart constructor.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621679618557"><span id="local-6989586621679618558"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConditionalSplitActivity"><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity"><span class="hs-identifier hs-var">ConditionalSplitActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConditionalSplitActivity%27"><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity%27"><span class="hs-identifier hs-var">ConditionalSplitActivity'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of time to wait before determining whether the conditions are</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- met, or the date and time when Amazon Pinpoint determines whether the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- conditions are met.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AevaluationWaitTime%3AConditionalSplitActivity%27"><span class="annot"><span class="annottext">ConditionalSplitActivity -&gt; Maybe WaitTime
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#%24sel%3AevaluationWaitTime%3AConditionalSplitActivity%27"><span class="hs-identifier hs-var hs-var">evaluationWaitTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.WaitTime.html#WaitTime"><span class="hs-identifier hs-type">WaitTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the activity to perform if the conditions are</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- met.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AtrueActivity%3AConditionalSplitActivity%27"><span class="annot"><span class="annottext">ConditionalSplitActivity -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#%24sel%3AtrueActivity%3AConditionalSplitActivity%27"><span class="hs-identifier hs-var hs-var">trueActivity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the activity to perform if the conditions</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- aren\'t met.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AfalseActivity%3AConditionalSplitActivity%27"><span class="annot"><span class="annottext">ConditionalSplitActivity -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#%24sel%3AfalseActivity%3AConditionalSplitActivity%27"><span class="hs-identifier hs-var hs-var">falseActivity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The conditions that define the paths for the activity, and the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- relationship between the conditions.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Acondition%3AConditionalSplitActivity%27"><span class="annot"><span class="annottext">ConditionalSplitActivity -&gt; Maybe Condition
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#%24sel%3Acondition%3AConditionalSplitActivity%27"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679618548"><span id="local-6989586621679618550"><span class="annot"><span class="annottext">ConditionalSplitActivity -&gt; ConditionalSplitActivity -&gt; Bool
+(ConditionalSplitActivity -&gt; ConditionalSplitActivity -&gt; Bool)
+-&gt; (ConditionalSplitActivity -&gt; ConditionalSplitActivity -&gt; Bool)
+-&gt; Eq ConditionalSplitActivity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConditionalSplitActivity -&gt; ConditionalSplitActivity -&gt; Bool
+$c/= :: ConditionalSplitActivity -&gt; ConditionalSplitActivity -&gt; Bool
+== :: ConditionalSplitActivity -&gt; ConditionalSplitActivity -&gt; Bool
+$c== :: ConditionalSplitActivity -&gt; ConditionalSplitActivity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679618539"><span id="local-6989586621679618541"><span id="local-6989586621679618543"><span id="local-6989586621679618545"><span class="annot"><span class="annottext">ReadPrec [ConditionalSplitActivity]
+ReadPrec ConditionalSplitActivity
+Int -&gt; ReadS ConditionalSplitActivity
+ReadS [ConditionalSplitActivity]
+(Int -&gt; ReadS ConditionalSplitActivity)
+-&gt; ReadS [ConditionalSplitActivity]
+-&gt; ReadPrec ConditionalSplitActivity
+-&gt; ReadPrec [ConditionalSplitActivity]
+-&gt; Read ConditionalSplitActivity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConditionalSplitActivity]
+$creadListPrec :: ReadPrec [ConditionalSplitActivity]
+readPrec :: ReadPrec ConditionalSplitActivity
+$creadPrec :: ReadPrec ConditionalSplitActivity
+readList :: ReadS [ConditionalSplitActivity]
+$creadList :: ReadS [ConditionalSplitActivity]
+readsPrec :: Int -&gt; ReadS ConditionalSplitActivity
+$creadsPrec :: Int -&gt; ReadS ConditionalSplitActivity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679618532"><span id="local-6989586621679618534"><span id="local-6989586621679618536"><span class="annot"><span class="annottext">Int -&gt; ConditionalSplitActivity -&gt; ShowS
+[ConditionalSplitActivity] -&gt; ShowS
+ConditionalSplitActivity -&gt; String
+(Int -&gt; ConditionalSplitActivity -&gt; ShowS)
+-&gt; (ConditionalSplitActivity -&gt; String)
+-&gt; ([ConditionalSplitActivity] -&gt; ShowS)
+-&gt; Show ConditionalSplitActivity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConditionalSplitActivity] -&gt; ShowS
+$cshowList :: [ConditionalSplitActivity] -&gt; ShowS
+show :: ConditionalSplitActivity -&gt; String
+$cshow :: ConditionalSplitActivity -&gt; String
+showsPrec :: Int -&gt; ConditionalSplitActivity -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConditionalSplitActivity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ConditionalSplitActivity -&gt; Rep ConditionalSplitActivity x)
+-&gt; (forall x.
+    Rep ConditionalSplitActivity x -&gt; ConditionalSplitActivity)
+-&gt; Generic ConditionalSplitActivity
+forall x.
+Rep ConditionalSplitActivity x -&gt; ConditionalSplitActivity
+forall x.
+ConditionalSplitActivity -&gt; Rep ConditionalSplitActivity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ConditionalSplitActivity x -&gt; ConditionalSplitActivity
+$cfrom :: forall x.
+ConditionalSplitActivity -&gt; Rep ConditionalSplitActivity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'ConditionalSplitActivity' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'evaluationWaitTime', 'conditionalSplitActivity_evaluationWaitTime' - The amount of time to wait before determining whether the conditions are</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- met, or the date and time when Amazon Pinpoint determines whether the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- conditions are met.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'trueActivity', 'conditionalSplitActivity_trueActivity' - The unique identifier for the activity to perform if the conditions are</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- met.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'falseActivity', 'conditionalSplitActivity_falseActivity' - The unique identifier for the activity to perform if the conditions</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- aren\'t met.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'condition', 'conditionalSplitActivity_condition' - The conditions that define the paths for the activity, and the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- relationship between the conditions.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#newConditionalSplitActivity"><span class="hs-identifier hs-type">newConditionalSplitActivity</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity"><span class="hs-identifier hs-type">ConditionalSplitActivity</span></a></span><span>
+</span><span id="line-79"></span><span id="newConditionalSplitActivity"><span class="annot"><span class="annottext">newConditionalSplitActivity :: ConditionalSplitActivity
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#newConditionalSplitActivity"><span class="hs-identifier hs-var hs-var">newConditionalSplitActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ConditionalSplitActivity' :: Maybe WaitTime
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Condition
+-&gt; ConditionalSplitActivity
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity%27"><span class="hs-identifier hs-type">ConditionalSplitActivity'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:evaluationWaitTime:ConditionalSplitActivity' :: Maybe WaitTime
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#%24sel%3AevaluationWaitTime%3AConditionalSplitActivity%27"><span class="hs-identifier hs-var">evaluationWaitTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe WaitTime
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:trueActivity:ConditionalSplitActivity' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#%24sel%3AtrueActivity%3AConditionalSplitActivity%27"><span class="hs-identifier hs-var">trueActivity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:falseActivity:ConditionalSplitActivity' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#%24sel%3AfalseActivity%3AConditionalSplitActivity%27"><span class="hs-identifier hs-var">falseActivity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:condition:ConditionalSplitActivity' :: Maybe Condition
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#%24sel%3Acondition%3AConditionalSplitActivity%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Condition
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The amount of time to wait before determining whether the conditions are</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- met, or the date and time when Amazon Pinpoint determines whether the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- conditions are met.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#conditionalSplitActivity_evaluationWaitTime"><span class="hs-identifier hs-type">conditionalSplitActivity_evaluationWaitTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity"><span class="hs-identifier hs-type">ConditionalSplitActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.WaitTime.html#WaitTime"><span class="hs-identifier hs-type">WaitTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="conditionalSplitActivity_evaluationWaitTime"><span class="annot"><span class="annottext">conditionalSplitActivity_evaluationWaitTime :: (Maybe WaitTime -&gt; f (Maybe WaitTime))
+-&gt; ConditionalSplitActivity -&gt; f ConditionalSplitActivity
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#conditionalSplitActivity_evaluationWaitTime"><span class="hs-identifier hs-var hs-var">conditionalSplitActivity_evaluationWaitTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConditionalSplitActivity -&gt; Maybe WaitTime)
+-&gt; (ConditionalSplitActivity
+    -&gt; Maybe WaitTime -&gt; ConditionalSplitActivity)
+-&gt; Lens
+     ConditionalSplitActivity
+     ConditionalSplitActivity
+     (Maybe WaitTime)
+     (Maybe WaitTime)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity%27"><span class="hs-identifier hs-type">ConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618523"><span class="annot"><span class="annottext">Maybe WaitTime
+evaluationWaitTime :: Maybe WaitTime
+$sel:evaluationWaitTime:ConditionalSplitActivity' :: ConditionalSplitActivity -&gt; Maybe WaitTime
+</span><a href="#local-6989586621679618523"><span class="hs-identifier hs-var hs-var">evaluationWaitTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WaitTime
+</span><a href="#local-6989586621679618523"><span class="hs-identifier hs-var">evaluationWaitTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618522"><span class="annot"><span class="annottext">s :: ConditionalSplitActivity
+</span><a href="#local-6989586621679618522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity%27"><span class="hs-identifier hs-type">ConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618521"><span class="annot"><span class="annottext">Maybe WaitTime
+</span><a href="#local-6989586621679618521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionalSplitActivity
+</span><a href="#local-6989586621679618522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationWaitTime:ConditionalSplitActivity' :: Maybe WaitTime
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#%24sel%3AevaluationWaitTime%3AConditionalSplitActivity%27"><span class="hs-identifier hs-var">evaluationWaitTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WaitTime
+</span><a href="#local-6989586621679618521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity"><span class="hs-identifier hs-type">ConditionalSplitActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The unique identifier for the activity to perform if the conditions are</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- met.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#conditionalSplitActivity_trueActivity"><span class="hs-identifier hs-type">conditionalSplitActivity_trueActivity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity"><span class="hs-identifier hs-type">ConditionalSplitActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="conditionalSplitActivity_trueActivity"><span class="annot"><span class="annottext">conditionalSplitActivity_trueActivity :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConditionalSplitActivity -&gt; f ConditionalSplitActivity
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#conditionalSplitActivity_trueActivity"><span class="hs-identifier hs-var hs-var">conditionalSplitActivity_trueActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConditionalSplitActivity -&gt; Maybe Text)
+-&gt; (ConditionalSplitActivity
+    -&gt; Maybe Text -&gt; ConditionalSplitActivity)
+-&gt; Lens
+     ConditionalSplitActivity
+     ConditionalSplitActivity
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity%27"><span class="hs-identifier hs-type">ConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618519"><span class="annot"><span class="annottext">Maybe Text
+trueActivity :: Maybe Text
+$sel:trueActivity:ConditionalSplitActivity' :: ConditionalSplitActivity -&gt; Maybe Text
+</span><a href="#local-6989586621679618519"><span class="hs-identifier hs-var hs-var">trueActivity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679618519"><span class="hs-identifier hs-var">trueActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618518"><span class="annot"><span class="annottext">s :: ConditionalSplitActivity
+</span><a href="#local-6989586621679618518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity%27"><span class="hs-identifier hs-type">ConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618517"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679618517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionalSplitActivity
+</span><a href="#local-6989586621679618518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trueActivity:ConditionalSplitActivity' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#%24sel%3AtrueActivity%3AConditionalSplitActivity%27"><span class="hs-identifier hs-var">trueActivity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679618517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity"><span class="hs-identifier hs-type">ConditionalSplitActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The unique identifier for the activity to perform if the conditions</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- aren\'t met.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#conditionalSplitActivity_falseActivity"><span class="hs-identifier hs-type">conditionalSplitActivity_falseActivity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity"><span class="hs-identifier hs-type">ConditionalSplitActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="conditionalSplitActivity_falseActivity"><span class="annot"><span class="annottext">conditionalSplitActivity_falseActivity :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConditionalSplitActivity -&gt; f ConditionalSplitActivity
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#conditionalSplitActivity_falseActivity"><span class="hs-identifier hs-var hs-var">conditionalSplitActivity_falseActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConditionalSplitActivity -&gt; Maybe Text)
+-&gt; (ConditionalSplitActivity
+    -&gt; Maybe Text -&gt; ConditionalSplitActivity)
+-&gt; Lens
+     ConditionalSplitActivity
+     ConditionalSplitActivity
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity%27"><span class="hs-identifier hs-type">ConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618515"><span class="annot"><span class="annottext">Maybe Text
+falseActivity :: Maybe Text
+$sel:falseActivity:ConditionalSplitActivity' :: ConditionalSplitActivity -&gt; Maybe Text
+</span><a href="#local-6989586621679618515"><span class="hs-identifier hs-var hs-var">falseActivity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679618515"><span class="hs-identifier hs-var">falseActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618514"><span class="annot"><span class="annottext">s :: ConditionalSplitActivity
+</span><a href="#local-6989586621679618514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity%27"><span class="hs-identifier hs-type">ConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618513"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679618513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionalSplitActivity
+</span><a href="#local-6989586621679618514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:falseActivity:ConditionalSplitActivity' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#%24sel%3AfalseActivity%3AConditionalSplitActivity%27"><span class="hs-identifier hs-var">falseActivity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679618513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity"><span class="hs-identifier hs-type">ConditionalSplitActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The conditions that define the paths for the activity, and the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- relationship between the conditions.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#conditionalSplitActivity_condition"><span class="hs-identifier hs-type">conditionalSplitActivity_condition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity"><span class="hs-identifier hs-type">ConditionalSplitActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="conditionalSplitActivity_condition"><span class="annot"><span class="annottext">conditionalSplitActivity_condition :: (Maybe Condition -&gt; f (Maybe Condition))
+-&gt; ConditionalSplitActivity -&gt; f ConditionalSplitActivity
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#conditionalSplitActivity_condition"><span class="hs-identifier hs-var hs-var">conditionalSplitActivity_condition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConditionalSplitActivity -&gt; Maybe Condition)
+-&gt; (ConditionalSplitActivity
+    -&gt; Maybe Condition -&gt; ConditionalSplitActivity)
+-&gt; Lens
+     ConditionalSplitActivity
+     ConditionalSplitActivity
+     (Maybe Condition)
+     (Maybe Condition)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity%27"><span class="hs-identifier hs-type">ConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618511"><span class="annot"><span class="annottext">Maybe Condition
+condition :: Maybe Condition
+$sel:condition:ConditionalSplitActivity' :: ConditionalSplitActivity -&gt; Maybe Condition
+</span><a href="#local-6989586621679618511"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Condition
+</span><a href="#local-6989586621679618511"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618510"><span class="annot"><span class="annottext">s :: ConditionalSplitActivity
+</span><a href="#local-6989586621679618510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity%27"><span class="hs-identifier hs-type">ConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618509"><span class="annot"><span class="annottext">Maybe Condition
+</span><a href="#local-6989586621679618509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionalSplitActivity
+</span><a href="#local-6989586621679618510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:ConditionalSplitActivity' :: Maybe Condition
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#%24sel%3Acondition%3AConditionalSplitActivity%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Condition
+</span><a href="#local-6989586621679618509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity"><span class="hs-identifier hs-type">ConditionalSplitActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618506"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity"><span class="hs-identifier hs-type">ConditionalSplitActivity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679618504"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConditionalSplitActivity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ConditionalSplitActivity)
+-&gt; Value
+-&gt; Parser ConditionalSplitActivity
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ConditionalSplitActivity&quot;</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679618501"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679618501"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe WaitTime
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Condition
+-&gt; ConditionalSplitActivity
+</span><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity%27"><span class="hs-identifier hs-var">ConditionalSplitActivity'</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe WaitTime
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Condition
+ -&gt; ConditionalSplitActivity)
+-&gt; Parser (Maybe WaitTime)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Condition -&gt; ConditionalSplitActivity)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679618501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WaitTime)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EvaluationWaitTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Condition -&gt; ConditionalSplitActivity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Condition -&gt; ConditionalSplitActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679618501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrueActivity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Condition -&gt; ConditionalSplitActivity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Condition -&gt; ConditionalSplitActivity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679618501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FalseActivity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Condition -&gt; ConditionalSplitActivity)
+-&gt; Parser (Maybe Condition) -&gt; Parser ConditionalSplitActivity
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679618501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Condition)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Condition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618495"><span id="local-6989586621679618497"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity"><span class="hs-identifier hs-type">ConditionalSplitActivity</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618492"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity"><span class="hs-identifier hs-type">ConditionalSplitActivity</span></a></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618484"><span id="local-6989586621679618486"><span id="local-6989586621679618488"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity"><span class="hs-identifier hs-type">ConditionalSplitActivity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679618482"><span class="annot"><span class="annottext">toJSON :: ConditionalSplitActivity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ConditionalSplitActivity.html#ConditionalSplitActivity%27"><span class="hs-identifier hs-type">ConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618477"><span id="local-6989586621679618478"><span id="local-6989586621679618479"><span id="local-6989586621679618480"><span class="annot"><span class="annottext">Maybe Text
+Maybe Condition
+Maybe WaitTime
+condition :: Maybe Condition
+falseActivity :: Maybe Text
+trueActivity :: Maybe Text
+evaluationWaitTime :: Maybe WaitTime
+$sel:condition:ConditionalSplitActivity' :: ConditionalSplitActivity -&gt; Maybe Condition
+$sel:falseActivity:ConditionalSplitActivity' :: ConditionalSplitActivity -&gt; Maybe Text
+$sel:trueActivity:ConditionalSplitActivity' :: ConditionalSplitActivity -&gt; Maybe Text
+$sel:evaluationWaitTime:ConditionalSplitActivity' :: ConditionalSplitActivity -&gt; Maybe WaitTime
+</span><a href="#local-6989586621679618477"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EvaluationWaitTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WaitTime -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">(WaitTime -&gt; Pair) -&gt; Maybe WaitTime -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WaitTime
+</span><a href="#local-6989586621679618480"><span class="hs-identifier hs-var">evaluationWaitTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrueActivity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679618479"><span class="hs-identifier hs-var">trueActivity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FalseActivity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679618478"><span class="hs-identifier hs-var">falseActivity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Condition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Condition -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Condition -&gt; Pair) -&gt; Maybe Condition -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Condition
+</span><a href="#local-6989586621679618477"><span class="hs-identifier hs-var">condition</span></a></span><span>
+</span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span></pre></body></html>

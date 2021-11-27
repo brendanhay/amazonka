@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#CustomRoutingAcceleratorStatus"><span class="hs-identifier">CustomRoutingAcceleratorStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#CustomRoutingAcceleratorStatus_DEPLOYED"><span class="hs-identifier">CustomRoutingAcceleratorStatus_DEPLOYED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#CustomRoutingAcceleratorStatus_IN_PROGRESS"><span class="hs-identifier">CustomRoutingAcceleratorStatus_IN_PROGRESS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679235838"><span id="local-6989586621679235839"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CustomRoutingAcceleratorStatus"><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#CustomRoutingAcceleratorStatus"><span class="hs-identifier hs-var">CustomRoutingAcceleratorStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomRoutingAcceleratorStatus%27"><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#CustomRoutingAcceleratorStatus%27"><span class="hs-identifier hs-var">CustomRoutingAcceleratorStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCustomRoutingAcceleratorStatus"><span class="annot"><span class="annottext">CustomRoutingAcceleratorStatus -&gt; Text
+</span><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#fromCustomRoutingAcceleratorStatus"><span class="hs-identifier hs-var hs-var">fromCustomRoutingAcceleratorStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235830"><span id="local-6989586621679235832"><span id="local-6989586621679235834"><span class="annot"><span class="annottext">Int -&gt; CustomRoutingAcceleratorStatus -&gt; ShowS
+[CustomRoutingAcceleratorStatus] -&gt; ShowS
+CustomRoutingAcceleratorStatus -&gt; String
+(Int -&gt; CustomRoutingAcceleratorStatus -&gt; ShowS)
+-&gt; (CustomRoutingAcceleratorStatus -&gt; String)
+-&gt; ([CustomRoutingAcceleratorStatus] -&gt; ShowS)
+-&gt; Show CustomRoutingAcceleratorStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CustomRoutingAcceleratorStatus] -&gt; ShowS
+$cshowList :: [CustomRoutingAcceleratorStatus] -&gt; ShowS
+show :: CustomRoutingAcceleratorStatus -&gt; String
+$cshow :: CustomRoutingAcceleratorStatus -&gt; String
+showsPrec :: Int -&gt; CustomRoutingAcceleratorStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; CustomRoutingAcceleratorStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679235821"><span id="local-6989586621679235823"><span id="local-6989586621679235825"><span id="local-6989586621679235827"><span class="annot"><span class="annottext">ReadPrec [CustomRoutingAcceleratorStatus]
+ReadPrec CustomRoutingAcceleratorStatus
+Int -&gt; ReadS CustomRoutingAcceleratorStatus
+ReadS [CustomRoutingAcceleratorStatus]
+(Int -&gt; ReadS CustomRoutingAcceleratorStatus)
+-&gt; ReadS [CustomRoutingAcceleratorStatus]
+-&gt; ReadPrec CustomRoutingAcceleratorStatus
+-&gt; ReadPrec [CustomRoutingAcceleratorStatus]
+-&gt; Read CustomRoutingAcceleratorStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CustomRoutingAcceleratorStatus]
+$creadListPrec :: ReadPrec [CustomRoutingAcceleratorStatus]
+readPrec :: ReadPrec CustomRoutingAcceleratorStatus
+$creadPrec :: ReadPrec CustomRoutingAcceleratorStatus
+readList :: ReadS [CustomRoutingAcceleratorStatus]
+$creadList :: ReadS [CustomRoutingAcceleratorStatus]
+readsPrec :: Int -&gt; ReadS CustomRoutingAcceleratorStatus
+$creadsPrec :: Int -&gt; ReadS CustomRoutingAcceleratorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679235816"><span id="local-6989586621679235818"><span class="annot"><span class="annottext">CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Bool
+(CustomRoutingAcceleratorStatus
+ -&gt; CustomRoutingAcceleratorStatus -&gt; Bool)
+-&gt; (CustomRoutingAcceleratorStatus
+    -&gt; CustomRoutingAcceleratorStatus -&gt; Bool)
+-&gt; Eq CustomRoutingAcceleratorStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Bool
+$c/= :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Bool
+== :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Bool
+$c== :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679235800"><span id="local-6989586621679235802"><span id="local-6989586621679235804"><span id="local-6989586621679235806"><span id="local-6989586621679235808"><span id="local-6989586621679235810"><span id="local-6989586621679235812"><span class="annot"><span class="annottext">Eq CustomRoutingAcceleratorStatus
+Eq CustomRoutingAcceleratorStatus
+-&gt; (CustomRoutingAcceleratorStatus
+    -&gt; CustomRoutingAcceleratorStatus -&gt; Ordering)
+-&gt; (CustomRoutingAcceleratorStatus
+    -&gt; CustomRoutingAcceleratorStatus -&gt; Bool)
+-&gt; (CustomRoutingAcceleratorStatus
+    -&gt; CustomRoutingAcceleratorStatus -&gt; Bool)
+-&gt; (CustomRoutingAcceleratorStatus
+    -&gt; CustomRoutingAcceleratorStatus -&gt; Bool)
+-&gt; (CustomRoutingAcceleratorStatus
+    -&gt; CustomRoutingAcceleratorStatus -&gt; Bool)
+-&gt; (CustomRoutingAcceleratorStatus
+    -&gt; CustomRoutingAcceleratorStatus
+    -&gt; CustomRoutingAcceleratorStatus)
+-&gt; (CustomRoutingAcceleratorStatus
+    -&gt; CustomRoutingAcceleratorStatus
+    -&gt; CustomRoutingAcceleratorStatus)
+-&gt; Ord CustomRoutingAcceleratorStatus
+CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Bool
+CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Ordering
+CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; CustomRoutingAcceleratorStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; CustomRoutingAcceleratorStatus
+$cmin :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; CustomRoutingAcceleratorStatus
+max :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; CustomRoutingAcceleratorStatus
+$cmax :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; CustomRoutingAcceleratorStatus
+&gt;= :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Bool
+$c&gt;= :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Bool
+&gt; :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Bool
+$c&gt; :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Bool
+&lt;= :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Bool
+$c&lt;= :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Bool
+&lt; :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Bool
+$c&lt; :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Bool
+compare :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Ordering
+$ccompare :: CustomRoutingAcceleratorStatus
+-&gt; CustomRoutingAcceleratorStatus -&gt; Ordering
+$cp1Ord :: Eq CustomRoutingAcceleratorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ CustomRoutingAcceleratorStatus
+ -&gt; Rep CustomRoutingAcceleratorStatus x)
+-&gt; (forall x.
+    Rep CustomRoutingAcceleratorStatus x
+    -&gt; CustomRoutingAcceleratorStatus)
+-&gt; Generic CustomRoutingAcceleratorStatus
+forall x.
+Rep CustomRoutingAcceleratorStatus x
+-&gt; CustomRoutingAcceleratorStatus
+forall x.
+CustomRoutingAcceleratorStatus
+-&gt; Rep CustomRoutingAcceleratorStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CustomRoutingAcceleratorStatus x
+-&gt; CustomRoutingAcceleratorStatus
+$cfrom :: forall x.
+CustomRoutingAcceleratorStatus
+-&gt; Rep CustomRoutingAcceleratorStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235792"><span id="local-6989586621679235794"><span class="annot"><span class="annottext">Int -&gt; CustomRoutingAcceleratorStatus -&gt; Int
+CustomRoutingAcceleratorStatus -&gt; Int
+(Int -&gt; CustomRoutingAcceleratorStatus -&gt; Int)
+-&gt; (CustomRoutingAcceleratorStatus -&gt; Int)
+-&gt; Hashable CustomRoutingAcceleratorStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CustomRoutingAcceleratorStatus -&gt; Int
+$chash :: CustomRoutingAcceleratorStatus -&gt; Int
+hashWithSalt :: Int -&gt; CustomRoutingAcceleratorStatus -&gt; Int
+$chashWithSalt :: Int -&gt; CustomRoutingAcceleratorStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679235789"><span class="annot"><span class="annottext">CustomRoutingAcceleratorStatus -&gt; ()
+(CustomRoutingAcceleratorStatus -&gt; ())
+-&gt; NFData CustomRoutingAcceleratorStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CustomRoutingAcceleratorStatus -&gt; ()
+$crnf :: CustomRoutingAcceleratorStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679235786"><span class="annot"><span class="annottext">Text -&gt; Either String CustomRoutingAcceleratorStatus
+(Text -&gt; Either String CustomRoutingAcceleratorStatus)
+-&gt; FromText CustomRoutingAcceleratorStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CustomRoutingAcceleratorStatus
+$cfromText :: Text -&gt; Either String CustomRoutingAcceleratorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679235783"><span class="annot"><span class="annottext">CustomRoutingAcceleratorStatus -&gt; Text
+(CustomRoutingAcceleratorStatus -&gt; Text)
+-&gt; ToText CustomRoutingAcceleratorStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CustomRoutingAcceleratorStatus -&gt; Text
+$ctoText :: CustomRoutingAcceleratorStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679235780"><span class="annot"><span class="annottext">CustomRoutingAcceleratorStatus -&gt; ByteString
+(CustomRoutingAcceleratorStatus -&gt; ByteString)
+-&gt; ToByteString CustomRoutingAcceleratorStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CustomRoutingAcceleratorStatus -&gt; ByteString
+$ctoBS :: CustomRoutingAcceleratorStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679235777"><span class="annot"><span class="annottext">CustomRoutingAcceleratorStatus -&gt; ByteStringBuilder
+(CustomRoutingAcceleratorStatus -&gt; ByteStringBuilder)
+-&gt; ToLog CustomRoutingAcceleratorStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CustomRoutingAcceleratorStatus -&gt; ByteStringBuilder
+$cbuild :: CustomRoutingAcceleratorStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679235774"><span class="annot"><span class="annottext">HeaderName -&gt; CustomRoutingAcceleratorStatus -&gt; [Header]
+(HeaderName -&gt; CustomRoutingAcceleratorStatus -&gt; [Header])
+-&gt; ToHeader CustomRoutingAcceleratorStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CustomRoutingAcceleratorStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CustomRoutingAcceleratorStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679235771"><span class="annot"><span class="annottext">CustomRoutingAcceleratorStatus -&gt; QueryString
+(CustomRoutingAcceleratorStatus -&gt; QueryString)
+-&gt; ToQuery CustomRoutingAcceleratorStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CustomRoutingAcceleratorStatus -&gt; QueryString
+$ctoQuery :: CustomRoutingAcceleratorStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679235766"><span id="local-6989586621679235768"><span class="annot"><span class="annottext">Value -&gt; Parser [CustomRoutingAcceleratorStatus]
+Value -&gt; Parser CustomRoutingAcceleratorStatus
+(Value -&gt; Parser CustomRoutingAcceleratorStatus)
+-&gt; (Value -&gt; Parser [CustomRoutingAcceleratorStatus])
+-&gt; FromJSON CustomRoutingAcceleratorStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CustomRoutingAcceleratorStatus]
+$cparseJSONList :: Value -&gt; Parser [CustomRoutingAcceleratorStatus]
+parseJSON :: Value -&gt; Parser CustomRoutingAcceleratorStatus
+$cparseJSON :: Value -&gt; Parser CustomRoutingAcceleratorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679235761"><span id="local-6989586621679235763"><span class="annot"><span class="annottext">FromJSONKeyFunction [CustomRoutingAcceleratorStatus]
+FromJSONKeyFunction CustomRoutingAcceleratorStatus
+FromJSONKeyFunction CustomRoutingAcceleratorStatus
+-&gt; FromJSONKeyFunction [CustomRoutingAcceleratorStatus]
+-&gt; FromJSONKey CustomRoutingAcceleratorStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CustomRoutingAcceleratorStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [CustomRoutingAcceleratorStatus]
+fromJSONKey :: FromJSONKeyFunction CustomRoutingAcceleratorStatus
+$cfromJSONKey :: FromJSONKeyFunction CustomRoutingAcceleratorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679235752"><span id="local-6989586621679235754"><span id="local-6989586621679235756"><span id="local-6989586621679235758"><span class="annot"><span class="annottext">[CustomRoutingAcceleratorStatus] -&gt; Encoding
+[CustomRoutingAcceleratorStatus] -&gt; Value
+CustomRoutingAcceleratorStatus -&gt; Encoding
+CustomRoutingAcceleratorStatus -&gt; Value
+(CustomRoutingAcceleratorStatus -&gt; Value)
+-&gt; (CustomRoutingAcceleratorStatus -&gt; Encoding)
+-&gt; ([CustomRoutingAcceleratorStatus] -&gt; Value)
+-&gt; ([CustomRoutingAcceleratorStatus] -&gt; Encoding)
+-&gt; ToJSON CustomRoutingAcceleratorStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CustomRoutingAcceleratorStatus] -&gt; Encoding
+$ctoEncodingList :: [CustomRoutingAcceleratorStatus] -&gt; Encoding
+toJSONList :: [CustomRoutingAcceleratorStatus] -&gt; Value
+$ctoJSONList :: [CustomRoutingAcceleratorStatus] -&gt; Value
+toEncoding :: CustomRoutingAcceleratorStatus -&gt; Encoding
+$ctoEncoding :: CustomRoutingAcceleratorStatus -&gt; Encoding
+toJSON :: CustomRoutingAcceleratorStatus -&gt; Value
+$ctoJSON :: CustomRoutingAcceleratorStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679235747"><span id="local-6989586621679235749"><span class="annot"><span class="annottext">ToJSONKeyFunction [CustomRoutingAcceleratorStatus]
+ToJSONKeyFunction CustomRoutingAcceleratorStatus
+ToJSONKeyFunction CustomRoutingAcceleratorStatus
+-&gt; ToJSONKeyFunction [CustomRoutingAcceleratorStatus]
+-&gt; ToJSONKey CustomRoutingAcceleratorStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CustomRoutingAcceleratorStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [CustomRoutingAcceleratorStatus]
+toJSONKey :: ToJSONKeyFunction CustomRoutingAcceleratorStatus
+$ctoJSONKey :: ToJSONKeyFunction CustomRoutingAcceleratorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679235744"><span class="annot"><span class="annottext">[Node] -&gt; Either String CustomRoutingAcceleratorStatus
+([Node] -&gt; Either String CustomRoutingAcceleratorStatus)
+-&gt; FromXML CustomRoutingAcceleratorStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CustomRoutingAcceleratorStatus
+$cparseXML :: [Node] -&gt; Either String CustomRoutingAcceleratorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679235741"><span class="annot"><span class="annottext">CustomRoutingAcceleratorStatus -&gt; XML
+(CustomRoutingAcceleratorStatus -&gt; XML)
+-&gt; ToXML CustomRoutingAcceleratorStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CustomRoutingAcceleratorStatus -&gt; XML
+$ctoXML :: CustomRoutingAcceleratorStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#CustomRoutingAcceleratorStatus_DEPLOYED"><span class="hs-identifier hs-type">CustomRoutingAcceleratorStatus_DEPLOYED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#CustomRoutingAcceleratorStatus"><span class="hs-identifier hs-type">CustomRoutingAcceleratorStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCustomRoutingAcceleratorStatus_DEPLOYED"><span id="%24mCustomRoutingAcceleratorStatus_DEPLOYED"><span id="CustomRoutingAcceleratorStatus_DEPLOYED"><span class="annot"><span class="annottext">$bCustomRoutingAcceleratorStatus_DEPLOYED :: CustomRoutingAcceleratorStatus
+$mCustomRoutingAcceleratorStatus_DEPLOYED :: forall r.
+CustomRoutingAcceleratorStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#%24bCustomRoutingAcceleratorStatus_DEPLOYED"><span class="hs-identifier hs-var hs-var hs-var">CustomRoutingAcceleratorStatus_DEPLOYED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#CustomRoutingAcceleratorStatus%27"><span class="hs-identifier hs-type">CustomRoutingAcceleratorStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEPLOYED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#CustomRoutingAcceleratorStatus_IN_PROGRESS"><span class="hs-identifier hs-type">CustomRoutingAcceleratorStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#CustomRoutingAcceleratorStatus"><span class="hs-identifier hs-type">CustomRoutingAcceleratorStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCustomRoutingAcceleratorStatus_IN_PROGRESS"><span id="%24mCustomRoutingAcceleratorStatus_IN_PROGRESS"><span id="CustomRoutingAcceleratorStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bCustomRoutingAcceleratorStatus_IN_PROGRESS :: CustomRoutingAcceleratorStatus
+$mCustomRoutingAcceleratorStatus_IN_PROGRESS :: forall r.
+CustomRoutingAcceleratorStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#%24bCustomRoutingAcceleratorStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">CustomRoutingAcceleratorStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#CustomRoutingAcceleratorStatus%27"><span class="hs-identifier hs-type">CustomRoutingAcceleratorStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#CustomRoutingAcceleratorStatus_DEPLOYED"><span class="hs-pragma hs-type">CustomRoutingAcceleratorStatus_DEPLOYED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#CustomRoutingAcceleratorStatus_IN_PROGRESS"><span class="hs-pragma hs-type">CustomRoutingAcceleratorStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#CustomRoutingAcceleratorStatus%27"><span class="hs-pragma hs-type">CustomRoutingAcceleratorStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

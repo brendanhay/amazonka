@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedCause.html"><span class="hs-identifier">Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedCause</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Provides the details of the @SignalExternalWorkflowExecutionFailed@</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- event.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSignalExternalWorkflowExecutionFailedEventAttributes' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679349787"><span id="local-6989586621679349788"></span></span><span class="hs-keyword">data</span><span> </span><span id="SignalExternalWorkflowExecutionFailedEventAttributes"><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-var">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var">SignalExternalWorkflowExecutionFailedEventAttributes'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The data attached to the event that the decider can use in subsequent</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- workflow tasks. This data isn\'t sent to the workflow execution.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Acontrol%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Maybe Text
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3Acontrol%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">control</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The @runId@ of the external workflow execution that the signal was being</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- delivered to.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ArunId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Maybe Text
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3ArunId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The @workflowId@ of the external workflow execution that the signal was</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- being delivered to.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AworkflowId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Text
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3AworkflowId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">workflowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The cause of the failure. This information is generated by the system</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- and can be useful for diagnostic purposes.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- If @cause@ is set to @OPERATION_NOT_PERMITTED@, the decision failed</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- because it lacked sufficient permissions. For details and example IAM</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- policies, see</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows&gt;</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Acause%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; SignalExternalWorkflowExecutionFailedCause
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3Acause%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedCause.html#SignalExternalWorkflowExecutionFailedCause"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedCause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- corresponding to the @SignalExternalWorkflowExecution@ decision to</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- request this signal. This information can be useful for diagnosing</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- problems by tracing back the chain of events leading up to this event.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AinitiatedEventId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Integer
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3AinitiatedEventId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">initiatedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The ID of the @DecisionTaskCompleted@ event corresponding to the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- decision task that resulted in the @SignalExternalWorkflowExecution@</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- decision for this signal. This information can be useful for diagnosing</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- problems by tracing back the chain of events leading up to this event.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdecisionTaskCompletedEventId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Integer
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3AdecisionTaskCompletedEventId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">decisionTaskCompletedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349776"><span id="local-6989586621679349778"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Bool
+(SignalExternalWorkflowExecutionFailedEventAttributes
+ -&gt; SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Bool)
+-&gt; (SignalExternalWorkflowExecutionFailedEventAttributes
+    -&gt; SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Bool)
+-&gt; Eq SignalExternalWorkflowExecutionFailedEventAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Bool
+$c/= :: SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Bool
+== :: SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Bool
+$c== :: SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349767"><span id="local-6989586621679349769"><span id="local-6989586621679349771"><span id="local-6989586621679349773"><span class="annot"><span class="annottext">ReadPrec [SignalExternalWorkflowExecutionFailedEventAttributes]
+ReadPrec SignalExternalWorkflowExecutionFailedEventAttributes
+Int -&gt; ReadS SignalExternalWorkflowExecutionFailedEventAttributes
+ReadS [SignalExternalWorkflowExecutionFailedEventAttributes]
+(Int -&gt; ReadS SignalExternalWorkflowExecutionFailedEventAttributes)
+-&gt; ReadS [SignalExternalWorkflowExecutionFailedEventAttributes]
+-&gt; ReadPrec SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; ReadPrec [SignalExternalWorkflowExecutionFailedEventAttributes]
+-&gt; Read SignalExternalWorkflowExecutionFailedEventAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SignalExternalWorkflowExecutionFailedEventAttributes]
+$creadListPrec :: ReadPrec [SignalExternalWorkflowExecutionFailedEventAttributes]
+readPrec :: ReadPrec SignalExternalWorkflowExecutionFailedEventAttributes
+$creadPrec :: ReadPrec SignalExternalWorkflowExecutionFailedEventAttributes
+readList :: ReadS [SignalExternalWorkflowExecutionFailedEventAttributes]
+$creadList :: ReadS [SignalExternalWorkflowExecutionFailedEventAttributes]
+readsPrec :: Int -&gt; ReadS SignalExternalWorkflowExecutionFailedEventAttributes
+$creadsPrec :: Int -&gt; ReadS SignalExternalWorkflowExecutionFailedEventAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349760"><span id="local-6989586621679349762"><span id="local-6989586621679349764"><span class="annot"><span class="annottext">Int
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes -&gt; ShowS
+[SignalExternalWorkflowExecutionFailedEventAttributes] -&gt; ShowS
+SignalExternalWorkflowExecutionFailedEventAttributes -&gt; String
+(Int
+ -&gt; SignalExternalWorkflowExecutionFailedEventAttributes -&gt; ShowS)
+-&gt; (SignalExternalWorkflowExecutionFailedEventAttributes -&gt; String)
+-&gt; ([SignalExternalWorkflowExecutionFailedEventAttributes]
+    -&gt; ShowS)
+-&gt; Show SignalExternalWorkflowExecutionFailedEventAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SignalExternalWorkflowExecutionFailedEventAttributes] -&gt; ShowS
+$cshowList :: [SignalExternalWorkflowExecutionFailedEventAttributes] -&gt; ShowS
+show :: SignalExternalWorkflowExecutionFailedEventAttributes -&gt; String
+$cshow :: SignalExternalWorkflowExecutionFailedEventAttributes -&gt; String
+showsPrec :: Int
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes -&gt; ShowS
+$cshowsPrec :: Int
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SignalExternalWorkflowExecutionFailedEventAttributes
+ -&gt; Rep SignalExternalWorkflowExecutionFailedEventAttributes x)
+-&gt; (forall x.
+    Rep SignalExternalWorkflowExecutionFailedEventAttributes x
+    -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+-&gt; Generic SignalExternalWorkflowExecutionFailedEventAttributes
+forall x.
+Rep SignalExternalWorkflowExecutionFailedEventAttributes x
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes
+forall x.
+SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; Rep SignalExternalWorkflowExecutionFailedEventAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SignalExternalWorkflowExecutionFailedEventAttributes x
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes
+$cfrom :: forall x.
+SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; Rep SignalExternalWorkflowExecutionFailedEventAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'SignalExternalWorkflowExecutionFailedEventAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'control', 'signalExternalWorkflowExecutionFailedEventAttributes_control' - The data attached to the event that the decider can use in subsequent</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- workflow tasks. This data isn\'t sent to the workflow execution.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'runId', 'signalExternalWorkflowExecutionFailedEventAttributes_runId' - The @runId@ of the external workflow execution that the signal was being</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- delivered to.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'workflowId', 'signalExternalWorkflowExecutionFailedEventAttributes_workflowId' - The @workflowId@ of the external workflow execution that the signal was</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- being delivered to.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'cause', 'signalExternalWorkflowExecutionFailedEventAttributes_cause' - The cause of the failure. This information is generated by the system</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- and can be useful for diagnostic purposes.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- If @cause@ is set to @OPERATION_NOT_PERMITTED@, the decision failed</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- because it lacked sufficient permissions. For details and example IAM</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- policies, see</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows&gt;</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'initiatedEventId', 'signalExternalWorkflowExecutionFailedEventAttributes_initiatedEventId' - The ID of the @SignalExternalWorkflowExecutionInitiated@ event</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- corresponding to the @SignalExternalWorkflowExecution@ decision to</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- request this signal. This information can be useful for diagnosing</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- problems by tracing back the chain of events leading up to this event.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'decisionTaskCompletedEventId', 'signalExternalWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- decision task that resulted in the @SignalExternalWorkflowExecution@</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- decision for this signal. This information can be useful for diagnosing</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- problems by tracing back the chain of events leading up to this event.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#newSignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">newSignalExternalWorkflowExecutionFailedEventAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'workflowId'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'cause'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedCause.html#SignalExternalWorkflowExecutionFailedCause"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedCause</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'initiatedEventId'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'decisionTaskCompletedEventId'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span><span>
+</span><span id="line-108"></span><span id="newSignalExternalWorkflowExecutionFailedEventAttributes"><span class="annot"><span class="annottext">newSignalExternalWorkflowExecutionFailedEventAttributes :: Text
+-&gt; SignalExternalWorkflowExecutionFailedCause
+-&gt; Integer
+-&gt; Integer
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#newSignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-var hs-var">newSignalExternalWorkflowExecutionFailedEventAttributes</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679349754"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349754"><span class="hs-identifier hs-var">pWorkflowId_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679349753"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause
+</span><a href="#local-6989586621679349753"><span class="hs-identifier hs-var">pCause_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679349752"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679349752"><span class="hs-identifier hs-var">pInitiatedEventId_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679349751"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679349751"><span class="hs-identifier hs-var">pDecisionTaskCompletedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedEventAttributes' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; SignalExternalWorkflowExecutionFailedCause
+-&gt; Integer
+-&gt; Integer
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes'</span></a></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:control:SignalExternalWorkflowExecutionFailedEventAttributes' :: Maybe Text
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3Acontrol%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var">control</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:runId:SignalExternalWorkflowExecutionFailedEventAttributes' :: Maybe Text
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3ArunId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:workflowId:SignalExternalWorkflowExecutionFailedEventAttributes' :: Text
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3AworkflowId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var">workflowId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349754"><span class="hs-identifier hs-var">pWorkflowId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:cause:SignalExternalWorkflowExecutionFailedEventAttributes' :: SignalExternalWorkflowExecutionFailedCause
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3Acause%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause
+</span><a href="#local-6989586621679349753"><span class="hs-identifier hs-var">pCause_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:initiatedEventId:SignalExternalWorkflowExecutionFailedEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3AinitiatedEventId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679349752"><span class="hs-identifier hs-var">pInitiatedEventId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:decisionTaskCompletedEventId:SignalExternalWorkflowExecutionFailedEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3AdecisionTaskCompletedEventId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var">decisionTaskCompletedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679349751"><span class="hs-identifier hs-var">pDecisionTaskCompletedEventId_</span></a></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The data attached to the event that the decider can use in subsequent</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- workflow tasks. This data isn\'t sent to the workflow execution.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#signalExternalWorkflowExecutionFailedEventAttributes_control"><span class="hs-identifier hs-type">signalExternalWorkflowExecutionFailedEventAttributes_control</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="signalExternalWorkflowExecutionFailedEventAttributes_control"><span class="annot"><span class="annottext">signalExternalWorkflowExecutionFailedEventAttributes_control :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; f SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#signalExternalWorkflowExecutionFailedEventAttributes_control"><span class="hs-identifier hs-var hs-var">signalExternalWorkflowExecutionFailedEventAttributes_control</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignalExternalWorkflowExecutionFailedEventAttributes
+ -&gt; Maybe Text)
+-&gt; (SignalExternalWorkflowExecutionFailedEventAttributes
+    -&gt; Maybe Text
+    -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+-&gt; Lens
+     SignalExternalWorkflowExecutionFailedEventAttributes
+     SignalExternalWorkflowExecutionFailedEventAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349747"><span class="annot"><span class="annottext">Maybe Text
+control :: Maybe Text
+$sel:control:SignalExternalWorkflowExecutionFailedEventAttributes' :: SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679349747"><span class="hs-identifier hs-var hs-var">control</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349747"><span class="hs-identifier hs-var">control</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349746"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="#local-6989586621679349746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349745"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="#local-6989586621679349746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:control:SignalExternalWorkflowExecutionFailedEventAttributes' :: Maybe Text
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3Acontrol%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var">control</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The @runId@ of the external workflow execution that the signal was being</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- delivered to.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#signalExternalWorkflowExecutionFailedEventAttributes_runId"><span class="hs-identifier hs-type">signalExternalWorkflowExecutionFailedEventAttributes_runId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="signalExternalWorkflowExecutionFailedEventAttributes_runId"><span class="annot"><span class="annottext">signalExternalWorkflowExecutionFailedEventAttributes_runId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; f SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#signalExternalWorkflowExecutionFailedEventAttributes_runId"><span class="hs-identifier hs-var hs-var">signalExternalWorkflowExecutionFailedEventAttributes_runId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignalExternalWorkflowExecutionFailedEventAttributes
+ -&gt; Maybe Text)
+-&gt; (SignalExternalWorkflowExecutionFailedEventAttributes
+    -&gt; Maybe Text
+    -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+-&gt; Lens
+     SignalExternalWorkflowExecutionFailedEventAttributes
+     SignalExternalWorkflowExecutionFailedEventAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349743"><span class="annot"><span class="annottext">Maybe Text
+runId :: Maybe Text
+$sel:runId:SignalExternalWorkflowExecutionFailedEventAttributes' :: SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679349743"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349743"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349742"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="#local-6989586621679349742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349741"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="#local-6989586621679349742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:SignalExternalWorkflowExecutionFailedEventAttributes' :: Maybe Text
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3ArunId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The @workflowId@ of the external workflow execution that the signal was</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- being delivered to.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#signalExternalWorkflowExecutionFailedEventAttributes_workflowId"><span class="hs-identifier hs-type">signalExternalWorkflowExecutionFailedEventAttributes_workflowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-140"></span><span id="signalExternalWorkflowExecutionFailedEventAttributes_workflowId"><span class="annot"><span class="annottext">signalExternalWorkflowExecutionFailedEventAttributes_workflowId :: (Text -&gt; f Text)
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; f SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#signalExternalWorkflowExecutionFailedEventAttributes_workflowId"><span class="hs-identifier hs-var hs-var">signalExternalWorkflowExecutionFailedEventAttributes_workflowId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Text)
+-&gt; (SignalExternalWorkflowExecutionFailedEventAttributes
+    -&gt; Text -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+-&gt; Lens
+     SignalExternalWorkflowExecutionFailedEventAttributes
+     SignalExternalWorkflowExecutionFailedEventAttributes
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349739"><span class="annot"><span class="annottext">Text
+workflowId :: Text
+$sel:workflowId:SignalExternalWorkflowExecutionFailedEventAttributes' :: SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Text
+</span><a href="#local-6989586621679349739"><span class="hs-identifier hs-var hs-var">workflowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349739"><span class="hs-identifier hs-var">workflowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349738"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="#local-6989586621679349738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349737"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="#local-6989586621679349738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowId:SignalExternalWorkflowExecutionFailedEventAttributes' :: Text
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3AworkflowId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var">workflowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The cause of the failure. This information is generated by the system</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- and can be useful for diagnostic purposes.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- If @cause@ is set to @OPERATION_NOT_PERMITTED@, the decision failed</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- because it lacked sufficient permissions. For details and example IAM</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- policies, see</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows&gt;</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#signalExternalWorkflowExecutionFailedEventAttributes_cause"><span class="hs-identifier hs-type">signalExternalWorkflowExecutionFailedEventAttributes_cause</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedCause.html#SignalExternalWorkflowExecutionFailedCause"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedCause</span></a></span><span>
+</span><span id="line-151"></span><span id="signalExternalWorkflowExecutionFailedEventAttributes_cause"><span class="annot"><span class="annottext">signalExternalWorkflowExecutionFailedEventAttributes_cause :: (SignalExternalWorkflowExecutionFailedCause
+ -&gt; f SignalExternalWorkflowExecutionFailedCause)
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; f SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#signalExternalWorkflowExecutionFailedEventAttributes_cause"><span class="hs-identifier hs-var hs-var">signalExternalWorkflowExecutionFailedEventAttributes_cause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignalExternalWorkflowExecutionFailedEventAttributes
+ -&gt; SignalExternalWorkflowExecutionFailedCause)
+-&gt; (SignalExternalWorkflowExecutionFailedEventAttributes
+    -&gt; SignalExternalWorkflowExecutionFailedCause
+    -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+-&gt; Lens
+     SignalExternalWorkflowExecutionFailedEventAttributes
+     SignalExternalWorkflowExecutionFailedEventAttributes
+     SignalExternalWorkflowExecutionFailedCause
+     SignalExternalWorkflowExecutionFailedCause
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349735"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause
+cause :: SignalExternalWorkflowExecutionFailedCause
+$sel:cause:SignalExternalWorkflowExecutionFailedEventAttributes' :: SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; SignalExternalWorkflowExecutionFailedCause
+</span><a href="#local-6989586621679349735"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause
+</span><a href="#local-6989586621679349735"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349734"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="#local-6989586621679349734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349733"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause
+</span><a href="#local-6989586621679349733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="#local-6989586621679349734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cause:SignalExternalWorkflowExecutionFailedEventAttributes' :: SignalExternalWorkflowExecutionFailedCause
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3Acause%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause
+</span><a href="#local-6989586621679349733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- corresponding to the @SignalExternalWorkflowExecution@ decision to</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- request this signal. This information can be useful for diagnosing</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- problems by tracing back the chain of events leading up to this event.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#signalExternalWorkflowExecutionFailedEventAttributes_initiatedEventId"><span class="hs-identifier hs-type">signalExternalWorkflowExecutionFailedEventAttributes_initiatedEventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-158"></span><span id="signalExternalWorkflowExecutionFailedEventAttributes_initiatedEventId"><span class="annot"><span class="annottext">signalExternalWorkflowExecutionFailedEventAttributes_initiatedEventId :: (Integer -&gt; f Integer)
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; f SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#signalExternalWorkflowExecutionFailedEventAttributes_initiatedEventId"><span class="hs-identifier hs-var hs-var">signalExternalWorkflowExecutionFailedEventAttributes_initiatedEventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Integer)
+-&gt; (SignalExternalWorkflowExecutionFailedEventAttributes
+    -&gt; Integer -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+-&gt; Lens
+     SignalExternalWorkflowExecutionFailedEventAttributes
+     SignalExternalWorkflowExecutionFailedEventAttributes
+     Integer
+     Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349731"><span class="annot"><span class="annottext">Integer
+initiatedEventId :: Integer
+$sel:initiatedEventId:SignalExternalWorkflowExecutionFailedEventAttributes' :: SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Integer
+</span><a href="#local-6989586621679349731"><span class="hs-identifier hs-var hs-var">initiatedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679349731"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349730"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="#local-6989586621679349730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349729"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679349729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="#local-6989586621679349730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiatedEventId:SignalExternalWorkflowExecutionFailedEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3AinitiatedEventId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679349729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The ID of the @DecisionTaskCompleted@ event corresponding to the</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- decision task that resulted in the @SignalExternalWorkflowExecution@</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- decision for this signal. This information can be useful for diagnosing</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- problems by tracing back the chain of events leading up to this event.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#signalExternalWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId"><span class="hs-identifier hs-type">signalExternalWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-165"></span><span id="signalExternalWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId"><span class="annot"><span class="annottext">signalExternalWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId :: (Integer -&gt; f Integer)
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes
+-&gt; f SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#signalExternalWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId"><span class="hs-identifier hs-var hs-var">signalExternalWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Integer)
+-&gt; (SignalExternalWorkflowExecutionFailedEventAttributes
+    -&gt; Integer -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+-&gt; Lens
+     SignalExternalWorkflowExecutionFailedEventAttributes
+     SignalExternalWorkflowExecutionFailedEventAttributes
+     Integer
+     Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349727"><span class="annot"><span class="annottext">Integer
+decisionTaskCompletedEventId :: Integer
+$sel:decisionTaskCompletedEventId:SignalExternalWorkflowExecutionFailedEventAttributes' :: SignalExternalWorkflowExecutionFailedEventAttributes -&gt; Integer
+</span><a href="#local-6989586621679349727"><span class="hs-identifier hs-var hs-var">decisionTaskCompletedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679349727"><span class="hs-identifier hs-var">decisionTaskCompletedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349726"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="#local-6989586621679349726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349725"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679349725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="#local-6989586621679349726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:decisionTaskCompletedEventId:SignalExternalWorkflowExecutionFailedEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#%24sel%3AdecisionTaskCompletedEventId%3ASignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var">decisionTaskCompletedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679349725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679349722"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679349720"><span class="annot"><span class="annottext">parseJSON :: Value
+-&gt; Parser SignalExternalWorkflowExecutionFailedEventAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object
+    -&gt; Parser SignalExternalWorkflowExecutionFailedEventAttributes)
+-&gt; Value
+-&gt; Parser SignalExternalWorkflowExecutionFailedEventAttributes
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SignalExternalWorkflowExecutionFailedEventAttributes&quot;</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349717"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; SignalExternalWorkflowExecutionFailedCause
+-&gt; Integer
+-&gt; Integer
+-&gt; SignalExternalWorkflowExecutionFailedEventAttributes
+</span><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes%27"><span class="hs-identifier hs-var">SignalExternalWorkflowExecutionFailedEventAttributes'</span></a></span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; SignalExternalWorkflowExecutionFailedCause
+ -&gt; Integer
+ -&gt; Integer
+ -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Text
+      -&gt; SignalExternalWorkflowExecutionFailedCause
+      -&gt; Integer
+      -&gt; Integer
+      -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;control&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Text
+   -&gt; SignalExternalWorkflowExecutionFailedCause
+   -&gt; Integer
+   -&gt; Integer
+   -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Text
+      -&gt; SignalExternalWorkflowExecutionFailedCause
+      -&gt; Integer
+      -&gt; Integer
+      -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;runId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; SignalExternalWorkflowExecutionFailedCause
+   -&gt; Integer
+   -&gt; Integer
+   -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+-&gt; Parser Text
+-&gt; Parser
+     (SignalExternalWorkflowExecutionFailedCause
+      -&gt; Integer
+      -&gt; Integer
+      -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workflowId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (SignalExternalWorkflowExecutionFailedCause
+   -&gt; Integer
+   -&gt; Integer
+   -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+-&gt; Parser SignalExternalWorkflowExecutionFailedCause
+-&gt; Parser
+     (Integer
+      -&gt; Integer -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SignalExternalWorkflowExecutionFailedCause
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cause&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Integer
+   -&gt; Integer -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+-&gt; Parser Integer
+-&gt; Parser
+     (Integer -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;initiatedEventId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Integer -&gt; SignalExternalWorkflowExecutionFailedEventAttributes)
+-&gt; Parser Integer
+-&gt; Parser SignalExternalWorkflowExecutionFailedEventAttributes
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;decisionTaskCompletedEventId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679349710"><span id="local-6989586621679349712"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span></span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679349707"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes.html#SignalExternalWorkflowExecutionFailedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionFailedEventAttributes</span></a></span></span><span>
+</span><span id="line-191"></span></pre></body></html>

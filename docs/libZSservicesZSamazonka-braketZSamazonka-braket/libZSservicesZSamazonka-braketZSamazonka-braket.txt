@@ -5,89 +5,89 @@
 @version 2.0
 
 
-module Network.AWS.Braket.Types.CancellationStatus
+module Amazonka.Braket.Types.CancellationStatus
 newtype CancellationStatus
 CancellationStatus' :: Text -> CancellationStatus
 [fromCancellationStatus] :: CancellationStatus -> Text
 pattern CancellationStatus_CANCELLED :: CancellationStatus
 pattern CancellationStatus_CANCELLING :: CancellationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance Control.DeepSeq.NFData Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance GHC.Generics.Generic Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance GHC.Classes.Ord Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance GHC.Classes.Eq Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance GHC.Read.Read Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
-instance GHC.Show.Show Network.AWS.Braket.Types.CancellationStatus.CancellationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance Amazonka.Data.Text.ToText Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance Amazonka.Data.Text.FromText Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance Control.DeepSeq.NFData Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance Data.Hashable.Class.Hashable Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance GHC.Generics.Generic Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance GHC.Classes.Ord Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance GHC.Classes.Eq Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance GHC.Read.Read Amazonka.Braket.Types.CancellationStatus.CancellationStatus
+instance GHC.Show.Show Amazonka.Braket.Types.CancellationStatus.CancellationStatus
 
 
-module Network.AWS.Braket.Types.DeviceStatus
+module Amazonka.Braket.Types.DeviceStatus
 newtype DeviceStatus
 DeviceStatus' :: Text -> DeviceStatus
 [fromDeviceStatus] :: DeviceStatus -> Text
 pattern DeviceStatus_OFFLINE :: DeviceStatus
 pattern DeviceStatus_ONLINE :: DeviceStatus
 pattern DeviceStatus_RETIRED :: DeviceStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance Control.DeepSeq.NFData Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance GHC.Generics.Generic Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance GHC.Classes.Ord Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance GHC.Classes.Eq Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance GHC.Read.Read Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
-instance GHC.Show.Show Network.AWS.Braket.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.Text.ToText Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance Amazonka.Data.Text.FromText Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance Control.DeepSeq.NFData Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance Data.Hashable.Class.Hashable Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance GHC.Generics.Generic Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance GHC.Classes.Ord Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance GHC.Classes.Eq Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance GHC.Read.Read Amazonka.Braket.Types.DeviceStatus.DeviceStatus
+instance GHC.Show.Show Amazonka.Braket.Types.DeviceStatus.DeviceStatus
 
 
-module Network.AWS.Braket.Types.DeviceType
+module Amazonka.Braket.Types.DeviceType
 newtype DeviceType
 DeviceType' :: Text -> DeviceType
 [fromDeviceType] :: DeviceType -> Text
 pattern DeviceType_QPU :: DeviceType
 pattern DeviceType_SIMULATOR :: DeviceType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Braket.Types.DeviceType.DeviceType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Braket.Types.DeviceType.DeviceType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Braket.Types.DeviceType.DeviceType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Braket.Types.DeviceType.DeviceType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Braket.Types.DeviceType.DeviceType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Braket.Types.DeviceType.DeviceType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Braket.Types.DeviceType.DeviceType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Braket.Types.DeviceType.DeviceType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Braket.Types.DeviceType.DeviceType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Braket.Types.DeviceType.DeviceType
-instance Network.AWS.Data.Text.ToText Network.AWS.Braket.Types.DeviceType.DeviceType
-instance Network.AWS.Data.Text.FromText Network.AWS.Braket.Types.DeviceType.DeviceType
-instance Control.DeepSeq.NFData Network.AWS.Braket.Types.DeviceType.DeviceType
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.Types.DeviceType.DeviceType
-instance GHC.Generics.Generic Network.AWS.Braket.Types.DeviceType.DeviceType
-instance GHC.Classes.Ord Network.AWS.Braket.Types.DeviceType.DeviceType
-instance GHC.Classes.Eq Network.AWS.Braket.Types.DeviceType.DeviceType
-instance GHC.Read.Read Network.AWS.Braket.Types.DeviceType.DeviceType
-instance GHC.Show.Show Network.AWS.Braket.Types.DeviceType.DeviceType
+instance Amazonka.Data.XML.ToXML Amazonka.Braket.Types.DeviceType.DeviceType
+instance Amazonka.Data.XML.FromXML Amazonka.Braket.Types.DeviceType.DeviceType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Braket.Types.DeviceType.DeviceType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Braket.Types.DeviceType.DeviceType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Braket.Types.DeviceType.DeviceType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Braket.Types.DeviceType.DeviceType
+instance Amazonka.Data.Query.ToQuery Amazonka.Braket.Types.DeviceType.DeviceType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Braket.Types.DeviceType.DeviceType
+instance Amazonka.Data.Log.ToLog Amazonka.Braket.Types.DeviceType.DeviceType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Braket.Types.DeviceType.DeviceType
+instance Amazonka.Data.Text.ToText Amazonka.Braket.Types.DeviceType.DeviceType
+instance Amazonka.Data.Text.FromText Amazonka.Braket.Types.DeviceType.DeviceType
+instance Control.DeepSeq.NFData Amazonka.Braket.Types.DeviceType.DeviceType
+instance Data.Hashable.Class.Hashable Amazonka.Braket.Types.DeviceType.DeviceType
+instance GHC.Generics.Generic Amazonka.Braket.Types.DeviceType.DeviceType
+instance GHC.Classes.Ord Amazonka.Braket.Types.DeviceType.DeviceType
+instance GHC.Classes.Eq Amazonka.Braket.Types.DeviceType.DeviceType
+instance GHC.Read.Read Amazonka.Braket.Types.DeviceType.DeviceType
+instance GHC.Show.Show Amazonka.Braket.Types.DeviceType.DeviceType
 
 
-module Network.AWS.Braket.Types.DeviceSummary
+module Amazonka.Braket.Types.DeviceSummary
 
 -- | Includes information about the device.
 --   
@@ -149,16 +149,16 @@ deviceSummary_deviceType :: Lens' DeviceSummary DeviceType
 
 -- | The provider of the device.
 deviceSummary_providerName :: Lens' DeviceSummary Text
-instance GHC.Generics.Generic Network.AWS.Braket.Types.DeviceSummary.DeviceSummary
-instance GHC.Show.Show Network.AWS.Braket.Types.DeviceSummary.DeviceSummary
-instance GHC.Read.Read Network.AWS.Braket.Types.DeviceSummary.DeviceSummary
-instance GHC.Classes.Eq Network.AWS.Braket.Types.DeviceSummary.DeviceSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Braket.Types.DeviceSummary.DeviceSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.Types.DeviceSummary.DeviceSummary
-instance Control.DeepSeq.NFData Network.AWS.Braket.Types.DeviceSummary.DeviceSummary
+instance GHC.Generics.Generic Amazonka.Braket.Types.DeviceSummary.DeviceSummary
+instance GHC.Show.Show Amazonka.Braket.Types.DeviceSummary.DeviceSummary
+instance GHC.Read.Read Amazonka.Braket.Types.DeviceSummary.DeviceSummary
+instance GHC.Classes.Eq Amazonka.Braket.Types.DeviceSummary.DeviceSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Braket.Types.DeviceSummary.DeviceSummary
+instance Data.Hashable.Class.Hashable Amazonka.Braket.Types.DeviceSummary.DeviceSummary
+instance Control.DeepSeq.NFData Amazonka.Braket.Types.DeviceSummary.DeviceSummary
 
 
-module Network.AWS.Braket.Types.QuantumTaskStatus
+module Amazonka.Braket.Types.QuantumTaskStatus
 newtype QuantumTaskStatus
 QuantumTaskStatus' :: Text -> QuantumTaskStatus
 [fromQuantumTaskStatus] :: QuantumTaskStatus -> Text
@@ -169,28 +169,28 @@ pattern QuantumTaskStatus_CREATED :: QuantumTaskStatus
 pattern QuantumTaskStatus_FAILED :: QuantumTaskStatus
 pattern QuantumTaskStatus_QUEUED :: QuantumTaskStatus
 pattern QuantumTaskStatus_RUNNING :: QuantumTaskStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance Control.DeepSeq.NFData Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance GHC.Generics.Generic Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance GHC.Classes.Ord Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance GHC.Classes.Eq Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance GHC.Read.Read Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
-instance GHC.Show.Show Network.AWS.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance Amazonka.Data.Text.ToText Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance Amazonka.Data.Text.FromText Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance Control.DeepSeq.NFData Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance Data.Hashable.Class.Hashable Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance GHC.Generics.Generic Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance GHC.Classes.Ord Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance GHC.Classes.Eq Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance GHC.Read.Read Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
+instance GHC.Show.Show Amazonka.Braket.Types.QuantumTaskStatus.QuantumTaskStatus
 
 
-module Network.AWS.Braket.Types.QuantumTaskSummary
+module Amazonka.Braket.Types.QuantumTaskSummary
 
 -- | Includes information about a quantum task.
 --   
@@ -296,16 +296,16 @@ quantumTaskSummary_shots :: Lens' QuantumTaskSummary Integer
 
 -- | The status of the task.
 quantumTaskSummary_status :: Lens' QuantumTaskSummary QuantumTaskStatus
-instance GHC.Generics.Generic Network.AWS.Braket.Types.QuantumTaskSummary.QuantumTaskSummary
-instance GHC.Show.Show Network.AWS.Braket.Types.QuantumTaskSummary.QuantumTaskSummary
-instance GHC.Read.Read Network.AWS.Braket.Types.QuantumTaskSummary.QuantumTaskSummary
-instance GHC.Classes.Eq Network.AWS.Braket.Types.QuantumTaskSummary.QuantumTaskSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Braket.Types.QuantumTaskSummary.QuantumTaskSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.Types.QuantumTaskSummary.QuantumTaskSummary
-instance Control.DeepSeq.NFData Network.AWS.Braket.Types.QuantumTaskSummary.QuantumTaskSummary
+instance GHC.Generics.Generic Amazonka.Braket.Types.QuantumTaskSummary.QuantumTaskSummary
+instance GHC.Show.Show Amazonka.Braket.Types.QuantumTaskSummary.QuantumTaskSummary
+instance GHC.Read.Read Amazonka.Braket.Types.QuantumTaskSummary.QuantumTaskSummary
+instance GHC.Classes.Eq Amazonka.Braket.Types.QuantumTaskSummary.QuantumTaskSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Braket.Types.QuantumTaskSummary.QuantumTaskSummary
+instance Data.Hashable.Class.Hashable Amazonka.Braket.Types.QuantumTaskSummary.QuantumTaskSummary
+instance Control.DeepSeq.NFData Amazonka.Braket.Types.QuantumTaskSummary.QuantumTaskSummary
 
 
-module Network.AWS.Braket.Types.SearchDevicesFilter
+module Amazonka.Braket.Types.SearchDevicesFilter
 
 -- | The filter to use for searching devices.
 --   
@@ -341,16 +341,16 @@ searchDevicesFilter_name :: Lens' SearchDevicesFilter Text
 
 -- | The values to use to filter results.
 searchDevicesFilter_values :: Lens' SearchDevicesFilter (NonEmpty Text)
-instance GHC.Generics.Generic Network.AWS.Braket.Types.SearchDevicesFilter.SearchDevicesFilter
-instance GHC.Show.Show Network.AWS.Braket.Types.SearchDevicesFilter.SearchDevicesFilter
-instance GHC.Read.Read Network.AWS.Braket.Types.SearchDevicesFilter.SearchDevicesFilter
-instance GHC.Classes.Eq Network.AWS.Braket.Types.SearchDevicesFilter.SearchDevicesFilter
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.Types.SearchDevicesFilter.SearchDevicesFilter
-instance Control.DeepSeq.NFData Network.AWS.Braket.Types.SearchDevicesFilter.SearchDevicesFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Braket.Types.SearchDevicesFilter.SearchDevicesFilter
+instance GHC.Generics.Generic Amazonka.Braket.Types.SearchDevicesFilter.SearchDevicesFilter
+instance GHC.Show.Show Amazonka.Braket.Types.SearchDevicesFilter.SearchDevicesFilter
+instance GHC.Read.Read Amazonka.Braket.Types.SearchDevicesFilter.SearchDevicesFilter
+instance GHC.Classes.Eq Amazonka.Braket.Types.SearchDevicesFilter.SearchDevicesFilter
+instance Data.Hashable.Class.Hashable Amazonka.Braket.Types.SearchDevicesFilter.SearchDevicesFilter
+instance Control.DeepSeq.NFData Amazonka.Braket.Types.SearchDevicesFilter.SearchDevicesFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Braket.Types.SearchDevicesFilter.SearchDevicesFilter
 
 
-module Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator
+module Amazonka.Braket.Types.SearchQuantumTasksFilterOperator
 newtype SearchQuantumTasksFilterOperator
 SearchQuantumTasksFilterOperator' :: Text -> SearchQuantumTasksFilterOperator
 [fromSearchQuantumTasksFilterOperator] :: SearchQuantumTasksFilterOperator -> Text
@@ -360,28 +360,28 @@ pattern SearchQuantumTasksFilterOperator_GT :: SearchQuantumTasksFilterOperator
 pattern SearchQuantumTasksFilterOperator_GTE :: SearchQuantumTasksFilterOperator
 pattern SearchQuantumTasksFilterOperator_LT :: SearchQuantumTasksFilterOperator
 pattern SearchQuantumTasksFilterOperator_LTE :: SearchQuantumTasksFilterOperator
-instance Network.AWS.Data.XML.ToXML Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance Network.AWS.Data.XML.FromXML Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance Network.AWS.Data.Log.ToLog Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance Network.AWS.Data.Text.ToText Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance Network.AWS.Data.Text.FromText Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance Control.DeepSeq.NFData Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance GHC.Generics.Generic Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance GHC.Classes.Ord Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance GHC.Classes.Eq Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance GHC.Read.Read Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
-instance GHC.Show.Show Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance Amazonka.Data.XML.ToXML Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance Amazonka.Data.XML.FromXML Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance Amazonka.Data.Query.ToQuery Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance Amazonka.Data.Headers.ToHeader Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance Amazonka.Data.Log.ToLog Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance Amazonka.Data.Text.ToText Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance Amazonka.Data.Text.FromText Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance Control.DeepSeq.NFData Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance Data.Hashable.Class.Hashable Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance GHC.Generics.Generic Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance GHC.Classes.Ord Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance GHC.Classes.Eq Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance GHC.Read.Read Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
+instance GHC.Show.Show Amazonka.Braket.Types.SearchQuantumTasksFilterOperator.SearchQuantumTasksFilterOperator
 
 
-module Network.AWS.Braket.Types.SearchQuantumTasksFilter
+module Amazonka.Braket.Types.SearchQuantumTasksFilter
 
 -- | A filter to use to search for tasks.
 --   
@@ -428,16 +428,16 @@ searchQuantumTasksFilter_operator :: Lens' SearchQuantumTasksFilter SearchQuantu
 
 -- | The values to use for the filter.
 searchQuantumTasksFilter_values :: Lens' SearchQuantumTasksFilter (NonEmpty Text)
-instance GHC.Generics.Generic Network.AWS.Braket.Types.SearchQuantumTasksFilter.SearchQuantumTasksFilter
-instance GHC.Show.Show Network.AWS.Braket.Types.SearchQuantumTasksFilter.SearchQuantumTasksFilter
-instance GHC.Read.Read Network.AWS.Braket.Types.SearchQuantumTasksFilter.SearchQuantumTasksFilter
-instance GHC.Classes.Eq Network.AWS.Braket.Types.SearchQuantumTasksFilter.SearchQuantumTasksFilter
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.Types.SearchQuantumTasksFilter.SearchQuantumTasksFilter
-instance Control.DeepSeq.NFData Network.AWS.Braket.Types.SearchQuantumTasksFilter.SearchQuantumTasksFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Braket.Types.SearchQuantumTasksFilter.SearchQuantumTasksFilter
+instance GHC.Generics.Generic Amazonka.Braket.Types.SearchQuantumTasksFilter.SearchQuantumTasksFilter
+instance GHC.Show.Show Amazonka.Braket.Types.SearchQuantumTasksFilter.SearchQuantumTasksFilter
+instance GHC.Read.Read Amazonka.Braket.Types.SearchQuantumTasksFilter.SearchQuantumTasksFilter
+instance GHC.Classes.Eq Amazonka.Braket.Types.SearchQuantumTasksFilter.SearchQuantumTasksFilter
+instance Data.Hashable.Class.Hashable Amazonka.Braket.Types.SearchQuantumTasksFilter.SearchQuantumTasksFilter
+instance Control.DeepSeq.NFData Amazonka.Braket.Types.SearchQuantumTasksFilter.SearchQuantumTasksFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Braket.Types.SearchQuantumTasksFilter.SearchQuantumTasksFilter
 
 
-module Network.AWS.Braket.Types
+module Amazonka.Braket.Types
 
 -- | API version <tt>2019-09-01</tt> of the Amazon Braket SDK
 --   configuration.
@@ -756,7 +756,7 @@ searchQuantumTasksFilter_values :: Lens' SearchQuantumTasksFilter (NonEmpty Text
 
 
 -- | Add a tag to the specified resource.
-module Network.AWS.Braket.TagResource
+module Amazonka.Braket.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -815,28 +815,28 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Braket.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.Braket.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.Braket.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.Braket.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.Braket.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.Braket.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.Braket.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Braket.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Braket.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Braket.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Braket.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Braket.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Braket.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Braket.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Braket.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Braket.TagResource.TagResource
+instance GHC.Show.Show Amazonka.Braket.TagResource.TagResource
+instance GHC.Read.Read Amazonka.Braket.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.Braket.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Braket.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.Braket.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.Braket.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.Braket.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Braket.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Braket.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Braket.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Braket.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Braket.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Braket.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Braket.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Braket.TagResource.TagResource
 
 
 -- | Searches for tasks that match the specified filter values.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Braket.SearchQuantumTasks
+module Amazonka.Braket.SearchQuantumTasks
 
 -- | <i>See:</i> <a>newSearchQuantumTasks</a> smart constructor.
 data SearchQuantumTasks
@@ -939,29 +939,29 @@ searchQuantumTasksResponse_httpStatus :: Lens' SearchQuantumTasksResponse Int
 -- | An array of <tt>QuantumTaskSummary</tt> objects for tasks that match
 --   the specified filters.
 searchQuantumTasksResponse_quantumTasks :: Lens' SearchQuantumTasksResponse [QuantumTaskSummary]
-instance GHC.Generics.Generic Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasks
-instance GHC.Show.Show Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasks
-instance GHC.Read.Read Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasks
-instance GHC.Classes.Eq Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasks
-instance GHC.Generics.Generic Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasksResponse
-instance GHC.Show.Show Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasksResponse
-instance GHC.Read.Read Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasksResponse
-instance GHC.Classes.Eq Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasksResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasks
-instance Control.DeepSeq.NFData Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasksResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasks
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasks
-instance Control.DeepSeq.NFData Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasks
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasks
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasks
-instance Network.AWS.Data.Path.ToPath Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasks
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Braket.SearchQuantumTasks.SearchQuantumTasks
+instance GHC.Generics.Generic Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasks
+instance GHC.Show.Show Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasks
+instance GHC.Read.Read Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasks
+instance GHC.Classes.Eq Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasks
+instance GHC.Generics.Generic Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasksResponse
+instance GHC.Show.Show Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasksResponse
+instance GHC.Read.Read Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasksResponse
+instance GHC.Classes.Eq Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasksResponse
+instance Amazonka.Types.AWSRequest Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasks
+instance Control.DeepSeq.NFData Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasksResponse
+instance Amazonka.Pager.AWSPager Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasks
+instance Data.Hashable.Class.Hashable Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasks
+instance Control.DeepSeq.NFData Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasks
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasks
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasks
+instance Amazonka.Data.Path.ToPath Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasks
+instance Amazonka.Data.Query.ToQuery Amazonka.Braket.SearchQuantumTasks.SearchQuantumTasks
 
 
 -- | Searches for devices using the specified filters.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Braket.SearchDevices
+module Amazonka.Braket.SearchDevices
 
 -- | <i>See:</i> <a>newSearchDevices</a> smart constructor.
 data SearchDevices
@@ -1062,27 +1062,27 @@ searchDevicesResponse_httpStatus :: Lens' SearchDevicesResponse Int
 -- | An array of <tt>DeviceSummary</tt> objects for devices that match the
 --   specified filter values.
 searchDevicesResponse_devices :: Lens' SearchDevicesResponse [DeviceSummary]
-instance GHC.Generics.Generic Network.AWS.Braket.SearchDevices.SearchDevices
-instance GHC.Show.Show Network.AWS.Braket.SearchDevices.SearchDevices
-instance GHC.Read.Read Network.AWS.Braket.SearchDevices.SearchDevices
-instance GHC.Classes.Eq Network.AWS.Braket.SearchDevices.SearchDevices
-instance GHC.Generics.Generic Network.AWS.Braket.SearchDevices.SearchDevicesResponse
-instance GHC.Show.Show Network.AWS.Braket.SearchDevices.SearchDevicesResponse
-instance GHC.Read.Read Network.AWS.Braket.SearchDevices.SearchDevicesResponse
-instance GHC.Classes.Eq Network.AWS.Braket.SearchDevices.SearchDevicesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Braket.SearchDevices.SearchDevices
-instance Control.DeepSeq.NFData Network.AWS.Braket.SearchDevices.SearchDevicesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Braket.SearchDevices.SearchDevices
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.SearchDevices.SearchDevices
-instance Control.DeepSeq.NFData Network.AWS.Braket.SearchDevices.SearchDevices
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Braket.SearchDevices.SearchDevices
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Braket.SearchDevices.SearchDevices
-instance Network.AWS.Data.Path.ToPath Network.AWS.Braket.SearchDevices.SearchDevices
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Braket.SearchDevices.SearchDevices
+instance GHC.Generics.Generic Amazonka.Braket.SearchDevices.SearchDevices
+instance GHC.Show.Show Amazonka.Braket.SearchDevices.SearchDevices
+instance GHC.Read.Read Amazonka.Braket.SearchDevices.SearchDevices
+instance GHC.Classes.Eq Amazonka.Braket.SearchDevices.SearchDevices
+instance GHC.Generics.Generic Amazonka.Braket.SearchDevices.SearchDevicesResponse
+instance GHC.Show.Show Amazonka.Braket.SearchDevices.SearchDevicesResponse
+instance GHC.Read.Read Amazonka.Braket.SearchDevices.SearchDevicesResponse
+instance GHC.Classes.Eq Amazonka.Braket.SearchDevices.SearchDevicesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Braket.SearchDevices.SearchDevices
+instance Control.DeepSeq.NFData Amazonka.Braket.SearchDevices.SearchDevicesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Braket.SearchDevices.SearchDevices
+instance Data.Hashable.Class.Hashable Amazonka.Braket.SearchDevices.SearchDevices
+instance Control.DeepSeq.NFData Amazonka.Braket.SearchDevices.SearchDevices
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Braket.SearchDevices.SearchDevices
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Braket.SearchDevices.SearchDevices
+instance Amazonka.Data.Path.ToPath Amazonka.Braket.SearchDevices.SearchDevices
+instance Amazonka.Data.Query.ToQuery Amazonka.Braket.SearchDevices.SearchDevices
 
 
 -- | Shows the tags associated with this resource.
-module Network.AWS.Braket.ListTagsForResource
+module Amazonka.Braket.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -1143,25 +1143,25 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Braket.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.Braket.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.Braket.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.Braket.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.Braket.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.Braket.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.Braket.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.Braket.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Braket.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Braket.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Braket.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Braket.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Braket.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Braket.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Braket.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.Braket.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.Braket.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.Braket.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Braket.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.Braket.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.Braket.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.Braket.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Braket.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Braket.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Braket.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Braket.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Braket.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.Braket.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Braket.ListTagsForResource.ListTagsForResource
 
 
 -- | Retrieves the specified quantum task.
-module Network.AWS.Braket.GetQuantumTask
+module Amazonka.Braket.GetQuantumTask
 
 -- | <i>See:</i> <a>newGetQuantumTask</a> smart constructor.
 data GetQuantumTask
@@ -1318,25 +1318,25 @@ getQuantumTaskResponse_shots :: Lens' GetQuantumTaskResponse Integer
 
 -- | The status of the task.
 getQuantumTaskResponse_status :: Lens' GetQuantumTaskResponse QuantumTaskStatus
-instance GHC.Generics.Generic Network.AWS.Braket.GetQuantumTask.GetQuantumTask
-instance GHC.Show.Show Network.AWS.Braket.GetQuantumTask.GetQuantumTask
-instance GHC.Read.Read Network.AWS.Braket.GetQuantumTask.GetQuantumTask
-instance GHC.Classes.Eq Network.AWS.Braket.GetQuantumTask.GetQuantumTask
-instance GHC.Generics.Generic Network.AWS.Braket.GetQuantumTask.GetQuantumTaskResponse
-instance GHC.Show.Show Network.AWS.Braket.GetQuantumTask.GetQuantumTaskResponse
-instance GHC.Read.Read Network.AWS.Braket.GetQuantumTask.GetQuantumTaskResponse
-instance GHC.Classes.Eq Network.AWS.Braket.GetQuantumTask.GetQuantumTaskResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Braket.GetQuantumTask.GetQuantumTask
-instance Control.DeepSeq.NFData Network.AWS.Braket.GetQuantumTask.GetQuantumTaskResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.GetQuantumTask.GetQuantumTask
-instance Control.DeepSeq.NFData Network.AWS.Braket.GetQuantumTask.GetQuantumTask
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Braket.GetQuantumTask.GetQuantumTask
-instance Network.AWS.Data.Path.ToPath Network.AWS.Braket.GetQuantumTask.GetQuantumTask
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Braket.GetQuantumTask.GetQuantumTask
+instance GHC.Generics.Generic Amazonka.Braket.GetQuantumTask.GetQuantumTask
+instance GHC.Show.Show Amazonka.Braket.GetQuantumTask.GetQuantumTask
+instance GHC.Read.Read Amazonka.Braket.GetQuantumTask.GetQuantumTask
+instance GHC.Classes.Eq Amazonka.Braket.GetQuantumTask.GetQuantumTask
+instance GHC.Generics.Generic Amazonka.Braket.GetQuantumTask.GetQuantumTaskResponse
+instance GHC.Show.Show Amazonka.Braket.GetQuantumTask.GetQuantumTaskResponse
+instance GHC.Read.Read Amazonka.Braket.GetQuantumTask.GetQuantumTaskResponse
+instance GHC.Classes.Eq Amazonka.Braket.GetQuantumTask.GetQuantumTaskResponse
+instance Amazonka.Types.AWSRequest Amazonka.Braket.GetQuantumTask.GetQuantumTask
+instance Control.DeepSeq.NFData Amazonka.Braket.GetQuantumTask.GetQuantumTaskResponse
+instance Data.Hashable.Class.Hashable Amazonka.Braket.GetQuantumTask.GetQuantumTask
+instance Control.DeepSeq.NFData Amazonka.Braket.GetQuantumTask.GetQuantumTask
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Braket.GetQuantumTask.GetQuantumTask
+instance Amazonka.Data.Path.ToPath Amazonka.Braket.GetQuantumTask.GetQuantumTask
+instance Amazonka.Data.Query.ToQuery Amazonka.Braket.GetQuantumTask.GetQuantumTask
 
 
 -- | Retrieves the devices available in Amazon Braket.
-module Network.AWS.Braket.GetDevice
+module Amazonka.Braket.GetDevice
 
 -- | <i>See:</i> <a>newGetDevice</a> smart constructor.
 data GetDevice
@@ -1438,25 +1438,25 @@ getDeviceResponse_deviceType :: Lens' GetDeviceResponse DeviceType
 
 -- | The name of the partner company for the device.
 getDeviceResponse_providerName :: Lens' GetDeviceResponse Text
-instance GHC.Generics.Generic Network.AWS.Braket.GetDevice.GetDevice
-instance GHC.Show.Show Network.AWS.Braket.GetDevice.GetDevice
-instance GHC.Read.Read Network.AWS.Braket.GetDevice.GetDevice
-instance GHC.Classes.Eq Network.AWS.Braket.GetDevice.GetDevice
-instance GHC.Generics.Generic Network.AWS.Braket.GetDevice.GetDeviceResponse
-instance GHC.Show.Show Network.AWS.Braket.GetDevice.GetDeviceResponse
-instance GHC.Read.Read Network.AWS.Braket.GetDevice.GetDeviceResponse
-instance GHC.Classes.Eq Network.AWS.Braket.GetDevice.GetDeviceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Braket.GetDevice.GetDevice
-instance Control.DeepSeq.NFData Network.AWS.Braket.GetDevice.GetDeviceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.GetDevice.GetDevice
-instance Control.DeepSeq.NFData Network.AWS.Braket.GetDevice.GetDevice
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Braket.GetDevice.GetDevice
-instance Network.AWS.Data.Path.ToPath Network.AWS.Braket.GetDevice.GetDevice
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Braket.GetDevice.GetDevice
+instance GHC.Generics.Generic Amazonka.Braket.GetDevice.GetDevice
+instance GHC.Show.Show Amazonka.Braket.GetDevice.GetDevice
+instance GHC.Read.Read Amazonka.Braket.GetDevice.GetDevice
+instance GHC.Classes.Eq Amazonka.Braket.GetDevice.GetDevice
+instance GHC.Generics.Generic Amazonka.Braket.GetDevice.GetDeviceResponse
+instance GHC.Show.Show Amazonka.Braket.GetDevice.GetDeviceResponse
+instance GHC.Read.Read Amazonka.Braket.GetDevice.GetDeviceResponse
+instance GHC.Classes.Eq Amazonka.Braket.GetDevice.GetDeviceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Braket.GetDevice.GetDevice
+instance Control.DeepSeq.NFData Amazonka.Braket.GetDevice.GetDeviceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Braket.GetDevice.GetDevice
+instance Control.DeepSeq.NFData Amazonka.Braket.GetDevice.GetDevice
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Braket.GetDevice.GetDevice
+instance Amazonka.Data.Path.ToPath Amazonka.Braket.GetDevice.GetDevice
+instance Amazonka.Data.Query.ToQuery Amazonka.Braket.GetDevice.GetDevice
 
 
 -- | Creates a quantum task.
-module Network.AWS.Braket.CreateQuantumTask
+module Amazonka.Braket.CreateQuantumTask
 
 -- | <i>See:</i> <a>newCreateQuantumTask</a> smart constructor.
 data CreateQuantumTask
@@ -1584,26 +1584,26 @@ createQuantumTaskResponse_httpStatus :: Lens' CreateQuantumTaskResponse Int
 
 -- | The ARN of the task created by the request.
 createQuantumTaskResponse_quantumTaskArn :: Lens' CreateQuantumTaskResponse Text
-instance GHC.Generics.Generic Network.AWS.Braket.CreateQuantumTask.CreateQuantumTask
-instance GHC.Show.Show Network.AWS.Braket.CreateQuantumTask.CreateQuantumTask
-instance GHC.Read.Read Network.AWS.Braket.CreateQuantumTask.CreateQuantumTask
-instance GHC.Classes.Eq Network.AWS.Braket.CreateQuantumTask.CreateQuantumTask
-instance GHC.Generics.Generic Network.AWS.Braket.CreateQuantumTask.CreateQuantumTaskResponse
-instance GHC.Show.Show Network.AWS.Braket.CreateQuantumTask.CreateQuantumTaskResponse
-instance GHC.Read.Read Network.AWS.Braket.CreateQuantumTask.CreateQuantumTaskResponse
-instance GHC.Classes.Eq Network.AWS.Braket.CreateQuantumTask.CreateQuantumTaskResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Braket.CreateQuantumTask.CreateQuantumTask
-instance Control.DeepSeq.NFData Network.AWS.Braket.CreateQuantumTask.CreateQuantumTaskResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.CreateQuantumTask.CreateQuantumTask
-instance Control.DeepSeq.NFData Network.AWS.Braket.CreateQuantumTask.CreateQuantumTask
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Braket.CreateQuantumTask.CreateQuantumTask
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Braket.CreateQuantumTask.CreateQuantumTask
-instance Network.AWS.Data.Path.ToPath Network.AWS.Braket.CreateQuantumTask.CreateQuantumTask
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Braket.CreateQuantumTask.CreateQuantumTask
+instance GHC.Generics.Generic Amazonka.Braket.CreateQuantumTask.CreateQuantumTask
+instance GHC.Show.Show Amazonka.Braket.CreateQuantumTask.CreateQuantumTask
+instance GHC.Read.Read Amazonka.Braket.CreateQuantumTask.CreateQuantumTask
+instance GHC.Classes.Eq Amazonka.Braket.CreateQuantumTask.CreateQuantumTask
+instance GHC.Generics.Generic Amazonka.Braket.CreateQuantumTask.CreateQuantumTaskResponse
+instance GHC.Show.Show Amazonka.Braket.CreateQuantumTask.CreateQuantumTaskResponse
+instance GHC.Read.Read Amazonka.Braket.CreateQuantumTask.CreateQuantumTaskResponse
+instance GHC.Classes.Eq Amazonka.Braket.CreateQuantumTask.CreateQuantumTaskResponse
+instance Amazonka.Types.AWSRequest Amazonka.Braket.CreateQuantumTask.CreateQuantumTask
+instance Control.DeepSeq.NFData Amazonka.Braket.CreateQuantumTask.CreateQuantumTaskResponse
+instance Data.Hashable.Class.Hashable Amazonka.Braket.CreateQuantumTask.CreateQuantumTask
+instance Control.DeepSeq.NFData Amazonka.Braket.CreateQuantumTask.CreateQuantumTask
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Braket.CreateQuantumTask.CreateQuantumTask
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Braket.CreateQuantumTask.CreateQuantumTask
+instance Amazonka.Data.Path.ToPath Amazonka.Braket.CreateQuantumTask.CreateQuantumTask
+instance Amazonka.Data.Query.ToQuery Amazonka.Braket.CreateQuantumTask.CreateQuantumTask
 
 
 -- | Cancels the specified task.
-module Network.AWS.Braket.CancelQuantumTask
+module Amazonka.Braket.CancelQuantumTask
 
 -- | <i>See:</i> <a>newCancelQuantumTask</a> smart constructor.
 data CancelQuantumTask
@@ -1681,26 +1681,26 @@ cancelQuantumTaskResponse_cancellationStatus :: Lens' CancelQuantumTaskResponse 
 
 -- | The ARN of the task.
 cancelQuantumTaskResponse_quantumTaskArn :: Lens' CancelQuantumTaskResponse Text
-instance GHC.Generics.Generic Network.AWS.Braket.CancelQuantumTask.CancelQuantumTask
-instance GHC.Show.Show Network.AWS.Braket.CancelQuantumTask.CancelQuantumTask
-instance GHC.Read.Read Network.AWS.Braket.CancelQuantumTask.CancelQuantumTask
-instance GHC.Classes.Eq Network.AWS.Braket.CancelQuantumTask.CancelQuantumTask
-instance GHC.Generics.Generic Network.AWS.Braket.CancelQuantumTask.CancelQuantumTaskResponse
-instance GHC.Show.Show Network.AWS.Braket.CancelQuantumTask.CancelQuantumTaskResponse
-instance GHC.Read.Read Network.AWS.Braket.CancelQuantumTask.CancelQuantumTaskResponse
-instance GHC.Classes.Eq Network.AWS.Braket.CancelQuantumTask.CancelQuantumTaskResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Braket.CancelQuantumTask.CancelQuantumTask
-instance Control.DeepSeq.NFData Network.AWS.Braket.CancelQuantumTask.CancelQuantumTaskResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.CancelQuantumTask.CancelQuantumTask
-instance Control.DeepSeq.NFData Network.AWS.Braket.CancelQuantumTask.CancelQuantumTask
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Braket.CancelQuantumTask.CancelQuantumTask
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Braket.CancelQuantumTask.CancelQuantumTask
-instance Network.AWS.Data.Path.ToPath Network.AWS.Braket.CancelQuantumTask.CancelQuantumTask
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Braket.CancelQuantumTask.CancelQuantumTask
+instance GHC.Generics.Generic Amazonka.Braket.CancelQuantumTask.CancelQuantumTask
+instance GHC.Show.Show Amazonka.Braket.CancelQuantumTask.CancelQuantumTask
+instance GHC.Read.Read Amazonka.Braket.CancelQuantumTask.CancelQuantumTask
+instance GHC.Classes.Eq Amazonka.Braket.CancelQuantumTask.CancelQuantumTask
+instance GHC.Generics.Generic Amazonka.Braket.CancelQuantumTask.CancelQuantumTaskResponse
+instance GHC.Show.Show Amazonka.Braket.CancelQuantumTask.CancelQuantumTaskResponse
+instance GHC.Read.Read Amazonka.Braket.CancelQuantumTask.CancelQuantumTaskResponse
+instance GHC.Classes.Eq Amazonka.Braket.CancelQuantumTask.CancelQuantumTaskResponse
+instance Amazonka.Types.AWSRequest Amazonka.Braket.CancelQuantumTask.CancelQuantumTask
+instance Control.DeepSeq.NFData Amazonka.Braket.CancelQuantumTask.CancelQuantumTaskResponse
+instance Data.Hashable.Class.Hashable Amazonka.Braket.CancelQuantumTask.CancelQuantumTask
+instance Control.DeepSeq.NFData Amazonka.Braket.CancelQuantumTask.CancelQuantumTask
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Braket.CancelQuantumTask.CancelQuantumTask
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Braket.CancelQuantumTask.CancelQuantumTask
+instance Amazonka.Data.Path.ToPath Amazonka.Braket.CancelQuantumTask.CancelQuantumTask
+instance Amazonka.Data.Query.ToQuery Amazonka.Braket.CancelQuantumTask.CancelQuantumTask
 
 
 -- | Remove tags from a resource.
-module Network.AWS.Braket.UntagResource
+module Amazonka.Braket.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -1760,24 +1760,24 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Braket.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.Braket.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.Braket.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.Braket.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.Braket.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.Braket.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.Braket.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Braket.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Braket.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Braket.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Braket.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Braket.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Braket.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Braket.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Braket.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Braket.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.Braket.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.Braket.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.Braket.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Braket.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.Braket.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.Braket.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.Braket.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Braket.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Braket.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Braket.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Braket.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Braket.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Braket.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Braket.UntagResource.UntagResource
 
 
-module Network.AWS.Braket.Lens
+module Amazonka.Braket.Lens
 
 -- | the ARN of the task to retrieve.
 getQuantumTask_quantumTaskArn :: Lens' GetQuantumTask Text
@@ -2023,7 +2023,7 @@ searchQuantumTasksFilter_operator :: Lens' SearchQuantumTasksFilter SearchQuantu
 searchQuantumTasksFilter_values :: Lens' SearchQuantumTasksFilter (NonEmpty Text)
 
 
-module Network.AWS.Braket.Waiters
+module Amazonka.Braket.Waiters
 
 
 -- | Derived from API version <tt>2019-09-01</tt> of the AWS service
@@ -2031,7 +2031,7 @@ module Network.AWS.Braket.Waiters
 --   
 --   The Amazon Braket API Reference provides information about the
 --   operations and structures supported in Amazon Braket.
-module Network.AWS.Braket
+module Amazonka.Braket
 
 -- | API version <tt>2019-09-01</tt> of the Amazon Braket SDK
 --   configuration.

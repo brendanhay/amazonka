@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticTranscoder.Types.TimeSpan</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticTranscoder.Types.TimeSpan</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Settings that determine when a clip begins and how long it lasts.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTimeSpan' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679212513"><span id="local-6989586621679212514"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimeSpan"><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan"><span class="hs-identifier hs-var">TimeSpan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeSpan%27"><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan%27"><span class="hs-identifier hs-var">TimeSpan'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The place in the input file where you want a clip to start. The format</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- don\'t specify a value, Elastic Transcoder starts at the beginning of</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- the input file.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AstartTime%3ATimeSpan%27"><span class="annot"><span class="annottext">TimeSpan -&gt; Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#%24sel%3AstartTime%3ATimeSpan%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The duration of the clip. The format can be either HH:mm:ss.SSS (maximum</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- (maximum value: 86399.999). If you don\'t specify a value, Elastic</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Transcoder creates an output file from StartTime to the end of the file.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- If you specify a value longer than the duration of the input file,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Elastic Transcoder transcodes the file and returns a warning message.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aduration%3ATimeSpan%27"><span class="annot"><span class="annottext">TimeSpan -&gt; Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#%24sel%3Aduration%3ATimeSpan%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212506"><span id="local-6989586621679212508"><span class="annot"><span class="annottext">TimeSpan -&gt; TimeSpan -&gt; Bool
+(TimeSpan -&gt; TimeSpan -&gt; Bool)
+-&gt; (TimeSpan -&gt; TimeSpan -&gt; Bool) -&gt; Eq TimeSpan
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TimeSpan -&gt; TimeSpan -&gt; Bool
+$c/= :: TimeSpan -&gt; TimeSpan -&gt; Bool
+== :: TimeSpan -&gt; TimeSpan -&gt; Bool
+$c== :: TimeSpan -&gt; TimeSpan -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212497"><span id="local-6989586621679212499"><span id="local-6989586621679212501"><span id="local-6989586621679212503"><span class="annot"><span class="annottext">ReadPrec [TimeSpan]
+ReadPrec TimeSpan
+Int -&gt; ReadS TimeSpan
+ReadS [TimeSpan]
+(Int -&gt; ReadS TimeSpan)
+-&gt; ReadS [TimeSpan]
+-&gt; ReadPrec TimeSpan
+-&gt; ReadPrec [TimeSpan]
+-&gt; Read TimeSpan
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TimeSpan]
+$creadListPrec :: ReadPrec [TimeSpan]
+readPrec :: ReadPrec TimeSpan
+$creadPrec :: ReadPrec TimeSpan
+readList :: ReadS [TimeSpan]
+$creadList :: ReadS [TimeSpan]
+readsPrec :: Int -&gt; ReadS TimeSpan
+$creadsPrec :: Int -&gt; ReadS TimeSpan
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212490"><span id="local-6989586621679212492"><span id="local-6989586621679212494"><span class="annot"><span class="annottext">Int -&gt; TimeSpan -&gt; ShowS
+[TimeSpan] -&gt; ShowS
+TimeSpan -&gt; String
+(Int -&gt; TimeSpan -&gt; ShowS)
+-&gt; (TimeSpan -&gt; String) -&gt; ([TimeSpan] -&gt; ShowS) -&gt; Show TimeSpan
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TimeSpan] -&gt; ShowS
+$cshowList :: [TimeSpan] -&gt; ShowS
+show :: TimeSpan -&gt; String
+$cshow :: TimeSpan -&gt; String
+showsPrec :: Int -&gt; TimeSpan -&gt; ShowS
+$cshowsPrec :: Int -&gt; TimeSpan -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TimeSpan -&gt; Rep TimeSpan x)
+-&gt; (forall x. Rep TimeSpan x -&gt; TimeSpan) -&gt; Generic TimeSpan
+forall x. Rep TimeSpan x -&gt; TimeSpan
+forall x. TimeSpan -&gt; Rep TimeSpan x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TimeSpan x -&gt; TimeSpan
+$cfrom :: forall x. TimeSpan -&gt; Rep TimeSpan x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'TimeSpan' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'startTime', 'timeSpan_startTime' - The place in the input file where you want a clip to start. The format</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- don\'t specify a value, Elastic Transcoder starts at the beginning of</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- the input file.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'duration', 'timeSpan_duration' - The duration of the clip. The format can be either HH:mm:ss.SSS (maximum</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- (maximum value: 86399.999). If you don\'t specify a value, Elastic</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Transcoder creates an output file from StartTime to the end of the file.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- If you specify a value longer than the duration of the input file,</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Elastic Transcoder transcodes the file and returns a warning message.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#newTimeSpan"><span class="hs-identifier hs-type">newTimeSpan</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan"><span class="hs-identifier hs-type">TimeSpan</span></a></span><span>
+</span><span id="line-70"></span><span id="newTimeSpan"><span class="annot"><span class="annottext">newTimeSpan :: TimeSpan
+</span><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#newTimeSpan"><span class="hs-identifier hs-var hs-var">newTimeSpan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">TimeSpan' :: Maybe Text -&gt; Maybe Text -&gt; TimeSpan
+</span><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan%27"><span class="hs-identifier hs-type">TimeSpan'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTime:TimeSpan' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#%24sel%3AstartTime%3ATimeSpan%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:TimeSpan' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#%24sel%3Aduration%3ATimeSpan%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The place in the input file where you want a clip to start. The format</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- don\'t specify a value, Elastic Transcoder starts at the beginning of</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- the input file.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#timeSpan_startTime"><span class="hs-identifier hs-type">timeSpan_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan"><span class="hs-identifier hs-type">TimeSpan</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="timeSpan_startTime"><span class="annot"><span class="annottext">timeSpan_startTime :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TimeSpan -&gt; f TimeSpan
+</span><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#timeSpan_startTime"><span class="hs-identifier hs-var hs-var">timeSpan_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimeSpan -&gt; Maybe Text)
+-&gt; (TimeSpan -&gt; Maybe Text -&gt; TimeSpan)
+-&gt; Lens TimeSpan TimeSpan (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan%27"><span class="hs-identifier hs-type">TimeSpan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212481"><span class="annot"><span class="annottext">Maybe Text
+startTime :: Maybe Text
+$sel:startTime:TimeSpan' :: TimeSpan -&gt; Maybe Text
+</span><a href="#local-6989586621679212481"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212481"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212480"><span class="annot"><span class="annottext">s :: TimeSpan
+</span><a href="#local-6989586621679212480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan%27"><span class="hs-identifier hs-type">TimeSpan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212479"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeSpan
+</span><a href="#local-6989586621679212480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:TimeSpan' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#%24sel%3AstartTime%3ATimeSpan%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan"><span class="hs-identifier hs-type">TimeSpan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The duration of the clip. The format can be either HH:mm:ss.SSS (maximum</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- (maximum value: 86399.999). If you don\'t specify a value, Elastic</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Transcoder creates an output file from StartTime to the end of the file.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- If you specify a value longer than the duration of the input file,</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Elastic Transcoder transcodes the file and returns a warning message.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#timeSpan_duration"><span class="hs-identifier hs-type">timeSpan_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan"><span class="hs-identifier hs-type">TimeSpan</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="timeSpan_duration"><span class="annot"><span class="annottext">timeSpan_duration :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TimeSpan -&gt; f TimeSpan
+</span><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#timeSpan_duration"><span class="hs-identifier hs-var hs-var">timeSpan_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimeSpan -&gt; Maybe Text)
+-&gt; (TimeSpan -&gt; Maybe Text -&gt; TimeSpan)
+-&gt; Lens TimeSpan TimeSpan (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan%27"><span class="hs-identifier hs-type">TimeSpan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212477"><span class="annot"><span class="annottext">Maybe Text
+duration :: Maybe Text
+$sel:duration:TimeSpan' :: TimeSpan -&gt; Maybe Text
+</span><a href="#local-6989586621679212477"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212477"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212476"><span class="annot"><span class="annottext">s :: TimeSpan
+</span><a href="#local-6989586621679212476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan%27"><span class="hs-identifier hs-type">TimeSpan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212475"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeSpan
+</span><a href="#local-6989586621679212476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:TimeSpan' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#%24sel%3Aduration%3ATimeSpan%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan"><span class="hs-identifier hs-type">TimeSpan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212472"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan"><span class="hs-identifier hs-type">TimeSpan</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679212470"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimeSpan
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser TimeSpan) -&gt; Value -&gt; Parser TimeSpan
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TimeSpan&quot;</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212467"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212467"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; TimeSpan
+</span><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan%27"><span class="hs-identifier hs-var">TimeSpan'</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; TimeSpan)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; TimeSpan)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212467"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; TimeSpan)
+-&gt; Parser (Maybe Text) -&gt; Parser TimeSpan
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212467"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Duration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212461"><span id="local-6989586621679212463"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan"><span class="hs-identifier hs-type">TimeSpan</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212458"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan"><span class="hs-identifier hs-type">TimeSpan</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212450"><span id="local-6989586621679212452"><span id="local-6989586621679212454"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan"><span class="hs-identifier hs-type">TimeSpan</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679212448"><span class="annot"><span class="annottext">toJSON :: TimeSpan -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.TimeSpan.html#TimeSpan%27"><span class="hs-identifier hs-type">TimeSpan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212445"><span id="local-6989586621679212446"><span class="annot"><span class="annottext">Maybe Text
+duration :: Maybe Text
+startTime :: Maybe Text
+$sel:duration:TimeSpan' :: TimeSpan -&gt; Maybe Text
+$sel:startTime:TimeSpan' :: TimeSpan -&gt; Maybe Text
+</span><a href="#local-6989586621679212445"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212446"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Duration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212445"><span class="hs-identifier hs-var">duration</span></a></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span></pre></body></html>

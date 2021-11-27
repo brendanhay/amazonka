@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LakeFormation.Types.DataLocationResource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LakeFormation.Types.DataLocationResource</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A structure for a data location object where permissions are granted or</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- revoked.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDataLocationResource' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679196635"><span id="local-6989586621679196636"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataLocationResource"><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource"><span class="hs-identifier hs-var">DataLocationResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataLocationResource%27"><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource%27"><span class="hs-identifier hs-var">DataLocationResource'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the Data Catalog where the location is registered</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- with AWS Lake Formation. By default, it is the account ID of the caller.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcatalogId%3ADataLocationResource%27"><span class="annot"><span class="annottext">DataLocationResource -&gt; Maybe Text
+</span><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#%24sel%3AcatalogId%3ADataLocationResource%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that uniquely identifies the data</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- location resource.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AresourceArn%3ADataLocationResource%27"><span class="annot"><span class="annottext">DataLocationResource -&gt; Text
+</span><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#%24sel%3AresourceArn%3ADataLocationResource%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196628"><span id="local-6989586621679196630"><span class="annot"><span class="annottext">DataLocationResource -&gt; DataLocationResource -&gt; Bool
+(DataLocationResource -&gt; DataLocationResource -&gt; Bool)
+-&gt; (DataLocationResource -&gt; DataLocationResource -&gt; Bool)
+-&gt; Eq DataLocationResource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataLocationResource -&gt; DataLocationResource -&gt; Bool
+$c/= :: DataLocationResource -&gt; DataLocationResource -&gt; Bool
+== :: DataLocationResource -&gt; DataLocationResource -&gt; Bool
+$c== :: DataLocationResource -&gt; DataLocationResource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196619"><span id="local-6989586621679196621"><span id="local-6989586621679196623"><span id="local-6989586621679196625"><span class="annot"><span class="annottext">ReadPrec [DataLocationResource]
+ReadPrec DataLocationResource
+Int -&gt; ReadS DataLocationResource
+ReadS [DataLocationResource]
+(Int -&gt; ReadS DataLocationResource)
+-&gt; ReadS [DataLocationResource]
+-&gt; ReadPrec DataLocationResource
+-&gt; ReadPrec [DataLocationResource]
+-&gt; Read DataLocationResource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataLocationResource]
+$creadListPrec :: ReadPrec [DataLocationResource]
+readPrec :: ReadPrec DataLocationResource
+$creadPrec :: ReadPrec DataLocationResource
+readList :: ReadS [DataLocationResource]
+$creadList :: ReadS [DataLocationResource]
+readsPrec :: Int -&gt; ReadS DataLocationResource
+$creadsPrec :: Int -&gt; ReadS DataLocationResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196612"><span id="local-6989586621679196614"><span id="local-6989586621679196616"><span class="annot"><span class="annottext">Int -&gt; DataLocationResource -&gt; ShowS
+[DataLocationResource] -&gt; ShowS
+DataLocationResource -&gt; String
+(Int -&gt; DataLocationResource -&gt; ShowS)
+-&gt; (DataLocationResource -&gt; String)
+-&gt; ([DataLocationResource] -&gt; ShowS)
+-&gt; Show DataLocationResource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataLocationResource] -&gt; ShowS
+$cshowList :: [DataLocationResource] -&gt; ShowS
+show :: DataLocationResource -&gt; String
+$cshow :: DataLocationResource -&gt; String
+showsPrec :: Int -&gt; DataLocationResource -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataLocationResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DataLocationResource -&gt; Rep DataLocationResource x)
+-&gt; (forall x. Rep DataLocationResource x -&gt; DataLocationResource)
+-&gt; Generic DataLocationResource
+forall x. Rep DataLocationResource x -&gt; DataLocationResource
+forall x. DataLocationResource -&gt; Rep DataLocationResource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DataLocationResource x -&gt; DataLocationResource
+$cfrom :: forall x. DataLocationResource -&gt; Rep DataLocationResource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'DataLocationResource' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'catalogId', 'dataLocationResource_catalogId' - The identifier for the Data Catalog where the location is registered</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- with AWS Lake Formation. By default, it is the account ID of the caller.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'resourceArn', 'dataLocationResource_resourceArn' - The Amazon Resource Name (ARN) that uniquely identifies the data</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- location resource.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#newDataLocationResource"><span class="hs-identifier hs-type">newDataLocationResource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-comment">-- | 'resourceArn'</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource"><span class="hs-identifier hs-type">DataLocationResource</span></a></span><span>
+</span><span id="line-57"></span><span id="newDataLocationResource"><span class="annot"><span class="annottext">newDataLocationResource :: Text -&gt; DataLocationResource
+</span><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#newDataLocationResource"><span class="hs-identifier hs-var hs-var">newDataLocationResource</span></a></span></span><span> </span><span id="local-6989586621679196606"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196606"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">DataLocationResource' :: Maybe Text -&gt; Text -&gt; DataLocationResource
+</span><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource%27"><span class="hs-identifier hs-type">DataLocationResource'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalogId:DataLocationResource' :: Maybe Text
+</span><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#%24sel%3AcatalogId%3ADataLocationResource%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArn:DataLocationResource' :: Text
+</span><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#%24sel%3AresourceArn%3ADataLocationResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196606"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The identifier for the Data Catalog where the location is registered</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- with AWS Lake Formation. By default, it is the account ID of the caller.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#dataLocationResource_catalogId"><span class="hs-identifier hs-type">dataLocationResource_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource"><span class="hs-identifier hs-type">DataLocationResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="dataLocationResource_catalogId"><span class="annot"><span class="annottext">dataLocationResource_catalogId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DataLocationResource -&gt; f DataLocationResource
+</span><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#dataLocationResource_catalogId"><span class="hs-identifier hs-var hs-var">dataLocationResource_catalogId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataLocationResource -&gt; Maybe Text)
+-&gt; (DataLocationResource -&gt; Maybe Text -&gt; DataLocationResource)
+-&gt; Lens
+     DataLocationResource DataLocationResource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource%27"><span class="hs-identifier hs-type">DataLocationResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196602"><span class="annot"><span class="annottext">Maybe Text
+catalogId :: Maybe Text
+$sel:catalogId:DataLocationResource' :: DataLocationResource -&gt; Maybe Text
+</span><a href="#local-6989586621679196602"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196602"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196601"><span class="annot"><span class="annottext">s :: DataLocationResource
+</span><a href="#local-6989586621679196601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource%27"><span class="hs-identifier hs-type">DataLocationResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196600"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataLocationResource
+</span><a href="#local-6989586621679196601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:DataLocationResource' :: Maybe Text
+</span><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#%24sel%3AcatalogId%3ADataLocationResource%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource"><span class="hs-identifier hs-type">DataLocationResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that uniquely identifies the data</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- location resource.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#dataLocationResource_resourceArn"><span class="hs-identifier hs-type">dataLocationResource_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource"><span class="hs-identifier hs-type">DataLocationResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span id="dataLocationResource_resourceArn"><span class="annot"><span class="annottext">dataLocationResource_resourceArn :: (Text -&gt; f Text) -&gt; DataLocationResource -&gt; f DataLocationResource
+</span><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#dataLocationResource_resourceArn"><span class="hs-identifier hs-var hs-var">dataLocationResource_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataLocationResource -&gt; Text)
+-&gt; (DataLocationResource -&gt; Text -&gt; DataLocationResource)
+-&gt; Lens DataLocationResource DataLocationResource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource%27"><span class="hs-identifier hs-type">DataLocationResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196598"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:DataLocationResource' :: DataLocationResource -&gt; Text
+</span><a href="#local-6989586621679196598"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196598"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196597"><span class="annot"><span class="annottext">s :: DataLocationResource
+</span><a href="#local-6989586621679196597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource%27"><span class="hs-identifier hs-type">DataLocationResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196596"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataLocationResource
+</span><a href="#local-6989586621679196597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:DataLocationResource' :: Text
+</span><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#%24sel%3AresourceArn%3ADataLocationResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource"><span class="hs-identifier hs-type">DataLocationResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196593"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource"><span class="hs-identifier hs-type">DataLocationResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679196591"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataLocationResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DataLocationResource)
+-&gt; Value
+-&gt; Parser DataLocationResource
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DataLocationResource&quot;</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196588"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196588"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; DataLocationResource
+</span><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource%27"><span class="hs-identifier hs-var">DataLocationResource'</span></a></span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; DataLocationResource)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; DataLocationResource)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196588"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; DataLocationResource)
+-&gt; Parser Text -&gt; Parser DataLocationResource
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196588"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196581"><span id="local-6989586621679196583"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource"><span class="hs-identifier hs-type">DataLocationResource</span></a></span></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196578"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource"><span class="hs-identifier hs-type">DataLocationResource</span></a></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196570"><span id="local-6989586621679196572"><span id="local-6989586621679196574"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource"><span class="hs-identifier hs-type">DataLocationResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679196568"><span class="annot"><span class="annottext">toJSON :: DataLocationResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.DataLocationResource.html#DataLocationResource%27"><span class="hs-identifier hs-type">DataLocationResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196565"><span id="local-6989586621679196566"><span class="annot"><span class="annottext">Maybe Text
+Text
+resourceArn :: Text
+catalogId :: Maybe Text
+$sel:resourceArn:DataLocationResource' :: DataLocationResource -&gt; Text
+$sel:catalogId:DataLocationResource' :: DataLocationResource -&gt; Maybe Text
+</span><a href="#local-6989586621679196565"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-91"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196566"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196565"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span></pre></body></html>

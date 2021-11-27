@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.HlsMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.HlsMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsMode.html#HlsMode"><span class="hs-identifier">HlsMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsMode.html#HlsMode_LIVE"><span class="hs-identifier">HlsMode_LIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsMode.html#HlsMode_VOD"><span class="hs-identifier">HlsMode_VOD</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Hls Mode</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679887792"><span id="local-6989586621679887793"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsMode"><span class="annot"><a href="Amazonka.MediaLive.Types.HlsMode.html#HlsMode"><span class="hs-identifier hs-var">HlsMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsMode%27"><span class="annot"><a href="Amazonka.MediaLive.Types.HlsMode.html#HlsMode%27"><span class="hs-identifier hs-var">HlsMode'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromHlsMode"><span class="annot"><span class="annottext">HlsMode -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.HlsMode.html#fromHlsMode"><span class="hs-identifier hs-var hs-var">fromHlsMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679887784"><span id="local-6989586621679887786"><span id="local-6989586621679887788"><span class="annot"><span class="annottext">Int -&gt; HlsMode -&gt; ShowS
+[HlsMode] -&gt; ShowS
+HlsMode -&gt; String
+(Int -&gt; HlsMode -&gt; ShowS)
+-&gt; (HlsMode -&gt; String) -&gt; ([HlsMode] -&gt; ShowS) -&gt; Show HlsMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HlsMode] -&gt; ShowS
+$cshowList :: [HlsMode] -&gt; ShowS
+show :: HlsMode -&gt; String
+$cshow :: HlsMode -&gt; String
+showsPrec :: Int -&gt; HlsMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; HlsMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679887775"><span id="local-6989586621679887777"><span id="local-6989586621679887779"><span id="local-6989586621679887781"><span class="annot"><span class="annottext">ReadPrec [HlsMode]
+ReadPrec HlsMode
+Int -&gt; ReadS HlsMode
+ReadS [HlsMode]
+(Int -&gt; ReadS HlsMode)
+-&gt; ReadS [HlsMode]
+-&gt; ReadPrec HlsMode
+-&gt; ReadPrec [HlsMode]
+-&gt; Read HlsMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HlsMode]
+$creadListPrec :: ReadPrec [HlsMode]
+readPrec :: ReadPrec HlsMode
+$creadPrec :: ReadPrec HlsMode
+readList :: ReadS [HlsMode]
+$creadList :: ReadS [HlsMode]
+readsPrec :: Int -&gt; ReadS HlsMode
+$creadsPrec :: Int -&gt; ReadS HlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679887770"><span id="local-6989586621679887772"><span class="annot"><span class="annottext">HlsMode -&gt; HlsMode -&gt; Bool
+(HlsMode -&gt; HlsMode -&gt; Bool)
+-&gt; (HlsMode -&gt; HlsMode -&gt; Bool) -&gt; Eq HlsMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HlsMode -&gt; HlsMode -&gt; Bool
+$c/= :: HlsMode -&gt; HlsMode -&gt; Bool
+== :: HlsMode -&gt; HlsMode -&gt; Bool
+$c== :: HlsMode -&gt; HlsMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679887754"><span id="local-6989586621679887756"><span id="local-6989586621679887758"><span id="local-6989586621679887760"><span id="local-6989586621679887762"><span id="local-6989586621679887764"><span id="local-6989586621679887766"><span class="annot"><span class="annottext">Eq HlsMode
+Eq HlsMode
+-&gt; (HlsMode -&gt; HlsMode -&gt; Ordering)
+-&gt; (HlsMode -&gt; HlsMode -&gt; Bool)
+-&gt; (HlsMode -&gt; HlsMode -&gt; Bool)
+-&gt; (HlsMode -&gt; HlsMode -&gt; Bool)
+-&gt; (HlsMode -&gt; HlsMode -&gt; Bool)
+-&gt; (HlsMode -&gt; HlsMode -&gt; HlsMode)
+-&gt; (HlsMode -&gt; HlsMode -&gt; HlsMode)
+-&gt; Ord HlsMode
+HlsMode -&gt; HlsMode -&gt; Bool
+HlsMode -&gt; HlsMode -&gt; Ordering
+HlsMode -&gt; HlsMode -&gt; HlsMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HlsMode -&gt; HlsMode -&gt; HlsMode
+$cmin :: HlsMode -&gt; HlsMode -&gt; HlsMode
+max :: HlsMode -&gt; HlsMode -&gt; HlsMode
+$cmax :: HlsMode -&gt; HlsMode -&gt; HlsMode
+&gt;= :: HlsMode -&gt; HlsMode -&gt; Bool
+$c&gt;= :: HlsMode -&gt; HlsMode -&gt; Bool
+&gt; :: HlsMode -&gt; HlsMode -&gt; Bool
+$c&gt; :: HlsMode -&gt; HlsMode -&gt; Bool
+&lt;= :: HlsMode -&gt; HlsMode -&gt; Bool
+$c&lt;= :: HlsMode -&gt; HlsMode -&gt; Bool
+&lt; :: HlsMode -&gt; HlsMode -&gt; Bool
+$c&lt; :: HlsMode -&gt; HlsMode -&gt; Bool
+compare :: HlsMode -&gt; HlsMode -&gt; Ordering
+$ccompare :: HlsMode -&gt; HlsMode -&gt; Ordering
+$cp1Ord :: Eq HlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HlsMode -&gt; Rep HlsMode x)
+-&gt; (forall x. Rep HlsMode x -&gt; HlsMode) -&gt; Generic HlsMode
+forall x. Rep HlsMode x -&gt; HlsMode
+forall x. HlsMode -&gt; Rep HlsMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HlsMode x -&gt; HlsMode
+$cfrom :: forall x. HlsMode -&gt; Rep HlsMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679887746"><span id="local-6989586621679887748"><span class="annot"><span class="annottext">Int -&gt; HlsMode -&gt; Int
+HlsMode -&gt; Int
+(Int -&gt; HlsMode -&gt; Int) -&gt; (HlsMode -&gt; Int) -&gt; Hashable HlsMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HlsMode -&gt; Int
+$chash :: HlsMode -&gt; Int
+hashWithSalt :: Int -&gt; HlsMode -&gt; Int
+$chashWithSalt :: Int -&gt; HlsMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679887743"><span class="annot"><span class="annottext">HlsMode -&gt; ()
+(HlsMode -&gt; ()) -&gt; NFData HlsMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HlsMode -&gt; ()
+$crnf :: HlsMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679887740"><span class="annot"><span class="annottext">Text -&gt; Either String HlsMode
+(Text -&gt; Either String HlsMode) -&gt; FromText HlsMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HlsMode
+$cfromText :: Text -&gt; Either String HlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679887737"><span class="annot"><span class="annottext">HlsMode -&gt; Text
+(HlsMode -&gt; Text) -&gt; ToText HlsMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HlsMode -&gt; Text
+$ctoText :: HlsMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679887734"><span class="annot"><span class="annottext">HlsMode -&gt; ByteString
+(HlsMode -&gt; ByteString) -&gt; ToByteString HlsMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HlsMode -&gt; ByteString
+$ctoBS :: HlsMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679887731"><span class="annot"><span class="annottext">HlsMode -&gt; ByteStringBuilder
+(HlsMode -&gt; ByteStringBuilder) -&gt; ToLog HlsMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HlsMode -&gt; ByteStringBuilder
+$cbuild :: HlsMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679887728"><span class="annot"><span class="annottext">HeaderName -&gt; HlsMode -&gt; [Header]
+(HeaderName -&gt; HlsMode -&gt; [Header]) -&gt; ToHeader HlsMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HlsMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HlsMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679887725"><span class="annot"><span class="annottext">HlsMode -&gt; QueryString
+(HlsMode -&gt; QueryString) -&gt; ToQuery HlsMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HlsMode -&gt; QueryString
+$ctoQuery :: HlsMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679887720"><span id="local-6989586621679887722"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsMode]
+Value -&gt; Parser HlsMode
+(Value -&gt; Parser HlsMode)
+-&gt; (Value -&gt; Parser [HlsMode]) -&gt; FromJSON HlsMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HlsMode]
+$cparseJSONList :: Value -&gt; Parser [HlsMode]
+parseJSON :: Value -&gt; Parser HlsMode
+$cparseJSON :: Value -&gt; Parser HlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679887715"><span id="local-6989586621679887717"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsMode]
+FromJSONKeyFunction HlsMode
+FromJSONKeyFunction HlsMode
+-&gt; FromJSONKeyFunction [HlsMode] -&gt; FromJSONKey HlsMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HlsMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [HlsMode]
+fromJSONKey :: FromJSONKeyFunction HlsMode
+$cfromJSONKey :: FromJSONKeyFunction HlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679887706"><span id="local-6989586621679887708"><span id="local-6989586621679887710"><span id="local-6989586621679887712"><span class="annot"><span class="annottext">[HlsMode] -&gt; Encoding
+[HlsMode] -&gt; Value
+HlsMode -&gt; Encoding
+HlsMode -&gt; Value
+(HlsMode -&gt; Value)
+-&gt; (HlsMode -&gt; Encoding)
+-&gt; ([HlsMode] -&gt; Value)
+-&gt; ([HlsMode] -&gt; Encoding)
+-&gt; ToJSON HlsMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HlsMode] -&gt; Encoding
+$ctoEncodingList :: [HlsMode] -&gt; Encoding
+toJSONList :: [HlsMode] -&gt; Value
+$ctoJSONList :: [HlsMode] -&gt; Value
+toEncoding :: HlsMode -&gt; Encoding
+$ctoEncoding :: HlsMode -&gt; Encoding
+toJSON :: HlsMode -&gt; Value
+$ctoJSON :: HlsMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679887701"><span id="local-6989586621679887703"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsMode]
+ToJSONKeyFunction HlsMode
+ToJSONKeyFunction HlsMode
+-&gt; ToJSONKeyFunction [HlsMode] -&gt; ToJSONKey HlsMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HlsMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [HlsMode]
+toJSONKey :: ToJSONKeyFunction HlsMode
+$ctoJSONKey :: ToJSONKeyFunction HlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679887698"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsMode
+([Node] -&gt; Either String HlsMode) -&gt; FromXML HlsMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HlsMode
+$cparseXML :: [Node] -&gt; Either String HlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679887695"><span class="annot"><span class="annottext">HlsMode -&gt; XML
+(HlsMode -&gt; XML) -&gt; ToXML HlsMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HlsMode -&gt; XML
+$ctoXML :: HlsMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsMode.html#HlsMode_LIVE"><span class="hs-identifier hs-type">HlsMode_LIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsMode.html#HlsMode"><span class="hs-identifier hs-type">HlsMode</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsMode_LIVE"><span id="%24mHlsMode_LIVE"><span id="HlsMode_LIVE"><span class="annot"><span class="annottext">$bHlsMode_LIVE :: HlsMode
+$mHlsMode_LIVE :: forall r. HlsMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsMode.html#%24bHlsMode_LIVE"><span class="hs-identifier hs-var hs-var hs-var">HlsMode_LIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsMode.html#HlsMode%27"><span class="hs-identifier hs-type">HlsMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LIVE&quot;</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsMode.html#HlsMode_VOD"><span class="hs-identifier hs-type">HlsMode_VOD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsMode.html#HlsMode"><span class="hs-identifier hs-type">HlsMode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsMode_VOD"><span id="%24mHlsMode_VOD"><span id="HlsMode_VOD"><span class="annot"><span class="annottext">$bHlsMode_VOD :: HlsMode
+$mHlsMode_VOD :: forall r. HlsMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsMode.html#%24bHlsMode_VOD"><span class="hs-identifier hs-var hs-var hs-var">HlsMode_VOD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsMode.html#HlsMode%27"><span class="hs-identifier hs-type">HlsMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VOD&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsMode.html#HlsMode_LIVE"><span class="hs-pragma hs-type">HlsMode_LIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsMode.html#HlsMode_VOD"><span class="hs-pragma hs-type">HlsMode_VOD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsMode.html#HlsMode%27"><span class="hs-pragma hs-type">HlsMode'</span></a></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-69"></span></pre></body></html>

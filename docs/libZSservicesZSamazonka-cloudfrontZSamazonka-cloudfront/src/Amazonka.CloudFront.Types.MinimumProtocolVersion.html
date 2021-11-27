@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.MinimumProtocolVersion</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.MinimumProtocolVersion</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion"><span class="hs-identifier">MinimumProtocolVersion</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_SSLv3"><span class="hs-identifier">MinimumProtocolVersion_SSLv3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1"><span class="hs-identifier">MinimumProtocolVersion_TLSv1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1_1_2016"><span class="hs-identifier">MinimumProtocolVersion_TLSv1_1_2016</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1_2016"><span class="hs-identifier">MinimumProtocolVersion_TLSv1_2016</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1_2_2018"><span class="hs-identifier">MinimumProtocolVersion_TLSv1_2_2018</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1_2_2019"><span class="hs-identifier">MinimumProtocolVersion_TLSv1_2_2019</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1_2_2021"><span class="hs-identifier">MinimumProtocolVersion_TLSv1_2_2021</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679395212"><span id="local-6989586621679395213"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MinimumProtocolVersion"><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion"><span class="hs-identifier hs-var">MinimumProtocolVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MinimumProtocolVersion%27"><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion%27"><span class="hs-identifier hs-var">MinimumProtocolVersion'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMinimumProtocolVersion"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; Text
+</span><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#fromMinimumProtocolVersion"><span class="hs-identifier hs-var hs-var">fromMinimumProtocolVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395204"><span id="local-6989586621679395206"><span id="local-6989586621679395208"><span class="annot"><span class="annottext">Int -&gt; MinimumProtocolVersion -&gt; ShowS
+[MinimumProtocolVersion] -&gt; ShowS
+MinimumProtocolVersion -&gt; String
+(Int -&gt; MinimumProtocolVersion -&gt; ShowS)
+-&gt; (MinimumProtocolVersion -&gt; String)
+-&gt; ([MinimumProtocolVersion] -&gt; ShowS)
+-&gt; Show MinimumProtocolVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MinimumProtocolVersion] -&gt; ShowS
+$cshowList :: [MinimumProtocolVersion] -&gt; ShowS
+show :: MinimumProtocolVersion -&gt; String
+$cshow :: MinimumProtocolVersion -&gt; String
+showsPrec :: Int -&gt; MinimumProtocolVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; MinimumProtocolVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679395195"><span id="local-6989586621679395197"><span id="local-6989586621679395199"><span id="local-6989586621679395201"><span class="annot"><span class="annottext">ReadPrec [MinimumProtocolVersion]
+ReadPrec MinimumProtocolVersion
+Int -&gt; ReadS MinimumProtocolVersion
+ReadS [MinimumProtocolVersion]
+(Int -&gt; ReadS MinimumProtocolVersion)
+-&gt; ReadS [MinimumProtocolVersion]
+-&gt; ReadPrec MinimumProtocolVersion
+-&gt; ReadPrec [MinimumProtocolVersion]
+-&gt; Read MinimumProtocolVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MinimumProtocolVersion]
+$creadListPrec :: ReadPrec [MinimumProtocolVersion]
+readPrec :: ReadPrec MinimumProtocolVersion
+$creadPrec :: ReadPrec MinimumProtocolVersion
+readList :: ReadS [MinimumProtocolVersion]
+$creadList :: ReadS [MinimumProtocolVersion]
+readsPrec :: Int -&gt; ReadS MinimumProtocolVersion
+$creadsPrec :: Int -&gt; ReadS MinimumProtocolVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679395190"><span id="local-6989586621679395192"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
+(MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool)
+-&gt; (MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool)
+-&gt; Eq MinimumProtocolVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
+$c/= :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
+== :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
+$c== :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679395174"><span id="local-6989586621679395176"><span id="local-6989586621679395178"><span id="local-6989586621679395180"><span id="local-6989586621679395182"><span id="local-6989586621679395184"><span id="local-6989586621679395186"><span class="annot"><span class="annottext">Eq MinimumProtocolVersion
+Eq MinimumProtocolVersion
+-&gt; (MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Ordering)
+-&gt; (MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool)
+-&gt; (MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool)
+-&gt; (MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool)
+-&gt; (MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool)
+-&gt; (MinimumProtocolVersion
+    -&gt; MinimumProtocolVersion -&gt; MinimumProtocolVersion)
+-&gt; (MinimumProtocolVersion
+    -&gt; MinimumProtocolVersion -&gt; MinimumProtocolVersion)
+-&gt; Ord MinimumProtocolVersion
+MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
+MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Ordering
+MinimumProtocolVersion
+-&gt; MinimumProtocolVersion -&gt; MinimumProtocolVersion
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MinimumProtocolVersion
+-&gt; MinimumProtocolVersion -&gt; MinimumProtocolVersion
+$cmin :: MinimumProtocolVersion
+-&gt; MinimumProtocolVersion -&gt; MinimumProtocolVersion
+max :: MinimumProtocolVersion
+-&gt; MinimumProtocolVersion -&gt; MinimumProtocolVersion
+$cmax :: MinimumProtocolVersion
+-&gt; MinimumProtocolVersion -&gt; MinimumProtocolVersion
+&gt;= :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
+$c&gt;= :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
+&gt; :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
+$c&gt; :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
+&lt;= :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
+$c&lt;= :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
+&lt; :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
+$c&lt; :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
+compare :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Ordering
+$ccompare :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Ordering
+$cp1Ord :: Eq MinimumProtocolVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MinimumProtocolVersion -&gt; Rep MinimumProtocolVersion x)
+-&gt; (forall x.
+    Rep MinimumProtocolVersion x -&gt; MinimumProtocolVersion)
+-&gt; Generic MinimumProtocolVersion
+forall x. Rep MinimumProtocolVersion x -&gt; MinimumProtocolVersion
+forall x. MinimumProtocolVersion -&gt; Rep MinimumProtocolVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MinimumProtocolVersion x -&gt; MinimumProtocolVersion
+$cfrom :: forall x. MinimumProtocolVersion -&gt; Rep MinimumProtocolVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395166"><span id="local-6989586621679395168"><span class="annot"><span class="annottext">Int -&gt; MinimumProtocolVersion -&gt; Int
+MinimumProtocolVersion -&gt; Int
+(Int -&gt; MinimumProtocolVersion -&gt; Int)
+-&gt; (MinimumProtocolVersion -&gt; Int)
+-&gt; Hashable MinimumProtocolVersion
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MinimumProtocolVersion -&gt; Int
+$chash :: MinimumProtocolVersion -&gt; Int
+hashWithSalt :: Int -&gt; MinimumProtocolVersion -&gt; Int
+$chashWithSalt :: Int -&gt; MinimumProtocolVersion -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679395163"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; ()
+(MinimumProtocolVersion -&gt; ()) -&gt; NFData MinimumProtocolVersion
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MinimumProtocolVersion -&gt; ()
+$crnf :: MinimumProtocolVersion -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679395160"><span class="annot"><span class="annottext">Text -&gt; Either String MinimumProtocolVersion
+(Text -&gt; Either String MinimumProtocolVersion)
+-&gt; FromText MinimumProtocolVersion
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MinimumProtocolVersion
+$cfromText :: Text -&gt; Either String MinimumProtocolVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679395157"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; Text
+(MinimumProtocolVersion -&gt; Text) -&gt; ToText MinimumProtocolVersion
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MinimumProtocolVersion -&gt; Text
+$ctoText :: MinimumProtocolVersion -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679395154"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; ByteString
+(MinimumProtocolVersion -&gt; ByteString)
+-&gt; ToByteString MinimumProtocolVersion
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MinimumProtocolVersion -&gt; ByteString
+$ctoBS :: MinimumProtocolVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679395151"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; ByteStringBuilder
+(MinimumProtocolVersion -&gt; ByteStringBuilder)
+-&gt; ToLog MinimumProtocolVersion
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MinimumProtocolVersion -&gt; ByteStringBuilder
+$cbuild :: MinimumProtocolVersion -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679395148"><span class="annot"><span class="annottext">HeaderName -&gt; MinimumProtocolVersion -&gt; [Header]
+(HeaderName -&gt; MinimumProtocolVersion -&gt; [Header])
+-&gt; ToHeader MinimumProtocolVersion
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MinimumProtocolVersion -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MinimumProtocolVersion -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679395145"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; QueryString
+(MinimumProtocolVersion -&gt; QueryString)
+-&gt; ToQuery MinimumProtocolVersion
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MinimumProtocolVersion -&gt; QueryString
+$ctoQuery :: MinimumProtocolVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679395140"><span id="local-6989586621679395142"><span class="annot"><span class="annottext">Value -&gt; Parser [MinimumProtocolVersion]
+Value -&gt; Parser MinimumProtocolVersion
+(Value -&gt; Parser MinimumProtocolVersion)
+-&gt; (Value -&gt; Parser [MinimumProtocolVersion])
+-&gt; FromJSON MinimumProtocolVersion
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MinimumProtocolVersion]
+$cparseJSONList :: Value -&gt; Parser [MinimumProtocolVersion]
+parseJSON :: Value -&gt; Parser MinimumProtocolVersion
+$cparseJSON :: Value -&gt; Parser MinimumProtocolVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679395135"><span id="local-6989586621679395137"><span class="annot"><span class="annottext">FromJSONKeyFunction [MinimumProtocolVersion]
+FromJSONKeyFunction MinimumProtocolVersion
+FromJSONKeyFunction MinimumProtocolVersion
+-&gt; FromJSONKeyFunction [MinimumProtocolVersion]
+-&gt; FromJSONKey MinimumProtocolVersion
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MinimumProtocolVersion]
+$cfromJSONKeyList :: FromJSONKeyFunction [MinimumProtocolVersion]
+fromJSONKey :: FromJSONKeyFunction MinimumProtocolVersion
+$cfromJSONKey :: FromJSONKeyFunction MinimumProtocolVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679395126"><span id="local-6989586621679395128"><span id="local-6989586621679395130"><span id="local-6989586621679395132"><span class="annot"><span class="annottext">[MinimumProtocolVersion] -&gt; Encoding
+[MinimumProtocolVersion] -&gt; Value
+MinimumProtocolVersion -&gt; Encoding
+MinimumProtocolVersion -&gt; Value
+(MinimumProtocolVersion -&gt; Value)
+-&gt; (MinimumProtocolVersion -&gt; Encoding)
+-&gt; ([MinimumProtocolVersion] -&gt; Value)
+-&gt; ([MinimumProtocolVersion] -&gt; Encoding)
+-&gt; ToJSON MinimumProtocolVersion
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MinimumProtocolVersion] -&gt; Encoding
+$ctoEncodingList :: [MinimumProtocolVersion] -&gt; Encoding
+toJSONList :: [MinimumProtocolVersion] -&gt; Value
+$ctoJSONList :: [MinimumProtocolVersion] -&gt; Value
+toEncoding :: MinimumProtocolVersion -&gt; Encoding
+$ctoEncoding :: MinimumProtocolVersion -&gt; Encoding
+toJSON :: MinimumProtocolVersion -&gt; Value
+$ctoJSON :: MinimumProtocolVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679395121"><span id="local-6989586621679395123"><span class="annot"><span class="annottext">ToJSONKeyFunction [MinimumProtocolVersion]
+ToJSONKeyFunction MinimumProtocolVersion
+ToJSONKeyFunction MinimumProtocolVersion
+-&gt; ToJSONKeyFunction [MinimumProtocolVersion]
+-&gt; ToJSONKey MinimumProtocolVersion
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MinimumProtocolVersion]
+$ctoJSONKeyList :: ToJSONKeyFunction [MinimumProtocolVersion]
+toJSONKey :: ToJSONKeyFunction MinimumProtocolVersion
+$ctoJSONKey :: ToJSONKeyFunction MinimumProtocolVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679395118"><span class="annot"><span class="annottext">[Node] -&gt; Either String MinimumProtocolVersion
+([Node] -&gt; Either String MinimumProtocolVersion)
+-&gt; FromXML MinimumProtocolVersion
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MinimumProtocolVersion
+$cparseXML :: [Node] -&gt; Either String MinimumProtocolVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679395115"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; XML
+(MinimumProtocolVersion -&gt; XML) -&gt; ToXML MinimumProtocolVersion
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MinimumProtocolVersion -&gt; XML
+$ctoXML :: MinimumProtocolVersion -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_SSLv3"><span class="hs-identifier hs-type">MinimumProtocolVersion_SSLv3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion"><span class="hs-identifier hs-type">MinimumProtocolVersion</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMinimumProtocolVersion_SSLv3"><span id="%24mMinimumProtocolVersion_SSLv3"><span id="MinimumProtocolVersion_SSLv3"><span class="annot"><span class="annottext">$bMinimumProtocolVersion_SSLv3 :: MinimumProtocolVersion
+$mMinimumProtocolVersion_SSLv3 :: forall r.
+MinimumProtocolVersion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#%24bMinimumProtocolVersion_SSLv3"><span class="hs-identifier hs-var hs-var hs-var">MinimumProtocolVersion_SSLv3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion%27"><span class="hs-identifier hs-type">MinimumProtocolVersion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SSLv3&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1"><span class="hs-identifier hs-type">MinimumProtocolVersion_TLSv1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion"><span class="hs-identifier hs-type">MinimumProtocolVersion</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMinimumProtocolVersion_TLSv1"><span id="%24mMinimumProtocolVersion_TLSv1"><span id="MinimumProtocolVersion_TLSv1"><span class="annot"><span class="annottext">$bMinimumProtocolVersion_TLSv1 :: MinimumProtocolVersion
+$mMinimumProtocolVersion_TLSv1 :: forall r.
+MinimumProtocolVersion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#%24bMinimumProtocolVersion_TLSv1"><span class="hs-identifier hs-var hs-var hs-var">MinimumProtocolVersion_TLSv1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion%27"><span class="hs-identifier hs-type">MinimumProtocolVersion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLSv1&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1_1_2016"><span class="hs-identifier hs-type">MinimumProtocolVersion_TLSv1_1_2016</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion"><span class="hs-identifier hs-type">MinimumProtocolVersion</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMinimumProtocolVersion_TLSv1_1_2016"><span id="%24mMinimumProtocolVersion_TLSv1_1_2016"><span id="MinimumProtocolVersion_TLSv1_1_2016"><span class="annot"><span class="annottext">$bMinimumProtocolVersion_TLSv1_1_2016 :: MinimumProtocolVersion
+$mMinimumProtocolVersion_TLSv1_1_2016 :: forall r.
+MinimumProtocolVersion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#%24bMinimumProtocolVersion_TLSv1_1_2016"><span class="hs-identifier hs-var hs-var hs-var">MinimumProtocolVersion_TLSv1_1_2016</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion%27"><span class="hs-identifier hs-type">MinimumProtocolVersion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLSv1.1_2016&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1_2016"><span class="hs-identifier hs-type">MinimumProtocolVersion_TLSv1_2016</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion"><span class="hs-identifier hs-type">MinimumProtocolVersion</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMinimumProtocolVersion_TLSv1_2016"><span id="%24mMinimumProtocolVersion_TLSv1_2016"><span id="MinimumProtocolVersion_TLSv1_2016"><span class="annot"><span class="annottext">$bMinimumProtocolVersion_TLSv1_2016 :: MinimumProtocolVersion
+$mMinimumProtocolVersion_TLSv1_2016 :: forall r.
+MinimumProtocolVersion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#%24bMinimumProtocolVersion_TLSv1_2016"><span class="hs-identifier hs-var hs-var hs-var">MinimumProtocolVersion_TLSv1_2016</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion%27"><span class="hs-identifier hs-type">MinimumProtocolVersion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLSv1_2016&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1_2_2018"><span class="hs-identifier hs-type">MinimumProtocolVersion_TLSv1_2_2018</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion"><span class="hs-identifier hs-type">MinimumProtocolVersion</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMinimumProtocolVersion_TLSv1_2_2018"><span id="%24mMinimumProtocolVersion_TLSv1_2_2018"><span id="MinimumProtocolVersion_TLSv1_2_2018"><span class="annot"><span class="annottext">$bMinimumProtocolVersion_TLSv1_2_2018 :: MinimumProtocolVersion
+$mMinimumProtocolVersion_TLSv1_2_2018 :: forall r.
+MinimumProtocolVersion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#%24bMinimumProtocolVersion_TLSv1_2_2018"><span class="hs-identifier hs-var hs-var hs-var">MinimumProtocolVersion_TLSv1_2_2018</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion%27"><span class="hs-identifier hs-type">MinimumProtocolVersion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLSv1.2_2018&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1_2_2019"><span class="hs-identifier hs-type">MinimumProtocolVersion_TLSv1_2_2019</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion"><span class="hs-identifier hs-type">MinimumProtocolVersion</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMinimumProtocolVersion_TLSv1_2_2019"><span id="%24mMinimumProtocolVersion_TLSv1_2_2019"><span id="MinimumProtocolVersion_TLSv1_2_2019"><span class="annot"><span class="annottext">$bMinimumProtocolVersion_TLSv1_2_2019 :: MinimumProtocolVersion
+$mMinimumProtocolVersion_TLSv1_2_2019 :: forall r.
+MinimumProtocolVersion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#%24bMinimumProtocolVersion_TLSv1_2_2019"><span class="hs-identifier hs-var hs-var hs-var">MinimumProtocolVersion_TLSv1_2_2019</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion%27"><span class="hs-identifier hs-type">MinimumProtocolVersion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLSv1.2_2019&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1_2_2021"><span class="hs-identifier hs-type">MinimumProtocolVersion_TLSv1_2_2021</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion"><span class="hs-identifier hs-type">MinimumProtocolVersion</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMinimumProtocolVersion_TLSv1_2_2021"><span id="%24mMinimumProtocolVersion_TLSv1_2_2021"><span id="MinimumProtocolVersion_TLSv1_2_2021"><span class="annot"><span class="annottext">$bMinimumProtocolVersion_TLSv1_2_2021 :: MinimumProtocolVersion
+$mMinimumProtocolVersion_TLSv1_2_2021 :: forall r.
+MinimumProtocolVersion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#%24bMinimumProtocolVersion_TLSv1_2_2021"><span class="hs-identifier hs-var hs-var hs-var">MinimumProtocolVersion_TLSv1_2_2021</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion%27"><span class="hs-identifier hs-type">MinimumProtocolVersion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLSv1.2_2021&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_SSLv3"><span class="hs-pragma hs-type">MinimumProtocolVersion_SSLv3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1"><span class="hs-pragma hs-type">MinimumProtocolVersion_TLSv1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1_1_2016"><span class="hs-pragma hs-type">MinimumProtocolVersion_TLSv1_1_2016</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1_2016"><span class="hs-pragma hs-type">MinimumProtocolVersion_TLSv1_2016</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1_2_2018"><span class="hs-pragma hs-type">MinimumProtocolVersion_TLSv1_2_2018</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1_2_2019"><span class="hs-pragma hs-type">MinimumProtocolVersion_TLSv1_2_2019</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion_TLSv1_2_2021"><span class="hs-pragma hs-type">MinimumProtocolVersion_TLSv1_2_2021</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion%27"><span class="hs-pragma hs-type">MinimumProtocolVersion'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

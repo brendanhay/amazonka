@@ -1,0 +1,695 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Location.SearchPlaceIndexForPosition</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Reverse geocodes a given coordinate and returns a legible address.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Allows you to search for Places or points of interest near a given</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- position.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Location.SearchPlaceIndexForPosition</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier">SearchPlaceIndexForPosition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#newSearchPlaceIndexForPosition"><span class="hs-identifier">newSearchPlaceIndexForPosition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPosition_maxResults"><span class="hs-identifier">searchPlaceIndexForPosition_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPosition_indexName"><span class="hs-identifier">searchPlaceIndexForPosition_indexName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPosition_position"><span class="hs-identifier">searchPlaceIndexForPosition_position</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse"><span class="hs-identifier">SearchPlaceIndexForPositionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#newSearchPlaceIndexForPositionResponse"><span class="hs-identifier">newSearchPlaceIndexForPositionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPositionResponse_httpStatus"><span class="hs-identifier">searchPlaceIndexForPositionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPositionResponse_results"><span class="hs-identifier">searchPlaceIndexForPositionResponse_results</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPositionResponse_summary"><span class="hs-identifier">searchPlaceIndexForPositionResponse_summary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.html"><span class="hs-identifier">Amazonka.Location.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newSearchPlaceIndexForPosition' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679264456"><span id="local-6989586621679264457"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchPlaceIndexForPosition"><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-var">SearchPlaceIndexForPosition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchPlaceIndexForPosition%27"><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition%27"><span class="hs-identifier hs-var">SearchPlaceIndexForPosition'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional paramer. The maximum number of results returned per request.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Default value: @50@</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AmaxResults%3ASearchPlaceIndexForPosition%27"><span class="annot"><span class="annottext">SearchPlaceIndexForPosition -&gt; Maybe Natural
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3AmaxResults%3ASearchPlaceIndexForPosition%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the place index resource you want to use for the search.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AindexName%3ASearchPlaceIndexForPosition%27"><span class="annot"><span class="annottext">SearchPlaceIndexForPosition -&gt; Text
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3AindexName%3ASearchPlaceIndexForPosition%27"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Specifies a coordinate for the query defined by a longitude, and</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- latitude.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   The first position is the X coordinate, or longitude.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   The second position is the Y coordinate, or latitude.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- For example, @position=xLongitude&amp;position=yLatitude@ .</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Aposition%3ASearchPlaceIndexForPosition%27"><span class="annot"><span class="annottext">SearchPlaceIndexForPosition -&gt; Sensitive (NonEmpty Double)
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3Aposition%3ASearchPlaceIndexForPosition%27"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264448"><span id="local-6989586621679264450"><span class="annot"><span class="annottext">SearchPlaceIndexForPosition -&gt; SearchPlaceIndexForPosition -&gt; Bool
+(SearchPlaceIndexForPosition
+ -&gt; SearchPlaceIndexForPosition -&gt; Bool)
+-&gt; (SearchPlaceIndexForPosition
+    -&gt; SearchPlaceIndexForPosition -&gt; Bool)
+-&gt; Eq SearchPlaceIndexForPosition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchPlaceIndexForPosition -&gt; SearchPlaceIndexForPosition -&gt; Bool
+$c/= :: SearchPlaceIndexForPosition -&gt; SearchPlaceIndexForPosition -&gt; Bool
+== :: SearchPlaceIndexForPosition -&gt; SearchPlaceIndexForPosition -&gt; Bool
+$c== :: SearchPlaceIndexForPosition -&gt; SearchPlaceIndexForPosition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264441"><span id="local-6989586621679264443"><span id="local-6989586621679264445"><span class="annot"><span class="annottext">Int -&gt; SearchPlaceIndexForPosition -&gt; ShowS
+[SearchPlaceIndexForPosition] -&gt; ShowS
+SearchPlaceIndexForPosition -&gt; String
+(Int -&gt; SearchPlaceIndexForPosition -&gt; ShowS)
+-&gt; (SearchPlaceIndexForPosition -&gt; String)
+-&gt; ([SearchPlaceIndexForPosition] -&gt; ShowS)
+-&gt; Show SearchPlaceIndexForPosition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchPlaceIndexForPosition] -&gt; ShowS
+$cshowList :: [SearchPlaceIndexForPosition] -&gt; ShowS
+show :: SearchPlaceIndexForPosition -&gt; String
+$cshow :: SearchPlaceIndexForPosition -&gt; String
+showsPrec :: Int -&gt; SearchPlaceIndexForPosition -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchPlaceIndexForPosition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SearchPlaceIndexForPosition -&gt; Rep SearchPlaceIndexForPosition x)
+-&gt; (forall x.
+    Rep SearchPlaceIndexForPosition x -&gt; SearchPlaceIndexForPosition)
+-&gt; Generic SearchPlaceIndexForPosition
+forall x.
+Rep SearchPlaceIndexForPosition x -&gt; SearchPlaceIndexForPosition
+forall x.
+SearchPlaceIndexForPosition -&gt; Rep SearchPlaceIndexForPosition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SearchPlaceIndexForPosition x -&gt; SearchPlaceIndexForPosition
+$cfrom :: forall x.
+SearchPlaceIndexForPosition -&gt; Rep SearchPlaceIndexForPosition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'SearchPlaceIndexForPosition' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'maxResults', 'searchPlaceIndexForPosition_maxResults' - An optional paramer. The maximum number of results returned per request.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Default value: @50@</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'indexName', 'searchPlaceIndexForPosition_indexName' - The name of the place index resource you want to use for the search.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'position', 'searchPlaceIndexForPosition_position' - Specifies a coordinate for the query defined by a longitude, and</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- latitude.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- -   The first position is the X coordinate, or longitude.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   The second position is the Y coordinate, or latitude.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- For example, @position=xLongitude&amp;position=yLatitude@ .</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#newSearchPlaceIndexForPosition"><span class="hs-identifier hs-type">newSearchPlaceIndexForPosition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'indexName'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'position'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition</span></a></span><span>
+</span><span id="line-102"></span><span id="newSearchPlaceIndexForPosition"><span class="annot"><span class="annottext">newSearchPlaceIndexForPosition :: Text -&gt; NonEmpty Double -&gt; SearchPlaceIndexForPosition
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#newSearchPlaceIndexForPosition"><span class="hs-identifier hs-var hs-var">newSearchPlaceIndexForPosition</span></a></span></span><span> </span><span id="local-6989586621679264436"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264436"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span> </span><span id="local-6989586621679264435"><span class="annot"><span class="annottext">NonEmpty Double
+</span><a href="#local-6989586621679264435"><span class="hs-identifier hs-var">pPosition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">SearchPlaceIndexForPosition' :: Maybe Natural
+-&gt; Text
+-&gt; Sensitive (NonEmpty Double)
+-&gt; SearchPlaceIndexForPosition
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition'</span></a></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxResults:SearchPlaceIndexForPosition' :: Maybe Natural
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3AmaxResults%3ASearchPlaceIndexForPosition%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:indexName:SearchPlaceIndexForPosition' :: Text
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3AindexName%3ASearchPlaceIndexForPosition%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264436"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:position:SearchPlaceIndexForPosition' :: Sensitive (NonEmpty Double)
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3Aposition%3ASearchPlaceIndexForPosition%27"><span class="hs-identifier hs-var">position</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+-&gt; Tagged
+     (Sensitive (NonEmpty Double))
+     (Identity (Sensitive (NonEmpty Double)))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+ -&gt; Tagged
+      (Sensitive (NonEmpty Double))
+      (Identity (Sensitive (NonEmpty Double))))
+-&gt; (Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+    -&gt; Tagged (NonEmpty Double) (Identity (NonEmpty Double)))
+-&gt; Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+-&gt; Tagged
+     (Sensitive (NonEmpty Double))
+     (Identity (Sensitive (NonEmpty Double)))
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+-&gt; Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+ -&gt; Tagged
+      (Sensitive (NonEmpty Double))
+      (Identity (Sensitive (NonEmpty Double))))
+-&gt; NonEmpty Double -&gt; Sensitive (NonEmpty Double)
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Double
+</span><a href="#local-6989586621679264435"><span class="hs-identifier hs-var">pPosition_</span></a></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | An optional paramer. The maximum number of results returned per request.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Default value: @50@</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPosition_maxResults"><span class="hs-identifier hs-type">searchPlaceIndexForPosition_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="searchPlaceIndexForPosition_maxResults"><span class="annot"><span class="annottext">searchPlaceIndexForPosition_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SearchPlaceIndexForPosition -&gt; f SearchPlaceIndexForPosition
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPosition_maxResults"><span class="hs-identifier hs-var hs-var">searchPlaceIndexForPosition_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchPlaceIndexForPosition -&gt; Maybe Natural)
+-&gt; (SearchPlaceIndexForPosition
+    -&gt; Maybe Natural -&gt; SearchPlaceIndexForPosition)
+-&gt; Lens
+     SearchPlaceIndexForPosition
+     SearchPlaceIndexForPosition
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264428"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:SearchPlaceIndexForPosition' :: SearchPlaceIndexForPosition -&gt; Maybe Natural
+</span><a href="#local-6989586621679264428"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679264428"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264427"><span class="annot"><span class="annottext">s :: SearchPlaceIndexForPosition
+</span><a href="#local-6989586621679264427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264426"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679264426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchPlaceIndexForPosition
+</span><a href="#local-6989586621679264427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchPlaceIndexForPosition' :: Maybe Natural
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3AmaxResults%3ASearchPlaceIndexForPosition%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679264426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The name of the place index resource you want to use for the search.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPosition_indexName"><span class="hs-identifier hs-type">searchPlaceIndexForPosition_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="searchPlaceIndexForPosition_indexName"><span class="annot"><span class="annottext">searchPlaceIndexForPosition_indexName :: (Text -&gt; f Text)
+-&gt; SearchPlaceIndexForPosition -&gt; f SearchPlaceIndexForPosition
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPosition_indexName"><span class="hs-identifier hs-var hs-var">searchPlaceIndexForPosition_indexName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchPlaceIndexForPosition -&gt; Text)
+-&gt; (SearchPlaceIndexForPosition
+    -&gt; Text -&gt; SearchPlaceIndexForPosition)
+-&gt; Lens
+     SearchPlaceIndexForPosition SearchPlaceIndexForPosition Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264425"><span class="annot"><span class="annottext">Text
+indexName :: Text
+$sel:indexName:SearchPlaceIndexForPosition' :: SearchPlaceIndexForPosition -&gt; Text
+</span><a href="#local-6989586621679264425"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264425"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264424"><span class="annot"><span class="annottext">s :: SearchPlaceIndexForPosition
+</span><a href="#local-6989586621679264424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264423"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchPlaceIndexForPosition
+</span><a href="#local-6989586621679264424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:SearchPlaceIndexForPosition' :: Text
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3AindexName%3ASearchPlaceIndexForPosition%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Specifies a coordinate for the query defined by a longitude, and</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- latitude.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   The first position is the X coordinate, or longitude.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- -   The second position is the Y coordinate, or latitude.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- For example, @position=xLongitude&amp;position=yLatitude@ .</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPosition_position"><span class="hs-identifier hs-type">searchPlaceIndexForPosition_position</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="searchPlaceIndexForPosition_position"><span class="annot"><span class="annottext">searchPlaceIndexForPosition_position :: (NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; SearchPlaceIndexForPosition -&gt; f SearchPlaceIndexForPosition
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPosition_position"><span class="hs-identifier hs-var hs-var">searchPlaceIndexForPosition_position</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchPlaceIndexForPosition -&gt; Sensitive (NonEmpty Double))
+-&gt; (SearchPlaceIndexForPosition
+    -&gt; Sensitive (NonEmpty Double) -&gt; SearchPlaceIndexForPosition)
+-&gt; Lens
+     SearchPlaceIndexForPosition
+     SearchPlaceIndexForPosition
+     (Sensitive (NonEmpty Double))
+     (Sensitive (NonEmpty Double))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264422"><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+position :: Sensitive (NonEmpty Double)
+$sel:position:SearchPlaceIndexForPosition' :: SearchPlaceIndexForPosition -&gt; Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679264422"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679264422"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264421"><span class="annot"><span class="annottext">s :: SearchPlaceIndexForPosition
+</span><a href="#local-6989586621679264421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264420"><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679264420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchPlaceIndexForPosition
+</span><a href="#local-6989586621679264421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:position:SearchPlaceIndexForPosition' :: Sensitive (NonEmpty Double)
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3Aposition%3ASearchPlaceIndexForPosition%27"><span class="hs-identifier hs-var">position</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679264420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double)))
+ -&gt; SearchPlaceIndexForPosition -&gt; f SearchPlaceIndexForPosition)
+-&gt; ((NonEmpty Double -&gt; f (NonEmpty Double))
+    -&gt; Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double)))
+-&gt; (NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; SearchPlaceIndexForPosition
+-&gt; f SearchPlaceIndexForPosition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">((NonEmpty Double -&gt; f (NonEmpty Double))
+ -&gt; Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double)))
+-&gt; ((NonEmpty Double -&gt; f (NonEmpty Double))
+    -&gt; NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; (NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; Sensitive (NonEmpty Double)
+-&gt; f (Sensitive (NonEmpty Double))
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; NonEmpty Double -&gt; f (NonEmpty Double)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679264416"><span class="annot"><span class="annottext">request :: SearchPlaceIndexForPosition -&gt; Request SearchPlaceIndexForPosition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; SearchPlaceIndexForPosition
+-&gt; Request SearchPlaceIndexForPosition
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679264412"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SearchPlaceIndexForPosition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SearchPlaceIndexForPosition)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse SearchPlaceIndexForPosition))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SearchPlaceIndexForPosition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SearchPlaceIndexForPosition)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679264409"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264409"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679264408"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679264408"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679264407"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264407"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; [SearchForPositionResult]
+-&gt; SearchPlaceIndexForPositionSummary
+-&gt; SearchPlaceIndexForPositionResponse
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-var">SearchPlaceIndexForPositionResponse'</span></a></span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; [SearchForPositionResult]
+ -&gt; SearchPlaceIndexForPositionSummary
+ -&gt; SearchPlaceIndexForPositionResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     ([SearchForPositionResult]
+      -&gt; SearchPlaceIndexForPositionSummary
+      -&gt; SearchPlaceIndexForPositionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264409"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  ([SearchForPositionResult]
+   -&gt; SearchPlaceIndexForPositionSummary
+   -&gt; SearchPlaceIndexForPositionResponse)
+-&gt; Either String [SearchForPositionResult]
+-&gt; Either
+     String
+     (SearchPlaceIndexForPositionSummary
+      -&gt; SearchPlaceIndexForPositionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [SearchForPositionResult])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Results&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [SearchForPositionResult])
+-&gt; [SearchForPositionResult]
+-&gt; Either String [SearchForPositionResult]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[SearchForPositionResult]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (SearchPlaceIndexForPositionSummary
+   -&gt; SearchPlaceIndexForPositionResponse)
+-&gt; Either String SearchPlaceIndexForPositionSummary
+-&gt; Either String SearchPlaceIndexForPositionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String SearchPlaceIndexForPositionSummary
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Summary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264397"><span id="local-6989586621679264399"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264394"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition</span></a></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679264390"><span class="annot"><span class="annottext">toHeaders :: SearchPlaceIndexForPosition -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SearchPlaceIndexForPosition -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-158"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264380"><span id="local-6989586621679264382"><span id="local-6989586621679264384"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679264378"><span class="annot"><span class="annottext">toJSON :: SearchPlaceIndexForPosition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264374"><span id="local-6989586621679264375"><span id="local-6989586621679264376"><span class="annot"><span class="annottext">Maybe Natural
+Text
+Sensitive (NonEmpty Double)
+position :: Sensitive (NonEmpty Double)
+indexName :: Text
+maxResults :: Maybe Natural
+$sel:position:SearchPlaceIndexForPosition' :: SearchPlaceIndexForPosition -&gt; Sensitive (NonEmpty Double)
+$sel:indexName:SearchPlaceIndexForPosition' :: SearchPlaceIndexForPosition -&gt; Text
+$sel:maxResults:SearchPlaceIndexForPosition' :: SearchPlaceIndexForPosition -&gt; Maybe Natural
+</span><a href="#local-6989586621679264374"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679264376"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Position&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive (NonEmpty Double) -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679264374"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679264368"><span class="annot"><span class="annottext">toPath :: SearchPlaceIndexForPosition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264364"><span id="local-6989586621679264365"><span id="local-6989586621679264366"><span class="annot"><span class="annottext">Maybe Natural
+Text
+Sensitive (NonEmpty Double)
+position :: Sensitive (NonEmpty Double)
+indexName :: Text
+maxResults :: Maybe Natural
+$sel:position:SearchPlaceIndexForPosition' :: SearchPlaceIndexForPosition -&gt; Sensitive (NonEmpty Double)
+$sel:indexName:SearchPlaceIndexForPosition' :: SearchPlaceIndexForPosition -&gt; Text
+$sel:maxResults:SearchPlaceIndexForPosition' :: SearchPlaceIndexForPosition -&gt; Maybe Natural
+</span><a href="#local-6989586621679264364"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/places/v0/indexes/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264365"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/search/position&quot;</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPosition"><span class="hs-identifier hs-type">SearchPlaceIndexForPosition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679264360"><span class="annot"><span class="annottext">toQuery :: SearchPlaceIndexForPosition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SearchPlaceIndexForPosition -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newSearchPlaceIndexForPositionResponse' smart constructor.</span><span>
+</span><span id="line-183"></span><span id="local-6989586621679264357"><span id="local-6989586621679264358"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchPlaceIndexForPositionResponse"><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse"><span class="hs-identifier hs-var">SearchPlaceIndexForPositionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchPlaceIndexForPositionResponse%27"><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-var">SearchPlaceIndexForPositionResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASearchPlaceIndexForPositionResponse%27"><span class="annot"><span class="annottext">SearchPlaceIndexForPositionResponse -&gt; Int
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3AhttpStatus%3ASearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | Returns a list of Places closest to the specified position. Each result</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- contains additional information about the Places returned.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3Aresults%3ASearchPlaceIndexForPositionResponse%27"><span class="annot"><span class="annottext">SearchPlaceIndexForPositionResponse -&gt; [SearchForPositionResult]
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3Aresults%3ASearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-var hs-var">results</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Location.Types.SearchForPositionResult.html#SearchForPositionResult"><span class="hs-identifier hs-type">SearchForPositionResult</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | Contains a summary of the request.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3Asummary%3ASearchPlaceIndexForPositionResponse%27"><span class="annot"><span class="annottext">SearchPlaceIndexForPositionResponse
+-&gt; SearchPlaceIndexForPositionSummary
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3Asummary%3ASearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.SearchPlaceIndexForPositionSummary.html#SearchPlaceIndexForPositionSummary"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionSummary</span></a></span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264350"><span id="local-6989586621679264352"><span class="annot"><span class="annottext">SearchPlaceIndexForPositionResponse
+-&gt; SearchPlaceIndexForPositionResponse -&gt; Bool
+(SearchPlaceIndexForPositionResponse
+ -&gt; SearchPlaceIndexForPositionResponse -&gt; Bool)
+-&gt; (SearchPlaceIndexForPositionResponse
+    -&gt; SearchPlaceIndexForPositionResponse -&gt; Bool)
+-&gt; Eq SearchPlaceIndexForPositionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchPlaceIndexForPositionResponse
+-&gt; SearchPlaceIndexForPositionResponse -&gt; Bool
+$c/= :: SearchPlaceIndexForPositionResponse
+-&gt; SearchPlaceIndexForPositionResponse -&gt; Bool
+== :: SearchPlaceIndexForPositionResponse
+-&gt; SearchPlaceIndexForPositionResponse -&gt; Bool
+$c== :: SearchPlaceIndexForPositionResponse
+-&gt; SearchPlaceIndexForPositionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264344"><span id="local-6989586621679264346"><span id="local-6989586621679264348"><span class="annot"><span class="annottext">Int -&gt; SearchPlaceIndexForPositionResponse -&gt; ShowS
+[SearchPlaceIndexForPositionResponse] -&gt; ShowS
+SearchPlaceIndexForPositionResponse -&gt; String
+(Int -&gt; SearchPlaceIndexForPositionResponse -&gt; ShowS)
+-&gt; (SearchPlaceIndexForPositionResponse -&gt; String)
+-&gt; ([SearchPlaceIndexForPositionResponse] -&gt; ShowS)
+-&gt; Show SearchPlaceIndexForPositionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchPlaceIndexForPositionResponse] -&gt; ShowS
+$cshowList :: [SearchPlaceIndexForPositionResponse] -&gt; ShowS
+show :: SearchPlaceIndexForPositionResponse -&gt; String
+$cshow :: SearchPlaceIndexForPositionResponse -&gt; String
+showsPrec :: Int -&gt; SearchPlaceIndexForPositionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchPlaceIndexForPositionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SearchPlaceIndexForPositionResponse
+ -&gt; Rep SearchPlaceIndexForPositionResponse x)
+-&gt; (forall x.
+    Rep SearchPlaceIndexForPositionResponse x
+    -&gt; SearchPlaceIndexForPositionResponse)
+-&gt; Generic SearchPlaceIndexForPositionResponse
+forall x.
+Rep SearchPlaceIndexForPositionResponse x
+-&gt; SearchPlaceIndexForPositionResponse
+forall x.
+SearchPlaceIndexForPositionResponse
+-&gt; Rep SearchPlaceIndexForPositionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SearchPlaceIndexForPositionResponse x
+-&gt; SearchPlaceIndexForPositionResponse
+$cfrom :: forall x.
+SearchPlaceIndexForPositionResponse
+-&gt; Rep SearchPlaceIndexForPositionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Create a value of 'SearchPlaceIndexForPositionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'httpStatus', 'searchPlaceIndexForPositionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'results', 'searchPlaceIndexForPositionResponse_results' - Returns a list of Places closest to the specified position. Each result</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- contains additional information about the Places returned.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'summary', 'searchPlaceIndexForPositionResponse_summary' - Contains a summary of the request.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#newSearchPlaceIndexForPositionResponse"><span class="hs-identifier hs-type">newSearchPlaceIndexForPositionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'summary'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><a href="Amazonka.Location.Types.SearchPlaceIndexForPositionSummary.html#SearchPlaceIndexForPositionSummary"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionSummary</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newSearchPlaceIndexForPositionResponse"><span class="annot"><span class="annottext">newSearchPlaceIndexForPositionResponse :: Int
+-&gt; SearchPlaceIndexForPositionSummary
+-&gt; SearchPlaceIndexForPositionResponse
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#newSearchPlaceIndexForPositionResponse"><span class="hs-identifier hs-var hs-var">newSearchPlaceIndexForPositionResponse</span></a></span></span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679264341"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264341"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679264340"><span class="annot"><span class="annottext">SearchPlaceIndexForPositionSummary
+</span><a href="#local-6989586621679264340"><span class="hs-identifier hs-var">pSummary_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><span class="annottext">SearchPlaceIndexForPositionResponse' :: Int
+-&gt; [SearchForPositionResult]
+-&gt; SearchPlaceIndexForPositionSummary
+-&gt; SearchPlaceIndexForPositionResponse
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse'</span></a></span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SearchPlaceIndexForPositionResponse' :: Int
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3AhttpStatus%3ASearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264341"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">$sel:results:SearchPlaceIndexForPositionResponse' :: [SearchForPositionResult]
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3Aresults%3ASearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-var">results</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SearchForPositionResult]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:summary:SearchPlaceIndexForPositionResponse' :: SearchPlaceIndexForPositionSummary
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3Asummary%3ASearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SearchPlaceIndexForPositionSummary
+</span><a href="#local-6989586621679264340"><span class="hs-identifier hs-var">pSummary_</span></a></span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPositionResponse_httpStatus"><span class="hs-identifier hs-type">searchPlaceIndexForPositionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-226"></span><span id="searchPlaceIndexForPositionResponse_httpStatus"><span class="annot"><span class="annottext">searchPlaceIndexForPositionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; SearchPlaceIndexForPositionResponse
+-&gt; f SearchPlaceIndexForPositionResponse
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPositionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">searchPlaceIndexForPositionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchPlaceIndexForPositionResponse -&gt; Int)
+-&gt; (SearchPlaceIndexForPositionResponse
+    -&gt; Int -&gt; SearchPlaceIndexForPositionResponse)
+-&gt; Lens
+     SearchPlaceIndexForPositionResponse
+     SearchPlaceIndexForPositionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264339"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SearchPlaceIndexForPositionResponse' :: SearchPlaceIndexForPositionResponse -&gt; Int
+</span><a href="#local-6989586621679264339"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264339"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264338"><span class="annot"><span class="annottext">s :: SearchPlaceIndexForPositionResponse
+</span><a href="#local-6989586621679264338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264337"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchPlaceIndexForPositionResponse
+</span><a href="#local-6989586621679264338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchPlaceIndexForPositionResponse' :: Int
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3AhttpStatus%3ASearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | Returns a list of Places closest to the specified position. Each result</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- contains additional information about the Places returned.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPositionResponse_results"><span class="hs-identifier hs-type">searchPlaceIndexForPositionResponse_results</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Location.Types.SearchForPositionResult.html#SearchForPositionResult"><span class="hs-identifier hs-type">SearchForPositionResult</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-231"></span><span id="searchPlaceIndexForPositionResponse_results"><span class="annot"><span class="annottext">searchPlaceIndexForPositionResponse_results :: ([SearchForPositionResult] -&gt; f [SearchForPositionResult])
+-&gt; SearchPlaceIndexForPositionResponse
+-&gt; f SearchPlaceIndexForPositionResponse
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPositionResponse_results"><span class="hs-identifier hs-var hs-var">searchPlaceIndexForPositionResponse_results</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchPlaceIndexForPositionResponse -&gt; [SearchForPositionResult])
+-&gt; (SearchPlaceIndexForPositionResponse
+    -&gt; [SearchForPositionResult]
+    -&gt; SearchPlaceIndexForPositionResponse)
+-&gt; Lens
+     SearchPlaceIndexForPositionResponse
+     SearchPlaceIndexForPositionResponse
+     [SearchForPositionResult]
+     [SearchForPositionResult]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264336"><span class="annot"><span class="annottext">[SearchForPositionResult]
+results :: [SearchForPositionResult]
+$sel:results:SearchPlaceIndexForPositionResponse' :: SearchPlaceIndexForPositionResponse -&gt; [SearchForPositionResult]
+</span><a href="#local-6989586621679264336"><span class="hs-identifier hs-var hs-var">results</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SearchForPositionResult]
+</span><a href="#local-6989586621679264336"><span class="hs-identifier hs-var">results</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264335"><span class="annot"><span class="annottext">s :: SearchPlaceIndexForPositionResponse
+</span><a href="#local-6989586621679264335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264334"><span class="annot"><span class="annottext">[SearchForPositionResult]
+</span><a href="#local-6989586621679264334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchPlaceIndexForPositionResponse
+</span><a href="#local-6989586621679264335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:results:SearchPlaceIndexForPositionResponse' :: [SearchForPositionResult]
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3Aresults%3ASearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-var">results</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SearchForPositionResult]
+</span><a href="#local-6989586621679264334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SearchForPositionResult] -&gt; f [SearchForPositionResult])
+ -&gt; SearchPlaceIndexForPositionResponse
+ -&gt; f SearchPlaceIndexForPositionResponse)
+-&gt; (([SearchForPositionResult] -&gt; f [SearchForPositionResult])
+    -&gt; [SearchForPositionResult] -&gt; f [SearchForPositionResult])
+-&gt; ([SearchForPositionResult] -&gt; f [SearchForPositionResult])
+-&gt; SearchPlaceIndexForPositionResponse
+-&gt; f SearchPlaceIndexForPositionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([SearchForPositionResult] -&gt; f [SearchForPositionResult])
+-&gt; [SearchForPositionResult] -&gt; f [SearchForPositionResult]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | Contains a summary of the request.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPositionResponse_summary"><span class="hs-identifier hs-type">searchPlaceIndexForPositionResponse_summary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Location.Types.SearchPlaceIndexForPositionSummary.html#SearchPlaceIndexForPositionSummary"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionSummary</span></a></span><span>
+</span><span id="line-235"></span><span id="searchPlaceIndexForPositionResponse_summary"><span class="annot"><span class="annottext">searchPlaceIndexForPositionResponse_summary :: (SearchPlaceIndexForPositionSummary
+ -&gt; f SearchPlaceIndexForPositionSummary)
+-&gt; SearchPlaceIndexForPositionResponse
+-&gt; f SearchPlaceIndexForPositionResponse
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#searchPlaceIndexForPositionResponse_summary"><span class="hs-identifier hs-var hs-var">searchPlaceIndexForPositionResponse_summary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchPlaceIndexForPositionResponse
+ -&gt; SearchPlaceIndexForPositionSummary)
+-&gt; (SearchPlaceIndexForPositionResponse
+    -&gt; SearchPlaceIndexForPositionSummary
+    -&gt; SearchPlaceIndexForPositionResponse)
+-&gt; Lens
+     SearchPlaceIndexForPositionResponse
+     SearchPlaceIndexForPositionResponse
+     SearchPlaceIndexForPositionSummary
+     SearchPlaceIndexForPositionSummary
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264333"><span class="annot"><span class="annottext">SearchPlaceIndexForPositionSummary
+summary :: SearchPlaceIndexForPositionSummary
+$sel:summary:SearchPlaceIndexForPositionResponse' :: SearchPlaceIndexForPositionResponse
+-&gt; SearchPlaceIndexForPositionSummary
+</span><a href="#local-6989586621679264333"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchPlaceIndexForPositionSummary
+</span><a href="#local-6989586621679264333"><span class="hs-identifier hs-var">summary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264332"><span class="annot"><span class="annottext">s :: SearchPlaceIndexForPositionResponse
+</span><a href="#local-6989586621679264332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264331"><span class="annot"><span class="annottext">SearchPlaceIndexForPositionSummary
+</span><a href="#local-6989586621679264331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchPlaceIndexForPositionResponse
+</span><a href="#local-6989586621679264332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summary:SearchPlaceIndexForPositionResponse' :: SearchPlaceIndexForPositionSummary
+</span><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#%24sel%3Asummary%3ASearchPlaceIndexForPositionResponse%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SearchPlaceIndexForPositionSummary
+</span><a href="#local-6989586621679264331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679264329"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Amazonka.Location.SearchPlaceIndexForPosition.html#SearchPlaceIndexForPositionResponse"><span class="hs-identifier hs-type">SearchPlaceIndexForPositionResponse</span></a></span></span><span>
+</span><span id="line-240"></span></pre></body></html>

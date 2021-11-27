@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ImageBuilder.GetComponent</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a component object.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ImageBuilder.GetComponent</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent"><span class="hs-identifier">GetComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#newGetComponent"><span class="hs-identifier">newGetComponent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#getComponent_componentBuildVersionArn"><span class="hs-identifier">getComponent_componentBuildVersionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse"><span class="hs-identifier">GetComponentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#newGetComponentResponse"><span class="hs-identifier">newGetComponentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#getComponentResponse_requestId"><span class="hs-identifier">getComponentResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#getComponentResponse_component"><span class="hs-identifier">getComponentResponse_component</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#getComponentResponse_httpStatus"><span class="hs-identifier">getComponentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.html"><span class="hs-identifier">Amazonka.ImageBuilder.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetComponent' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679327287"><span id="local-6989586621679327288"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetComponent"><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent"><span class="hs-identifier hs-var">GetComponent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetComponent%27"><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent%27"><span class="hs-identifier hs-var">GetComponent'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the component that you want to</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- retrieve. Regex requires \&quot;\/\\d+$\&quot; suffix.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcomponentBuildVersionArn%3AGetComponent%27"><span class="annot"><span class="annottext">GetComponent -&gt; Text
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#%24sel%3AcomponentBuildVersionArn%3AGetComponent%27"><span class="hs-identifier hs-var hs-var">componentBuildVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327281"><span id="local-6989586621679327283"><span class="annot"><span class="annottext">GetComponent -&gt; GetComponent -&gt; Bool
+(GetComponent -&gt; GetComponent -&gt; Bool)
+-&gt; (GetComponent -&gt; GetComponent -&gt; Bool) -&gt; Eq GetComponent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetComponent -&gt; GetComponent -&gt; Bool
+$c/= :: GetComponent -&gt; GetComponent -&gt; Bool
+== :: GetComponent -&gt; GetComponent -&gt; Bool
+$c== :: GetComponent -&gt; GetComponent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327272"><span id="local-6989586621679327274"><span id="local-6989586621679327276"><span id="local-6989586621679327278"><span class="annot"><span class="annottext">ReadPrec [GetComponent]
+ReadPrec GetComponent
+Int -&gt; ReadS GetComponent
+ReadS [GetComponent]
+(Int -&gt; ReadS GetComponent)
+-&gt; ReadS [GetComponent]
+-&gt; ReadPrec GetComponent
+-&gt; ReadPrec [GetComponent]
+-&gt; Read GetComponent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetComponent]
+$creadListPrec :: ReadPrec [GetComponent]
+readPrec :: ReadPrec GetComponent
+$creadPrec :: ReadPrec GetComponent
+readList :: ReadS [GetComponent]
+$creadList :: ReadS [GetComponent]
+readsPrec :: Int -&gt; ReadS GetComponent
+$creadsPrec :: Int -&gt; ReadS GetComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327265"><span id="local-6989586621679327267"><span id="local-6989586621679327269"><span class="annot"><span class="annottext">Int -&gt; GetComponent -&gt; ShowS
+[GetComponent] -&gt; ShowS
+GetComponent -&gt; String
+(Int -&gt; GetComponent -&gt; ShowS)
+-&gt; (GetComponent -&gt; String)
+-&gt; ([GetComponent] -&gt; ShowS)
+-&gt; Show GetComponent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetComponent] -&gt; ShowS
+$cshowList :: [GetComponent] -&gt; ShowS
+show :: GetComponent -&gt; String
+$cshow :: GetComponent -&gt; String
+showsPrec :: Int -&gt; GetComponent -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetComponent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetComponent -&gt; Rep GetComponent x)
+-&gt; (forall x. Rep GetComponent x -&gt; GetComponent)
+-&gt; Generic GetComponent
+forall x. Rep GetComponent x -&gt; GetComponent
+forall x. GetComponent -&gt; Rep GetComponent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetComponent x -&gt; GetComponent
+$cfrom :: forall x. GetComponent -&gt; Rep GetComponent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'GetComponent' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'componentBuildVersionArn', 'getComponent_componentBuildVersionArn' - The Amazon Resource Name (ARN) of the component that you want to</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- retrieve. Regex requires \&quot;\/\\d+$\&quot; suffix.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#newGetComponent"><span class="hs-identifier hs-type">newGetComponent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'componentBuildVersionArn'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent"><span class="hs-identifier hs-type">GetComponent</span></a></span><span>
+</span><span id="line-72"></span><span id="newGetComponent"><span class="annot"><span class="annottext">newGetComponent :: Text -&gt; GetComponent
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#newGetComponent"><span class="hs-identifier hs-var hs-var">newGetComponent</span></a></span></span><span> </span><span id="local-6989586621679327260"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327260"><span class="hs-identifier hs-var">pComponentBuildVersionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">GetComponent' :: Text -&gt; GetComponent
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent%27"><span class="hs-identifier hs-type">GetComponent'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:componentBuildVersionArn:GetComponent' :: Text
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#%24sel%3AcomponentBuildVersionArn%3AGetComponent%27"><span class="hs-identifier hs-var">componentBuildVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327260"><span class="hs-identifier hs-var">pComponentBuildVersionArn_</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the component that you want to</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- retrieve. Regex requires \&quot;\/\\d+$\&quot; suffix.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#getComponent_componentBuildVersionArn"><span class="hs-identifier hs-type">getComponent_componentBuildVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent"><span class="hs-identifier hs-type">GetComponent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="getComponent_componentBuildVersionArn"><span class="annot"><span class="annottext">getComponent_componentBuildVersionArn :: (Text -&gt; f Text) -&gt; GetComponent -&gt; f GetComponent
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#getComponent_componentBuildVersionArn"><span class="hs-identifier hs-var hs-var">getComponent_componentBuildVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComponent -&gt; Text)
+-&gt; (GetComponent -&gt; Text -&gt; GetComponent)
+-&gt; Lens GetComponent GetComponent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent%27"><span class="hs-identifier hs-type">GetComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327257"><span class="annot"><span class="annottext">Text
+componentBuildVersionArn :: Text
+$sel:componentBuildVersionArn:GetComponent' :: GetComponent -&gt; Text
+</span><a href="#local-6989586621679327257"><span class="hs-identifier hs-var hs-var">componentBuildVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327257"><span class="hs-identifier hs-var">componentBuildVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327256"><span class="annot"><span class="annottext">s :: GetComponent
+</span><a href="#local-6989586621679327256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent%27"><span class="hs-identifier hs-type">GetComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327255"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComponent
+</span><a href="#local-6989586621679327256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:componentBuildVersionArn:GetComponent' :: Text
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#%24sel%3AcomponentBuildVersionArn%3AGetComponent%27"><span class="hs-identifier hs-var">componentBuildVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent"><span class="hs-identifier hs-type">GetComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent"><span class="hs-identifier hs-type">GetComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent"><span class="hs-identifier hs-type">GetComponent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse"><span class="hs-identifier hs-type">GetComponentResponse</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679327251"><span class="annot"><span class="annottext">request :: GetComponent -&gt; Request GetComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetComponent -&gt; Request GetComponent
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ImageBuilder.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679327247"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetComponent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetComponent)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetComponent))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetComponent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetComponent)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679327244"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327244"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679327243"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679327243"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679327242"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327242"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Component -&gt; Int -&gt; GetComponentResponse
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse%27"><span class="hs-identifier hs-var">GetComponentResponse'</span></a></span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Component -&gt; Int -&gt; GetComponentResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Component -&gt; Int -&gt; GetComponentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327242"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;requestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Component -&gt; Int -&gt; GetComponentResponse)
+-&gt; Either String (Maybe Component)
+-&gt; Either String (Int -&gt; GetComponentResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327242"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Component)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;component&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetComponentResponse)
+-&gt; Either String Int -&gt; Either String GetComponentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327244"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327234"><span id="local-6989586621679327236"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent"><span class="hs-identifier hs-type">GetComponent</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327231"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent"><span class="hs-identifier hs-type">GetComponent</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent"><span class="hs-identifier hs-type">GetComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679327227"><span class="annot"><span class="annottext">toHeaders :: GetComponent -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetComponent -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-106"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent"><span class="hs-identifier hs-type">GetComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679327221"><span class="annot"><span class="annottext">toPath :: GetComponent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetComponent -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/GetComponent&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent"><span class="hs-identifier hs-type">GetComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679327217"><span class="annot"><span class="annottext">toQuery :: GetComponent -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponent%27"><span class="hs-identifier hs-type">GetComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327215"><span class="annot"><span class="annottext">Text
+componentBuildVersionArn :: Text
+$sel:componentBuildVersionArn:GetComponent' :: GetComponent -&gt; Text
+</span><a href="#local-6989586621679327215"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;componentBuildVersionArn&quot;</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327215"><span class="hs-identifier hs-var">componentBuildVersionArn</span></a></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newGetComponentResponse' smart constructor.</span><span>
+</span><span id="line-121"></span><span id="local-6989586621679327212"><span id="local-6989586621679327213"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetComponentResponse"><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse"><span class="hs-identifier hs-var">GetComponentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetComponentResponse%27"><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse%27"><span class="hs-identifier hs-var">GetComponentResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The request ID that uniquely identifies this request.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3ArequestId%3AGetComponentResponse%27"><span class="annot"><span class="annottext">GetComponentResponse -&gt; Maybe Text
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#%24sel%3ArequestId%3AGetComponentResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- | The component object associated with the specified ARN.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3Acomponent%3AGetComponentResponse%27"><span class="annot"><span class="annottext">GetComponentResponse -&gt; Maybe Component
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#%24sel%3Acomponent%3AGetComponentResponse%27"><span class="hs-identifier hs-var hs-var">component</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.Component.html#Component"><span class="hs-identifier hs-type">Component</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetComponentResponse%27"><span class="annot"><span class="annottext">GetComponentResponse -&gt; Int
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#%24sel%3AhttpStatus%3AGetComponentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327205"><span id="local-6989586621679327207"><span class="annot"><span class="annottext">GetComponentResponse -&gt; GetComponentResponse -&gt; Bool
+(GetComponentResponse -&gt; GetComponentResponse -&gt; Bool)
+-&gt; (GetComponentResponse -&gt; GetComponentResponse -&gt; Bool)
+-&gt; Eq GetComponentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetComponentResponse -&gt; GetComponentResponse -&gt; Bool
+$c/= :: GetComponentResponse -&gt; GetComponentResponse -&gt; Bool
+== :: GetComponentResponse -&gt; GetComponentResponse -&gt; Bool
+$c== :: GetComponentResponse -&gt; GetComponentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327197"><span id="local-6989586621679327199"><span id="local-6989586621679327201"><span id="local-6989586621679327203"><span class="annot"><span class="annottext">ReadPrec [GetComponentResponse]
+ReadPrec GetComponentResponse
+Int -&gt; ReadS GetComponentResponse
+ReadS [GetComponentResponse]
+(Int -&gt; ReadS GetComponentResponse)
+-&gt; ReadS [GetComponentResponse]
+-&gt; ReadPrec GetComponentResponse
+-&gt; ReadPrec [GetComponentResponse]
+-&gt; Read GetComponentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetComponentResponse]
+$creadListPrec :: ReadPrec [GetComponentResponse]
+readPrec :: ReadPrec GetComponentResponse
+$creadPrec :: ReadPrec GetComponentResponse
+readList :: ReadS [GetComponentResponse]
+$creadList :: ReadS [GetComponentResponse]
+readsPrec :: Int -&gt; ReadS GetComponentResponse
+$creadsPrec :: Int -&gt; ReadS GetComponentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327191"><span id="local-6989586621679327193"><span id="local-6989586621679327195"><span class="annot"><span class="annottext">Int -&gt; GetComponentResponse -&gt; ShowS
+[GetComponentResponse] -&gt; ShowS
+GetComponentResponse -&gt; String
+(Int -&gt; GetComponentResponse -&gt; ShowS)
+-&gt; (GetComponentResponse -&gt; String)
+-&gt; ([GetComponentResponse] -&gt; ShowS)
+-&gt; Show GetComponentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetComponentResponse] -&gt; ShowS
+$cshowList :: [GetComponentResponse] -&gt; ShowS
+show :: GetComponentResponse -&gt; String
+$cshow :: GetComponentResponse -&gt; String
+showsPrec :: Int -&gt; GetComponentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetComponentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetComponentResponse -&gt; Rep GetComponentResponse x)
+-&gt; (forall x. Rep GetComponentResponse x -&gt; GetComponentResponse)
+-&gt; Generic GetComponentResponse
+forall x. Rep GetComponentResponse x -&gt; GetComponentResponse
+forall x. GetComponentResponse -&gt; Rep GetComponentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetComponentResponse x -&gt; GetComponentResponse
+$cfrom :: forall x. GetComponentResponse -&gt; Rep GetComponentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Create a value of 'GetComponentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'requestId', 'getComponentResponse_requestId' - The request ID that uniquely identifies this request.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'component', 'getComponentResponse_component' - The component object associated with the specified ARN.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'httpStatus', 'getComponentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#newGetComponentResponse"><span class="hs-identifier hs-type">newGetComponentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse"><span class="hs-identifier hs-type">GetComponentResponse</span></a></span><span>
+</span><span id="line-148"></span><span id="newGetComponentResponse"><span class="annot"><span class="annottext">newGetComponentResponse :: Int -&gt; GetComponentResponse
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#newGetComponentResponse"><span class="hs-identifier hs-var hs-var">newGetComponentResponse</span></a></span></span><span> </span><span id="local-6989586621679327188"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327188"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="annottext">GetComponentResponse' :: Maybe Text -&gt; Maybe Component -&gt; Int -&gt; GetComponentResponse
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse%27"><span class="hs-identifier hs-type">GetComponentResponse'</span></a></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:GetComponentResponse' :: Maybe Text
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#%24sel%3ArequestId%3AGetComponentResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:component:GetComponentResponse' :: Maybe Component
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#%24sel%3Acomponent%3AGetComponentResponse%27"><span class="hs-identifier hs-var">component</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Component
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetComponentResponse' :: Int
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#%24sel%3AhttpStatus%3AGetComponentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327188"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The request ID that uniquely identifies this request.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#getComponentResponse_requestId"><span class="hs-identifier hs-type">getComponentResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse"><span class="hs-identifier hs-type">GetComponentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="getComponentResponse_requestId"><span class="annot"><span class="annottext">getComponentResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetComponentResponse -&gt; f GetComponentResponse
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#getComponentResponse_requestId"><span class="hs-identifier hs-var hs-var">getComponentResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComponentResponse -&gt; Maybe Text)
+-&gt; (GetComponentResponse -&gt; Maybe Text -&gt; GetComponentResponse)
+-&gt; Lens
+     GetComponentResponse GetComponentResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse%27"><span class="hs-identifier hs-type">GetComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327187"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:GetComponentResponse' :: GetComponentResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679327187"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327187"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327186"><span class="annot"><span class="annottext">s :: GetComponentResponse
+</span><a href="#local-6989586621679327186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse%27"><span class="hs-identifier hs-type">GetComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327185"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComponentResponse
+</span><a href="#local-6989586621679327186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:GetComponentResponse' :: Maybe Text
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#%24sel%3ArequestId%3AGetComponentResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse"><span class="hs-identifier hs-type">GetComponentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The component object associated with the specified ARN.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#getComponentResponse_component"><span class="hs-identifier hs-type">getComponentResponse_component</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse"><span class="hs-identifier hs-type">GetComponentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.Component.html#Component"><span class="hs-identifier hs-type">Component</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="getComponentResponse_component"><span class="annot"><span class="annottext">getComponentResponse_component :: (Maybe Component -&gt; f (Maybe Component))
+-&gt; GetComponentResponse -&gt; f GetComponentResponse
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#getComponentResponse_component"><span class="hs-identifier hs-var hs-var">getComponentResponse_component</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComponentResponse -&gt; Maybe Component)
+-&gt; (GetComponentResponse
+    -&gt; Maybe Component -&gt; GetComponentResponse)
+-&gt; Lens
+     GetComponentResponse
+     GetComponentResponse
+     (Maybe Component)
+     (Maybe Component)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse%27"><span class="hs-identifier hs-type">GetComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327184"><span class="annot"><span class="annottext">Maybe Component
+component :: Maybe Component
+$sel:component:GetComponentResponse' :: GetComponentResponse -&gt; Maybe Component
+</span><a href="#local-6989586621679327184"><span class="hs-identifier hs-var hs-var">component</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Component
+</span><a href="#local-6989586621679327184"><span class="hs-identifier hs-var">component</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327183"><span class="annot"><span class="annottext">s :: GetComponentResponse
+</span><a href="#local-6989586621679327183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse%27"><span class="hs-identifier hs-type">GetComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327182"><span class="annot"><span class="annottext">Maybe Component
+</span><a href="#local-6989586621679327182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComponentResponse
+</span><a href="#local-6989586621679327183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:component:GetComponentResponse' :: Maybe Component
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#%24sel%3Acomponent%3AGetComponentResponse%27"><span class="hs-identifier hs-var">component</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Component
+</span><a href="#local-6989586621679327182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse"><span class="hs-identifier hs-type">GetComponentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#getComponentResponse_httpStatus"><span class="hs-identifier hs-type">getComponentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse"><span class="hs-identifier hs-type">GetComponentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span id="getComponentResponse_httpStatus"><span class="annot"><span class="annottext">getComponentResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetComponentResponse -&gt; f GetComponentResponse
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#getComponentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getComponentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComponentResponse -&gt; Int)
+-&gt; (GetComponentResponse -&gt; Int -&gt; GetComponentResponse)
+-&gt; Lens GetComponentResponse GetComponentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse%27"><span class="hs-identifier hs-type">GetComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327181"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetComponentResponse' :: GetComponentResponse -&gt; Int
+</span><a href="#local-6989586621679327181"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327181"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327180"><span class="annot"><span class="annottext">s :: GetComponentResponse
+</span><a href="#local-6989586621679327180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse%27"><span class="hs-identifier hs-type">GetComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327179"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComponentResponse
+</span><a href="#local-6989586621679327180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetComponentResponse' :: Int
+</span><a href="Amazonka.ImageBuilder.GetComponent.html#%24sel%3AhttpStatus%3AGetComponentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse"><span class="hs-identifier hs-type">GetComponentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327177"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetComponent.html#GetComponentResponse"><span class="hs-identifier hs-type">GetComponentResponse</span></a></span></span><span>
+</span><span id="line-168"></span></pre></body></html>

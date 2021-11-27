@@ -1,0 +1,755 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.ListVirtualServices</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of existing virtual services in a service mesh.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.ListVirtualServices</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier">ListVirtualServices</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#newListVirtualServices"><span class="hs-identifier">newListVirtualServices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServices_meshOwner"><span class="hs-identifier">listVirtualServices_meshOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServices_nextToken"><span class="hs-identifier">listVirtualServices_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServices_limit"><span class="hs-identifier">listVirtualServices_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServices_meshName"><span class="hs-identifier">listVirtualServices_meshName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse"><span class="hs-identifier">ListVirtualServicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#newListVirtualServicesResponse"><span class="hs-identifier">newListVirtualServicesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServicesResponse_nextToken"><span class="hs-identifier">listVirtualServicesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServicesResponse_httpStatus"><span class="hs-identifier">listVirtualServicesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServicesResponse_virtualServices"><span class="hs-identifier">listVirtualServicesResponse_virtualServices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.html"><span class="hs-identifier">Amazonka.AppMesh.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newListVirtualServices' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679344877"><span id="local-6989586621679344878"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListVirtualServices"><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-var">ListVirtualServices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListVirtualServices%27"><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices%27"><span class="hs-identifier hs-var">ListVirtualServices'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmeshOwner%3AListVirtualServices%27"><span class="annot"><span class="annottext">ListVirtualServices -&gt; Maybe Text
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AmeshOwner%3AListVirtualServices%27"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The @nextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @ListVirtualServices@ request where @limit@ was used and the results</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- exceeded the value of that parameter. Pagination continues from the end</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- of the previous results that returned the @nextToken@ value.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AnextToken%3AListVirtualServices%27"><span class="annot"><span class="annottext">ListVirtualServices -&gt; Maybe Text
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AnextToken%3AListVirtualServices%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The maximum number of results returned by @ListVirtualServices@ in</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- paginated output. When you use this parameter, @ListVirtualServices@</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- returns only @limit@ results in a single page along with a @nextToken@</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- response element. You can see the remaining results of the initial</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- request by sending another @ListVirtualServices@ request with the</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- returned @nextToken@ value. This value can be between 1 and 100. If you</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- don\'t use this parameter, @ListVirtualServices@ returns up to 100</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- results and a @nextToken@ value if applicable.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Alimit%3AListVirtualServices%27"><span class="annot"><span class="annottext">ListVirtualServices -&gt; Maybe Natural
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3Alimit%3AListVirtualServices%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The name of the service mesh to list virtual services in.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AmeshName%3AListVirtualServices%27"><span class="annot"><span class="annottext">ListVirtualServices -&gt; Text
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AmeshName%3AListVirtualServices%27"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344868"><span id="local-6989586621679344870"><span class="annot"><span class="annottext">ListVirtualServices -&gt; ListVirtualServices -&gt; Bool
+(ListVirtualServices -&gt; ListVirtualServices -&gt; Bool)
+-&gt; (ListVirtualServices -&gt; ListVirtualServices -&gt; Bool)
+-&gt; Eq ListVirtualServices
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListVirtualServices -&gt; ListVirtualServices -&gt; Bool
+$c/= :: ListVirtualServices -&gt; ListVirtualServices -&gt; Bool
+== :: ListVirtualServices -&gt; ListVirtualServices -&gt; Bool
+$c== :: ListVirtualServices -&gt; ListVirtualServices -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344859"><span id="local-6989586621679344861"><span id="local-6989586621679344863"><span id="local-6989586621679344865"><span class="annot"><span class="annottext">ReadPrec [ListVirtualServices]
+ReadPrec ListVirtualServices
+Int -&gt; ReadS ListVirtualServices
+ReadS [ListVirtualServices]
+(Int -&gt; ReadS ListVirtualServices)
+-&gt; ReadS [ListVirtualServices]
+-&gt; ReadPrec ListVirtualServices
+-&gt; ReadPrec [ListVirtualServices]
+-&gt; Read ListVirtualServices
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListVirtualServices]
+$creadListPrec :: ReadPrec [ListVirtualServices]
+readPrec :: ReadPrec ListVirtualServices
+$creadPrec :: ReadPrec ListVirtualServices
+readList :: ReadS [ListVirtualServices]
+$creadList :: ReadS [ListVirtualServices]
+readsPrec :: Int -&gt; ReadS ListVirtualServices
+$creadsPrec :: Int -&gt; ReadS ListVirtualServices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344852"><span id="local-6989586621679344854"><span id="local-6989586621679344856"><span class="annot"><span class="annottext">Int -&gt; ListVirtualServices -&gt; ShowS
+[ListVirtualServices] -&gt; ShowS
+ListVirtualServices -&gt; String
+(Int -&gt; ListVirtualServices -&gt; ShowS)
+-&gt; (ListVirtualServices -&gt; String)
+-&gt; ([ListVirtualServices] -&gt; ShowS)
+-&gt; Show ListVirtualServices
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListVirtualServices] -&gt; ShowS
+$cshowList :: [ListVirtualServices] -&gt; ShowS
+show :: ListVirtualServices -&gt; String
+$cshow :: ListVirtualServices -&gt; String
+showsPrec :: Int -&gt; ListVirtualServices -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListVirtualServices -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListVirtualServices -&gt; Rep ListVirtualServices x)
+-&gt; (forall x. Rep ListVirtualServices x -&gt; ListVirtualServices)
+-&gt; Generic ListVirtualServices
+forall x. Rep ListVirtualServices x -&gt; ListVirtualServices
+forall x. ListVirtualServices -&gt; Rep ListVirtualServices x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListVirtualServices x -&gt; ListVirtualServices
+$cfrom :: forall x. ListVirtualServices -&gt; Rep ListVirtualServices x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'ListVirtualServices' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'meshOwner', 'listVirtualServices_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'nextToken', 'listVirtualServices_nextToken' - The @nextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- @ListVirtualServices@ request where @limit@ was used and the results</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- exceeded the value of that parameter. Pagination continues from the end</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- of the previous results that returned the @nextToken@ value.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'limit', 'listVirtualServices_limit' - The maximum number of results returned by @ListVirtualServices@ in</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- paginated output. When you use this parameter, @ListVirtualServices@</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- returns only @limit@ results in a single page along with a @nextToken@</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- response element. You can see the remaining results of the initial</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- request by sending another @ListVirtualServices@ request with the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- returned @nextToken@ value. This value can be between 1 and 100. If you</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- don\'t use this parameter, @ListVirtualServices@ returns up to 100</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- results and a @nextToken@ value if applicable.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'meshName', 'listVirtualServices_meshName' - The name of the service mesh to list virtual services in.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#newListVirtualServices"><span class="hs-identifier hs-type">newListVirtualServices</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'meshName'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span><span>
+</span><span id="line-115"></span><span id="newListVirtualServices"><span class="annot"><span class="annottext">newListVirtualServices :: Text -&gt; ListVirtualServices
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#newListVirtualServices"><span class="hs-identifier hs-var hs-var">newListVirtualServices</span></a></span></span><span> </span><span id="local-6989586621679344847"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344847"><span class="hs-identifier hs-var">pMeshName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">ListVirtualServices' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListVirtualServices
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices%27"><span class="hs-identifier hs-type">ListVirtualServices'</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:meshOwner:ListVirtualServices' :: Maybe Text
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AmeshOwner%3AListVirtualServices%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListVirtualServices' :: Maybe Text
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AnextToken%3AListVirtualServices%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:ListVirtualServices' :: Maybe Natural
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3Alimit%3AListVirtualServices%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:meshName:ListVirtualServices' :: Text
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AmeshName%3AListVirtualServices%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344847"><span class="hs-identifier hs-var">pMeshName_</span></a></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServices_meshOwner"><span class="hs-identifier hs-type">listVirtualServices_meshOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="listVirtualServices_meshOwner"><span class="annot"><span class="annottext">listVirtualServices_meshOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListVirtualServices -&gt; f ListVirtualServices
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServices_meshOwner"><span class="hs-identifier hs-var hs-var">listVirtualServices_meshOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListVirtualServices -&gt; Maybe Text)
+-&gt; (ListVirtualServices -&gt; Maybe Text -&gt; ListVirtualServices)
+-&gt; Lens
+     ListVirtualServices ListVirtualServices (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices%27"><span class="hs-identifier hs-type">ListVirtualServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344845"><span class="annot"><span class="annottext">Maybe Text
+meshOwner :: Maybe Text
+$sel:meshOwner:ListVirtualServices' :: ListVirtualServices -&gt; Maybe Text
+</span><a href="#local-6989586621679344845"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344845"><span class="hs-identifier hs-var">meshOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344844"><span class="annot"><span class="annottext">s :: ListVirtualServices
+</span><a href="#local-6989586621679344844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices%27"><span class="hs-identifier hs-type">ListVirtualServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344843"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVirtualServices
+</span><a href="#local-6989586621679344844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshOwner:ListVirtualServices' :: Maybe Text
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AmeshOwner%3AListVirtualServices%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The @nextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- @ListVirtualServices@ request where @limit@ was used and the results</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- exceeded the value of that parameter. Pagination continues from the end</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- of the previous results that returned the @nextToken@ value.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServices_nextToken"><span class="hs-identifier hs-type">listVirtualServices_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="listVirtualServices_nextToken"><span class="annot"><span class="annottext">listVirtualServices_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListVirtualServices -&gt; f ListVirtualServices
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServices_nextToken"><span class="hs-identifier hs-var hs-var">listVirtualServices_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListVirtualServices -&gt; Maybe Text)
+-&gt; (ListVirtualServices -&gt; Maybe Text -&gt; ListVirtualServices)
+-&gt; Lens
+     ListVirtualServices ListVirtualServices (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices%27"><span class="hs-identifier hs-type">ListVirtualServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344842"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListVirtualServices' :: ListVirtualServices -&gt; Maybe Text
+</span><a href="#local-6989586621679344842"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344842"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344841"><span class="annot"><span class="annottext">s :: ListVirtualServices
+</span><a href="#local-6989586621679344841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices%27"><span class="hs-identifier hs-type">ListVirtualServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344840"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVirtualServices
+</span><a href="#local-6989586621679344841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListVirtualServices' :: Maybe Text
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AnextToken%3AListVirtualServices%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The maximum number of results returned by @ListVirtualServices@ in</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- paginated output. When you use this parameter, @ListVirtualServices@</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- returns only @limit@ results in a single page along with a @nextToken@</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- response element. You can see the remaining results of the initial</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- request by sending another @ListVirtualServices@ request with the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- returned @nextToken@ value. This value can be between 1 and 100. If you</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- don\'t use this parameter, @ListVirtualServices@ returns up to 100</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- results and a @nextToken@ value if applicable.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServices_limit"><span class="hs-identifier hs-type">listVirtualServices_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="listVirtualServices_limit"><span class="annot"><span class="annottext">listVirtualServices_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListVirtualServices -&gt; f ListVirtualServices
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServices_limit"><span class="hs-identifier hs-var hs-var">listVirtualServices_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListVirtualServices -&gt; Maybe Natural)
+-&gt; (ListVirtualServices -&gt; Maybe Natural -&gt; ListVirtualServices)
+-&gt; Lens
+     ListVirtualServices
+     ListVirtualServices
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices%27"><span class="hs-identifier hs-type">ListVirtualServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344839"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:ListVirtualServices' :: ListVirtualServices -&gt; Maybe Natural
+</span><a href="#local-6989586621679344839"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679344839"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344838"><span class="annot"><span class="annottext">s :: ListVirtualServices
+</span><a href="#local-6989586621679344838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices%27"><span class="hs-identifier hs-type">ListVirtualServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344837"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679344837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVirtualServices
+</span><a href="#local-6989586621679344838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListVirtualServices' :: Maybe Natural
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3Alimit%3AListVirtualServices%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679344837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The name of the service mesh to list virtual services in.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServices_meshName"><span class="hs-identifier hs-type">listVirtualServices_meshName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-150"></span><span id="listVirtualServices_meshName"><span class="annot"><span class="annottext">listVirtualServices_meshName :: (Text -&gt; f Text) -&gt; ListVirtualServices -&gt; f ListVirtualServices
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServices_meshName"><span class="hs-identifier hs-var hs-var">listVirtualServices_meshName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListVirtualServices -&gt; Text)
+-&gt; (ListVirtualServices -&gt; Text -&gt; ListVirtualServices)
+-&gt; Lens ListVirtualServices ListVirtualServices Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices%27"><span class="hs-identifier hs-type">ListVirtualServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344836"><span class="annot"><span class="annottext">Text
+meshName :: Text
+$sel:meshName:ListVirtualServices' :: ListVirtualServices -&gt; Text
+</span><a href="#local-6989586621679344836"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344836"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344835"><span class="annot"><span class="annottext">s :: ListVirtualServices
+</span><a href="#local-6989586621679344835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices%27"><span class="hs-identifier hs-type">ListVirtualServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344834"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVirtualServices
+</span><a href="#local-6989586621679344835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshName:ListVirtualServices' :: Text
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AmeshName%3AListVirtualServices%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679344830"><span class="annot"><span class="annottext">page :: ListVirtualServices
+-&gt; AWSResponse ListVirtualServices -&gt; Maybe ListVirtualServices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679344828"><span class="annot"><span class="annottext">ListVirtualServices
+</span><a href="#local-6989586621679344828"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679344827"><span class="annot"><span class="annottext">AWSResponse ListVirtualServices
+</span><a href="#local-6989586621679344827"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-155"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListVirtualServices
+ListVirtualServicesResponse
+</span><a href="#local-6989586621679344827"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">ListVirtualServicesResponse
+-&gt; Getting (First Text) ListVirtualServicesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListVirtualServicesResponse
+-&gt; Const (First Text) ListVirtualServicesResponse
+Lens' ListVirtualServicesResponse (Maybe Text)
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServicesResponse_nextToken"><span class="hs-identifier hs-var">listVirtualServicesResponse_nextToken</span></a></span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListVirtualServicesResponse
+ -&gt; Const (First Text) ListVirtualServicesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListVirtualServicesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-158"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListVirtualServices
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[VirtualServiceRef] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-161"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListVirtualServices
+ListVirtualServicesResponse
+</span><a href="#local-6989586621679344827"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">ListVirtualServicesResponse
+-&gt; Getting
+     [VirtualServiceRef] ListVirtualServicesResponse [VirtualServiceRef]
+-&gt; [VirtualServiceRef]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting
+  [VirtualServiceRef] ListVirtualServicesResponse [VirtualServiceRef]
+Lens' ListVirtualServicesResponse [VirtualServiceRef]
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServicesResponse_virtualServices"><span class="hs-identifier hs-var">listVirtualServicesResponse_virtualServices</span></a></span><span>
+</span><span id="line-163"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListVirtualServices
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">ListVirtualServices -&gt; Maybe ListVirtualServices
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListVirtualServices -&gt; Maybe ListVirtualServices)
+-&gt; ListVirtualServices -&gt; Maybe ListVirtualServices
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ListVirtualServices
+</span><a href="#local-6989586621679344828"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">ListVirtualServices
+-&gt; (ListVirtualServices -&gt; ListVirtualServices)
+-&gt; ListVirtualServices
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListVirtualServices -&gt; Identity ListVirtualServices
+Lens
+  ListVirtualServices ListVirtualServices (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServices_nextToken"><span class="hs-identifier hs-var">listVirtualServices_nextToken</span></a></span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListVirtualServices -&gt; Identity ListVirtualServices)
+-&gt; Maybe Text -&gt; ListVirtualServices -&gt; ListVirtualServices
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListVirtualServices
+ListVirtualServicesResponse
+</span><a href="#local-6989586621679344827"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">ListVirtualServicesResponse
+-&gt; Getting (First Text) ListVirtualServicesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListVirtualServicesResponse
+-&gt; Const (First Text) ListVirtualServicesResponse
+Lens' ListVirtualServicesResponse (Maybe Text)
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServicesResponse_nextToken"><span class="hs-identifier hs-var">listVirtualServicesResponse_nextToken</span></a></span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListVirtualServicesResponse
+ -&gt; Const (First Text) ListVirtualServicesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListVirtualServicesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-175"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse"><span class="hs-identifier hs-type">ListVirtualServicesResponse</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679344816"><span class="annot"><span class="annottext">request :: ListVirtualServices -&gt; Request ListVirtualServices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListVirtualServices -&gt; Request ListVirtualServices
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AppMesh.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679344812"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListVirtualServices
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListVirtualServices)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListVirtualServices))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListVirtualServices
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListVirtualServices)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344809"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344809"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679344808"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679344808"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679344807"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344807"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Int -&gt; [VirtualServiceRef] -&gt; ListVirtualServicesResponse
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse%27"><span class="hs-identifier hs-var">ListVirtualServicesResponse'</span></a></span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Int -&gt; [VirtualServiceRef] -&gt; ListVirtualServicesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; [VirtualServiceRef] -&gt; ListVirtualServicesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; [VirtualServiceRef] -&gt; ListVirtualServicesResponse)
+-&gt; Either String Int
+-&gt; Either
+     String ([VirtualServiceRef] -&gt; ListVirtualServicesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344809"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Either String ([VirtualServiceRef] -&gt; ListVirtualServicesResponse)
+-&gt; Either String [VirtualServiceRef]
+-&gt; Either String ListVirtualServicesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [VirtualServiceRef])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;virtualServices&quot;</span></span><span>
+</span><span id="line-185"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [VirtualServiceRef])
+-&gt; [VirtualServiceRef] -&gt; Either String [VirtualServiceRef]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[VirtualServiceRef]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-186"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344798"><span id="local-6989586621679344800"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span></span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679344791"><span class="annot"><span class="annottext">toHeaders :: ListVirtualServices -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListVirtualServices -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-198"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-199"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-200"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679344785"><span class="annot"><span class="annottext">toPath :: ListVirtualServices -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices%27"><span class="hs-identifier hs-type">ListVirtualServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344780"><span id="local-6989586621679344781"><span id="local-6989586621679344782"><span id="local-6989586621679344783"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+meshName :: Text
+limit :: Maybe Natural
+nextToken :: Maybe Text
+meshOwner :: Maybe Text
+$sel:meshName:ListVirtualServices' :: ListVirtualServices -&gt; Text
+$sel:limit:ListVirtualServices' :: ListVirtualServices -&gt; Maybe Natural
+$sel:nextToken:ListVirtualServices' :: ListVirtualServices -&gt; Maybe Text
+$sel:meshOwner:ListVirtualServices' :: ListVirtualServices -&gt; Maybe Text
+</span><a href="#local-6989586621679344780"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v20190125/meshes/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344780"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/virtualServices&quot;</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices"><span class="hs-identifier hs-type">ListVirtualServices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679344776"><span class="annot"><span class="annottext">toQuery :: ListVirtualServices -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServices%27"><span class="hs-identifier hs-type">ListVirtualServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344771"><span id="local-6989586621679344772"><span id="local-6989586621679344773"><span id="local-6989586621679344774"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+meshName :: Text
+limit :: Maybe Natural
+nextToken :: Maybe Text
+meshOwner :: Maybe Text
+$sel:meshName:ListVirtualServices' :: ListVirtualServices -&gt; Text
+$sel:limit:ListVirtualServices' :: ListVirtualServices -&gt; Maybe Natural
+$sel:nextToken:ListVirtualServices' :: ListVirtualServices -&gt; Maybe Text
+$sel:meshOwner:ListVirtualServices' :: ListVirtualServices -&gt; Maybe Text
+</span><a href="#local-6989586621679344771"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;meshOwner&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344774"><span class="hs-identifier hs-var">meshOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344773"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679344772"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- /See:/ 'newListVirtualServicesResponse' smart constructor.</span><span>
+</span><span id="line-223"></span><span id="local-6989586621679344768"><span id="local-6989586621679344769"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListVirtualServicesResponse"><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse"><span class="hs-identifier hs-var">ListVirtualServicesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListVirtualServicesResponse%27"><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse%27"><span class="hs-identifier hs-var">ListVirtualServicesResponse'</span></a></span></span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ value to include in a future @ListVirtualServices@</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- request. When the results of a @ListVirtualServices@ request exceed</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- @limit@, you can use this value to retrieve the next page of results.</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-228"></span><span>    </span><span id="%24sel%3AnextToken%3AListVirtualServicesResponse%27"><span class="annot"><span class="annottext">ListVirtualServicesResponse -&gt; Maybe Text
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AnextToken%3AListVirtualServicesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-230"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListVirtualServicesResponse%27"><span class="annot"><span class="annottext">ListVirtualServicesResponse -&gt; Int
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AhttpStatus%3AListVirtualServicesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- | The list of existing virtual services for the specified service mesh.</span><span>
+</span><span id="line-232"></span><span>    </span><span id="%24sel%3AvirtualServices%3AListVirtualServicesResponse%27"><span class="annot"><span class="annottext">ListVirtualServicesResponse -&gt; [VirtualServiceRef]
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AvirtualServices%3AListVirtualServicesResponse%27"><span class="hs-identifier hs-var hs-var">virtualServices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualServiceRef.html#VirtualServiceRef"><span class="hs-identifier hs-type">VirtualServiceRef</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344761"><span id="local-6989586621679344763"><span class="annot"><span class="annottext">ListVirtualServicesResponse -&gt; ListVirtualServicesResponse -&gt; Bool
+(ListVirtualServicesResponse
+ -&gt; ListVirtualServicesResponse -&gt; Bool)
+-&gt; (ListVirtualServicesResponse
+    -&gt; ListVirtualServicesResponse -&gt; Bool)
+-&gt; Eq ListVirtualServicesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListVirtualServicesResponse -&gt; ListVirtualServicesResponse -&gt; Bool
+$c/= :: ListVirtualServicesResponse -&gt; ListVirtualServicesResponse -&gt; Bool
+== :: ListVirtualServicesResponse -&gt; ListVirtualServicesResponse -&gt; Bool
+$c== :: ListVirtualServicesResponse -&gt; ListVirtualServicesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344753"><span id="local-6989586621679344755"><span id="local-6989586621679344757"><span id="local-6989586621679344759"><span class="annot"><span class="annottext">ReadPrec [ListVirtualServicesResponse]
+ReadPrec ListVirtualServicesResponse
+Int -&gt; ReadS ListVirtualServicesResponse
+ReadS [ListVirtualServicesResponse]
+(Int -&gt; ReadS ListVirtualServicesResponse)
+-&gt; ReadS [ListVirtualServicesResponse]
+-&gt; ReadPrec ListVirtualServicesResponse
+-&gt; ReadPrec [ListVirtualServicesResponse]
+-&gt; Read ListVirtualServicesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListVirtualServicesResponse]
+$creadListPrec :: ReadPrec [ListVirtualServicesResponse]
+readPrec :: ReadPrec ListVirtualServicesResponse
+$creadPrec :: ReadPrec ListVirtualServicesResponse
+readList :: ReadS [ListVirtualServicesResponse]
+$creadList :: ReadS [ListVirtualServicesResponse]
+readsPrec :: Int -&gt; ReadS ListVirtualServicesResponse
+$creadsPrec :: Int -&gt; ReadS ListVirtualServicesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344747"><span id="local-6989586621679344749"><span id="local-6989586621679344751"><span class="annot"><span class="annottext">Int -&gt; ListVirtualServicesResponse -&gt; ShowS
+[ListVirtualServicesResponse] -&gt; ShowS
+ListVirtualServicesResponse -&gt; String
+(Int -&gt; ListVirtualServicesResponse -&gt; ShowS)
+-&gt; (ListVirtualServicesResponse -&gt; String)
+-&gt; ([ListVirtualServicesResponse] -&gt; ShowS)
+-&gt; Show ListVirtualServicesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListVirtualServicesResponse] -&gt; ShowS
+$cshowList :: [ListVirtualServicesResponse] -&gt; ShowS
+show :: ListVirtualServicesResponse -&gt; String
+$cshow :: ListVirtualServicesResponse -&gt; String
+showsPrec :: Int -&gt; ListVirtualServicesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListVirtualServicesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListVirtualServicesResponse -&gt; Rep ListVirtualServicesResponse x)
+-&gt; (forall x.
+    Rep ListVirtualServicesResponse x -&gt; ListVirtualServicesResponse)
+-&gt; Generic ListVirtualServicesResponse
+forall x.
+Rep ListVirtualServicesResponse x -&gt; ListVirtualServicesResponse
+forall x.
+ListVirtualServicesResponse -&gt; Rep ListVirtualServicesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListVirtualServicesResponse x -&gt; ListVirtualServicesResponse
+$cfrom :: forall x.
+ListVirtualServicesResponse -&gt; Rep ListVirtualServicesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- Create a value of 'ListVirtualServicesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'nextToken', 'listVirtualServicesResponse_nextToken' - The @nextToken@ value to include in a future @ListVirtualServices@</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- request. When the results of a @ListVirtualServices@ request exceed</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- @limit@, you can use this value to retrieve the next page of results.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- 'httpStatus', 'listVirtualServicesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- 'virtualServices', 'listVirtualServicesResponse_virtualServices' - The list of existing virtual services for the specified service mesh.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#newListVirtualServicesResponse"><span class="hs-identifier hs-type">newListVirtualServicesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-253"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-254"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-255"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse"><span class="hs-identifier hs-type">ListVirtualServicesResponse</span></a></span><span>
+</span><span id="line-256"></span><span id="newListVirtualServicesResponse"><span class="annot"><span class="annottext">newListVirtualServicesResponse :: Int -&gt; ListVirtualServicesResponse
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#newListVirtualServicesResponse"><span class="hs-identifier hs-var hs-var">newListVirtualServicesResponse</span></a></span></span><span> </span><span id="local-6989586621679344744"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344744"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>  </span><span class="annot"><span class="annottext">ListVirtualServicesResponse' :: Maybe Text
+-&gt; Int -&gt; [VirtualServiceRef] -&gt; ListVirtualServicesResponse
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse%27"><span class="hs-identifier hs-type">ListVirtualServicesResponse'</span></a></span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListVirtualServicesResponse' :: Maybe Text
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AnextToken%3AListVirtualServicesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListVirtualServicesResponse' :: Int
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AhttpStatus%3AListVirtualServicesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344744"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualServices:ListVirtualServicesResponse' :: [VirtualServiceRef]
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AvirtualServices%3AListVirtualServicesResponse%27"><span class="hs-identifier hs-var">virtualServices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[VirtualServiceRef]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The @nextToken@ value to include in a future @ListVirtualServices@</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- request. When the results of a @ListVirtualServices@ request exceed</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- @limit@, you can use this value to retrieve the next page of results.</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServicesResponse_nextToken"><span class="hs-identifier hs-type">listVirtualServicesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse"><span class="hs-identifier hs-type">ListVirtualServicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span id="listVirtualServicesResponse_nextToken"><span class="annot"><span class="annottext">listVirtualServicesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListVirtualServicesResponse -&gt; f ListVirtualServicesResponse
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServicesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listVirtualServicesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListVirtualServicesResponse -&gt; Maybe Text)
+-&gt; (ListVirtualServicesResponse
+    -&gt; Maybe Text -&gt; ListVirtualServicesResponse)
+-&gt; Lens' ListVirtualServicesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse%27"><span class="hs-identifier hs-type">ListVirtualServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344743"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListVirtualServicesResponse' :: ListVirtualServicesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679344743"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344743"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344742"><span class="annot"><span class="annottext">s :: ListVirtualServicesResponse
+</span><a href="#local-6989586621679344742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse%27"><span class="hs-identifier hs-type">ListVirtualServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344741"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVirtualServicesResponse
+</span><a href="#local-6989586621679344742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListVirtualServicesResponse' :: Maybe Text
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AnextToken%3AListVirtualServicesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse"><span class="hs-identifier hs-type">ListVirtualServicesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServicesResponse_httpStatus"><span class="hs-identifier hs-type">listVirtualServicesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse"><span class="hs-identifier hs-type">ListVirtualServicesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-273"></span><span id="listVirtualServicesResponse_httpStatus"><span class="annot"><span class="annottext">listVirtualServicesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListVirtualServicesResponse -&gt; f ListVirtualServicesResponse
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServicesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listVirtualServicesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListVirtualServicesResponse -&gt; Int)
+-&gt; (ListVirtualServicesResponse
+    -&gt; Int -&gt; ListVirtualServicesResponse)
+-&gt; Lens
+     ListVirtualServicesResponse ListVirtualServicesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse%27"><span class="hs-identifier hs-type">ListVirtualServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344740"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListVirtualServicesResponse' :: ListVirtualServicesResponse -&gt; Int
+</span><a href="#local-6989586621679344740"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344740"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344739"><span class="annot"><span class="annottext">s :: ListVirtualServicesResponse
+</span><a href="#local-6989586621679344739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse%27"><span class="hs-identifier hs-type">ListVirtualServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344738"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVirtualServicesResponse
+</span><a href="#local-6989586621679344739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListVirtualServicesResponse' :: Int
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AhttpStatus%3AListVirtualServicesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse"><span class="hs-identifier hs-type">ListVirtualServicesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | The list of existing virtual services for the specified service mesh.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServicesResponse_virtualServices"><span class="hs-identifier hs-type">listVirtualServicesResponse_virtualServices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse"><span class="hs-identifier hs-type">ListVirtualServicesResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualServiceRef.html#VirtualServiceRef"><span class="hs-identifier hs-type">VirtualServiceRef</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-277"></span><span id="listVirtualServicesResponse_virtualServices"><span class="annot"><span class="annottext">listVirtualServicesResponse_virtualServices :: ([VirtualServiceRef] -&gt; f [VirtualServiceRef])
+-&gt; ListVirtualServicesResponse -&gt; f ListVirtualServicesResponse
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#listVirtualServicesResponse_virtualServices"><span class="hs-identifier hs-var hs-var">listVirtualServicesResponse_virtualServices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListVirtualServicesResponse -&gt; [VirtualServiceRef])
+-&gt; (ListVirtualServicesResponse
+    -&gt; [VirtualServiceRef] -&gt; ListVirtualServicesResponse)
+-&gt; Lens' ListVirtualServicesResponse [VirtualServiceRef]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse%27"><span class="hs-identifier hs-type">ListVirtualServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344737"><span class="annot"><span class="annottext">[VirtualServiceRef]
+virtualServices :: [VirtualServiceRef]
+$sel:virtualServices:ListVirtualServicesResponse' :: ListVirtualServicesResponse -&gt; [VirtualServiceRef]
+</span><a href="#local-6989586621679344737"><span class="hs-identifier hs-var hs-var">virtualServices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[VirtualServiceRef]
+</span><a href="#local-6989586621679344737"><span class="hs-identifier hs-var">virtualServices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344736"><span class="annot"><span class="annottext">s :: ListVirtualServicesResponse
+</span><a href="#local-6989586621679344736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse%27"><span class="hs-identifier hs-type">ListVirtualServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344735"><span class="annot"><span class="annottext">[VirtualServiceRef]
+</span><a href="#local-6989586621679344735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVirtualServicesResponse
+</span><a href="#local-6989586621679344736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualServices:ListVirtualServicesResponse' :: [VirtualServiceRef]
+</span><a href="Amazonka.AppMesh.ListVirtualServices.html#%24sel%3AvirtualServices%3AListVirtualServicesResponse%27"><span class="hs-identifier hs-var">virtualServices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[VirtualServiceRef]
+</span><a href="#local-6989586621679344735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse"><span class="hs-identifier hs-type">ListVirtualServicesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([VirtualServiceRef] -&gt; f [VirtualServiceRef])
+ -&gt; ListVirtualServicesResponse -&gt; f ListVirtualServicesResponse)
+-&gt; (([VirtualServiceRef] -&gt; f [VirtualServiceRef])
+    -&gt; [VirtualServiceRef] -&gt; f [VirtualServiceRef])
+-&gt; ([VirtualServiceRef] -&gt; f [VirtualServiceRef])
+-&gt; ListVirtualServicesResponse
+-&gt; f ListVirtualServicesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([VirtualServiceRef] -&gt; f [VirtualServiceRef])
+-&gt; [VirtualServiceRef] -&gt; f [VirtualServiceRef]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344732"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.ListVirtualServices.html#ListVirtualServicesResponse"><span class="hs-identifier hs-type">ListVirtualServicesResponse</span></a></span></span><span>
+</span><span id="line-280"></span></pre></body></html>

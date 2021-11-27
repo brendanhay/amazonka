@@ -1,0 +1,674 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DocumentDB.Types.GlobalCluster</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DocumentDB.Types.GlobalCluster</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalClusterMember.html"><span class="hs-identifier">Amazonka.DocumentDB.Types.GlobalClusterMember</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A data type representing an Amazon DocumentDB global cluster.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGlobalCluster' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679298744"><span id="local-6989586621679298745"></span></span><span class="hs-keyword">data</span><span> </span><span id="GlobalCluster"><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-var">GlobalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GlobalCluster%27"><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-var">GlobalCluster'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates the database engine version.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AengineVersion%3AGlobalCluster%27"><span class="annot"><span class="annottext">GlobalCluster -&gt; Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AengineVersion%3AGlobalCluster%27"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Specifies the current state of this global cluster.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AGlobalCluster%27"><span class="annot"><span class="annottext">GlobalCluster -&gt; Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3Astatus%3AGlobalCluster%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The deletion protection setting for the new global cluster.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdeletionProtection%3AGlobalCluster%27"><span class="annot"><span class="annottext">GlobalCluster -&gt; Maybe Bool
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AdeletionProtection%3AGlobalCluster%27"><span class="hs-identifier hs-var hs-var">deletionProtection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The storage encryption setting for the global cluster.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstorageEncrypted%3AGlobalCluster%27"><span class="annot"><span class="annottext">GlobalCluster -&gt; Maybe Bool
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AstorageEncrypted%3AGlobalCluster%27"><span class="hs-identifier hs-var hs-var">storageEncrypted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Contains a user-supplied global cluster identifier. This identifier is</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- the unique key that identifies a global cluster.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AglobalClusterIdentifier%3AGlobalCluster%27"><span class="annot"><span class="annottext">GlobalCluster -&gt; Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AglobalClusterIdentifier%3AGlobalCluster%27"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Amazon DocumentDB database engine used by the global cluster.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aengine%3AGlobalCluster%27"><span class="annot"><span class="annottext">GlobalCluster -&gt; Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3Aengine%3AGlobalCluster%27"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the global cluster.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AglobalClusterArn%3AGlobalCluster%27"><span class="annot"><span class="annottext">GlobalCluster -&gt; Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AglobalClusterArn%3AGlobalCluster%27"><span class="hs-identifier hs-var hs-var">globalClusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The default database name within the new global cluster.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AdatabaseName%3AGlobalCluster%27"><span class="annot"><span class="annottext">GlobalCluster -&gt; Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AdatabaseName%3AGlobalCluster%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The list of cluster IDs for secondary clusters within the global</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- cluster. Currently limited to one item.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AglobalClusterMembers%3AGlobalCluster%27"><span class="annot"><span class="annottext">GlobalCluster -&gt; Maybe [GlobalClusterMember]
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AglobalClusterMembers%3AGlobalCluster%27"><span class="hs-identifier hs-var hs-var">globalClusterMembers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalClusterMember.html#GlobalClusterMember"><span class="hs-identifier hs-type">GlobalClusterMember</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The Region-unique, immutable identifier for the global database cluster.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- This identifier is found in AWS CloudTrail log entries whenever the AWS</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- KMS customer master key (CMK) for the cluster is accessed.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AglobalClusterResourceId%3AGlobalCluster%27"><span class="annot"><span class="annottext">GlobalCluster -&gt; Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AglobalClusterResourceId%3AGlobalCluster%27"><span class="hs-identifier hs-var hs-var">globalClusterResourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298729"><span id="local-6989586621679298731"><span class="annot"><span class="annottext">GlobalCluster -&gt; GlobalCluster -&gt; Bool
+(GlobalCluster -&gt; GlobalCluster -&gt; Bool)
+-&gt; (GlobalCluster -&gt; GlobalCluster -&gt; Bool) -&gt; Eq GlobalCluster
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GlobalCluster -&gt; GlobalCluster -&gt; Bool
+$c/= :: GlobalCluster -&gt; GlobalCluster -&gt; Bool
+== :: GlobalCluster -&gt; GlobalCluster -&gt; Bool
+$c== :: GlobalCluster -&gt; GlobalCluster -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298720"><span id="local-6989586621679298722"><span id="local-6989586621679298724"><span id="local-6989586621679298726"><span class="annot"><span class="annottext">ReadPrec [GlobalCluster]
+ReadPrec GlobalCluster
+Int -&gt; ReadS GlobalCluster
+ReadS [GlobalCluster]
+(Int -&gt; ReadS GlobalCluster)
+-&gt; ReadS [GlobalCluster]
+-&gt; ReadPrec GlobalCluster
+-&gt; ReadPrec [GlobalCluster]
+-&gt; Read GlobalCluster
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GlobalCluster]
+$creadListPrec :: ReadPrec [GlobalCluster]
+readPrec :: ReadPrec GlobalCluster
+$creadPrec :: ReadPrec GlobalCluster
+readList :: ReadS [GlobalCluster]
+$creadList :: ReadS [GlobalCluster]
+readsPrec :: Int -&gt; ReadS GlobalCluster
+$creadsPrec :: Int -&gt; ReadS GlobalCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298713"><span id="local-6989586621679298715"><span id="local-6989586621679298717"><span class="annot"><span class="annottext">Int -&gt; GlobalCluster -&gt; ShowS
+[GlobalCluster] -&gt; ShowS
+GlobalCluster -&gt; String
+(Int -&gt; GlobalCluster -&gt; ShowS)
+-&gt; (GlobalCluster -&gt; String)
+-&gt; ([GlobalCluster] -&gt; ShowS)
+-&gt; Show GlobalCluster
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GlobalCluster] -&gt; ShowS
+$cshowList :: [GlobalCluster] -&gt; ShowS
+show :: GlobalCluster -&gt; String
+$cshow :: GlobalCluster -&gt; String
+showsPrec :: Int -&gt; GlobalCluster -&gt; ShowS
+$cshowsPrec :: Int -&gt; GlobalCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GlobalCluster -&gt; Rep GlobalCluster x)
+-&gt; (forall x. Rep GlobalCluster x -&gt; GlobalCluster)
+-&gt; Generic GlobalCluster
+forall x. Rep GlobalCluster x -&gt; GlobalCluster
+forall x. GlobalCluster -&gt; Rep GlobalCluster x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GlobalCluster x -&gt; GlobalCluster
+$cfrom :: forall x. GlobalCluster -&gt; Rep GlobalCluster x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'GlobalCluster' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'engineVersion', 'globalCluster_engineVersion' - Indicates the database engine version.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'status', 'globalCluster_status' - Specifies the current state of this global cluster.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'deletionProtection', 'globalCluster_deletionProtection' - The deletion protection setting for the new global cluster.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'storageEncrypted', 'globalCluster_storageEncrypted' - The storage encryption setting for the global cluster.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'globalClusterIdentifier', 'globalCluster_globalClusterIdentifier' - Contains a user-supplied global cluster identifier. This identifier is</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- the unique key that identifies a global cluster.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'engine', 'globalCluster_engine' - The Amazon DocumentDB database engine used by the global cluster.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'globalClusterArn', 'globalCluster_globalClusterArn' - The Amazon Resource Name (ARN) for the global cluster.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'databaseName', 'globalCluster_databaseName' - The default database name within the new global cluster.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'globalClusterMembers', 'globalCluster_globalClusterMembers' - The list of cluster IDs for secondary clusters within the global</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- cluster. Currently limited to one item.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'globalClusterResourceId', 'globalCluster_globalClusterResourceId' - The Region-unique, immutable identifier for the global database cluster.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- This identifier is found in AWS CloudTrail log entries whenever the AWS</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- KMS customer master key (CMK) for the cluster is accessed.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#newGlobalCluster"><span class="hs-identifier hs-type">newGlobalCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span>
+</span><span id="line-91"></span><span id="newGlobalCluster"><span class="annot"><span class="annottext">newGlobalCluster :: GlobalCluster
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#newGlobalCluster"><span class="hs-identifier hs-var hs-var">newGlobalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">GlobalCluster' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [GlobalClusterMember]
+-&gt; Maybe Text
+-&gt; GlobalCluster
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:engineVersion:GlobalCluster' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AengineVersion%3AGlobalCluster%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:GlobalCluster' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3Astatus%3AGlobalCluster%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:deletionProtection:GlobalCluster' :: Maybe Bool
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AdeletionProtection%3AGlobalCluster%27"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageEncrypted:GlobalCluster' :: Maybe Bool
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AstorageEncrypted%3AGlobalCluster%27"><span class="hs-identifier hs-var">storageEncrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:GlobalCluster' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AglobalClusterIdentifier%3AGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:engine:GlobalCluster' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3Aengine%3AGlobalCluster%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalClusterArn:GlobalCluster' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AglobalClusterArn%3AGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:GlobalCluster' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AdatabaseName%3AGlobalCluster%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalClusterMembers:GlobalCluster' :: Maybe [GlobalClusterMember]
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AglobalClusterMembers%3AGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GlobalClusterMember]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalClusterResourceId:GlobalCluster' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AglobalClusterResourceId%3AGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Indicates the database engine version.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_engineVersion"><span class="hs-identifier hs-type">globalCluster_engineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="globalCluster_engineVersion"><span class="annot"><span class="annottext">globalCluster_engineVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GlobalCluster -&gt; f GlobalCluster
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_engineVersion"><span class="hs-identifier hs-var hs-var">globalCluster_engineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalCluster -&gt; Maybe Text)
+-&gt; (GlobalCluster -&gt; Maybe Text -&gt; GlobalCluster)
+-&gt; Lens GlobalCluster GlobalCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298704"><span class="annot"><span class="annottext">Maybe Text
+engineVersion :: Maybe Text
+$sel:engineVersion:GlobalCluster' :: GlobalCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679298704"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298704"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298703"><span class="annot"><span class="annottext">s :: GlobalCluster
+</span><a href="#local-6989586621679298703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298702"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalCluster
+</span><a href="#local-6989586621679298703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:GlobalCluster' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AengineVersion%3AGlobalCluster%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Specifies the current state of this global cluster.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_status"><span class="hs-identifier hs-type">globalCluster_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="globalCluster_status"><span class="annot"><span class="annottext">globalCluster_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GlobalCluster -&gt; f GlobalCluster
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_status"><span class="hs-identifier hs-var hs-var">globalCluster_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalCluster -&gt; Maybe Text)
+-&gt; (GlobalCluster -&gt; Maybe Text -&gt; GlobalCluster)
+-&gt; Lens GlobalCluster GlobalCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298700"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:GlobalCluster' :: GlobalCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679298700"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298700"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298699"><span class="annot"><span class="annottext">s :: GlobalCluster
+</span><a href="#local-6989586621679298699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298698"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalCluster
+</span><a href="#local-6989586621679298699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GlobalCluster' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3Astatus%3AGlobalCluster%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The deletion protection setting for the new global cluster.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_deletionProtection"><span class="hs-identifier hs-type">globalCluster_deletionProtection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="globalCluster_deletionProtection"><span class="annot"><span class="annottext">globalCluster_deletionProtection :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; GlobalCluster -&gt; f GlobalCluster
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_deletionProtection"><span class="hs-identifier hs-var hs-var">globalCluster_deletionProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalCluster -&gt; Maybe Bool)
+-&gt; (GlobalCluster -&gt; Maybe Bool -&gt; GlobalCluster)
+-&gt; Lens GlobalCluster GlobalCluster (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298696"><span class="annot"><span class="annottext">Maybe Bool
+deletionProtection :: Maybe Bool
+$sel:deletionProtection:GlobalCluster' :: GlobalCluster -&gt; Maybe Bool
+</span><a href="#local-6989586621679298696"><span class="hs-identifier hs-var hs-var">deletionProtection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679298696"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298695"><span class="annot"><span class="annottext">s :: GlobalCluster
+</span><a href="#local-6989586621679298695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298694"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679298694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalCluster
+</span><a href="#local-6989586621679298695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletionProtection:GlobalCluster' :: Maybe Bool
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AdeletionProtection%3AGlobalCluster%27"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679298694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The storage encryption setting for the global cluster.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_storageEncrypted"><span class="hs-identifier hs-type">globalCluster_storageEncrypted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="globalCluster_storageEncrypted"><span class="annot"><span class="annottext">globalCluster_storageEncrypted :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; GlobalCluster -&gt; f GlobalCluster
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_storageEncrypted"><span class="hs-identifier hs-var hs-var">globalCluster_storageEncrypted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalCluster -&gt; Maybe Bool)
+-&gt; (GlobalCluster -&gt; Maybe Bool -&gt; GlobalCluster)
+-&gt; Lens GlobalCluster GlobalCluster (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298692"><span class="annot"><span class="annottext">Maybe Bool
+storageEncrypted :: Maybe Bool
+$sel:storageEncrypted:GlobalCluster' :: GlobalCluster -&gt; Maybe Bool
+</span><a href="#local-6989586621679298692"><span class="hs-identifier hs-var hs-var">storageEncrypted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679298692"><span class="hs-identifier hs-var">storageEncrypted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298691"><span class="annot"><span class="annottext">s :: GlobalCluster
+</span><a href="#local-6989586621679298691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298690"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679298690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalCluster
+</span><a href="#local-6989586621679298691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageEncrypted:GlobalCluster' :: Maybe Bool
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AstorageEncrypted%3AGlobalCluster%27"><span class="hs-identifier hs-var">storageEncrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679298690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Contains a user-supplied global cluster identifier. This identifier is</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- the unique key that identifies a global cluster.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_globalClusterIdentifier"><span class="hs-identifier hs-type">globalCluster_globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="globalCluster_globalClusterIdentifier"><span class="annot"><span class="annottext">globalCluster_globalClusterIdentifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GlobalCluster -&gt; f GlobalCluster
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_globalClusterIdentifier"><span class="hs-identifier hs-var hs-var">globalCluster_globalClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalCluster -&gt; Maybe Text)
+-&gt; (GlobalCluster -&gt; Maybe Text -&gt; GlobalCluster)
+-&gt; Lens GlobalCluster GlobalCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298688"><span class="annot"><span class="annottext">Maybe Text
+globalClusterIdentifier :: Maybe Text
+$sel:globalClusterIdentifier:GlobalCluster' :: GlobalCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679298688"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298688"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298687"><span class="annot"><span class="annottext">s :: GlobalCluster
+</span><a href="#local-6989586621679298687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298686"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalCluster
+</span><a href="#local-6989586621679298687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:GlobalCluster' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AglobalClusterIdentifier%3AGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The Amazon DocumentDB database engine used by the global cluster.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_engine"><span class="hs-identifier hs-type">globalCluster_engine</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="globalCluster_engine"><span class="annot"><span class="annottext">globalCluster_engine :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GlobalCluster -&gt; f GlobalCluster
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_engine"><span class="hs-identifier hs-var hs-var">globalCluster_engine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalCluster -&gt; Maybe Text)
+-&gt; (GlobalCluster -&gt; Maybe Text -&gt; GlobalCluster)
+-&gt; Lens GlobalCluster GlobalCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298684"><span class="annot"><span class="annottext">Maybe Text
+engine :: Maybe Text
+$sel:engine:GlobalCluster' :: GlobalCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679298684"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298684"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298683"><span class="annot"><span class="annottext">s :: GlobalCluster
+</span><a href="#local-6989586621679298683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298682"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalCluster
+</span><a href="#local-6989586621679298683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:GlobalCluster' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3Aengine%3AGlobalCluster%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the global cluster.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_globalClusterArn"><span class="hs-identifier hs-type">globalCluster_globalClusterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="globalCluster_globalClusterArn"><span class="annot"><span class="annottext">globalCluster_globalClusterArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GlobalCluster -&gt; f GlobalCluster
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_globalClusterArn"><span class="hs-identifier hs-var hs-var">globalCluster_globalClusterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalCluster -&gt; Maybe Text)
+-&gt; (GlobalCluster -&gt; Maybe Text -&gt; GlobalCluster)
+-&gt; Lens GlobalCluster GlobalCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298680"><span class="annot"><span class="annottext">Maybe Text
+globalClusterArn :: Maybe Text
+$sel:globalClusterArn:GlobalCluster' :: GlobalCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679298680"><span class="hs-identifier hs-var hs-var">globalClusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298680"><span class="hs-identifier hs-var">globalClusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298679"><span class="annot"><span class="annottext">s :: GlobalCluster
+</span><a href="#local-6989586621679298679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298678"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalCluster
+</span><a href="#local-6989586621679298679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalClusterArn:GlobalCluster' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AglobalClusterArn%3AGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The default database name within the new global cluster.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_databaseName"><span class="hs-identifier hs-type">globalCluster_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="globalCluster_databaseName"><span class="annot"><span class="annottext">globalCluster_databaseName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GlobalCluster -&gt; f GlobalCluster
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_databaseName"><span class="hs-identifier hs-var hs-var">globalCluster_databaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalCluster -&gt; Maybe Text)
+-&gt; (GlobalCluster -&gt; Maybe Text -&gt; GlobalCluster)
+-&gt; Lens GlobalCluster GlobalCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298676"><span class="annot"><span class="annottext">Maybe Text
+databaseName :: Maybe Text
+$sel:databaseName:GlobalCluster' :: GlobalCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679298676"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298676"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298675"><span class="annot"><span class="annottext">s :: GlobalCluster
+</span><a href="#local-6989586621679298675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298674"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalCluster
+</span><a href="#local-6989586621679298675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:GlobalCluster' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AdatabaseName%3AGlobalCluster%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The list of cluster IDs for secondary clusters within the global</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- cluster. Currently limited to one item.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_globalClusterMembers"><span class="hs-identifier hs-type">globalCluster_globalClusterMembers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalClusterMember.html#GlobalClusterMember"><span class="hs-identifier hs-type">GlobalClusterMember</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="globalCluster_globalClusterMembers"><span class="annot"><span class="annottext">globalCluster_globalClusterMembers :: (Maybe [GlobalClusterMember] -&gt; f (Maybe [GlobalClusterMember]))
+-&gt; GlobalCluster -&gt; f GlobalCluster
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_globalClusterMembers"><span class="hs-identifier hs-var hs-var">globalCluster_globalClusterMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalCluster -&gt; Maybe [GlobalClusterMember])
+-&gt; (GlobalCluster -&gt; Maybe [GlobalClusterMember] -&gt; GlobalCluster)
+-&gt; Lens
+     GlobalCluster
+     GlobalCluster
+     (Maybe [GlobalClusterMember])
+     (Maybe [GlobalClusterMember])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298672"><span class="annot"><span class="annottext">Maybe [GlobalClusterMember]
+globalClusterMembers :: Maybe [GlobalClusterMember]
+$sel:globalClusterMembers:GlobalCluster' :: GlobalCluster -&gt; Maybe [GlobalClusterMember]
+</span><a href="#local-6989586621679298672"><span class="hs-identifier hs-var hs-var">globalClusterMembers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GlobalClusterMember]
+</span><a href="#local-6989586621679298672"><span class="hs-identifier hs-var">globalClusterMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298671"><span class="annot"><span class="annottext">s :: GlobalCluster
+</span><a href="#local-6989586621679298671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298670"><span class="annot"><span class="annottext">Maybe [GlobalClusterMember]
+</span><a href="#local-6989586621679298670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalCluster
+</span><a href="#local-6989586621679298671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalClusterMembers:GlobalCluster' :: Maybe [GlobalClusterMember]
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AglobalClusterMembers%3AGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GlobalClusterMember]
+</span><a href="#local-6989586621679298670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GlobalClusterMember] -&gt; f (Maybe [GlobalClusterMember]))
+ -&gt; GlobalCluster -&gt; f GlobalCluster)
+-&gt; ((Maybe [GlobalClusterMember]
+     -&gt; f (Maybe [GlobalClusterMember]))
+    -&gt; Maybe [GlobalClusterMember] -&gt; f (Maybe [GlobalClusterMember]))
+-&gt; (Maybe [GlobalClusterMember] -&gt; f (Maybe [GlobalClusterMember]))
+-&gt; GlobalCluster
+-&gt; f GlobalCluster
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GlobalClusterMember]
+  [GlobalClusterMember]
+  [GlobalClusterMember]
+  [GlobalClusterMember]
+-&gt; Iso
+     (Maybe [GlobalClusterMember])
+     (Maybe [GlobalClusterMember])
+     (Maybe [GlobalClusterMember])
+     (Maybe [GlobalClusterMember])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GlobalClusterMember]
+  [GlobalClusterMember]
+  [GlobalClusterMember]
+  [GlobalClusterMember]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The Region-unique, immutable identifier for the global database cluster.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- This identifier is found in AWS CloudTrail log entries whenever the AWS</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- KMS customer master key (CMK) for the cluster is accessed.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_globalClusterResourceId"><span class="hs-identifier hs-type">globalCluster_globalClusterResourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="globalCluster_globalClusterResourceId"><span class="annot"><span class="annottext">globalCluster_globalClusterResourceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GlobalCluster -&gt; f GlobalCluster
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#globalCluster_globalClusterResourceId"><span class="hs-identifier hs-var hs-var">globalCluster_globalClusterResourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalCluster -&gt; Maybe Text)
+-&gt; (GlobalCluster -&gt; Maybe Text -&gt; GlobalCluster)
+-&gt; Lens GlobalCluster GlobalCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298665"><span class="annot"><span class="annottext">Maybe Text
+globalClusterResourceId :: Maybe Text
+$sel:globalClusterResourceId:GlobalCluster' :: GlobalCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679298665"><span class="hs-identifier hs-var hs-var">globalClusterResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298665"><span class="hs-identifier hs-var">globalClusterResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298664"><span class="annot"><span class="annottext">s :: GlobalCluster
+</span><a href="#local-6989586621679298664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-type">GlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298663"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalCluster
+</span><a href="#local-6989586621679298664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalClusterResourceId:GlobalCluster' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#%24sel%3AglobalClusterResourceId%3AGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679298660"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String GlobalCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679298658"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298658"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [GlobalClusterMember]
+-&gt; Maybe Text
+-&gt; GlobalCluster
+</span><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster%27"><span class="hs-identifier hs-var">GlobalCluster'</span></a></span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [GlobalClusterMember]
+ -&gt; Maybe Text
+ -&gt; GlobalCluster)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [GlobalClusterMember]
+      -&gt; Maybe Text
+      -&gt; GlobalCluster)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EngineVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [GlobalClusterMember]
+   -&gt; Maybe Text
+   -&gt; GlobalCluster)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [GlobalClusterMember]
+      -&gt; Maybe Text
+      -&gt; GlobalCluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [GlobalClusterMember]
+   -&gt; Maybe Text
+   -&gt; GlobalCluster)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [GlobalClusterMember]
+      -&gt; Maybe Text
+      -&gt; GlobalCluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeletionProtection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [GlobalClusterMember]
+   -&gt; Maybe Text
+   -&gt; GlobalCluster)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [GlobalClusterMember]
+      -&gt; Maybe Text
+      -&gt; GlobalCluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StorageEncrypted&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [GlobalClusterMember]
+   -&gt; Maybe Text
+   -&gt; GlobalCluster)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [GlobalClusterMember]
+      -&gt; Maybe Text
+      -&gt; GlobalCluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalClusterIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [GlobalClusterMember]
+   -&gt; Maybe Text
+   -&gt; GlobalCluster)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [GlobalClusterMember]
+      -&gt; Maybe Text
+      -&gt; GlobalCluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Engine&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [GlobalClusterMember]
+   -&gt; Maybe Text
+   -&gt; GlobalCluster)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [GlobalClusterMember] -&gt; Maybe Text -&gt; GlobalCluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalClusterArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [GlobalClusterMember] -&gt; Maybe Text -&gt; GlobalCluster)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [GlobalClusterMember] -&gt; Maybe Text -&gt; GlobalCluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe [GlobalClusterMember] -&gt; Maybe Text -&gt; GlobalCluster)
+-&gt; Either String (Maybe [GlobalClusterMember])
+-&gt; Either String (Maybe Text -&gt; GlobalCluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalClusterMembers&quot;</span></span><span>
+</span><span id="line-161"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-162"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [GlobalClusterMember]))
+-&gt; Either String (Maybe [GlobalClusterMember])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [GlobalClusterMember])
+-&gt; [Node] -&gt; Either String (Maybe [GlobalClusterMember])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [GlobalClusterMember]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalClusterMember&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; GlobalCluster)
+-&gt; Either String (Maybe Text) -&gt; Either String GlobalCluster
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalClusterResourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298649"><span id="local-6989586621679298651"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span></span><span>
+</span><span id="line-169"></span></pre></body></html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.MeshStatusCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.MeshStatusCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode"><span class="hs-identifier">MeshStatusCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode_ACTIVE"><span class="hs-identifier">MeshStatusCode_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode_DELETED"><span class="hs-identifier">MeshStatusCode_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode_INACTIVE"><span class="hs-identifier">MeshStatusCode_INACTIVE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679329324"><span id="local-6989586621679329325"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MeshStatusCode"><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode"><span class="hs-identifier hs-var">MeshStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MeshStatusCode%27"><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode%27"><span class="hs-identifier hs-var">MeshStatusCode'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMeshStatusCode"><span class="annot"><span class="annottext">MeshStatusCode -&gt; Text
+</span><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#fromMeshStatusCode"><span class="hs-identifier hs-var hs-var">fromMeshStatusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329316"><span id="local-6989586621679329318"><span id="local-6989586621679329320"><span class="annot"><span class="annottext">Int -&gt; MeshStatusCode -&gt; ShowS
+[MeshStatusCode] -&gt; ShowS
+MeshStatusCode -&gt; String
+(Int -&gt; MeshStatusCode -&gt; ShowS)
+-&gt; (MeshStatusCode -&gt; String)
+-&gt; ([MeshStatusCode] -&gt; ShowS)
+-&gt; Show MeshStatusCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MeshStatusCode] -&gt; ShowS
+$cshowList :: [MeshStatusCode] -&gt; ShowS
+show :: MeshStatusCode -&gt; String
+$cshow :: MeshStatusCode -&gt; String
+showsPrec :: Int -&gt; MeshStatusCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; MeshStatusCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679329307"><span id="local-6989586621679329309"><span id="local-6989586621679329311"><span id="local-6989586621679329313"><span class="annot"><span class="annottext">ReadPrec [MeshStatusCode]
+ReadPrec MeshStatusCode
+Int -&gt; ReadS MeshStatusCode
+ReadS [MeshStatusCode]
+(Int -&gt; ReadS MeshStatusCode)
+-&gt; ReadS [MeshStatusCode]
+-&gt; ReadPrec MeshStatusCode
+-&gt; ReadPrec [MeshStatusCode]
+-&gt; Read MeshStatusCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MeshStatusCode]
+$creadListPrec :: ReadPrec [MeshStatusCode]
+readPrec :: ReadPrec MeshStatusCode
+$creadPrec :: ReadPrec MeshStatusCode
+readList :: ReadS [MeshStatusCode]
+$creadList :: ReadS [MeshStatusCode]
+readsPrec :: Int -&gt; ReadS MeshStatusCode
+$creadsPrec :: Int -&gt; ReadS MeshStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679329302"><span id="local-6989586621679329304"><span class="annot"><span class="annottext">MeshStatusCode -&gt; MeshStatusCode -&gt; Bool
+(MeshStatusCode -&gt; MeshStatusCode -&gt; Bool)
+-&gt; (MeshStatusCode -&gt; MeshStatusCode -&gt; Bool) -&gt; Eq MeshStatusCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MeshStatusCode -&gt; MeshStatusCode -&gt; Bool
+$c/= :: MeshStatusCode -&gt; MeshStatusCode -&gt; Bool
+== :: MeshStatusCode -&gt; MeshStatusCode -&gt; Bool
+$c== :: MeshStatusCode -&gt; MeshStatusCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679329286"><span id="local-6989586621679329288"><span id="local-6989586621679329290"><span id="local-6989586621679329292"><span id="local-6989586621679329294"><span id="local-6989586621679329296"><span id="local-6989586621679329298"><span class="annot"><span class="annottext">Eq MeshStatusCode
+Eq MeshStatusCode
+-&gt; (MeshStatusCode -&gt; MeshStatusCode -&gt; Ordering)
+-&gt; (MeshStatusCode -&gt; MeshStatusCode -&gt; Bool)
+-&gt; (MeshStatusCode -&gt; MeshStatusCode -&gt; Bool)
+-&gt; (MeshStatusCode -&gt; MeshStatusCode -&gt; Bool)
+-&gt; (MeshStatusCode -&gt; MeshStatusCode -&gt; Bool)
+-&gt; (MeshStatusCode -&gt; MeshStatusCode -&gt; MeshStatusCode)
+-&gt; (MeshStatusCode -&gt; MeshStatusCode -&gt; MeshStatusCode)
+-&gt; Ord MeshStatusCode
+MeshStatusCode -&gt; MeshStatusCode -&gt; Bool
+MeshStatusCode -&gt; MeshStatusCode -&gt; Ordering
+MeshStatusCode -&gt; MeshStatusCode -&gt; MeshStatusCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MeshStatusCode -&gt; MeshStatusCode -&gt; MeshStatusCode
+$cmin :: MeshStatusCode -&gt; MeshStatusCode -&gt; MeshStatusCode
+max :: MeshStatusCode -&gt; MeshStatusCode -&gt; MeshStatusCode
+$cmax :: MeshStatusCode -&gt; MeshStatusCode -&gt; MeshStatusCode
+&gt;= :: MeshStatusCode -&gt; MeshStatusCode -&gt; Bool
+$c&gt;= :: MeshStatusCode -&gt; MeshStatusCode -&gt; Bool
+&gt; :: MeshStatusCode -&gt; MeshStatusCode -&gt; Bool
+$c&gt; :: MeshStatusCode -&gt; MeshStatusCode -&gt; Bool
+&lt;= :: MeshStatusCode -&gt; MeshStatusCode -&gt; Bool
+$c&lt;= :: MeshStatusCode -&gt; MeshStatusCode -&gt; Bool
+&lt; :: MeshStatusCode -&gt; MeshStatusCode -&gt; Bool
+$c&lt; :: MeshStatusCode -&gt; MeshStatusCode -&gt; Bool
+compare :: MeshStatusCode -&gt; MeshStatusCode -&gt; Ordering
+$ccompare :: MeshStatusCode -&gt; MeshStatusCode -&gt; Ordering
+$cp1Ord :: Eq MeshStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MeshStatusCode -&gt; Rep MeshStatusCode x)
+-&gt; (forall x. Rep MeshStatusCode x -&gt; MeshStatusCode)
+-&gt; Generic MeshStatusCode
+forall x. Rep MeshStatusCode x -&gt; MeshStatusCode
+forall x. MeshStatusCode -&gt; Rep MeshStatusCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MeshStatusCode x -&gt; MeshStatusCode
+$cfrom :: forall x. MeshStatusCode -&gt; Rep MeshStatusCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329278"><span id="local-6989586621679329280"><span class="annot"><span class="annottext">Int -&gt; MeshStatusCode -&gt; Int
+MeshStatusCode -&gt; Int
+(Int -&gt; MeshStatusCode -&gt; Int)
+-&gt; (MeshStatusCode -&gt; Int) -&gt; Hashable MeshStatusCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MeshStatusCode -&gt; Int
+$chash :: MeshStatusCode -&gt; Int
+hashWithSalt :: Int -&gt; MeshStatusCode -&gt; Int
+$chashWithSalt :: Int -&gt; MeshStatusCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679329275"><span class="annot"><span class="annottext">MeshStatusCode -&gt; ()
+(MeshStatusCode -&gt; ()) -&gt; NFData MeshStatusCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MeshStatusCode -&gt; ()
+$crnf :: MeshStatusCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679329272"><span class="annot"><span class="annottext">Text -&gt; Either String MeshStatusCode
+(Text -&gt; Either String MeshStatusCode) -&gt; FromText MeshStatusCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MeshStatusCode
+$cfromText :: Text -&gt; Either String MeshStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679329269"><span class="annot"><span class="annottext">MeshStatusCode -&gt; Text
+(MeshStatusCode -&gt; Text) -&gt; ToText MeshStatusCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MeshStatusCode -&gt; Text
+$ctoText :: MeshStatusCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679329266"><span class="annot"><span class="annottext">MeshStatusCode -&gt; ByteString
+(MeshStatusCode -&gt; ByteString) -&gt; ToByteString MeshStatusCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MeshStatusCode -&gt; ByteString
+$ctoBS :: MeshStatusCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679329263"><span class="annot"><span class="annottext">MeshStatusCode -&gt; ByteStringBuilder
+(MeshStatusCode -&gt; ByteStringBuilder) -&gt; ToLog MeshStatusCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MeshStatusCode -&gt; ByteStringBuilder
+$cbuild :: MeshStatusCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679329260"><span class="annot"><span class="annottext">HeaderName -&gt; MeshStatusCode -&gt; [Header]
+(HeaderName -&gt; MeshStatusCode -&gt; [Header])
+-&gt; ToHeader MeshStatusCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MeshStatusCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MeshStatusCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679329257"><span class="annot"><span class="annottext">MeshStatusCode -&gt; QueryString
+(MeshStatusCode -&gt; QueryString) -&gt; ToQuery MeshStatusCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MeshStatusCode -&gt; QueryString
+$ctoQuery :: MeshStatusCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679329252"><span id="local-6989586621679329254"><span class="annot"><span class="annottext">Value -&gt; Parser [MeshStatusCode]
+Value -&gt; Parser MeshStatusCode
+(Value -&gt; Parser MeshStatusCode)
+-&gt; (Value -&gt; Parser [MeshStatusCode]) -&gt; FromJSON MeshStatusCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MeshStatusCode]
+$cparseJSONList :: Value -&gt; Parser [MeshStatusCode]
+parseJSON :: Value -&gt; Parser MeshStatusCode
+$cparseJSON :: Value -&gt; Parser MeshStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329247"><span id="local-6989586621679329249"><span class="annot"><span class="annottext">FromJSONKeyFunction [MeshStatusCode]
+FromJSONKeyFunction MeshStatusCode
+FromJSONKeyFunction MeshStatusCode
+-&gt; FromJSONKeyFunction [MeshStatusCode]
+-&gt; FromJSONKey MeshStatusCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MeshStatusCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [MeshStatusCode]
+fromJSONKey :: FromJSONKeyFunction MeshStatusCode
+$cfromJSONKey :: FromJSONKeyFunction MeshStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679329238"><span id="local-6989586621679329240"><span id="local-6989586621679329242"><span id="local-6989586621679329244"><span class="annot"><span class="annottext">[MeshStatusCode] -&gt; Encoding
+[MeshStatusCode] -&gt; Value
+MeshStatusCode -&gt; Encoding
+MeshStatusCode -&gt; Value
+(MeshStatusCode -&gt; Value)
+-&gt; (MeshStatusCode -&gt; Encoding)
+-&gt; ([MeshStatusCode] -&gt; Value)
+-&gt; ([MeshStatusCode] -&gt; Encoding)
+-&gt; ToJSON MeshStatusCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MeshStatusCode] -&gt; Encoding
+$ctoEncodingList :: [MeshStatusCode] -&gt; Encoding
+toJSONList :: [MeshStatusCode] -&gt; Value
+$ctoJSONList :: [MeshStatusCode] -&gt; Value
+toEncoding :: MeshStatusCode -&gt; Encoding
+$ctoEncoding :: MeshStatusCode -&gt; Encoding
+toJSON :: MeshStatusCode -&gt; Value
+$ctoJSON :: MeshStatusCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679329233"><span id="local-6989586621679329235"><span class="annot"><span class="annottext">ToJSONKeyFunction [MeshStatusCode]
+ToJSONKeyFunction MeshStatusCode
+ToJSONKeyFunction MeshStatusCode
+-&gt; ToJSONKeyFunction [MeshStatusCode] -&gt; ToJSONKey MeshStatusCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MeshStatusCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [MeshStatusCode]
+toJSONKey :: ToJSONKeyFunction MeshStatusCode
+$ctoJSONKey :: ToJSONKeyFunction MeshStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679329230"><span class="annot"><span class="annottext">[Node] -&gt; Either String MeshStatusCode
+([Node] -&gt; Either String MeshStatusCode) -&gt; FromXML MeshStatusCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MeshStatusCode
+$cparseXML :: [Node] -&gt; Either String MeshStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679329227"><span class="annot"><span class="annottext">MeshStatusCode -&gt; XML
+(MeshStatusCode -&gt; XML) -&gt; ToXML MeshStatusCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MeshStatusCode -&gt; XML
+$ctoXML :: MeshStatusCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode_ACTIVE"><span class="hs-identifier hs-type">MeshStatusCode_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode"><span class="hs-identifier hs-type">MeshStatusCode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMeshStatusCode_ACTIVE"><span id="%24mMeshStatusCode_ACTIVE"><span id="MeshStatusCode_ACTIVE"><span class="annot"><span class="annottext">$bMeshStatusCode_ACTIVE :: MeshStatusCode
+$mMeshStatusCode_ACTIVE :: forall r. MeshStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#%24bMeshStatusCode_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">MeshStatusCode_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode%27"><span class="hs-identifier hs-type">MeshStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode_DELETED"><span class="hs-identifier hs-type">MeshStatusCode_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode"><span class="hs-identifier hs-type">MeshStatusCode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMeshStatusCode_DELETED"><span id="%24mMeshStatusCode_DELETED"><span id="MeshStatusCode_DELETED"><span class="annot"><span class="annottext">$bMeshStatusCode_DELETED :: MeshStatusCode
+$mMeshStatusCode_DELETED :: forall r. MeshStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#%24bMeshStatusCode_DELETED"><span class="hs-identifier hs-var hs-var hs-var">MeshStatusCode_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode%27"><span class="hs-identifier hs-type">MeshStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode_INACTIVE"><span class="hs-identifier hs-type">MeshStatusCode_INACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode"><span class="hs-identifier hs-type">MeshStatusCode</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMeshStatusCode_INACTIVE"><span id="%24mMeshStatusCode_INACTIVE"><span id="MeshStatusCode_INACTIVE"><span class="annot"><span class="annottext">$bMeshStatusCode_INACTIVE :: MeshStatusCode
+$mMeshStatusCode_INACTIVE :: forall r. MeshStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#%24bMeshStatusCode_INACTIVE"><span class="hs-identifier hs-var hs-var hs-var">MeshStatusCode_INACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode%27"><span class="hs-identifier hs-type">MeshStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INACTIVE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode_ACTIVE"><span class="hs-pragma hs-type">MeshStatusCode_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode_DELETED"><span class="hs-pragma hs-type">MeshStatusCode_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode_INACTIVE"><span class="hs-pragma hs-type">MeshStatusCode_INACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshStatusCode.html#MeshStatusCode%27"><span class="hs-pragma hs-type">MeshStatusCode'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

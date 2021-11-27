@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.CommandFilterKey</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.CommandFilterKey</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey"><span class="hs-identifier">CommandFilterKey</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey_DocumentName"><span class="hs-identifier">CommandFilterKey_DocumentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey_ExecutionStage"><span class="hs-identifier">CommandFilterKey_ExecutionStage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey_InvokedAfter"><span class="hs-identifier">CommandFilterKey_InvokedAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey_InvokedBefore"><span class="hs-identifier">CommandFilterKey_InvokedBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey_Status"><span class="hs-identifier">CommandFilterKey_Status</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679789527"><span id="local-6989586621679789528"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CommandFilterKey"><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey"><span class="hs-identifier hs-var">CommandFilterKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommandFilterKey%27"><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey%27"><span class="hs-identifier hs-var">CommandFilterKey'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCommandFilterKey"><span class="annot"><span class="annottext">CommandFilterKey -&gt; Text
+</span><a href="Amazonka.SSM.Types.CommandFilterKey.html#fromCommandFilterKey"><span class="hs-identifier hs-var hs-var">fromCommandFilterKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679789519"><span id="local-6989586621679789521"><span id="local-6989586621679789523"><span class="annot"><span class="annottext">Int -&gt; CommandFilterKey -&gt; ShowS
+[CommandFilterKey] -&gt; ShowS
+CommandFilterKey -&gt; String
+(Int -&gt; CommandFilterKey -&gt; ShowS)
+-&gt; (CommandFilterKey -&gt; String)
+-&gt; ([CommandFilterKey] -&gt; ShowS)
+-&gt; Show CommandFilterKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CommandFilterKey] -&gt; ShowS
+$cshowList :: [CommandFilterKey] -&gt; ShowS
+show :: CommandFilterKey -&gt; String
+$cshow :: CommandFilterKey -&gt; String
+showsPrec :: Int -&gt; CommandFilterKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; CommandFilterKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679789510"><span id="local-6989586621679789512"><span id="local-6989586621679789514"><span id="local-6989586621679789516"><span class="annot"><span class="annottext">ReadPrec [CommandFilterKey]
+ReadPrec CommandFilterKey
+Int -&gt; ReadS CommandFilterKey
+ReadS [CommandFilterKey]
+(Int -&gt; ReadS CommandFilterKey)
+-&gt; ReadS [CommandFilterKey]
+-&gt; ReadPrec CommandFilterKey
+-&gt; ReadPrec [CommandFilterKey]
+-&gt; Read CommandFilterKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CommandFilterKey]
+$creadListPrec :: ReadPrec [CommandFilterKey]
+readPrec :: ReadPrec CommandFilterKey
+$creadPrec :: ReadPrec CommandFilterKey
+readList :: ReadS [CommandFilterKey]
+$creadList :: ReadS [CommandFilterKey]
+readsPrec :: Int -&gt; ReadS CommandFilterKey
+$creadsPrec :: Int -&gt; ReadS CommandFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679789505"><span id="local-6989586621679789507"><span class="annot"><span class="annottext">CommandFilterKey -&gt; CommandFilterKey -&gt; Bool
+(CommandFilterKey -&gt; CommandFilterKey -&gt; Bool)
+-&gt; (CommandFilterKey -&gt; CommandFilterKey -&gt; Bool)
+-&gt; Eq CommandFilterKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CommandFilterKey -&gt; CommandFilterKey -&gt; Bool
+$c/= :: CommandFilterKey -&gt; CommandFilterKey -&gt; Bool
+== :: CommandFilterKey -&gt; CommandFilterKey -&gt; Bool
+$c== :: CommandFilterKey -&gt; CommandFilterKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679789489"><span id="local-6989586621679789491"><span id="local-6989586621679789493"><span id="local-6989586621679789495"><span id="local-6989586621679789497"><span id="local-6989586621679789499"><span id="local-6989586621679789501"><span class="annot"><span class="annottext">Eq CommandFilterKey
+Eq CommandFilterKey
+-&gt; (CommandFilterKey -&gt; CommandFilterKey -&gt; Ordering)
+-&gt; (CommandFilterKey -&gt; CommandFilterKey -&gt; Bool)
+-&gt; (CommandFilterKey -&gt; CommandFilterKey -&gt; Bool)
+-&gt; (CommandFilterKey -&gt; CommandFilterKey -&gt; Bool)
+-&gt; (CommandFilterKey -&gt; CommandFilterKey -&gt; Bool)
+-&gt; (CommandFilterKey -&gt; CommandFilterKey -&gt; CommandFilterKey)
+-&gt; (CommandFilterKey -&gt; CommandFilterKey -&gt; CommandFilterKey)
+-&gt; Ord CommandFilterKey
+CommandFilterKey -&gt; CommandFilterKey -&gt; Bool
+CommandFilterKey -&gt; CommandFilterKey -&gt; Ordering
+CommandFilterKey -&gt; CommandFilterKey -&gt; CommandFilterKey
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CommandFilterKey -&gt; CommandFilterKey -&gt; CommandFilterKey
+$cmin :: CommandFilterKey -&gt; CommandFilterKey -&gt; CommandFilterKey
+max :: CommandFilterKey -&gt; CommandFilterKey -&gt; CommandFilterKey
+$cmax :: CommandFilterKey -&gt; CommandFilterKey -&gt; CommandFilterKey
+&gt;= :: CommandFilterKey -&gt; CommandFilterKey -&gt; Bool
+$c&gt;= :: CommandFilterKey -&gt; CommandFilterKey -&gt; Bool
+&gt; :: CommandFilterKey -&gt; CommandFilterKey -&gt; Bool
+$c&gt; :: CommandFilterKey -&gt; CommandFilterKey -&gt; Bool
+&lt;= :: CommandFilterKey -&gt; CommandFilterKey -&gt; Bool
+$c&lt;= :: CommandFilterKey -&gt; CommandFilterKey -&gt; Bool
+&lt; :: CommandFilterKey -&gt; CommandFilterKey -&gt; Bool
+$c&lt; :: CommandFilterKey -&gt; CommandFilterKey -&gt; Bool
+compare :: CommandFilterKey -&gt; CommandFilterKey -&gt; Ordering
+$ccompare :: CommandFilterKey -&gt; CommandFilterKey -&gt; Ordering
+$cp1Ord :: Eq CommandFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CommandFilterKey -&gt; Rep CommandFilterKey x)
+-&gt; (forall x. Rep CommandFilterKey x -&gt; CommandFilterKey)
+-&gt; Generic CommandFilterKey
+forall x. Rep CommandFilterKey x -&gt; CommandFilterKey
+forall x. CommandFilterKey -&gt; Rep CommandFilterKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CommandFilterKey x -&gt; CommandFilterKey
+$cfrom :: forall x. CommandFilterKey -&gt; Rep CommandFilterKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679789481"><span id="local-6989586621679789483"><span class="annot"><span class="annottext">Int -&gt; CommandFilterKey -&gt; Int
+CommandFilterKey -&gt; Int
+(Int -&gt; CommandFilterKey -&gt; Int)
+-&gt; (CommandFilterKey -&gt; Int) -&gt; Hashable CommandFilterKey
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CommandFilterKey -&gt; Int
+$chash :: CommandFilterKey -&gt; Int
+hashWithSalt :: Int -&gt; CommandFilterKey -&gt; Int
+$chashWithSalt :: Int -&gt; CommandFilterKey -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679789478"><span class="annot"><span class="annottext">CommandFilterKey -&gt; ()
+(CommandFilterKey -&gt; ()) -&gt; NFData CommandFilterKey
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CommandFilterKey -&gt; ()
+$crnf :: CommandFilterKey -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679789475"><span class="annot"><span class="annottext">Text -&gt; Either String CommandFilterKey
+(Text -&gt; Either String CommandFilterKey)
+-&gt; FromText CommandFilterKey
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CommandFilterKey
+$cfromText :: Text -&gt; Either String CommandFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679789472"><span class="annot"><span class="annottext">CommandFilterKey -&gt; Text
+(CommandFilterKey -&gt; Text) -&gt; ToText CommandFilterKey
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CommandFilterKey -&gt; Text
+$ctoText :: CommandFilterKey -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679789469"><span class="annot"><span class="annottext">CommandFilterKey -&gt; ByteString
+(CommandFilterKey -&gt; ByteString) -&gt; ToByteString CommandFilterKey
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CommandFilterKey -&gt; ByteString
+$ctoBS :: CommandFilterKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679789466"><span class="annot"><span class="annottext">CommandFilterKey -&gt; ByteStringBuilder
+(CommandFilterKey -&gt; ByteStringBuilder) -&gt; ToLog CommandFilterKey
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CommandFilterKey -&gt; ByteStringBuilder
+$cbuild :: CommandFilterKey -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679789463"><span class="annot"><span class="annottext">HeaderName -&gt; CommandFilterKey -&gt; [Header]
+(HeaderName -&gt; CommandFilterKey -&gt; [Header])
+-&gt; ToHeader CommandFilterKey
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CommandFilterKey -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CommandFilterKey -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679789460"><span class="annot"><span class="annottext">CommandFilterKey -&gt; QueryString
+(CommandFilterKey -&gt; QueryString) -&gt; ToQuery CommandFilterKey
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CommandFilterKey -&gt; QueryString
+$ctoQuery :: CommandFilterKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679789455"><span id="local-6989586621679789457"><span class="annot"><span class="annottext">Value -&gt; Parser [CommandFilterKey]
+Value -&gt; Parser CommandFilterKey
+(Value -&gt; Parser CommandFilterKey)
+-&gt; (Value -&gt; Parser [CommandFilterKey])
+-&gt; FromJSON CommandFilterKey
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CommandFilterKey]
+$cparseJSONList :: Value -&gt; Parser [CommandFilterKey]
+parseJSON :: Value -&gt; Parser CommandFilterKey
+$cparseJSON :: Value -&gt; Parser CommandFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679789450"><span id="local-6989586621679789452"><span class="annot"><span class="annottext">FromJSONKeyFunction [CommandFilterKey]
+FromJSONKeyFunction CommandFilterKey
+FromJSONKeyFunction CommandFilterKey
+-&gt; FromJSONKeyFunction [CommandFilterKey]
+-&gt; FromJSONKey CommandFilterKey
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CommandFilterKey]
+$cfromJSONKeyList :: FromJSONKeyFunction [CommandFilterKey]
+fromJSONKey :: FromJSONKeyFunction CommandFilterKey
+$cfromJSONKey :: FromJSONKeyFunction CommandFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679789441"><span id="local-6989586621679789443"><span id="local-6989586621679789445"><span id="local-6989586621679789447"><span class="annot"><span class="annottext">[CommandFilterKey] -&gt; Encoding
+[CommandFilterKey] -&gt; Value
+CommandFilterKey -&gt; Encoding
+CommandFilterKey -&gt; Value
+(CommandFilterKey -&gt; Value)
+-&gt; (CommandFilterKey -&gt; Encoding)
+-&gt; ([CommandFilterKey] -&gt; Value)
+-&gt; ([CommandFilterKey] -&gt; Encoding)
+-&gt; ToJSON CommandFilterKey
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CommandFilterKey] -&gt; Encoding
+$ctoEncodingList :: [CommandFilterKey] -&gt; Encoding
+toJSONList :: [CommandFilterKey] -&gt; Value
+$ctoJSONList :: [CommandFilterKey] -&gt; Value
+toEncoding :: CommandFilterKey -&gt; Encoding
+$ctoEncoding :: CommandFilterKey -&gt; Encoding
+toJSON :: CommandFilterKey -&gt; Value
+$ctoJSON :: CommandFilterKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679789436"><span id="local-6989586621679789438"><span class="annot"><span class="annottext">ToJSONKeyFunction [CommandFilterKey]
+ToJSONKeyFunction CommandFilterKey
+ToJSONKeyFunction CommandFilterKey
+-&gt; ToJSONKeyFunction [CommandFilterKey]
+-&gt; ToJSONKey CommandFilterKey
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CommandFilterKey]
+$ctoJSONKeyList :: ToJSONKeyFunction [CommandFilterKey]
+toJSONKey :: ToJSONKeyFunction CommandFilterKey
+$ctoJSONKey :: ToJSONKeyFunction CommandFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679789433"><span class="annot"><span class="annottext">[Node] -&gt; Either String CommandFilterKey
+([Node] -&gt; Either String CommandFilterKey)
+-&gt; FromXML CommandFilterKey
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CommandFilterKey
+$cparseXML :: [Node] -&gt; Either String CommandFilterKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679789430"><span class="annot"><span class="annottext">CommandFilterKey -&gt; XML
+(CommandFilterKey -&gt; XML) -&gt; ToXML CommandFilterKey
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CommandFilterKey -&gt; XML
+$ctoXML :: CommandFilterKey -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey_DocumentName"><span class="hs-identifier hs-type">CommandFilterKey_DocumentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey"><span class="hs-identifier hs-type">CommandFilterKey</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCommandFilterKey_DocumentName"><span id="%24mCommandFilterKey_DocumentName"><span id="CommandFilterKey_DocumentName"><span class="annot"><span class="annottext">$bCommandFilterKey_DocumentName :: CommandFilterKey
+$mCommandFilterKey_DocumentName :: forall r. CommandFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.CommandFilterKey.html#%24bCommandFilterKey_DocumentName"><span class="hs-identifier hs-var hs-var hs-var">CommandFilterKey_DocumentName</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey%27"><span class="hs-identifier hs-type">CommandFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DocumentName&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey_ExecutionStage"><span class="hs-identifier hs-type">CommandFilterKey_ExecutionStage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey"><span class="hs-identifier hs-type">CommandFilterKey</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCommandFilterKey_ExecutionStage"><span id="%24mCommandFilterKey_ExecutionStage"><span id="CommandFilterKey_ExecutionStage"><span class="annot"><span class="annottext">$bCommandFilterKey_ExecutionStage :: CommandFilterKey
+$mCommandFilterKey_ExecutionStage :: forall r. CommandFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.CommandFilterKey.html#%24bCommandFilterKey_ExecutionStage"><span class="hs-identifier hs-var hs-var hs-var">CommandFilterKey_ExecutionStage</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey%27"><span class="hs-identifier hs-type">CommandFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ExecutionStage&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey_InvokedAfter"><span class="hs-identifier hs-type">CommandFilterKey_InvokedAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey"><span class="hs-identifier hs-type">CommandFilterKey</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCommandFilterKey_InvokedAfter"><span id="%24mCommandFilterKey_InvokedAfter"><span id="CommandFilterKey_InvokedAfter"><span class="annot"><span class="annottext">$bCommandFilterKey_InvokedAfter :: CommandFilterKey
+$mCommandFilterKey_InvokedAfter :: forall r. CommandFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.CommandFilterKey.html#%24bCommandFilterKey_InvokedAfter"><span class="hs-identifier hs-var hs-var hs-var">CommandFilterKey_InvokedAfter</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey%27"><span class="hs-identifier hs-type">CommandFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InvokedAfter&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey_InvokedBefore"><span class="hs-identifier hs-type">CommandFilterKey_InvokedBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey"><span class="hs-identifier hs-type">CommandFilterKey</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCommandFilterKey_InvokedBefore"><span id="%24mCommandFilterKey_InvokedBefore"><span id="CommandFilterKey_InvokedBefore"><span class="annot"><span class="annottext">$bCommandFilterKey_InvokedBefore :: CommandFilterKey
+$mCommandFilterKey_InvokedBefore :: forall r. CommandFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.CommandFilterKey.html#%24bCommandFilterKey_InvokedBefore"><span class="hs-identifier hs-var hs-var hs-var">CommandFilterKey_InvokedBefore</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey%27"><span class="hs-identifier hs-type">CommandFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InvokedBefore&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey_Status"><span class="hs-identifier hs-type">CommandFilterKey_Status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey"><span class="hs-identifier hs-type">CommandFilterKey</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCommandFilterKey_Status"><span id="%24mCommandFilterKey_Status"><span id="CommandFilterKey_Status"><span class="annot"><span class="annottext">$bCommandFilterKey_Status :: CommandFilterKey
+$mCommandFilterKey_Status :: forall r. CommandFilterKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.CommandFilterKey.html#%24bCommandFilterKey_Status"><span class="hs-identifier hs-var hs-var hs-var">CommandFilterKey_Status</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey%27"><span class="hs-identifier hs-type">CommandFilterKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Status&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey_DocumentName"><span class="hs-pragma hs-type">CommandFilterKey_DocumentName</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey_ExecutionStage"><span class="hs-pragma hs-type">CommandFilterKey_ExecutionStage</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey_InvokedAfter"><span class="hs-pragma hs-type">CommandFilterKey_InvokedAfter</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey_InvokedBefore"><span class="hs-pragma hs-type">CommandFilterKey_InvokedBefore</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey_Status"><span class="hs-pragma hs-type">CommandFilterKey_Status</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey%27"><span class="hs-pragma hs-type">CommandFilterKey'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

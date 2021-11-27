@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DynamoDB.DeleteBackup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an existing backup of a table.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You can call @DeleteBackup@ at a maximum rate of 10 times per second.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DynamoDB.DeleteBackup</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup"><span class="hs-identifier">DeleteBackup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#newDeleteBackup"><span class="hs-identifier">newDeleteBackup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#deleteBackup_backupArn"><span class="hs-identifier">deleteBackup_backupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier">DeleteBackupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#newDeleteBackupResponse"><span class="hs-identifier">newDeleteBackupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#deleteBackupResponse_backupDescription"><span class="hs-identifier">deleteBackupResponse_backupDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#deleteBackupResponse_httpStatus"><span class="hs-identifier">deleteBackupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.html"><span class="hs-identifier">Amazonka.DynamoDB.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteBackup' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679394248"><span id="local-6989586621679394249"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBackup"><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-var">DeleteBackup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBackup%27"><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup%27"><span class="hs-identifier hs-var">DeleteBackup'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN associated with the backup.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AbackupArn%3ADeleteBackup%27"><span class="annot"><span class="annottext">DeleteBackup -&gt; Text
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#%24sel%3AbackupArn%3ADeleteBackup%27"><span class="hs-identifier hs-var hs-var">backupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394242"><span id="local-6989586621679394244"><span class="annot"><span class="annottext">DeleteBackup -&gt; DeleteBackup -&gt; Bool
+(DeleteBackup -&gt; DeleteBackup -&gt; Bool)
+-&gt; (DeleteBackup -&gt; DeleteBackup -&gt; Bool) -&gt; Eq DeleteBackup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteBackup -&gt; DeleteBackup -&gt; Bool
+$c/= :: DeleteBackup -&gt; DeleteBackup -&gt; Bool
+== :: DeleteBackup -&gt; DeleteBackup -&gt; Bool
+$c== :: DeleteBackup -&gt; DeleteBackup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394233"><span id="local-6989586621679394235"><span id="local-6989586621679394237"><span id="local-6989586621679394239"><span class="annot"><span class="annottext">ReadPrec [DeleteBackup]
+ReadPrec DeleteBackup
+Int -&gt; ReadS DeleteBackup
+ReadS [DeleteBackup]
+(Int -&gt; ReadS DeleteBackup)
+-&gt; ReadS [DeleteBackup]
+-&gt; ReadPrec DeleteBackup
+-&gt; ReadPrec [DeleteBackup]
+-&gt; Read DeleteBackup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteBackup]
+$creadListPrec :: ReadPrec [DeleteBackup]
+readPrec :: ReadPrec DeleteBackup
+$creadPrec :: ReadPrec DeleteBackup
+readList :: ReadS [DeleteBackup]
+$creadList :: ReadS [DeleteBackup]
+readsPrec :: Int -&gt; ReadS DeleteBackup
+$creadsPrec :: Int -&gt; ReadS DeleteBackup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394226"><span id="local-6989586621679394228"><span id="local-6989586621679394230"><span class="annot"><span class="annottext">Int -&gt; DeleteBackup -&gt; ShowS
+[DeleteBackup] -&gt; ShowS
+DeleteBackup -&gt; String
+(Int -&gt; DeleteBackup -&gt; ShowS)
+-&gt; (DeleteBackup -&gt; String)
+-&gt; ([DeleteBackup] -&gt; ShowS)
+-&gt; Show DeleteBackup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteBackup] -&gt; ShowS
+$cshowList :: [DeleteBackup] -&gt; ShowS
+show :: DeleteBackup -&gt; String
+$cshow :: DeleteBackup -&gt; String
+showsPrec :: Int -&gt; DeleteBackup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteBackup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteBackup -&gt; Rep DeleteBackup x)
+-&gt; (forall x. Rep DeleteBackup x -&gt; DeleteBackup)
+-&gt; Generic DeleteBackup
+forall x. Rep DeleteBackup x -&gt; DeleteBackup
+forall x. DeleteBackup -&gt; Rep DeleteBackup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteBackup x -&gt; DeleteBackup
+$cfrom :: forall x. DeleteBackup -&gt; Rep DeleteBackup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'DeleteBackup' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'backupArn', 'deleteBackup_backupArn' - The ARN associated with the backup.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#newDeleteBackup"><span class="hs-identifier hs-type">newDeleteBackup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'backupArn'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span>
+</span><span id="line-71"></span><span id="newDeleteBackup"><span class="annot"><span class="annottext">newDeleteBackup :: Text -&gt; DeleteBackup
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#newDeleteBackup"><span class="hs-identifier hs-var hs-var">newDeleteBackup</span></a></span></span><span> </span><span id="local-6989586621679394221"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394221"><span class="hs-identifier hs-var">pBackupArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DeleteBackup' :: Text -&gt; DeleteBackup
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup%27"><span class="hs-identifier hs-type">DeleteBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupArn:DeleteBackup' :: Text
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#%24sel%3AbackupArn%3ADeleteBackup%27"><span class="hs-identifier hs-var">backupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394221"><span class="hs-identifier hs-var">pBackupArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The ARN associated with the backup.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#deleteBackup_backupArn"><span class="hs-identifier hs-type">deleteBackup_backupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="deleteBackup_backupArn"><span class="annot"><span class="annottext">deleteBackup_backupArn :: (Text -&gt; f Text) -&gt; DeleteBackup -&gt; f DeleteBackup
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#deleteBackup_backupArn"><span class="hs-identifier hs-var hs-var">deleteBackup_backupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBackup -&gt; Text)
+-&gt; (DeleteBackup -&gt; Text -&gt; DeleteBackup)
+-&gt; Lens DeleteBackup DeleteBackup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup%27"><span class="hs-identifier hs-type">DeleteBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394218"><span class="annot"><span class="annottext">Text
+backupArn :: Text
+$sel:backupArn:DeleteBackup' :: DeleteBackup -&gt; Text
+</span><a href="#local-6989586621679394218"><span class="hs-identifier hs-var hs-var">backupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394218"><span class="hs-identifier hs-var">backupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394217"><span class="annot"><span class="annottext">s :: DeleteBackup
+</span><a href="#local-6989586621679394217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup%27"><span class="hs-identifier hs-type">DeleteBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394216"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBackup
+</span><a href="#local-6989586621679394217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupArn:DeleteBackup' :: Text
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#%24sel%3AbackupArn%3ADeleteBackup%27"><span class="hs-identifier hs-var">backupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-type">DeleteBackupResponse</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679394212"><span class="annot"><span class="annottext">request :: DeleteBackup -&gt; Request DeleteBackup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteBackup -&gt; Request DeleteBackup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679394208"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteBackup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteBackup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteBackup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteBackup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteBackup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394205"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394205"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394204"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679394204"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394203"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394203"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe BackupDescription -&gt; Int -&gt; DeleteBackupResponse
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse%27"><span class="hs-identifier hs-var">DeleteBackupResponse'</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe BackupDescription -&gt; Int -&gt; DeleteBackupResponse)
+-&gt; Either String (Maybe BackupDescription)
+-&gt; Either String (Int -&gt; DeleteBackupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394203"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BackupDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteBackupResponse)
+-&gt; Either String Int -&gt; Either String DeleteBackupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394205"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394195"><span id="local-6989586621679394197"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394192"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679394188"><span class="annot"><span class="annottext">toHeaders :: DeleteBackup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteBackup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DynamoDB_20120810.DeleteBackup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-100"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-104"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394178"><span id="local-6989586621679394180"><span id="local-6989586621679394182"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679394176"><span class="annot"><span class="annottext">toJSON :: DeleteBackup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup%27"><span class="hs-identifier hs-type">DeleteBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394174"><span class="annot"><span class="annottext">Text
+backupArn :: Text
+$sel:backupArn:DeleteBackup' :: DeleteBackup -&gt; Text
+</span><a href="#local-6989586621679394174"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394174"><span class="hs-identifier hs-var">backupArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679394168"><span class="annot"><span class="annottext">toPath :: DeleteBackup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteBackup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679394164"><span class="annot"><span class="annottext">toQuery :: DeleteBackup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBackup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newDeleteBackupResponse' smart constructor.</span><span>
+</span><span id="line-122"></span><span id="local-6989586621679394161"><span id="local-6989586621679394162"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBackupResponse"><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-var">DeleteBackupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBackupResponse%27"><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse%27"><span class="hs-identifier hs-var">DeleteBackupResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the description of the backup created for the table.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AbackupDescription%3ADeleteBackupResponse%27"><span class="annot"><span class="annottext">DeleteBackupResponse -&gt; Maybe BackupDescription
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#%24sel%3AbackupDescription%3ADeleteBackupResponse%27"><span class="hs-identifier hs-var hs-var">backupDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.BackupDescription.html#BackupDescription"><span class="hs-identifier hs-type">BackupDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteBackupResponse%27"><span class="annot"><span class="annottext">DeleteBackupResponse -&gt; Int
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#%24sel%3AhttpStatus%3ADeleteBackupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394155"><span id="local-6989586621679394157"><span class="annot"><span class="annottext">DeleteBackupResponse -&gt; DeleteBackupResponse -&gt; Bool
+(DeleteBackupResponse -&gt; DeleteBackupResponse -&gt; Bool)
+-&gt; (DeleteBackupResponse -&gt; DeleteBackupResponse -&gt; Bool)
+-&gt; Eq DeleteBackupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteBackupResponse -&gt; DeleteBackupResponse -&gt; Bool
+$c/= :: DeleteBackupResponse -&gt; DeleteBackupResponse -&gt; Bool
+== :: DeleteBackupResponse -&gt; DeleteBackupResponse -&gt; Bool
+$c== :: DeleteBackupResponse -&gt; DeleteBackupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394147"><span id="local-6989586621679394149"><span id="local-6989586621679394151"><span id="local-6989586621679394153"><span class="annot"><span class="annottext">ReadPrec [DeleteBackupResponse]
+ReadPrec DeleteBackupResponse
+Int -&gt; ReadS DeleteBackupResponse
+ReadS [DeleteBackupResponse]
+(Int -&gt; ReadS DeleteBackupResponse)
+-&gt; ReadS [DeleteBackupResponse]
+-&gt; ReadPrec DeleteBackupResponse
+-&gt; ReadPrec [DeleteBackupResponse]
+-&gt; Read DeleteBackupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteBackupResponse]
+$creadListPrec :: ReadPrec [DeleteBackupResponse]
+readPrec :: ReadPrec DeleteBackupResponse
+$creadPrec :: ReadPrec DeleteBackupResponse
+readList :: ReadS [DeleteBackupResponse]
+$creadList :: ReadS [DeleteBackupResponse]
+readsPrec :: Int -&gt; ReadS DeleteBackupResponse
+$creadsPrec :: Int -&gt; ReadS DeleteBackupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394141"><span id="local-6989586621679394143"><span id="local-6989586621679394145"><span class="annot"><span class="annottext">Int -&gt; DeleteBackupResponse -&gt; ShowS
+[DeleteBackupResponse] -&gt; ShowS
+DeleteBackupResponse -&gt; String
+(Int -&gt; DeleteBackupResponse -&gt; ShowS)
+-&gt; (DeleteBackupResponse -&gt; String)
+-&gt; ([DeleteBackupResponse] -&gt; ShowS)
+-&gt; Show DeleteBackupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteBackupResponse] -&gt; ShowS
+$cshowList :: [DeleteBackupResponse] -&gt; ShowS
+show :: DeleteBackupResponse -&gt; String
+$cshow :: DeleteBackupResponse -&gt; String
+showsPrec :: Int -&gt; DeleteBackupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteBackupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteBackupResponse -&gt; Rep DeleteBackupResponse x)
+-&gt; (forall x. Rep DeleteBackupResponse x -&gt; DeleteBackupResponse)
+-&gt; Generic DeleteBackupResponse
+forall x. Rep DeleteBackupResponse x -&gt; DeleteBackupResponse
+forall x. DeleteBackupResponse -&gt; Rep DeleteBackupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteBackupResponse x -&gt; DeleteBackupResponse
+$cfrom :: forall x. DeleteBackupResponse -&gt; Rep DeleteBackupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Create a value of 'DeleteBackupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'backupDescription', 'deleteBackupResponse_backupDescription' - Contains the description of the backup created for the table.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'httpStatus', 'deleteBackupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#newDeleteBackupResponse"><span class="hs-identifier hs-type">newDeleteBackupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-type">DeleteBackupResponse</span></a></span><span>
+</span><span id="line-145"></span><span id="newDeleteBackupResponse"><span class="annot"><span class="annottext">newDeleteBackupResponse :: Int -&gt; DeleteBackupResponse
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#newDeleteBackupResponse"><span class="hs-identifier hs-var hs-var">newDeleteBackupResponse</span></a></span></span><span> </span><span id="local-6989586621679394138"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394138"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">DeleteBackupResponse' :: Maybe BackupDescription -&gt; Int -&gt; DeleteBackupResponse
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse%27"><span class="hs-identifier hs-type">DeleteBackupResponse'</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backupDescription:DeleteBackupResponse' :: Maybe BackupDescription
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#%24sel%3AbackupDescription%3ADeleteBackupResponse%27"><span class="hs-identifier hs-var">backupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">Maybe BackupDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBackupResponse' :: Int
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#%24sel%3AhttpStatus%3ADeleteBackupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394138"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Contains the description of the backup created for the table.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#deleteBackupResponse_backupDescription"><span class="hs-identifier hs-type">deleteBackupResponse_backupDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-type">DeleteBackupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.BackupDescription.html#BackupDescription"><span class="hs-identifier hs-type">BackupDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="deleteBackupResponse_backupDescription"><span class="annot"><span class="annottext">deleteBackupResponse_backupDescription :: (Maybe BackupDescription -&gt; f (Maybe BackupDescription))
+-&gt; DeleteBackupResponse -&gt; f DeleteBackupResponse
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#deleteBackupResponse_backupDescription"><span class="hs-identifier hs-var hs-var">deleteBackupResponse_backupDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBackupResponse -&gt; Maybe BackupDescription)
+-&gt; (DeleteBackupResponse
+    -&gt; Maybe BackupDescription -&gt; DeleteBackupResponse)
+-&gt; Lens
+     DeleteBackupResponse
+     DeleteBackupResponse
+     (Maybe BackupDescription)
+     (Maybe BackupDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse%27"><span class="hs-identifier hs-type">DeleteBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394137"><span class="annot"><span class="annottext">Maybe BackupDescription
+backupDescription :: Maybe BackupDescription
+$sel:backupDescription:DeleteBackupResponse' :: DeleteBackupResponse -&gt; Maybe BackupDescription
+</span><a href="#local-6989586621679394137"><span class="hs-identifier hs-var hs-var">backupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BackupDescription
+</span><a href="#local-6989586621679394137"><span class="hs-identifier hs-var">backupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394136"><span class="annot"><span class="annottext">s :: DeleteBackupResponse
+</span><a href="#local-6989586621679394136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse%27"><span class="hs-identifier hs-type">DeleteBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394135"><span class="annot"><span class="annottext">Maybe BackupDescription
+</span><a href="#local-6989586621679394135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBackupResponse
+</span><a href="#local-6989586621679394136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupDescription:DeleteBackupResponse' :: Maybe BackupDescription
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#%24sel%3AbackupDescription%3ADeleteBackupResponse%27"><span class="hs-identifier hs-var">backupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackupDescription
+</span><a href="#local-6989586621679394135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-type">DeleteBackupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#deleteBackupResponse_httpStatus"><span class="hs-identifier hs-type">deleteBackupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-type">DeleteBackupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-158"></span><span id="deleteBackupResponse_httpStatus"><span class="annot"><span class="annottext">deleteBackupResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteBackupResponse -&gt; f DeleteBackupResponse
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#deleteBackupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteBackupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBackupResponse -&gt; Int)
+-&gt; (DeleteBackupResponse -&gt; Int -&gt; DeleteBackupResponse)
+-&gt; Lens DeleteBackupResponse DeleteBackupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse%27"><span class="hs-identifier hs-type">DeleteBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394134"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteBackupResponse' :: DeleteBackupResponse -&gt; Int
+</span><a href="#local-6989586621679394134"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394134"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394133"><span class="annot"><span class="annottext">s :: DeleteBackupResponse
+</span><a href="#local-6989586621679394133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse%27"><span class="hs-identifier hs-type">DeleteBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394132"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBackupResponse
+</span><a href="#local-6989586621679394133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBackupResponse' :: Int
+</span><a href="Amazonka.DynamoDB.DeleteBackup.html#%24sel%3AhttpStatus%3ADeleteBackupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-type">DeleteBackupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394130"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-type">DeleteBackupResponse</span></a></span></span><span>
+</span><span id="line-161"></span></pre></body></html>

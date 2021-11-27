@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AuditManager.DeleteControl</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a custom control in Audit Manager.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AuditManager.DeleteControl</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl"><span class="hs-identifier">DeleteControl</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#newDeleteControl"><span class="hs-identifier">newDeleteControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#deleteControl_controlId"><span class="hs-identifier">deleteControl_controlId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControlResponse"><span class="hs-identifier">DeleteControlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#newDeleteControlResponse"><span class="hs-identifier">newDeleteControlResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#deleteControlResponse_httpStatus"><span class="hs-identifier">deleteControlResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.html"><span class="hs-identifier">Amazonka.AuditManager.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteControl' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679304516"><span id="local-6989586621679304517"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteControl"><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl"><span class="hs-identifier hs-var">DeleteControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteControl%27"><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl%27"><span class="hs-identifier hs-var">DeleteControl'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the specified control.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AcontrolId%3ADeleteControl%27"><span class="annot"><span class="annottext">DeleteControl -&gt; Text
+</span><a href="Amazonka.AuditManager.DeleteControl.html#%24sel%3AcontrolId%3ADeleteControl%27"><span class="hs-identifier hs-var hs-var">controlId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304510"><span id="local-6989586621679304512"><span class="annot"><span class="annottext">DeleteControl -&gt; DeleteControl -&gt; Bool
+(DeleteControl -&gt; DeleteControl -&gt; Bool)
+-&gt; (DeleteControl -&gt; DeleteControl -&gt; Bool) -&gt; Eq DeleteControl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteControl -&gt; DeleteControl -&gt; Bool
+$c/= :: DeleteControl -&gt; DeleteControl -&gt; Bool
+== :: DeleteControl -&gt; DeleteControl -&gt; Bool
+$c== :: DeleteControl -&gt; DeleteControl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304501"><span id="local-6989586621679304503"><span id="local-6989586621679304505"><span id="local-6989586621679304507"><span class="annot"><span class="annottext">ReadPrec [DeleteControl]
+ReadPrec DeleteControl
+Int -&gt; ReadS DeleteControl
+ReadS [DeleteControl]
+(Int -&gt; ReadS DeleteControl)
+-&gt; ReadS [DeleteControl]
+-&gt; ReadPrec DeleteControl
+-&gt; ReadPrec [DeleteControl]
+-&gt; Read DeleteControl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteControl]
+$creadListPrec :: ReadPrec [DeleteControl]
+readPrec :: ReadPrec DeleteControl
+$creadPrec :: ReadPrec DeleteControl
+readList :: ReadS [DeleteControl]
+$creadList :: ReadS [DeleteControl]
+readsPrec :: Int -&gt; ReadS DeleteControl
+$creadsPrec :: Int -&gt; ReadS DeleteControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304494"><span id="local-6989586621679304496"><span id="local-6989586621679304498"><span class="annot"><span class="annottext">Int -&gt; DeleteControl -&gt; ShowS
+[DeleteControl] -&gt; ShowS
+DeleteControl -&gt; String
+(Int -&gt; DeleteControl -&gt; ShowS)
+-&gt; (DeleteControl -&gt; String)
+-&gt; ([DeleteControl] -&gt; ShowS)
+-&gt; Show DeleteControl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteControl] -&gt; ShowS
+$cshowList :: [DeleteControl] -&gt; ShowS
+show :: DeleteControl -&gt; String
+$cshow :: DeleteControl -&gt; String
+showsPrec :: Int -&gt; DeleteControl -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteControl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteControl -&gt; Rep DeleteControl x)
+-&gt; (forall x. Rep DeleteControl x -&gt; DeleteControl)
+-&gt; Generic DeleteControl
+forall x. Rep DeleteControl x -&gt; DeleteControl
+forall x. DeleteControl -&gt; Rep DeleteControl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteControl x -&gt; DeleteControl
+$cfrom :: forall x. DeleteControl -&gt; Rep DeleteControl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'DeleteControl' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'controlId', 'deleteControl_controlId' - The identifier for the specified control.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#newDeleteControl"><span class="hs-identifier hs-type">newDeleteControl</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'controlId'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl"><span class="hs-identifier hs-type">DeleteControl</span></a></span><span>
+</span><span id="line-68"></span><span id="newDeleteControl"><span class="annot"><span class="annottext">newDeleteControl :: Text -&gt; DeleteControl
+</span><a href="Amazonka.AuditManager.DeleteControl.html#newDeleteControl"><span class="hs-identifier hs-var hs-var">newDeleteControl</span></a></span></span><span> </span><span id="local-6989586621679304489"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304489"><span class="hs-identifier hs-var">pControlId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteControl' :: Text -&gt; DeleteControl
+</span><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl%27"><span class="hs-identifier hs-type">DeleteControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlId:DeleteControl' :: Text
+</span><a href="Amazonka.AuditManager.DeleteControl.html#%24sel%3AcontrolId%3ADeleteControl%27"><span class="hs-identifier hs-var">controlId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304489"><span class="hs-identifier hs-var">pControlId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The identifier for the specified control.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#deleteControl_controlId"><span class="hs-identifier hs-type">deleteControl_controlId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl"><span class="hs-identifier hs-type">DeleteControl</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="deleteControl_controlId"><span class="annot"><span class="annottext">deleteControl_controlId :: (Text -&gt; f Text) -&gt; DeleteControl -&gt; f DeleteControl
+</span><a href="Amazonka.AuditManager.DeleteControl.html#deleteControl_controlId"><span class="hs-identifier hs-var hs-var">deleteControl_controlId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteControl -&gt; Text)
+-&gt; (DeleteControl -&gt; Text -&gt; DeleteControl)
+-&gt; Lens DeleteControl DeleteControl Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl%27"><span class="hs-identifier hs-type">DeleteControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304486"><span class="annot"><span class="annottext">Text
+controlId :: Text
+$sel:controlId:DeleteControl' :: DeleteControl -&gt; Text
+</span><a href="#local-6989586621679304486"><span class="hs-identifier hs-var hs-var">controlId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304486"><span class="hs-identifier hs-var">controlId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304485"><span class="annot"><span class="annottext">s :: DeleteControl
+</span><a href="#local-6989586621679304485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl%27"><span class="hs-identifier hs-type">DeleteControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304484"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteControl
+</span><a href="#local-6989586621679304485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlId:DeleteControl' :: Text
+</span><a href="Amazonka.AuditManager.DeleteControl.html#%24sel%3AcontrolId%3ADeleteControl%27"><span class="hs-identifier hs-var">controlId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl"><span class="hs-identifier hs-type">DeleteControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl"><span class="hs-identifier hs-type">DeleteControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl"><span class="hs-identifier hs-type">DeleteControl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControlResponse"><span class="hs-identifier hs-type">DeleteControlResponse</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679304480"><span class="annot"><span class="annottext">request :: DeleteControl -&gt; Request DeleteControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteControl -&gt; Request DeleteControl
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679304476"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteControl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteControl)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteControl))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteControl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteControl)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304473"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304473"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304472"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679304472"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304471"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679304471"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteControlResponse
+</span><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControlResponse%27"><span class="hs-identifier hs-var">DeleteControlResponse'</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteControlResponse)
+-&gt; Either String Int -&gt; Either String DeleteControlResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304473"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304464"><span id="local-6989586621679304466"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl"><span class="hs-identifier hs-type">DeleteControl</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304461"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl"><span class="hs-identifier hs-type">DeleteControl</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl"><span class="hs-identifier hs-type">DeleteControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679304457"><span class="annot"><span class="annottext">toHeaders :: DeleteControl -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteControl -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-98"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl"><span class="hs-identifier hs-type">DeleteControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679304451"><span class="annot"><span class="annottext">toPath :: DeleteControl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl%27"><span class="hs-identifier hs-type">DeleteControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304449"><span class="annot"><span class="annottext">Text
+controlId :: Text
+$sel:controlId:DeleteControl' :: DeleteControl -&gt; Text
+</span><a href="#local-6989586621679304449"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/controls/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304449"><span class="hs-identifier hs-var">controlId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControl"><span class="hs-identifier hs-type">DeleteControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679304445"><span class="annot"><span class="annottext">toQuery :: DeleteControl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteControl -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | /See:/ 'newDeleteControlResponse' smart constructor.</span><span>
+</span><span id="line-110"></span><span id="local-6989586621679304442"><span id="local-6989586621679304443"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteControlResponse"><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControlResponse"><span class="hs-identifier hs-var">DeleteControlResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteControlResponse%27"><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControlResponse%27"><span class="hs-identifier hs-var">DeleteControlResponse'</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteControlResponse%27"><span class="annot"><span class="annottext">DeleteControlResponse -&gt; Int
+</span><a href="Amazonka.AuditManager.DeleteControl.html#%24sel%3AhttpStatus%3ADeleteControlResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304437"><span id="local-6989586621679304439"><span class="annot"><span class="annottext">DeleteControlResponse -&gt; DeleteControlResponse -&gt; Bool
+(DeleteControlResponse -&gt; DeleteControlResponse -&gt; Bool)
+-&gt; (DeleteControlResponse -&gt; DeleteControlResponse -&gt; Bool)
+-&gt; Eq DeleteControlResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteControlResponse -&gt; DeleteControlResponse -&gt; Bool
+$c/= :: DeleteControlResponse -&gt; DeleteControlResponse -&gt; Bool
+== :: DeleteControlResponse -&gt; DeleteControlResponse -&gt; Bool
+$c== :: DeleteControlResponse -&gt; DeleteControlResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304429"><span id="local-6989586621679304431"><span id="local-6989586621679304433"><span id="local-6989586621679304435"><span class="annot"><span class="annottext">ReadPrec [DeleteControlResponse]
+ReadPrec DeleteControlResponse
+Int -&gt; ReadS DeleteControlResponse
+ReadS [DeleteControlResponse]
+(Int -&gt; ReadS DeleteControlResponse)
+-&gt; ReadS [DeleteControlResponse]
+-&gt; ReadPrec DeleteControlResponse
+-&gt; ReadPrec [DeleteControlResponse]
+-&gt; Read DeleteControlResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteControlResponse]
+$creadListPrec :: ReadPrec [DeleteControlResponse]
+readPrec :: ReadPrec DeleteControlResponse
+$creadPrec :: ReadPrec DeleteControlResponse
+readList :: ReadS [DeleteControlResponse]
+$creadList :: ReadS [DeleteControlResponse]
+readsPrec :: Int -&gt; ReadS DeleteControlResponse
+$creadsPrec :: Int -&gt; ReadS DeleteControlResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304423"><span id="local-6989586621679304425"><span id="local-6989586621679304427"><span class="annot"><span class="annottext">Int -&gt; DeleteControlResponse -&gt; ShowS
+[DeleteControlResponse] -&gt; ShowS
+DeleteControlResponse -&gt; String
+(Int -&gt; DeleteControlResponse -&gt; ShowS)
+-&gt; (DeleteControlResponse -&gt; String)
+-&gt; ([DeleteControlResponse] -&gt; ShowS)
+-&gt; Show DeleteControlResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteControlResponse] -&gt; ShowS
+$cshowList :: [DeleteControlResponse] -&gt; ShowS
+show :: DeleteControlResponse -&gt; String
+$cshow :: DeleteControlResponse -&gt; String
+showsPrec :: Int -&gt; DeleteControlResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteControlResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteControlResponse -&gt; Rep DeleteControlResponse x)
+-&gt; (forall x. Rep DeleteControlResponse x -&gt; DeleteControlResponse)
+-&gt; Generic DeleteControlResponse
+forall x. Rep DeleteControlResponse x -&gt; DeleteControlResponse
+forall x. DeleteControlResponse -&gt; Rep DeleteControlResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteControlResponse x -&gt; DeleteControlResponse
+$cfrom :: forall x. DeleteControlResponse -&gt; Rep DeleteControlResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Create a value of 'DeleteControlResponse' with all optional fields omitted.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'httpStatus', 'deleteControlResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#newDeleteControlResponse"><span class="hs-identifier hs-type">newDeleteControlResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControlResponse"><span class="hs-identifier hs-type">DeleteControlResponse</span></a></span><span>
+</span><span id="line-129"></span><span id="newDeleteControlResponse"><span class="annot"><span class="annottext">newDeleteControlResponse :: Int -&gt; DeleteControlResponse
+</span><a href="Amazonka.AuditManager.DeleteControl.html#newDeleteControlResponse"><span class="hs-identifier hs-var hs-var">newDeleteControlResponse</span></a></span></span><span> </span><span id="local-6989586621679304420"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304420"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">DeleteControlResponse' :: Int -&gt; DeleteControlResponse
+</span><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControlResponse%27"><span class="hs-identifier hs-type">DeleteControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteControlResponse' :: Int
+</span><a href="Amazonka.AuditManager.DeleteControl.html#%24sel%3AhttpStatus%3ADeleteControlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304420"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#deleteControlResponse_httpStatus"><span class="hs-identifier hs-type">deleteControlResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControlResponse"><span class="hs-identifier hs-type">DeleteControlResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-134"></span><span id="deleteControlResponse_httpStatus"><span class="annot"><span class="annottext">deleteControlResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteControlResponse -&gt; f DeleteControlResponse
+</span><a href="Amazonka.AuditManager.DeleteControl.html#deleteControlResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteControlResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteControlResponse -&gt; Int)
+-&gt; (DeleteControlResponse -&gt; Int -&gt; DeleteControlResponse)
+-&gt; Lens DeleteControlResponse DeleteControlResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControlResponse%27"><span class="hs-identifier hs-type">DeleteControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304419"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteControlResponse' :: DeleteControlResponse -&gt; Int
+</span><a href="#local-6989586621679304419"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304419"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304418"><span class="annot"><span class="annottext">s :: DeleteControlResponse
+</span><a href="#local-6989586621679304418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControlResponse%27"><span class="hs-identifier hs-type">DeleteControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304417"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteControlResponse
+</span><a href="#local-6989586621679304418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteControlResponse' :: Int
+</span><a href="Amazonka.AuditManager.DeleteControl.html#%24sel%3AhttpStatus%3ADeleteControlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControlResponse"><span class="hs-identifier hs-type">DeleteControlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304415"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.DeleteControl.html#DeleteControlResponse"><span class="hs-identifier hs-type">DeleteControlResponse</span></a></span></span><span>
+</span><span id="line-137"></span></pre></body></html>

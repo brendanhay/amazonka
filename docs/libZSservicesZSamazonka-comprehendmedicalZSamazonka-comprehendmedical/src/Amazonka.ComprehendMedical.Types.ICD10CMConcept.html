@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ComprehendMedical.Types.ICD10CMConcept</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ComprehendMedical.Types.ICD10CMConcept</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The ICD-10-CM concepts that the entity could refer to, along with a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- score indicating the likelihood of the match.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newICD10CMConcept' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679206876"><span id="local-6989586621679206877"></span></span><span class="hs-keyword">data</span><span> </span><span id="ICD10CMConcept"><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept"><span class="hs-identifier hs-var">ICD10CMConcept</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ICD10CMConcept%27"><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept%27"><span class="hs-identifier hs-var">ICD10CMConcept'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The level of confidence that Amazon Comprehend Medical has that the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- entity is accurately linked to an ICD-10-CM concept.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Ascore%3AICD10CMConcept%27"><span class="annot"><span class="annottext">ICD10CMConcept -&gt; Maybe Double
+</span><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#%24sel%3Ascore%3AICD10CMConcept%27"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ICD-10-CM code that identifies the concept found in the knowledge</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- base from the Centers for Disease Control.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Acode%3AICD10CMConcept%27"><span class="annot"><span class="annottext">ICD10CMConcept -&gt; Maybe Text
+</span><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#%24sel%3Acode%3AICD10CMConcept%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The long description of the ICD-10-CM code in the ontology.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Adescription%3AICD10CMConcept%27"><span class="annot"><span class="annottext">ICD10CMConcept -&gt; Maybe Text
+</span><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#%24sel%3Adescription%3AICD10CMConcept%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206868"><span id="local-6989586621679206870"><span class="annot"><span class="annottext">ICD10CMConcept -&gt; ICD10CMConcept -&gt; Bool
+(ICD10CMConcept -&gt; ICD10CMConcept -&gt; Bool)
+-&gt; (ICD10CMConcept -&gt; ICD10CMConcept -&gt; Bool) -&gt; Eq ICD10CMConcept
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ICD10CMConcept -&gt; ICD10CMConcept -&gt; Bool
+$c/= :: ICD10CMConcept -&gt; ICD10CMConcept -&gt; Bool
+== :: ICD10CMConcept -&gt; ICD10CMConcept -&gt; Bool
+$c== :: ICD10CMConcept -&gt; ICD10CMConcept -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206859"><span id="local-6989586621679206861"><span id="local-6989586621679206863"><span id="local-6989586621679206865"><span class="annot"><span class="annottext">ReadPrec [ICD10CMConcept]
+ReadPrec ICD10CMConcept
+Int -&gt; ReadS ICD10CMConcept
+ReadS [ICD10CMConcept]
+(Int -&gt; ReadS ICD10CMConcept)
+-&gt; ReadS [ICD10CMConcept]
+-&gt; ReadPrec ICD10CMConcept
+-&gt; ReadPrec [ICD10CMConcept]
+-&gt; Read ICD10CMConcept
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ICD10CMConcept]
+$creadListPrec :: ReadPrec [ICD10CMConcept]
+readPrec :: ReadPrec ICD10CMConcept
+$creadPrec :: ReadPrec ICD10CMConcept
+readList :: ReadS [ICD10CMConcept]
+$creadList :: ReadS [ICD10CMConcept]
+readsPrec :: Int -&gt; ReadS ICD10CMConcept
+$creadsPrec :: Int -&gt; ReadS ICD10CMConcept
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206852"><span id="local-6989586621679206854"><span id="local-6989586621679206856"><span class="annot"><span class="annottext">Int -&gt; ICD10CMConcept -&gt; ShowS
+[ICD10CMConcept] -&gt; ShowS
+ICD10CMConcept -&gt; String
+(Int -&gt; ICD10CMConcept -&gt; ShowS)
+-&gt; (ICD10CMConcept -&gt; String)
+-&gt; ([ICD10CMConcept] -&gt; ShowS)
+-&gt; Show ICD10CMConcept
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ICD10CMConcept] -&gt; ShowS
+$cshowList :: [ICD10CMConcept] -&gt; ShowS
+show :: ICD10CMConcept -&gt; String
+$cshow :: ICD10CMConcept -&gt; String
+showsPrec :: Int -&gt; ICD10CMConcept -&gt; ShowS
+$cshowsPrec :: Int -&gt; ICD10CMConcept -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ICD10CMConcept -&gt; Rep ICD10CMConcept x)
+-&gt; (forall x. Rep ICD10CMConcept x -&gt; ICD10CMConcept)
+-&gt; Generic ICD10CMConcept
+forall x. Rep ICD10CMConcept x -&gt; ICD10CMConcept
+forall x. ICD10CMConcept -&gt; Rep ICD10CMConcept x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ICD10CMConcept x -&gt; ICD10CMConcept
+$cfrom :: forall x. ICD10CMConcept -&gt; Rep ICD10CMConcept x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'ICD10CMConcept' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'score', 'iCD10CMConcept_score' - The level of confidence that Amazon Comprehend Medical has that the</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- entity is accurately linked to an ICD-10-CM concept.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'code', 'iCD10CMConcept_code' - The ICD-10-CM code that identifies the concept found in the knowledge</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- base from the Centers for Disease Control.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'description', 'iCD10CMConcept_description' - The long description of the ICD-10-CM code in the ontology.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#newICD10CMConcept"><span class="hs-identifier hs-type">newICD10CMConcept</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept"><span class="hs-identifier hs-type">ICD10CMConcept</span></a></span><span>
+</span><span id="line-59"></span><span id="newICD10CMConcept"><span class="annot"><span class="annottext">newICD10CMConcept :: ICD10CMConcept
+</span><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#newICD10CMConcept"><span class="hs-identifier hs-var hs-var">newICD10CMConcept</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">ICD10CMConcept' :: Maybe Double -&gt; Maybe Text -&gt; Maybe Text -&gt; ICD10CMConcept
+</span><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept%27"><span class="hs-identifier hs-type">ICD10CMConcept'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:score:ICD10CMConcept' :: Maybe Double
+</span><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#%24sel%3Ascore%3AICD10CMConcept%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:ICD10CMConcept' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#%24sel%3Acode%3AICD10CMConcept%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ICD10CMConcept' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#%24sel%3Adescription%3AICD10CMConcept%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The level of confidence that Amazon Comprehend Medical has that the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- entity is accurately linked to an ICD-10-CM concept.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#iCD10CMConcept_score"><span class="hs-identifier hs-type">iCD10CMConcept_score</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept"><span class="hs-identifier hs-type">ICD10CMConcept</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="iCD10CMConcept_score"><span class="annot"><span class="annottext">iCD10CMConcept_score :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; ICD10CMConcept -&gt; f ICD10CMConcept
+</span><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#iCD10CMConcept_score"><span class="hs-identifier hs-var hs-var">iCD10CMConcept_score</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ICD10CMConcept -&gt; Maybe Double)
+-&gt; (ICD10CMConcept -&gt; Maybe Double -&gt; ICD10CMConcept)
+-&gt; Lens ICD10CMConcept ICD10CMConcept (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept%27"><span class="hs-identifier hs-type">ICD10CMConcept'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206843"><span class="annot"><span class="annottext">Maybe Double
+score :: Maybe Double
+$sel:score:ICD10CMConcept' :: ICD10CMConcept -&gt; Maybe Double
+</span><a href="#local-6989586621679206843"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679206843"><span class="hs-identifier hs-var">score</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206842"><span class="annot"><span class="annottext">s :: ICD10CMConcept
+</span><a href="#local-6989586621679206842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept%27"><span class="hs-identifier hs-type">ICD10CMConcept'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206841"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679206841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ICD10CMConcept
+</span><a href="#local-6989586621679206842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:score:ICD10CMConcept' :: Maybe Double
+</span><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#%24sel%3Ascore%3AICD10CMConcept%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679206841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept"><span class="hs-identifier hs-type">ICD10CMConcept</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The ICD-10-CM code that identifies the concept found in the knowledge</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- base from the Centers for Disease Control.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#iCD10CMConcept_code"><span class="hs-identifier hs-type">iCD10CMConcept_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept"><span class="hs-identifier hs-type">ICD10CMConcept</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="iCD10CMConcept_code"><span class="annot"><span class="annottext">iCD10CMConcept_code :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ICD10CMConcept -&gt; f ICD10CMConcept
+</span><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#iCD10CMConcept_code"><span class="hs-identifier hs-var hs-var">iCD10CMConcept_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ICD10CMConcept -&gt; Maybe Text)
+-&gt; (ICD10CMConcept -&gt; Maybe Text -&gt; ICD10CMConcept)
+-&gt; Lens ICD10CMConcept ICD10CMConcept (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept%27"><span class="hs-identifier hs-type">ICD10CMConcept'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206839"><span class="annot"><span class="annottext">Maybe Text
+code :: Maybe Text
+$sel:code:ICD10CMConcept' :: ICD10CMConcept -&gt; Maybe Text
+</span><a href="#local-6989586621679206839"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206839"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206838"><span class="annot"><span class="annottext">s :: ICD10CMConcept
+</span><a href="#local-6989586621679206838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept%27"><span class="hs-identifier hs-type">ICD10CMConcept'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206837"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ICD10CMConcept
+</span><a href="#local-6989586621679206838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:ICD10CMConcept' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#%24sel%3Acode%3AICD10CMConcept%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept"><span class="hs-identifier hs-type">ICD10CMConcept</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The long description of the ICD-10-CM code in the ontology.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#iCD10CMConcept_description"><span class="hs-identifier hs-type">iCD10CMConcept_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept"><span class="hs-identifier hs-type">ICD10CMConcept</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="iCD10CMConcept_description"><span class="annot"><span class="annottext">iCD10CMConcept_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ICD10CMConcept -&gt; f ICD10CMConcept
+</span><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#iCD10CMConcept_description"><span class="hs-identifier hs-var hs-var">iCD10CMConcept_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ICD10CMConcept -&gt; Maybe Text)
+-&gt; (ICD10CMConcept -&gt; Maybe Text -&gt; ICD10CMConcept)
+-&gt; Lens ICD10CMConcept ICD10CMConcept (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept%27"><span class="hs-identifier hs-type">ICD10CMConcept'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206835"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ICD10CMConcept' :: ICD10CMConcept -&gt; Maybe Text
+</span><a href="#local-6989586621679206835"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206835"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206834"><span class="annot"><span class="annottext">s :: ICD10CMConcept
+</span><a href="#local-6989586621679206834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept%27"><span class="hs-identifier hs-type">ICD10CMConcept'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206833"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ICD10CMConcept
+</span><a href="#local-6989586621679206834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ICD10CMConcept' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#%24sel%3Adescription%3AICD10CMConcept%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept"><span class="hs-identifier hs-type">ICD10CMConcept</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206830"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept"><span class="hs-identifier hs-type">ICD10CMConcept</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679206828"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ICD10CMConcept
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ICD10CMConcept)
+-&gt; Value
+-&gt; Parser ICD10CMConcept
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ICD10CMConcept&quot;</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206825"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206825"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Text -&gt; Maybe Text -&gt; ICD10CMConcept
+</span><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept%27"><span class="hs-identifier hs-var">ICD10CMConcept'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Text -&gt; Maybe Text -&gt; ICD10CMConcept)
+-&gt; Parser (Maybe Double)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ICD10CMConcept)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Score&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ICD10CMConcept)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ICD10CMConcept)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ICD10CMConcept)
+-&gt; Parser (Maybe Text) -&gt; Parser ICD10CMConcept
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206819"><span id="local-6989586621679206821"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept"><span class="hs-identifier hs-type">ICD10CMConcept</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206816"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.ICD10CMConcept.html#ICD10CMConcept"><span class="hs-identifier hs-type">ICD10CMConcept</span></a></span></span><span>
+</span><span id="line-94"></span></pre></body></html>

@@ -1,0 +1,731 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.CreateVirtualRouter</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a virtual router within a service mesh.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Specify a @listener@ for any inbound traffic that your virtual router</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- receives. Create a virtual router for each protocol and port that you</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- need to route. Virtual routers handle traffic for one or more virtual</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- services within your mesh. After you create your virtual router, create</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- and associate routes for your virtual router that direct incoming</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- requests to different virtual nodes.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- For more information about virtual routers, see</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_routers.html Virtual routers&gt;.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.CreateVirtualRouter</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier">CreateVirtualRouter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#newCreateVirtualRouter"><span class="hs-identifier">newCreateVirtualRouter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_clientToken"><span class="hs-identifier">createVirtualRouter_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_meshOwner"><span class="hs-identifier">createVirtualRouter_meshOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_tags"><span class="hs-identifier">createVirtualRouter_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_meshName"><span class="hs-identifier">createVirtualRouter_meshName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_spec"><span class="hs-identifier">createVirtualRouter_spec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_virtualRouterName"><span class="hs-identifier">createVirtualRouter_virtualRouterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse"><span class="hs-identifier">CreateVirtualRouterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#newCreateVirtualRouterResponse"><span class="hs-identifier">newCreateVirtualRouterResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouterResponse_httpStatus"><span class="hs-identifier">createVirtualRouterResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouterResponse_virtualRouter"><span class="hs-identifier">createVirtualRouterResponse_virtualRouter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.html"><span class="hs-identifier">Amazonka.AppMesh.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- /See:/ 'newCreateVirtualRouter' smart constructor.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621679350290"><span id="local-6989586621679350291"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVirtualRouter"><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-var">CreateVirtualRouter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVirtualRouter%27"><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-var">CreateVirtualRouter'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- idempotency of the request. Up to 36 letters, numbers, hyphens, and</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- underscores are allowed.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateVirtualRouter%27"><span class="annot"><span class="annottext">CreateVirtualRouter -&gt; Maybe Text
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AclientToken%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- not your own, then the account that you specify must share the mesh with</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- your account before you can create the resource in the service mesh. For</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- more information about mesh sharing, see</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AmeshOwner%3ACreateVirtualRouter%27"><span class="annot"><span class="annottext">CreateVirtualRouter -&gt; Maybe Text
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AmeshOwner%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Optional metadata that you can apply to the virtual router to assist</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- with categorization and organization. Each tag consists of a key and an</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- optional value, both of which you define. Tag keys can have a maximum</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- character length of 128 characters, and tag values can have a maximum</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- length of 256 characters.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Atags%3ACreateVirtualRouter%27"><span class="annot"><span class="annottext">CreateVirtualRouter -&gt; Maybe [TagRef]
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3Atags%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppMesh.Types.TagRef.html#TagRef"><span class="hs-identifier hs-type">TagRef</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The name of the service mesh to create the virtual router in.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AmeshName%3ACreateVirtualRouter%27"><span class="annot"><span class="annottext">CreateVirtualRouter -&gt; Text
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AmeshName%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The virtual router specification to apply.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Aspec%3ACreateVirtualRouter%27"><span class="annot"><span class="annottext">CreateVirtualRouter -&gt; VirtualRouterSpec
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3Aspec%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterSpec.html#VirtualRouterSpec"><span class="hs-identifier hs-type">VirtualRouterSpec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The name to use for the virtual router.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AvirtualRouterName%3ACreateVirtualRouter%27"><span class="annot"><span class="annottext">CreateVirtualRouter -&gt; Text
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AvirtualRouterName%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var hs-var">virtualRouterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350279"><span id="local-6989586621679350281"><span class="annot"><span class="annottext">CreateVirtualRouter -&gt; CreateVirtualRouter -&gt; Bool
+(CreateVirtualRouter -&gt; CreateVirtualRouter -&gt; Bool)
+-&gt; (CreateVirtualRouter -&gt; CreateVirtualRouter -&gt; Bool)
+-&gt; Eq CreateVirtualRouter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateVirtualRouter -&gt; CreateVirtualRouter -&gt; Bool
+$c/= :: CreateVirtualRouter -&gt; CreateVirtualRouter -&gt; Bool
+== :: CreateVirtualRouter -&gt; CreateVirtualRouter -&gt; Bool
+$c== :: CreateVirtualRouter -&gt; CreateVirtualRouter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350270"><span id="local-6989586621679350272"><span id="local-6989586621679350274"><span id="local-6989586621679350276"><span class="annot"><span class="annottext">ReadPrec [CreateVirtualRouter]
+ReadPrec CreateVirtualRouter
+Int -&gt; ReadS CreateVirtualRouter
+ReadS [CreateVirtualRouter]
+(Int -&gt; ReadS CreateVirtualRouter)
+-&gt; ReadS [CreateVirtualRouter]
+-&gt; ReadPrec CreateVirtualRouter
+-&gt; ReadPrec [CreateVirtualRouter]
+-&gt; Read CreateVirtualRouter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateVirtualRouter]
+$creadListPrec :: ReadPrec [CreateVirtualRouter]
+readPrec :: ReadPrec CreateVirtualRouter
+$creadPrec :: ReadPrec CreateVirtualRouter
+readList :: ReadS [CreateVirtualRouter]
+$creadList :: ReadS [CreateVirtualRouter]
+readsPrec :: Int -&gt; ReadS CreateVirtualRouter
+$creadsPrec :: Int -&gt; ReadS CreateVirtualRouter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350263"><span id="local-6989586621679350265"><span id="local-6989586621679350267"><span class="annot"><span class="annottext">Int -&gt; CreateVirtualRouter -&gt; ShowS
+[CreateVirtualRouter] -&gt; ShowS
+CreateVirtualRouter -&gt; String
+(Int -&gt; CreateVirtualRouter -&gt; ShowS)
+-&gt; (CreateVirtualRouter -&gt; String)
+-&gt; ([CreateVirtualRouter] -&gt; ShowS)
+-&gt; Show CreateVirtualRouter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateVirtualRouter] -&gt; ShowS
+$cshowList :: [CreateVirtualRouter] -&gt; ShowS
+show :: CreateVirtualRouter -&gt; String
+$cshow :: CreateVirtualRouter -&gt; String
+showsPrec :: Int -&gt; CreateVirtualRouter -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateVirtualRouter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateVirtualRouter -&gt; Rep CreateVirtualRouter x)
+-&gt; (forall x. Rep CreateVirtualRouter x -&gt; CreateVirtualRouter)
+-&gt; Generic CreateVirtualRouter
+forall x. Rep CreateVirtualRouter x -&gt; CreateVirtualRouter
+forall x. CreateVirtualRouter -&gt; Rep CreateVirtualRouter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateVirtualRouter x -&gt; CreateVirtualRouter
+$cfrom :: forall x. CreateVirtualRouter -&gt; Rep CreateVirtualRouter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Create a value of 'CreateVirtualRouter' with all optional fields omitted.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'clientToken', 'createVirtualRouter_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- idempotency of the request. Up to 36 letters, numbers, hyphens, and</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- underscores are allowed.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'meshOwner', 'createVirtualRouter_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- not your own, then the account that you specify must share the mesh with</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- your account before you can create the resource in the service mesh. For</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- more information about mesh sharing, see</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'tags', 'createVirtualRouter_tags' - Optional metadata that you can apply to the virtual router to assist</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- with categorization and organization. Each tag consists of a key and an</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- optional value, both of which you define. Tag keys can have a maximum</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- character length of 128 characters, and tag values can have a maximum</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- length of 256 characters.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'meshName', 'createVirtualRouter_meshName' - The name of the service mesh to create the virtual router in.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'spec', 'createVirtualRouter_spec' - The virtual router specification to apply.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'virtualRouterName', 'createVirtualRouter_virtualRouterName' - The name to use for the virtual router.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#newCreateVirtualRouter"><span class="hs-identifier hs-type">newCreateVirtualRouter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-comment">-- | 'meshName'</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-comment">-- | 'spec'</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterSpec.html#VirtualRouterSpec"><span class="hs-identifier hs-type">VirtualRouterSpec</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-comment">-- | 'virtualRouterName'</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span>
+</span><span id="line-130"></span><span id="newCreateVirtualRouter"><span class="annot"><span class="annottext">newCreateVirtualRouter :: Text -&gt; VirtualRouterSpec -&gt; Text -&gt; CreateVirtualRouter
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#newCreateVirtualRouter"><span class="hs-identifier hs-var hs-var">newCreateVirtualRouter</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679350258"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350258"><span class="hs-identifier hs-var">pMeshName_</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679350257"><span class="annot"><span class="annottext">VirtualRouterSpec
+</span><a href="#local-6989586621679350257"><span class="hs-identifier hs-var">pSpec_</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679350256"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350256"><span class="hs-identifier hs-var">pVirtualRouterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">CreateVirtualRouter' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [TagRef]
+-&gt; Text
+-&gt; VirtualRouterSpec
+-&gt; Text
+-&gt; CreateVirtualRouter
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:CreateVirtualRouter' :: Maybe Text
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AclientToken%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:meshOwner:CreateVirtualRouter' :: Maybe Text
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AmeshOwner%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateVirtualRouter' :: Maybe [TagRef]
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3Atags%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagRef]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:meshName:CreateVirtualRouter' :: Text
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AmeshName%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350258"><span class="hs-identifier hs-var">pMeshName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:spec:CreateVirtualRouter' :: VirtualRouterSpec
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3Aspec%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualRouterSpec
+</span><a href="#local-6989586621679350257"><span class="hs-identifier hs-var">pSpec_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:virtualRouterName:CreateVirtualRouter' :: Text
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AvirtualRouterName%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350256"><span class="hs-identifier hs-var">pVirtualRouterName_</span></a></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- idempotency of the request. Up to 36 letters, numbers, hyphens, and</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- underscores are allowed.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_clientToken"><span class="hs-identifier hs-type">createVirtualRouter_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="createVirtualRouter_clientToken"><span class="annot"><span class="annottext">createVirtualRouter_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateVirtualRouter -&gt; f CreateVirtualRouter
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_clientToken"><span class="hs-identifier hs-var hs-var">createVirtualRouter_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVirtualRouter -&gt; Maybe Text)
+-&gt; (CreateVirtualRouter -&gt; Maybe Text -&gt; CreateVirtualRouter)
+-&gt; Lens
+     CreateVirtualRouter CreateVirtualRouter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350253"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Maybe Text
+</span><a href="#local-6989586621679350253"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350253"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350252"><span class="annot"><span class="annottext">s :: CreateVirtualRouter
+</span><a href="#local-6989586621679350252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350251"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVirtualRouter
+</span><a href="#local-6989586621679350252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateVirtualRouter' :: Maybe Text
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AclientToken%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- not your own, then the account that you specify must share the mesh with</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- your account before you can create the resource in the service mesh. For</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- more information about mesh sharing, see</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_meshOwner"><span class="hs-identifier hs-type">createVirtualRouter_meshOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="createVirtualRouter_meshOwner"><span class="annot"><span class="annottext">createVirtualRouter_meshOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateVirtualRouter -&gt; f CreateVirtualRouter
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_meshOwner"><span class="hs-identifier hs-var hs-var">createVirtualRouter_meshOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVirtualRouter -&gt; Maybe Text)
+-&gt; (CreateVirtualRouter -&gt; Maybe Text -&gt; CreateVirtualRouter)
+-&gt; Lens
+     CreateVirtualRouter CreateVirtualRouter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350250"><span class="annot"><span class="annottext">Maybe Text
+meshOwner :: Maybe Text
+$sel:meshOwner:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Maybe Text
+</span><a href="#local-6989586621679350250"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350250"><span class="hs-identifier hs-var">meshOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350249"><span class="annot"><span class="annottext">s :: CreateVirtualRouter
+</span><a href="#local-6989586621679350249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350248"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVirtualRouter
+</span><a href="#local-6989586621679350249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshOwner:CreateVirtualRouter' :: Maybe Text
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AmeshOwner%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | Optional metadata that you can apply to the virtual router to assist</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- with categorization and organization. Each tag consists of a key and an</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- optional value, both of which you define. Tag keys can have a maximum</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- character length of 128 characters, and tag values can have a maximum</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- length of 256 characters.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_tags"><span class="hs-identifier hs-type">createVirtualRouter_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppMesh.Types.TagRef.html#TagRef"><span class="hs-identifier hs-type">TagRef</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="createVirtualRouter_tags"><span class="annot"><span class="annottext">createVirtualRouter_tags :: (Maybe [TagRef] -&gt; f (Maybe [TagRef]))
+-&gt; CreateVirtualRouter -&gt; f CreateVirtualRouter
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_tags"><span class="hs-identifier hs-var hs-var">createVirtualRouter_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVirtualRouter -&gt; Maybe [TagRef])
+-&gt; (CreateVirtualRouter -&gt; Maybe [TagRef] -&gt; CreateVirtualRouter)
+-&gt; Lens
+     CreateVirtualRouter
+     CreateVirtualRouter
+     (Maybe [TagRef])
+     (Maybe [TagRef])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350247"><span class="annot"><span class="annottext">Maybe [TagRef]
+tags :: Maybe [TagRef]
+$sel:tags:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Maybe [TagRef]
+</span><a href="#local-6989586621679350247"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagRef]
+</span><a href="#local-6989586621679350247"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350246"><span class="annot"><span class="annottext">s :: CreateVirtualRouter
+</span><a href="#local-6989586621679350246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350245"><span class="annot"><span class="annottext">Maybe [TagRef]
+</span><a href="#local-6989586621679350245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVirtualRouter
+</span><a href="#local-6989586621679350246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateVirtualRouter' :: Maybe [TagRef]
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3Atags%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagRef]
+</span><a href="#local-6989586621679350245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagRef] -&gt; f (Maybe [TagRef]))
+ -&gt; CreateVirtualRouter -&gt; f CreateVirtualRouter)
+-&gt; ((Maybe [TagRef] -&gt; f (Maybe [TagRef]))
+    -&gt; Maybe [TagRef] -&gt; f (Maybe [TagRef]))
+-&gt; (Maybe [TagRef] -&gt; f (Maybe [TagRef]))
+-&gt; CreateVirtualRouter
+-&gt; f CreateVirtualRouter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagRef] [TagRef] [TagRef] [TagRef]
+-&gt; Iso
+     (Maybe [TagRef]) (Maybe [TagRef]) (Maybe [TagRef]) (Maybe [TagRef])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagRef] [TagRef] [TagRef] [TagRef]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The name of the service mesh to create the virtual router in.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_meshName"><span class="hs-identifier hs-type">createVirtualRouter_meshName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-167"></span><span id="createVirtualRouter_meshName"><span class="annot"><span class="annottext">createVirtualRouter_meshName :: (Text -&gt; f Text) -&gt; CreateVirtualRouter -&gt; f CreateVirtualRouter
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_meshName"><span class="hs-identifier hs-var hs-var">createVirtualRouter_meshName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVirtualRouter -&gt; Text)
+-&gt; (CreateVirtualRouter -&gt; Text -&gt; CreateVirtualRouter)
+-&gt; Lens CreateVirtualRouter CreateVirtualRouter Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350241"><span class="annot"><span class="annottext">Text
+meshName :: Text
+$sel:meshName:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Text
+</span><a href="#local-6989586621679350241"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350241"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350240"><span class="annot"><span class="annottext">s :: CreateVirtualRouter
+</span><a href="#local-6989586621679350240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350239"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVirtualRouter
+</span><a href="#local-6989586621679350240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshName:CreateVirtualRouter' :: Text
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AmeshName%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The virtual router specification to apply.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_spec"><span class="hs-identifier hs-type">createVirtualRouter_spec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterSpec.html#VirtualRouterSpec"><span class="hs-identifier hs-type">VirtualRouterSpec</span></a></span><span>
+</span><span id="line-171"></span><span id="createVirtualRouter_spec"><span class="annot"><span class="annottext">createVirtualRouter_spec :: (VirtualRouterSpec -&gt; f VirtualRouterSpec)
+-&gt; CreateVirtualRouter -&gt; f CreateVirtualRouter
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_spec"><span class="hs-identifier hs-var hs-var">createVirtualRouter_spec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVirtualRouter -&gt; VirtualRouterSpec)
+-&gt; (CreateVirtualRouter
+    -&gt; VirtualRouterSpec -&gt; CreateVirtualRouter)
+-&gt; Lens
+     CreateVirtualRouter
+     CreateVirtualRouter
+     VirtualRouterSpec
+     VirtualRouterSpec
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350238"><span class="annot"><span class="annottext">VirtualRouterSpec
+spec :: VirtualRouterSpec
+$sel:spec:CreateVirtualRouter' :: CreateVirtualRouter -&gt; VirtualRouterSpec
+</span><a href="#local-6989586621679350238"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualRouterSpec
+</span><a href="#local-6989586621679350238"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350237"><span class="annot"><span class="annottext">s :: CreateVirtualRouter
+</span><a href="#local-6989586621679350237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350236"><span class="annot"><span class="annottext">VirtualRouterSpec
+</span><a href="#local-6989586621679350236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVirtualRouter
+</span><a href="#local-6989586621679350237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spec:CreateVirtualRouter' :: VirtualRouterSpec
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3Aspec%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualRouterSpec
+</span><a href="#local-6989586621679350236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The name to use for the virtual router.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_virtualRouterName"><span class="hs-identifier hs-type">createVirtualRouter_virtualRouterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-175"></span><span id="createVirtualRouter_virtualRouterName"><span class="annot"><span class="annottext">createVirtualRouter_virtualRouterName :: (Text -&gt; f Text) -&gt; CreateVirtualRouter -&gt; f CreateVirtualRouter
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouter_virtualRouterName"><span class="hs-identifier hs-var hs-var">createVirtualRouter_virtualRouterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVirtualRouter -&gt; Text)
+-&gt; (CreateVirtualRouter -&gt; Text -&gt; CreateVirtualRouter)
+-&gt; Lens CreateVirtualRouter CreateVirtualRouter Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350235"><span class="annot"><span class="annottext">Text
+virtualRouterName :: Text
+$sel:virtualRouterName:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Text
+</span><a href="#local-6989586621679350235"><span class="hs-identifier hs-var hs-var">virtualRouterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350235"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350234"><span class="annot"><span class="annottext">s :: CreateVirtualRouter
+</span><a href="#local-6989586621679350234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350233"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVirtualRouter
+</span><a href="#local-6989586621679350234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualRouterName:CreateVirtualRouter' :: Text
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AvirtualRouterName%3ACreateVirtualRouter%27"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-179"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse"><span class="hs-identifier hs-type">CreateVirtualRouterResponse</span></a></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679350229"><span class="annot"><span class="annottext">request :: CreateVirtualRouter -&gt; Request CreateVirtualRouter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateVirtualRouter -&gt; Request CreateVirtualRouter
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AppMesh.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679350225"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateVirtualRouter
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateVirtualRouter)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateVirtualRouter))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateVirtualRouter
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateVirtualRouter)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350222"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350222"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679350221"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679350221"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679350220"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350220"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; VirtualRouterData -&gt; CreateVirtualRouterResponse
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse%27"><span class="hs-identifier hs-var">CreateVirtualRouterResponse'</span></a></span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; VirtualRouterData -&gt; CreateVirtualRouterResponse)
+-&gt; Either String Int
+-&gt; Either String (VirtualRouterData -&gt; CreateVirtualRouterResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350222"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Either String (VirtualRouterData -&gt; CreateVirtualRouterResponse)
+-&gt; Either String VirtualRouterData
+-&gt; Either String CreateVirtualRouterResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String VirtualRouterData
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350220"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350212"><span id="local-6989586621679350214"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span></span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350209"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679350205"><span class="annot"><span class="annottext">toHeaders :: CreateVirtualRouter -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateVirtualRouter -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-198"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-199"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-201"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350195"><span id="local-6989586621679350197"><span id="local-6989586621679350199"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679350193"><span class="annot"><span class="annottext">toJSON :: CreateVirtualRouter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350186"><span id="local-6989586621679350187"><span id="local-6989586621679350188"><span id="local-6989586621679350189"><span id="local-6989586621679350190"><span id="local-6989586621679350191"><span class="annot"><span class="annottext">Maybe [TagRef]
+Maybe Text
+Text
+VirtualRouterSpec
+virtualRouterName :: Text
+spec :: VirtualRouterSpec
+meshName :: Text
+tags :: Maybe [TagRef]
+meshOwner :: Maybe Text
+clientToken :: Maybe Text
+$sel:virtualRouterName:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Text
+$sel:spec:CreateVirtualRouter' :: CreateVirtualRouter -&gt; VirtualRouterSpec
+$sel:meshName:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Text
+$sel:tags:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Maybe [TagRef]
+$sel:meshOwner:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Maybe Text
+$sel:clientToken:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Maybe Text
+</span><a href="#local-6989586621679350186"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-208"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-209"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350191"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TagRef] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([TagRef] -&gt; Pair) -&gt; Maybe [TagRef] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagRef]
+</span><a href="#local-6989586621679350189"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;spec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VirtualRouterSpec -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">VirtualRouterSpec
+</span><a href="#local-6989586621679350187"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-213"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;virtualRouterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350186"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679350180"><span class="annot"><span class="annottext">toPath :: CreateVirtualRouter -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350173"><span id="local-6989586621679350174"><span id="local-6989586621679350175"><span id="local-6989586621679350176"><span id="local-6989586621679350177"><span id="local-6989586621679350178"><span class="annot"><span class="annottext">Maybe [TagRef]
+Maybe Text
+Text
+VirtualRouterSpec
+virtualRouterName :: Text
+spec :: VirtualRouterSpec
+meshName :: Text
+tags :: Maybe [TagRef]
+meshOwner :: Maybe Text
+clientToken :: Maybe Text
+$sel:virtualRouterName:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Text
+$sel:spec:CreateVirtualRouter' :: CreateVirtualRouter -&gt; VirtualRouterSpec
+$sel:meshName:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Text
+$sel:tags:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Maybe [TagRef]
+$sel:meshOwner:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Maybe Text
+$sel:clientToken:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Maybe Text
+</span><a href="#local-6989586621679350173"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v20190125/meshes/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350175"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/virtualRouters&quot;</span></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter"><span class="hs-identifier hs-type">CreateVirtualRouter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679350169"><span class="annot"><span class="annottext">toQuery :: CreateVirtualRouter -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouter%27"><span class="hs-identifier hs-type">CreateVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350162"><span id="local-6989586621679350163"><span id="local-6989586621679350164"><span id="local-6989586621679350165"><span id="local-6989586621679350166"><span id="local-6989586621679350167"><span class="annot"><span class="annottext">Maybe [TagRef]
+Maybe Text
+Text
+VirtualRouterSpec
+virtualRouterName :: Text
+spec :: VirtualRouterSpec
+meshName :: Text
+tags :: Maybe [TagRef]
+meshOwner :: Maybe Text
+clientToken :: Maybe Text
+$sel:virtualRouterName:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Text
+$sel:spec:CreateVirtualRouter' :: CreateVirtualRouter -&gt; VirtualRouterSpec
+$sel:meshName:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Text
+$sel:tags:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Maybe [TagRef]
+$sel:meshOwner:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Maybe Text
+$sel:clientToken:CreateVirtualRouter' :: CreateVirtualRouter -&gt; Maybe Text
+</span><a href="#local-6989586621679350162"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;meshOwner&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350166"><span class="hs-identifier hs-var">meshOwner</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- /See:/ 'newCreateVirtualRouterResponse' smart constructor.</span><span>
+</span><span id="line-232"></span><span id="local-6989586621679350159"><span id="local-6989586621679350160"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVirtualRouterResponse"><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse"><span class="hs-identifier hs-var">CreateVirtualRouterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVirtualRouterResponse%27"><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse%27"><span class="hs-identifier hs-var">CreateVirtualRouterResponse'</span></a></span></span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-234"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateVirtualRouterResponse%27"><span class="annot"><span class="annottext">CreateVirtualRouterResponse -&gt; Int
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AhttpStatus%3ACreateVirtualRouterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- | The full description of your virtual router following the create call.</span><span>
+</span><span id="line-236"></span><span>    </span><span id="%24sel%3AvirtualRouter%3ACreateVirtualRouterResponse%27"><span class="annot"><span class="annottext">CreateVirtualRouterResponse -&gt; VirtualRouterData
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AvirtualRouter%3ACreateVirtualRouterResponse%27"><span class="hs-identifier hs-var hs-var">virtualRouter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350153"><span id="local-6989586621679350155"><span class="annot"><span class="annottext">CreateVirtualRouterResponse -&gt; CreateVirtualRouterResponse -&gt; Bool
+(CreateVirtualRouterResponse
+ -&gt; CreateVirtualRouterResponse -&gt; Bool)
+-&gt; (CreateVirtualRouterResponse
+    -&gt; CreateVirtualRouterResponse -&gt; Bool)
+-&gt; Eq CreateVirtualRouterResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateVirtualRouterResponse -&gt; CreateVirtualRouterResponse -&gt; Bool
+$c/= :: CreateVirtualRouterResponse -&gt; CreateVirtualRouterResponse -&gt; Bool
+== :: CreateVirtualRouterResponse -&gt; CreateVirtualRouterResponse -&gt; Bool
+$c== :: CreateVirtualRouterResponse -&gt; CreateVirtualRouterResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350145"><span id="local-6989586621679350147"><span id="local-6989586621679350149"><span id="local-6989586621679350151"><span class="annot"><span class="annottext">ReadPrec [CreateVirtualRouterResponse]
+ReadPrec CreateVirtualRouterResponse
+Int -&gt; ReadS CreateVirtualRouterResponse
+ReadS [CreateVirtualRouterResponse]
+(Int -&gt; ReadS CreateVirtualRouterResponse)
+-&gt; ReadS [CreateVirtualRouterResponse]
+-&gt; ReadPrec CreateVirtualRouterResponse
+-&gt; ReadPrec [CreateVirtualRouterResponse]
+-&gt; Read CreateVirtualRouterResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateVirtualRouterResponse]
+$creadListPrec :: ReadPrec [CreateVirtualRouterResponse]
+readPrec :: ReadPrec CreateVirtualRouterResponse
+$creadPrec :: ReadPrec CreateVirtualRouterResponse
+readList :: ReadS [CreateVirtualRouterResponse]
+$creadList :: ReadS [CreateVirtualRouterResponse]
+readsPrec :: Int -&gt; ReadS CreateVirtualRouterResponse
+$creadsPrec :: Int -&gt; ReadS CreateVirtualRouterResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350139"><span id="local-6989586621679350141"><span id="local-6989586621679350143"><span class="annot"><span class="annottext">Int -&gt; CreateVirtualRouterResponse -&gt; ShowS
+[CreateVirtualRouterResponse] -&gt; ShowS
+CreateVirtualRouterResponse -&gt; String
+(Int -&gt; CreateVirtualRouterResponse -&gt; ShowS)
+-&gt; (CreateVirtualRouterResponse -&gt; String)
+-&gt; ([CreateVirtualRouterResponse] -&gt; ShowS)
+-&gt; Show CreateVirtualRouterResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateVirtualRouterResponse] -&gt; ShowS
+$cshowList :: [CreateVirtualRouterResponse] -&gt; ShowS
+show :: CreateVirtualRouterResponse -&gt; String
+$cshow :: CreateVirtualRouterResponse -&gt; String
+showsPrec :: Int -&gt; CreateVirtualRouterResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateVirtualRouterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateVirtualRouterResponse -&gt; Rep CreateVirtualRouterResponse x)
+-&gt; (forall x.
+    Rep CreateVirtualRouterResponse x -&gt; CreateVirtualRouterResponse)
+-&gt; Generic CreateVirtualRouterResponse
+forall x.
+Rep CreateVirtualRouterResponse x -&gt; CreateVirtualRouterResponse
+forall x.
+CreateVirtualRouterResponse -&gt; Rep CreateVirtualRouterResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateVirtualRouterResponse x -&gt; CreateVirtualRouterResponse
+$cfrom :: forall x.
+CreateVirtualRouterResponse -&gt; Rep CreateVirtualRouterResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- Create a value of 'CreateVirtualRouterResponse' with all optional fields omitted.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'httpStatus', 'createVirtualRouterResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- 'virtualRouter', 'createVirtualRouterResponse_virtualRouter' - The full description of your virtual router following the create call.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#newCreateVirtualRouterResponse"><span class="hs-identifier hs-type">newCreateVirtualRouterResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-252"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-253"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-254"></span><span>  </span><span class="hs-comment">-- | 'virtualRouter'</span><span>
+</span><span id="line-255"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-256"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse"><span class="hs-identifier hs-type">CreateVirtualRouterResponse</span></a></span><span>
+</span><span id="line-257"></span><span id="newCreateVirtualRouterResponse"><span class="annot"><span class="annottext">newCreateVirtualRouterResponse :: Int -&gt; VirtualRouterData -&gt; CreateVirtualRouterResponse
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#newCreateVirtualRouterResponse"><span class="hs-identifier hs-var hs-var">newCreateVirtualRouterResponse</span></a></span></span><span>
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679350136"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350136"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621679350135"><span class="annot"><span class="annottext">VirtualRouterData
+</span><a href="#local-6989586621679350135"><span class="hs-identifier hs-var">pVirtualRouter_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><span class="annottext">CreateVirtualRouterResponse' :: Int -&gt; VirtualRouterData -&gt; CreateVirtualRouterResponse
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse%27"><span class="hs-identifier hs-type">CreateVirtualRouterResponse'</span></a></span><span>
+</span><span id="line-261"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateVirtualRouterResponse' :: Int
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AhttpStatus%3ACreateVirtualRouterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-262"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350136"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">$sel:virtualRouter:CreateVirtualRouterResponse' :: VirtualRouterData
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AvirtualRouter%3ACreateVirtualRouterResponse%27"><span class="hs-identifier hs-var">virtualRouter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualRouterData
+</span><a href="#local-6989586621679350135"><span class="hs-identifier hs-var">pVirtualRouter_</span></a></span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouterResponse_httpStatus"><span class="hs-identifier hs-type">createVirtualRouterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse"><span class="hs-identifier hs-type">CreateVirtualRouterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-268"></span><span id="createVirtualRouterResponse_httpStatus"><span class="annot"><span class="annottext">createVirtualRouterResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateVirtualRouterResponse -&gt; f CreateVirtualRouterResponse
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouterResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createVirtualRouterResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVirtualRouterResponse -&gt; Int)
+-&gt; (CreateVirtualRouterResponse
+    -&gt; Int -&gt; CreateVirtualRouterResponse)
+-&gt; Lens
+     CreateVirtualRouterResponse CreateVirtualRouterResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse%27"><span class="hs-identifier hs-type">CreateVirtualRouterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350134"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateVirtualRouterResponse' :: CreateVirtualRouterResponse -&gt; Int
+</span><a href="#local-6989586621679350134"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350134"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350133"><span class="annot"><span class="annottext">s :: CreateVirtualRouterResponse
+</span><a href="#local-6989586621679350133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse%27"><span class="hs-identifier hs-type">CreateVirtualRouterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350132"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVirtualRouterResponse
+</span><a href="#local-6989586621679350133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateVirtualRouterResponse' :: Int
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AhttpStatus%3ACreateVirtualRouterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse"><span class="hs-identifier hs-type">CreateVirtualRouterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | The full description of your virtual router following the create call.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouterResponse_virtualRouter"><span class="hs-identifier hs-type">createVirtualRouterResponse_virtualRouter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse"><span class="hs-identifier hs-type">CreateVirtualRouterResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span>
+</span><span id="line-272"></span><span id="createVirtualRouterResponse_virtualRouter"><span class="annot"><span class="annottext">createVirtualRouterResponse_virtualRouter :: (VirtualRouterData -&gt; f VirtualRouterData)
+-&gt; CreateVirtualRouterResponse -&gt; f CreateVirtualRouterResponse
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#createVirtualRouterResponse_virtualRouter"><span class="hs-identifier hs-var hs-var">createVirtualRouterResponse_virtualRouter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVirtualRouterResponse -&gt; VirtualRouterData)
+-&gt; (CreateVirtualRouterResponse
+    -&gt; VirtualRouterData -&gt; CreateVirtualRouterResponse)
+-&gt; Lens
+     CreateVirtualRouterResponse
+     CreateVirtualRouterResponse
+     VirtualRouterData
+     VirtualRouterData
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse%27"><span class="hs-identifier hs-type">CreateVirtualRouterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350131"><span class="annot"><span class="annottext">VirtualRouterData
+virtualRouter :: VirtualRouterData
+$sel:virtualRouter:CreateVirtualRouterResponse' :: CreateVirtualRouterResponse -&gt; VirtualRouterData
+</span><a href="#local-6989586621679350131"><span class="hs-identifier hs-var hs-var">virtualRouter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualRouterData
+</span><a href="#local-6989586621679350131"><span class="hs-identifier hs-var">virtualRouter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350130"><span class="annot"><span class="annottext">s :: CreateVirtualRouterResponse
+</span><a href="#local-6989586621679350130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse%27"><span class="hs-identifier hs-type">CreateVirtualRouterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350129"><span class="annot"><span class="annottext">VirtualRouterData
+</span><a href="#local-6989586621679350129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVirtualRouterResponse
+</span><a href="#local-6989586621679350130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualRouter:CreateVirtualRouterResponse' :: VirtualRouterData
+</span><a href="Amazonka.AppMesh.CreateVirtualRouter.html#%24sel%3AvirtualRouter%3ACreateVirtualRouterResponse%27"><span class="hs-identifier hs-var">virtualRouter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualRouterData
+</span><a href="#local-6989586621679350129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse"><span class="hs-identifier hs-type">CreateVirtualRouterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350127"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateVirtualRouter.html#CreateVirtualRouterResponse"><span class="hs-identifier hs-type">CreateVirtualRouterResponse</span></a></span></span><span>
+</span><span id="line-275"></span></pre></body></html>

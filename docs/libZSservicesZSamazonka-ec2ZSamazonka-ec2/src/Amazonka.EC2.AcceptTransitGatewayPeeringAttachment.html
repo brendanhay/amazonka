@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.AcceptTransitGatewayPeeringAttachment</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Accepts a transit gateway peering attachment request. The peering</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- attachment must be in the @pendingAcceptance@ state.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.AcceptTransitGatewayPeeringAttachment</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment"><span class="hs-identifier">AcceptTransitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#newAcceptTransitGatewayPeeringAttachment"><span class="hs-identifier">newAcceptTransitGatewayPeeringAttachment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#acceptTransitGatewayPeeringAttachment_dryRun"><span class="hs-identifier">acceptTransitGatewayPeeringAttachment_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#acceptTransitGatewayPeeringAttachment_transitGatewayAttachmentId"><span class="hs-identifier">acceptTransitGatewayPeeringAttachment_transitGatewayAttachmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse"><span class="hs-identifier">AcceptTransitGatewayPeeringAttachmentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#newAcceptTransitGatewayPeeringAttachmentResponse"><span class="hs-identifier">newAcceptTransitGatewayPeeringAttachmentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#acceptTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment"><span class="hs-identifier">acceptTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#acceptTransitGatewayPeeringAttachmentResponse_httpStatus"><span class="hs-identifier">acceptTransitGatewayPeeringAttachmentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newAcceptTransitGatewayPeeringAttachment' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621681309613"><span id="local-6989586621681309614"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptTransitGatewayPeeringAttachment"><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment"><span class="hs-identifier hs-var">AcceptTransitGatewayPeeringAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptTransitGatewayPeeringAttachment%27"><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">AcceptTransitGatewayPeeringAttachment'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdryRun%3AAcceptTransitGatewayPeeringAttachment%27"><span class="annot"><span class="annottext">AcceptTransitGatewayPeeringAttachment -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#%24sel%3AdryRun%3AAcceptTransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway attachment.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AtransitGatewayAttachmentId%3AAcceptTransitGatewayPeeringAttachment%27"><span class="annot"><span class="annottext">AcceptTransitGatewayPeeringAttachment -&gt; Text
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#%24sel%3AtransitGatewayAttachmentId%3AAcceptTransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681309606"><span id="local-6989586621681309608"><span class="annot"><span class="annottext">AcceptTransitGatewayPeeringAttachment
+-&gt; AcceptTransitGatewayPeeringAttachment -&gt; Bool
+(AcceptTransitGatewayPeeringAttachment
+ -&gt; AcceptTransitGatewayPeeringAttachment -&gt; Bool)
+-&gt; (AcceptTransitGatewayPeeringAttachment
+    -&gt; AcceptTransitGatewayPeeringAttachment -&gt; Bool)
+-&gt; Eq AcceptTransitGatewayPeeringAttachment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AcceptTransitGatewayPeeringAttachment
+-&gt; AcceptTransitGatewayPeeringAttachment -&gt; Bool
+$c/= :: AcceptTransitGatewayPeeringAttachment
+-&gt; AcceptTransitGatewayPeeringAttachment -&gt; Bool
+== :: AcceptTransitGatewayPeeringAttachment
+-&gt; AcceptTransitGatewayPeeringAttachment -&gt; Bool
+$c== :: AcceptTransitGatewayPeeringAttachment
+-&gt; AcceptTransitGatewayPeeringAttachment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681309597"><span id="local-6989586621681309599"><span id="local-6989586621681309601"><span id="local-6989586621681309603"><span class="annot"><span class="annottext">ReadPrec [AcceptTransitGatewayPeeringAttachment]
+ReadPrec AcceptTransitGatewayPeeringAttachment
+Int -&gt; ReadS AcceptTransitGatewayPeeringAttachment
+ReadS [AcceptTransitGatewayPeeringAttachment]
+(Int -&gt; ReadS AcceptTransitGatewayPeeringAttachment)
+-&gt; ReadS [AcceptTransitGatewayPeeringAttachment]
+-&gt; ReadPrec AcceptTransitGatewayPeeringAttachment
+-&gt; ReadPrec [AcceptTransitGatewayPeeringAttachment]
+-&gt; Read AcceptTransitGatewayPeeringAttachment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AcceptTransitGatewayPeeringAttachment]
+$creadListPrec :: ReadPrec [AcceptTransitGatewayPeeringAttachment]
+readPrec :: ReadPrec AcceptTransitGatewayPeeringAttachment
+$creadPrec :: ReadPrec AcceptTransitGatewayPeeringAttachment
+readList :: ReadS [AcceptTransitGatewayPeeringAttachment]
+$creadList :: ReadS [AcceptTransitGatewayPeeringAttachment]
+readsPrec :: Int -&gt; ReadS AcceptTransitGatewayPeeringAttachment
+$creadsPrec :: Int -&gt; ReadS AcceptTransitGatewayPeeringAttachment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681309590"><span id="local-6989586621681309592"><span id="local-6989586621681309594"><span class="annot"><span class="annottext">Int -&gt; AcceptTransitGatewayPeeringAttachment -&gt; ShowS
+[AcceptTransitGatewayPeeringAttachment] -&gt; ShowS
+AcceptTransitGatewayPeeringAttachment -&gt; String
+(Int -&gt; AcceptTransitGatewayPeeringAttachment -&gt; ShowS)
+-&gt; (AcceptTransitGatewayPeeringAttachment -&gt; String)
+-&gt; ([AcceptTransitGatewayPeeringAttachment] -&gt; ShowS)
+-&gt; Show AcceptTransitGatewayPeeringAttachment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AcceptTransitGatewayPeeringAttachment] -&gt; ShowS
+$cshowList :: [AcceptTransitGatewayPeeringAttachment] -&gt; ShowS
+show :: AcceptTransitGatewayPeeringAttachment -&gt; String
+$cshow :: AcceptTransitGatewayPeeringAttachment -&gt; String
+showsPrec :: Int -&gt; AcceptTransitGatewayPeeringAttachment -&gt; ShowS
+$cshowsPrec :: Int -&gt; AcceptTransitGatewayPeeringAttachment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AcceptTransitGatewayPeeringAttachment
+ -&gt; Rep AcceptTransitGatewayPeeringAttachment x)
+-&gt; (forall x.
+    Rep AcceptTransitGatewayPeeringAttachment x
+    -&gt; AcceptTransitGatewayPeeringAttachment)
+-&gt; Generic AcceptTransitGatewayPeeringAttachment
+forall x.
+Rep AcceptTransitGatewayPeeringAttachment x
+-&gt; AcceptTransitGatewayPeeringAttachment
+forall x.
+AcceptTransitGatewayPeeringAttachment
+-&gt; Rep AcceptTransitGatewayPeeringAttachment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AcceptTransitGatewayPeeringAttachment x
+-&gt; AcceptTransitGatewayPeeringAttachment
+$cfrom :: forall x.
+AcceptTransitGatewayPeeringAttachment
+-&gt; Rep AcceptTransitGatewayPeeringAttachment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'AcceptTransitGatewayPeeringAttachment' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'dryRun', 'acceptTransitGatewayPeeringAttachment_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'transitGatewayAttachmentId', 'acceptTransitGatewayPeeringAttachment_transitGatewayAttachmentId' - The ID of the transit gateway attachment.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#newAcceptTransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">newAcceptTransitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'transitGatewayAttachmentId'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment</span></a></span><span>
+</span><span id="line-81"></span><span id="newAcceptTransitGatewayPeeringAttachment"><span class="annot"><span class="annottext">newAcceptTransitGatewayPeeringAttachment :: Text -&gt; AcceptTransitGatewayPeeringAttachment
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#newAcceptTransitGatewayPeeringAttachment"><span class="hs-identifier hs-var hs-var">newAcceptTransitGatewayPeeringAttachment</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621681309585"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681309585"><span class="hs-identifier hs-var">pTransitGatewayAttachmentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">AcceptTransitGatewayPeeringAttachment' :: Maybe Bool -&gt; Text -&gt; AcceptTransitGatewayPeeringAttachment
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment'</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:AcceptTransitGatewayPeeringAttachment' :: Maybe Bool
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#%24sel%3AdryRun%3AAcceptTransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:AcceptTransitGatewayPeeringAttachment' :: Text
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#%24sel%3AtransitGatewayAttachmentId%3AAcceptTransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681309585"><span class="hs-identifier hs-var">pTransitGatewayAttachmentId_</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#acceptTransitGatewayPeeringAttachment_dryRun"><span class="hs-identifier hs-type">acceptTransitGatewayPeeringAttachment_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="acceptTransitGatewayPeeringAttachment_dryRun"><span class="annot"><span class="annottext">acceptTransitGatewayPeeringAttachment_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AcceptTransitGatewayPeeringAttachment
+-&gt; f AcceptTransitGatewayPeeringAttachment
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#acceptTransitGatewayPeeringAttachment_dryRun"><span class="hs-identifier hs-var hs-var">acceptTransitGatewayPeeringAttachment_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptTransitGatewayPeeringAttachment -&gt; Maybe Bool)
+-&gt; (AcceptTransitGatewayPeeringAttachment
+    -&gt; Maybe Bool -&gt; AcceptTransitGatewayPeeringAttachment)
+-&gt; Lens
+     AcceptTransitGatewayPeeringAttachment
+     AcceptTransitGatewayPeeringAttachment
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681309582"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:AcceptTransitGatewayPeeringAttachment' :: AcceptTransitGatewayPeeringAttachment -&gt; Maybe Bool
+</span><a href="#local-6989586621681309582"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681309582"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681309581"><span class="annot"><span class="annottext">s :: AcceptTransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681309581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681309580"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681309580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptTransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681309581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:AcceptTransitGatewayPeeringAttachment' :: Maybe Bool
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#%24sel%3AdryRun%3AAcceptTransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681309580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The ID of the transit gateway attachment.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#acceptTransitGatewayPeeringAttachment_transitGatewayAttachmentId"><span class="hs-identifier hs-type">acceptTransitGatewayPeeringAttachment_transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="acceptTransitGatewayPeeringAttachment_transitGatewayAttachmentId"><span class="annot"><span class="annottext">acceptTransitGatewayPeeringAttachment_transitGatewayAttachmentId :: (Text -&gt; f Text)
+-&gt; AcceptTransitGatewayPeeringAttachment
+-&gt; f AcceptTransitGatewayPeeringAttachment
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#acceptTransitGatewayPeeringAttachment_transitGatewayAttachmentId"><span class="hs-identifier hs-var hs-var">acceptTransitGatewayPeeringAttachment_transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptTransitGatewayPeeringAttachment -&gt; Text)
+-&gt; (AcceptTransitGatewayPeeringAttachment
+    -&gt; Text -&gt; AcceptTransitGatewayPeeringAttachment)
+-&gt; Lens
+     AcceptTransitGatewayPeeringAttachment
+     AcceptTransitGatewayPeeringAttachment
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681309579"><span class="annot"><span class="annottext">Text
+transitGatewayAttachmentId :: Text
+$sel:transitGatewayAttachmentId:AcceptTransitGatewayPeeringAttachment' :: AcceptTransitGatewayPeeringAttachment -&gt; Text
+</span><a href="#local-6989586621681309579"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681309579"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681309578"><span class="annot"><span class="annottext">s :: AcceptTransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681309578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681309577"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681309577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptTransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681309578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:AcceptTransitGatewayPeeringAttachment' :: Text
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#%24sel%3AtransitGatewayAttachmentId%3AAcceptTransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681309577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachmentResponse</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621681309573"><span class="annot"><span class="annottext">request :: AcceptTransitGatewayPeeringAttachment
+-&gt; Request AcceptTransitGatewayPeeringAttachment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; AcceptTransitGatewayPeeringAttachment
+-&gt; Request AcceptTransitGatewayPeeringAttachment
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621681309569"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AcceptTransitGatewayPeeringAttachment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse AcceptTransitGatewayPeeringAttachment)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either
+      String (AWSResponse AcceptTransitGatewayPeeringAttachment))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AcceptTransitGatewayPeeringAttachment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse AcceptTransitGatewayPeeringAttachment)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681309566"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681309566"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681309565"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681309565"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681309564"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681309564"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayPeeringAttachment
+-&gt; Int -&gt; AcceptTransitGatewayPeeringAttachmentResponse
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse%27"><span class="hs-identifier hs-var">AcceptTransitGatewayPeeringAttachmentResponse'</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TransitGatewayPeeringAttachment
+ -&gt; Int -&gt; AcceptTransitGatewayPeeringAttachmentResponse)
+-&gt; Either String (Maybe TransitGatewayPeeringAttachment)
+-&gt; Either
+     String (Int -&gt; AcceptTransitGatewayPeeringAttachmentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681309564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe TransitGatewayPeeringAttachment)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;transitGatewayPeeringAttachment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; AcceptTransitGatewayPeeringAttachmentResponse)
+-&gt; Either String Int
+-&gt; Either String AcceptTransitGatewayPeeringAttachmentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681309566"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621681309556"><span id="local-6989586621681309558"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621681309553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment</span></a></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621681309549"><span class="annot"><span class="annottext">toHeaders :: AcceptTransitGatewayPeeringAttachment -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; AcceptTransitGatewayPeeringAttachment -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621681309544"><span class="annot"><span class="annottext">toPath :: AcceptTransitGatewayPeeringAttachment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AcceptTransitGatewayPeeringAttachment -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621681309540"><span class="annot"><span class="annottext">toQuery :: AcceptTransitGatewayPeeringAttachment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681309537"><span id="local-6989586621681309538"><span class="annot"><span class="annottext">Maybe Bool
+Text
+transitGatewayAttachmentId :: Text
+dryRun :: Maybe Bool
+$sel:transitGatewayAttachmentId:AcceptTransitGatewayPeeringAttachment' :: AcceptTransitGatewayPeeringAttachment -&gt; Text
+$sel:dryRun:AcceptTransitGatewayPeeringAttachment' :: AcceptTransitGatewayPeeringAttachment -&gt; Maybe Bool
+</span><a href="#local-6989586621681309537"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AcceptTransitGatewayPeeringAttachment&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-147"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681309538"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransitGatewayAttachmentId&quot;</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681309537"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | /See:/ 'newAcceptTransitGatewayPeeringAttachmentResponse' smart constructor.</span><span>
+</span><span id="line-156"></span><span id="local-6989586621681309534"><span id="local-6989586621681309535"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptTransitGatewayPeeringAttachmentResponse"><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse"><span class="hs-identifier hs-var">AcceptTransitGatewayPeeringAttachmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptTransitGatewayPeeringAttachmentResponse%27"><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse%27"><span class="hs-identifier hs-var">AcceptTransitGatewayPeeringAttachmentResponse'</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The transit gateway peering attachment.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AtransitGatewayPeeringAttachment%3AAcceptTransitGatewayPeeringAttachmentResponse%27"><span class="annot"><span class="annottext">AcceptTransitGatewayPeeringAttachmentResponse
+-&gt; Maybe TransitGatewayPeeringAttachment
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#%24sel%3AtransitGatewayPeeringAttachment%3AAcceptTransitGatewayPeeringAttachmentResponse%27"><span class="hs-identifier hs-var hs-var">transitGatewayPeeringAttachment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAcceptTransitGatewayPeeringAttachmentResponse%27"><span class="annot"><span class="annottext">AcceptTransitGatewayPeeringAttachmentResponse -&gt; Int
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#%24sel%3AhttpStatus%3AAcceptTransitGatewayPeeringAttachmentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681309528"><span id="local-6989586621681309530"><span class="annot"><span class="annottext">AcceptTransitGatewayPeeringAttachmentResponse
+-&gt; AcceptTransitGatewayPeeringAttachmentResponse -&gt; Bool
+(AcceptTransitGatewayPeeringAttachmentResponse
+ -&gt; AcceptTransitGatewayPeeringAttachmentResponse -&gt; Bool)
+-&gt; (AcceptTransitGatewayPeeringAttachmentResponse
+    -&gt; AcceptTransitGatewayPeeringAttachmentResponse -&gt; Bool)
+-&gt; Eq AcceptTransitGatewayPeeringAttachmentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AcceptTransitGatewayPeeringAttachmentResponse
+-&gt; AcceptTransitGatewayPeeringAttachmentResponse -&gt; Bool
+$c/= :: AcceptTransitGatewayPeeringAttachmentResponse
+-&gt; AcceptTransitGatewayPeeringAttachmentResponse -&gt; Bool
+== :: AcceptTransitGatewayPeeringAttachmentResponse
+-&gt; AcceptTransitGatewayPeeringAttachmentResponse -&gt; Bool
+$c== :: AcceptTransitGatewayPeeringAttachmentResponse
+-&gt; AcceptTransitGatewayPeeringAttachmentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681309520"><span id="local-6989586621681309522"><span id="local-6989586621681309524"><span id="local-6989586621681309526"><span class="annot"><span class="annottext">ReadPrec [AcceptTransitGatewayPeeringAttachmentResponse]
+ReadPrec AcceptTransitGatewayPeeringAttachmentResponse
+Int -&gt; ReadS AcceptTransitGatewayPeeringAttachmentResponse
+ReadS [AcceptTransitGatewayPeeringAttachmentResponse]
+(Int -&gt; ReadS AcceptTransitGatewayPeeringAttachmentResponse)
+-&gt; ReadS [AcceptTransitGatewayPeeringAttachmentResponse]
+-&gt; ReadPrec AcceptTransitGatewayPeeringAttachmentResponse
+-&gt; ReadPrec [AcceptTransitGatewayPeeringAttachmentResponse]
+-&gt; Read AcceptTransitGatewayPeeringAttachmentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AcceptTransitGatewayPeeringAttachmentResponse]
+$creadListPrec :: ReadPrec [AcceptTransitGatewayPeeringAttachmentResponse]
+readPrec :: ReadPrec AcceptTransitGatewayPeeringAttachmentResponse
+$creadPrec :: ReadPrec AcceptTransitGatewayPeeringAttachmentResponse
+readList :: ReadS [AcceptTransitGatewayPeeringAttachmentResponse]
+$creadList :: ReadS [AcceptTransitGatewayPeeringAttachmentResponse]
+readsPrec :: Int -&gt; ReadS AcceptTransitGatewayPeeringAttachmentResponse
+$creadsPrec :: Int -&gt; ReadS AcceptTransitGatewayPeeringAttachmentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681309514"><span id="local-6989586621681309516"><span id="local-6989586621681309518"><span class="annot"><span class="annottext">Int -&gt; AcceptTransitGatewayPeeringAttachmentResponse -&gt; ShowS
+[AcceptTransitGatewayPeeringAttachmentResponse] -&gt; ShowS
+AcceptTransitGatewayPeeringAttachmentResponse -&gt; String
+(Int -&gt; AcceptTransitGatewayPeeringAttachmentResponse -&gt; ShowS)
+-&gt; (AcceptTransitGatewayPeeringAttachmentResponse -&gt; String)
+-&gt; ([AcceptTransitGatewayPeeringAttachmentResponse] -&gt; ShowS)
+-&gt; Show AcceptTransitGatewayPeeringAttachmentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AcceptTransitGatewayPeeringAttachmentResponse] -&gt; ShowS
+$cshowList :: [AcceptTransitGatewayPeeringAttachmentResponse] -&gt; ShowS
+show :: AcceptTransitGatewayPeeringAttachmentResponse -&gt; String
+$cshow :: AcceptTransitGatewayPeeringAttachmentResponse -&gt; String
+showsPrec :: Int -&gt; AcceptTransitGatewayPeeringAttachmentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AcceptTransitGatewayPeeringAttachmentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AcceptTransitGatewayPeeringAttachmentResponse
+ -&gt; Rep AcceptTransitGatewayPeeringAttachmentResponse x)
+-&gt; (forall x.
+    Rep AcceptTransitGatewayPeeringAttachmentResponse x
+    -&gt; AcceptTransitGatewayPeeringAttachmentResponse)
+-&gt; Generic AcceptTransitGatewayPeeringAttachmentResponse
+forall x.
+Rep AcceptTransitGatewayPeeringAttachmentResponse x
+-&gt; AcceptTransitGatewayPeeringAttachmentResponse
+forall x.
+AcceptTransitGatewayPeeringAttachmentResponse
+-&gt; Rep AcceptTransitGatewayPeeringAttachmentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AcceptTransitGatewayPeeringAttachmentResponse x
+-&gt; AcceptTransitGatewayPeeringAttachmentResponse
+$cfrom :: forall x.
+AcceptTransitGatewayPeeringAttachmentResponse
+-&gt; Rep AcceptTransitGatewayPeeringAttachmentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Create a value of 'AcceptTransitGatewayPeeringAttachmentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'transitGatewayPeeringAttachment', 'acceptTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment' - The transit gateway peering attachment.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'httpStatus', 'acceptTransitGatewayPeeringAttachmentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#newAcceptTransitGatewayPeeringAttachmentResponse"><span class="hs-identifier hs-type">newAcceptTransitGatewayPeeringAttachmentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachmentResponse</span></a></span><span>
+</span><span id="line-179"></span><span id="newAcceptTransitGatewayPeeringAttachmentResponse"><span class="annot"><span class="annottext">newAcceptTransitGatewayPeeringAttachmentResponse :: Int -&gt; AcceptTransitGatewayPeeringAttachmentResponse
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#newAcceptTransitGatewayPeeringAttachmentResponse"><span class="hs-identifier hs-var hs-var">newAcceptTransitGatewayPeeringAttachmentResponse</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621681309511"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681309511"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">AcceptTransitGatewayPeeringAttachmentResponse' :: Maybe TransitGatewayPeeringAttachment
+-&gt; Int -&gt; AcceptTransitGatewayPeeringAttachmentResponse
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse%27"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachmentResponse'</span></a></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transitGatewayPeeringAttachment:AcceptTransitGatewayPeeringAttachmentResponse' :: Maybe TransitGatewayPeeringAttachment
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#%24sel%3AtransitGatewayPeeringAttachment%3AAcceptTransitGatewayPeeringAttachmentResponse%27"><span class="hs-identifier hs-var">transitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayPeeringAttachment
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:AcceptTransitGatewayPeeringAttachmentResponse' :: Int
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#%24sel%3AhttpStatus%3AAcceptTransitGatewayPeeringAttachmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681309511"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The transit gateway peering attachment.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#acceptTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment"><span class="hs-identifier hs-type">acceptTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachmentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="acceptTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment"><span class="annot"><span class="annottext">acceptTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment :: (Maybe TransitGatewayPeeringAttachment
+ -&gt; f (Maybe TransitGatewayPeeringAttachment))
+-&gt; AcceptTransitGatewayPeeringAttachmentResponse
+-&gt; f AcceptTransitGatewayPeeringAttachmentResponse
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#acceptTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment"><span class="hs-identifier hs-var hs-var">acceptTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptTransitGatewayPeeringAttachmentResponse
+ -&gt; Maybe TransitGatewayPeeringAttachment)
+-&gt; (AcceptTransitGatewayPeeringAttachmentResponse
+    -&gt; Maybe TransitGatewayPeeringAttachment
+    -&gt; AcceptTransitGatewayPeeringAttachmentResponse)
+-&gt; Lens
+     AcceptTransitGatewayPeeringAttachmentResponse
+     AcceptTransitGatewayPeeringAttachmentResponse
+     (Maybe TransitGatewayPeeringAttachment)
+     (Maybe TransitGatewayPeeringAttachment)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse%27"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681309510"><span class="annot"><span class="annottext">Maybe TransitGatewayPeeringAttachment
+transitGatewayPeeringAttachment :: Maybe TransitGatewayPeeringAttachment
+$sel:transitGatewayPeeringAttachment:AcceptTransitGatewayPeeringAttachmentResponse' :: AcceptTransitGatewayPeeringAttachmentResponse
+-&gt; Maybe TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681309510"><span class="hs-identifier hs-var hs-var">transitGatewayPeeringAttachment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681309510"><span class="hs-identifier hs-var">transitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681309509"><span class="annot"><span class="annottext">s :: AcceptTransitGatewayPeeringAttachmentResponse
+</span><a href="#local-6989586621681309509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse%27"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681309508"><span class="annot"><span class="annottext">Maybe TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681309508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptTransitGatewayPeeringAttachmentResponse
+</span><a href="#local-6989586621681309509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayPeeringAttachment:AcceptTransitGatewayPeeringAttachmentResponse' :: Maybe TransitGatewayPeeringAttachment
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#%24sel%3AtransitGatewayPeeringAttachment%3AAcceptTransitGatewayPeeringAttachmentResponse%27"><span class="hs-identifier hs-var">transitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681309508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#acceptTransitGatewayPeeringAttachmentResponse_httpStatus"><span class="hs-identifier hs-type">acceptTransitGatewayPeeringAttachmentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachmentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-193"></span><span id="acceptTransitGatewayPeeringAttachmentResponse_httpStatus"><span class="annot"><span class="annottext">acceptTransitGatewayPeeringAttachmentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AcceptTransitGatewayPeeringAttachmentResponse
+-&gt; f AcceptTransitGatewayPeeringAttachmentResponse
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#acceptTransitGatewayPeeringAttachmentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">acceptTransitGatewayPeeringAttachmentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptTransitGatewayPeeringAttachmentResponse -&gt; Int)
+-&gt; (AcceptTransitGatewayPeeringAttachmentResponse
+    -&gt; Int -&gt; AcceptTransitGatewayPeeringAttachmentResponse)
+-&gt; Lens
+     AcceptTransitGatewayPeeringAttachmentResponse
+     AcceptTransitGatewayPeeringAttachmentResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse%27"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681309507"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AcceptTransitGatewayPeeringAttachmentResponse' :: AcceptTransitGatewayPeeringAttachmentResponse -&gt; Int
+</span><a href="#local-6989586621681309507"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681309507"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681309506"><span class="annot"><span class="annottext">s :: AcceptTransitGatewayPeeringAttachmentResponse
+</span><a href="#local-6989586621681309506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse%27"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681309505"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681309505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptTransitGatewayPeeringAttachmentResponse
+</span><a href="#local-6989586621681309506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AcceptTransitGatewayPeeringAttachmentResponse' :: Int
+</span><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#%24sel%3AhttpStatus%3AAcceptTransitGatewayPeeringAttachmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681309505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621681309503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.AcceptTransitGatewayPeeringAttachment.html#AcceptTransitGatewayPeeringAttachmentResponse"><span class="hs-identifier hs-type">AcceptTransitGatewayPeeringAttachmentResponse</span></a></span></span><span>
+</span><span id="line-198"></span></pre></body></html>

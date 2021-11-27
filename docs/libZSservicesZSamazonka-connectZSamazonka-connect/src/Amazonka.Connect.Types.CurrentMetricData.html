@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Connect.Types.CurrentMetricData</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Connect.Types.CurrentMetricData</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetric.html"><span class="hs-identifier">Amazonka.Connect.Types.CurrentMetric</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains the data for a real-time metric.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCurrentMetricData' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679405927"><span id="local-6989586621679405928"></span></span><span class="hs-keyword">data</span><span> </span><span id="CurrentMetricData"><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData"><span class="hs-identifier hs-var">CurrentMetricData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CurrentMetricData%27"><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData%27"><span class="hs-identifier hs-var">CurrentMetricData'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the metric.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3ACurrentMetricData%27"><span class="annot"><span class="annottext">CurrentMetricData -&gt; Maybe Double
+</span><a href="Amazonka.Connect.Types.CurrentMetricData.html#%24sel%3Avalue%3ACurrentMetricData%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Information about the metric.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Ametric%3ACurrentMetricData%27"><span class="annot"><span class="annottext">CurrentMetricData -&gt; Maybe CurrentMetric
+</span><a href="Amazonka.Connect.Types.CurrentMetricData.html#%24sel%3Ametric%3ACurrentMetricData%27"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405920"><span id="local-6989586621679405922"><span class="annot"><span class="annottext">CurrentMetricData -&gt; CurrentMetricData -&gt; Bool
+(CurrentMetricData -&gt; CurrentMetricData -&gt; Bool)
+-&gt; (CurrentMetricData -&gt; CurrentMetricData -&gt; Bool)
+-&gt; Eq CurrentMetricData
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CurrentMetricData -&gt; CurrentMetricData -&gt; Bool
+$c/= :: CurrentMetricData -&gt; CurrentMetricData -&gt; Bool
+== :: CurrentMetricData -&gt; CurrentMetricData -&gt; Bool
+$c== :: CurrentMetricData -&gt; CurrentMetricData -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405911"><span id="local-6989586621679405913"><span id="local-6989586621679405915"><span id="local-6989586621679405917"><span class="annot"><span class="annottext">ReadPrec [CurrentMetricData]
+ReadPrec CurrentMetricData
+Int -&gt; ReadS CurrentMetricData
+ReadS [CurrentMetricData]
+(Int -&gt; ReadS CurrentMetricData)
+-&gt; ReadS [CurrentMetricData]
+-&gt; ReadPrec CurrentMetricData
+-&gt; ReadPrec [CurrentMetricData]
+-&gt; Read CurrentMetricData
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CurrentMetricData]
+$creadListPrec :: ReadPrec [CurrentMetricData]
+readPrec :: ReadPrec CurrentMetricData
+$creadPrec :: ReadPrec CurrentMetricData
+readList :: ReadS [CurrentMetricData]
+$creadList :: ReadS [CurrentMetricData]
+readsPrec :: Int -&gt; ReadS CurrentMetricData
+$creadsPrec :: Int -&gt; ReadS CurrentMetricData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405904"><span id="local-6989586621679405906"><span id="local-6989586621679405908"><span class="annot"><span class="annottext">Int -&gt; CurrentMetricData -&gt; ShowS
+[CurrentMetricData] -&gt; ShowS
+CurrentMetricData -&gt; String
+(Int -&gt; CurrentMetricData -&gt; ShowS)
+-&gt; (CurrentMetricData -&gt; String)
+-&gt; ([CurrentMetricData] -&gt; ShowS)
+-&gt; Show CurrentMetricData
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CurrentMetricData] -&gt; ShowS
+$cshowList :: [CurrentMetricData] -&gt; ShowS
+show :: CurrentMetricData -&gt; String
+$cshow :: CurrentMetricData -&gt; String
+showsPrec :: Int -&gt; CurrentMetricData -&gt; ShowS
+$cshowsPrec :: Int -&gt; CurrentMetricData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CurrentMetricData -&gt; Rep CurrentMetricData x)
+-&gt; (forall x. Rep CurrentMetricData x -&gt; CurrentMetricData)
+-&gt; Generic CurrentMetricData
+forall x. Rep CurrentMetricData x -&gt; CurrentMetricData
+forall x. CurrentMetricData -&gt; Rep CurrentMetricData x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CurrentMetricData x -&gt; CurrentMetricData
+$cfrom :: forall x. CurrentMetricData -&gt; Rep CurrentMetricData x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'CurrentMetricData' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'value', 'currentMetricData_value' - The value of the metric.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'metric', 'currentMetricData_metric' - Information about the metric.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#newCurrentMetricData"><span class="hs-identifier hs-type">newCurrentMetricData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData"><span class="hs-identifier hs-type">CurrentMetricData</span></a></span><span>
+</span><span id="line-51"></span><span id="newCurrentMetricData"><span class="annot"><span class="annottext">newCurrentMetricData :: CurrentMetricData
+</span><a href="Amazonka.Connect.Types.CurrentMetricData.html#newCurrentMetricData"><span class="hs-identifier hs-var hs-var">newCurrentMetricData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">CurrentMetricData' :: Maybe Double -&gt; Maybe CurrentMetric -&gt; CurrentMetricData
+</span><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData%27"><span class="hs-identifier hs-type">CurrentMetricData'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:CurrentMetricData' :: Maybe Double
+</span><a href="Amazonka.Connect.Types.CurrentMetricData.html#%24sel%3Avalue%3ACurrentMetricData%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:metric:CurrentMetricData' :: Maybe CurrentMetric
+</span><a href="Amazonka.Connect.Types.CurrentMetricData.html#%24sel%3Ametric%3ACurrentMetricData%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CurrentMetric
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The value of the metric.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#currentMetricData_value"><span class="hs-identifier hs-type">currentMetricData_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData"><span class="hs-identifier hs-type">CurrentMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="currentMetricData_value"><span class="annot"><span class="annottext">currentMetricData_value :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; CurrentMetricData -&gt; f CurrentMetricData
+</span><a href="Amazonka.Connect.Types.CurrentMetricData.html#currentMetricData_value"><span class="hs-identifier hs-var hs-var">currentMetricData_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentMetricData -&gt; Maybe Double)
+-&gt; (CurrentMetricData -&gt; Maybe Double -&gt; CurrentMetricData)
+-&gt; Lens
+     CurrentMetricData CurrentMetricData (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData%27"><span class="hs-identifier hs-type">CurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405895"><span class="annot"><span class="annottext">Maybe Double
+value :: Maybe Double
+$sel:value:CurrentMetricData' :: CurrentMetricData -&gt; Maybe Double
+</span><a href="#local-6989586621679405895"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679405895"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405894"><span class="annot"><span class="annottext">s :: CurrentMetricData
+</span><a href="#local-6989586621679405894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData%27"><span class="hs-identifier hs-type">CurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405893"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679405893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentMetricData
+</span><a href="#local-6989586621679405894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:CurrentMetricData' :: Maybe Double
+</span><a href="Amazonka.Connect.Types.CurrentMetricData.html#%24sel%3Avalue%3ACurrentMetricData%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679405893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData"><span class="hs-identifier hs-type">CurrentMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Information about the metric.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#currentMetricData_metric"><span class="hs-identifier hs-type">currentMetricData_metric</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData"><span class="hs-identifier hs-type">CurrentMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="currentMetricData_metric"><span class="annot"><span class="annottext">currentMetricData_metric :: (Maybe CurrentMetric -&gt; f (Maybe CurrentMetric))
+-&gt; CurrentMetricData -&gt; f CurrentMetricData
+</span><a href="Amazonka.Connect.Types.CurrentMetricData.html#currentMetricData_metric"><span class="hs-identifier hs-var hs-var">currentMetricData_metric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentMetricData -&gt; Maybe CurrentMetric)
+-&gt; (CurrentMetricData -&gt; Maybe CurrentMetric -&gt; CurrentMetricData)
+-&gt; Lens
+     CurrentMetricData
+     CurrentMetricData
+     (Maybe CurrentMetric)
+     (Maybe CurrentMetric)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData%27"><span class="hs-identifier hs-type">CurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405891"><span class="annot"><span class="annottext">Maybe CurrentMetric
+metric :: Maybe CurrentMetric
+$sel:metric:CurrentMetricData' :: CurrentMetricData -&gt; Maybe CurrentMetric
+</span><a href="#local-6989586621679405891"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CurrentMetric
+</span><a href="#local-6989586621679405891"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405890"><span class="annot"><span class="annottext">s :: CurrentMetricData
+</span><a href="#local-6989586621679405890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData%27"><span class="hs-identifier hs-type">CurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405889"><span class="annot"><span class="annottext">Maybe CurrentMetric
+</span><a href="#local-6989586621679405889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentMetricData
+</span><a href="#local-6989586621679405890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metric:CurrentMetricData' :: Maybe CurrentMetric
+</span><a href="Amazonka.Connect.Types.CurrentMetricData.html#%24sel%3Ametric%3ACurrentMetricData%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CurrentMetric
+</span><a href="#local-6989586621679405889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData"><span class="hs-identifier hs-type">CurrentMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405886"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData"><span class="hs-identifier hs-type">CurrentMetricData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679405884"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CurrentMetricData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CurrentMetricData)
+-&gt; Value
+-&gt; Parser CurrentMetricData
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CurrentMetricData&quot;</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679405881"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679405881"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe CurrentMetric -&gt; CurrentMetricData
+</span><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData%27"><span class="hs-identifier hs-var">CurrentMetricData'</span></a></span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe CurrentMetric -&gt; CurrentMetricData)
+-&gt; Parser (Maybe Double)
+-&gt; Parser (Maybe CurrentMetric -&gt; CurrentMetricData)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679405881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CurrentMetric -&gt; CurrentMetricData)
+-&gt; Parser (Maybe CurrentMetric) -&gt; Parser CurrentMetricData
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679405881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CurrentMetric)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Metric&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405875"><span id="local-6989586621679405877"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData"><span class="hs-identifier hs-type">CurrentMetricData</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.CurrentMetricData.html#CurrentMetricData"><span class="hs-identifier hs-type">CurrentMetricData</span></a></span></span><span>
+</span><span id="line-78"></span></pre></body></html>

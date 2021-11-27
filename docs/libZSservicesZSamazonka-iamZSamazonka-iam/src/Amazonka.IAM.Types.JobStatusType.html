@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IAM.Types.JobStatusType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IAM.Types.JobStatusType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType"><span class="hs-identifier">JobStatusType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType_COMPLETED"><span class="hs-identifier">JobStatusType_COMPLETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType_FAILED"><span class="hs-identifier">JobStatusType_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType_IN_PROGRESS"><span class="hs-identifier">JobStatusType_IN_PROGRESS</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679425435"><span id="local-6989586621679425436"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobStatusType"><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType"><span class="hs-identifier hs-var">JobStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobStatusType%27"><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType%27"><span class="hs-identifier hs-var">JobStatusType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromJobStatusType"><span class="annot"><span class="annottext">JobStatusType -&gt; Text
+</span><a href="Amazonka.IAM.Types.JobStatusType.html#fromJobStatusType"><span class="hs-identifier hs-var hs-var">fromJobStatusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679425427"><span id="local-6989586621679425429"><span id="local-6989586621679425431"><span class="annot"><span class="annottext">Int -&gt; JobStatusType -&gt; ShowS
+[JobStatusType] -&gt; ShowS
+JobStatusType -&gt; String
+(Int -&gt; JobStatusType -&gt; ShowS)
+-&gt; (JobStatusType -&gt; String)
+-&gt; ([JobStatusType] -&gt; ShowS)
+-&gt; Show JobStatusType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JobStatusType] -&gt; ShowS
+$cshowList :: [JobStatusType] -&gt; ShowS
+show :: JobStatusType -&gt; String
+$cshow :: JobStatusType -&gt; String
+showsPrec :: Int -&gt; JobStatusType -&gt; ShowS
+$cshowsPrec :: Int -&gt; JobStatusType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679425418"><span id="local-6989586621679425420"><span id="local-6989586621679425422"><span id="local-6989586621679425424"><span class="annot"><span class="annottext">ReadPrec [JobStatusType]
+ReadPrec JobStatusType
+Int -&gt; ReadS JobStatusType
+ReadS [JobStatusType]
+(Int -&gt; ReadS JobStatusType)
+-&gt; ReadS [JobStatusType]
+-&gt; ReadPrec JobStatusType
+-&gt; ReadPrec [JobStatusType]
+-&gt; Read JobStatusType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JobStatusType]
+$creadListPrec :: ReadPrec [JobStatusType]
+readPrec :: ReadPrec JobStatusType
+$creadPrec :: ReadPrec JobStatusType
+readList :: ReadS [JobStatusType]
+$creadList :: ReadS [JobStatusType]
+readsPrec :: Int -&gt; ReadS JobStatusType
+$creadsPrec :: Int -&gt; ReadS JobStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679425413"><span id="local-6989586621679425415"><span class="annot"><span class="annottext">JobStatusType -&gt; JobStatusType -&gt; Bool
+(JobStatusType -&gt; JobStatusType -&gt; Bool)
+-&gt; (JobStatusType -&gt; JobStatusType -&gt; Bool) -&gt; Eq JobStatusType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JobStatusType -&gt; JobStatusType -&gt; Bool
+$c/= :: JobStatusType -&gt; JobStatusType -&gt; Bool
+== :: JobStatusType -&gt; JobStatusType -&gt; Bool
+$c== :: JobStatusType -&gt; JobStatusType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679425397"><span id="local-6989586621679425399"><span id="local-6989586621679425401"><span id="local-6989586621679425403"><span id="local-6989586621679425405"><span id="local-6989586621679425407"><span id="local-6989586621679425409"><span class="annot"><span class="annottext">Eq JobStatusType
+Eq JobStatusType
+-&gt; (JobStatusType -&gt; JobStatusType -&gt; Ordering)
+-&gt; (JobStatusType -&gt; JobStatusType -&gt; Bool)
+-&gt; (JobStatusType -&gt; JobStatusType -&gt; Bool)
+-&gt; (JobStatusType -&gt; JobStatusType -&gt; Bool)
+-&gt; (JobStatusType -&gt; JobStatusType -&gt; Bool)
+-&gt; (JobStatusType -&gt; JobStatusType -&gt; JobStatusType)
+-&gt; (JobStatusType -&gt; JobStatusType -&gt; JobStatusType)
+-&gt; Ord JobStatusType
+JobStatusType -&gt; JobStatusType -&gt; Bool
+JobStatusType -&gt; JobStatusType -&gt; Ordering
+JobStatusType -&gt; JobStatusType -&gt; JobStatusType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: JobStatusType -&gt; JobStatusType -&gt; JobStatusType
+$cmin :: JobStatusType -&gt; JobStatusType -&gt; JobStatusType
+max :: JobStatusType -&gt; JobStatusType -&gt; JobStatusType
+$cmax :: JobStatusType -&gt; JobStatusType -&gt; JobStatusType
+&gt;= :: JobStatusType -&gt; JobStatusType -&gt; Bool
+$c&gt;= :: JobStatusType -&gt; JobStatusType -&gt; Bool
+&gt; :: JobStatusType -&gt; JobStatusType -&gt; Bool
+$c&gt; :: JobStatusType -&gt; JobStatusType -&gt; Bool
+&lt;= :: JobStatusType -&gt; JobStatusType -&gt; Bool
+$c&lt;= :: JobStatusType -&gt; JobStatusType -&gt; Bool
+&lt; :: JobStatusType -&gt; JobStatusType -&gt; Bool
+$c&lt; :: JobStatusType -&gt; JobStatusType -&gt; Bool
+compare :: JobStatusType -&gt; JobStatusType -&gt; Ordering
+$ccompare :: JobStatusType -&gt; JobStatusType -&gt; Ordering
+$cp1Ord :: Eq JobStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. JobStatusType -&gt; Rep JobStatusType x)
+-&gt; (forall x. Rep JobStatusType x -&gt; JobStatusType)
+-&gt; Generic JobStatusType
+forall x. Rep JobStatusType x -&gt; JobStatusType
+forall x. JobStatusType -&gt; Rep JobStatusType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JobStatusType x -&gt; JobStatusType
+$cfrom :: forall x. JobStatusType -&gt; Rep JobStatusType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679425389"><span id="local-6989586621679425391"><span class="annot"><span class="annottext">Int -&gt; JobStatusType -&gt; Int
+JobStatusType -&gt; Int
+(Int -&gt; JobStatusType -&gt; Int)
+-&gt; (JobStatusType -&gt; Int) -&gt; Hashable JobStatusType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: JobStatusType -&gt; Int
+$chash :: JobStatusType -&gt; Int
+hashWithSalt :: Int -&gt; JobStatusType -&gt; Int
+$chashWithSalt :: Int -&gt; JobStatusType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679425386"><span class="annot"><span class="annottext">JobStatusType -&gt; ()
+(JobStatusType -&gt; ()) -&gt; NFData JobStatusType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: JobStatusType -&gt; ()
+$crnf :: JobStatusType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679425383"><span class="annot"><span class="annottext">Text -&gt; Either String JobStatusType
+(Text -&gt; Either String JobStatusType) -&gt; FromText JobStatusType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String JobStatusType
+$cfromText :: Text -&gt; Either String JobStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679425380"><span class="annot"><span class="annottext">JobStatusType -&gt; Text
+(JobStatusType -&gt; Text) -&gt; ToText JobStatusType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: JobStatusType -&gt; Text
+$ctoText :: JobStatusType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679425377"><span class="annot"><span class="annottext">JobStatusType -&gt; ByteString
+(JobStatusType -&gt; ByteString) -&gt; ToByteString JobStatusType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: JobStatusType -&gt; ByteString
+$ctoBS :: JobStatusType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679425374"><span class="annot"><span class="annottext">JobStatusType -&gt; ByteStringBuilder
+(JobStatusType -&gt; ByteStringBuilder) -&gt; ToLog JobStatusType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: JobStatusType -&gt; ByteStringBuilder
+$cbuild :: JobStatusType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679425371"><span class="annot"><span class="annottext">HeaderName -&gt; JobStatusType -&gt; [Header]
+(HeaderName -&gt; JobStatusType -&gt; [Header]) -&gt; ToHeader JobStatusType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; JobStatusType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; JobStatusType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679425368"><span class="annot"><span class="annottext">JobStatusType -&gt; QueryString
+(JobStatusType -&gt; QueryString) -&gt; ToQuery JobStatusType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: JobStatusType -&gt; QueryString
+$ctoQuery :: JobStatusType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679425363"><span id="local-6989586621679425365"><span class="annot"><span class="annottext">Value -&gt; Parser [JobStatusType]
+Value -&gt; Parser JobStatusType
+(Value -&gt; Parser JobStatusType)
+-&gt; (Value -&gt; Parser [JobStatusType]) -&gt; FromJSON JobStatusType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [JobStatusType]
+$cparseJSONList :: Value -&gt; Parser [JobStatusType]
+parseJSON :: Value -&gt; Parser JobStatusType
+$cparseJSON :: Value -&gt; Parser JobStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679425358"><span id="local-6989586621679425360"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobStatusType]
+FromJSONKeyFunction JobStatusType
+FromJSONKeyFunction JobStatusType
+-&gt; FromJSONKeyFunction [JobStatusType] -&gt; FromJSONKey JobStatusType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [JobStatusType]
+$cfromJSONKeyList :: FromJSONKeyFunction [JobStatusType]
+fromJSONKey :: FromJSONKeyFunction JobStatusType
+$cfromJSONKey :: FromJSONKeyFunction JobStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679425349"><span id="local-6989586621679425351"><span id="local-6989586621679425353"><span id="local-6989586621679425355"><span class="annot"><span class="annottext">[JobStatusType] -&gt; Encoding
+[JobStatusType] -&gt; Value
+JobStatusType -&gt; Encoding
+JobStatusType -&gt; Value
+(JobStatusType -&gt; Value)
+-&gt; (JobStatusType -&gt; Encoding)
+-&gt; ([JobStatusType] -&gt; Value)
+-&gt; ([JobStatusType] -&gt; Encoding)
+-&gt; ToJSON JobStatusType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [JobStatusType] -&gt; Encoding
+$ctoEncodingList :: [JobStatusType] -&gt; Encoding
+toJSONList :: [JobStatusType] -&gt; Value
+$ctoJSONList :: [JobStatusType] -&gt; Value
+toEncoding :: JobStatusType -&gt; Encoding
+$ctoEncoding :: JobStatusType -&gt; Encoding
+toJSON :: JobStatusType -&gt; Value
+$ctoJSON :: JobStatusType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679425344"><span id="local-6989586621679425346"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobStatusType]
+ToJSONKeyFunction JobStatusType
+ToJSONKeyFunction JobStatusType
+-&gt; ToJSONKeyFunction [JobStatusType] -&gt; ToJSONKey JobStatusType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [JobStatusType]
+$ctoJSONKeyList :: ToJSONKeyFunction [JobStatusType]
+toJSONKey :: ToJSONKeyFunction JobStatusType
+$ctoJSONKey :: ToJSONKeyFunction JobStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679425341"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobStatusType
+([Node] -&gt; Either String JobStatusType) -&gt; FromXML JobStatusType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String JobStatusType
+$cparseXML :: [Node] -&gt; Either String JobStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679425338"><span class="annot"><span class="annottext">JobStatusType -&gt; XML
+(JobStatusType -&gt; XML) -&gt; ToXML JobStatusType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: JobStatusType -&gt; XML
+$ctoXML :: JobStatusType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType_COMPLETED"><span class="hs-identifier hs-type">JobStatusType_COMPLETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType"><span class="hs-identifier hs-type">JobStatusType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobStatusType_COMPLETED"><span id="%24mJobStatusType_COMPLETED"><span id="JobStatusType_COMPLETED"><span class="annot"><span class="annottext">$bJobStatusType_COMPLETED :: JobStatusType
+$mJobStatusType_COMPLETED :: forall r. JobStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IAM.Types.JobStatusType.html#%24bJobStatusType_COMPLETED"><span class="hs-identifier hs-var hs-var hs-var">JobStatusType_COMPLETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType%27"><span class="hs-identifier hs-type">JobStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType_FAILED"><span class="hs-identifier hs-type">JobStatusType_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType"><span class="hs-identifier hs-type">JobStatusType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobStatusType_FAILED"><span id="%24mJobStatusType_FAILED"><span id="JobStatusType_FAILED"><span class="annot"><span class="annottext">$bJobStatusType_FAILED :: JobStatusType
+$mJobStatusType_FAILED :: forall r. JobStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IAM.Types.JobStatusType.html#%24bJobStatusType_FAILED"><span class="hs-identifier hs-var hs-var hs-var">JobStatusType_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType%27"><span class="hs-identifier hs-type">JobStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType_IN_PROGRESS"><span class="hs-identifier hs-type">JobStatusType_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType"><span class="hs-identifier hs-type">JobStatusType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobStatusType_IN_PROGRESS"><span id="%24mJobStatusType_IN_PROGRESS"><span id="JobStatusType_IN_PROGRESS"><span class="annot"><span class="annottext">$bJobStatusType_IN_PROGRESS :: JobStatusType
+$mJobStatusType_IN_PROGRESS :: forall r. JobStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IAM.Types.JobStatusType.html#%24bJobStatusType_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">JobStatusType_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType%27"><span class="hs-identifier hs-type">JobStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType_COMPLETED"><span class="hs-pragma hs-type">JobStatusType_COMPLETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType_FAILED"><span class="hs-pragma hs-type">JobStatusType_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType_IN_PROGRESS"><span class="hs-pragma hs-type">JobStatusType_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType%27"><span class="hs-pragma hs-type">JobStatusType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

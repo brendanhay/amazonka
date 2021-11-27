@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeArtifact.Types.PackageVersionSortType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeArtifact.Types.PackageVersionSortType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageVersionSortType.html#PackageVersionSortType"><span class="hs-identifier">PackageVersionSortType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageVersionSortType.html#PackageVersionSortType_PUBLISHED_TIME"><span class="hs-identifier">PackageVersionSortType_PUBLISHED_TIME</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679230920"><span id="local-6989586621679230921"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PackageVersionSortType"><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageVersionSortType.html#PackageVersionSortType"><span class="hs-identifier hs-var">PackageVersionSortType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PackageVersionSortType%27"><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageVersionSortType.html#PackageVersionSortType%27"><span class="hs-identifier hs-var">PackageVersionSortType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPackageVersionSortType"><span class="annot"><span class="annottext">PackageVersionSortType -&gt; Text
+</span><a href="Amazonka.CodeArtifact.Types.PackageVersionSortType.html#fromPackageVersionSortType"><span class="hs-identifier hs-var hs-var">fromPackageVersionSortType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679230912"><span id="local-6989586621679230914"><span id="local-6989586621679230916"><span class="annot"><span class="annottext">Int -&gt; PackageVersionSortType -&gt; ShowS
+[PackageVersionSortType] -&gt; ShowS
+PackageVersionSortType -&gt; String
+(Int -&gt; PackageVersionSortType -&gt; ShowS)
+-&gt; (PackageVersionSortType -&gt; String)
+-&gt; ([PackageVersionSortType] -&gt; ShowS)
+-&gt; Show PackageVersionSortType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PackageVersionSortType] -&gt; ShowS
+$cshowList :: [PackageVersionSortType] -&gt; ShowS
+show :: PackageVersionSortType -&gt; String
+$cshow :: PackageVersionSortType -&gt; String
+showsPrec :: Int -&gt; PackageVersionSortType -&gt; ShowS
+$cshowsPrec :: Int -&gt; PackageVersionSortType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679230903"><span id="local-6989586621679230905"><span id="local-6989586621679230907"><span id="local-6989586621679230909"><span class="annot"><span class="annottext">ReadPrec [PackageVersionSortType]
+ReadPrec PackageVersionSortType
+Int -&gt; ReadS PackageVersionSortType
+ReadS [PackageVersionSortType]
+(Int -&gt; ReadS PackageVersionSortType)
+-&gt; ReadS [PackageVersionSortType]
+-&gt; ReadPrec PackageVersionSortType
+-&gt; ReadPrec [PackageVersionSortType]
+-&gt; Read PackageVersionSortType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PackageVersionSortType]
+$creadListPrec :: ReadPrec [PackageVersionSortType]
+readPrec :: ReadPrec PackageVersionSortType
+$creadPrec :: ReadPrec PackageVersionSortType
+readList :: ReadS [PackageVersionSortType]
+$creadList :: ReadS [PackageVersionSortType]
+readsPrec :: Int -&gt; ReadS PackageVersionSortType
+$creadsPrec :: Int -&gt; ReadS PackageVersionSortType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679230898"><span id="local-6989586621679230900"><span class="annot"><span class="annottext">PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool
+(PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool)
+-&gt; (PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool)
+-&gt; Eq PackageVersionSortType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool
+$c/= :: PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool
+== :: PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool
+$c== :: PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679230882"><span id="local-6989586621679230884"><span id="local-6989586621679230886"><span id="local-6989586621679230888"><span id="local-6989586621679230890"><span id="local-6989586621679230892"><span id="local-6989586621679230894"><span class="annot"><span class="annottext">Eq PackageVersionSortType
+Eq PackageVersionSortType
+-&gt; (PackageVersionSortType -&gt; PackageVersionSortType -&gt; Ordering)
+-&gt; (PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool)
+-&gt; (PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool)
+-&gt; (PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool)
+-&gt; (PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool)
+-&gt; (PackageVersionSortType
+    -&gt; PackageVersionSortType -&gt; PackageVersionSortType)
+-&gt; (PackageVersionSortType
+    -&gt; PackageVersionSortType -&gt; PackageVersionSortType)
+-&gt; Ord PackageVersionSortType
+PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool
+PackageVersionSortType -&gt; PackageVersionSortType -&gt; Ordering
+PackageVersionSortType
+-&gt; PackageVersionSortType -&gt; PackageVersionSortType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PackageVersionSortType
+-&gt; PackageVersionSortType -&gt; PackageVersionSortType
+$cmin :: PackageVersionSortType
+-&gt; PackageVersionSortType -&gt; PackageVersionSortType
+max :: PackageVersionSortType
+-&gt; PackageVersionSortType -&gt; PackageVersionSortType
+$cmax :: PackageVersionSortType
+-&gt; PackageVersionSortType -&gt; PackageVersionSortType
+&gt;= :: PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool
+$c&gt;= :: PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool
+&gt; :: PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool
+$c&gt; :: PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool
+&lt;= :: PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool
+$c&lt;= :: PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool
+&lt; :: PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool
+$c&lt; :: PackageVersionSortType -&gt; PackageVersionSortType -&gt; Bool
+compare :: PackageVersionSortType -&gt; PackageVersionSortType -&gt; Ordering
+$ccompare :: PackageVersionSortType -&gt; PackageVersionSortType -&gt; Ordering
+$cp1Ord :: Eq PackageVersionSortType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PackageVersionSortType -&gt; Rep PackageVersionSortType x)
+-&gt; (forall x.
+    Rep PackageVersionSortType x -&gt; PackageVersionSortType)
+-&gt; Generic PackageVersionSortType
+forall x. Rep PackageVersionSortType x -&gt; PackageVersionSortType
+forall x. PackageVersionSortType -&gt; Rep PackageVersionSortType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PackageVersionSortType x -&gt; PackageVersionSortType
+$cfrom :: forall x. PackageVersionSortType -&gt; Rep PackageVersionSortType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679230874"><span id="local-6989586621679230876"><span class="annot"><span class="annottext">Int -&gt; PackageVersionSortType -&gt; Int
+PackageVersionSortType -&gt; Int
+(Int -&gt; PackageVersionSortType -&gt; Int)
+-&gt; (PackageVersionSortType -&gt; Int)
+-&gt; Hashable PackageVersionSortType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PackageVersionSortType -&gt; Int
+$chash :: PackageVersionSortType -&gt; Int
+hashWithSalt :: Int -&gt; PackageVersionSortType -&gt; Int
+$chashWithSalt :: Int -&gt; PackageVersionSortType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679230871"><span class="annot"><span class="annottext">PackageVersionSortType -&gt; ()
+(PackageVersionSortType -&gt; ()) -&gt; NFData PackageVersionSortType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PackageVersionSortType -&gt; ()
+$crnf :: PackageVersionSortType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679230868"><span class="annot"><span class="annottext">Text -&gt; Either String PackageVersionSortType
+(Text -&gt; Either String PackageVersionSortType)
+-&gt; FromText PackageVersionSortType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PackageVersionSortType
+$cfromText :: Text -&gt; Either String PackageVersionSortType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679230865"><span class="annot"><span class="annottext">PackageVersionSortType -&gt; Text
+(PackageVersionSortType -&gt; Text) -&gt; ToText PackageVersionSortType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PackageVersionSortType -&gt; Text
+$ctoText :: PackageVersionSortType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679230862"><span class="annot"><span class="annottext">PackageVersionSortType -&gt; ByteString
+(PackageVersionSortType -&gt; ByteString)
+-&gt; ToByteString PackageVersionSortType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PackageVersionSortType -&gt; ByteString
+$ctoBS :: PackageVersionSortType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679230859"><span class="annot"><span class="annottext">PackageVersionSortType -&gt; ByteStringBuilder
+(PackageVersionSortType -&gt; ByteStringBuilder)
+-&gt; ToLog PackageVersionSortType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PackageVersionSortType -&gt; ByteStringBuilder
+$cbuild :: PackageVersionSortType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679230856"><span class="annot"><span class="annottext">HeaderName -&gt; PackageVersionSortType -&gt; [Header]
+(HeaderName -&gt; PackageVersionSortType -&gt; [Header])
+-&gt; ToHeader PackageVersionSortType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PackageVersionSortType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PackageVersionSortType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679230853"><span class="annot"><span class="annottext">PackageVersionSortType -&gt; QueryString
+(PackageVersionSortType -&gt; QueryString)
+-&gt; ToQuery PackageVersionSortType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PackageVersionSortType -&gt; QueryString
+$ctoQuery :: PackageVersionSortType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679230848"><span id="local-6989586621679230850"><span class="annot"><span class="annottext">Value -&gt; Parser [PackageVersionSortType]
+Value -&gt; Parser PackageVersionSortType
+(Value -&gt; Parser PackageVersionSortType)
+-&gt; (Value -&gt; Parser [PackageVersionSortType])
+-&gt; FromJSON PackageVersionSortType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PackageVersionSortType]
+$cparseJSONList :: Value -&gt; Parser [PackageVersionSortType]
+parseJSON :: Value -&gt; Parser PackageVersionSortType
+$cparseJSON :: Value -&gt; Parser PackageVersionSortType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679230843"><span id="local-6989586621679230845"><span class="annot"><span class="annottext">FromJSONKeyFunction [PackageVersionSortType]
+FromJSONKeyFunction PackageVersionSortType
+FromJSONKeyFunction PackageVersionSortType
+-&gt; FromJSONKeyFunction [PackageVersionSortType]
+-&gt; FromJSONKey PackageVersionSortType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PackageVersionSortType]
+$cfromJSONKeyList :: FromJSONKeyFunction [PackageVersionSortType]
+fromJSONKey :: FromJSONKeyFunction PackageVersionSortType
+$cfromJSONKey :: FromJSONKeyFunction PackageVersionSortType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679230834"><span id="local-6989586621679230836"><span id="local-6989586621679230838"><span id="local-6989586621679230840"><span class="annot"><span class="annottext">[PackageVersionSortType] -&gt; Encoding
+[PackageVersionSortType] -&gt; Value
+PackageVersionSortType -&gt; Encoding
+PackageVersionSortType -&gt; Value
+(PackageVersionSortType -&gt; Value)
+-&gt; (PackageVersionSortType -&gt; Encoding)
+-&gt; ([PackageVersionSortType] -&gt; Value)
+-&gt; ([PackageVersionSortType] -&gt; Encoding)
+-&gt; ToJSON PackageVersionSortType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PackageVersionSortType] -&gt; Encoding
+$ctoEncodingList :: [PackageVersionSortType] -&gt; Encoding
+toJSONList :: [PackageVersionSortType] -&gt; Value
+$ctoJSONList :: [PackageVersionSortType] -&gt; Value
+toEncoding :: PackageVersionSortType -&gt; Encoding
+$ctoEncoding :: PackageVersionSortType -&gt; Encoding
+toJSON :: PackageVersionSortType -&gt; Value
+$ctoJSON :: PackageVersionSortType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679230829"><span id="local-6989586621679230831"><span class="annot"><span class="annottext">ToJSONKeyFunction [PackageVersionSortType]
+ToJSONKeyFunction PackageVersionSortType
+ToJSONKeyFunction PackageVersionSortType
+-&gt; ToJSONKeyFunction [PackageVersionSortType]
+-&gt; ToJSONKey PackageVersionSortType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PackageVersionSortType]
+$ctoJSONKeyList :: ToJSONKeyFunction [PackageVersionSortType]
+toJSONKey :: ToJSONKeyFunction PackageVersionSortType
+$ctoJSONKey :: ToJSONKeyFunction PackageVersionSortType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679230826"><span class="annot"><span class="annottext">[Node] -&gt; Either String PackageVersionSortType
+([Node] -&gt; Either String PackageVersionSortType)
+-&gt; FromXML PackageVersionSortType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PackageVersionSortType
+$cparseXML :: [Node] -&gt; Either String PackageVersionSortType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679230823"><span class="annot"><span class="annottext">PackageVersionSortType -&gt; XML
+(PackageVersionSortType -&gt; XML) -&gt; ToXML PackageVersionSortType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PackageVersionSortType -&gt; XML
+$ctoXML :: PackageVersionSortType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageVersionSortType.html#PackageVersionSortType_PUBLISHED_TIME"><span class="hs-identifier hs-type">PackageVersionSortType_PUBLISHED_TIME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageVersionSortType.html#PackageVersionSortType"><span class="hs-identifier hs-type">PackageVersionSortType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPackageVersionSortType_PUBLISHED_TIME"><span id="%24mPackageVersionSortType_PUBLISHED_TIME"><span id="PackageVersionSortType_PUBLISHED_TIME"><span class="annot"><span class="annottext">$bPackageVersionSortType_PUBLISHED_TIME :: PackageVersionSortType
+$mPackageVersionSortType_PUBLISHED_TIME :: forall r.
+PackageVersionSortType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeArtifact.Types.PackageVersionSortType.html#%24bPackageVersionSortType_PUBLISHED_TIME"><span class="hs-identifier hs-var hs-var hs-var">PackageVersionSortType_PUBLISHED_TIME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageVersionSortType.html#PackageVersionSortType%27"><span class="hs-identifier hs-type">PackageVersionSortType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PUBLISHED_TIME&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageVersionSortType.html#PackageVersionSortType_PUBLISHED_TIME"><span class="hs-pragma hs-type">PackageVersionSortType_PUBLISHED_TIME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageVersionSortType.html#PackageVersionSortType%27"><span class="hs-pragma hs-type">PackageVersionSortType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

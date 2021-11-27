@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Glue.Types.TransformStatusType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.Types.TransformStatusType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType"><span class="hs-identifier">TransformStatusType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType_DELETING"><span class="hs-identifier">TransformStatusType_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType_NOT_READY"><span class="hs-identifier">TransformStatusType_NOT_READY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType_READY"><span class="hs-identifier">TransformStatusType_READY</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679702561"><span id="local-6989586621679702562"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransformStatusType"><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType"><span class="hs-identifier hs-var">TransformStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformStatusType%27"><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType%27"><span class="hs-identifier hs-var">TransformStatusType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTransformStatusType"><span class="annot"><span class="annottext">TransformStatusType -&gt; Text
+</span><a href="Amazonka.Glue.Types.TransformStatusType.html#fromTransformStatusType"><span class="hs-identifier hs-var hs-var">fromTransformStatusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679702553"><span id="local-6989586621679702555"><span id="local-6989586621679702557"><span class="annot"><span class="annottext">Int -&gt; TransformStatusType -&gt; ShowS
+[TransformStatusType] -&gt; ShowS
+TransformStatusType -&gt; String
+(Int -&gt; TransformStatusType -&gt; ShowS)
+-&gt; (TransformStatusType -&gt; String)
+-&gt; ([TransformStatusType] -&gt; ShowS)
+-&gt; Show TransformStatusType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TransformStatusType] -&gt; ShowS
+$cshowList :: [TransformStatusType] -&gt; ShowS
+show :: TransformStatusType -&gt; String
+$cshow :: TransformStatusType -&gt; String
+showsPrec :: Int -&gt; TransformStatusType -&gt; ShowS
+$cshowsPrec :: Int -&gt; TransformStatusType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679702544"><span id="local-6989586621679702546"><span id="local-6989586621679702548"><span id="local-6989586621679702550"><span class="annot"><span class="annottext">ReadPrec [TransformStatusType]
+ReadPrec TransformStatusType
+Int -&gt; ReadS TransformStatusType
+ReadS [TransformStatusType]
+(Int -&gt; ReadS TransformStatusType)
+-&gt; ReadS [TransformStatusType]
+-&gt; ReadPrec TransformStatusType
+-&gt; ReadPrec [TransformStatusType]
+-&gt; Read TransformStatusType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TransformStatusType]
+$creadListPrec :: ReadPrec [TransformStatusType]
+readPrec :: ReadPrec TransformStatusType
+$creadPrec :: ReadPrec TransformStatusType
+readList :: ReadS [TransformStatusType]
+$creadList :: ReadS [TransformStatusType]
+readsPrec :: Int -&gt; ReadS TransformStatusType
+$creadsPrec :: Int -&gt; ReadS TransformStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679702539"><span id="local-6989586621679702541"><span class="annot"><span class="annottext">TransformStatusType -&gt; TransformStatusType -&gt; Bool
+(TransformStatusType -&gt; TransformStatusType -&gt; Bool)
+-&gt; (TransformStatusType -&gt; TransformStatusType -&gt; Bool)
+-&gt; Eq TransformStatusType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TransformStatusType -&gt; TransformStatusType -&gt; Bool
+$c/= :: TransformStatusType -&gt; TransformStatusType -&gt; Bool
+== :: TransformStatusType -&gt; TransformStatusType -&gt; Bool
+$c== :: TransformStatusType -&gt; TransformStatusType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679702523"><span id="local-6989586621679702525"><span id="local-6989586621679702527"><span id="local-6989586621679702529"><span id="local-6989586621679702531"><span id="local-6989586621679702533"><span id="local-6989586621679702535"><span class="annot"><span class="annottext">Eq TransformStatusType
+Eq TransformStatusType
+-&gt; (TransformStatusType -&gt; TransformStatusType -&gt; Ordering)
+-&gt; (TransformStatusType -&gt; TransformStatusType -&gt; Bool)
+-&gt; (TransformStatusType -&gt; TransformStatusType -&gt; Bool)
+-&gt; (TransformStatusType -&gt; TransformStatusType -&gt; Bool)
+-&gt; (TransformStatusType -&gt; TransformStatusType -&gt; Bool)
+-&gt; (TransformStatusType
+    -&gt; TransformStatusType -&gt; TransformStatusType)
+-&gt; (TransformStatusType
+    -&gt; TransformStatusType -&gt; TransformStatusType)
+-&gt; Ord TransformStatusType
+TransformStatusType -&gt; TransformStatusType -&gt; Bool
+TransformStatusType -&gt; TransformStatusType -&gt; Ordering
+TransformStatusType -&gt; TransformStatusType -&gt; TransformStatusType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TransformStatusType -&gt; TransformStatusType -&gt; TransformStatusType
+$cmin :: TransformStatusType -&gt; TransformStatusType -&gt; TransformStatusType
+max :: TransformStatusType -&gt; TransformStatusType -&gt; TransformStatusType
+$cmax :: TransformStatusType -&gt; TransformStatusType -&gt; TransformStatusType
+&gt;= :: TransformStatusType -&gt; TransformStatusType -&gt; Bool
+$c&gt;= :: TransformStatusType -&gt; TransformStatusType -&gt; Bool
+&gt; :: TransformStatusType -&gt; TransformStatusType -&gt; Bool
+$c&gt; :: TransformStatusType -&gt; TransformStatusType -&gt; Bool
+&lt;= :: TransformStatusType -&gt; TransformStatusType -&gt; Bool
+$c&lt;= :: TransformStatusType -&gt; TransformStatusType -&gt; Bool
+&lt; :: TransformStatusType -&gt; TransformStatusType -&gt; Bool
+$c&lt; :: TransformStatusType -&gt; TransformStatusType -&gt; Bool
+compare :: TransformStatusType -&gt; TransformStatusType -&gt; Ordering
+$ccompare :: TransformStatusType -&gt; TransformStatusType -&gt; Ordering
+$cp1Ord :: Eq TransformStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TransformStatusType -&gt; Rep TransformStatusType x)
+-&gt; (forall x. Rep TransformStatusType x -&gt; TransformStatusType)
+-&gt; Generic TransformStatusType
+forall x. Rep TransformStatusType x -&gt; TransformStatusType
+forall x. TransformStatusType -&gt; Rep TransformStatusType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TransformStatusType x -&gt; TransformStatusType
+$cfrom :: forall x. TransformStatusType -&gt; Rep TransformStatusType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679702515"><span id="local-6989586621679702517"><span class="annot"><span class="annottext">Int -&gt; TransformStatusType -&gt; Int
+TransformStatusType -&gt; Int
+(Int -&gt; TransformStatusType -&gt; Int)
+-&gt; (TransformStatusType -&gt; Int) -&gt; Hashable TransformStatusType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TransformStatusType -&gt; Int
+$chash :: TransformStatusType -&gt; Int
+hashWithSalt :: Int -&gt; TransformStatusType -&gt; Int
+$chashWithSalt :: Int -&gt; TransformStatusType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679702512"><span class="annot"><span class="annottext">TransformStatusType -&gt; ()
+(TransformStatusType -&gt; ()) -&gt; NFData TransformStatusType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TransformStatusType -&gt; ()
+$crnf :: TransformStatusType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679702509"><span class="annot"><span class="annottext">Text -&gt; Either String TransformStatusType
+(Text -&gt; Either String TransformStatusType)
+-&gt; FromText TransformStatusType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TransformStatusType
+$cfromText :: Text -&gt; Either String TransformStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679702506"><span class="annot"><span class="annottext">TransformStatusType -&gt; Text
+(TransformStatusType -&gt; Text) -&gt; ToText TransformStatusType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TransformStatusType -&gt; Text
+$ctoText :: TransformStatusType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679702503"><span class="annot"><span class="annottext">TransformStatusType -&gt; ByteString
+(TransformStatusType -&gt; ByteString)
+-&gt; ToByteString TransformStatusType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TransformStatusType -&gt; ByteString
+$ctoBS :: TransformStatusType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679702500"><span class="annot"><span class="annottext">TransformStatusType -&gt; ByteStringBuilder
+(TransformStatusType -&gt; ByteStringBuilder)
+-&gt; ToLog TransformStatusType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TransformStatusType -&gt; ByteStringBuilder
+$cbuild :: TransformStatusType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679702497"><span class="annot"><span class="annottext">HeaderName -&gt; TransformStatusType -&gt; [Header]
+(HeaderName -&gt; TransformStatusType -&gt; [Header])
+-&gt; ToHeader TransformStatusType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TransformStatusType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TransformStatusType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679702494"><span class="annot"><span class="annottext">TransformStatusType -&gt; QueryString
+(TransformStatusType -&gt; QueryString) -&gt; ToQuery TransformStatusType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TransformStatusType -&gt; QueryString
+$ctoQuery :: TransformStatusType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679702489"><span id="local-6989586621679702491"><span class="annot"><span class="annottext">Value -&gt; Parser [TransformStatusType]
+Value -&gt; Parser TransformStatusType
+(Value -&gt; Parser TransformStatusType)
+-&gt; (Value -&gt; Parser [TransformStatusType])
+-&gt; FromJSON TransformStatusType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TransformStatusType]
+$cparseJSONList :: Value -&gt; Parser [TransformStatusType]
+parseJSON :: Value -&gt; Parser TransformStatusType
+$cparseJSON :: Value -&gt; Parser TransformStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679702484"><span id="local-6989586621679702486"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransformStatusType]
+FromJSONKeyFunction TransformStatusType
+FromJSONKeyFunction TransformStatusType
+-&gt; FromJSONKeyFunction [TransformStatusType]
+-&gt; FromJSONKey TransformStatusType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TransformStatusType]
+$cfromJSONKeyList :: FromJSONKeyFunction [TransformStatusType]
+fromJSONKey :: FromJSONKeyFunction TransformStatusType
+$cfromJSONKey :: FromJSONKeyFunction TransformStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679702475"><span id="local-6989586621679702477"><span id="local-6989586621679702479"><span id="local-6989586621679702481"><span class="annot"><span class="annottext">[TransformStatusType] -&gt; Encoding
+[TransformStatusType] -&gt; Value
+TransformStatusType -&gt; Encoding
+TransformStatusType -&gt; Value
+(TransformStatusType -&gt; Value)
+-&gt; (TransformStatusType -&gt; Encoding)
+-&gt; ([TransformStatusType] -&gt; Value)
+-&gt; ([TransformStatusType] -&gt; Encoding)
+-&gt; ToJSON TransformStatusType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TransformStatusType] -&gt; Encoding
+$ctoEncodingList :: [TransformStatusType] -&gt; Encoding
+toJSONList :: [TransformStatusType] -&gt; Value
+$ctoJSONList :: [TransformStatusType] -&gt; Value
+toEncoding :: TransformStatusType -&gt; Encoding
+$ctoEncoding :: TransformStatusType -&gt; Encoding
+toJSON :: TransformStatusType -&gt; Value
+$ctoJSON :: TransformStatusType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679702470"><span id="local-6989586621679702472"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransformStatusType]
+ToJSONKeyFunction TransformStatusType
+ToJSONKeyFunction TransformStatusType
+-&gt; ToJSONKeyFunction [TransformStatusType]
+-&gt; ToJSONKey TransformStatusType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TransformStatusType]
+$ctoJSONKeyList :: ToJSONKeyFunction [TransformStatusType]
+toJSONKey :: ToJSONKeyFunction TransformStatusType
+$ctoJSONKey :: ToJSONKeyFunction TransformStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679702467"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransformStatusType
+([Node] -&gt; Either String TransformStatusType)
+-&gt; FromXML TransformStatusType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TransformStatusType
+$cparseXML :: [Node] -&gt; Either String TransformStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679702464"><span class="annot"><span class="annottext">TransformStatusType -&gt; XML
+(TransformStatusType -&gt; XML) -&gt; ToXML TransformStatusType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TransformStatusType -&gt; XML
+$ctoXML :: TransformStatusType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType_DELETING"><span class="hs-identifier hs-type">TransformStatusType_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType"><span class="hs-identifier hs-type">TransformStatusType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransformStatusType_DELETING"><span id="%24mTransformStatusType_DELETING"><span id="TransformStatusType_DELETING"><span class="annot"><span class="annottext">$bTransformStatusType_DELETING :: TransformStatusType
+$mTransformStatusType_DELETING :: forall r. TransformStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glue.Types.TransformStatusType.html#%24bTransformStatusType_DELETING"><span class="hs-identifier hs-var hs-var hs-var">TransformStatusType_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType%27"><span class="hs-identifier hs-type">TransformStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType_NOT_READY"><span class="hs-identifier hs-type">TransformStatusType_NOT_READY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType"><span class="hs-identifier hs-type">TransformStatusType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransformStatusType_NOT_READY"><span id="%24mTransformStatusType_NOT_READY"><span id="TransformStatusType_NOT_READY"><span class="annot"><span class="annottext">$bTransformStatusType_NOT_READY :: TransformStatusType
+$mTransformStatusType_NOT_READY :: forall r. TransformStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glue.Types.TransformStatusType.html#%24bTransformStatusType_NOT_READY"><span class="hs-identifier hs-var hs-var hs-var">TransformStatusType_NOT_READY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType%27"><span class="hs-identifier hs-type">TransformStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_READY&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType_READY"><span class="hs-identifier hs-type">TransformStatusType_READY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType"><span class="hs-identifier hs-type">TransformStatusType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransformStatusType_READY"><span id="%24mTransformStatusType_READY"><span id="TransformStatusType_READY"><span class="annot"><span class="annottext">$bTransformStatusType_READY :: TransformStatusType
+$mTransformStatusType_READY :: forall r. TransformStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glue.Types.TransformStatusType.html#%24bTransformStatusType_READY"><span class="hs-identifier hs-var hs-var hs-var">TransformStatusType_READY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType%27"><span class="hs-identifier hs-type">TransformStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;READY&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType_DELETING"><span class="hs-pragma hs-type">TransformStatusType_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType_NOT_READY"><span class="hs-pragma hs-type">TransformStatusType_NOT_READY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType_READY"><span class="hs-pragma hs-type">TransformStatusType_READY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.TransformStatusType.html#TransformStatusType%27"><span class="hs-pragma hs-type">TransformStatusType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

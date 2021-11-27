@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.MediaPackage.Types.AdMarkers
+module Amazonka.MediaPackage.Types.AdMarkers
 newtype AdMarkers
 AdMarkers' :: Text -> AdMarkers
 [fromAdMarkers] :: AdMarkers -> Text
@@ -13,28 +13,28 @@ pattern AdMarkers_DATERANGE :: AdMarkers
 pattern AdMarkers_NONE :: AdMarkers
 pattern AdMarkers_PASSTHROUGH :: AdMarkers
 pattern AdMarkers_SCTE35_ENHANCED :: AdMarkers
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance GHC.Classes.Ord Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance GHC.Classes.Ord Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance GHC.Read.Read Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
+instance GHC.Show.Show Amazonka.MediaPackage.Types.AdMarkers.AdMarkers
 
 
-module Network.AWS.MediaPackage.Types.AdTriggersElement
+module Amazonka.MediaPackage.Types.AdTriggersElement
 newtype AdTriggersElement
 AdTriggersElement' :: Text -> AdTriggersElement
 [fromAdTriggersElement] :: AdTriggersElement -> Text
@@ -46,28 +46,28 @@ pattern AdTriggersElement_PROVIDER_ADVERTISEMENT :: AdTriggersElement
 pattern AdTriggersElement_PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY :: AdTriggersElement
 pattern AdTriggersElement_PROVIDER_PLACEMENT_OPPORTUNITY :: AdTriggersElement
 pattern AdTriggersElement_SPLICE_INSERT :: AdTriggersElement
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance GHC.Classes.Ord Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance GHC.Classes.Ord Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance GHC.Read.Read Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
+instance GHC.Show.Show Amazonka.MediaPackage.Types.AdTriggersElement.AdTriggersElement
 
 
-module Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
+module Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions
 
 -- | This setting allows the delivery restriction flags on SCTE-35
 --   segmentation descriptors to determine whether a message signals an ad.
@@ -87,28 +87,28 @@ pattern AdsOnDeliveryRestrictions_BOTH :: AdsOnDeliveryRestrictions
 pattern AdsOnDeliveryRestrictions_NONE :: AdsOnDeliveryRestrictions
 pattern AdsOnDeliveryRestrictions_RESTRICTED :: AdsOnDeliveryRestrictions
 pattern AdsOnDeliveryRestrictions_UNRESTRICTED :: AdsOnDeliveryRestrictions
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance GHC.Classes.Ord Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance GHC.Classes.Ord Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance GHC.Read.Read Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
+instance GHC.Show.Show Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions.AdsOnDeliveryRestrictions
 
 
-module Network.AWS.MediaPackage.Types.Authorization
+module Amazonka.MediaPackage.Types.Authorization
 
 -- | CDN Authorization credentials
 --   
@@ -153,17 +153,17 @@ authorization_secretsRoleArn :: Lens' Authorization Text
 --   your Content Distribution Network (CDN) uses for authorization to
 --   access your endpoint.
 authorization_cdnIdentifierSecret :: Lens' Authorization Text
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.Authorization.Authorization
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.Authorization.Authorization
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.Authorization.Authorization
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.Authorization.Authorization
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.Authorization.Authorization
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.Authorization.Authorization
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.Authorization.Authorization
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.Authorization.Authorization
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.Authorization.Authorization
+instance GHC.Show.Show Amazonka.MediaPackage.Types.Authorization.Authorization
+instance GHC.Read.Read Amazonka.MediaPackage.Types.Authorization.Authorization
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.Authorization.Authorization
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.Authorization.Authorization
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.Authorization.Authorization
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.Authorization.Authorization
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.Authorization.Authorization
 
 
-module Network.AWS.MediaPackage.Types.EgressAccessLogs
+module Amazonka.MediaPackage.Types.EgressAccessLogs
 
 -- | Configure egress access logging.
 --   
@@ -189,44 +189,44 @@ newEgressAccessLogs :: EgressAccessLogs
 
 -- | Customize the log group name.
 egressAccessLogs_logGroupName :: Lens' EgressAccessLogs (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
+instance GHC.Show.Show Amazonka.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
+instance GHC.Read.Read Amazonka.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.EgressAccessLogs.EgressAccessLogs
 
 
-module Network.AWS.MediaPackage.Types.EncryptionMethod
+module Amazonka.MediaPackage.Types.EncryptionMethod
 newtype EncryptionMethod
 EncryptionMethod' :: Text -> EncryptionMethod
 [fromEncryptionMethod] :: EncryptionMethod -> Text
 pattern EncryptionMethod_AES_128 :: EncryptionMethod
 pattern EncryptionMethod_SAMPLE_AES :: EncryptionMethod
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance GHC.Classes.Ord Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance GHC.Classes.Ord Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance GHC.Read.Read Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
+instance GHC.Show.Show Amazonka.MediaPackage.Types.EncryptionMethod.EncryptionMethod
 
 
-module Network.AWS.MediaPackage.Types.IngestEndpoint
+module Amazonka.MediaPackage.Types.IngestEndpoint
 
 -- | An endpoint for ingesting source content for a Channel.
 --   
@@ -279,16 +279,16 @@ ingestEndpoint_password :: Lens' IngestEndpoint (Maybe Text)
 
 -- | The system generated unique identifier for the IngestEndpoint
 ingestEndpoint_id :: Lens' IngestEndpoint (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.IngestEndpoint.IngestEndpoint
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.IngestEndpoint.IngestEndpoint
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.IngestEndpoint.IngestEndpoint
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.IngestEndpoint.IngestEndpoint
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.IngestEndpoint.IngestEndpoint
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.IngestEndpoint.IngestEndpoint
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.IngestEndpoint.IngestEndpoint
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.IngestEndpoint.IngestEndpoint
+instance GHC.Show.Show Amazonka.MediaPackage.Types.IngestEndpoint.IngestEndpoint
+instance GHC.Read.Read Amazonka.MediaPackage.Types.IngestEndpoint.IngestEndpoint
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.IngestEndpoint.IngestEndpoint
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.IngestEndpoint.IngestEndpoint
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.IngestEndpoint.IngestEndpoint
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.IngestEndpoint.IngestEndpoint
 
 
-module Network.AWS.MediaPackage.Types.HlsIngest
+module Amazonka.MediaPackage.Types.HlsIngest
 
 -- | An HTTP Live Streaming (HLS) ingest resource configuration.
 --   
@@ -314,16 +314,16 @@ newHlsIngest :: HlsIngest
 
 -- | A list of endpoints to which the source stream should be sent.
 hlsIngest_ingestEndpoints :: Lens' HlsIngest (Maybe [IngestEndpoint])
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.HlsIngest.HlsIngest
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.HlsIngest.HlsIngest
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.HlsIngest.HlsIngest
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.HlsIngest.HlsIngest
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.HlsIngest.HlsIngest
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.HlsIngest.HlsIngest
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.HlsIngest.HlsIngest
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.HlsIngest.HlsIngest
+instance GHC.Show.Show Amazonka.MediaPackage.Types.HlsIngest.HlsIngest
+instance GHC.Read.Read Amazonka.MediaPackage.Types.HlsIngest.HlsIngest
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.HlsIngest.HlsIngest
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.HlsIngest.HlsIngest
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.HlsIngest.HlsIngest
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.HlsIngest.HlsIngest
 
 
-module Network.AWS.MediaPackage.Types.IngressAccessLogs
+module Amazonka.MediaPackage.Types.IngressAccessLogs
 
 -- | Configure ingress access logging.
 --   
@@ -349,17 +349,17 @@ newIngressAccessLogs :: IngressAccessLogs
 
 -- | Customize the log group name.
 ingressAccessLogs_logGroupName :: Lens' IngressAccessLogs (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
+instance GHC.Show.Show Amazonka.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
+instance GHC.Read.Read Amazonka.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.IngressAccessLogs.IngressAccessLogs
 
 
-module Network.AWS.MediaPackage.Types.Channel
+module Amazonka.MediaPackage.Types.Channel
 
 -- | A Channel resource configuration.
 --   
@@ -428,124 +428,124 @@ channel_egressAccessLogs :: Lens' Channel (Maybe EgressAccessLogs)
 
 -- | Undocumented member.
 channel_tags :: Lens' Channel (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.Channel.Channel
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.Channel.Channel
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.Channel.Channel
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.Channel.Channel
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.Channel.Channel
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.Channel.Channel
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.Channel.Channel
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.Channel.Channel
+instance GHC.Show.Show Amazonka.MediaPackage.Types.Channel.Channel
+instance GHC.Read.Read Amazonka.MediaPackage.Types.Channel.Channel
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.Channel.Channel
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.Channel.Channel
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.Channel.Channel
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.Channel.Channel
 
 
-module Network.AWS.MediaPackage.Types.ManifestLayout
+module Amazonka.MediaPackage.Types.ManifestLayout
 newtype ManifestLayout
 ManifestLayout' :: Text -> ManifestLayout
 [fromManifestLayout] :: ManifestLayout -> Text
 pattern ManifestLayout_COMPACT :: ManifestLayout
 pattern ManifestLayout_FULL :: ManifestLayout
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance GHC.Classes.Ord Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance GHC.Classes.Ord Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance GHC.Read.Read Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
+instance GHC.Show.Show Amazonka.MediaPackage.Types.ManifestLayout.ManifestLayout
 
 
-module Network.AWS.MediaPackage.Types.Origination
+module Amazonka.MediaPackage.Types.Origination
 newtype Origination
 Origination' :: Text -> Origination
 [fromOrigination] :: Origination -> Text
 pattern Origination_ALLOW :: Origination
 pattern Origination_DENY :: Origination
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackage.Types.Origination.Origination
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackage.Types.Origination.Origination
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackage.Types.Origination.Origination
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.Origination.Origination
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackage.Types.Origination.Origination
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.Origination.Origination
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.Types.Origination.Origination
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackage.Types.Origination.Origination
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackage.Types.Origination.Origination
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackage.Types.Origination.Origination
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackage.Types.Origination.Origination
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackage.Types.Origination.Origination
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.Origination.Origination
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.Origination.Origination
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.Origination.Origination
-instance GHC.Classes.Ord Network.AWS.MediaPackage.Types.Origination.Origination
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.Origination.Origination
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.Origination.Origination
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.Origination.Origination
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackage.Types.Origination.Origination
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackage.Types.Origination.Origination
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackage.Types.Origination.Origination
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.Origination.Origination
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackage.Types.Origination.Origination
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.Origination.Origination
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.Types.Origination.Origination
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackage.Types.Origination.Origination
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackage.Types.Origination.Origination
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackage.Types.Origination.Origination
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackage.Types.Origination.Origination
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackage.Types.Origination.Origination
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.Origination.Origination
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.Origination.Origination
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.Origination.Origination
+instance GHC.Classes.Ord Amazonka.MediaPackage.Types.Origination.Origination
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.Origination.Origination
+instance GHC.Read.Read Amazonka.MediaPackage.Types.Origination.Origination
+instance GHC.Show.Show Amazonka.MediaPackage.Types.Origination.Origination
 
 
-module Network.AWS.MediaPackage.Types.PeriodTriggersElement
+module Amazonka.MediaPackage.Types.PeriodTriggersElement
 newtype PeriodTriggersElement
 PeriodTriggersElement' :: Text -> PeriodTriggersElement
 [fromPeriodTriggersElement] :: PeriodTriggersElement -> Text
 pattern PeriodTriggersElement_ADS :: PeriodTriggersElement
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance GHC.Classes.Ord Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance GHC.Classes.Ord Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance GHC.Read.Read Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
+instance GHC.Show.Show Amazonka.MediaPackage.Types.PeriodTriggersElement.PeriodTriggersElement
 
 
-module Network.AWS.MediaPackage.Types.PlaylistType
+module Amazonka.MediaPackage.Types.PlaylistType
 newtype PlaylistType
 PlaylistType' :: Text -> PlaylistType
 [fromPlaylistType] :: PlaylistType -> Text
 pattern PlaylistType_EVENT :: PlaylistType
 pattern PlaylistType_NONE :: PlaylistType
 pattern PlaylistType_VOD :: PlaylistType
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance GHC.Classes.Ord Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.PlaylistType.PlaylistType
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance GHC.Classes.Ord Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance GHC.Read.Read Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
+instance GHC.Show.Show Amazonka.MediaPackage.Types.PlaylistType.PlaylistType
 
 
-module Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters
+module Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters
 
 -- | A HTTP Live Streaming (HLS) manifest configuration.
 --   
@@ -715,16 +715,16 @@ hlsManifestCreateOrUpdateParameters_playlistWindowSeconds :: Lens' HlsManifestCr
 -- | The ID of the manifest. The ID must be unique within the
 --   OriginEndpoint and it cannot be changed after it is created.
 hlsManifestCreateOrUpdateParameters_id :: Lens' HlsManifestCreateOrUpdateParameters Text
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.HlsManifestCreateOrUpdateParameters
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.HlsManifestCreateOrUpdateParameters
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.HlsManifestCreateOrUpdateParameters
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.HlsManifestCreateOrUpdateParameters
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.HlsManifestCreateOrUpdateParameters
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.HlsManifestCreateOrUpdateParameters
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.HlsManifestCreateOrUpdateParameters
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.HlsManifestCreateOrUpdateParameters
+instance GHC.Show.Show Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.HlsManifestCreateOrUpdateParameters
+instance GHC.Read.Read Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.HlsManifestCreateOrUpdateParameters
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.HlsManifestCreateOrUpdateParameters
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.HlsManifestCreateOrUpdateParameters
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.HlsManifestCreateOrUpdateParameters
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters.HlsManifestCreateOrUpdateParameters
 
 
-module Network.AWS.MediaPackage.Types.HlsManifest
+module Amazonka.MediaPackage.Types.HlsManifest
 
 -- | A HTTP Live Streaming (HLS) manifest configuration.
 --   
@@ -878,68 +878,68 @@ hlsManifest_playlistWindowSeconds :: Lens' HlsManifest (Maybe Int)
 -- | The ID of the manifest. The ID must be unique within the
 --   OriginEndpoint and it cannot be changed after it is created.
 hlsManifest_id :: Lens' HlsManifest Text
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.HlsManifest.HlsManifest
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.HlsManifest.HlsManifest
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.HlsManifest.HlsManifest
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.HlsManifest.HlsManifest
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.HlsManifest.HlsManifest
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.HlsManifest.HlsManifest
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.HlsManifest.HlsManifest
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.HlsManifest.HlsManifest
+instance GHC.Show.Show Amazonka.MediaPackage.Types.HlsManifest.HlsManifest
+instance GHC.Read.Read Amazonka.MediaPackage.Types.HlsManifest.HlsManifest
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.HlsManifest.HlsManifest
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.HlsManifest.HlsManifest
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.HlsManifest.HlsManifest
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.HlsManifest.HlsManifest
 
 
-module Network.AWS.MediaPackage.Types.PresetSpeke20Audio
+module Amazonka.MediaPackage.Types.PresetSpeke20Audio
 newtype PresetSpeke20Audio
 PresetSpeke20Audio' :: Text -> PresetSpeke20Audio
 [fromPresetSpeke20Audio] :: PresetSpeke20Audio -> Text
 pattern PresetSpeke20Audio_PRESET_AUDIO_1 :: PresetSpeke20Audio
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance GHC.Classes.Ord Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance GHC.Classes.Ord Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance GHC.Read.Read Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
+instance GHC.Show.Show Amazonka.MediaPackage.Types.PresetSpeke20Audio.PresetSpeke20Audio
 
 
-module Network.AWS.MediaPackage.Types.PresetSpeke20Video
+module Amazonka.MediaPackage.Types.PresetSpeke20Video
 newtype PresetSpeke20Video
 PresetSpeke20Video' :: Text -> PresetSpeke20Video
 [fromPresetSpeke20Video] :: PresetSpeke20Video -> Text
 pattern PresetSpeke20Video_PRESET_VIDEO_1 :: PresetSpeke20Video
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance GHC.Classes.Ord Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance GHC.Classes.Ord Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance GHC.Read.Read Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
+instance GHC.Show.Show Amazonka.MediaPackage.Types.PresetSpeke20Video.PresetSpeke20Video
 
 
-module Network.AWS.MediaPackage.Types.EncryptionContractConfiguration
+module Amazonka.MediaPackage.Types.EncryptionContractConfiguration
 
 -- | Use encryptionContractConfiguration to configure one or more content
 --   encryption keys for your endpoints that use SPEKE 2.0. The encryption
@@ -986,44 +986,44 @@ encryptionContractConfiguration_presetSpeke20Audio :: Lens' EncryptionContractCo
 
 -- | A collection of video encryption presets.
 encryptionContractConfiguration_presetSpeke20Video :: Lens' EncryptionContractConfiguration PresetSpeke20Video
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
+instance GHC.Show.Show Amazonka.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
+instance GHC.Read.Read Amazonka.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.EncryptionContractConfiguration.EncryptionContractConfiguration
 
 
-module Network.AWS.MediaPackage.Types.Profile
+module Amazonka.MediaPackage.Types.Profile
 newtype Profile
 Profile' :: Text -> Profile
 [fromProfile] :: Profile -> Text
 pattern Profile_HBBTV_1_5 :: Profile
 pattern Profile_NONE :: Profile
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackage.Types.Profile.Profile
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackage.Types.Profile.Profile
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackage.Types.Profile.Profile
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.Profile.Profile
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackage.Types.Profile.Profile
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.Profile.Profile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.Types.Profile.Profile
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackage.Types.Profile.Profile
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackage.Types.Profile.Profile
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackage.Types.Profile.Profile
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackage.Types.Profile.Profile
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackage.Types.Profile.Profile
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.Profile.Profile
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.Profile.Profile
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.Profile.Profile
-instance GHC.Classes.Ord Network.AWS.MediaPackage.Types.Profile.Profile
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.Profile.Profile
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.Profile.Profile
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.Profile.Profile
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackage.Types.Profile.Profile
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackage.Types.Profile.Profile
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackage.Types.Profile.Profile
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.Profile.Profile
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackage.Types.Profile.Profile
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.Profile.Profile
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.Types.Profile.Profile
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackage.Types.Profile.Profile
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackage.Types.Profile.Profile
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackage.Types.Profile.Profile
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackage.Types.Profile.Profile
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackage.Types.Profile.Profile
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.Profile.Profile
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.Profile.Profile
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.Profile.Profile
+instance GHC.Classes.Ord Amazonka.MediaPackage.Types.Profile.Profile
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.Profile.Profile
+instance GHC.Read.Read Amazonka.MediaPackage.Types.Profile.Profile
+instance GHC.Show.Show Amazonka.MediaPackage.Types.Profile.Profile
 
 
-module Network.AWS.MediaPackage.Types.S3Destination
+module Amazonka.MediaPackage.Types.S3Destination
 
 -- | Configuration parameters for where in an S3 bucket to place the
 --   harvested content
@@ -1074,45 +1074,45 @@ s3Destination_bucketName :: Lens' S3Destination Text
 
 -- | The IAM role used to write to the specified S3 bucket
 s3Destination_roleArn :: Lens' S3Destination Text
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.S3Destination.S3Destination
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.S3Destination.S3Destination
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.S3Destination.S3Destination
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.S3Destination.S3Destination
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.S3Destination.S3Destination
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.S3Destination.S3Destination
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.S3Destination.S3Destination
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.S3Destination.S3Destination
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.S3Destination.S3Destination
+instance GHC.Show.Show Amazonka.MediaPackage.Types.S3Destination.S3Destination
+instance GHC.Read.Read Amazonka.MediaPackage.Types.S3Destination.S3Destination
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.S3Destination.S3Destination
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.S3Destination.S3Destination
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.S3Destination.S3Destination
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.S3Destination.S3Destination
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.S3Destination.S3Destination
 
 
-module Network.AWS.MediaPackage.Types.SegmentTemplateFormat
+module Amazonka.MediaPackage.Types.SegmentTemplateFormat
 newtype SegmentTemplateFormat
 SegmentTemplateFormat' :: Text -> SegmentTemplateFormat
 [fromSegmentTemplateFormat] :: SegmentTemplateFormat -> Text
 pattern SegmentTemplateFormat_NUMBER_WITH_DURATION :: SegmentTemplateFormat
 pattern SegmentTemplateFormat_NUMBER_WITH_TIMELINE :: SegmentTemplateFormat
 pattern SegmentTemplateFormat_TIME_WITH_TIMELINE :: SegmentTemplateFormat
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance GHC.Classes.Ord Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance GHC.Classes.Ord Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance GHC.Read.Read Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance GHC.Show.Show Amazonka.MediaPackage.Types.SegmentTemplateFormat.SegmentTemplateFormat
 
 
-module Network.AWS.MediaPackage.Types.SpekeKeyProvider
+module Amazonka.MediaPackage.Types.SpekeKeyProvider
 
 -- | A configuration for accessing an external Secure Packager and Encoder
 --   Key Exchange (SPEKE) service that will provide encryption keys.
@@ -1195,17 +1195,17 @@ spekeKeyProvider_url :: Lens' SpekeKeyProvider Text
 -- | An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
 --   MediaPackage will assume when accessing the key provider service.
 spekeKeyProvider_roleArn :: Lens' SpekeKeyProvider Text
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
+instance GHC.Show.Show Amazonka.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
+instance GHC.Read.Read Amazonka.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.SpekeKeyProvider.SpekeKeyProvider
 
 
-module Network.AWS.MediaPackage.Types.MssEncryption
+module Amazonka.MediaPackage.Types.MssEncryption
 
 -- | A Microsoft Smooth Streaming (MSS) encryption configuration.
 --   
@@ -1229,17 +1229,17 @@ newMssEncryption :: SpekeKeyProvider -> MssEncryption
 
 -- | Undocumented member.
 mssEncryption_spekeKeyProvider :: Lens' MssEncryption SpekeKeyProvider
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.MssEncryption.MssEncryption
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.MssEncryption.MssEncryption
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.MssEncryption.MssEncryption
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.MssEncryption.MssEncryption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.MssEncryption.MssEncryption
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.MssEncryption.MssEncryption
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.MssEncryption.MssEncryption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.MssEncryption.MssEncryption
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.MssEncryption.MssEncryption
+instance GHC.Show.Show Amazonka.MediaPackage.Types.MssEncryption.MssEncryption
+instance GHC.Read.Read Amazonka.MediaPackage.Types.MssEncryption.MssEncryption
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.MssEncryption.MssEncryption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.MssEncryption.MssEncryption
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.MssEncryption.MssEncryption
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.MssEncryption.MssEncryption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.MssEncryption.MssEncryption
 
 
-module Network.AWS.MediaPackage.Types.HlsEncryption
+module Amazonka.MediaPackage.Types.HlsEncryption
 
 -- | An HTTP Live Streaming (HLS) encryption configuration.
 --   
@@ -1305,17 +1305,17 @@ hlsEncryption_repeatExtXKey :: Lens' HlsEncryption (Maybe Bool)
 
 -- | Undocumented member.
 hlsEncryption_spekeKeyProvider :: Lens' HlsEncryption SpekeKeyProvider
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.HlsEncryption.HlsEncryption
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.HlsEncryption.HlsEncryption
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.HlsEncryption.HlsEncryption
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.HlsEncryption.HlsEncryption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.HlsEncryption.HlsEncryption
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.HlsEncryption.HlsEncryption
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.HlsEncryption.HlsEncryption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.HlsEncryption.HlsEncryption
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.HlsEncryption.HlsEncryption
+instance GHC.Show.Show Amazonka.MediaPackage.Types.HlsEncryption.HlsEncryption
+instance GHC.Read.Read Amazonka.MediaPackage.Types.HlsEncryption.HlsEncryption
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.HlsEncryption.HlsEncryption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.HlsEncryption.HlsEncryption
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.HlsEncryption.HlsEncryption
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.HlsEncryption.HlsEncryption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.HlsEncryption.HlsEncryption
 
 
-module Network.AWS.MediaPackage.Types.DashEncryption
+module Amazonka.MediaPackage.Types.DashEncryption
 
 -- | A Dynamic Adaptive Streaming over HTTP (DASH) encryption
 --   configuration.
@@ -1350,17 +1350,17 @@ dashEncryption_keyRotationIntervalSeconds :: Lens' DashEncryption (Maybe Int)
 
 -- | Undocumented member.
 dashEncryption_spekeKeyProvider :: Lens' DashEncryption SpekeKeyProvider
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.DashEncryption.DashEncryption
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.DashEncryption.DashEncryption
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.DashEncryption.DashEncryption
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.DashEncryption.DashEncryption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.DashEncryption.DashEncryption
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.DashEncryption.DashEncryption
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.DashEncryption.DashEncryption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.DashEncryption.DashEncryption
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.DashEncryption.DashEncryption
+instance GHC.Show.Show Amazonka.MediaPackage.Types.DashEncryption.DashEncryption
+instance GHC.Read.Read Amazonka.MediaPackage.Types.DashEncryption.DashEncryption
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.DashEncryption.DashEncryption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.DashEncryption.DashEncryption
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.DashEncryption.DashEncryption
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.DashEncryption.DashEncryption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.DashEncryption.DashEncryption
 
 
-module Network.AWS.MediaPackage.Types.CmafEncryption
+module Amazonka.MediaPackage.Types.CmafEncryption
 
 -- | A Common Media Application Format (CMAF) encryption configuration.
 --   
@@ -1413,45 +1413,45 @@ cmafEncryption_constantInitializationVector :: Lens' CmafEncryption (Maybe Text)
 
 -- | Undocumented member.
 cmafEncryption_spekeKeyProvider :: Lens' CmafEncryption SpekeKeyProvider
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.CmafEncryption.CmafEncryption
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.CmafEncryption.CmafEncryption
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.CmafEncryption.CmafEncryption
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.CmafEncryption.CmafEncryption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.CmafEncryption.CmafEncryption
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.CmafEncryption.CmafEncryption
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.CmafEncryption.CmafEncryption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.CmafEncryption.CmafEncryption
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.CmafEncryption.CmafEncryption
+instance GHC.Show.Show Amazonka.MediaPackage.Types.CmafEncryption.CmafEncryption
+instance GHC.Read.Read Amazonka.MediaPackage.Types.CmafEncryption.CmafEncryption
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.CmafEncryption.CmafEncryption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.CmafEncryption.CmafEncryption
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.CmafEncryption.CmafEncryption
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.CmafEncryption.CmafEncryption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.CmafEncryption.CmafEncryption
 
 
-module Network.AWS.MediaPackage.Types.Status
+module Amazonka.MediaPackage.Types.Status
 newtype Status
 Status' :: Text -> Status
 [fromStatus] :: Status -> Text
 pattern Status_FAILED :: Status
 pattern Status_IN_PROGRESS :: Status
 pattern Status_SUCCEEDED :: Status
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackage.Types.Status.Status
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackage.Types.Status.Status
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackage.Types.Status.Status
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.Status.Status
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackage.Types.Status.Status
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.Status.Status
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.Types.Status.Status
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackage.Types.Status.Status
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackage.Types.Status.Status
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackage.Types.Status.Status
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackage.Types.Status.Status
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackage.Types.Status.Status
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.Status.Status
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.Status.Status
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.Status.Status
-instance GHC.Classes.Ord Network.AWS.MediaPackage.Types.Status.Status
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.Status.Status
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.Status.Status
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.Status.Status
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackage.Types.Status.Status
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackage.Types.Status.Status
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackage.Types.Status.Status
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.Status.Status
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackage.Types.Status.Status
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.Status.Status
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.Types.Status.Status
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackage.Types.Status.Status
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackage.Types.Status.Status
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackage.Types.Status.Status
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackage.Types.Status.Status
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackage.Types.Status.Status
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.Status.Status
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.Status.Status
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.Status.Status
+instance GHC.Classes.Ord Amazonka.MediaPackage.Types.Status.Status
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.Status.Status
+instance GHC.Read.Read Amazonka.MediaPackage.Types.Status.Status
+instance GHC.Show.Show Amazonka.MediaPackage.Types.Status.Status
 
 
-module Network.AWS.MediaPackage.Types.HarvestJob
+module Amazonka.MediaPackage.Types.HarvestJob
 
 -- | A HarvestJob resource configuration
 --   
@@ -1562,44 +1562,44 @@ harvestJob_endTime :: Lens' HarvestJob (Maybe Text)
 -- | The ID of the HarvestJob. The ID must be unique within the region and
 --   it cannot be changed after the HarvestJob is submitted.
 harvestJob_id :: Lens' HarvestJob (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.HarvestJob.HarvestJob
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.HarvestJob.HarvestJob
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.HarvestJob.HarvestJob
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.HarvestJob.HarvestJob
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.HarvestJob.HarvestJob
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.HarvestJob.HarvestJob
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.HarvestJob.HarvestJob
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.HarvestJob.HarvestJob
+instance GHC.Show.Show Amazonka.MediaPackage.Types.HarvestJob.HarvestJob
+instance GHC.Read.Read Amazonka.MediaPackage.Types.HarvestJob.HarvestJob
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.HarvestJob.HarvestJob
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.HarvestJob.HarvestJob
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.HarvestJob.HarvestJob
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.HarvestJob.HarvestJob
 
 
-module Network.AWS.MediaPackage.Types.StreamOrder
+module Amazonka.MediaPackage.Types.StreamOrder
 newtype StreamOrder
 StreamOrder' :: Text -> StreamOrder
 [fromStreamOrder] :: StreamOrder -> Text
 pattern StreamOrder_ORIGINAL :: StreamOrder
 pattern StreamOrder_VIDEO_BITRATE_ASCENDING :: StreamOrder
 pattern StreamOrder_VIDEO_BITRATE_DESCENDING :: StreamOrder
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance GHC.Classes.Ord Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance GHC.Classes.Ord Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance GHC.Read.Read Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
+instance GHC.Show.Show Amazonka.MediaPackage.Types.StreamOrder.StreamOrder
 
 
-module Network.AWS.MediaPackage.Types.StreamSelection
+module Amazonka.MediaPackage.Types.StreamSelection
 
 -- | A StreamSelection configuration.
 --   
@@ -1646,17 +1646,17 @@ streamSelection_minVideoBitsPerSecond :: Lens' StreamSelection (Maybe Int)
 
 -- | The maximum video bitrate (bps) to include in output.
 streamSelection_maxVideoBitsPerSecond :: Lens' StreamSelection (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.StreamSelection.StreamSelection
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.StreamSelection.StreamSelection
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.StreamSelection.StreamSelection
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.StreamSelection.StreamSelection
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.StreamSelection.StreamSelection
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.StreamSelection.StreamSelection
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.StreamSelection.StreamSelection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.StreamSelection.StreamSelection
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.StreamSelection.StreamSelection
+instance GHC.Show.Show Amazonka.MediaPackage.Types.StreamSelection.StreamSelection
+instance GHC.Read.Read Amazonka.MediaPackage.Types.StreamSelection.StreamSelection
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.StreamSelection.StreamSelection
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.StreamSelection.StreamSelection
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.StreamSelection.StreamSelection
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.StreamSelection.StreamSelection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.StreamSelection.StreamSelection
 
 
-module Network.AWS.MediaPackage.Types.MssPackage
+module Amazonka.MediaPackage.Types.MssPackage
 
 -- | A Microsoft Smooth Streaming (MSS) packaging configuration.
 --   
@@ -1706,17 +1706,17 @@ mssPackage_encryption :: Lens' MssPackage (Maybe MssEncryption)
 
 -- | The time window (in seconds) contained in each manifest.
 mssPackage_manifestWindowSeconds :: Lens' MssPackage (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.MssPackage.MssPackage
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.MssPackage.MssPackage
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.MssPackage.MssPackage
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.MssPackage.MssPackage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.MssPackage.MssPackage
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.MssPackage.MssPackage
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.MssPackage.MssPackage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.MssPackage.MssPackage
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.MssPackage.MssPackage
+instance GHC.Show.Show Amazonka.MediaPackage.Types.MssPackage.MssPackage
+instance GHC.Read.Read Amazonka.MediaPackage.Types.MssPackage.MssPackage
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.MssPackage.MssPackage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.MssPackage.MssPackage
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.MssPackage.MssPackage
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.MssPackage.MssPackage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.MssPackage.MssPackage
 
 
-module Network.AWS.MediaPackage.Types.HlsPackage
+module Amazonka.MediaPackage.Types.HlsPackage
 
 -- | An HTTP Live Streaming (HLS) packaging configuration.
 --   
@@ -1900,17 +1900,17 @@ hlsPackage_adTriggers :: Lens' HlsPackage (Maybe [AdTriggersElement])
 
 -- | Time window (in seconds) contained in each parent manifest.
 hlsPackage_playlistWindowSeconds :: Lens' HlsPackage (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.HlsPackage.HlsPackage
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.HlsPackage.HlsPackage
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.HlsPackage.HlsPackage
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.HlsPackage.HlsPackage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.HlsPackage.HlsPackage
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.HlsPackage.HlsPackage
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.HlsPackage.HlsPackage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.HlsPackage.HlsPackage
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.HlsPackage.HlsPackage
+instance GHC.Show.Show Amazonka.MediaPackage.Types.HlsPackage.HlsPackage
+instance GHC.Read.Read Amazonka.MediaPackage.Types.HlsPackage.HlsPackage
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.HlsPackage.HlsPackage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.HlsPackage.HlsPackage
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.HlsPackage.HlsPackage
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.HlsPackage.HlsPackage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.HlsPackage.HlsPackage
 
 
-module Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters
+module Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters
 
 -- | A Common Media Application Format (CMAF) packaging configuration.
 --   
@@ -1981,16 +1981,16 @@ cmafPackageCreateOrUpdateParameters_encryption :: Lens' CmafPackageCreateOrUpdat
 -- | An optional custom string that is prepended to the name of each
 --   segment. If not specified, it defaults to the ChannelId.
 cmafPackageCreateOrUpdateParameters_segmentPrefix :: Lens' CmafPackageCreateOrUpdateParameters (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.CmafPackageCreateOrUpdateParameters
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.CmafPackageCreateOrUpdateParameters
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.CmafPackageCreateOrUpdateParameters
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.CmafPackageCreateOrUpdateParameters
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.CmafPackageCreateOrUpdateParameters
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.CmafPackageCreateOrUpdateParameters
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.CmafPackageCreateOrUpdateParameters
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.CmafPackageCreateOrUpdateParameters
+instance GHC.Show.Show Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.CmafPackageCreateOrUpdateParameters
+instance GHC.Read.Read Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.CmafPackageCreateOrUpdateParameters
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.CmafPackageCreateOrUpdateParameters
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.CmafPackageCreateOrUpdateParameters
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.CmafPackageCreateOrUpdateParameters
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters.CmafPackageCreateOrUpdateParameters
 
 
-module Network.AWS.MediaPackage.Types.CmafPackage
+module Amazonka.MediaPackage.Types.CmafPackage
 
 -- | A Common Media Application Format (CMAF) packaging configuration.
 --   
@@ -2055,44 +2055,44 @@ cmafPackage_encryption :: Lens' CmafPackage (Maybe CmafEncryption)
 -- | An optional custom string that is prepended to the name of each
 --   segment. If not specified, it defaults to the ChannelId.
 cmafPackage_segmentPrefix :: Lens' CmafPackage (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.CmafPackage.CmafPackage
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.CmafPackage.CmafPackage
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.CmafPackage.CmafPackage
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.CmafPackage.CmafPackage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.CmafPackage.CmafPackage
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.CmafPackage.CmafPackage
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.CmafPackage.CmafPackage
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.CmafPackage.CmafPackage
+instance GHC.Show.Show Amazonka.MediaPackage.Types.CmafPackage.CmafPackage
+instance GHC.Read.Read Amazonka.MediaPackage.Types.CmafPackage.CmafPackage
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.CmafPackage.CmafPackage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.CmafPackage.CmafPackage
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.CmafPackage.CmafPackage
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.CmafPackage.CmafPackage
 
 
-module Network.AWS.MediaPackage.Types.UtcTiming
+module Amazonka.MediaPackage.Types.UtcTiming
 newtype UtcTiming
 UtcTiming' :: Text -> UtcTiming
 [fromUtcTiming] :: UtcTiming -> Text
 pattern UtcTiming_HTTP_HEAD :: UtcTiming
 pattern UtcTiming_HTTP_ISO :: UtcTiming
 pattern UtcTiming_NONE :: UtcTiming
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance GHC.Classes.Ord Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.UtcTiming.UtcTiming
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance GHC.Classes.Ord Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance GHC.Read.Read Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
+instance GHC.Show.Show Amazonka.MediaPackage.Types.UtcTiming.UtcTiming
 
 
-module Network.AWS.MediaPackage.Types.DashPackage
+module Amazonka.MediaPackage.Types.DashPackage
 
 -- | A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 --   
@@ -2306,17 +2306,17 @@ dashPackage_adTriggers :: Lens' DashPackage (Maybe [AdTriggersElement])
 --   new periods will be created where the Channel source contains SCTE-35
 --   ad markers.
 dashPackage_periodTriggers :: Lens' DashPackage (Maybe [PeriodTriggersElement])
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.DashPackage.DashPackage
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.DashPackage.DashPackage
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.DashPackage.DashPackage
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.DashPackage.DashPackage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.DashPackage.DashPackage
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.DashPackage.DashPackage
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.DashPackage.DashPackage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.Types.DashPackage.DashPackage
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.DashPackage.DashPackage
+instance GHC.Show.Show Amazonka.MediaPackage.Types.DashPackage.DashPackage
+instance GHC.Read.Read Amazonka.MediaPackage.Types.DashPackage.DashPackage
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.DashPackage.DashPackage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.DashPackage.DashPackage
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.DashPackage.DashPackage
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.DashPackage.DashPackage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.Types.DashPackage.DashPackage
 
 
-module Network.AWS.MediaPackage.Types.OriginEndpoint
+module Amazonka.MediaPackage.Types.OriginEndpoint
 
 -- | An OriginEndpoint resource configuration.
 --   
@@ -2495,16 +2495,16 @@ originEndpoint_tags :: Lens' OriginEndpoint (Maybe (HashMap Text Text))
 --   OriginEndpoint may not be requested. This can be helpful for Live to
 --   VOD harvesting, or for temporarily disabling origination
 originEndpoint_origination :: Lens' OriginEndpoint (Maybe Origination)
-instance GHC.Generics.Generic Network.AWS.MediaPackage.Types.OriginEndpoint.OriginEndpoint
-instance GHC.Show.Show Network.AWS.MediaPackage.Types.OriginEndpoint.OriginEndpoint
-instance GHC.Read.Read Network.AWS.MediaPackage.Types.OriginEndpoint.OriginEndpoint
-instance GHC.Classes.Eq Network.AWS.MediaPackage.Types.OriginEndpoint.OriginEndpoint
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackage.Types.OriginEndpoint.OriginEndpoint
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.Types.OriginEndpoint.OriginEndpoint
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.Types.OriginEndpoint.OriginEndpoint
+instance GHC.Generics.Generic Amazonka.MediaPackage.Types.OriginEndpoint.OriginEndpoint
+instance GHC.Show.Show Amazonka.MediaPackage.Types.OriginEndpoint.OriginEndpoint
+instance GHC.Read.Read Amazonka.MediaPackage.Types.OriginEndpoint.OriginEndpoint
+instance GHC.Classes.Eq Amazonka.MediaPackage.Types.OriginEndpoint.OriginEndpoint
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackage.Types.OriginEndpoint.OriginEndpoint
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.Types.OriginEndpoint.OriginEndpoint
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.Types.OriginEndpoint.OriginEndpoint
 
 
-module Network.AWS.MediaPackage.Types
+module Amazonka.MediaPackage.Types
 
 -- | API version <tt>2017-10-12</tt> of the Amazon Elemental MediaPackage
 --   SDK configuration.
@@ -4457,7 +4457,7 @@ streamSelection_maxVideoBitsPerSecond :: Lens' StreamSelection (Maybe Int)
 -- | <ul>
 --   <li>- | Undocumented operation.</li>
 --   </ul>
-module Network.AWS.MediaPackage.TagResource
+module Amazonka.MediaPackage.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -4496,27 +4496,27 @@ TagResourceResponse' :: TagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newTagResourceResponse :: TagResourceResponse
-instance GHC.Generics.Generic Network.AWS.MediaPackage.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.MediaPackage.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.MediaPackage.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.MediaPackage.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.MediaPackage.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.MediaPackage.TagResource.TagResource
+instance GHC.Show.Show Amazonka.MediaPackage.TagResource.TagResource
+instance GHC.Read.Read Amazonka.MediaPackage.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.MediaPackage.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.MediaPackage.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.MediaPackage.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.MediaPackage.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.TagResource.TagResource
 
 
 -- | Rotate the IngestEndpoint's username and password, as specified by the
 --   IngestEndpoint's id.
-module Network.AWS.MediaPackage.RotateIngestEndpointCredentials
+module Amazonka.MediaPackage.RotateIngestEndpointCredentials
 
 -- | <i>See:</i> <a>newRotateIngestEndpointCredentials</a> smart
 --   constructor.
@@ -4640,28 +4640,28 @@ rotateIngestEndpointCredentialsResponse_tags :: Lens' RotateIngestEndpointCreden
 
 -- | The response's http status code.
 rotateIngestEndpointCredentialsResponse_httpStatus :: Lens' RotateIngestEndpointCredentialsResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
-instance GHC.Show.Show Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
-instance GHC.Read.Read Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
-instance GHC.Classes.Eq Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
-instance GHC.Generics.Generic Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentialsResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentialsResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentialsResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentialsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentialsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
+instance GHC.Generics.Generic Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
+instance GHC.Show.Show Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
+instance GHC.Read.Read Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
+instance GHC.Classes.Eq Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
+instance GHC.Generics.Generic Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentialsResponse
+instance GHC.Show.Show Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentialsResponse
+instance GHC.Read.Read Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentialsResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentialsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentialsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.RotateIngestEndpointCredentials.RotateIngestEndpointCredentials
 
 
 -- | <ul>
 --   <li>- | Undocumented operation.</li>
 --   </ul>
-module Network.AWS.MediaPackage.ListTagsForResource
+module Amazonka.MediaPackage.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -4714,27 +4714,27 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.MediaPackage.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.MediaPackage.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.MediaPackage.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.MediaPackage.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.MediaPackage.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.MediaPackage.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.MediaPackage.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.MediaPackage.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.MediaPackage.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.MediaPackage.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.MediaPackage.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.ListTagsForResource.ListTagsForResource
 
 
 -- | Returns a collection of OriginEndpoint records.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MediaPackage.ListOriginEndpoints
+module Amazonka.MediaPackage.ListOriginEndpoints
 
 -- | <i>See:</i> <a>newListOriginEndpoints</a> smart constructor.
 data ListOriginEndpoints
@@ -4827,28 +4827,28 @@ listOriginEndpointsResponse_nextToken :: Lens' ListOriginEndpointsResponse (Mayb
 
 -- | The response's http status code.
 listOriginEndpointsResponse_httpStatus :: Lens' ListOriginEndpointsResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
-instance GHC.Show.Show Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
-instance GHC.Read.Read Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
-instance GHC.Classes.Eq Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
-instance GHC.Generics.Generic Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpointsResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpointsResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpointsResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpointsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpointsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
+instance GHC.Generics.Generic Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
+instance GHC.Show.Show Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
+instance GHC.Read.Read Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
+instance GHC.Classes.Eq Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
+instance GHC.Generics.Generic Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpointsResponse
+instance GHC.Show.Show Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpointsResponse
+instance GHC.Read.Read Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpointsResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpointsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpointsResponse
+instance Amazonka.Pager.AWSPager Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.ListOriginEndpoints.ListOriginEndpoints
 
 
 -- | Returns a collection of HarvestJob records.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MediaPackage.ListHarvestJobs
+module Amazonka.MediaPackage.ListHarvestJobs
 
 -- | <i>See:</i> <a>newListHarvestJobs</a> smart constructor.
 data ListHarvestJobs
@@ -4953,28 +4953,28 @@ listHarvestJobsResponse_nextToken :: Lens' ListHarvestJobsResponse (Maybe Text)
 
 -- | The response's http status code.
 listHarvestJobsResponse_httpStatus :: Lens' ListHarvestJobsResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobs
-instance GHC.Show.Show Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobs
-instance GHC.Read.Read Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobs
-instance GHC.Classes.Eq Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobs
-instance GHC.Generics.Generic Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobsResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobsResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobsResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobs
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobs
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobs
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.ListHarvestJobs.ListHarvestJobs
+instance GHC.Generics.Generic Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobs
+instance GHC.Show.Show Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobs
+instance GHC.Read.Read Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobs
+instance GHC.Classes.Eq Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobs
+instance GHC.Generics.Generic Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobsResponse
+instance GHC.Show.Show Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobsResponse
+instance GHC.Read.Read Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobsResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobs
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobsResponse
+instance Amazonka.Pager.AWSPager Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobs
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobs
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobs
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.ListHarvestJobs.ListHarvestJobs
 
 
 -- | Returns a collection of Channels.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MediaPackage.ListChannels
+module Amazonka.MediaPackage.ListChannels
 
 -- | <i>See:</i> <a>newListChannels</a> smart constructor.
 data ListChannels
@@ -5052,26 +5052,26 @@ listChannelsResponse_nextToken :: Lens' ListChannelsResponse (Maybe Text)
 
 -- | The response's http status code.
 listChannelsResponse_httpStatus :: Lens' ListChannelsResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.ListChannels.ListChannels
-instance GHC.Show.Show Network.AWS.MediaPackage.ListChannels.ListChannels
-instance GHC.Read.Read Network.AWS.MediaPackage.ListChannels.ListChannels
-instance GHC.Classes.Eq Network.AWS.MediaPackage.ListChannels.ListChannels
-instance GHC.Generics.Generic Network.AWS.MediaPackage.ListChannels.ListChannelsResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.ListChannels.ListChannelsResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.ListChannels.ListChannelsResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.ListChannels.ListChannelsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.ListChannels.ListChannels
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.ListChannels.ListChannelsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MediaPackage.ListChannels.ListChannels
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.ListChannels.ListChannels
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.ListChannels.ListChannels
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.ListChannels.ListChannels
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.ListChannels.ListChannels
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.ListChannels.ListChannels
+instance GHC.Generics.Generic Amazonka.MediaPackage.ListChannels.ListChannels
+instance GHC.Show.Show Amazonka.MediaPackage.ListChannels.ListChannels
+instance GHC.Read.Read Amazonka.MediaPackage.ListChannels.ListChannels
+instance GHC.Classes.Eq Amazonka.MediaPackage.ListChannels.ListChannels
+instance GHC.Generics.Generic Amazonka.MediaPackage.ListChannels.ListChannelsResponse
+instance GHC.Show.Show Amazonka.MediaPackage.ListChannels.ListChannelsResponse
+instance GHC.Read.Read Amazonka.MediaPackage.ListChannels.ListChannelsResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.ListChannels.ListChannelsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.ListChannels.ListChannels
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.ListChannels.ListChannelsResponse
+instance Amazonka.Pager.AWSPager Amazonka.MediaPackage.ListChannels.ListChannels
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.ListChannels.ListChannels
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.ListChannels.ListChannels
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.ListChannels.ListChannels
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.ListChannels.ListChannels
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.ListChannels.ListChannels
 
 
 -- | Gets details about an existing OriginEndpoint.
-module Network.AWS.MediaPackage.DescribeOriginEndpoint
+module Amazonka.MediaPackage.DescribeOriginEndpoint
 
 -- | <i>See:</i> <a>newDescribeOriginEndpoint</a> smart constructor.
 data DescribeOriginEndpoint
@@ -5292,25 +5292,25 @@ describeOriginEndpointResponse_origination :: Lens' DescribeOriginEndpointRespon
 
 -- | The response's http status code.
 describeOriginEndpointResponse_httpStatus :: Lens' DescribeOriginEndpointResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
-instance GHC.Show.Show Network.AWS.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
-instance GHC.Read.Read Network.AWS.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
-instance GHC.Classes.Eq Network.AWS.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
-instance GHC.Generics.Generic Network.AWS.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpointResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpointResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpointResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
+instance GHC.Generics.Generic Amazonka.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
+instance GHC.Show.Show Amazonka.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
+instance GHC.Read.Read Amazonka.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
+instance GHC.Classes.Eq Amazonka.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
+instance GHC.Generics.Generic Amazonka.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpointResponse
+instance GHC.Show.Show Amazonka.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpointResponse
+instance GHC.Read.Read Amazonka.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpointResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpointResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpointResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.DescribeOriginEndpoint.DescribeOriginEndpoint
 
 
 -- | Gets details about an existing HarvestJob.
-module Network.AWS.MediaPackage.DescribeHarvestJob
+module Amazonka.MediaPackage.DescribeHarvestJob
 
 -- | <i>See:</i> <a>newDescribeHarvestJob</a> smart constructor.
 data DescribeHarvestJob
@@ -5460,25 +5460,25 @@ describeHarvestJobResponse_id :: Lens' DescribeHarvestJobResponse (Maybe Text)
 
 -- | The response's http status code.
 describeHarvestJobResponse_httpStatus :: Lens' DescribeHarvestJobResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
-instance GHC.Show.Show Network.AWS.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
-instance GHC.Read.Read Network.AWS.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
-instance GHC.Classes.Eq Network.AWS.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
-instance GHC.Generics.Generic Network.AWS.MediaPackage.DescribeHarvestJob.DescribeHarvestJobResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.DescribeHarvestJob.DescribeHarvestJobResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.DescribeHarvestJob.DescribeHarvestJobResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.DescribeHarvestJob.DescribeHarvestJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.DescribeHarvestJob.DescribeHarvestJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
+instance GHC.Generics.Generic Amazonka.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
+instance GHC.Show.Show Amazonka.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
+instance GHC.Read.Read Amazonka.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
+instance GHC.Classes.Eq Amazonka.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
+instance GHC.Generics.Generic Amazonka.MediaPackage.DescribeHarvestJob.DescribeHarvestJobResponse
+instance GHC.Show.Show Amazonka.MediaPackage.DescribeHarvestJob.DescribeHarvestJobResponse
+instance GHC.Read.Read Amazonka.MediaPackage.DescribeHarvestJob.DescribeHarvestJobResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.DescribeHarvestJob.DescribeHarvestJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.DescribeHarvestJob.DescribeHarvestJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.DescribeHarvestJob.DescribeHarvestJob
 
 
 -- | Gets details about a Channel.
-module Network.AWS.MediaPackage.DescribeChannel
+module Amazonka.MediaPackage.DescribeChannel
 
 -- | <i>See:</i> <a>newDescribeChannel</a> smart constructor.
 data DescribeChannel
@@ -5584,25 +5584,25 @@ describeChannelResponse_tags :: Lens' DescribeChannelResponse (Maybe (HashMap Te
 
 -- | The response's http status code.
 describeChannelResponse_httpStatus :: Lens' DescribeChannelResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.DescribeChannel.DescribeChannel
-instance GHC.Show.Show Network.AWS.MediaPackage.DescribeChannel.DescribeChannel
-instance GHC.Read.Read Network.AWS.MediaPackage.DescribeChannel.DescribeChannel
-instance GHC.Classes.Eq Network.AWS.MediaPackage.DescribeChannel.DescribeChannel
-instance GHC.Generics.Generic Network.AWS.MediaPackage.DescribeChannel.DescribeChannelResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.DescribeChannel.DescribeChannelResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.DescribeChannel.DescribeChannelResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.DescribeChannel.DescribeChannelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.DescribeChannel.DescribeChannel
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.DescribeChannel.DescribeChannelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.DescribeChannel.DescribeChannel
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.DescribeChannel.DescribeChannel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.DescribeChannel.DescribeChannel
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.DescribeChannel.DescribeChannel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.DescribeChannel.DescribeChannel
+instance GHC.Generics.Generic Amazonka.MediaPackage.DescribeChannel.DescribeChannel
+instance GHC.Show.Show Amazonka.MediaPackage.DescribeChannel.DescribeChannel
+instance GHC.Read.Read Amazonka.MediaPackage.DescribeChannel.DescribeChannel
+instance GHC.Classes.Eq Amazonka.MediaPackage.DescribeChannel.DescribeChannel
+instance GHC.Generics.Generic Amazonka.MediaPackage.DescribeChannel.DescribeChannelResponse
+instance GHC.Show.Show Amazonka.MediaPackage.DescribeChannel.DescribeChannelResponse
+instance GHC.Read.Read Amazonka.MediaPackage.DescribeChannel.DescribeChannelResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.DescribeChannel.DescribeChannelResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.DescribeChannel.DescribeChannel
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.DescribeChannel.DescribeChannelResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.DescribeChannel.DescribeChannel
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.DescribeChannel.DescribeChannel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.DescribeChannel.DescribeChannel
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.DescribeChannel.DescribeChannel
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.DescribeChannel.DescribeChannel
 
 
 -- | Deletes an existing OriginEndpoint.
-module Network.AWS.MediaPackage.DeleteOriginEndpoint
+module Amazonka.MediaPackage.DeleteOriginEndpoint
 
 -- | <i>See:</i> <a>newDeleteOriginEndpoint</a> smart constructor.
 data DeleteOriginEndpoint
@@ -5650,25 +5650,25 @@ newDeleteOriginEndpointResponse :: Int -> DeleteOriginEndpointResponse
 
 -- | The response's http status code.
 deleteOriginEndpointResponse_httpStatus :: Lens' DeleteOriginEndpointResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
-instance GHC.Show.Show Network.AWS.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
-instance GHC.Read.Read Network.AWS.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
-instance GHC.Classes.Eq Network.AWS.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
-instance GHC.Generics.Generic Network.AWS.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpointResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpointResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpointResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
+instance GHC.Generics.Generic Amazonka.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
+instance GHC.Show.Show Amazonka.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
+instance GHC.Read.Read Amazonka.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
+instance GHC.Classes.Eq Amazonka.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
+instance GHC.Generics.Generic Amazonka.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpointResponse
+instance GHC.Show.Show Amazonka.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpointResponse
+instance GHC.Read.Read Amazonka.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpointResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpointResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpointResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.DeleteOriginEndpoint.DeleteOriginEndpoint
 
 
 -- | Deletes an existing Channel.
-module Network.AWS.MediaPackage.DeleteChannel
+module Amazonka.MediaPackage.DeleteChannel
 
 -- | <i>See:</i> <a>newDeleteChannel</a> smart constructor.
 data DeleteChannel
@@ -5716,25 +5716,25 @@ newDeleteChannelResponse :: Int -> DeleteChannelResponse
 
 -- | The response's http status code.
 deleteChannelResponse_httpStatus :: Lens' DeleteChannelResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.DeleteChannel.DeleteChannel
-instance GHC.Show.Show Network.AWS.MediaPackage.DeleteChannel.DeleteChannel
-instance GHC.Read.Read Network.AWS.MediaPackage.DeleteChannel.DeleteChannel
-instance GHC.Classes.Eq Network.AWS.MediaPackage.DeleteChannel.DeleteChannel
-instance GHC.Generics.Generic Network.AWS.MediaPackage.DeleteChannel.DeleteChannelResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.DeleteChannel.DeleteChannelResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.DeleteChannel.DeleteChannelResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.DeleteChannel.DeleteChannelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.DeleteChannel.DeleteChannel
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.DeleteChannel.DeleteChannelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.DeleteChannel.DeleteChannel
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.DeleteChannel.DeleteChannel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.DeleteChannel.DeleteChannel
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.DeleteChannel.DeleteChannel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.DeleteChannel.DeleteChannel
+instance GHC.Generics.Generic Amazonka.MediaPackage.DeleteChannel.DeleteChannel
+instance GHC.Show.Show Amazonka.MediaPackage.DeleteChannel.DeleteChannel
+instance GHC.Read.Read Amazonka.MediaPackage.DeleteChannel.DeleteChannel
+instance GHC.Classes.Eq Amazonka.MediaPackage.DeleteChannel.DeleteChannel
+instance GHC.Generics.Generic Amazonka.MediaPackage.DeleteChannel.DeleteChannelResponse
+instance GHC.Show.Show Amazonka.MediaPackage.DeleteChannel.DeleteChannelResponse
+instance GHC.Read.Read Amazonka.MediaPackage.DeleteChannel.DeleteChannelResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.DeleteChannel.DeleteChannelResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.DeleteChannel.DeleteChannel
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.DeleteChannel.DeleteChannelResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.DeleteChannel.DeleteChannel
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.DeleteChannel.DeleteChannel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.DeleteChannel.DeleteChannel
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.DeleteChannel.DeleteChannel
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.DeleteChannel.DeleteChannel
 
 
 -- | Creates a new OriginEndpoint record.
-module Network.AWS.MediaPackage.CreateOriginEndpoint
+module Amazonka.MediaPackage.CreateOriginEndpoint
 
 -- | Configuration parameters used to create a new OriginEndpoint.
 --   
@@ -6096,26 +6096,26 @@ createOriginEndpointResponse_origination :: Lens' CreateOriginEndpointResponse (
 
 -- | The response's http status code.
 createOriginEndpointResponse_httpStatus :: Lens' CreateOriginEndpointResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
-instance GHC.Show.Show Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
-instance GHC.Read.Read Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
-instance GHC.Classes.Eq Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
-instance GHC.Generics.Generic Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpointResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpointResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpointResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
+instance GHC.Generics.Generic Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
+instance GHC.Show.Show Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
+instance GHC.Read.Read Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
+instance GHC.Classes.Eq Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
+instance GHC.Generics.Generic Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpointResponse
+instance GHC.Show.Show Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpointResponse
+instance GHC.Read.Read Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpointResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpointResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpointResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.CreateOriginEndpoint.CreateOriginEndpoint
 
 
 -- | Creates a new HarvestJob record.
-module Network.AWS.MediaPackage.CreateHarvestJob
+module Amazonka.MediaPackage.CreateHarvestJob
 
 -- | Configuration parameters used to create a new HarvestJob.
 --   
@@ -6308,26 +6308,26 @@ createHarvestJobResponse_id :: Lens' CreateHarvestJobResponse (Maybe Text)
 
 -- | The response's http status code.
 createHarvestJobResponse_httpStatus :: Lens' CreateHarvestJobResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJob
-instance GHC.Show.Show Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJob
-instance GHC.Read.Read Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJob
-instance GHC.Classes.Eq Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJob
-instance GHC.Generics.Generic Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJobResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJobResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJobResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJob
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJob
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.CreateHarvestJob.CreateHarvestJob
+instance GHC.Generics.Generic Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJob
+instance GHC.Show.Show Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJob
+instance GHC.Read.Read Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJob
+instance GHC.Classes.Eq Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJob
+instance GHC.Generics.Generic Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJobResponse
+instance GHC.Show.Show Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJobResponse
+instance GHC.Read.Read Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJobResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJob
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJob
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJob
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJob
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.CreateHarvestJob.CreateHarvestJob
 
 
 -- | Creates a new Channel.
-module Network.AWS.MediaPackage.CreateChannel
+module Amazonka.MediaPackage.CreateChannel
 
 -- | A new Channel configuration.
 --   
@@ -6454,26 +6454,26 @@ createChannelResponse_tags :: Lens' CreateChannelResponse (Maybe (HashMap Text T
 
 -- | The response's http status code.
 createChannelResponse_httpStatus :: Lens' CreateChannelResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.CreateChannel.CreateChannel
-instance GHC.Show.Show Network.AWS.MediaPackage.CreateChannel.CreateChannel
-instance GHC.Read.Read Network.AWS.MediaPackage.CreateChannel.CreateChannel
-instance GHC.Classes.Eq Network.AWS.MediaPackage.CreateChannel.CreateChannel
-instance GHC.Generics.Generic Network.AWS.MediaPackage.CreateChannel.CreateChannelResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.CreateChannel.CreateChannelResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.CreateChannel.CreateChannelResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.CreateChannel.CreateChannelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.CreateChannel.CreateChannel
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.CreateChannel.CreateChannelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.CreateChannel.CreateChannel
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.CreateChannel.CreateChannel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.CreateChannel.CreateChannel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.CreateChannel.CreateChannel
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.CreateChannel.CreateChannel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.CreateChannel.CreateChannel
+instance GHC.Generics.Generic Amazonka.MediaPackage.CreateChannel.CreateChannel
+instance GHC.Show.Show Amazonka.MediaPackage.CreateChannel.CreateChannel
+instance GHC.Read.Read Amazonka.MediaPackage.CreateChannel.CreateChannel
+instance GHC.Classes.Eq Amazonka.MediaPackage.CreateChannel.CreateChannel
+instance GHC.Generics.Generic Amazonka.MediaPackage.CreateChannel.CreateChannelResponse
+instance GHC.Show.Show Amazonka.MediaPackage.CreateChannel.CreateChannelResponse
+instance GHC.Read.Read Amazonka.MediaPackage.CreateChannel.CreateChannelResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.CreateChannel.CreateChannelResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.CreateChannel.CreateChannel
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.CreateChannel.CreateChannelResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.CreateChannel.CreateChannel
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.CreateChannel.CreateChannel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.CreateChannel.CreateChannel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.CreateChannel.CreateChannel
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.CreateChannel.CreateChannel
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.CreateChannel.CreateChannel
 
 
 -- | Changes the Channel's properities to configure log subscription
-module Network.AWS.MediaPackage.ConfigureLogs
+module Amazonka.MediaPackage.ConfigureLogs
 
 -- | the option to configure log subscription.
 --   
@@ -6594,28 +6594,28 @@ configureLogsResponse_tags :: Lens' ConfigureLogsResponse (Maybe (HashMap Text T
 
 -- | The response's http status code.
 configureLogsResponse_httpStatus :: Lens' ConfigureLogsResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogs
-instance GHC.Show.Show Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogs
-instance GHC.Read.Read Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogs
-instance GHC.Classes.Eq Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogs
-instance GHC.Generics.Generic Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogsResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogsResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogsResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogs
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogs
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogs
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.ConfigureLogs.ConfigureLogs
+instance GHC.Generics.Generic Amazonka.MediaPackage.ConfigureLogs.ConfigureLogs
+instance GHC.Show.Show Amazonka.MediaPackage.ConfigureLogs.ConfigureLogs
+instance GHC.Read.Read Amazonka.MediaPackage.ConfigureLogs.ConfigureLogs
+instance GHC.Classes.Eq Amazonka.MediaPackage.ConfigureLogs.ConfigureLogs
+instance GHC.Generics.Generic Amazonka.MediaPackage.ConfigureLogs.ConfigureLogsResponse
+instance GHC.Show.Show Amazonka.MediaPackage.ConfigureLogs.ConfigureLogsResponse
+instance GHC.Read.Read Amazonka.MediaPackage.ConfigureLogs.ConfigureLogsResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.ConfigureLogs.ConfigureLogsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.ConfigureLogs.ConfigureLogs
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.ConfigureLogs.ConfigureLogsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.ConfigureLogs.ConfigureLogs
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.ConfigureLogs.ConfigureLogs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.ConfigureLogs.ConfigureLogs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.ConfigureLogs.ConfigureLogs
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.ConfigureLogs.ConfigureLogs
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.ConfigureLogs.ConfigureLogs
 
 
 -- | <ul>
 --   <li>- | Undocumented operation.</li>
 --   </ul>
-module Network.AWS.MediaPackage.UntagResource
+module Amazonka.MediaPackage.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -6657,25 +6657,25 @@ UntagResourceResponse' :: UntagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUntagResourceResponse :: UntagResourceResponse
-instance GHC.Generics.Generic Network.AWS.MediaPackage.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.MediaPackage.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.MediaPackage.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.MediaPackage.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.MediaPackage.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.MediaPackage.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.MediaPackage.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.MediaPackage.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.MediaPackage.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.MediaPackage.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.MediaPackage.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.MediaPackage.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.UntagResource.UntagResource
 
 
 -- | Updates an existing Channel.
-module Network.AWS.MediaPackage.UpdateChannel
+module Amazonka.MediaPackage.UpdateChannel
 
 -- | Configuration parameters used to update the Channel.
 --   
@@ -6792,26 +6792,26 @@ updateChannelResponse_tags :: Lens' UpdateChannelResponse (Maybe (HashMap Text T
 
 -- | The response's http status code.
 updateChannelResponse_httpStatus :: Lens' UpdateChannelResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.UpdateChannel.UpdateChannel
-instance GHC.Show.Show Network.AWS.MediaPackage.UpdateChannel.UpdateChannel
-instance GHC.Read.Read Network.AWS.MediaPackage.UpdateChannel.UpdateChannel
-instance GHC.Classes.Eq Network.AWS.MediaPackage.UpdateChannel.UpdateChannel
-instance GHC.Generics.Generic Network.AWS.MediaPackage.UpdateChannel.UpdateChannelResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.UpdateChannel.UpdateChannelResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.UpdateChannel.UpdateChannelResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.UpdateChannel.UpdateChannelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.UpdateChannel.UpdateChannel
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.UpdateChannel.UpdateChannelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.UpdateChannel.UpdateChannel
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.UpdateChannel.UpdateChannel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.UpdateChannel.UpdateChannel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.UpdateChannel.UpdateChannel
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.UpdateChannel.UpdateChannel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.UpdateChannel.UpdateChannel
+instance GHC.Generics.Generic Amazonka.MediaPackage.UpdateChannel.UpdateChannel
+instance GHC.Show.Show Amazonka.MediaPackage.UpdateChannel.UpdateChannel
+instance GHC.Read.Read Amazonka.MediaPackage.UpdateChannel.UpdateChannel
+instance GHC.Classes.Eq Amazonka.MediaPackage.UpdateChannel.UpdateChannel
+instance GHC.Generics.Generic Amazonka.MediaPackage.UpdateChannel.UpdateChannelResponse
+instance GHC.Show.Show Amazonka.MediaPackage.UpdateChannel.UpdateChannelResponse
+instance GHC.Read.Read Amazonka.MediaPackage.UpdateChannel.UpdateChannelResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.UpdateChannel.UpdateChannelResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.UpdateChannel.UpdateChannel
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.UpdateChannel.UpdateChannelResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.UpdateChannel.UpdateChannel
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.UpdateChannel.UpdateChannel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.UpdateChannel.UpdateChannel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.UpdateChannel.UpdateChannel
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.UpdateChannel.UpdateChannel
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.UpdateChannel.UpdateChannel
 
 
 -- | Updates an existing OriginEndpoint.
-module Network.AWS.MediaPackage.UpdateOriginEndpoint
+module Amazonka.MediaPackage.UpdateOriginEndpoint
 
 -- | Configuration parameters used to update an existing OriginEndpoint.
 --   
@@ -7147,25 +7147,25 @@ updateOriginEndpointResponse_origination :: Lens' UpdateOriginEndpointResponse (
 
 -- | The response's http status code.
 updateOriginEndpointResponse_httpStatus :: Lens' UpdateOriginEndpointResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
-instance GHC.Show.Show Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
-instance GHC.Read.Read Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
-instance GHC.Classes.Eq Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
-instance GHC.Generics.Generic Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpointResponse
-instance GHC.Show.Show Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpointResponse
-instance GHC.Read.Read Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpointResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
-instance Control.DeepSeq.NFData Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
+instance GHC.Generics.Generic Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
+instance GHC.Show.Show Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
+instance GHC.Read.Read Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
+instance GHC.Classes.Eq Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
+instance GHC.Generics.Generic Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpointResponse
+instance GHC.Show.Show Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpointResponse
+instance GHC.Read.Read Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpointResponse
+instance GHC.Classes.Eq Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpointResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpointResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
+instance Control.DeepSeq.NFData Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackage.UpdateOriginEndpoint.UpdateOriginEndpoint
 
 
-module Network.AWS.MediaPackage.Lens
+module Amazonka.MediaPackage.Lens
 
 -- | Undocumented member.
 createHarvestJob_s3Destination :: Lens' CreateHarvestJob S3Destination
@@ -8274,14 +8274,14 @@ streamSelection_minVideoBitsPerSecond :: Lens' StreamSelection (Maybe Int)
 streamSelection_maxVideoBitsPerSecond :: Lens' StreamSelection (Maybe Int)
 
 
-module Network.AWS.MediaPackage.Waiters
+module Amazonka.MediaPackage.Waiters
 
 
 -- | Derived from API version <tt>2017-10-12</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
 --   
 --   AWS Elemental MediaPackage
-module Network.AWS.MediaPackage
+module Amazonka.MediaPackage
 
 -- | API version <tt>2017-10-12</tt> of the Amazon Elemental MediaPackage
 --   SDK configuration.

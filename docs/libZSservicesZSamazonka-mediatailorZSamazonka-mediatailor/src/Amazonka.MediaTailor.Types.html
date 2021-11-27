@@ -1,0 +1,691 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Amazonka.MediaTailor.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaTailor.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.html#_BadRequestException"><span class="hs-identifier">_BadRequestException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AccessType</span></span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html#AccessType"><span class="hs-identifier">AccessType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelState</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ChannelState.html#ChannelState"><span class="hs-identifier">ChannelState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MessageType</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.MessageType.html#MessageType"><span class="hs-identifier">MessageType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Mode</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Mode.html#Mode"><span class="hs-identifier">Mode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Operator</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Operator.html#Operator"><span class="hs-identifier">Operator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OriginManifestType</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.OriginManifestType.html#OriginManifestType"><span class="hs-identifier">OriginManifestType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PlaybackMode</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackMode.html#PlaybackMode"><span class="hs-identifier">PlaybackMode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RelativePosition</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.RelativePosition.html#RelativePosition"><span class="hs-identifier">RelativePosition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScheduleEntryType</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType"><span class="hs-identifier">ScheduleEntryType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Type</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Type.html#Type"><span class="hs-identifier">Type</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AccessConfiguration</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessConfiguration.html#AccessConfiguration"><span class="hs-identifier">AccessConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessConfiguration.html#newAccessConfiguration"><span class="hs-identifier">newAccessConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessConfiguration.html#accessConfiguration_accessType"><span class="hs-identifier">accessConfiguration_accessType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessConfiguration.html#accessConfiguration_secretsManagerAccessTokenConfiguration"><span class="hs-identifier">accessConfiguration_secretsManagerAccessTokenConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AdBreak</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AdBreak.html#AdBreak"><span class="hs-identifier">AdBreak</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AdBreak.html#newAdBreak"><span class="hs-identifier">newAdBreak</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AdBreak.html#adBreak_spliceInsertMessage"><span class="hs-identifier">adBreak_spliceInsertMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AdBreak.html#adBreak_messageType"><span class="hs-identifier">adBreak_messageType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AdBreak.html#adBreak_slate"><span class="hs-identifier">adBreak_slate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AdBreak.html#adBreak_offsetMillis"><span class="hs-identifier">adBreak_offsetMillis</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AdMarkerPassthrough</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AdMarkerPassthrough.html#AdMarkerPassthrough"><span class="hs-identifier">AdMarkerPassthrough</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AdMarkerPassthrough.html#newAdMarkerPassthrough"><span class="hs-identifier">newAdMarkerPassthrough</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AdMarkerPassthrough.html#adMarkerPassthrough_enabled"><span class="hs-identifier">adMarkerPassthrough_enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Alert</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Alert.html#Alert"><span class="hs-identifier">Alert</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Alert.html#newAlert"><span class="hs-identifier">newAlert</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Alert.html#alert_resourceArn"><span class="hs-identifier">alert_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Alert.html#alert_alertCode"><span class="hs-identifier">alert_alertCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Alert.html#alert_lastModifiedTime"><span class="hs-identifier">alert_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Alert.html#alert_relatedResourceArns"><span class="hs-identifier">alert_relatedResourceArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Alert.html#alert_alertMessage"><span class="hs-identifier">alert_alertMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AvailMatchingCriteria</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria"><span class="hs-identifier">AvailMatchingCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#newAvailMatchingCriteria"><span class="hs-identifier">newAvailMatchingCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#availMatchingCriteria_operator"><span class="hs-identifier">availMatchingCriteria_operator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#availMatchingCriteria_dynamicVariable"><span class="hs-identifier">availMatchingCriteria_dynamicVariable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AvailSuppression</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailSuppression.html#AvailSuppression"><span class="hs-identifier">AvailSuppression</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailSuppression.html#newAvailSuppression"><span class="hs-identifier">newAvailSuppression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailSuppression.html#availSuppression_value"><span class="hs-identifier">availSuppression_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailSuppression.html#availSuppression_mode"><span class="hs-identifier">availSuppression_mode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Bumper</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Bumper.html#Bumper"><span class="hs-identifier">Bumper</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Bumper.html#newBumper"><span class="hs-identifier">newBumper</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Bumper.html#bumper_endUrl"><span class="hs-identifier">bumper_endUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Bumper.html#bumper_startUrl"><span class="hs-identifier">bumper_startUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CdnConfiguration</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.CdnConfiguration.html#CdnConfiguration"><span class="hs-identifier">CdnConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.CdnConfiguration.html#newCdnConfiguration"><span class="hs-identifier">newCdnConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.CdnConfiguration.html#cdnConfiguration_adSegmentUrlPrefix"><span class="hs-identifier">cdnConfiguration_adSegmentUrlPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.CdnConfiguration.html#cdnConfiguration_contentSegmentUrlPrefix"><span class="hs-identifier">cdnConfiguration_contentSegmentUrlPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Channel</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Channel.html#Channel"><span class="hs-identifier">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Channel.html#newChannel"><span class="hs-identifier">newChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Channel.html#channel_creationTime"><span class="hs-identifier">channel_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Channel.html#channel_lastModifiedTime"><span class="hs-identifier">channel_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Channel.html#channel_fillerSlate"><span class="hs-identifier">channel_fillerSlate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Channel.html#channel_tags"><span class="hs-identifier">channel_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Channel.html#channel_channelState"><span class="hs-identifier">channel_channelState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Channel.html#channel_channelName"><span class="hs-identifier">channel_channelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Channel.html#channel_outputs"><span class="hs-identifier">channel_outputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Channel.html#channel_arn"><span class="hs-identifier">channel_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Channel.html#channel_playbackMode"><span class="hs-identifier">channel_playbackMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DashConfiguration</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashConfiguration.html#DashConfiguration"><span class="hs-identifier">DashConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashConfiguration.html#newDashConfiguration"><span class="hs-identifier">newDashConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashConfiguration.html#dashConfiguration_manifestEndpointPrefix"><span class="hs-identifier">dashConfiguration_manifestEndpointPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashConfiguration.html#dashConfiguration_originManifestType"><span class="hs-identifier">dashConfiguration_originManifestType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashConfiguration.html#dashConfiguration_mpdLocation"><span class="hs-identifier">dashConfiguration_mpdLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DashConfigurationForPut</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashConfigurationForPut.html#DashConfigurationForPut"><span class="hs-identifier">DashConfigurationForPut</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashConfigurationForPut.html#newDashConfigurationForPut"><span class="hs-identifier">newDashConfigurationForPut</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashConfigurationForPut.html#dashConfigurationForPut_originManifestType"><span class="hs-identifier">dashConfigurationForPut_originManifestType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashConfigurationForPut.html#dashConfigurationForPut_mpdLocation"><span class="hs-identifier">dashConfigurationForPut_mpdLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DashPlaylistSettings</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashPlaylistSettings.html#DashPlaylistSettings"><span class="hs-identifier">DashPlaylistSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashPlaylistSettings.html#newDashPlaylistSettings"><span class="hs-identifier">newDashPlaylistSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashPlaylistSettings.html#dashPlaylistSettings_minBufferTimeSeconds"><span class="hs-identifier">dashPlaylistSettings_minBufferTimeSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashPlaylistSettings.html#dashPlaylistSettings_minUpdatePeriodSeconds"><span class="hs-identifier">dashPlaylistSettings_minUpdatePeriodSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashPlaylistSettings.html#dashPlaylistSettings_suggestedPresentationDelaySeconds"><span class="hs-identifier">dashPlaylistSettings_suggestedPresentationDelaySeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashPlaylistSettings.html#dashPlaylistSettings_manifestWindowSeconds"><span class="hs-identifier">dashPlaylistSettings_manifestWindowSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DefaultSegmentDeliveryConfiguration</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DefaultSegmentDeliveryConfiguration.html#DefaultSegmentDeliveryConfiguration"><span class="hs-identifier">DefaultSegmentDeliveryConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DefaultSegmentDeliveryConfiguration.html#newDefaultSegmentDeliveryConfiguration"><span class="hs-identifier">newDefaultSegmentDeliveryConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DefaultSegmentDeliveryConfiguration.html#defaultSegmentDeliveryConfiguration_baseUrl"><span class="hs-identifier">defaultSegmentDeliveryConfiguration_baseUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HlsConfiguration</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HlsConfiguration.html#HlsConfiguration"><span class="hs-identifier">HlsConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HlsConfiguration.html#newHlsConfiguration"><span class="hs-identifier">newHlsConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HlsConfiguration.html#hlsConfiguration_manifestEndpointPrefix"><span class="hs-identifier">hlsConfiguration_manifestEndpointPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HlsPlaylistSettings</span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HlsPlaylistSettings.html#HlsPlaylistSettings"><span class="hs-identifier">HlsPlaylistSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HlsPlaylistSettings.html#newHlsPlaylistSettings"><span class="hs-identifier">newHlsPlaylistSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HlsPlaylistSettings.html#hlsPlaylistSettings_manifestWindowSeconds"><span class="hs-identifier">hlsPlaylistSettings_manifestWindowSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HttpConfiguration</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HttpConfiguration.html#HttpConfiguration"><span class="hs-identifier">HttpConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HttpConfiguration.html#newHttpConfiguration"><span class="hs-identifier">newHttpConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HttpConfiguration.html#httpConfiguration_baseUrl"><span class="hs-identifier">httpConfiguration_baseUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HttpPackageConfiguration</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HttpPackageConfiguration.html#HttpPackageConfiguration"><span class="hs-identifier">HttpPackageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HttpPackageConfiguration.html#newHttpPackageConfiguration"><span class="hs-identifier">newHttpPackageConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HttpPackageConfiguration.html#httpPackageConfiguration_path"><span class="hs-identifier">httpPackageConfiguration_path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HttpPackageConfiguration.html#httpPackageConfiguration_type"><span class="hs-identifier">httpPackageConfiguration_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HttpPackageConfiguration.html#httpPackageConfiguration_sourceGroup"><span class="hs-identifier">httpPackageConfiguration_sourceGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LivePreRollConfiguration</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.LivePreRollConfiguration.html#LivePreRollConfiguration"><span class="hs-identifier">LivePreRollConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.LivePreRollConfiguration.html#newLivePreRollConfiguration"><span class="hs-identifier">newLivePreRollConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.LivePreRollConfiguration.html#livePreRollConfiguration_adDecisionServerUrl"><span class="hs-identifier">livePreRollConfiguration_adDecisionServerUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.LivePreRollConfiguration.html#livePreRollConfiguration_maxDurationSeconds"><span class="hs-identifier">livePreRollConfiguration_maxDurationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LogConfiguration</span></span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier">LogConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.LogConfiguration.html#newLogConfiguration"><span class="hs-identifier">newLogConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.LogConfiguration.html#logConfiguration_percentEnabled"><span class="hs-identifier">logConfiguration_percentEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ManifestProcessingRules</span></span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ManifestProcessingRules.html#ManifestProcessingRules"><span class="hs-identifier">ManifestProcessingRules</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ManifestProcessingRules.html#newManifestProcessingRules"><span class="hs-identifier">newManifestProcessingRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ManifestProcessingRules.html#manifestProcessingRules_adMarkerPassthrough"><span class="hs-identifier">manifestProcessingRules_adMarkerPassthrough</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PlaybackConfiguration</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier">PlaybackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#newPlaybackConfiguration"><span class="hs-identifier">newPlaybackConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_playbackEndpointPrefix"><span class="hs-identifier">playbackConfiguration_playbackEndpointPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_hlsConfiguration"><span class="hs-identifier">playbackConfiguration_hlsConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_personalizationThresholdSeconds"><span class="hs-identifier">playbackConfiguration_personalizationThresholdSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_playbackConfigurationArn"><span class="hs-identifier">playbackConfiguration_playbackConfigurationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_availSuppression"><span class="hs-identifier">playbackConfiguration_availSuppression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_bumper"><span class="hs-identifier">playbackConfiguration_bumper</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_adDecisionServerUrl"><span class="hs-identifier">playbackConfiguration_adDecisionServerUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_videoContentSourceUrl"><span class="hs-identifier">playbackConfiguration_videoContentSourceUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_dashConfiguration"><span class="hs-identifier">playbackConfiguration_dashConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_manifestProcessingRules"><span class="hs-identifier">playbackConfiguration_manifestProcessingRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_logConfiguration"><span class="hs-identifier">playbackConfiguration_logConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_livePreRollConfiguration"><span class="hs-identifier">playbackConfiguration_livePreRollConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_name"><span class="hs-identifier">playbackConfiguration_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_sessionInitializationEndpointPrefix"><span class="hs-identifier">playbackConfiguration_sessionInitializationEndpointPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_configurationAliases"><span class="hs-identifier">playbackConfiguration_configurationAliases</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_transcodeProfileName"><span class="hs-identifier">playbackConfiguration_transcodeProfileName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_tags"><span class="hs-identifier">playbackConfiguration_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_slateAdUrl"><span class="hs-identifier">playbackConfiguration_slateAdUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#playbackConfiguration_cdnConfiguration"><span class="hs-identifier">playbackConfiguration_cdnConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PrefetchConsumption</span></span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchConsumption.html#PrefetchConsumption"><span class="hs-identifier">PrefetchConsumption</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchConsumption.html#newPrefetchConsumption"><span class="hs-identifier">newPrefetchConsumption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchConsumption.html#prefetchConsumption_startTime"><span class="hs-identifier">prefetchConsumption_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchConsumption.html#prefetchConsumption_availMatchingCriteria"><span class="hs-identifier">prefetchConsumption_availMatchingCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchConsumption.html#prefetchConsumption_endTime"><span class="hs-identifier">prefetchConsumption_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PrefetchRetrieval</span></span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchRetrieval.html#PrefetchRetrieval"><span class="hs-identifier">PrefetchRetrieval</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchRetrieval.html#newPrefetchRetrieval"><span class="hs-identifier">newPrefetchRetrieval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchRetrieval.html#prefetchRetrieval_startTime"><span class="hs-identifier">prefetchRetrieval_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchRetrieval.html#prefetchRetrieval_dynamicVariables"><span class="hs-identifier">prefetchRetrieval_dynamicVariables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchRetrieval.html#prefetchRetrieval_endTime"><span class="hs-identifier">prefetchRetrieval_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PrefetchSchedule</span></span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier">PrefetchSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchSchedule.html#newPrefetchSchedule"><span class="hs-identifier">newPrefetchSchedule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_streamId"><span class="hs-identifier">prefetchSchedule_streamId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_retrieval"><span class="hs-identifier">prefetchSchedule_retrieval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_consumption"><span class="hs-identifier">prefetchSchedule_consumption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_arn"><span class="hs-identifier">prefetchSchedule_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_playbackConfigurationName"><span class="hs-identifier">prefetchSchedule_playbackConfigurationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_name"><span class="hs-identifier">prefetchSchedule_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RequestOutputItem</span></span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.RequestOutputItem.html#RequestOutputItem"><span class="hs-identifier">RequestOutputItem</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.RequestOutputItem.html#newRequestOutputItem"><span class="hs-identifier">newRequestOutputItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.RequestOutputItem.html#requestOutputItem_hlsPlaylistSettings"><span class="hs-identifier">requestOutputItem_hlsPlaylistSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.RequestOutputItem.html#requestOutputItem_dashPlaylistSettings"><span class="hs-identifier">requestOutputItem_dashPlaylistSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.RequestOutputItem.html#requestOutputItem_manifestName"><span class="hs-identifier">requestOutputItem_manifestName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.RequestOutputItem.html#requestOutputItem_sourceGroup"><span class="hs-identifier">requestOutputItem_sourceGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ResponseOutputItem</span></span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ResponseOutputItem.html#ResponseOutputItem"><span class="hs-identifier">ResponseOutputItem</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ResponseOutputItem.html#newResponseOutputItem"><span class="hs-identifier">newResponseOutputItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ResponseOutputItem.html#responseOutputItem_hlsPlaylistSettings"><span class="hs-identifier">responseOutputItem_hlsPlaylistSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ResponseOutputItem.html#responseOutputItem_dashPlaylistSettings"><span class="hs-identifier">responseOutputItem_dashPlaylistSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ResponseOutputItem.html#responseOutputItem_manifestName"><span class="hs-identifier">responseOutputItem_manifestName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ResponseOutputItem.html#responseOutputItem_playbackUrl"><span class="hs-identifier">responseOutputItem_playbackUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ResponseOutputItem.html#responseOutputItem_sourceGroup"><span class="hs-identifier">responseOutputItem_sourceGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScheduleAdBreak</span></span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleAdBreak.html#ScheduleAdBreak"><span class="hs-identifier">ScheduleAdBreak</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleAdBreak.html#newScheduleAdBreak"><span class="hs-identifier">newScheduleAdBreak</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleAdBreak.html#scheduleAdBreak_sourceLocationName"><span class="hs-identifier">scheduleAdBreak_sourceLocationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleAdBreak.html#scheduleAdBreak_approximateDurationSeconds"><span class="hs-identifier">scheduleAdBreak_approximateDurationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleAdBreak.html#scheduleAdBreak_vodSourceName"><span class="hs-identifier">scheduleAdBreak_vodSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleAdBreak.html#scheduleAdBreak_approximateStartTime"><span class="hs-identifier">scheduleAdBreak_approximateStartTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScheduleConfiguration</span></span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleConfiguration.html#ScheduleConfiguration"><span class="hs-identifier">ScheduleConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleConfiguration.html#newScheduleConfiguration"><span class="hs-identifier">newScheduleConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleConfiguration.html#scheduleConfiguration_transition"><span class="hs-identifier">scheduleConfiguration_transition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScheduleEntry</span></span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier">ScheduleEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#newScheduleEntry"><span class="hs-identifier">newScheduleEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_scheduleAdBreaks"><span class="hs-identifier">scheduleEntry_scheduleAdBreaks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_approximateDurationSeconds"><span class="hs-identifier">scheduleEntry_approximateDurationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_approximateStartTime"><span class="hs-identifier">scheduleEntry_approximateStartTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_scheduleEntryType"><span class="hs-identifier">scheduleEntry_scheduleEntryType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_vodSourceName"><span class="hs-identifier">scheduleEntry_vodSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_channelName"><span class="hs-identifier">scheduleEntry_channelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_sourceLocationName"><span class="hs-identifier">scheduleEntry_sourceLocationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_arn"><span class="hs-identifier">scheduleEntry_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html#scheduleEntry_programName"><span class="hs-identifier">scheduleEntry_programName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SecretsManagerAccessTokenConfiguration</span></span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration.html#SecretsManagerAccessTokenConfiguration"><span class="hs-identifier">SecretsManagerAccessTokenConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration.html#newSecretsManagerAccessTokenConfiguration"><span class="hs-identifier">newSecretsManagerAccessTokenConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration.html#secretsManagerAccessTokenConfiguration_headerName"><span class="hs-identifier">secretsManagerAccessTokenConfiguration_headerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration.html#secretsManagerAccessTokenConfiguration_secretStringKey"><span class="hs-identifier">secretsManagerAccessTokenConfiguration_secretStringKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration.html#secretsManagerAccessTokenConfiguration_secretArn"><span class="hs-identifier">secretsManagerAccessTokenConfiguration_secretArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SlateSource</span></span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SlateSource.html#SlateSource"><span class="hs-identifier">SlateSource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SlateSource.html#newSlateSource"><span class="hs-identifier">newSlateSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SlateSource.html#slateSource_sourceLocationName"><span class="hs-identifier">slateSource_sourceLocationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SlateSource.html#slateSource_vodSourceName"><span class="hs-identifier">slateSource_vodSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SourceLocation</span></span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SourceLocation.html#SourceLocation"><span class="hs-identifier">SourceLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SourceLocation.html#newSourceLocation"><span class="hs-identifier">newSourceLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SourceLocation.html#sourceLocation_creationTime"><span class="hs-identifier">sourceLocation_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SourceLocation.html#sourceLocation_lastModifiedTime"><span class="hs-identifier">sourceLocation_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SourceLocation.html#sourceLocation_accessConfiguration"><span class="hs-identifier">sourceLocation_accessConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SourceLocation.html#sourceLocation_defaultSegmentDeliveryConfiguration"><span class="hs-identifier">sourceLocation_defaultSegmentDeliveryConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SourceLocation.html#sourceLocation_tags"><span class="hs-identifier">sourceLocation_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SourceLocation.html#sourceLocation_sourceLocationName"><span class="hs-identifier">sourceLocation_sourceLocationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SourceLocation.html#sourceLocation_httpConfiguration"><span class="hs-identifier">sourceLocation_httpConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SourceLocation.html#sourceLocation_arn"><span class="hs-identifier">sourceLocation_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SpliceInsertMessage</span></span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SpliceInsertMessage.html#SpliceInsertMessage"><span class="hs-identifier">SpliceInsertMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SpliceInsertMessage.html#newSpliceInsertMessage"><span class="hs-identifier">newSpliceInsertMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SpliceInsertMessage.html#spliceInsertMessage_availNum"><span class="hs-identifier">spliceInsertMessage_availNum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SpliceInsertMessage.html#spliceInsertMessage_uniqueProgramId"><span class="hs-identifier">spliceInsertMessage_uniqueProgramId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SpliceInsertMessage.html#spliceInsertMessage_availsExpected"><span class="hs-identifier">spliceInsertMessage_availsExpected</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SpliceInsertMessage.html#spliceInsertMessage_spliceEventId"><span class="hs-identifier">spliceInsertMessage_spliceEventId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Transition</span></span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Transition.html#Transition"><span class="hs-identifier">Transition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Transition.html#newTransition"><span class="hs-identifier">newTransition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Transition.html#transition_scheduledStartTimeMillis"><span class="hs-identifier">transition_scheduledStartTimeMillis</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Transition.html#transition_relativeProgram"><span class="hs-identifier">transition_relativeProgram</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Transition.html#transition_type"><span class="hs-identifier">transition_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Transition.html#transition_relativePosition"><span class="hs-identifier">transition_relativePosition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><span class="hs-comment">-- * VodSource</span></span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.VodSource.html#VodSource"><span class="hs-identifier">VodSource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.VodSource.html#newVodSource"><span class="hs-identifier">newVodSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.VodSource.html#vodSource_creationTime"><span class="hs-identifier">vodSource_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.VodSource.html#vodSource_lastModifiedTime"><span class="hs-identifier">vodSource_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.VodSource.html#vodSource_tags"><span class="hs-identifier">vodSource_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.VodSource.html#vodSource_vodSourceName"><span class="hs-identifier">vodSource_vodSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.VodSource.html#vodSource_sourceLocationName"><span class="hs-identifier">vodSource_sourceLocationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.VodSource.html#vodSource_httpPackageConfigurations"><span class="hs-identifier">vodSource_httpPackageConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.Types.VodSource.html#vodSource_arn"><span class="hs-identifier">vodSource_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-326"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-327"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessConfiguration.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.AccessConfiguration</span></a></span><span>
+</span><span id="line-328"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AccessType.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.AccessType</span></a></span><span>
+</span><span id="line-329"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AdBreak.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.AdBreak</span></a></span><span>
+</span><span id="line-330"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AdMarkerPassthrough.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.AdMarkerPassthrough</span></a></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Alert.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.Alert</span></a></span><span>
+</span><span id="line-332"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.AvailMatchingCriteria</span></a></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailSuppression.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.AvailSuppression</span></a></span><span>
+</span><span id="line-334"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Bumper.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.Bumper</span></a></span><span>
+</span><span id="line-335"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.CdnConfiguration.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.CdnConfiguration</span></a></span><span>
+</span><span id="line-336"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Channel.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.Channel</span></a></span><span>
+</span><span id="line-337"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ChannelState.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.ChannelState</span></a></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashConfiguration.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.DashConfiguration</span></a></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashConfigurationForPut.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.DashConfigurationForPut</span></a></span><span>
+</span><span id="line-340"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DashPlaylistSettings.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.DashPlaylistSettings</span></a></span><span>
+</span><span id="line-341"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.DefaultSegmentDeliveryConfiguration.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.DefaultSegmentDeliveryConfiguration</span></a></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HlsConfiguration.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.HlsConfiguration</span></a></span><span>
+</span><span id="line-343"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HlsPlaylistSettings.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.HlsPlaylistSettings</span></a></span><span>
+</span><span id="line-344"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HttpConfiguration.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.HttpConfiguration</span></a></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.HttpPackageConfiguration.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.HttpPackageConfiguration</span></a></span><span>
+</span><span id="line-346"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.LivePreRollConfiguration.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.LivePreRollConfiguration</span></a></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.LogConfiguration.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.LogConfiguration</span></a></span><span>
+</span><span id="line-348"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ManifestProcessingRules.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.ManifestProcessingRules</span></a></span><span>
+</span><span id="line-349"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.MessageType.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.MessageType</span></a></span><span>
+</span><span id="line-350"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Mode.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.Mode</span></a></span><span>
+</span><span id="line-351"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Operator.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.Operator</span></a></span><span>
+</span><span id="line-352"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.OriginManifestType.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.OriginManifestType</span></a></span><span>
+</span><span id="line-353"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.PlaybackConfiguration</span></a></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackMode.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.PlaybackMode</span></a></span><span>
+</span><span id="line-355"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchConsumption.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.PrefetchConsumption</span></a></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchRetrieval.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.PrefetchRetrieval</span></a></span><span>
+</span><span id="line-357"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.PrefetchSchedule.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.PrefetchSchedule</span></a></span><span>
+</span><span id="line-358"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.RelativePosition.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.RelativePosition</span></a></span><span>
+</span><span id="line-359"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.RequestOutputItem.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.RequestOutputItem</span></a></span><span>
+</span><span id="line-360"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ResponseOutputItem.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.ResponseOutputItem</span></a></span><span>
+</span><span id="line-361"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleAdBreak.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.ScheduleAdBreak</span></a></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleConfiguration.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.ScheduleConfiguration</span></a></span><span>
+</span><span id="line-363"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntry.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.ScheduleEntry</span></a></span><span>
+</span><span id="line-364"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.ScheduleEntryType.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.ScheduleEntryType</span></a></span><span>
+</span><span id="line-365"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration</span></a></span><span>
+</span><span id="line-366"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SlateSource.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.SlateSource</span></a></span><span>
+</span><span id="line-367"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SourceLocation.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.SourceLocation</span></a></span><span>
+</span><span id="line-368"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.SpliceInsertMessage.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.SpliceInsertMessage</span></a></span><span>
+</span><span id="line-369"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Transition.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.Transition</span></a></span><span>
+</span><span id="line-370"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Type.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.Type</span></a></span><span>
+</span><span id="line-371"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.VodSource.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.VodSource</span></a></span><span>
+</span><span id="line-372"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-373"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-374"></span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- | API version @2018-04-23@ of the Amazon MediaTailor SDK configuration.</span><span>
+</span><span id="line-376"></span><span class="annot"><a href="Amazonka.MediaTailor.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-377"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Amazonka.MediaTailor.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-378"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-379"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;MediaTailor&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-380"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-381"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;api.mediatailor&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-382"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;mediatailor&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-383"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2018-04-23&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-385"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MediaTailor.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-386"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-387"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-388"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-389"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;MediaTailor&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-390"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679269247"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-391"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-392"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-393"></span><span>    </span><span id="local-6989586621679269247"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679269247"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-394"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-395"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-396"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-397"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-398"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679269241"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-399"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-400"></span><span>    </span><span id="local-6989586621679269241"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679269241"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679269240"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679269240"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-401"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-402"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-403"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-404"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-405"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679269240"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-406"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-407"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679269240"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-408"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-409"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-410"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-411"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-412"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-413"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679269240"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-414"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-415"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-416"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-417"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-418"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-419"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679269240"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-420"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-421"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-422"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-423"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-424"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-425"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-426"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679269240"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-427"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-428"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679269240"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-429"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-430"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-431"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-432"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-433"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-434"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679269240"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-435"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-436"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679269240"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-437"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-438"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679269240"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-439"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-440"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679269240"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-441"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-442"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679269240"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-443"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-444"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-445"></span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- | Invalid request parameters.</span><span>
+</span><span id="line-447"></span><span id="local-6989586621679269235"><span class="annot"><a href="Amazonka.MediaTailor.Types.html#_BadRequestException"><span class="hs-identifier hs-type">_BadRequestException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679269235"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679269235"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-448"></span><span id="_BadRequestException"><span class="annot"><span class="annottext">_BadRequestException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.MediaTailor.Types.html#_BadRequestException"><span class="hs-identifier hs-var hs-var">_BadRequestException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-449"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-450"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MediaTailor.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-451"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;BadRequestException&quot;</span></span><span>
+</span><span id="line-452"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-453"></span></pre></body></html>

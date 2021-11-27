@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AlexaBusiness.GetGateway</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the details of a gateway.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AlexaBusiness.GetGateway</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway"><span class="hs-identifier">GetGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#newGetGateway"><span class="hs-identifier">newGetGateway</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#getGateway_gatewayArn"><span class="hs-identifier">getGateway_gatewayArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse"><span class="hs-identifier">GetGatewayResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#newGetGatewayResponse"><span class="hs-identifier">newGetGatewayResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#getGatewayResponse_gateway"><span class="hs-identifier">getGatewayResponse_gateway</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#getGatewayResponse_httpStatus"><span class="hs-identifier">getGatewayResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.html"><span class="hs-identifier">Amazonka.AlexaBusiness.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetGateway' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679385115"><span id="local-6989586621679385116"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGateway"><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway"><span class="hs-identifier hs-var">GetGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGateway%27"><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway%27"><span class="hs-identifier hs-var">GetGateway'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the gateway to get.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AgatewayArn%3AGetGateway%27"><span class="annot"><span class="annottext">GetGateway -&gt; Text
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#%24sel%3AgatewayArn%3AGetGateway%27"><span class="hs-identifier hs-var hs-var">gatewayArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385109"><span id="local-6989586621679385111"><span class="annot"><span class="annottext">GetGateway -&gt; GetGateway -&gt; Bool
+(GetGateway -&gt; GetGateway -&gt; Bool)
+-&gt; (GetGateway -&gt; GetGateway -&gt; Bool) -&gt; Eq GetGateway
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetGateway -&gt; GetGateway -&gt; Bool
+$c/= :: GetGateway -&gt; GetGateway -&gt; Bool
+== :: GetGateway -&gt; GetGateway -&gt; Bool
+$c== :: GetGateway -&gt; GetGateway -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385100"><span id="local-6989586621679385102"><span id="local-6989586621679385104"><span id="local-6989586621679385106"><span class="annot"><span class="annottext">ReadPrec [GetGateway]
+ReadPrec GetGateway
+Int -&gt; ReadS GetGateway
+ReadS [GetGateway]
+(Int -&gt; ReadS GetGateway)
+-&gt; ReadS [GetGateway]
+-&gt; ReadPrec GetGateway
+-&gt; ReadPrec [GetGateway]
+-&gt; Read GetGateway
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetGateway]
+$creadListPrec :: ReadPrec [GetGateway]
+readPrec :: ReadPrec GetGateway
+$creadPrec :: ReadPrec GetGateway
+readList :: ReadS [GetGateway]
+$creadList :: ReadS [GetGateway]
+readsPrec :: Int -&gt; ReadS GetGateway
+$creadsPrec :: Int -&gt; ReadS GetGateway
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385093"><span id="local-6989586621679385095"><span id="local-6989586621679385097"><span class="annot"><span class="annottext">Int -&gt; GetGateway -&gt; ShowS
+[GetGateway] -&gt; ShowS
+GetGateway -&gt; String
+(Int -&gt; GetGateway -&gt; ShowS)
+-&gt; (GetGateway -&gt; String)
+-&gt; ([GetGateway] -&gt; ShowS)
+-&gt; Show GetGateway
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetGateway] -&gt; ShowS
+$cshowList :: [GetGateway] -&gt; ShowS
+show :: GetGateway -&gt; String
+$cshow :: GetGateway -&gt; String
+showsPrec :: Int -&gt; GetGateway -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetGateway -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetGateway -&gt; Rep GetGateway x)
+-&gt; (forall x. Rep GetGateway x -&gt; GetGateway) -&gt; Generic GetGateway
+forall x. Rep GetGateway x -&gt; GetGateway
+forall x. GetGateway -&gt; Rep GetGateway x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetGateway x -&gt; GetGateway
+$cfrom :: forall x. GetGateway -&gt; Rep GetGateway x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'GetGateway' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'gatewayArn', 'getGateway_gatewayArn' - The ARN of the gateway to get.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#newGetGateway"><span class="hs-identifier hs-type">newGetGateway</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'gatewayArn'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway"><span class="hs-identifier hs-type">GetGateway</span></a></span><span>
+</span><span id="line-69"></span><span id="newGetGateway"><span class="annot"><span class="annottext">newGetGateway :: Text -&gt; GetGateway
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#newGetGateway"><span class="hs-identifier hs-var hs-var">newGetGateway</span></a></span></span><span> </span><span id="local-6989586621679385088"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385088"><span class="hs-identifier hs-var">pGatewayArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetGateway' :: Text -&gt; GetGateway
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway%27"><span class="hs-identifier hs-type">GetGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayArn:GetGateway' :: Text
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#%24sel%3AgatewayArn%3AGetGateway%27"><span class="hs-identifier hs-var">gatewayArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385088"><span class="hs-identifier hs-var">pGatewayArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The ARN of the gateway to get.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#getGateway_gatewayArn"><span class="hs-identifier hs-type">getGateway_gatewayArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway"><span class="hs-identifier hs-type">GetGateway</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="getGateway_gatewayArn"><span class="annot"><span class="annottext">getGateway_gatewayArn :: (Text -&gt; f Text) -&gt; GetGateway -&gt; f GetGateway
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#getGateway_gatewayArn"><span class="hs-identifier hs-var hs-var">getGateway_gatewayArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGateway -&gt; Text)
+-&gt; (GetGateway -&gt; Text -&gt; GetGateway)
+-&gt; Lens GetGateway GetGateway Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway%27"><span class="hs-identifier hs-type">GetGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385085"><span class="annot"><span class="annottext">Text
+gatewayArn :: Text
+$sel:gatewayArn:GetGateway' :: GetGateway -&gt; Text
+</span><a href="#local-6989586621679385085"><span class="hs-identifier hs-var hs-var">gatewayArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385085"><span class="hs-identifier hs-var">gatewayArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385084"><span class="annot"><span class="annottext">s :: GetGateway
+</span><a href="#local-6989586621679385084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway%27"><span class="hs-identifier hs-type">GetGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385083"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGateway
+</span><a href="#local-6989586621679385084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayArn:GetGateway' :: Text
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#%24sel%3AgatewayArn%3AGetGateway%27"><span class="hs-identifier hs-var">gatewayArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway"><span class="hs-identifier hs-type">GetGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway"><span class="hs-identifier hs-type">GetGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway"><span class="hs-identifier hs-type">GetGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679385079"><span class="annot"><span class="annottext">request :: GetGateway -&gt; Request GetGateway
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetGateway -&gt; Request GetGateway
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679385075"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetGateway
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetGateway)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetGateway))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetGateway
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetGateway)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385072"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385072"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385071"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679385071"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385070"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679385070"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Gateway -&gt; Int -&gt; GetGatewayResponse
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse%27"><span class="hs-identifier hs-var">GetGatewayResponse'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Gateway -&gt; Int -&gt; GetGatewayResponse)
+-&gt; Either String (Maybe Gateway)
+-&gt; Either String (Int -&gt; GetGatewayResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679385070"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Gateway)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Gateway&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetGatewayResponse)
+-&gt; Either String Int -&gt; Either String GetGatewayResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385072"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385062"><span id="local-6989586621679385064"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway"><span class="hs-identifier hs-type">GetGateway</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385059"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway"><span class="hs-identifier hs-type">GetGateway</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway"><span class="hs-identifier hs-type">GetGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679385055"><span class="annot"><span class="annottext">toHeaders :: GetGateway -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetGateway -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AlexaForBusiness.GetGateway&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-98"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-102"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385045"><span id="local-6989586621679385047"><span id="local-6989586621679385049"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway"><span class="hs-identifier hs-type">GetGateway</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679385043"><span class="annot"><span class="annottext">toJSON :: GetGateway -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway%27"><span class="hs-identifier hs-type">GetGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385041"><span class="annot"><span class="annottext">Text
+gatewayArn :: Text
+$sel:gatewayArn:GetGateway' :: GetGateway -&gt; Text
+</span><a href="#local-6989586621679385041"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385041"><span class="hs-identifier hs-var">gatewayArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway"><span class="hs-identifier hs-type">GetGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679385035"><span class="annot"><span class="annottext">toPath :: GetGateway -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetGateway -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGateway"><span class="hs-identifier hs-type">GetGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679385031"><span class="annot"><span class="annottext">toQuery :: GetGateway -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetGateway -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newGetGatewayResponse' smart constructor.</span><span>
+</span><span id="line-120"></span><span id="local-6989586621679385028"><span id="local-6989586621679385029"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGatewayResponse"><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse"><span class="hs-identifier hs-var">GetGatewayResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGatewayResponse%27"><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse%27"><span class="hs-identifier hs-var">GetGatewayResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The details of the gateway.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3Agateway%3AGetGatewayResponse%27"><span class="annot"><span class="annottext">GetGatewayResponse -&gt; Maybe Gateway
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#%24sel%3Agateway%3AGetGatewayResponse%27"><span class="hs-identifier hs-var hs-var">gateway</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetGatewayResponse%27"><span class="annot"><span class="annottext">GetGatewayResponse -&gt; Int
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#%24sel%3AhttpStatus%3AGetGatewayResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385022"><span id="local-6989586621679385024"><span class="annot"><span class="annottext">GetGatewayResponse -&gt; GetGatewayResponse -&gt; Bool
+(GetGatewayResponse -&gt; GetGatewayResponse -&gt; Bool)
+-&gt; (GetGatewayResponse -&gt; GetGatewayResponse -&gt; Bool)
+-&gt; Eq GetGatewayResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetGatewayResponse -&gt; GetGatewayResponse -&gt; Bool
+$c/= :: GetGatewayResponse -&gt; GetGatewayResponse -&gt; Bool
+== :: GetGatewayResponse -&gt; GetGatewayResponse -&gt; Bool
+$c== :: GetGatewayResponse -&gt; GetGatewayResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385014"><span id="local-6989586621679385016"><span id="local-6989586621679385018"><span id="local-6989586621679385020"><span class="annot"><span class="annottext">ReadPrec [GetGatewayResponse]
+ReadPrec GetGatewayResponse
+Int -&gt; ReadS GetGatewayResponse
+ReadS [GetGatewayResponse]
+(Int -&gt; ReadS GetGatewayResponse)
+-&gt; ReadS [GetGatewayResponse]
+-&gt; ReadPrec GetGatewayResponse
+-&gt; ReadPrec [GetGatewayResponse]
+-&gt; Read GetGatewayResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetGatewayResponse]
+$creadListPrec :: ReadPrec [GetGatewayResponse]
+readPrec :: ReadPrec GetGatewayResponse
+$creadPrec :: ReadPrec GetGatewayResponse
+readList :: ReadS [GetGatewayResponse]
+$creadList :: ReadS [GetGatewayResponse]
+readsPrec :: Int -&gt; ReadS GetGatewayResponse
+$creadsPrec :: Int -&gt; ReadS GetGatewayResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385008"><span id="local-6989586621679385010"><span id="local-6989586621679385012"><span class="annot"><span class="annottext">Int -&gt; GetGatewayResponse -&gt; ShowS
+[GetGatewayResponse] -&gt; ShowS
+GetGatewayResponse -&gt; String
+(Int -&gt; GetGatewayResponse -&gt; ShowS)
+-&gt; (GetGatewayResponse -&gt; String)
+-&gt; ([GetGatewayResponse] -&gt; ShowS)
+-&gt; Show GetGatewayResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetGatewayResponse] -&gt; ShowS
+$cshowList :: [GetGatewayResponse] -&gt; ShowS
+show :: GetGatewayResponse -&gt; String
+$cshow :: GetGatewayResponse -&gt; String
+showsPrec :: Int -&gt; GetGatewayResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetGatewayResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetGatewayResponse -&gt; Rep GetGatewayResponse x)
+-&gt; (forall x. Rep GetGatewayResponse x -&gt; GetGatewayResponse)
+-&gt; Generic GetGatewayResponse
+forall x. Rep GetGatewayResponse x -&gt; GetGatewayResponse
+forall x. GetGatewayResponse -&gt; Rep GetGatewayResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetGatewayResponse x -&gt; GetGatewayResponse
+$cfrom :: forall x. GetGatewayResponse -&gt; Rep GetGatewayResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Create a value of 'GetGatewayResponse' with all optional fields omitted.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'gateway', 'getGatewayResponse_gateway' - The details of the gateway.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'httpStatus', 'getGatewayResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#newGetGatewayResponse"><span class="hs-identifier hs-type">newGetGatewayResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span>
+</span><span id="line-143"></span><span id="newGetGatewayResponse"><span class="annot"><span class="annottext">newGetGatewayResponse :: Int -&gt; GetGatewayResponse
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#newGetGatewayResponse"><span class="hs-identifier hs-var hs-var">newGetGatewayResponse</span></a></span></span><span> </span><span id="local-6989586621679385005"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385005"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">GetGatewayResponse' :: Maybe Gateway -&gt; Int -&gt; GetGatewayResponse
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gateway:GetGatewayResponse' :: Maybe Gateway
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#%24sel%3Agateway%3AGetGatewayResponse%27"><span class="hs-identifier hs-var">gateway</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Gateway
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetGatewayResponse' :: Int
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#%24sel%3AhttpStatus%3AGetGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385005"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The details of the gateway.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#getGatewayResponse_gateway"><span class="hs-identifier hs-type">getGatewayResponse_gateway</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="getGatewayResponse_gateway"><span class="annot"><span class="annottext">getGatewayResponse_gateway :: (Maybe Gateway -&gt; f (Maybe Gateway))
+-&gt; GetGatewayResponse -&gt; f GetGatewayResponse
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#getGatewayResponse_gateway"><span class="hs-identifier hs-var hs-var">getGatewayResponse_gateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGatewayResponse -&gt; Maybe Gateway)
+-&gt; (GetGatewayResponse -&gt; Maybe Gateway -&gt; GetGatewayResponse)
+-&gt; Lens
+     GetGatewayResponse
+     GetGatewayResponse
+     (Maybe Gateway)
+     (Maybe Gateway)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385004"><span class="annot"><span class="annottext">Maybe Gateway
+gateway :: Maybe Gateway
+$sel:gateway:GetGatewayResponse' :: GetGatewayResponse -&gt; Maybe Gateway
+</span><a href="#local-6989586621679385004"><span class="hs-identifier hs-var hs-var">gateway</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Gateway
+</span><a href="#local-6989586621679385004"><span class="hs-identifier hs-var">gateway</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385003"><span class="annot"><span class="annottext">s :: GetGatewayResponse
+</span><a href="#local-6989586621679385003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385002"><span class="annot"><span class="annottext">Maybe Gateway
+</span><a href="#local-6989586621679385002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGatewayResponse
+</span><a href="#local-6989586621679385003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gateway:GetGatewayResponse' :: Maybe Gateway
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#%24sel%3Agateway%3AGetGatewayResponse%27"><span class="hs-identifier hs-var">gateway</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Gateway
+</span><a href="#local-6989586621679385002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#getGatewayResponse_httpStatus"><span class="hs-identifier hs-type">getGatewayResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span id="getGatewayResponse_httpStatus"><span class="annot"><span class="annottext">getGatewayResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetGatewayResponse -&gt; f GetGatewayResponse
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#getGatewayResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getGatewayResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGatewayResponse -&gt; Int)
+-&gt; (GetGatewayResponse -&gt; Int -&gt; GetGatewayResponse)
+-&gt; Lens GetGatewayResponse GetGatewayResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385001"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetGatewayResponse' :: GetGatewayResponse -&gt; Int
+</span><a href="#local-6989586621679385001"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385001"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385000"><span class="annot"><span class="annottext">s :: GetGatewayResponse
+</span><a href="#local-6989586621679385000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384999"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGatewayResponse
+</span><a href="#local-6989586621679385000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGatewayResponse' :: Int
+</span><a href="Amazonka.AlexaBusiness.GetGateway.html#%24sel%3AhttpStatus%3AGetGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.GetGateway.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span></span><span>
+</span><span id="line-158"></span></pre></body></html>

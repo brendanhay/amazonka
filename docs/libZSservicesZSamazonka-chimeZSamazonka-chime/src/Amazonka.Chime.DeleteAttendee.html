@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Chime.DeleteAttendee</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an attendee from the specified Amazon Chime SDK meeting and</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- deletes their @JoinToken@. Attendees are automatically deleted when a</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Amazon Chime SDK meeting is deleted. For more information about the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Amazon Chime SDK, see</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html Using the Amazon Chime SDK&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- in the /Amazon Chime Developer Guide/.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.DeleteAttendee</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee"><span class="hs-identifier">DeleteAttendee</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#newDeleteAttendee"><span class="hs-identifier">newDeleteAttendee</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#deleteAttendee_meetingId"><span class="hs-identifier">deleteAttendee_meetingId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#deleteAttendee_attendeeId"><span class="hs-identifier">deleteAttendee_attendeeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendeeResponse"><span class="hs-identifier">DeleteAttendeeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#newDeleteAttendeeResponse"><span class="hs-identifier">newDeleteAttendeeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.html"><span class="hs-identifier">Amazonka.Chime.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteAttendee' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679549463"><span id="local-6989586621679549464"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAttendee"><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee"><span class="hs-identifier hs-var">DeleteAttendee</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAttendee%27"><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee%27"><span class="hs-identifier hs-var">DeleteAttendee'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime SDK meeting ID.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AmeetingId%3ADeleteAttendee%27"><span class="annot"><span class="annottext">DeleteAttendee -&gt; Text
+</span><a href="Amazonka.Chime.DeleteAttendee.html#%24sel%3AmeetingId%3ADeleteAttendee%27"><span class="hs-identifier hs-var hs-var">meetingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The Amazon Chime SDK attendee ID.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AattendeeId%3ADeleteAttendee%27"><span class="annot"><span class="annottext">DeleteAttendee -&gt; Text
+</span><a href="Amazonka.Chime.DeleteAttendee.html#%24sel%3AattendeeId%3ADeleteAttendee%27"><span class="hs-identifier hs-var hs-var">attendeeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679549456"><span id="local-6989586621679549458"><span class="annot"><span class="annottext">DeleteAttendee -&gt; DeleteAttendee -&gt; Bool
+(DeleteAttendee -&gt; DeleteAttendee -&gt; Bool)
+-&gt; (DeleteAttendee -&gt; DeleteAttendee -&gt; Bool) -&gt; Eq DeleteAttendee
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAttendee -&gt; DeleteAttendee -&gt; Bool
+$c/= :: DeleteAttendee -&gt; DeleteAttendee -&gt; Bool
+== :: DeleteAttendee -&gt; DeleteAttendee -&gt; Bool
+$c== :: DeleteAttendee -&gt; DeleteAttendee -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549447"><span id="local-6989586621679549449"><span id="local-6989586621679549451"><span id="local-6989586621679549453"><span class="annot"><span class="annottext">ReadPrec [DeleteAttendee]
+ReadPrec DeleteAttendee
+Int -&gt; ReadS DeleteAttendee
+ReadS [DeleteAttendee]
+(Int -&gt; ReadS DeleteAttendee)
+-&gt; ReadS [DeleteAttendee]
+-&gt; ReadPrec DeleteAttendee
+-&gt; ReadPrec [DeleteAttendee]
+-&gt; Read DeleteAttendee
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAttendee]
+$creadListPrec :: ReadPrec [DeleteAttendee]
+readPrec :: ReadPrec DeleteAttendee
+$creadPrec :: ReadPrec DeleteAttendee
+readList :: ReadS [DeleteAttendee]
+$creadList :: ReadS [DeleteAttendee]
+readsPrec :: Int -&gt; ReadS DeleteAttendee
+$creadsPrec :: Int -&gt; ReadS DeleteAttendee
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549440"><span id="local-6989586621679549442"><span id="local-6989586621679549444"><span class="annot"><span class="annottext">Int -&gt; DeleteAttendee -&gt; ShowS
+[DeleteAttendee] -&gt; ShowS
+DeleteAttendee -&gt; String
+(Int -&gt; DeleteAttendee -&gt; ShowS)
+-&gt; (DeleteAttendee -&gt; String)
+-&gt; ([DeleteAttendee] -&gt; ShowS)
+-&gt; Show DeleteAttendee
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAttendee] -&gt; ShowS
+$cshowList :: [DeleteAttendee] -&gt; ShowS
+show :: DeleteAttendee -&gt; String
+$cshow :: DeleteAttendee -&gt; String
+showsPrec :: Int -&gt; DeleteAttendee -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAttendee -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteAttendee -&gt; Rep DeleteAttendee x)
+-&gt; (forall x. Rep DeleteAttendee x -&gt; DeleteAttendee)
+-&gt; Generic DeleteAttendee
+forall x. Rep DeleteAttendee x -&gt; DeleteAttendee
+forall x. DeleteAttendee -&gt; Rep DeleteAttendee x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteAttendee x -&gt; DeleteAttendee
+$cfrom :: forall x. DeleteAttendee -&gt; Rep DeleteAttendee x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DeleteAttendee' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'meetingId', 'deleteAttendee_meetingId' - The Amazon Chime SDK meeting ID.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'attendeeId', 'deleteAttendee_attendeeId' - The Amazon Chime SDK attendee ID.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#newDeleteAttendee"><span class="hs-identifier hs-type">newDeleteAttendee</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'meetingId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'attendeeId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee"><span class="hs-identifier hs-type">DeleteAttendee</span></a></span><span>
+</span><span id="line-77"></span><span id="newDeleteAttendee"><span class="annot"><span class="annottext">newDeleteAttendee :: Text -&gt; Text -&gt; DeleteAttendee
+</span><a href="Amazonka.Chime.DeleteAttendee.html#newDeleteAttendee"><span class="hs-identifier hs-var hs-var">newDeleteAttendee</span></a></span></span><span> </span><span id="local-6989586621679549435"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549435"><span class="hs-identifier hs-var">pMeetingId_</span></a></span></span><span> </span><span id="local-6989586621679549434"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549434"><span class="hs-identifier hs-var">pAttendeeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DeleteAttendee' :: Text -&gt; Text -&gt; DeleteAttendee
+</span><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee%27"><span class="hs-identifier hs-type">DeleteAttendee'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:meetingId:DeleteAttendee' :: Text
+</span><a href="Amazonka.Chime.DeleteAttendee.html#%24sel%3AmeetingId%3ADeleteAttendee%27"><span class="hs-identifier hs-var">meetingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549435"><span class="hs-identifier hs-var">pMeetingId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:attendeeId:DeleteAttendee' :: Text
+</span><a href="Amazonka.Chime.DeleteAttendee.html#%24sel%3AattendeeId%3ADeleteAttendee%27"><span class="hs-identifier hs-var">attendeeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549434"><span class="hs-identifier hs-var">pAttendeeId_</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The Amazon Chime SDK meeting ID.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#deleteAttendee_meetingId"><span class="hs-identifier hs-type">deleteAttendee_meetingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee"><span class="hs-identifier hs-type">DeleteAttendee</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span id="deleteAttendee_meetingId"><span class="annot"><span class="annottext">deleteAttendee_meetingId :: (Text -&gt; f Text) -&gt; DeleteAttendee -&gt; f DeleteAttendee
+</span><a href="Amazonka.Chime.DeleteAttendee.html#deleteAttendee_meetingId"><span class="hs-identifier hs-var hs-var">deleteAttendee_meetingId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAttendee -&gt; Text)
+-&gt; (DeleteAttendee -&gt; Text -&gt; DeleteAttendee)
+-&gt; Lens DeleteAttendee DeleteAttendee Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee%27"><span class="hs-identifier hs-type">DeleteAttendee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679549431"><span class="annot"><span class="annottext">Text
+meetingId :: Text
+$sel:meetingId:DeleteAttendee' :: DeleteAttendee -&gt; Text
+</span><a href="#local-6989586621679549431"><span class="hs-identifier hs-var hs-var">meetingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549431"><span class="hs-identifier hs-var">meetingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679549430"><span class="annot"><span class="annottext">s :: DeleteAttendee
+</span><a href="#local-6989586621679549430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee%27"><span class="hs-identifier hs-type">DeleteAttendee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679549429"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAttendee
+</span><a href="#local-6989586621679549430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meetingId:DeleteAttendee' :: Text
+</span><a href="Amazonka.Chime.DeleteAttendee.html#%24sel%3AmeetingId%3ADeleteAttendee%27"><span class="hs-identifier hs-var">meetingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee"><span class="hs-identifier hs-type">DeleteAttendee</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The Amazon Chime SDK attendee ID.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#deleteAttendee_attendeeId"><span class="hs-identifier hs-type">deleteAttendee_attendeeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee"><span class="hs-identifier hs-type">DeleteAttendee</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="deleteAttendee_attendeeId"><span class="annot"><span class="annottext">deleteAttendee_attendeeId :: (Text -&gt; f Text) -&gt; DeleteAttendee -&gt; f DeleteAttendee
+</span><a href="Amazonka.Chime.DeleteAttendee.html#deleteAttendee_attendeeId"><span class="hs-identifier hs-var hs-var">deleteAttendee_attendeeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAttendee -&gt; Text)
+-&gt; (DeleteAttendee -&gt; Text -&gt; DeleteAttendee)
+-&gt; Lens DeleteAttendee DeleteAttendee Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee%27"><span class="hs-identifier hs-type">DeleteAttendee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679549428"><span class="annot"><span class="annottext">Text
+attendeeId :: Text
+$sel:attendeeId:DeleteAttendee' :: DeleteAttendee -&gt; Text
+</span><a href="#local-6989586621679549428"><span class="hs-identifier hs-var hs-var">attendeeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549428"><span class="hs-identifier hs-var">attendeeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679549427"><span class="annot"><span class="annottext">s :: DeleteAttendee
+</span><a href="#local-6989586621679549427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee%27"><span class="hs-identifier hs-type">DeleteAttendee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679549426"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAttendee
+</span><a href="#local-6989586621679549427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attendeeId:DeleteAttendee' :: Text
+</span><a href="Amazonka.Chime.DeleteAttendee.html#%24sel%3AattendeeId%3ADeleteAttendee%27"><span class="hs-identifier hs-var">attendeeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee"><span class="hs-identifier hs-type">DeleteAttendee</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee"><span class="hs-identifier hs-type">DeleteAttendee</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee"><span class="hs-identifier hs-type">DeleteAttendee</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendeeResponse"><span class="hs-identifier hs-type">DeleteAttendeeResponse</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679549422"><span class="annot"><span class="annottext">request :: DeleteAttendee -&gt; Request DeleteAttendee
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAttendee -&gt; Request DeleteAttendee
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679549418"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteAttendee
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteAttendee)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteAttendee
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteAttendee
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteAttendee)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteAttendee
+DeleteAttendeeResponse
+</span><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendeeResponse%27"><span class="hs-identifier hs-var">DeleteAttendeeResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679549411"><span id="local-6989586621679549413"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee"><span class="hs-identifier hs-type">DeleteAttendee</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679549408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee"><span class="hs-identifier hs-type">DeleteAttendee</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee"><span class="hs-identifier hs-type">DeleteAttendee</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679549404"><span class="annot"><span class="annottext">toHeaders :: DeleteAttendee -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteAttendee -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee"><span class="hs-identifier hs-type">DeleteAttendee</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679549399"><span class="annot"><span class="annottext">toPath :: DeleteAttendee -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee%27"><span class="hs-identifier hs-type">DeleteAttendee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679549396"><span id="local-6989586621679549397"><span class="annot"><span class="annottext">Text
+attendeeId :: Text
+meetingId :: Text
+$sel:attendeeId:DeleteAttendee' :: DeleteAttendee -&gt; Text
+$sel:meetingId:DeleteAttendee' :: DeleteAttendee -&gt; Text
+</span><a href="#local-6989586621679549396"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/meetings/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549397"><span class="hs-identifier hs-var">meetingId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/attendees/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549396"><span class="hs-identifier hs-var">attendeeId</span></a></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendee"><span class="hs-identifier hs-type">DeleteAttendee</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679549392"><span class="annot"><span class="annottext">toQuery :: DeleteAttendee -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteAttendee -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newDeleteAttendeeResponse' smart constructor.</span><span>
+</span><span id="line-119"></span><span id="local-6989586621679549389"><span id="local-6989586621679549390"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAttendeeResponse"><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendeeResponse"><span class="hs-identifier hs-var">DeleteAttendeeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAttendeeResponse%27"><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendeeResponse%27"><span class="hs-identifier hs-var">DeleteAttendeeResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679549385"><span id="local-6989586621679549387"><span class="annot"><span class="annottext">DeleteAttendeeResponse -&gt; DeleteAttendeeResponse -&gt; Bool
+(DeleteAttendeeResponse -&gt; DeleteAttendeeResponse -&gt; Bool)
+-&gt; (DeleteAttendeeResponse -&gt; DeleteAttendeeResponse -&gt; Bool)
+-&gt; Eq DeleteAttendeeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAttendeeResponse -&gt; DeleteAttendeeResponse -&gt; Bool
+$c/= :: DeleteAttendeeResponse -&gt; DeleteAttendeeResponse -&gt; Bool
+== :: DeleteAttendeeResponse -&gt; DeleteAttendeeResponse -&gt; Bool
+$c== :: DeleteAttendeeResponse -&gt; DeleteAttendeeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549377"><span id="local-6989586621679549379"><span id="local-6989586621679549381"><span id="local-6989586621679549383"><span class="annot"><span class="annottext">ReadPrec [DeleteAttendeeResponse]
+ReadPrec DeleteAttendeeResponse
+Int -&gt; ReadS DeleteAttendeeResponse
+ReadS [DeleteAttendeeResponse]
+(Int -&gt; ReadS DeleteAttendeeResponse)
+-&gt; ReadS [DeleteAttendeeResponse]
+-&gt; ReadPrec DeleteAttendeeResponse
+-&gt; ReadPrec [DeleteAttendeeResponse]
+-&gt; Read DeleteAttendeeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAttendeeResponse]
+$creadListPrec :: ReadPrec [DeleteAttendeeResponse]
+readPrec :: ReadPrec DeleteAttendeeResponse
+$creadPrec :: ReadPrec DeleteAttendeeResponse
+readList :: ReadS [DeleteAttendeeResponse]
+$creadList :: ReadS [DeleteAttendeeResponse]
+readsPrec :: Int -&gt; ReadS DeleteAttendeeResponse
+$creadsPrec :: Int -&gt; ReadS DeleteAttendeeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549371"><span id="local-6989586621679549373"><span id="local-6989586621679549375"><span class="annot"><span class="annottext">Int -&gt; DeleteAttendeeResponse -&gt; ShowS
+[DeleteAttendeeResponse] -&gt; ShowS
+DeleteAttendeeResponse -&gt; String
+(Int -&gt; DeleteAttendeeResponse -&gt; ShowS)
+-&gt; (DeleteAttendeeResponse -&gt; String)
+-&gt; ([DeleteAttendeeResponse] -&gt; ShowS)
+-&gt; Show DeleteAttendeeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAttendeeResponse] -&gt; ShowS
+$cshowList :: [DeleteAttendeeResponse] -&gt; ShowS
+show :: DeleteAttendeeResponse -&gt; String
+$cshow :: DeleteAttendeeResponse -&gt; String
+showsPrec :: Int -&gt; DeleteAttendeeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAttendeeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteAttendeeResponse -&gt; Rep DeleteAttendeeResponse x)
+-&gt; (forall x.
+    Rep DeleteAttendeeResponse x -&gt; DeleteAttendeeResponse)
+-&gt; Generic DeleteAttendeeResponse
+forall x. Rep DeleteAttendeeResponse x -&gt; DeleteAttendeeResponse
+forall x. DeleteAttendeeResponse -&gt; Rep DeleteAttendeeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteAttendeeResponse x -&gt; DeleteAttendeeResponse
+$cfrom :: forall x. DeleteAttendeeResponse -&gt; Rep DeleteAttendeeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'DeleteAttendeeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#newDeleteAttendeeResponse"><span class="hs-identifier hs-type">newDeleteAttendeeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendeeResponse"><span class="hs-identifier hs-type">DeleteAttendeeResponse</span></a></span><span>
+</span><span id="line-130"></span><span id="newDeleteAttendeeResponse"><span class="annot"><span class="annottext">newDeleteAttendeeResponse :: DeleteAttendeeResponse
+</span><a href="Amazonka.Chime.DeleteAttendee.html#newDeleteAttendeeResponse"><span class="hs-identifier hs-var hs-var">newDeleteAttendeeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteAttendeeResponse
+</span><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendeeResponse%27"><span class="hs-identifier hs-var">DeleteAttendeeResponse'</span></a></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679549367"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DeleteAttendee.html#DeleteAttendeeResponse"><span class="hs-identifier hs-type">DeleteAttendeeResponse</span></a></span></span><span>
+</span><span id="line-133"></span></pre></body></html>

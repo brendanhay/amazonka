@@ -1,0 +1,675 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.S3.GetBucketWebsite</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the website configuration for a bucket. To host website on</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Amazon S3, you can configure a bucket as website by adding a website</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- configuration. For more information about hosting websites, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html Hosting Websites on Amazon S3&gt;.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This GET action requires the @S3:GetBucketWebsite@ permission. By</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- default, only the bucket owner can read the bucket website</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- configuration. However, bucket owners can allow other users to read the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- website configuration by writing a bucket policy granting them the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @S3:GetBucketWebsite@ permission.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- The following operations are related to @DeleteBucketWebsite@:</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketWebsite.html DeleteBucketWebsite&gt;</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html PutBucketWebsite&gt;</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.GetBucketWebsite</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite"><span class="hs-identifier">GetBucketWebsite</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#newGetBucketWebsite"><span class="hs-identifier">newGetBucketWebsite</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsite_expectedBucketOwner"><span class="hs-identifier">getBucketWebsite_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsite_bucket"><span class="hs-identifier">getBucketWebsite_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse"><span class="hs-identifier">GetBucketWebsiteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#newGetBucketWebsiteResponse"><span class="hs-identifier">newGetBucketWebsiteResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsiteResponse_redirectAllRequestsTo"><span class="hs-identifier">getBucketWebsiteResponse_redirectAllRequestsTo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsiteResponse_errorDocument"><span class="hs-identifier">getBucketWebsiteResponse_errorDocument</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsiteResponse_indexDocument"><span class="hs-identifier">getBucketWebsiteResponse_indexDocument</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsiteResponse_routingRules"><span class="hs-identifier">getBucketWebsiteResponse_routingRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsiteResponse_httpStatus"><span class="hs-identifier">getBucketWebsiteResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.html"><span class="hs-identifier">Amazonka.S3.Types</span></a></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newGetBucketWebsite' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621679573980"><span id="local-6989586621679573981"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketWebsite"><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite"><span class="hs-identifier hs-var">GetBucketWebsite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketWebsite%27"><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite%27"><span class="hs-identifier hs-var">GetBucketWebsite'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3AGetBucketWebsite%27"><span class="annot"><span class="annottext">GetBucketWebsite -&gt; Maybe Text
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AexpectedBucketOwner%3AGetBucketWebsite%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The bucket name for which to get the website configuration.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Abucket%3AGetBucketWebsite%27"><span class="annot"><span class="annottext">GetBucketWebsite -&gt; BucketName
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3Abucket%3AGetBucketWebsite%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679573973"><span id="local-6989586621679573975"><span class="annot"><span class="annottext">GetBucketWebsite -&gt; GetBucketWebsite -&gt; Bool
+(GetBucketWebsite -&gt; GetBucketWebsite -&gt; Bool)
+-&gt; (GetBucketWebsite -&gt; GetBucketWebsite -&gt; Bool)
+-&gt; Eq GetBucketWebsite
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBucketWebsite -&gt; GetBucketWebsite -&gt; Bool
+$c/= :: GetBucketWebsite -&gt; GetBucketWebsite -&gt; Bool
+== :: GetBucketWebsite -&gt; GetBucketWebsite -&gt; Bool
+$c== :: GetBucketWebsite -&gt; GetBucketWebsite -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679573964"><span id="local-6989586621679573966"><span id="local-6989586621679573968"><span id="local-6989586621679573970"><span class="annot"><span class="annottext">ReadPrec [GetBucketWebsite]
+ReadPrec GetBucketWebsite
+Int -&gt; ReadS GetBucketWebsite
+ReadS [GetBucketWebsite]
+(Int -&gt; ReadS GetBucketWebsite)
+-&gt; ReadS [GetBucketWebsite]
+-&gt; ReadPrec GetBucketWebsite
+-&gt; ReadPrec [GetBucketWebsite]
+-&gt; Read GetBucketWebsite
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBucketWebsite]
+$creadListPrec :: ReadPrec [GetBucketWebsite]
+readPrec :: ReadPrec GetBucketWebsite
+$creadPrec :: ReadPrec GetBucketWebsite
+readList :: ReadS [GetBucketWebsite]
+$creadList :: ReadS [GetBucketWebsite]
+readsPrec :: Int -&gt; ReadS GetBucketWebsite
+$creadsPrec :: Int -&gt; ReadS GetBucketWebsite
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679573957"><span id="local-6989586621679573959"><span id="local-6989586621679573961"><span class="annot"><span class="annottext">Int -&gt; GetBucketWebsite -&gt; ShowS
+[GetBucketWebsite] -&gt; ShowS
+GetBucketWebsite -&gt; String
+(Int -&gt; GetBucketWebsite -&gt; ShowS)
+-&gt; (GetBucketWebsite -&gt; String)
+-&gt; ([GetBucketWebsite] -&gt; ShowS)
+-&gt; Show GetBucketWebsite
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBucketWebsite] -&gt; ShowS
+$cshowList :: [GetBucketWebsite] -&gt; ShowS
+show :: GetBucketWebsite -&gt; String
+$cshow :: GetBucketWebsite -&gt; String
+showsPrec :: Int -&gt; GetBucketWebsite -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBucketWebsite -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetBucketWebsite -&gt; Rep GetBucketWebsite x)
+-&gt; (forall x. Rep GetBucketWebsite x -&gt; GetBucketWebsite)
+-&gt; Generic GetBucketWebsite
+forall x. Rep GetBucketWebsite x -&gt; GetBucketWebsite
+forall x. GetBucketWebsite -&gt; Rep GetBucketWebsite x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetBucketWebsite x -&gt; GetBucketWebsite
+$cfrom :: forall x. GetBucketWebsite -&gt; Rep GetBucketWebsite x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'GetBucketWebsite' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'expectedBucketOwner', 'getBucketWebsite_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'bucket', 'getBucketWebsite_bucket' - The bucket name for which to get the website configuration.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#newGetBucketWebsite"><span class="hs-identifier hs-type">newGetBucketWebsite</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'bucket'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite"><span class="hs-identifier hs-type">GetBucketWebsite</span></a></span><span>
+</span><span id="line-96"></span><span id="newGetBucketWebsite"><span class="annot"><span class="annottext">newGetBucketWebsite :: BucketName -&gt; GetBucketWebsite
+</span><a href="Amazonka.S3.GetBucketWebsite.html#newGetBucketWebsite"><span class="hs-identifier hs-var hs-var">newGetBucketWebsite</span></a></span></span><span> </span><span id="local-6989586621679573952"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679573952"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">GetBucketWebsite' :: Maybe Text -&gt; BucketName -&gt; GetBucketWebsite
+</span><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite%27"><span class="hs-identifier hs-type">GetBucketWebsite'</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketWebsite' :: Maybe Text
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AexpectedBucketOwner%3AGetBucketWebsite%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:GetBucketWebsite' :: BucketName
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3Abucket%3AGetBucketWebsite%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679573952"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsite_expectedBucketOwner"><span class="hs-identifier hs-type">getBucketWebsite_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite"><span class="hs-identifier hs-type">GetBucketWebsite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="getBucketWebsite_expectedBucketOwner"><span class="annot"><span class="annottext">getBucketWebsite_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBucketWebsite -&gt; f GetBucketWebsite
+</span><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsite_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">getBucketWebsite_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBucketWebsite -&gt; Maybe Text)
+-&gt; (GetBucketWebsite -&gt; Maybe Text -&gt; GetBucketWebsite)
+-&gt; Lens GetBucketWebsite GetBucketWebsite (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite%27"><span class="hs-identifier hs-type">GetBucketWebsite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573949"><span class="annot"><span class="annottext">Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:expectedBucketOwner:GetBucketWebsite' :: GetBucketWebsite -&gt; Maybe Text
+</span><a href="#local-6989586621679573949"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679573949"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573948"><span class="annot"><span class="annottext">s :: GetBucketWebsite
+</span><a href="#local-6989586621679573948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite%27"><span class="hs-identifier hs-type">GetBucketWebsite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573947"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679573947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketWebsite
+</span><a href="#local-6989586621679573948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketWebsite' :: Maybe Text
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AexpectedBucketOwner%3AGetBucketWebsite%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679573947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite"><span class="hs-identifier hs-type">GetBucketWebsite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The bucket name for which to get the website configuration.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsite_bucket"><span class="hs-identifier hs-type">getBucketWebsite_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite"><span class="hs-identifier hs-type">GetBucketWebsite</span></a></span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-111"></span><span id="getBucketWebsite_bucket"><span class="annot"><span class="annottext">getBucketWebsite_bucket :: (BucketName -&gt; f BucketName)
+-&gt; GetBucketWebsite -&gt; f GetBucketWebsite
+</span><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsite_bucket"><span class="hs-identifier hs-var hs-var">getBucketWebsite_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBucketWebsite -&gt; BucketName)
+-&gt; (GetBucketWebsite -&gt; BucketName -&gt; GetBucketWebsite)
+-&gt; Lens GetBucketWebsite GetBucketWebsite BucketName BucketName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite%27"><span class="hs-identifier hs-type">GetBucketWebsite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573946"><span class="annot"><span class="annottext">BucketName
+bucket :: BucketName
+$sel:bucket:GetBucketWebsite' :: GetBucketWebsite -&gt; BucketName
+</span><a href="#local-6989586621679573946"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679573946"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573945"><span class="annot"><span class="annottext">s :: GetBucketWebsite
+</span><a href="#local-6989586621679573945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite%27"><span class="hs-identifier hs-type">GetBucketWebsite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573944"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679573944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketWebsite
+</span><a href="#local-6989586621679573945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetBucketWebsite' :: BucketName
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3Abucket%3AGetBucketWebsite%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679573944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite"><span class="hs-identifier hs-type">GetBucketWebsite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite"><span class="hs-identifier hs-type">GetBucketWebsite</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite"><span class="hs-identifier hs-type">GetBucketWebsite</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse"><span class="hs-identifier hs-type">GetBucketWebsiteResponse</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679573940"><span class="annot"><span class="annottext">request :: GetBucketWebsite -&gt; Request GetBucketWebsite
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">Request GetBucketWebsite -&gt; Request GetBucketWebsite
+forall a. Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.s3vhost</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">(Request GetBucketWebsite -&gt; Request GetBucketWebsite)
+-&gt; (GetBucketWebsite -&gt; Request GetBucketWebsite)
+-&gt; GetBucketWebsite
+-&gt; Request GetBucketWebsite
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetBucketWebsite -&gt; Request GetBucketWebsite
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679573934"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetBucketWebsite
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetBucketWebsite)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse GetBucketWebsite))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetBucketWebsite
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetBucketWebsite)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679573931"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679573931"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679573930"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679573930"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679573929"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679573929"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe RedirectAllRequestsTo
+-&gt; Maybe ErrorDocument
+-&gt; Maybe IndexDocument
+-&gt; Maybe [RoutingRule]
+-&gt; Int
+-&gt; GetBucketWebsiteResponse
+</span><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse%27"><span class="hs-identifier hs-var">GetBucketWebsiteResponse'</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RedirectAllRequestsTo
+ -&gt; Maybe ErrorDocument
+ -&gt; Maybe IndexDocument
+ -&gt; Maybe [RoutingRule]
+ -&gt; Int
+ -&gt; GetBucketWebsiteResponse)
+-&gt; Either String (Maybe RedirectAllRequestsTo)
+-&gt; Either
+     String
+     (Maybe ErrorDocument
+      -&gt; Maybe IndexDocument
+      -&gt; Maybe [RoutingRule]
+      -&gt; Int
+      -&gt; GetBucketWebsiteResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679573929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe RedirectAllRequestsTo)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RedirectAllRequestsTo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ErrorDocument
+   -&gt; Maybe IndexDocument
+   -&gt; Maybe [RoutingRule]
+   -&gt; Int
+   -&gt; GetBucketWebsiteResponse)
+-&gt; Either String (Maybe ErrorDocument)
+-&gt; Either
+     String
+     (Maybe IndexDocument
+      -&gt; Maybe [RoutingRule] -&gt; Int -&gt; GetBucketWebsiteResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679573929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ErrorDocument)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorDocument&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe IndexDocument
+   -&gt; Maybe [RoutingRule] -&gt; Int -&gt; GetBucketWebsiteResponse)
+-&gt; Either String (Maybe IndexDocument)
+-&gt; Either
+     String (Maybe [RoutingRule] -&gt; Int -&gt; GetBucketWebsiteResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679573929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe IndexDocument)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexDocument&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [RoutingRule] -&gt; Int -&gt; GetBucketWebsiteResponse)
+-&gt; Either String (Maybe [RoutingRule])
+-&gt; Either String (Int -&gt; GetBucketWebsiteResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679573929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoutingRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-128"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [RoutingRule]))
+-&gt; Either String (Maybe [RoutingRule])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [RoutingRule])
+-&gt; [Node] -&gt; Either String (Maybe [RoutingRule])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [RoutingRule]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoutingRule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetBucketWebsiteResponse)
+-&gt; Either String Int -&gt; Either String GetBucketWebsiteResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679573931"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679573918"><span id="local-6989586621679573920"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite"><span class="hs-identifier hs-type">GetBucketWebsite</span></a></span></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679573915"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite"><span class="hs-identifier hs-type">GetBucketWebsite</span></a></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite"><span class="hs-identifier hs-type">GetBucketWebsite</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679573911"><span class="annot"><span class="annottext">toHeaders :: GetBucketWebsite -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite%27"><span class="hs-identifier hs-type">GetBucketWebsite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573908"><span id="local-6989586621679573909"><span class="annot"><span class="annottext">Maybe Text
+BucketName
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+$sel:bucket:GetBucketWebsite' :: GetBucketWebsite -&gt; BucketName
+$sel:expectedBucketOwner:GetBucketWebsite' :: GetBucketWebsite -&gt; Maybe Text
+</span><a href="#local-6989586621679573908"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679573909"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite"><span class="hs-identifier hs-type">GetBucketWebsite</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679573904"><span class="annot"><span class="annottext">toPath :: GetBucketWebsite -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite%27"><span class="hs-identifier hs-type">GetBucketWebsite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573901"><span id="local-6989586621679573902"><span class="annot"><span class="annottext">Maybe Text
+BucketName
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+$sel:bucket:GetBucketWebsite' :: GetBucketWebsite -&gt; BucketName
+$sel:expectedBucketOwner:GetBucketWebsite' :: GetBucketWebsite -&gt; Maybe Text
+</span><a href="#local-6989586621679573901"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679573901"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsite"><span class="hs-identifier hs-type">GetBucketWebsite</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679573897"><span class="annot"><span class="annottext">toQuery :: GetBucketWebsite -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBucketWebsite -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;website&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newGetBucketWebsiteResponse' smart constructor.</span><span>
+</span><span id="line-152"></span><span id="local-6989586621679573893"><span id="local-6989586621679573894"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketWebsiteResponse"><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse"><span class="hs-identifier hs-var">GetBucketWebsiteResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketWebsiteResponse%27"><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse%27"><span class="hs-identifier hs-var">GetBucketWebsiteResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the redirect behavior of all requests to a website endpoint of</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- an Amazon S3 bucket.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AredirectAllRequestsTo%3AGetBucketWebsiteResponse%27"><span class="annot"><span class="annottext">GetBucketWebsiteResponse -&gt; Maybe RedirectAllRequestsTo
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AredirectAllRequestsTo%3AGetBucketWebsiteResponse%27"><span class="hs-identifier hs-var hs-var">redirectAllRequestsTo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.RedirectAllRequestsTo.html#RedirectAllRequestsTo"><span class="hs-identifier hs-type">RedirectAllRequestsTo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The object key name of the website error document to use for 4XX class</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- errors.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AerrorDocument%3AGetBucketWebsiteResponse%27"><span class="annot"><span class="annottext">GetBucketWebsiteResponse -&gt; Maybe ErrorDocument
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AerrorDocument%3AGetBucketWebsiteResponse%27"><span class="hs-identifier hs-var hs-var">errorDocument</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ErrorDocument.html#ErrorDocument"><span class="hs-identifier hs-type">ErrorDocument</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The name of the index document for the website (for example</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- @index.html@).</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AindexDocument%3AGetBucketWebsiteResponse%27"><span class="annot"><span class="annottext">GetBucketWebsiteResponse -&gt; Maybe IndexDocument
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AindexDocument%3AGetBucketWebsiteResponse%27"><span class="hs-identifier hs-var hs-var">indexDocument</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.IndexDocument.html#IndexDocument"><span class="hs-identifier hs-type">IndexDocument</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | Rules that define when a redirect is applied and the redirect behavior.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AroutingRules%3AGetBucketWebsiteResponse%27"><span class="annot"><span class="annottext">GetBucketWebsiteResponse -&gt; Maybe [RoutingRule]
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AroutingRules%3AGetBucketWebsiteResponse%27"><span class="hs-identifier hs-var hs-var">routingRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-type">RoutingRule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBucketWebsiteResponse%27"><span class="annot"><span class="annottext">GetBucketWebsiteResponse -&gt; Int
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AhttpStatus%3AGetBucketWebsiteResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679573884"><span id="local-6989586621679573886"><span class="annot"><span class="annottext">GetBucketWebsiteResponse -&gt; GetBucketWebsiteResponse -&gt; Bool
+(GetBucketWebsiteResponse -&gt; GetBucketWebsiteResponse -&gt; Bool)
+-&gt; (GetBucketWebsiteResponse -&gt; GetBucketWebsiteResponse -&gt; Bool)
+-&gt; Eq GetBucketWebsiteResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBucketWebsiteResponse -&gt; GetBucketWebsiteResponse -&gt; Bool
+$c/= :: GetBucketWebsiteResponse -&gt; GetBucketWebsiteResponse -&gt; Bool
+== :: GetBucketWebsiteResponse -&gt; GetBucketWebsiteResponse -&gt; Bool
+$c== :: GetBucketWebsiteResponse -&gt; GetBucketWebsiteResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679573876"><span id="local-6989586621679573878"><span id="local-6989586621679573880"><span id="local-6989586621679573882"><span class="annot"><span class="annottext">ReadPrec [GetBucketWebsiteResponse]
+ReadPrec GetBucketWebsiteResponse
+Int -&gt; ReadS GetBucketWebsiteResponse
+ReadS [GetBucketWebsiteResponse]
+(Int -&gt; ReadS GetBucketWebsiteResponse)
+-&gt; ReadS [GetBucketWebsiteResponse]
+-&gt; ReadPrec GetBucketWebsiteResponse
+-&gt; ReadPrec [GetBucketWebsiteResponse]
+-&gt; Read GetBucketWebsiteResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBucketWebsiteResponse]
+$creadListPrec :: ReadPrec [GetBucketWebsiteResponse]
+readPrec :: ReadPrec GetBucketWebsiteResponse
+$creadPrec :: ReadPrec GetBucketWebsiteResponse
+readList :: ReadS [GetBucketWebsiteResponse]
+$creadList :: ReadS [GetBucketWebsiteResponse]
+readsPrec :: Int -&gt; ReadS GetBucketWebsiteResponse
+$creadsPrec :: Int -&gt; ReadS GetBucketWebsiteResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679573870"><span id="local-6989586621679573872"><span id="local-6989586621679573874"><span class="annot"><span class="annottext">Int -&gt; GetBucketWebsiteResponse -&gt; ShowS
+[GetBucketWebsiteResponse] -&gt; ShowS
+GetBucketWebsiteResponse -&gt; String
+(Int -&gt; GetBucketWebsiteResponse -&gt; ShowS)
+-&gt; (GetBucketWebsiteResponse -&gt; String)
+-&gt; ([GetBucketWebsiteResponse] -&gt; ShowS)
+-&gt; Show GetBucketWebsiteResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBucketWebsiteResponse] -&gt; ShowS
+$cshowList :: [GetBucketWebsiteResponse] -&gt; ShowS
+show :: GetBucketWebsiteResponse -&gt; String
+$cshow :: GetBucketWebsiteResponse -&gt; String
+showsPrec :: Int -&gt; GetBucketWebsiteResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBucketWebsiteResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetBucketWebsiteResponse -&gt; Rep GetBucketWebsiteResponse x)
+-&gt; (forall x.
+    Rep GetBucketWebsiteResponse x -&gt; GetBucketWebsiteResponse)
+-&gt; Generic GetBucketWebsiteResponse
+forall x.
+Rep GetBucketWebsiteResponse x -&gt; GetBucketWebsiteResponse
+forall x.
+GetBucketWebsiteResponse -&gt; Rep GetBucketWebsiteResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetBucketWebsiteResponse x -&gt; GetBucketWebsiteResponse
+$cfrom :: forall x.
+GetBucketWebsiteResponse -&gt; Rep GetBucketWebsiteResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Create a value of 'GetBucketWebsiteResponse' with all optional fields omitted.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'redirectAllRequestsTo', 'getBucketWebsiteResponse_redirectAllRequestsTo' - Specifies the redirect behavior of all requests to a website endpoint of</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- an Amazon S3 bucket.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'errorDocument', 'getBucketWebsiteResponse_errorDocument' - The object key name of the website error document to use for 4XX class</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- errors.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'indexDocument', 'getBucketWebsiteResponse_indexDocument' - The name of the index document for the website (for example</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- @index.html@).</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'routingRules', 'getBucketWebsiteResponse_routingRules' - Rules that define when a redirect is applied and the redirect behavior.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'httpStatus', 'getBucketWebsiteResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#newGetBucketWebsiteResponse"><span class="hs-identifier hs-type">newGetBucketWebsiteResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse"><span class="hs-identifier hs-type">GetBucketWebsiteResponse</span></a></span><span>
+</span><span id="line-193"></span><span id="newGetBucketWebsiteResponse"><span class="annot"><span class="annottext">newGetBucketWebsiteResponse :: Int -&gt; GetBucketWebsiteResponse
+</span><a href="Amazonka.S3.GetBucketWebsite.html#newGetBucketWebsiteResponse"><span class="hs-identifier hs-var hs-var">newGetBucketWebsiteResponse</span></a></span></span><span> </span><span id="local-6989586621679573867"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679573867"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">GetBucketWebsiteResponse' :: Maybe RedirectAllRequestsTo
+-&gt; Maybe ErrorDocument
+-&gt; Maybe IndexDocument
+-&gt; Maybe [RoutingRule]
+-&gt; Int
+-&gt; GetBucketWebsiteResponse
+</span><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse%27"><span class="hs-identifier hs-type">GetBucketWebsiteResponse'</span></a></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:redirectAllRequestsTo:GetBucketWebsiteResponse' :: Maybe RedirectAllRequestsTo
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AredirectAllRequestsTo%3AGetBucketWebsiteResponse%27"><span class="hs-identifier hs-var">redirectAllRequestsTo</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">Maybe RedirectAllRequestsTo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorDocument:GetBucketWebsiteResponse' :: Maybe ErrorDocument
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AerrorDocument%3AGetBucketWebsiteResponse%27"><span class="hs-identifier hs-var">errorDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDocument
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:indexDocument:GetBucketWebsiteResponse' :: Maybe IndexDocument
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AindexDocument%3AGetBucketWebsiteResponse%27"><span class="hs-identifier hs-var">indexDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IndexDocument
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:routingRules:GetBucketWebsiteResponse' :: Maybe [RoutingRule]
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AroutingRules%3AGetBucketWebsiteResponse%27"><span class="hs-identifier hs-var">routingRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingRule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketWebsiteResponse' :: Int
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AhttpStatus%3AGetBucketWebsiteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679573867"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | Specifies the redirect behavior of all requests to a website endpoint of</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- an Amazon S3 bucket.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsiteResponse_redirectAllRequestsTo"><span class="hs-identifier hs-type">getBucketWebsiteResponse_redirectAllRequestsTo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse"><span class="hs-identifier hs-type">GetBucketWebsiteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.RedirectAllRequestsTo.html#RedirectAllRequestsTo"><span class="hs-identifier hs-type">RedirectAllRequestsTo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="getBucketWebsiteResponse_redirectAllRequestsTo"><span class="annot"><span class="annottext">getBucketWebsiteResponse_redirectAllRequestsTo :: (Maybe RedirectAllRequestsTo -&gt; f (Maybe RedirectAllRequestsTo))
+-&gt; GetBucketWebsiteResponse -&gt; f GetBucketWebsiteResponse
+</span><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsiteResponse_redirectAllRequestsTo"><span class="hs-identifier hs-var hs-var">getBucketWebsiteResponse_redirectAllRequestsTo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBucketWebsiteResponse -&gt; Maybe RedirectAllRequestsTo)
+-&gt; (GetBucketWebsiteResponse
+    -&gt; Maybe RedirectAllRequestsTo -&gt; GetBucketWebsiteResponse)
+-&gt; Lens
+     GetBucketWebsiteResponse
+     GetBucketWebsiteResponse
+     (Maybe RedirectAllRequestsTo)
+     (Maybe RedirectAllRequestsTo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse%27"><span class="hs-identifier hs-type">GetBucketWebsiteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573866"><span class="annot"><span class="annottext">Maybe RedirectAllRequestsTo
+redirectAllRequestsTo :: Maybe RedirectAllRequestsTo
+$sel:redirectAllRequestsTo:GetBucketWebsiteResponse' :: GetBucketWebsiteResponse -&gt; Maybe RedirectAllRequestsTo
+</span><a href="#local-6989586621679573866"><span class="hs-identifier hs-var hs-var">redirectAllRequestsTo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RedirectAllRequestsTo
+</span><a href="#local-6989586621679573866"><span class="hs-identifier hs-var">redirectAllRequestsTo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573865"><span class="annot"><span class="annottext">s :: GetBucketWebsiteResponse
+</span><a href="#local-6989586621679573865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse%27"><span class="hs-identifier hs-type">GetBucketWebsiteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573864"><span class="annot"><span class="annottext">Maybe RedirectAllRequestsTo
+</span><a href="#local-6989586621679573864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketWebsiteResponse
+</span><a href="#local-6989586621679573865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redirectAllRequestsTo:GetBucketWebsiteResponse' :: Maybe RedirectAllRequestsTo
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AredirectAllRequestsTo%3AGetBucketWebsiteResponse%27"><span class="hs-identifier hs-var">redirectAllRequestsTo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RedirectAllRequestsTo
+</span><a href="#local-6989586621679573864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse"><span class="hs-identifier hs-type">GetBucketWebsiteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The object key name of the website error document to use for 4XX class</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- errors.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsiteResponse_errorDocument"><span class="hs-identifier hs-type">getBucketWebsiteResponse_errorDocument</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse"><span class="hs-identifier hs-type">GetBucketWebsiteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ErrorDocument.html#ErrorDocument"><span class="hs-identifier hs-type">ErrorDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="getBucketWebsiteResponse_errorDocument"><span class="annot"><span class="annottext">getBucketWebsiteResponse_errorDocument :: (Maybe ErrorDocument -&gt; f (Maybe ErrorDocument))
+-&gt; GetBucketWebsiteResponse -&gt; f GetBucketWebsiteResponse
+</span><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsiteResponse_errorDocument"><span class="hs-identifier hs-var hs-var">getBucketWebsiteResponse_errorDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBucketWebsiteResponse -&gt; Maybe ErrorDocument)
+-&gt; (GetBucketWebsiteResponse
+    -&gt; Maybe ErrorDocument -&gt; GetBucketWebsiteResponse)
+-&gt; Lens
+     GetBucketWebsiteResponse
+     GetBucketWebsiteResponse
+     (Maybe ErrorDocument)
+     (Maybe ErrorDocument)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse%27"><span class="hs-identifier hs-type">GetBucketWebsiteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573863"><span class="annot"><span class="annottext">Maybe ErrorDocument
+errorDocument :: Maybe ErrorDocument
+$sel:errorDocument:GetBucketWebsiteResponse' :: GetBucketWebsiteResponse -&gt; Maybe ErrorDocument
+</span><a href="#local-6989586621679573863"><span class="hs-identifier hs-var hs-var">errorDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDocument
+</span><a href="#local-6989586621679573863"><span class="hs-identifier hs-var">errorDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573862"><span class="annot"><span class="annottext">s :: GetBucketWebsiteResponse
+</span><a href="#local-6989586621679573862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse%27"><span class="hs-identifier hs-type">GetBucketWebsiteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573861"><span class="annot"><span class="annottext">Maybe ErrorDocument
+</span><a href="#local-6989586621679573861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketWebsiteResponse
+</span><a href="#local-6989586621679573862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorDocument:GetBucketWebsiteResponse' :: Maybe ErrorDocument
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AerrorDocument%3AGetBucketWebsiteResponse%27"><span class="hs-identifier hs-var">errorDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDocument
+</span><a href="#local-6989586621679573861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse"><span class="hs-identifier hs-type">GetBucketWebsiteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The name of the index document for the website (for example</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- @index.html@).</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsiteResponse_indexDocument"><span class="hs-identifier hs-type">getBucketWebsiteResponse_indexDocument</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse"><span class="hs-identifier hs-type">GetBucketWebsiteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.IndexDocument.html#IndexDocument"><span class="hs-identifier hs-type">IndexDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="getBucketWebsiteResponse_indexDocument"><span class="annot"><span class="annottext">getBucketWebsiteResponse_indexDocument :: (Maybe IndexDocument -&gt; f (Maybe IndexDocument))
+-&gt; GetBucketWebsiteResponse -&gt; f GetBucketWebsiteResponse
+</span><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsiteResponse_indexDocument"><span class="hs-identifier hs-var hs-var">getBucketWebsiteResponse_indexDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBucketWebsiteResponse -&gt; Maybe IndexDocument)
+-&gt; (GetBucketWebsiteResponse
+    -&gt; Maybe IndexDocument -&gt; GetBucketWebsiteResponse)
+-&gt; Lens
+     GetBucketWebsiteResponse
+     GetBucketWebsiteResponse
+     (Maybe IndexDocument)
+     (Maybe IndexDocument)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse%27"><span class="hs-identifier hs-type">GetBucketWebsiteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573860"><span class="annot"><span class="annottext">Maybe IndexDocument
+indexDocument :: Maybe IndexDocument
+$sel:indexDocument:GetBucketWebsiteResponse' :: GetBucketWebsiteResponse -&gt; Maybe IndexDocument
+</span><a href="#local-6989586621679573860"><span class="hs-identifier hs-var hs-var">indexDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IndexDocument
+</span><a href="#local-6989586621679573860"><span class="hs-identifier hs-var">indexDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573859"><span class="annot"><span class="annottext">s :: GetBucketWebsiteResponse
+</span><a href="#local-6989586621679573859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse%27"><span class="hs-identifier hs-type">GetBucketWebsiteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573858"><span class="annot"><span class="annottext">Maybe IndexDocument
+</span><a href="#local-6989586621679573858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketWebsiteResponse
+</span><a href="#local-6989586621679573859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexDocument:GetBucketWebsiteResponse' :: Maybe IndexDocument
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AindexDocument%3AGetBucketWebsiteResponse%27"><span class="hs-identifier hs-var">indexDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IndexDocument
+</span><a href="#local-6989586621679573858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse"><span class="hs-identifier hs-type">GetBucketWebsiteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | Rules that define when a redirect is applied and the redirect behavior.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsiteResponse_routingRules"><span class="hs-identifier hs-type">getBucketWebsiteResponse_routingRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse"><span class="hs-identifier hs-type">GetBucketWebsiteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-type">RoutingRule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="getBucketWebsiteResponse_routingRules"><span class="annot"><span class="annottext">getBucketWebsiteResponse_routingRules :: (Maybe [RoutingRule] -&gt; f (Maybe [RoutingRule]))
+-&gt; GetBucketWebsiteResponse -&gt; f GetBucketWebsiteResponse
+</span><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsiteResponse_routingRules"><span class="hs-identifier hs-var hs-var">getBucketWebsiteResponse_routingRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBucketWebsiteResponse -&gt; Maybe [RoutingRule])
+-&gt; (GetBucketWebsiteResponse
+    -&gt; Maybe [RoutingRule] -&gt; GetBucketWebsiteResponse)
+-&gt; Lens
+     GetBucketWebsiteResponse
+     GetBucketWebsiteResponse
+     (Maybe [RoutingRule])
+     (Maybe [RoutingRule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse%27"><span class="hs-identifier hs-type">GetBucketWebsiteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573857"><span class="annot"><span class="annottext">Maybe [RoutingRule]
+routingRules :: Maybe [RoutingRule]
+$sel:routingRules:GetBucketWebsiteResponse' :: GetBucketWebsiteResponse -&gt; Maybe [RoutingRule]
+</span><a href="#local-6989586621679573857"><span class="hs-identifier hs-var hs-var">routingRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingRule]
+</span><a href="#local-6989586621679573857"><span class="hs-identifier hs-var">routingRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573856"><span class="annot"><span class="annottext">s :: GetBucketWebsiteResponse
+</span><a href="#local-6989586621679573856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse%27"><span class="hs-identifier hs-type">GetBucketWebsiteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573855"><span class="annot"><span class="annottext">Maybe [RoutingRule]
+</span><a href="#local-6989586621679573855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketWebsiteResponse
+</span><a href="#local-6989586621679573856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingRules:GetBucketWebsiteResponse' :: Maybe [RoutingRule]
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AroutingRules%3AGetBucketWebsiteResponse%27"><span class="hs-identifier hs-var">routingRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingRule]
+</span><a href="#local-6989586621679573855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse"><span class="hs-identifier hs-type">GetBucketWebsiteResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RoutingRule] -&gt; f (Maybe [RoutingRule]))
+ -&gt; GetBucketWebsiteResponse -&gt; f GetBucketWebsiteResponse)
+-&gt; ((Maybe [RoutingRule] -&gt; f (Maybe [RoutingRule]))
+    -&gt; Maybe [RoutingRule] -&gt; f (Maybe [RoutingRule]))
+-&gt; (Maybe [RoutingRule] -&gt; f (Maybe [RoutingRule]))
+-&gt; GetBucketWebsiteResponse
+-&gt; f GetBucketWebsiteResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RoutingRule] [RoutingRule] [RoutingRule] [RoutingRule]
+-&gt; Iso
+     (Maybe [RoutingRule])
+     (Maybe [RoutingRule])
+     (Maybe [RoutingRule])
+     (Maybe [RoutingRule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RoutingRule] [RoutingRule] [RoutingRule] [RoutingRule]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsiteResponse_httpStatus"><span class="hs-identifier hs-type">getBucketWebsiteResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse"><span class="hs-identifier hs-type">GetBucketWebsiteResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-224"></span><span id="getBucketWebsiteResponse_httpStatus"><span class="annot"><span class="annottext">getBucketWebsiteResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetBucketWebsiteResponse -&gt; f GetBucketWebsiteResponse
+</span><a href="Amazonka.S3.GetBucketWebsite.html#getBucketWebsiteResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getBucketWebsiteResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBucketWebsiteResponse -&gt; Int)
+-&gt; (GetBucketWebsiteResponse -&gt; Int -&gt; GetBucketWebsiteResponse)
+-&gt; Lens GetBucketWebsiteResponse GetBucketWebsiteResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse%27"><span class="hs-identifier hs-type">GetBucketWebsiteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573852"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetBucketWebsiteResponse' :: GetBucketWebsiteResponse -&gt; Int
+</span><a href="#local-6989586621679573852"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679573852"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573851"><span class="annot"><span class="annottext">s :: GetBucketWebsiteResponse
+</span><a href="#local-6989586621679573851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse%27"><span class="hs-identifier hs-type">GetBucketWebsiteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573850"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679573850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketWebsiteResponse
+</span><a href="#local-6989586621679573851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketWebsiteResponse' :: Int
+</span><a href="Amazonka.S3.GetBucketWebsite.html#%24sel%3AhttpStatus%3AGetBucketWebsiteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679573850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse"><span class="hs-identifier hs-type">GetBucketWebsiteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679573848"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.GetBucketWebsite.html#GetBucketWebsiteResponse"><span class="hs-identifier hs-type">GetBucketWebsiteResponse</span></a></span></span><span>
+</span><span id="line-227"></span></pre></body></html>

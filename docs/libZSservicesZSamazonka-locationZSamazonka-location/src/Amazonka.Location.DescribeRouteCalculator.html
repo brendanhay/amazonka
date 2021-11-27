@@ -1,0 +1,1013 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Location.DescribeRouteCalculator</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the route calculator resource details.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Location.DescribeRouteCalculator</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator"><span class="hs-identifier">DescribeRouteCalculator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#newDescribeRouteCalculator"><span class="hs-identifier">newDescribeRouteCalculator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculator_calculatorName"><span class="hs-identifier">describeRouteCalculator_calculatorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier">DescribeRouteCalculatorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#newDescribeRouteCalculatorResponse"><span class="hs-identifier">newDescribeRouteCalculatorResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_tags"><span class="hs-identifier">describeRouteCalculatorResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_httpStatus"><span class="hs-identifier">describeRouteCalculatorResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_calculatorArn"><span class="hs-identifier">describeRouteCalculatorResponse_calculatorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_calculatorName"><span class="hs-identifier">describeRouteCalculatorResponse_calculatorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_createTime"><span class="hs-identifier">describeRouteCalculatorResponse_createTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_dataSource"><span class="hs-identifier">describeRouteCalculatorResponse_dataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_description"><span class="hs-identifier">describeRouteCalculatorResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_pricingPlan"><span class="hs-identifier">describeRouteCalculatorResponse_pricingPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_updateTime"><span class="hs-identifier">describeRouteCalculatorResponse_updateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.html"><span class="hs-identifier">Amazonka.Location.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeRouteCalculator' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679269448"><span id="local-6989586621679269449"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRouteCalculator"><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator"><span class="hs-identifier hs-var">DescribeRouteCalculator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRouteCalculator%27"><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator%27"><span class="hs-identifier hs-var">DescribeRouteCalculator'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the route calculator resource.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AcalculatorName%3ADescribeRouteCalculator%27"><span class="annot"><span class="annottext">DescribeRouteCalculator -&gt; Text
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AcalculatorName%3ADescribeRouteCalculator%27"><span class="hs-identifier hs-var hs-var">calculatorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269442"><span id="local-6989586621679269444"><span class="annot"><span class="annottext">DescribeRouteCalculator -&gt; DescribeRouteCalculator -&gt; Bool
+(DescribeRouteCalculator -&gt; DescribeRouteCalculator -&gt; Bool)
+-&gt; (DescribeRouteCalculator -&gt; DescribeRouteCalculator -&gt; Bool)
+-&gt; Eq DescribeRouteCalculator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeRouteCalculator -&gt; DescribeRouteCalculator -&gt; Bool
+$c/= :: DescribeRouteCalculator -&gt; DescribeRouteCalculator -&gt; Bool
+== :: DescribeRouteCalculator -&gt; DescribeRouteCalculator -&gt; Bool
+$c== :: DescribeRouteCalculator -&gt; DescribeRouteCalculator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269433"><span id="local-6989586621679269435"><span id="local-6989586621679269437"><span id="local-6989586621679269439"><span class="annot"><span class="annottext">ReadPrec [DescribeRouteCalculator]
+ReadPrec DescribeRouteCalculator
+Int -&gt; ReadS DescribeRouteCalculator
+ReadS [DescribeRouteCalculator]
+(Int -&gt; ReadS DescribeRouteCalculator)
+-&gt; ReadS [DescribeRouteCalculator]
+-&gt; ReadPrec DescribeRouteCalculator
+-&gt; ReadPrec [DescribeRouteCalculator]
+-&gt; Read DescribeRouteCalculator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeRouteCalculator]
+$creadListPrec :: ReadPrec [DescribeRouteCalculator]
+readPrec :: ReadPrec DescribeRouteCalculator
+$creadPrec :: ReadPrec DescribeRouteCalculator
+readList :: ReadS [DescribeRouteCalculator]
+$creadList :: ReadS [DescribeRouteCalculator]
+readsPrec :: Int -&gt; ReadS DescribeRouteCalculator
+$creadsPrec :: Int -&gt; ReadS DescribeRouteCalculator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269426"><span id="local-6989586621679269428"><span id="local-6989586621679269430"><span class="annot"><span class="annottext">Int -&gt; DescribeRouteCalculator -&gt; ShowS
+[DescribeRouteCalculator] -&gt; ShowS
+DescribeRouteCalculator -&gt; String
+(Int -&gt; DescribeRouteCalculator -&gt; ShowS)
+-&gt; (DescribeRouteCalculator -&gt; String)
+-&gt; ([DescribeRouteCalculator] -&gt; ShowS)
+-&gt; Show DescribeRouteCalculator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeRouteCalculator] -&gt; ShowS
+$cshowList :: [DescribeRouteCalculator] -&gt; ShowS
+show :: DescribeRouteCalculator -&gt; String
+$cshow :: DescribeRouteCalculator -&gt; String
+showsPrec :: Int -&gt; DescribeRouteCalculator -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeRouteCalculator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeRouteCalculator -&gt; Rep DescribeRouteCalculator x)
+-&gt; (forall x.
+    Rep DescribeRouteCalculator x -&gt; DescribeRouteCalculator)
+-&gt; Generic DescribeRouteCalculator
+forall x. Rep DescribeRouteCalculator x -&gt; DescribeRouteCalculator
+forall x. DescribeRouteCalculator -&gt; Rep DescribeRouteCalculator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeRouteCalculator x -&gt; DescribeRouteCalculator
+$cfrom :: forall x. DescribeRouteCalculator -&gt; Rep DescribeRouteCalculator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DescribeRouteCalculator' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'calculatorName', 'describeRouteCalculator_calculatorName' - The name of the route calculator resource.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#newDescribeRouteCalculator"><span class="hs-identifier hs-type">newDescribeRouteCalculator</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'calculatorName'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator"><span class="hs-identifier hs-type">DescribeRouteCalculator</span></a></span><span>
+</span><span id="line-76"></span><span id="newDescribeRouteCalculator"><span class="annot"><span class="annottext">newDescribeRouteCalculator :: Text -&gt; DescribeRouteCalculator
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#newDescribeRouteCalculator"><span class="hs-identifier hs-var hs-var">newDescribeRouteCalculator</span></a></span></span><span> </span><span id="local-6989586621679269421"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269421"><span class="hs-identifier hs-var">pCalculatorName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">DescribeRouteCalculator' :: Text -&gt; DescribeRouteCalculator
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator%27"><span class="hs-identifier hs-type">DescribeRouteCalculator'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:calculatorName:DescribeRouteCalculator' :: Text
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AcalculatorName%3ADescribeRouteCalculator%27"><span class="hs-identifier hs-var">calculatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269421"><span class="hs-identifier hs-var">pCalculatorName_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The name of the route calculator resource.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculator_calculatorName"><span class="hs-identifier hs-type">describeRouteCalculator_calculatorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator"><span class="hs-identifier hs-type">DescribeRouteCalculator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="describeRouteCalculator_calculatorName"><span class="annot"><span class="annottext">describeRouteCalculator_calculatorName :: (Text -&gt; f Text)
+-&gt; DescribeRouteCalculator -&gt; f DescribeRouteCalculator
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculator_calculatorName"><span class="hs-identifier hs-var hs-var">describeRouteCalculator_calculatorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRouteCalculator -&gt; Text)
+-&gt; (DescribeRouteCalculator -&gt; Text -&gt; DescribeRouteCalculator)
+-&gt; Lens DescribeRouteCalculator DescribeRouteCalculator Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator%27"><span class="hs-identifier hs-type">DescribeRouteCalculator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269418"><span class="annot"><span class="annottext">Text
+calculatorName :: Text
+$sel:calculatorName:DescribeRouteCalculator' :: DescribeRouteCalculator -&gt; Text
+</span><a href="#local-6989586621679269418"><span class="hs-identifier hs-var hs-var">calculatorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269418"><span class="hs-identifier hs-var">calculatorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269417"><span class="annot"><span class="annottext">s :: DescribeRouteCalculator
+</span><a href="#local-6989586621679269417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator%27"><span class="hs-identifier hs-type">DescribeRouteCalculator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269416"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRouteCalculator
+</span><a href="#local-6989586621679269417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:calculatorName:DescribeRouteCalculator' :: Text
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AcalculatorName%3ADescribeRouteCalculator%27"><span class="hs-identifier hs-var">calculatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator"><span class="hs-identifier hs-type">DescribeRouteCalculator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator"><span class="hs-identifier hs-type">DescribeRouteCalculator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator"><span class="hs-identifier hs-type">DescribeRouteCalculator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679269412"><span class="annot"><span class="annottext">request :: DescribeRouteCalculator -&gt; Request DescribeRouteCalculator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeRouteCalculator -&gt; Request DescribeRouteCalculator
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679269408"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeRouteCalculator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeRouteCalculator)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeRouteCalculator))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeRouteCalculator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeRouteCalculator)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679269405"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269405"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679269404"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679269404"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679269403"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269403"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; PricingPlan
+-&gt; POSIX
+-&gt; DescribeRouteCalculatorResponse
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">DescribeRouteCalculatorResponse'</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; Text
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; Text
+ -&gt; PricingPlan
+ -&gt; POSIX
+ -&gt; DescribeRouteCalculatorResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either
+     String
+     (Int
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; PricingPlan
+      -&gt; POSIX
+      -&gt; DescribeRouteCalculatorResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; PricingPlan
+   -&gt; POSIX
+   -&gt; DescribeRouteCalculatorResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; PricingPlan
+      -&gt; POSIX
+      -&gt; DescribeRouteCalculatorResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269405"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; PricingPlan
+   -&gt; POSIX
+   -&gt; DescribeRouteCalculatorResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; PricingPlan
+      -&gt; POSIX
+      -&gt; DescribeRouteCalculatorResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CalculatorArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; PricingPlan
+   -&gt; POSIX
+   -&gt; DescribeRouteCalculatorResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; PricingPlan
+      -&gt; POSIX
+      -&gt; DescribeRouteCalculatorResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CalculatorName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; PricingPlan
+   -&gt; POSIX
+   -&gt; DescribeRouteCalculatorResponse)
+-&gt; Either String POSIX
+-&gt; Either
+     String
+     (Text
+      -&gt; Text -&gt; PricingPlan -&gt; POSIX -&gt; DescribeRouteCalculatorResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text -&gt; PricingPlan -&gt; POSIX -&gt; DescribeRouteCalculatorResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text -&gt; PricingPlan -&gt; POSIX -&gt; DescribeRouteCalculatorResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text -&gt; PricingPlan -&gt; POSIX -&gt; DescribeRouteCalculatorResponse)
+-&gt; Either String Text
+-&gt; Either
+     String (PricingPlan -&gt; POSIX -&gt; DescribeRouteCalculatorResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (PricingPlan -&gt; POSIX -&gt; DescribeRouteCalculatorResponse)
+-&gt; Either String PricingPlan
+-&gt; Either String (POSIX -&gt; DescribeRouteCalculatorResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String PricingPlan
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PricingPlan&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (POSIX -&gt; DescribeRouteCalculatorResponse)
+-&gt; Either String POSIX
+-&gt; Either String DescribeRouteCalculatorResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269393"><span id="local-6989586621679269395"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator"><span class="hs-identifier hs-type">DescribeRouteCalculator</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269390"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator"><span class="hs-identifier hs-type">DescribeRouteCalculator</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator"><span class="hs-identifier hs-type">DescribeRouteCalculator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679269386"><span class="annot"><span class="annottext">toHeaders :: DescribeRouteCalculator -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeRouteCalculator -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator"><span class="hs-identifier hs-type">DescribeRouteCalculator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679269380"><span class="annot"><span class="annottext">toPath :: DescribeRouteCalculator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator%27"><span class="hs-identifier hs-type">DescribeRouteCalculator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269378"><span class="annot"><span class="annottext">Text
+calculatorName :: Text
+$sel:calculatorName:DescribeRouteCalculator' :: DescribeRouteCalculator -&gt; Text
+</span><a href="#local-6989586621679269378"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/routes/v0/calculators/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269378"><span class="hs-identifier hs-var">calculatorName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculator"><span class="hs-identifier hs-type">DescribeRouteCalculator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679269374"><span class="annot"><span class="annottext">toQuery :: DescribeRouteCalculator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeRouteCalculator -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newDescribeRouteCalculatorResponse' smart constructor.</span><span>
+</span><span id="line-130"></span><span id="local-6989586621679269371"><span id="local-6989586621679269372"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRouteCalculatorResponse"><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-var">DescribeRouteCalculatorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRouteCalculatorResponse%27"><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">DescribeRouteCalculatorResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Tags associated with route calculator resource.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3Atags%3ADescribeRouteCalculatorResponse%27"><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3Atags%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeRouteCalculatorResponse%27"><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse -&gt; Int
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AhttpStatus%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the Route calculator resource. Use</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- the ARN when you specify a resource across AWS.</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- -   Format example:</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--     @arn:aws:geo:region:account-id:route-calculator\/ExampleCalculator@</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AcalculatorArn%3ADescribeRouteCalculatorResponse%27"><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse -&gt; Text
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AcalculatorArn%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var hs-var">calculatorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The name of the route calculator resource being described.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AcalculatorName%3ADescribeRouteCalculatorResponse%27"><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse -&gt; Text
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AcalculatorName%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var hs-var">calculatorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The timestamp when the route calculator resource was created in</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- -   For example, @2020&#8211;07-2T12:15:20.000Z+01:00@</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AcreateTime%3ADescribeRouteCalculatorResponse%27"><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse -&gt; POSIX
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AcreateTime%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The data provider of traffic and road network data. Indicates one of the</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- available providers:</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- -   @Esri@</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- -   @Here@</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- For more information about data providers, see</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Amazon Location Service data providers&gt;.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AdataSource%3ADescribeRouteCalculatorResponse%27"><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse -&gt; Text
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AdataSource%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The optional description of the route calculator resource.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3Adescription%3ADescribeRouteCalculatorResponse%27"><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse -&gt; Text
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3Adescription%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The pricing plan selected for the specified route calculator resource.</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- For additional details and restrictions on each pricing plan option, see</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- &lt;https://aws.amazon.com/location/pricing/ Amazon Location Service pricing&gt;.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3ApricingPlan%3ADescribeRouteCalculatorResponse%27"><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse -&gt; PricingPlan
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3ApricingPlan%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var hs-var">pricingPlan</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.PricingPlan.html#PricingPlan"><span class="hs-identifier hs-type">PricingPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The timestamp when the route calculator resource was last updated in</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- -   For example, @2020&#8211;07-2T12:15:20.000Z+01:00@</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AupdateTime%3ADescribeRouteCalculatorResponse%27"><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse -&gt; POSIX
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AupdateTime%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var hs-var">updateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269358"><span id="local-6989586621679269360"><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse
+-&gt; DescribeRouteCalculatorResponse -&gt; Bool
+(DescribeRouteCalculatorResponse
+ -&gt; DescribeRouteCalculatorResponse -&gt; Bool)
+-&gt; (DescribeRouteCalculatorResponse
+    -&gt; DescribeRouteCalculatorResponse -&gt; Bool)
+-&gt; Eq DescribeRouteCalculatorResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeRouteCalculatorResponse
+-&gt; DescribeRouteCalculatorResponse -&gt; Bool
+$c/= :: DescribeRouteCalculatorResponse
+-&gt; DescribeRouteCalculatorResponse -&gt; Bool
+== :: DescribeRouteCalculatorResponse
+-&gt; DescribeRouteCalculatorResponse -&gt; Bool
+$c== :: DescribeRouteCalculatorResponse
+-&gt; DescribeRouteCalculatorResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269350"><span id="local-6989586621679269352"><span id="local-6989586621679269354"><span id="local-6989586621679269356"><span class="annot"><span class="annottext">ReadPrec [DescribeRouteCalculatorResponse]
+ReadPrec DescribeRouteCalculatorResponse
+Int -&gt; ReadS DescribeRouteCalculatorResponse
+ReadS [DescribeRouteCalculatorResponse]
+(Int -&gt; ReadS DescribeRouteCalculatorResponse)
+-&gt; ReadS [DescribeRouteCalculatorResponse]
+-&gt; ReadPrec DescribeRouteCalculatorResponse
+-&gt; ReadPrec [DescribeRouteCalculatorResponse]
+-&gt; Read DescribeRouteCalculatorResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeRouteCalculatorResponse]
+$creadListPrec :: ReadPrec [DescribeRouteCalculatorResponse]
+readPrec :: ReadPrec DescribeRouteCalculatorResponse
+$creadPrec :: ReadPrec DescribeRouteCalculatorResponse
+readList :: ReadS [DescribeRouteCalculatorResponse]
+$creadList :: ReadS [DescribeRouteCalculatorResponse]
+readsPrec :: Int -&gt; ReadS DescribeRouteCalculatorResponse
+$creadsPrec :: Int -&gt; ReadS DescribeRouteCalculatorResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269344"><span id="local-6989586621679269346"><span id="local-6989586621679269348"><span class="annot"><span class="annottext">Int -&gt; DescribeRouteCalculatorResponse -&gt; ShowS
+[DescribeRouteCalculatorResponse] -&gt; ShowS
+DescribeRouteCalculatorResponse -&gt; String
+(Int -&gt; DescribeRouteCalculatorResponse -&gt; ShowS)
+-&gt; (DescribeRouteCalculatorResponse -&gt; String)
+-&gt; ([DescribeRouteCalculatorResponse] -&gt; ShowS)
+-&gt; Show DescribeRouteCalculatorResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeRouteCalculatorResponse] -&gt; ShowS
+$cshowList :: [DescribeRouteCalculatorResponse] -&gt; ShowS
+show :: DescribeRouteCalculatorResponse -&gt; String
+$cshow :: DescribeRouteCalculatorResponse -&gt; String
+showsPrec :: Int -&gt; DescribeRouteCalculatorResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeRouteCalculatorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeRouteCalculatorResponse
+ -&gt; Rep DescribeRouteCalculatorResponse x)
+-&gt; (forall x.
+    Rep DescribeRouteCalculatorResponse x
+    -&gt; DescribeRouteCalculatorResponse)
+-&gt; Generic DescribeRouteCalculatorResponse
+forall x.
+Rep DescribeRouteCalculatorResponse x
+-&gt; DescribeRouteCalculatorResponse
+forall x.
+DescribeRouteCalculatorResponse
+-&gt; Rep DescribeRouteCalculatorResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeRouteCalculatorResponse x
+-&gt; DescribeRouteCalculatorResponse
+$cfrom :: forall x.
+DescribeRouteCalculatorResponse
+-&gt; Rep DescribeRouteCalculatorResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Create a value of 'DescribeRouteCalculatorResponse' with all optional fields omitted.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'tags', 'describeRouteCalculatorResponse_tags' - Tags associated with route calculator resource.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'httpStatus', 'describeRouteCalculatorResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'calculatorArn', 'describeRouteCalculatorResponse_calculatorArn' - The Amazon Resource Name (ARN) for the Route calculator resource. Use</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- the ARN when you specify a resource across AWS.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- -   Format example:</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--     @arn:aws:geo:region:account-id:route-calculator\/ExampleCalculator@</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'calculatorName', 'describeRouteCalculatorResponse_calculatorName' - The name of the route calculator resource being described.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'createTime', 'describeRouteCalculatorResponse_createTime' - The timestamp when the route calculator resource was created in</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- -   For example, @2020&#8211;07-2T12:15:20.000Z+01:00@</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'dataSource', 'describeRouteCalculatorResponse_dataSource' - The data provider of traffic and road network data. Indicates one of the</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- available providers:</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- -   @Esri@</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- -   @Here@</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- For more information about data providers, see</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Amazon Location Service data providers&gt;.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'description', 'describeRouteCalculatorResponse_description' - The optional description of the route calculator resource.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'pricingPlan', 'describeRouteCalculatorResponse_pricingPlan' - The pricing plan selected for the specified route calculator resource.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- For additional details and restrictions on each pricing plan option, see</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/location/pricing/ Amazon Location Service pricing&gt;.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'updateTime', 'describeRouteCalculatorResponse_updateTime' - The timestamp when the route calculator resource was last updated in</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- -   For example, @2020&#8211;07-2T12:15:20.000Z+01:00@</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#newDescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">newDescribeRouteCalculatorResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-comment">-- | 'calculatorArn'</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-comment">-- | 'calculatorName'</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-comment">-- | 'createTime'</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-comment">-- | 'dataSource'</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-comment">-- | 'description'</span><span>
+</span><span id="line-235"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-236"></span><span>  </span><span class="hs-comment">-- | 'pricingPlan'</span><span>
+</span><span id="line-237"></span><span>  </span><span class="annot"><a href="Amazonka.Location.Types.PricingPlan.html#PricingPlan"><span class="hs-identifier hs-type">PricingPlan</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-comment">-- | 'updateTime'</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span>
+</span><span id="line-241"></span><span id="newDescribeRouteCalculatorResponse"><span class="annot"><span class="annottext">newDescribeRouteCalculatorResponse :: Int
+-&gt; Text
+-&gt; Text
+-&gt; UTCTime
+-&gt; Text
+-&gt; Text
+-&gt; PricingPlan
+-&gt; UTCTime
+-&gt; DescribeRouteCalculatorResponse
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#newDescribeRouteCalculatorResponse"><span class="hs-identifier hs-var hs-var">newDescribeRouteCalculatorResponse</span></a></span></span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679269341"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269341"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679269340"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269340"><span class="hs-identifier hs-var">pCalculatorArn_</span></a></span></span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679269339"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269339"><span class="hs-identifier hs-var">pCalculatorName_</span></a></span></span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679269338"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679269338"><span class="hs-identifier hs-var">pCreateTime_</span></a></span></span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679269337"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269337"><span class="hs-identifier hs-var">pDataSource_</span></a></span></span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679269336"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269336"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679269335"><span class="annot"><span class="annottext">PricingPlan
+</span><a href="#local-6989586621679269335"><span class="hs-identifier hs-var">pPricingPlan_</span></a></span></span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679269334"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679269334"><span class="hs-identifier hs-var">pUpdateTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse' :: Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; PricingPlan
+-&gt; POSIX
+-&gt; DescribeRouteCalculatorResponse
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:DescribeRouteCalculatorResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3Atags%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRouteCalculatorResponse' :: Int
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AhttpStatus%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269341"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">$sel:calculatorArn:DescribeRouteCalculatorResponse' :: Text
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AcalculatorArn%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">calculatorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269340"><span class="hs-identifier hs-var">pCalculatorArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">$sel:calculatorName:DescribeRouteCalculatorResponse' :: Text
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AcalculatorName%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">calculatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269339"><span class="hs-identifier hs-var">pCalculatorName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">$sel:createTime:DescribeRouteCalculatorResponse' :: POSIX
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AcreateTime%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679269338"><span class="hs-identifier hs-var">pCreateTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSource:DescribeRouteCalculatorResponse' :: Text
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AdataSource%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269337"><span class="hs-identifier hs-var">pDataSource_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:DescribeRouteCalculatorResponse' :: Text
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3Adescription%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269336"><span class="hs-identifier hs-var">pDescription_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>        </span><span class="annot"><span class="annottext">$sel:pricingPlan:DescribeRouteCalculatorResponse' :: PricingPlan
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3ApricingPlan%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">pricingPlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PricingPlan
+</span><a href="#local-6989586621679269335"><span class="hs-identifier hs-var">pPricingPlan_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>        </span><span class="annot"><span class="annottext">$sel:updateTime:DescribeRouteCalculatorResponse' :: POSIX
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AupdateTime%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">updateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-262"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679269334"><span class="hs-identifier hs-var">pUpdateTime_</span></a></span><span>
+</span><span id="line-263"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | Tags associated with route calculator resource.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_tags"><span class="hs-identifier hs-type">describeRouteCalculatorResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="describeRouteCalculatorResponse_tags"><span class="annot"><span class="annottext">describeRouteCalculatorResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DescribeRouteCalculatorResponse
+-&gt; f DescribeRouteCalculatorResponse
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_tags"><span class="hs-identifier hs-var hs-var">describeRouteCalculatorResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRouteCalculatorResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (DescribeRouteCalculatorResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; DescribeRouteCalculatorResponse)
+-&gt; Lens
+     DescribeRouteCalculatorResponse
+     DescribeRouteCalculatorResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269331"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:DescribeRouteCalculatorResponse' :: DescribeRouteCalculatorResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679269331"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679269331"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269330"><span class="annot"><span class="annottext">s :: DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269329"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679269329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DescribeRouteCalculatorResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3Atags%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679269329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; DescribeRouteCalculatorResponse
+ -&gt; f DescribeRouteCalculatorResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DescribeRouteCalculatorResponse
+-&gt; f DescribeRouteCalculatorResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_httpStatus"><span class="hs-identifier hs-type">describeRouteCalculatorResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-271"></span><span id="describeRouteCalculatorResponse_httpStatus"><span class="annot"><span class="annottext">describeRouteCalculatorResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeRouteCalculatorResponse
+-&gt; f DescribeRouteCalculatorResponse
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeRouteCalculatorResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRouteCalculatorResponse -&gt; Int)
+-&gt; (DescribeRouteCalculatorResponse
+    -&gt; Int -&gt; DescribeRouteCalculatorResponse)
+-&gt; Lens
+     DescribeRouteCalculatorResponse
+     DescribeRouteCalculatorResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269325"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeRouteCalculatorResponse' :: DescribeRouteCalculatorResponse -&gt; Int
+</span><a href="#local-6989586621679269325"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269325"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269324"><span class="annot"><span class="annottext">s :: DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269323"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRouteCalculatorResponse' :: Int
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AhttpStatus%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the Route calculator resource. Use</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- the ARN when you specify a resource across AWS.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- -   Format example:</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--     @arn:aws:geo:region:account-id:route-calculator\/ExampleCalculator@</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_calculatorArn"><span class="hs-identifier hs-type">describeRouteCalculatorResponse_calculatorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-279"></span><span id="describeRouteCalculatorResponse_calculatorArn"><span class="annot"><span class="annottext">describeRouteCalculatorResponse_calculatorArn :: (Text -&gt; f Text)
+-&gt; DescribeRouteCalculatorResponse
+-&gt; f DescribeRouteCalculatorResponse
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_calculatorArn"><span class="hs-identifier hs-var hs-var">describeRouteCalculatorResponse_calculatorArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRouteCalculatorResponse -&gt; Text)
+-&gt; (DescribeRouteCalculatorResponse
+    -&gt; Text -&gt; DescribeRouteCalculatorResponse)
+-&gt; Lens
+     DescribeRouteCalculatorResponse
+     DescribeRouteCalculatorResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269322"><span class="annot"><span class="annottext">Text
+calculatorArn :: Text
+$sel:calculatorArn:DescribeRouteCalculatorResponse' :: DescribeRouteCalculatorResponse -&gt; Text
+</span><a href="#local-6989586621679269322"><span class="hs-identifier hs-var hs-var">calculatorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269322"><span class="hs-identifier hs-var">calculatorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269321"><span class="annot"><span class="annottext">s :: DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269320"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:calculatorArn:DescribeRouteCalculatorResponse' :: Text
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AcalculatorArn%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">calculatorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | The name of the route calculator resource being described.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_calculatorName"><span class="hs-identifier hs-type">describeRouteCalculatorResponse_calculatorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-283"></span><span id="describeRouteCalculatorResponse_calculatorName"><span class="annot"><span class="annottext">describeRouteCalculatorResponse_calculatorName :: (Text -&gt; f Text)
+-&gt; DescribeRouteCalculatorResponse
+-&gt; f DescribeRouteCalculatorResponse
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_calculatorName"><span class="hs-identifier hs-var hs-var">describeRouteCalculatorResponse_calculatorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRouteCalculatorResponse -&gt; Text)
+-&gt; (DescribeRouteCalculatorResponse
+    -&gt; Text -&gt; DescribeRouteCalculatorResponse)
+-&gt; Lens
+     DescribeRouteCalculatorResponse
+     DescribeRouteCalculatorResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269319"><span class="annot"><span class="annottext">Text
+calculatorName :: Text
+$sel:calculatorName:DescribeRouteCalculatorResponse' :: DescribeRouteCalculatorResponse -&gt; Text
+</span><a href="#local-6989586621679269319"><span class="hs-identifier hs-var hs-var">calculatorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269319"><span class="hs-identifier hs-var">calculatorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269318"><span class="annot"><span class="annottext">s :: DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269317"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:calculatorName:DescribeRouteCalculatorResponse' :: Text
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AcalculatorName%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">calculatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The timestamp when the route calculator resource was created in</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- -   For example, @2020&#8211;07-2T12:15:20.000Z+01:00@</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_createTime"><span class="hs-identifier hs-type">describeRouteCalculatorResponse_createTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-291"></span><span id="describeRouteCalculatorResponse_createTime"><span class="annot"><span class="annottext">describeRouteCalculatorResponse_createTime :: (UTCTime -&gt; f UTCTime)
+-&gt; DescribeRouteCalculatorResponse
+-&gt; f DescribeRouteCalculatorResponse
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_createTime"><span class="hs-identifier hs-var hs-var">describeRouteCalculatorResponse_createTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRouteCalculatorResponse -&gt; POSIX)
+-&gt; (DescribeRouteCalculatorResponse
+    -&gt; POSIX -&gt; DescribeRouteCalculatorResponse)
+-&gt; Lens
+     DescribeRouteCalculatorResponse
+     DescribeRouteCalculatorResponse
+     POSIX
+     POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269316"><span class="annot"><span class="annottext">POSIX
+createTime :: POSIX
+$sel:createTime:DescribeRouteCalculatorResponse' :: DescribeRouteCalculatorResponse -&gt; POSIX
+</span><a href="#local-6989586621679269316"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679269316"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269315"><span class="annot"><span class="annottext">s :: DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269314"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679269314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:DescribeRouteCalculatorResponse' :: POSIX
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AcreateTime%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679269314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; DescribeRouteCalculatorResponse
+ -&gt; f DescribeRouteCalculatorResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; DescribeRouteCalculatorResponse
+-&gt; f DescribeRouteCalculatorResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | The data provider of traffic and road network data. Indicates one of the</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- available providers:</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- -   @Esri@</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- -   @Here@</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- For more information about data providers, see</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Amazon Location Service data providers&gt;.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_dataSource"><span class="hs-identifier hs-type">describeRouteCalculatorResponse_dataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-303"></span><span id="describeRouteCalculatorResponse_dataSource"><span class="annot"><span class="annottext">describeRouteCalculatorResponse_dataSource :: (Text -&gt; f Text)
+-&gt; DescribeRouteCalculatorResponse
+-&gt; f DescribeRouteCalculatorResponse
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_dataSource"><span class="hs-identifier hs-var hs-var">describeRouteCalculatorResponse_dataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRouteCalculatorResponse -&gt; Text)
+-&gt; (DescribeRouteCalculatorResponse
+    -&gt; Text -&gt; DescribeRouteCalculatorResponse)
+-&gt; Lens
+     DescribeRouteCalculatorResponse
+     DescribeRouteCalculatorResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269313"><span class="annot"><span class="annottext">Text
+dataSource :: Text
+$sel:dataSource:DescribeRouteCalculatorResponse' :: DescribeRouteCalculatorResponse -&gt; Text
+</span><a href="#local-6989586621679269313"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269313"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269312"><span class="annot"><span class="annottext">s :: DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269311"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSource:DescribeRouteCalculatorResponse' :: Text
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AdataSource%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | The optional description of the route calculator resource.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_description"><span class="hs-identifier hs-type">describeRouteCalculatorResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-307"></span><span id="describeRouteCalculatorResponse_description"><span class="annot"><span class="annottext">describeRouteCalculatorResponse_description :: (Text -&gt; f Text)
+-&gt; DescribeRouteCalculatorResponse
+-&gt; f DescribeRouteCalculatorResponse
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_description"><span class="hs-identifier hs-var hs-var">describeRouteCalculatorResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRouteCalculatorResponse -&gt; Text)
+-&gt; (DescribeRouteCalculatorResponse
+    -&gt; Text -&gt; DescribeRouteCalculatorResponse)
+-&gt; Lens
+     DescribeRouteCalculatorResponse
+     DescribeRouteCalculatorResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269310"><span class="annot"><span class="annottext">Text
+description :: Text
+$sel:description:DescribeRouteCalculatorResponse' :: DescribeRouteCalculatorResponse -&gt; Text
+</span><a href="#local-6989586621679269310"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269310"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269309"><span class="annot"><span class="annottext">s :: DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269308"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:DescribeRouteCalculatorResponse' :: Text
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3Adescription%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | The pricing plan selected for the specified route calculator resource.</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- For additional details and restrictions on each pricing plan option, see</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/location/pricing/ Amazon Location Service pricing&gt;.</span><span>
+</span><span id="line-313"></span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_pricingPlan"><span class="hs-identifier hs-type">describeRouteCalculatorResponse_pricingPlan</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Location.Types.PricingPlan.html#PricingPlan"><span class="hs-identifier hs-type">PricingPlan</span></a></span><span>
+</span><span id="line-314"></span><span id="describeRouteCalculatorResponse_pricingPlan"><span class="annot"><span class="annottext">describeRouteCalculatorResponse_pricingPlan :: (PricingPlan -&gt; f PricingPlan)
+-&gt; DescribeRouteCalculatorResponse
+-&gt; f DescribeRouteCalculatorResponse
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_pricingPlan"><span class="hs-identifier hs-var hs-var">describeRouteCalculatorResponse_pricingPlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRouteCalculatorResponse -&gt; PricingPlan)
+-&gt; (DescribeRouteCalculatorResponse
+    -&gt; PricingPlan -&gt; DescribeRouteCalculatorResponse)
+-&gt; Lens
+     DescribeRouteCalculatorResponse
+     DescribeRouteCalculatorResponse
+     PricingPlan
+     PricingPlan
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269307"><span class="annot"><span class="annottext">PricingPlan
+pricingPlan :: PricingPlan
+$sel:pricingPlan:DescribeRouteCalculatorResponse' :: DescribeRouteCalculatorResponse -&gt; PricingPlan
+</span><a href="#local-6989586621679269307"><span class="hs-identifier hs-var hs-var">pricingPlan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PricingPlan
+</span><a href="#local-6989586621679269307"><span class="hs-identifier hs-var">pricingPlan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269306"><span class="annot"><span class="annottext">s :: DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269305"><span class="annot"><span class="annottext">PricingPlan
+</span><a href="#local-6989586621679269305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pricingPlan:DescribeRouteCalculatorResponse' :: PricingPlan
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3ApricingPlan%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">pricingPlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PricingPlan
+</span><a href="#local-6989586621679269305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- | The timestamp when the route calculator resource was last updated in</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- -   For example, @2020&#8211;07-2T12:15:20.000Z+01:00@</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_updateTime"><span class="hs-identifier hs-type">describeRouteCalculatorResponse_updateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-322"></span><span id="describeRouteCalculatorResponse_updateTime"><span class="annot"><span class="annottext">describeRouteCalculatorResponse_updateTime :: (UTCTime -&gt; f UTCTime)
+-&gt; DescribeRouteCalculatorResponse
+-&gt; f DescribeRouteCalculatorResponse
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#describeRouteCalculatorResponse_updateTime"><span class="hs-identifier hs-var hs-var">describeRouteCalculatorResponse_updateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRouteCalculatorResponse -&gt; POSIX)
+-&gt; (DescribeRouteCalculatorResponse
+    -&gt; POSIX -&gt; DescribeRouteCalculatorResponse)
+-&gt; Lens
+     DescribeRouteCalculatorResponse
+     DescribeRouteCalculatorResponse
+     POSIX
+     POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269304"><span class="annot"><span class="annottext">POSIX
+updateTime :: POSIX
+$sel:updateTime:DescribeRouteCalculatorResponse' :: DescribeRouteCalculatorResponse -&gt; POSIX
+</span><a href="#local-6989586621679269304"><span class="hs-identifier hs-var hs-var">updateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679269304"><span class="hs-identifier hs-var">updateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269303"><span class="annot"><span class="annottext">s :: DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269302"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679269302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRouteCalculatorResponse
+</span><a href="#local-6989586621679269303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateTime:DescribeRouteCalculatorResponse' :: POSIX
+</span><a href="Amazonka.Location.DescribeRouteCalculator.html#%24sel%3AupdateTime%3ADescribeRouteCalculatorResponse%27"><span class="hs-identifier hs-var">updateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679269302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; DescribeRouteCalculatorResponse
+ -&gt; f DescribeRouteCalculatorResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; DescribeRouteCalculatorResponse
+-&gt; f DescribeRouteCalculatorResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-325"></span><span>  </span><span id="local-6989586621679269300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-326"></span><span>    </span><span class="annot"><a href="Amazonka.Location.DescribeRouteCalculator.html#DescribeRouteCalculatorResponse"><span class="hs-identifier hs-type">DescribeRouteCalculatorResponse</span></a></span></span><span>
+</span><span id="line-327"></span></pre></body></html>

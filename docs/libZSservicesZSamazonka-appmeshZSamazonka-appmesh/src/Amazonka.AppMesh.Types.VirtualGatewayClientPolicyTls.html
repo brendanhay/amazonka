@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientTlsCertificate.html"><span class="hs-identifier">Amazonka.AppMesh.Types.VirtualGatewayClientTlsCertificate</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContext.html"><span class="hs-identifier">Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContext</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | An object that represents a Transport Layer Security (TLS) client</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- policy.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newVirtualGatewayClientPolicyTls' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679337951"><span id="local-6989586621679337952"></span></span><span class="hs-keyword">data</span><span> </span><span id="VirtualGatewayClientPolicyTls"><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls"><span class="hs-identifier hs-var">VirtualGatewayClientPolicyTls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualGatewayClientPolicyTls%27"><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-var">VirtualGatewayClientPolicyTls'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more ports that the policy is enforced for.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aports%3AVirtualGatewayClientPolicyTls%27"><span class="annot"><span class="annottext">VirtualGatewayClientPolicyTls -&gt; Maybe [Natural]
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#%24sel%3Aports%3AVirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-var hs-var">ports</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A reference to an object that represents a virtual gateway\'s client\'s</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Transport Layer Security (TLS) certificate.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acertificate%3AVirtualGatewayClientPolicyTls%27"><span class="annot"><span class="annottext">VirtualGatewayClientPolicyTls
+-&gt; Maybe VirtualGatewayClientTlsCertificate
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#%24sel%3Acertificate%3AVirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientTlsCertificate.html#VirtualGatewayClientTlsCertificate"><span class="hs-identifier hs-type">VirtualGatewayClientTlsCertificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Whether the policy is enforced. The default is @True@, if a value isn\'t</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- specified.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aenforce%3AVirtualGatewayClientPolicyTls%27"><span class="annot"><span class="annottext">VirtualGatewayClientPolicyTls -&gt; Maybe Bool
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#%24sel%3Aenforce%3AVirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-var hs-var">enforce</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A reference to an object that represents a Transport Layer Security</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- (TLS) validation context.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Avalidation%3AVirtualGatewayClientPolicyTls%27"><span class="annot"><span class="annottext">VirtualGatewayClientPolicyTls -&gt; VirtualGatewayTlsValidationContext
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#%24sel%3Avalidation%3AVirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-var hs-var">validation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContext.html#VirtualGatewayTlsValidationContext"><span class="hs-identifier hs-type">VirtualGatewayTlsValidationContext</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337942"><span id="local-6989586621679337944"><span class="annot"><span class="annottext">VirtualGatewayClientPolicyTls
+-&gt; VirtualGatewayClientPolicyTls -&gt; Bool
+(VirtualGatewayClientPolicyTls
+ -&gt; VirtualGatewayClientPolicyTls -&gt; Bool)
+-&gt; (VirtualGatewayClientPolicyTls
+    -&gt; VirtualGatewayClientPolicyTls -&gt; Bool)
+-&gt; Eq VirtualGatewayClientPolicyTls
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VirtualGatewayClientPolicyTls
+-&gt; VirtualGatewayClientPolicyTls -&gt; Bool
+$c/= :: VirtualGatewayClientPolicyTls
+-&gt; VirtualGatewayClientPolicyTls -&gt; Bool
+== :: VirtualGatewayClientPolicyTls
+-&gt; VirtualGatewayClientPolicyTls -&gt; Bool
+$c== :: VirtualGatewayClientPolicyTls
+-&gt; VirtualGatewayClientPolicyTls -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337933"><span id="local-6989586621679337935"><span id="local-6989586621679337937"><span id="local-6989586621679337939"><span class="annot"><span class="annottext">ReadPrec [VirtualGatewayClientPolicyTls]
+ReadPrec VirtualGatewayClientPolicyTls
+Int -&gt; ReadS VirtualGatewayClientPolicyTls
+ReadS [VirtualGatewayClientPolicyTls]
+(Int -&gt; ReadS VirtualGatewayClientPolicyTls)
+-&gt; ReadS [VirtualGatewayClientPolicyTls]
+-&gt; ReadPrec VirtualGatewayClientPolicyTls
+-&gt; ReadPrec [VirtualGatewayClientPolicyTls]
+-&gt; Read VirtualGatewayClientPolicyTls
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VirtualGatewayClientPolicyTls]
+$creadListPrec :: ReadPrec [VirtualGatewayClientPolicyTls]
+readPrec :: ReadPrec VirtualGatewayClientPolicyTls
+$creadPrec :: ReadPrec VirtualGatewayClientPolicyTls
+readList :: ReadS [VirtualGatewayClientPolicyTls]
+$creadList :: ReadS [VirtualGatewayClientPolicyTls]
+readsPrec :: Int -&gt; ReadS VirtualGatewayClientPolicyTls
+$creadsPrec :: Int -&gt; ReadS VirtualGatewayClientPolicyTls
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337926"><span id="local-6989586621679337928"><span id="local-6989586621679337930"><span class="annot"><span class="annottext">Int -&gt; VirtualGatewayClientPolicyTls -&gt; ShowS
+[VirtualGatewayClientPolicyTls] -&gt; ShowS
+VirtualGatewayClientPolicyTls -&gt; String
+(Int -&gt; VirtualGatewayClientPolicyTls -&gt; ShowS)
+-&gt; (VirtualGatewayClientPolicyTls -&gt; String)
+-&gt; ([VirtualGatewayClientPolicyTls] -&gt; ShowS)
+-&gt; Show VirtualGatewayClientPolicyTls
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VirtualGatewayClientPolicyTls] -&gt; ShowS
+$cshowList :: [VirtualGatewayClientPolicyTls] -&gt; ShowS
+show :: VirtualGatewayClientPolicyTls -&gt; String
+$cshow :: VirtualGatewayClientPolicyTls -&gt; String
+showsPrec :: Int -&gt; VirtualGatewayClientPolicyTls -&gt; ShowS
+$cshowsPrec :: Int -&gt; VirtualGatewayClientPolicyTls -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ VirtualGatewayClientPolicyTls
+ -&gt; Rep VirtualGatewayClientPolicyTls x)
+-&gt; (forall x.
+    Rep VirtualGatewayClientPolicyTls x
+    -&gt; VirtualGatewayClientPolicyTls)
+-&gt; Generic VirtualGatewayClientPolicyTls
+forall x.
+Rep VirtualGatewayClientPolicyTls x
+-&gt; VirtualGatewayClientPolicyTls
+forall x.
+VirtualGatewayClientPolicyTls
+-&gt; Rep VirtualGatewayClientPolicyTls x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep VirtualGatewayClientPolicyTls x
+-&gt; VirtualGatewayClientPolicyTls
+$cfrom :: forall x.
+VirtualGatewayClientPolicyTls
+-&gt; Rep VirtualGatewayClientPolicyTls x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'VirtualGatewayClientPolicyTls' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'ports', 'virtualGatewayClientPolicyTls_ports' - One or more ports that the policy is enforced for.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'certificate', 'virtualGatewayClientPolicyTls_certificate' - A reference to an object that represents a virtual gateway\'s client\'s</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Transport Layer Security (TLS) certificate.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'enforce', 'virtualGatewayClientPolicyTls_enforce' - Whether the policy is enforced. The default is @True@, if a value isn\'t</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- specified.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'validation', 'virtualGatewayClientPolicyTls_validation' - A reference to an object that represents a Transport Layer Security</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- (TLS) validation context.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#newVirtualGatewayClientPolicyTls"><span class="hs-identifier hs-type">newVirtualGatewayClientPolicyTls</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'validation'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContext.html#VirtualGatewayTlsValidationContext"><span class="hs-identifier hs-type">VirtualGatewayTlsValidationContext</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls</span></a></span><span>
+</span><span id="line-69"></span><span id="newVirtualGatewayClientPolicyTls"><span class="annot"><span class="annottext">newVirtualGatewayClientPolicyTls :: VirtualGatewayTlsValidationContext -&gt; VirtualGatewayClientPolicyTls
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#newVirtualGatewayClientPolicyTls"><span class="hs-identifier hs-var hs-var">newVirtualGatewayClientPolicyTls</span></a></span></span><span> </span><span id="local-6989586621679337920"><span class="annot"><span class="annottext">VirtualGatewayTlsValidationContext
+</span><a href="#local-6989586621679337920"><span class="hs-identifier hs-var">pValidation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">VirtualGatewayClientPolicyTls' :: Maybe [Natural]
+-&gt; Maybe VirtualGatewayClientTlsCertificate
+-&gt; Maybe Bool
+-&gt; VirtualGatewayTlsValidationContext
+-&gt; VirtualGatewayClientPolicyTls
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ports:VirtualGatewayClientPolicyTls' :: Maybe [Natural]
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#%24sel%3Aports%3AVirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-var">ports</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Natural]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificate:VirtualGatewayClientPolicyTls' :: Maybe VirtualGatewayClientTlsCertificate
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#%24sel%3Acertificate%3AVirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-var">certificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayClientTlsCertificate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:enforce:VirtualGatewayClientPolicyTls' :: Maybe Bool
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#%24sel%3Aenforce%3AVirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-var">enforce</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:validation:VirtualGatewayClientPolicyTls' :: VirtualGatewayTlsValidationContext
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#%24sel%3Avalidation%3AVirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-var">validation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayTlsValidationContext
+</span><a href="#local-6989586621679337920"><span class="hs-identifier hs-var">pValidation_</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | One or more ports that the policy is enforced for.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#virtualGatewayClientPolicyTls_ports"><span class="hs-identifier hs-type">virtualGatewayClientPolicyTls_ports</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="virtualGatewayClientPolicyTls_ports"><span class="annot"><span class="annottext">virtualGatewayClientPolicyTls_ports :: (Maybe [Natural] -&gt; f (Maybe [Natural]))
+-&gt; VirtualGatewayClientPolicyTls -&gt; f VirtualGatewayClientPolicyTls
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#virtualGatewayClientPolicyTls_ports"><span class="hs-identifier hs-var hs-var">virtualGatewayClientPolicyTls_ports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayClientPolicyTls -&gt; Maybe [Natural])
+-&gt; (VirtualGatewayClientPolicyTls
+    -&gt; Maybe [Natural] -&gt; VirtualGatewayClientPolicyTls)
+-&gt; Lens
+     VirtualGatewayClientPolicyTls
+     VirtualGatewayClientPolicyTls
+     (Maybe [Natural])
+     (Maybe [Natural])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337916"><span class="annot"><span class="annottext">Maybe [Natural]
+ports :: Maybe [Natural]
+$sel:ports:VirtualGatewayClientPolicyTls' :: VirtualGatewayClientPolicyTls -&gt; Maybe [Natural]
+</span><a href="#local-6989586621679337916"><span class="hs-identifier hs-var hs-var">ports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679337916"><span class="hs-identifier hs-var">ports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337915"><span class="annot"><span class="annottext">s :: VirtualGatewayClientPolicyTls
+</span><a href="#local-6989586621679337915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337914"><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679337914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayClientPolicyTls
+</span><a href="#local-6989586621679337915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ports:VirtualGatewayClientPolicyTls' :: Maybe [Natural]
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#%24sel%3Aports%3AVirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-var">ports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679337914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Natural] -&gt; f (Maybe [Natural]))
+ -&gt; VirtualGatewayClientPolicyTls
+ -&gt; f VirtualGatewayClientPolicyTls)
+-&gt; ((Maybe [Natural] -&gt; f (Maybe [Natural]))
+    -&gt; Maybe [Natural] -&gt; f (Maybe [Natural]))
+-&gt; (Maybe [Natural] -&gt; f (Maybe [Natural]))
+-&gt; VirtualGatewayClientPolicyTls
+-&gt; f VirtualGatewayClientPolicyTls
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Natural] [Natural] [Natural] [Natural]
+-&gt; Iso
+     (Maybe [Natural])
+     (Maybe [Natural])
+     (Maybe [Natural])
+     (Maybe [Natural])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Natural] [Natural] [Natural] [Natural]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | A reference to an object that represents a virtual gateway\'s client\'s</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Transport Layer Security (TLS) certificate.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#virtualGatewayClientPolicyTls_certificate"><span class="hs-identifier hs-type">virtualGatewayClientPolicyTls_certificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientTlsCertificate.html#VirtualGatewayClientTlsCertificate"><span class="hs-identifier hs-type">VirtualGatewayClientTlsCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="virtualGatewayClientPolicyTls_certificate"><span class="annot"><span class="annottext">virtualGatewayClientPolicyTls_certificate :: (Maybe VirtualGatewayClientTlsCertificate
+ -&gt; f (Maybe VirtualGatewayClientTlsCertificate))
+-&gt; VirtualGatewayClientPolicyTls -&gt; f VirtualGatewayClientPolicyTls
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#virtualGatewayClientPolicyTls_certificate"><span class="hs-identifier hs-var hs-var">virtualGatewayClientPolicyTls_certificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayClientPolicyTls
+ -&gt; Maybe VirtualGatewayClientTlsCertificate)
+-&gt; (VirtualGatewayClientPolicyTls
+    -&gt; Maybe VirtualGatewayClientTlsCertificate
+    -&gt; VirtualGatewayClientPolicyTls)
+-&gt; Lens
+     VirtualGatewayClientPolicyTls
+     VirtualGatewayClientPolicyTls
+     (Maybe VirtualGatewayClientTlsCertificate)
+     (Maybe VirtualGatewayClientTlsCertificate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337909"><span class="annot"><span class="annottext">Maybe VirtualGatewayClientTlsCertificate
+certificate :: Maybe VirtualGatewayClientTlsCertificate
+$sel:certificate:VirtualGatewayClientPolicyTls' :: VirtualGatewayClientPolicyTls
+-&gt; Maybe VirtualGatewayClientTlsCertificate
+</span><a href="#local-6989586621679337909"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayClientTlsCertificate
+</span><a href="#local-6989586621679337909"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337908"><span class="annot"><span class="annottext">s :: VirtualGatewayClientPolicyTls
+</span><a href="#local-6989586621679337908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337907"><span class="annot"><span class="annottext">Maybe VirtualGatewayClientTlsCertificate
+</span><a href="#local-6989586621679337907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayClientPolicyTls
+</span><a href="#local-6989586621679337908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:VirtualGatewayClientPolicyTls' :: Maybe VirtualGatewayClientTlsCertificate
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#%24sel%3Acertificate%3AVirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-var">certificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayClientTlsCertificate
+</span><a href="#local-6989586621679337907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Whether the policy is enforced. The default is @True@, if a value isn\'t</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- specified.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#virtualGatewayClientPolicyTls_enforce"><span class="hs-identifier hs-type">virtualGatewayClientPolicyTls_enforce</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="virtualGatewayClientPolicyTls_enforce"><span class="annot"><span class="annottext">virtualGatewayClientPolicyTls_enforce :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; VirtualGatewayClientPolicyTls -&gt; f VirtualGatewayClientPolicyTls
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#virtualGatewayClientPolicyTls_enforce"><span class="hs-identifier hs-var hs-var">virtualGatewayClientPolicyTls_enforce</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayClientPolicyTls -&gt; Maybe Bool)
+-&gt; (VirtualGatewayClientPolicyTls
+    -&gt; Maybe Bool -&gt; VirtualGatewayClientPolicyTls)
+-&gt; Lens
+     VirtualGatewayClientPolicyTls
+     VirtualGatewayClientPolicyTls
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337905"><span class="annot"><span class="annottext">Maybe Bool
+enforce :: Maybe Bool
+$sel:enforce:VirtualGatewayClientPolicyTls' :: VirtualGatewayClientPolicyTls -&gt; Maybe Bool
+</span><a href="#local-6989586621679337905"><span class="hs-identifier hs-var hs-var">enforce</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679337905"><span class="hs-identifier hs-var">enforce</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337904"><span class="annot"><span class="annottext">s :: VirtualGatewayClientPolicyTls
+</span><a href="#local-6989586621679337904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337903"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679337903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayClientPolicyTls
+</span><a href="#local-6989586621679337904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enforce:VirtualGatewayClientPolicyTls' :: Maybe Bool
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#%24sel%3Aenforce%3AVirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-var">enforce</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679337903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | A reference to an object that represents a Transport Layer Security</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- (TLS) validation context.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#virtualGatewayClientPolicyTls_validation"><span class="hs-identifier hs-type">virtualGatewayClientPolicyTls_validation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls</span></a></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContext.html#VirtualGatewayTlsValidationContext"><span class="hs-identifier hs-type">VirtualGatewayTlsValidationContext</span></a></span><span>
+</span><span id="line-95"></span><span id="virtualGatewayClientPolicyTls_validation"><span class="annot"><span class="annottext">virtualGatewayClientPolicyTls_validation :: (VirtualGatewayTlsValidationContext
+ -&gt; f VirtualGatewayTlsValidationContext)
+-&gt; VirtualGatewayClientPolicyTls -&gt; f VirtualGatewayClientPolicyTls
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#virtualGatewayClientPolicyTls_validation"><span class="hs-identifier hs-var hs-var">virtualGatewayClientPolicyTls_validation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayClientPolicyTls
+ -&gt; VirtualGatewayTlsValidationContext)
+-&gt; (VirtualGatewayClientPolicyTls
+    -&gt; VirtualGatewayTlsValidationContext
+    -&gt; VirtualGatewayClientPolicyTls)
+-&gt; Lens
+     VirtualGatewayClientPolicyTls
+     VirtualGatewayClientPolicyTls
+     VirtualGatewayTlsValidationContext
+     VirtualGatewayTlsValidationContext
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337901"><span class="annot"><span class="annottext">VirtualGatewayTlsValidationContext
+validation :: VirtualGatewayTlsValidationContext
+$sel:validation:VirtualGatewayClientPolicyTls' :: VirtualGatewayClientPolicyTls -&gt; VirtualGatewayTlsValidationContext
+</span><a href="#local-6989586621679337901"><span class="hs-identifier hs-var hs-var">validation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayTlsValidationContext
+</span><a href="#local-6989586621679337901"><span class="hs-identifier hs-var">validation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337900"><span class="annot"><span class="annottext">s :: VirtualGatewayClientPolicyTls
+</span><a href="#local-6989586621679337900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337899"><span class="annot"><span class="annottext">VirtualGatewayTlsValidationContext
+</span><a href="#local-6989586621679337899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayClientPolicyTls
+</span><a href="#local-6989586621679337900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validation:VirtualGatewayClientPolicyTls' :: VirtualGatewayTlsValidationContext
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#%24sel%3Avalidation%3AVirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-var">validation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayTlsValidationContext
+</span><a href="#local-6989586621679337899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337896"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679337894"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VirtualGatewayClientPolicyTls
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser VirtualGatewayClientPolicyTls)
+-&gt; Value
+-&gt; Parser VirtualGatewayClientPolicyTls
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VirtualGatewayClientPolicyTls&quot;</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679337891"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337891"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Natural]
+-&gt; Maybe VirtualGatewayClientTlsCertificate
+-&gt; Maybe Bool
+-&gt; VirtualGatewayTlsValidationContext
+-&gt; VirtualGatewayClientPolicyTls
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-var">VirtualGatewayClientPolicyTls'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Natural]
+ -&gt; Maybe VirtualGatewayClientTlsCertificate
+ -&gt; Maybe Bool
+ -&gt; VirtualGatewayTlsValidationContext
+ -&gt; VirtualGatewayClientPolicyTls)
+-&gt; Parser (Maybe [Natural])
+-&gt; Parser
+     (Maybe VirtualGatewayClientTlsCertificate
+      -&gt; Maybe Bool
+      -&gt; VirtualGatewayTlsValidationContext
+      -&gt; VirtualGatewayClientPolicyTls)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Natural]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ports&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Natural]))
+-&gt; Maybe [Natural] -&gt; Parser (Maybe [Natural])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VirtualGatewayClientTlsCertificate
+   -&gt; Maybe Bool
+   -&gt; VirtualGatewayTlsValidationContext
+   -&gt; VirtualGatewayClientPolicyTls)
+-&gt; Parser (Maybe VirtualGatewayClientTlsCertificate)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; VirtualGatewayTlsValidationContext
+      -&gt; VirtualGatewayClientPolicyTls)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VirtualGatewayClientTlsCertificate)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; VirtualGatewayTlsValidationContext
+   -&gt; VirtualGatewayClientPolicyTls)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (VirtualGatewayTlsValidationContext
+      -&gt; VirtualGatewayClientPolicyTls)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enforce&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (VirtualGatewayTlsValidationContext
+   -&gt; VirtualGatewayClientPolicyTls)
+-&gt; Parser VirtualGatewayTlsValidationContext
+-&gt; Parser VirtualGatewayClientPolicyTls
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser VirtualGatewayTlsValidationContext
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;validation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679337883"><span id="local-6989586621679337885"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337872"><span id="local-6989586621679337874"><span id="local-6989586621679337876"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679337870"><span class="annot"><span class="annottext">toJSON :: VirtualGatewayClientPolicyTls -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayClientPolicyTls.html#VirtualGatewayClientPolicyTls%27"><span class="hs-identifier hs-type">VirtualGatewayClientPolicyTls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337865"><span id="local-6989586621679337866"><span id="local-6989586621679337867"><span id="local-6989586621679337868"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Natural]
+Maybe VirtualGatewayClientTlsCertificate
+VirtualGatewayTlsValidationContext
+validation :: VirtualGatewayTlsValidationContext
+enforce :: Maybe Bool
+certificate :: Maybe VirtualGatewayClientTlsCertificate
+ports :: Maybe [Natural]
+$sel:validation:VirtualGatewayClientPolicyTls' :: VirtualGatewayClientPolicyTls -&gt; VirtualGatewayTlsValidationContext
+$sel:enforce:VirtualGatewayClientPolicyTls' :: VirtualGatewayClientPolicyTls -&gt; Maybe Bool
+$sel:certificate:VirtualGatewayClientPolicyTls' :: VirtualGatewayClientPolicyTls
+-&gt; Maybe VirtualGatewayClientTlsCertificate
+$sel:ports:VirtualGatewayClientPolicyTls' :: VirtualGatewayClientPolicyTls -&gt; Maybe [Natural]
+</span><a href="#local-6989586621679337865"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ports&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Natural] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Natural] -&gt; Pair) -&gt; Maybe [Natural] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679337868"><span class="hs-identifier hs-var">ports</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VirtualGatewayClientTlsCertificate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayClientTlsCertificate -&gt; Pair)
+-&gt; Maybe VirtualGatewayClientTlsCertificate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayClientTlsCertificate
+</span><a href="#local-6989586621679337867"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enforce&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679337866"><span class="hs-identifier hs-var">enforce</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;validation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VirtualGatewayTlsValidationContext -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">VirtualGatewayTlsValidationContext
+</span><a href="#local-6989586621679337865"><span class="hs-identifier hs-var">validation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span></pre></body></html>

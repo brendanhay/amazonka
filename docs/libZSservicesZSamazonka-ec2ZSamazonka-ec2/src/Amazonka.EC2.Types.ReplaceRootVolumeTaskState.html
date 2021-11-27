@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.ReplaceRootVolumeTaskState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.ReplaceRootVolumeTaskState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState"><span class="hs-identifier">ReplaceRootVolumeTaskState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_Failed"><span class="hs-identifier">ReplaceRootVolumeTaskState_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_Failed_detached"><span class="hs-identifier">ReplaceRootVolumeTaskState_Failed_detached</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_Failing"><span class="hs-identifier">ReplaceRootVolumeTaskState_Failing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_In_progress"><span class="hs-identifier">ReplaceRootVolumeTaskState_In_progress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_Pending"><span class="hs-identifier">ReplaceRootVolumeTaskState_Pending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_Succeeded"><span class="hs-identifier">ReplaceRootVolumeTaskState_Succeeded</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621681142543"><span id="local-6989586621681142544"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplaceRootVolumeTaskState"><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState"><span class="hs-identifier hs-var">ReplaceRootVolumeTaskState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplaceRootVolumeTaskState%27"><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState%27"><span class="hs-identifier hs-var">ReplaceRootVolumeTaskState'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReplaceRootVolumeTaskState"><span class="annot"><span class="annottext">ReplaceRootVolumeTaskState -&gt; Text
+</span><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#fromReplaceRootVolumeTaskState"><span class="hs-identifier hs-var hs-var">fromReplaceRootVolumeTaskState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681142535"><span id="local-6989586621681142537"><span id="local-6989586621681142539"><span class="annot"><span class="annottext">Int -&gt; ReplaceRootVolumeTaskState -&gt; ShowS
+[ReplaceRootVolumeTaskState] -&gt; ShowS
+ReplaceRootVolumeTaskState -&gt; String
+(Int -&gt; ReplaceRootVolumeTaskState -&gt; ShowS)
+-&gt; (ReplaceRootVolumeTaskState -&gt; String)
+-&gt; ([ReplaceRootVolumeTaskState] -&gt; ShowS)
+-&gt; Show ReplaceRootVolumeTaskState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReplaceRootVolumeTaskState] -&gt; ShowS
+$cshowList :: [ReplaceRootVolumeTaskState] -&gt; ShowS
+show :: ReplaceRootVolumeTaskState -&gt; String
+$cshow :: ReplaceRootVolumeTaskState -&gt; String
+showsPrec :: Int -&gt; ReplaceRootVolumeTaskState -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReplaceRootVolumeTaskState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681142526"><span id="local-6989586621681142528"><span id="local-6989586621681142530"><span id="local-6989586621681142532"><span class="annot"><span class="annottext">ReadPrec [ReplaceRootVolumeTaskState]
+ReadPrec ReplaceRootVolumeTaskState
+Int -&gt; ReadS ReplaceRootVolumeTaskState
+ReadS [ReplaceRootVolumeTaskState]
+(Int -&gt; ReadS ReplaceRootVolumeTaskState)
+-&gt; ReadS [ReplaceRootVolumeTaskState]
+-&gt; ReadPrec ReplaceRootVolumeTaskState
+-&gt; ReadPrec [ReplaceRootVolumeTaskState]
+-&gt; Read ReplaceRootVolumeTaskState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReplaceRootVolumeTaskState]
+$creadListPrec :: ReadPrec [ReplaceRootVolumeTaskState]
+readPrec :: ReadPrec ReplaceRootVolumeTaskState
+$creadPrec :: ReadPrec ReplaceRootVolumeTaskState
+readList :: ReadS [ReplaceRootVolumeTaskState]
+$creadList :: ReadS [ReplaceRootVolumeTaskState]
+readsPrec :: Int -&gt; ReadS ReplaceRootVolumeTaskState
+$creadsPrec :: Int -&gt; ReadS ReplaceRootVolumeTaskState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681142521"><span id="local-6989586621681142523"><span class="annot"><span class="annottext">ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState -&gt; Bool
+(ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState -&gt; Bool)
+-&gt; (ReplaceRootVolumeTaskState
+    -&gt; ReplaceRootVolumeTaskState -&gt; Bool)
+-&gt; Eq ReplaceRootVolumeTaskState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState -&gt; Bool
+$c/= :: ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState -&gt; Bool
+== :: ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState -&gt; Bool
+$c== :: ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681142505"><span id="local-6989586621681142507"><span id="local-6989586621681142509"><span id="local-6989586621681142511"><span id="local-6989586621681142513"><span id="local-6989586621681142515"><span id="local-6989586621681142517"><span class="annot"><span class="annottext">Eq ReplaceRootVolumeTaskState
+Eq ReplaceRootVolumeTaskState
+-&gt; (ReplaceRootVolumeTaskState
+    -&gt; ReplaceRootVolumeTaskState -&gt; Ordering)
+-&gt; (ReplaceRootVolumeTaskState
+    -&gt; ReplaceRootVolumeTaskState -&gt; Bool)
+-&gt; (ReplaceRootVolumeTaskState
+    -&gt; ReplaceRootVolumeTaskState -&gt; Bool)
+-&gt; (ReplaceRootVolumeTaskState
+    -&gt; ReplaceRootVolumeTaskState -&gt; Bool)
+-&gt; (ReplaceRootVolumeTaskState
+    -&gt; ReplaceRootVolumeTaskState -&gt; Bool)
+-&gt; (ReplaceRootVolumeTaskState
+    -&gt; ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState)
+-&gt; (ReplaceRootVolumeTaskState
+    -&gt; ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState)
+-&gt; Ord ReplaceRootVolumeTaskState
+ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState -&gt; Bool
+ReplaceRootVolumeTaskState
+-&gt; ReplaceRootVolumeTaskState -&gt; Ordering
+ReplaceRootVolumeTaskState
+-&gt; ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ReplaceRootVolumeTaskState
+-&gt; ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState
+$cmin :: ReplaceRootVolumeTaskState
+-&gt; ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState
+max :: ReplaceRootVolumeTaskState
+-&gt; ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState
+$cmax :: ReplaceRootVolumeTaskState
+-&gt; ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState
+&gt;= :: ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState -&gt; Bool
+$c&gt;= :: ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState -&gt; Bool
+&gt; :: ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState -&gt; Bool
+$c&gt; :: ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState -&gt; Bool
+&lt;= :: ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState -&gt; Bool
+$c&lt;= :: ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState -&gt; Bool
+&lt; :: ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState -&gt; Bool
+$c&lt; :: ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTaskState -&gt; Bool
+compare :: ReplaceRootVolumeTaskState
+-&gt; ReplaceRootVolumeTaskState -&gt; Ordering
+$ccompare :: ReplaceRootVolumeTaskState
+-&gt; ReplaceRootVolumeTaskState -&gt; Ordering
+$cp1Ord :: Eq ReplaceRootVolumeTaskState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ReplaceRootVolumeTaskState -&gt; Rep ReplaceRootVolumeTaskState x)
+-&gt; (forall x.
+    Rep ReplaceRootVolumeTaskState x -&gt; ReplaceRootVolumeTaskState)
+-&gt; Generic ReplaceRootVolumeTaskState
+forall x.
+Rep ReplaceRootVolumeTaskState x -&gt; ReplaceRootVolumeTaskState
+forall x.
+ReplaceRootVolumeTaskState -&gt; Rep ReplaceRootVolumeTaskState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ReplaceRootVolumeTaskState x -&gt; ReplaceRootVolumeTaskState
+$cfrom :: forall x.
+ReplaceRootVolumeTaskState -&gt; Rep ReplaceRootVolumeTaskState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681142497"><span id="local-6989586621681142499"><span class="annot"><span class="annottext">Int -&gt; ReplaceRootVolumeTaskState -&gt; Int
+ReplaceRootVolumeTaskState -&gt; Int
+(Int -&gt; ReplaceRootVolumeTaskState -&gt; Int)
+-&gt; (ReplaceRootVolumeTaskState -&gt; Int)
+-&gt; Hashable ReplaceRootVolumeTaskState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ReplaceRootVolumeTaskState -&gt; Int
+$chash :: ReplaceRootVolumeTaskState -&gt; Int
+hashWithSalt :: Int -&gt; ReplaceRootVolumeTaskState -&gt; Int
+$chashWithSalt :: Int -&gt; ReplaceRootVolumeTaskState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681142494"><span class="annot"><span class="annottext">ReplaceRootVolumeTaskState -&gt; ()
+(ReplaceRootVolumeTaskState -&gt; ())
+-&gt; NFData ReplaceRootVolumeTaskState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ReplaceRootVolumeTaskState -&gt; ()
+$crnf :: ReplaceRootVolumeTaskState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681142491"><span class="annot"><span class="annottext">Text -&gt; Either String ReplaceRootVolumeTaskState
+(Text -&gt; Either String ReplaceRootVolumeTaskState)
+-&gt; FromText ReplaceRootVolumeTaskState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ReplaceRootVolumeTaskState
+$cfromText :: Text -&gt; Either String ReplaceRootVolumeTaskState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681142488"><span class="annot"><span class="annottext">ReplaceRootVolumeTaskState -&gt; Text
+(ReplaceRootVolumeTaskState -&gt; Text)
+-&gt; ToText ReplaceRootVolumeTaskState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ReplaceRootVolumeTaskState -&gt; Text
+$ctoText :: ReplaceRootVolumeTaskState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681142485"><span class="annot"><span class="annottext">ReplaceRootVolumeTaskState -&gt; ByteString
+(ReplaceRootVolumeTaskState -&gt; ByteString)
+-&gt; ToByteString ReplaceRootVolumeTaskState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ReplaceRootVolumeTaskState -&gt; ByteString
+$ctoBS :: ReplaceRootVolumeTaskState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681142482"><span class="annot"><span class="annottext">ReplaceRootVolumeTaskState -&gt; ByteStringBuilder
+(ReplaceRootVolumeTaskState -&gt; ByteStringBuilder)
+-&gt; ToLog ReplaceRootVolumeTaskState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ReplaceRootVolumeTaskState -&gt; ByteStringBuilder
+$cbuild :: ReplaceRootVolumeTaskState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681142479"><span class="annot"><span class="annottext">HeaderName -&gt; ReplaceRootVolumeTaskState -&gt; [Header]
+(HeaderName -&gt; ReplaceRootVolumeTaskState -&gt; [Header])
+-&gt; ToHeader ReplaceRootVolumeTaskState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ReplaceRootVolumeTaskState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ReplaceRootVolumeTaskState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681142476"><span class="annot"><span class="annottext">ReplaceRootVolumeTaskState -&gt; QueryString
+(ReplaceRootVolumeTaskState -&gt; QueryString)
+-&gt; ToQuery ReplaceRootVolumeTaskState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ReplaceRootVolumeTaskState -&gt; QueryString
+$ctoQuery :: ReplaceRootVolumeTaskState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681142471"><span id="local-6989586621681142473"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplaceRootVolumeTaskState]
+Value -&gt; Parser ReplaceRootVolumeTaskState
+(Value -&gt; Parser ReplaceRootVolumeTaskState)
+-&gt; (Value -&gt; Parser [ReplaceRootVolumeTaskState])
+-&gt; FromJSON ReplaceRootVolumeTaskState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ReplaceRootVolumeTaskState]
+$cparseJSONList :: Value -&gt; Parser [ReplaceRootVolumeTaskState]
+parseJSON :: Value -&gt; Parser ReplaceRootVolumeTaskState
+$cparseJSON :: Value -&gt; Parser ReplaceRootVolumeTaskState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681142466"><span id="local-6989586621681142468"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplaceRootVolumeTaskState]
+FromJSONKeyFunction ReplaceRootVolumeTaskState
+FromJSONKeyFunction ReplaceRootVolumeTaskState
+-&gt; FromJSONKeyFunction [ReplaceRootVolumeTaskState]
+-&gt; FromJSONKey ReplaceRootVolumeTaskState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ReplaceRootVolumeTaskState]
+$cfromJSONKeyList :: FromJSONKeyFunction [ReplaceRootVolumeTaskState]
+fromJSONKey :: FromJSONKeyFunction ReplaceRootVolumeTaskState
+$cfromJSONKey :: FromJSONKeyFunction ReplaceRootVolumeTaskState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681142457"><span id="local-6989586621681142459"><span id="local-6989586621681142461"><span id="local-6989586621681142463"><span class="annot"><span class="annottext">[ReplaceRootVolumeTaskState] -&gt; Encoding
+[ReplaceRootVolumeTaskState] -&gt; Value
+ReplaceRootVolumeTaskState -&gt; Encoding
+ReplaceRootVolumeTaskState -&gt; Value
+(ReplaceRootVolumeTaskState -&gt; Value)
+-&gt; (ReplaceRootVolumeTaskState -&gt; Encoding)
+-&gt; ([ReplaceRootVolumeTaskState] -&gt; Value)
+-&gt; ([ReplaceRootVolumeTaskState] -&gt; Encoding)
+-&gt; ToJSON ReplaceRootVolumeTaskState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ReplaceRootVolumeTaskState] -&gt; Encoding
+$ctoEncodingList :: [ReplaceRootVolumeTaskState] -&gt; Encoding
+toJSONList :: [ReplaceRootVolumeTaskState] -&gt; Value
+$ctoJSONList :: [ReplaceRootVolumeTaskState] -&gt; Value
+toEncoding :: ReplaceRootVolumeTaskState -&gt; Encoding
+$ctoEncoding :: ReplaceRootVolumeTaskState -&gt; Encoding
+toJSON :: ReplaceRootVolumeTaskState -&gt; Value
+$ctoJSON :: ReplaceRootVolumeTaskState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681142452"><span id="local-6989586621681142454"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplaceRootVolumeTaskState]
+ToJSONKeyFunction ReplaceRootVolumeTaskState
+ToJSONKeyFunction ReplaceRootVolumeTaskState
+-&gt; ToJSONKeyFunction [ReplaceRootVolumeTaskState]
+-&gt; ToJSONKey ReplaceRootVolumeTaskState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ReplaceRootVolumeTaskState]
+$ctoJSONKeyList :: ToJSONKeyFunction [ReplaceRootVolumeTaskState]
+toJSONKey :: ToJSONKeyFunction ReplaceRootVolumeTaskState
+$ctoJSONKey :: ToJSONKeyFunction ReplaceRootVolumeTaskState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681142449"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplaceRootVolumeTaskState
+([Node] -&gt; Either String ReplaceRootVolumeTaskState)
+-&gt; FromXML ReplaceRootVolumeTaskState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ReplaceRootVolumeTaskState
+$cparseXML :: [Node] -&gt; Either String ReplaceRootVolumeTaskState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681142446"><span class="annot"><span class="annottext">ReplaceRootVolumeTaskState -&gt; XML
+(ReplaceRootVolumeTaskState -&gt; XML)
+-&gt; ToXML ReplaceRootVolumeTaskState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ReplaceRootVolumeTaskState -&gt; XML
+$ctoXML :: ReplaceRootVolumeTaskState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_Failed"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplaceRootVolumeTaskState_Failed"><span id="%24mReplaceRootVolumeTaskState_Failed"><span id="ReplaceRootVolumeTaskState_Failed"><span class="annot"><span class="annottext">$bReplaceRootVolumeTaskState_Failed :: ReplaceRootVolumeTaskState
+$mReplaceRootVolumeTaskState_Failed :: forall r.
+ReplaceRootVolumeTaskState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#%24bReplaceRootVolumeTaskState_Failed"><span class="hs-identifier hs-var hs-var hs-var">ReplaceRootVolumeTaskState_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failed&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_Failed_detached"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState_Failed_detached</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplaceRootVolumeTaskState_Failed_detached"><span id="%24mReplaceRootVolumeTaskState_Failed_detached"><span id="ReplaceRootVolumeTaskState_Failed_detached"><span class="annot"><span class="annottext">$bReplaceRootVolumeTaskState_Failed_detached :: ReplaceRootVolumeTaskState
+$mReplaceRootVolumeTaskState_Failed_detached :: forall r.
+ReplaceRootVolumeTaskState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#%24bReplaceRootVolumeTaskState_Failed_detached"><span class="hs-identifier hs-var hs-var hs-var">ReplaceRootVolumeTaskState_Failed_detached</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failed-detached&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_Failing"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState_Failing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplaceRootVolumeTaskState_Failing"><span id="%24mReplaceRootVolumeTaskState_Failing"><span id="ReplaceRootVolumeTaskState_Failing"><span class="annot"><span class="annottext">$bReplaceRootVolumeTaskState_Failing :: ReplaceRootVolumeTaskState
+$mReplaceRootVolumeTaskState_Failing :: forall r.
+ReplaceRootVolumeTaskState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#%24bReplaceRootVolumeTaskState_Failing"><span class="hs-identifier hs-var hs-var hs-var">ReplaceRootVolumeTaskState_Failing</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failing&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_In_progress"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState_In_progress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplaceRootVolumeTaskState_In_progress"><span id="%24mReplaceRootVolumeTaskState_In_progress"><span id="ReplaceRootVolumeTaskState_In_progress"><span class="annot"><span class="annottext">$bReplaceRootVolumeTaskState_In_progress :: ReplaceRootVolumeTaskState
+$mReplaceRootVolumeTaskState_In_progress :: forall r.
+ReplaceRootVolumeTaskState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#%24bReplaceRootVolumeTaskState_In_progress"><span class="hs-identifier hs-var hs-var hs-var">ReplaceRootVolumeTaskState_In_progress</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;in-progress&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_Pending"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState_Pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplaceRootVolumeTaskState_Pending"><span id="%24mReplaceRootVolumeTaskState_Pending"><span id="ReplaceRootVolumeTaskState_Pending"><span class="annot"><span class="annottext">$bReplaceRootVolumeTaskState_Pending :: ReplaceRootVolumeTaskState
+$mReplaceRootVolumeTaskState_Pending :: forall r.
+ReplaceRootVolumeTaskState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#%24bReplaceRootVolumeTaskState_Pending"><span class="hs-identifier hs-var hs-var hs-var">ReplaceRootVolumeTaskState_Pending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;pending&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_Succeeded"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState_Succeeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplaceRootVolumeTaskState_Succeeded"><span id="%24mReplaceRootVolumeTaskState_Succeeded"><span id="ReplaceRootVolumeTaskState_Succeeded"><span class="annot"><span class="annottext">$bReplaceRootVolumeTaskState_Succeeded :: ReplaceRootVolumeTaskState
+$mReplaceRootVolumeTaskState_Succeeded :: forall r.
+ReplaceRootVolumeTaskState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#%24bReplaceRootVolumeTaskState_Succeeded"><span class="hs-identifier hs-var hs-var hs-var">ReplaceRootVolumeTaskState_Succeeded</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;succeeded&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_Failed"><span class="hs-pragma hs-type">ReplaceRootVolumeTaskState_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_Failed_detached"><span class="hs-pragma hs-type">ReplaceRootVolumeTaskState_Failed_detached</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_Failing"><span class="hs-pragma hs-type">ReplaceRootVolumeTaskState_Failing</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_In_progress"><span class="hs-pragma hs-type">ReplaceRootVolumeTaskState_In_progress</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_Pending"><span class="hs-pragma hs-type">ReplaceRootVolumeTaskState_Pending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState_Succeeded"><span class="hs-pragma hs-type">ReplaceRootVolumeTaskState_Succeeded</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState%27"><span class="hs-pragma hs-type">ReplaceRootVolumeTaskState'</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-92"></span></pre></body></html>

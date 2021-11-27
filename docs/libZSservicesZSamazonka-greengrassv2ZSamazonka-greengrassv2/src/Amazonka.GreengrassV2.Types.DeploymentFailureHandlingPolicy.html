@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#DeploymentFailureHandlingPolicy"><span class="hs-identifier">DeploymentFailureHandlingPolicy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#DeploymentFailureHandlingPolicy_DO_NOTHING"><span class="hs-identifier">DeploymentFailureHandlingPolicy_DO_NOTHING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#DeploymentFailureHandlingPolicy_ROLLBACK"><span class="hs-identifier">DeploymentFailureHandlingPolicy_ROLLBACK</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679228176"><span id="local-6989586621679228177"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentFailureHandlingPolicy"><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#DeploymentFailureHandlingPolicy"><span class="hs-identifier hs-var">DeploymentFailureHandlingPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentFailureHandlingPolicy%27"><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#DeploymentFailureHandlingPolicy%27"><span class="hs-identifier hs-var">DeploymentFailureHandlingPolicy'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeploymentFailureHandlingPolicy"><span class="annot"><span class="annottext">DeploymentFailureHandlingPolicy -&gt; Text
+</span><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#fromDeploymentFailureHandlingPolicy"><span class="hs-identifier hs-var hs-var">fromDeploymentFailureHandlingPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679228168"><span id="local-6989586621679228170"><span id="local-6989586621679228172"><span class="annot"><span class="annottext">Int -&gt; DeploymentFailureHandlingPolicy -&gt; ShowS
+[DeploymentFailureHandlingPolicy] -&gt; ShowS
+DeploymentFailureHandlingPolicy -&gt; String
+(Int -&gt; DeploymentFailureHandlingPolicy -&gt; ShowS)
+-&gt; (DeploymentFailureHandlingPolicy -&gt; String)
+-&gt; ([DeploymentFailureHandlingPolicy] -&gt; ShowS)
+-&gt; Show DeploymentFailureHandlingPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeploymentFailureHandlingPolicy] -&gt; ShowS
+$cshowList :: [DeploymentFailureHandlingPolicy] -&gt; ShowS
+show :: DeploymentFailureHandlingPolicy -&gt; String
+$cshow :: DeploymentFailureHandlingPolicy -&gt; String
+showsPrec :: Int -&gt; DeploymentFailureHandlingPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeploymentFailureHandlingPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679228159"><span id="local-6989586621679228161"><span id="local-6989586621679228163"><span id="local-6989586621679228165"><span class="annot"><span class="annottext">ReadPrec [DeploymentFailureHandlingPolicy]
+ReadPrec DeploymentFailureHandlingPolicy
+Int -&gt; ReadS DeploymentFailureHandlingPolicy
+ReadS [DeploymentFailureHandlingPolicy]
+(Int -&gt; ReadS DeploymentFailureHandlingPolicy)
+-&gt; ReadS [DeploymentFailureHandlingPolicy]
+-&gt; ReadPrec DeploymentFailureHandlingPolicy
+-&gt; ReadPrec [DeploymentFailureHandlingPolicy]
+-&gt; Read DeploymentFailureHandlingPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeploymentFailureHandlingPolicy]
+$creadListPrec :: ReadPrec [DeploymentFailureHandlingPolicy]
+readPrec :: ReadPrec DeploymentFailureHandlingPolicy
+$creadPrec :: ReadPrec DeploymentFailureHandlingPolicy
+readList :: ReadS [DeploymentFailureHandlingPolicy]
+$creadList :: ReadS [DeploymentFailureHandlingPolicy]
+readsPrec :: Int -&gt; ReadS DeploymentFailureHandlingPolicy
+$creadsPrec :: Int -&gt; ReadS DeploymentFailureHandlingPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679228154"><span id="local-6989586621679228156"><span class="annot"><span class="annottext">DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Bool
+(DeploymentFailureHandlingPolicy
+ -&gt; DeploymentFailureHandlingPolicy -&gt; Bool)
+-&gt; (DeploymentFailureHandlingPolicy
+    -&gt; DeploymentFailureHandlingPolicy -&gt; Bool)
+-&gt; Eq DeploymentFailureHandlingPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Bool
+$c/= :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Bool
+== :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Bool
+$c== :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679228138"><span id="local-6989586621679228140"><span id="local-6989586621679228142"><span id="local-6989586621679228144"><span id="local-6989586621679228146"><span id="local-6989586621679228148"><span id="local-6989586621679228150"><span class="annot"><span class="annottext">Eq DeploymentFailureHandlingPolicy
+Eq DeploymentFailureHandlingPolicy
+-&gt; (DeploymentFailureHandlingPolicy
+    -&gt; DeploymentFailureHandlingPolicy -&gt; Ordering)
+-&gt; (DeploymentFailureHandlingPolicy
+    -&gt; DeploymentFailureHandlingPolicy -&gt; Bool)
+-&gt; (DeploymentFailureHandlingPolicy
+    -&gt; DeploymentFailureHandlingPolicy -&gt; Bool)
+-&gt; (DeploymentFailureHandlingPolicy
+    -&gt; DeploymentFailureHandlingPolicy -&gt; Bool)
+-&gt; (DeploymentFailureHandlingPolicy
+    -&gt; DeploymentFailureHandlingPolicy -&gt; Bool)
+-&gt; (DeploymentFailureHandlingPolicy
+    -&gt; DeploymentFailureHandlingPolicy
+    -&gt; DeploymentFailureHandlingPolicy)
+-&gt; (DeploymentFailureHandlingPolicy
+    -&gt; DeploymentFailureHandlingPolicy
+    -&gt; DeploymentFailureHandlingPolicy)
+-&gt; Ord DeploymentFailureHandlingPolicy
+DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Bool
+DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Ordering
+DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy
+$cmin :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy
+max :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy
+$cmax :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy
+&gt;= :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Bool
+$c&gt;= :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Bool
+&gt; :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Bool
+$c&gt; :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Bool
+&lt;= :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Bool
+$c&lt;= :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Bool
+&lt; :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Bool
+$c&lt; :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Bool
+compare :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Ordering
+$ccompare :: DeploymentFailureHandlingPolicy
+-&gt; DeploymentFailureHandlingPolicy -&gt; Ordering
+$cp1Ord :: Eq DeploymentFailureHandlingPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DeploymentFailureHandlingPolicy
+ -&gt; Rep DeploymentFailureHandlingPolicy x)
+-&gt; (forall x.
+    Rep DeploymentFailureHandlingPolicy x
+    -&gt; DeploymentFailureHandlingPolicy)
+-&gt; Generic DeploymentFailureHandlingPolicy
+forall x.
+Rep DeploymentFailureHandlingPolicy x
+-&gt; DeploymentFailureHandlingPolicy
+forall x.
+DeploymentFailureHandlingPolicy
+-&gt; Rep DeploymentFailureHandlingPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeploymentFailureHandlingPolicy x
+-&gt; DeploymentFailureHandlingPolicy
+$cfrom :: forall x.
+DeploymentFailureHandlingPolicy
+-&gt; Rep DeploymentFailureHandlingPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679228130"><span id="local-6989586621679228132"><span class="annot"><span class="annottext">Int -&gt; DeploymentFailureHandlingPolicy -&gt; Int
+DeploymentFailureHandlingPolicy -&gt; Int
+(Int -&gt; DeploymentFailureHandlingPolicy -&gt; Int)
+-&gt; (DeploymentFailureHandlingPolicy -&gt; Int)
+-&gt; Hashable DeploymentFailureHandlingPolicy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeploymentFailureHandlingPolicy -&gt; Int
+$chash :: DeploymentFailureHandlingPolicy -&gt; Int
+hashWithSalt :: Int -&gt; DeploymentFailureHandlingPolicy -&gt; Int
+$chashWithSalt :: Int -&gt; DeploymentFailureHandlingPolicy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679228127"><span class="annot"><span class="annottext">DeploymentFailureHandlingPolicy -&gt; ()
+(DeploymentFailureHandlingPolicy -&gt; ())
+-&gt; NFData DeploymentFailureHandlingPolicy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeploymentFailureHandlingPolicy -&gt; ()
+$crnf :: DeploymentFailureHandlingPolicy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679228124"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentFailureHandlingPolicy
+(Text -&gt; Either String DeploymentFailureHandlingPolicy)
+-&gt; FromText DeploymentFailureHandlingPolicy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeploymentFailureHandlingPolicy
+$cfromText :: Text -&gt; Either String DeploymentFailureHandlingPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679228121"><span class="annot"><span class="annottext">DeploymentFailureHandlingPolicy -&gt; Text
+(DeploymentFailureHandlingPolicy -&gt; Text)
+-&gt; ToText DeploymentFailureHandlingPolicy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeploymentFailureHandlingPolicy -&gt; Text
+$ctoText :: DeploymentFailureHandlingPolicy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679228118"><span class="annot"><span class="annottext">DeploymentFailureHandlingPolicy -&gt; ByteString
+(DeploymentFailureHandlingPolicy -&gt; ByteString)
+-&gt; ToByteString DeploymentFailureHandlingPolicy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeploymentFailureHandlingPolicy -&gt; ByteString
+$ctoBS :: DeploymentFailureHandlingPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679228115"><span class="annot"><span class="annottext">DeploymentFailureHandlingPolicy -&gt; ByteStringBuilder
+(DeploymentFailureHandlingPolicy -&gt; ByteStringBuilder)
+-&gt; ToLog DeploymentFailureHandlingPolicy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeploymentFailureHandlingPolicy -&gt; ByteStringBuilder
+$cbuild :: DeploymentFailureHandlingPolicy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679228112"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentFailureHandlingPolicy -&gt; [Header]
+(HeaderName -&gt; DeploymentFailureHandlingPolicy -&gt; [Header])
+-&gt; ToHeader DeploymentFailureHandlingPolicy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeploymentFailureHandlingPolicy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeploymentFailureHandlingPolicy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679228109"><span class="annot"><span class="annottext">DeploymentFailureHandlingPolicy -&gt; QueryString
+(DeploymentFailureHandlingPolicy -&gt; QueryString)
+-&gt; ToQuery DeploymentFailureHandlingPolicy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeploymentFailureHandlingPolicy -&gt; QueryString
+$ctoQuery :: DeploymentFailureHandlingPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679228104"><span id="local-6989586621679228106"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentFailureHandlingPolicy]
+Value -&gt; Parser DeploymentFailureHandlingPolicy
+(Value -&gt; Parser DeploymentFailureHandlingPolicy)
+-&gt; (Value -&gt; Parser [DeploymentFailureHandlingPolicy])
+-&gt; FromJSON DeploymentFailureHandlingPolicy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeploymentFailureHandlingPolicy]
+$cparseJSONList :: Value -&gt; Parser [DeploymentFailureHandlingPolicy]
+parseJSON :: Value -&gt; Parser DeploymentFailureHandlingPolicy
+$cparseJSON :: Value -&gt; Parser DeploymentFailureHandlingPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679228099"><span id="local-6989586621679228101"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentFailureHandlingPolicy]
+FromJSONKeyFunction DeploymentFailureHandlingPolicy
+FromJSONKeyFunction DeploymentFailureHandlingPolicy
+-&gt; FromJSONKeyFunction [DeploymentFailureHandlingPolicy]
+-&gt; FromJSONKey DeploymentFailureHandlingPolicy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeploymentFailureHandlingPolicy]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeploymentFailureHandlingPolicy]
+fromJSONKey :: FromJSONKeyFunction DeploymentFailureHandlingPolicy
+$cfromJSONKey :: FromJSONKeyFunction DeploymentFailureHandlingPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679228090"><span id="local-6989586621679228092"><span id="local-6989586621679228094"><span id="local-6989586621679228096"><span class="annot"><span class="annottext">[DeploymentFailureHandlingPolicy] -&gt; Encoding
+[DeploymentFailureHandlingPolicy] -&gt; Value
+DeploymentFailureHandlingPolicy -&gt; Encoding
+DeploymentFailureHandlingPolicy -&gt; Value
+(DeploymentFailureHandlingPolicy -&gt; Value)
+-&gt; (DeploymentFailureHandlingPolicy -&gt; Encoding)
+-&gt; ([DeploymentFailureHandlingPolicy] -&gt; Value)
+-&gt; ([DeploymentFailureHandlingPolicy] -&gt; Encoding)
+-&gt; ToJSON DeploymentFailureHandlingPolicy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeploymentFailureHandlingPolicy] -&gt; Encoding
+$ctoEncodingList :: [DeploymentFailureHandlingPolicy] -&gt; Encoding
+toJSONList :: [DeploymentFailureHandlingPolicy] -&gt; Value
+$ctoJSONList :: [DeploymentFailureHandlingPolicy] -&gt; Value
+toEncoding :: DeploymentFailureHandlingPolicy -&gt; Encoding
+$ctoEncoding :: DeploymentFailureHandlingPolicy -&gt; Encoding
+toJSON :: DeploymentFailureHandlingPolicy -&gt; Value
+$ctoJSON :: DeploymentFailureHandlingPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679228085"><span id="local-6989586621679228087"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentFailureHandlingPolicy]
+ToJSONKeyFunction DeploymentFailureHandlingPolicy
+ToJSONKeyFunction DeploymentFailureHandlingPolicy
+-&gt; ToJSONKeyFunction [DeploymentFailureHandlingPolicy]
+-&gt; ToJSONKey DeploymentFailureHandlingPolicy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeploymentFailureHandlingPolicy]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeploymentFailureHandlingPolicy]
+toJSONKey :: ToJSONKeyFunction DeploymentFailureHandlingPolicy
+$ctoJSONKey :: ToJSONKeyFunction DeploymentFailureHandlingPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679228082"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentFailureHandlingPolicy
+([Node] -&gt; Either String DeploymentFailureHandlingPolicy)
+-&gt; FromXML DeploymentFailureHandlingPolicy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeploymentFailureHandlingPolicy
+$cparseXML :: [Node] -&gt; Either String DeploymentFailureHandlingPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679228079"><span class="annot"><span class="annottext">DeploymentFailureHandlingPolicy -&gt; XML
+(DeploymentFailureHandlingPolicy -&gt; XML)
+-&gt; ToXML DeploymentFailureHandlingPolicy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeploymentFailureHandlingPolicy -&gt; XML
+$ctoXML :: DeploymentFailureHandlingPolicy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#DeploymentFailureHandlingPolicy_DO_NOTHING"><span class="hs-identifier hs-type">DeploymentFailureHandlingPolicy_DO_NOTHING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#DeploymentFailureHandlingPolicy"><span class="hs-identifier hs-type">DeploymentFailureHandlingPolicy</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentFailureHandlingPolicy_DO_NOTHING"><span id="%24mDeploymentFailureHandlingPolicy_DO_NOTHING"><span id="DeploymentFailureHandlingPolicy_DO_NOTHING"><span class="annot"><span class="annottext">$bDeploymentFailureHandlingPolicy_DO_NOTHING :: DeploymentFailureHandlingPolicy
+$mDeploymentFailureHandlingPolicy_DO_NOTHING :: forall r.
+DeploymentFailureHandlingPolicy
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#%24bDeploymentFailureHandlingPolicy_DO_NOTHING"><span class="hs-identifier hs-var hs-var hs-var">DeploymentFailureHandlingPolicy_DO_NOTHING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#DeploymentFailureHandlingPolicy%27"><span class="hs-identifier hs-type">DeploymentFailureHandlingPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DO_NOTHING&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#DeploymentFailureHandlingPolicy_ROLLBACK"><span class="hs-identifier hs-type">DeploymentFailureHandlingPolicy_ROLLBACK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#DeploymentFailureHandlingPolicy"><span class="hs-identifier hs-type">DeploymentFailureHandlingPolicy</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentFailureHandlingPolicy_ROLLBACK"><span id="%24mDeploymentFailureHandlingPolicy_ROLLBACK"><span id="DeploymentFailureHandlingPolicy_ROLLBACK"><span class="annot"><span class="annottext">$bDeploymentFailureHandlingPolicy_ROLLBACK :: DeploymentFailureHandlingPolicy
+$mDeploymentFailureHandlingPolicy_ROLLBACK :: forall r.
+DeploymentFailureHandlingPolicy
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#%24bDeploymentFailureHandlingPolicy_ROLLBACK"><span class="hs-identifier hs-var hs-var hs-var">DeploymentFailureHandlingPolicy_ROLLBACK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#DeploymentFailureHandlingPolicy%27"><span class="hs-identifier hs-type">DeploymentFailureHandlingPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROLLBACK&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#DeploymentFailureHandlingPolicy_DO_NOTHING"><span class="hs-pragma hs-type">DeploymentFailureHandlingPolicy_DO_NOTHING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#DeploymentFailureHandlingPolicy_ROLLBACK"><span class="hs-pragma hs-type">DeploymentFailureHandlingPolicy_ROLLBACK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy.html#DeploymentFailureHandlingPolicy%27"><span class="hs-pragma hs-type">DeploymentFailureHandlingPolicy'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

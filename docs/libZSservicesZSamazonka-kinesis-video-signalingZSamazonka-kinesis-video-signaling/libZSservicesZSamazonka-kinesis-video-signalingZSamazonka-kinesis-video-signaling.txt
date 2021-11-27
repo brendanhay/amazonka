@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.KinesisVideoSignaling.Types.IceServer
+module Amazonka.KinesisVideoSignaling.Types.IceServer
 
 -- | A structure for the ICE server connection data.
 --   
@@ -67,42 +67,42 @@ iceServer_username :: Lens' IceServer (Maybe Text)
 
 -- | A password to login to the ICE server.
 iceServer_password :: Lens' IceServer (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.KinesisVideoSignaling.Types.IceServer.IceServer
-instance GHC.Show.Show Network.AWS.KinesisVideoSignaling.Types.IceServer.IceServer
-instance GHC.Read.Read Network.AWS.KinesisVideoSignaling.Types.IceServer.IceServer
-instance GHC.Classes.Eq Network.AWS.KinesisVideoSignaling.Types.IceServer.IceServer
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideoSignaling.Types.IceServer.IceServer
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoSignaling.Types.IceServer.IceServer
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoSignaling.Types.IceServer.IceServer
+instance GHC.Generics.Generic Amazonka.KinesisVideoSignaling.Types.IceServer.IceServer
+instance GHC.Show.Show Amazonka.KinesisVideoSignaling.Types.IceServer.IceServer
+instance GHC.Read.Read Amazonka.KinesisVideoSignaling.Types.IceServer.IceServer
+instance GHC.Classes.Eq Amazonka.KinesisVideoSignaling.Types.IceServer.IceServer
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideoSignaling.Types.IceServer.IceServer
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoSignaling.Types.IceServer.IceServer
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoSignaling.Types.IceServer.IceServer
 
 
-module Network.AWS.KinesisVideoSignaling.Types.Service
+module Amazonka.KinesisVideoSignaling.Types.Service
 newtype Service
 Service' :: Text -> Service
 [fromService] :: Service -> Text
 pattern Service_TURN :: Service
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance GHC.Generics.Generic Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance GHC.Classes.Ord Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance GHC.Classes.Eq Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance GHC.Read.Read Network.AWS.KinesisVideoSignaling.Types.Service.Service
-instance GHC.Show.Show Network.AWS.KinesisVideoSignaling.Types.Service.Service
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance GHC.Generics.Generic Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance GHC.Classes.Ord Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance GHC.Classes.Eq Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance GHC.Read.Read Amazonka.KinesisVideoSignaling.Types.Service.Service
+instance GHC.Show.Show Amazonka.KinesisVideoSignaling.Types.Service.Service
 
 
-module Network.AWS.KinesisVideoSignaling.Types
+module Amazonka.KinesisVideoSignaling.Types
 
 -- | API version <tt>2019-12-04</tt> of the Amazon Kinesis Video Signaling
 --   Channels SDK configuration.
@@ -202,7 +202,7 @@ iceServer_password :: Lens' IceServer (Maybe Text)
 --   This API returns the SDP answer from the connected master. If the
 --   master is not connected to the signaling channel, redelivery requests
 --   are made until the message expires.
-module Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster
+module Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster
 
 -- | <i>See:</i> <a>newSendAlexaOfferToMaster</a> smart constructor.
 data SendAlexaOfferToMaster
@@ -284,22 +284,22 @@ sendAlexaOfferToMasterResponse_answer :: Lens' SendAlexaOfferToMasterResponse (M
 
 -- | The response's http status code.
 sendAlexaOfferToMasterResponse_httpStatus :: Lens' SendAlexaOfferToMasterResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
-instance GHC.Show.Show Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
-instance GHC.Read.Read Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
-instance GHC.Classes.Eq Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
-instance GHC.Generics.Generic Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMasterResponse
-instance GHC.Show.Show Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMasterResponse
-instance GHC.Read.Read Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMasterResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMasterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMasterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
+instance GHC.Generics.Generic Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
+instance GHC.Show.Show Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
+instance GHC.Read.Read Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
+instance GHC.Classes.Eq Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
+instance GHC.Generics.Generic Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMasterResponse
+instance GHC.Show.Show Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMasterResponse
+instance GHC.Read.Read Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMasterResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMasterResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMasterResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster.SendAlexaOfferToMaster
 
 
 -- | Gets the Interactive Connectivity Establishment (ICE) server
@@ -319,7 +319,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoSignaling.SendAl
 --   either of the peers is unable to establish a direct peer-to-peer
 --   connection over a signaling channel. You must specify either a
 --   signaling channel ARN or the client ID in order to invoke this API.
-module Network.AWS.KinesisVideoSignaling.GetIceServerConfig
+module Amazonka.KinesisVideoSignaling.GetIceServerConfig
 
 -- | <i>See:</i> <a>newGetIceServerConfig</a> smart constructor.
 data GetIceServerConfig
@@ -415,25 +415,25 @@ getIceServerConfigResponse_iceServerList :: Lens' GetIceServerConfigResponse (Ma
 
 -- | The response's http status code.
 getIceServerConfigResponse_httpStatus :: Lens' GetIceServerConfigResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
-instance GHC.Show.Show Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
-instance GHC.Read.Read Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
-instance GHC.Classes.Eq Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
-instance GHC.Generics.Generic Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfigResponse
-instance GHC.Show.Show Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfigResponse
-instance GHC.Read.Read Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfigResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfigResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfigResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
+instance GHC.Generics.Generic Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
+instance GHC.Show.Show Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
+instance GHC.Read.Read Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
+instance GHC.Classes.Eq Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
+instance GHC.Generics.Generic Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfigResponse
+instance GHC.Show.Show Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfigResponse
+instance GHC.Read.Read Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfigResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfigResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfigResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoSignaling.GetIceServerConfig.GetIceServerConfig
 
 
-module Network.AWS.KinesisVideoSignaling.Lens
+module Amazonka.KinesisVideoSignaling.Lens
 
 -- | The ARN of the signaling channel by which Alexa and the master peer
 --   communicate.
@@ -489,7 +489,7 @@ iceServer_username :: Lens' IceServer (Maybe Text)
 iceServer_password :: Lens' IceServer (Maybe Text)
 
 
-module Network.AWS.KinesisVideoSignaling.Waiters
+module Amazonka.KinesisVideoSignaling.Waiters
 
 
 -- | Derived from API version <tt>2019-12-04</tt> of the AWS service
@@ -499,7 +499,7 @@ module Network.AWS.KinesisVideoSignaling.Waiters
 --   establishes a communication channel for discovering peers,
 --   transmitting offers and answers in order to establish peer-to-peer
 --   connection in webRTC technology.
-module Network.AWS.KinesisVideoSignaling
+module Amazonka.KinesisVideoSignaling
 
 -- | API version <tt>2019-12-04</tt> of the Amazon Kinesis Video Signaling
 --   Channels SDK configuration.

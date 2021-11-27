@@ -1,0 +1,573 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SavingsPlans.Types.SavingsPlanRate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SavingsPlans.Types.SavingsPlanRate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.CurrencyCode.html"><span class="hs-identifier">Amazonka.SavingsPlans.Types.CurrencyCode</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanProductType.html"><span class="hs-identifier">Amazonka.SavingsPlans.Types.SavingsPlanProductType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRateProperty.html"><span class="hs-identifier">Amazonka.SavingsPlans.Types.SavingsPlanRateProperty</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.html"><span class="hs-identifier">Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.html"><span class="hs-identifier">Amazonka.SavingsPlans.Types.SavingsPlanRateUnit</span></a></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Information about a Savings Plan rate.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newSavingsPlanRate' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679188821"><span id="local-6989586621679188822"></span></span><span class="hs-keyword">data</span><span> </span><span id="SavingsPlanRate"><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-var">SavingsPlanRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SavingsPlanRate%27"><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-var">SavingsPlanRate'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The specific AWS operation for the line item in the billing report.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aoperation%3ASavingsPlanRate%27"><span class="annot"><span class="annottext">SavingsPlanRate -&gt; Maybe Text
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3Aoperation%3ASavingsPlanRate%27"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The usage details of the line item in the billing report.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AusageType%3ASavingsPlanRate%27"><span class="annot"><span class="annottext">SavingsPlanRate -&gt; Maybe Text
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3AusageType%3ASavingsPlanRate%27"><span class="hs-identifier hs-var hs-var">usageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The product type.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AproductType%3ASavingsPlanRate%27"><span class="annot"><span class="annottext">SavingsPlanRate -&gt; Maybe SavingsPlanProductType
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3AproductType%3ASavingsPlanRate%27"><span class="hs-identifier hs-var hs-var">productType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanProductType.html#SavingsPlanProductType"><span class="hs-identifier hs-type">SavingsPlanProductType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The currency.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Acurrency%3ASavingsPlanRate%27"><span class="annot"><span class="annottext">SavingsPlanRate -&gt; Maybe CurrencyCode
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3Acurrency%3ASavingsPlanRate%27"><span class="hs-identifier hs-var hs-var">currency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.CurrencyCode.html#CurrencyCode"><span class="hs-identifier hs-type">CurrencyCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The rate.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Arate%3ASavingsPlanRate%27"><span class="annot"><span class="annottext">SavingsPlanRate -&gt; Maybe Text
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3Arate%3ASavingsPlanRate%27"><span class="hs-identifier hs-var hs-var">rate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The service.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AserviceCode%3ASavingsPlanRate%27"><span class="annot"><span class="annottext">SavingsPlanRate -&gt; Maybe SavingsPlanRateServiceCode
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3AserviceCode%3ASavingsPlanRate%27"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.html#SavingsPlanRateServiceCode"><span class="hs-identifier hs-type">SavingsPlanRateServiceCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The unit.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aunit%3ASavingsPlanRate%27"><span class="annot"><span class="annottext">SavingsPlanRate -&gt; Maybe SavingsPlanRateUnit
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3Aunit%3ASavingsPlanRate%27"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.html#SavingsPlanRateUnit"><span class="hs-identifier hs-type">SavingsPlanRateUnit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The properties.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aproperties%3ASavingsPlanRate%27"><span class="annot"><span class="annottext">SavingsPlanRate -&gt; Maybe [SavingsPlanRateProperty]
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3Aproperties%3ASavingsPlanRate%27"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRateProperty.html#SavingsPlanRateProperty"><span class="hs-identifier hs-type">SavingsPlanRateProperty</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188808"><span id="local-6989586621679188810"><span class="annot"><span class="annottext">SavingsPlanRate -&gt; SavingsPlanRate -&gt; Bool
+(SavingsPlanRate -&gt; SavingsPlanRate -&gt; Bool)
+-&gt; (SavingsPlanRate -&gt; SavingsPlanRate -&gt; Bool)
+-&gt; Eq SavingsPlanRate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SavingsPlanRate -&gt; SavingsPlanRate -&gt; Bool
+$c/= :: SavingsPlanRate -&gt; SavingsPlanRate -&gt; Bool
+== :: SavingsPlanRate -&gt; SavingsPlanRate -&gt; Bool
+$c== :: SavingsPlanRate -&gt; SavingsPlanRate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188799"><span id="local-6989586621679188801"><span id="local-6989586621679188803"><span id="local-6989586621679188805"><span class="annot"><span class="annottext">ReadPrec [SavingsPlanRate]
+ReadPrec SavingsPlanRate
+Int -&gt; ReadS SavingsPlanRate
+ReadS [SavingsPlanRate]
+(Int -&gt; ReadS SavingsPlanRate)
+-&gt; ReadS [SavingsPlanRate]
+-&gt; ReadPrec SavingsPlanRate
+-&gt; ReadPrec [SavingsPlanRate]
+-&gt; Read SavingsPlanRate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SavingsPlanRate]
+$creadListPrec :: ReadPrec [SavingsPlanRate]
+readPrec :: ReadPrec SavingsPlanRate
+$creadPrec :: ReadPrec SavingsPlanRate
+readList :: ReadS [SavingsPlanRate]
+$creadList :: ReadS [SavingsPlanRate]
+readsPrec :: Int -&gt; ReadS SavingsPlanRate
+$creadsPrec :: Int -&gt; ReadS SavingsPlanRate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188792"><span id="local-6989586621679188794"><span id="local-6989586621679188796"><span class="annot"><span class="annottext">Int -&gt; SavingsPlanRate -&gt; ShowS
+[SavingsPlanRate] -&gt; ShowS
+SavingsPlanRate -&gt; String
+(Int -&gt; SavingsPlanRate -&gt; ShowS)
+-&gt; (SavingsPlanRate -&gt; String)
+-&gt; ([SavingsPlanRate] -&gt; ShowS)
+-&gt; Show SavingsPlanRate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SavingsPlanRate] -&gt; ShowS
+$cshowList :: [SavingsPlanRate] -&gt; ShowS
+show :: SavingsPlanRate -&gt; String
+$cshow :: SavingsPlanRate -&gt; String
+showsPrec :: Int -&gt; SavingsPlanRate -&gt; ShowS
+$cshowsPrec :: Int -&gt; SavingsPlanRate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SavingsPlanRate -&gt; Rep SavingsPlanRate x)
+-&gt; (forall x. Rep SavingsPlanRate x -&gt; SavingsPlanRate)
+-&gt; Generic SavingsPlanRate
+forall x. Rep SavingsPlanRate x -&gt; SavingsPlanRate
+forall x. SavingsPlanRate -&gt; Rep SavingsPlanRate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SavingsPlanRate x -&gt; SavingsPlanRate
+$cfrom :: forall x. SavingsPlanRate -&gt; Rep SavingsPlanRate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'SavingsPlanRate' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'operation', 'savingsPlanRate_operation' - The specific AWS operation for the line item in the billing report.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'usageType', 'savingsPlanRate_usageType' - The usage details of the line item in the billing report.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'productType', 'savingsPlanRate_productType' - The product type.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'currency', 'savingsPlanRate_currency' - The currency.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'rate', 'savingsPlanRate_rate' - The rate.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'serviceCode', 'savingsPlanRate_serviceCode' - The service.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'unit', 'savingsPlanRate_unit' - The unit.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'properties', 'savingsPlanRate_properties' - The properties.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#newSavingsPlanRate"><span class="hs-identifier hs-type">newSavingsPlanRate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span>
+</span><span id="line-79"></span><span id="newSavingsPlanRate"><span class="annot"><span class="annottext">newSavingsPlanRate :: SavingsPlanRate
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#newSavingsPlanRate"><span class="hs-identifier hs-var hs-var">newSavingsPlanRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">SavingsPlanRate' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe SavingsPlanProductType
+-&gt; Maybe CurrencyCode
+-&gt; Maybe Text
+-&gt; Maybe SavingsPlanRateServiceCode
+-&gt; Maybe SavingsPlanRateUnit
+-&gt; Maybe [SavingsPlanRateProperty]
+-&gt; SavingsPlanRate
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operation:SavingsPlanRate' :: Maybe Text
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3Aoperation%3ASavingsPlanRate%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:usageType:SavingsPlanRate' :: Maybe Text
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3AusageType%3ASavingsPlanRate%27"><span class="hs-identifier hs-var">usageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:productType:SavingsPlanRate' :: Maybe SavingsPlanProductType
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3AproductType%3ASavingsPlanRate%27"><span class="hs-identifier hs-var">productType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlanProductType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:currency:SavingsPlanRate' :: Maybe CurrencyCode
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3Acurrency%3ASavingsPlanRate%27"><span class="hs-identifier hs-var">currency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:rate:SavingsPlanRate' :: Maybe Text
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3Arate%3ASavingsPlanRate%27"><span class="hs-identifier hs-var">rate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceCode:SavingsPlanRate' :: Maybe SavingsPlanRateServiceCode
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3AserviceCode%3ASavingsPlanRate%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlanRateServiceCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:unit:SavingsPlanRate' :: Maybe SavingsPlanRateUnit
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3Aunit%3ASavingsPlanRate%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlanRateUnit
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:properties:SavingsPlanRate' :: Maybe [SavingsPlanRateProperty]
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3Aproperties%3ASavingsPlanRate%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SavingsPlanRateProperty]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The specific AWS operation for the line item in the billing report.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_operation"><span class="hs-identifier hs-type">savingsPlanRate_operation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="savingsPlanRate_operation"><span class="annot"><span class="annottext">savingsPlanRate_operation :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SavingsPlanRate -&gt; f SavingsPlanRate
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_operation"><span class="hs-identifier hs-var hs-var">savingsPlanRate_operation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlanRate -&gt; Maybe Text)
+-&gt; (SavingsPlanRate -&gt; Maybe Text -&gt; SavingsPlanRate)
+-&gt; Lens SavingsPlanRate SavingsPlanRate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188783"><span class="annot"><span class="annottext">Maybe Text
+operation :: Maybe Text
+$sel:operation:SavingsPlanRate' :: SavingsPlanRate -&gt; Maybe Text
+</span><a href="#local-6989586621679188783"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188783"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188782"><span class="annot"><span class="annottext">s :: SavingsPlanRate
+</span><a href="#local-6989586621679188782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188781"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlanRate
+</span><a href="#local-6989586621679188782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:SavingsPlanRate' :: Maybe Text
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3Aoperation%3ASavingsPlanRate%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The usage details of the line item in the billing report.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_usageType"><span class="hs-identifier hs-type">savingsPlanRate_usageType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="savingsPlanRate_usageType"><span class="annot"><span class="annottext">savingsPlanRate_usageType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SavingsPlanRate -&gt; f SavingsPlanRate
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_usageType"><span class="hs-identifier hs-var hs-var">savingsPlanRate_usageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlanRate -&gt; Maybe Text)
+-&gt; (SavingsPlanRate -&gt; Maybe Text -&gt; SavingsPlanRate)
+-&gt; Lens SavingsPlanRate SavingsPlanRate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188779"><span class="annot"><span class="annottext">Maybe Text
+usageType :: Maybe Text
+$sel:usageType:SavingsPlanRate' :: SavingsPlanRate -&gt; Maybe Text
+</span><a href="#local-6989586621679188779"><span class="hs-identifier hs-var hs-var">usageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188779"><span class="hs-identifier hs-var">usageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188778"><span class="annot"><span class="annottext">s :: SavingsPlanRate
+</span><a href="#local-6989586621679188778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188777"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlanRate
+</span><a href="#local-6989586621679188778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usageType:SavingsPlanRate' :: Maybe Text
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3AusageType%3ASavingsPlanRate%27"><span class="hs-identifier hs-var">usageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The product type.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_productType"><span class="hs-identifier hs-type">savingsPlanRate_productType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanProductType.html#SavingsPlanProductType"><span class="hs-identifier hs-type">SavingsPlanProductType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="savingsPlanRate_productType"><span class="annot"><span class="annottext">savingsPlanRate_productType :: (Maybe SavingsPlanProductType -&gt; f (Maybe SavingsPlanProductType))
+-&gt; SavingsPlanRate -&gt; f SavingsPlanRate
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_productType"><span class="hs-identifier hs-var hs-var">savingsPlanRate_productType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlanRate -&gt; Maybe SavingsPlanProductType)
+-&gt; (SavingsPlanRate
+    -&gt; Maybe SavingsPlanProductType -&gt; SavingsPlanRate)
+-&gt; Lens
+     SavingsPlanRate
+     SavingsPlanRate
+     (Maybe SavingsPlanProductType)
+     (Maybe SavingsPlanProductType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188775"><span class="annot"><span class="annottext">Maybe SavingsPlanProductType
+productType :: Maybe SavingsPlanProductType
+$sel:productType:SavingsPlanRate' :: SavingsPlanRate -&gt; Maybe SavingsPlanProductType
+</span><a href="#local-6989586621679188775"><span class="hs-identifier hs-var hs-var">productType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlanProductType
+</span><a href="#local-6989586621679188775"><span class="hs-identifier hs-var">productType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188774"><span class="annot"><span class="annottext">s :: SavingsPlanRate
+</span><a href="#local-6989586621679188774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188773"><span class="annot"><span class="annottext">Maybe SavingsPlanProductType
+</span><a href="#local-6989586621679188773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlanRate
+</span><a href="#local-6989586621679188774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productType:SavingsPlanRate' :: Maybe SavingsPlanProductType
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3AproductType%3ASavingsPlanRate%27"><span class="hs-identifier hs-var">productType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlanProductType
+</span><a href="#local-6989586621679188773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The currency.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_currency"><span class="hs-identifier hs-type">savingsPlanRate_currency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.CurrencyCode.html#CurrencyCode"><span class="hs-identifier hs-type">CurrencyCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="savingsPlanRate_currency"><span class="annot"><span class="annottext">savingsPlanRate_currency :: (Maybe CurrencyCode -&gt; f (Maybe CurrencyCode))
+-&gt; SavingsPlanRate -&gt; f SavingsPlanRate
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_currency"><span class="hs-identifier hs-var hs-var">savingsPlanRate_currency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlanRate -&gt; Maybe CurrencyCode)
+-&gt; (SavingsPlanRate -&gt; Maybe CurrencyCode -&gt; SavingsPlanRate)
+-&gt; Lens
+     SavingsPlanRate
+     SavingsPlanRate
+     (Maybe CurrencyCode)
+     (Maybe CurrencyCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188771"><span class="annot"><span class="annottext">Maybe CurrencyCode
+currency :: Maybe CurrencyCode
+$sel:currency:SavingsPlanRate' :: SavingsPlanRate -&gt; Maybe CurrencyCode
+</span><a href="#local-6989586621679188771"><span class="hs-identifier hs-var hs-var">currency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCode
+</span><a href="#local-6989586621679188771"><span class="hs-identifier hs-var">currency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188770"><span class="annot"><span class="annottext">s :: SavingsPlanRate
+</span><a href="#local-6989586621679188770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188769"><span class="annot"><span class="annottext">Maybe CurrencyCode
+</span><a href="#local-6989586621679188769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlanRate
+</span><a href="#local-6989586621679188770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currency:SavingsPlanRate' :: Maybe CurrencyCode
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3Acurrency%3ASavingsPlanRate%27"><span class="hs-identifier hs-var">currency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCode
+</span><a href="#local-6989586621679188769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The rate.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_rate"><span class="hs-identifier hs-type">savingsPlanRate_rate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="savingsPlanRate_rate"><span class="annot"><span class="annottext">savingsPlanRate_rate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SavingsPlanRate -&gt; f SavingsPlanRate
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_rate"><span class="hs-identifier hs-var hs-var">savingsPlanRate_rate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlanRate -&gt; Maybe Text)
+-&gt; (SavingsPlanRate -&gt; Maybe Text -&gt; SavingsPlanRate)
+-&gt; Lens SavingsPlanRate SavingsPlanRate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188767"><span class="annot"><span class="annottext">Maybe Text
+rate :: Maybe Text
+$sel:rate:SavingsPlanRate' :: SavingsPlanRate -&gt; Maybe Text
+</span><a href="#local-6989586621679188767"><span class="hs-identifier hs-var hs-var">rate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188767"><span class="hs-identifier hs-var">rate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188766"><span class="annot"><span class="annottext">s :: SavingsPlanRate
+</span><a href="#local-6989586621679188766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188765"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlanRate
+</span><a href="#local-6989586621679188766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rate:SavingsPlanRate' :: Maybe Text
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3Arate%3ASavingsPlanRate%27"><span class="hs-identifier hs-var">rate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The service.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_serviceCode"><span class="hs-identifier hs-type">savingsPlanRate_serviceCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode.html#SavingsPlanRateServiceCode"><span class="hs-identifier hs-type">SavingsPlanRateServiceCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="savingsPlanRate_serviceCode"><span class="annot"><span class="annottext">savingsPlanRate_serviceCode :: (Maybe SavingsPlanRateServiceCode
+ -&gt; f (Maybe SavingsPlanRateServiceCode))
+-&gt; SavingsPlanRate -&gt; f SavingsPlanRate
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_serviceCode"><span class="hs-identifier hs-var hs-var">savingsPlanRate_serviceCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlanRate -&gt; Maybe SavingsPlanRateServiceCode)
+-&gt; (SavingsPlanRate
+    -&gt; Maybe SavingsPlanRateServiceCode -&gt; SavingsPlanRate)
+-&gt; Lens
+     SavingsPlanRate
+     SavingsPlanRate
+     (Maybe SavingsPlanRateServiceCode)
+     (Maybe SavingsPlanRateServiceCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188763"><span class="annot"><span class="annottext">Maybe SavingsPlanRateServiceCode
+serviceCode :: Maybe SavingsPlanRateServiceCode
+$sel:serviceCode:SavingsPlanRate' :: SavingsPlanRate -&gt; Maybe SavingsPlanRateServiceCode
+</span><a href="#local-6989586621679188763"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlanRateServiceCode
+</span><a href="#local-6989586621679188763"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188762"><span class="annot"><span class="annottext">s :: SavingsPlanRate
+</span><a href="#local-6989586621679188762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188761"><span class="annot"><span class="annottext">Maybe SavingsPlanRateServiceCode
+</span><a href="#local-6989586621679188761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlanRate
+</span><a href="#local-6989586621679188762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCode:SavingsPlanRate' :: Maybe SavingsPlanRateServiceCode
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3AserviceCode%3ASavingsPlanRate%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlanRateServiceCode
+</span><a href="#local-6989586621679188761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The unit.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_unit"><span class="hs-identifier hs-type">savingsPlanRate_unit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRateUnit.html#SavingsPlanRateUnit"><span class="hs-identifier hs-type">SavingsPlanRateUnit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="savingsPlanRate_unit"><span class="annot"><span class="annottext">savingsPlanRate_unit :: (Maybe SavingsPlanRateUnit -&gt; f (Maybe SavingsPlanRateUnit))
+-&gt; SavingsPlanRate -&gt; f SavingsPlanRate
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_unit"><span class="hs-identifier hs-var hs-var">savingsPlanRate_unit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlanRate -&gt; Maybe SavingsPlanRateUnit)
+-&gt; (SavingsPlanRate
+    -&gt; Maybe SavingsPlanRateUnit -&gt; SavingsPlanRate)
+-&gt; Lens
+     SavingsPlanRate
+     SavingsPlanRate
+     (Maybe SavingsPlanRateUnit)
+     (Maybe SavingsPlanRateUnit)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188759"><span class="annot"><span class="annottext">Maybe SavingsPlanRateUnit
+unit :: Maybe SavingsPlanRateUnit
+$sel:unit:SavingsPlanRate' :: SavingsPlanRate -&gt; Maybe SavingsPlanRateUnit
+</span><a href="#local-6989586621679188759"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlanRateUnit
+</span><a href="#local-6989586621679188759"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188758"><span class="annot"><span class="annottext">s :: SavingsPlanRate
+</span><a href="#local-6989586621679188758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188757"><span class="annot"><span class="annottext">Maybe SavingsPlanRateUnit
+</span><a href="#local-6989586621679188757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlanRate
+</span><a href="#local-6989586621679188758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:SavingsPlanRate' :: Maybe SavingsPlanRateUnit
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3Aunit%3ASavingsPlanRate%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlanRateUnit
+</span><a href="#local-6989586621679188757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The properties.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_properties"><span class="hs-identifier hs-type">savingsPlanRate_properties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRateProperty.html#SavingsPlanRateProperty"><span class="hs-identifier hs-type">SavingsPlanRateProperty</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="savingsPlanRate_properties"><span class="annot"><span class="annottext">savingsPlanRate_properties :: (Maybe [SavingsPlanRateProperty]
+ -&gt; f (Maybe [SavingsPlanRateProperty]))
+-&gt; SavingsPlanRate -&gt; f SavingsPlanRate
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#savingsPlanRate_properties"><span class="hs-identifier hs-var hs-var">savingsPlanRate_properties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlanRate -&gt; Maybe [SavingsPlanRateProperty])
+-&gt; (SavingsPlanRate
+    -&gt; Maybe [SavingsPlanRateProperty] -&gt; SavingsPlanRate)
+-&gt; Lens
+     SavingsPlanRate
+     SavingsPlanRate
+     (Maybe [SavingsPlanRateProperty])
+     (Maybe [SavingsPlanRateProperty])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188755"><span class="annot"><span class="annottext">Maybe [SavingsPlanRateProperty]
+properties :: Maybe [SavingsPlanRateProperty]
+$sel:properties:SavingsPlanRate' :: SavingsPlanRate -&gt; Maybe [SavingsPlanRateProperty]
+</span><a href="#local-6989586621679188755"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SavingsPlanRateProperty]
+</span><a href="#local-6989586621679188755"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188754"><span class="annot"><span class="annottext">s :: SavingsPlanRate
+</span><a href="#local-6989586621679188754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-type">SavingsPlanRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188753"><span class="annot"><span class="annottext">Maybe [SavingsPlanRateProperty]
+</span><a href="#local-6989586621679188753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlanRate
+</span><a href="#local-6989586621679188754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:properties:SavingsPlanRate' :: Maybe [SavingsPlanRateProperty]
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#%24sel%3Aproperties%3ASavingsPlanRate%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SavingsPlanRateProperty]
+</span><a href="#local-6989586621679188753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SavingsPlanRateProperty]
+  -&gt; f (Maybe [SavingsPlanRateProperty]))
+ -&gt; SavingsPlanRate -&gt; f SavingsPlanRate)
+-&gt; ((Maybe [SavingsPlanRateProperty]
+     -&gt; f (Maybe [SavingsPlanRateProperty]))
+    -&gt; Maybe [SavingsPlanRateProperty]
+    -&gt; f (Maybe [SavingsPlanRateProperty]))
+-&gt; (Maybe [SavingsPlanRateProperty]
+    -&gt; f (Maybe [SavingsPlanRateProperty]))
+-&gt; SavingsPlanRate
+-&gt; f SavingsPlanRate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SavingsPlanRateProperty]
+  [SavingsPlanRateProperty]
+  [SavingsPlanRateProperty]
+  [SavingsPlanRateProperty]
+-&gt; Iso
+     (Maybe [SavingsPlanRateProperty])
+     (Maybe [SavingsPlanRateProperty])
+     (Maybe [SavingsPlanRateProperty])
+     (Maybe [SavingsPlanRateProperty])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SavingsPlanRateProperty]
+  [SavingsPlanRateProperty]
+  [SavingsPlanRateProperty]
+  [SavingsPlanRateProperty]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188747"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679188745"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SavingsPlanRate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SavingsPlanRate)
+-&gt; Value
+-&gt; Parser SavingsPlanRate
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SavingsPlanRate&quot;</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188742"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188742"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe SavingsPlanProductType
+-&gt; Maybe CurrencyCode
+-&gt; Maybe Text
+-&gt; Maybe SavingsPlanRateServiceCode
+-&gt; Maybe SavingsPlanRateUnit
+-&gt; Maybe [SavingsPlanRateProperty]
+-&gt; SavingsPlanRate
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate%27"><span class="hs-identifier hs-var">SavingsPlanRate'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe SavingsPlanProductType
+ -&gt; Maybe CurrencyCode
+ -&gt; Maybe Text
+ -&gt; Maybe SavingsPlanRateServiceCode
+ -&gt; Maybe SavingsPlanRateUnit
+ -&gt; Maybe [SavingsPlanRateProperty]
+ -&gt; SavingsPlanRate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe SavingsPlanProductType
+      -&gt; Maybe CurrencyCode
+      -&gt; Maybe Text
+      -&gt; Maybe SavingsPlanRateServiceCode
+      -&gt; Maybe SavingsPlanRateUnit
+      -&gt; Maybe [SavingsPlanRateProperty]
+      -&gt; SavingsPlanRate)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe SavingsPlanProductType
+   -&gt; Maybe CurrencyCode
+   -&gt; Maybe Text
+   -&gt; Maybe SavingsPlanRateServiceCode
+   -&gt; Maybe SavingsPlanRateUnit
+   -&gt; Maybe [SavingsPlanRateProperty]
+   -&gt; SavingsPlanRate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe SavingsPlanProductType
+      -&gt; Maybe CurrencyCode
+      -&gt; Maybe Text
+      -&gt; Maybe SavingsPlanRateServiceCode
+      -&gt; Maybe SavingsPlanRateUnit
+      -&gt; Maybe [SavingsPlanRateProperty]
+      -&gt; SavingsPlanRate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;usageType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SavingsPlanProductType
+   -&gt; Maybe CurrencyCode
+   -&gt; Maybe Text
+   -&gt; Maybe SavingsPlanRateServiceCode
+   -&gt; Maybe SavingsPlanRateUnit
+   -&gt; Maybe [SavingsPlanRateProperty]
+   -&gt; SavingsPlanRate)
+-&gt; Parser (Maybe SavingsPlanProductType)
+-&gt; Parser
+     (Maybe CurrencyCode
+      -&gt; Maybe Text
+      -&gt; Maybe SavingsPlanRateServiceCode
+      -&gt; Maybe SavingsPlanRateUnit
+      -&gt; Maybe [SavingsPlanRateProperty]
+      -&gt; SavingsPlanRate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SavingsPlanProductType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;productType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CurrencyCode
+   -&gt; Maybe Text
+   -&gt; Maybe SavingsPlanRateServiceCode
+   -&gt; Maybe SavingsPlanRateUnit
+   -&gt; Maybe [SavingsPlanRateProperty]
+   -&gt; SavingsPlanRate)
+-&gt; Parser (Maybe CurrencyCode)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe SavingsPlanRateServiceCode
+      -&gt; Maybe SavingsPlanRateUnit
+      -&gt; Maybe [SavingsPlanRateProperty]
+      -&gt; SavingsPlanRate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CurrencyCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;currency&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe SavingsPlanRateServiceCode
+   -&gt; Maybe SavingsPlanRateUnit
+   -&gt; Maybe [SavingsPlanRateProperty]
+   -&gt; SavingsPlanRate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe SavingsPlanRateServiceCode
+      -&gt; Maybe SavingsPlanRateUnit
+      -&gt; Maybe [SavingsPlanRateProperty]
+      -&gt; SavingsPlanRate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SavingsPlanRateServiceCode
+   -&gt; Maybe SavingsPlanRateUnit
+   -&gt; Maybe [SavingsPlanRateProperty]
+   -&gt; SavingsPlanRate)
+-&gt; Parser (Maybe SavingsPlanRateServiceCode)
+-&gt; Parser
+     (Maybe SavingsPlanRateUnit
+      -&gt; Maybe [SavingsPlanRateProperty] -&gt; SavingsPlanRate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SavingsPlanRateServiceCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SavingsPlanRateUnit
+   -&gt; Maybe [SavingsPlanRateProperty] -&gt; SavingsPlanRate)
+-&gt; Parser (Maybe SavingsPlanRateUnit)
+-&gt; Parser (Maybe [SavingsPlanRateProperty] -&gt; SavingsPlanRate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SavingsPlanRateUnit)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;unit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [SavingsPlanRateProperty] -&gt; SavingsPlanRate)
+-&gt; Parser (Maybe [SavingsPlanRateProperty])
+-&gt; Parser SavingsPlanRate
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SavingsPlanRateProperty]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;properties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [SavingsPlanRateProperty]))
+-&gt; Maybe [SavingsPlanRateProperty]
+-&gt; Parser (Maybe [SavingsPlanRateProperty])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SavingsPlanRateProperty]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188735"><span id="local-6989586621679188737"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188732"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanRate.html#SavingsPlanRate"><span class="hs-identifier hs-type">SavingsPlanRate</span></a></span></span><span>
+</span><span id="line-142"></span></pre></body></html>

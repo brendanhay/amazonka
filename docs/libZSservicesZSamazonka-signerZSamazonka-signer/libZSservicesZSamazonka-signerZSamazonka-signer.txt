@@ -5,60 +5,60 @@
 @version 2.0
 
 
-module Network.AWS.Signer.Types.Category
+module Amazonka.Signer.Types.Category
 newtype Category
 Category' :: Text -> Category
 [fromCategory] :: Category -> Text
 pattern Category_AWSIoT :: Category
-instance Network.AWS.Data.XML.ToXML Network.AWS.Signer.Types.Category.Category
-instance Network.AWS.Data.XML.FromXML Network.AWS.Signer.Types.Category.Category
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Signer.Types.Category.Category
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.Types.Category.Category
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Signer.Types.Category.Category
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.Category.Category
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.Types.Category.Category
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Signer.Types.Category.Category
-instance Network.AWS.Data.Log.ToLog Network.AWS.Signer.Types.Category.Category
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Signer.Types.Category.Category
-instance Network.AWS.Data.Text.ToText Network.AWS.Signer.Types.Category.Category
-instance Network.AWS.Data.Text.FromText Network.AWS.Signer.Types.Category.Category
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.Category.Category
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.Category.Category
-instance GHC.Generics.Generic Network.AWS.Signer.Types.Category.Category
-instance GHC.Classes.Ord Network.AWS.Signer.Types.Category.Category
-instance GHC.Classes.Eq Network.AWS.Signer.Types.Category.Category
-instance GHC.Read.Read Network.AWS.Signer.Types.Category.Category
-instance GHC.Show.Show Network.AWS.Signer.Types.Category.Category
+instance Amazonka.Data.XML.ToXML Amazonka.Signer.Types.Category.Category
+instance Amazonka.Data.XML.FromXML Amazonka.Signer.Types.Category.Category
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Signer.Types.Category.Category
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.Types.Category.Category
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Signer.Types.Category.Category
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.Category.Category
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.Types.Category.Category
+instance Amazonka.Data.Headers.ToHeader Amazonka.Signer.Types.Category.Category
+instance Amazonka.Data.Log.ToLog Amazonka.Signer.Types.Category.Category
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Signer.Types.Category.Category
+instance Amazonka.Data.Text.ToText Amazonka.Signer.Types.Category.Category
+instance Amazonka.Data.Text.FromText Amazonka.Signer.Types.Category.Category
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.Category.Category
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.Category.Category
+instance GHC.Generics.Generic Amazonka.Signer.Types.Category.Category
+instance GHC.Classes.Ord Amazonka.Signer.Types.Category.Category
+instance GHC.Classes.Eq Amazonka.Signer.Types.Category.Category
+instance GHC.Read.Read Amazonka.Signer.Types.Category.Category
+instance GHC.Show.Show Amazonka.Signer.Types.Category.Category
 
 
-module Network.AWS.Signer.Types.EncryptionAlgorithm
+module Amazonka.Signer.Types.EncryptionAlgorithm
 newtype EncryptionAlgorithm
 EncryptionAlgorithm' :: Text -> EncryptionAlgorithm
 [fromEncryptionAlgorithm] :: EncryptionAlgorithm -> Text
 pattern EncryptionAlgorithm_ECDSA :: EncryptionAlgorithm
 pattern EncryptionAlgorithm_RSA :: EncryptionAlgorithm
-instance Network.AWS.Data.XML.ToXML Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance Network.AWS.Data.XML.FromXML Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance Network.AWS.Data.Log.ToLog Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance Network.AWS.Data.Text.ToText Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance Network.AWS.Data.Text.FromText Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance GHC.Generics.Generic Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance GHC.Classes.Ord Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance GHC.Classes.Eq Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance GHC.Read.Read Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
-instance GHC.Show.Show Network.AWS.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance Amazonka.Data.XML.ToXML Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance Amazonka.Data.XML.FromXML Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance Amazonka.Data.Headers.ToHeader Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance Amazonka.Data.Log.ToLog Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance Amazonka.Data.Text.ToText Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance Amazonka.Data.Text.FromText Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance GHC.Generics.Generic Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance GHC.Classes.Ord Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance GHC.Classes.Eq Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance GHC.Read.Read Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
+instance GHC.Show.Show Amazonka.Signer.Types.EncryptionAlgorithm.EncryptionAlgorithm
 
 
-module Network.AWS.Signer.Types.EncryptionAlgorithmOptions
+module Amazonka.Signer.Types.EncryptionAlgorithmOptions
 
 -- | The encryption algorithm options that are available to a code signing
 --   job.
@@ -98,43 +98,43 @@ encryptionAlgorithmOptions_allowedValues :: Lens' EncryptionAlgorithmOptions [En
 
 -- | The default encryption algorithm that is used by a code signing job.
 encryptionAlgorithmOptions_defaultValue :: Lens' EncryptionAlgorithmOptions EncryptionAlgorithm
-instance GHC.Generics.Generic Network.AWS.Signer.Types.EncryptionAlgorithmOptions.EncryptionAlgorithmOptions
-instance GHC.Show.Show Network.AWS.Signer.Types.EncryptionAlgorithmOptions.EncryptionAlgorithmOptions
-instance GHC.Read.Read Network.AWS.Signer.Types.EncryptionAlgorithmOptions.EncryptionAlgorithmOptions
-instance GHC.Classes.Eq Network.AWS.Signer.Types.EncryptionAlgorithmOptions.EncryptionAlgorithmOptions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.EncryptionAlgorithmOptions.EncryptionAlgorithmOptions
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.EncryptionAlgorithmOptions.EncryptionAlgorithmOptions
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.EncryptionAlgorithmOptions.EncryptionAlgorithmOptions
+instance GHC.Generics.Generic Amazonka.Signer.Types.EncryptionAlgorithmOptions.EncryptionAlgorithmOptions
+instance GHC.Show.Show Amazonka.Signer.Types.EncryptionAlgorithmOptions.EncryptionAlgorithmOptions
+instance GHC.Read.Read Amazonka.Signer.Types.EncryptionAlgorithmOptions.EncryptionAlgorithmOptions
+instance GHC.Classes.Eq Amazonka.Signer.Types.EncryptionAlgorithmOptions.EncryptionAlgorithmOptions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.EncryptionAlgorithmOptions.EncryptionAlgorithmOptions
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.EncryptionAlgorithmOptions.EncryptionAlgorithmOptions
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.EncryptionAlgorithmOptions.EncryptionAlgorithmOptions
 
 
-module Network.AWS.Signer.Types.HashAlgorithm
+module Amazonka.Signer.Types.HashAlgorithm
 newtype HashAlgorithm
 HashAlgorithm' :: Text -> HashAlgorithm
 [fromHashAlgorithm] :: HashAlgorithm -> Text
 pattern HashAlgorithm_SHA1 :: HashAlgorithm
 pattern HashAlgorithm_SHA256 :: HashAlgorithm
-instance Network.AWS.Data.XML.ToXML Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance Network.AWS.Data.XML.FromXML Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance Network.AWS.Data.Log.ToLog Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance Network.AWS.Data.Text.ToText Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance Network.AWS.Data.Text.FromText Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance GHC.Generics.Generic Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance GHC.Classes.Ord Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance GHC.Classes.Eq Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance GHC.Read.Read Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
-instance GHC.Show.Show Network.AWS.Signer.Types.HashAlgorithm.HashAlgorithm
+instance Amazonka.Data.XML.ToXML Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance Amazonka.Data.XML.FromXML Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance Amazonka.Data.Headers.ToHeader Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance Amazonka.Data.Log.ToLog Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance Amazonka.Data.Text.ToText Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance Amazonka.Data.Text.FromText Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance GHC.Generics.Generic Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance GHC.Classes.Ord Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance GHC.Classes.Eq Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance GHC.Read.Read Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
+instance GHC.Show.Show Amazonka.Signer.Types.HashAlgorithm.HashAlgorithm
 
 
-module Network.AWS.Signer.Types.HashAlgorithmOptions
+module Amazonka.Signer.Types.HashAlgorithmOptions
 
 -- | The hash algorithms that are available to a code signing job.
 --   
@@ -171,44 +171,44 @@ hashAlgorithmOptions_allowedValues :: Lens' HashAlgorithmOptions [HashAlgorithm]
 
 -- | The default hash algorithm that is used in a code signing job.
 hashAlgorithmOptions_defaultValue :: Lens' HashAlgorithmOptions HashAlgorithm
-instance GHC.Generics.Generic Network.AWS.Signer.Types.HashAlgorithmOptions.HashAlgorithmOptions
-instance GHC.Show.Show Network.AWS.Signer.Types.HashAlgorithmOptions.HashAlgorithmOptions
-instance GHC.Read.Read Network.AWS.Signer.Types.HashAlgorithmOptions.HashAlgorithmOptions
-instance GHC.Classes.Eq Network.AWS.Signer.Types.HashAlgorithmOptions.HashAlgorithmOptions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.HashAlgorithmOptions.HashAlgorithmOptions
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.HashAlgorithmOptions.HashAlgorithmOptions
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.HashAlgorithmOptions.HashAlgorithmOptions
+instance GHC.Generics.Generic Amazonka.Signer.Types.HashAlgorithmOptions.HashAlgorithmOptions
+instance GHC.Show.Show Amazonka.Signer.Types.HashAlgorithmOptions.HashAlgorithmOptions
+instance GHC.Read.Read Amazonka.Signer.Types.HashAlgorithmOptions.HashAlgorithmOptions
+instance GHC.Classes.Eq Amazonka.Signer.Types.HashAlgorithmOptions.HashAlgorithmOptions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.HashAlgorithmOptions.HashAlgorithmOptions
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.HashAlgorithmOptions.HashAlgorithmOptions
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.HashAlgorithmOptions.HashAlgorithmOptions
 
 
-module Network.AWS.Signer.Types.ImageFormat
+module Amazonka.Signer.Types.ImageFormat
 newtype ImageFormat
 ImageFormat' :: Text -> ImageFormat
 [fromImageFormat] :: ImageFormat -> Text
 pattern ImageFormat_JSON :: ImageFormat
 pattern ImageFormat_JSONDetached :: ImageFormat
 pattern ImageFormat_JSONEmbedded :: ImageFormat
-instance Network.AWS.Data.XML.ToXML Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance Network.AWS.Data.XML.FromXML Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance Network.AWS.Data.Log.ToLog Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance Network.AWS.Data.Text.ToText Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance Network.AWS.Data.Text.FromText Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance GHC.Generics.Generic Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance GHC.Classes.Ord Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance GHC.Classes.Eq Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance GHC.Read.Read Network.AWS.Signer.Types.ImageFormat.ImageFormat
-instance GHC.Show.Show Network.AWS.Signer.Types.ImageFormat.ImageFormat
+instance Amazonka.Data.XML.ToXML Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance Amazonka.Data.XML.FromXML Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance Amazonka.Data.Headers.ToHeader Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance Amazonka.Data.Log.ToLog Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance Amazonka.Data.Text.ToText Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance Amazonka.Data.Text.FromText Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance GHC.Generics.Generic Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance GHC.Classes.Ord Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance GHC.Classes.Eq Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance GHC.Read.Read Amazonka.Signer.Types.ImageFormat.ImageFormat
+instance GHC.Show.Show Amazonka.Signer.Types.ImageFormat.ImageFormat
 
 
-module Network.AWS.Signer.Types.Permission
+module Amazonka.Signer.Types.Permission
 
 -- | A cross-account permission for a signing profile.
 --   
@@ -261,16 +261,16 @@ permission_principal :: Lens' Permission (Maybe Text)
 
 -- | A unique identifier for a cross-account permission statement.
 permission_statementId :: Lens' Permission (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Signer.Types.Permission.Permission
-instance GHC.Show.Show Network.AWS.Signer.Types.Permission.Permission
-instance GHC.Read.Read Network.AWS.Signer.Types.Permission.Permission
-instance GHC.Classes.Eq Network.AWS.Signer.Types.Permission.Permission
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.Permission.Permission
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.Permission.Permission
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.Permission.Permission
+instance GHC.Generics.Generic Amazonka.Signer.Types.Permission.Permission
+instance GHC.Show.Show Amazonka.Signer.Types.Permission.Permission
+instance GHC.Read.Read Amazonka.Signer.Types.Permission.Permission
+instance GHC.Classes.Eq Amazonka.Signer.Types.Permission.Permission
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.Permission.Permission
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.Permission.Permission
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.Permission.Permission
 
 
-module Network.AWS.Signer.Types.S3Destination
+module Amazonka.Signer.Types.S3Destination
 
 -- | The name and prefix of the S3 bucket where code signing saves your
 --   signed objects.
@@ -309,16 +309,16 @@ s3Destination_prefix :: Lens' S3Destination (Maybe Text)
 
 -- | Name of the S3 bucket.
 s3Destination_bucketName :: Lens' S3Destination (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Signer.Types.S3Destination.S3Destination
-instance GHC.Show.Show Network.AWS.Signer.Types.S3Destination.S3Destination
-instance GHC.Read.Read Network.AWS.Signer.Types.S3Destination.S3Destination
-instance GHC.Classes.Eq Network.AWS.Signer.Types.S3Destination.S3Destination
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.S3Destination.S3Destination
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.S3Destination.S3Destination
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.Types.S3Destination.S3Destination
+instance GHC.Generics.Generic Amazonka.Signer.Types.S3Destination.S3Destination
+instance GHC.Show.Show Amazonka.Signer.Types.S3Destination.S3Destination
+instance GHC.Read.Read Amazonka.Signer.Types.S3Destination.S3Destination
+instance GHC.Classes.Eq Amazonka.Signer.Types.S3Destination.S3Destination
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.S3Destination.S3Destination
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.S3Destination.S3Destination
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.Types.S3Destination.S3Destination
 
 
-module Network.AWS.Signer.Types.Destination
+module Amazonka.Signer.Types.Destination
 
 -- | Points to an <tt>S3Destination</tt> object that contains information
 --   about your S3 bucket.
@@ -344,16 +344,16 @@ newDestination :: Destination
 
 -- | The <tt>S3Destination</tt> object.
 destination_s3 :: Lens' Destination (Maybe S3Destination)
-instance GHC.Generics.Generic Network.AWS.Signer.Types.Destination.Destination
-instance GHC.Show.Show Network.AWS.Signer.Types.Destination.Destination
-instance GHC.Read.Read Network.AWS.Signer.Types.Destination.Destination
-instance GHC.Classes.Eq Network.AWS.Signer.Types.Destination.Destination
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.Destination.Destination
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.Destination.Destination
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.Types.Destination.Destination
+instance GHC.Generics.Generic Amazonka.Signer.Types.Destination.Destination
+instance GHC.Show.Show Amazonka.Signer.Types.Destination.Destination
+instance GHC.Read.Read Amazonka.Signer.Types.Destination.Destination
+instance GHC.Classes.Eq Amazonka.Signer.Types.Destination.Destination
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.Destination.Destination
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.Destination.Destination
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.Types.Destination.Destination
 
 
-module Network.AWS.Signer.Types.S3SignedObject
+module Amazonka.Signer.Types.S3SignedObject
 
 -- | The S3 bucket name and key where code signing saved your signed code
 --   image.
@@ -389,16 +389,16 @@ s3SignedObject_bucketName :: Lens' S3SignedObject (Maybe Text)
 
 -- | Key name that uniquely identifies a signed code image in your bucket.
 s3SignedObject_key :: Lens' S3SignedObject (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Signer.Types.S3SignedObject.S3SignedObject
-instance GHC.Show.Show Network.AWS.Signer.Types.S3SignedObject.S3SignedObject
-instance GHC.Read.Read Network.AWS.Signer.Types.S3SignedObject.S3SignedObject
-instance GHC.Classes.Eq Network.AWS.Signer.Types.S3SignedObject.S3SignedObject
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.S3SignedObject.S3SignedObject
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.S3SignedObject.S3SignedObject
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.S3SignedObject.S3SignedObject
+instance GHC.Generics.Generic Amazonka.Signer.Types.S3SignedObject.S3SignedObject
+instance GHC.Show.Show Amazonka.Signer.Types.S3SignedObject.S3SignedObject
+instance GHC.Read.Read Amazonka.Signer.Types.S3SignedObject.S3SignedObject
+instance GHC.Classes.Eq Amazonka.Signer.Types.S3SignedObject.S3SignedObject
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.S3SignedObject.S3SignedObject
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.S3SignedObject.S3SignedObject
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.S3SignedObject.S3SignedObject
 
 
-module Network.AWS.Signer.Types.S3Source
+module Amazonka.Signer.Types.S3Source
 
 -- | Information about the S3 bucket where you saved your unsigned code.
 --   
@@ -441,17 +441,17 @@ s3Source_key :: Lens' S3Source Text
 
 -- | Version of your source image in your version enabled S3 bucket.
 s3Source_version :: Lens' S3Source Text
-instance GHC.Generics.Generic Network.AWS.Signer.Types.S3Source.S3Source
-instance GHC.Show.Show Network.AWS.Signer.Types.S3Source.S3Source
-instance GHC.Read.Read Network.AWS.Signer.Types.S3Source.S3Source
-instance GHC.Classes.Eq Network.AWS.Signer.Types.S3Source.S3Source
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.S3Source.S3Source
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.S3Source.S3Source
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.S3Source.S3Source
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.Types.S3Source.S3Source
+instance GHC.Generics.Generic Amazonka.Signer.Types.S3Source.S3Source
+instance GHC.Show.Show Amazonka.Signer.Types.S3Source.S3Source
+instance GHC.Read.Read Amazonka.Signer.Types.S3Source.S3Source
+instance GHC.Classes.Eq Amazonka.Signer.Types.S3Source.S3Source
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.S3Source.S3Source
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.S3Source.S3Source
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.S3Source.S3Source
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.Types.S3Source.S3Source
 
 
-module Network.AWS.Signer.Types.SignedObject
+module Amazonka.Signer.Types.SignedObject
 
 -- | Points to an <tt>S3SignedObject</tt> object that contains information
 --   about your signed code image.
@@ -478,16 +478,16 @@ newSignedObject :: SignedObject
 
 -- | The <tt>S3SignedObject</tt>.
 signedObject_s3 :: Lens' SignedObject (Maybe S3SignedObject)
-instance GHC.Generics.Generic Network.AWS.Signer.Types.SignedObject.SignedObject
-instance GHC.Show.Show Network.AWS.Signer.Types.SignedObject.SignedObject
-instance GHC.Read.Read Network.AWS.Signer.Types.SignedObject.SignedObject
-instance GHC.Classes.Eq Network.AWS.Signer.Types.SignedObject.SignedObject
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.SignedObject.SignedObject
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.SignedObject.SignedObject
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.SignedObject.SignedObject
+instance GHC.Generics.Generic Amazonka.Signer.Types.SignedObject.SignedObject
+instance GHC.Show.Show Amazonka.Signer.Types.SignedObject.SignedObject
+instance GHC.Read.Read Amazonka.Signer.Types.SignedObject.SignedObject
+instance GHC.Classes.Eq Amazonka.Signer.Types.SignedObject.SignedObject
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.SignedObject.SignedObject
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.SignedObject.SignedObject
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.SignedObject.SignedObject
 
 
-module Network.AWS.Signer.Types.SigningConfiguration
+module Amazonka.Signer.Types.SigningConfiguration
 
 -- | The configuration of a code signing operation.
 --   
@@ -527,16 +527,16 @@ signingConfiguration_encryptionAlgorithmOptions :: Lens' SigningConfiguration En
 
 -- | The hash algorithm options that are available for a code signing job.
 signingConfiguration_hashAlgorithmOptions :: Lens' SigningConfiguration HashAlgorithmOptions
-instance GHC.Generics.Generic Network.AWS.Signer.Types.SigningConfiguration.SigningConfiguration
-instance GHC.Show.Show Network.AWS.Signer.Types.SigningConfiguration.SigningConfiguration
-instance GHC.Read.Read Network.AWS.Signer.Types.SigningConfiguration.SigningConfiguration
-instance GHC.Classes.Eq Network.AWS.Signer.Types.SigningConfiguration.SigningConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.SigningConfiguration.SigningConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.SigningConfiguration.SigningConfiguration
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.SigningConfiguration.SigningConfiguration
+instance GHC.Generics.Generic Amazonka.Signer.Types.SigningConfiguration.SigningConfiguration
+instance GHC.Show.Show Amazonka.Signer.Types.SigningConfiguration.SigningConfiguration
+instance GHC.Read.Read Amazonka.Signer.Types.SigningConfiguration.SigningConfiguration
+instance GHC.Classes.Eq Amazonka.Signer.Types.SigningConfiguration.SigningConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.SigningConfiguration.SigningConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.SigningConfiguration.SigningConfiguration
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.SigningConfiguration.SigningConfiguration
 
 
-module Network.AWS.Signer.Types.SigningConfigurationOverrides
+module Amazonka.Signer.Types.SigningConfigurationOverrides
 
 -- | A signing configuration that overrides the default encryption or hash
 --   algorithm of a signing job.
@@ -580,17 +580,17 @@ signingConfigurationOverrides_hashAlgorithm :: Lens' SigningConfigurationOverrid
 -- | A specified override of the default encryption algorithm that is used
 --   in a code signing job.
 signingConfigurationOverrides_encryptionAlgorithm :: Lens' SigningConfigurationOverrides (Maybe EncryptionAlgorithm)
-instance GHC.Generics.Generic Network.AWS.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
-instance GHC.Show.Show Network.AWS.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
-instance GHC.Read.Read Network.AWS.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
-instance GHC.Classes.Eq Network.AWS.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
+instance GHC.Generics.Generic Amazonka.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
+instance GHC.Show.Show Amazonka.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
+instance GHC.Read.Read Amazonka.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
+instance GHC.Classes.Eq Amazonka.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.Types.SigningConfigurationOverrides.SigningConfigurationOverrides
 
 
-module Network.AWS.Signer.Types.SigningImageFormat
+module Amazonka.Signer.Types.SigningImageFormat
 
 -- | The image format of a code signing platform or profile.
 --   
@@ -627,16 +627,16 @@ signingImageFormat_supportedFormats :: Lens' SigningImageFormat [ImageFormat]
 
 -- | The default format of a code signing image.
 signingImageFormat_defaultFormat :: Lens' SigningImageFormat ImageFormat
-instance GHC.Generics.Generic Network.AWS.Signer.Types.SigningImageFormat.SigningImageFormat
-instance GHC.Show.Show Network.AWS.Signer.Types.SigningImageFormat.SigningImageFormat
-instance GHC.Read.Read Network.AWS.Signer.Types.SigningImageFormat.SigningImageFormat
-instance GHC.Classes.Eq Network.AWS.Signer.Types.SigningImageFormat.SigningImageFormat
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.SigningImageFormat.SigningImageFormat
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.SigningImageFormat.SigningImageFormat
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.SigningImageFormat.SigningImageFormat
+instance GHC.Generics.Generic Amazonka.Signer.Types.SigningImageFormat.SigningImageFormat
+instance GHC.Show.Show Amazonka.Signer.Types.SigningImageFormat.SigningImageFormat
+instance GHC.Read.Read Amazonka.Signer.Types.SigningImageFormat.SigningImageFormat
+instance GHC.Classes.Eq Amazonka.Signer.Types.SigningImageFormat.SigningImageFormat
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.SigningImageFormat.SigningImageFormat
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.SigningImageFormat.SigningImageFormat
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.SigningImageFormat.SigningImageFormat
 
 
-module Network.AWS.Signer.Types.SigningJobRevocationRecord
+module Amazonka.Signer.Types.SigningJobRevocationRecord
 
 -- | Revocation information for a signing job.
 --   
@@ -682,16 +682,16 @@ signingJobRevocationRecord_revokedAt :: Lens' SigningJobRevocationRecord (Maybe 
 
 -- | A caller-supplied reason for revocation.
 signingJobRevocationRecord_reason :: Lens' SigningJobRevocationRecord (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Signer.Types.SigningJobRevocationRecord.SigningJobRevocationRecord
-instance GHC.Show.Show Network.AWS.Signer.Types.SigningJobRevocationRecord.SigningJobRevocationRecord
-instance GHC.Read.Read Network.AWS.Signer.Types.SigningJobRevocationRecord.SigningJobRevocationRecord
-instance GHC.Classes.Eq Network.AWS.Signer.Types.SigningJobRevocationRecord.SigningJobRevocationRecord
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.SigningJobRevocationRecord.SigningJobRevocationRecord
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.SigningJobRevocationRecord.SigningJobRevocationRecord
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.SigningJobRevocationRecord.SigningJobRevocationRecord
+instance GHC.Generics.Generic Amazonka.Signer.Types.SigningJobRevocationRecord.SigningJobRevocationRecord
+instance GHC.Show.Show Amazonka.Signer.Types.SigningJobRevocationRecord.SigningJobRevocationRecord
+instance GHC.Read.Read Amazonka.Signer.Types.SigningJobRevocationRecord.SigningJobRevocationRecord
+instance GHC.Classes.Eq Amazonka.Signer.Types.SigningJobRevocationRecord.SigningJobRevocationRecord
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.SigningJobRevocationRecord.SigningJobRevocationRecord
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.SigningJobRevocationRecord.SigningJobRevocationRecord
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.SigningJobRevocationRecord.SigningJobRevocationRecord
 
 
-module Network.AWS.Signer.Types.SigningMaterial
+module Amazonka.Signer.Types.SigningMaterial
 
 -- | The ACM certificate that is used to sign your code.
 --   
@@ -720,17 +720,17 @@ newSigningMaterial :: Text -> SigningMaterial
 -- | The Amazon Resource Name (ARN) of the certificates that is used to
 --   sign your code.
 signingMaterial_certificateArn :: Lens' SigningMaterial Text
-instance GHC.Generics.Generic Network.AWS.Signer.Types.SigningMaterial.SigningMaterial
-instance GHC.Show.Show Network.AWS.Signer.Types.SigningMaterial.SigningMaterial
-instance GHC.Read.Read Network.AWS.Signer.Types.SigningMaterial.SigningMaterial
-instance GHC.Classes.Eq Network.AWS.Signer.Types.SigningMaterial.SigningMaterial
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.SigningMaterial.SigningMaterial
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.SigningMaterial.SigningMaterial
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.SigningMaterial.SigningMaterial
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.Types.SigningMaterial.SigningMaterial
+instance GHC.Generics.Generic Amazonka.Signer.Types.SigningMaterial.SigningMaterial
+instance GHC.Show.Show Amazonka.Signer.Types.SigningMaterial.SigningMaterial
+instance GHC.Read.Read Amazonka.Signer.Types.SigningMaterial.SigningMaterial
+instance GHC.Classes.Eq Amazonka.Signer.Types.SigningMaterial.SigningMaterial
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.SigningMaterial.SigningMaterial
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.SigningMaterial.SigningMaterial
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.SigningMaterial.SigningMaterial
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.Types.SigningMaterial.SigningMaterial
 
 
-module Network.AWS.Signer.Types.SigningPlatform
+module Amazonka.Signer.Types.SigningPlatform
 
 -- | Contains information about the signing configurations and parameters
 --   that are used to perform a code signing job.
@@ -839,16 +839,16 @@ signingPlatform_maxSizeInMB :: Lens' SigningPlatform (Maybe Int)
 
 -- | The types of targets that can be signed by a code signing platform.
 signingPlatform_target :: Lens' SigningPlatform (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Signer.Types.SigningPlatform.SigningPlatform
-instance GHC.Show.Show Network.AWS.Signer.Types.SigningPlatform.SigningPlatform
-instance GHC.Read.Read Network.AWS.Signer.Types.SigningPlatform.SigningPlatform
-instance GHC.Classes.Eq Network.AWS.Signer.Types.SigningPlatform.SigningPlatform
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.SigningPlatform.SigningPlatform
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.SigningPlatform.SigningPlatform
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.SigningPlatform.SigningPlatform
+instance GHC.Generics.Generic Amazonka.Signer.Types.SigningPlatform.SigningPlatform
+instance GHC.Show.Show Amazonka.Signer.Types.SigningPlatform.SigningPlatform
+instance GHC.Read.Read Amazonka.Signer.Types.SigningPlatform.SigningPlatform
+instance GHC.Classes.Eq Amazonka.Signer.Types.SigningPlatform.SigningPlatform
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.SigningPlatform.SigningPlatform
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.SigningPlatform.SigningPlatform
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.SigningPlatform.SigningPlatform
 
 
-module Network.AWS.Signer.Types.SigningPlatformOverrides
+module Amazonka.Signer.Types.SigningPlatformOverrides
 
 -- | Any overrides that are applied to the signing configuration of a code
 --   signing platform.
@@ -907,17 +907,17 @@ signingPlatformOverrides_signingConfiguration :: Lens' SigningPlatformOverrides 
 --   it. With <tt>JSONDetached</tt>, the payload is not be embedded in the
 --   signing image.
 signingPlatformOverrides_signingImageFormat :: Lens' SigningPlatformOverrides (Maybe ImageFormat)
-instance GHC.Generics.Generic Network.AWS.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
-instance GHC.Show.Show Network.AWS.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
-instance GHC.Read.Read Network.AWS.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
-instance GHC.Classes.Eq Network.AWS.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
+instance GHC.Generics.Generic Amazonka.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
+instance GHC.Show.Show Amazonka.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
+instance GHC.Read.Read Amazonka.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
+instance GHC.Classes.Eq Amazonka.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.Types.SigningPlatformOverrides.SigningPlatformOverrides
 
 
-module Network.AWS.Signer.Types.SigningProfileRevocationRecord
+module Amazonka.Signer.Types.SigningProfileRevocationRecord
 
 -- | Revocation information for a signing profile.
 --   
@@ -965,72 +965,72 @@ signingProfileRevocationRecord_revocationEffectiveFrom :: Lens' SigningProfileRe
 
 -- | The time when the signing profile was revoked.
 signingProfileRevocationRecord_revokedAt :: Lens' SigningProfileRevocationRecord (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.Signer.Types.SigningProfileRevocationRecord.SigningProfileRevocationRecord
-instance GHC.Show.Show Network.AWS.Signer.Types.SigningProfileRevocationRecord.SigningProfileRevocationRecord
-instance GHC.Read.Read Network.AWS.Signer.Types.SigningProfileRevocationRecord.SigningProfileRevocationRecord
-instance GHC.Classes.Eq Network.AWS.Signer.Types.SigningProfileRevocationRecord.SigningProfileRevocationRecord
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.SigningProfileRevocationRecord.SigningProfileRevocationRecord
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.SigningProfileRevocationRecord.SigningProfileRevocationRecord
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.SigningProfileRevocationRecord.SigningProfileRevocationRecord
+instance GHC.Generics.Generic Amazonka.Signer.Types.SigningProfileRevocationRecord.SigningProfileRevocationRecord
+instance GHC.Show.Show Amazonka.Signer.Types.SigningProfileRevocationRecord.SigningProfileRevocationRecord
+instance GHC.Read.Read Amazonka.Signer.Types.SigningProfileRevocationRecord.SigningProfileRevocationRecord
+instance GHC.Classes.Eq Amazonka.Signer.Types.SigningProfileRevocationRecord.SigningProfileRevocationRecord
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.SigningProfileRevocationRecord.SigningProfileRevocationRecord
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.SigningProfileRevocationRecord.SigningProfileRevocationRecord
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.SigningProfileRevocationRecord.SigningProfileRevocationRecord
 
 
-module Network.AWS.Signer.Types.SigningProfileStatus
+module Amazonka.Signer.Types.SigningProfileStatus
 newtype SigningProfileStatus
 SigningProfileStatus' :: Text -> SigningProfileStatus
 [fromSigningProfileStatus] :: SigningProfileStatus -> Text
 pattern SigningProfileStatus_Active :: SigningProfileStatus
 pattern SigningProfileStatus_Canceled :: SigningProfileStatus
 pattern SigningProfileStatus_Revoked :: SigningProfileStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance GHC.Generics.Generic Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance GHC.Classes.Ord Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance GHC.Classes.Eq Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance GHC.Read.Read Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
-instance GHC.Show.Show Network.AWS.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance Amazonka.Data.Text.ToText Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance Amazonka.Data.Text.FromText Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance GHC.Generics.Generic Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance GHC.Classes.Ord Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance GHC.Classes.Eq Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance GHC.Read.Read Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
+instance GHC.Show.Show Amazonka.Signer.Types.SigningProfileStatus.SigningProfileStatus
 
 
-module Network.AWS.Signer.Types.SigningStatus
+module Amazonka.Signer.Types.SigningStatus
 newtype SigningStatus
 SigningStatus' :: Text -> SigningStatus
 [fromSigningStatus] :: SigningStatus -> Text
 pattern SigningStatus_Failed :: SigningStatus
 pattern SigningStatus_InProgress :: SigningStatus
 pattern SigningStatus_Succeeded :: SigningStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance GHC.Generics.Generic Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance GHC.Classes.Ord Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance GHC.Classes.Eq Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance GHC.Read.Read Network.AWS.Signer.Types.SigningStatus.SigningStatus
-instance GHC.Show.Show Network.AWS.Signer.Types.SigningStatus.SigningStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance Amazonka.Data.Text.ToText Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance Amazonka.Data.Text.FromText Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance GHC.Generics.Generic Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance GHC.Classes.Ord Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance GHC.Classes.Eq Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance GHC.Read.Read Amazonka.Signer.Types.SigningStatus.SigningStatus
+instance GHC.Show.Show Amazonka.Signer.Types.SigningStatus.SigningStatus
 
 
-module Network.AWS.Signer.Types.Source
+module Amazonka.Signer.Types.Source
 
 -- | An <tt>S3Source</tt> object that contains information about the S3
 --   bucket where you saved your unsigned code.
@@ -1056,17 +1056,17 @@ newSource :: Source
 
 -- | The <tt>S3Source</tt> object.
 source_s3 :: Lens' Source (Maybe S3Source)
-instance GHC.Generics.Generic Network.AWS.Signer.Types.Source.Source
-instance GHC.Show.Show Network.AWS.Signer.Types.Source.Source
-instance GHC.Read.Read Network.AWS.Signer.Types.Source.Source
-instance GHC.Classes.Eq Network.AWS.Signer.Types.Source.Source
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.Source.Source
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.Source.Source
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.Source.Source
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.Types.Source.Source
+instance GHC.Generics.Generic Amazonka.Signer.Types.Source.Source
+instance GHC.Show.Show Amazonka.Signer.Types.Source.Source
+instance GHC.Read.Read Amazonka.Signer.Types.Source.Source
+instance GHC.Classes.Eq Amazonka.Signer.Types.Source.Source
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.Source.Source
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.Source.Source
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.Source.Source
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.Types.Source.Source
 
 
-module Network.AWS.Signer.Types.SigningJob
+module Amazonka.Signer.Types.SigningJob
 
 -- | Contains information about a signing job.
 --   
@@ -1221,44 +1221,44 @@ signingJob_jobInvoker :: Lens' SigningJob (Maybe Text)
 
 -- | The AWS account ID of the job owner.
 signingJob_jobOwner :: Lens' SigningJob (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Signer.Types.SigningJob.SigningJob
-instance GHC.Show.Show Network.AWS.Signer.Types.SigningJob.SigningJob
-instance GHC.Read.Read Network.AWS.Signer.Types.SigningJob.SigningJob
-instance GHC.Classes.Eq Network.AWS.Signer.Types.SigningJob.SigningJob
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.SigningJob.SigningJob
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.SigningJob.SigningJob
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.SigningJob.SigningJob
+instance GHC.Generics.Generic Amazonka.Signer.Types.SigningJob.SigningJob
+instance GHC.Show.Show Amazonka.Signer.Types.SigningJob.SigningJob
+instance GHC.Read.Read Amazonka.Signer.Types.SigningJob.SigningJob
+instance GHC.Classes.Eq Amazonka.Signer.Types.SigningJob.SigningJob
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.SigningJob.SigningJob
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.SigningJob.SigningJob
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.SigningJob.SigningJob
 
 
-module Network.AWS.Signer.Types.ValidityType
+module Amazonka.Signer.Types.ValidityType
 newtype ValidityType
 ValidityType' :: Text -> ValidityType
 [fromValidityType] :: ValidityType -> Text
 pattern ValidityType_DAYS :: ValidityType
 pattern ValidityType_MONTHS :: ValidityType
 pattern ValidityType_YEARS :: ValidityType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Signer.Types.ValidityType.ValidityType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Signer.Types.ValidityType.ValidityType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Signer.Types.ValidityType.ValidityType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.Types.ValidityType.ValidityType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Signer.Types.ValidityType.ValidityType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.ValidityType.ValidityType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.Types.ValidityType.ValidityType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Signer.Types.ValidityType.ValidityType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Signer.Types.ValidityType.ValidityType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Signer.Types.ValidityType.ValidityType
-instance Network.AWS.Data.Text.ToText Network.AWS.Signer.Types.ValidityType.ValidityType
-instance Network.AWS.Data.Text.FromText Network.AWS.Signer.Types.ValidityType.ValidityType
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.ValidityType.ValidityType
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.ValidityType.ValidityType
-instance GHC.Generics.Generic Network.AWS.Signer.Types.ValidityType.ValidityType
-instance GHC.Classes.Ord Network.AWS.Signer.Types.ValidityType.ValidityType
-instance GHC.Classes.Eq Network.AWS.Signer.Types.ValidityType.ValidityType
-instance GHC.Read.Read Network.AWS.Signer.Types.ValidityType.ValidityType
-instance GHC.Show.Show Network.AWS.Signer.Types.ValidityType.ValidityType
+instance Amazonka.Data.XML.ToXML Amazonka.Signer.Types.ValidityType.ValidityType
+instance Amazonka.Data.XML.FromXML Amazonka.Signer.Types.ValidityType.ValidityType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Signer.Types.ValidityType.ValidityType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.Types.ValidityType.ValidityType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Signer.Types.ValidityType.ValidityType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.ValidityType.ValidityType
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.Types.ValidityType.ValidityType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Signer.Types.ValidityType.ValidityType
+instance Amazonka.Data.Log.ToLog Amazonka.Signer.Types.ValidityType.ValidityType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Signer.Types.ValidityType.ValidityType
+instance Amazonka.Data.Text.ToText Amazonka.Signer.Types.ValidityType.ValidityType
+instance Amazonka.Data.Text.FromText Amazonka.Signer.Types.ValidityType.ValidityType
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.ValidityType.ValidityType
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.ValidityType.ValidityType
+instance GHC.Generics.Generic Amazonka.Signer.Types.ValidityType.ValidityType
+instance GHC.Classes.Ord Amazonka.Signer.Types.ValidityType.ValidityType
+instance GHC.Classes.Eq Amazonka.Signer.Types.ValidityType.ValidityType
+instance GHC.Read.Read Amazonka.Signer.Types.ValidityType.ValidityType
+instance GHC.Show.Show Amazonka.Signer.Types.ValidityType.ValidityType
 
 
-module Network.AWS.Signer.Types.SignatureValidityPeriod
+module Amazonka.Signer.Types.SignatureValidityPeriod
 
 -- | The validity period for a signing job.
 --   
@@ -1295,17 +1295,17 @@ signatureValidityPeriod_value :: Lens' SignatureValidityPeriod (Maybe Int)
 
 -- | The time unit for signature validity.
 signatureValidityPeriod_type :: Lens' SignatureValidityPeriod (Maybe ValidityType)
-instance GHC.Generics.Generic Network.AWS.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
-instance GHC.Show.Show Network.AWS.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
-instance GHC.Read.Read Network.AWS.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
-instance GHC.Classes.Eq Network.AWS.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
+instance GHC.Generics.Generic Amazonka.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
+instance GHC.Show.Show Amazonka.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
+instance GHC.Read.Read Amazonka.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
+instance GHC.Classes.Eq Amazonka.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.Types.SignatureValidityPeriod.SignatureValidityPeriod
 
 
-module Network.AWS.Signer.Types.SigningProfile
+module Amazonka.Signer.Types.SigningProfile
 
 -- | Contains information about the ACM certificates and code signing
 --   configuration parameters that can be used by a given code signing
@@ -1432,16 +1432,16 @@ signingProfile_signingParameters :: Lens' SigningProfile (Maybe (HashMap Text Te
 
 -- | A list of tags associated with the signing profile.
 signingProfile_tags :: Lens' SigningProfile (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.Signer.Types.SigningProfile.SigningProfile
-instance GHC.Show.Show Network.AWS.Signer.Types.SigningProfile.SigningProfile
-instance GHC.Read.Read Network.AWS.Signer.Types.SigningProfile.SigningProfile
-instance GHC.Classes.Eq Network.AWS.Signer.Types.SigningProfile.SigningProfile
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Signer.Types.SigningProfile.SigningProfile
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.Types.SigningProfile.SigningProfile
-instance Control.DeepSeq.NFData Network.AWS.Signer.Types.SigningProfile.SigningProfile
+instance GHC.Generics.Generic Amazonka.Signer.Types.SigningProfile.SigningProfile
+instance GHC.Show.Show Amazonka.Signer.Types.SigningProfile.SigningProfile
+instance GHC.Read.Read Amazonka.Signer.Types.SigningProfile.SigningProfile
+instance GHC.Classes.Eq Amazonka.Signer.Types.SigningProfile.SigningProfile
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Signer.Types.SigningProfile.SigningProfile
+instance Data.Hashable.Class.Hashable Amazonka.Signer.Types.SigningProfile.SigningProfile
+instance Control.DeepSeq.NFData Amazonka.Signer.Types.SigningProfile.SigningProfile
 
 
-module Network.AWS.Signer.Types
+module Amazonka.Signer.Types
 
 -- | API version <tt>2017-08-25</tt> of the Amazon Signer SDK
 --   configuration.
@@ -2566,7 +2566,7 @@ source_s3 :: Lens' Source (Maybe S3Source)
 --   of a key and an optional value. To specify the signing profile, use
 --   its Amazon Resource Name (ARN). To specify the tag, use a key-value
 --   pair.
-module Network.AWS.Signer.TagResource
+module Amazonka.Signer.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2622,22 +2622,22 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Signer.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.Signer.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.Signer.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.Signer.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.Signer.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.Signer.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.Signer.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Signer.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Signer.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Signer.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Signer.TagResource.TagResource
+instance GHC.Show.Show Amazonka.Signer.TagResource.TagResource
+instance GHC.Read.Read Amazonka.Signer.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.Signer.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Signer.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.Signer.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.Signer.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.Signer.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Signer.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Signer.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Signer.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.TagResource.TagResource
 
 
 -- | Initiates a signing job to be performed on the code provided. Signing
@@ -2662,7 +2662,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.TagResource.TagResour
 --   
 --   For a Java example that shows how to use this action, see
 --   <a>http://docs.aws.amazon.com/acm/latest/userguide/</a>
-module Network.AWS.Signer.StartSigningJob
+module Amazonka.Signer.StartSigningJob
 
 -- | <i>See:</i> <a>newStartSigningJob</a> smart constructor.
 data StartSigningJob
@@ -2777,28 +2777,28 @@ startSigningJobResponse_jobOwner :: Lens' StartSigningJobResponse (Maybe Text)
 
 -- | The response's http status code.
 startSigningJobResponse_httpStatus :: Lens' StartSigningJobResponse Int
-instance GHC.Generics.Generic Network.AWS.Signer.StartSigningJob.StartSigningJob
-instance GHC.Show.Show Network.AWS.Signer.StartSigningJob.StartSigningJob
-instance GHC.Read.Read Network.AWS.Signer.StartSigningJob.StartSigningJob
-instance GHC.Classes.Eq Network.AWS.Signer.StartSigningJob.StartSigningJob
-instance GHC.Generics.Generic Network.AWS.Signer.StartSigningJob.StartSigningJobResponse
-instance GHC.Show.Show Network.AWS.Signer.StartSigningJob.StartSigningJobResponse
-instance GHC.Read.Read Network.AWS.Signer.StartSigningJob.StartSigningJobResponse
-instance GHC.Classes.Eq Network.AWS.Signer.StartSigningJob.StartSigningJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.StartSigningJob.StartSigningJob
-instance Control.DeepSeq.NFData Network.AWS.Signer.StartSigningJob.StartSigningJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.StartSigningJob.StartSigningJob
-instance Control.DeepSeq.NFData Network.AWS.Signer.StartSigningJob.StartSigningJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.StartSigningJob.StartSigningJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.StartSigningJob.StartSigningJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.StartSigningJob.StartSigningJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.StartSigningJob.StartSigningJob
+instance GHC.Generics.Generic Amazonka.Signer.StartSigningJob.StartSigningJob
+instance GHC.Show.Show Amazonka.Signer.StartSigningJob.StartSigningJob
+instance GHC.Read.Read Amazonka.Signer.StartSigningJob.StartSigningJob
+instance GHC.Classes.Eq Amazonka.Signer.StartSigningJob.StartSigningJob
+instance GHC.Generics.Generic Amazonka.Signer.StartSigningJob.StartSigningJobResponse
+instance GHC.Show.Show Amazonka.Signer.StartSigningJob.StartSigningJobResponse
+instance GHC.Read.Read Amazonka.Signer.StartSigningJob.StartSigningJobResponse
+instance GHC.Classes.Eq Amazonka.Signer.StartSigningJob.StartSigningJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.StartSigningJob.StartSigningJob
+instance Control.DeepSeq.NFData Amazonka.Signer.StartSigningJob.StartSigningJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.Signer.StartSigningJob.StartSigningJob
+instance Control.DeepSeq.NFData Amazonka.Signer.StartSigningJob.StartSigningJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.StartSigningJob.StartSigningJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.StartSigningJob.StartSigningJob
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.StartSigningJob.StartSigningJob
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.StartSigningJob.StartSigningJob
 
 
 -- | Changes the state of a signing profile to REVOKED. This indicates that
 --   signatures generated using the signing profile after an effective
 --   start date are no longer valid.
-module Network.AWS.Signer.RevokeSigningProfile
+module Amazonka.Signer.RevokeSigningProfile
 
 -- | <i>See:</i> <a>newRevokeSigningProfile</a> smart constructor.
 data RevokeSigningProfile
@@ -2870,27 +2870,27 @@ RevokeSigningProfileResponse' :: RevokeSigningProfileResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newRevokeSigningProfileResponse :: RevokeSigningProfileResponse
-instance GHC.Generics.Generic Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfile
-instance GHC.Show.Show Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfile
-instance GHC.Read.Read Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfile
-instance GHC.Classes.Eq Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfile
-instance GHC.Generics.Generic Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfileResponse
-instance GHC.Show.Show Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfileResponse
-instance GHC.Read.Read Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfileResponse
-instance GHC.Classes.Eq Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfileResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfile
-instance Control.DeepSeq.NFData Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfileResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfile
-instance Control.DeepSeq.NFData Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfile
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.RevokeSigningProfile.RevokeSigningProfile
+instance GHC.Generics.Generic Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfile
+instance GHC.Show.Show Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfile
+instance GHC.Read.Read Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfile
+instance GHC.Classes.Eq Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfile
+instance GHC.Generics.Generic Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfileResponse
+instance GHC.Show.Show Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfileResponse
+instance GHC.Read.Read Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfileResponse
+instance GHC.Classes.Eq Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfileResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfile
+instance Control.DeepSeq.NFData Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfileResponse
+instance Data.Hashable.Class.Hashable Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfile
+instance Control.DeepSeq.NFData Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfile
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfile
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.RevokeSigningProfile.RevokeSigningProfile
 
 
 -- | Changes the state of a signing job to REVOKED. This indicates that the
 --   signature is no longer valid.
-module Network.AWS.Signer.RevokeSignature
+module Amazonka.Signer.RevokeSignature
 
 -- | <i>See:</i> <a>newRevokeSignature</a> smart constructor.
 data RevokeSignature
@@ -2943,26 +2943,26 @@ RevokeSignatureResponse' :: RevokeSignatureResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newRevokeSignatureResponse :: RevokeSignatureResponse
-instance GHC.Generics.Generic Network.AWS.Signer.RevokeSignature.RevokeSignature
-instance GHC.Show.Show Network.AWS.Signer.RevokeSignature.RevokeSignature
-instance GHC.Read.Read Network.AWS.Signer.RevokeSignature.RevokeSignature
-instance GHC.Classes.Eq Network.AWS.Signer.RevokeSignature.RevokeSignature
-instance GHC.Generics.Generic Network.AWS.Signer.RevokeSignature.RevokeSignatureResponse
-instance GHC.Show.Show Network.AWS.Signer.RevokeSignature.RevokeSignatureResponse
-instance GHC.Read.Read Network.AWS.Signer.RevokeSignature.RevokeSignatureResponse
-instance GHC.Classes.Eq Network.AWS.Signer.RevokeSignature.RevokeSignatureResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.RevokeSignature.RevokeSignature
-instance Control.DeepSeq.NFData Network.AWS.Signer.RevokeSignature.RevokeSignatureResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.RevokeSignature.RevokeSignature
-instance Control.DeepSeq.NFData Network.AWS.Signer.RevokeSignature.RevokeSignature
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.RevokeSignature.RevokeSignature
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.RevokeSignature.RevokeSignature
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.RevokeSignature.RevokeSignature
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.RevokeSignature.RevokeSignature
+instance GHC.Generics.Generic Amazonka.Signer.RevokeSignature.RevokeSignature
+instance GHC.Show.Show Amazonka.Signer.RevokeSignature.RevokeSignature
+instance GHC.Read.Read Amazonka.Signer.RevokeSignature.RevokeSignature
+instance GHC.Classes.Eq Amazonka.Signer.RevokeSignature.RevokeSignature
+instance GHC.Generics.Generic Amazonka.Signer.RevokeSignature.RevokeSignatureResponse
+instance GHC.Show.Show Amazonka.Signer.RevokeSignature.RevokeSignatureResponse
+instance GHC.Read.Read Amazonka.Signer.RevokeSignature.RevokeSignatureResponse
+instance GHC.Classes.Eq Amazonka.Signer.RevokeSignature.RevokeSignatureResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.RevokeSignature.RevokeSignature
+instance Control.DeepSeq.NFData Amazonka.Signer.RevokeSignature.RevokeSignatureResponse
+instance Data.Hashable.Class.Hashable Amazonka.Signer.RevokeSignature.RevokeSignature
+instance Control.DeepSeq.NFData Amazonka.Signer.RevokeSignature.RevokeSignature
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.RevokeSignature.RevokeSignature
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.RevokeSignature.RevokeSignature
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.RevokeSignature.RevokeSignature
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.RevokeSignature.RevokeSignature
 
 
 -- | Removes cross-account permissions from a signing profile.
-module Network.AWS.Signer.RemoveProfilePermission
+module Amazonka.Signer.RemoveProfilePermission
 
 -- | <i>See:</i> <a>newRemoveProfilePermission</a> smart constructor.
 data RemoveProfilePermission
@@ -3046,28 +3046,28 @@ removeProfilePermissionResponse_revisionId :: Lens' RemoveProfilePermissionRespo
 
 -- | The response's http status code.
 removeProfilePermissionResponse_httpStatus :: Lens' RemoveProfilePermissionResponse Int
-instance GHC.Generics.Generic Network.AWS.Signer.RemoveProfilePermission.RemoveProfilePermission
-instance GHC.Show.Show Network.AWS.Signer.RemoveProfilePermission.RemoveProfilePermission
-instance GHC.Read.Read Network.AWS.Signer.RemoveProfilePermission.RemoveProfilePermission
-instance GHC.Classes.Eq Network.AWS.Signer.RemoveProfilePermission.RemoveProfilePermission
-instance GHC.Generics.Generic Network.AWS.Signer.RemoveProfilePermission.RemoveProfilePermissionResponse
-instance GHC.Show.Show Network.AWS.Signer.RemoveProfilePermission.RemoveProfilePermissionResponse
-instance GHC.Read.Read Network.AWS.Signer.RemoveProfilePermission.RemoveProfilePermissionResponse
-instance GHC.Classes.Eq Network.AWS.Signer.RemoveProfilePermission.RemoveProfilePermissionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.RemoveProfilePermission.RemoveProfilePermission
-instance Control.DeepSeq.NFData Network.AWS.Signer.RemoveProfilePermission.RemoveProfilePermissionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.RemoveProfilePermission.RemoveProfilePermission
-instance Control.DeepSeq.NFData Network.AWS.Signer.RemoveProfilePermission.RemoveProfilePermission
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.RemoveProfilePermission.RemoveProfilePermission
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.RemoveProfilePermission.RemoveProfilePermission
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.RemoveProfilePermission.RemoveProfilePermission
+instance GHC.Generics.Generic Amazonka.Signer.RemoveProfilePermission.RemoveProfilePermission
+instance GHC.Show.Show Amazonka.Signer.RemoveProfilePermission.RemoveProfilePermission
+instance GHC.Read.Read Amazonka.Signer.RemoveProfilePermission.RemoveProfilePermission
+instance GHC.Classes.Eq Amazonka.Signer.RemoveProfilePermission.RemoveProfilePermission
+instance GHC.Generics.Generic Amazonka.Signer.RemoveProfilePermission.RemoveProfilePermissionResponse
+instance GHC.Show.Show Amazonka.Signer.RemoveProfilePermission.RemoveProfilePermissionResponse
+instance GHC.Read.Read Amazonka.Signer.RemoveProfilePermission.RemoveProfilePermissionResponse
+instance GHC.Classes.Eq Amazonka.Signer.RemoveProfilePermission.RemoveProfilePermissionResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.RemoveProfilePermission.RemoveProfilePermission
+instance Control.DeepSeq.NFData Amazonka.Signer.RemoveProfilePermission.RemoveProfilePermissionResponse
+instance Data.Hashable.Class.Hashable Amazonka.Signer.RemoveProfilePermission.RemoveProfilePermission
+instance Control.DeepSeq.NFData Amazonka.Signer.RemoveProfilePermission.RemoveProfilePermission
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.RemoveProfilePermission.RemoveProfilePermission
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.RemoveProfilePermission.RemoveProfilePermission
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.RemoveProfilePermission.RemoveProfilePermission
 
 
 -- | Creates a signing profile. A signing profile is a code signing
 --   template that can be used to carry out a pre-defined signing job. For
 --   more information, see
 --   <a>http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html</a>
-module Network.AWS.Signer.PutSigningProfile
+module Amazonka.Signer.PutSigningProfile
 
 -- | <i>See:</i> <a>newPutSigningProfile</a> smart constructor.
 data PutSigningProfile
@@ -3222,26 +3222,26 @@ putSigningProfileResponse_profileVersionArn :: Lens' PutSigningProfileResponse (
 
 -- | The response's http status code.
 putSigningProfileResponse_httpStatus :: Lens' PutSigningProfileResponse Int
-instance GHC.Generics.Generic Network.AWS.Signer.PutSigningProfile.PutSigningProfile
-instance GHC.Show.Show Network.AWS.Signer.PutSigningProfile.PutSigningProfile
-instance GHC.Read.Read Network.AWS.Signer.PutSigningProfile.PutSigningProfile
-instance GHC.Classes.Eq Network.AWS.Signer.PutSigningProfile.PutSigningProfile
-instance GHC.Generics.Generic Network.AWS.Signer.PutSigningProfile.PutSigningProfileResponse
-instance GHC.Show.Show Network.AWS.Signer.PutSigningProfile.PutSigningProfileResponse
-instance GHC.Read.Read Network.AWS.Signer.PutSigningProfile.PutSigningProfileResponse
-instance GHC.Classes.Eq Network.AWS.Signer.PutSigningProfile.PutSigningProfileResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.PutSigningProfile.PutSigningProfile
-instance Control.DeepSeq.NFData Network.AWS.Signer.PutSigningProfile.PutSigningProfileResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.PutSigningProfile.PutSigningProfile
-instance Control.DeepSeq.NFData Network.AWS.Signer.PutSigningProfile.PutSigningProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.PutSigningProfile.PutSigningProfile
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.PutSigningProfile.PutSigningProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.PutSigningProfile.PutSigningProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.PutSigningProfile.PutSigningProfile
+instance GHC.Generics.Generic Amazonka.Signer.PutSigningProfile.PutSigningProfile
+instance GHC.Show.Show Amazonka.Signer.PutSigningProfile.PutSigningProfile
+instance GHC.Read.Read Amazonka.Signer.PutSigningProfile.PutSigningProfile
+instance GHC.Classes.Eq Amazonka.Signer.PutSigningProfile.PutSigningProfile
+instance GHC.Generics.Generic Amazonka.Signer.PutSigningProfile.PutSigningProfileResponse
+instance GHC.Show.Show Amazonka.Signer.PutSigningProfile.PutSigningProfileResponse
+instance GHC.Read.Read Amazonka.Signer.PutSigningProfile.PutSigningProfileResponse
+instance GHC.Classes.Eq Amazonka.Signer.PutSigningProfile.PutSigningProfileResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.PutSigningProfile.PutSigningProfile
+instance Control.DeepSeq.NFData Amazonka.Signer.PutSigningProfile.PutSigningProfileResponse
+instance Data.Hashable.Class.Hashable Amazonka.Signer.PutSigningProfile.PutSigningProfile
+instance Control.DeepSeq.NFData Amazonka.Signer.PutSigningProfile.PutSigningProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.PutSigningProfile.PutSigningProfile
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.PutSigningProfile.PutSigningProfile
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.PutSigningProfile.PutSigningProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.PutSigningProfile.PutSigningProfile
 
 
 -- | Returns a list of the tags associated with a signing profile resource.
-module Network.AWS.Signer.ListTagsForResource
+module Amazonka.Signer.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -3300,21 +3300,21 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Signer.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.Signer.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.Signer.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.Signer.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.Signer.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.Signer.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.Signer.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.Signer.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Signer.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Signer.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Signer.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.Signer.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.Signer.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.Signer.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Signer.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.Signer.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.Signer.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.Signer.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Signer.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Signer.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Signer.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists all available signing profiles in your AWS account. Returns only
@@ -3329,7 +3329,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.ListTagsForResource.L
 --   jobs have been returned.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Signer.ListSigningProfiles
+module Amazonka.Signer.ListSigningProfiles
 
 -- | <i>See:</i> <a>newListSigningProfiles</a> smart constructor.
 data ListSigningProfiles
@@ -3459,22 +3459,22 @@ listSigningProfilesResponse_nextToken :: Lens' ListSigningProfilesResponse (Mayb
 
 -- | The response's http status code.
 listSigningProfilesResponse_httpStatus :: Lens' ListSigningProfilesResponse Int
-instance GHC.Generics.Generic Network.AWS.Signer.ListSigningProfiles.ListSigningProfiles
-instance GHC.Show.Show Network.AWS.Signer.ListSigningProfiles.ListSigningProfiles
-instance GHC.Read.Read Network.AWS.Signer.ListSigningProfiles.ListSigningProfiles
-instance GHC.Classes.Eq Network.AWS.Signer.ListSigningProfiles.ListSigningProfiles
-instance GHC.Generics.Generic Network.AWS.Signer.ListSigningProfiles.ListSigningProfilesResponse
-instance GHC.Show.Show Network.AWS.Signer.ListSigningProfiles.ListSigningProfilesResponse
-instance GHC.Read.Read Network.AWS.Signer.ListSigningProfiles.ListSigningProfilesResponse
-instance GHC.Classes.Eq Network.AWS.Signer.ListSigningProfiles.ListSigningProfilesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.ListSigningProfiles.ListSigningProfiles
-instance Control.DeepSeq.NFData Network.AWS.Signer.ListSigningProfiles.ListSigningProfilesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Signer.ListSigningProfiles.ListSigningProfiles
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.ListSigningProfiles.ListSigningProfiles
-instance Control.DeepSeq.NFData Network.AWS.Signer.ListSigningProfiles.ListSigningProfiles
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.ListSigningProfiles.ListSigningProfiles
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.ListSigningProfiles.ListSigningProfiles
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.ListSigningProfiles.ListSigningProfiles
+instance GHC.Generics.Generic Amazonka.Signer.ListSigningProfiles.ListSigningProfiles
+instance GHC.Show.Show Amazonka.Signer.ListSigningProfiles.ListSigningProfiles
+instance GHC.Read.Read Amazonka.Signer.ListSigningProfiles.ListSigningProfiles
+instance GHC.Classes.Eq Amazonka.Signer.ListSigningProfiles.ListSigningProfiles
+instance GHC.Generics.Generic Amazonka.Signer.ListSigningProfiles.ListSigningProfilesResponse
+instance GHC.Show.Show Amazonka.Signer.ListSigningProfiles.ListSigningProfilesResponse
+instance GHC.Read.Read Amazonka.Signer.ListSigningProfiles.ListSigningProfilesResponse
+instance GHC.Classes.Eq Amazonka.Signer.ListSigningProfiles.ListSigningProfilesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.ListSigningProfiles.ListSigningProfiles
+instance Control.DeepSeq.NFData Amazonka.Signer.ListSigningProfiles.ListSigningProfilesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Signer.ListSigningProfiles.ListSigningProfiles
+instance Data.Hashable.Class.Hashable Amazonka.Signer.ListSigningProfiles.ListSigningProfiles
+instance Control.DeepSeq.NFData Amazonka.Signer.ListSigningProfiles.ListSigningProfiles
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.ListSigningProfiles.ListSigningProfiles
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.ListSigningProfiles.ListSigningProfiles
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.ListSigningProfiles.ListSigningProfiles
 
 
 -- | Lists all signing platforms available in code signing that match the
@@ -3487,7 +3487,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.ListSigningProfiles.L
 --   jobs have been returned.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Signer.ListSigningPlatforms
+module Amazonka.Signer.ListSigningPlatforms
 
 -- | <i>See:</i> <a>newListSigningPlatforms</a> smart constructor.
 data ListSigningPlatforms
@@ -3605,22 +3605,22 @@ listSigningPlatformsResponse_nextToken :: Lens' ListSigningPlatformsResponse (Ma
 
 -- | The response's http status code.
 listSigningPlatformsResponse_httpStatus :: Lens' ListSigningPlatformsResponse Int
-instance GHC.Generics.Generic Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatforms
-instance GHC.Show.Show Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatforms
-instance GHC.Read.Read Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatforms
-instance GHC.Classes.Eq Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatforms
-instance GHC.Generics.Generic Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatformsResponse
-instance GHC.Show.Show Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatformsResponse
-instance GHC.Read.Read Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatformsResponse
-instance GHC.Classes.Eq Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatformsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatforms
-instance Control.DeepSeq.NFData Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatformsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatforms
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatforms
-instance Control.DeepSeq.NFData Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatforms
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatforms
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatforms
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.ListSigningPlatforms.ListSigningPlatforms
+instance GHC.Generics.Generic Amazonka.Signer.ListSigningPlatforms.ListSigningPlatforms
+instance GHC.Show.Show Amazonka.Signer.ListSigningPlatforms.ListSigningPlatforms
+instance GHC.Read.Read Amazonka.Signer.ListSigningPlatforms.ListSigningPlatforms
+instance GHC.Classes.Eq Amazonka.Signer.ListSigningPlatforms.ListSigningPlatforms
+instance GHC.Generics.Generic Amazonka.Signer.ListSigningPlatforms.ListSigningPlatformsResponse
+instance GHC.Show.Show Amazonka.Signer.ListSigningPlatforms.ListSigningPlatformsResponse
+instance GHC.Read.Read Amazonka.Signer.ListSigningPlatforms.ListSigningPlatformsResponse
+instance GHC.Classes.Eq Amazonka.Signer.ListSigningPlatforms.ListSigningPlatformsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.ListSigningPlatforms.ListSigningPlatforms
+instance Control.DeepSeq.NFData Amazonka.Signer.ListSigningPlatforms.ListSigningPlatformsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Signer.ListSigningPlatforms.ListSigningPlatforms
+instance Data.Hashable.Class.Hashable Amazonka.Signer.ListSigningPlatforms.ListSigningPlatforms
+instance Control.DeepSeq.NFData Amazonka.Signer.ListSigningPlatforms.ListSigningPlatforms
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.ListSigningPlatforms.ListSigningPlatforms
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.ListSigningPlatforms.ListSigningPlatforms
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.ListSigningPlatforms.ListSigningPlatforms
 
 
 -- | Lists all your signing jobs. You can use the <tt>maxResults</tt>
@@ -3634,7 +3634,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.ListSigningPlatforms.
 --   jobs have been returned.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Signer.ListSigningJobs
+module Amazonka.Signer.ListSigningJobs
 
 -- | <i>See:</i> <a>newListSigningJobs</a> smart constructor.
 data ListSigningJobs
@@ -3812,26 +3812,26 @@ listSigningJobsResponse_nextToken :: Lens' ListSigningJobsResponse (Maybe Text)
 
 -- | The response's http status code.
 listSigningJobsResponse_httpStatus :: Lens' ListSigningJobsResponse Int
-instance GHC.Generics.Generic Network.AWS.Signer.ListSigningJobs.ListSigningJobs
-instance GHC.Show.Show Network.AWS.Signer.ListSigningJobs.ListSigningJobs
-instance GHC.Read.Read Network.AWS.Signer.ListSigningJobs.ListSigningJobs
-instance GHC.Classes.Eq Network.AWS.Signer.ListSigningJobs.ListSigningJobs
-instance GHC.Generics.Generic Network.AWS.Signer.ListSigningJobs.ListSigningJobsResponse
-instance GHC.Show.Show Network.AWS.Signer.ListSigningJobs.ListSigningJobsResponse
-instance GHC.Read.Read Network.AWS.Signer.ListSigningJobs.ListSigningJobsResponse
-instance GHC.Classes.Eq Network.AWS.Signer.ListSigningJobs.ListSigningJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.ListSigningJobs.ListSigningJobs
-instance Control.DeepSeq.NFData Network.AWS.Signer.ListSigningJobs.ListSigningJobsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Signer.ListSigningJobs.ListSigningJobs
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.ListSigningJobs.ListSigningJobs
-instance Control.DeepSeq.NFData Network.AWS.Signer.ListSigningJobs.ListSigningJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.ListSigningJobs.ListSigningJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.ListSigningJobs.ListSigningJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.ListSigningJobs.ListSigningJobs
+instance GHC.Generics.Generic Amazonka.Signer.ListSigningJobs.ListSigningJobs
+instance GHC.Show.Show Amazonka.Signer.ListSigningJobs.ListSigningJobs
+instance GHC.Read.Read Amazonka.Signer.ListSigningJobs.ListSigningJobs
+instance GHC.Classes.Eq Amazonka.Signer.ListSigningJobs.ListSigningJobs
+instance GHC.Generics.Generic Amazonka.Signer.ListSigningJobs.ListSigningJobsResponse
+instance GHC.Show.Show Amazonka.Signer.ListSigningJobs.ListSigningJobsResponse
+instance GHC.Read.Read Amazonka.Signer.ListSigningJobs.ListSigningJobsResponse
+instance GHC.Classes.Eq Amazonka.Signer.ListSigningJobs.ListSigningJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.ListSigningJobs.ListSigningJobs
+instance Control.DeepSeq.NFData Amazonka.Signer.ListSigningJobs.ListSigningJobsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Signer.ListSigningJobs.ListSigningJobs
+instance Data.Hashable.Class.Hashable Amazonka.Signer.ListSigningJobs.ListSigningJobs
+instance Control.DeepSeq.NFData Amazonka.Signer.ListSigningJobs.ListSigningJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.ListSigningJobs.ListSigningJobs
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.ListSigningJobs.ListSigningJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.ListSigningJobs.ListSigningJobs
 
 
 -- | Lists the cross-account permissions associated with a signing profile.
-module Network.AWS.Signer.ListProfilePermissions
+module Amazonka.Signer.ListProfilePermissions
 
 -- | <i>See:</i> <a>newListProfilePermissions</a> smart constructor.
 data ListProfilePermissions
@@ -3931,25 +3931,25 @@ listProfilePermissionsResponse_revisionId :: Lens' ListProfilePermissionsRespons
 
 -- | The response's http status code.
 listProfilePermissionsResponse_httpStatus :: Lens' ListProfilePermissionsResponse Int
-instance GHC.Generics.Generic Network.AWS.Signer.ListProfilePermissions.ListProfilePermissions
-instance GHC.Show.Show Network.AWS.Signer.ListProfilePermissions.ListProfilePermissions
-instance GHC.Read.Read Network.AWS.Signer.ListProfilePermissions.ListProfilePermissions
-instance GHC.Classes.Eq Network.AWS.Signer.ListProfilePermissions.ListProfilePermissions
-instance GHC.Generics.Generic Network.AWS.Signer.ListProfilePermissions.ListProfilePermissionsResponse
-instance GHC.Show.Show Network.AWS.Signer.ListProfilePermissions.ListProfilePermissionsResponse
-instance GHC.Read.Read Network.AWS.Signer.ListProfilePermissions.ListProfilePermissionsResponse
-instance GHC.Classes.Eq Network.AWS.Signer.ListProfilePermissions.ListProfilePermissionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.ListProfilePermissions.ListProfilePermissions
-instance Control.DeepSeq.NFData Network.AWS.Signer.ListProfilePermissions.ListProfilePermissionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.ListProfilePermissions.ListProfilePermissions
-instance Control.DeepSeq.NFData Network.AWS.Signer.ListProfilePermissions.ListProfilePermissions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.ListProfilePermissions.ListProfilePermissions
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.ListProfilePermissions.ListProfilePermissions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.ListProfilePermissions.ListProfilePermissions
+instance GHC.Generics.Generic Amazonka.Signer.ListProfilePermissions.ListProfilePermissions
+instance GHC.Show.Show Amazonka.Signer.ListProfilePermissions.ListProfilePermissions
+instance GHC.Read.Read Amazonka.Signer.ListProfilePermissions.ListProfilePermissions
+instance GHC.Classes.Eq Amazonka.Signer.ListProfilePermissions.ListProfilePermissions
+instance GHC.Generics.Generic Amazonka.Signer.ListProfilePermissions.ListProfilePermissionsResponse
+instance GHC.Show.Show Amazonka.Signer.ListProfilePermissions.ListProfilePermissionsResponse
+instance GHC.Read.Read Amazonka.Signer.ListProfilePermissions.ListProfilePermissionsResponse
+instance GHC.Classes.Eq Amazonka.Signer.ListProfilePermissions.ListProfilePermissionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.ListProfilePermissions.ListProfilePermissions
+instance Control.DeepSeq.NFData Amazonka.Signer.ListProfilePermissions.ListProfilePermissionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Signer.ListProfilePermissions.ListProfilePermissions
+instance Control.DeepSeq.NFData Amazonka.Signer.ListProfilePermissions.ListProfilePermissions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.ListProfilePermissions.ListProfilePermissions
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.ListProfilePermissions.ListProfilePermissions
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.ListProfilePermissions.ListProfilePermissions
 
 
 -- | Returns information on a specific signing profile.
-module Network.AWS.Signer.GetSigningProfile
+module Amazonka.Signer.GetSigningProfile
 
 -- | <i>See:</i> <a>newGetSigningProfile</a> smart constructor.
 data GetSigningProfile
@@ -4154,25 +4154,25 @@ getSigningProfileResponse_tags :: Lens' GetSigningProfileResponse (Maybe (HashMa
 
 -- | The response's http status code.
 getSigningProfileResponse_httpStatus :: Lens' GetSigningProfileResponse Int
-instance GHC.Generics.Generic Network.AWS.Signer.GetSigningProfile.GetSigningProfile
-instance GHC.Show.Show Network.AWS.Signer.GetSigningProfile.GetSigningProfile
-instance GHC.Read.Read Network.AWS.Signer.GetSigningProfile.GetSigningProfile
-instance GHC.Classes.Eq Network.AWS.Signer.GetSigningProfile.GetSigningProfile
-instance GHC.Generics.Generic Network.AWS.Signer.GetSigningProfile.GetSigningProfileResponse
-instance GHC.Show.Show Network.AWS.Signer.GetSigningProfile.GetSigningProfileResponse
-instance GHC.Read.Read Network.AWS.Signer.GetSigningProfile.GetSigningProfileResponse
-instance GHC.Classes.Eq Network.AWS.Signer.GetSigningProfile.GetSigningProfileResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.GetSigningProfile.GetSigningProfile
-instance Control.DeepSeq.NFData Network.AWS.Signer.GetSigningProfile.GetSigningProfileResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.GetSigningProfile.GetSigningProfile
-instance Control.DeepSeq.NFData Network.AWS.Signer.GetSigningProfile.GetSigningProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.GetSigningProfile.GetSigningProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.GetSigningProfile.GetSigningProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.GetSigningProfile.GetSigningProfile
+instance GHC.Generics.Generic Amazonka.Signer.GetSigningProfile.GetSigningProfile
+instance GHC.Show.Show Amazonka.Signer.GetSigningProfile.GetSigningProfile
+instance GHC.Read.Read Amazonka.Signer.GetSigningProfile.GetSigningProfile
+instance GHC.Classes.Eq Amazonka.Signer.GetSigningProfile.GetSigningProfile
+instance GHC.Generics.Generic Amazonka.Signer.GetSigningProfile.GetSigningProfileResponse
+instance GHC.Show.Show Amazonka.Signer.GetSigningProfile.GetSigningProfileResponse
+instance GHC.Read.Read Amazonka.Signer.GetSigningProfile.GetSigningProfileResponse
+instance GHC.Classes.Eq Amazonka.Signer.GetSigningProfile.GetSigningProfileResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.GetSigningProfile.GetSigningProfile
+instance Control.DeepSeq.NFData Amazonka.Signer.GetSigningProfile.GetSigningProfileResponse
+instance Data.Hashable.Class.Hashable Amazonka.Signer.GetSigningProfile.GetSigningProfile
+instance Control.DeepSeq.NFData Amazonka.Signer.GetSigningProfile.GetSigningProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.GetSigningProfile.GetSigningProfile
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.GetSigningProfile.GetSigningProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.GetSigningProfile.GetSigningProfile
 
 
 -- | Returns information on a specific signing platform.
-module Network.AWS.Signer.GetSigningPlatform
+module Amazonka.Signer.GetSigningPlatform
 
 -- | <i>See:</i> <a>newGetSigningPlatform</a> smart constructor.
 data GetSigningPlatform
@@ -4316,27 +4316,27 @@ getSigningPlatformResponse_target :: Lens' GetSigningPlatformResponse (Maybe Tex
 
 -- | The response's http status code.
 getSigningPlatformResponse_httpStatus :: Lens' GetSigningPlatformResponse Int
-instance GHC.Generics.Generic Network.AWS.Signer.GetSigningPlatform.GetSigningPlatform
-instance GHC.Show.Show Network.AWS.Signer.GetSigningPlatform.GetSigningPlatform
-instance GHC.Read.Read Network.AWS.Signer.GetSigningPlatform.GetSigningPlatform
-instance GHC.Classes.Eq Network.AWS.Signer.GetSigningPlatform.GetSigningPlatform
-instance GHC.Generics.Generic Network.AWS.Signer.GetSigningPlatform.GetSigningPlatformResponse
-instance GHC.Show.Show Network.AWS.Signer.GetSigningPlatform.GetSigningPlatformResponse
-instance GHC.Read.Read Network.AWS.Signer.GetSigningPlatform.GetSigningPlatformResponse
-instance GHC.Classes.Eq Network.AWS.Signer.GetSigningPlatform.GetSigningPlatformResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.GetSigningPlatform.GetSigningPlatform
-instance Control.DeepSeq.NFData Network.AWS.Signer.GetSigningPlatform.GetSigningPlatformResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.GetSigningPlatform.GetSigningPlatform
-instance Control.DeepSeq.NFData Network.AWS.Signer.GetSigningPlatform.GetSigningPlatform
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.GetSigningPlatform.GetSigningPlatform
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.GetSigningPlatform.GetSigningPlatform
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.GetSigningPlatform.GetSigningPlatform
+instance GHC.Generics.Generic Amazonka.Signer.GetSigningPlatform.GetSigningPlatform
+instance GHC.Show.Show Amazonka.Signer.GetSigningPlatform.GetSigningPlatform
+instance GHC.Read.Read Amazonka.Signer.GetSigningPlatform.GetSigningPlatform
+instance GHC.Classes.Eq Amazonka.Signer.GetSigningPlatform.GetSigningPlatform
+instance GHC.Generics.Generic Amazonka.Signer.GetSigningPlatform.GetSigningPlatformResponse
+instance GHC.Show.Show Amazonka.Signer.GetSigningPlatform.GetSigningPlatformResponse
+instance GHC.Read.Read Amazonka.Signer.GetSigningPlatform.GetSigningPlatformResponse
+instance GHC.Classes.Eq Amazonka.Signer.GetSigningPlatform.GetSigningPlatformResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.GetSigningPlatform.GetSigningPlatform
+instance Control.DeepSeq.NFData Amazonka.Signer.GetSigningPlatform.GetSigningPlatformResponse
+instance Data.Hashable.Class.Hashable Amazonka.Signer.GetSigningPlatform.GetSigningPlatform
+instance Control.DeepSeq.NFData Amazonka.Signer.GetSigningPlatform.GetSigningPlatform
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.GetSigningPlatform.GetSigningPlatform
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.GetSigningPlatform.GetSigningPlatform
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.GetSigningPlatform.GetSigningPlatform
 
 
 -- | Returns information about a specific code signing job. You specify the
 --   job by using the <tt>jobId</tt> value that is returned by the
 --   StartSigningJob operation.
-module Network.AWS.Signer.DescribeSigningJob
+module Amazonka.Signer.DescribeSigningJob
 
 -- | <i>See:</i> <a>newDescribeSigningJob</a> smart constructor.
 data DescribeSigningJob
@@ -4594,28 +4594,28 @@ describeSigningJobResponse_signingParameters :: Lens' DescribeSigningJobResponse
 
 -- | The response's http status code.
 describeSigningJobResponse_httpStatus :: Lens' DescribeSigningJobResponse Int
-instance GHC.Generics.Generic Network.AWS.Signer.DescribeSigningJob.DescribeSigningJob
-instance GHC.Show.Show Network.AWS.Signer.DescribeSigningJob.DescribeSigningJob
-instance GHC.Read.Read Network.AWS.Signer.DescribeSigningJob.DescribeSigningJob
-instance GHC.Classes.Eq Network.AWS.Signer.DescribeSigningJob.DescribeSigningJob
-instance GHC.Generics.Generic Network.AWS.Signer.DescribeSigningJob.DescribeSigningJobResponse
-instance GHC.Show.Show Network.AWS.Signer.DescribeSigningJob.DescribeSigningJobResponse
-instance GHC.Read.Read Network.AWS.Signer.DescribeSigningJob.DescribeSigningJobResponse
-instance GHC.Classes.Eq Network.AWS.Signer.DescribeSigningJob.DescribeSigningJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.DescribeSigningJob.DescribeSigningJob
-instance Control.DeepSeq.NFData Network.AWS.Signer.DescribeSigningJob.DescribeSigningJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.DescribeSigningJob.DescribeSigningJob
-instance Control.DeepSeq.NFData Network.AWS.Signer.DescribeSigningJob.DescribeSigningJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.DescribeSigningJob.DescribeSigningJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.DescribeSigningJob.DescribeSigningJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.DescribeSigningJob.DescribeSigningJob
+instance GHC.Generics.Generic Amazonka.Signer.DescribeSigningJob.DescribeSigningJob
+instance GHC.Show.Show Amazonka.Signer.DescribeSigningJob.DescribeSigningJob
+instance GHC.Read.Read Amazonka.Signer.DescribeSigningJob.DescribeSigningJob
+instance GHC.Classes.Eq Amazonka.Signer.DescribeSigningJob.DescribeSigningJob
+instance GHC.Generics.Generic Amazonka.Signer.DescribeSigningJob.DescribeSigningJobResponse
+instance GHC.Show.Show Amazonka.Signer.DescribeSigningJob.DescribeSigningJobResponse
+instance GHC.Read.Read Amazonka.Signer.DescribeSigningJob.DescribeSigningJobResponse
+instance GHC.Classes.Eq Amazonka.Signer.DescribeSigningJob.DescribeSigningJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.DescribeSigningJob.DescribeSigningJob
+instance Control.DeepSeq.NFData Amazonka.Signer.DescribeSigningJob.DescribeSigningJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.Signer.DescribeSigningJob.DescribeSigningJob
+instance Control.DeepSeq.NFData Amazonka.Signer.DescribeSigningJob.DescribeSigningJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.DescribeSigningJob.DescribeSigningJob
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.DescribeSigningJob.DescribeSigningJob
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.DescribeSigningJob.DescribeSigningJob
 
 
 -- | Changes the state of an <tt>ACTIVE</tt> signing profile to
 --   <tt>CANCELED</tt>. A canceled profile is still viewable with the
 --   <tt>ListSigningProfiles</tt> operation, but it cannot perform new
 --   signing jobs, and is deleted two years after cancelation.
-module Network.AWS.Signer.CancelSigningProfile
+module Amazonka.Signer.CancelSigningProfile
 
 -- | <i>See:</i> <a>newCancelSigningProfile</a> smart constructor.
 data CancelSigningProfile
@@ -4651,25 +4651,25 @@ CancelSigningProfileResponse' :: CancelSigningProfileResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newCancelSigningProfileResponse :: CancelSigningProfileResponse
-instance GHC.Generics.Generic Network.AWS.Signer.CancelSigningProfile.CancelSigningProfile
-instance GHC.Show.Show Network.AWS.Signer.CancelSigningProfile.CancelSigningProfile
-instance GHC.Read.Read Network.AWS.Signer.CancelSigningProfile.CancelSigningProfile
-instance GHC.Classes.Eq Network.AWS.Signer.CancelSigningProfile.CancelSigningProfile
-instance GHC.Generics.Generic Network.AWS.Signer.CancelSigningProfile.CancelSigningProfileResponse
-instance GHC.Show.Show Network.AWS.Signer.CancelSigningProfile.CancelSigningProfileResponse
-instance GHC.Read.Read Network.AWS.Signer.CancelSigningProfile.CancelSigningProfileResponse
-instance GHC.Classes.Eq Network.AWS.Signer.CancelSigningProfile.CancelSigningProfileResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.CancelSigningProfile.CancelSigningProfile
-instance Control.DeepSeq.NFData Network.AWS.Signer.CancelSigningProfile.CancelSigningProfileResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.CancelSigningProfile.CancelSigningProfile
-instance Control.DeepSeq.NFData Network.AWS.Signer.CancelSigningProfile.CancelSigningProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.CancelSigningProfile.CancelSigningProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.CancelSigningProfile.CancelSigningProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.CancelSigningProfile.CancelSigningProfile
+instance GHC.Generics.Generic Amazonka.Signer.CancelSigningProfile.CancelSigningProfile
+instance GHC.Show.Show Amazonka.Signer.CancelSigningProfile.CancelSigningProfile
+instance GHC.Read.Read Amazonka.Signer.CancelSigningProfile.CancelSigningProfile
+instance GHC.Classes.Eq Amazonka.Signer.CancelSigningProfile.CancelSigningProfile
+instance GHC.Generics.Generic Amazonka.Signer.CancelSigningProfile.CancelSigningProfileResponse
+instance GHC.Show.Show Amazonka.Signer.CancelSigningProfile.CancelSigningProfileResponse
+instance GHC.Read.Read Amazonka.Signer.CancelSigningProfile.CancelSigningProfileResponse
+instance GHC.Classes.Eq Amazonka.Signer.CancelSigningProfile.CancelSigningProfileResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.CancelSigningProfile.CancelSigningProfile
+instance Control.DeepSeq.NFData Amazonka.Signer.CancelSigningProfile.CancelSigningProfileResponse
+instance Data.Hashable.Class.Hashable Amazonka.Signer.CancelSigningProfile.CancelSigningProfile
+instance Control.DeepSeq.NFData Amazonka.Signer.CancelSigningProfile.CancelSigningProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.CancelSigningProfile.CancelSigningProfile
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.CancelSigningProfile.CancelSigningProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.CancelSigningProfile.CancelSigningProfile
 
 
 -- | Adds cross-account permissions to a signing profile.
-module Network.AWS.Signer.AddProfilePermission
+module Amazonka.Signer.AddProfilePermission
 
 -- | <i>See:</i> <a>newAddProfilePermission</a> smart constructor.
 data AddProfilePermission
@@ -4781,27 +4781,27 @@ addProfilePermissionResponse_revisionId :: Lens' AddProfilePermissionResponse (M
 
 -- | The response's http status code.
 addProfilePermissionResponse_httpStatus :: Lens' AddProfilePermissionResponse Int
-instance GHC.Generics.Generic Network.AWS.Signer.AddProfilePermission.AddProfilePermission
-instance GHC.Show.Show Network.AWS.Signer.AddProfilePermission.AddProfilePermission
-instance GHC.Read.Read Network.AWS.Signer.AddProfilePermission.AddProfilePermission
-instance GHC.Classes.Eq Network.AWS.Signer.AddProfilePermission.AddProfilePermission
-instance GHC.Generics.Generic Network.AWS.Signer.AddProfilePermission.AddProfilePermissionResponse
-instance GHC.Show.Show Network.AWS.Signer.AddProfilePermission.AddProfilePermissionResponse
-instance GHC.Read.Read Network.AWS.Signer.AddProfilePermission.AddProfilePermissionResponse
-instance GHC.Classes.Eq Network.AWS.Signer.AddProfilePermission.AddProfilePermissionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.AddProfilePermission.AddProfilePermission
-instance Control.DeepSeq.NFData Network.AWS.Signer.AddProfilePermission.AddProfilePermissionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.AddProfilePermission.AddProfilePermission
-instance Control.DeepSeq.NFData Network.AWS.Signer.AddProfilePermission.AddProfilePermission
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.AddProfilePermission.AddProfilePermission
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Signer.AddProfilePermission.AddProfilePermission
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.AddProfilePermission.AddProfilePermission
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.AddProfilePermission.AddProfilePermission
+instance GHC.Generics.Generic Amazonka.Signer.AddProfilePermission.AddProfilePermission
+instance GHC.Show.Show Amazonka.Signer.AddProfilePermission.AddProfilePermission
+instance GHC.Read.Read Amazonka.Signer.AddProfilePermission.AddProfilePermission
+instance GHC.Classes.Eq Amazonka.Signer.AddProfilePermission.AddProfilePermission
+instance GHC.Generics.Generic Amazonka.Signer.AddProfilePermission.AddProfilePermissionResponse
+instance GHC.Show.Show Amazonka.Signer.AddProfilePermission.AddProfilePermissionResponse
+instance GHC.Read.Read Amazonka.Signer.AddProfilePermission.AddProfilePermissionResponse
+instance GHC.Classes.Eq Amazonka.Signer.AddProfilePermission.AddProfilePermissionResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.AddProfilePermission.AddProfilePermission
+instance Control.DeepSeq.NFData Amazonka.Signer.AddProfilePermission.AddProfilePermissionResponse
+instance Data.Hashable.Class.Hashable Amazonka.Signer.AddProfilePermission.AddProfilePermission
+instance Control.DeepSeq.NFData Amazonka.Signer.AddProfilePermission.AddProfilePermission
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.AddProfilePermission.AddProfilePermission
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Signer.AddProfilePermission.AddProfilePermission
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.AddProfilePermission.AddProfilePermission
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.AddProfilePermission.AddProfilePermission
 
 
 -- | Removes one or more tags from a signing profile. To remove the tags,
 --   specify a list of tag keys.
-module Network.AWS.Signer.UntagResource
+module Amazonka.Signer.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -4859,24 +4859,24 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Signer.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.Signer.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.Signer.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.Signer.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.Signer.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.Signer.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.Signer.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Signer.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Signer.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Signer.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Signer.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Signer.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Signer.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Signer.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Signer.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Signer.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.Signer.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.Signer.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.Signer.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Signer.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.Signer.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.Signer.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.Signer.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Signer.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Signer.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Signer.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Signer.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Signer.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Signer.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Signer.UntagResource.UntagResource
 
 
-module Network.AWS.Signer.Lens
+module Amazonka.Signer.Lens
 
 -- | The AWS account ID of the signing profile owner.
 startSigningJob_profileOwner :: Lens' StartSigningJob (Maybe Text)
@@ -5555,7 +5555,7 @@ signingProfileRevocationRecord_revokedAt :: Lens' SigningProfileRevocationRecord
 source_s3 :: Lens' Source (Maybe S3Source)
 
 
-module Network.AWS.Signer.Waiters
+module Amazonka.Signer.Waiters
 
 -- | Polls <a>DescribeSigningJob</a> every 20 seconds until a successful
 --   state is reached. An error is returned after 25 failed checks.
@@ -5585,7 +5585,7 @@ newSuccessfulSigningJob :: Wait DescribeSigningJob
 --   
 --   For more information about AWS Signer, see the <a>AWS Signer Developer
 --   Guide</a>.
-module Network.AWS.Signer
+module Amazonka.Signer
 
 -- | API version <tt>2017-08-25</tt> of the Amazon Signer SDK
 --   configuration.

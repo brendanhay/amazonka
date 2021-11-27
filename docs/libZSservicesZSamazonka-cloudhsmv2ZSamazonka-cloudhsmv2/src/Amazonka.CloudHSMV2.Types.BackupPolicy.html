@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudHSMV2.Types.BackupPolicy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudHSMV2.Types.BackupPolicy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.BackupPolicy.html#BackupPolicy"><span class="hs-identifier">BackupPolicy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.BackupPolicy.html#BackupPolicy_DEFAULT"><span class="hs-identifier">BackupPolicy_DEFAULT</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679172793"><span id="local-6989586621679172794"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BackupPolicy"><span class="annot"><a href="Amazonka.CloudHSMV2.Types.BackupPolicy.html#BackupPolicy"><span class="hs-identifier hs-var">BackupPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BackupPolicy%27"><span class="annot"><a href="Amazonka.CloudHSMV2.Types.BackupPolicy.html#BackupPolicy%27"><span class="hs-identifier hs-var">BackupPolicy'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBackupPolicy"><span class="annot"><span class="annottext">BackupPolicy -&gt; Text
+</span><a href="Amazonka.CloudHSMV2.Types.BackupPolicy.html#fromBackupPolicy"><span class="hs-identifier hs-var hs-var">fromBackupPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679172785"><span id="local-6989586621679172787"><span id="local-6989586621679172789"><span class="annot"><span class="annottext">Int -&gt; BackupPolicy -&gt; ShowS
+[BackupPolicy] -&gt; ShowS
+BackupPolicy -&gt; String
+(Int -&gt; BackupPolicy -&gt; ShowS)
+-&gt; (BackupPolicy -&gt; String)
+-&gt; ([BackupPolicy] -&gt; ShowS)
+-&gt; Show BackupPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BackupPolicy] -&gt; ShowS
+$cshowList :: [BackupPolicy] -&gt; ShowS
+show :: BackupPolicy -&gt; String
+$cshow :: BackupPolicy -&gt; String
+showsPrec :: Int -&gt; BackupPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; BackupPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679172776"><span id="local-6989586621679172778"><span id="local-6989586621679172780"><span id="local-6989586621679172782"><span class="annot"><span class="annottext">ReadPrec [BackupPolicy]
+ReadPrec BackupPolicy
+Int -&gt; ReadS BackupPolicy
+ReadS [BackupPolicy]
+(Int -&gt; ReadS BackupPolicy)
+-&gt; ReadS [BackupPolicy]
+-&gt; ReadPrec BackupPolicy
+-&gt; ReadPrec [BackupPolicy]
+-&gt; Read BackupPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BackupPolicy]
+$creadListPrec :: ReadPrec [BackupPolicy]
+readPrec :: ReadPrec BackupPolicy
+$creadPrec :: ReadPrec BackupPolicy
+readList :: ReadS [BackupPolicy]
+$creadList :: ReadS [BackupPolicy]
+readsPrec :: Int -&gt; ReadS BackupPolicy
+$creadsPrec :: Int -&gt; ReadS BackupPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679172771"><span id="local-6989586621679172773"><span class="annot"><span class="annottext">BackupPolicy -&gt; BackupPolicy -&gt; Bool
+(BackupPolicy -&gt; BackupPolicy -&gt; Bool)
+-&gt; (BackupPolicy -&gt; BackupPolicy -&gt; Bool) -&gt; Eq BackupPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BackupPolicy -&gt; BackupPolicy -&gt; Bool
+$c/= :: BackupPolicy -&gt; BackupPolicy -&gt; Bool
+== :: BackupPolicy -&gt; BackupPolicy -&gt; Bool
+$c== :: BackupPolicy -&gt; BackupPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679172755"><span id="local-6989586621679172757"><span id="local-6989586621679172759"><span id="local-6989586621679172761"><span id="local-6989586621679172763"><span id="local-6989586621679172765"><span id="local-6989586621679172767"><span class="annot"><span class="annottext">Eq BackupPolicy
+Eq BackupPolicy
+-&gt; (BackupPolicy -&gt; BackupPolicy -&gt; Ordering)
+-&gt; (BackupPolicy -&gt; BackupPolicy -&gt; Bool)
+-&gt; (BackupPolicy -&gt; BackupPolicy -&gt; Bool)
+-&gt; (BackupPolicy -&gt; BackupPolicy -&gt; Bool)
+-&gt; (BackupPolicy -&gt; BackupPolicy -&gt; Bool)
+-&gt; (BackupPolicy -&gt; BackupPolicy -&gt; BackupPolicy)
+-&gt; (BackupPolicy -&gt; BackupPolicy -&gt; BackupPolicy)
+-&gt; Ord BackupPolicy
+BackupPolicy -&gt; BackupPolicy -&gt; Bool
+BackupPolicy -&gt; BackupPolicy -&gt; Ordering
+BackupPolicy -&gt; BackupPolicy -&gt; BackupPolicy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: BackupPolicy -&gt; BackupPolicy -&gt; BackupPolicy
+$cmin :: BackupPolicy -&gt; BackupPolicy -&gt; BackupPolicy
+max :: BackupPolicy -&gt; BackupPolicy -&gt; BackupPolicy
+$cmax :: BackupPolicy -&gt; BackupPolicy -&gt; BackupPolicy
+&gt;= :: BackupPolicy -&gt; BackupPolicy -&gt; Bool
+$c&gt;= :: BackupPolicy -&gt; BackupPolicy -&gt; Bool
+&gt; :: BackupPolicy -&gt; BackupPolicy -&gt; Bool
+$c&gt; :: BackupPolicy -&gt; BackupPolicy -&gt; Bool
+&lt;= :: BackupPolicy -&gt; BackupPolicy -&gt; Bool
+$c&lt;= :: BackupPolicy -&gt; BackupPolicy -&gt; Bool
+&lt; :: BackupPolicy -&gt; BackupPolicy -&gt; Bool
+$c&lt; :: BackupPolicy -&gt; BackupPolicy -&gt; Bool
+compare :: BackupPolicy -&gt; BackupPolicy -&gt; Ordering
+$ccompare :: BackupPolicy -&gt; BackupPolicy -&gt; Ordering
+$cp1Ord :: Eq BackupPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. BackupPolicy -&gt; Rep BackupPolicy x)
+-&gt; (forall x. Rep BackupPolicy x -&gt; BackupPolicy)
+-&gt; Generic BackupPolicy
+forall x. Rep BackupPolicy x -&gt; BackupPolicy
+forall x. BackupPolicy -&gt; Rep BackupPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BackupPolicy x -&gt; BackupPolicy
+$cfrom :: forall x. BackupPolicy -&gt; Rep BackupPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679172747"><span id="local-6989586621679172749"><span class="annot"><span class="annottext">Int -&gt; BackupPolicy -&gt; Int
+BackupPolicy -&gt; Int
+(Int -&gt; BackupPolicy -&gt; Int)
+-&gt; (BackupPolicy -&gt; Int) -&gt; Hashable BackupPolicy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: BackupPolicy -&gt; Int
+$chash :: BackupPolicy -&gt; Int
+hashWithSalt :: Int -&gt; BackupPolicy -&gt; Int
+$chashWithSalt :: Int -&gt; BackupPolicy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679172744"><span class="annot"><span class="annottext">BackupPolicy -&gt; ()
+(BackupPolicy -&gt; ()) -&gt; NFData BackupPolicy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: BackupPolicy -&gt; ()
+$crnf :: BackupPolicy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679172741"><span class="annot"><span class="annottext">Text -&gt; Either String BackupPolicy
+(Text -&gt; Either String BackupPolicy) -&gt; FromText BackupPolicy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String BackupPolicy
+$cfromText :: Text -&gt; Either String BackupPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679172738"><span class="annot"><span class="annottext">BackupPolicy -&gt; Text
+(BackupPolicy -&gt; Text) -&gt; ToText BackupPolicy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: BackupPolicy -&gt; Text
+$ctoText :: BackupPolicy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679172735"><span class="annot"><span class="annottext">BackupPolicy -&gt; ByteString
+(BackupPolicy -&gt; ByteString) -&gt; ToByteString BackupPolicy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: BackupPolicy -&gt; ByteString
+$ctoBS :: BackupPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679172732"><span class="annot"><span class="annottext">BackupPolicy -&gt; ByteStringBuilder
+(BackupPolicy -&gt; ByteStringBuilder) -&gt; ToLog BackupPolicy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: BackupPolicy -&gt; ByteStringBuilder
+$cbuild :: BackupPolicy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679172729"><span class="annot"><span class="annottext">HeaderName -&gt; BackupPolicy -&gt; [Header]
+(HeaderName -&gt; BackupPolicy -&gt; [Header]) -&gt; ToHeader BackupPolicy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; BackupPolicy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; BackupPolicy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679172726"><span class="annot"><span class="annottext">BackupPolicy -&gt; QueryString
+(BackupPolicy -&gt; QueryString) -&gt; ToQuery BackupPolicy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: BackupPolicy -&gt; QueryString
+$ctoQuery :: BackupPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679172721"><span id="local-6989586621679172723"><span class="annot"><span class="annottext">Value -&gt; Parser [BackupPolicy]
+Value -&gt; Parser BackupPolicy
+(Value -&gt; Parser BackupPolicy)
+-&gt; (Value -&gt; Parser [BackupPolicy]) -&gt; FromJSON BackupPolicy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [BackupPolicy]
+$cparseJSONList :: Value -&gt; Parser [BackupPolicy]
+parseJSON :: Value -&gt; Parser BackupPolicy
+$cparseJSON :: Value -&gt; Parser BackupPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679172716"><span id="local-6989586621679172718"><span class="annot"><span class="annottext">FromJSONKeyFunction [BackupPolicy]
+FromJSONKeyFunction BackupPolicy
+FromJSONKeyFunction BackupPolicy
+-&gt; FromJSONKeyFunction [BackupPolicy] -&gt; FromJSONKey BackupPolicy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [BackupPolicy]
+$cfromJSONKeyList :: FromJSONKeyFunction [BackupPolicy]
+fromJSONKey :: FromJSONKeyFunction BackupPolicy
+$cfromJSONKey :: FromJSONKeyFunction BackupPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679172707"><span id="local-6989586621679172709"><span id="local-6989586621679172711"><span id="local-6989586621679172713"><span class="annot"><span class="annottext">[BackupPolicy] -&gt; Encoding
+[BackupPolicy] -&gt; Value
+BackupPolicy -&gt; Encoding
+BackupPolicy -&gt; Value
+(BackupPolicy -&gt; Value)
+-&gt; (BackupPolicy -&gt; Encoding)
+-&gt; ([BackupPolicy] -&gt; Value)
+-&gt; ([BackupPolicy] -&gt; Encoding)
+-&gt; ToJSON BackupPolicy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [BackupPolicy] -&gt; Encoding
+$ctoEncodingList :: [BackupPolicy] -&gt; Encoding
+toJSONList :: [BackupPolicy] -&gt; Value
+$ctoJSONList :: [BackupPolicy] -&gt; Value
+toEncoding :: BackupPolicy -&gt; Encoding
+$ctoEncoding :: BackupPolicy -&gt; Encoding
+toJSON :: BackupPolicy -&gt; Value
+$ctoJSON :: BackupPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679172702"><span id="local-6989586621679172704"><span class="annot"><span class="annottext">ToJSONKeyFunction [BackupPolicy]
+ToJSONKeyFunction BackupPolicy
+ToJSONKeyFunction BackupPolicy
+-&gt; ToJSONKeyFunction [BackupPolicy] -&gt; ToJSONKey BackupPolicy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [BackupPolicy]
+$ctoJSONKeyList :: ToJSONKeyFunction [BackupPolicy]
+toJSONKey :: ToJSONKeyFunction BackupPolicy
+$ctoJSONKey :: ToJSONKeyFunction BackupPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679172699"><span class="annot"><span class="annottext">[Node] -&gt; Either String BackupPolicy
+([Node] -&gt; Either String BackupPolicy) -&gt; FromXML BackupPolicy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String BackupPolicy
+$cparseXML :: [Node] -&gt; Either String BackupPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679172696"><span class="annot"><span class="annottext">BackupPolicy -&gt; XML
+(BackupPolicy -&gt; XML) -&gt; ToXML BackupPolicy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: BackupPolicy -&gt; XML
+$ctoXML :: BackupPolicy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.BackupPolicy.html#BackupPolicy_DEFAULT"><span class="hs-identifier hs-type">BackupPolicy_DEFAULT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.BackupPolicy.html#BackupPolicy"><span class="hs-identifier hs-type">BackupPolicy</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBackupPolicy_DEFAULT"><span id="%24mBackupPolicy_DEFAULT"><span id="BackupPolicy_DEFAULT"><span class="annot"><span class="annottext">$bBackupPolicy_DEFAULT :: BackupPolicy
+$mBackupPolicy_DEFAULT :: forall r. BackupPolicy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudHSMV2.Types.BackupPolicy.html#%24bBackupPolicy_DEFAULT"><span class="hs-identifier hs-var hs-var hs-var">BackupPolicy_DEFAULT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.BackupPolicy.html#BackupPolicy%27"><span class="hs-identifier hs-type">BackupPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEFAULT&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.BackupPolicy.html#BackupPolicy_DEFAULT"><span class="hs-pragma hs-type">BackupPolicy_DEFAULT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.BackupPolicy.html#BackupPolicy%27"><span class="hs-pragma hs-type">BackupPolicy'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

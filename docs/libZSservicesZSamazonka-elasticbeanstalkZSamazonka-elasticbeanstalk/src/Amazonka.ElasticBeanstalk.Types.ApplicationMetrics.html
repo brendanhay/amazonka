@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticBeanstalk.Types.ApplicationMetrics</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.ApplicationMetrics</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.Latency.html"><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.Latency</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.StatusCodes.html"><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.StatusCodes</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Application request metrics for an AWS Elastic Beanstalk environment.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newApplicationMetrics' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679307480"><span id="local-6989586621679307481"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationMetrics"><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-var">ApplicationMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationMetrics%27"><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics%27"><span class="hs-identifier hs-var">ApplicationMetrics'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Average number of requests handled by the web server per second over the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- last 10 seconds.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3ArequestCount%3AApplicationMetrics%27"><span class="annot"><span class="annottext">ApplicationMetrics -&gt; Maybe Int
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#%24sel%3ArequestCount%3AApplicationMetrics%27"><span class="hs-identifier hs-var hs-var">requestCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Represents the average latency for the slowest X percent of requests</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- over the last 10 seconds. Latencies are in seconds with one millisecond</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- resolution.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Alatency%3AApplicationMetrics%27"><span class="annot"><span class="annottext">ApplicationMetrics -&gt; Maybe Latency
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#%24sel%3Alatency%3AApplicationMetrics%27"><span class="hs-identifier hs-var hs-var">latency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Represents the percentage of requests over the last 10 seconds that</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- resulted in each type of status code response.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AstatusCodes%3AApplicationMetrics%27"><span class="annot"><span class="annottext">ApplicationMetrics -&gt; Maybe StatusCodes
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#%24sel%3AstatusCodes%3AApplicationMetrics%27"><span class="hs-identifier hs-var hs-var">statusCodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The amount of time that the metrics cover (usually 10 seconds). For</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- example, you might have 5 requests (@request_count@) within the most</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- recent time slice of 10 seconds (@duration@).</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aduration%3AApplicationMetrics%27"><span class="annot"><span class="annottext">ApplicationMetrics -&gt; Maybe Int
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#%24sel%3Aduration%3AApplicationMetrics%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307471"><span id="local-6989586621679307473"><span class="annot"><span class="annottext">ApplicationMetrics -&gt; ApplicationMetrics -&gt; Bool
+(ApplicationMetrics -&gt; ApplicationMetrics -&gt; Bool)
+-&gt; (ApplicationMetrics -&gt; ApplicationMetrics -&gt; Bool)
+-&gt; Eq ApplicationMetrics
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplicationMetrics -&gt; ApplicationMetrics -&gt; Bool
+$c/= :: ApplicationMetrics -&gt; ApplicationMetrics -&gt; Bool
+== :: ApplicationMetrics -&gt; ApplicationMetrics -&gt; Bool
+$c== :: ApplicationMetrics -&gt; ApplicationMetrics -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307462"><span id="local-6989586621679307464"><span id="local-6989586621679307466"><span id="local-6989586621679307468"><span class="annot"><span class="annottext">ReadPrec [ApplicationMetrics]
+ReadPrec ApplicationMetrics
+Int -&gt; ReadS ApplicationMetrics
+ReadS [ApplicationMetrics]
+(Int -&gt; ReadS ApplicationMetrics)
+-&gt; ReadS [ApplicationMetrics]
+-&gt; ReadPrec ApplicationMetrics
+-&gt; ReadPrec [ApplicationMetrics]
+-&gt; Read ApplicationMetrics
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplicationMetrics]
+$creadListPrec :: ReadPrec [ApplicationMetrics]
+readPrec :: ReadPrec ApplicationMetrics
+$creadPrec :: ReadPrec ApplicationMetrics
+readList :: ReadS [ApplicationMetrics]
+$creadList :: ReadS [ApplicationMetrics]
+readsPrec :: Int -&gt; ReadS ApplicationMetrics
+$creadsPrec :: Int -&gt; ReadS ApplicationMetrics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307455"><span id="local-6989586621679307457"><span id="local-6989586621679307459"><span class="annot"><span class="annottext">Int -&gt; ApplicationMetrics -&gt; ShowS
+[ApplicationMetrics] -&gt; ShowS
+ApplicationMetrics -&gt; String
+(Int -&gt; ApplicationMetrics -&gt; ShowS)
+-&gt; (ApplicationMetrics -&gt; String)
+-&gt; ([ApplicationMetrics] -&gt; ShowS)
+-&gt; Show ApplicationMetrics
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplicationMetrics] -&gt; ShowS
+$cshowList :: [ApplicationMetrics] -&gt; ShowS
+show :: ApplicationMetrics -&gt; String
+$cshow :: ApplicationMetrics -&gt; String
+showsPrec :: Int -&gt; ApplicationMetrics -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplicationMetrics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ApplicationMetrics -&gt; Rep ApplicationMetrics x)
+-&gt; (forall x. Rep ApplicationMetrics x -&gt; ApplicationMetrics)
+-&gt; Generic ApplicationMetrics
+forall x. Rep ApplicationMetrics x -&gt; ApplicationMetrics
+forall x. ApplicationMetrics -&gt; Rep ApplicationMetrics x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ApplicationMetrics x -&gt; ApplicationMetrics
+$cfrom :: forall x. ApplicationMetrics -&gt; Rep ApplicationMetrics x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'ApplicationMetrics' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'requestCount', 'applicationMetrics_requestCount' - Average number of requests handled by the web server per second over the</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- last 10 seconds.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'latency', 'applicationMetrics_latency' - Represents the average latency for the slowest X percent of requests</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- over the last 10 seconds. Latencies are in seconds with one millisecond</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- resolution.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'statusCodes', 'applicationMetrics_statusCodes' - Represents the percentage of requests over the last 10 seconds that</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- resulted in each type of status code response.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'duration', 'applicationMetrics_duration' - The amount of time that the metrics cover (usually 10 seconds). For</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- example, you might have 5 requests (@request_count@) within the most</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- recent time slice of 10 seconds (@duration@).</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#newApplicationMetrics"><span class="hs-identifier hs-type">newApplicationMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span><span>
+</span><span id="line-72"></span><span id="newApplicationMetrics"><span class="annot"><span class="annottext">newApplicationMetrics :: ApplicationMetrics
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#newApplicationMetrics"><span class="hs-identifier hs-var hs-var">newApplicationMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">ApplicationMetrics' :: Maybe Int
+-&gt; Maybe Latency
+-&gt; Maybe StatusCodes
+-&gt; Maybe Int
+-&gt; ApplicationMetrics
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics%27"><span class="hs-identifier hs-type">ApplicationMetrics'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestCount:ApplicationMetrics' :: Maybe Int
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#%24sel%3ArequestCount%3AApplicationMetrics%27"><span class="hs-identifier hs-var">requestCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:latency:ApplicationMetrics' :: Maybe Latency
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#%24sel%3Alatency%3AApplicationMetrics%27"><span class="hs-identifier hs-var">latency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Latency
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusCodes:ApplicationMetrics' :: Maybe StatusCodes
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#%24sel%3AstatusCodes%3AApplicationMetrics%27"><span class="hs-identifier hs-var">statusCodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusCodes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:ApplicationMetrics' :: Maybe Int
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#%24sel%3Aduration%3AApplicationMetrics%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Average number of requests handled by the web server per second over the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- last 10 seconds.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#applicationMetrics_requestCount"><span class="hs-identifier hs-type">applicationMetrics_requestCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="applicationMetrics_requestCount"><span class="annot"><span class="annottext">applicationMetrics_requestCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ApplicationMetrics -&gt; f ApplicationMetrics
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#applicationMetrics_requestCount"><span class="hs-identifier hs-var hs-var">applicationMetrics_requestCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationMetrics -&gt; Maybe Int)
+-&gt; (ApplicationMetrics -&gt; Maybe Int -&gt; ApplicationMetrics)
+-&gt; Lens
+     ApplicationMetrics ApplicationMetrics (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics%27"><span class="hs-identifier hs-type">ApplicationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307446"><span class="annot"><span class="annottext">Maybe Int
+requestCount :: Maybe Int
+$sel:requestCount:ApplicationMetrics' :: ApplicationMetrics -&gt; Maybe Int
+</span><a href="#local-6989586621679307446"><span class="hs-identifier hs-var hs-var">requestCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307446"><span class="hs-identifier hs-var">requestCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307445"><span class="annot"><span class="annottext">s :: ApplicationMetrics
+</span><a href="#local-6989586621679307445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics%27"><span class="hs-identifier hs-type">ApplicationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307444"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationMetrics
+</span><a href="#local-6989586621679307445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestCount:ApplicationMetrics' :: Maybe Int
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#%24sel%3ArequestCount%3AApplicationMetrics%27"><span class="hs-identifier hs-var">requestCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Represents the average latency for the slowest X percent of requests</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- over the last 10 seconds. Latencies are in seconds with one millisecond</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- resolution.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#applicationMetrics_latency"><span class="hs-identifier hs-type">applicationMetrics_latency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="applicationMetrics_latency"><span class="annot"><span class="annottext">applicationMetrics_latency :: (Maybe Latency -&gt; f (Maybe Latency))
+-&gt; ApplicationMetrics -&gt; f ApplicationMetrics
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#applicationMetrics_latency"><span class="hs-identifier hs-var hs-var">applicationMetrics_latency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationMetrics -&gt; Maybe Latency)
+-&gt; (ApplicationMetrics -&gt; Maybe Latency -&gt; ApplicationMetrics)
+-&gt; Lens
+     ApplicationMetrics
+     ApplicationMetrics
+     (Maybe Latency)
+     (Maybe Latency)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics%27"><span class="hs-identifier hs-type">ApplicationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307442"><span class="annot"><span class="annottext">Maybe Latency
+latency :: Maybe Latency
+$sel:latency:ApplicationMetrics' :: ApplicationMetrics -&gt; Maybe Latency
+</span><a href="#local-6989586621679307442"><span class="hs-identifier hs-var hs-var">latency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Latency
+</span><a href="#local-6989586621679307442"><span class="hs-identifier hs-var">latency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307441"><span class="annot"><span class="annottext">s :: ApplicationMetrics
+</span><a href="#local-6989586621679307441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics%27"><span class="hs-identifier hs-type">ApplicationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307440"><span class="annot"><span class="annottext">Maybe Latency
+</span><a href="#local-6989586621679307440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationMetrics
+</span><a href="#local-6989586621679307441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latency:ApplicationMetrics' :: Maybe Latency
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#%24sel%3Alatency%3AApplicationMetrics%27"><span class="hs-identifier hs-var">latency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Latency
+</span><a href="#local-6989586621679307440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Represents the percentage of requests over the last 10 seconds that</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- resulted in each type of status code response.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#applicationMetrics_statusCodes"><span class="hs-identifier hs-type">applicationMetrics_statusCodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="applicationMetrics_statusCodes"><span class="annot"><span class="annottext">applicationMetrics_statusCodes :: (Maybe StatusCodes -&gt; f (Maybe StatusCodes))
+-&gt; ApplicationMetrics -&gt; f ApplicationMetrics
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#applicationMetrics_statusCodes"><span class="hs-identifier hs-var hs-var">applicationMetrics_statusCodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationMetrics -&gt; Maybe StatusCodes)
+-&gt; (ApplicationMetrics -&gt; Maybe StatusCodes -&gt; ApplicationMetrics)
+-&gt; Lens
+     ApplicationMetrics
+     ApplicationMetrics
+     (Maybe StatusCodes)
+     (Maybe StatusCodes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics%27"><span class="hs-identifier hs-type">ApplicationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307438"><span class="annot"><span class="annottext">Maybe StatusCodes
+statusCodes :: Maybe StatusCodes
+$sel:statusCodes:ApplicationMetrics' :: ApplicationMetrics -&gt; Maybe StatusCodes
+</span><a href="#local-6989586621679307438"><span class="hs-identifier hs-var hs-var">statusCodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatusCodes
+</span><a href="#local-6989586621679307438"><span class="hs-identifier hs-var">statusCodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307437"><span class="annot"><span class="annottext">s :: ApplicationMetrics
+</span><a href="#local-6989586621679307437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics%27"><span class="hs-identifier hs-type">ApplicationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307436"><span class="annot"><span class="annottext">Maybe StatusCodes
+</span><a href="#local-6989586621679307436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationMetrics
+</span><a href="#local-6989586621679307437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCodes:ApplicationMetrics' :: Maybe StatusCodes
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#%24sel%3AstatusCodes%3AApplicationMetrics%27"><span class="hs-identifier hs-var">statusCodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusCodes
+</span><a href="#local-6989586621679307436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The amount of time that the metrics cover (usually 10 seconds). For</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- example, you might have 5 requests (@request_count@) within the most</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- recent time slice of 10 seconds (@duration@).</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#applicationMetrics_duration"><span class="hs-identifier hs-type">applicationMetrics_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="applicationMetrics_duration"><span class="annot"><span class="annottext">applicationMetrics_duration :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ApplicationMetrics -&gt; f ApplicationMetrics
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#applicationMetrics_duration"><span class="hs-identifier hs-var hs-var">applicationMetrics_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationMetrics -&gt; Maybe Int)
+-&gt; (ApplicationMetrics -&gt; Maybe Int -&gt; ApplicationMetrics)
+-&gt; Lens
+     ApplicationMetrics ApplicationMetrics (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics%27"><span class="hs-identifier hs-type">ApplicationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307434"><span class="annot"><span class="annottext">Maybe Int
+duration :: Maybe Int
+$sel:duration:ApplicationMetrics' :: ApplicationMetrics -&gt; Maybe Int
+</span><a href="#local-6989586621679307434"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307434"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307433"><span class="annot"><span class="annottext">s :: ApplicationMetrics
+</span><a href="#local-6989586621679307433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics%27"><span class="hs-identifier hs-type">ApplicationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307432"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationMetrics
+</span><a href="#local-6989586621679307433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:ApplicationMetrics' :: Maybe Int
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#%24sel%3Aduration%3AApplicationMetrics%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679307429"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ApplicationMetrics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679307427"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307427"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Latency
+-&gt; Maybe StatusCodes
+-&gt; Maybe Int
+-&gt; ApplicationMetrics
+</span><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics%27"><span class="hs-identifier hs-var">ApplicationMetrics'</span></a></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Latency
+ -&gt; Maybe StatusCodes
+ -&gt; Maybe Int
+ -&gt; ApplicationMetrics)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Latency
+      -&gt; Maybe StatusCodes -&gt; Maybe Int -&gt; ApplicationMetrics)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307427"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Latency
+   -&gt; Maybe StatusCodes -&gt; Maybe Int -&gt; ApplicationMetrics)
+-&gt; Either String (Maybe Latency)
+-&gt; Either
+     String (Maybe StatusCodes -&gt; Maybe Int -&gt; ApplicationMetrics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307427"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Latency)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Latency&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe StatusCodes -&gt; Maybe Int -&gt; ApplicationMetrics)
+-&gt; Either String (Maybe StatusCodes)
+-&gt; Either String (Maybe Int -&gt; ApplicationMetrics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307427"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StatusCodes)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusCodes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; ApplicationMetrics)
+-&gt; Either String (Maybe Int) -&gt; Either String ApplicationMetrics
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307427"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Duration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307421"><span id="local-6989586621679307423"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307418"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span></span><span>
+</span><span id="line-113"></span></pre></body></html>

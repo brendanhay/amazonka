@@ -1,0 +1,563 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.HttpRouteMatch</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.HttpRouteMatch</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpMethod.html"><span class="hs-identifier">Amazonka.AppMesh.Types.HttpMethod</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpPathMatch.html"><span class="hs-identifier">Amazonka.AppMesh.Types.HttpPathMatch</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpQueryParameter.html"><span class="hs-identifier">Amazonka.AppMesh.Types.HttpQueryParameter</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteHeader.html"><span class="hs-identifier">Amazonka.AppMesh.Types.HttpRouteHeader</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpScheme.html"><span class="hs-identifier">Amazonka.AppMesh.Types.HttpScheme</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | An object that represents the requirements for a route to match HTTP</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- requests for a virtual router.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newHttpRouteMatch' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679330401"><span id="local-6989586621679330402"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpRouteMatch"><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-var">HttpRouteMatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpRouteMatch%27"><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-var">HttpRouteMatch'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The client request path to match on.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Apath%3AHttpRouteMatch%27"><span class="annot"><span class="annottext">HttpRouteMatch -&gt; Maybe HttpPathMatch
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3Apath%3AHttpRouteMatch%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpPathMatch.html#HttpPathMatch"><span class="hs-identifier hs-type">HttpPathMatch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Specifies the path to match requests with. This parameter must always</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- start with @\/@, which by itself matches all requests to the virtual</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- service name. You can also match for path-based routing of requests. For</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- example, if your virtual service name is @my-service.local@ and you want</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the route to match requests to @my-service.local\/metrics@, your prefix</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- should be @\/metrics@.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aprefix%3AHttpRouteMatch%27"><span class="annot"><span class="annottext">HttpRouteMatch -&gt; Maybe Text
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3Aprefix%3AHttpRouteMatch%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The client request query parameters to match on.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AqueryParameters%3AHttpRouteMatch%27"><span class="annot"><span class="annottext">HttpRouteMatch -&gt; Maybe (NonEmpty HttpQueryParameter)
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3AqueryParameters%3AHttpRouteMatch%27"><span class="hs-identifier hs-var hs-var">queryParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpQueryParameter.html#HttpQueryParameter"><span class="hs-identifier hs-type">HttpQueryParameter</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The client request headers to match on.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aheaders%3AHttpRouteMatch%27"><span class="annot"><span class="annottext">HttpRouteMatch -&gt; Maybe (NonEmpty HttpRouteHeader)
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3Aheaders%3AHttpRouteMatch%27"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteHeader.html#HttpRouteHeader"><span class="hs-identifier hs-type">HttpRouteHeader</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The client request method to match on. Specify only one.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Amethod%3AHttpRouteMatch%27"><span class="annot"><span class="annottext">HttpRouteMatch -&gt; Maybe HttpMethod
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3Amethod%3AHttpRouteMatch%27"><span class="hs-identifier hs-var hs-var">method</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpMethod.html#HttpMethod"><span class="hs-identifier hs-type">HttpMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The client request scheme to match on. Specify only one. Applicable only</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- for HTTP2 routes.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Ascheme%3AHttpRouteMatch%27"><span class="annot"><span class="annottext">HttpRouteMatch -&gt; Maybe HttpScheme
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3Ascheme%3AHttpRouteMatch%27"><span class="hs-identifier hs-var hs-var">scheme</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpScheme.html#HttpScheme"><span class="hs-identifier hs-type">HttpScheme</span></a></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330390"><span id="local-6989586621679330392"><span class="annot"><span class="annottext">HttpRouteMatch -&gt; HttpRouteMatch -&gt; Bool
+(HttpRouteMatch -&gt; HttpRouteMatch -&gt; Bool)
+-&gt; (HttpRouteMatch -&gt; HttpRouteMatch -&gt; Bool) -&gt; Eq HttpRouteMatch
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HttpRouteMatch -&gt; HttpRouteMatch -&gt; Bool
+$c/= :: HttpRouteMatch -&gt; HttpRouteMatch -&gt; Bool
+== :: HttpRouteMatch -&gt; HttpRouteMatch -&gt; Bool
+$c== :: HttpRouteMatch -&gt; HttpRouteMatch -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330381"><span id="local-6989586621679330383"><span id="local-6989586621679330385"><span id="local-6989586621679330387"><span class="annot"><span class="annottext">ReadPrec [HttpRouteMatch]
+ReadPrec HttpRouteMatch
+Int -&gt; ReadS HttpRouteMatch
+ReadS [HttpRouteMatch]
+(Int -&gt; ReadS HttpRouteMatch)
+-&gt; ReadS [HttpRouteMatch]
+-&gt; ReadPrec HttpRouteMatch
+-&gt; ReadPrec [HttpRouteMatch]
+-&gt; Read HttpRouteMatch
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HttpRouteMatch]
+$creadListPrec :: ReadPrec [HttpRouteMatch]
+readPrec :: ReadPrec HttpRouteMatch
+$creadPrec :: ReadPrec HttpRouteMatch
+readList :: ReadS [HttpRouteMatch]
+$creadList :: ReadS [HttpRouteMatch]
+readsPrec :: Int -&gt; ReadS HttpRouteMatch
+$creadsPrec :: Int -&gt; ReadS HttpRouteMatch
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330374"><span id="local-6989586621679330376"><span id="local-6989586621679330378"><span class="annot"><span class="annottext">Int -&gt; HttpRouteMatch -&gt; ShowS
+[HttpRouteMatch] -&gt; ShowS
+HttpRouteMatch -&gt; String
+(Int -&gt; HttpRouteMatch -&gt; ShowS)
+-&gt; (HttpRouteMatch -&gt; String)
+-&gt; ([HttpRouteMatch] -&gt; ShowS)
+-&gt; Show HttpRouteMatch
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HttpRouteMatch] -&gt; ShowS
+$cshowList :: [HttpRouteMatch] -&gt; ShowS
+show :: HttpRouteMatch -&gt; String
+$cshow :: HttpRouteMatch -&gt; String
+showsPrec :: Int -&gt; HttpRouteMatch -&gt; ShowS
+$cshowsPrec :: Int -&gt; HttpRouteMatch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. HttpRouteMatch -&gt; Rep HttpRouteMatch x)
+-&gt; (forall x. Rep HttpRouteMatch x -&gt; HttpRouteMatch)
+-&gt; Generic HttpRouteMatch
+forall x. Rep HttpRouteMatch x -&gt; HttpRouteMatch
+forall x. HttpRouteMatch -&gt; Rep HttpRouteMatch x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HttpRouteMatch x -&gt; HttpRouteMatch
+$cfrom :: forall x. HttpRouteMatch -&gt; Rep HttpRouteMatch x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'HttpRouteMatch' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'path', 'httpRouteMatch_path' - The client request path to match on.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'prefix', 'httpRouteMatch_prefix' - Specifies the path to match requests with. This parameter must always</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- start with @\/@, which by itself matches all requests to the virtual</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- service name. You can also match for path-based routing of requests. For</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- example, if your virtual service name is @my-service.local@ and you want</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- the route to match requests to @my-service.local\/metrics@, your prefix</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- should be @\/metrics@.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'queryParameters', 'httpRouteMatch_queryParameters' - The client request query parameters to match on.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'headers', 'httpRouteMatch_headers' - The client request headers to match on.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'method', 'httpRouteMatch_method' - The client request method to match on. Specify only one.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'scheme', 'httpRouteMatch_scheme' - The client request scheme to match on. Specify only one. Applicable only</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for HTTP2 routes.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#newHttpRouteMatch"><span class="hs-identifier hs-type">newHttpRouteMatch</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span><span>
+</span><span id="line-84"></span><span id="newHttpRouteMatch"><span class="annot"><span class="annottext">newHttpRouteMatch :: HttpRouteMatch
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#newHttpRouteMatch"><span class="hs-identifier hs-var hs-var">newHttpRouteMatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">HttpRouteMatch' :: Maybe HttpPathMatch
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty HttpQueryParameter)
+-&gt; Maybe (NonEmpty HttpRouteHeader)
+-&gt; Maybe HttpMethod
+-&gt; Maybe HttpScheme
+-&gt; HttpRouteMatch
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-type">HttpRouteMatch'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:path:HttpRouteMatch' :: Maybe HttpPathMatch
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3Apath%3AHttpRouteMatch%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpPathMatch
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefix:HttpRouteMatch' :: Maybe Text
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3Aprefix%3AHttpRouteMatch%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryParameters:HttpRouteMatch' :: Maybe (NonEmpty HttpQueryParameter)
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3AqueryParameters%3AHttpRouteMatch%27"><span class="hs-identifier hs-var">queryParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpQueryParameter)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:headers:HttpRouteMatch' :: Maybe (NonEmpty HttpRouteHeader)
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3Aheaders%3AHttpRouteMatch%27"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpRouteHeader)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:method:HttpRouteMatch' :: Maybe HttpMethod
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3Amethod%3AHttpRouteMatch%27"><span class="hs-identifier hs-var">method</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpMethod
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheme:HttpRouteMatch' :: Maybe HttpScheme
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3Ascheme%3AHttpRouteMatch%27"><span class="hs-identifier hs-var">scheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpScheme
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The client request path to match on.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#httpRouteMatch_path"><span class="hs-identifier hs-type">httpRouteMatch_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpPathMatch.html#HttpPathMatch"><span class="hs-identifier hs-type">HttpPathMatch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="httpRouteMatch_path"><span class="annot"><span class="annottext">httpRouteMatch_path :: (Maybe HttpPathMatch -&gt; f (Maybe HttpPathMatch))
+-&gt; HttpRouteMatch -&gt; f HttpRouteMatch
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#httpRouteMatch_path"><span class="hs-identifier hs-var hs-var">httpRouteMatch_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpRouteMatch -&gt; Maybe HttpPathMatch)
+-&gt; (HttpRouteMatch -&gt; Maybe HttpPathMatch -&gt; HttpRouteMatch)
+-&gt; Lens
+     HttpRouteMatch
+     HttpRouteMatch
+     (Maybe HttpPathMatch)
+     (Maybe HttpPathMatch)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-type">HttpRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330365"><span class="annot"><span class="annottext">Maybe HttpPathMatch
+path :: Maybe HttpPathMatch
+$sel:path:HttpRouteMatch' :: HttpRouteMatch -&gt; Maybe HttpPathMatch
+</span><a href="#local-6989586621679330365"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpPathMatch
+</span><a href="#local-6989586621679330365"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330364"><span class="annot"><span class="annottext">s :: HttpRouteMatch
+</span><a href="#local-6989586621679330364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-type">HttpRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330363"><span class="annot"><span class="annottext">Maybe HttpPathMatch
+</span><a href="#local-6989586621679330363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpRouteMatch
+</span><a href="#local-6989586621679330364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:HttpRouteMatch' :: Maybe HttpPathMatch
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3Apath%3AHttpRouteMatch%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpPathMatch
+</span><a href="#local-6989586621679330363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Specifies the path to match requests with. This parameter must always</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- start with @\/@, which by itself matches all requests to the virtual</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- service name. You can also match for path-based routing of requests. For</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- example, if your virtual service name is @my-service.local@ and you want</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the route to match requests to @my-service.local\/metrics@, your prefix</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- should be @\/metrics@.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#httpRouteMatch_prefix"><span class="hs-identifier hs-type">httpRouteMatch_prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="httpRouteMatch_prefix"><span class="annot"><span class="annottext">httpRouteMatch_prefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; HttpRouteMatch -&gt; f HttpRouteMatch
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#httpRouteMatch_prefix"><span class="hs-identifier hs-var hs-var">httpRouteMatch_prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpRouteMatch -&gt; Maybe Text)
+-&gt; (HttpRouteMatch -&gt; Maybe Text -&gt; HttpRouteMatch)
+-&gt; Lens HttpRouteMatch HttpRouteMatch (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-type">HttpRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330361"><span class="annot"><span class="annottext">Maybe Text
+prefix :: Maybe Text
+$sel:prefix:HttpRouteMatch' :: HttpRouteMatch -&gt; Maybe Text
+</span><a href="#local-6989586621679330361"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330361"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330360"><span class="annot"><span class="annottext">s :: HttpRouteMatch
+</span><a href="#local-6989586621679330360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-type">HttpRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330359"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpRouteMatch
+</span><a href="#local-6989586621679330360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:HttpRouteMatch' :: Maybe Text
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3Aprefix%3AHttpRouteMatch%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The client request query parameters to match on.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#httpRouteMatch_queryParameters"><span class="hs-identifier hs-type">httpRouteMatch_queryParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpQueryParameter.html#HttpQueryParameter"><span class="hs-identifier hs-type">HttpQueryParameter</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="httpRouteMatch_queryParameters"><span class="annot"><span class="annottext">httpRouteMatch_queryParameters :: (Maybe (NonEmpty HttpQueryParameter)
+ -&gt; f (Maybe (NonEmpty HttpQueryParameter)))
+-&gt; HttpRouteMatch -&gt; f HttpRouteMatch
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#httpRouteMatch_queryParameters"><span class="hs-identifier hs-var hs-var">httpRouteMatch_queryParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpRouteMatch -&gt; Maybe (NonEmpty HttpQueryParameter))
+-&gt; (HttpRouteMatch
+    -&gt; Maybe (NonEmpty HttpQueryParameter) -&gt; HttpRouteMatch)
+-&gt; Lens
+     HttpRouteMatch
+     HttpRouteMatch
+     (Maybe (NonEmpty HttpQueryParameter))
+     (Maybe (NonEmpty HttpQueryParameter))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-type">HttpRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330357"><span class="annot"><span class="annottext">Maybe (NonEmpty HttpQueryParameter)
+queryParameters :: Maybe (NonEmpty HttpQueryParameter)
+$sel:queryParameters:HttpRouteMatch' :: HttpRouteMatch -&gt; Maybe (NonEmpty HttpQueryParameter)
+</span><a href="#local-6989586621679330357"><span class="hs-identifier hs-var hs-var">queryParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpQueryParameter)
+</span><a href="#local-6989586621679330357"><span class="hs-identifier hs-var">queryParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330356"><span class="annot"><span class="annottext">s :: HttpRouteMatch
+</span><a href="#local-6989586621679330356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-type">HttpRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330355"><span class="annot"><span class="annottext">Maybe (NonEmpty HttpQueryParameter)
+</span><a href="#local-6989586621679330355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpRouteMatch
+</span><a href="#local-6989586621679330356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryParameters:HttpRouteMatch' :: Maybe (NonEmpty HttpQueryParameter)
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3AqueryParameters%3AHttpRouteMatch%27"><span class="hs-identifier hs-var">queryParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpQueryParameter)
+</span><a href="#local-6989586621679330355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty HttpQueryParameter)
+  -&gt; f (Maybe (NonEmpty HttpQueryParameter)))
+ -&gt; HttpRouteMatch -&gt; f HttpRouteMatch)
+-&gt; ((Maybe (NonEmpty HttpQueryParameter)
+     -&gt; f (Maybe (NonEmpty HttpQueryParameter)))
+    -&gt; Maybe (NonEmpty HttpQueryParameter)
+    -&gt; f (Maybe (NonEmpty HttpQueryParameter)))
+-&gt; (Maybe (NonEmpty HttpQueryParameter)
+    -&gt; f (Maybe (NonEmpty HttpQueryParameter)))
+-&gt; HttpRouteMatch
+-&gt; f HttpRouteMatch
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty HttpQueryParameter)
+  (NonEmpty HttpQueryParameter)
+  (NonEmpty HttpQueryParameter)
+  (NonEmpty HttpQueryParameter)
+-&gt; Iso
+     (Maybe (NonEmpty HttpQueryParameter))
+     (Maybe (NonEmpty HttpQueryParameter))
+     (Maybe (NonEmpty HttpQueryParameter))
+     (Maybe (NonEmpty HttpQueryParameter))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty HttpQueryParameter)
+  (NonEmpty HttpQueryParameter)
+  (NonEmpty HttpQueryParameter)
+  (NonEmpty HttpQueryParameter)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The client request headers to match on.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#httpRouteMatch_headers"><span class="hs-identifier hs-type">httpRouteMatch_headers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteHeader.html#HttpRouteHeader"><span class="hs-identifier hs-type">HttpRouteHeader</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="httpRouteMatch_headers"><span class="annot"><span class="annottext">httpRouteMatch_headers :: (Maybe (NonEmpty HttpRouteHeader)
+ -&gt; f (Maybe (NonEmpty HttpRouteHeader)))
+-&gt; HttpRouteMatch -&gt; f HttpRouteMatch
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#httpRouteMatch_headers"><span class="hs-identifier hs-var hs-var">httpRouteMatch_headers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpRouteMatch -&gt; Maybe (NonEmpty HttpRouteHeader))
+-&gt; (HttpRouteMatch
+    -&gt; Maybe (NonEmpty HttpRouteHeader) -&gt; HttpRouteMatch)
+-&gt; Lens
+     HttpRouteMatch
+     HttpRouteMatch
+     (Maybe (NonEmpty HttpRouteHeader))
+     (Maybe (NonEmpty HttpRouteHeader))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-type">HttpRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330350"><span class="annot"><span class="annottext">Maybe (NonEmpty HttpRouteHeader)
+headers :: Maybe (NonEmpty HttpRouteHeader)
+$sel:headers:HttpRouteMatch' :: HttpRouteMatch -&gt; Maybe (NonEmpty HttpRouteHeader)
+</span><a href="#local-6989586621679330350"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpRouteHeader)
+</span><a href="#local-6989586621679330350"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330349"><span class="annot"><span class="annottext">s :: HttpRouteMatch
+</span><a href="#local-6989586621679330349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-type">HttpRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330348"><span class="annot"><span class="annottext">Maybe (NonEmpty HttpRouteHeader)
+</span><a href="#local-6989586621679330348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpRouteMatch
+</span><a href="#local-6989586621679330349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headers:HttpRouteMatch' :: Maybe (NonEmpty HttpRouteHeader)
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3Aheaders%3AHttpRouteMatch%27"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpRouteHeader)
+</span><a href="#local-6989586621679330348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty HttpRouteHeader)
+  -&gt; f (Maybe (NonEmpty HttpRouteHeader)))
+ -&gt; HttpRouteMatch -&gt; f HttpRouteMatch)
+-&gt; ((Maybe (NonEmpty HttpRouteHeader)
+     -&gt; f (Maybe (NonEmpty HttpRouteHeader)))
+    -&gt; Maybe (NonEmpty HttpRouteHeader)
+    -&gt; f (Maybe (NonEmpty HttpRouteHeader)))
+-&gt; (Maybe (NonEmpty HttpRouteHeader)
+    -&gt; f (Maybe (NonEmpty HttpRouteHeader)))
+-&gt; HttpRouteMatch
+-&gt; f HttpRouteMatch
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty HttpRouteHeader)
+  (NonEmpty HttpRouteHeader)
+  (NonEmpty HttpRouteHeader)
+  (NonEmpty HttpRouteHeader)
+-&gt; Iso
+     (Maybe (NonEmpty HttpRouteHeader))
+     (Maybe (NonEmpty HttpRouteHeader))
+     (Maybe (NonEmpty HttpRouteHeader))
+     (Maybe (NonEmpty HttpRouteHeader))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty HttpRouteHeader)
+  (NonEmpty HttpRouteHeader)
+  (NonEmpty HttpRouteHeader)
+  (NonEmpty HttpRouteHeader)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The client request method to match on. Specify only one.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#httpRouteMatch_method"><span class="hs-identifier hs-type">httpRouteMatch_method</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpMethod.html#HttpMethod"><span class="hs-identifier hs-type">HttpMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="httpRouteMatch_method"><span class="annot"><span class="annottext">httpRouteMatch_method :: (Maybe HttpMethod -&gt; f (Maybe HttpMethod))
+-&gt; HttpRouteMatch -&gt; f HttpRouteMatch
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#httpRouteMatch_method"><span class="hs-identifier hs-var hs-var">httpRouteMatch_method</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpRouteMatch -&gt; Maybe HttpMethod)
+-&gt; (HttpRouteMatch -&gt; Maybe HttpMethod -&gt; HttpRouteMatch)
+-&gt; Lens
+     HttpRouteMatch HttpRouteMatch (Maybe HttpMethod) (Maybe HttpMethod)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-type">HttpRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330346"><span class="annot"><span class="annottext">Maybe HttpMethod
+method :: Maybe HttpMethod
+$sel:method:HttpRouteMatch' :: HttpRouteMatch -&gt; Maybe HttpMethod
+</span><a href="#local-6989586621679330346"><span class="hs-identifier hs-var hs-var">method</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpMethod
+</span><a href="#local-6989586621679330346"><span class="hs-identifier hs-var">method</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330345"><span class="annot"><span class="annottext">s :: HttpRouteMatch
+</span><a href="#local-6989586621679330345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-type">HttpRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330344"><span class="annot"><span class="annottext">Maybe HttpMethod
+</span><a href="#local-6989586621679330344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpRouteMatch
+</span><a href="#local-6989586621679330345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:method:HttpRouteMatch' :: Maybe HttpMethod
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3Amethod%3AHttpRouteMatch%27"><span class="hs-identifier hs-var">method</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpMethod
+</span><a href="#local-6989586621679330344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The client request scheme to match on. Specify only one. Applicable only</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- for HTTP2 routes.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#httpRouteMatch_scheme"><span class="hs-identifier hs-type">httpRouteMatch_scheme</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpScheme.html#HttpScheme"><span class="hs-identifier hs-type">HttpScheme</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="httpRouteMatch_scheme"><span class="annot"><span class="annottext">httpRouteMatch_scheme :: (Maybe HttpScheme -&gt; f (Maybe HttpScheme))
+-&gt; HttpRouteMatch -&gt; f HttpRouteMatch
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#httpRouteMatch_scheme"><span class="hs-identifier hs-var hs-var">httpRouteMatch_scheme</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpRouteMatch -&gt; Maybe HttpScheme)
+-&gt; (HttpRouteMatch -&gt; Maybe HttpScheme -&gt; HttpRouteMatch)
+-&gt; Lens
+     HttpRouteMatch HttpRouteMatch (Maybe HttpScheme) (Maybe HttpScheme)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-type">HttpRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330342"><span class="annot"><span class="annottext">Maybe HttpScheme
+scheme :: Maybe HttpScheme
+$sel:scheme:HttpRouteMatch' :: HttpRouteMatch -&gt; Maybe HttpScheme
+</span><a href="#local-6989586621679330342"><span class="hs-identifier hs-var hs-var">scheme</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpScheme
+</span><a href="#local-6989586621679330342"><span class="hs-identifier hs-var">scheme</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330341"><span class="annot"><span class="annottext">s :: HttpRouteMatch
+</span><a href="#local-6989586621679330341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-type">HttpRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330340"><span class="annot"><span class="annottext">Maybe HttpScheme
+</span><a href="#local-6989586621679330340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpRouteMatch
+</span><a href="#local-6989586621679330341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheme:HttpRouteMatch' :: Maybe HttpScheme
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#%24sel%3Ascheme%3AHttpRouteMatch%27"><span class="hs-identifier hs-var">scheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpScheme
+</span><a href="#local-6989586621679330340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330337"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679330335"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpRouteMatch
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser HttpRouteMatch)
+-&gt; Value
+-&gt; Parser HttpRouteMatch
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;HttpRouteMatch&quot;</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330332"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330332"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe HttpPathMatch
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty HttpQueryParameter)
+-&gt; Maybe (NonEmpty HttpRouteHeader)
+-&gt; Maybe HttpMethod
+-&gt; Maybe HttpScheme
+-&gt; HttpRouteMatch
+</span><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-var">HttpRouteMatch'</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe HttpPathMatch
+ -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty HttpQueryParameter)
+ -&gt; Maybe (NonEmpty HttpRouteHeader)
+ -&gt; Maybe HttpMethod
+ -&gt; Maybe HttpScheme
+ -&gt; HttpRouteMatch)
+-&gt; Parser (Maybe HttpPathMatch)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (NonEmpty HttpQueryParameter)
+      -&gt; Maybe (NonEmpty HttpRouteHeader)
+      -&gt; Maybe HttpMethod
+      -&gt; Maybe HttpScheme
+      -&gt; HttpRouteMatch)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpPathMatch)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;path&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (NonEmpty HttpQueryParameter)
+   -&gt; Maybe (NonEmpty HttpRouteHeader)
+   -&gt; Maybe HttpMethod
+   -&gt; Maybe HttpScheme
+   -&gt; HttpRouteMatch)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (NonEmpty HttpQueryParameter)
+      -&gt; Maybe (NonEmpty HttpRouteHeader)
+      -&gt; Maybe HttpMethod
+      -&gt; Maybe HttpScheme
+      -&gt; HttpRouteMatch)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;prefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty HttpQueryParameter)
+   -&gt; Maybe (NonEmpty HttpRouteHeader)
+   -&gt; Maybe HttpMethod
+   -&gt; Maybe HttpScheme
+   -&gt; HttpRouteMatch)
+-&gt; Parser (Maybe (NonEmpty HttpQueryParameter))
+-&gt; Parser
+     (Maybe (NonEmpty HttpRouteHeader)
+      -&gt; Maybe HttpMethod -&gt; Maybe HttpScheme -&gt; HttpRouteMatch)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty HttpQueryParameter))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;queryParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty HttpRouteHeader)
+   -&gt; Maybe HttpMethod -&gt; Maybe HttpScheme -&gt; HttpRouteMatch)
+-&gt; Parser (Maybe (NonEmpty HttpRouteHeader))
+-&gt; Parser (Maybe HttpMethod -&gt; Maybe HttpScheme -&gt; HttpRouteMatch)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty HttpRouteHeader))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;headers&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe HttpMethod -&gt; Maybe HttpScheme -&gt; HttpRouteMatch)
+-&gt; Parser (Maybe HttpMethod)
+-&gt; Parser (Maybe HttpScheme -&gt; HttpRouteMatch)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpMethod)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;method&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe HttpScheme -&gt; HttpRouteMatch)
+-&gt; Parser (Maybe HttpScheme) -&gt; Parser HttpRouteMatch
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpScheme)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scheme&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330326"><span id="local-6989586621679330328"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330323"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330315"><span id="local-6989586621679330317"><span id="local-6989586621679330319"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch"><span class="hs-identifier hs-type">HttpRouteMatch</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679330313"><span class="annot"><span class="annottext">toJSON :: HttpRouteMatch -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRouteMatch.html#HttpRouteMatch%27"><span class="hs-identifier hs-type">HttpRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330306"><span id="local-6989586621679330307"><span id="local-6989586621679330308"><span id="local-6989586621679330309"><span id="local-6989586621679330310"><span id="local-6989586621679330311"><span class="annot"><span class="annottext">Maybe (NonEmpty HttpRouteHeader)
+Maybe (NonEmpty HttpQueryParameter)
+Maybe Text
+Maybe HttpMethod
+Maybe HttpPathMatch
+Maybe HttpScheme
+scheme :: Maybe HttpScheme
+method :: Maybe HttpMethod
+headers :: Maybe (NonEmpty HttpRouteHeader)
+queryParameters :: Maybe (NonEmpty HttpQueryParameter)
+prefix :: Maybe Text
+path :: Maybe HttpPathMatch
+$sel:scheme:HttpRouteMatch' :: HttpRouteMatch -&gt; Maybe HttpScheme
+$sel:method:HttpRouteMatch' :: HttpRouteMatch -&gt; Maybe HttpMethod
+$sel:headers:HttpRouteMatch' :: HttpRouteMatch -&gt; Maybe (NonEmpty HttpRouteHeader)
+$sel:queryParameters:HttpRouteMatch' :: HttpRouteMatch -&gt; Maybe (NonEmpty HttpQueryParameter)
+$sel:prefix:HttpRouteMatch' :: HttpRouteMatch -&gt; Maybe Text
+$sel:path:HttpRouteMatch' :: HttpRouteMatch -&gt; Maybe HttpPathMatch
+</span><a href="#local-6989586621679330306"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;path&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpPathMatch -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HttpPathMatch -&gt; Pair) -&gt; Maybe HttpPathMatch -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpPathMatch
+</span><a href="#local-6989586621679330311"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330310"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;queryParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty HttpQueryParameter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty HttpQueryParameter -&gt; Pair)
+-&gt; Maybe (NonEmpty HttpQueryParameter) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpQueryParameter)
+</span><a href="#local-6989586621679330309"><span class="hs-identifier hs-var">queryParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;headers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty HttpRouteHeader -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty HttpRouteHeader -&gt; Pair)
+-&gt; Maybe (NonEmpty HttpRouteHeader) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpRouteHeader)
+</span><a href="#local-6989586621679330308"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;method&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpMethod -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HttpMethod -&gt; Pair) -&gt; Maybe HttpMethod -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpMethod
+</span><a href="#local-6989586621679330307"><span class="hs-identifier hs-var">method</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scheme&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpScheme -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HttpScheme -&gt; Pair) -&gt; Maybe HttpScheme -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpScheme
+</span><a href="#local-6989586621679330306"><span class="hs-identifier hs-var">scheme</span></a></span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span></pre></body></html>

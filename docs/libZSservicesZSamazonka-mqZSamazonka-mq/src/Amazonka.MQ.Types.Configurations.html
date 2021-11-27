@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MQ.Types.Configurations</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MQ.Types.Configurations</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.ConfigurationId.html"><span class="hs-identifier">Amazonka.MQ.Types.ConfigurationId</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Broker configuration information</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newConfigurations' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679222226"><span id="local-6989586621679222227"></span></span><span class="hs-keyword">data</span><span> </span><span id="Configurations"><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations"><span class="hs-identifier hs-var">Configurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Configurations%27"><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations%27"><span class="hs-identifier hs-var">Configurations'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The broker\'s pending configuration.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Apending%3AConfigurations%27"><span class="annot"><span class="annottext">Configurations -&gt; Maybe ConfigurationId
+</span><a href="Amazonka.MQ.Types.Configurations.html#%24sel%3Apending%3AConfigurations%27"><span class="hs-identifier hs-var hs-var">pending</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.ConfigurationId.html#ConfigurationId"><span class="hs-identifier hs-type">ConfigurationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The history of configurations applied to the broker.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Ahistory%3AConfigurations%27"><span class="annot"><span class="annottext">Configurations -&gt; Maybe [ConfigurationId]
+</span><a href="Amazonka.MQ.Types.Configurations.html#%24sel%3Ahistory%3AConfigurations%27"><span class="hs-identifier hs-var hs-var">history</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MQ.Types.ConfigurationId.html#ConfigurationId"><span class="hs-identifier hs-type">ConfigurationId</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The broker\'s current configuration.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Acurrent%3AConfigurations%27"><span class="annot"><span class="annottext">Configurations -&gt; Maybe ConfigurationId
+</span><a href="Amazonka.MQ.Types.Configurations.html#%24sel%3Acurrent%3AConfigurations%27"><span class="hs-identifier hs-var hs-var">current</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.ConfigurationId.html#ConfigurationId"><span class="hs-identifier hs-type">ConfigurationId</span></a></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222218"><span id="local-6989586621679222220"><span class="annot"><span class="annottext">Configurations -&gt; Configurations -&gt; Bool
+(Configurations -&gt; Configurations -&gt; Bool)
+-&gt; (Configurations -&gt; Configurations -&gt; Bool) -&gt; Eq Configurations
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Configurations -&gt; Configurations -&gt; Bool
+$c/= :: Configurations -&gt; Configurations -&gt; Bool
+== :: Configurations -&gt; Configurations -&gt; Bool
+$c== :: Configurations -&gt; Configurations -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222209"><span id="local-6989586621679222211"><span id="local-6989586621679222213"><span id="local-6989586621679222215"><span class="annot"><span class="annottext">ReadPrec [Configurations]
+ReadPrec Configurations
+Int -&gt; ReadS Configurations
+ReadS [Configurations]
+(Int -&gt; ReadS Configurations)
+-&gt; ReadS [Configurations]
+-&gt; ReadPrec Configurations
+-&gt; ReadPrec [Configurations]
+-&gt; Read Configurations
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Configurations]
+$creadListPrec :: ReadPrec [Configurations]
+readPrec :: ReadPrec Configurations
+$creadPrec :: ReadPrec Configurations
+readList :: ReadS [Configurations]
+$creadList :: ReadS [Configurations]
+readsPrec :: Int -&gt; ReadS Configurations
+$creadsPrec :: Int -&gt; ReadS Configurations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222202"><span id="local-6989586621679222204"><span id="local-6989586621679222206"><span class="annot"><span class="annottext">Int -&gt; Configurations -&gt; ShowS
+[Configurations] -&gt; ShowS
+Configurations -&gt; String
+(Int -&gt; Configurations -&gt; ShowS)
+-&gt; (Configurations -&gt; String)
+-&gt; ([Configurations] -&gt; ShowS)
+-&gt; Show Configurations
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Configurations] -&gt; ShowS
+$cshowList :: [Configurations] -&gt; ShowS
+show :: Configurations -&gt; String
+$cshow :: Configurations -&gt; String
+showsPrec :: Int -&gt; Configurations -&gt; ShowS
+$cshowsPrec :: Int -&gt; Configurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Configurations -&gt; Rep Configurations x)
+-&gt; (forall x. Rep Configurations x -&gt; Configurations)
+-&gt; Generic Configurations
+forall x. Rep Configurations x -&gt; Configurations
+forall x. Configurations -&gt; Rep Configurations x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Configurations x -&gt; Configurations
+$cfrom :: forall x. Configurations -&gt; Rep Configurations x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'Configurations' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'pending', 'configurations_pending' - The broker\'s pending configuration.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'history', 'configurations_history' - The history of configurations applied to the broker.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'current', 'configurations_current' - The broker\'s current configuration.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#newConfigurations"><span class="hs-identifier hs-type">newConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations"><span class="hs-identifier hs-type">Configurations</span></a></span><span>
+</span><span id="line-55"></span><span id="newConfigurations"><span class="annot"><span class="annottext">newConfigurations :: Configurations
+</span><a href="Amazonka.MQ.Types.Configurations.html#newConfigurations"><span class="hs-identifier hs-var hs-var">newConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">Configurations' :: Maybe ConfigurationId
+-&gt; Maybe [ConfigurationId]
+-&gt; Maybe ConfigurationId
+-&gt; Configurations
+</span><a href="Amazonka.MQ.Types.Configurations.html#Configurations%27"><span class="hs-identifier hs-type">Configurations'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pending:Configurations' :: Maybe ConfigurationId
+</span><a href="Amazonka.MQ.Types.Configurations.html#%24sel%3Apending%3AConfigurations%27"><span class="hs-identifier hs-var">pending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationId
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:history:Configurations' :: Maybe [ConfigurationId]
+</span><a href="Amazonka.MQ.Types.Configurations.html#%24sel%3Ahistory%3AConfigurations%27"><span class="hs-identifier hs-var">history</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationId]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:current:Configurations' :: Maybe ConfigurationId
+</span><a href="Amazonka.MQ.Types.Configurations.html#%24sel%3Acurrent%3AConfigurations%27"><span class="hs-identifier hs-var">current</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationId
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The broker\'s pending configuration.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#configurations_pending"><span class="hs-identifier hs-type">configurations_pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations"><span class="hs-identifier hs-type">Configurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.ConfigurationId.html#ConfigurationId"><span class="hs-identifier hs-type">ConfigurationId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="configurations_pending"><span class="annot"><span class="annottext">configurations_pending :: (Maybe ConfigurationId -&gt; f (Maybe ConfigurationId))
+-&gt; Configurations -&gt; f Configurations
+</span><a href="Amazonka.MQ.Types.Configurations.html#configurations_pending"><span class="hs-identifier hs-var hs-var">configurations_pending</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Configurations -&gt; Maybe ConfigurationId)
+-&gt; (Configurations -&gt; Maybe ConfigurationId -&gt; Configurations)
+-&gt; Lens
+     Configurations
+     Configurations
+     (Maybe ConfigurationId)
+     (Maybe ConfigurationId)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations%27"><span class="hs-identifier hs-type">Configurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222193"><span class="annot"><span class="annottext">Maybe ConfigurationId
+pending :: Maybe ConfigurationId
+$sel:pending:Configurations' :: Configurations -&gt; Maybe ConfigurationId
+</span><a href="#local-6989586621679222193"><span class="hs-identifier hs-var hs-var">pending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationId
+</span><a href="#local-6989586621679222193"><span class="hs-identifier hs-var">pending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222192"><span class="annot"><span class="annottext">s :: Configurations
+</span><a href="#local-6989586621679222192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations%27"><span class="hs-identifier hs-type">Configurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222191"><span class="annot"><span class="annottext">Maybe ConfigurationId
+</span><a href="#local-6989586621679222191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configurations
+</span><a href="#local-6989586621679222192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pending:Configurations' :: Maybe ConfigurationId
+</span><a href="Amazonka.MQ.Types.Configurations.html#%24sel%3Apending%3AConfigurations%27"><span class="hs-identifier hs-var">pending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationId
+</span><a href="#local-6989586621679222191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations"><span class="hs-identifier hs-type">Configurations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The history of configurations applied to the broker.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#configurations_history"><span class="hs-identifier hs-type">configurations_history</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations"><span class="hs-identifier hs-type">Configurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MQ.Types.ConfigurationId.html#ConfigurationId"><span class="hs-identifier hs-type">ConfigurationId</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="configurations_history"><span class="annot"><span class="annottext">configurations_history :: (Maybe [ConfigurationId] -&gt; f (Maybe [ConfigurationId]))
+-&gt; Configurations -&gt; f Configurations
+</span><a href="Amazonka.MQ.Types.Configurations.html#configurations_history"><span class="hs-identifier hs-var hs-var">configurations_history</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Configurations -&gt; Maybe [ConfigurationId])
+-&gt; (Configurations -&gt; Maybe [ConfigurationId] -&gt; Configurations)
+-&gt; Lens
+     Configurations
+     Configurations
+     (Maybe [ConfigurationId])
+     (Maybe [ConfigurationId])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations%27"><span class="hs-identifier hs-type">Configurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222189"><span class="annot"><span class="annottext">Maybe [ConfigurationId]
+history :: Maybe [ConfigurationId]
+$sel:history:Configurations' :: Configurations -&gt; Maybe [ConfigurationId]
+</span><a href="#local-6989586621679222189"><span class="hs-identifier hs-var hs-var">history</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationId]
+</span><a href="#local-6989586621679222189"><span class="hs-identifier hs-var">history</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222188"><span class="annot"><span class="annottext">s :: Configurations
+</span><a href="#local-6989586621679222188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations%27"><span class="hs-identifier hs-type">Configurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222187"><span class="annot"><span class="annottext">Maybe [ConfigurationId]
+</span><a href="#local-6989586621679222187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configurations
+</span><a href="#local-6989586621679222188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:history:Configurations' :: Maybe [ConfigurationId]
+</span><a href="Amazonka.MQ.Types.Configurations.html#%24sel%3Ahistory%3AConfigurations%27"><span class="hs-identifier hs-var">history</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationId]
+</span><a href="#local-6989586621679222187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations"><span class="hs-identifier hs-type">Configurations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConfigurationId] -&gt; f (Maybe [ConfigurationId]))
+ -&gt; Configurations -&gt; f Configurations)
+-&gt; ((Maybe [ConfigurationId] -&gt; f (Maybe [ConfigurationId]))
+    -&gt; Maybe [ConfigurationId] -&gt; f (Maybe [ConfigurationId]))
+-&gt; (Maybe [ConfigurationId] -&gt; f (Maybe [ConfigurationId]))
+-&gt; Configurations
+-&gt; f Configurations
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConfigurationId]
+  [ConfigurationId]
+  [ConfigurationId]
+  [ConfigurationId]
+-&gt; Iso
+     (Maybe [ConfigurationId])
+     (Maybe [ConfigurationId])
+     (Maybe [ConfigurationId])
+     (Maybe [ConfigurationId])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConfigurationId]
+  [ConfigurationId]
+  [ConfigurationId]
+  [ConfigurationId]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The broker\'s current configuration.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#configurations_current"><span class="hs-identifier hs-type">configurations_current</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations"><span class="hs-identifier hs-type">Configurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.ConfigurationId.html#ConfigurationId"><span class="hs-identifier hs-type">ConfigurationId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="configurations_current"><span class="annot"><span class="annottext">configurations_current :: (Maybe ConfigurationId -&gt; f (Maybe ConfigurationId))
+-&gt; Configurations -&gt; f Configurations
+</span><a href="Amazonka.MQ.Types.Configurations.html#configurations_current"><span class="hs-identifier hs-var hs-var">configurations_current</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Configurations -&gt; Maybe ConfigurationId)
+-&gt; (Configurations -&gt; Maybe ConfigurationId -&gt; Configurations)
+-&gt; Lens
+     Configurations
+     Configurations
+     (Maybe ConfigurationId)
+     (Maybe ConfigurationId)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations%27"><span class="hs-identifier hs-type">Configurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222182"><span class="annot"><span class="annottext">Maybe ConfigurationId
+current :: Maybe ConfigurationId
+$sel:current:Configurations' :: Configurations -&gt; Maybe ConfigurationId
+</span><a href="#local-6989586621679222182"><span class="hs-identifier hs-var hs-var">current</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationId
+</span><a href="#local-6989586621679222182"><span class="hs-identifier hs-var">current</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222181"><span class="annot"><span class="annottext">s :: Configurations
+</span><a href="#local-6989586621679222181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations%27"><span class="hs-identifier hs-type">Configurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222180"><span class="annot"><span class="annottext">Maybe ConfigurationId
+</span><a href="#local-6989586621679222180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configurations
+</span><a href="#local-6989586621679222181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:current:Configurations' :: Maybe ConfigurationId
+</span><a href="Amazonka.MQ.Types.Configurations.html#%24sel%3Acurrent%3AConfigurations%27"><span class="hs-identifier hs-var">current</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationId
+</span><a href="#local-6989586621679222180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations"><span class="hs-identifier hs-type">Configurations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222177"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations"><span class="hs-identifier hs-type">Configurations</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679222175"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Configurations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Configurations)
+-&gt; Value
+-&gt; Parser Configurations
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Configurations&quot;</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222172"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConfigurationId
+-&gt; Maybe [ConfigurationId]
+-&gt; Maybe ConfigurationId
+-&gt; Configurations
+</span><a href="Amazonka.MQ.Types.Configurations.html#Configurations%27"><span class="hs-identifier hs-var">Configurations'</span></a></span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ConfigurationId
+ -&gt; Maybe [ConfigurationId]
+ -&gt; Maybe ConfigurationId
+ -&gt; Configurations)
+-&gt; Parser (Maybe ConfigurationId)
+-&gt; Parser
+     (Maybe [ConfigurationId]
+      -&gt; Maybe ConfigurationId -&gt; Configurations)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfigurationId)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pending&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ConfigurationId]
+   -&gt; Maybe ConfigurationId -&gt; Configurations)
+-&gt; Parser (Maybe [ConfigurationId])
+-&gt; Parser (Maybe ConfigurationId -&gt; Configurations)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ConfigurationId]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;history&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ConfigurationId]))
+-&gt; Maybe [ConfigurationId] -&gt; Parser (Maybe [ConfigurationId])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationId]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ConfigurationId -&gt; Configurations)
+-&gt; Parser (Maybe ConfigurationId) -&gt; Parser Configurations
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfigurationId)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;current&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222165"><span id="local-6989586621679222167"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations"><span class="hs-identifier hs-type">Configurations</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222162"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.Configurations.html#Configurations"><span class="hs-identifier hs-type">Configurations</span></a></span></span><span>
+</span><span id="line-88"></span></pre></body></html>

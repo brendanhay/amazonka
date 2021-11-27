@@ -1,0 +1,902 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.Types.SMSChannelResponse</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.Types.SMSChannelResponse</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Provides information about the status and settings of the SMS channel</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- for an application.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSMSChannelResponse' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679608402"><span id="local-6989586621679608403"></span></span><span class="hs-keyword">data</span><span> </span><span id="SMSChannelResponse"><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-var">SMSChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SMSChannelResponse%27"><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-var">SMSChannelResponse'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The registered short code to use when you send messages through the SMS</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- channel.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AshortCode%3ASMSChannelResponse%27"><span class="annot"><span class="annottext">SMSChannelResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AshortCode%3ASMSChannelResponse%27"><span class="hs-identifier hs-var hs-var">shortCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The date and time, in ISO 8601 format, when the SMS channel was last</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3ASMSChannelResponse%27"><span class="annot"><span class="annottext">SMSChannelResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AlastModifiedDate%3ASMSChannelResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specifies whether the SMS channel is enabled for the application.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aenabled%3ASMSChannelResponse%27"><span class="annot"><span class="annottext">SMSChannelResponse -&gt; Maybe Bool
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3Aenabled%3ASMSChannelResponse%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The identity that displays on recipients\' devices when they receive</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- messages from the SMS channel.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AsenderId%3ASMSChannelResponse%27"><span class="annot"><span class="annottext">SMSChannelResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AsenderId%3ASMSChannelResponse%27"><span class="hs-identifier hs-var hs-var">senderId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The maximum number of transactional messages that you can send through</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- the SMS channel each second.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AtransactionalMessagesPerSecond%3ASMSChannelResponse%27"><span class="annot"><span class="annottext">SMSChannelResponse -&gt; Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AtransactionalMessagesPerSecond%3ASMSChannelResponse%27"><span class="hs-identifier hs-var hs-var">transactionalMessagesPerSecond</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The maximum number of promotional messages that you can send through the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- SMS channel each second.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3ApromotionalMessagesPerSecond%3ASMSChannelResponse%27"><span class="annot"><span class="annottext">SMSChannelResponse -&gt; Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3ApromotionalMessagesPerSecond%3ASMSChannelResponse%27"><span class="hs-identifier hs-var hs-var">promotionalMessagesPerSecond</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Specifies whether the SMS channel is archived.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AisArchived%3ASMSChannelResponse%27"><span class="annot"><span class="annottext">SMSChannelResponse -&gt; Maybe Bool
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AisArchived%3ASMSChannelResponse%27"><span class="hs-identifier hs-var hs-var">isArchived</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the application that the SMS channel applies</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AapplicationId%3ASMSChannelResponse%27"><span class="annot"><span class="annottext">SMSChannelResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AapplicationId%3ASMSChannelResponse%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The current version of the SMS channel.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aversion%3ASMSChannelResponse%27"><span class="annot"><span class="annottext">SMSChannelResponse -&gt; Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3Aversion%3ASMSChannelResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | (Deprecated) An identifier for the SMS channel. This property is</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- retained only for backward compatibility.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aid%3ASMSChannelResponse%27"><span class="annot"><span class="annottext">SMSChannelResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3Aid%3ASMSChannelResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The date and time, in ISO 8601 format, when the SMS channel was enabled.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AcreationDate%3ASMSChannelResponse%27"><span class="annot"><span class="annottext">SMSChannelResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AcreationDate%3ASMSChannelResponse%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The user who last modified the SMS channel.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AlastModifiedBy%3ASMSChannelResponse%27"><span class="annot"><span class="annottext">SMSChannelResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AlastModifiedBy%3ASMSChannelResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | (Not used) This property is retained only for backward compatibility.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AhasCredential%3ASMSChannelResponse%27"><span class="annot"><span class="annottext">SMSChannelResponse -&gt; Maybe Bool
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AhasCredential%3ASMSChannelResponse%27"><span class="hs-identifier hs-var hs-var">hasCredential</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The type of messaging or notification platform for the channel. For the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- SMS channel, this value is SMS.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Aplatform%3ASMSChannelResponse%27"><span class="annot"><span class="annottext">SMSChannelResponse -&gt; Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3Aplatform%3ASMSChannelResponse%27"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679608383"><span id="local-6989586621679608385"><span class="annot"><span class="annottext">SMSChannelResponse -&gt; SMSChannelResponse -&gt; Bool
+(SMSChannelResponse -&gt; SMSChannelResponse -&gt; Bool)
+-&gt; (SMSChannelResponse -&gt; SMSChannelResponse -&gt; Bool)
+-&gt; Eq SMSChannelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SMSChannelResponse -&gt; SMSChannelResponse -&gt; Bool
+$c/= :: SMSChannelResponse -&gt; SMSChannelResponse -&gt; Bool
+== :: SMSChannelResponse -&gt; SMSChannelResponse -&gt; Bool
+$c== :: SMSChannelResponse -&gt; SMSChannelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608374"><span id="local-6989586621679608376"><span id="local-6989586621679608378"><span id="local-6989586621679608380"><span class="annot"><span class="annottext">ReadPrec [SMSChannelResponse]
+ReadPrec SMSChannelResponse
+Int -&gt; ReadS SMSChannelResponse
+ReadS [SMSChannelResponse]
+(Int -&gt; ReadS SMSChannelResponse)
+-&gt; ReadS [SMSChannelResponse]
+-&gt; ReadPrec SMSChannelResponse
+-&gt; ReadPrec [SMSChannelResponse]
+-&gt; Read SMSChannelResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SMSChannelResponse]
+$creadListPrec :: ReadPrec [SMSChannelResponse]
+readPrec :: ReadPrec SMSChannelResponse
+$creadPrec :: ReadPrec SMSChannelResponse
+readList :: ReadS [SMSChannelResponse]
+$creadList :: ReadS [SMSChannelResponse]
+readsPrec :: Int -&gt; ReadS SMSChannelResponse
+$creadsPrec :: Int -&gt; ReadS SMSChannelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608367"><span id="local-6989586621679608369"><span id="local-6989586621679608371"><span class="annot"><span class="annottext">Int -&gt; SMSChannelResponse -&gt; ShowS
+[SMSChannelResponse] -&gt; ShowS
+SMSChannelResponse -&gt; String
+(Int -&gt; SMSChannelResponse -&gt; ShowS)
+-&gt; (SMSChannelResponse -&gt; String)
+-&gt; ([SMSChannelResponse] -&gt; ShowS)
+-&gt; Show SMSChannelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SMSChannelResponse] -&gt; ShowS
+$cshowList :: [SMSChannelResponse] -&gt; ShowS
+show :: SMSChannelResponse -&gt; String
+$cshow :: SMSChannelResponse -&gt; String
+showsPrec :: Int -&gt; SMSChannelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SMSChannelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SMSChannelResponse -&gt; Rep SMSChannelResponse x)
+-&gt; (forall x. Rep SMSChannelResponse x -&gt; SMSChannelResponse)
+-&gt; Generic SMSChannelResponse
+forall x. Rep SMSChannelResponse x -&gt; SMSChannelResponse
+forall x. SMSChannelResponse -&gt; Rep SMSChannelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SMSChannelResponse x -&gt; SMSChannelResponse
+$cfrom :: forall x. SMSChannelResponse -&gt; Rep SMSChannelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'SMSChannelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'shortCode', 'sMSChannelResponse_shortCode' - The registered short code to use when you send messages through the SMS</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- channel.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'lastModifiedDate', 'sMSChannelResponse_lastModifiedDate' - The date and time, in ISO 8601 format, when the SMS channel was last</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'enabled', 'sMSChannelResponse_enabled' - Specifies whether the SMS channel is enabled for the application.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'senderId', 'sMSChannelResponse_senderId' - The identity that displays on recipients\' devices when they receive</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- messages from the SMS channel.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'transactionalMessagesPerSecond', 'sMSChannelResponse_transactionalMessagesPerSecond' - The maximum number of transactional messages that you can send through</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- the SMS channel each second.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'promotionalMessagesPerSecond', 'sMSChannelResponse_promotionalMessagesPerSecond' - The maximum number of promotional messages that you can send through the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- SMS channel each second.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'isArchived', 'sMSChannelResponse_isArchived' - Specifies whether the SMS channel is archived.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'applicationId', 'sMSChannelResponse_applicationId' - The unique identifier for the application that the SMS channel applies</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'version', 'sMSChannelResponse_version' - The current version of the SMS channel.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'id', 'sMSChannelResponse_id' - (Deprecated) An identifier for the SMS channel. This property is</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- retained only for backward compatibility.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'creationDate', 'sMSChannelResponse_creationDate' - The date and time, in ISO 8601 format, when the SMS channel was enabled.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'lastModifiedBy', 'sMSChannelResponse_lastModifiedBy' - The user who last modified the SMS channel.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'hasCredential', 'sMSChannelResponse_hasCredential' - (Not used) This property is retained only for backward compatibility.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'platform', 'sMSChannelResponse_platform' - The type of messaging or notification platform for the channel. For the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- SMS channel, this value is SMS.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#newSMSChannelResponse"><span class="hs-identifier hs-type">newSMSChannelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'platform'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span>
+</span><span id="line-117"></span><span id="newSMSChannelResponse"><span class="annot"><span class="annottext">newSMSChannelResponse :: Text -&gt; SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#newSMSChannelResponse"><span class="hs-identifier hs-var hs-var">newSMSChannelResponse</span></a></span></span><span> </span><span id="local-6989586621679608361"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679608361"><span class="hs-identifier hs-var">pPlatform_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">SMSChannelResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:shortCode:SMSChannelResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AshortCode%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">shortCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:SMSChannelResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AlastModifiedDate%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:SMSChannelResponse' :: Maybe Bool
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3Aenabled%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:senderId:SMSChannelResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AsenderId%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">senderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:transactionalMessagesPerSecond:SMSChannelResponse' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AtransactionalMessagesPerSecond%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">transactionalMessagesPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:promotionalMessagesPerSecond:SMSChannelResponse' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3ApromotionalMessagesPerSecond%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">promotionalMessagesPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:isArchived:SMSChannelResponse' :: Maybe Bool
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AisArchived%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">isArchived</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationId:SMSChannelResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AapplicationId%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:SMSChannelResponse' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3Aversion%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:SMSChannelResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3Aid%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:SMSChannelResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AcreationDate%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedBy:SMSChannelResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AlastModifiedBy%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:hasCredential:SMSChannelResponse' :: Maybe Bool
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AhasCredential%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">hasCredential</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:platform:SMSChannelResponse' :: Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3Aplatform%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679608361"><span class="hs-identifier hs-var">pPlatform_</span></a></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The registered short code to use when you send messages through the SMS</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- channel.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_shortCode"><span class="hs-identifier hs-type">sMSChannelResponse_shortCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="sMSChannelResponse_shortCode"><span class="annot"><span class="annottext">sMSChannelResponse_shortCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SMSChannelResponse -&gt; f SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_shortCode"><span class="hs-identifier hs-var hs-var">sMSChannelResponse_shortCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSChannelResponse -&gt; Maybe Text)
+-&gt; (SMSChannelResponse -&gt; Maybe Text -&gt; SMSChannelResponse)
+-&gt; Lens
+     SMSChannelResponse SMSChannelResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608357"><span class="annot"><span class="annottext">Maybe Text
+shortCode :: Maybe Text
+$sel:shortCode:SMSChannelResponse' :: SMSChannelResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679608357"><span class="hs-identifier hs-var hs-var">shortCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608357"><span class="hs-identifier hs-var">shortCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608356"><span class="annot"><span class="annottext">s :: SMSChannelResponse
+</span><a href="#local-6989586621679608356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608355"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679608356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shortCode:SMSChannelResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AshortCode%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">shortCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The date and time, in ISO 8601 format, when the SMS channel was last</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_lastModifiedDate"><span class="hs-identifier hs-type">sMSChannelResponse_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="sMSChannelResponse_lastModifiedDate"><span class="annot"><span class="annottext">sMSChannelResponse_lastModifiedDate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SMSChannelResponse -&gt; f SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_lastModifiedDate"><span class="hs-identifier hs-var hs-var">sMSChannelResponse_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSChannelResponse -&gt; Maybe Text)
+-&gt; (SMSChannelResponse -&gt; Maybe Text -&gt; SMSChannelResponse)
+-&gt; Lens
+     SMSChannelResponse SMSChannelResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608353"><span class="annot"><span class="annottext">Maybe Text
+lastModifiedDate :: Maybe Text
+$sel:lastModifiedDate:SMSChannelResponse' :: SMSChannelResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679608353"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608353"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608352"><span class="annot"><span class="annottext">s :: SMSChannelResponse
+</span><a href="#local-6989586621679608352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608351"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679608352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:SMSChannelResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AlastModifiedDate%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Specifies whether the SMS channel is enabled for the application.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_enabled"><span class="hs-identifier hs-type">sMSChannelResponse_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="sMSChannelResponse_enabled"><span class="annot"><span class="annottext">sMSChannelResponse_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; SMSChannelResponse -&gt; f SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_enabled"><span class="hs-identifier hs-var hs-var">sMSChannelResponse_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSChannelResponse -&gt; Maybe Bool)
+-&gt; (SMSChannelResponse -&gt; Maybe Bool -&gt; SMSChannelResponse)
+-&gt; Lens
+     SMSChannelResponse SMSChannelResponse (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608349"><span class="annot"><span class="annottext">Maybe Bool
+enabled :: Maybe Bool
+$sel:enabled:SMSChannelResponse' :: SMSChannelResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679608349"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679608349"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608348"><span class="annot"><span class="annottext">s :: SMSChannelResponse
+</span><a href="#local-6989586621679608348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608347"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679608347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679608348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:SMSChannelResponse' :: Maybe Bool
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3Aenabled%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679608347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The identity that displays on recipients\' devices when they receive</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- messages from the SMS channel.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_senderId"><span class="hs-identifier hs-type">sMSChannelResponse_senderId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="sMSChannelResponse_senderId"><span class="annot"><span class="annottext">sMSChannelResponse_senderId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SMSChannelResponse -&gt; f SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_senderId"><span class="hs-identifier hs-var hs-var">sMSChannelResponse_senderId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSChannelResponse -&gt; Maybe Text)
+-&gt; (SMSChannelResponse -&gt; Maybe Text -&gt; SMSChannelResponse)
+-&gt; Lens
+     SMSChannelResponse SMSChannelResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608345"><span class="annot"><span class="annottext">Maybe Text
+senderId :: Maybe Text
+$sel:senderId:SMSChannelResponse' :: SMSChannelResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679608345"><span class="hs-identifier hs-var hs-var">senderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608345"><span class="hs-identifier hs-var">senderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608344"><span class="annot"><span class="annottext">s :: SMSChannelResponse
+</span><a href="#local-6989586621679608344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608343"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679608344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:senderId:SMSChannelResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AsenderId%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">senderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The maximum number of transactional messages that you can send through</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- the SMS channel each second.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_transactionalMessagesPerSecond"><span class="hs-identifier hs-type">sMSChannelResponse_transactionalMessagesPerSecond</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="sMSChannelResponse_transactionalMessagesPerSecond"><span class="annot"><span class="annottext">sMSChannelResponse_transactionalMessagesPerSecond :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SMSChannelResponse -&gt; f SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_transactionalMessagesPerSecond"><span class="hs-identifier hs-var hs-var">sMSChannelResponse_transactionalMessagesPerSecond</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSChannelResponse -&gt; Maybe Int)
+-&gt; (SMSChannelResponse -&gt; Maybe Int -&gt; SMSChannelResponse)
+-&gt; Lens
+     SMSChannelResponse SMSChannelResponse (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608341"><span class="annot"><span class="annottext">Maybe Int
+transactionalMessagesPerSecond :: Maybe Int
+$sel:transactionalMessagesPerSecond:SMSChannelResponse' :: SMSChannelResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679608341"><span class="hs-identifier hs-var hs-var">transactionalMessagesPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679608341"><span class="hs-identifier hs-var">transactionalMessagesPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608340"><span class="annot"><span class="annottext">s :: SMSChannelResponse
+</span><a href="#local-6989586621679608340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608339"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679608339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679608340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transactionalMessagesPerSecond:SMSChannelResponse' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AtransactionalMessagesPerSecond%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">transactionalMessagesPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679608339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The maximum number of promotional messages that you can send through the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- SMS channel each second.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_promotionalMessagesPerSecond"><span class="hs-identifier hs-type">sMSChannelResponse_promotionalMessagesPerSecond</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="sMSChannelResponse_promotionalMessagesPerSecond"><span class="annot"><span class="annottext">sMSChannelResponse_promotionalMessagesPerSecond :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SMSChannelResponse -&gt; f SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_promotionalMessagesPerSecond"><span class="hs-identifier hs-var hs-var">sMSChannelResponse_promotionalMessagesPerSecond</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSChannelResponse -&gt; Maybe Int)
+-&gt; (SMSChannelResponse -&gt; Maybe Int -&gt; SMSChannelResponse)
+-&gt; Lens
+     SMSChannelResponse SMSChannelResponse (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608337"><span class="annot"><span class="annottext">Maybe Int
+promotionalMessagesPerSecond :: Maybe Int
+$sel:promotionalMessagesPerSecond:SMSChannelResponse' :: SMSChannelResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679608337"><span class="hs-identifier hs-var hs-var">promotionalMessagesPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679608337"><span class="hs-identifier hs-var">promotionalMessagesPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608336"><span class="annot"><span class="annottext">s :: SMSChannelResponse
+</span><a href="#local-6989586621679608336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608335"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679608335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679608336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:promotionalMessagesPerSecond:SMSChannelResponse' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3ApromotionalMessagesPerSecond%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">promotionalMessagesPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679608335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Specifies whether the SMS channel is archived.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_isArchived"><span class="hs-identifier hs-type">sMSChannelResponse_isArchived</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="sMSChannelResponse_isArchived"><span class="annot"><span class="annottext">sMSChannelResponse_isArchived :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; SMSChannelResponse -&gt; f SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_isArchived"><span class="hs-identifier hs-var hs-var">sMSChannelResponse_isArchived</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSChannelResponse -&gt; Maybe Bool)
+-&gt; (SMSChannelResponse -&gt; Maybe Bool -&gt; SMSChannelResponse)
+-&gt; Lens
+     SMSChannelResponse SMSChannelResponse (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608333"><span class="annot"><span class="annottext">Maybe Bool
+isArchived :: Maybe Bool
+$sel:isArchived:SMSChannelResponse' :: SMSChannelResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679608333"><span class="hs-identifier hs-var hs-var">isArchived</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679608333"><span class="hs-identifier hs-var">isArchived</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608332"><span class="annot"><span class="annottext">s :: SMSChannelResponse
+</span><a href="#local-6989586621679608332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608331"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679608331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679608332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isArchived:SMSChannelResponse' :: Maybe Bool
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AisArchived%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">isArchived</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679608331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The unique identifier for the application that the SMS channel applies</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_applicationId"><span class="hs-identifier hs-type">sMSChannelResponse_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="sMSChannelResponse_applicationId"><span class="annot"><span class="annottext">sMSChannelResponse_applicationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SMSChannelResponse -&gt; f SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_applicationId"><span class="hs-identifier hs-var hs-var">sMSChannelResponse_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSChannelResponse -&gt; Maybe Text)
+-&gt; (SMSChannelResponse -&gt; Maybe Text -&gt; SMSChannelResponse)
+-&gt; Lens
+     SMSChannelResponse SMSChannelResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608329"><span class="annot"><span class="annottext">Maybe Text
+applicationId :: Maybe Text
+$sel:applicationId:SMSChannelResponse' :: SMSChannelResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679608329"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608329"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608328"><span class="annot"><span class="annottext">s :: SMSChannelResponse
+</span><a href="#local-6989586621679608328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608327"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679608328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:SMSChannelResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AapplicationId%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The current version of the SMS channel.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_version"><span class="hs-identifier hs-type">sMSChannelResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="sMSChannelResponse_version"><span class="annot"><span class="annottext">sMSChannelResponse_version :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SMSChannelResponse -&gt; f SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_version"><span class="hs-identifier hs-var hs-var">sMSChannelResponse_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSChannelResponse -&gt; Maybe Int)
+-&gt; (SMSChannelResponse -&gt; Maybe Int -&gt; SMSChannelResponse)
+-&gt; Lens
+     SMSChannelResponse SMSChannelResponse (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608325"><span class="annot"><span class="annottext">Maybe Int
+version :: Maybe Int
+$sel:version:SMSChannelResponse' :: SMSChannelResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679608325"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679608325"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608324"><span class="annot"><span class="annottext">s :: SMSChannelResponse
+</span><a href="#local-6989586621679608324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608323"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679608323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679608324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:SMSChannelResponse' :: Maybe Int
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3Aversion%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679608323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | (Deprecated) An identifier for the SMS channel. This property is</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- retained only for backward compatibility.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_id"><span class="hs-identifier hs-type">sMSChannelResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="sMSChannelResponse_id"><span class="annot"><span class="annottext">sMSChannelResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SMSChannelResponse -&gt; f SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_id"><span class="hs-identifier hs-var hs-var">sMSChannelResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSChannelResponse -&gt; Maybe Text)
+-&gt; (SMSChannelResponse -&gt; Maybe Text -&gt; SMSChannelResponse)
+-&gt; Lens
+     SMSChannelResponse SMSChannelResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608321"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:SMSChannelResponse' :: SMSChannelResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679608321"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608321"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608320"><span class="annot"><span class="annottext">s :: SMSChannelResponse
+</span><a href="#local-6989586621679608320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608319"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679608320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:SMSChannelResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3Aid%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The date and time, in ISO 8601 format, when the SMS channel was enabled.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_creationDate"><span class="hs-identifier hs-type">sMSChannelResponse_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="sMSChannelResponse_creationDate"><span class="annot"><span class="annottext">sMSChannelResponse_creationDate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SMSChannelResponse -&gt; f SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_creationDate"><span class="hs-identifier hs-var hs-var">sMSChannelResponse_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSChannelResponse -&gt; Maybe Text)
+-&gt; (SMSChannelResponse -&gt; Maybe Text -&gt; SMSChannelResponse)
+-&gt; Lens
+     SMSChannelResponse SMSChannelResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608317"><span class="annot"><span class="annottext">Maybe Text
+creationDate :: Maybe Text
+$sel:creationDate:SMSChannelResponse' :: SMSChannelResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679608317"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608317"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608316"><span class="annot"><span class="annottext">s :: SMSChannelResponse
+</span><a href="#local-6989586621679608316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608315"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679608316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:SMSChannelResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AcreationDate%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The user who last modified the SMS channel.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_lastModifiedBy"><span class="hs-identifier hs-type">sMSChannelResponse_lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="sMSChannelResponse_lastModifiedBy"><span class="annot"><span class="annottext">sMSChannelResponse_lastModifiedBy :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SMSChannelResponse -&gt; f SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_lastModifiedBy"><span class="hs-identifier hs-var hs-var">sMSChannelResponse_lastModifiedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSChannelResponse -&gt; Maybe Text)
+-&gt; (SMSChannelResponse -&gt; Maybe Text -&gt; SMSChannelResponse)
+-&gt; Lens
+     SMSChannelResponse SMSChannelResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608313"><span class="annot"><span class="annottext">Maybe Text
+lastModifiedBy :: Maybe Text
+$sel:lastModifiedBy:SMSChannelResponse' :: SMSChannelResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679608313"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608313"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608312"><span class="annot"><span class="annottext">s :: SMSChannelResponse
+</span><a href="#local-6989586621679608312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608311"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679608312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedBy:SMSChannelResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AlastModifiedBy%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | (Not used) This property is retained only for backward compatibility.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_hasCredential"><span class="hs-identifier hs-type">sMSChannelResponse_hasCredential</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="sMSChannelResponse_hasCredential"><span class="annot"><span class="annottext">sMSChannelResponse_hasCredential :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; SMSChannelResponse -&gt; f SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_hasCredential"><span class="hs-identifier hs-var hs-var">sMSChannelResponse_hasCredential</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSChannelResponse -&gt; Maybe Bool)
+-&gt; (SMSChannelResponse -&gt; Maybe Bool -&gt; SMSChannelResponse)
+-&gt; Lens
+     SMSChannelResponse SMSChannelResponse (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608309"><span class="annot"><span class="annottext">Maybe Bool
+hasCredential :: Maybe Bool
+$sel:hasCredential:SMSChannelResponse' :: SMSChannelResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679608309"><span class="hs-identifier hs-var hs-var">hasCredential</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679608309"><span class="hs-identifier hs-var">hasCredential</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608308"><span class="annot"><span class="annottext">s :: SMSChannelResponse
+</span><a href="#local-6989586621679608308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608307"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679608307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679608308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hasCredential:SMSChannelResponse' :: Maybe Bool
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3AhasCredential%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">hasCredential</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679608307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The type of messaging or notification platform for the channel. For the</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- SMS channel, this value is SMS.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_platform"><span class="hs-identifier hs-type">sMSChannelResponse_platform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-197"></span><span id="sMSChannelResponse_platform"><span class="annot"><span class="annottext">sMSChannelResponse_platform :: (Text -&gt; f Text) -&gt; SMSChannelResponse -&gt; f SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#sMSChannelResponse_platform"><span class="hs-identifier hs-var hs-var">sMSChannelResponse_platform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSChannelResponse -&gt; Text)
+-&gt; (SMSChannelResponse -&gt; Text -&gt; SMSChannelResponse)
+-&gt; Lens SMSChannelResponse SMSChannelResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608305"><span class="annot"><span class="annottext">Text
+platform :: Text
+$sel:platform:SMSChannelResponse' :: SMSChannelResponse -&gt; Text
+</span><a href="#local-6989586621679608305"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679608305"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608304"><span class="annot"><span class="annottext">s :: SMSChannelResponse
+</span><a href="#local-6989586621679608304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-type">SMSChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608303"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679608303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSChannelResponse
+</span><a href="#local-6989586621679608304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:SMSChannelResponse' :: Text
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#%24sel%3Aplatform%3ASMSChannelResponse%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679608303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608300"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679608298"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SMSChannelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SMSChannelResponse)
+-&gt; Value
+-&gt; Parser SMSChannelResponse
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SMSChannelResponse&quot;</span></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679608295"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608295"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; SMSChannelResponse
+</span><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse%27"><span class="hs-identifier hs-var">SMSChannelResponse'</span></a></span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Text
+ -&gt; SMSChannelResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; SMSChannelResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ShortCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; SMSChannelResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; SMSChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; SMSChannelResponse)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; SMSChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; SMSChannelResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; SMSChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SenderId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; SMSChannelResponse)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; SMSChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransactionalMessagesPerSecond&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; SMSChannelResponse)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; SMSChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PromotionalMessagesPerSecond&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; SMSChannelResponse)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; SMSChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsArchived&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; SMSChannelResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; SMSChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; SMSChannelResponse)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; SMSChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; SMSChannelResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; SMSChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; SMSChannelResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; SMSChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; SMSChannelResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Bool -&gt; Text -&gt; SMSChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Text -&gt; SMSChannelResponse)
+-&gt; Parser (Maybe Bool) -&gt; Parser (Text -&gt; SMSChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HasCredential&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; SMSChannelResponse)
+-&gt; Parser Text -&gt; Parser SMSChannelResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Platform&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608288"><span id="local-6989586621679608290"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span></span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608285"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SMSChannelResponse.html#SMSChannelResponse"><span class="hs-identifier hs-type">SMSChannelResponse</span></a></span></span><span>
+</span><span id="line-224"></span></pre></body></html>

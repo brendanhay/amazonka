@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Connect.DescribeUserHierarchyGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the specified hierarchy group.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Connect.DescribeUserHierarchyGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier">DescribeUserHierarchyGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#newDescribeUserHierarchyGroup"><span class="hs-identifier">newDescribeUserHierarchyGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#describeUserHierarchyGroup_hierarchyGroupId"><span class="hs-identifier">describeUserHierarchyGroup_hierarchyGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#describeUserHierarchyGroup_instanceId"><span class="hs-identifier">describeUserHierarchyGroup_instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier">DescribeUserHierarchyGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#newDescribeUserHierarchyGroupResponse"><span class="hs-identifier">newDescribeUserHierarchyGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#describeUserHierarchyGroupResponse_hierarchyGroup"><span class="hs-identifier">describeUserHierarchyGroupResponse_hierarchyGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#describeUserHierarchyGroupResponse_httpStatus"><span class="hs-identifier">describeUserHierarchyGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.html"><span class="hs-identifier">Amazonka.Connect.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeUserHierarchyGroup' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679420280"><span id="local-6989586621679420281"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserHierarchyGroup"><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-var">DescribeUserHierarchyGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserHierarchyGroup%27"><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-var">DescribeUserHierarchyGroup'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the hierarchy group.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AhierarchyGroupId%3ADescribeUserHierarchyGroup%27"><span class="annot"><span class="annottext">DescribeUserHierarchyGroup -&gt; Text
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhierarchyGroupId%3ADescribeUserHierarchyGroup%27"><span class="hs-identifier hs-var hs-var">hierarchyGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AinstanceId%3ADescribeUserHierarchyGroup%27"><span class="annot"><span class="annottext">DescribeUserHierarchyGroup -&gt; Text
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#%24sel%3AinstanceId%3ADescribeUserHierarchyGroup%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420273"><span id="local-6989586621679420275"><span class="annot"><span class="annottext">DescribeUserHierarchyGroup -&gt; DescribeUserHierarchyGroup -&gt; Bool
+(DescribeUserHierarchyGroup -&gt; DescribeUserHierarchyGroup -&gt; Bool)
+-&gt; (DescribeUserHierarchyGroup
+    -&gt; DescribeUserHierarchyGroup -&gt; Bool)
+-&gt; Eq DescribeUserHierarchyGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeUserHierarchyGroup -&gt; DescribeUserHierarchyGroup -&gt; Bool
+$c/= :: DescribeUserHierarchyGroup -&gt; DescribeUserHierarchyGroup -&gt; Bool
+== :: DescribeUserHierarchyGroup -&gt; DescribeUserHierarchyGroup -&gt; Bool
+$c== :: DescribeUserHierarchyGroup -&gt; DescribeUserHierarchyGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420264"><span id="local-6989586621679420266"><span id="local-6989586621679420268"><span id="local-6989586621679420270"><span class="annot"><span class="annottext">ReadPrec [DescribeUserHierarchyGroup]
+ReadPrec DescribeUserHierarchyGroup
+Int -&gt; ReadS DescribeUserHierarchyGroup
+ReadS [DescribeUserHierarchyGroup]
+(Int -&gt; ReadS DescribeUserHierarchyGroup)
+-&gt; ReadS [DescribeUserHierarchyGroup]
+-&gt; ReadPrec DescribeUserHierarchyGroup
+-&gt; ReadPrec [DescribeUserHierarchyGroup]
+-&gt; Read DescribeUserHierarchyGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeUserHierarchyGroup]
+$creadListPrec :: ReadPrec [DescribeUserHierarchyGroup]
+readPrec :: ReadPrec DescribeUserHierarchyGroup
+$creadPrec :: ReadPrec DescribeUserHierarchyGroup
+readList :: ReadS [DescribeUserHierarchyGroup]
+$creadList :: ReadS [DescribeUserHierarchyGroup]
+readsPrec :: Int -&gt; ReadS DescribeUserHierarchyGroup
+$creadsPrec :: Int -&gt; ReadS DescribeUserHierarchyGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420257"><span id="local-6989586621679420259"><span id="local-6989586621679420261"><span class="annot"><span class="annottext">Int -&gt; DescribeUserHierarchyGroup -&gt; ShowS
+[DescribeUserHierarchyGroup] -&gt; ShowS
+DescribeUserHierarchyGroup -&gt; String
+(Int -&gt; DescribeUserHierarchyGroup -&gt; ShowS)
+-&gt; (DescribeUserHierarchyGroup -&gt; String)
+-&gt; ([DescribeUserHierarchyGroup] -&gt; ShowS)
+-&gt; Show DescribeUserHierarchyGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeUserHierarchyGroup] -&gt; ShowS
+$cshowList :: [DescribeUserHierarchyGroup] -&gt; ShowS
+show :: DescribeUserHierarchyGroup -&gt; String
+$cshow :: DescribeUserHierarchyGroup -&gt; String
+showsPrec :: Int -&gt; DescribeUserHierarchyGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeUserHierarchyGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeUserHierarchyGroup -&gt; Rep DescribeUserHierarchyGroup x)
+-&gt; (forall x.
+    Rep DescribeUserHierarchyGroup x -&gt; DescribeUserHierarchyGroup)
+-&gt; Generic DescribeUserHierarchyGroup
+forall x.
+Rep DescribeUserHierarchyGroup x -&gt; DescribeUserHierarchyGroup
+forall x.
+DescribeUserHierarchyGroup -&gt; Rep DescribeUserHierarchyGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeUserHierarchyGroup x -&gt; DescribeUserHierarchyGroup
+$cfrom :: forall x.
+DescribeUserHierarchyGroup -&gt; Rep DescribeUserHierarchyGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DescribeUserHierarchyGroup' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'hierarchyGroupId', 'describeUserHierarchyGroup_hierarchyGroupId' - The identifier of the hierarchy group.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'instanceId', 'describeUserHierarchyGroup_instanceId' - The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#newDescribeUserHierarchyGroup"><span class="hs-identifier hs-type">newDescribeUserHierarchyGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'hierarchyGroupId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'instanceId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span>
+</span><span id="line-78"></span><span id="newDescribeUserHierarchyGroup"><span class="annot"><span class="annottext">newDescribeUserHierarchyGroup :: Text -&gt; Text -&gt; DescribeUserHierarchyGroup
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#newDescribeUserHierarchyGroup"><span class="hs-identifier hs-var hs-var">newDescribeUserHierarchyGroup</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679420252"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420252"><span class="hs-identifier hs-var">pHierarchyGroupId_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679420251"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420251"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroup' :: Text -&gt; Text -&gt; DescribeUserHierarchyGroup
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hierarchyGroupId:DescribeUserHierarchyGroup' :: Text
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhierarchyGroupId%3ADescribeUserHierarchyGroup%27"><span class="hs-identifier hs-var">hierarchyGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420252"><span class="hs-identifier hs-var">pHierarchyGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceId:DescribeUserHierarchyGroup' :: Text
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#%24sel%3AinstanceId%3ADescribeUserHierarchyGroup%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420251"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The identifier of the hierarchy group.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#describeUserHierarchyGroup_hierarchyGroupId"><span class="hs-identifier hs-type">describeUserHierarchyGroup_hierarchyGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="describeUserHierarchyGroup_hierarchyGroupId"><span class="annot"><span class="annottext">describeUserHierarchyGroup_hierarchyGroupId :: (Text -&gt; f Text)
+-&gt; DescribeUserHierarchyGroup -&gt; f DescribeUserHierarchyGroup
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#describeUserHierarchyGroup_hierarchyGroupId"><span class="hs-identifier hs-var hs-var">describeUserHierarchyGroup_hierarchyGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUserHierarchyGroup -&gt; Text)
+-&gt; (DescribeUserHierarchyGroup
+    -&gt; Text -&gt; DescribeUserHierarchyGroup)
+-&gt; Lens
+     DescribeUserHierarchyGroup DescribeUserHierarchyGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420248"><span class="annot"><span class="annottext">Text
+hierarchyGroupId :: Text
+$sel:hierarchyGroupId:DescribeUserHierarchyGroup' :: DescribeUserHierarchyGroup -&gt; Text
+</span><a href="#local-6989586621679420248"><span class="hs-identifier hs-var hs-var">hierarchyGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420248"><span class="hs-identifier hs-var">hierarchyGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420247"><span class="annot"><span class="annottext">s :: DescribeUserHierarchyGroup
+</span><a href="#local-6989586621679420247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420246"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroup
+</span><a href="#local-6989586621679420247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hierarchyGroupId:DescribeUserHierarchyGroup' :: Text
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhierarchyGroupId%3ADescribeUserHierarchyGroup%27"><span class="hs-identifier hs-var">hierarchyGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#describeUserHierarchyGroup_instanceId"><span class="hs-identifier hs-type">describeUserHierarchyGroup_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="describeUserHierarchyGroup_instanceId"><span class="annot"><span class="annottext">describeUserHierarchyGroup_instanceId :: (Text -&gt; f Text)
+-&gt; DescribeUserHierarchyGroup -&gt; f DescribeUserHierarchyGroup
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#describeUserHierarchyGroup_instanceId"><span class="hs-identifier hs-var hs-var">describeUserHierarchyGroup_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUserHierarchyGroup -&gt; Text)
+-&gt; (DescribeUserHierarchyGroup
+    -&gt; Text -&gt; DescribeUserHierarchyGroup)
+-&gt; Lens
+     DescribeUserHierarchyGroup DescribeUserHierarchyGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420245"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:DescribeUserHierarchyGroup' :: DescribeUserHierarchyGroup -&gt; Text
+</span><a href="#local-6989586621679420245"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420245"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420244"><span class="annot"><span class="annottext">s :: DescribeUserHierarchyGroup
+</span><a href="#local-6989586621679420244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420243"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroup
+</span><a href="#local-6989586621679420244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DescribeUserHierarchyGroup' :: Text
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#%24sel%3AinstanceId%3ADescribeUserHierarchyGroup%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679420239"><span class="annot"><span class="annottext">request :: DescribeUserHierarchyGroup -&gt; Request DescribeUserHierarchyGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeUserHierarchyGroup -&gt; Request DescribeUserHierarchyGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679420235"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeUserHierarchyGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeUserHierarchyGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeUserHierarchyGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeUserHierarchyGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeUserHierarchyGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679420232"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420232"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679420231"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679420231"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679420230"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679420230"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe HierarchyGroup -&gt; Int -&gt; DescribeUserHierarchyGroupResponse
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var">DescribeUserHierarchyGroupResponse'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe HierarchyGroup -&gt; Int -&gt; DescribeUserHierarchyGroupResponse)
+-&gt; Either String (Maybe HierarchyGroup)
+-&gt; Either String (Int -&gt; DescribeUserHierarchyGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679420230"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe HierarchyGroup)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HierarchyGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeUserHierarchyGroupResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeUserHierarchyGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420232"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420222"><span id="local-6989586621679420224"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679420215"><span class="annot"><span class="annottext">toHeaders :: DescribeUserHierarchyGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeUserHierarchyGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-120"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679420209"><span class="annot"><span class="annottext">toPath :: DescribeUserHierarchyGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420206"><span id="local-6989586621679420207"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+hierarchyGroupId :: Text
+$sel:instanceId:DescribeUserHierarchyGroup' :: DescribeUserHierarchyGroup -&gt; Text
+$sel:hierarchyGroupId:DescribeUserHierarchyGroup' :: DescribeUserHierarchyGroup -&gt; Text
+</span><a href="#local-6989586621679420206"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/user-hierarchy-groups/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420206"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420207"><span class="hs-identifier hs-var">hierarchyGroupId</span></a></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroup"><span class="hs-identifier hs-type">DescribeUserHierarchyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679420202"><span class="annot"><span class="annottext">toQuery :: DescribeUserHierarchyGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeUserHierarchyGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newDescribeUserHierarchyGroupResponse' smart constructor.</span><span>
+</span><span id="line-137"></span><span id="local-6989586621679420199"><span id="local-6989586621679420200"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserHierarchyGroupResponse"><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-var">DescribeUserHierarchyGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserHierarchyGroupResponse%27"><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var">DescribeUserHierarchyGroupResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the hierarchy group.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AhierarchyGroup%3ADescribeUserHierarchyGroupResponse%27"><span class="annot"><span class="annottext">DescribeUserHierarchyGroupResponse -&gt; Maybe HierarchyGroup
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhierarchyGroup%3ADescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var hs-var">hierarchyGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.HierarchyGroup.html#HierarchyGroup"><span class="hs-identifier hs-type">HierarchyGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeUserHierarchyGroupResponse%27"><span class="annot"><span class="annottext">DescribeUserHierarchyGroupResponse -&gt; Int
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhttpStatus%3ADescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420193"><span id="local-6989586621679420195"><span class="annot"><span class="annottext">DescribeUserHierarchyGroupResponse
+-&gt; DescribeUserHierarchyGroupResponse -&gt; Bool
+(DescribeUserHierarchyGroupResponse
+ -&gt; DescribeUserHierarchyGroupResponse -&gt; Bool)
+-&gt; (DescribeUserHierarchyGroupResponse
+    -&gt; DescribeUserHierarchyGroupResponse -&gt; Bool)
+-&gt; Eq DescribeUserHierarchyGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeUserHierarchyGroupResponse
+-&gt; DescribeUserHierarchyGroupResponse -&gt; Bool
+$c/= :: DescribeUserHierarchyGroupResponse
+-&gt; DescribeUserHierarchyGroupResponse -&gt; Bool
+== :: DescribeUserHierarchyGroupResponse
+-&gt; DescribeUserHierarchyGroupResponse -&gt; Bool
+$c== :: DescribeUserHierarchyGroupResponse
+-&gt; DescribeUserHierarchyGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420185"><span id="local-6989586621679420187"><span id="local-6989586621679420189"><span id="local-6989586621679420191"><span class="annot"><span class="annottext">ReadPrec [DescribeUserHierarchyGroupResponse]
+ReadPrec DescribeUserHierarchyGroupResponse
+Int -&gt; ReadS DescribeUserHierarchyGroupResponse
+ReadS [DescribeUserHierarchyGroupResponse]
+(Int -&gt; ReadS DescribeUserHierarchyGroupResponse)
+-&gt; ReadS [DescribeUserHierarchyGroupResponse]
+-&gt; ReadPrec DescribeUserHierarchyGroupResponse
+-&gt; ReadPrec [DescribeUserHierarchyGroupResponse]
+-&gt; Read DescribeUserHierarchyGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeUserHierarchyGroupResponse]
+$creadListPrec :: ReadPrec [DescribeUserHierarchyGroupResponse]
+readPrec :: ReadPrec DescribeUserHierarchyGroupResponse
+$creadPrec :: ReadPrec DescribeUserHierarchyGroupResponse
+readList :: ReadS [DescribeUserHierarchyGroupResponse]
+$creadList :: ReadS [DescribeUserHierarchyGroupResponse]
+readsPrec :: Int -&gt; ReadS DescribeUserHierarchyGroupResponse
+$creadsPrec :: Int -&gt; ReadS DescribeUserHierarchyGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420179"><span id="local-6989586621679420181"><span id="local-6989586621679420183"><span class="annot"><span class="annottext">Int -&gt; DescribeUserHierarchyGroupResponse -&gt; ShowS
+[DescribeUserHierarchyGroupResponse] -&gt; ShowS
+DescribeUserHierarchyGroupResponse -&gt; String
+(Int -&gt; DescribeUserHierarchyGroupResponse -&gt; ShowS)
+-&gt; (DescribeUserHierarchyGroupResponse -&gt; String)
+-&gt; ([DescribeUserHierarchyGroupResponse] -&gt; ShowS)
+-&gt; Show DescribeUserHierarchyGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeUserHierarchyGroupResponse] -&gt; ShowS
+$cshowList :: [DescribeUserHierarchyGroupResponse] -&gt; ShowS
+show :: DescribeUserHierarchyGroupResponse -&gt; String
+$cshow :: DescribeUserHierarchyGroupResponse -&gt; String
+showsPrec :: Int -&gt; DescribeUserHierarchyGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeUserHierarchyGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeUserHierarchyGroupResponse
+ -&gt; Rep DescribeUserHierarchyGroupResponse x)
+-&gt; (forall x.
+    Rep DescribeUserHierarchyGroupResponse x
+    -&gt; DescribeUserHierarchyGroupResponse)
+-&gt; Generic DescribeUserHierarchyGroupResponse
+forall x.
+Rep DescribeUserHierarchyGroupResponse x
+-&gt; DescribeUserHierarchyGroupResponse
+forall x.
+DescribeUserHierarchyGroupResponse
+-&gt; Rep DescribeUserHierarchyGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeUserHierarchyGroupResponse x
+-&gt; DescribeUserHierarchyGroupResponse
+$cfrom :: forall x.
+DescribeUserHierarchyGroupResponse
+-&gt; Rep DescribeUserHierarchyGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Create a value of 'DescribeUserHierarchyGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'hierarchyGroup', 'describeUserHierarchyGroupResponse_hierarchyGroup' - Information about the hierarchy group.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'httpStatus', 'describeUserHierarchyGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#newDescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">newDescribeUserHierarchyGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse</span></a></span><span>
+</span><span id="line-160"></span><span id="newDescribeUserHierarchyGroupResponse"><span class="annot"><span class="annottext">newDescribeUserHierarchyGroupResponse :: Int -&gt; DescribeUserHierarchyGroupResponse
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#newDescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-var hs-var">newDescribeUserHierarchyGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679420176"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420176"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroupResponse' :: Maybe HierarchyGroup -&gt; Int -&gt; DescribeUserHierarchyGroupResponse
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse'</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hierarchyGroup:DescribeUserHierarchyGroupResponse' :: Maybe HierarchyGroup
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhierarchyGroup%3ADescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var">hierarchyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">Maybe HierarchyGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUserHierarchyGroupResponse' :: Int
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhttpStatus%3ADescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420176"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | Information about the hierarchy group.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#describeUserHierarchyGroupResponse_hierarchyGroup"><span class="hs-identifier hs-type">describeUserHierarchyGroupResponse_hierarchyGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.HierarchyGroup.html#HierarchyGroup"><span class="hs-identifier hs-type">HierarchyGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="describeUserHierarchyGroupResponse_hierarchyGroup"><span class="annot"><span class="annottext">describeUserHierarchyGroupResponse_hierarchyGroup :: (Maybe HierarchyGroup -&gt; f (Maybe HierarchyGroup))
+-&gt; DescribeUserHierarchyGroupResponse
+-&gt; f DescribeUserHierarchyGroupResponse
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#describeUserHierarchyGroupResponse_hierarchyGroup"><span class="hs-identifier hs-var hs-var">describeUserHierarchyGroupResponse_hierarchyGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUserHierarchyGroupResponse -&gt; Maybe HierarchyGroup)
+-&gt; (DescribeUserHierarchyGroupResponse
+    -&gt; Maybe HierarchyGroup -&gt; DescribeUserHierarchyGroupResponse)
+-&gt; Lens
+     DescribeUserHierarchyGroupResponse
+     DescribeUserHierarchyGroupResponse
+     (Maybe HierarchyGroup)
+     (Maybe HierarchyGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420175"><span class="annot"><span class="annottext">Maybe HierarchyGroup
+hierarchyGroup :: Maybe HierarchyGroup
+$sel:hierarchyGroup:DescribeUserHierarchyGroupResponse' :: DescribeUserHierarchyGroupResponse -&gt; Maybe HierarchyGroup
+</span><a href="#local-6989586621679420175"><span class="hs-identifier hs-var hs-var">hierarchyGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroup
+</span><a href="#local-6989586621679420175"><span class="hs-identifier hs-var">hierarchyGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420174"><span class="annot"><span class="annottext">s :: DescribeUserHierarchyGroupResponse
+</span><a href="#local-6989586621679420174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420173"><span class="annot"><span class="annottext">Maybe HierarchyGroup
+</span><a href="#local-6989586621679420173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroupResponse
+</span><a href="#local-6989586621679420174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hierarchyGroup:DescribeUserHierarchyGroupResponse' :: Maybe HierarchyGroup
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhierarchyGroup%3ADescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var">hierarchyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroup
+</span><a href="#local-6989586621679420173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#describeUserHierarchyGroupResponse_httpStatus"><span class="hs-identifier hs-type">describeUserHierarchyGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span id="describeUserHierarchyGroupResponse_httpStatus"><span class="annot"><span class="annottext">describeUserHierarchyGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeUserHierarchyGroupResponse
+-&gt; f DescribeUserHierarchyGroupResponse
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#describeUserHierarchyGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeUserHierarchyGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUserHierarchyGroupResponse -&gt; Int)
+-&gt; (DescribeUserHierarchyGroupResponse
+    -&gt; Int -&gt; DescribeUserHierarchyGroupResponse)
+-&gt; Lens
+     DescribeUserHierarchyGroupResponse
+     DescribeUserHierarchyGroupResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420172"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeUserHierarchyGroupResponse' :: DescribeUserHierarchyGroupResponse -&gt; Int
+</span><a href="#local-6989586621679420172"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420172"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420171"><span class="annot"><span class="annottext">s :: DescribeUserHierarchyGroupResponse
+</span><a href="#local-6989586621679420171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420170"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserHierarchyGroupResponse
+</span><a href="#local-6989586621679420171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUserHierarchyGroupResponse' :: Int
+</span><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#%24sel%3AhttpStatus%3ADescribeUserHierarchyGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679420168"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.DescribeUserHierarchyGroup.html#DescribeUserHierarchyGroupResponse"><span class="hs-identifier hs-type">DescribeUserHierarchyGroupResponse</span></a></span></span><span>
+</span><span id="line-178"></span></pre></body></html>

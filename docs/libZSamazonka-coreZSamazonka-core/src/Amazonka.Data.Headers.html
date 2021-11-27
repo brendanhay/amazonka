@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">-- |</span><span>
+</span><span id="line-2"></span><span class="hs-comment">-- Module      : Amazonka.Data.Headers</span><span>
+</span><span id="line-3"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Stability   : provisional</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-8"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Data.Headers</span><span>
+</span><span id="line-9"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="hs-keyword">module</span><span> </span><span class="annot"><a href="Amazonka.Data.Headers.html"><span class="hs-identifier">Amazonka.Data.Headers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-10"></span><span>    </span><span class="annot"><span class="hs-identifier">HeaderName</span></span><span class="hs-special">,</span><span>
+</span><span id="line-11"></span><span>    </span><span class="annot"><span class="hs-identifier">Header</span></span><span class="hs-special">,</span><span>
+</span><span id="line-12"></span><span>    </span><span class="annot"><span class="hs-identifier">HTTP.hContentType</span></span><span class="hs-special">,</span><span>
+</span><span id="line-13"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-14"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-15"></span><span>
+</span><span id="line-16"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html"><span class="hs-identifier">Amazonka.Data.ByteString</span></a></span><span>
+</span><span id="line-17"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Data.Text.html"><span class="hs-identifier">Amazonka.Data.Text</span></a></span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Prelude.html"><span class="hs-identifier">Amazonka.Prelude</span></a></span><span>
+</span><span id="line-19"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.ByteString</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">BS</span></span><span>
+</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.ByteString.Char8</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">BS8</span></span><span>
+</span><span id="line-21"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.CaseInsensitive</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">CI</span></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.HashMap.Strict</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">HashMap</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.Text.Encoding</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Text</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Network.HTTP.Types</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier">Header</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">HeaderName</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">ResponseHeaders</span></span><span class="hs-special">)</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.HTTP.Types</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">HTTP</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">infixl</span><span> </span><span class="hs-number">7</span><span> </span><span class="annot"><a href="Amazonka.Data.Headers.html#.%23"><span class="hs-operator hs-type">.#</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Amazonka.Data.Headers.html#.%23%3F"><span class="hs-operator hs-type">.#?</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- FIXME: This whole toText/fromText shit is just stupid.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679181869"><span class="annot"><a href="Amazonka.Data.Headers.html#.%23"><span class="hs-operator hs-type">(.#)</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679181869"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ResponseHeaders</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span> </span><span class="annot"><a href="#local-6989586621679181869"><span class="hs-identifier hs-type">a</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679181868"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679181868"><span class="hs-identifier hs-var">hs</span></a></span></span><span> </span><span id=".%23"><span class="annot"><span class="annottext">.# :: ResponseHeaders -&gt; HeaderName -&gt; Either String a
+</span><a href="Amazonka.Data.Headers.html#.%23"><span class="hs-operator hs-var hs-var">.#</span></a></span></span><span> </span><span id="local-6989586621679181867"><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181867"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679181868"><span class="hs-identifier hs-var">hs</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><a href="Amazonka.Data.Headers.html#.%23%3F"><span class="hs-operator hs-var">.#?</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181867"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe a)
+-&gt; (Maybe a -&gt; Either String a) -&gt; Either String a
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">Maybe a -&gt; Either String a
+</span><a href="#local-6989586621679181866"><span class="hs-identifier hs-var">note</span></a></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>    </span><span id="local-6989586621679181866"><span class="annot"><span class="annottext">note :: Maybe a -&gt; Either String a
+</span><a href="#local-6989586621679181866"><span class="hs-identifier hs-var hs-var">note</span></a></span></span><span> </span><span class="annot"><span class="annottext">Maybe a
+</span><span class="hs-identifier hs-var">Nothing</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; Either String a
+forall a b. a -&gt; Either a b
+</span><span class="hs-identifier hs-var">Left</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; String
+</span><span class="hs-identifier hs-var">BS8.unpack</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; String) -&gt; ByteString -&gt; String
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Unable to find header: &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString
+forall s. CI s -&gt; s
+</span><span class="hs-identifier hs-var hs-var">CI.original</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181867"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="#local-6989586621679181866"><span class="hs-identifier hs-var">note</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span id="local-6989586621679181863"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679181863"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; Either String a
+forall a b. b -&gt; Either a b
+</span><span class="hs-identifier hs-var">Right</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679181863"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679181944"><span class="annot"><a href="Amazonka.Data.Headers.html#.%23%3F"><span class="hs-operator hs-type">(.#?)</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679181944"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ResponseHeaders</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><a href="#local-6989586621679181944"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679181862"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679181862"><span class="hs-identifier hs-var">hs</span></a></span></span><span> </span><span id=".%23%3F"><span class="annot"><span class="annottext">.#? :: ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><a href="Amazonka.Data.Headers.html#.%23%3F"><span class="hs-operator hs-var hs-var">.#?</span></a></span></span><span> </span><span id="local-6989586621679181861"><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181861"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-38"></span><span>  </span><span class="annot"><span class="annottext">Either String (Maybe a)
+-&gt; (ByteString -&gt; Either String (Maybe a))
+-&gt; Maybe ByteString
+-&gt; Either String (Maybe a)
+forall b a. b -&gt; (a -&gt; b) -&gt; Maybe a -&gt; b
+</span><span class="hs-identifier hs-var">maybe</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Maybe a -&gt; Either String (Maybe a)
+forall a b. b -&gt; Either a b
+</span><span class="hs-identifier hs-var">Right</span></span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Nothing</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Maybe a) -&gt; Either String a -&gt; Either String (Maybe a)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-identifier hs-var">fmap</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">(Either String a -&gt; Either String (Maybe a))
+-&gt; (ByteString -&gt; Either String a)
+-&gt; ByteString
+-&gt; Either String (Maybe a)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Either String a
+forall a. FromText a =&gt; Text -&gt; Either String a
+</span><a href="Amazonka.Data.Text.html#fromText"><span class="hs-identifier hs-var">fromText</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Either String a)
+-&gt; (ByteString -&gt; Text) -&gt; ByteString -&gt; Either String a
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text
+</span><span class="hs-identifier hs-var">Text.decodeUtf8</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181861"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; ResponseHeaders -&gt; Maybe ByteString
+forall a b. Eq a =&gt; a -&gt; [(a, b)] -&gt; Maybe b
+</span><span class="hs-operator hs-var">`lookup`</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679181862"><span class="hs-identifier hs-var">hs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">infixr</span><span> </span><span class="hs-number">7</span><span> </span><span class="annot"><a href="Amazonka.Data.Headers.html#%3D%23"><span class="hs-operator hs-type">=#</span></a></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679181854"><span class="annot"><a href="Amazonka.Data.Headers.html#%3D%23"><span class="hs-operator hs-type">(=#)</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Data.Headers.html#ToHeader"><span class="hs-identifier hs-type">ToHeader</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679181854"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679181854"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span></span><span>
+</span><span id="line-46"></span><span id="%3D%23"><span class="annot"><span class="annottext">=# :: HeaderName -&gt; a -&gt; ResponseHeaders
+</span><a href="Amazonka.Data.Headers.html#%3D%23"><span class="hs-operator hs-var hs-var">(=#)</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; a -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><a href="Amazonka.Data.Headers.html#toHeader"><span class="hs-identifier hs-var">toHeader</span></a></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hdr"><span class="hs-identifier hs-type">hdr</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span>
+</span><span id="line-49"></span><span id="hdr"><span class="annot"><span class="annottext">hdr :: HeaderName -&gt; ByteString -&gt; ResponseHeaders -&gt; ResponseHeaders
+</span><a href="Amazonka.Data.Headers.html#hdr"><span class="hs-identifier hs-var hs-var">hdr</span></a></span></span><span> </span><span id="local-6989586621679181851"><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181851"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span id="local-6989586621679181850"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679181850"><span class="hs-identifier hs-var">v</span></a></span></span><span> </span><span id="local-6989586621679181849"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679181849"><span class="hs-identifier hs-var">hs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181851"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679181850"><span class="hs-identifier hs-var">v</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HeaderName, ByteString) -&gt; ResponseHeaders -&gt; ResponseHeaders
+forall a. a -&gt; [a] -&gt; [a]
+</span><span class="hs-glyph hs-var">:</span></span><span> </span><span class="annot"><span class="annottext">((HeaderName, ByteString) -&gt; Bool)
+-&gt; ResponseHeaders -&gt; ResponseHeaders
+forall a. (a -&gt; Bool) -&gt; [a] -&gt; [a]
+</span><span class="hs-identifier hs-var">filter</span></span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName -&gt; HeaderName -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">/=</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181851"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HeaderName -&gt; Bool)
+-&gt; ((HeaderName, ByteString) -&gt; HeaderName)
+-&gt; (HeaderName, ByteString)
+-&gt; Bool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(HeaderName, ByteString) -&gt; HeaderName
+forall a b. (a, b) -&gt; a
+</span><span class="hs-identifier hs-var">fst</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679181849"><span class="hs-identifier hs-var">hs</span></a></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">class</span><span> </span><span id="ToHeaders"><span class="annot"><a href="Amazonka.Data.Headers.html#ToHeaders"><span class="hs-identifier hs-var">ToHeaders</span></a></span></span><span> </span><span id="local-6989586621679181905"><span class="annot"><a href="#local-6989586621679181905"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>  </span><span id="toHeaders"><span class="annot"><a href="Amazonka.Data.Headers.html#toHeaders"><span class="hs-identifier hs-type">toHeaders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679181905"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679181845"><span id="local-6989586621679181846"><span class="hs-keyword">instance</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679181846"><span class="hs-identifier hs-type">k</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679181845"><span class="hs-identifier hs-type">v</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Amazonka.Data.Headers.html#ToHeaders"><span class="hs-identifier hs-type">ToHeaders</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">HashMap</span></span><span> </span><span class="annot"><a href="#local-6989586621679181846"><span class="hs-identifier hs-type">k</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679181845"><span class="hs-identifier hs-type">v</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679181842"><span class="annot"><span class="annottext">toHeaders :: HashMap k v -&gt; ResponseHeaders
+</span><a href="#local-6989586621679181842"><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">((k, v) -&gt; (HeaderName, ByteString)) -&gt; [(k, v)] -&gt; ResponseHeaders
+forall a b. (a -&gt; b) -&gt; [a] -&gt; [b]
+</span><span class="hs-identifier hs-var">map</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(k -&gt; HeaderName)
+-&gt; (v -&gt; ByteString) -&gt; (k, v) -&gt; (HeaderName, ByteString)
+forall (p :: * -&gt; * -&gt; *) a b c d.
+Bifunctor p =&gt;
+(a -&gt; b) -&gt; (c -&gt; d) -&gt; p a c -&gt; p b d
+</span><span class="hs-identifier hs-var">bimap</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; HeaderName
+forall s. FoldCase s =&gt; s -&gt; CI s
+</span><span class="hs-identifier hs-var">CI.mk</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; HeaderName) -&gt; (k -&gt; ByteString) -&gt; k -&gt; HeaderName
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">k -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">v -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([(k, v)] -&gt; ResponseHeaders)
+-&gt; (HashMap k v -&gt; [(k, v)]) -&gt; HashMap k v -&gt; ResponseHeaders
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">HashMap k v -&gt; [(k, v)]
+forall k v. HashMap k v -&gt; [(k, v)]
+</span><span class="hs-identifier hs-var">HashMap.toList</span></span></span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">class</span><span> </span><span id="ToHeader"><span class="annot"><a href="Amazonka.Data.Headers.html#ToHeader"><span class="hs-identifier hs-var">ToHeader</span></a></span></span><span> </span><span id="local-6989586621679181915"><span class="annot"><a href="#local-6989586621679181915"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="toHeader"><span class="annot"><a href="Amazonka.Data.Headers.html#toHeader"><span class="hs-identifier hs-type">toHeader</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679181915"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">default</span><span> </span><span id="toHeader"><span class="annot"><a href="Amazonka.Data.Headers.html#toHeader"><span class="hs-identifier hs-type">toHeader</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679181915"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679181915"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679181837"><span class="annot"><a href="Amazonka.Data.Headers.html#toHeader"><span class="hs-identifier hs-var hs-var">toHeader</span></a></span><span> </span><span id="local-6989586621679181836"><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181836"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><a href="Amazonka.Data.Headers.html#toHeader"><span class="hs-identifier hs-var">toHeader</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181836"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; ResponseHeaders) -&gt; (a -&gt; Text) -&gt; a -&gt; ResponseHeaders
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Text
+forall a. ToText a =&gt; a -&gt; Text
+</span><a href="Amazonka.Data.Text.html#toText"><span class="hs-identifier hs-var">toText</span></a></span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181833"><span class="annot"><a href="Amazonka.Data.Headers.html#ToHeader"><span class="hs-identifier hs-type">ToHeader</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181830"><span class="annot"><a href="Amazonka.Data.Headers.html#ToHeader"><span class="hs-identifier hs-type">ToHeader</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181828"><span class="annot"><a href="Amazonka.Data.Headers.html#ToHeader"><span class="hs-identifier hs-type">ToHeader</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Natural</span></span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.Headers.html#ToHeader"><span class="hs-identifier hs-type">ToHeader</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679181826"><span class="annot"><span class="annottext">toHeader :: HeaderName -&gt; Text -&gt; ResponseHeaders
+</span><a href="#local-6989586621679181826"><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeader</span></a></span></span><span> </span><span id="local-6989586621679181825"><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181825"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span id="local-6989586621679181824"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181824"><span class="hs-identifier hs-var">v</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181825"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+</span><span class="hs-identifier hs-var">Text.encodeUtf8</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181824"><span class="hs-identifier hs-var">v</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.Headers.html#ToHeader"><span class="hs-identifier hs-type">ToHeader</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679181821"><span class="annot"><span class="annottext">toHeader :: HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><a href="#local-6989586621679181821"><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeader</span></a></span></span><span> </span><span id="local-6989586621679181820"><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181820"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span id="local-6989586621679181819"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679181819"><span class="hs-identifier hs-var">v</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181820"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679181819"><span class="hs-identifier hs-var">v</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span id="local-6989586621679181818"><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679181818"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Amazonka.Data.Headers.html#ToHeader"><span class="hs-identifier hs-type">ToHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><a href="#local-6989586621679181818"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679181816"><span class="annot"><span class="annottext">toHeader :: HeaderName -&gt; Maybe a -&gt; ResponseHeaders
+</span><a href="#local-6989586621679181816"><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeader</span></a></span></span><span> </span><span id="local-6989586621679181815"><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181815"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; (a -&gt; ResponseHeaders) -&gt; Maybe a -&gt; ResponseHeaders
+forall b a. b -&gt; (a -&gt; b) -&gt; Maybe a -&gt; b
+</span><span class="hs-identifier hs-var">maybe</span></span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><a href="Amazonka.Data.Headers.html#toHeader"><span class="hs-identifier hs-var">toHeader</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181815"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; ResponseHeaders) -&gt; (a -&gt; Text) -&gt; a -&gt; ResponseHeaders
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Text
+forall a. ToText a =&gt; a -&gt; Text
+</span><a href="Amazonka.Data.Text.html#toText"><span class="hs-identifier hs-var">toText</span></a></span><span class="hs-special">)</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span id="local-6989586621679181813"><span id="local-6989586621679181814"><span class="hs-keyword">instance</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679181814"><span class="hs-identifier hs-type">k</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679181813"><span class="hs-identifier hs-type">v</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Amazonka.Data.Headers.html#ToHeader"><span class="hs-identifier hs-type">ToHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">HashMap</span></span><span> </span><span class="annot"><a href="#local-6989586621679181814"><span class="hs-identifier hs-type">k</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679181813"><span class="hs-identifier hs-type">v</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679181811"><span class="annot"><span class="annottext">toHeader :: HeaderName -&gt; HashMap k v -&gt; ResponseHeaders
+</span><a href="#local-6989586621679181811"><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeader</span></a></span></span><span> </span><span id="local-6989586621679181810"><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181810"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">((k, v) -&gt; (HeaderName, ByteString)) -&gt; [(k, v)] -&gt; ResponseHeaders
+forall a b. (a -&gt; b) -&gt; [a] -&gt; [b]
+</span><span class="hs-identifier hs-var">map</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(k -&gt; HeaderName)
+-&gt; (v -&gt; ByteString) -&gt; (k, v) -&gt; (HeaderName, ByteString)
+forall (p :: * -&gt; * -&gt; *) a b c d.
+Bifunctor p =&gt;
+(a -&gt; b) -&gt; (c -&gt; d) -&gt; p a c -&gt; p b d
+</span><span class="hs-identifier hs-var">bimap</span></span><span> </span><span class="annot"><span class="annottext">k -&gt; HeaderName
+</span><a href="#local-6989586621679181809"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">v -&gt; ByteString
+</span><a href="#local-6989586621679181808"><span class="hs-identifier hs-var">v</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([(k, v)] -&gt; ResponseHeaders)
+-&gt; (HashMap k v -&gt; [(k, v)]) -&gt; HashMap k v -&gt; ResponseHeaders
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">HashMap k v -&gt; [(k, v)]
+forall k v. HashMap k v -&gt; [(k, v)]
+</span><span class="hs-identifier hs-var">HashMap.toList</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679181809"><span class="annot"><span class="annottext">k :: k -&gt; HeaderName
+</span><a href="#local-6989586621679181809"><span class="hs-identifier hs-var hs-var">k</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; HeaderName -&gt; HeaderName
+forall a. Monoid a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-identifier hs-var">mappend</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181810"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">(HeaderName -&gt; HeaderName) -&gt; (k -&gt; HeaderName) -&gt; k -&gt; HeaderName
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; HeaderName
+forall s. FoldCase s =&gt; s -&gt; CI s
+</span><span class="hs-identifier hs-var">CI.mk</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; HeaderName) -&gt; (k -&gt; ByteString) -&gt; k -&gt; HeaderName
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">k -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span>
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679181808"><span class="annot"><span class="annottext">v :: v -&gt; ByteString
+</span><a href="#local-6989586621679181808"><span class="hs-identifier hs-var hs-var">v</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">v -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span id="local-6989586621679181807"><span class="annot"><a href="Amazonka.Data.Headers.html#parseHeadersMap"><span class="hs-identifier hs-type">parseHeadersMap</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679181807"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">ResponseHeaders</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span> </span><span class="annot"><a href="#local-6989586621679181807"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span></span><span>
+</span><span id="line-88"></span><span id="parseHeadersMap"><span class="annot"><span class="annottext">parseHeadersMap :: ByteString -&gt; ResponseHeaders -&gt; Either String (HashMap Text a)
+</span><a href="Amazonka.Data.Headers.html#parseHeadersMap"><span class="hs-identifier hs-var hs-var">parseHeadersMap</span></a></span></span><span> </span><span id="local-6989586621679181805"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679181805"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">([(Text, a)] -&gt; HashMap Text a)
+-&gt; Either String [(Text, a)] -&gt; Either String (HashMap Text a)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-identifier hs-var">fmap</span></span><span> </span><span class="annot"><span class="annottext">[(Text, a)] -&gt; HashMap Text a
+forall k v. (Eq k, Hashable k) =&gt; [(k, v)] -&gt; HashMap k v
+</span><span class="hs-identifier hs-var">HashMap.fromList</span></span><span> </span><span class="annot"><span class="annottext">(Either String [(Text, a)] -&gt; Either String (HashMap Text a))
+-&gt; (ResponseHeaders -&gt; Either String [(Text, a)])
+-&gt; ResponseHeaders
+-&gt; Either String (HashMap Text a)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">((HeaderName, ByteString) -&gt; Either String (Text, a))
+-&gt; ResponseHeaders -&gt; Either String [(Text, a)]
+forall (t :: * -&gt; *) (f :: * -&gt; *) a b.
+(Traversable t, Applicative f) =&gt;
+(a -&gt; f b) -&gt; t a -&gt; f (t b)
+</span><span class="hs-identifier hs-var">traverse</span></span><span> </span><span class="annot"><span class="annottext">(HeaderName, ByteString) -&gt; Either String (Text, a)
+</span><a href="#local-6989586621679181802"><span class="hs-identifier hs-var">g</span></a></span><span> </span><span class="annot"><span class="annottext">(ResponseHeaders -&gt; Either String [(Text, a)])
+-&gt; (ResponseHeaders -&gt; ResponseHeaders)
+-&gt; ResponseHeaders
+-&gt; Either String [(Text, a)]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">((HeaderName, ByteString) -&gt; Bool)
+-&gt; ResponseHeaders -&gt; ResponseHeaders
+forall a. (a -&gt; Bool) -&gt; [a] -&gt; [a]
+</span><span class="hs-identifier hs-var">filter</span></span><span> </span><span class="annot"><span class="annottext">(HeaderName, ByteString) -&gt; Bool
+</span><a href="#local-6989586621679181801"><span class="hs-identifier hs-var">f</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>    </span><span id="local-6989586621679181801"><span class="annot"><span class="annottext">f :: (HeaderName, ByteString) -&gt; Bool
+</span><a href="#local-6989586621679181801"><span class="hs-identifier hs-var hs-var">f</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; Bool
+</span><span class="hs-identifier hs-var">BS.isPrefixOf</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679181805"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Bool)
+-&gt; ((HeaderName, ByteString) -&gt; ByteString)
+-&gt; (HeaderName, ByteString)
+-&gt; Bool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString
+forall s. CI s -&gt; s
+</span><span class="hs-identifier hs-var hs-var">CI.foldedCase</span></span><span> </span><span class="annot"><span class="annottext">(HeaderName -&gt; ByteString)
+-&gt; ((HeaderName, ByteString) -&gt; HeaderName)
+-&gt; (HeaderName, ByteString)
+-&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(HeaderName, ByteString) -&gt; HeaderName
+forall a b. (a, b) -&gt; a
+</span><span class="hs-identifier hs-var">fst</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span>    </span><span id="local-6989586621679181802"><span class="annot"><span class="annottext">g :: (HeaderName, ByteString) -&gt; Either String (Text, a)
+</span><a href="#local-6989586621679181802"><span class="hs-identifier hs-var hs-var">g</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181798"><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181798"><span class="hs-identifier hs-var">k</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181797"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679181797"><span class="hs-identifier hs-var">v</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; Text
+</span><span class="hs-identifier hs-var">Text.decodeUtf8</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Text)
+-&gt; (ByteString -&gt; ByteString) -&gt; ByteString -&gt; Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; ByteString -&gt; ByteString
+</span><span class="hs-identifier hs-var">BS.drop</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181795"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Text) -&gt; ByteString -&gt; Text
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString
+forall s. CI s -&gt; s
+</span><span class="hs-identifier hs-var hs-var">CI.original</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679181798"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">,</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">(a -&gt; (Text, a)) -&gt; Either String a -&gt; Either String (Text, a)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Either String a
+forall a. FromText a =&gt; Text -&gt; Either String a
+</span><a href="Amazonka.Data.Text.html#fromText"><span class="hs-identifier hs-var">fromText</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; Text
+</span><span class="hs-identifier hs-var">Text.decodeUtf8</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679181797"><span class="hs-identifier hs-var">v</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span>    </span><span id="local-6989586621679181795"><span class="annot"><span class="annottext">n :: Int
+</span><a href="#local-6989586621679181795"><span class="hs-identifier hs-var hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Int
+</span><span class="hs-identifier hs-var">BS.length</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679181805"><span class="hs-identifier hs-var">p</span></a></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hHost"><span class="hs-identifier hs-type">hHost</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-99"></span><span id="hHost"><span class="annot"><span class="annottext">hHost :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hHost"><span class="hs-identifier hs-var hs-var">hHost</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Host&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hExpect"><span class="hs-identifier hs-type">hExpect</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-102"></span><span id="hExpect"><span class="annot"><span class="annottext">hExpect :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hExpect"><span class="hs-identifier hs-var hs-var">hExpect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Expect&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hAMZToken"><span class="hs-identifier hs-type">hAMZToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-105"></span><span id="hAMZToken"><span class="annot"><span class="annottext">hAMZToken :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZToken"><span class="hs-identifier hs-var hs-var">hAMZToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Security-Token&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hAMZTarget"><span class="hs-identifier hs-type">hAMZTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-108"></span><span id="hAMZTarget"><span class="annot"><span class="annottext">hAMZTarget :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZTarget"><span class="hs-identifier hs-var hs-var">hAMZTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hAMZAlgorithm"><span class="hs-identifier hs-type">hAMZAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-111"></span><span id="hAMZAlgorithm"><span class="annot"><span class="annottext">hAMZAlgorithm :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZAlgorithm"><span class="hs-identifier hs-var hs-var">hAMZAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Algorithm&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hAMZCredential"><span class="hs-identifier hs-type">hAMZCredential</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-114"></span><span id="hAMZCredential"><span class="annot"><span class="annottext">hAMZCredential :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZCredential"><span class="hs-identifier hs-var hs-var">hAMZCredential</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Credential&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hAMZExpires"><span class="hs-identifier hs-type">hAMZExpires</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-117"></span><span id="hAMZExpires"><span class="annot"><span class="annottext">hAMZExpires :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZExpires"><span class="hs-identifier hs-var hs-var">hAMZExpires</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Expires&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hAMZSignedHeaders"><span class="hs-identifier hs-type">hAMZSignedHeaders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-120"></span><span id="hAMZSignedHeaders"><span class="annot"><span class="annottext">hAMZSignedHeaders :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZSignedHeaders"><span class="hs-identifier hs-var hs-var">hAMZSignedHeaders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-SignedHeaders&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hAMZContentSHA256"><span class="hs-identifier hs-type">hAMZContentSHA256</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-123"></span><span id="hAMZContentSHA256"><span class="annot"><span class="annottext">hAMZContentSHA256 :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZContentSHA256"><span class="hs-identifier hs-var hs-var">hAMZContentSHA256</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Content-SHA256&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hAMZDate"><span class="hs-identifier hs-type">hAMZDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-126"></span><span id="hAMZDate"><span class="annot"><span class="annottext">hAMZDate :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZDate"><span class="hs-identifier hs-var hs-var">hAMZDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Date&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hMetaPrefix"><span class="hs-identifier hs-type">hMetaPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-129"></span><span id="hMetaPrefix"><span class="annot"><span class="annottext">hMetaPrefix :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hMetaPrefix"><span class="hs-identifier hs-var hs-var">hMetaPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hAMZRequestId"><span class="hs-identifier hs-type">hAMZRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-132"></span><span id="hAMZRequestId"><span class="annot"><span class="annottext">hAMZRequestId :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZRequestId"><span class="hs-identifier hs-var hs-var">hAMZRequestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Request-Id&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hAMZNRequestId"><span class="hs-identifier hs-type">hAMZNRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-135"></span><span id="hAMZNRequestId"><span class="annot"><span class="annottext">hAMZNRequestId :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZNRequestId"><span class="hs-identifier hs-var hs-var">hAMZNRequestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amzn-RequestId&quot;</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hAMZNErrorType"><span class="hs-identifier hs-type">hAMZNErrorType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-138"></span><span id="hAMZNErrorType"><span class="annot"><span class="annottext">hAMZNErrorType :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZNErrorType"><span class="hs-identifier hs-var hs-var">hAMZNErrorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amzn-ErrorType&quot;</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hAMZNAuth"><span class="hs-identifier hs-type">hAMZNAuth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-141"></span><span id="hAMZNAuth"><span class="annot"><span class="annottext">hAMZNAuth :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZNAuth"><span class="hs-identifier hs-var hs-var">hAMZNAuth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amzn-Authorization&quot;</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hAMZDecodedContentLength"><span class="hs-identifier hs-type">hAMZDecodedContentLength</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-144"></span><span id="hAMZDecodedContentLength"><span class="annot"><span class="annottext">hAMZDecodedContentLength :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hAMZDecodedContentLength"><span class="hs-identifier hs-var hs-var">hAMZDecodedContentLength</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Decoded-Content-Length&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hTransferEncoding"><span class="hs-identifier hs-type">hTransferEncoding</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HeaderName</span></span><span>
+</span><span id="line-147"></span><span id="hTransferEncoding"><span class="annot"><span class="annottext">hTransferEncoding :: HeaderName
+</span><a href="Amazonka.Data.Headers.html#hTransferEncoding"><span class="hs-identifier hs-var hs-var">hTransferEncoding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Transfer-Encoding&quot;</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.Data.Headers.html#hFormEncoded"><span class="hs-identifier hs-type">hFormEncoded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-150"></span><span id="hFormEncoded"><span class="annot"><span class="annottext">hFormEncoded :: ByteString
+</span><a href="Amazonka.Data.Headers.html#hFormEncoded"><span class="hs-identifier hs-var hs-var">hFormEncoded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-www-form-urlencoded; charset=utf-8&quot;</span></span><span>
+</span><span id="line-151"></span></pre></body></html>

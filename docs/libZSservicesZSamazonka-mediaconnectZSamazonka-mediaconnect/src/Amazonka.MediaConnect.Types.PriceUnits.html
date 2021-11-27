@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConnect.Types.PriceUnits</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConnect.Types.PriceUnits</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.PriceUnits.html#PriceUnits"><span class="hs-identifier">PriceUnits</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConnect.Types.PriceUnits.html#PriceUnits_HOURLY"><span class="hs-identifier">PriceUnits_HOURLY</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679268270"><span id="local-6989586621679268271"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PriceUnits"><span class="annot"><a href="Amazonka.MediaConnect.Types.PriceUnits.html#PriceUnits"><span class="hs-identifier hs-var">PriceUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PriceUnits%27"><span class="annot"><a href="Amazonka.MediaConnect.Types.PriceUnits.html#PriceUnits%27"><span class="hs-identifier hs-var">PriceUnits'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPriceUnits"><span class="annot"><span class="annottext">PriceUnits -&gt; Text
+</span><a href="Amazonka.MediaConnect.Types.PriceUnits.html#fromPriceUnits"><span class="hs-identifier hs-var hs-var">fromPriceUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679268262"><span id="local-6989586621679268264"><span id="local-6989586621679268266"><span class="annot"><span class="annottext">Int -&gt; PriceUnits -&gt; ShowS
+[PriceUnits] -&gt; ShowS
+PriceUnits -&gt; String
+(Int -&gt; PriceUnits -&gt; ShowS)
+-&gt; (PriceUnits -&gt; String)
+-&gt; ([PriceUnits] -&gt; ShowS)
+-&gt; Show PriceUnits
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PriceUnits] -&gt; ShowS
+$cshowList :: [PriceUnits] -&gt; ShowS
+show :: PriceUnits -&gt; String
+$cshow :: PriceUnits -&gt; String
+showsPrec :: Int -&gt; PriceUnits -&gt; ShowS
+$cshowsPrec :: Int -&gt; PriceUnits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679268253"><span id="local-6989586621679268255"><span id="local-6989586621679268257"><span id="local-6989586621679268259"><span class="annot"><span class="annottext">ReadPrec [PriceUnits]
+ReadPrec PriceUnits
+Int -&gt; ReadS PriceUnits
+ReadS [PriceUnits]
+(Int -&gt; ReadS PriceUnits)
+-&gt; ReadS [PriceUnits]
+-&gt; ReadPrec PriceUnits
+-&gt; ReadPrec [PriceUnits]
+-&gt; Read PriceUnits
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PriceUnits]
+$creadListPrec :: ReadPrec [PriceUnits]
+readPrec :: ReadPrec PriceUnits
+$creadPrec :: ReadPrec PriceUnits
+readList :: ReadS [PriceUnits]
+$creadList :: ReadS [PriceUnits]
+readsPrec :: Int -&gt; ReadS PriceUnits
+$creadsPrec :: Int -&gt; ReadS PriceUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679268248"><span id="local-6989586621679268250"><span class="annot"><span class="annottext">PriceUnits -&gt; PriceUnits -&gt; Bool
+(PriceUnits -&gt; PriceUnits -&gt; Bool)
+-&gt; (PriceUnits -&gt; PriceUnits -&gt; Bool) -&gt; Eq PriceUnits
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PriceUnits -&gt; PriceUnits -&gt; Bool
+$c/= :: PriceUnits -&gt; PriceUnits -&gt; Bool
+== :: PriceUnits -&gt; PriceUnits -&gt; Bool
+$c== :: PriceUnits -&gt; PriceUnits -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679268232"><span id="local-6989586621679268234"><span id="local-6989586621679268236"><span id="local-6989586621679268238"><span id="local-6989586621679268240"><span id="local-6989586621679268242"><span id="local-6989586621679268244"><span class="annot"><span class="annottext">Eq PriceUnits
+Eq PriceUnits
+-&gt; (PriceUnits -&gt; PriceUnits -&gt; Ordering)
+-&gt; (PriceUnits -&gt; PriceUnits -&gt; Bool)
+-&gt; (PriceUnits -&gt; PriceUnits -&gt; Bool)
+-&gt; (PriceUnits -&gt; PriceUnits -&gt; Bool)
+-&gt; (PriceUnits -&gt; PriceUnits -&gt; Bool)
+-&gt; (PriceUnits -&gt; PriceUnits -&gt; PriceUnits)
+-&gt; (PriceUnits -&gt; PriceUnits -&gt; PriceUnits)
+-&gt; Ord PriceUnits
+PriceUnits -&gt; PriceUnits -&gt; Bool
+PriceUnits -&gt; PriceUnits -&gt; Ordering
+PriceUnits -&gt; PriceUnits -&gt; PriceUnits
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PriceUnits -&gt; PriceUnits -&gt; PriceUnits
+$cmin :: PriceUnits -&gt; PriceUnits -&gt; PriceUnits
+max :: PriceUnits -&gt; PriceUnits -&gt; PriceUnits
+$cmax :: PriceUnits -&gt; PriceUnits -&gt; PriceUnits
+&gt;= :: PriceUnits -&gt; PriceUnits -&gt; Bool
+$c&gt;= :: PriceUnits -&gt; PriceUnits -&gt; Bool
+&gt; :: PriceUnits -&gt; PriceUnits -&gt; Bool
+$c&gt; :: PriceUnits -&gt; PriceUnits -&gt; Bool
+&lt;= :: PriceUnits -&gt; PriceUnits -&gt; Bool
+$c&lt;= :: PriceUnits -&gt; PriceUnits -&gt; Bool
+&lt; :: PriceUnits -&gt; PriceUnits -&gt; Bool
+$c&lt; :: PriceUnits -&gt; PriceUnits -&gt; Bool
+compare :: PriceUnits -&gt; PriceUnits -&gt; Ordering
+$ccompare :: PriceUnits -&gt; PriceUnits -&gt; Ordering
+$cp1Ord :: Eq PriceUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PriceUnits -&gt; Rep PriceUnits x)
+-&gt; (forall x. Rep PriceUnits x -&gt; PriceUnits) -&gt; Generic PriceUnits
+forall x. Rep PriceUnits x -&gt; PriceUnits
+forall x. PriceUnits -&gt; Rep PriceUnits x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PriceUnits x -&gt; PriceUnits
+$cfrom :: forall x. PriceUnits -&gt; Rep PriceUnits x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679268224"><span id="local-6989586621679268226"><span class="annot"><span class="annottext">Int -&gt; PriceUnits -&gt; Int
+PriceUnits -&gt; Int
+(Int -&gt; PriceUnits -&gt; Int)
+-&gt; (PriceUnits -&gt; Int) -&gt; Hashable PriceUnits
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PriceUnits -&gt; Int
+$chash :: PriceUnits -&gt; Int
+hashWithSalt :: Int -&gt; PriceUnits -&gt; Int
+$chashWithSalt :: Int -&gt; PriceUnits -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679268221"><span class="annot"><span class="annottext">PriceUnits -&gt; ()
+(PriceUnits -&gt; ()) -&gt; NFData PriceUnits
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PriceUnits -&gt; ()
+$crnf :: PriceUnits -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679268218"><span class="annot"><span class="annottext">Text -&gt; Either String PriceUnits
+(Text -&gt; Either String PriceUnits) -&gt; FromText PriceUnits
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PriceUnits
+$cfromText :: Text -&gt; Either String PriceUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679268215"><span class="annot"><span class="annottext">PriceUnits -&gt; Text
+(PriceUnits -&gt; Text) -&gt; ToText PriceUnits
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PriceUnits -&gt; Text
+$ctoText :: PriceUnits -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679268212"><span class="annot"><span class="annottext">PriceUnits -&gt; ByteString
+(PriceUnits -&gt; ByteString) -&gt; ToByteString PriceUnits
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PriceUnits -&gt; ByteString
+$ctoBS :: PriceUnits -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679268209"><span class="annot"><span class="annottext">PriceUnits -&gt; ByteStringBuilder
+(PriceUnits -&gt; ByteStringBuilder) -&gt; ToLog PriceUnits
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PriceUnits -&gt; ByteStringBuilder
+$cbuild :: PriceUnits -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679268206"><span class="annot"><span class="annottext">HeaderName -&gt; PriceUnits -&gt; [Header]
+(HeaderName -&gt; PriceUnits -&gt; [Header]) -&gt; ToHeader PriceUnits
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PriceUnits -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PriceUnits -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679268203"><span class="annot"><span class="annottext">PriceUnits -&gt; QueryString
+(PriceUnits -&gt; QueryString) -&gt; ToQuery PriceUnits
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PriceUnits -&gt; QueryString
+$ctoQuery :: PriceUnits -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679268198"><span id="local-6989586621679268200"><span class="annot"><span class="annottext">Value -&gt; Parser [PriceUnits]
+Value -&gt; Parser PriceUnits
+(Value -&gt; Parser PriceUnits)
+-&gt; (Value -&gt; Parser [PriceUnits]) -&gt; FromJSON PriceUnits
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PriceUnits]
+$cparseJSONList :: Value -&gt; Parser [PriceUnits]
+parseJSON :: Value -&gt; Parser PriceUnits
+$cparseJSON :: Value -&gt; Parser PriceUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679268193"><span id="local-6989586621679268195"><span class="annot"><span class="annottext">FromJSONKeyFunction [PriceUnits]
+FromJSONKeyFunction PriceUnits
+FromJSONKeyFunction PriceUnits
+-&gt; FromJSONKeyFunction [PriceUnits] -&gt; FromJSONKey PriceUnits
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PriceUnits]
+$cfromJSONKeyList :: FromJSONKeyFunction [PriceUnits]
+fromJSONKey :: FromJSONKeyFunction PriceUnits
+$cfromJSONKey :: FromJSONKeyFunction PriceUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679268184"><span id="local-6989586621679268186"><span id="local-6989586621679268188"><span id="local-6989586621679268190"><span class="annot"><span class="annottext">[PriceUnits] -&gt; Encoding
+[PriceUnits] -&gt; Value
+PriceUnits -&gt; Encoding
+PriceUnits -&gt; Value
+(PriceUnits -&gt; Value)
+-&gt; (PriceUnits -&gt; Encoding)
+-&gt; ([PriceUnits] -&gt; Value)
+-&gt; ([PriceUnits] -&gt; Encoding)
+-&gt; ToJSON PriceUnits
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PriceUnits] -&gt; Encoding
+$ctoEncodingList :: [PriceUnits] -&gt; Encoding
+toJSONList :: [PriceUnits] -&gt; Value
+$ctoJSONList :: [PriceUnits] -&gt; Value
+toEncoding :: PriceUnits -&gt; Encoding
+$ctoEncoding :: PriceUnits -&gt; Encoding
+toJSON :: PriceUnits -&gt; Value
+$ctoJSON :: PriceUnits -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679268179"><span id="local-6989586621679268181"><span class="annot"><span class="annottext">ToJSONKeyFunction [PriceUnits]
+ToJSONKeyFunction PriceUnits
+ToJSONKeyFunction PriceUnits
+-&gt; ToJSONKeyFunction [PriceUnits] -&gt; ToJSONKey PriceUnits
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PriceUnits]
+$ctoJSONKeyList :: ToJSONKeyFunction [PriceUnits]
+toJSONKey :: ToJSONKeyFunction PriceUnits
+$ctoJSONKey :: ToJSONKeyFunction PriceUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679268176"><span class="annot"><span class="annottext">[Node] -&gt; Either String PriceUnits
+([Node] -&gt; Either String PriceUnits) -&gt; FromXML PriceUnits
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PriceUnits
+$cparseXML :: [Node] -&gt; Either String PriceUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679268173"><span class="annot"><span class="annottext">PriceUnits -&gt; XML
+(PriceUnits -&gt; XML) -&gt; ToXML PriceUnits
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PriceUnits -&gt; XML
+$ctoXML :: PriceUnits -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.PriceUnits.html#PriceUnits_HOURLY"><span class="hs-identifier hs-type">PriceUnits_HOURLY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.PriceUnits.html#PriceUnits"><span class="hs-identifier hs-type">PriceUnits</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPriceUnits_HOURLY"><span id="%24mPriceUnits_HOURLY"><span id="PriceUnits_HOURLY"><span class="annot"><span class="annottext">$bPriceUnits_HOURLY :: PriceUnits
+$mPriceUnits_HOURLY :: forall r. PriceUnits -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConnect.Types.PriceUnits.html#%24bPriceUnits_HOURLY"><span class="hs-identifier hs-var hs-var hs-var">PriceUnits_HOURLY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.PriceUnits.html#PriceUnits%27"><span class="hs-identifier hs-type">PriceUnits'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HOURLY&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.Types.PriceUnits.html#PriceUnits_HOURLY"><span class="hs-pragma hs-type">PriceUnits_HOURLY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.Types.PriceUnits.html#PriceUnits%27"><span class="hs-pragma hs-type">PriceUnits'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

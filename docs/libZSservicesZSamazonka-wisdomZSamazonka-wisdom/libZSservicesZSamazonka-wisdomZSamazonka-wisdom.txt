@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.Wisdom.Types.AppIntegrationsConfiguration
+module Amazonka.Wisdom.Types.AppIntegrationsConfiguration
 
 -- | Configuration information for Amazon AppIntegrations to automatically
 --   ingest content.
@@ -84,17 +84,17 @@ appIntegrationsConfiguration_appIntegrationArn :: Lens' AppIntegrationsConfigura
 --   Make sure to include additional field(s); these are indexed and used
 --   to source recommendations.
 appIntegrationsConfiguration_objectFields :: Lens' AppIntegrationsConfiguration (NonEmpty Text)
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
-instance GHC.Show.Show Network.AWS.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
-instance GHC.Read.Read Network.AWS.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
+instance GHC.Show.Show Amazonka.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
+instance GHC.Read.Read Amazonka.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.AppIntegrationsConfiguration.AppIntegrationsConfiguration
 
 
-module Network.AWS.Wisdom.Types.AssistantAssociationInputData
+module Amazonka.Wisdom.Types.AssistantAssociationInputData
 
 -- | The data that is input into Wisdom as a result of the assistant
 --   association.
@@ -122,16 +122,16 @@ newAssistantAssociationInputData :: AssistantAssociationInputData
 
 -- | The the identifier of the knowledge base.
 assistantAssociationInputData_knowledgeBaseId :: Lens' AssistantAssociationInputData (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.AssistantAssociationInputData.AssistantAssociationInputData
-instance GHC.Show.Show Network.AWS.Wisdom.Types.AssistantAssociationInputData.AssistantAssociationInputData
-instance GHC.Read.Read Network.AWS.Wisdom.Types.AssistantAssociationInputData.AssistantAssociationInputData
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.AssistantAssociationInputData.AssistantAssociationInputData
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.AssistantAssociationInputData.AssistantAssociationInputData
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.AssistantAssociationInputData.AssistantAssociationInputData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.AssistantAssociationInputData.AssistantAssociationInputData
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.AssistantAssociationInputData.AssistantAssociationInputData
+instance GHC.Show.Show Amazonka.Wisdom.Types.AssistantAssociationInputData.AssistantAssociationInputData
+instance GHC.Read.Read Amazonka.Wisdom.Types.AssistantAssociationInputData.AssistantAssociationInputData
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.AssistantAssociationInputData.AssistantAssociationInputData
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.AssistantAssociationInputData.AssistantAssociationInputData
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.AssistantAssociationInputData.AssistantAssociationInputData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.AssistantAssociationInputData.AssistantAssociationInputData
 
 
-module Network.AWS.Wisdom.Types.AssistantStatus
+module Amazonka.Wisdom.Types.AssistantStatus
 newtype AssistantStatus
 AssistantStatus' :: Text -> AssistantStatus
 [fromAssistantStatus] :: AssistantStatus -> Text
@@ -141,80 +141,80 @@ pattern AssistantStatus_CREATE_IN_PROGRESS :: AssistantStatus
 pattern AssistantStatus_DELETED :: AssistantStatus
 pattern AssistantStatus_DELETE_FAILED :: AssistantStatus
 pattern AssistantStatus_DELETE_IN_PROGRESS :: AssistantStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance GHC.Classes.Ord Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance GHC.Read.Read Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
-instance GHC.Show.Show Network.AWS.Wisdom.Types.AssistantStatus.AssistantStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance Amazonka.Data.Text.ToText Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance Amazonka.Data.Text.FromText Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance GHC.Classes.Ord Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance GHC.Read.Read Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
+instance GHC.Show.Show Amazonka.Wisdom.Types.AssistantStatus.AssistantStatus
 
 
-module Network.AWS.Wisdom.Types.AssistantType
+module Amazonka.Wisdom.Types.AssistantType
 newtype AssistantType
 AssistantType' :: Text -> AssistantType
 [fromAssistantType] :: AssistantType -> Text
 pattern AssistantType_AGENT :: AssistantType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance Network.AWS.Data.Text.ToText Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance Network.AWS.Data.Text.FromText Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance GHC.Classes.Ord Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance GHC.Read.Read Network.AWS.Wisdom.Types.AssistantType.AssistantType
-instance GHC.Show.Show Network.AWS.Wisdom.Types.AssistantType.AssistantType
+instance Amazonka.Data.XML.ToXML Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance Amazonka.Data.XML.FromXML Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance Amazonka.Data.Log.ToLog Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance Amazonka.Data.Text.ToText Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance Amazonka.Data.Text.FromText Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance GHC.Classes.Ord Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance GHC.Read.Read Amazonka.Wisdom.Types.AssistantType.AssistantType
+instance GHC.Show.Show Amazonka.Wisdom.Types.AssistantType.AssistantType
 
 
-module Network.AWS.Wisdom.Types.AssociationType
+module Amazonka.Wisdom.Types.AssociationType
 newtype AssociationType
 AssociationType' :: Text -> AssociationType
 [fromAssociationType] :: AssociationType -> Text
 pattern AssociationType_KNOWLEDGE_BASE :: AssociationType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance Network.AWS.Data.Text.ToText Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance Network.AWS.Data.Text.FromText Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance GHC.Classes.Ord Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance GHC.Read.Read Network.AWS.Wisdom.Types.AssociationType.AssociationType
-instance GHC.Show.Show Network.AWS.Wisdom.Types.AssociationType.AssociationType
+instance Amazonka.Data.XML.ToXML Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance Amazonka.Data.XML.FromXML Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance Amazonka.Data.Log.ToLog Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance Amazonka.Data.Text.ToText Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance Amazonka.Data.Text.FromText Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance GHC.Classes.Ord Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance GHC.Read.Read Amazonka.Wisdom.Types.AssociationType.AssociationType
+instance GHC.Show.Show Amazonka.Wisdom.Types.AssociationType.AssociationType
 
 
-module Network.AWS.Wisdom.Types.ContentReference
+module Amazonka.Wisdom.Types.ContentReference
 
 -- | Reference information about the content.
 --   
@@ -270,16 +270,16 @@ contentReference_knowledgeBaseArn :: Lens' ContentReference (Maybe Text)
 
 -- | The the identifier of the knowledge base.
 contentReference_knowledgeBaseId :: Lens' ContentReference (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.ContentReference.ContentReference
-instance GHC.Show.Show Network.AWS.Wisdom.Types.ContentReference.ContentReference
-instance GHC.Read.Read Network.AWS.Wisdom.Types.ContentReference.ContentReference
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.ContentReference.ContentReference
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.ContentReference.ContentReference
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.ContentReference.ContentReference
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.ContentReference.ContentReference
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.ContentReference.ContentReference
+instance GHC.Show.Show Amazonka.Wisdom.Types.ContentReference.ContentReference
+instance GHC.Read.Read Amazonka.Wisdom.Types.ContentReference.ContentReference
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.ContentReference.ContentReference
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.ContentReference.ContentReference
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.ContentReference.ContentReference
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.ContentReference.ContentReference
 
 
-module Network.AWS.Wisdom.Types.ContentStatus
+module Amazonka.Wisdom.Types.ContentStatus
 newtype ContentStatus
 ContentStatus' :: Text -> ContentStatus
 [fromContentStatus] :: ContentStatus -> Text
@@ -290,28 +290,28 @@ pattern ContentStatus_DELETED :: ContentStatus
 pattern ContentStatus_DELETE_FAILED :: ContentStatus
 pattern ContentStatus_DELETE_IN_PROGRESS :: ContentStatus
 pattern ContentStatus_UPDATE_FAILED :: ContentStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance GHC.Classes.Ord Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance GHC.Read.Read Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
-instance GHC.Show.Show Network.AWS.Wisdom.Types.ContentStatus.ContentStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance Amazonka.Data.Text.ToText Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance Amazonka.Data.Text.FromText Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance GHC.Classes.Ord Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance GHC.Read.Read Amazonka.Wisdom.Types.ContentStatus.ContentStatus
+instance GHC.Show.Show Amazonka.Wisdom.Types.ContentStatus.ContentStatus
 
 
-module Network.AWS.Wisdom.Types.ContentData
+module Amazonka.Wisdom.Types.ContentData
 
 -- | Information about the content.
 --   
@@ -464,15 +464,15 @@ contentData_url :: Lens' ContentData Text
 
 -- | The expiration time of the URL as an epoch timestamp.
 contentData_urlExpiry :: Lens' ContentData UTCTime
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.ContentData.ContentData
-instance GHC.Show.Show Network.AWS.Wisdom.Types.ContentData.ContentData
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.ContentData.ContentData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.ContentData.ContentData
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.ContentData.ContentData
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.ContentData.ContentData
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.ContentData.ContentData
+instance GHC.Show.Show Amazonka.Wisdom.Types.ContentData.ContentData
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.ContentData.ContentData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.ContentData.ContentData
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.ContentData.ContentData
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.ContentData.ContentData
 
 
-module Network.AWS.Wisdom.Types.ContentSummary
+module Amazonka.Wisdom.Types.ContentSummary
 
 -- | Summary information about the content.
 --   
@@ -601,68 +601,68 @@ contentSummary_status :: Lens' ContentSummary ContentStatus
 
 -- | The title of the content.
 contentSummary_title :: Lens' ContentSummary Text
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.ContentSummary.ContentSummary
-instance GHC.Show.Show Network.AWS.Wisdom.Types.ContentSummary.ContentSummary
-instance GHC.Read.Read Network.AWS.Wisdom.Types.ContentSummary.ContentSummary
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.ContentSummary.ContentSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.ContentSummary.ContentSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.ContentSummary.ContentSummary
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.ContentSummary.ContentSummary
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.ContentSummary.ContentSummary
+instance GHC.Show.Show Amazonka.Wisdom.Types.ContentSummary.ContentSummary
+instance GHC.Read.Read Amazonka.Wisdom.Types.ContentSummary.ContentSummary
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.ContentSummary.ContentSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.ContentSummary.ContentSummary
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.ContentSummary.ContentSummary
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.ContentSummary.ContentSummary
 
 
-module Network.AWS.Wisdom.Types.FilterField
+module Amazonka.Wisdom.Types.FilterField
 newtype FilterField
 FilterField' :: Text -> FilterField
 [fromFilterField] :: FilterField -> Text
 pattern FilterField_NAME :: FilterField
-instance Network.AWS.Data.XML.ToXML Network.AWS.Wisdom.Types.FilterField.FilterField
-instance Network.AWS.Data.XML.FromXML Network.AWS.Wisdom.Types.FilterField.FilterField
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Wisdom.Types.FilterField.FilterField
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.FilterField.FilterField
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Wisdom.Types.FilterField.FilterField
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.FilterField.FilterField
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.Types.FilterField.FilterField
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Wisdom.Types.FilterField.FilterField
-instance Network.AWS.Data.Log.ToLog Network.AWS.Wisdom.Types.FilterField.FilterField
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Wisdom.Types.FilterField.FilterField
-instance Network.AWS.Data.Text.ToText Network.AWS.Wisdom.Types.FilterField.FilterField
-instance Network.AWS.Data.Text.FromText Network.AWS.Wisdom.Types.FilterField.FilterField
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.FilterField.FilterField
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.FilterField.FilterField
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.FilterField.FilterField
-instance GHC.Classes.Ord Network.AWS.Wisdom.Types.FilterField.FilterField
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.FilterField.FilterField
-instance GHC.Read.Read Network.AWS.Wisdom.Types.FilterField.FilterField
-instance GHC.Show.Show Network.AWS.Wisdom.Types.FilterField.FilterField
+instance Amazonka.Data.XML.ToXML Amazonka.Wisdom.Types.FilterField.FilterField
+instance Amazonka.Data.XML.FromXML Amazonka.Wisdom.Types.FilterField.FilterField
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Wisdom.Types.FilterField.FilterField
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.FilterField.FilterField
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Wisdom.Types.FilterField.FilterField
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.FilterField.FilterField
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.Types.FilterField.FilterField
+instance Amazonka.Data.Headers.ToHeader Amazonka.Wisdom.Types.FilterField.FilterField
+instance Amazonka.Data.Log.ToLog Amazonka.Wisdom.Types.FilterField.FilterField
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Wisdom.Types.FilterField.FilterField
+instance Amazonka.Data.Text.ToText Amazonka.Wisdom.Types.FilterField.FilterField
+instance Amazonka.Data.Text.FromText Amazonka.Wisdom.Types.FilterField.FilterField
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.FilterField.FilterField
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.FilterField.FilterField
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.FilterField.FilterField
+instance GHC.Classes.Ord Amazonka.Wisdom.Types.FilterField.FilterField
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.FilterField.FilterField
+instance GHC.Read.Read Amazonka.Wisdom.Types.FilterField.FilterField
+instance GHC.Show.Show Amazonka.Wisdom.Types.FilterField.FilterField
 
 
-module Network.AWS.Wisdom.Types.FilterOperator
+module Amazonka.Wisdom.Types.FilterOperator
 newtype FilterOperator
 FilterOperator' :: Text -> FilterOperator
 [fromFilterOperator] :: FilterOperator -> Text
 pattern FilterOperator_EQUALS :: FilterOperator
-instance Network.AWS.Data.XML.ToXML Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance Network.AWS.Data.XML.FromXML Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance Network.AWS.Data.Log.ToLog Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance Network.AWS.Data.Text.ToText Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance Network.AWS.Data.Text.FromText Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance GHC.Classes.Ord Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance GHC.Read.Read Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
-instance GHC.Show.Show Network.AWS.Wisdom.Types.FilterOperator.FilterOperator
+instance Amazonka.Data.XML.ToXML Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance Amazonka.Data.XML.FromXML Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance Amazonka.Data.Headers.ToHeader Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance Amazonka.Data.Log.ToLog Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance Amazonka.Data.Text.ToText Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance Amazonka.Data.Text.FromText Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance GHC.Classes.Ord Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance GHC.Read.Read Amazonka.Wisdom.Types.FilterOperator.FilterOperator
+instance GHC.Show.Show Amazonka.Wisdom.Types.FilterOperator.FilterOperator
 
 
-module Network.AWS.Wisdom.Types.Filter
+module Amazonka.Wisdom.Types.Filter
 
 -- | A search filter.
 --   
@@ -707,16 +707,16 @@ filter_operator :: Lens' Filter FilterOperator
 
 -- | The desired field value on which to filter.
 filter_value :: Lens' Filter Text
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.Filter.Filter
-instance GHC.Show.Show Network.AWS.Wisdom.Types.Filter.Filter
-instance GHC.Read.Read Network.AWS.Wisdom.Types.Filter.Filter
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.Filter.Filter
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.Filter.Filter
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.Filter.Filter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.Filter.Filter
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.Filter.Filter
+instance GHC.Show.Show Amazonka.Wisdom.Types.Filter.Filter
+instance GHC.Read.Read Amazonka.Wisdom.Types.Filter.Filter
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.Filter.Filter
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.Filter.Filter
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.Filter.Filter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.Filter.Filter
 
 
-module Network.AWS.Wisdom.Types.Highlight
+module Amazonka.Wisdom.Types.Highlight
 
 -- | Offset specification to describe highlighting of document excerpts for
 --   rendering search results and recommendations.
@@ -753,16 +753,16 @@ highlight_endOffsetExclusive :: Lens' Highlight (Maybe Int)
 
 -- | The offset for the start of the highlight.
 highlight_beginOffsetInclusive :: Lens' Highlight (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.Highlight.Highlight
-instance GHC.Show.Show Network.AWS.Wisdom.Types.Highlight.Highlight
-instance GHC.Read.Read Network.AWS.Wisdom.Types.Highlight.Highlight
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.Highlight.Highlight
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.Highlight.Highlight
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.Highlight.Highlight
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.Highlight.Highlight
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.Highlight.Highlight
+instance GHC.Show.Show Amazonka.Wisdom.Types.Highlight.Highlight
+instance GHC.Read.Read Amazonka.Wisdom.Types.Highlight.Highlight
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.Highlight.Highlight
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.Highlight.Highlight
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.Highlight.Highlight
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.Highlight.Highlight
 
 
-module Network.AWS.Wisdom.Types.DocumentText
+module Amazonka.Wisdom.Types.DocumentText
 
 -- | The text of the document.
 --   
@@ -797,15 +797,15 @@ documentText_text :: Lens' DocumentText (Maybe Text)
 
 -- | Highlights in the document text.
 documentText_highlights :: Lens' DocumentText (Maybe [Highlight])
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.DocumentText.DocumentText
-instance GHC.Show.Show Network.AWS.Wisdom.Types.DocumentText.DocumentText
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.DocumentText.DocumentText
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.DocumentText.DocumentText
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.DocumentText.DocumentText
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.DocumentText.DocumentText
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.DocumentText.DocumentText
+instance GHC.Show.Show Amazonka.Wisdom.Types.DocumentText.DocumentText
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.DocumentText.DocumentText
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.DocumentText.DocumentText
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.DocumentText.DocumentText
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.DocumentText.DocumentText
 
 
-module Network.AWS.Wisdom.Types.Document
+module Amazonka.Wisdom.Types.Document
 
 -- | The document.
 --   
@@ -849,15 +849,15 @@ document_title :: Lens' Document (Maybe DocumentText)
 
 -- | A reference to the content resource.
 document_contentReference :: Lens' Document ContentReference
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.Document.Document
-instance GHC.Show.Show Network.AWS.Wisdom.Types.Document.Document
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.Document.Document
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.Document.Document
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.Document.Document
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.Document.Document
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.Document.Document
+instance GHC.Show.Show Amazonka.Wisdom.Types.Document.Document
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.Document.Document
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.Document.Document
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.Document.Document
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.Document.Document
 
 
-module Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData
+module Amazonka.Wisdom.Types.KnowledgeBaseAssociationData
 
 -- | Association information about the knowledge base.
 --   
@@ -894,16 +894,16 @@ knowledgeBaseAssociationData_knowledgeBaseArn :: Lens' KnowledgeBaseAssociationD
 
 -- | The the identifier of the knowledge base.
 knowledgeBaseAssociationData_knowledgeBaseId :: Lens' KnowledgeBaseAssociationData (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData.KnowledgeBaseAssociationData
-instance GHC.Show.Show Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData.KnowledgeBaseAssociationData
-instance GHC.Read.Read Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData.KnowledgeBaseAssociationData
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData.KnowledgeBaseAssociationData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData.KnowledgeBaseAssociationData
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData.KnowledgeBaseAssociationData
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData.KnowledgeBaseAssociationData
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.KnowledgeBaseAssociationData.KnowledgeBaseAssociationData
+instance GHC.Show.Show Amazonka.Wisdom.Types.KnowledgeBaseAssociationData.KnowledgeBaseAssociationData
+instance GHC.Read.Read Amazonka.Wisdom.Types.KnowledgeBaseAssociationData.KnowledgeBaseAssociationData
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.KnowledgeBaseAssociationData.KnowledgeBaseAssociationData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.KnowledgeBaseAssociationData.KnowledgeBaseAssociationData
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.KnowledgeBaseAssociationData.KnowledgeBaseAssociationData
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.KnowledgeBaseAssociationData.KnowledgeBaseAssociationData
 
 
-module Network.AWS.Wisdom.Types.AssistantAssociationOutputData
+module Amazonka.Wisdom.Types.AssistantAssociationOutputData
 
 -- | The data that is output as a result of the assistant association.
 --   
@@ -931,16 +931,16 @@ newAssistantAssociationOutputData :: AssistantAssociationOutputData
 
 -- | The knowledge base where output data is sent.
 assistantAssociationOutputData_knowledgeBaseAssociation :: Lens' AssistantAssociationOutputData (Maybe KnowledgeBaseAssociationData)
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.AssistantAssociationOutputData.AssistantAssociationOutputData
-instance GHC.Show.Show Network.AWS.Wisdom.Types.AssistantAssociationOutputData.AssistantAssociationOutputData
-instance GHC.Read.Read Network.AWS.Wisdom.Types.AssistantAssociationOutputData.AssistantAssociationOutputData
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.AssistantAssociationOutputData.AssistantAssociationOutputData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.AssistantAssociationOutputData.AssistantAssociationOutputData
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.AssistantAssociationOutputData.AssistantAssociationOutputData
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.AssistantAssociationOutputData.AssistantAssociationOutputData
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.AssistantAssociationOutputData.AssistantAssociationOutputData
+instance GHC.Show.Show Amazonka.Wisdom.Types.AssistantAssociationOutputData.AssistantAssociationOutputData
+instance GHC.Read.Read Amazonka.Wisdom.Types.AssistantAssociationOutputData.AssistantAssociationOutputData
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.AssistantAssociationOutputData.AssistantAssociationOutputData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.AssistantAssociationOutputData.AssistantAssociationOutputData
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.AssistantAssociationOutputData.AssistantAssociationOutputData
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.AssistantAssociationOutputData.AssistantAssociationOutputData
 
 
-module Network.AWS.Wisdom.Types.AssistantAssociationSummary
+module Amazonka.Wisdom.Types.AssistantAssociationSummary
 
 -- | Summary information about the assistant association.
 --   
@@ -1027,16 +1027,16 @@ assistantAssociationSummary_associationData :: Lens' AssistantAssociationSummary
 
 -- | The type of association.
 assistantAssociationSummary_associationType :: Lens' AssistantAssociationSummary AssociationType
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.AssistantAssociationSummary.AssistantAssociationSummary
-instance GHC.Show.Show Network.AWS.Wisdom.Types.AssistantAssociationSummary.AssistantAssociationSummary
-instance GHC.Read.Read Network.AWS.Wisdom.Types.AssistantAssociationSummary.AssistantAssociationSummary
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.AssistantAssociationSummary.AssistantAssociationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.AssistantAssociationSummary.AssistantAssociationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.AssistantAssociationSummary.AssistantAssociationSummary
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.AssistantAssociationSummary.AssistantAssociationSummary
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.AssistantAssociationSummary.AssistantAssociationSummary
+instance GHC.Show.Show Amazonka.Wisdom.Types.AssistantAssociationSummary.AssistantAssociationSummary
+instance GHC.Read.Read Amazonka.Wisdom.Types.AssistantAssociationSummary.AssistantAssociationSummary
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.AssistantAssociationSummary.AssistantAssociationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.AssistantAssociationSummary.AssistantAssociationSummary
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.AssistantAssociationSummary.AssistantAssociationSummary
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.AssistantAssociationSummary.AssistantAssociationSummary
 
 
-module Network.AWS.Wisdom.Types.AssistantAssociationData
+module Amazonka.Wisdom.Types.AssistantAssociationData
 
 -- | Information about the assistant association.
 --   
@@ -1125,16 +1125,16 @@ assistantAssociationData_associationData :: Lens' AssistantAssociationData Assis
 
 -- | The type of association.
 assistantAssociationData_associationType :: Lens' AssistantAssociationData AssociationType
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.AssistantAssociationData.AssistantAssociationData
-instance GHC.Show.Show Network.AWS.Wisdom.Types.AssistantAssociationData.AssistantAssociationData
-instance GHC.Read.Read Network.AWS.Wisdom.Types.AssistantAssociationData.AssistantAssociationData
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.AssistantAssociationData.AssistantAssociationData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.AssistantAssociationData.AssistantAssociationData
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.AssistantAssociationData.AssistantAssociationData
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.AssistantAssociationData.AssistantAssociationData
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.AssistantAssociationData.AssistantAssociationData
+instance GHC.Show.Show Amazonka.Wisdom.Types.AssistantAssociationData.AssistantAssociationData
+instance GHC.Read.Read Amazonka.Wisdom.Types.AssistantAssociationData.AssistantAssociationData
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.AssistantAssociationData.AssistantAssociationData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.AssistantAssociationData.AssistantAssociationData
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.AssistantAssociationData.AssistantAssociationData
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.AssistantAssociationData.AssistantAssociationData
 
 
-module Network.AWS.Wisdom.Types.KnowledgeBaseStatus
+module Amazonka.Wisdom.Types.KnowledgeBaseStatus
 newtype KnowledgeBaseStatus
 KnowledgeBaseStatus' :: Text -> KnowledgeBaseStatus
 [fromKnowledgeBaseStatus] :: KnowledgeBaseStatus -> Text
@@ -1144,55 +1144,55 @@ pattern KnowledgeBaseStatus_CREATE_IN_PROGRESS :: KnowledgeBaseStatus
 pattern KnowledgeBaseStatus_DELETED :: KnowledgeBaseStatus
 pattern KnowledgeBaseStatus_DELETE_FAILED :: KnowledgeBaseStatus
 pattern KnowledgeBaseStatus_DELETE_IN_PROGRESS :: KnowledgeBaseStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance GHC.Classes.Ord Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance GHC.Read.Read Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
-instance GHC.Show.Show Network.AWS.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance Amazonka.Data.Text.ToText Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance Amazonka.Data.Text.FromText Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance GHC.Classes.Ord Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance GHC.Read.Read Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
+instance GHC.Show.Show Amazonka.Wisdom.Types.KnowledgeBaseStatus.KnowledgeBaseStatus
 
 
-module Network.AWS.Wisdom.Types.KnowledgeBaseType
+module Amazonka.Wisdom.Types.KnowledgeBaseType
 newtype KnowledgeBaseType
 KnowledgeBaseType' :: Text -> KnowledgeBaseType
 [fromKnowledgeBaseType] :: KnowledgeBaseType -> Text
 pattern KnowledgeBaseType_CUSTOM :: KnowledgeBaseType
 pattern KnowledgeBaseType_EXTERNAL :: KnowledgeBaseType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance Network.AWS.Data.Text.ToText Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance Network.AWS.Data.Text.FromText Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance GHC.Classes.Ord Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance GHC.Read.Read Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
-instance GHC.Show.Show Network.AWS.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance Amazonka.Data.XML.ToXML Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance Amazonka.Data.XML.FromXML Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance Amazonka.Data.Log.ToLog Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance Amazonka.Data.Text.ToText Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance Amazonka.Data.Text.FromText Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance GHC.Classes.Ord Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance GHC.Read.Read Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
+instance GHC.Show.Show Amazonka.Wisdom.Types.KnowledgeBaseType.KnowledgeBaseType
 
 
-module Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError
+module Amazonka.Wisdom.Types.NotifyRecommendationsReceivedError
 
 -- | An error occurred when creating a recommendation.
 --   
@@ -1230,44 +1230,44 @@ notifyRecommendationsReceivedError_recommendationId :: Lens' NotifyRecommendatio
 
 -- | A recommendation is causing an error.
 notifyRecommendationsReceivedError_message :: Lens' NotifyRecommendationsReceivedError (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError.NotifyRecommendationsReceivedError
-instance GHC.Show.Show Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError.NotifyRecommendationsReceivedError
-instance GHC.Read.Read Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError.NotifyRecommendationsReceivedError
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError.NotifyRecommendationsReceivedError
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError.NotifyRecommendationsReceivedError
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError.NotifyRecommendationsReceivedError
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError.NotifyRecommendationsReceivedError
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.NotifyRecommendationsReceivedError.NotifyRecommendationsReceivedError
+instance GHC.Show.Show Amazonka.Wisdom.Types.NotifyRecommendationsReceivedError.NotifyRecommendationsReceivedError
+instance GHC.Read.Read Amazonka.Wisdom.Types.NotifyRecommendationsReceivedError.NotifyRecommendationsReceivedError
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.NotifyRecommendationsReceivedError.NotifyRecommendationsReceivedError
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.NotifyRecommendationsReceivedError.NotifyRecommendationsReceivedError
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.NotifyRecommendationsReceivedError.NotifyRecommendationsReceivedError
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.NotifyRecommendationsReceivedError.NotifyRecommendationsReceivedError
 
 
-module Network.AWS.Wisdom.Types.RelevanceLevel
+module Amazonka.Wisdom.Types.RelevanceLevel
 newtype RelevanceLevel
 RelevanceLevel' :: Text -> RelevanceLevel
 [fromRelevanceLevel] :: RelevanceLevel -> Text
 pattern RelevanceLevel_HIGH :: RelevanceLevel
 pattern RelevanceLevel_LOW :: RelevanceLevel
 pattern RelevanceLevel_MEDIUM :: RelevanceLevel
-instance Network.AWS.Data.XML.ToXML Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance Network.AWS.Data.XML.FromXML Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance Network.AWS.Data.Log.ToLog Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance Network.AWS.Data.Text.ToText Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance Network.AWS.Data.Text.FromText Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance GHC.Classes.Ord Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance GHC.Read.Read Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
-instance GHC.Show.Show Network.AWS.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance Amazonka.Data.XML.ToXML Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance Amazonka.Data.XML.FromXML Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance Amazonka.Data.Headers.ToHeader Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance Amazonka.Data.Log.ToLog Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance Amazonka.Data.Text.ToText Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance Amazonka.Data.Text.FromText Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance GHC.Classes.Ord Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance GHC.Read.Read Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
+instance GHC.Show.Show Amazonka.Wisdom.Types.RelevanceLevel.RelevanceLevel
 
 
-module Network.AWS.Wisdom.Types.RecommendationData
+module Amazonka.Wisdom.Types.RecommendationData
 
 -- | Information about the recommendation.
 --   
@@ -1323,15 +1323,15 @@ recommendationData_document :: Lens' RecommendationData Document
 
 -- | The identifier of the recommendation.
 recommendationData_recommendationId :: Lens' RecommendationData Text
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.RecommendationData.RecommendationData
-instance GHC.Show.Show Network.AWS.Wisdom.Types.RecommendationData.RecommendationData
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.RecommendationData.RecommendationData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.RecommendationData.RecommendationData
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.RecommendationData.RecommendationData
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.RecommendationData.RecommendationData
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.RecommendationData.RecommendationData
+instance GHC.Show.Show Amazonka.Wisdom.Types.RecommendationData.RecommendationData
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.RecommendationData.RecommendationData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.RecommendationData.RecommendationData
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.RecommendationData.RecommendationData
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.RecommendationData.RecommendationData
 
 
-module Network.AWS.Wisdom.Types.RenderingConfiguration
+module Amazonka.Wisdom.Types.RenderingConfiguration
 
 -- | Information about how to render the content.
 --   
@@ -1405,17 +1405,17 @@ newRenderingConfiguration :: RenderingConfiguration
 --   &lt;p&gt;The variable is replaced with the actual value for a piece of content when calling &lt;a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html"&gt;GetContent&lt;/a&gt;. &lt;/p&gt;
 --   </pre>
 renderingConfiguration_templateUri :: Lens' RenderingConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
-instance GHC.Show.Show Network.AWS.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
-instance GHC.Read.Read Network.AWS.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
+instance GHC.Show.Show Amazonka.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
+instance GHC.Read.Read Amazonka.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.RenderingConfiguration.RenderingConfiguration
 
 
-module Network.AWS.Wisdom.Types.ResultData
+module Amazonka.Wisdom.Types.ResultData
 
 -- | Information about the result.
 --   
@@ -1458,15 +1458,15 @@ resultData_document :: Lens' ResultData Document
 
 -- | The identifier of the result data.
 resultData_resultId :: Lens' ResultData Text
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.ResultData.ResultData
-instance GHC.Show.Show Network.AWS.Wisdom.Types.ResultData.ResultData
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.ResultData.ResultData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.ResultData.ResultData
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.ResultData.ResultData
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.ResultData.ResultData
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.ResultData.ResultData
+instance GHC.Show.Show Amazonka.Wisdom.Types.ResultData.ResultData
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.ResultData.ResultData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.ResultData.ResultData
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.ResultData.ResultData
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.ResultData.ResultData
 
 
-module Network.AWS.Wisdom.Types.SearchExpression
+module Amazonka.Wisdom.Types.SearchExpression
 
 -- | The search expression.
 --   
@@ -1492,16 +1492,16 @@ newSearchExpression :: SearchExpression
 
 -- | The search expression filters.
 searchExpression_filters :: Lens' SearchExpression [Filter]
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.SearchExpression.SearchExpression
-instance GHC.Show.Show Network.AWS.Wisdom.Types.SearchExpression.SearchExpression
-instance GHC.Read.Read Network.AWS.Wisdom.Types.SearchExpression.SearchExpression
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.SearchExpression.SearchExpression
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.SearchExpression.SearchExpression
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.SearchExpression.SearchExpression
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.SearchExpression.SearchExpression
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.SearchExpression.SearchExpression
+instance GHC.Show.Show Amazonka.Wisdom.Types.SearchExpression.SearchExpression
+instance GHC.Read.Read Amazonka.Wisdom.Types.SearchExpression.SearchExpression
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.SearchExpression.SearchExpression
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.SearchExpression.SearchExpression
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.SearchExpression.SearchExpression
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.SearchExpression.SearchExpression
 
 
-module Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration
+module Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration
 
 -- | The KMS key used for encryption.
 --   
@@ -1534,17 +1534,17 @@ newServerSideEncryptionConfiguration :: ServerSideEncryptionConfiguration
 --   identifiers (KeyId)</a> in the <i>AWS Key Management Service Developer
 --   Guide</i>.
 serverSideEncryptionConfiguration_kmsKeyId :: Lens' ServerSideEncryptionConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
-instance GHC.Show.Show Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
-instance GHC.Read.Read Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance GHC.Show.Show Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance GHC.Read.Read Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration.ServerSideEncryptionConfiguration
 
 
-module Network.AWS.Wisdom.Types.AssistantSummary
+module Amazonka.Wisdom.Types.AssistantSummary
 
 -- | Summary information about the assistant.
 --   
@@ -1637,16 +1637,16 @@ assistantSummary_status :: Lens' AssistantSummary AssistantStatus
 
 -- | The type of the assistant.
 assistantSummary_type :: Lens' AssistantSummary AssistantType
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.AssistantSummary.AssistantSummary
-instance GHC.Show.Show Network.AWS.Wisdom.Types.AssistantSummary.AssistantSummary
-instance GHC.Read.Read Network.AWS.Wisdom.Types.AssistantSummary.AssistantSummary
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.AssistantSummary.AssistantSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.AssistantSummary.AssistantSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.AssistantSummary.AssistantSummary
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.AssistantSummary.AssistantSummary
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.AssistantSummary.AssistantSummary
+instance GHC.Show.Show Amazonka.Wisdom.Types.AssistantSummary.AssistantSummary
+instance GHC.Read.Read Amazonka.Wisdom.Types.AssistantSummary.AssistantSummary
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.AssistantSummary.AssistantSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.AssistantSummary.AssistantSummary
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.AssistantSummary.AssistantSummary
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.AssistantSummary.AssistantSummary
 
 
-module Network.AWS.Wisdom.Types.AssistantData
+module Amazonka.Wisdom.Types.AssistantData
 
 -- | The assistant data.
 --   
@@ -1737,16 +1737,16 @@ assistantData_status :: Lens' AssistantData AssistantStatus
 
 -- | The type of assistant.
 assistantData_type :: Lens' AssistantData AssistantType
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.AssistantData.AssistantData
-instance GHC.Show.Show Network.AWS.Wisdom.Types.AssistantData.AssistantData
-instance GHC.Read.Read Network.AWS.Wisdom.Types.AssistantData.AssistantData
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.AssistantData.AssistantData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.AssistantData.AssistantData
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.AssistantData.AssistantData
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.AssistantData.AssistantData
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.AssistantData.AssistantData
+instance GHC.Show.Show Amazonka.Wisdom.Types.AssistantData.AssistantData
+instance GHC.Read.Read Amazonka.Wisdom.Types.AssistantData.AssistantData
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.AssistantData.AssistantData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.AssistantData.AssistantData
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.AssistantData.AssistantData
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.AssistantData.AssistantData
 
 
-module Network.AWS.Wisdom.Types.SessionData
+module Amazonka.Wisdom.Types.SessionData
 
 -- | Information about the session.
 --   
@@ -1807,16 +1807,16 @@ sessionData_sessionArn :: Lens' SessionData Text
 
 -- | The identifier of the session.
 sessionData_sessionId :: Lens' SessionData Text
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.SessionData.SessionData
-instance GHC.Show.Show Network.AWS.Wisdom.Types.SessionData.SessionData
-instance GHC.Read.Read Network.AWS.Wisdom.Types.SessionData.SessionData
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.SessionData.SessionData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.SessionData.SessionData
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.SessionData.SessionData
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.SessionData.SessionData
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.SessionData.SessionData
+instance GHC.Show.Show Amazonka.Wisdom.Types.SessionData.SessionData
+instance GHC.Read.Read Amazonka.Wisdom.Types.SessionData.SessionData
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.SessionData.SessionData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.SessionData.SessionData
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.SessionData.SessionData
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.SessionData.SessionData
 
 
-module Network.AWS.Wisdom.Types.SessionSummary
+module Amazonka.Wisdom.Types.SessionSummary
 
 -- | Summary information about the session.
 --   
@@ -1872,16 +1872,16 @@ sessionSummary_sessionArn :: Lens' SessionSummary Text
 
 -- | The identifier of the session.
 sessionSummary_sessionId :: Lens' SessionSummary Text
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.SessionSummary.SessionSummary
-instance GHC.Show.Show Network.AWS.Wisdom.Types.SessionSummary.SessionSummary
-instance GHC.Read.Read Network.AWS.Wisdom.Types.SessionSummary.SessionSummary
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.SessionSummary.SessionSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.SessionSummary.SessionSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.SessionSummary.SessionSummary
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.SessionSummary.SessionSummary
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.SessionSummary.SessionSummary
+instance GHC.Show.Show Amazonka.Wisdom.Types.SessionSummary.SessionSummary
+instance GHC.Read.Read Amazonka.Wisdom.Types.SessionSummary.SessionSummary
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.SessionSummary.SessionSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.SessionSummary.SessionSummary
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.SessionSummary.SessionSummary
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.SessionSummary.SessionSummary
 
 
-module Network.AWS.Wisdom.Types.SourceConfiguration
+module Amazonka.Wisdom.Types.SourceConfiguration
 
 -- | Configuration information about the external data source.
 --   
@@ -1910,17 +1910,17 @@ newSourceConfiguration :: SourceConfiguration
 -- | Configuration information for Amazon AppIntegrations to automatically
 --   ingest content.
 sourceConfiguration_appIntegrations :: Lens' SourceConfiguration (Maybe AppIntegrationsConfiguration)
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.SourceConfiguration.SourceConfiguration
-instance GHC.Show.Show Network.AWS.Wisdom.Types.SourceConfiguration.SourceConfiguration
-instance GHC.Read.Read Network.AWS.Wisdom.Types.SourceConfiguration.SourceConfiguration
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.SourceConfiguration.SourceConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.SourceConfiguration.SourceConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.SourceConfiguration.SourceConfiguration
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.SourceConfiguration.SourceConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.Types.SourceConfiguration.SourceConfiguration
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.SourceConfiguration.SourceConfiguration
+instance GHC.Show.Show Amazonka.Wisdom.Types.SourceConfiguration.SourceConfiguration
+instance GHC.Read.Read Amazonka.Wisdom.Types.SourceConfiguration.SourceConfiguration
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.SourceConfiguration.SourceConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.SourceConfiguration.SourceConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.SourceConfiguration.SourceConfiguration
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.SourceConfiguration.SourceConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.Types.SourceConfiguration.SourceConfiguration
 
 
-module Network.AWS.Wisdom.Types.KnowledgeBaseSummary
+module Amazonka.Wisdom.Types.KnowledgeBaseSummary
 
 -- | Summary information about the knowledge base.
 --   
@@ -2039,16 +2039,16 @@ knowledgeBaseSummary_name :: Lens' KnowledgeBaseSummary Text
 
 -- | The status of the knowledge base summary.
 knowledgeBaseSummary_status :: Lens' KnowledgeBaseSummary KnowledgeBaseStatus
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.KnowledgeBaseSummary.KnowledgeBaseSummary
-instance GHC.Show.Show Network.AWS.Wisdom.Types.KnowledgeBaseSummary.KnowledgeBaseSummary
-instance GHC.Read.Read Network.AWS.Wisdom.Types.KnowledgeBaseSummary.KnowledgeBaseSummary
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.KnowledgeBaseSummary.KnowledgeBaseSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.KnowledgeBaseSummary.KnowledgeBaseSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.KnowledgeBaseSummary.KnowledgeBaseSummary
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.KnowledgeBaseSummary.KnowledgeBaseSummary
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.KnowledgeBaseSummary.KnowledgeBaseSummary
+instance GHC.Show.Show Amazonka.Wisdom.Types.KnowledgeBaseSummary.KnowledgeBaseSummary
+instance GHC.Read.Read Amazonka.Wisdom.Types.KnowledgeBaseSummary.KnowledgeBaseSummary
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.KnowledgeBaseSummary.KnowledgeBaseSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.KnowledgeBaseSummary.KnowledgeBaseSummary
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.KnowledgeBaseSummary.KnowledgeBaseSummary
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.KnowledgeBaseSummary.KnowledgeBaseSummary
 
 
-module Network.AWS.Wisdom.Types.KnowledgeBaseData
+module Amazonka.Wisdom.Types.KnowledgeBaseData
 
 -- | Information about the knowledge base.
 --   
@@ -2177,16 +2177,16 @@ knowledgeBaseData_name :: Lens' KnowledgeBaseData Text
 
 -- | The status of the knowledge base.
 knowledgeBaseData_status :: Lens' KnowledgeBaseData KnowledgeBaseStatus
-instance GHC.Generics.Generic Network.AWS.Wisdom.Types.KnowledgeBaseData.KnowledgeBaseData
-instance GHC.Show.Show Network.AWS.Wisdom.Types.KnowledgeBaseData.KnowledgeBaseData
-instance GHC.Read.Read Network.AWS.Wisdom.Types.KnowledgeBaseData.KnowledgeBaseData
-instance GHC.Classes.Eq Network.AWS.Wisdom.Types.KnowledgeBaseData.KnowledgeBaseData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Wisdom.Types.KnowledgeBaseData.KnowledgeBaseData
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.Types.KnowledgeBaseData.KnowledgeBaseData
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.Types.KnowledgeBaseData.KnowledgeBaseData
+instance GHC.Generics.Generic Amazonka.Wisdom.Types.KnowledgeBaseData.KnowledgeBaseData
+instance GHC.Show.Show Amazonka.Wisdom.Types.KnowledgeBaseData.KnowledgeBaseData
+instance GHC.Read.Read Amazonka.Wisdom.Types.KnowledgeBaseData.KnowledgeBaseData
+instance GHC.Classes.Eq Amazonka.Wisdom.Types.KnowledgeBaseData.KnowledgeBaseData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Wisdom.Types.KnowledgeBaseData.KnowledgeBaseData
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.Types.KnowledgeBaseData.KnowledgeBaseData
+instance Control.DeepSeq.NFData Amazonka.Wisdom.Types.KnowledgeBaseData.KnowledgeBaseData
 
 
-module Network.AWS.Wisdom.Types
+module Amazonka.Wisdom.Types
 
 -- | API version <tt>2020-10-19</tt> of the Amazon Connect Wisdom Service
 --   SDK configuration.
@@ -3948,7 +3948,7 @@ sourceConfiguration_appIntegrations :: Lens' SourceConfiguration (Maybe AppInteg
 
 
 -- | Adds the specified tags to the specified resource.
-module Network.AWS.Wisdom.TagResource
+module Amazonka.Wisdom.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -4004,22 +4004,22 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.Wisdom.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.Wisdom.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.Wisdom.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.Wisdom.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.Wisdom.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.Wisdom.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Wisdom.TagResource.TagResource
+instance GHC.Show.Show Amazonka.Wisdom.TagResource.TagResource
+instance GHC.Read.Read Amazonka.Wisdom.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.Wisdom.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Wisdom.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.Wisdom.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.Wisdom.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Wisdom.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Wisdom.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.TagResource.TagResource
 
 
 -- | Get a URL to upload content to a knowledge base. To upload content,
@@ -4028,7 +4028,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.TagResource.TagResour
 --   finalize the content creation process or <a>UpdateContent</a> to
 --   modify an existing resource. You can only upload content to a
 --   knowledge base of type CUSTOM.
-module Network.AWS.Wisdom.StartContentUpload
+module Amazonka.Wisdom.StartContentUpload
 
 -- | <i>See:</i> <a>newStartContentUpload</a> smart constructor.
 data StartContentUpload
@@ -4128,27 +4128,27 @@ startContentUploadResponse_url :: Lens' StartContentUploadResponse Text
 
 -- | The expiration time of the URL as an epoch timestamp.
 startContentUploadResponse_urlExpiry :: Lens' StartContentUploadResponse UTCTime
-instance GHC.Generics.Generic Network.AWS.Wisdom.StartContentUpload.StartContentUpload
-instance GHC.Show.Show Network.AWS.Wisdom.StartContentUpload.StartContentUpload
-instance GHC.Read.Read Network.AWS.Wisdom.StartContentUpload.StartContentUpload
-instance GHC.Classes.Eq Network.AWS.Wisdom.StartContentUpload.StartContentUpload
-instance GHC.Generics.Generic Network.AWS.Wisdom.StartContentUpload.StartContentUploadResponse
-instance GHC.Show.Show Network.AWS.Wisdom.StartContentUpload.StartContentUploadResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.StartContentUpload.StartContentUploadResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.StartContentUpload.StartContentUpload
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.StartContentUpload.StartContentUploadResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.StartContentUpload.StartContentUpload
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.StartContentUpload.StartContentUpload
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.StartContentUpload.StartContentUpload
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.StartContentUpload.StartContentUpload
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.StartContentUpload.StartContentUpload
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.StartContentUpload.StartContentUpload
+instance GHC.Generics.Generic Amazonka.Wisdom.StartContentUpload.StartContentUpload
+instance GHC.Show.Show Amazonka.Wisdom.StartContentUpload.StartContentUpload
+instance GHC.Read.Read Amazonka.Wisdom.StartContentUpload.StartContentUpload
+instance GHC.Classes.Eq Amazonka.Wisdom.StartContentUpload.StartContentUpload
+instance GHC.Generics.Generic Amazonka.Wisdom.StartContentUpload.StartContentUploadResponse
+instance GHC.Show.Show Amazonka.Wisdom.StartContentUpload.StartContentUploadResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.StartContentUpload.StartContentUploadResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.StartContentUpload.StartContentUpload
+instance Control.DeepSeq.NFData Amazonka.Wisdom.StartContentUpload.StartContentUploadResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.StartContentUpload.StartContentUpload
+instance Control.DeepSeq.NFData Amazonka.Wisdom.StartContentUpload.StartContentUpload
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.StartContentUpload.StartContentUpload
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.StartContentUpload.StartContentUpload
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.StartContentUpload.StartContentUpload
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.StartContentUpload.StartContentUpload
 
 
 -- | Searches for sessions.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Wisdom.SearchSessions
+module Amazonka.Wisdom.SearchSessions
 
 -- | <i>See:</i> <a>newSearchSessions</a> smart constructor.
 data SearchSessions
@@ -4257,30 +4257,30 @@ searchSessionsResponse_httpStatus :: Lens' SearchSessionsResponse Int
 
 -- | Summary information about the sessions.
 searchSessionsResponse_sessionSummaries :: Lens' SearchSessionsResponse [SessionSummary]
-instance GHC.Generics.Generic Network.AWS.Wisdom.SearchSessions.SearchSessions
-instance GHC.Show.Show Network.AWS.Wisdom.SearchSessions.SearchSessions
-instance GHC.Read.Read Network.AWS.Wisdom.SearchSessions.SearchSessions
-instance GHC.Classes.Eq Network.AWS.Wisdom.SearchSessions.SearchSessions
-instance GHC.Generics.Generic Network.AWS.Wisdom.SearchSessions.SearchSessionsResponse
-instance GHC.Show.Show Network.AWS.Wisdom.SearchSessions.SearchSessionsResponse
-instance GHC.Read.Read Network.AWS.Wisdom.SearchSessions.SearchSessionsResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.SearchSessions.SearchSessionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.SearchSessions.SearchSessions
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.SearchSessions.SearchSessionsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Wisdom.SearchSessions.SearchSessions
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.SearchSessions.SearchSessions
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.SearchSessions.SearchSessions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.SearchSessions.SearchSessions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.SearchSessions.SearchSessions
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.SearchSessions.SearchSessions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.SearchSessions.SearchSessions
+instance GHC.Generics.Generic Amazonka.Wisdom.SearchSessions.SearchSessions
+instance GHC.Show.Show Amazonka.Wisdom.SearchSessions.SearchSessions
+instance GHC.Read.Read Amazonka.Wisdom.SearchSessions.SearchSessions
+instance GHC.Classes.Eq Amazonka.Wisdom.SearchSessions.SearchSessions
+instance GHC.Generics.Generic Amazonka.Wisdom.SearchSessions.SearchSessionsResponse
+instance GHC.Show.Show Amazonka.Wisdom.SearchSessions.SearchSessionsResponse
+instance GHC.Read.Read Amazonka.Wisdom.SearchSessions.SearchSessionsResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.SearchSessions.SearchSessionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.SearchSessions.SearchSessions
+instance Control.DeepSeq.NFData Amazonka.Wisdom.SearchSessions.SearchSessionsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Wisdom.SearchSessions.SearchSessions
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.SearchSessions.SearchSessions
+instance Control.DeepSeq.NFData Amazonka.Wisdom.SearchSessions.SearchSessions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.SearchSessions.SearchSessions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.SearchSessions.SearchSessions
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.SearchSessions.SearchSessions
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.SearchSessions.SearchSessions
 
 
 -- | Searches for content in a specified knowledge base. Can be used to get
 --   a specific content resource by its name.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Wisdom.SearchContent
+module Amazonka.Wisdom.SearchContent
 
 -- | <i>See:</i> <a>newSearchContent</a> smart constructor.
 data SearchContent
@@ -4388,27 +4388,27 @@ searchContentResponse_httpStatus :: Lens' SearchContentResponse Int
 
 -- | Summary information about the content.
 searchContentResponse_contentSummaries :: Lens' SearchContentResponse [ContentSummary]
-instance GHC.Generics.Generic Network.AWS.Wisdom.SearchContent.SearchContent
-instance GHC.Show.Show Network.AWS.Wisdom.SearchContent.SearchContent
-instance GHC.Read.Read Network.AWS.Wisdom.SearchContent.SearchContent
-instance GHC.Classes.Eq Network.AWS.Wisdom.SearchContent.SearchContent
-instance GHC.Generics.Generic Network.AWS.Wisdom.SearchContent.SearchContentResponse
-instance GHC.Show.Show Network.AWS.Wisdom.SearchContent.SearchContentResponse
-instance GHC.Read.Read Network.AWS.Wisdom.SearchContent.SearchContentResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.SearchContent.SearchContentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.SearchContent.SearchContent
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.SearchContent.SearchContentResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Wisdom.SearchContent.SearchContent
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.SearchContent.SearchContent
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.SearchContent.SearchContent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.SearchContent.SearchContent
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.SearchContent.SearchContent
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.SearchContent.SearchContent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.SearchContent.SearchContent
+instance GHC.Generics.Generic Amazonka.Wisdom.SearchContent.SearchContent
+instance GHC.Show.Show Amazonka.Wisdom.SearchContent.SearchContent
+instance GHC.Read.Read Amazonka.Wisdom.SearchContent.SearchContent
+instance GHC.Classes.Eq Amazonka.Wisdom.SearchContent.SearchContent
+instance GHC.Generics.Generic Amazonka.Wisdom.SearchContent.SearchContentResponse
+instance GHC.Show.Show Amazonka.Wisdom.SearchContent.SearchContentResponse
+instance GHC.Read.Read Amazonka.Wisdom.SearchContent.SearchContentResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.SearchContent.SearchContentResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.SearchContent.SearchContent
+instance Control.DeepSeq.NFData Amazonka.Wisdom.SearchContent.SearchContentResponse
+instance Amazonka.Pager.AWSPager Amazonka.Wisdom.SearchContent.SearchContent
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.SearchContent.SearchContent
+instance Control.DeepSeq.NFData Amazonka.Wisdom.SearchContent.SearchContent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.SearchContent.SearchContent
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.SearchContent.SearchContent
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.SearchContent.SearchContent
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.SearchContent.SearchContent
 
 
 -- | Removes a URI template from a knowledge base.
-module Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri
+module Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri
 
 -- | <i>See:</i> <a>newRemoveKnowledgeBaseTemplateUri</a> smart
 --   constructor.
@@ -4462,28 +4462,28 @@ newRemoveKnowledgeBaseTemplateUriResponse :: Int -> RemoveKnowledgeBaseTemplateU
 
 -- | The response's http status code.
 removeKnowledgeBaseTemplateUriResponse_httpStatus :: Lens' RemoveKnowledgeBaseTemplateUriResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
-instance GHC.Show.Show Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
-instance GHC.Read.Read Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
-instance GHC.Classes.Eq Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
-instance GHC.Generics.Generic Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUriResponse
-instance GHC.Show.Show Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUriResponse
-instance GHC.Read.Read Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUriResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUriResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUriResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
+instance GHC.Generics.Generic Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
+instance GHC.Show.Show Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
+instance GHC.Read.Read Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
+instance GHC.Classes.Eq Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
+instance GHC.Generics.Generic Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUriResponse
+instance GHC.Show.Show Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUriResponse
+instance GHC.Read.Read Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUriResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUriResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
+instance Control.DeepSeq.NFData Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUriResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
+instance Control.DeepSeq.NFData Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri.RemoveKnowledgeBaseTemplateUri
 
 
 -- | Performs a manual search against the specified assistant. To retrieve
 --   recommendations for an assistant, use <a>GetRecommendations</a>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Wisdom.QueryAssistant
+module Amazonka.Wisdom.QueryAssistant
 
 -- | <i>See:</i> <a>newQueryAssistant</a> smart constructor.
 data QueryAssistant
@@ -4590,21 +4590,21 @@ queryAssistantResponse_httpStatus :: Lens' QueryAssistantResponse Int
 
 -- | The results of the query.
 queryAssistantResponse_results :: Lens' QueryAssistantResponse [ResultData]
-instance GHC.Generics.Generic Network.AWS.Wisdom.QueryAssistant.QueryAssistant
-instance GHC.Show.Show Network.AWS.Wisdom.QueryAssistant.QueryAssistant
-instance GHC.Classes.Eq Network.AWS.Wisdom.QueryAssistant.QueryAssistant
-instance GHC.Generics.Generic Network.AWS.Wisdom.QueryAssistant.QueryAssistantResponse
-instance GHC.Show.Show Network.AWS.Wisdom.QueryAssistant.QueryAssistantResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.QueryAssistant.QueryAssistantResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.QueryAssistant.QueryAssistant
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.QueryAssistant.QueryAssistantResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Wisdom.QueryAssistant.QueryAssistant
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.QueryAssistant.QueryAssistant
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.QueryAssistant.QueryAssistant
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.QueryAssistant.QueryAssistant
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.QueryAssistant.QueryAssistant
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.QueryAssistant.QueryAssistant
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.QueryAssistant.QueryAssistant
+instance GHC.Generics.Generic Amazonka.Wisdom.QueryAssistant.QueryAssistant
+instance GHC.Show.Show Amazonka.Wisdom.QueryAssistant.QueryAssistant
+instance GHC.Classes.Eq Amazonka.Wisdom.QueryAssistant.QueryAssistant
+instance GHC.Generics.Generic Amazonka.Wisdom.QueryAssistant.QueryAssistantResponse
+instance GHC.Show.Show Amazonka.Wisdom.QueryAssistant.QueryAssistantResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.QueryAssistant.QueryAssistantResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.QueryAssistant.QueryAssistant
+instance Control.DeepSeq.NFData Amazonka.Wisdom.QueryAssistant.QueryAssistantResponse
+instance Amazonka.Pager.AWSPager Amazonka.Wisdom.QueryAssistant.QueryAssistant
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.QueryAssistant.QueryAssistant
+instance Control.DeepSeq.NFData Amazonka.Wisdom.QueryAssistant.QueryAssistant
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.QueryAssistant.QueryAssistant
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.QueryAssistant.QueryAssistant
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.QueryAssistant.QueryAssistant
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.QueryAssistant.QueryAssistant
 
 
 -- | Removes the specified recommendations from the specified assistant's
@@ -4612,7 +4612,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.QueryAssistant.QueryA
 --   conjunction with <a>GetRecommendations</a> and a
 --   <tt>waitTimeSeconds</tt> input for long-polling behavior and avoiding
 --   duplicate recommendations.
-module Network.AWS.Wisdom.NotifyRecommendationsReceived
+module Amazonka.Wisdom.NotifyRecommendationsReceived
 
 -- | <i>See:</i> <a>newNotifyRecommendationsReceived</a> smart constructor.
 data NotifyRecommendationsReceived
@@ -4707,26 +4707,26 @@ notifyRecommendationsReceivedResponse_errors :: Lens' NotifyRecommendationsRecei
 
 -- | The response's http status code.
 notifyRecommendationsReceivedResponse_httpStatus :: Lens' NotifyRecommendationsReceivedResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
-instance GHC.Show.Show Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
-instance GHC.Read.Read Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
-instance GHC.Classes.Eq Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
-instance GHC.Generics.Generic Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceivedResponse
-instance GHC.Show.Show Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceivedResponse
-instance GHC.Read.Read Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceivedResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceivedResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceivedResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
+instance GHC.Generics.Generic Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
+instance GHC.Show.Show Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
+instance GHC.Read.Read Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
+instance GHC.Classes.Eq Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
+instance GHC.Generics.Generic Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceivedResponse
+instance GHC.Show.Show Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceivedResponse
+instance GHC.Read.Read Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceivedResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceivedResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
+instance Control.DeepSeq.NFData Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceivedResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
+instance Control.DeepSeq.NFData Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.NotifyRecommendationsReceived.NotifyRecommendationsReceived
 
 
 -- | Lists the tags for the specified resource.
-module Network.AWS.Wisdom.ListTagsForResource
+module Amazonka.Wisdom.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -4785,27 +4785,27 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.Wisdom.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.Wisdom.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.Wisdom.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.Wisdom.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.Wisdom.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.Wisdom.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Wisdom.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.Wisdom.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.Wisdom.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.Wisdom.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Wisdom.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.Wisdom.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.Wisdom.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Wisdom.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Wisdom.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists the knowledge bases.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Wisdom.ListKnowledgeBases
+module Amazonka.Wisdom.ListKnowledgeBases
 
 -- | <i>See:</i> <a>newListKnowledgeBases</a> smart constructor.
 data ListKnowledgeBases
@@ -4891,28 +4891,28 @@ listKnowledgeBasesResponse_httpStatus :: Lens' ListKnowledgeBasesResponse Int
 
 -- | Information about the knowledge bases.
 listKnowledgeBasesResponse_knowledgeBaseSummaries :: Lens' ListKnowledgeBasesResponse [KnowledgeBaseSummary]
-instance GHC.Generics.Generic Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBases
-instance GHC.Show.Show Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBases
-instance GHC.Read.Read Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBases
-instance GHC.Classes.Eq Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBases
-instance GHC.Generics.Generic Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBasesResponse
-instance GHC.Show.Show Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBasesResponse
-instance GHC.Read.Read Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBasesResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBasesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBases
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBasesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBases
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBases
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBases
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBases
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBases
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.ListKnowledgeBases.ListKnowledgeBases
+instance GHC.Generics.Generic Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBases
+instance GHC.Show.Show Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBases
+instance GHC.Read.Read Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBases
+instance GHC.Classes.Eq Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBases
+instance GHC.Generics.Generic Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBasesResponse
+instance GHC.Show.Show Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBasesResponse
+instance GHC.Read.Read Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBasesResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBasesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBases
+instance Control.DeepSeq.NFData Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBasesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBases
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBases
+instance Control.DeepSeq.NFData Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBases
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBases
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBases
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.ListKnowledgeBases.ListKnowledgeBases
 
 
 -- | Lists the content.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Wisdom.ListContents
+module Amazonka.Wisdom.ListContents
 
 -- | <i>See:</i> <a>newListContents</a> smart constructor.
 data ListContents
@@ -5010,28 +5010,28 @@ listContentsResponse_httpStatus :: Lens' ListContentsResponse Int
 
 -- | Information about the content.
 listContentsResponse_contentSummaries :: Lens' ListContentsResponse [ContentSummary]
-instance GHC.Generics.Generic Network.AWS.Wisdom.ListContents.ListContents
-instance GHC.Show.Show Network.AWS.Wisdom.ListContents.ListContents
-instance GHC.Read.Read Network.AWS.Wisdom.ListContents.ListContents
-instance GHC.Classes.Eq Network.AWS.Wisdom.ListContents.ListContents
-instance GHC.Generics.Generic Network.AWS.Wisdom.ListContents.ListContentsResponse
-instance GHC.Show.Show Network.AWS.Wisdom.ListContents.ListContentsResponse
-instance GHC.Read.Read Network.AWS.Wisdom.ListContents.ListContentsResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.ListContents.ListContentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.ListContents.ListContents
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.ListContents.ListContentsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Wisdom.ListContents.ListContents
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.ListContents.ListContents
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.ListContents.ListContents
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.ListContents.ListContents
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.ListContents.ListContents
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.ListContents.ListContents
+instance GHC.Generics.Generic Amazonka.Wisdom.ListContents.ListContents
+instance GHC.Show.Show Amazonka.Wisdom.ListContents.ListContents
+instance GHC.Read.Read Amazonka.Wisdom.ListContents.ListContents
+instance GHC.Classes.Eq Amazonka.Wisdom.ListContents.ListContents
+instance GHC.Generics.Generic Amazonka.Wisdom.ListContents.ListContentsResponse
+instance GHC.Show.Show Amazonka.Wisdom.ListContents.ListContentsResponse
+instance GHC.Read.Read Amazonka.Wisdom.ListContents.ListContentsResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.ListContents.ListContentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.ListContents.ListContents
+instance Control.DeepSeq.NFData Amazonka.Wisdom.ListContents.ListContentsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Wisdom.ListContents.ListContents
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.ListContents.ListContents
+instance Control.DeepSeq.NFData Amazonka.Wisdom.ListContents.ListContents
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.ListContents.ListContents
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.ListContents.ListContents
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.ListContents.ListContents
 
 
 -- | Lists information about assistants.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Wisdom.ListAssistants
+module Amazonka.Wisdom.ListAssistants
 
 -- | <i>See:</i> <a>newListAssistants</a> smart constructor.
 data ListAssistants
@@ -5117,28 +5117,28 @@ listAssistantsResponse_httpStatus :: Lens' ListAssistantsResponse Int
 
 -- | Information about the assistants.
 listAssistantsResponse_assistantSummaries :: Lens' ListAssistantsResponse [AssistantSummary]
-instance GHC.Generics.Generic Network.AWS.Wisdom.ListAssistants.ListAssistants
-instance GHC.Show.Show Network.AWS.Wisdom.ListAssistants.ListAssistants
-instance GHC.Read.Read Network.AWS.Wisdom.ListAssistants.ListAssistants
-instance GHC.Classes.Eq Network.AWS.Wisdom.ListAssistants.ListAssistants
-instance GHC.Generics.Generic Network.AWS.Wisdom.ListAssistants.ListAssistantsResponse
-instance GHC.Show.Show Network.AWS.Wisdom.ListAssistants.ListAssistantsResponse
-instance GHC.Read.Read Network.AWS.Wisdom.ListAssistants.ListAssistantsResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.ListAssistants.ListAssistantsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.ListAssistants.ListAssistants
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.ListAssistants.ListAssistantsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Wisdom.ListAssistants.ListAssistants
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.ListAssistants.ListAssistants
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.ListAssistants.ListAssistants
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.ListAssistants.ListAssistants
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.ListAssistants.ListAssistants
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.ListAssistants.ListAssistants
+instance GHC.Generics.Generic Amazonka.Wisdom.ListAssistants.ListAssistants
+instance GHC.Show.Show Amazonka.Wisdom.ListAssistants.ListAssistants
+instance GHC.Read.Read Amazonka.Wisdom.ListAssistants.ListAssistants
+instance GHC.Classes.Eq Amazonka.Wisdom.ListAssistants.ListAssistants
+instance GHC.Generics.Generic Amazonka.Wisdom.ListAssistants.ListAssistantsResponse
+instance GHC.Show.Show Amazonka.Wisdom.ListAssistants.ListAssistantsResponse
+instance GHC.Read.Read Amazonka.Wisdom.ListAssistants.ListAssistantsResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.ListAssistants.ListAssistantsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.ListAssistants.ListAssistants
+instance Control.DeepSeq.NFData Amazonka.Wisdom.ListAssistants.ListAssistantsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Wisdom.ListAssistants.ListAssistants
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.ListAssistants.ListAssistants
+instance Control.DeepSeq.NFData Amazonka.Wisdom.ListAssistants.ListAssistants
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.ListAssistants.ListAssistants
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.ListAssistants.ListAssistants
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.ListAssistants.ListAssistants
 
 
 -- | Lists information about assistant associations.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Wisdom.ListAssistantAssociations
+module Amazonka.Wisdom.ListAssistantAssociations
 
 -- | <i>See:</i> <a>newListAssistantAssociations</a> smart constructor.
 data ListAssistantAssociations
@@ -5239,26 +5239,26 @@ listAssistantAssociationsResponse_httpStatus :: Lens' ListAssistantAssociationsR
 
 -- | Summary information about assistant associations.
 listAssistantAssociationsResponse_assistantAssociationSummaries :: Lens' ListAssistantAssociationsResponse [AssistantAssociationSummary]
-instance GHC.Generics.Generic Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociations
-instance GHC.Show.Show Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociations
-instance GHC.Read.Read Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociations
-instance GHC.Classes.Eq Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociations
-instance GHC.Generics.Generic Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociationsResponse
-instance GHC.Show.Show Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociationsResponse
-instance GHC.Read.Read Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociationsResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociations
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociations
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociations
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociations
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.ListAssistantAssociations.ListAssistantAssociations
+instance GHC.Generics.Generic Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociations
+instance GHC.Show.Show Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociations
+instance GHC.Read.Read Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociations
+instance GHC.Classes.Eq Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociations
+instance GHC.Generics.Generic Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociationsResponse
+instance GHC.Show.Show Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociationsResponse
+instance GHC.Read.Read Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociationsResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociations
+instance Control.DeepSeq.NFData Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociations
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociations
+instance Control.DeepSeq.NFData Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociations
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociations
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.ListAssistantAssociations.ListAssistantAssociations
 
 
 -- | Retrieves information for a specified session.
-module Network.AWS.Wisdom.GetSession
+module Amazonka.Wisdom.GetSession
 
 -- | <i>See:</i> <a>newGetSession</a> smart constructor.
 data GetSession
@@ -5329,21 +5329,21 @@ getSessionResponse_session :: Lens' GetSessionResponse (Maybe SessionData)
 
 -- | The response's http status code.
 getSessionResponse_httpStatus :: Lens' GetSessionResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.GetSession.GetSession
-instance GHC.Show.Show Network.AWS.Wisdom.GetSession.GetSession
-instance GHC.Read.Read Network.AWS.Wisdom.GetSession.GetSession
-instance GHC.Classes.Eq Network.AWS.Wisdom.GetSession.GetSession
-instance GHC.Generics.Generic Network.AWS.Wisdom.GetSession.GetSessionResponse
-instance GHC.Show.Show Network.AWS.Wisdom.GetSession.GetSessionResponse
-instance GHC.Read.Read Network.AWS.Wisdom.GetSession.GetSessionResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.GetSession.GetSessionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.GetSession.GetSession
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.GetSession.GetSessionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.GetSession.GetSession
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.GetSession.GetSession
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.GetSession.GetSession
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.GetSession.GetSession
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.GetSession.GetSession
+instance GHC.Generics.Generic Amazonka.Wisdom.GetSession.GetSession
+instance GHC.Show.Show Amazonka.Wisdom.GetSession.GetSession
+instance GHC.Read.Read Amazonka.Wisdom.GetSession.GetSession
+instance GHC.Classes.Eq Amazonka.Wisdom.GetSession.GetSession
+instance GHC.Generics.Generic Amazonka.Wisdom.GetSession.GetSessionResponse
+instance GHC.Show.Show Amazonka.Wisdom.GetSession.GetSessionResponse
+instance GHC.Read.Read Amazonka.Wisdom.GetSession.GetSessionResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.GetSession.GetSessionResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.GetSession.GetSession
+instance Control.DeepSeq.NFData Amazonka.Wisdom.GetSession.GetSessionResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.GetSession.GetSession
+instance Control.DeepSeq.NFData Amazonka.Wisdom.GetSession.GetSession
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.GetSession.GetSession
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.GetSession.GetSession
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.GetSession.GetSession
 
 
 -- | Retrieves recommendations for the specified session. To avoid
@@ -5353,7 +5353,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.GetSession.GetSession
 --   the default behavior and only returns recommendations already
 --   available. To perform a manual query against an assistant, use
 --   <a>QueryAssistant</a>.
-module Network.AWS.Wisdom.GetRecommendations
+module Amazonka.Wisdom.GetRecommendations
 
 -- | <i>See:</i> <a>newGetRecommendations</a> smart constructor.
 data GetRecommendations
@@ -5459,24 +5459,24 @@ getRecommendationsResponse_httpStatus :: Lens' GetRecommendationsResponse Int
 
 -- | The recommendations.
 getRecommendationsResponse_recommendations :: Lens' GetRecommendationsResponse [RecommendationData]
-instance GHC.Generics.Generic Network.AWS.Wisdom.GetRecommendations.GetRecommendations
-instance GHC.Show.Show Network.AWS.Wisdom.GetRecommendations.GetRecommendations
-instance GHC.Read.Read Network.AWS.Wisdom.GetRecommendations.GetRecommendations
-instance GHC.Classes.Eq Network.AWS.Wisdom.GetRecommendations.GetRecommendations
-instance GHC.Generics.Generic Network.AWS.Wisdom.GetRecommendations.GetRecommendationsResponse
-instance GHC.Show.Show Network.AWS.Wisdom.GetRecommendations.GetRecommendationsResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.GetRecommendations.GetRecommendationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.GetRecommendations.GetRecommendations
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.GetRecommendations.GetRecommendationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.GetRecommendations.GetRecommendations
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.GetRecommendations.GetRecommendations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.GetRecommendations.GetRecommendations
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.GetRecommendations.GetRecommendations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.GetRecommendations.GetRecommendations
+instance GHC.Generics.Generic Amazonka.Wisdom.GetRecommendations.GetRecommendations
+instance GHC.Show.Show Amazonka.Wisdom.GetRecommendations.GetRecommendations
+instance GHC.Read.Read Amazonka.Wisdom.GetRecommendations.GetRecommendations
+instance GHC.Classes.Eq Amazonka.Wisdom.GetRecommendations.GetRecommendations
+instance GHC.Generics.Generic Amazonka.Wisdom.GetRecommendations.GetRecommendationsResponse
+instance GHC.Show.Show Amazonka.Wisdom.GetRecommendations.GetRecommendationsResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.GetRecommendations.GetRecommendationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.GetRecommendations.GetRecommendations
+instance Control.DeepSeq.NFData Amazonka.Wisdom.GetRecommendations.GetRecommendationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.GetRecommendations.GetRecommendations
+instance Control.DeepSeq.NFData Amazonka.Wisdom.GetRecommendations.GetRecommendations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.GetRecommendations.GetRecommendations
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.GetRecommendations.GetRecommendations
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.GetRecommendations.GetRecommendations
 
 
 -- | Retrieves information about the knowledge base.
-module Network.AWS.Wisdom.GetKnowledgeBase
+module Amazonka.Wisdom.GetKnowledgeBase
 
 -- | <i>See:</i> <a>newGetKnowledgeBase</a> smart constructor.
 data GetKnowledgeBase
@@ -5537,25 +5537,25 @@ getKnowledgeBaseResponse_knowledgeBase :: Lens' GetKnowledgeBaseResponse (Maybe 
 
 -- | The response's http status code.
 getKnowledgeBaseResponse_httpStatus :: Lens' GetKnowledgeBaseResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.GetKnowledgeBase.GetKnowledgeBase
-instance GHC.Show.Show Network.AWS.Wisdom.GetKnowledgeBase.GetKnowledgeBase
-instance GHC.Read.Read Network.AWS.Wisdom.GetKnowledgeBase.GetKnowledgeBase
-instance GHC.Classes.Eq Network.AWS.Wisdom.GetKnowledgeBase.GetKnowledgeBase
-instance GHC.Generics.Generic Network.AWS.Wisdom.GetKnowledgeBase.GetKnowledgeBaseResponse
-instance GHC.Show.Show Network.AWS.Wisdom.GetKnowledgeBase.GetKnowledgeBaseResponse
-instance GHC.Read.Read Network.AWS.Wisdom.GetKnowledgeBase.GetKnowledgeBaseResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.GetKnowledgeBase.GetKnowledgeBaseResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.GetKnowledgeBase.GetKnowledgeBase
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.GetKnowledgeBase.GetKnowledgeBaseResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.GetKnowledgeBase.GetKnowledgeBase
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.GetKnowledgeBase.GetKnowledgeBase
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.GetKnowledgeBase.GetKnowledgeBase
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.GetKnowledgeBase.GetKnowledgeBase
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.GetKnowledgeBase.GetKnowledgeBase
+instance GHC.Generics.Generic Amazonka.Wisdom.GetKnowledgeBase.GetKnowledgeBase
+instance GHC.Show.Show Amazonka.Wisdom.GetKnowledgeBase.GetKnowledgeBase
+instance GHC.Read.Read Amazonka.Wisdom.GetKnowledgeBase.GetKnowledgeBase
+instance GHC.Classes.Eq Amazonka.Wisdom.GetKnowledgeBase.GetKnowledgeBase
+instance GHC.Generics.Generic Amazonka.Wisdom.GetKnowledgeBase.GetKnowledgeBaseResponse
+instance GHC.Show.Show Amazonka.Wisdom.GetKnowledgeBase.GetKnowledgeBaseResponse
+instance GHC.Read.Read Amazonka.Wisdom.GetKnowledgeBase.GetKnowledgeBaseResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.GetKnowledgeBase.GetKnowledgeBaseResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.GetKnowledgeBase.GetKnowledgeBase
+instance Control.DeepSeq.NFData Amazonka.Wisdom.GetKnowledgeBase.GetKnowledgeBaseResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.GetKnowledgeBase.GetKnowledgeBase
+instance Control.DeepSeq.NFData Amazonka.Wisdom.GetKnowledgeBase.GetKnowledgeBase
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.GetKnowledgeBase.GetKnowledgeBase
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.GetKnowledgeBase.GetKnowledgeBase
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.GetKnowledgeBase.GetKnowledgeBase
 
 
 -- | Retrieves summary information about the content.
-module Network.AWS.Wisdom.GetContentSummary
+module Amazonka.Wisdom.GetContentSummary
 
 -- | <i>See:</i> <a>newGetContentSummary</a> smart constructor.
 data GetContentSummary
@@ -5628,25 +5628,25 @@ getContentSummaryResponse_contentSummary :: Lens' GetContentSummaryResponse (May
 
 -- | The response's http status code.
 getContentSummaryResponse_httpStatus :: Lens' GetContentSummaryResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.GetContentSummary.GetContentSummary
-instance GHC.Show.Show Network.AWS.Wisdom.GetContentSummary.GetContentSummary
-instance GHC.Read.Read Network.AWS.Wisdom.GetContentSummary.GetContentSummary
-instance GHC.Classes.Eq Network.AWS.Wisdom.GetContentSummary.GetContentSummary
-instance GHC.Generics.Generic Network.AWS.Wisdom.GetContentSummary.GetContentSummaryResponse
-instance GHC.Show.Show Network.AWS.Wisdom.GetContentSummary.GetContentSummaryResponse
-instance GHC.Read.Read Network.AWS.Wisdom.GetContentSummary.GetContentSummaryResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.GetContentSummary.GetContentSummaryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.GetContentSummary.GetContentSummary
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.GetContentSummary.GetContentSummaryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.GetContentSummary.GetContentSummary
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.GetContentSummary.GetContentSummary
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.GetContentSummary.GetContentSummary
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.GetContentSummary.GetContentSummary
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.GetContentSummary.GetContentSummary
+instance GHC.Generics.Generic Amazonka.Wisdom.GetContentSummary.GetContentSummary
+instance GHC.Show.Show Amazonka.Wisdom.GetContentSummary.GetContentSummary
+instance GHC.Read.Read Amazonka.Wisdom.GetContentSummary.GetContentSummary
+instance GHC.Classes.Eq Amazonka.Wisdom.GetContentSummary.GetContentSummary
+instance GHC.Generics.Generic Amazonka.Wisdom.GetContentSummary.GetContentSummaryResponse
+instance GHC.Show.Show Amazonka.Wisdom.GetContentSummary.GetContentSummaryResponse
+instance GHC.Read.Read Amazonka.Wisdom.GetContentSummary.GetContentSummaryResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.GetContentSummary.GetContentSummaryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.GetContentSummary.GetContentSummary
+instance Control.DeepSeq.NFData Amazonka.Wisdom.GetContentSummary.GetContentSummaryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.GetContentSummary.GetContentSummary
+instance Control.DeepSeq.NFData Amazonka.Wisdom.GetContentSummary.GetContentSummary
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.GetContentSummary.GetContentSummary
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.GetContentSummary.GetContentSummary
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.GetContentSummary.GetContentSummary
 
 
 -- | Retrieves content, including a pre-signed URL to download the content.
-module Network.AWS.Wisdom.GetContent
+module Amazonka.Wisdom.GetContent
 
 -- | <i>See:</i> <a>newGetContent</a> smart constructor.
 data GetContent
@@ -5718,24 +5718,24 @@ getContentResponse_content :: Lens' GetContentResponse (Maybe ContentData)
 
 -- | The response's http status code.
 getContentResponse_httpStatus :: Lens' GetContentResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.GetContent.GetContent
-instance GHC.Show.Show Network.AWS.Wisdom.GetContent.GetContent
-instance GHC.Read.Read Network.AWS.Wisdom.GetContent.GetContent
-instance GHC.Classes.Eq Network.AWS.Wisdom.GetContent.GetContent
-instance GHC.Generics.Generic Network.AWS.Wisdom.GetContent.GetContentResponse
-instance GHC.Show.Show Network.AWS.Wisdom.GetContent.GetContentResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.GetContent.GetContentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.GetContent.GetContent
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.GetContent.GetContentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.GetContent.GetContent
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.GetContent.GetContent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.GetContent.GetContent
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.GetContent.GetContent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.GetContent.GetContent
+instance GHC.Generics.Generic Amazonka.Wisdom.GetContent.GetContent
+instance GHC.Show.Show Amazonka.Wisdom.GetContent.GetContent
+instance GHC.Read.Read Amazonka.Wisdom.GetContent.GetContent
+instance GHC.Classes.Eq Amazonka.Wisdom.GetContent.GetContent
+instance GHC.Generics.Generic Amazonka.Wisdom.GetContent.GetContentResponse
+instance GHC.Show.Show Amazonka.Wisdom.GetContent.GetContentResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.GetContent.GetContentResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.GetContent.GetContent
+instance Control.DeepSeq.NFData Amazonka.Wisdom.GetContent.GetContentResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.GetContent.GetContent
+instance Control.DeepSeq.NFData Amazonka.Wisdom.GetContent.GetContent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.GetContent.GetContent
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.GetContent.GetContent
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.GetContent.GetContent
 
 
 -- | Retrieves information about an assistant association.
-module Network.AWS.Wisdom.GetAssistantAssociation
+module Amazonka.Wisdom.GetAssistantAssociation
 
 -- | <i>See:</i> <a>newGetAssistantAssociation</a> smart constructor.
 data GetAssistantAssociation
@@ -5811,25 +5811,25 @@ getAssistantAssociationResponse_assistantAssociation :: Lens' GetAssistantAssoci
 
 -- | The response's http status code.
 getAssistantAssociationResponse_httpStatus :: Lens' GetAssistantAssociationResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.GetAssistantAssociation.GetAssistantAssociation
-instance GHC.Show.Show Network.AWS.Wisdom.GetAssistantAssociation.GetAssistantAssociation
-instance GHC.Read.Read Network.AWS.Wisdom.GetAssistantAssociation.GetAssistantAssociation
-instance GHC.Classes.Eq Network.AWS.Wisdom.GetAssistantAssociation.GetAssistantAssociation
-instance GHC.Generics.Generic Network.AWS.Wisdom.GetAssistantAssociation.GetAssistantAssociationResponse
-instance GHC.Show.Show Network.AWS.Wisdom.GetAssistantAssociation.GetAssistantAssociationResponse
-instance GHC.Read.Read Network.AWS.Wisdom.GetAssistantAssociation.GetAssistantAssociationResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.GetAssistantAssociation.GetAssistantAssociationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.GetAssistantAssociation.GetAssistantAssociation
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.GetAssistantAssociation.GetAssistantAssociationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.GetAssistantAssociation.GetAssistantAssociation
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.GetAssistantAssociation.GetAssistantAssociation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.GetAssistantAssociation.GetAssistantAssociation
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.GetAssistantAssociation.GetAssistantAssociation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.GetAssistantAssociation.GetAssistantAssociation
+instance GHC.Generics.Generic Amazonka.Wisdom.GetAssistantAssociation.GetAssistantAssociation
+instance GHC.Show.Show Amazonka.Wisdom.GetAssistantAssociation.GetAssistantAssociation
+instance GHC.Read.Read Amazonka.Wisdom.GetAssistantAssociation.GetAssistantAssociation
+instance GHC.Classes.Eq Amazonka.Wisdom.GetAssistantAssociation.GetAssistantAssociation
+instance GHC.Generics.Generic Amazonka.Wisdom.GetAssistantAssociation.GetAssistantAssociationResponse
+instance GHC.Show.Show Amazonka.Wisdom.GetAssistantAssociation.GetAssistantAssociationResponse
+instance GHC.Read.Read Amazonka.Wisdom.GetAssistantAssociation.GetAssistantAssociationResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.GetAssistantAssociation.GetAssistantAssociationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.GetAssistantAssociation.GetAssistantAssociation
+instance Control.DeepSeq.NFData Amazonka.Wisdom.GetAssistantAssociation.GetAssistantAssociationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.GetAssistantAssociation.GetAssistantAssociation
+instance Control.DeepSeq.NFData Amazonka.Wisdom.GetAssistantAssociation.GetAssistantAssociation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.GetAssistantAssociation.GetAssistantAssociation
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.GetAssistantAssociation.GetAssistantAssociation
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.GetAssistantAssociation.GetAssistantAssociation
 
 
 -- | Retrieves information about an assistant.
-module Network.AWS.Wisdom.GetAssistant
+module Amazonka.Wisdom.GetAssistant
 
 -- | <i>See:</i> <a>newGetAssistant</a> smart constructor.
 data GetAssistant
@@ -5890,21 +5890,21 @@ getAssistantResponse_assistant :: Lens' GetAssistantResponse (Maybe AssistantDat
 
 -- | The response's http status code.
 getAssistantResponse_httpStatus :: Lens' GetAssistantResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.GetAssistant.GetAssistant
-instance GHC.Show.Show Network.AWS.Wisdom.GetAssistant.GetAssistant
-instance GHC.Read.Read Network.AWS.Wisdom.GetAssistant.GetAssistant
-instance GHC.Classes.Eq Network.AWS.Wisdom.GetAssistant.GetAssistant
-instance GHC.Generics.Generic Network.AWS.Wisdom.GetAssistant.GetAssistantResponse
-instance GHC.Show.Show Network.AWS.Wisdom.GetAssistant.GetAssistantResponse
-instance GHC.Read.Read Network.AWS.Wisdom.GetAssistant.GetAssistantResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.GetAssistant.GetAssistantResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.GetAssistant.GetAssistant
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.GetAssistant.GetAssistantResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.GetAssistant.GetAssistant
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.GetAssistant.GetAssistant
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.GetAssistant.GetAssistant
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.GetAssistant.GetAssistant
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.GetAssistant.GetAssistant
+instance GHC.Generics.Generic Amazonka.Wisdom.GetAssistant.GetAssistant
+instance GHC.Show.Show Amazonka.Wisdom.GetAssistant.GetAssistant
+instance GHC.Read.Read Amazonka.Wisdom.GetAssistant.GetAssistant
+instance GHC.Classes.Eq Amazonka.Wisdom.GetAssistant.GetAssistant
+instance GHC.Generics.Generic Amazonka.Wisdom.GetAssistant.GetAssistantResponse
+instance GHC.Show.Show Amazonka.Wisdom.GetAssistant.GetAssistantResponse
+instance GHC.Read.Read Amazonka.Wisdom.GetAssistant.GetAssistantResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.GetAssistant.GetAssistantResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.GetAssistant.GetAssistant
+instance Control.DeepSeq.NFData Amazonka.Wisdom.GetAssistant.GetAssistantResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.GetAssistant.GetAssistant
+instance Control.DeepSeq.NFData Amazonka.Wisdom.GetAssistant.GetAssistant
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.GetAssistant.GetAssistant
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.GetAssistant.GetAssistant
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.GetAssistant.GetAssistant
 
 
 -- | Deletes the knowledge base.
@@ -5916,7 +5916,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.GetAssistant.GetAssis
 --   knowledge base. However, you can delete and recreate it. See
 --   <a>DeleteDataIntegration</a> and <a>CreateDataIntegration</a> in the
 --   <i>Amazon AppIntegrations API Reference</i>.
-module Network.AWS.Wisdom.DeleteKnowledgeBase
+module Amazonka.Wisdom.DeleteKnowledgeBase
 
 -- | <i>See:</i> <a>newDeleteKnowledgeBase</a> smart constructor.
 data DeleteKnowledgeBase
@@ -5968,25 +5968,25 @@ newDeleteKnowledgeBaseResponse :: Int -> DeleteKnowledgeBaseResponse
 
 -- | The response's http status code.
 deleteKnowledgeBaseResponse_httpStatus :: Lens' DeleteKnowledgeBaseResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
-instance GHC.Show.Show Network.AWS.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
-instance GHC.Read.Read Network.AWS.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
-instance GHC.Classes.Eq Network.AWS.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
-instance GHC.Generics.Generic Network.AWS.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBaseResponse
-instance GHC.Show.Show Network.AWS.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBaseResponse
-instance GHC.Read.Read Network.AWS.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBaseResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBaseResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBaseResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
+instance GHC.Generics.Generic Amazonka.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
+instance GHC.Show.Show Amazonka.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
+instance GHC.Read.Read Amazonka.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
+instance GHC.Classes.Eq Amazonka.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
+instance GHC.Generics.Generic Amazonka.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBaseResponse
+instance GHC.Show.Show Amazonka.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBaseResponse
+instance GHC.Read.Read Amazonka.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBaseResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBaseResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
+instance Control.DeepSeq.NFData Amazonka.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBaseResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
+instance Control.DeepSeq.NFData Amazonka.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.DeleteKnowledgeBase.DeleteKnowledgeBase
 
 
 -- | Deletes the content.
-module Network.AWS.Wisdom.DeleteContent
+module Amazonka.Wisdom.DeleteContent
 
 -- | <i>See:</i> <a>newDeleteContent</a> smart constructor.
 data DeleteContent
@@ -6050,25 +6050,25 @@ newDeleteContentResponse :: Int -> DeleteContentResponse
 
 -- | The response's http status code.
 deleteContentResponse_httpStatus :: Lens' DeleteContentResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.DeleteContent.DeleteContent
-instance GHC.Show.Show Network.AWS.Wisdom.DeleteContent.DeleteContent
-instance GHC.Read.Read Network.AWS.Wisdom.DeleteContent.DeleteContent
-instance GHC.Classes.Eq Network.AWS.Wisdom.DeleteContent.DeleteContent
-instance GHC.Generics.Generic Network.AWS.Wisdom.DeleteContent.DeleteContentResponse
-instance GHC.Show.Show Network.AWS.Wisdom.DeleteContent.DeleteContentResponse
-instance GHC.Read.Read Network.AWS.Wisdom.DeleteContent.DeleteContentResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.DeleteContent.DeleteContentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.DeleteContent.DeleteContent
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.DeleteContent.DeleteContentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.DeleteContent.DeleteContent
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.DeleteContent.DeleteContent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.DeleteContent.DeleteContent
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.DeleteContent.DeleteContent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.DeleteContent.DeleteContent
+instance GHC.Generics.Generic Amazonka.Wisdom.DeleteContent.DeleteContent
+instance GHC.Show.Show Amazonka.Wisdom.DeleteContent.DeleteContent
+instance GHC.Read.Read Amazonka.Wisdom.DeleteContent.DeleteContent
+instance GHC.Classes.Eq Amazonka.Wisdom.DeleteContent.DeleteContent
+instance GHC.Generics.Generic Amazonka.Wisdom.DeleteContent.DeleteContentResponse
+instance GHC.Show.Show Amazonka.Wisdom.DeleteContent.DeleteContentResponse
+instance GHC.Read.Read Amazonka.Wisdom.DeleteContent.DeleteContentResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.DeleteContent.DeleteContentResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.DeleteContent.DeleteContent
+instance Control.DeepSeq.NFData Amazonka.Wisdom.DeleteContent.DeleteContentResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.DeleteContent.DeleteContent
+instance Control.DeepSeq.NFData Amazonka.Wisdom.DeleteContent.DeleteContent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.DeleteContent.DeleteContent
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.DeleteContent.DeleteContent
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.DeleteContent.DeleteContent
 
 
 -- | Deletes an assistant association.
-module Network.AWS.Wisdom.DeleteAssistantAssociation
+module Amazonka.Wisdom.DeleteAssistantAssociation
 
 -- | <i>See:</i> <a>newDeleteAssistantAssociation</a> smart constructor.
 data DeleteAssistantAssociation
@@ -6134,25 +6134,25 @@ newDeleteAssistantAssociationResponse :: Int -> DeleteAssistantAssociationRespon
 
 -- | The response's http status code.
 deleteAssistantAssociationResponse_httpStatus :: Lens' DeleteAssistantAssociationResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
-instance GHC.Show.Show Network.AWS.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
-instance GHC.Read.Read Network.AWS.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
-instance GHC.Classes.Eq Network.AWS.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
-instance GHC.Generics.Generic Network.AWS.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociationResponse
-instance GHC.Show.Show Network.AWS.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociationResponse
-instance GHC.Read.Read Network.AWS.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociationResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
+instance GHC.Generics.Generic Amazonka.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
+instance GHC.Show.Show Amazonka.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
+instance GHC.Read.Read Amazonka.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
+instance GHC.Classes.Eq Amazonka.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
+instance GHC.Generics.Generic Amazonka.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociationResponse
+instance GHC.Show.Show Amazonka.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociationResponse
+instance GHC.Read.Read Amazonka.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociationResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
+instance Control.DeepSeq.NFData Amazonka.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
+instance Control.DeepSeq.NFData Amazonka.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.DeleteAssistantAssociation.DeleteAssistantAssociation
 
 
 -- | Deletes an assistant.
-module Network.AWS.Wisdom.DeleteAssistant
+module Amazonka.Wisdom.DeleteAssistant
 
 -- | <i>See:</i> <a>newDeleteAssistant</a> smart constructor.
 data DeleteAssistant
@@ -6204,27 +6204,27 @@ newDeleteAssistantResponse :: Int -> DeleteAssistantResponse
 
 -- | The response's http status code.
 deleteAssistantResponse_httpStatus :: Lens' DeleteAssistantResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.DeleteAssistant.DeleteAssistant
-instance GHC.Show.Show Network.AWS.Wisdom.DeleteAssistant.DeleteAssistant
-instance GHC.Read.Read Network.AWS.Wisdom.DeleteAssistant.DeleteAssistant
-instance GHC.Classes.Eq Network.AWS.Wisdom.DeleteAssistant.DeleteAssistant
-instance GHC.Generics.Generic Network.AWS.Wisdom.DeleteAssistant.DeleteAssistantResponse
-instance GHC.Show.Show Network.AWS.Wisdom.DeleteAssistant.DeleteAssistantResponse
-instance GHC.Read.Read Network.AWS.Wisdom.DeleteAssistant.DeleteAssistantResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.DeleteAssistant.DeleteAssistantResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.DeleteAssistant.DeleteAssistant
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.DeleteAssistant.DeleteAssistantResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.DeleteAssistant.DeleteAssistant
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.DeleteAssistant.DeleteAssistant
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.DeleteAssistant.DeleteAssistant
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.DeleteAssistant.DeleteAssistant
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.DeleteAssistant.DeleteAssistant
+instance GHC.Generics.Generic Amazonka.Wisdom.DeleteAssistant.DeleteAssistant
+instance GHC.Show.Show Amazonka.Wisdom.DeleteAssistant.DeleteAssistant
+instance GHC.Read.Read Amazonka.Wisdom.DeleteAssistant.DeleteAssistant
+instance GHC.Classes.Eq Amazonka.Wisdom.DeleteAssistant.DeleteAssistant
+instance GHC.Generics.Generic Amazonka.Wisdom.DeleteAssistant.DeleteAssistantResponse
+instance GHC.Show.Show Amazonka.Wisdom.DeleteAssistant.DeleteAssistantResponse
+instance GHC.Read.Read Amazonka.Wisdom.DeleteAssistant.DeleteAssistantResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.DeleteAssistant.DeleteAssistantResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.DeleteAssistant.DeleteAssistant
+instance Control.DeepSeq.NFData Amazonka.Wisdom.DeleteAssistant.DeleteAssistantResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.DeleteAssistant.DeleteAssistant
+instance Control.DeepSeq.NFData Amazonka.Wisdom.DeleteAssistant.DeleteAssistant
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.DeleteAssistant.DeleteAssistant
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.DeleteAssistant.DeleteAssistant
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.DeleteAssistant.DeleteAssistant
 
 
 -- | Creates a session. A session is a contextual container used for
 --   generating recommendations. Amazon Connect creates a new Wisdom
 --   session for each contact on which Wisdom is enabled.
-module Network.AWS.Wisdom.CreateSession
+module Amazonka.Wisdom.CreateSession
 
 -- | <i>See:</i> <a>newCreateSession</a> smart constructor.
 data CreateSession
@@ -6324,22 +6324,22 @@ createSessionResponse_session :: Lens' CreateSessionResponse (Maybe SessionData)
 
 -- | The response's http status code.
 createSessionResponse_httpStatus :: Lens' CreateSessionResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.CreateSession.CreateSession
-instance GHC.Show.Show Network.AWS.Wisdom.CreateSession.CreateSession
-instance GHC.Read.Read Network.AWS.Wisdom.CreateSession.CreateSession
-instance GHC.Classes.Eq Network.AWS.Wisdom.CreateSession.CreateSession
-instance GHC.Generics.Generic Network.AWS.Wisdom.CreateSession.CreateSessionResponse
-instance GHC.Show.Show Network.AWS.Wisdom.CreateSession.CreateSessionResponse
-instance GHC.Read.Read Network.AWS.Wisdom.CreateSession.CreateSessionResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.CreateSession.CreateSessionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.CreateSession.CreateSession
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.CreateSession.CreateSessionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.CreateSession.CreateSession
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.CreateSession.CreateSession
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.CreateSession.CreateSession
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.CreateSession.CreateSession
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.CreateSession.CreateSession
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.CreateSession.CreateSession
+instance GHC.Generics.Generic Amazonka.Wisdom.CreateSession.CreateSession
+instance GHC.Show.Show Amazonka.Wisdom.CreateSession.CreateSession
+instance GHC.Read.Read Amazonka.Wisdom.CreateSession.CreateSession
+instance GHC.Classes.Eq Amazonka.Wisdom.CreateSession.CreateSession
+instance GHC.Generics.Generic Amazonka.Wisdom.CreateSession.CreateSessionResponse
+instance GHC.Show.Show Amazonka.Wisdom.CreateSession.CreateSessionResponse
+instance GHC.Read.Read Amazonka.Wisdom.CreateSession.CreateSessionResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.CreateSession.CreateSessionResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.CreateSession.CreateSession
+instance Control.DeepSeq.NFData Amazonka.Wisdom.CreateSession.CreateSessionResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.CreateSession.CreateSession
+instance Control.DeepSeq.NFData Amazonka.Wisdom.CreateSession.CreateSession
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.CreateSession.CreateSession
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.CreateSession.CreateSession
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.CreateSession.CreateSession
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.CreateSession.CreateSession
 
 
 -- | Creates a knowledge base.
@@ -6352,7 +6352,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.CreateSession.CreateS
 --   <pre>
 --   &lt;p&gt;For example, you're programmatically managing your external knowledge base, and you want to add or remove one of the fields that is being ingested from Salesforce. Do the following:&lt;/p&gt; &lt;ol&gt; &lt;li&gt; &lt;p&gt;Call &lt;a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteKnowledgeBase.html"&gt;DeleteKnowledgeBase&lt;/a&gt;.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Call &lt;a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html"&gt;DeleteDataIntegration&lt;/a&gt;.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Call &lt;a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html"&gt;CreateDataIntegration&lt;/a&gt; to recreate the DataIntegration or a create different one.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Call CreateKnowledgeBase.&lt;/p&gt; &lt;/li&gt; &lt;/ol&gt; &lt;/note&gt;
 --   </pre>
-module Network.AWS.Wisdom.CreateKnowledgeBase
+module Amazonka.Wisdom.CreateKnowledgeBase
 
 -- | <i>See:</i> <a>newCreateKnowledgeBase</a> smart constructor.
 data CreateKnowledgeBase
@@ -6489,27 +6489,27 @@ createKnowledgeBaseResponse_knowledgeBase :: Lens' CreateKnowledgeBaseResponse (
 
 -- | The response's http status code.
 createKnowledgeBaseResponse_httpStatus :: Lens' CreateKnowledgeBaseResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
-instance GHC.Show.Show Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
-instance GHC.Read.Read Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
-instance GHC.Classes.Eq Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
-instance GHC.Generics.Generic Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBaseResponse
-instance GHC.Show.Show Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBaseResponse
-instance GHC.Read.Read Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBaseResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBaseResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBaseResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
+instance GHC.Generics.Generic Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
+instance GHC.Show.Show Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
+instance GHC.Read.Read Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
+instance GHC.Classes.Eq Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
+instance GHC.Generics.Generic Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBaseResponse
+instance GHC.Show.Show Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBaseResponse
+instance GHC.Read.Read Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBaseResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBaseResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
+instance Control.DeepSeq.NFData Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBaseResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
+instance Control.DeepSeq.NFData Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.CreateKnowledgeBase.CreateKnowledgeBase
 
 
 -- | Creates Wisdom content. Before to calling this API, use
 --   <a>StartContentUpload</a> to upload an asset.
-module Network.AWS.Wisdom.CreateContent
+module Amazonka.Wisdom.CreateContent
 
 -- | <i>See:</i> <a>newCreateContent</a> smart constructor.
 data CreateContent
@@ -6662,27 +6662,27 @@ createContentResponse_content :: Lens' CreateContentResponse (Maybe ContentData)
 
 -- | The response's http status code.
 createContentResponse_httpStatus :: Lens' CreateContentResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.CreateContent.CreateContent
-instance GHC.Show.Show Network.AWS.Wisdom.CreateContent.CreateContent
-instance GHC.Read.Read Network.AWS.Wisdom.CreateContent.CreateContent
-instance GHC.Classes.Eq Network.AWS.Wisdom.CreateContent.CreateContent
-instance GHC.Generics.Generic Network.AWS.Wisdom.CreateContent.CreateContentResponse
-instance GHC.Show.Show Network.AWS.Wisdom.CreateContent.CreateContentResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.CreateContent.CreateContentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.CreateContent.CreateContent
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.CreateContent.CreateContentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.CreateContent.CreateContent
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.CreateContent.CreateContent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.CreateContent.CreateContent
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.CreateContent.CreateContent
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.CreateContent.CreateContent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.CreateContent.CreateContent
+instance GHC.Generics.Generic Amazonka.Wisdom.CreateContent.CreateContent
+instance GHC.Show.Show Amazonka.Wisdom.CreateContent.CreateContent
+instance GHC.Read.Read Amazonka.Wisdom.CreateContent.CreateContent
+instance GHC.Classes.Eq Amazonka.Wisdom.CreateContent.CreateContent
+instance GHC.Generics.Generic Amazonka.Wisdom.CreateContent.CreateContentResponse
+instance GHC.Show.Show Amazonka.Wisdom.CreateContent.CreateContentResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.CreateContent.CreateContentResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.CreateContent.CreateContent
+instance Control.DeepSeq.NFData Amazonka.Wisdom.CreateContent.CreateContentResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.CreateContent.CreateContent
+instance Control.DeepSeq.NFData Amazonka.Wisdom.CreateContent.CreateContent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.CreateContent.CreateContent
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.CreateContent.CreateContent
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.CreateContent.CreateContent
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.CreateContent.CreateContent
 
 
 -- | Creates an association between an Amazon Connect Wisdom assistant and
 --   another resource. Currently, the only supported association is with a
 --   knowledge base. An assistant can have only a single association.
-module Network.AWS.Wisdom.CreateAssistantAssociation
+module Amazonka.Wisdom.CreateAssistantAssociation
 
 -- | <i>See:</i> <a>newCreateAssistantAssociation</a> smart constructor.
 data CreateAssistantAssociation
@@ -6788,26 +6788,26 @@ createAssistantAssociationResponse_assistantAssociation :: Lens' CreateAssistant
 
 -- | The response's http status code.
 createAssistantAssociationResponse_httpStatus :: Lens' CreateAssistantAssociationResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
-instance GHC.Show.Show Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
-instance GHC.Read.Read Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
-instance GHC.Classes.Eq Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
-instance GHC.Generics.Generic Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociationResponse
-instance GHC.Show.Show Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociationResponse
-instance GHC.Read.Read Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociationResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
+instance GHC.Generics.Generic Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
+instance GHC.Show.Show Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
+instance GHC.Read.Read Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
+instance GHC.Classes.Eq Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
+instance GHC.Generics.Generic Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociationResponse
+instance GHC.Show.Show Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociationResponse
+instance GHC.Read.Read Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociationResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
+instance Control.DeepSeq.NFData Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
+instance Control.DeepSeq.NFData Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.CreateAssistantAssociation.CreateAssistantAssociation
 
 
 -- | Creates an Amazon Connect Wisdom assistant.
-module Network.AWS.Wisdom.CreateAssistant
+module Amazonka.Wisdom.CreateAssistant
 
 -- | <i>See:</i> <a>newCreateAssistant</a> smart constructor.
 data CreateAssistant
@@ -6914,26 +6914,26 @@ createAssistantResponse_assistant :: Lens' CreateAssistantResponse (Maybe Assist
 
 -- | The response's http status code.
 createAssistantResponse_httpStatus :: Lens' CreateAssistantResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.CreateAssistant.CreateAssistant
-instance GHC.Show.Show Network.AWS.Wisdom.CreateAssistant.CreateAssistant
-instance GHC.Read.Read Network.AWS.Wisdom.CreateAssistant.CreateAssistant
-instance GHC.Classes.Eq Network.AWS.Wisdom.CreateAssistant.CreateAssistant
-instance GHC.Generics.Generic Network.AWS.Wisdom.CreateAssistant.CreateAssistantResponse
-instance GHC.Show.Show Network.AWS.Wisdom.CreateAssistant.CreateAssistantResponse
-instance GHC.Read.Read Network.AWS.Wisdom.CreateAssistant.CreateAssistantResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.CreateAssistant.CreateAssistantResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.CreateAssistant.CreateAssistant
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.CreateAssistant.CreateAssistantResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.CreateAssistant.CreateAssistant
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.CreateAssistant.CreateAssistant
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.CreateAssistant.CreateAssistant
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.CreateAssistant.CreateAssistant
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.CreateAssistant.CreateAssistant
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.CreateAssistant.CreateAssistant
+instance GHC.Generics.Generic Amazonka.Wisdom.CreateAssistant.CreateAssistant
+instance GHC.Show.Show Amazonka.Wisdom.CreateAssistant.CreateAssistant
+instance GHC.Read.Read Amazonka.Wisdom.CreateAssistant.CreateAssistant
+instance GHC.Classes.Eq Amazonka.Wisdom.CreateAssistant.CreateAssistant
+instance GHC.Generics.Generic Amazonka.Wisdom.CreateAssistant.CreateAssistantResponse
+instance GHC.Show.Show Amazonka.Wisdom.CreateAssistant.CreateAssistantResponse
+instance GHC.Read.Read Amazonka.Wisdom.CreateAssistant.CreateAssistantResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.CreateAssistant.CreateAssistantResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.CreateAssistant.CreateAssistant
+instance Control.DeepSeq.NFData Amazonka.Wisdom.CreateAssistant.CreateAssistantResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.CreateAssistant.CreateAssistant
+instance Control.DeepSeq.NFData Amazonka.Wisdom.CreateAssistant.CreateAssistant
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.CreateAssistant.CreateAssistant
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.CreateAssistant.CreateAssistant
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.CreateAssistant.CreateAssistant
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.CreateAssistant.CreateAssistant
 
 
 -- | Removes the specified tags from the specified resource.
-module Network.AWS.Wisdom.UntagResource
+module Amazonka.Wisdom.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -6991,25 +6991,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.Wisdom.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.Wisdom.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.Wisdom.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.Wisdom.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.Wisdom.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.Wisdom.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Wisdom.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.Wisdom.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.Wisdom.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.Wisdom.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Wisdom.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.Wisdom.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.Wisdom.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Wisdom.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Wisdom.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.UntagResource.UntagResource
 
 
 -- | Updates information about the content.
-module Network.AWS.Wisdom.UpdateContent
+module Amazonka.Wisdom.UpdateContent
 
 -- | <i>See:</i> <a>newUpdateContent</a> smart constructor.
 data UpdateContent
@@ -7174,21 +7174,21 @@ updateContentResponse_content :: Lens' UpdateContentResponse (Maybe ContentData)
 
 -- | The response's http status code.
 updateContentResponse_httpStatus :: Lens' UpdateContentResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.UpdateContent.UpdateContent
-instance GHC.Show.Show Network.AWS.Wisdom.UpdateContent.UpdateContent
-instance GHC.Read.Read Network.AWS.Wisdom.UpdateContent.UpdateContent
-instance GHC.Classes.Eq Network.AWS.Wisdom.UpdateContent.UpdateContent
-instance GHC.Generics.Generic Network.AWS.Wisdom.UpdateContent.UpdateContentResponse
-instance GHC.Show.Show Network.AWS.Wisdom.UpdateContent.UpdateContentResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.UpdateContent.UpdateContentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.UpdateContent.UpdateContent
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.UpdateContent.UpdateContentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.UpdateContent.UpdateContent
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.UpdateContent.UpdateContent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.UpdateContent.UpdateContent
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.UpdateContent.UpdateContent
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.UpdateContent.UpdateContent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.UpdateContent.UpdateContent
+instance GHC.Generics.Generic Amazonka.Wisdom.UpdateContent.UpdateContent
+instance GHC.Show.Show Amazonka.Wisdom.UpdateContent.UpdateContent
+instance GHC.Read.Read Amazonka.Wisdom.UpdateContent.UpdateContent
+instance GHC.Classes.Eq Amazonka.Wisdom.UpdateContent.UpdateContent
+instance GHC.Generics.Generic Amazonka.Wisdom.UpdateContent.UpdateContentResponse
+instance GHC.Show.Show Amazonka.Wisdom.UpdateContent.UpdateContentResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.UpdateContent.UpdateContentResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.UpdateContent.UpdateContent
+instance Control.DeepSeq.NFData Amazonka.Wisdom.UpdateContent.UpdateContentResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.UpdateContent.UpdateContent
+instance Control.DeepSeq.NFData Amazonka.Wisdom.UpdateContent.UpdateContent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.UpdateContent.UpdateContent
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.UpdateContent.UpdateContent
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.UpdateContent.UpdateContent
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.UpdateContent.UpdateContent
 
 
 -- | Updates the template URI of a knowledge base. This is only supported
@@ -7197,7 +7197,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.UpdateContent.UpdateC
 --   ingested content. For example, if you ingest a Salesforce article, it
 --   has an <tt>Id</tt> value, and you can set the template URI to
 --   <tt>https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*/view</tt>.
-module Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri
+module Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri
 
 -- | <i>See:</i> <a>newUpdateKnowledgeBaseTemplateUri</a> smart
 --   constructor.
@@ -7271,25 +7271,25 @@ updateKnowledgeBaseTemplateUriResponse_knowledgeBase :: Lens' UpdateKnowledgeBas
 
 -- | The response's http status code.
 updateKnowledgeBaseTemplateUriResponse_httpStatus :: Lens' UpdateKnowledgeBaseTemplateUriResponse Int
-instance GHC.Generics.Generic Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
-instance GHC.Show.Show Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
-instance GHC.Read.Read Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
-instance GHC.Classes.Eq Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
-instance GHC.Generics.Generic Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUriResponse
-instance GHC.Show.Show Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUriResponse
-instance GHC.Read.Read Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUriResponse
-instance GHC.Classes.Eq Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUriResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUriResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
-instance Control.DeepSeq.NFData Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
-instance Network.AWS.Data.Path.ToPath Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
+instance GHC.Generics.Generic Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
+instance GHC.Show.Show Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
+instance GHC.Read.Read Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
+instance GHC.Classes.Eq Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
+instance GHC.Generics.Generic Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUriResponse
+instance GHC.Show.Show Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUriResponse
+instance GHC.Read.Read Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUriResponse
+instance GHC.Classes.Eq Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUriResponse
+instance Amazonka.Types.AWSRequest Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
+instance Control.DeepSeq.NFData Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUriResponse
+instance Data.Hashable.Class.Hashable Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
+instance Control.DeepSeq.NFData Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
+instance Amazonka.Data.Path.ToPath Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
+instance Amazonka.Data.Query.ToQuery Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri.UpdateKnowledgeBaseTemplateUri
 
 
-module Network.AWS.Wisdom.Lens
+module Amazonka.Wisdom.Lens
 
 -- | The token for the next set of results. Use the value returned in the
 --   previous response in the next request to retrieve the next set of
@@ -8261,7 +8261,7 @@ sessionSummary_sessionId :: Lens' SessionSummary Text
 sourceConfiguration_appIntegrations :: Lens' SourceConfiguration (Maybe AppIntegrationsConfiguration)
 
 
-module Network.AWS.Wisdom.Waiters
+module Amazonka.Wisdom.Waiters
 
 
 -- | Derived from API version <tt>2020-10-19</tt> of the AWS service
@@ -8273,7 +8273,7 @@ module Network.AWS.Wisdom.Waiters
 --   <pre>
 --   &lt;p&gt;Some more advanced features are only accessible using the Wisdom API. For example, you can manually manage content by uploading custom files and control their lifecycle. &lt;/p&gt;
 --   </pre>
-module Network.AWS.Wisdom
+module Amazonka.Wisdom
 
 -- | API version <tt>2020-10-19</tt> of the Amazon Connect Wisdom Service
 --   SDK configuration.

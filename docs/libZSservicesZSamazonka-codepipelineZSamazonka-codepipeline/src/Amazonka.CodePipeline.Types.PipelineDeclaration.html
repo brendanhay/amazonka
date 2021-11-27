@@ -1,0 +1,571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodePipeline.Types.PipelineDeclaration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodePipeline.Types.PipelineDeclaration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ArtifactStore.html"><span class="hs-identifier">Amazonka.CodePipeline.Types.ArtifactStore</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.StageDeclaration.html"><span class="hs-identifier">Amazonka.CodePipeline.Types.StageDeclaration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Represents the structure of actions and stages to be performed in the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- pipeline.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPipelineDeclaration' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679281747"><span id="local-6989586621679281748"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineDeclaration"><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-var">PipelineDeclaration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineDeclaration%27"><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-var">PipelineDeclaration'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A mapping of @artifactStore@ objects and their corresponding AWS</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Regions. There must be an artifact store for the pipeline Region and for</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- each cross-region action in the pipeline.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- You must include either @artifactStore@ or @artifactStores@ in your</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- pipeline, but you cannot use both. If you create a cross-region action</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- in your pipeline, you must use @artifactStores@.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AartifactStores%3APipelineDeclaration%27"><span class="annot"><span class="annottext">PipelineDeclaration -&gt; Maybe (HashMap Text ArtifactStore)
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3AartifactStores%3APipelineDeclaration%27"><span class="hs-identifier hs-var hs-var">artifactStores</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Represents information about the S3 bucket where artifacts are stored</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- for the pipeline.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- You must include either @artifactStore@ or @artifactStores@ in your</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- pipeline, but you cannot use both. If you create a cross-region action</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- in your pipeline, you must use @artifactStores@.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AartifactStore%3APipelineDeclaration%27"><span class="annot"><span class="annottext">PipelineDeclaration -&gt; Maybe ArtifactStore
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3AartifactStore%3APipelineDeclaration%27"><span class="hs-identifier hs-var hs-var">artifactStore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The version number of the pipeline. A new pipeline always has a version</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- number of 1. This number is incremented when a pipeline is updated.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aversion%3APipelineDeclaration%27"><span class="annot"><span class="annottext">PipelineDeclaration -&gt; Maybe Natural
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3Aversion%3APipelineDeclaration%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The name of the pipeline.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3APipelineDeclaration%27"><span class="annot"><span class="annottext">PipelineDeclaration -&gt; Text
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3Aname%3APipelineDeclaration%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for AWS CodePipeline to use to either</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- perform actions with no @actionRoleArn@, or to use to assume roles for</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- actions with an @actionRoleArn@.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AroleArn%3APipelineDeclaration%27"><span class="annot"><span class="annottext">PipelineDeclaration -&gt; Text
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3AroleArn%3APipelineDeclaration%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The stage in which to perform the action.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Astages%3APipelineDeclaration%27"><span class="annot"><span class="annottext">PipelineDeclaration -&gt; [StageDeclaration]
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3Astages%3APipelineDeclaration%27"><span class="hs-identifier hs-var hs-var">stages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodePipeline.Types.StageDeclaration.html#StageDeclaration"><span class="hs-identifier hs-type">StageDeclaration</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281736"><span id="local-6989586621679281738"><span class="annot"><span class="annottext">PipelineDeclaration -&gt; PipelineDeclaration -&gt; Bool
+(PipelineDeclaration -&gt; PipelineDeclaration -&gt; Bool)
+-&gt; (PipelineDeclaration -&gt; PipelineDeclaration -&gt; Bool)
+-&gt; Eq PipelineDeclaration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PipelineDeclaration -&gt; PipelineDeclaration -&gt; Bool
+$c/= :: PipelineDeclaration -&gt; PipelineDeclaration -&gt; Bool
+== :: PipelineDeclaration -&gt; PipelineDeclaration -&gt; Bool
+$c== :: PipelineDeclaration -&gt; PipelineDeclaration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281727"><span id="local-6989586621679281729"><span id="local-6989586621679281731"><span id="local-6989586621679281733"><span class="annot"><span class="annottext">ReadPrec [PipelineDeclaration]
+ReadPrec PipelineDeclaration
+Int -&gt; ReadS PipelineDeclaration
+ReadS [PipelineDeclaration]
+(Int -&gt; ReadS PipelineDeclaration)
+-&gt; ReadS [PipelineDeclaration]
+-&gt; ReadPrec PipelineDeclaration
+-&gt; ReadPrec [PipelineDeclaration]
+-&gt; Read PipelineDeclaration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PipelineDeclaration]
+$creadListPrec :: ReadPrec [PipelineDeclaration]
+readPrec :: ReadPrec PipelineDeclaration
+$creadPrec :: ReadPrec PipelineDeclaration
+readList :: ReadS [PipelineDeclaration]
+$creadList :: ReadS [PipelineDeclaration]
+readsPrec :: Int -&gt; ReadS PipelineDeclaration
+$creadsPrec :: Int -&gt; ReadS PipelineDeclaration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281720"><span id="local-6989586621679281722"><span id="local-6989586621679281724"><span class="annot"><span class="annottext">Int -&gt; PipelineDeclaration -&gt; ShowS
+[PipelineDeclaration] -&gt; ShowS
+PipelineDeclaration -&gt; String
+(Int -&gt; PipelineDeclaration -&gt; ShowS)
+-&gt; (PipelineDeclaration -&gt; String)
+-&gt; ([PipelineDeclaration] -&gt; ShowS)
+-&gt; Show PipelineDeclaration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PipelineDeclaration] -&gt; ShowS
+$cshowList :: [PipelineDeclaration] -&gt; ShowS
+show :: PipelineDeclaration -&gt; String
+$cshow :: PipelineDeclaration -&gt; String
+showsPrec :: Int -&gt; PipelineDeclaration -&gt; ShowS
+$cshowsPrec :: Int -&gt; PipelineDeclaration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PipelineDeclaration -&gt; Rep PipelineDeclaration x)
+-&gt; (forall x. Rep PipelineDeclaration x -&gt; PipelineDeclaration)
+-&gt; Generic PipelineDeclaration
+forall x. Rep PipelineDeclaration x -&gt; PipelineDeclaration
+forall x. PipelineDeclaration -&gt; Rep PipelineDeclaration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PipelineDeclaration x -&gt; PipelineDeclaration
+$cfrom :: forall x. PipelineDeclaration -&gt; Rep PipelineDeclaration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'PipelineDeclaration' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'artifactStores', 'pipelineDeclaration_artifactStores' - A mapping of @artifactStore@ objects and their corresponding AWS</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Regions. There must be an artifact store for the pipeline Region and for</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- each cross-region action in the pipeline.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- You must include either @artifactStore@ or @artifactStores@ in your</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- pipeline, but you cannot use both. If you create a cross-region action</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- in your pipeline, you must use @artifactStores@.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'artifactStore', 'pipelineDeclaration_artifactStore' - Represents information about the S3 bucket where artifacts are stored</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for the pipeline.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- You must include either @artifactStore@ or @artifactStores@ in your</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- pipeline, but you cannot use both. If you create a cross-region action</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- in your pipeline, you must use @artifactStores@.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'version', 'pipelineDeclaration_version' - The version number of the pipeline. A new pipeline always has a version</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- number of 1. This number is incremented when a pipeline is updated.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'name', 'pipelineDeclaration_name' - The name of the pipeline.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'roleArn', 'pipelineDeclaration_roleArn' - The Amazon Resource Name (ARN) for AWS CodePipeline to use to either</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- perform actions with no @actionRoleArn@, or to use to assume roles for</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- actions with an @actionRoleArn@.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'stages', 'pipelineDeclaration_stages' - The stage in which to perform the action.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#newPipelineDeclaration"><span class="hs-identifier hs-type">newPipelineDeclaration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span>
+</span><span id="line-101"></span><span id="newPipelineDeclaration"><span class="annot"><span class="annottext">newPipelineDeclaration :: Text -&gt; Text -&gt; PipelineDeclaration
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#newPipelineDeclaration"><span class="hs-identifier hs-var hs-var">newPipelineDeclaration</span></a></span></span><span> </span><span id="local-6989586621679281714"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281714"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679281713"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281713"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">PipelineDeclaration' :: Maybe (HashMap Text ArtifactStore)
+-&gt; Maybe ArtifactStore
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; Text
+-&gt; [StageDeclaration]
+-&gt; PipelineDeclaration
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-type">PipelineDeclaration'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:artifactStores:PipelineDeclaration' :: Maybe (HashMap Text ArtifactStore)
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3AartifactStores%3APipelineDeclaration%27"><span class="hs-identifier hs-var">artifactStores</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap Text ArtifactStore)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:artifactStore:PipelineDeclaration' :: Maybe ArtifactStore
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3AartifactStore%3APipelineDeclaration%27"><span class="hs-identifier hs-var">artifactStore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactStore
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:PipelineDeclaration' :: Maybe Natural
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3Aversion%3APipelineDeclaration%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:PipelineDeclaration' :: Text
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3Aname%3APipelineDeclaration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281714"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:PipelineDeclaration' :: Text
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3AroleArn%3APipelineDeclaration%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281713"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:stages:PipelineDeclaration' :: [StageDeclaration]
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3Astages%3APipelineDeclaration%27"><span class="hs-identifier hs-var">stages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[StageDeclaration]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | A mapping of @artifactStore@ objects and their corresponding AWS</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Regions. There must be an artifact store for the pipeline Region and for</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- each cross-region action in the pipeline.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- You must include either @artifactStore@ or @artifactStores@ in your</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- pipeline, but you cannot use both. If you create a cross-region action</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- in your pipeline, you must use @artifactStores@.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#pipelineDeclaration_artifactStores"><span class="hs-identifier hs-type">pipelineDeclaration_artifactStores</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="pipelineDeclaration_artifactStores"><span class="annot"><span class="annottext">pipelineDeclaration_artifactStores :: (Maybe (HashMap Text ArtifactStore)
+ -&gt; f (Maybe (HashMap Text ArtifactStore)))
+-&gt; PipelineDeclaration -&gt; f PipelineDeclaration
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#pipelineDeclaration_artifactStores"><span class="hs-identifier hs-var hs-var">pipelineDeclaration_artifactStores</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineDeclaration -&gt; Maybe (HashMap Text ArtifactStore))
+-&gt; (PipelineDeclaration
+    -&gt; Maybe (HashMap Text ArtifactStore) -&gt; PipelineDeclaration)
+-&gt; Lens
+     PipelineDeclaration
+     PipelineDeclaration
+     (Maybe (HashMap Text ArtifactStore))
+     (Maybe (HashMap Text ArtifactStore))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-type">PipelineDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281709"><span class="annot"><span class="annottext">Maybe (HashMap Text ArtifactStore)
+artifactStores :: Maybe (HashMap Text ArtifactStore)
+$sel:artifactStores:PipelineDeclaration' :: PipelineDeclaration -&gt; Maybe (HashMap Text ArtifactStore)
+</span><a href="#local-6989586621679281709"><span class="hs-identifier hs-var hs-var">artifactStores</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ArtifactStore)
+</span><a href="#local-6989586621679281709"><span class="hs-identifier hs-var">artifactStores</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281708"><span class="annot"><span class="annottext">s :: PipelineDeclaration
+</span><a href="#local-6989586621679281708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-type">PipelineDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281707"><span class="annot"><span class="annottext">Maybe (HashMap Text ArtifactStore)
+</span><a href="#local-6989586621679281707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineDeclaration
+</span><a href="#local-6989586621679281708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactStores:PipelineDeclaration' :: Maybe (HashMap Text ArtifactStore)
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3AartifactStores%3APipelineDeclaration%27"><span class="hs-identifier hs-var">artifactStores</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ArtifactStore)
+</span><a href="#local-6989586621679281707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text ArtifactStore)
+  -&gt; f (Maybe (HashMap Text ArtifactStore)))
+ -&gt; PipelineDeclaration -&gt; f PipelineDeclaration)
+-&gt; ((Maybe (HashMap Text ArtifactStore)
+     -&gt; f (Maybe (HashMap Text ArtifactStore)))
+    -&gt; Maybe (HashMap Text ArtifactStore)
+    -&gt; f (Maybe (HashMap Text ArtifactStore)))
+-&gt; (Maybe (HashMap Text ArtifactStore)
+    -&gt; f (Maybe (HashMap Text ArtifactStore)))
+-&gt; PipelineDeclaration
+-&gt; f PipelineDeclaration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text ArtifactStore)
+  (HashMap Text ArtifactStore)
+  (HashMap Text ArtifactStore)
+  (HashMap Text ArtifactStore)
+-&gt; Iso
+     (Maybe (HashMap Text ArtifactStore))
+     (Maybe (HashMap Text ArtifactStore))
+     (Maybe (HashMap Text ArtifactStore))
+     (Maybe (HashMap Text ArtifactStore))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text ArtifactStore)
+  (HashMap Text ArtifactStore)
+  (HashMap Text ArtifactStore)
+  (HashMap Text ArtifactStore)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Represents information about the S3 bucket where artifacts are stored</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- for the pipeline.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- You must include either @artifactStore@ or @artifactStores@ in your</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- pipeline, but you cannot use both. If you create a cross-region action</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- in your pipeline, you must use @artifactStores@.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#pipelineDeclaration_artifactStore"><span class="hs-identifier hs-type">pipelineDeclaration_artifactStore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="pipelineDeclaration_artifactStore"><span class="annot"><span class="annottext">pipelineDeclaration_artifactStore :: (Maybe ArtifactStore -&gt; f (Maybe ArtifactStore))
+-&gt; PipelineDeclaration -&gt; f PipelineDeclaration
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#pipelineDeclaration_artifactStore"><span class="hs-identifier hs-var hs-var">pipelineDeclaration_artifactStore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineDeclaration -&gt; Maybe ArtifactStore)
+-&gt; (PipelineDeclaration
+    -&gt; Maybe ArtifactStore -&gt; PipelineDeclaration)
+-&gt; Lens
+     PipelineDeclaration
+     PipelineDeclaration
+     (Maybe ArtifactStore)
+     (Maybe ArtifactStore)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-type">PipelineDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281702"><span class="annot"><span class="annottext">Maybe ArtifactStore
+artifactStore :: Maybe ArtifactStore
+$sel:artifactStore:PipelineDeclaration' :: PipelineDeclaration -&gt; Maybe ArtifactStore
+</span><a href="#local-6989586621679281702"><span class="hs-identifier hs-var hs-var">artifactStore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactStore
+</span><a href="#local-6989586621679281702"><span class="hs-identifier hs-var">artifactStore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281701"><span class="annot"><span class="annottext">s :: PipelineDeclaration
+</span><a href="#local-6989586621679281701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-type">PipelineDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281700"><span class="annot"><span class="annottext">Maybe ArtifactStore
+</span><a href="#local-6989586621679281700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineDeclaration
+</span><a href="#local-6989586621679281701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactStore:PipelineDeclaration' :: Maybe ArtifactStore
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3AartifactStore%3APipelineDeclaration%27"><span class="hs-identifier hs-var">artifactStore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactStore
+</span><a href="#local-6989586621679281700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The version number of the pipeline. A new pipeline always has a version</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- number of 1. This number is incremented when a pipeline is updated.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#pipelineDeclaration_version"><span class="hs-identifier hs-type">pipelineDeclaration_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="pipelineDeclaration_version"><span class="annot"><span class="annottext">pipelineDeclaration_version :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; PipelineDeclaration -&gt; f PipelineDeclaration
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#pipelineDeclaration_version"><span class="hs-identifier hs-var hs-var">pipelineDeclaration_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineDeclaration -&gt; Maybe Natural)
+-&gt; (PipelineDeclaration -&gt; Maybe Natural -&gt; PipelineDeclaration)
+-&gt; Lens
+     PipelineDeclaration
+     PipelineDeclaration
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-type">PipelineDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281698"><span class="annot"><span class="annottext">Maybe Natural
+version :: Maybe Natural
+$sel:version:PipelineDeclaration' :: PipelineDeclaration -&gt; Maybe Natural
+</span><a href="#local-6989586621679281698"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679281698"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281697"><span class="annot"><span class="annottext">s :: PipelineDeclaration
+</span><a href="#local-6989586621679281697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-type">PipelineDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281696"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679281696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineDeclaration
+</span><a href="#local-6989586621679281697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:PipelineDeclaration' :: Maybe Natural
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3Aversion%3APipelineDeclaration%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679281696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The name of the pipeline.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#pipelineDeclaration_name"><span class="hs-identifier hs-type">pipelineDeclaration_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-138"></span><span id="pipelineDeclaration_name"><span class="annot"><span class="annottext">pipelineDeclaration_name :: (Text -&gt; f Text) -&gt; PipelineDeclaration -&gt; f PipelineDeclaration
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#pipelineDeclaration_name"><span class="hs-identifier hs-var hs-var">pipelineDeclaration_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineDeclaration -&gt; Text)
+-&gt; (PipelineDeclaration -&gt; Text -&gt; PipelineDeclaration)
+-&gt; Lens PipelineDeclaration PipelineDeclaration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-type">PipelineDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281694"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:PipelineDeclaration' :: PipelineDeclaration -&gt; Text
+</span><a href="#local-6989586621679281694"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281694"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281693"><span class="annot"><span class="annottext">s :: PipelineDeclaration
+</span><a href="#local-6989586621679281693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-type">PipelineDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281692"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineDeclaration
+</span><a href="#local-6989586621679281693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PipelineDeclaration' :: Text
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3Aname%3APipelineDeclaration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for AWS CodePipeline to use to either</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- perform actions with no @actionRoleArn@, or to use to assume roles for</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- actions with an @actionRoleArn@.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#pipelineDeclaration_roleArn"><span class="hs-identifier hs-type">pipelineDeclaration_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-144"></span><span id="pipelineDeclaration_roleArn"><span class="annot"><span class="annottext">pipelineDeclaration_roleArn :: (Text -&gt; f Text) -&gt; PipelineDeclaration -&gt; f PipelineDeclaration
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#pipelineDeclaration_roleArn"><span class="hs-identifier hs-var hs-var">pipelineDeclaration_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineDeclaration -&gt; Text)
+-&gt; (PipelineDeclaration -&gt; Text -&gt; PipelineDeclaration)
+-&gt; Lens PipelineDeclaration PipelineDeclaration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-type">PipelineDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281690"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:PipelineDeclaration' :: PipelineDeclaration -&gt; Text
+</span><a href="#local-6989586621679281690"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281690"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281689"><span class="annot"><span class="annottext">s :: PipelineDeclaration
+</span><a href="#local-6989586621679281689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-type">PipelineDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281688"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineDeclaration
+</span><a href="#local-6989586621679281689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:PipelineDeclaration' :: Text
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3AroleArn%3APipelineDeclaration%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The stage in which to perform the action.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#pipelineDeclaration_stages"><span class="hs-identifier hs-type">pipelineDeclaration_stages</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodePipeline.Types.StageDeclaration.html#StageDeclaration"><span class="hs-identifier hs-type">StageDeclaration</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-148"></span><span id="pipelineDeclaration_stages"><span class="annot"><span class="annottext">pipelineDeclaration_stages :: ([StageDeclaration] -&gt; f [StageDeclaration])
+-&gt; PipelineDeclaration -&gt; f PipelineDeclaration
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#pipelineDeclaration_stages"><span class="hs-identifier hs-var hs-var">pipelineDeclaration_stages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineDeclaration -&gt; [StageDeclaration])
+-&gt; (PipelineDeclaration
+    -&gt; [StageDeclaration] -&gt; PipelineDeclaration)
+-&gt; Lens
+     PipelineDeclaration
+     PipelineDeclaration
+     [StageDeclaration]
+     [StageDeclaration]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-type">PipelineDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281686"><span class="annot"><span class="annottext">[StageDeclaration]
+stages :: [StageDeclaration]
+$sel:stages:PipelineDeclaration' :: PipelineDeclaration -&gt; [StageDeclaration]
+</span><a href="#local-6989586621679281686"><span class="hs-identifier hs-var hs-var">stages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[StageDeclaration]
+</span><a href="#local-6989586621679281686"><span class="hs-identifier hs-var">stages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281685"><span class="annot"><span class="annottext">s :: PipelineDeclaration
+</span><a href="#local-6989586621679281685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-type">PipelineDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281684"><span class="annot"><span class="annottext">[StageDeclaration]
+</span><a href="#local-6989586621679281684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineDeclaration
+</span><a href="#local-6989586621679281685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stages:PipelineDeclaration' :: [StageDeclaration]
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#%24sel%3Astages%3APipelineDeclaration%27"><span class="hs-identifier hs-var">stages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[StageDeclaration]
+</span><a href="#local-6989586621679281684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([StageDeclaration] -&gt; f [StageDeclaration])
+ -&gt; PipelineDeclaration -&gt; f PipelineDeclaration)
+-&gt; (([StageDeclaration] -&gt; f [StageDeclaration])
+    -&gt; [StageDeclaration] -&gt; f [StageDeclaration])
+-&gt; ([StageDeclaration] -&gt; f [StageDeclaration])
+-&gt; PipelineDeclaration
+-&gt; f PipelineDeclaration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([StageDeclaration] -&gt; f [StageDeclaration])
+-&gt; [StageDeclaration] -&gt; f [StageDeclaration]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281681"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679281679"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineDeclaration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PipelineDeclaration)
+-&gt; Value
+-&gt; Parser PipelineDeclaration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PipelineDeclaration&quot;</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281676"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281676"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text ArtifactStore)
+-&gt; Maybe ArtifactStore
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; Text
+-&gt; [StageDeclaration]
+-&gt; PipelineDeclaration
+</span><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-var">PipelineDeclaration'</span></a></span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text ArtifactStore)
+ -&gt; Maybe ArtifactStore
+ -&gt; Maybe Natural
+ -&gt; Text
+ -&gt; Text
+ -&gt; [StageDeclaration]
+ -&gt; PipelineDeclaration)
+-&gt; Parser (Maybe (HashMap Text ArtifactStore))
+-&gt; Parser
+     (Maybe ArtifactStore
+      -&gt; Maybe Natural
+      -&gt; Text
+      -&gt; Text
+      -&gt; [StageDeclaration]
+      -&gt; PipelineDeclaration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text ArtifactStore)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;artifactStores&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text ArtifactStore)))
+-&gt; Maybe (HashMap Text ArtifactStore)
+-&gt; Parser (Maybe (HashMap Text ArtifactStore))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ArtifactStore)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ArtifactStore
+   -&gt; Maybe Natural
+   -&gt; Text
+   -&gt; Text
+   -&gt; [StageDeclaration]
+   -&gt; PipelineDeclaration)
+-&gt; Parser (Maybe ArtifactStore)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Text -&gt; Text -&gt; [StageDeclaration] -&gt; PipelineDeclaration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArtifactStore)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;artifactStore&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Text -&gt; Text -&gt; [StageDeclaration] -&gt; PipelineDeclaration)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Text -&gt; Text -&gt; [StageDeclaration] -&gt; PipelineDeclaration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; [StageDeclaration] -&gt; PipelineDeclaration)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; [StageDeclaration] -&gt; PipelineDeclaration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; [StageDeclaration] -&gt; PipelineDeclaration)
+-&gt; Parser Text
+-&gt; Parser ([StageDeclaration] -&gt; PipelineDeclaration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser ([StageDeclaration] -&gt; PipelineDeclaration)
+-&gt; Parser [StageDeclaration] -&gt; Parser PipelineDeclaration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [StageDeclaration])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [StageDeclaration])
+-&gt; [StageDeclaration] -&gt; Parser [StageDeclaration]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[StageDeclaration]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281668"><span id="local-6989586621679281670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281657"><span id="local-6989586621679281659"><span id="local-6989586621679281661"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679281655"><span class="annot"><span class="annottext">toJSON :: PipelineDeclaration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration%27"><span class="hs-identifier hs-type">PipelineDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281648"><span id="local-6989586621679281649"><span id="local-6989586621679281650"><span id="local-6989586621679281651"><span id="local-6989586621679281652"><span id="local-6989586621679281653"><span class="annot"><span class="annottext">[StageDeclaration]
+Maybe Natural
+Maybe (HashMap Text ArtifactStore)
+Maybe ArtifactStore
+Text
+stages :: [StageDeclaration]
+roleArn :: Text
+name :: Text
+version :: Maybe Natural
+artifactStore :: Maybe ArtifactStore
+artifactStores :: Maybe (HashMap Text ArtifactStore)
+$sel:stages:PipelineDeclaration' :: PipelineDeclaration -&gt; [StageDeclaration]
+$sel:roleArn:PipelineDeclaration' :: PipelineDeclaration -&gt; Text
+$sel:name:PipelineDeclaration' :: PipelineDeclaration -&gt; Text
+$sel:version:PipelineDeclaration' :: PipelineDeclaration -&gt; Maybe Natural
+$sel:artifactStore:PipelineDeclaration' :: PipelineDeclaration -&gt; Maybe ArtifactStore
+$sel:artifactStores:PipelineDeclaration' :: PipelineDeclaration -&gt; Maybe (HashMap Text ArtifactStore)
+</span><a href="#local-6989586621679281648"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;artifactStores&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text ArtifactStore -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text ArtifactStore -&gt; Pair)
+-&gt; Maybe (HashMap Text ArtifactStore) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ArtifactStore)
+</span><a href="#local-6989586621679281653"><span class="hs-identifier hs-var">artifactStores</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;artifactStore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArtifactStore -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ArtifactStore -&gt; Pair) -&gt; Maybe ArtifactStore -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactStore
+</span><a href="#local-6989586621679281652"><span class="hs-identifier hs-var">artifactStore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679281651"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281650"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281649"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [StageDeclaration] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[StageDeclaration]
+</span><a href="#local-6989586621679281648"><span class="hs-identifier hs-var">stages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span></pre></body></html>

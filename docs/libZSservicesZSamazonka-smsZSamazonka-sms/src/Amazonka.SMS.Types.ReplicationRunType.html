@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SMS.Types.ReplicationRunType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SMS.Types.ReplicationRunType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ReplicationRunType.html#ReplicationRunType"><span class="hs-identifier">ReplicationRunType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.ReplicationRunType.html#ReplicationRunType_AUTOMATIC"><span class="hs-identifier">ReplicationRunType_AUTOMATIC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.ReplicationRunType.html#ReplicationRunType_ON_DEMAND"><span class="hs-identifier">ReplicationRunType_ON_DEMAND</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679246199"><span id="local-6989586621679246200"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicationRunType"><span class="annot"><a href="Amazonka.SMS.Types.ReplicationRunType.html#ReplicationRunType"><span class="hs-identifier hs-var">ReplicationRunType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationRunType%27"><span class="annot"><a href="Amazonka.SMS.Types.ReplicationRunType.html#ReplicationRunType%27"><span class="hs-identifier hs-var">ReplicationRunType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReplicationRunType"><span class="annot"><span class="annottext">ReplicationRunType -&gt; Text
+</span><a href="Amazonka.SMS.Types.ReplicationRunType.html#fromReplicationRunType"><span class="hs-identifier hs-var hs-var">fromReplicationRunType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246191"><span id="local-6989586621679246193"><span id="local-6989586621679246195"><span class="annot"><span class="annottext">Int -&gt; ReplicationRunType -&gt; ShowS
+[ReplicationRunType] -&gt; ShowS
+ReplicationRunType -&gt; String
+(Int -&gt; ReplicationRunType -&gt; ShowS)
+-&gt; (ReplicationRunType -&gt; String)
+-&gt; ([ReplicationRunType] -&gt; ShowS)
+-&gt; Show ReplicationRunType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReplicationRunType] -&gt; ShowS
+$cshowList :: [ReplicationRunType] -&gt; ShowS
+show :: ReplicationRunType -&gt; String
+$cshow :: ReplicationRunType -&gt; String
+showsPrec :: Int -&gt; ReplicationRunType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReplicationRunType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679246182"><span id="local-6989586621679246184"><span id="local-6989586621679246186"><span id="local-6989586621679246188"><span class="annot"><span class="annottext">ReadPrec [ReplicationRunType]
+ReadPrec ReplicationRunType
+Int -&gt; ReadS ReplicationRunType
+ReadS [ReplicationRunType]
+(Int -&gt; ReadS ReplicationRunType)
+-&gt; ReadS [ReplicationRunType]
+-&gt; ReadPrec ReplicationRunType
+-&gt; ReadPrec [ReplicationRunType]
+-&gt; Read ReplicationRunType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReplicationRunType]
+$creadListPrec :: ReadPrec [ReplicationRunType]
+readPrec :: ReadPrec ReplicationRunType
+$creadPrec :: ReadPrec ReplicationRunType
+readList :: ReadS [ReplicationRunType]
+$creadList :: ReadS [ReplicationRunType]
+readsPrec :: Int -&gt; ReadS ReplicationRunType
+$creadsPrec :: Int -&gt; ReadS ReplicationRunType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679246177"><span id="local-6989586621679246179"><span class="annot"><span class="annottext">ReplicationRunType -&gt; ReplicationRunType -&gt; Bool
+(ReplicationRunType -&gt; ReplicationRunType -&gt; Bool)
+-&gt; (ReplicationRunType -&gt; ReplicationRunType -&gt; Bool)
+-&gt; Eq ReplicationRunType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReplicationRunType -&gt; ReplicationRunType -&gt; Bool
+$c/= :: ReplicationRunType -&gt; ReplicationRunType -&gt; Bool
+== :: ReplicationRunType -&gt; ReplicationRunType -&gt; Bool
+$c== :: ReplicationRunType -&gt; ReplicationRunType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679246161"><span id="local-6989586621679246163"><span id="local-6989586621679246165"><span id="local-6989586621679246167"><span id="local-6989586621679246169"><span id="local-6989586621679246171"><span id="local-6989586621679246173"><span class="annot"><span class="annottext">Eq ReplicationRunType
+Eq ReplicationRunType
+-&gt; (ReplicationRunType -&gt; ReplicationRunType -&gt; Ordering)
+-&gt; (ReplicationRunType -&gt; ReplicationRunType -&gt; Bool)
+-&gt; (ReplicationRunType -&gt; ReplicationRunType -&gt; Bool)
+-&gt; (ReplicationRunType -&gt; ReplicationRunType -&gt; Bool)
+-&gt; (ReplicationRunType -&gt; ReplicationRunType -&gt; Bool)
+-&gt; (ReplicationRunType -&gt; ReplicationRunType -&gt; ReplicationRunType)
+-&gt; (ReplicationRunType -&gt; ReplicationRunType -&gt; ReplicationRunType)
+-&gt; Ord ReplicationRunType
+ReplicationRunType -&gt; ReplicationRunType -&gt; Bool
+ReplicationRunType -&gt; ReplicationRunType -&gt; Ordering
+ReplicationRunType -&gt; ReplicationRunType -&gt; ReplicationRunType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ReplicationRunType -&gt; ReplicationRunType -&gt; ReplicationRunType
+$cmin :: ReplicationRunType -&gt; ReplicationRunType -&gt; ReplicationRunType
+max :: ReplicationRunType -&gt; ReplicationRunType -&gt; ReplicationRunType
+$cmax :: ReplicationRunType -&gt; ReplicationRunType -&gt; ReplicationRunType
+&gt;= :: ReplicationRunType -&gt; ReplicationRunType -&gt; Bool
+$c&gt;= :: ReplicationRunType -&gt; ReplicationRunType -&gt; Bool
+&gt; :: ReplicationRunType -&gt; ReplicationRunType -&gt; Bool
+$c&gt; :: ReplicationRunType -&gt; ReplicationRunType -&gt; Bool
+&lt;= :: ReplicationRunType -&gt; ReplicationRunType -&gt; Bool
+$c&lt;= :: ReplicationRunType -&gt; ReplicationRunType -&gt; Bool
+&lt; :: ReplicationRunType -&gt; ReplicationRunType -&gt; Bool
+$c&lt; :: ReplicationRunType -&gt; ReplicationRunType -&gt; Bool
+compare :: ReplicationRunType -&gt; ReplicationRunType -&gt; Ordering
+$ccompare :: ReplicationRunType -&gt; ReplicationRunType -&gt; Ordering
+$cp1Ord :: Eq ReplicationRunType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ReplicationRunType -&gt; Rep ReplicationRunType x)
+-&gt; (forall x. Rep ReplicationRunType x -&gt; ReplicationRunType)
+-&gt; Generic ReplicationRunType
+forall x. Rep ReplicationRunType x -&gt; ReplicationRunType
+forall x. ReplicationRunType -&gt; Rep ReplicationRunType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReplicationRunType x -&gt; ReplicationRunType
+$cfrom :: forall x. ReplicationRunType -&gt; Rep ReplicationRunType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246153"><span id="local-6989586621679246155"><span class="annot"><span class="annottext">Int -&gt; ReplicationRunType -&gt; Int
+ReplicationRunType -&gt; Int
+(Int -&gt; ReplicationRunType -&gt; Int)
+-&gt; (ReplicationRunType -&gt; Int) -&gt; Hashable ReplicationRunType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ReplicationRunType -&gt; Int
+$chash :: ReplicationRunType -&gt; Int
+hashWithSalt :: Int -&gt; ReplicationRunType -&gt; Int
+$chashWithSalt :: Int -&gt; ReplicationRunType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679246150"><span class="annot"><span class="annottext">ReplicationRunType -&gt; ()
+(ReplicationRunType -&gt; ()) -&gt; NFData ReplicationRunType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ReplicationRunType -&gt; ()
+$crnf :: ReplicationRunType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679246147"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicationRunType
+(Text -&gt; Either String ReplicationRunType)
+-&gt; FromText ReplicationRunType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ReplicationRunType
+$cfromText :: Text -&gt; Either String ReplicationRunType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679246144"><span class="annot"><span class="annottext">ReplicationRunType -&gt; Text
+(ReplicationRunType -&gt; Text) -&gt; ToText ReplicationRunType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ReplicationRunType -&gt; Text
+$ctoText :: ReplicationRunType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246141"><span class="annot"><span class="annottext">ReplicationRunType -&gt; ByteString
+(ReplicationRunType -&gt; ByteString)
+-&gt; ToByteString ReplicationRunType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ReplicationRunType -&gt; ByteString
+$ctoBS :: ReplicationRunType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246138"><span class="annot"><span class="annottext">ReplicationRunType -&gt; ByteStringBuilder
+(ReplicationRunType -&gt; ByteStringBuilder)
+-&gt; ToLog ReplicationRunType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ReplicationRunType -&gt; ByteStringBuilder
+$cbuild :: ReplicationRunType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246135"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicationRunType -&gt; [Header]
+(HeaderName -&gt; ReplicationRunType -&gt; [Header])
+-&gt; ToHeader ReplicationRunType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ReplicationRunType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ReplicationRunType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246132"><span class="annot"><span class="annottext">ReplicationRunType -&gt; QueryString
+(ReplicationRunType -&gt; QueryString) -&gt; ToQuery ReplicationRunType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ReplicationRunType -&gt; QueryString
+$ctoQuery :: ReplicationRunType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246127"><span id="local-6989586621679246129"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicationRunType]
+Value -&gt; Parser ReplicationRunType
+(Value -&gt; Parser ReplicationRunType)
+-&gt; (Value -&gt; Parser [ReplicationRunType])
+-&gt; FromJSON ReplicationRunType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ReplicationRunType]
+$cparseJSONList :: Value -&gt; Parser [ReplicationRunType]
+parseJSON :: Value -&gt; Parser ReplicationRunType
+$cparseJSON :: Value -&gt; Parser ReplicationRunType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246122"><span id="local-6989586621679246124"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicationRunType]
+FromJSONKeyFunction ReplicationRunType
+FromJSONKeyFunction ReplicationRunType
+-&gt; FromJSONKeyFunction [ReplicationRunType]
+-&gt; FromJSONKey ReplicationRunType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ReplicationRunType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ReplicationRunType]
+fromJSONKey :: FromJSONKeyFunction ReplicationRunType
+$cfromJSONKey :: FromJSONKeyFunction ReplicationRunType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246113"><span id="local-6989586621679246115"><span id="local-6989586621679246117"><span id="local-6989586621679246119"><span class="annot"><span class="annottext">[ReplicationRunType] -&gt; Encoding
+[ReplicationRunType] -&gt; Value
+ReplicationRunType -&gt; Encoding
+ReplicationRunType -&gt; Value
+(ReplicationRunType -&gt; Value)
+-&gt; (ReplicationRunType -&gt; Encoding)
+-&gt; ([ReplicationRunType] -&gt; Value)
+-&gt; ([ReplicationRunType] -&gt; Encoding)
+-&gt; ToJSON ReplicationRunType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ReplicationRunType] -&gt; Encoding
+$ctoEncodingList :: [ReplicationRunType] -&gt; Encoding
+toJSONList :: [ReplicationRunType] -&gt; Value
+$ctoJSONList :: [ReplicationRunType] -&gt; Value
+toEncoding :: ReplicationRunType -&gt; Encoding
+$ctoEncoding :: ReplicationRunType -&gt; Encoding
+toJSON :: ReplicationRunType -&gt; Value
+$ctoJSON :: ReplicationRunType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246108"><span id="local-6989586621679246110"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicationRunType]
+ToJSONKeyFunction ReplicationRunType
+ToJSONKeyFunction ReplicationRunType
+-&gt; ToJSONKeyFunction [ReplicationRunType]
+-&gt; ToJSONKey ReplicationRunType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ReplicationRunType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ReplicationRunType]
+toJSONKey :: ToJSONKeyFunction ReplicationRunType
+$ctoJSONKey :: ToJSONKeyFunction ReplicationRunType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246105"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicationRunType
+([Node] -&gt; Either String ReplicationRunType)
+-&gt; FromXML ReplicationRunType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ReplicationRunType
+$cparseXML :: [Node] -&gt; Either String ReplicationRunType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246102"><span class="annot"><span class="annottext">ReplicationRunType -&gt; XML
+(ReplicationRunType -&gt; XML) -&gt; ToXML ReplicationRunType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ReplicationRunType -&gt; XML
+$ctoXML :: ReplicationRunType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ReplicationRunType.html#ReplicationRunType_AUTOMATIC"><span class="hs-identifier hs-type">ReplicationRunType_AUTOMATIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ReplicationRunType.html#ReplicationRunType"><span class="hs-identifier hs-type">ReplicationRunType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplicationRunType_AUTOMATIC"><span id="%24mReplicationRunType_AUTOMATIC"><span id="ReplicationRunType_AUTOMATIC"><span class="annot"><span class="annottext">$bReplicationRunType_AUTOMATIC :: ReplicationRunType
+$mReplicationRunType_AUTOMATIC :: forall r. ReplicationRunType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.ReplicationRunType.html#%24bReplicationRunType_AUTOMATIC"><span class="hs-identifier hs-var hs-var hs-var">ReplicationRunType_AUTOMATIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ReplicationRunType.html#ReplicationRunType%27"><span class="hs-identifier hs-type">ReplicationRunType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTOMATIC&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ReplicationRunType.html#ReplicationRunType_ON_DEMAND"><span class="hs-identifier hs-type">ReplicationRunType_ON_DEMAND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ReplicationRunType.html#ReplicationRunType"><span class="hs-identifier hs-type">ReplicationRunType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplicationRunType_ON_DEMAND"><span id="%24mReplicationRunType_ON_DEMAND"><span id="ReplicationRunType_ON_DEMAND"><span class="annot"><span class="annottext">$bReplicationRunType_ON_DEMAND :: ReplicationRunType
+$mReplicationRunType_ON_DEMAND :: forall r. ReplicationRunType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.ReplicationRunType.html#%24bReplicationRunType_ON_DEMAND"><span class="hs-identifier hs-var hs-var hs-var">ReplicationRunType_ON_DEMAND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ReplicationRunType.html#ReplicationRunType%27"><span class="hs-identifier hs-type">ReplicationRunType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ON_DEMAND&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.ReplicationRunType.html#ReplicationRunType_AUTOMATIC"><span class="hs-pragma hs-type">ReplicationRunType_AUTOMATIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.ReplicationRunType.html#ReplicationRunType_ON_DEMAND"><span class="hs-pragma hs-type">ReplicationRunType_ON_DEMAND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.ReplicationRunType.html#ReplicationRunType%27"><span class="hs-pragma hs-type">ReplicationRunType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

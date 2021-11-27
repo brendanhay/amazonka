@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState"><span class="hs-identifier">RepositoryAssociationState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState_Associated"><span class="hs-identifier">RepositoryAssociationState_Associated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState_Associating"><span class="hs-identifier">RepositoryAssociationState_Associating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState_Disassociated"><span class="hs-identifier">RepositoryAssociationState_Disassociated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState_Disassociating"><span class="hs-identifier">RepositoryAssociationState_Disassociating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState_Failed"><span class="hs-identifier">RepositoryAssociationState_Failed</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679199284"><span id="local-6989586621679199285"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RepositoryAssociationState"><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState"><span class="hs-identifier hs-var">RepositoryAssociationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RepositoryAssociationState%27"><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState%27"><span class="hs-identifier hs-var">RepositoryAssociationState'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRepositoryAssociationState"><span class="annot"><span class="annottext">RepositoryAssociationState -&gt; Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#fromRepositoryAssociationState"><span class="hs-identifier hs-var hs-var">fromRepositoryAssociationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679199276"><span id="local-6989586621679199278"><span id="local-6989586621679199280"><span class="annot"><span class="annottext">Int -&gt; RepositoryAssociationState -&gt; ShowS
+[RepositoryAssociationState] -&gt; ShowS
+RepositoryAssociationState -&gt; String
+(Int -&gt; RepositoryAssociationState -&gt; ShowS)
+-&gt; (RepositoryAssociationState -&gt; String)
+-&gt; ([RepositoryAssociationState] -&gt; ShowS)
+-&gt; Show RepositoryAssociationState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RepositoryAssociationState] -&gt; ShowS
+$cshowList :: [RepositoryAssociationState] -&gt; ShowS
+show :: RepositoryAssociationState -&gt; String
+$cshow :: RepositoryAssociationState -&gt; String
+showsPrec :: Int -&gt; RepositoryAssociationState -&gt; ShowS
+$cshowsPrec :: Int -&gt; RepositoryAssociationState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679199267"><span id="local-6989586621679199269"><span id="local-6989586621679199271"><span id="local-6989586621679199273"><span class="annot"><span class="annottext">ReadPrec [RepositoryAssociationState]
+ReadPrec RepositoryAssociationState
+Int -&gt; ReadS RepositoryAssociationState
+ReadS [RepositoryAssociationState]
+(Int -&gt; ReadS RepositoryAssociationState)
+-&gt; ReadS [RepositoryAssociationState]
+-&gt; ReadPrec RepositoryAssociationState
+-&gt; ReadPrec [RepositoryAssociationState]
+-&gt; Read RepositoryAssociationState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RepositoryAssociationState]
+$creadListPrec :: ReadPrec [RepositoryAssociationState]
+readPrec :: ReadPrec RepositoryAssociationState
+$creadPrec :: ReadPrec RepositoryAssociationState
+readList :: ReadS [RepositoryAssociationState]
+$creadList :: ReadS [RepositoryAssociationState]
+readsPrec :: Int -&gt; ReadS RepositoryAssociationState
+$creadsPrec :: Int -&gt; ReadS RepositoryAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679199262"><span id="local-6989586621679199264"><span class="annot"><span class="annottext">RepositoryAssociationState -&gt; RepositoryAssociationState -&gt; Bool
+(RepositoryAssociationState -&gt; RepositoryAssociationState -&gt; Bool)
+-&gt; (RepositoryAssociationState
+    -&gt; RepositoryAssociationState -&gt; Bool)
+-&gt; Eq RepositoryAssociationState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RepositoryAssociationState -&gt; RepositoryAssociationState -&gt; Bool
+$c/= :: RepositoryAssociationState -&gt; RepositoryAssociationState -&gt; Bool
+== :: RepositoryAssociationState -&gt; RepositoryAssociationState -&gt; Bool
+$c== :: RepositoryAssociationState -&gt; RepositoryAssociationState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679199246"><span id="local-6989586621679199248"><span id="local-6989586621679199250"><span id="local-6989586621679199252"><span id="local-6989586621679199254"><span id="local-6989586621679199256"><span id="local-6989586621679199258"><span class="annot"><span class="annottext">Eq RepositoryAssociationState
+Eq RepositoryAssociationState
+-&gt; (RepositoryAssociationState
+    -&gt; RepositoryAssociationState -&gt; Ordering)
+-&gt; (RepositoryAssociationState
+    -&gt; RepositoryAssociationState -&gt; Bool)
+-&gt; (RepositoryAssociationState
+    -&gt; RepositoryAssociationState -&gt; Bool)
+-&gt; (RepositoryAssociationState
+    -&gt; RepositoryAssociationState -&gt; Bool)
+-&gt; (RepositoryAssociationState
+    -&gt; RepositoryAssociationState -&gt; Bool)
+-&gt; (RepositoryAssociationState
+    -&gt; RepositoryAssociationState -&gt; RepositoryAssociationState)
+-&gt; (RepositoryAssociationState
+    -&gt; RepositoryAssociationState -&gt; RepositoryAssociationState)
+-&gt; Ord RepositoryAssociationState
+RepositoryAssociationState -&gt; RepositoryAssociationState -&gt; Bool
+RepositoryAssociationState
+-&gt; RepositoryAssociationState -&gt; Ordering
+RepositoryAssociationState
+-&gt; RepositoryAssociationState -&gt; RepositoryAssociationState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RepositoryAssociationState
+-&gt; RepositoryAssociationState -&gt; RepositoryAssociationState
+$cmin :: RepositoryAssociationState
+-&gt; RepositoryAssociationState -&gt; RepositoryAssociationState
+max :: RepositoryAssociationState
+-&gt; RepositoryAssociationState -&gt; RepositoryAssociationState
+$cmax :: RepositoryAssociationState
+-&gt; RepositoryAssociationState -&gt; RepositoryAssociationState
+&gt;= :: RepositoryAssociationState -&gt; RepositoryAssociationState -&gt; Bool
+$c&gt;= :: RepositoryAssociationState -&gt; RepositoryAssociationState -&gt; Bool
+&gt; :: RepositoryAssociationState -&gt; RepositoryAssociationState -&gt; Bool
+$c&gt; :: RepositoryAssociationState -&gt; RepositoryAssociationState -&gt; Bool
+&lt;= :: RepositoryAssociationState -&gt; RepositoryAssociationState -&gt; Bool
+$c&lt;= :: RepositoryAssociationState -&gt; RepositoryAssociationState -&gt; Bool
+&lt; :: RepositoryAssociationState -&gt; RepositoryAssociationState -&gt; Bool
+$c&lt; :: RepositoryAssociationState -&gt; RepositoryAssociationState -&gt; Bool
+compare :: RepositoryAssociationState
+-&gt; RepositoryAssociationState -&gt; Ordering
+$ccompare :: RepositoryAssociationState
+-&gt; RepositoryAssociationState -&gt; Ordering
+$cp1Ord :: Eq RepositoryAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ RepositoryAssociationState -&gt; Rep RepositoryAssociationState x)
+-&gt; (forall x.
+    Rep RepositoryAssociationState x -&gt; RepositoryAssociationState)
+-&gt; Generic RepositoryAssociationState
+forall x.
+Rep RepositoryAssociationState x -&gt; RepositoryAssociationState
+forall x.
+RepositoryAssociationState -&gt; Rep RepositoryAssociationState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RepositoryAssociationState x -&gt; RepositoryAssociationState
+$cfrom :: forall x.
+RepositoryAssociationState -&gt; Rep RepositoryAssociationState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679199238"><span id="local-6989586621679199240"><span class="annot"><span class="annottext">Int -&gt; RepositoryAssociationState -&gt; Int
+RepositoryAssociationState -&gt; Int
+(Int -&gt; RepositoryAssociationState -&gt; Int)
+-&gt; (RepositoryAssociationState -&gt; Int)
+-&gt; Hashable RepositoryAssociationState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RepositoryAssociationState -&gt; Int
+$chash :: RepositoryAssociationState -&gt; Int
+hashWithSalt :: Int -&gt; RepositoryAssociationState -&gt; Int
+$chashWithSalt :: Int -&gt; RepositoryAssociationState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679199235"><span class="annot"><span class="annottext">RepositoryAssociationState -&gt; ()
+(RepositoryAssociationState -&gt; ())
+-&gt; NFData RepositoryAssociationState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RepositoryAssociationState -&gt; ()
+$crnf :: RepositoryAssociationState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679199232"><span class="annot"><span class="annottext">Text -&gt; Either String RepositoryAssociationState
+(Text -&gt; Either String RepositoryAssociationState)
+-&gt; FromText RepositoryAssociationState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RepositoryAssociationState
+$cfromText :: Text -&gt; Either String RepositoryAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679199229"><span class="annot"><span class="annottext">RepositoryAssociationState -&gt; Text
+(RepositoryAssociationState -&gt; Text)
+-&gt; ToText RepositoryAssociationState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RepositoryAssociationState -&gt; Text
+$ctoText :: RepositoryAssociationState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679199226"><span class="annot"><span class="annottext">RepositoryAssociationState -&gt; ByteString
+(RepositoryAssociationState -&gt; ByteString)
+-&gt; ToByteString RepositoryAssociationState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RepositoryAssociationState -&gt; ByteString
+$ctoBS :: RepositoryAssociationState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679199223"><span class="annot"><span class="annottext">RepositoryAssociationState -&gt; ByteStringBuilder
+(RepositoryAssociationState -&gt; ByteStringBuilder)
+-&gt; ToLog RepositoryAssociationState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RepositoryAssociationState -&gt; ByteStringBuilder
+$cbuild :: RepositoryAssociationState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679199220"><span class="annot"><span class="annottext">HeaderName -&gt; RepositoryAssociationState -&gt; [Header]
+(HeaderName -&gt; RepositoryAssociationState -&gt; [Header])
+-&gt; ToHeader RepositoryAssociationState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RepositoryAssociationState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RepositoryAssociationState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679199217"><span class="annot"><span class="annottext">RepositoryAssociationState -&gt; QueryString
+(RepositoryAssociationState -&gt; QueryString)
+-&gt; ToQuery RepositoryAssociationState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RepositoryAssociationState -&gt; QueryString
+$ctoQuery :: RepositoryAssociationState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679199212"><span id="local-6989586621679199214"><span class="annot"><span class="annottext">Value -&gt; Parser [RepositoryAssociationState]
+Value -&gt; Parser RepositoryAssociationState
+(Value -&gt; Parser RepositoryAssociationState)
+-&gt; (Value -&gt; Parser [RepositoryAssociationState])
+-&gt; FromJSON RepositoryAssociationState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RepositoryAssociationState]
+$cparseJSONList :: Value -&gt; Parser [RepositoryAssociationState]
+parseJSON :: Value -&gt; Parser RepositoryAssociationState
+$cparseJSON :: Value -&gt; Parser RepositoryAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679199207"><span id="local-6989586621679199209"><span class="annot"><span class="annottext">FromJSONKeyFunction [RepositoryAssociationState]
+FromJSONKeyFunction RepositoryAssociationState
+FromJSONKeyFunction RepositoryAssociationState
+-&gt; FromJSONKeyFunction [RepositoryAssociationState]
+-&gt; FromJSONKey RepositoryAssociationState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RepositoryAssociationState]
+$cfromJSONKeyList :: FromJSONKeyFunction [RepositoryAssociationState]
+fromJSONKey :: FromJSONKeyFunction RepositoryAssociationState
+$cfromJSONKey :: FromJSONKeyFunction RepositoryAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679199198"><span id="local-6989586621679199200"><span id="local-6989586621679199202"><span id="local-6989586621679199204"><span class="annot"><span class="annottext">[RepositoryAssociationState] -&gt; Encoding
+[RepositoryAssociationState] -&gt; Value
+RepositoryAssociationState -&gt; Encoding
+RepositoryAssociationState -&gt; Value
+(RepositoryAssociationState -&gt; Value)
+-&gt; (RepositoryAssociationState -&gt; Encoding)
+-&gt; ([RepositoryAssociationState] -&gt; Value)
+-&gt; ([RepositoryAssociationState] -&gt; Encoding)
+-&gt; ToJSON RepositoryAssociationState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RepositoryAssociationState] -&gt; Encoding
+$ctoEncodingList :: [RepositoryAssociationState] -&gt; Encoding
+toJSONList :: [RepositoryAssociationState] -&gt; Value
+$ctoJSONList :: [RepositoryAssociationState] -&gt; Value
+toEncoding :: RepositoryAssociationState -&gt; Encoding
+$ctoEncoding :: RepositoryAssociationState -&gt; Encoding
+toJSON :: RepositoryAssociationState -&gt; Value
+$ctoJSON :: RepositoryAssociationState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679199193"><span id="local-6989586621679199195"><span class="annot"><span class="annottext">ToJSONKeyFunction [RepositoryAssociationState]
+ToJSONKeyFunction RepositoryAssociationState
+ToJSONKeyFunction RepositoryAssociationState
+-&gt; ToJSONKeyFunction [RepositoryAssociationState]
+-&gt; ToJSONKey RepositoryAssociationState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RepositoryAssociationState]
+$ctoJSONKeyList :: ToJSONKeyFunction [RepositoryAssociationState]
+toJSONKey :: ToJSONKeyFunction RepositoryAssociationState
+$ctoJSONKey :: ToJSONKeyFunction RepositoryAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679199190"><span class="annot"><span class="annottext">[Node] -&gt; Either String RepositoryAssociationState
+([Node] -&gt; Either String RepositoryAssociationState)
+-&gt; FromXML RepositoryAssociationState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RepositoryAssociationState
+$cparseXML :: [Node] -&gt; Either String RepositoryAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679199187"><span class="annot"><span class="annottext">RepositoryAssociationState -&gt; XML
+(RepositoryAssociationState -&gt; XML)
+-&gt; ToXML RepositoryAssociationState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RepositoryAssociationState -&gt; XML
+$ctoXML :: RepositoryAssociationState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState_Associated"><span class="hs-identifier hs-type">RepositoryAssociationState_Associated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState"><span class="hs-identifier hs-type">RepositoryAssociationState</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRepositoryAssociationState_Associated"><span id="%24mRepositoryAssociationState_Associated"><span id="RepositoryAssociationState_Associated"><span class="annot"><span class="annottext">$bRepositoryAssociationState_Associated :: RepositoryAssociationState
+$mRepositoryAssociationState_Associated :: forall r.
+RepositoryAssociationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#%24bRepositoryAssociationState_Associated"><span class="hs-identifier hs-var hs-var hs-var">RepositoryAssociationState_Associated</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState%27"><span class="hs-identifier hs-type">RepositoryAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Associated&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState_Associating"><span class="hs-identifier hs-type">RepositoryAssociationState_Associating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState"><span class="hs-identifier hs-type">RepositoryAssociationState</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRepositoryAssociationState_Associating"><span id="%24mRepositoryAssociationState_Associating"><span id="RepositoryAssociationState_Associating"><span class="annot"><span class="annottext">$bRepositoryAssociationState_Associating :: RepositoryAssociationState
+$mRepositoryAssociationState_Associating :: forall r.
+RepositoryAssociationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#%24bRepositoryAssociationState_Associating"><span class="hs-identifier hs-var hs-var hs-var">RepositoryAssociationState_Associating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState%27"><span class="hs-identifier hs-type">RepositoryAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Associating&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState_Disassociated"><span class="hs-identifier hs-type">RepositoryAssociationState_Disassociated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState"><span class="hs-identifier hs-type">RepositoryAssociationState</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRepositoryAssociationState_Disassociated"><span id="%24mRepositoryAssociationState_Disassociated"><span id="RepositoryAssociationState_Disassociated"><span class="annot"><span class="annottext">$bRepositoryAssociationState_Disassociated :: RepositoryAssociationState
+$mRepositoryAssociationState_Disassociated :: forall r.
+RepositoryAssociationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#%24bRepositoryAssociationState_Disassociated"><span class="hs-identifier hs-var hs-var hs-var">RepositoryAssociationState_Disassociated</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState%27"><span class="hs-identifier hs-type">RepositoryAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Disassociated&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState_Disassociating"><span class="hs-identifier hs-type">RepositoryAssociationState_Disassociating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState"><span class="hs-identifier hs-type">RepositoryAssociationState</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRepositoryAssociationState_Disassociating"><span id="%24mRepositoryAssociationState_Disassociating"><span id="RepositoryAssociationState_Disassociating"><span class="annot"><span class="annottext">$bRepositoryAssociationState_Disassociating :: RepositoryAssociationState
+$mRepositoryAssociationState_Disassociating :: forall r.
+RepositoryAssociationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#%24bRepositoryAssociationState_Disassociating"><span class="hs-identifier hs-var hs-var hs-var">RepositoryAssociationState_Disassociating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState%27"><span class="hs-identifier hs-type">RepositoryAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Disassociating&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState_Failed"><span class="hs-identifier hs-type">RepositoryAssociationState_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState"><span class="hs-identifier hs-type">RepositoryAssociationState</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRepositoryAssociationState_Failed"><span id="%24mRepositoryAssociationState_Failed"><span id="RepositoryAssociationState_Failed"><span class="annot"><span class="annottext">$bRepositoryAssociationState_Failed :: RepositoryAssociationState
+$mRepositoryAssociationState_Failed :: forall r.
+RepositoryAssociationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#%24bRepositoryAssociationState_Failed"><span class="hs-identifier hs-var hs-var hs-var">RepositoryAssociationState_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState%27"><span class="hs-identifier hs-type">RepositoryAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState_Associated"><span class="hs-pragma hs-type">RepositoryAssociationState_Associated</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState_Associating"><span class="hs-pragma hs-type">RepositoryAssociationState_Associating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState_Disassociated"><span class="hs-pragma hs-type">RepositoryAssociationState_Disassociated</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState_Disassociating"><span class="hs-pragma hs-type">RepositoryAssociationState_Disassociating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState_Failed"><span class="hs-pragma hs-type">RepositoryAssociationState_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.html#RepositoryAssociationState%27"><span class="hs-pragma hs-type">RepositoryAssociationState'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

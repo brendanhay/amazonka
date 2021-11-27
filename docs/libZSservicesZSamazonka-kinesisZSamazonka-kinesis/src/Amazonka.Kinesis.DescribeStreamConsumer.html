@@ -1,0 +1,560 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Kinesis.DescribeStreamConsumer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- To get the description of a registered consumer, provide the ARN of the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- consumer. Alternatively, you can provide the ARN of the data stream and</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- the name you gave the consumer when you registered it. You may also</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- provide all three parameters, as long as they don\'t conflict with each</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- other. If you don\'t know the name or ARN of the consumer that you want</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- to describe, you can use the ListStreamConsumers operation to get a list</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- of the descriptions of all the consumers that are currently registered</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- with a given data stream.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- This operation has a limit of 20 transactions per second per stream.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Kinesis.DescribeStreamConsumer</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#newDescribeStreamConsumer"><span class="hs-identifier">newDescribeStreamConsumer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerARN"><span class="hs-identifier">describeStreamConsumer_consumerARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_streamARN"><span class="hs-identifier">describeStreamConsumer_streamARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerName"><span class="hs-identifier">describeStreamConsumer_consumerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier">DescribeStreamConsumerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#newDescribeStreamConsumerResponse"><span class="hs-identifier">newDescribeStreamConsumerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#describeStreamConsumerResponse_httpStatus"><span class="hs-identifier">describeStreamConsumerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#describeStreamConsumerResponse_consumerDescription"><span class="hs-identifier">describeStreamConsumerResponse_consumerDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.Types.html"><span class="hs-identifier">Amazonka.Kinesis.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDescribeStreamConsumer' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679204100"><span id="local-6989586621679204101"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStreamConsumer"><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-var">DescribeStreamConsumer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStreamConsumer%27"><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-var">DescribeStreamConsumer'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN returned by Kinesis Data Streams when you registered the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- consumer.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AconsumerARN%3ADescribeStreamConsumer%27"><span class="annot"><span class="annottext">DescribeStreamConsumer -&gt; Maybe Text
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerARN%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var hs-var">consumerARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ARN of the Kinesis data stream that the consumer is registered with.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AstreamARN%3ADescribeStreamConsumer%27"><span class="annot"><span class="annottext">DescribeStreamConsumer -&gt; Maybe Text
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#%24sel%3AstreamARN%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name that you gave to the consumer.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AconsumerName%3ADescribeStreamConsumer%27"><span class="annot"><span class="annottext">DescribeStreamConsumer -&gt; Maybe Text
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerName%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var hs-var">consumerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204092"><span id="local-6989586621679204094"><span class="annot"><span class="annottext">DescribeStreamConsumer -&gt; DescribeStreamConsumer -&gt; Bool
+(DescribeStreamConsumer -&gt; DescribeStreamConsumer -&gt; Bool)
+-&gt; (DescribeStreamConsumer -&gt; DescribeStreamConsumer -&gt; Bool)
+-&gt; Eq DescribeStreamConsumer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeStreamConsumer -&gt; DescribeStreamConsumer -&gt; Bool
+$c/= :: DescribeStreamConsumer -&gt; DescribeStreamConsumer -&gt; Bool
+== :: DescribeStreamConsumer -&gt; DescribeStreamConsumer -&gt; Bool
+$c== :: DescribeStreamConsumer -&gt; DescribeStreamConsumer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204083"><span id="local-6989586621679204085"><span id="local-6989586621679204087"><span id="local-6989586621679204089"><span class="annot"><span class="annottext">ReadPrec [DescribeStreamConsumer]
+ReadPrec DescribeStreamConsumer
+Int -&gt; ReadS DescribeStreamConsumer
+ReadS [DescribeStreamConsumer]
+(Int -&gt; ReadS DescribeStreamConsumer)
+-&gt; ReadS [DescribeStreamConsumer]
+-&gt; ReadPrec DescribeStreamConsumer
+-&gt; ReadPrec [DescribeStreamConsumer]
+-&gt; Read DescribeStreamConsumer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeStreamConsumer]
+$creadListPrec :: ReadPrec [DescribeStreamConsumer]
+readPrec :: ReadPrec DescribeStreamConsumer
+$creadPrec :: ReadPrec DescribeStreamConsumer
+readList :: ReadS [DescribeStreamConsumer]
+$creadList :: ReadS [DescribeStreamConsumer]
+readsPrec :: Int -&gt; ReadS DescribeStreamConsumer
+$creadsPrec :: Int -&gt; ReadS DescribeStreamConsumer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204076"><span id="local-6989586621679204078"><span id="local-6989586621679204080"><span class="annot"><span class="annottext">Int -&gt; DescribeStreamConsumer -&gt; ShowS
+[DescribeStreamConsumer] -&gt; ShowS
+DescribeStreamConsumer -&gt; String
+(Int -&gt; DescribeStreamConsumer -&gt; ShowS)
+-&gt; (DescribeStreamConsumer -&gt; String)
+-&gt; ([DescribeStreamConsumer] -&gt; ShowS)
+-&gt; Show DescribeStreamConsumer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeStreamConsumer] -&gt; ShowS
+$cshowList :: [DescribeStreamConsumer] -&gt; ShowS
+show :: DescribeStreamConsumer -&gt; String
+$cshow :: DescribeStreamConsumer -&gt; String
+showsPrec :: Int -&gt; DescribeStreamConsumer -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeStreamConsumer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeStreamConsumer -&gt; Rep DescribeStreamConsumer x)
+-&gt; (forall x.
+    Rep DescribeStreamConsumer x -&gt; DescribeStreamConsumer)
+-&gt; Generic DescribeStreamConsumer
+forall x. Rep DescribeStreamConsumer x -&gt; DescribeStreamConsumer
+forall x. DescribeStreamConsumer -&gt; Rep DescribeStreamConsumer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeStreamConsumer x -&gt; DescribeStreamConsumer
+$cfrom :: forall x. DescribeStreamConsumer -&gt; Rep DescribeStreamConsumer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'DescribeStreamConsumer' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'consumerARN', 'describeStreamConsumer_consumerARN' - The ARN returned by Kinesis Data Streams when you registered the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- consumer.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'streamARN', 'describeStreamConsumer_streamARN' - The ARN of the Kinesis data stream that the consumer is registered with.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'consumerName', 'describeStreamConsumer_consumerName' - The name that you gave to the consumer.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#newDescribeStreamConsumer"><span class="hs-identifier hs-type">newDescribeStreamConsumer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span>
+</span><span id="line-92"></span><span id="newDescribeStreamConsumer"><span class="annot"><span class="annottext">newDescribeStreamConsumer :: DescribeStreamConsumer
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#newDescribeStreamConsumer"><span class="hs-identifier hs-var hs-var">newDescribeStreamConsumer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">DescribeStreamConsumer' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DescribeStreamConsumer
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:consumerARN:DescribeStreamConsumer' :: Maybe Text
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerARN%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">consumerARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamARN:DescribeStreamConsumer' :: Maybe Text
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#%24sel%3AstreamARN%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:consumerName:DescribeStreamConsumer' :: Maybe Text
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerName%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">consumerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The ARN returned by Kinesis Data Streams when you registered the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- consumer.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerARN"><span class="hs-identifier hs-type">describeStreamConsumer_consumerARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="describeStreamConsumer_consumerARN"><span class="annot"><span class="annottext">describeStreamConsumer_consumerARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeStreamConsumer -&gt; f DescribeStreamConsumer
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerARN"><span class="hs-identifier hs-var hs-var">describeStreamConsumer_consumerARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStreamConsumer -&gt; Maybe Text)
+-&gt; (DescribeStreamConsumer -&gt; Maybe Text -&gt; DescribeStreamConsumer)
+-&gt; Lens
+     DescribeStreamConsumer
+     DescribeStreamConsumer
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204069"><span class="annot"><span class="annottext">Maybe Text
+consumerARN :: Maybe Text
+$sel:consumerARN:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
+</span><a href="#local-6989586621679204069"><span class="hs-identifier hs-var hs-var">consumerARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204069"><span class="hs-identifier hs-var">consumerARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204068"><span class="annot"><span class="annottext">s :: DescribeStreamConsumer
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204067"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamConsumer
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerARN:DescribeStreamConsumer' :: Maybe Text
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerARN%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">consumerARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ARN of the Kinesis data stream that the consumer is registered with.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_streamARN"><span class="hs-identifier hs-type">describeStreamConsumer_streamARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="describeStreamConsumer_streamARN"><span class="annot"><span class="annottext">describeStreamConsumer_streamARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeStreamConsumer -&gt; f DescribeStreamConsumer
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_streamARN"><span class="hs-identifier hs-var hs-var">describeStreamConsumer_streamARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStreamConsumer -&gt; Maybe Text)
+-&gt; (DescribeStreamConsumer -&gt; Maybe Text -&gt; DescribeStreamConsumer)
+-&gt; Lens
+     DescribeStreamConsumer
+     DescribeStreamConsumer
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204066"><span class="annot"><span class="annottext">Maybe Text
+streamARN :: Maybe Text
+$sel:streamARN:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
+</span><a href="#local-6989586621679204066"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204066"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204065"><span class="annot"><span class="annottext">s :: DescribeStreamConsumer
+</span><a href="#local-6989586621679204065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204064"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamConsumer
+</span><a href="#local-6989586621679204065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:DescribeStreamConsumer' :: Maybe Text
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#%24sel%3AstreamARN%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The name that you gave to the consumer.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerName"><span class="hs-identifier hs-type">describeStreamConsumer_consumerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="describeStreamConsumer_consumerName"><span class="annot"><span class="annottext">describeStreamConsumer_consumerName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeStreamConsumer -&gt; f DescribeStreamConsumer
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerName"><span class="hs-identifier hs-var hs-var">describeStreamConsumer_consumerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStreamConsumer -&gt; Maybe Text)
+-&gt; (DescribeStreamConsumer -&gt; Maybe Text -&gt; DescribeStreamConsumer)
+-&gt; Lens
+     DescribeStreamConsumer
+     DescribeStreamConsumer
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204063"><span class="annot"><span class="annottext">Maybe Text
+consumerName :: Maybe Text
+$sel:consumerName:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
+</span><a href="#local-6989586621679204063"><span class="hs-identifier hs-var hs-var">consumerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204063"><span class="hs-identifier hs-var">consumerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204062"><span class="annot"><span class="annottext">s :: DescribeStreamConsumer
+</span><a href="#local-6989586621679204062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204061"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamConsumer
+</span><a href="#local-6989586621679204062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerName:DescribeStreamConsumer' :: Maybe Text
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerName%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">consumerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679204057"><span class="annot"><span class="annottext">request :: DescribeStreamConsumer -&gt; Request DescribeStreamConsumer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeStreamConsumer -&gt; Request DescribeStreamConsumer
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679204053"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeStreamConsumer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeStreamConsumer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeStreamConsumer))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeStreamConsumer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeStreamConsumer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204050"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204050"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679204049"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679204049"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679204048"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204048"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ConsumerDescription -&gt; DescribeStreamConsumerResponse
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var">DescribeStreamConsumerResponse'</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ConsumerDescription -&gt; DescribeStreamConsumerResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (ConsumerDescription -&gt; DescribeStreamConsumerResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204050"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (ConsumerDescription -&gt; DescribeStreamConsumerResponse)
+-&gt; Either String ConsumerDescription
+-&gt; Either String DescribeStreamConsumerResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ConsumerDescription
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConsumerDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204040"><span id="local-6989586621679204042"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204037"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679204033"><span class="annot"><span class="annottext">toHeaders :: DescribeStreamConsumer -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeStreamConsumer -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Kinesis_20131202.DescribeStreamConsumer&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-139"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204023"><span id="local-6989586621679204025"><span id="local-6989586621679204027"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679204021"><span class="annot"><span class="annottext">toJSON :: DescribeStreamConsumer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204017"><span id="local-6989586621679204018"><span id="local-6989586621679204019"><span class="annot"><span class="annottext">Maybe Text
+consumerName :: Maybe Text
+streamARN :: Maybe Text
+consumerARN :: Maybe Text
+$sel:consumerName:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
+$sel:streamARN:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
+$sel:consumerARN:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
+</span><a href="#local-6989586621679204017"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConsumerARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204019"><span class="hs-identifier hs-var">consumerARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StreamARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204018"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConsumerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204017"><span class="hs-identifier hs-var">consumerName</span></a></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679204011"><span class="annot"><span class="annottext">toPath :: DescribeStreamConsumer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeStreamConsumer -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679204007"><span class="annot"><span class="annottext">toQuery :: DescribeStreamConsumer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeStreamConsumer -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | /See:/ 'newDescribeStreamConsumerResponse' smart constructor.</span><span>
+</span><span id="line-164"></span><span id="local-6989586621679204004"><span id="local-6989586621679204005"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStreamConsumerResponse"><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-var">DescribeStreamConsumerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStreamConsumerResponse%27"><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var">DescribeStreamConsumerResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeStreamConsumerResponse%27"><span class="annot"><span class="annottext">DescribeStreamConsumerResponse -&gt; Int
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#%24sel%3AhttpStatus%3ADescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | An object that represents the details of the consumer.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AconsumerDescription%3ADescribeStreamConsumerResponse%27"><span class="annot"><span class="annottext">DescribeStreamConsumerResponse -&gt; ConsumerDescription
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerDescription%3ADescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var hs-var">consumerDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.Types.ConsumerDescription.html#ConsumerDescription"><span class="hs-identifier hs-type">ConsumerDescription</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203998"><span id="local-6989586621679204000"><span class="annot"><span class="annottext">DescribeStreamConsumerResponse
+-&gt; DescribeStreamConsumerResponse -&gt; Bool
+(DescribeStreamConsumerResponse
+ -&gt; DescribeStreamConsumerResponse -&gt; Bool)
+-&gt; (DescribeStreamConsumerResponse
+    -&gt; DescribeStreamConsumerResponse -&gt; Bool)
+-&gt; Eq DescribeStreamConsumerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeStreamConsumerResponse
+-&gt; DescribeStreamConsumerResponse -&gt; Bool
+$c/= :: DescribeStreamConsumerResponse
+-&gt; DescribeStreamConsumerResponse -&gt; Bool
+== :: DescribeStreamConsumerResponse
+-&gt; DescribeStreamConsumerResponse -&gt; Bool
+$c== :: DescribeStreamConsumerResponse
+-&gt; DescribeStreamConsumerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203990"><span id="local-6989586621679203992"><span id="local-6989586621679203994"><span id="local-6989586621679203996"><span class="annot"><span class="annottext">ReadPrec [DescribeStreamConsumerResponse]
+ReadPrec DescribeStreamConsumerResponse
+Int -&gt; ReadS DescribeStreamConsumerResponse
+ReadS [DescribeStreamConsumerResponse]
+(Int -&gt; ReadS DescribeStreamConsumerResponse)
+-&gt; ReadS [DescribeStreamConsumerResponse]
+-&gt; ReadPrec DescribeStreamConsumerResponse
+-&gt; ReadPrec [DescribeStreamConsumerResponse]
+-&gt; Read DescribeStreamConsumerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeStreamConsumerResponse]
+$creadListPrec :: ReadPrec [DescribeStreamConsumerResponse]
+readPrec :: ReadPrec DescribeStreamConsumerResponse
+$creadPrec :: ReadPrec DescribeStreamConsumerResponse
+readList :: ReadS [DescribeStreamConsumerResponse]
+$creadList :: ReadS [DescribeStreamConsumerResponse]
+readsPrec :: Int -&gt; ReadS DescribeStreamConsumerResponse
+$creadsPrec :: Int -&gt; ReadS DescribeStreamConsumerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203984"><span id="local-6989586621679203986"><span id="local-6989586621679203988"><span class="annot"><span class="annottext">Int -&gt; DescribeStreamConsumerResponse -&gt; ShowS
+[DescribeStreamConsumerResponse] -&gt; ShowS
+DescribeStreamConsumerResponse -&gt; String
+(Int -&gt; DescribeStreamConsumerResponse -&gt; ShowS)
+-&gt; (DescribeStreamConsumerResponse -&gt; String)
+-&gt; ([DescribeStreamConsumerResponse] -&gt; ShowS)
+-&gt; Show DescribeStreamConsumerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeStreamConsumerResponse] -&gt; ShowS
+$cshowList :: [DescribeStreamConsumerResponse] -&gt; ShowS
+show :: DescribeStreamConsumerResponse -&gt; String
+$cshow :: DescribeStreamConsumerResponse -&gt; String
+showsPrec :: Int -&gt; DescribeStreamConsumerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeStreamConsumerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeStreamConsumerResponse
+ -&gt; Rep DescribeStreamConsumerResponse x)
+-&gt; (forall x.
+    Rep DescribeStreamConsumerResponse x
+    -&gt; DescribeStreamConsumerResponse)
+-&gt; Generic DescribeStreamConsumerResponse
+forall x.
+Rep DescribeStreamConsumerResponse x
+-&gt; DescribeStreamConsumerResponse
+forall x.
+DescribeStreamConsumerResponse
+-&gt; Rep DescribeStreamConsumerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeStreamConsumerResponse x
+-&gt; DescribeStreamConsumerResponse
+$cfrom :: forall x.
+DescribeStreamConsumerResponse
+-&gt; Rep DescribeStreamConsumerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Create a value of 'DescribeStreamConsumerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'httpStatus', 'describeStreamConsumerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'consumerDescription', 'describeStreamConsumerResponse_consumerDescription' - An object that represents the details of the consumer.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#newDescribeStreamConsumerResponse"><span class="hs-identifier hs-type">newDescribeStreamConsumerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'consumerDescription'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><a href="Amazonka.Kinesis.Types.ConsumerDescription.html#ConsumerDescription"><span class="hs-identifier hs-type">ConsumerDescription</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse</span></a></span><span>
+</span><span id="line-189"></span><span id="newDescribeStreamConsumerResponse"><span class="annot"><span class="annottext">newDescribeStreamConsumerResponse :: Int -&gt; ConsumerDescription -&gt; DescribeStreamConsumerResponse
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#newDescribeStreamConsumerResponse"><span class="hs-identifier hs-var hs-var">newDescribeStreamConsumerResponse</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679203981"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203981"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679203980"><span class="annot"><span class="annottext">ConsumerDescription
+</span><a href="#local-6989586621679203980"><span class="hs-identifier hs-var">pConsumerDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">DescribeStreamConsumerResponse' :: Int -&gt; ConsumerDescription -&gt; DescribeStreamConsumerResponse
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse'</span></a></span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStreamConsumerResponse' :: Int
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#%24sel%3AhttpStatus%3ADescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203981"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">$sel:consumerDescription:DescribeStreamConsumerResponse' :: ConsumerDescription
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerDescription%3ADescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var">consumerDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConsumerDescription
+</span><a href="#local-6989586621679203980"><span class="hs-identifier hs-var">pConsumerDescription_</span></a></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#describeStreamConsumerResponse_httpStatus"><span class="hs-identifier hs-type">describeStreamConsumerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-200"></span><span id="describeStreamConsumerResponse_httpStatus"><span class="annot"><span class="annottext">describeStreamConsumerResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeStreamConsumerResponse
+-&gt; f DescribeStreamConsumerResponse
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#describeStreamConsumerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeStreamConsumerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStreamConsumerResponse -&gt; Int)
+-&gt; (DescribeStreamConsumerResponse
+    -&gt; Int -&gt; DescribeStreamConsumerResponse)
+-&gt; Lens
+     DescribeStreamConsumerResponse
+     DescribeStreamConsumerResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203979"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeStreamConsumerResponse' :: DescribeStreamConsumerResponse -&gt; Int
+</span><a href="#local-6989586621679203979"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203979"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203978"><span class="annot"><span class="annottext">s :: DescribeStreamConsumerResponse
+</span><a href="#local-6989586621679203978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203977"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamConsumerResponse
+</span><a href="#local-6989586621679203978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStreamConsumerResponse' :: Int
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#%24sel%3AhttpStatus%3ADescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | An object that represents the details of the consumer.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#describeStreamConsumerResponse_consumerDescription"><span class="hs-identifier hs-type">describeStreamConsumerResponse_consumerDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.Types.ConsumerDescription.html#ConsumerDescription"><span class="hs-identifier hs-type">ConsumerDescription</span></a></span><span>
+</span><span id="line-204"></span><span id="describeStreamConsumerResponse_consumerDescription"><span class="annot"><span class="annottext">describeStreamConsumerResponse_consumerDescription :: (ConsumerDescription -&gt; f ConsumerDescription)
+-&gt; DescribeStreamConsumerResponse
+-&gt; f DescribeStreamConsumerResponse
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#describeStreamConsumerResponse_consumerDescription"><span class="hs-identifier hs-var hs-var">describeStreamConsumerResponse_consumerDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStreamConsumerResponse -&gt; ConsumerDescription)
+-&gt; (DescribeStreamConsumerResponse
+    -&gt; ConsumerDescription -&gt; DescribeStreamConsumerResponse)
+-&gt; Lens
+     DescribeStreamConsumerResponse
+     DescribeStreamConsumerResponse
+     ConsumerDescription
+     ConsumerDescription
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203976"><span class="annot"><span class="annottext">ConsumerDescription
+consumerDescription :: ConsumerDescription
+$sel:consumerDescription:DescribeStreamConsumerResponse' :: DescribeStreamConsumerResponse -&gt; ConsumerDescription
+</span><a href="#local-6989586621679203976"><span class="hs-identifier hs-var hs-var">consumerDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConsumerDescription
+</span><a href="#local-6989586621679203976"><span class="hs-identifier hs-var">consumerDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203975"><span class="annot"><span class="annottext">s :: DescribeStreamConsumerResponse
+</span><a href="#local-6989586621679203975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203974"><span class="annot"><span class="annottext">ConsumerDescription
+</span><a href="#local-6989586621679203974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamConsumerResponse
+</span><a href="#local-6989586621679203975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerDescription:DescribeStreamConsumerResponse' :: ConsumerDescription
+</span><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerDescription%3ADescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var">consumerDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConsumerDescription
+</span><a href="#local-6989586621679203974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679203972"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse</span></a></span></span><span>
+</span><span id="line-209"></span></pre></body></html>

@@ -1,0 +1,1090 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CognitoIdentityProvider.SignUp</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Registers the user in the specified user pool and creates a user name,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- password, and user attributes.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This action might generate an SMS text message. Starting June 1, 2021,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- U.S. telecom carriers require that you register an origination phone</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- number before you can send SMS messages to U.S. phone numbers. If you</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- use SMS text messages in Amazon Cognito, you must register a phone</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- number with</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/pinpoint/home/ Amazon Pinpoint&gt;. Cognito</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- will use the the registered number automatically. Otherwise, Cognito</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- users that must receive SMS messages might be unable to sign up,</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- activate their accounts, or sign in.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- If you have never used SMS text messages with Amazon Cognito or any</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- other Amazon Web Service, Amazon SNS might place your account in SMS</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- sandbox. In</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- /&lt;https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html sandbox mode&gt;/</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- , you&#8217;ll have limitations, such as sending messages to only verified</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- phone numbers. After testing in the sandbox environment, you can move</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- out of the SMS sandbox and into production. For more information, see</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html SMS message settings for Cognito User Pools&gt;</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- in the /Amazon Cognito Developer Guide/.</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CognitoIdentityProvider.SignUp</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#newSignUp"><span class="hs-identifier">newSignUp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_clientMetadata"><span class="hs-identifier">signUp_clientMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_analyticsMetadata"><span class="hs-identifier">signUp_analyticsMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_userContextData"><span class="hs-identifier">signUp_userContextData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_userAttributes"><span class="hs-identifier">signUp_userAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_secretHash"><span class="hs-identifier">signUp_secretHash</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_validationData"><span class="hs-identifier">signUp_validationData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_clientId"><span class="hs-identifier">signUp_clientId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_username"><span class="hs-identifier">signUp_username</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_password"><span class="hs-identifier">signUp_password</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier">SignUpResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#newSignUpResponse"><span class="hs-identifier">newSignUpResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUpResponse_codeDeliveryDetails"><span class="hs-identifier">signUpResponse_codeDeliveryDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUpResponse_httpStatus"><span class="hs-identifier">signUpResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUpResponse_userConfirmed"><span class="hs-identifier">signUpResponse_userConfirmed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUpResponse_userSub"><span class="hs-identifier">signUpResponse_userSub</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.html"><span class="hs-identifier">Amazonka.CognitoIdentityProvider.Types</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Represents the request to register a user.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- /See:/ 'newSignUp' smart constructor.</span><span>
+</span><span id="line-83"></span><span id="local-6989586621679439885"><span id="local-6989586621679439886"></span></span><span class="hs-keyword">data</span><span> </span><span id="SignUp"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-var">SignUp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignUp%27"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-var">SignUp'</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map of custom key-value pairs that you can provide as input for any</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- custom workflows that this action triggers.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- You create custom workflows by assigning Lambda functions to user pool</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- triggers. When you use the SignUp API action, Amazon Cognito invokes any</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- functions that are assigned to the following triggers: /pre sign-up/,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- /custom message/, and /post confirmation/. When Amazon Cognito invokes</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- any of these functions, it passes a JSON payload, which the function</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- receives as input. This payload contains a @clientMetadata@ attribute,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- which provides the data that you assigned to the ClientMetadata</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- parameter in your SignUp request. In your function code in Lambda, you</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- can process the @clientMetadata@ value to enhance your workflow for your</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- specific needs.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers&gt;</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- in the /Amazon Cognito Developer Guide/.</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- Take the following limitations into consideration when you use the</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- ClientMetadata parameter:</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- -   Amazon Cognito does not store the ClientMetadata value. This data is</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--     available only to Lambda triggers that are assigned to a user pool</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     to support custom workflows. If your user pool configuration does</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--     not include triggers, the ClientMetadata parameter serves no</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--     purpose.</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   Amazon Cognito does not validate the ClientMetadata value.</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- -   Amazon Cognito does not encrypt the the ClientMetadata value, so</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--     don\'t use it to provide sensitive information.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AclientMetadata%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AclientMetadata%3ASignUp%27"><span class="hs-identifier hs-var hs-var">clientMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | The Amazon Pinpoint analytics metadata for collecting metrics for</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- @SignUp@ calls.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3AanalyticsMetadata%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe AnalyticsMetadataType
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AanalyticsMetadata%3ASignUp%27"><span class="hs-identifier hs-var hs-var">analyticsMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.AnalyticsMetadataType.html#AnalyticsMetadataType"><span class="hs-identifier hs-type">AnalyticsMetadataType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- Cognito advanced security.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AuserContextData%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe UserContextDataType
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AuserContextData%3ASignUp%27"><span class="hs-identifier hs-var hs-var">userContextData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | An array of name-value pairs representing user attributes.</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- attribute name.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AuserAttributes%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe [AttributeType]
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AuserAttributes%3ASignUp%27"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | A keyed-hash message authentication code (HMAC) calculated using the</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- secret key of a user pool client and username plus the client ID in the</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- message.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AsecretHash%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AsecretHash%3ASignUp%27"><span class="hs-identifier hs-var hs-var">secretHash</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The validation data in the request to register a user.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AvalidationData%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe [AttributeType]
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AvalidationData%3ASignUp%27"><span class="hs-identifier hs-var hs-var">validationData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The ID of the client associated with the user pool.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AclientId%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Sensitive Text
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AclientId%3ASignUp%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The user name of the user you wish to register.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3Ausername%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Sensitive Text
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3Ausername%3ASignUp%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The password of the user you wish to register.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3Apassword%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Sensitive Text
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3Apassword%3ASignUp%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439871"><span id="local-6989586621679439873"><span class="annot"><span class="annottext">SignUp -&gt; SignUp -&gt; Bool
+(SignUp -&gt; SignUp -&gt; Bool)
+-&gt; (SignUp -&gt; SignUp -&gt; Bool) -&gt; Eq SignUp
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SignUp -&gt; SignUp -&gt; Bool
+$c/= :: SignUp -&gt; SignUp -&gt; Bool
+== :: SignUp -&gt; SignUp -&gt; Bool
+$c== :: SignUp -&gt; SignUp -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439864"><span id="local-6989586621679439866"><span id="local-6989586621679439868"><span class="annot"><span class="annottext">Int -&gt; SignUp -&gt; ShowS
+[SignUp] -&gt; ShowS
+SignUp -&gt; String
+(Int -&gt; SignUp -&gt; ShowS)
+-&gt; (SignUp -&gt; String) -&gt; ([SignUp] -&gt; ShowS) -&gt; Show SignUp
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SignUp] -&gt; ShowS
+$cshowList :: [SignUp] -&gt; ShowS
+show :: SignUp -&gt; String
+$cshow :: SignUp -&gt; String
+showsPrec :: Int -&gt; SignUp -&gt; ShowS
+$cshowsPrec :: Int -&gt; SignUp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SignUp -&gt; Rep SignUp x)
+-&gt; (forall x. Rep SignUp x -&gt; SignUp) -&gt; Generic SignUp
+forall x. Rep SignUp x -&gt; SignUp
+forall x. SignUp -&gt; Rep SignUp x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SignUp x -&gt; SignUp
+$cfrom :: forall x. SignUp -&gt; Rep SignUp x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Create a value of 'SignUp' with all optional fields omitted.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'clientMetadata', 'signUp_clientMetadata' - A map of custom key-value pairs that you can provide as input for any</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- custom workflows that this action triggers.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- You create custom workflows by assigning Lambda functions to user pool</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- triggers. When you use the SignUp API action, Amazon Cognito invokes any</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- functions that are assigned to the following triggers: /pre sign-up/,</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- /custom message/, and /post confirmation/. When Amazon Cognito invokes</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- any of these functions, it passes a JSON payload, which the function</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- receives as input. This payload contains a @clientMetadata@ attribute,</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- which provides the data that you assigned to the ClientMetadata</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- parameter in your SignUp request. In your function code in Lambda, you</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- can process the @clientMetadata@ value to enhance your workflow for your</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- specific needs.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers&gt;</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- in the /Amazon Cognito Developer Guide/.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Take the following limitations into consideration when you use the</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- ClientMetadata parameter:</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- -   Amazon Cognito does not store the ClientMetadata value. This data is</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--     available only to Lambda triggers that are assigned to a user pool</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--     to support custom workflows. If your user pool configuration does</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--     not include triggers, the ClientMetadata parameter serves no</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--     purpose.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- -   Amazon Cognito does not validate the ClientMetadata value.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- -   Amazon Cognito does not encrypt the the ClientMetadata value, so</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     don\'t use it to provide sensitive information.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'analyticsMetadata', 'signUp_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- @SignUp@ calls.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'userContextData', 'signUp_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Cognito advanced security.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'userAttributes', 'signUp_userAttributes' - An array of name-value pairs representing user attributes.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- attribute name.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'secretHash', 'signUp_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- secret key of a user pool client and username plus the client ID in the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- message.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'validationData', 'signUp_validationData' - The validation data in the request to register a user.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'clientId', 'signUp_clientId' - The ID of the client associated with the user pool.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'username', 'signUp_username' - The user name of the user you wish to register.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'password', 'signUp_password' - The password of the user you wish to register.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#newSignUp"><span class="hs-identifier hs-type">newSignUp</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-comment">-- | 'clientId'</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 'username'</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'password'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span>
+</span><span id="line-214"></span><span id="newSignUp"><span class="annot"><span class="annottext">newSignUp :: Text -&gt; Text -&gt; Text -&gt; SignUp
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#newSignUp"><span class="hs-identifier hs-var hs-var">newSignUp</span></a></span></span><span> </span><span id="local-6989586621679439859"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439859"><span class="hs-identifier hs-var">pClientId_</span></a></span></span><span> </span><span id="local-6989586621679439858"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439858"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span id="local-6989586621679439857"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439857"><span class="hs-identifier hs-var">pPassword_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">SignUp' :: Maybe (HashMap Text Text)
+-&gt; Maybe AnalyticsMetadataType
+-&gt; Maybe UserContextDataType
+-&gt; Maybe [AttributeType]
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe [AttributeType]
+-&gt; Sensitive Text
+-&gt; Sensitive Text
+-&gt; Sensitive Text
+-&gt; SignUp
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientMetadata:SignUp' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AclientMetadata%3ASignUp%27"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:analyticsMetadata:SignUp' :: Maybe AnalyticsMetadataType
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AanalyticsMetadata%3ASignUp%27"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:userContextData:SignUp' :: Maybe UserContextDataType
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AuserContextData%3ASignUp%27"><span class="hs-identifier hs-var">userContextData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:userAttributes:SignUp' :: Maybe [AttributeType]
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AuserAttributes%3ASignUp%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:secretHash:SignUp' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AsecretHash%3ASignUp%27"><span class="hs-identifier hs-var">secretHash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:validationData:SignUp' :: Maybe [AttributeType]
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AvalidationData%3ASignUp%27"><span class="hs-identifier hs-var">validationData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientId:SignUp' :: Sensitive Text
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AclientId%3ASignUp%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439859"><span class="hs-identifier hs-var">pClientId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:SignUp' :: Sensitive Text
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3Ausername%3ASignUp%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439858"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:password:SignUp' :: Sensitive Text
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3Apassword%3ASignUp%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439857"><span class="hs-identifier hs-var">pPassword_</span></a></span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | A map of custom key-value pairs that you can provide as input for any</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- custom workflows that this action triggers.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- You create custom workflows by assigning Lambda functions to user pool</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- triggers. When you use the SignUp API action, Amazon Cognito invokes any</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- functions that are assigned to the following triggers: /pre sign-up/,</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- /custom message/, and /post confirmation/. When Amazon Cognito invokes</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- any of these functions, it passes a JSON payload, which the function</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- receives as input. This payload contains a @clientMetadata@ attribute,</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- which provides the data that you assigned to the ClientMetadata</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- parameter in your SignUp request. In your function code in Lambda, you</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- can process the @clientMetadata@ value to enhance your workflow for your</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- specific needs.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers&gt;</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- in the /Amazon Cognito Developer Guide/.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- Take the following limitations into consideration when you use the</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- ClientMetadata parameter:</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- -   Amazon Cognito does not store the ClientMetadata value. This data is</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     available only to Lambda triggers that are assigned to a user pool</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--     to support custom workflows. If your user pool configuration does</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     not include triggers, the ClientMetadata parameter serves no</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     purpose.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- -   Amazon Cognito does not validate the ClientMetadata value.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- -   Amazon Cognito does not encrypt the the ClientMetadata value, so</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--     don\'t use it to provide sensitive information.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_clientMetadata"><span class="hs-identifier hs-type">signUp_clientMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span id="signUp_clientMetadata"><span class="annot"><span class="annottext">signUp_clientMetadata :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; SignUp -&gt; f SignUp
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_clientMetadata"><span class="hs-identifier hs-var hs-var">signUp_clientMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUp -&gt; Maybe (HashMap Text Text))
+-&gt; (SignUp -&gt; Maybe (HashMap Text Text) -&gt; SignUp)
+-&gt; Lens
+     SignUp
+     SignUp
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439852"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+clientMetadata :: Maybe (HashMap Text Text)
+$sel:clientMetadata:SignUp' :: SignUp -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679439852"><span class="hs-identifier hs-var hs-var">clientMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679439852"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439851"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679439851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439850"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679439850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679439851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientMetadata:SignUp' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AclientMetadata%3ASignUp%27"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679439850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; SignUp -&gt; f SignUp)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; SignUp
+-&gt; f SignUp
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The Amazon Pinpoint analytics metadata for collecting metrics for</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- @SignUp@ calls.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_analyticsMetadata"><span class="hs-identifier hs-type">signUp_analyticsMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.AnalyticsMetadataType.html#AnalyticsMetadataType"><span class="hs-identifier hs-type">AnalyticsMetadataType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span id="signUp_analyticsMetadata"><span class="annot"><span class="annottext">signUp_analyticsMetadata :: (Maybe AnalyticsMetadataType -&gt; f (Maybe AnalyticsMetadataType))
+-&gt; SignUp -&gt; f SignUp
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_analyticsMetadata"><span class="hs-identifier hs-var hs-var">signUp_analyticsMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUp -&gt; Maybe AnalyticsMetadataType)
+-&gt; (SignUp -&gt; Maybe AnalyticsMetadataType -&gt; SignUp)
+-&gt; Lens
+     SignUp
+     SignUp
+     (Maybe AnalyticsMetadataType)
+     (Maybe AnalyticsMetadataType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439846"><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+analyticsMetadata :: Maybe AnalyticsMetadataType
+$sel:analyticsMetadata:SignUp' :: SignUp -&gt; Maybe AnalyticsMetadataType
+</span><a href="#local-6989586621679439846"><span class="hs-identifier hs-var hs-var">analyticsMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+</span><a href="#local-6989586621679439846"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439845"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679439845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439844"><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+</span><a href="#local-6989586621679439844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679439845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analyticsMetadata:SignUp' :: Maybe AnalyticsMetadataType
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AanalyticsMetadata%3ASignUp%27"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+</span><a href="#local-6989586621679439844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- Cognito advanced security.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_userContextData"><span class="hs-identifier hs-type">signUp_userContextData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="signUp_userContextData"><span class="annot"><span class="annottext">signUp_userContextData :: (Maybe UserContextDataType -&gt; f (Maybe UserContextDataType))
+-&gt; SignUp -&gt; f SignUp
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_userContextData"><span class="hs-identifier hs-var hs-var">signUp_userContextData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUp -&gt; Maybe UserContextDataType)
+-&gt; (SignUp -&gt; Maybe UserContextDataType -&gt; SignUp)
+-&gt; Lens
+     SignUp
+     SignUp
+     (Maybe UserContextDataType)
+     (Maybe UserContextDataType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439843"><span class="annot"><span class="annottext">Maybe UserContextDataType
+userContextData :: Maybe UserContextDataType
+$sel:userContextData:SignUp' :: SignUp -&gt; Maybe UserContextDataType
+</span><a href="#local-6989586621679439843"><span class="hs-identifier hs-var hs-var">userContextData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
+</span><a href="#local-6989586621679439843"><span class="hs-identifier hs-var">userContextData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439842"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679439842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439841"><span class="annot"><span class="annottext">Maybe UserContextDataType
+</span><a href="#local-6989586621679439841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679439842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userContextData:SignUp' :: Maybe UserContextDataType
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AuserContextData%3ASignUp%27"><span class="hs-identifier hs-var">userContextData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
+</span><a href="#local-6989586621679439841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | An array of name-value pairs representing user attributes.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- attribute name.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_userAttributes"><span class="hs-identifier hs-type">signUp_userAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span id="signUp_userAttributes"><span class="annot"><span class="annottext">signUp_userAttributes :: (Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+-&gt; SignUp -&gt; f SignUp
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_userAttributes"><span class="hs-identifier hs-var hs-var">signUp_userAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUp -&gt; Maybe [AttributeType])
+-&gt; (SignUp -&gt; Maybe [AttributeType] -&gt; SignUp)
+-&gt; Lens
+     SignUp SignUp (Maybe [AttributeType]) (Maybe [AttributeType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439840"><span class="annot"><span class="annottext">Maybe [AttributeType]
+userAttributes :: Maybe [AttributeType]
+$sel:userAttributes:SignUp' :: SignUp -&gt; Maybe [AttributeType]
+</span><a href="#local-6989586621679439840"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679439840"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439839"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679439839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439838"><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679439838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679439839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributes:SignUp' :: Maybe [AttributeType]
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AuserAttributes%3ASignUp%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679439838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+ -&gt; SignUp -&gt; f SignUp)
+-&gt; ((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+    -&gt; Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+-&gt; (Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+-&gt; SignUp
+-&gt; f SignUp
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AttributeType] [AttributeType] [AttributeType] [AttributeType]
+-&gt; Iso
+     (Maybe [AttributeType])
+     (Maybe [AttributeType])
+     (Maybe [AttributeType])
+     (Maybe [AttributeType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AttributeType] [AttributeType] [AttributeType] [AttributeType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | A keyed-hash message authentication code (HMAC) calculated using the</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- secret key of a user pool client and username plus the client ID in the</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- message.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_secretHash"><span class="hs-identifier hs-type">signUp_secretHash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="signUp_secretHash"><span class="annot"><span class="annottext">signUp_secretHash :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SignUp -&gt; f SignUp
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_secretHash"><span class="hs-identifier hs-var hs-var">signUp_secretHash</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUp -&gt; Maybe (Sensitive Text))
+-&gt; (SignUp -&gt; Maybe (Sensitive Text) -&gt; SignUp)
+-&gt; Lens
+     SignUp SignUp (Maybe (Sensitive Text)) (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439837"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+secretHash :: Maybe (Sensitive Text)
+$sel:secretHash:SignUp' :: SignUp -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679439837"><span class="hs-identifier hs-var hs-var">secretHash</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679439837"><span class="hs-identifier hs-var">secretHash</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439836"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679439836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439835"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679439835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679439836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretHash:SignUp' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AsecretHash%3ASignUp%27"><span class="hs-identifier hs-var">secretHash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679439835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; SignUp -&gt; f SignUp)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; SignUp
+-&gt; f SignUp
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The validation data in the request to register a user.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_validationData"><span class="hs-identifier hs-type">signUp_validationData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="signUp_validationData"><span class="annot"><span class="annottext">signUp_validationData :: (Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+-&gt; SignUp -&gt; f SignUp
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_validationData"><span class="hs-identifier hs-var hs-var">signUp_validationData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUp -&gt; Maybe [AttributeType])
+-&gt; (SignUp -&gt; Maybe [AttributeType] -&gt; SignUp)
+-&gt; Lens
+     SignUp SignUp (Maybe [AttributeType]) (Maybe [AttributeType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439834"><span class="annot"><span class="annottext">Maybe [AttributeType]
+validationData :: Maybe [AttributeType]
+$sel:validationData:SignUp' :: SignUp -&gt; Maybe [AttributeType]
+</span><a href="#local-6989586621679439834"><span class="hs-identifier hs-var hs-var">validationData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679439834"><span class="hs-identifier hs-var">validationData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439833"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679439833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439832"><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679439832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679439833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validationData:SignUp' :: Maybe [AttributeType]
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AvalidationData%3ASignUp%27"><span class="hs-identifier hs-var">validationData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679439832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+ -&gt; SignUp -&gt; f SignUp)
+-&gt; ((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+    -&gt; Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+-&gt; (Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+-&gt; SignUp
+-&gt; f SignUp
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AttributeType] [AttributeType] [AttributeType] [AttributeType]
+-&gt; Iso
+     (Maybe [AttributeType])
+     (Maybe [AttributeType])
+     (Maybe [AttributeType])
+     (Maybe [AttributeType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AttributeType] [AttributeType] [AttributeType] [AttributeType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The ID of the client associated with the user pool.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_clientId"><span class="hs-identifier hs-type">signUp_clientId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-291"></span><span id="signUp_clientId"><span class="annot"><span class="annottext">signUp_clientId :: (Text -&gt; f Text) -&gt; SignUp -&gt; f SignUp
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_clientId"><span class="hs-identifier hs-var hs-var">signUp_clientId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUp -&gt; Sensitive Text)
+-&gt; (SignUp -&gt; Sensitive Text -&gt; SignUp)
+-&gt; Lens SignUp SignUp (Sensitive Text) (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439831"><span class="annot"><span class="annottext">Sensitive Text
+clientId :: Sensitive Text
+$sel:clientId:SignUp' :: SignUp -&gt; Sensitive Text
+</span><a href="#local-6989586621679439831"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679439831"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439830"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679439830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439829"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679439829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679439830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:SignUp' :: Sensitive Text
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AclientId%3ASignUp%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679439829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text)) -&gt; SignUp -&gt; f SignUp)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; SignUp
+-&gt; f SignUp
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | The user name of the user you wish to register.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_username"><span class="hs-identifier hs-type">signUp_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-295"></span><span id="signUp_username"><span class="annot"><span class="annottext">signUp_username :: (Text -&gt; f Text) -&gt; SignUp -&gt; f SignUp
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_username"><span class="hs-identifier hs-var hs-var">signUp_username</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUp -&gt; Sensitive Text)
+-&gt; (SignUp -&gt; Sensitive Text -&gt; SignUp)
+-&gt; Lens SignUp SignUp (Sensitive Text) (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439828"><span class="annot"><span class="annottext">Sensitive Text
+username :: Sensitive Text
+$sel:username:SignUp' :: SignUp -&gt; Sensitive Text
+</span><a href="#local-6989586621679439828"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679439828"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439827"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679439827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439826"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679439826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679439827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:SignUp' :: Sensitive Text
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3Ausername%3ASignUp%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679439826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text)) -&gt; SignUp -&gt; f SignUp)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; SignUp
+-&gt; f SignUp
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | The password of the user you wish to register.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_password"><span class="hs-identifier hs-type">signUp_password</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-299"></span><span id="signUp_password"><span class="annot"><span class="annottext">signUp_password :: (Text -&gt; f Text) -&gt; SignUp -&gt; f SignUp
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUp_password"><span class="hs-identifier hs-var hs-var">signUp_password</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUp -&gt; Sensitive Text)
+-&gt; (SignUp -&gt; Sensitive Text -&gt; SignUp)
+-&gt; Lens SignUp SignUp (Sensitive Text) (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439825"><span class="annot"><span class="annottext">Sensitive Text
+password :: Sensitive Text
+$sel:password:SignUp' :: SignUp -&gt; Sensitive Text
+</span><a href="#local-6989586621679439825"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679439825"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439824"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679439824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439823"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679439823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679439824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:SignUp' :: Sensitive Text
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3Apassword%3ASignUp%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679439823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text)) -&gt; SignUp -&gt; f SignUp)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; SignUp
+-&gt; f SignUp
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-302"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span>
+</span><span id="line-303"></span><span>  </span><span id="local-6989586621679439819"><span class="annot"><span class="annottext">request :: SignUp -&gt; Request SignUp
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SignUp -&gt; Request SignUp
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-304"></span><span>  </span><span id="local-6989586621679439815"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SignUp
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SignUp)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse SignUp))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SignUp
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SignUp)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-306"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679439812"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679439812"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679439811"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679439811"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679439810"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679439810"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-307"></span><span>          </span><span class="annot"><span class="annottext">Maybe CodeDeliveryDetailsType
+-&gt; Int -&gt; Bool -&gt; Text -&gt; SignUpResponse
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-var">SignUpResponse'</span></a></span><span>
+</span><span id="line-308"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CodeDeliveryDetailsType
+ -&gt; Int -&gt; Bool -&gt; Text -&gt; SignUpResponse)
+-&gt; Either String (Maybe CodeDeliveryDetailsType)
+-&gt; Either String (Int -&gt; Bool -&gt; Text -&gt; SignUpResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679439810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CodeDeliveryDetailsType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CodeDeliveryDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; Bool -&gt; Text -&gt; SignUpResponse)
+-&gt; Either String Int
+-&gt; Either String (Bool -&gt; Text -&gt; SignUpResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679439812"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>            </span><span class="annot"><span class="annottext">Either String (Bool -&gt; Text -&gt; SignUpResponse)
+-&gt; Either String Bool -&gt; Either String (Text -&gt; SignUpResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679439810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Bool
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserConfirmed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; SignUpResponse)
+-&gt; Either String Text -&gt; Either String SignUpResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679439810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserSub&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439801"><span id="local-6989586621679439803"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span></span></span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439798"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span></span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-319"></span><span>  </span><span id="local-6989586621679439794"><span class="annot"><span class="annottext">toHeaders :: SignUp -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SignUp -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-321"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-322"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-323"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSCognitoIdentityProviderService.SignUp&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-324"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-325"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-327"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-328"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-329"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-331"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439784"><span id="local-6989586621679439786"><span id="local-6989586621679439788"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-334"></span><span>  </span><span id="local-6989586621679439782"><span class="annot"><span class="annottext">toJSON :: SignUp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439772"><span id="local-6989586621679439773"><span id="local-6989586621679439774"><span id="local-6989586621679439775"><span id="local-6989586621679439776"><span id="local-6989586621679439777"><span id="local-6989586621679439778"><span id="local-6989586621679439779"><span id="local-6989586621679439780"><span class="annot"><span class="annottext">Maybe [AttributeType]
+Maybe (HashMap Text Text)
+Maybe (Sensitive Text)
+Maybe AnalyticsMetadataType
+Maybe UserContextDataType
+Sensitive Text
+password :: Sensitive Text
+username :: Sensitive Text
+clientId :: Sensitive Text
+validationData :: Maybe [AttributeType]
+secretHash :: Maybe (Sensitive Text)
+userAttributes :: Maybe [AttributeType]
+userContextData :: Maybe UserContextDataType
+analyticsMetadata :: Maybe AnalyticsMetadataType
+clientMetadata :: Maybe (HashMap Text Text)
+$sel:password:SignUp' :: SignUp -&gt; Sensitive Text
+$sel:username:SignUp' :: SignUp -&gt; Sensitive Text
+$sel:clientId:SignUp' :: SignUp -&gt; Sensitive Text
+$sel:validationData:SignUp' :: SignUp -&gt; Maybe [AttributeType]
+$sel:secretHash:SignUp' :: SignUp -&gt; Maybe (Sensitive Text)
+$sel:userAttributes:SignUp' :: SignUp -&gt; Maybe [AttributeType]
+$sel:userContextData:SignUp' :: SignUp -&gt; Maybe UserContextDataType
+$sel:analyticsMetadata:SignUp' :: SignUp -&gt; Maybe AnalyticsMetadataType
+$sel:clientMetadata:SignUp' :: SignUp -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679439772"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-335"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-336"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-337"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientMetadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679439780"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnalyticsMetadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AnalyticsMetadataType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>              </span><span class="annot"><span class="annottext">(AnalyticsMetadataType -&gt; Pair)
+-&gt; Maybe AnalyticsMetadataType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+</span><a href="#local-6989586621679439779"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserContextData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UserContextDataType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span>              </span><span class="annot"><span class="annottext">(UserContextDataType -&gt; Pair)
+-&gt; Maybe UserContextDataType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
+</span><a href="#local-6989586621679439778"><span class="hs-identifier hs-var">userContextData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AttributeType] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span>              </span><span class="annot"><span class="annottext">([AttributeType] -&gt; Pair) -&gt; Maybe [AttributeType] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679439777"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretHash&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679439776"><span class="hs-identifier hs-var">secretHash</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ValidationData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AttributeType] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span>              </span><span class="annot"><span class="annottext">([AttributeType] -&gt; Pair) -&gt; Maybe [AttributeType] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679439775"><span class="hs-identifier hs-var">validationData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679439774"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-349"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679439773"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-350"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679439772"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-352"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-355"></span><span>  </span><span id="local-6989586621679439766"><span class="annot"><span class="annottext">toPath :: SignUp -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SignUp -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-356"></span><span>
+</span><span id="line-357"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-358"></span><span>  </span><span id="local-6989586621679439762"><span class="annot"><span class="annottext">toQuery :: SignUp -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SignUp -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- | The response from the server for a registration request.</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- /See:/ 'newSignUpResponse' smart constructor.</span><span>
+</span><span id="line-363"></span><span id="local-6989586621679439759"><span id="local-6989586621679439760"></span></span><span class="hs-keyword">data</span><span> </span><span id="SignUpResponse"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-var">SignUpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignUpResponse%27"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-var">SignUpResponse'</span></a></span></span><span>
+</span><span id="line-364"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The code delivery details returned by the server response to the user</span><span>
+</span><span id="line-365"></span><span>    </span><span class="hs-comment">-- registration request.</span><span>
+</span><span id="line-366"></span><span>    </span><span id="%24sel%3AcodeDeliveryDetails%3ASignUpResponse%27"><span class="annot"><span class="annottext">SignUpResponse -&gt; Maybe CodeDeliveryDetailsType
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AcodeDeliveryDetails%3ASignUpResponse%27"><span class="hs-identifier hs-var hs-var">codeDeliveryDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.CodeDeliveryDetailsType.html#CodeDeliveryDetailsType"><span class="hs-identifier hs-type">CodeDeliveryDetailsType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-367"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-368"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASignUpResponse%27"><span class="annot"><span class="annottext">SignUpResponse -&gt; Int
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AhttpStatus%3ASignUpResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>    </span><span class="hs-comment">-- | A response from the server indicating that a user registration has been</span><span>
+</span><span id="line-370"></span><span>    </span><span class="hs-comment">-- confirmed.</span><span>
+</span><span id="line-371"></span><span>    </span><span id="%24sel%3AuserConfirmed%3ASignUpResponse%27"><span class="annot"><span class="annottext">SignUpResponse -&gt; Bool
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AuserConfirmed%3ASignUpResponse%27"><span class="hs-identifier hs-var hs-var">userConfirmed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-372"></span><span>    </span><span class="hs-comment">-- | The UUID of the authenticated user. This is not the same as @username@.</span><span>
+</span><span id="line-373"></span><span>    </span><span id="%24sel%3AuserSub%3ASignUpResponse%27"><span class="annot"><span class="annottext">SignUpResponse -&gt; Text
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AuserSub%3ASignUpResponse%27"><span class="hs-identifier hs-var hs-var">userSub</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-374"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-375"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439751"><span id="local-6989586621679439753"><span class="annot"><span class="annottext">SignUpResponse -&gt; SignUpResponse -&gt; Bool
+(SignUpResponse -&gt; SignUpResponse -&gt; Bool)
+-&gt; (SignUpResponse -&gt; SignUpResponse -&gt; Bool) -&gt; Eq SignUpResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SignUpResponse -&gt; SignUpResponse -&gt; Bool
+$c/= :: SignUpResponse -&gt; SignUpResponse -&gt; Bool
+== :: SignUpResponse -&gt; SignUpResponse -&gt; Bool
+$c== :: SignUpResponse -&gt; SignUpResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439743"><span id="local-6989586621679439745"><span id="local-6989586621679439747"><span id="local-6989586621679439749"><span class="annot"><span class="annottext">ReadPrec [SignUpResponse]
+ReadPrec SignUpResponse
+Int -&gt; ReadS SignUpResponse
+ReadS [SignUpResponse]
+(Int -&gt; ReadS SignUpResponse)
+-&gt; ReadS [SignUpResponse]
+-&gt; ReadPrec SignUpResponse
+-&gt; ReadPrec [SignUpResponse]
+-&gt; Read SignUpResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SignUpResponse]
+$creadListPrec :: ReadPrec [SignUpResponse]
+readPrec :: ReadPrec SignUpResponse
+$creadPrec :: ReadPrec SignUpResponse
+readList :: ReadS [SignUpResponse]
+$creadList :: ReadS [SignUpResponse]
+readsPrec :: Int -&gt; ReadS SignUpResponse
+$creadsPrec :: Int -&gt; ReadS SignUpResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439736"><span id="local-6989586621679439738"><span id="local-6989586621679439740"><span class="annot"><span class="annottext">Int -&gt; SignUpResponse -&gt; ShowS
+[SignUpResponse] -&gt; ShowS
+SignUpResponse -&gt; String
+(Int -&gt; SignUpResponse -&gt; ShowS)
+-&gt; (SignUpResponse -&gt; String)
+-&gt; ([SignUpResponse] -&gt; ShowS)
+-&gt; Show SignUpResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SignUpResponse] -&gt; ShowS
+$cshowList :: [SignUpResponse] -&gt; ShowS
+show :: SignUpResponse -&gt; String
+$cshow :: SignUpResponse -&gt; String
+showsPrec :: Int -&gt; SignUpResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SignUpResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SignUpResponse -&gt; Rep SignUpResponse x)
+-&gt; (forall x. Rep SignUpResponse x -&gt; SignUpResponse)
+-&gt; Generic SignUpResponse
+forall x. Rep SignUpResponse x -&gt; SignUpResponse
+forall x. SignUpResponse -&gt; Rep SignUpResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SignUpResponse x -&gt; SignUpResponse
+$cfrom :: forall x. SignUpResponse -&gt; Rep SignUpResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- Create a value of 'SignUpResponse' with all optional fields omitted.</span><span>
+</span><span id="line-379"></span><span class="hs-comment">--</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-381"></span><span class="hs-comment">--</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-384"></span><span class="hs-comment">--</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- 'codeDeliveryDetails', 'signUpResponse_codeDeliveryDetails' - The code delivery details returned by the server response to the user</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- registration request.</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- 'httpStatus', 'signUpResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- 'userConfirmed', 'signUpResponse_userConfirmed' - A response from the server indicating that a user registration has been</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- confirmed.</span><span>
+</span><span id="line-392"></span><span class="hs-comment">--</span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- 'userSub', 'signUpResponse_userSub' - The UUID of the authenticated user. This is not the same as @username@.</span><span>
+</span><span id="line-394"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#newSignUpResponse"><span class="hs-identifier hs-type">newSignUpResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-395"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-396"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-397"></span><span>  </span><span class="hs-comment">-- | 'userConfirmed'</span><span>
+</span><span id="line-398"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-399"></span><span>  </span><span class="hs-comment">-- | 'userSub'</span><span>
+</span><span id="line-400"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-401"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span>
+</span><span id="line-402"></span><span id="newSignUpResponse"><span class="annot"><span class="annottext">newSignUpResponse :: Int -&gt; Bool -&gt; Text -&gt; SignUpResponse
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#newSignUpResponse"><span class="hs-identifier hs-var hs-var">newSignUpResponse</span></a></span></span><span>
+</span><span id="line-403"></span><span>  </span><span id="local-6989586621679439733"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679439733"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-404"></span><span>  </span><span id="local-6989586621679439732"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679439732"><span class="hs-identifier hs-var">pUserConfirmed_</span></a></span></span><span>
+</span><span id="line-405"></span><span>  </span><span id="local-6989586621679439731"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439731"><span class="hs-identifier hs-var">pUserSub_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-406"></span><span>    </span><span class="annot"><span class="annottext">SignUpResponse' :: Maybe CodeDeliveryDetailsType
+-&gt; Int -&gt; Bool -&gt; Text -&gt; SignUpResponse
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span>
+</span><span id="line-407"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:codeDeliveryDetails:SignUpResponse' :: Maybe CodeDeliveryDetailsType
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AcodeDeliveryDetails%3ASignUpResponse%27"><span class="hs-identifier hs-var">codeDeliveryDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-408"></span><span>          </span><span class="annot"><span class="annottext">Maybe CodeDeliveryDetailsType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-409"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:SignUpResponse' :: Int
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AhttpStatus%3ASignUpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679439733"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-410"></span><span>        </span><span class="annot"><span class="annottext">$sel:userConfirmed:SignUpResponse' :: Bool
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AuserConfirmed%3ASignUpResponse%27"><span class="hs-identifier hs-var">userConfirmed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679439732"><span class="hs-identifier hs-var">pUserConfirmed_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-411"></span><span>        </span><span class="annot"><span class="annottext">$sel:userSub:SignUpResponse' :: Text
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AuserSub%3ASignUpResponse%27"><span class="hs-identifier hs-var">userSub</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439731"><span class="hs-identifier hs-var">pUserSub_</span></a></span><span>
+</span><span id="line-412"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-413"></span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- | The code delivery details returned by the server response to the user</span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- registration request.</span><span>
+</span><span id="line-416"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUpResponse_codeDeliveryDetails"><span class="hs-identifier hs-type">signUpResponse_codeDeliveryDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.CodeDeliveryDetailsType.html#CodeDeliveryDetailsType"><span class="hs-identifier hs-type">CodeDeliveryDetailsType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-417"></span><span id="signUpResponse_codeDeliveryDetails"><span class="annot"><span class="annottext">signUpResponse_codeDeliveryDetails :: (Maybe CodeDeliveryDetailsType
+ -&gt; f (Maybe CodeDeliveryDetailsType))
+-&gt; SignUpResponse -&gt; f SignUpResponse
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUpResponse_codeDeliveryDetails"><span class="hs-identifier hs-var hs-var">signUpResponse_codeDeliveryDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUpResponse -&gt; Maybe CodeDeliveryDetailsType)
+-&gt; (SignUpResponse
+    -&gt; Maybe CodeDeliveryDetailsType -&gt; SignUpResponse)
+-&gt; Lens
+     SignUpResponse
+     SignUpResponse
+     (Maybe CodeDeliveryDetailsType)
+     (Maybe CodeDeliveryDetailsType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439730"><span class="annot"><span class="annottext">Maybe CodeDeliveryDetailsType
+codeDeliveryDetails :: Maybe CodeDeliveryDetailsType
+$sel:codeDeliveryDetails:SignUpResponse' :: SignUpResponse -&gt; Maybe CodeDeliveryDetailsType
+</span><a href="#local-6989586621679439730"><span class="hs-identifier hs-var hs-var">codeDeliveryDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeDeliveryDetailsType
+</span><a href="#local-6989586621679439730"><span class="hs-identifier hs-var">codeDeliveryDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439729"><span class="annot"><span class="annottext">s :: SignUpResponse
+</span><a href="#local-6989586621679439729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439728"><span class="annot"><span class="annottext">Maybe CodeDeliveryDetailsType
+</span><a href="#local-6989586621679439728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUpResponse
+</span><a href="#local-6989586621679439729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeDeliveryDetails:SignUpResponse' :: Maybe CodeDeliveryDetailsType
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AcodeDeliveryDetails%3ASignUpResponse%27"><span class="hs-identifier hs-var">codeDeliveryDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeDeliveryDetailsType
+</span><a href="#local-6989586621679439728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-418"></span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-420"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUpResponse_httpStatus"><span class="hs-identifier hs-type">signUpResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-421"></span><span id="signUpResponse_httpStatus"><span class="annot"><span class="annottext">signUpResponse_httpStatus :: (Int -&gt; f Int) -&gt; SignUpResponse -&gt; f SignUpResponse
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUpResponse_httpStatus"><span class="hs-identifier hs-var hs-var">signUpResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUpResponse -&gt; Int)
+-&gt; (SignUpResponse -&gt; Int -&gt; SignUpResponse)
+-&gt; Lens SignUpResponse SignUpResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439727"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SignUpResponse' :: SignUpResponse -&gt; Int
+</span><a href="#local-6989586621679439727"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679439727"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439726"><span class="annot"><span class="annottext">s :: SignUpResponse
+</span><a href="#local-6989586621679439726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439725"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679439725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUpResponse
+</span><a href="#local-6989586621679439726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SignUpResponse' :: Int
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AhttpStatus%3ASignUpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679439725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-422"></span><span>
+</span><span id="line-423"></span><span class="hs-comment">-- | A response from the server indicating that a user registration has been</span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- confirmed.</span><span>
+</span><span id="line-425"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUpResponse_userConfirmed"><span class="hs-identifier hs-type">signUpResponse_userConfirmed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-426"></span><span id="signUpResponse_userConfirmed"><span class="annot"><span class="annottext">signUpResponse_userConfirmed :: (Bool -&gt; f Bool) -&gt; SignUpResponse -&gt; f SignUpResponse
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUpResponse_userConfirmed"><span class="hs-identifier hs-var hs-var">signUpResponse_userConfirmed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUpResponse -&gt; Bool)
+-&gt; (SignUpResponse -&gt; Bool -&gt; SignUpResponse)
+-&gt; Lens SignUpResponse SignUpResponse Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439724"><span class="annot"><span class="annottext">Bool
+userConfirmed :: Bool
+$sel:userConfirmed:SignUpResponse' :: SignUpResponse -&gt; Bool
+</span><a href="#local-6989586621679439724"><span class="hs-identifier hs-var hs-var">userConfirmed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679439724"><span class="hs-identifier hs-var">userConfirmed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439723"><span class="annot"><span class="annottext">s :: SignUpResponse
+</span><a href="#local-6989586621679439723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439722"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679439722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUpResponse
+</span><a href="#local-6989586621679439723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userConfirmed:SignUpResponse' :: Bool
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AuserConfirmed%3ASignUpResponse%27"><span class="hs-identifier hs-var">userConfirmed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679439722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-427"></span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- | The UUID of the authenticated user. This is not the same as @username@.</span><span>
+</span><span id="line-429"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUpResponse_userSub"><span class="hs-identifier hs-type">signUpResponse_userSub</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-430"></span><span id="signUpResponse_userSub"><span class="annot"><span class="annottext">signUpResponse_userSub :: (Text -&gt; f Text) -&gt; SignUpResponse -&gt; f SignUpResponse
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#signUpResponse_userSub"><span class="hs-identifier hs-var hs-var">signUpResponse_userSub</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUpResponse -&gt; Text)
+-&gt; (SignUpResponse -&gt; Text -&gt; SignUpResponse)
+-&gt; Lens SignUpResponse SignUpResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439721"><span class="annot"><span class="annottext">Text
+userSub :: Text
+$sel:userSub:SignUpResponse' :: SignUpResponse -&gt; Text
+</span><a href="#local-6989586621679439721"><span class="hs-identifier hs-var hs-var">userSub</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439721"><span class="hs-identifier hs-var">userSub</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439720"><span class="annot"><span class="annottext">s :: SignUpResponse
+</span><a href="#local-6989586621679439720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439719"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUpResponse
+</span><a href="#local-6989586621679439720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userSub:SignUpResponse' :: Text
+</span><a href="Amazonka.CognitoIdentityProvider.SignUp.html#%24sel%3AuserSub%3ASignUpResponse%27"><span class="hs-identifier hs-var">userSub</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-431"></span><span>
+</span><span id="line-432"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439717"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span></span><span>
+</span><span id="line-433"></span></pre></body></html>

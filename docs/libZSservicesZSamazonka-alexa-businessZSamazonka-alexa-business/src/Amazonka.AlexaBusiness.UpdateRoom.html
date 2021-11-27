@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AlexaBusiness.UpdateRoom</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates room details by room ARN.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AlexaBusiness.UpdateRoom</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#newUpdateRoom"><span class="hs-identifier">newUpdateRoom</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoom_profileArn"><span class="hs-identifier">updateRoom_profileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoom_providerCalendarId"><span class="hs-identifier">updateRoom_providerCalendarId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoom_roomArn"><span class="hs-identifier">updateRoom_roomArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoom_roomName"><span class="hs-identifier">updateRoom_roomName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoom_description"><span class="hs-identifier">updateRoom_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier">UpdateRoomResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#newUpdateRoomResponse"><span class="hs-identifier">newUpdateRoomResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoomResponse_httpStatus"><span class="hs-identifier">updateRoomResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.html"><span class="hs-identifier">Amazonka.AlexaBusiness.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateRoom' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679396724"><span id="local-6989586621679396725"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoom"><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-var">UpdateRoom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoom%27"><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-var">UpdateRoom'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated profile ARN for the room.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AprofileArn%3AUpdateRoom%27"><span class="annot"><span class="annottext">UpdateRoom -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3AprofileArn%3AUpdateRoom%27"><span class="hs-identifier hs-var hs-var">profileArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The updated provider calendar ARN for the room.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AproviderCalendarId%3AUpdateRoom%27"><span class="annot"><span class="annottext">UpdateRoom -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3AproviderCalendarId%3AUpdateRoom%27"><span class="hs-identifier hs-var hs-var">providerCalendarId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ARN of the room to update.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AroomArn%3AUpdateRoom%27"><span class="annot"><span class="annottext">UpdateRoom -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3AroomArn%3AUpdateRoom%27"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The updated name for the room.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AroomName%3AUpdateRoom%27"><span class="annot"><span class="annottext">UpdateRoom -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3AroomName%3AUpdateRoom%27"><span class="hs-identifier hs-var hs-var">roomName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The updated description for the room.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateRoom%27"><span class="annot"><span class="annottext">UpdateRoom -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3Adescription%3AUpdateRoom%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396714"><span id="local-6989586621679396716"><span class="annot"><span class="annottext">UpdateRoom -&gt; UpdateRoom -&gt; Bool
+(UpdateRoom -&gt; UpdateRoom -&gt; Bool)
+-&gt; (UpdateRoom -&gt; UpdateRoom -&gt; Bool) -&gt; Eq UpdateRoom
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRoom -&gt; UpdateRoom -&gt; Bool
+$c/= :: UpdateRoom -&gt; UpdateRoom -&gt; Bool
+== :: UpdateRoom -&gt; UpdateRoom -&gt; Bool
+$c== :: UpdateRoom -&gt; UpdateRoom -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396705"><span id="local-6989586621679396707"><span id="local-6989586621679396709"><span id="local-6989586621679396711"><span class="annot"><span class="annottext">ReadPrec [UpdateRoom]
+ReadPrec UpdateRoom
+Int -&gt; ReadS UpdateRoom
+ReadS [UpdateRoom]
+(Int -&gt; ReadS UpdateRoom)
+-&gt; ReadS [UpdateRoom]
+-&gt; ReadPrec UpdateRoom
+-&gt; ReadPrec [UpdateRoom]
+-&gt; Read UpdateRoom
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRoom]
+$creadListPrec :: ReadPrec [UpdateRoom]
+readPrec :: ReadPrec UpdateRoom
+$creadPrec :: ReadPrec UpdateRoom
+readList :: ReadS [UpdateRoom]
+$creadList :: ReadS [UpdateRoom]
+readsPrec :: Int -&gt; ReadS UpdateRoom
+$creadsPrec :: Int -&gt; ReadS UpdateRoom
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396698"><span id="local-6989586621679396700"><span id="local-6989586621679396702"><span class="annot"><span class="annottext">Int -&gt; UpdateRoom -&gt; ShowS
+[UpdateRoom] -&gt; ShowS
+UpdateRoom -&gt; String
+(Int -&gt; UpdateRoom -&gt; ShowS)
+-&gt; (UpdateRoom -&gt; String)
+-&gt; ([UpdateRoom] -&gt; ShowS)
+-&gt; Show UpdateRoom
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRoom] -&gt; ShowS
+$cshowList :: [UpdateRoom] -&gt; ShowS
+show :: UpdateRoom -&gt; String
+$cshow :: UpdateRoom -&gt; String
+showsPrec :: Int -&gt; UpdateRoom -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRoom -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateRoom -&gt; Rep UpdateRoom x)
+-&gt; (forall x. Rep UpdateRoom x -&gt; UpdateRoom) -&gt; Generic UpdateRoom
+forall x. Rep UpdateRoom x -&gt; UpdateRoom
+forall x. UpdateRoom -&gt; Rep UpdateRoom x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateRoom x -&gt; UpdateRoom
+$cfrom :: forall x. UpdateRoom -&gt; Rep UpdateRoom x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'UpdateRoom' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'profileArn', 'updateRoom_profileArn' - The updated profile ARN for the room.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'providerCalendarId', 'updateRoom_providerCalendarId' - The updated provider calendar ARN for the room.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'roomArn', 'updateRoom_roomArn' - The ARN of the room to update.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'roomName', 'updateRoom_roomName' - The updated name for the room.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'description', 'updateRoom_description' - The updated description for the room.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#newUpdateRoom"><span class="hs-identifier hs-type">newUpdateRoom</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span>
+</span><span id="line-86"></span><span id="newUpdateRoom"><span class="annot"><span class="annottext">newUpdateRoom :: UpdateRoom
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#newUpdateRoom"><span class="hs-identifier hs-var hs-var">newUpdateRoom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">UpdateRoom' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; UpdateRoom
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:profileArn:UpdateRoom' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3AprofileArn%3AUpdateRoom%27"><span class="hs-identifier hs-var">profileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:providerCalendarId:UpdateRoom' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3AproviderCalendarId%3AUpdateRoom%27"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:roomArn:UpdateRoom' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3AroomArn%3AUpdateRoom%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:roomName:UpdateRoom' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3AroomName%3AUpdateRoom%27"><span class="hs-identifier hs-var">roomName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateRoom' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3Adescription%3AUpdateRoom%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The updated profile ARN for the room.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoom_profileArn"><span class="hs-identifier hs-type">updateRoom_profileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="updateRoom_profileArn"><span class="annot"><span class="annottext">updateRoom_profileArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateRoom -&gt; f UpdateRoom
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoom_profileArn"><span class="hs-identifier hs-var hs-var">updateRoom_profileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoom -&gt; Maybe Text)
+-&gt; (UpdateRoom -&gt; Maybe Text -&gt; UpdateRoom)
+-&gt; Lens UpdateRoom UpdateRoom (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396691"><span class="annot"><span class="annottext">Maybe Text
+profileArn :: Maybe Text
+$sel:profileArn:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679396691"><span class="hs-identifier hs-var hs-var">profileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396691"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396690"><span class="annot"><span class="annottext">s :: UpdateRoom
+</span><a href="#local-6989586621679396690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396689"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoom
+</span><a href="#local-6989586621679396690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileArn:UpdateRoom' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3AprofileArn%3AUpdateRoom%27"><span class="hs-identifier hs-var">profileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The updated provider calendar ARN for the room.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoom_providerCalendarId"><span class="hs-identifier hs-type">updateRoom_providerCalendarId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="updateRoom_providerCalendarId"><span class="annot"><span class="annottext">updateRoom_providerCalendarId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateRoom -&gt; f UpdateRoom
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoom_providerCalendarId"><span class="hs-identifier hs-var hs-var">updateRoom_providerCalendarId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoom -&gt; Maybe Text)
+-&gt; (UpdateRoom -&gt; Maybe Text -&gt; UpdateRoom)
+-&gt; Lens UpdateRoom UpdateRoom (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396688"><span class="annot"><span class="annottext">Maybe Text
+providerCalendarId :: Maybe Text
+$sel:providerCalendarId:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679396688"><span class="hs-identifier hs-var hs-var">providerCalendarId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396688"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396687"><span class="annot"><span class="annottext">s :: UpdateRoom
+</span><a href="#local-6989586621679396687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396686"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoom
+</span><a href="#local-6989586621679396687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerCalendarId:UpdateRoom' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3AproviderCalendarId%3AUpdateRoom%27"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The ARN of the room to update.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoom_roomArn"><span class="hs-identifier hs-type">updateRoom_roomArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="updateRoom_roomArn"><span class="annot"><span class="annottext">updateRoom_roomArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateRoom -&gt; f UpdateRoom
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoom_roomArn"><span class="hs-identifier hs-var hs-var">updateRoom_roomArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoom -&gt; Maybe Text)
+-&gt; (UpdateRoom -&gt; Maybe Text -&gt; UpdateRoom)
+-&gt; Lens UpdateRoom UpdateRoom (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396685"><span class="annot"><span class="annottext">Maybe Text
+roomArn :: Maybe Text
+$sel:roomArn:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679396685"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396685"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396684"><span class="annot"><span class="annottext">s :: UpdateRoom
+</span><a href="#local-6989586621679396684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396683"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoom
+</span><a href="#local-6989586621679396684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomArn:UpdateRoom' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3AroomArn%3AUpdateRoom%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The updated name for the room.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoom_roomName"><span class="hs-identifier hs-type">updateRoom_roomName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="updateRoom_roomName"><span class="annot"><span class="annottext">updateRoom_roomName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateRoom -&gt; f UpdateRoom
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoom_roomName"><span class="hs-identifier hs-var hs-var">updateRoom_roomName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoom -&gt; Maybe Text)
+-&gt; (UpdateRoom -&gt; Maybe Text -&gt; UpdateRoom)
+-&gt; Lens UpdateRoom UpdateRoom (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396682"><span class="annot"><span class="annottext">Maybe Text
+roomName :: Maybe Text
+$sel:roomName:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679396682"><span class="hs-identifier hs-var hs-var">roomName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396682"><span class="hs-identifier hs-var">roomName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396681"><span class="annot"><span class="annottext">s :: UpdateRoom
+</span><a href="#local-6989586621679396681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396680"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoom
+</span><a href="#local-6989586621679396681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomName:UpdateRoom' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3AroomName%3AUpdateRoom%27"><span class="hs-identifier hs-var">roomName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The updated description for the room.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoom_description"><span class="hs-identifier hs-type">updateRoom_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="updateRoom_description"><span class="annot"><span class="annottext">updateRoom_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateRoom -&gt; f UpdateRoom
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoom_description"><span class="hs-identifier hs-var hs-var">updateRoom_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoom -&gt; Maybe Text)
+-&gt; (UpdateRoom -&gt; Maybe Text -&gt; UpdateRoom)
+-&gt; Lens UpdateRoom UpdateRoom (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396679"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679396679"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396679"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396678"><span class="annot"><span class="annottext">s :: UpdateRoom
+</span><a href="#local-6989586621679396678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396677"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoom
+</span><a href="#local-6989586621679396678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateRoom' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3Adescription%3AUpdateRoom%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier hs-type">UpdateRoomResponse</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679396673"><span class="annot"><span class="annottext">request :: UpdateRoom -&gt; Request UpdateRoom
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateRoom -&gt; Request UpdateRoom
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679396669"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateRoom
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateRoom)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse UpdateRoom))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateRoom
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateRoom)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679396666"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396666"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679396665"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679396665"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679396664"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679396664"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateRoomResponse
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse%27"><span class="hs-identifier hs-var">UpdateRoomResponse'</span></a></span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateRoomResponse)
+-&gt; Either String Int -&gt; Either String UpdateRoomResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396666"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396657"><span id="local-6989586621679396659"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396654"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679396650"><span class="annot"><span class="annottext">toHeaders :: UpdateRoom -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateRoom -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AlexaForBusiness.UpdateRoom&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-140"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396640"><span id="local-6989586621679396642"><span id="local-6989586621679396644"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679396638"><span class="annot"><span class="annottext">toJSON :: UpdateRoom -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396632"><span id="local-6989586621679396633"><span id="local-6989586621679396634"><span id="local-6989586621679396635"><span id="local-6989586621679396636"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+roomName :: Maybe Text
+roomArn :: Maybe Text
+providerCalendarId :: Maybe Text
+profileArn :: Maybe Text
+$sel:description:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+$sel:roomName:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+$sel:roomArn:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+$sel:providerCalendarId:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+$sel:profileArn:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679396632"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProfileArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396636"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProviderCalendarId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396635"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoomArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396634"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoomName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396633"><span class="hs-identifier hs-var">roomName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396632"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679396626"><span class="annot"><span class="annottext">toPath :: UpdateRoom -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateRoom -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679396622"><span class="annot"><span class="annottext">toQuery :: UpdateRoom -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRoom -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | /See:/ 'newUpdateRoomResponse' smart constructor.</span><span>
+</span><span id="line-164"></span><span id="local-6989586621679396619"><span id="local-6989586621679396620"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoomResponse"><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier hs-var">UpdateRoomResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoomResponse%27"><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse%27"><span class="hs-identifier hs-var">UpdateRoomResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRoomResponse%27"><span class="annot"><span class="annottext">UpdateRoomResponse -&gt; Int
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3AhttpStatus%3AUpdateRoomResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396614"><span id="local-6989586621679396616"><span class="annot"><span class="annottext">UpdateRoomResponse -&gt; UpdateRoomResponse -&gt; Bool
+(UpdateRoomResponse -&gt; UpdateRoomResponse -&gt; Bool)
+-&gt; (UpdateRoomResponse -&gt; UpdateRoomResponse -&gt; Bool)
+-&gt; Eq UpdateRoomResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRoomResponse -&gt; UpdateRoomResponse -&gt; Bool
+$c/= :: UpdateRoomResponse -&gt; UpdateRoomResponse -&gt; Bool
+== :: UpdateRoomResponse -&gt; UpdateRoomResponse -&gt; Bool
+$c== :: UpdateRoomResponse -&gt; UpdateRoomResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396606"><span id="local-6989586621679396608"><span id="local-6989586621679396610"><span id="local-6989586621679396612"><span class="annot"><span class="annottext">ReadPrec [UpdateRoomResponse]
+ReadPrec UpdateRoomResponse
+Int -&gt; ReadS UpdateRoomResponse
+ReadS [UpdateRoomResponse]
+(Int -&gt; ReadS UpdateRoomResponse)
+-&gt; ReadS [UpdateRoomResponse]
+-&gt; ReadPrec UpdateRoomResponse
+-&gt; ReadPrec [UpdateRoomResponse]
+-&gt; Read UpdateRoomResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRoomResponse]
+$creadListPrec :: ReadPrec [UpdateRoomResponse]
+readPrec :: ReadPrec UpdateRoomResponse
+$creadPrec :: ReadPrec UpdateRoomResponse
+readList :: ReadS [UpdateRoomResponse]
+$creadList :: ReadS [UpdateRoomResponse]
+readsPrec :: Int -&gt; ReadS UpdateRoomResponse
+$creadsPrec :: Int -&gt; ReadS UpdateRoomResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396600"><span id="local-6989586621679396602"><span id="local-6989586621679396604"><span class="annot"><span class="annottext">Int -&gt; UpdateRoomResponse -&gt; ShowS
+[UpdateRoomResponse] -&gt; ShowS
+UpdateRoomResponse -&gt; String
+(Int -&gt; UpdateRoomResponse -&gt; ShowS)
+-&gt; (UpdateRoomResponse -&gt; String)
+-&gt; ([UpdateRoomResponse] -&gt; ShowS)
+-&gt; Show UpdateRoomResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRoomResponse] -&gt; ShowS
+$cshowList :: [UpdateRoomResponse] -&gt; ShowS
+show :: UpdateRoomResponse -&gt; String
+$cshow :: UpdateRoomResponse -&gt; String
+showsPrec :: Int -&gt; UpdateRoomResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRoomResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateRoomResponse -&gt; Rep UpdateRoomResponse x)
+-&gt; (forall x. Rep UpdateRoomResponse x -&gt; UpdateRoomResponse)
+-&gt; Generic UpdateRoomResponse
+forall x. Rep UpdateRoomResponse x -&gt; UpdateRoomResponse
+forall x. UpdateRoomResponse -&gt; Rep UpdateRoomResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateRoomResponse x -&gt; UpdateRoomResponse
+$cfrom :: forall x. UpdateRoomResponse -&gt; Rep UpdateRoomResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Create a value of 'UpdateRoomResponse' with all optional fields omitted.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'httpStatus', 'updateRoomResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#newUpdateRoomResponse"><span class="hs-identifier hs-type">newUpdateRoomResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier hs-type">UpdateRoomResponse</span></a></span><span>
+</span><span id="line-183"></span><span id="newUpdateRoomResponse"><span class="annot"><span class="annottext">newUpdateRoomResponse :: Int -&gt; UpdateRoomResponse
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#newUpdateRoomResponse"><span class="hs-identifier hs-var hs-var">newUpdateRoomResponse</span></a></span></span><span> </span><span id="local-6989586621679396597"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396597"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">UpdateRoomResponse' :: Int -&gt; UpdateRoomResponse
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse%27"><span class="hs-identifier hs-type">UpdateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoomResponse' :: Int
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3AhttpStatus%3AUpdateRoomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396597"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoomResponse_httpStatus"><span class="hs-identifier hs-type">updateRoomResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier hs-type">UpdateRoomResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-188"></span><span id="updateRoomResponse_httpStatus"><span class="annot"><span class="annottext">updateRoomResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateRoomResponse -&gt; f UpdateRoomResponse
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#updateRoomResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateRoomResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoomResponse -&gt; Int)
+-&gt; (UpdateRoomResponse -&gt; Int -&gt; UpdateRoomResponse)
+-&gt; Lens UpdateRoomResponse UpdateRoomResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse%27"><span class="hs-identifier hs-type">UpdateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396596"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateRoomResponse' :: UpdateRoomResponse -&gt; Int
+</span><a href="#local-6989586621679396596"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396596"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396595"><span class="annot"><span class="annottext">s :: UpdateRoomResponse
+</span><a href="#local-6989586621679396595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse%27"><span class="hs-identifier hs-type">UpdateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396594"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoomResponse
+</span><a href="#local-6989586621679396595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoomResponse' :: Int
+</span><a href="Amazonka.AlexaBusiness.UpdateRoom.html#%24sel%3AhttpStatus%3AUpdateRoomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier hs-type">UpdateRoomResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396592"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier hs-type">UpdateRoomResponse</span></a></span></span><span>
+</span><span id="line-191"></span></pre></body></html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatchEvents.Types.BatchParameters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.BatchParameters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchArrayProperties.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.BatchArrayProperties</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchRetryStrategy.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.BatchRetryStrategy</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The custom parameters to be used when the target is an Batch job.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newBatchParameters' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679299367"><span id="local-6989586621679299368"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchParameters"><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-var">BatchParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchParameters%27"><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters%27"><span class="hs-identifier hs-var">BatchParameters'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The retry strategy to use for failed jobs, if the target is an Batch</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- job. The retry strategy is the number of times to retry the failed job</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- execution. Valid values are 1&#8211;10. When you specify a retry strategy</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- here, it overrides the retry strategy defined in the job definition.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AretryStrategy%3ABatchParameters%27"><span class="annot"><span class="annottext">BatchParameters -&gt; Maybe BatchRetryStrategy
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#%24sel%3AretryStrategy%3ABatchParameters%27"><span class="hs-identifier hs-var hs-var">retryStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy"><span class="hs-identifier hs-type">BatchRetryStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The array properties for the submitted job, such as the size of the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- array. The array size can be between 2 and 10,000. If you specify array</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- properties for a job, it becomes an array job. This parameter is used</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- only if the target is an Batch job.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AarrayProperties%3ABatchParameters%27"><span class="annot"><span class="annottext">BatchParameters -&gt; Maybe BatchArrayProperties
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#%24sel%3AarrayProperties%3ABatchParameters%27"><span class="hs-identifier hs-var hs-var">arrayProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties"><span class="hs-identifier hs-type">BatchArrayProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The ARN or name of the job definition to use if the event target is an</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Batch job. This job definition must already exist.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AjobDefinition%3ABatchParameters%27"><span class="annot"><span class="annottext">BatchParameters -&gt; Text
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#%24sel%3AjobDefinition%3ABatchParameters%27"><span class="hs-identifier hs-var hs-var">jobDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name to use for this execution of the job, if the target is an Batch</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AjobName%3ABatchParameters%27"><span class="annot"><span class="annottext">BatchParameters -&gt; Text
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#%24sel%3AjobName%3ABatchParameters%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299358"><span id="local-6989586621679299360"><span class="annot"><span class="annottext">BatchParameters -&gt; BatchParameters -&gt; Bool
+(BatchParameters -&gt; BatchParameters -&gt; Bool)
+-&gt; (BatchParameters -&gt; BatchParameters -&gt; Bool)
+-&gt; Eq BatchParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchParameters -&gt; BatchParameters -&gt; Bool
+$c/= :: BatchParameters -&gt; BatchParameters -&gt; Bool
+== :: BatchParameters -&gt; BatchParameters -&gt; Bool
+$c== :: BatchParameters -&gt; BatchParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299349"><span id="local-6989586621679299351"><span id="local-6989586621679299353"><span id="local-6989586621679299355"><span class="annot"><span class="annottext">ReadPrec [BatchParameters]
+ReadPrec BatchParameters
+Int -&gt; ReadS BatchParameters
+ReadS [BatchParameters]
+(Int -&gt; ReadS BatchParameters)
+-&gt; ReadS [BatchParameters]
+-&gt; ReadPrec BatchParameters
+-&gt; ReadPrec [BatchParameters]
+-&gt; Read BatchParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchParameters]
+$creadListPrec :: ReadPrec [BatchParameters]
+readPrec :: ReadPrec BatchParameters
+$creadPrec :: ReadPrec BatchParameters
+readList :: ReadS [BatchParameters]
+$creadList :: ReadS [BatchParameters]
+readsPrec :: Int -&gt; ReadS BatchParameters
+$creadsPrec :: Int -&gt; ReadS BatchParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299342"><span id="local-6989586621679299344"><span id="local-6989586621679299346"><span class="annot"><span class="annottext">Int -&gt; BatchParameters -&gt; ShowS
+[BatchParameters] -&gt; ShowS
+BatchParameters -&gt; String
+(Int -&gt; BatchParameters -&gt; ShowS)
+-&gt; (BatchParameters -&gt; String)
+-&gt; ([BatchParameters] -&gt; ShowS)
+-&gt; Show BatchParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchParameters] -&gt; ShowS
+$cshowList :: [BatchParameters] -&gt; ShowS
+show :: BatchParameters -&gt; String
+$cshow :: BatchParameters -&gt; String
+showsPrec :: Int -&gt; BatchParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchParameters -&gt; Rep BatchParameters x)
+-&gt; (forall x. Rep BatchParameters x -&gt; BatchParameters)
+-&gt; Generic BatchParameters
+forall x. Rep BatchParameters x -&gt; BatchParameters
+forall x. BatchParameters -&gt; Rep BatchParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchParameters x -&gt; BatchParameters
+$cfrom :: forall x. BatchParameters -&gt; Rep BatchParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'BatchParameters' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'retryStrategy', 'batchParameters_retryStrategy' - The retry strategy to use for failed jobs, if the target is an Batch</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- job. The retry strategy is the number of times to retry the failed job</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- execution. Valid values are 1&#8211;10. When you specify a retry strategy</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- here, it overrides the retry strategy defined in the job definition.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'arrayProperties', 'batchParameters_arrayProperties' - The array properties for the submitted job, such as the size of the</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- array. The array size can be between 2 and 10,000. If you specify array</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- properties for a job, it becomes an array job. This parameter is used</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- only if the target is an Batch job.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'jobDefinition', 'batchParameters_jobDefinition' - The ARN or name of the job definition to use if the event target is an</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Batch job. This job definition must already exist.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'jobName', 'batchParameters_jobName' - The name to use for this execution of the job, if the target is an Batch</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#newBatchParameters"><span class="hs-identifier hs-type">newBatchParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'jobDefinition'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'jobName'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-type">BatchParameters</span></a></span><span>
+</span><span id="line-80"></span><span id="newBatchParameters"><span class="annot"><span class="annottext">newBatchParameters :: Text -&gt; Text -&gt; BatchParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#newBatchParameters"><span class="hs-identifier hs-var hs-var">newBatchParameters</span></a></span></span><span> </span><span id="local-6989586621679299336"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299336"><span class="hs-identifier hs-var">pJobDefinition_</span></a></span></span><span> </span><span id="local-6989586621679299335"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299335"><span class="hs-identifier hs-var">pJobName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">BatchParameters' :: Maybe BatchRetryStrategy
+-&gt; Maybe BatchArrayProperties -&gt; Text -&gt; Text -&gt; BatchParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters%27"><span class="hs-identifier hs-type">BatchParameters'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:retryStrategy:BatchParameters' :: Maybe BatchRetryStrategy
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#%24sel%3AretryStrategy%3ABatchParameters%27"><span class="hs-identifier hs-var">retryStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchRetryStrategy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:arrayProperties:BatchParameters' :: Maybe BatchArrayProperties
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#%24sel%3AarrayProperties%3ABatchParameters%27"><span class="hs-identifier hs-var">arrayProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchArrayProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobDefinition:BatchParameters' :: Text
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#%24sel%3AjobDefinition%3ABatchParameters%27"><span class="hs-identifier hs-var">jobDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299336"><span class="hs-identifier hs-var">pJobDefinition_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobName:BatchParameters' :: Text
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#%24sel%3AjobName%3ABatchParameters%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299335"><span class="hs-identifier hs-var">pJobName_</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The retry strategy to use for failed jobs, if the target is an Batch</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- job. The retry strategy is the number of times to retry the failed job</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- execution. Valid values are 1&#8211;10. When you specify a retry strategy</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- here, it overrides the retry strategy defined in the job definition.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#batchParameters_retryStrategy"><span class="hs-identifier hs-type">batchParameters_retryStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-type">BatchParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy"><span class="hs-identifier hs-type">BatchRetryStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="batchParameters_retryStrategy"><span class="annot"><span class="annottext">batchParameters_retryStrategy :: (Maybe BatchRetryStrategy -&gt; f (Maybe BatchRetryStrategy))
+-&gt; BatchParameters -&gt; f BatchParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#batchParameters_retryStrategy"><span class="hs-identifier hs-var hs-var">batchParameters_retryStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchParameters -&gt; Maybe BatchRetryStrategy)
+-&gt; (BatchParameters -&gt; Maybe BatchRetryStrategy -&gt; BatchParameters)
+-&gt; Lens
+     BatchParameters
+     BatchParameters
+     (Maybe BatchRetryStrategy)
+     (Maybe BatchRetryStrategy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters%27"><span class="hs-identifier hs-type">BatchParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299331"><span class="annot"><span class="annottext">Maybe BatchRetryStrategy
+retryStrategy :: Maybe BatchRetryStrategy
+$sel:retryStrategy:BatchParameters' :: BatchParameters -&gt; Maybe BatchRetryStrategy
+</span><a href="#local-6989586621679299331"><span class="hs-identifier hs-var hs-var">retryStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatchRetryStrategy
+</span><a href="#local-6989586621679299331"><span class="hs-identifier hs-var">retryStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299330"><span class="annot"><span class="annottext">s :: BatchParameters
+</span><a href="#local-6989586621679299330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters%27"><span class="hs-identifier hs-type">BatchParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299329"><span class="annot"><span class="annottext">Maybe BatchRetryStrategy
+</span><a href="#local-6989586621679299329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchParameters
+</span><a href="#local-6989586621679299330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryStrategy:BatchParameters' :: Maybe BatchRetryStrategy
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#%24sel%3AretryStrategy%3ABatchParameters%27"><span class="hs-identifier hs-var">retryStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchRetryStrategy
+</span><a href="#local-6989586621679299329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-type">BatchParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The array properties for the submitted job, such as the size of the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- array. The array size can be between 2 and 10,000. If you specify array</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- properties for a job, it becomes an array job. This parameter is used</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- only if the target is an Batch job.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#batchParameters_arrayProperties"><span class="hs-identifier hs-type">batchParameters_arrayProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-type">BatchParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties"><span class="hs-identifier hs-type">BatchArrayProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="batchParameters_arrayProperties"><span class="annot"><span class="annottext">batchParameters_arrayProperties :: (Maybe BatchArrayProperties -&gt; f (Maybe BatchArrayProperties))
+-&gt; BatchParameters -&gt; f BatchParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#batchParameters_arrayProperties"><span class="hs-identifier hs-var hs-var">batchParameters_arrayProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchParameters -&gt; Maybe BatchArrayProperties)
+-&gt; (BatchParameters
+    -&gt; Maybe BatchArrayProperties -&gt; BatchParameters)
+-&gt; Lens
+     BatchParameters
+     BatchParameters
+     (Maybe BatchArrayProperties)
+     (Maybe BatchArrayProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters%27"><span class="hs-identifier hs-type">BatchParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299327"><span class="annot"><span class="annottext">Maybe BatchArrayProperties
+arrayProperties :: Maybe BatchArrayProperties
+$sel:arrayProperties:BatchParameters' :: BatchParameters -&gt; Maybe BatchArrayProperties
+</span><a href="#local-6989586621679299327"><span class="hs-identifier hs-var hs-var">arrayProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatchArrayProperties
+</span><a href="#local-6989586621679299327"><span class="hs-identifier hs-var">arrayProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299326"><span class="annot"><span class="annottext">s :: BatchParameters
+</span><a href="#local-6989586621679299326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters%27"><span class="hs-identifier hs-type">BatchParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299325"><span class="annot"><span class="annottext">Maybe BatchArrayProperties
+</span><a href="#local-6989586621679299325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchParameters
+</span><a href="#local-6989586621679299326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arrayProperties:BatchParameters' :: Maybe BatchArrayProperties
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#%24sel%3AarrayProperties%3ABatchParameters%27"><span class="hs-identifier hs-var">arrayProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchArrayProperties
+</span><a href="#local-6989586621679299325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-type">BatchParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The ARN or name of the job definition to use if the event target is an</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Batch job. This job definition must already exist.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#batchParameters_jobDefinition"><span class="hs-identifier hs-type">batchParameters_jobDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-type">BatchParameters</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="batchParameters_jobDefinition"><span class="annot"><span class="annottext">batchParameters_jobDefinition :: (Text -&gt; f Text) -&gt; BatchParameters -&gt; f BatchParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#batchParameters_jobDefinition"><span class="hs-identifier hs-var hs-var">batchParameters_jobDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchParameters -&gt; Text)
+-&gt; (BatchParameters -&gt; Text -&gt; BatchParameters)
+-&gt; Lens BatchParameters BatchParameters Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters%27"><span class="hs-identifier hs-type">BatchParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299323"><span class="annot"><span class="annottext">Text
+jobDefinition :: Text
+$sel:jobDefinition:BatchParameters' :: BatchParameters -&gt; Text
+</span><a href="#local-6989586621679299323"><span class="hs-identifier hs-var hs-var">jobDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299323"><span class="hs-identifier hs-var">jobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299322"><span class="annot"><span class="annottext">s :: BatchParameters
+</span><a href="#local-6989586621679299322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters%27"><span class="hs-identifier hs-type">BatchParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299321"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchParameters
+</span><a href="#local-6989586621679299322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDefinition:BatchParameters' :: Text
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#%24sel%3AjobDefinition%3ABatchParameters%27"><span class="hs-identifier hs-var">jobDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-type">BatchParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The name to use for this execution of the job, if the target is an Batch</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#batchParameters_jobName"><span class="hs-identifier hs-type">batchParameters_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-type">BatchParameters</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span id="batchParameters_jobName"><span class="annot"><span class="annottext">batchParameters_jobName :: (Text -&gt; f Text) -&gt; BatchParameters -&gt; f BatchParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#batchParameters_jobName"><span class="hs-identifier hs-var hs-var">batchParameters_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchParameters -&gt; Text)
+-&gt; (BatchParameters -&gt; Text -&gt; BatchParameters)
+-&gt; Lens BatchParameters BatchParameters Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters%27"><span class="hs-identifier hs-type">BatchParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299319"><span class="annot"><span class="annottext">Text
+jobName :: Text
+$sel:jobName:BatchParameters' :: BatchParameters -&gt; Text
+</span><a href="#local-6989586621679299319"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299319"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299318"><span class="annot"><span class="annottext">s :: BatchParameters
+</span><a href="#local-6989586621679299318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters%27"><span class="hs-identifier hs-type">BatchParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299317"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchParameters
+</span><a href="#local-6989586621679299318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:BatchParameters' :: Text
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#%24sel%3AjobName%3ABatchParameters%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-type">BatchParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299314"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-type">BatchParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679299312"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BatchParameters)
+-&gt; Value
+-&gt; Parser BatchParameters
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BatchParameters&quot;</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299309"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299309"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe BatchRetryStrategy
+-&gt; Maybe BatchArrayProperties -&gt; Text -&gt; Text -&gt; BatchParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters%27"><span class="hs-identifier hs-var">BatchParameters'</span></a></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe BatchRetryStrategy
+ -&gt; Maybe BatchArrayProperties -&gt; Text -&gt; Text -&gt; BatchParameters)
+-&gt; Parser (Maybe BatchRetryStrategy)
+-&gt; Parser
+     (Maybe BatchArrayProperties -&gt; Text -&gt; Text -&gt; BatchParameters)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BatchRetryStrategy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetryStrategy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe BatchArrayProperties -&gt; Text -&gt; Text -&gt; BatchParameters)
+-&gt; Parser (Maybe BatchArrayProperties)
+-&gt; Parser (Text -&gt; Text -&gt; BatchParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BatchArrayProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArrayProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; BatchParameters)
+-&gt; Parser Text -&gt; Parser (Text -&gt; BatchParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobDefinition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; BatchParameters)
+-&gt; Parser Text -&gt; Parser BatchParameters
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299302"><span id="local-6989586621679299304"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-type">BatchParameters</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299299"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-type">BatchParameters</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299291"><span id="local-6989586621679299293"><span id="local-6989586621679299295"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-type">BatchParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679299289"><span class="annot"><span class="annottext">toJSON :: BatchParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters%27"><span class="hs-identifier hs-type">BatchParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299284"><span id="local-6989586621679299285"><span id="local-6989586621679299286"><span id="local-6989586621679299287"><span class="annot"><span class="annottext">Maybe BatchArrayProperties
+Maybe BatchRetryStrategy
+Text
+jobName :: Text
+jobDefinition :: Text
+arrayProperties :: Maybe BatchArrayProperties
+retryStrategy :: Maybe BatchRetryStrategy
+$sel:jobName:BatchParameters' :: BatchParameters -&gt; Text
+$sel:jobDefinition:BatchParameters' :: BatchParameters -&gt; Text
+$sel:arrayProperties:BatchParameters' :: BatchParameters -&gt; Maybe BatchArrayProperties
+$sel:retryStrategy:BatchParameters' :: BatchParameters -&gt; Maybe BatchRetryStrategy
+</span><a href="#local-6989586621679299284"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetryStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BatchRetryStrategy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(BatchRetryStrategy -&gt; Pair)
+-&gt; Maybe BatchRetryStrategy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BatchRetryStrategy
+</span><a href="#local-6989586621679299287"><span class="hs-identifier hs-var">retryStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArrayProperties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BatchArrayProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">(BatchArrayProperties -&gt; Pair)
+-&gt; Maybe BatchArrayProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BatchArrayProperties
+</span><a href="#local-6989586621679299286"><span class="hs-identifier hs-var">arrayProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobDefinition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299285"><span class="hs-identifier hs-var">jobDefinition</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299284"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span></pre></body></html>

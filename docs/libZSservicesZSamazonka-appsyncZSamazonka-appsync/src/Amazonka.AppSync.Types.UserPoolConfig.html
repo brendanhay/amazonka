@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppSync.Types.UserPoolConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppSync.Types.UserPoolConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.DefaultAction.html"><span class="hs-identifier">Amazonka.AppSync.Types.DefaultAction</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes an Amazon Cognito user pool configuration.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUserPoolConfig' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679252444"><span id="local-6989586621679252445"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserPoolConfig"><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-var">UserPoolConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserPoolConfig%27"><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig%27"><span class="hs-identifier hs-var">UserPoolConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A regular expression for validating the incoming Amazon Cognito user</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- pool app client ID.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AappIdClientRegex%3AUserPoolConfig%27"><span class="annot"><span class="annottext">UserPoolConfig -&gt; Maybe Text
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#%24sel%3AappIdClientRegex%3AUserPoolConfig%27"><span class="hs-identifier hs-var hs-var">appIdClientRegex</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The user pool ID.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AuserPoolId%3AUserPoolConfig%27"><span class="annot"><span class="annottext">UserPoolConfig -&gt; Text
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#%24sel%3AuserPoolId%3AUserPoolConfig%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services Region in which the user pool was created.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AawsRegion%3AUserPoolConfig%27"><span class="annot"><span class="annottext">UserPoolConfig -&gt; Text
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#%24sel%3AawsRegion%3AUserPoolConfig%27"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The action that you want your GraphQL API to take when a request that</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- uses Amazon Cognito user pool authentication doesn\'t match the Amazon</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Cognito user pool configuration.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdefaultAction%3AUserPoolConfig%27"><span class="annot"><span class="annottext">UserPoolConfig -&gt; DefaultAction
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#%24sel%3AdefaultAction%3AUserPoolConfig%27"><span class="hs-identifier hs-var hs-var">defaultAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.DefaultAction.html#DefaultAction"><span class="hs-identifier hs-type">DefaultAction</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252435"><span id="local-6989586621679252437"><span class="annot"><span class="annottext">UserPoolConfig -&gt; UserPoolConfig -&gt; Bool
+(UserPoolConfig -&gt; UserPoolConfig -&gt; Bool)
+-&gt; (UserPoolConfig -&gt; UserPoolConfig -&gt; Bool) -&gt; Eq UserPoolConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UserPoolConfig -&gt; UserPoolConfig -&gt; Bool
+$c/= :: UserPoolConfig -&gt; UserPoolConfig -&gt; Bool
+== :: UserPoolConfig -&gt; UserPoolConfig -&gt; Bool
+$c== :: UserPoolConfig -&gt; UserPoolConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252426"><span id="local-6989586621679252428"><span id="local-6989586621679252430"><span id="local-6989586621679252432"><span class="annot"><span class="annottext">ReadPrec [UserPoolConfig]
+ReadPrec UserPoolConfig
+Int -&gt; ReadS UserPoolConfig
+ReadS [UserPoolConfig]
+(Int -&gt; ReadS UserPoolConfig)
+-&gt; ReadS [UserPoolConfig]
+-&gt; ReadPrec UserPoolConfig
+-&gt; ReadPrec [UserPoolConfig]
+-&gt; Read UserPoolConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UserPoolConfig]
+$creadListPrec :: ReadPrec [UserPoolConfig]
+readPrec :: ReadPrec UserPoolConfig
+$creadPrec :: ReadPrec UserPoolConfig
+readList :: ReadS [UserPoolConfig]
+$creadList :: ReadS [UserPoolConfig]
+readsPrec :: Int -&gt; ReadS UserPoolConfig
+$creadsPrec :: Int -&gt; ReadS UserPoolConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252419"><span id="local-6989586621679252421"><span id="local-6989586621679252423"><span class="annot"><span class="annottext">Int -&gt; UserPoolConfig -&gt; ShowS
+[UserPoolConfig] -&gt; ShowS
+UserPoolConfig -&gt; String
+(Int -&gt; UserPoolConfig -&gt; ShowS)
+-&gt; (UserPoolConfig -&gt; String)
+-&gt; ([UserPoolConfig] -&gt; ShowS)
+-&gt; Show UserPoolConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UserPoolConfig] -&gt; ShowS
+$cshowList :: [UserPoolConfig] -&gt; ShowS
+show :: UserPoolConfig -&gt; String
+$cshow :: UserPoolConfig -&gt; String
+showsPrec :: Int -&gt; UserPoolConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; UserPoolConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UserPoolConfig -&gt; Rep UserPoolConfig x)
+-&gt; (forall x. Rep UserPoolConfig x -&gt; UserPoolConfig)
+-&gt; Generic UserPoolConfig
+forall x. Rep UserPoolConfig x -&gt; UserPoolConfig
+forall x. UserPoolConfig -&gt; Rep UserPoolConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UserPoolConfig x -&gt; UserPoolConfig
+$cfrom :: forall x. UserPoolConfig -&gt; Rep UserPoolConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'UserPoolConfig' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'appIdClientRegex', 'userPoolConfig_appIdClientRegex' - A regular expression for validating the incoming Amazon Cognito user</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- pool app client ID.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'userPoolId', 'userPoolConfig_userPoolId' - The user pool ID.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'awsRegion', 'userPoolConfig_awsRegion' - The Amazon Web Services Region in which the user pool was created.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'defaultAction', 'userPoolConfig_defaultAction' - The action that you want your GraphQL API to take when a request that</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- uses Amazon Cognito user pool authentication doesn\'t match the Amazon</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Cognito user pool configuration.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#newUserPoolConfig"><span class="hs-identifier hs-type">newUserPoolConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-comment">-- | 'userPoolId'</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'awsRegion'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'defaultAction'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.AppSync.Types.DefaultAction.html#DefaultAction"><span class="hs-identifier hs-type">DefaultAction</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span><span>
+</span><span id="line-71"></span><span id="newUserPoolConfig"><span class="annot"><span class="annottext">newUserPoolConfig :: Text -&gt; Text -&gt; DefaultAction -&gt; UserPoolConfig
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#newUserPoolConfig"><span class="hs-identifier hs-var hs-var">newUserPoolConfig</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679252413"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252413"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679252412"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252412"><span class="hs-identifier hs-var">pAwsRegion_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679252411"><span class="annot"><span class="annottext">DefaultAction
+</span><a href="#local-6989586621679252411"><span class="hs-identifier hs-var">pDefaultAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">UserPoolConfig' :: Maybe Text -&gt; Text -&gt; Text -&gt; DefaultAction -&gt; UserPoolConfig
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig%27"><span class="hs-identifier hs-type">UserPoolConfig'</span></a></span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appIdClientRegex:UserPoolConfig' :: Maybe Text
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#%24sel%3AappIdClientRegex%3AUserPoolConfig%27"><span class="hs-identifier hs-var">appIdClientRegex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">$sel:userPoolId:UserPoolConfig' :: Text
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#%24sel%3AuserPoolId%3AUserPoolConfig%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252413"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:awsRegion:UserPoolConfig' :: Text
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#%24sel%3AawsRegion%3AUserPoolConfig%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252412"><span class="hs-identifier hs-var">pAwsRegion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultAction:UserPoolConfig' :: DefaultAction
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#%24sel%3AdefaultAction%3AUserPoolConfig%27"><span class="hs-identifier hs-var">defaultAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DefaultAction
+</span><a href="#local-6989586621679252411"><span class="hs-identifier hs-var">pDefaultAction_</span></a></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | A regular expression for validating the incoming Amazon Cognito user</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- pool app client ID.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#userPoolConfig_appIdClientRegex"><span class="hs-identifier hs-type">userPoolConfig_appIdClientRegex</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="userPoolConfig_appIdClientRegex"><span class="annot"><span class="annottext">userPoolConfig_appIdClientRegex :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UserPoolConfig -&gt; f UserPoolConfig
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#userPoolConfig_appIdClientRegex"><span class="hs-identifier hs-var hs-var">userPoolConfig_appIdClientRegex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserPoolConfig -&gt; Maybe Text)
+-&gt; (UserPoolConfig -&gt; Maybe Text -&gt; UserPoolConfig)
+-&gt; Lens UserPoolConfig UserPoolConfig (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig%27"><span class="hs-identifier hs-type">UserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252407"><span class="annot"><span class="annottext">Maybe Text
+appIdClientRegex :: Maybe Text
+$sel:appIdClientRegex:UserPoolConfig' :: UserPoolConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679252407"><span class="hs-identifier hs-var hs-var">appIdClientRegex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252407"><span class="hs-identifier hs-var">appIdClientRegex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252406"><span class="annot"><span class="annottext">s :: UserPoolConfig
+</span><a href="#local-6989586621679252406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig%27"><span class="hs-identifier hs-type">UserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252405"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserPoolConfig
+</span><a href="#local-6989586621679252406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appIdClientRegex:UserPoolConfig' :: Maybe Text
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#%24sel%3AappIdClientRegex%3AUserPoolConfig%27"><span class="hs-identifier hs-var">appIdClientRegex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The user pool ID.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#userPoolConfig_userPoolId"><span class="hs-identifier hs-type">userPoolConfig_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="userPoolConfig_userPoolId"><span class="annot"><span class="annottext">userPoolConfig_userPoolId :: (Text -&gt; f Text) -&gt; UserPoolConfig -&gt; f UserPoolConfig
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#userPoolConfig_userPoolId"><span class="hs-identifier hs-var hs-var">userPoolConfig_userPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserPoolConfig -&gt; Text)
+-&gt; (UserPoolConfig -&gt; Text -&gt; UserPoolConfig)
+-&gt; Lens UserPoolConfig UserPoolConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig%27"><span class="hs-identifier hs-type">UserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252403"><span class="annot"><span class="annottext">Text
+userPoolId :: Text
+$sel:userPoolId:UserPoolConfig' :: UserPoolConfig -&gt; Text
+</span><a href="#local-6989586621679252403"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252403"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252402"><span class="annot"><span class="annottext">s :: UserPoolConfig
+</span><a href="#local-6989586621679252402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig%27"><span class="hs-identifier hs-type">UserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252401"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserPoolConfig
+</span><a href="#local-6989586621679252402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:UserPoolConfig' :: Text
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#%24sel%3AuserPoolId%3AUserPoolConfig%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The Amazon Web Services Region in which the user pool was created.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#userPoolConfig_awsRegion"><span class="hs-identifier hs-type">userPoolConfig_awsRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="userPoolConfig_awsRegion"><span class="annot"><span class="annottext">userPoolConfig_awsRegion :: (Text -&gt; f Text) -&gt; UserPoolConfig -&gt; f UserPoolConfig
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#userPoolConfig_awsRegion"><span class="hs-identifier hs-var hs-var">userPoolConfig_awsRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserPoolConfig -&gt; Text)
+-&gt; (UserPoolConfig -&gt; Text -&gt; UserPoolConfig)
+-&gt; Lens UserPoolConfig UserPoolConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig%27"><span class="hs-identifier hs-type">UserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252399"><span class="annot"><span class="annottext">Text
+awsRegion :: Text
+$sel:awsRegion:UserPoolConfig' :: UserPoolConfig -&gt; Text
+</span><a href="#local-6989586621679252399"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252399"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252398"><span class="annot"><span class="annottext">s :: UserPoolConfig
+</span><a href="#local-6989586621679252398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig%27"><span class="hs-identifier hs-type">UserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252397"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserPoolConfig
+</span><a href="#local-6989586621679252398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:UserPoolConfig' :: Text
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#%24sel%3AawsRegion%3AUserPoolConfig%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The action that you want your GraphQL API to take when a request that</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- uses Amazon Cognito user pool authentication doesn\'t match the Amazon</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Cognito user pool configuration.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#userPoolConfig_defaultAction"><span class="hs-identifier hs-type">userPoolConfig_defaultAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.DefaultAction.html#DefaultAction"><span class="hs-identifier hs-type">DefaultAction</span></a></span><span>
+</span><span id="line-99"></span><span id="userPoolConfig_defaultAction"><span class="annot"><span class="annottext">userPoolConfig_defaultAction :: (DefaultAction -&gt; f DefaultAction)
+-&gt; UserPoolConfig -&gt; f UserPoolConfig
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#userPoolConfig_defaultAction"><span class="hs-identifier hs-var hs-var">userPoolConfig_defaultAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserPoolConfig -&gt; DefaultAction)
+-&gt; (UserPoolConfig -&gt; DefaultAction -&gt; UserPoolConfig)
+-&gt; Lens UserPoolConfig UserPoolConfig DefaultAction DefaultAction
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig%27"><span class="hs-identifier hs-type">UserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252395"><span class="annot"><span class="annottext">DefaultAction
+defaultAction :: DefaultAction
+$sel:defaultAction:UserPoolConfig' :: UserPoolConfig -&gt; DefaultAction
+</span><a href="#local-6989586621679252395"><span class="hs-identifier hs-var hs-var">defaultAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultAction
+</span><a href="#local-6989586621679252395"><span class="hs-identifier hs-var">defaultAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252394"><span class="annot"><span class="annottext">s :: UserPoolConfig
+</span><a href="#local-6989586621679252394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig%27"><span class="hs-identifier hs-type">UserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252393"><span class="annot"><span class="annottext">DefaultAction
+</span><a href="#local-6989586621679252393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserPoolConfig
+</span><a href="#local-6989586621679252394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultAction:UserPoolConfig' :: DefaultAction
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#%24sel%3AdefaultAction%3AUserPoolConfig%27"><span class="hs-identifier hs-var">defaultAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DefaultAction
+</span><a href="#local-6989586621679252393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252390"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679252388"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserPoolConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser UserPoolConfig)
+-&gt; Value
+-&gt; Parser UserPoolConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;UserPoolConfig&quot;</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252385"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252385"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Text -&gt; DefaultAction -&gt; UserPoolConfig
+</span><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig%27"><span class="hs-identifier hs-var">UserPoolConfig'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Text -&gt; DefaultAction -&gt; UserPoolConfig)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; Text -&gt; DefaultAction -&gt; UserPoolConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;appIdClientRegex&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; DefaultAction -&gt; UserPoolConfig)
+-&gt; Parser Text -&gt; Parser (Text -&gt; DefaultAction -&gt; UserPoolConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userPoolId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; DefaultAction -&gt; UserPoolConfig)
+-&gt; Parser Text -&gt; Parser (DefaultAction -&gt; UserPoolConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;awsRegion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (DefaultAction -&gt; UserPoolConfig)
+-&gt; Parser DefaultAction -&gt; Parser UserPoolConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DefaultAction
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252378"><span id="local-6989586621679252380"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252367"><span id="local-6989586621679252369"><span id="local-6989586621679252371"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679252365"><span class="annot"><span class="annottext">toJSON :: UserPoolConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.UserPoolConfig.html#UserPoolConfig%27"><span class="hs-identifier hs-type">UserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252360"><span id="local-6989586621679252361"><span id="local-6989586621679252362"><span id="local-6989586621679252363"><span class="annot"><span class="annottext">Maybe Text
+Text
+DefaultAction
+defaultAction :: DefaultAction
+awsRegion :: Text
+userPoolId :: Text
+appIdClientRegex :: Maybe Text
+$sel:defaultAction:UserPoolConfig' :: UserPoolConfig -&gt; DefaultAction
+$sel:awsRegion:UserPoolConfig' :: UserPoolConfig -&gt; Text
+$sel:userPoolId:UserPoolConfig' :: UserPoolConfig -&gt; Text
+$sel:appIdClientRegex:UserPoolConfig' :: UserPoolConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679252360"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;appIdClientRegex&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252363"><span class="hs-identifier hs-var">appIdClientRegex</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252362"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;awsRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252361"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DefaultAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DefaultAction
+</span><a href="#local-6989586621679252360"><span class="hs-identifier hs-var">defaultAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span></pre></body></html>

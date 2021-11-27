@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.MwAA.Types.Dimension
+module Amazonka.MwAA.Types.Dimension
 
 -- | Internal only API.
 --   
@@ -39,16 +39,16 @@ dimension_name :: Lens' Dimension Text
 
 -- | Internal only API.
 dimension_value :: Lens' Dimension Text
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.Dimension.Dimension
-instance GHC.Show.Show Network.AWS.MwAA.Types.Dimension.Dimension
-instance GHC.Read.Read Network.AWS.MwAA.Types.Dimension.Dimension
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.Dimension.Dimension
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.Dimension.Dimension
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.Dimension.Dimension
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.Types.Dimension.Dimension
+instance GHC.Generics.Generic Amazonka.MwAA.Types.Dimension.Dimension
+instance GHC.Show.Show Amazonka.MwAA.Types.Dimension.Dimension
+instance GHC.Read.Read Amazonka.MwAA.Types.Dimension.Dimension
+instance GHC.Classes.Eq Amazonka.MwAA.Types.Dimension.Dimension
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.Dimension.Dimension
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.Dimension.Dimension
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.Types.Dimension.Dimension
 
 
-module Network.AWS.MwAA.Types.EnvironmentStatus
+module Amazonka.MwAA.Types.EnvironmentStatus
 newtype EnvironmentStatus
 EnvironmentStatus' :: Text -> EnvironmentStatus
 [fromEnvironmentStatus] :: EnvironmentStatus -> Text
@@ -60,28 +60,28 @@ pattern EnvironmentStatus_DELETING :: EnvironmentStatus
 pattern EnvironmentStatus_UNAVAILABLE :: EnvironmentStatus
 pattern EnvironmentStatus_UPDATE_FAILED :: EnvironmentStatus
 pattern EnvironmentStatus_UPDATING :: EnvironmentStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance GHC.Classes.Ord Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance GHC.Read.Read Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
-instance GHC.Show.Show Network.AWS.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.XML.ToXML Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.XML.FromXML Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.Log.ToLog Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.Text.ToText Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.Text.FromText Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance GHC.Generics.Generic Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance GHC.Classes.Ord Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance GHC.Classes.Eq Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance GHC.Read.Read Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
+instance GHC.Show.Show Amazonka.MwAA.Types.EnvironmentStatus.EnvironmentStatus
 
 
-module Network.AWS.MwAA.Types.LoggingLevel
+module Amazonka.MwAA.Types.LoggingLevel
 newtype LoggingLevel
 LoggingLevel' :: Text -> LoggingLevel
 [fromLoggingLevel] :: LoggingLevel -> Text
@@ -90,28 +90,28 @@ pattern LoggingLevel_DEBUG :: LoggingLevel
 pattern LoggingLevel_ERROR :: LoggingLevel
 pattern LoggingLevel_INFO :: LoggingLevel
 pattern LoggingLevel_WARNING :: LoggingLevel
-instance Network.AWS.Data.XML.ToXML Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance Network.AWS.Data.XML.FromXML Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance Network.AWS.Data.Log.ToLog Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance Network.AWS.Data.Text.ToText Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance Network.AWS.Data.Text.FromText Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance GHC.Classes.Ord Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance GHC.Read.Read Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
-instance GHC.Show.Show Network.AWS.MwAA.Types.LoggingLevel.LoggingLevel
+instance Amazonka.Data.XML.ToXML Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance Amazonka.Data.XML.FromXML Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance Amazonka.Data.Headers.ToHeader Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance Amazonka.Data.Log.ToLog Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance Amazonka.Data.Text.ToText Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance Amazonka.Data.Text.FromText Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance GHC.Generics.Generic Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance GHC.Classes.Ord Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance GHC.Classes.Eq Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance GHC.Read.Read Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
+instance GHC.Show.Show Amazonka.MwAA.Types.LoggingLevel.LoggingLevel
 
 
-module Network.AWS.MwAA.Types.ModuleLoggingConfiguration
+module Amazonka.MwAA.Types.ModuleLoggingConfiguration
 
 -- | Defines the type of logs to send for the Apache Airflow log type (e.g.
 --   <tt>DagProcessingLogs</tt>). Valid values:
@@ -178,16 +178,16 @@ moduleLoggingConfiguration_enabled :: Lens' ModuleLoggingConfiguration (Maybe Bo
 --   published. For example,
 --   <tt>arn:aws:logs:us-east-1:123456789012:log-group:airflow-MyMWAAEnvironment-MwaaEnvironment-DAGProcessing:*</tt>.
 moduleLoggingConfiguration_cloudWatchLogGroupArn :: Lens' ModuleLoggingConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.ModuleLoggingConfiguration.ModuleLoggingConfiguration
-instance GHC.Show.Show Network.AWS.MwAA.Types.ModuleLoggingConfiguration.ModuleLoggingConfiguration
-instance GHC.Read.Read Network.AWS.MwAA.Types.ModuleLoggingConfiguration.ModuleLoggingConfiguration
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.ModuleLoggingConfiguration.ModuleLoggingConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MwAA.Types.ModuleLoggingConfiguration.ModuleLoggingConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.ModuleLoggingConfiguration.ModuleLoggingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.ModuleLoggingConfiguration.ModuleLoggingConfiguration
+instance GHC.Generics.Generic Amazonka.MwAA.Types.ModuleLoggingConfiguration.ModuleLoggingConfiguration
+instance GHC.Show.Show Amazonka.MwAA.Types.ModuleLoggingConfiguration.ModuleLoggingConfiguration
+instance GHC.Read.Read Amazonka.MwAA.Types.ModuleLoggingConfiguration.ModuleLoggingConfiguration
+instance GHC.Classes.Eq Amazonka.MwAA.Types.ModuleLoggingConfiguration.ModuleLoggingConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MwAA.Types.ModuleLoggingConfiguration.ModuleLoggingConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.ModuleLoggingConfiguration.ModuleLoggingConfiguration
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.ModuleLoggingConfiguration.ModuleLoggingConfiguration
 
 
-module Network.AWS.MwAA.Types.LoggingConfiguration
+module Amazonka.MwAA.Types.LoggingConfiguration
 
 -- | Defines the Apache Airflow logs to send to CloudWatch Logs:
 --   <tt>DagProcessingLogs</tt>, <tt>SchedulerLogs</tt>, <tt>TaskLogs</tt>,
@@ -241,16 +241,16 @@ loggingConfiguration_dagProcessingLogs :: Lens' LoggingConfiguration (Maybe Modu
 
 -- | Undocumented member.
 loggingConfiguration_workerLogs :: Lens' LoggingConfiguration (Maybe ModuleLoggingConfiguration)
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.LoggingConfiguration.LoggingConfiguration
-instance GHC.Show.Show Network.AWS.MwAA.Types.LoggingConfiguration.LoggingConfiguration
-instance GHC.Read.Read Network.AWS.MwAA.Types.LoggingConfiguration.LoggingConfiguration
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.LoggingConfiguration.LoggingConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MwAA.Types.LoggingConfiguration.LoggingConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.LoggingConfiguration.LoggingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.LoggingConfiguration.LoggingConfiguration
+instance GHC.Generics.Generic Amazonka.MwAA.Types.LoggingConfiguration.LoggingConfiguration
+instance GHC.Show.Show Amazonka.MwAA.Types.LoggingConfiguration.LoggingConfiguration
+instance GHC.Read.Read Amazonka.MwAA.Types.LoggingConfiguration.LoggingConfiguration
+instance GHC.Classes.Eq Amazonka.MwAA.Types.LoggingConfiguration.LoggingConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MwAA.Types.LoggingConfiguration.LoggingConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.LoggingConfiguration.LoggingConfiguration
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.LoggingConfiguration.LoggingConfiguration
 
 
-module Network.AWS.MwAA.Types.ModuleLoggingConfigurationInput
+module Amazonka.MwAA.Types.ModuleLoggingConfigurationInput
 
 -- | Defines the type of logs to send for the Apache Airflow log type (e.g.
 --   <tt>DagProcessingLogs</tt>). Valid values:
@@ -299,16 +299,16 @@ moduleLoggingConfigurationInput_enabled :: Lens' ModuleLoggingConfigurationInput
 --   <tt>DagProcessingLogs</tt>) to CloudWatch Logs. Valid values:
 --   <tt>CRITICAL</tt>, <tt>ERROR</tt>, <tt>WARNING</tt>, <tt>INFO</tt>.
 moduleLoggingConfigurationInput_logLevel :: Lens' ModuleLoggingConfigurationInput LoggingLevel
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.ModuleLoggingConfigurationInput.ModuleLoggingConfigurationInput
-instance GHC.Show.Show Network.AWS.MwAA.Types.ModuleLoggingConfigurationInput.ModuleLoggingConfigurationInput
-instance GHC.Read.Read Network.AWS.MwAA.Types.ModuleLoggingConfigurationInput.ModuleLoggingConfigurationInput
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.ModuleLoggingConfigurationInput.ModuleLoggingConfigurationInput
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.ModuleLoggingConfigurationInput.ModuleLoggingConfigurationInput
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.ModuleLoggingConfigurationInput.ModuleLoggingConfigurationInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.Types.ModuleLoggingConfigurationInput.ModuleLoggingConfigurationInput
+instance GHC.Generics.Generic Amazonka.MwAA.Types.ModuleLoggingConfigurationInput.ModuleLoggingConfigurationInput
+instance GHC.Show.Show Amazonka.MwAA.Types.ModuleLoggingConfigurationInput.ModuleLoggingConfigurationInput
+instance GHC.Read.Read Amazonka.MwAA.Types.ModuleLoggingConfigurationInput.ModuleLoggingConfigurationInput
+instance GHC.Classes.Eq Amazonka.MwAA.Types.ModuleLoggingConfigurationInput.ModuleLoggingConfigurationInput
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.ModuleLoggingConfigurationInput.ModuleLoggingConfigurationInput
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.ModuleLoggingConfigurationInput.ModuleLoggingConfigurationInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.Types.ModuleLoggingConfigurationInput.ModuleLoggingConfigurationInput
 
 
-module Network.AWS.MwAA.Types.LoggingConfigurationInput
+module Amazonka.MwAA.Types.LoggingConfigurationInput
 
 -- | Defines the Apache Airflow logs to send to CloudWatch Logs:
 --   <tt>DagProcessingLogs</tt>, <tt>SchedulerLogs</tt>, <tt>TaskLogs</tt>,
@@ -363,16 +363,16 @@ loggingConfigurationInput_dagProcessingLogs :: Lens' LoggingConfigurationInput (
 
 -- | Undocumented member.
 loggingConfigurationInput_workerLogs :: Lens' LoggingConfigurationInput (Maybe ModuleLoggingConfigurationInput)
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.LoggingConfigurationInput.LoggingConfigurationInput
-instance GHC.Show.Show Network.AWS.MwAA.Types.LoggingConfigurationInput.LoggingConfigurationInput
-instance GHC.Read.Read Network.AWS.MwAA.Types.LoggingConfigurationInput.LoggingConfigurationInput
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.LoggingConfigurationInput.LoggingConfigurationInput
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.LoggingConfigurationInput.LoggingConfigurationInput
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.LoggingConfigurationInput.LoggingConfigurationInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.Types.LoggingConfigurationInput.LoggingConfigurationInput
+instance GHC.Generics.Generic Amazonka.MwAA.Types.LoggingConfigurationInput.LoggingConfigurationInput
+instance GHC.Show.Show Amazonka.MwAA.Types.LoggingConfigurationInput.LoggingConfigurationInput
+instance GHC.Read.Read Amazonka.MwAA.Types.LoggingConfigurationInput.LoggingConfigurationInput
+instance GHC.Classes.Eq Amazonka.MwAA.Types.LoggingConfigurationInput.LoggingConfigurationInput
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.LoggingConfigurationInput.LoggingConfigurationInput
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.LoggingConfigurationInput.LoggingConfigurationInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.Types.LoggingConfigurationInput.LoggingConfigurationInput
 
 
-module Network.AWS.MwAA.Types.NetworkConfiguration
+module Amazonka.MwAA.Types.NetworkConfiguration
 
 -- | The VPC networking components used to secure and enable network
 --   traffic between the AWS resources for your environment. To learn more,
@@ -423,17 +423,17 @@ networkConfiguration_securityGroupIds :: Lens' NetworkConfiguration (Maybe (NonE
 --   be private subnets in two different availability zones. A subnet must
 --   be attached to the same VPC as the security group.
 networkConfiguration_subnetIds :: Lens' NetworkConfiguration (Maybe (NonEmpty Text))
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.NetworkConfiguration.NetworkConfiguration
-instance GHC.Show.Show Network.AWS.MwAA.Types.NetworkConfiguration.NetworkConfiguration
-instance GHC.Read.Read Network.AWS.MwAA.Types.NetworkConfiguration.NetworkConfiguration
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.NetworkConfiguration.NetworkConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MwAA.Types.NetworkConfiguration.NetworkConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.NetworkConfiguration.NetworkConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.NetworkConfiguration.NetworkConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.Types.NetworkConfiguration.NetworkConfiguration
+instance GHC.Generics.Generic Amazonka.MwAA.Types.NetworkConfiguration.NetworkConfiguration
+instance GHC.Show.Show Amazonka.MwAA.Types.NetworkConfiguration.NetworkConfiguration
+instance GHC.Read.Read Amazonka.MwAA.Types.NetworkConfiguration.NetworkConfiguration
+instance GHC.Classes.Eq Amazonka.MwAA.Types.NetworkConfiguration.NetworkConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MwAA.Types.NetworkConfiguration.NetworkConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.NetworkConfiguration.NetworkConfiguration
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.NetworkConfiguration.NetworkConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.Types.NetworkConfiguration.NetworkConfiguration
 
 
-module Network.AWS.MwAA.Types.StatisticSet
+module Amazonka.MwAA.Types.StatisticSet
 
 -- | Internal only API.
 --   
@@ -486,16 +486,16 @@ statisticSet_minimum :: Lens' StatisticSet (Maybe Double)
 
 -- | Internal only API.
 statisticSet_sum :: Lens' StatisticSet (Maybe Double)
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.StatisticSet.StatisticSet
-instance GHC.Show.Show Network.AWS.MwAA.Types.StatisticSet.StatisticSet
-instance GHC.Read.Read Network.AWS.MwAA.Types.StatisticSet.StatisticSet
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.StatisticSet.StatisticSet
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.StatisticSet.StatisticSet
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.StatisticSet.StatisticSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.Types.StatisticSet.StatisticSet
+instance GHC.Generics.Generic Amazonka.MwAA.Types.StatisticSet.StatisticSet
+instance GHC.Show.Show Amazonka.MwAA.Types.StatisticSet.StatisticSet
+instance GHC.Read.Read Amazonka.MwAA.Types.StatisticSet.StatisticSet
+instance GHC.Classes.Eq Amazonka.MwAA.Types.StatisticSet.StatisticSet
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.StatisticSet.StatisticSet
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.StatisticSet.StatisticSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.Types.StatisticSet.StatisticSet
 
 
-module Network.AWS.MwAA.Types.Unit
+module Amazonka.MwAA.Types.Unit
 
 -- | Unit
 newtype Unit
@@ -528,28 +528,28 @@ pattern Unit_Terabits :: Unit
 pattern Unit_Terabits_Second :: Unit
 pattern Unit_Terabytes :: Unit
 pattern Unit_Terabytes_Second :: Unit
-instance Network.AWS.Data.XML.ToXML Network.AWS.MwAA.Types.Unit.Unit
-instance Network.AWS.Data.XML.FromXML Network.AWS.MwAA.Types.Unit.Unit
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MwAA.Types.Unit.Unit
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.Types.Unit.Unit
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MwAA.Types.Unit.Unit
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MwAA.Types.Unit.Unit
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.Types.Unit.Unit
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MwAA.Types.Unit.Unit
-instance Network.AWS.Data.Log.ToLog Network.AWS.MwAA.Types.Unit.Unit
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MwAA.Types.Unit.Unit
-instance Network.AWS.Data.Text.ToText Network.AWS.MwAA.Types.Unit.Unit
-instance Network.AWS.Data.Text.FromText Network.AWS.MwAA.Types.Unit.Unit
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.Unit.Unit
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.Unit.Unit
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.Unit.Unit
-instance GHC.Classes.Ord Network.AWS.MwAA.Types.Unit.Unit
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.Unit.Unit
-instance GHC.Read.Read Network.AWS.MwAA.Types.Unit.Unit
-instance GHC.Show.Show Network.AWS.MwAA.Types.Unit.Unit
+instance Amazonka.Data.XML.ToXML Amazonka.MwAA.Types.Unit.Unit
+instance Amazonka.Data.XML.FromXML Amazonka.MwAA.Types.Unit.Unit
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MwAA.Types.Unit.Unit
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.Types.Unit.Unit
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MwAA.Types.Unit.Unit
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MwAA.Types.Unit.Unit
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.Types.Unit.Unit
+instance Amazonka.Data.Headers.ToHeader Amazonka.MwAA.Types.Unit.Unit
+instance Amazonka.Data.Log.ToLog Amazonka.MwAA.Types.Unit.Unit
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MwAA.Types.Unit.Unit
+instance Amazonka.Data.Text.ToText Amazonka.MwAA.Types.Unit.Unit
+instance Amazonka.Data.Text.FromText Amazonka.MwAA.Types.Unit.Unit
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.Unit.Unit
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.Unit.Unit
+instance GHC.Generics.Generic Amazonka.MwAA.Types.Unit.Unit
+instance GHC.Classes.Ord Amazonka.MwAA.Types.Unit.Unit
+instance GHC.Classes.Eq Amazonka.MwAA.Types.Unit.Unit
+instance GHC.Read.Read Amazonka.MwAA.Types.Unit.Unit
+instance GHC.Show.Show Amazonka.MwAA.Types.Unit.Unit
 
 
-module Network.AWS.MwAA.Types.MetricDatum
+module Amazonka.MwAA.Types.MetricDatum
 
 -- | Internal only API.
 --   
@@ -617,16 +617,16 @@ metricDatum_metricName :: Lens' MetricDatum Text
 
 -- | Internal only API.
 metricDatum_timestamp :: Lens' MetricDatum UTCTime
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.MetricDatum.MetricDatum
-instance GHC.Show.Show Network.AWS.MwAA.Types.MetricDatum.MetricDatum
-instance GHC.Read.Read Network.AWS.MwAA.Types.MetricDatum.MetricDatum
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.MetricDatum.MetricDatum
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.MetricDatum.MetricDatum
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.MetricDatum.MetricDatum
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.Types.MetricDatum.MetricDatum
+instance GHC.Generics.Generic Amazonka.MwAA.Types.MetricDatum.MetricDatum
+instance GHC.Show.Show Amazonka.MwAA.Types.MetricDatum.MetricDatum
+instance GHC.Read.Read Amazonka.MwAA.Types.MetricDatum.MetricDatum
+instance GHC.Classes.Eq Amazonka.MwAA.Types.MetricDatum.MetricDatum
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.MetricDatum.MetricDatum
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.MetricDatum.MetricDatum
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.Types.MetricDatum.MetricDatum
 
 
-module Network.AWS.MwAA.Types.UpdateError
+module Amazonka.MwAA.Types.UpdateError
 
 -- | An object containing the error encountered with the last update:
 --   <tt>ErrorCode</tt>, <tt>ErrorMessage</tt>.
@@ -661,16 +661,16 @@ updateError_errorCode :: Lens' UpdateError (Maybe Text)
 
 -- | The error message that corresponds to the error code.
 updateError_errorMessage :: Lens' UpdateError (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.UpdateError.UpdateError
-instance GHC.Show.Show Network.AWS.MwAA.Types.UpdateError.UpdateError
-instance GHC.Read.Read Network.AWS.MwAA.Types.UpdateError.UpdateError
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.UpdateError.UpdateError
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MwAA.Types.UpdateError.UpdateError
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.UpdateError.UpdateError
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.UpdateError.UpdateError
+instance GHC.Generics.Generic Amazonka.MwAA.Types.UpdateError.UpdateError
+instance GHC.Show.Show Amazonka.MwAA.Types.UpdateError.UpdateError
+instance GHC.Read.Read Amazonka.MwAA.Types.UpdateError.UpdateError
+instance GHC.Classes.Eq Amazonka.MwAA.Types.UpdateError.UpdateError
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MwAA.Types.UpdateError.UpdateError
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.UpdateError.UpdateError
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.UpdateError.UpdateError
 
 
-module Network.AWS.MwAA.Types.UpdateNetworkConfigurationInput
+module Amazonka.MwAA.Types.UpdateNetworkConfigurationInput
 
 -- | The VPC networking components used to secure and enable network
 --   traffic between the AWS resources for your environment. To learn more,
@@ -706,44 +706,44 @@ newUpdateNetworkConfigurationInput :: NonEmpty Text -> UpdateNetworkConfiguratio
 --   IDs. A security group must be attached to the same VPC as the subnets.
 --   To learn more, see <a>Security in your VPC on Amazon MWAA</a>.
 updateNetworkConfigurationInput_securityGroupIds :: Lens' UpdateNetworkConfigurationInput (NonEmpty Text)
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.UpdateNetworkConfigurationInput.UpdateNetworkConfigurationInput
-instance GHC.Show.Show Network.AWS.MwAA.Types.UpdateNetworkConfigurationInput.UpdateNetworkConfigurationInput
-instance GHC.Read.Read Network.AWS.MwAA.Types.UpdateNetworkConfigurationInput.UpdateNetworkConfigurationInput
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.UpdateNetworkConfigurationInput.UpdateNetworkConfigurationInput
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.UpdateNetworkConfigurationInput.UpdateNetworkConfigurationInput
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.UpdateNetworkConfigurationInput.UpdateNetworkConfigurationInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.Types.UpdateNetworkConfigurationInput.UpdateNetworkConfigurationInput
+instance GHC.Generics.Generic Amazonka.MwAA.Types.UpdateNetworkConfigurationInput.UpdateNetworkConfigurationInput
+instance GHC.Show.Show Amazonka.MwAA.Types.UpdateNetworkConfigurationInput.UpdateNetworkConfigurationInput
+instance GHC.Read.Read Amazonka.MwAA.Types.UpdateNetworkConfigurationInput.UpdateNetworkConfigurationInput
+instance GHC.Classes.Eq Amazonka.MwAA.Types.UpdateNetworkConfigurationInput.UpdateNetworkConfigurationInput
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.UpdateNetworkConfigurationInput.UpdateNetworkConfigurationInput
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.UpdateNetworkConfigurationInput.UpdateNetworkConfigurationInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.Types.UpdateNetworkConfigurationInput.UpdateNetworkConfigurationInput
 
 
-module Network.AWS.MwAA.Types.UpdateStatus
+module Amazonka.MwAA.Types.UpdateStatus
 newtype UpdateStatus
 UpdateStatus' :: Text -> UpdateStatus
 [fromUpdateStatus] :: UpdateStatus -> Text
 pattern UpdateStatus_FAILED :: UpdateStatus
 pattern UpdateStatus_PENDING :: UpdateStatus
 pattern UpdateStatus_SUCCESS :: UpdateStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance GHC.Classes.Ord Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance GHC.Read.Read Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
-instance GHC.Show.Show Network.AWS.MwAA.Types.UpdateStatus.UpdateStatus
+instance Amazonka.Data.XML.ToXML Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance Amazonka.Data.XML.FromXML Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance Amazonka.Data.Log.ToLog Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance Amazonka.Data.Text.ToText Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance Amazonka.Data.Text.FromText Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance GHC.Generics.Generic Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance GHC.Classes.Ord Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance GHC.Classes.Eq Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance GHC.Read.Read Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
+instance GHC.Show.Show Amazonka.MwAA.Types.UpdateStatus.UpdateStatus
 
 
-module Network.AWS.MwAA.Types.LastUpdate
+module Amazonka.MwAA.Types.LastUpdate
 
 -- | The status of the last update on the environment, and any errors that
 --   were encountered.
@@ -792,43 +792,43 @@ lastUpdate_createdAt :: Lens' LastUpdate (Maybe UTCTime)
 -- | The error that was encountered during the last update of the
 --   environment.
 lastUpdate_error :: Lens' LastUpdate (Maybe UpdateError)
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.LastUpdate.LastUpdate
-instance GHC.Show.Show Network.AWS.MwAA.Types.LastUpdate.LastUpdate
-instance GHC.Read.Read Network.AWS.MwAA.Types.LastUpdate.LastUpdate
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.LastUpdate.LastUpdate
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MwAA.Types.LastUpdate.LastUpdate
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.LastUpdate.LastUpdate
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.LastUpdate.LastUpdate
+instance GHC.Generics.Generic Amazonka.MwAA.Types.LastUpdate.LastUpdate
+instance GHC.Show.Show Amazonka.MwAA.Types.LastUpdate.LastUpdate
+instance GHC.Read.Read Amazonka.MwAA.Types.LastUpdate.LastUpdate
+instance GHC.Classes.Eq Amazonka.MwAA.Types.LastUpdate.LastUpdate
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MwAA.Types.LastUpdate.LastUpdate
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.LastUpdate.LastUpdate
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.LastUpdate.LastUpdate
 
 
-module Network.AWS.MwAA.Types.WebserverAccessMode
+module Amazonka.MwAA.Types.WebserverAccessMode
 newtype WebserverAccessMode
 WebserverAccessMode' :: Text -> WebserverAccessMode
 [fromWebserverAccessMode] :: WebserverAccessMode -> Text
 pattern WebserverAccessMode_PRIVATE_ONLY :: WebserverAccessMode
 pattern WebserverAccessMode_PUBLIC_ONLY :: WebserverAccessMode
-instance Network.AWS.Data.XML.ToXML Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance Network.AWS.Data.XML.FromXML Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance Network.AWS.Data.Log.ToLog Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance Network.AWS.Data.Text.ToText Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance Network.AWS.Data.Text.FromText Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance GHC.Classes.Ord Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance GHC.Read.Read Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
-instance GHC.Show.Show Network.AWS.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance Amazonka.Data.XML.ToXML Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance Amazonka.Data.XML.FromXML Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance Amazonka.Data.Headers.ToHeader Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance Amazonka.Data.Log.ToLog Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance Amazonka.Data.Text.ToText Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance Amazonka.Data.Text.FromText Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance GHC.Generics.Generic Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance GHC.Classes.Ord Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance GHC.Classes.Eq Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance GHC.Read.Read Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
+instance GHC.Show.Show Amazonka.MwAA.Types.WebserverAccessMode.WebserverAccessMode
 
 
-module Network.AWS.MwAA.Types.Environment
+module Amazonka.MwAA.Types.Environment
 
 -- | The Amazon Managed Workflows for Apache Airflow (MWAA) environment.
 --   
@@ -1258,16 +1258,16 @@ environment_requirementsS3Path :: Lens' Environment (Maybe Text)
 -- | The maximum number of workers that run in your environment. For
 --   example, <tt>20</tt>.
 environment_maxWorkers :: Lens' Environment (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.MwAA.Types.Environment.Environment
-instance GHC.Show.Show Network.AWS.MwAA.Types.Environment.Environment
-instance GHC.Read.Read Network.AWS.MwAA.Types.Environment.Environment
-instance GHC.Classes.Eq Network.AWS.MwAA.Types.Environment.Environment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MwAA.Types.Environment.Environment
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.Types.Environment.Environment
-instance Control.DeepSeq.NFData Network.AWS.MwAA.Types.Environment.Environment
+instance GHC.Generics.Generic Amazonka.MwAA.Types.Environment.Environment
+instance GHC.Show.Show Amazonka.MwAA.Types.Environment.Environment
+instance GHC.Read.Read Amazonka.MwAA.Types.Environment.Environment
+instance GHC.Classes.Eq Amazonka.MwAA.Types.Environment.Environment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MwAA.Types.Environment.Environment
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.Types.Environment.Environment
+instance Control.DeepSeq.NFData Amazonka.MwAA.Types.Environment.Environment
 
 
-module Network.AWS.MwAA.Types
+module Amazonka.MwAA.Types
 
 -- | API version <tt>2020-07-01</tt> of the Amazon MWAA SDK configuration.
 defaultService :: Service
@@ -2320,7 +2320,7 @@ updateNetworkConfigurationInput_securityGroupIds :: Lens' UpdateNetworkConfigura
 
 -- | Associates key-value tag pairs to your Amazon Managed Workflows for
 --   Apache Airflow (MWAA) environment.
-module Network.AWS.MwAA.TagResource
+module Amazonka.MwAA.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2388,27 +2388,27 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.MwAA.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.MwAA.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.MwAA.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.MwAA.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.MwAA.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.MwAA.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.MwAA.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.MwAA.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MwAA.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.MwAA.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.MwAA.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MwAA.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MwAA.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.MwAA.TagResource.TagResource
+instance GHC.Show.Show Amazonka.MwAA.TagResource.TagResource
+instance GHC.Read.Read Amazonka.MwAA.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.MwAA.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.MwAA.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.MwAA.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.MwAA.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.MwAA.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MwAA.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.MwAA.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.MwAA.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MwAA.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.MwAA.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.TagResource.TagResource
 
 
 -- | An operation for publishing metrics from the customers to the Ops
 --   plane.
-module Network.AWS.MwAA.PublishMetrics
+module Amazonka.MwAA.PublishMetrics
 
 -- | <i>See:</i> <a>newPublishMetrics</a> smart constructor.
 data PublishMetrics
@@ -2470,28 +2470,28 @@ newPublishMetricsResponse :: Int -> PublishMetricsResponse
 
 -- | The response's http status code.
 publishMetricsResponse_httpStatus :: Lens' PublishMetricsResponse Int
-instance GHC.Generics.Generic Network.AWS.MwAA.PublishMetrics.PublishMetrics
-instance GHC.Show.Show Network.AWS.MwAA.PublishMetrics.PublishMetrics
-instance GHC.Read.Read Network.AWS.MwAA.PublishMetrics.PublishMetrics
-instance GHC.Classes.Eq Network.AWS.MwAA.PublishMetrics.PublishMetrics
-instance GHC.Generics.Generic Network.AWS.MwAA.PublishMetrics.PublishMetricsResponse
-instance GHC.Show.Show Network.AWS.MwAA.PublishMetrics.PublishMetricsResponse
-instance GHC.Read.Read Network.AWS.MwAA.PublishMetrics.PublishMetricsResponse
-instance GHC.Classes.Eq Network.AWS.MwAA.PublishMetrics.PublishMetricsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MwAA.PublishMetrics.PublishMetrics
-instance Control.DeepSeq.NFData Network.AWS.MwAA.PublishMetrics.PublishMetricsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.PublishMetrics.PublishMetrics
-instance Control.DeepSeq.NFData Network.AWS.MwAA.PublishMetrics.PublishMetrics
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MwAA.PublishMetrics.PublishMetrics
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.PublishMetrics.PublishMetrics
-instance Network.AWS.Data.Path.ToPath Network.AWS.MwAA.PublishMetrics.PublishMetrics
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.PublishMetrics.PublishMetrics
+instance GHC.Generics.Generic Amazonka.MwAA.PublishMetrics.PublishMetrics
+instance GHC.Show.Show Amazonka.MwAA.PublishMetrics.PublishMetrics
+instance GHC.Read.Read Amazonka.MwAA.PublishMetrics.PublishMetrics
+instance GHC.Classes.Eq Amazonka.MwAA.PublishMetrics.PublishMetrics
+instance GHC.Generics.Generic Amazonka.MwAA.PublishMetrics.PublishMetricsResponse
+instance GHC.Show.Show Amazonka.MwAA.PublishMetrics.PublishMetricsResponse
+instance GHC.Read.Read Amazonka.MwAA.PublishMetrics.PublishMetricsResponse
+instance GHC.Classes.Eq Amazonka.MwAA.PublishMetrics.PublishMetricsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MwAA.PublishMetrics.PublishMetrics
+instance Control.DeepSeq.NFData Amazonka.MwAA.PublishMetrics.PublishMetricsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.PublishMetrics.PublishMetrics
+instance Control.DeepSeq.NFData Amazonka.MwAA.PublishMetrics.PublishMetrics
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MwAA.PublishMetrics.PublishMetrics
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.PublishMetrics.PublishMetrics
+instance Amazonka.Data.Path.ToPath Amazonka.MwAA.PublishMetrics.PublishMetrics
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.PublishMetrics.PublishMetrics
 
 
 -- | Lists the key-value tag pairs associated to the Amazon Managed
 --   Workflows for Apache Airflow (MWAA) environment. For example,
 --   <tt>"Environment": "Staging"</tt>.
-module Network.AWS.MwAA.ListTagsForResource
+module Amazonka.MwAA.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -2558,28 +2558,28 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.MwAA.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.MwAA.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.MwAA.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.MwAA.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.MwAA.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.MwAA.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.MwAA.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.MwAA.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MwAA.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.MwAA.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.MwAA.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MwAA.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MwAA.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.MwAA.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.MwAA.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.MwAA.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.MwAA.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.MwAA.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.MwAA.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.MwAA.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.MwAA.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MwAA.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.MwAA.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.MwAA.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MwAA.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.MwAA.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists the Amazon Managed Workflows for Apache Airflow (MWAA)
 --   environments.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MwAA.ListEnvironments
+module Amazonka.MwAA.ListEnvironments
 
 -- | <i>See:</i> <a>newListEnvironments</a> smart constructor.
 data ListEnvironments
@@ -2660,27 +2660,27 @@ listEnvironmentsResponse_httpStatus :: Lens' ListEnvironmentsResponse Int
 
 -- | Returns the list of Amazon MWAA environments.
 listEnvironmentsResponse_environments :: Lens' ListEnvironmentsResponse [Text]
-instance GHC.Generics.Generic Network.AWS.MwAA.ListEnvironments.ListEnvironments
-instance GHC.Show.Show Network.AWS.MwAA.ListEnvironments.ListEnvironments
-instance GHC.Read.Read Network.AWS.MwAA.ListEnvironments.ListEnvironments
-instance GHC.Classes.Eq Network.AWS.MwAA.ListEnvironments.ListEnvironments
-instance GHC.Generics.Generic Network.AWS.MwAA.ListEnvironments.ListEnvironmentsResponse
-instance GHC.Show.Show Network.AWS.MwAA.ListEnvironments.ListEnvironmentsResponse
-instance GHC.Read.Read Network.AWS.MwAA.ListEnvironments.ListEnvironmentsResponse
-instance GHC.Classes.Eq Network.AWS.MwAA.ListEnvironments.ListEnvironmentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MwAA.ListEnvironments.ListEnvironments
-instance Control.DeepSeq.NFData Network.AWS.MwAA.ListEnvironments.ListEnvironmentsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MwAA.ListEnvironments.ListEnvironments
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.ListEnvironments.ListEnvironments
-instance Control.DeepSeq.NFData Network.AWS.MwAA.ListEnvironments.ListEnvironments
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MwAA.ListEnvironments.ListEnvironments
-instance Network.AWS.Data.Path.ToPath Network.AWS.MwAA.ListEnvironments.ListEnvironments
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.ListEnvironments.ListEnvironments
+instance GHC.Generics.Generic Amazonka.MwAA.ListEnvironments.ListEnvironments
+instance GHC.Show.Show Amazonka.MwAA.ListEnvironments.ListEnvironments
+instance GHC.Read.Read Amazonka.MwAA.ListEnvironments.ListEnvironments
+instance GHC.Classes.Eq Amazonka.MwAA.ListEnvironments.ListEnvironments
+instance GHC.Generics.Generic Amazonka.MwAA.ListEnvironments.ListEnvironmentsResponse
+instance GHC.Show.Show Amazonka.MwAA.ListEnvironments.ListEnvironmentsResponse
+instance GHC.Read.Read Amazonka.MwAA.ListEnvironments.ListEnvironmentsResponse
+instance GHC.Classes.Eq Amazonka.MwAA.ListEnvironments.ListEnvironmentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MwAA.ListEnvironments.ListEnvironments
+instance Control.DeepSeq.NFData Amazonka.MwAA.ListEnvironments.ListEnvironmentsResponse
+instance Amazonka.Pager.AWSPager Amazonka.MwAA.ListEnvironments.ListEnvironments
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.ListEnvironments.ListEnvironments
+instance Control.DeepSeq.NFData Amazonka.MwAA.ListEnvironments.ListEnvironments
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MwAA.ListEnvironments.ListEnvironments
+instance Amazonka.Data.Path.ToPath Amazonka.MwAA.ListEnvironments.ListEnvironments
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.ListEnvironments.ListEnvironments
 
 
 -- | Retrieves the details of an Amazon Managed Workflows for Apache
 --   Airflow (MWAA) environment.
-module Network.AWS.MwAA.GetEnvironment
+module Amazonka.MwAA.GetEnvironment
 
 -- | <i>See:</i> <a>newGetEnvironment</a> smart constructor.
 data GetEnvironment
@@ -2741,26 +2741,26 @@ getEnvironmentResponse_environment :: Lens' GetEnvironmentResponse (Maybe Enviro
 
 -- | The response's http status code.
 getEnvironmentResponse_httpStatus :: Lens' GetEnvironmentResponse Int
-instance GHC.Generics.Generic Network.AWS.MwAA.GetEnvironment.GetEnvironment
-instance GHC.Show.Show Network.AWS.MwAA.GetEnvironment.GetEnvironment
-instance GHC.Read.Read Network.AWS.MwAA.GetEnvironment.GetEnvironment
-instance GHC.Classes.Eq Network.AWS.MwAA.GetEnvironment.GetEnvironment
-instance GHC.Generics.Generic Network.AWS.MwAA.GetEnvironment.GetEnvironmentResponse
-instance GHC.Show.Show Network.AWS.MwAA.GetEnvironment.GetEnvironmentResponse
-instance GHC.Read.Read Network.AWS.MwAA.GetEnvironment.GetEnvironmentResponse
-instance GHC.Classes.Eq Network.AWS.MwAA.GetEnvironment.GetEnvironmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MwAA.GetEnvironment.GetEnvironment
-instance Control.DeepSeq.NFData Network.AWS.MwAA.GetEnvironment.GetEnvironmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.GetEnvironment.GetEnvironment
-instance Control.DeepSeq.NFData Network.AWS.MwAA.GetEnvironment.GetEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MwAA.GetEnvironment.GetEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.MwAA.GetEnvironment.GetEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.GetEnvironment.GetEnvironment
+instance GHC.Generics.Generic Amazonka.MwAA.GetEnvironment.GetEnvironment
+instance GHC.Show.Show Amazonka.MwAA.GetEnvironment.GetEnvironment
+instance GHC.Read.Read Amazonka.MwAA.GetEnvironment.GetEnvironment
+instance GHC.Classes.Eq Amazonka.MwAA.GetEnvironment.GetEnvironment
+instance GHC.Generics.Generic Amazonka.MwAA.GetEnvironment.GetEnvironmentResponse
+instance GHC.Show.Show Amazonka.MwAA.GetEnvironment.GetEnvironmentResponse
+instance GHC.Read.Read Amazonka.MwAA.GetEnvironment.GetEnvironmentResponse
+instance GHC.Classes.Eq Amazonka.MwAA.GetEnvironment.GetEnvironmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.MwAA.GetEnvironment.GetEnvironment
+instance Control.DeepSeq.NFData Amazonka.MwAA.GetEnvironment.GetEnvironmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.GetEnvironment.GetEnvironment
+instance Control.DeepSeq.NFData Amazonka.MwAA.GetEnvironment.GetEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MwAA.GetEnvironment.GetEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.MwAA.GetEnvironment.GetEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.GetEnvironment.GetEnvironment
 
 
 -- | Deletes an Amazon Managed Workflows for Apache Airflow (MWAA)
 --   environment.
-module Network.AWS.MwAA.DeleteEnvironment
+module Amazonka.MwAA.DeleteEnvironment
 
 -- | <i>See:</i> <a>newDeleteEnvironment</a> smart constructor.
 data DeleteEnvironment
@@ -2811,26 +2811,26 @@ newDeleteEnvironmentResponse :: Int -> DeleteEnvironmentResponse
 
 -- | The response's http status code.
 deleteEnvironmentResponse_httpStatus :: Lens' DeleteEnvironmentResponse Int
-instance GHC.Generics.Generic Network.AWS.MwAA.DeleteEnvironment.DeleteEnvironment
-instance GHC.Show.Show Network.AWS.MwAA.DeleteEnvironment.DeleteEnvironment
-instance GHC.Read.Read Network.AWS.MwAA.DeleteEnvironment.DeleteEnvironment
-instance GHC.Classes.Eq Network.AWS.MwAA.DeleteEnvironment.DeleteEnvironment
-instance GHC.Generics.Generic Network.AWS.MwAA.DeleteEnvironment.DeleteEnvironmentResponse
-instance GHC.Show.Show Network.AWS.MwAA.DeleteEnvironment.DeleteEnvironmentResponse
-instance GHC.Read.Read Network.AWS.MwAA.DeleteEnvironment.DeleteEnvironmentResponse
-instance GHC.Classes.Eq Network.AWS.MwAA.DeleteEnvironment.DeleteEnvironmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MwAA.DeleteEnvironment.DeleteEnvironment
-instance Control.DeepSeq.NFData Network.AWS.MwAA.DeleteEnvironment.DeleteEnvironmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.DeleteEnvironment.DeleteEnvironment
-instance Control.DeepSeq.NFData Network.AWS.MwAA.DeleteEnvironment.DeleteEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MwAA.DeleteEnvironment.DeleteEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.MwAA.DeleteEnvironment.DeleteEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.DeleteEnvironment.DeleteEnvironment
+instance GHC.Generics.Generic Amazonka.MwAA.DeleteEnvironment.DeleteEnvironment
+instance GHC.Show.Show Amazonka.MwAA.DeleteEnvironment.DeleteEnvironment
+instance GHC.Read.Read Amazonka.MwAA.DeleteEnvironment.DeleteEnvironment
+instance GHC.Classes.Eq Amazonka.MwAA.DeleteEnvironment.DeleteEnvironment
+instance GHC.Generics.Generic Amazonka.MwAA.DeleteEnvironment.DeleteEnvironmentResponse
+instance GHC.Show.Show Amazonka.MwAA.DeleteEnvironment.DeleteEnvironmentResponse
+instance GHC.Read.Read Amazonka.MwAA.DeleteEnvironment.DeleteEnvironmentResponse
+instance GHC.Classes.Eq Amazonka.MwAA.DeleteEnvironment.DeleteEnvironmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.MwAA.DeleteEnvironment.DeleteEnvironment
+instance Control.DeepSeq.NFData Amazonka.MwAA.DeleteEnvironment.DeleteEnvironmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.DeleteEnvironment.DeleteEnvironment
+instance Control.DeepSeq.NFData Amazonka.MwAA.DeleteEnvironment.DeleteEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MwAA.DeleteEnvironment.DeleteEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.MwAA.DeleteEnvironment.DeleteEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.DeleteEnvironment.DeleteEnvironment
 
 
 -- | Create a JWT token to be used to login to Airflow Web UI with claims
 --   based Authentication.
-module Network.AWS.MwAA.CreateWebLoginToken
+module Amazonka.MwAA.CreateWebLoginToken
 
 -- | <i>See:</i> <a>newCreateWebLoginToken</a> smart constructor.
 data CreateWebLoginToken
@@ -2903,26 +2903,26 @@ createWebLoginTokenResponse_webToken :: Lens' CreateWebLoginTokenResponse (Maybe
 
 -- | The response's http status code.
 createWebLoginTokenResponse_httpStatus :: Lens' CreateWebLoginTokenResponse Int
-instance GHC.Generics.Generic Network.AWS.MwAA.CreateWebLoginToken.CreateWebLoginToken
-instance GHC.Show.Show Network.AWS.MwAA.CreateWebLoginToken.CreateWebLoginToken
-instance GHC.Read.Read Network.AWS.MwAA.CreateWebLoginToken.CreateWebLoginToken
-instance GHC.Classes.Eq Network.AWS.MwAA.CreateWebLoginToken.CreateWebLoginToken
-instance GHC.Generics.Generic Network.AWS.MwAA.CreateWebLoginToken.CreateWebLoginTokenResponse
-instance GHC.Show.Show Network.AWS.MwAA.CreateWebLoginToken.CreateWebLoginTokenResponse
-instance GHC.Classes.Eq Network.AWS.MwAA.CreateWebLoginToken.CreateWebLoginTokenResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MwAA.CreateWebLoginToken.CreateWebLoginToken
-instance Control.DeepSeq.NFData Network.AWS.MwAA.CreateWebLoginToken.CreateWebLoginTokenResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.CreateWebLoginToken.CreateWebLoginToken
-instance Control.DeepSeq.NFData Network.AWS.MwAA.CreateWebLoginToken.CreateWebLoginToken
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MwAA.CreateWebLoginToken.CreateWebLoginToken
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.CreateWebLoginToken.CreateWebLoginToken
-instance Network.AWS.Data.Path.ToPath Network.AWS.MwAA.CreateWebLoginToken.CreateWebLoginToken
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.CreateWebLoginToken.CreateWebLoginToken
+instance GHC.Generics.Generic Amazonka.MwAA.CreateWebLoginToken.CreateWebLoginToken
+instance GHC.Show.Show Amazonka.MwAA.CreateWebLoginToken.CreateWebLoginToken
+instance GHC.Read.Read Amazonka.MwAA.CreateWebLoginToken.CreateWebLoginToken
+instance GHC.Classes.Eq Amazonka.MwAA.CreateWebLoginToken.CreateWebLoginToken
+instance GHC.Generics.Generic Amazonka.MwAA.CreateWebLoginToken.CreateWebLoginTokenResponse
+instance GHC.Show.Show Amazonka.MwAA.CreateWebLoginToken.CreateWebLoginTokenResponse
+instance GHC.Classes.Eq Amazonka.MwAA.CreateWebLoginToken.CreateWebLoginTokenResponse
+instance Amazonka.Types.AWSRequest Amazonka.MwAA.CreateWebLoginToken.CreateWebLoginToken
+instance Control.DeepSeq.NFData Amazonka.MwAA.CreateWebLoginToken.CreateWebLoginTokenResponse
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.CreateWebLoginToken.CreateWebLoginToken
+instance Control.DeepSeq.NFData Amazonka.MwAA.CreateWebLoginToken.CreateWebLoginToken
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MwAA.CreateWebLoginToken.CreateWebLoginToken
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.CreateWebLoginToken.CreateWebLoginToken
+instance Amazonka.Data.Path.ToPath Amazonka.MwAA.CreateWebLoginToken.CreateWebLoginToken
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.CreateWebLoginToken.CreateWebLoginToken
 
 
 -- | Creates an Amazon Managed Workflows for Apache Airflow (MWAA)
 --   environment.
-module Network.AWS.MwAA.CreateEnvironment
+module Amazonka.MwAA.CreateEnvironment
 
 -- | This section contains the Amazon Managed Workflows for Apache Airflow
 --   (MWAA) API reference documentation to create an environment. For more
@@ -3336,25 +3336,25 @@ createEnvironmentResponse_arn :: Lens' CreateEnvironmentResponse (Maybe Text)
 
 -- | The response's http status code.
 createEnvironmentResponse_httpStatus :: Lens' CreateEnvironmentResponse Int
-instance GHC.Generics.Generic Network.AWS.MwAA.CreateEnvironment.CreateEnvironment
-instance GHC.Show.Show Network.AWS.MwAA.CreateEnvironment.CreateEnvironment
-instance GHC.Classes.Eq Network.AWS.MwAA.CreateEnvironment.CreateEnvironment
-instance GHC.Generics.Generic Network.AWS.MwAA.CreateEnvironment.CreateEnvironmentResponse
-instance GHC.Show.Show Network.AWS.MwAA.CreateEnvironment.CreateEnvironmentResponse
-instance GHC.Read.Read Network.AWS.MwAA.CreateEnvironment.CreateEnvironmentResponse
-instance GHC.Classes.Eq Network.AWS.MwAA.CreateEnvironment.CreateEnvironmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MwAA.CreateEnvironment.CreateEnvironment
-instance Control.DeepSeq.NFData Network.AWS.MwAA.CreateEnvironment.CreateEnvironmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.CreateEnvironment.CreateEnvironment
-instance Control.DeepSeq.NFData Network.AWS.MwAA.CreateEnvironment.CreateEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MwAA.CreateEnvironment.CreateEnvironment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.CreateEnvironment.CreateEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.MwAA.CreateEnvironment.CreateEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.CreateEnvironment.CreateEnvironment
+instance GHC.Generics.Generic Amazonka.MwAA.CreateEnvironment.CreateEnvironment
+instance GHC.Show.Show Amazonka.MwAA.CreateEnvironment.CreateEnvironment
+instance GHC.Classes.Eq Amazonka.MwAA.CreateEnvironment.CreateEnvironment
+instance GHC.Generics.Generic Amazonka.MwAA.CreateEnvironment.CreateEnvironmentResponse
+instance GHC.Show.Show Amazonka.MwAA.CreateEnvironment.CreateEnvironmentResponse
+instance GHC.Read.Read Amazonka.MwAA.CreateEnvironment.CreateEnvironmentResponse
+instance GHC.Classes.Eq Amazonka.MwAA.CreateEnvironment.CreateEnvironmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.MwAA.CreateEnvironment.CreateEnvironment
+instance Control.DeepSeq.NFData Amazonka.MwAA.CreateEnvironment.CreateEnvironmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.CreateEnvironment.CreateEnvironment
+instance Control.DeepSeq.NFData Amazonka.MwAA.CreateEnvironment.CreateEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MwAA.CreateEnvironment.CreateEnvironment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.CreateEnvironment.CreateEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.MwAA.CreateEnvironment.CreateEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.CreateEnvironment.CreateEnvironment
 
 
 -- | Create a CLI token to use Airflow CLI.
-module Network.AWS.MwAA.CreateCliToken
+module Amazonka.MwAA.CreateCliToken
 
 -- | <i>See:</i> <a>newCreateCliToken</a> smart constructor.
 data CreateCliToken
@@ -3424,27 +3424,27 @@ createCliTokenResponse_cliToken :: Lens' CreateCliTokenResponse (Maybe Text)
 
 -- | The response's http status code.
 createCliTokenResponse_httpStatus :: Lens' CreateCliTokenResponse Int
-instance GHC.Generics.Generic Network.AWS.MwAA.CreateCliToken.CreateCliToken
-instance GHC.Show.Show Network.AWS.MwAA.CreateCliToken.CreateCliToken
-instance GHC.Read.Read Network.AWS.MwAA.CreateCliToken.CreateCliToken
-instance GHC.Classes.Eq Network.AWS.MwAA.CreateCliToken.CreateCliToken
-instance GHC.Generics.Generic Network.AWS.MwAA.CreateCliToken.CreateCliTokenResponse
-instance GHC.Show.Show Network.AWS.MwAA.CreateCliToken.CreateCliTokenResponse
-instance GHC.Classes.Eq Network.AWS.MwAA.CreateCliToken.CreateCliTokenResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MwAA.CreateCliToken.CreateCliToken
-instance Control.DeepSeq.NFData Network.AWS.MwAA.CreateCliToken.CreateCliTokenResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.CreateCliToken.CreateCliToken
-instance Control.DeepSeq.NFData Network.AWS.MwAA.CreateCliToken.CreateCliToken
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MwAA.CreateCliToken.CreateCliToken
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.CreateCliToken.CreateCliToken
-instance Network.AWS.Data.Path.ToPath Network.AWS.MwAA.CreateCliToken.CreateCliToken
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.CreateCliToken.CreateCliToken
+instance GHC.Generics.Generic Amazonka.MwAA.CreateCliToken.CreateCliToken
+instance GHC.Show.Show Amazonka.MwAA.CreateCliToken.CreateCliToken
+instance GHC.Read.Read Amazonka.MwAA.CreateCliToken.CreateCliToken
+instance GHC.Classes.Eq Amazonka.MwAA.CreateCliToken.CreateCliToken
+instance GHC.Generics.Generic Amazonka.MwAA.CreateCliToken.CreateCliTokenResponse
+instance GHC.Show.Show Amazonka.MwAA.CreateCliToken.CreateCliTokenResponse
+instance GHC.Classes.Eq Amazonka.MwAA.CreateCliToken.CreateCliTokenResponse
+instance Amazonka.Types.AWSRequest Amazonka.MwAA.CreateCliToken.CreateCliToken
+instance Control.DeepSeq.NFData Amazonka.MwAA.CreateCliToken.CreateCliTokenResponse
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.CreateCliToken.CreateCliToken
+instance Control.DeepSeq.NFData Amazonka.MwAA.CreateCliToken.CreateCliToken
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MwAA.CreateCliToken.CreateCliToken
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.CreateCliToken.CreateCliToken
+instance Amazonka.Data.Path.ToPath Amazonka.MwAA.CreateCliToken.CreateCliToken
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.CreateCliToken.CreateCliToken
 
 
 -- | Removes key-value tag pairs associated to your Amazon Managed
 --   Workflows for Apache Airflow (MWAA) environment. For example,
 --   <tt>"Environment": "Staging"</tt>.
-module Network.AWS.MwAA.UntagResource
+module Amazonka.MwAA.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -3510,26 +3510,26 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.MwAA.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.MwAA.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.MwAA.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.MwAA.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.MwAA.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.MwAA.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.MwAA.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.MwAA.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MwAA.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.MwAA.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.MwAA.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MwAA.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MwAA.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.MwAA.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.MwAA.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.MwAA.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.MwAA.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.MwAA.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.MwAA.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.MwAA.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.MwAA.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MwAA.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.MwAA.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.MwAA.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MwAA.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.MwAA.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.UntagResource.UntagResource
 
 
 -- | Updates an Amazon Managed Workflows for Apache Airflow (MWAA)
 --   environment.
-module Network.AWS.MwAA.UpdateEnvironment
+module Amazonka.MwAA.UpdateEnvironment
 
 -- | <i>See:</i> <a>newUpdateEnvironment</a> smart constructor.
 data UpdateEnvironment
@@ -3904,24 +3904,24 @@ updateEnvironmentResponse_arn :: Lens' UpdateEnvironmentResponse (Maybe Text)
 
 -- | The response's http status code.
 updateEnvironmentResponse_httpStatus :: Lens' UpdateEnvironmentResponse Int
-instance GHC.Generics.Generic Network.AWS.MwAA.UpdateEnvironment.UpdateEnvironment
-instance GHC.Show.Show Network.AWS.MwAA.UpdateEnvironment.UpdateEnvironment
-instance GHC.Classes.Eq Network.AWS.MwAA.UpdateEnvironment.UpdateEnvironment
-instance GHC.Generics.Generic Network.AWS.MwAA.UpdateEnvironment.UpdateEnvironmentResponse
-instance GHC.Show.Show Network.AWS.MwAA.UpdateEnvironment.UpdateEnvironmentResponse
-instance GHC.Read.Read Network.AWS.MwAA.UpdateEnvironment.UpdateEnvironmentResponse
-instance GHC.Classes.Eq Network.AWS.MwAA.UpdateEnvironment.UpdateEnvironmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MwAA.UpdateEnvironment.UpdateEnvironment
-instance Control.DeepSeq.NFData Network.AWS.MwAA.UpdateEnvironment.UpdateEnvironmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MwAA.UpdateEnvironment.UpdateEnvironment
-instance Control.DeepSeq.NFData Network.AWS.MwAA.UpdateEnvironment.UpdateEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MwAA.UpdateEnvironment.UpdateEnvironment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MwAA.UpdateEnvironment.UpdateEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.MwAA.UpdateEnvironment.UpdateEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MwAA.UpdateEnvironment.UpdateEnvironment
+instance GHC.Generics.Generic Amazonka.MwAA.UpdateEnvironment.UpdateEnvironment
+instance GHC.Show.Show Amazonka.MwAA.UpdateEnvironment.UpdateEnvironment
+instance GHC.Classes.Eq Amazonka.MwAA.UpdateEnvironment.UpdateEnvironment
+instance GHC.Generics.Generic Amazonka.MwAA.UpdateEnvironment.UpdateEnvironmentResponse
+instance GHC.Show.Show Amazonka.MwAA.UpdateEnvironment.UpdateEnvironmentResponse
+instance GHC.Read.Read Amazonka.MwAA.UpdateEnvironment.UpdateEnvironmentResponse
+instance GHC.Classes.Eq Amazonka.MwAA.UpdateEnvironment.UpdateEnvironmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.MwAA.UpdateEnvironment.UpdateEnvironment
+instance Control.DeepSeq.NFData Amazonka.MwAA.UpdateEnvironment.UpdateEnvironmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.MwAA.UpdateEnvironment.UpdateEnvironment
+instance Control.DeepSeq.NFData Amazonka.MwAA.UpdateEnvironment.UpdateEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MwAA.UpdateEnvironment.UpdateEnvironment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MwAA.UpdateEnvironment.UpdateEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.MwAA.UpdateEnvironment.UpdateEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.MwAA.UpdateEnvironment.UpdateEnvironment
 
 
-module Network.AWS.MwAA.Lens
+module Amazonka.MwAA.Lens
 
 -- | Retrieves the next page of the results.
 listEnvironments_nextToken :: Lens' ListEnvironments (Maybe Text)
@@ -4522,7 +4522,7 @@ updateError_errorMessage :: Lens' UpdateError (Maybe Text)
 updateNetworkConfigurationInput_securityGroupIds :: Lens' UpdateNetworkConfigurationInput (NonEmpty Text)
 
 
-module Network.AWS.MwAA.Waiters
+module Amazonka.MwAA.Waiters
 
 
 -- | Derived from API version <tt>2020-07-01</tt> of the AWS service
@@ -4533,7 +4533,7 @@ module Network.AWS.MwAA.Waiters
 --   This section contains the Amazon Managed Workflows for Apache Airflow
 --   (MWAA) API reference documentation. For more information, see <a>What
 --   Is Amazon MWAA?</a>.
-module Network.AWS.MwAA
+module Amazonka.MwAA
 
 -- | API version <tt>2020-07-01</tt> of the Amazon MWAA SDK configuration.
 defaultService :: Service

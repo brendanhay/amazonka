@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ELBV2.SetRulePriorities</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Sets the priorities of the specified rules.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You can reorder the rules as long as there are no priority conflicts in</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- the new order. Any existing rules that you do not specify retain their</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- current priority.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ELBV2.SetRulePriorities</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities"><span class="hs-identifier">SetRulePriorities</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#newSetRulePriorities"><span class="hs-identifier">newSetRulePriorities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#setRulePriorities_rulePriorities"><span class="hs-identifier">setRulePriorities_rulePriorities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse"><span class="hs-identifier">SetRulePrioritiesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#newSetRulePrioritiesResponse"><span class="hs-identifier">newSetRulePrioritiesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#setRulePrioritiesResponse_rules"><span class="hs-identifier">setRulePrioritiesResponse_rules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#setRulePrioritiesResponse_httpStatus"><span class="hs-identifier">setRulePrioritiesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.Types.html"><span class="hs-identifier">Amazonka.ELBV2.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newSetRulePriorities' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679256399"><span id="local-6989586621679256400"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetRulePriorities"><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities"><span class="hs-identifier hs-var">SetRulePriorities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetRulePriorities%27"><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities%27"><span class="hs-identifier hs-var">SetRulePriorities'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The rule priorities.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3ArulePriorities%3ASetRulePriorities%27"><span class="annot"><span class="annottext">SetRulePriorities -&gt; [RulePriorityPair]
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#%24sel%3ArulePriorities%3ASetRulePriorities%27"><span class="hs-identifier hs-var hs-var">rulePriorities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ELBV2.Types.RulePriorityPair.html#RulePriorityPair"><span class="hs-identifier hs-type">RulePriorityPair</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256393"><span id="local-6989586621679256395"><span class="annot"><span class="annottext">SetRulePriorities -&gt; SetRulePriorities -&gt; Bool
+(SetRulePriorities -&gt; SetRulePriorities -&gt; Bool)
+-&gt; (SetRulePriorities -&gt; SetRulePriorities -&gt; Bool)
+-&gt; Eq SetRulePriorities
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetRulePriorities -&gt; SetRulePriorities -&gt; Bool
+$c/= :: SetRulePriorities -&gt; SetRulePriorities -&gt; Bool
+== :: SetRulePriorities -&gt; SetRulePriorities -&gt; Bool
+$c== :: SetRulePriorities -&gt; SetRulePriorities -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256384"><span id="local-6989586621679256386"><span id="local-6989586621679256388"><span id="local-6989586621679256390"><span class="annot"><span class="annottext">ReadPrec [SetRulePriorities]
+ReadPrec SetRulePriorities
+Int -&gt; ReadS SetRulePriorities
+ReadS [SetRulePriorities]
+(Int -&gt; ReadS SetRulePriorities)
+-&gt; ReadS [SetRulePriorities]
+-&gt; ReadPrec SetRulePriorities
+-&gt; ReadPrec [SetRulePriorities]
+-&gt; Read SetRulePriorities
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetRulePriorities]
+$creadListPrec :: ReadPrec [SetRulePriorities]
+readPrec :: ReadPrec SetRulePriorities
+$creadPrec :: ReadPrec SetRulePriorities
+readList :: ReadS [SetRulePriorities]
+$creadList :: ReadS [SetRulePriorities]
+readsPrec :: Int -&gt; ReadS SetRulePriorities
+$creadsPrec :: Int -&gt; ReadS SetRulePriorities
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256377"><span id="local-6989586621679256379"><span id="local-6989586621679256381"><span class="annot"><span class="annottext">Int -&gt; SetRulePriorities -&gt; ShowS
+[SetRulePriorities] -&gt; ShowS
+SetRulePriorities -&gt; String
+(Int -&gt; SetRulePriorities -&gt; ShowS)
+-&gt; (SetRulePriorities -&gt; String)
+-&gt; ([SetRulePriorities] -&gt; ShowS)
+-&gt; Show SetRulePriorities
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetRulePriorities] -&gt; ShowS
+$cshowList :: [SetRulePriorities] -&gt; ShowS
+show :: SetRulePriorities -&gt; String
+$cshow :: SetRulePriorities -&gt; String
+showsPrec :: Int -&gt; SetRulePriorities -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetRulePriorities -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SetRulePriorities -&gt; Rep SetRulePriorities x)
+-&gt; (forall x. Rep SetRulePriorities x -&gt; SetRulePriorities)
+-&gt; Generic SetRulePriorities
+forall x. Rep SetRulePriorities x -&gt; SetRulePriorities
+forall x. SetRulePriorities -&gt; Rep SetRulePriorities x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SetRulePriorities x -&gt; SetRulePriorities
+$cfrom :: forall x. SetRulePriorities -&gt; Rep SetRulePriorities x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'SetRulePriorities' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'rulePriorities', 'setRulePriorities_rulePriorities' - The rule priorities.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#newSetRulePriorities"><span class="hs-identifier hs-type">newSetRulePriorities</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities"><span class="hs-identifier hs-type">SetRulePriorities</span></a></span><span>
+</span><span id="line-71"></span><span id="newSetRulePriorities"><span class="annot"><span class="annottext">newSetRulePriorities :: SetRulePriorities
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#newSetRulePriorities"><span class="hs-identifier hs-var hs-var">newSetRulePriorities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">SetRulePriorities' :: [RulePriorityPair] -&gt; SetRulePriorities
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities%27"><span class="hs-identifier hs-type">SetRulePriorities'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulePriorities:SetRulePriorities' :: [RulePriorityPair]
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#%24sel%3ArulePriorities%3ASetRulePriorities%27"><span class="hs-identifier hs-var">rulePriorities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RulePriorityPair]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The rule priorities.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#setRulePriorities_rulePriorities"><span class="hs-identifier hs-type">setRulePriorities_rulePriorities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities"><span class="hs-identifier hs-type">SetRulePriorities</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ELBV2.Types.RulePriorityPair.html#RulePriorityPair"><span class="hs-identifier hs-type">RulePriorityPair</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-76"></span><span id="setRulePriorities_rulePriorities"><span class="annot"><span class="annottext">setRulePriorities_rulePriorities :: ([RulePriorityPair] -&gt; f [RulePriorityPair])
+-&gt; SetRulePriorities -&gt; f SetRulePriorities
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#setRulePriorities_rulePriorities"><span class="hs-identifier hs-var hs-var">setRulePriorities_rulePriorities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetRulePriorities -&gt; [RulePriorityPair])
+-&gt; (SetRulePriorities -&gt; [RulePriorityPair] -&gt; SetRulePriorities)
+-&gt; Lens
+     SetRulePriorities
+     SetRulePriorities
+     [RulePriorityPair]
+     [RulePriorityPair]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities%27"><span class="hs-identifier hs-type">SetRulePriorities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256370"><span class="annot"><span class="annottext">[RulePriorityPair]
+rulePriorities :: [RulePriorityPair]
+$sel:rulePriorities:SetRulePriorities' :: SetRulePriorities -&gt; [RulePriorityPair]
+</span><a href="#local-6989586621679256370"><span class="hs-identifier hs-var hs-var">rulePriorities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RulePriorityPair]
+</span><a href="#local-6989586621679256370"><span class="hs-identifier hs-var">rulePriorities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256369"><span class="annot"><span class="annottext">s :: SetRulePriorities
+</span><a href="#local-6989586621679256369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities%27"><span class="hs-identifier hs-type">SetRulePriorities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256368"><span class="annot"><span class="annottext">[RulePriorityPair]
+</span><a href="#local-6989586621679256368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetRulePriorities
+</span><a href="#local-6989586621679256369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulePriorities:SetRulePriorities' :: [RulePriorityPair]
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#%24sel%3ArulePriorities%3ASetRulePriorities%27"><span class="hs-identifier hs-var">rulePriorities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RulePriorityPair]
+</span><a href="#local-6989586621679256368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities"><span class="hs-identifier hs-type">SetRulePriorities</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RulePriorityPair] -&gt; f [RulePriorityPair])
+ -&gt; SetRulePriorities -&gt; f SetRulePriorities)
+-&gt; (([RulePriorityPair] -&gt; f [RulePriorityPair])
+    -&gt; [RulePriorityPair] -&gt; f [RulePriorityPair])
+-&gt; ([RulePriorityPair] -&gt; f [RulePriorityPair])
+-&gt; SetRulePriorities
+-&gt; f SetRulePriorities
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([RulePriorityPair] -&gt; f [RulePriorityPair])
+-&gt; [RulePriorityPair] -&gt; f [RulePriorityPair]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities"><span class="hs-identifier hs-type">SetRulePriorities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities"><span class="hs-identifier hs-type">SetRulePriorities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse"><span class="hs-identifier hs-type">SetRulePrioritiesResponse</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679256362"><span class="annot"><span class="annottext">request :: SetRulePriorities -&gt; Request SetRulePriorities
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetRulePriorities -&gt; Request SetRulePriorities
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ELBV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679256358"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SetRulePriorities
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SetRulePriorities)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse SetRulePriorities))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SetRulePriorities
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SetRulePriorities)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SetRulePrioritiesResult&quot;</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256355"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256355"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256354"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679256354"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256353"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679256353"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Rule] -&gt; Int -&gt; SetRulePrioritiesResponse
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse%27"><span class="hs-identifier hs-var">SetRulePrioritiesResponse'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Rule] -&gt; Int -&gt; SetRulePrioritiesResponse)
+-&gt; Either String (Maybe [Rule])
+-&gt; Either String (Int -&gt; SetRulePrioritiesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679256353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-89"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Rule]))
+-&gt; Either String (Maybe [Rule])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Rule])
+-&gt; [Node] -&gt; Either String (Maybe [Rule])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Rule]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; SetRulePrioritiesResponse)
+-&gt; Either String Int -&gt; Either String SetRulePrioritiesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256355"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256342"><span id="local-6989586621679256344"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities"><span class="hs-identifier hs-type">SetRulePriorities</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256339"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities"><span class="hs-identifier hs-type">SetRulePriorities</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities"><span class="hs-identifier hs-type">SetRulePriorities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679256335"><span class="annot"><span class="annottext">toHeaders :: SetRulePriorities -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SetRulePriorities -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities"><span class="hs-identifier hs-type">SetRulePriorities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679256330"><span class="annot"><span class="annottext">toPath :: SetRulePriorities -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetRulePriorities -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities"><span class="hs-identifier hs-type">SetRulePriorities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679256326"><span class="annot"><span class="annottext">toQuery :: SetRulePriorities -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePriorities%27"><span class="hs-identifier hs-type">SetRulePriorities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256324"><span class="annot"><span class="annottext">[RulePriorityPair]
+rulePriorities :: [RulePriorityPair]
+$sel:rulePriorities:SetRulePriorities' :: SetRulePriorities -&gt; [RulePriorityPair]
+</span><a href="#local-6989586621679256324"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SetRulePriorities&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2015-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RulePriorities&quot;</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [RulePriorityPair] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[RulePriorityPair]
+</span><a href="#local-6989586621679256324"><span class="hs-identifier hs-var">rulePriorities</span></a></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newSetRulePrioritiesResponse' smart constructor.</span><span>
+</span><span id="line-116"></span><span id="local-6989586621679256320"><span id="local-6989586621679256321"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetRulePrioritiesResponse"><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse"><span class="hs-identifier hs-var">SetRulePrioritiesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetRulePrioritiesResponse%27"><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse%27"><span class="hs-identifier hs-var">SetRulePrioritiesResponse'</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the rules.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3Arules%3ASetRulePrioritiesResponse%27"><span class="annot"><span class="annottext">SetRulePrioritiesResponse -&gt; Maybe [Rule]
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#%24sel%3Arules%3ASetRulePrioritiesResponse%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ELBV2.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASetRulePrioritiesResponse%27"><span class="annot"><span class="annottext">SetRulePrioritiesResponse -&gt; Int
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#%24sel%3AhttpStatus%3ASetRulePrioritiesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256314"><span id="local-6989586621679256316"><span class="annot"><span class="annottext">SetRulePrioritiesResponse -&gt; SetRulePrioritiesResponse -&gt; Bool
+(SetRulePrioritiesResponse -&gt; SetRulePrioritiesResponse -&gt; Bool)
+-&gt; (SetRulePrioritiesResponse -&gt; SetRulePrioritiesResponse -&gt; Bool)
+-&gt; Eq SetRulePrioritiesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetRulePrioritiesResponse -&gt; SetRulePrioritiesResponse -&gt; Bool
+$c/= :: SetRulePrioritiesResponse -&gt; SetRulePrioritiesResponse -&gt; Bool
+== :: SetRulePrioritiesResponse -&gt; SetRulePrioritiesResponse -&gt; Bool
+$c== :: SetRulePrioritiesResponse -&gt; SetRulePrioritiesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256306"><span id="local-6989586621679256308"><span id="local-6989586621679256310"><span id="local-6989586621679256312"><span class="annot"><span class="annottext">ReadPrec [SetRulePrioritiesResponse]
+ReadPrec SetRulePrioritiesResponse
+Int -&gt; ReadS SetRulePrioritiesResponse
+ReadS [SetRulePrioritiesResponse]
+(Int -&gt; ReadS SetRulePrioritiesResponse)
+-&gt; ReadS [SetRulePrioritiesResponse]
+-&gt; ReadPrec SetRulePrioritiesResponse
+-&gt; ReadPrec [SetRulePrioritiesResponse]
+-&gt; Read SetRulePrioritiesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetRulePrioritiesResponse]
+$creadListPrec :: ReadPrec [SetRulePrioritiesResponse]
+readPrec :: ReadPrec SetRulePrioritiesResponse
+$creadPrec :: ReadPrec SetRulePrioritiesResponse
+readList :: ReadS [SetRulePrioritiesResponse]
+$creadList :: ReadS [SetRulePrioritiesResponse]
+readsPrec :: Int -&gt; ReadS SetRulePrioritiesResponse
+$creadsPrec :: Int -&gt; ReadS SetRulePrioritiesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256300"><span id="local-6989586621679256302"><span id="local-6989586621679256304"><span class="annot"><span class="annottext">Int -&gt; SetRulePrioritiesResponse -&gt; ShowS
+[SetRulePrioritiesResponse] -&gt; ShowS
+SetRulePrioritiesResponse -&gt; String
+(Int -&gt; SetRulePrioritiesResponse -&gt; ShowS)
+-&gt; (SetRulePrioritiesResponse -&gt; String)
+-&gt; ([SetRulePrioritiesResponse] -&gt; ShowS)
+-&gt; Show SetRulePrioritiesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetRulePrioritiesResponse] -&gt; ShowS
+$cshowList :: [SetRulePrioritiesResponse] -&gt; ShowS
+show :: SetRulePrioritiesResponse -&gt; String
+$cshow :: SetRulePrioritiesResponse -&gt; String
+showsPrec :: Int -&gt; SetRulePrioritiesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetRulePrioritiesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SetRulePrioritiesResponse -&gt; Rep SetRulePrioritiesResponse x)
+-&gt; (forall x.
+    Rep SetRulePrioritiesResponse x -&gt; SetRulePrioritiesResponse)
+-&gt; Generic SetRulePrioritiesResponse
+forall x.
+Rep SetRulePrioritiesResponse x -&gt; SetRulePrioritiesResponse
+forall x.
+SetRulePrioritiesResponse -&gt; Rep SetRulePrioritiesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SetRulePrioritiesResponse x -&gt; SetRulePrioritiesResponse
+$cfrom :: forall x.
+SetRulePrioritiesResponse -&gt; Rep SetRulePrioritiesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'SetRulePrioritiesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'rules', 'setRulePrioritiesResponse_rules' - Information about the rules.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'httpStatus', 'setRulePrioritiesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#newSetRulePrioritiesResponse"><span class="hs-identifier hs-type">newSetRulePrioritiesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse"><span class="hs-identifier hs-type">SetRulePrioritiesResponse</span></a></span><span>
+</span><span id="line-139"></span><span id="newSetRulePrioritiesResponse"><span class="annot"><span class="annottext">newSetRulePrioritiesResponse :: Int -&gt; SetRulePrioritiesResponse
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#newSetRulePrioritiesResponse"><span class="hs-identifier hs-var hs-var">newSetRulePrioritiesResponse</span></a></span></span><span> </span><span id="local-6989586621679256297"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256297"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">SetRulePrioritiesResponse' :: Maybe [Rule] -&gt; Int -&gt; SetRulePrioritiesResponse
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse%27"><span class="hs-identifier hs-type">SetRulePrioritiesResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rules:SetRulePrioritiesResponse' :: Maybe [Rule]
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#%24sel%3Arules%3ASetRulePrioritiesResponse%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SetRulePrioritiesResponse' :: Int
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#%24sel%3AhttpStatus%3ASetRulePrioritiesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256297"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Information about the rules.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#setRulePrioritiesResponse_rules"><span class="hs-identifier hs-type">setRulePrioritiesResponse_rules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse"><span class="hs-identifier hs-type">SetRulePrioritiesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ELBV2.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="setRulePrioritiesResponse_rules"><span class="annot"><span class="annottext">setRulePrioritiesResponse_rules :: (Maybe [Rule] -&gt; f (Maybe [Rule]))
+-&gt; SetRulePrioritiesResponse -&gt; f SetRulePrioritiesResponse
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#setRulePrioritiesResponse_rules"><span class="hs-identifier hs-var hs-var">setRulePrioritiesResponse_rules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetRulePrioritiesResponse -&gt; Maybe [Rule])
+-&gt; (SetRulePrioritiesResponse
+    -&gt; Maybe [Rule] -&gt; SetRulePrioritiesResponse)
+-&gt; Lens
+     SetRulePrioritiesResponse
+     SetRulePrioritiesResponse
+     (Maybe [Rule])
+     (Maybe [Rule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse%27"><span class="hs-identifier hs-type">SetRulePrioritiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256296"><span class="annot"><span class="annottext">Maybe [Rule]
+rules :: Maybe [Rule]
+$sel:rules:SetRulePrioritiesResponse' :: SetRulePrioritiesResponse -&gt; Maybe [Rule]
+</span><a href="#local-6989586621679256296"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679256296"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256295"><span class="annot"><span class="annottext">s :: SetRulePrioritiesResponse
+</span><a href="#local-6989586621679256295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse%27"><span class="hs-identifier hs-type">SetRulePrioritiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256294"><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679256294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetRulePrioritiesResponse
+</span><a href="#local-6989586621679256295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:SetRulePrioritiesResponse' :: Maybe [Rule]
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#%24sel%3Arules%3ASetRulePrioritiesResponse%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679256294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse"><span class="hs-identifier hs-type">SetRulePrioritiesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Rule] -&gt; f (Maybe [Rule]))
+ -&gt; SetRulePrioritiesResponse -&gt; f SetRulePrioritiesResponse)
+-&gt; ((Maybe [Rule] -&gt; f (Maybe [Rule]))
+    -&gt; Maybe [Rule] -&gt; f (Maybe [Rule]))
+-&gt; (Maybe [Rule] -&gt; f (Maybe [Rule]))
+-&gt; SetRulePrioritiesResponse
+-&gt; f SetRulePrioritiesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Rule] [Rule] [Rule] [Rule]
+-&gt; Iso (Maybe [Rule]) (Maybe [Rule]) (Maybe [Rule]) (Maybe [Rule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Rule] [Rule] [Rule] [Rule]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#setRulePrioritiesResponse_httpStatus"><span class="hs-identifier hs-type">setRulePrioritiesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse"><span class="hs-identifier hs-type">SetRulePrioritiesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-151"></span><span id="setRulePrioritiesResponse_httpStatus"><span class="annot"><span class="annottext">setRulePrioritiesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; SetRulePrioritiesResponse -&gt; f SetRulePrioritiesResponse
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#setRulePrioritiesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">setRulePrioritiesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetRulePrioritiesResponse -&gt; Int)
+-&gt; (SetRulePrioritiesResponse -&gt; Int -&gt; SetRulePrioritiesResponse)
+-&gt; Lens SetRulePrioritiesResponse SetRulePrioritiesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse%27"><span class="hs-identifier hs-type">SetRulePrioritiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256292"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SetRulePrioritiesResponse' :: SetRulePrioritiesResponse -&gt; Int
+</span><a href="#local-6989586621679256292"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256292"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256291"><span class="annot"><span class="annottext">s :: SetRulePrioritiesResponse
+</span><a href="#local-6989586621679256291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse%27"><span class="hs-identifier hs-type">SetRulePrioritiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256290"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetRulePrioritiesResponse
+</span><a href="#local-6989586621679256291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetRulePrioritiesResponse' :: Int
+</span><a href="Amazonka.ELBV2.SetRulePriorities.html#%24sel%3AhttpStatus%3ASetRulePrioritiesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse"><span class="hs-identifier hs-type">SetRulePrioritiesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256288"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ELBV2.SetRulePriorities.html#SetRulePrioritiesResponse"><span class="hs-identifier hs-type">SetRulePrioritiesResponse</span></a></span></span><span>
+</span><span id="line-154"></span></pre></body></html>

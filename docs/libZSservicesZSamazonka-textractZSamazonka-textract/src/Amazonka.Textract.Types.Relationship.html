@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Textract.Types.Relationship</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Textract.Types.Relationship</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.RelationshipType.html"><span class="hs-identifier">Amazonka.Textract.Types.RelationshipType</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about how blocks are related to each other. A @Block@ object</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- contains 0 or more @Relation@ objects in a list, @Relationships@. For</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- more information, see Block.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- The @Type@ element provides the type of the relationship for all blocks</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- in the @IDs@ array.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newRelationship' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679176913"><span id="local-6989586621679176914"></span></span><span class="hs-keyword">data</span><span> </span><span id="Relationship"><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-var">Relationship</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Relationship%27"><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-var">Relationship'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of IDs for related blocks. You can get the type of the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- relationship from the @Type@ element.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aids%3ARelationship%27"><span class="annot"><span class="annottext">Relationship -&gt; Maybe [Text]
+</span><a href="Amazonka.Textract.Types.Relationship.html#%24sel%3Aids%3ARelationship%27"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The type of relationship that the blocks in the IDs array have with the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- current block. The relationship can be @VALUE@ or @CHILD@. A</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- relationship of type VALUE is a list that contains the ID of the VALUE</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- block that\'s associated with the KEY of a key-value pair. A</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- relationship of type CHILD is a list of IDs that identify WORD blocks in</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the case of lines Cell blocks in the case of Tables, and WORD blocks in</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- the case of Selection Elements.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Atype%27%3ARelationship%27"><span class="annot"><span class="annottext">Relationship -&gt; Maybe RelationshipType
+</span><a href="Amazonka.Textract.Types.Relationship.html#%24sel%3Atype%27%3ARelationship%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176906"><span id="local-6989586621679176908"><span class="annot"><span class="annottext">Relationship -&gt; Relationship -&gt; Bool
+(Relationship -&gt; Relationship -&gt; Bool)
+-&gt; (Relationship -&gt; Relationship -&gt; Bool) -&gt; Eq Relationship
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Relationship -&gt; Relationship -&gt; Bool
+$c/= :: Relationship -&gt; Relationship -&gt; Bool
+== :: Relationship -&gt; Relationship -&gt; Bool
+$c== :: Relationship -&gt; Relationship -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176897"><span id="local-6989586621679176899"><span id="local-6989586621679176901"><span id="local-6989586621679176903"><span class="annot"><span class="annottext">ReadPrec [Relationship]
+ReadPrec Relationship
+Int -&gt; ReadS Relationship
+ReadS [Relationship]
+(Int -&gt; ReadS Relationship)
+-&gt; ReadS [Relationship]
+-&gt; ReadPrec Relationship
+-&gt; ReadPrec [Relationship]
+-&gt; Read Relationship
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Relationship]
+$creadListPrec :: ReadPrec [Relationship]
+readPrec :: ReadPrec Relationship
+$creadPrec :: ReadPrec Relationship
+readList :: ReadS [Relationship]
+$creadList :: ReadS [Relationship]
+readsPrec :: Int -&gt; ReadS Relationship
+$creadsPrec :: Int -&gt; ReadS Relationship
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176890"><span id="local-6989586621679176892"><span id="local-6989586621679176894"><span class="annot"><span class="annottext">Int -&gt; Relationship -&gt; ShowS
+[Relationship] -&gt; ShowS
+Relationship -&gt; String
+(Int -&gt; Relationship -&gt; ShowS)
+-&gt; (Relationship -&gt; String)
+-&gt; ([Relationship] -&gt; ShowS)
+-&gt; Show Relationship
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Relationship] -&gt; ShowS
+$cshowList :: [Relationship] -&gt; ShowS
+show :: Relationship -&gt; String
+$cshow :: Relationship -&gt; String
+showsPrec :: Int -&gt; Relationship -&gt; ShowS
+$cshowsPrec :: Int -&gt; Relationship -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Relationship -&gt; Rep Relationship x)
+-&gt; (forall x. Rep Relationship x -&gt; Relationship)
+-&gt; Generic Relationship
+forall x. Rep Relationship x -&gt; Relationship
+forall x. Relationship -&gt; Rep Relationship x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Relationship x -&gt; Relationship
+$cfrom :: forall x. Relationship -&gt; Rep Relationship x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'Relationship' with all optional fields omitted.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'ids', 'relationship_ids' - An array of IDs for related blocks. You can get the type of the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- relationship from the @Type@ element.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'type'', 'relationship_type' - The type of relationship that the blocks in the IDs array have with the</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- current block. The relationship can be @VALUE@ or @CHILD@. A</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- relationship of type VALUE is a list that contains the ID of the VALUE</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- block that\'s associated with the KEY of a key-value pair. A</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- relationship of type CHILD is a list of IDs that identify WORD blocks in</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- the case of lines Cell blocks in the case of Tables, and WORD blocks in</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- the case of Selection Elements.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#newRelationship"><span class="hs-identifier hs-type">newRelationship</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span><span>
+</span><span id="line-70"></span><span id="newRelationship"><span class="annot"><span class="annottext">newRelationship :: Relationship
+</span><a href="Amazonka.Textract.Types.Relationship.html#newRelationship"><span class="hs-identifier hs-var hs-var">newRelationship</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">Relationship' :: Maybe [Text] -&gt; Maybe RelationshipType -&gt; Relationship
+</span><a href="Amazonka.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-type">Relationship'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ids:Relationship' :: Maybe [Text]
+</span><a href="Amazonka.Textract.Types.Relationship.html#%24sel%3Aids%3ARelationship%27"><span class="hs-identifier hs-var">ids</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Relationship' :: Maybe RelationshipType
+</span><a href="Amazonka.Textract.Types.Relationship.html#%24sel%3Atype%27%3ARelationship%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RelationshipType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | An array of IDs for related blocks. You can get the type of the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- relationship from the @Type@ element.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#relationship_ids"><span class="hs-identifier hs-type">relationship_ids</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="relationship_ids"><span class="annot"><span class="annottext">relationship_ids :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Relationship -&gt; f Relationship
+</span><a href="Amazonka.Textract.Types.Relationship.html#relationship_ids"><span class="hs-identifier hs-var hs-var">relationship_ids</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Relationship -&gt; Maybe [Text])
+-&gt; (Relationship -&gt; Maybe [Text] -&gt; Relationship)
+-&gt; Lens Relationship Relationship (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-type">Relationship'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176881"><span class="annot"><span class="annottext">Maybe [Text]
+ids :: Maybe [Text]
+$sel:ids:Relationship' :: Relationship -&gt; Maybe [Text]
+</span><a href="#local-6989586621679176881"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679176881"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176880"><span class="annot"><span class="annottext">s :: Relationship
+</span><a href="#local-6989586621679176880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-type">Relationship'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176879"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679176879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Relationship
+</span><a href="#local-6989586621679176880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ids:Relationship' :: Maybe [Text]
+</span><a href="Amazonka.Textract.Types.Relationship.html#%24sel%3Aids%3ARelationship%27"><span class="hs-identifier hs-var">ids</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679176879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; Relationship -&gt; f Relationship)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Relationship
+-&gt; f Relationship
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The type of relationship that the blocks in the IDs array have with the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- current block. The relationship can be @VALUE@ or @CHILD@. A</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- relationship of type VALUE is a list that contains the ID of the VALUE</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- block that\'s associated with the KEY of a key-value pair. A</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- relationship of type CHILD is a list of IDs that identify WORD blocks in</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- the case of lines Cell blocks in the case of Tables, and WORD blocks in</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- the case of Selection Elements.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#relationship_type"><span class="hs-identifier hs-type">relationship_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="relationship_type"><span class="annot"><span class="annottext">relationship_type :: (Maybe RelationshipType -&gt; f (Maybe RelationshipType))
+-&gt; Relationship -&gt; f Relationship
+</span><a href="Amazonka.Textract.Types.Relationship.html#relationship_type"><span class="hs-identifier hs-var hs-var">relationship_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Relationship -&gt; Maybe RelationshipType)
+-&gt; (Relationship -&gt; Maybe RelationshipType -&gt; Relationship)
+-&gt; Lens
+     Relationship
+     Relationship
+     (Maybe RelationshipType)
+     (Maybe RelationshipType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-type">Relationship'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176874"><span class="annot"><span class="annottext">Maybe RelationshipType
+type' :: Maybe RelationshipType
+$sel:type':Relationship' :: Relationship -&gt; Maybe RelationshipType
+</span><a href="#local-6989586621679176874"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelationshipType
+</span><a href="#local-6989586621679176874"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176873"><span class="annot"><span class="annottext">s :: Relationship
+</span><a href="#local-6989586621679176873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-type">Relationship'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176872"><span class="annot"><span class="annottext">Maybe RelationshipType
+</span><a href="#local-6989586621679176872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Relationship
+</span><a href="#local-6989586621679176873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Relationship' :: Maybe RelationshipType
+</span><a href="Amazonka.Textract.Types.Relationship.html#%24sel%3Atype%27%3ARelationship%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RelationshipType
+</span><a href="#local-6989586621679176872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176869"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679176867"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Relationship
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Relationship) -&gt; Value -&gt; Parser Relationship
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Relationship&quot;</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176864"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176864"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe RelationshipType -&gt; Relationship
+</span><a href="Amazonka.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-var">Relationship'</span></a></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe RelationshipType -&gt; Relationship)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe RelationshipType -&gt; Relationship)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Ids&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe RelationshipType -&gt; Relationship)
+-&gt; Parser (Maybe RelationshipType) -&gt; Parser Relationship
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RelationshipType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176857"><span id="local-6989586621679176859"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176854"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span></span><span>
+</span><span id="line-104"></span></pre></body></html>

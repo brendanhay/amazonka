@@ -1,0 +1,1656 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.DescribeInput</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Produces details about an input</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.DescribeInput</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput"><span class="hs-identifier">DescribeInput</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#newDescribeInput"><span class="hs-identifier">newDescribeInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInput_inputId"><span class="hs-identifier">describeInput_inputId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#newDescribeInputResponse"><span class="hs-identifier">newDescribeInputResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_state"><span class="hs-identifier">describeInputResponse_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_securityGroups"><span class="hs-identifier">describeInputResponse_securityGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_arn"><span class="hs-identifier">describeInputResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_inputDevices"><span class="hs-identifier">describeInputResponse_inputDevices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_inputPartnerIds"><span class="hs-identifier">describeInputResponse_inputPartnerIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_sources"><span class="hs-identifier">describeInputResponse_sources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_destinations"><span class="hs-identifier">describeInputResponse_destinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_name"><span class="hs-identifier">describeInputResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_attachedChannels"><span class="hs-identifier">describeInputResponse_attachedChannels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_id"><span class="hs-identifier">describeInputResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_inputClass"><span class="hs-identifier">describeInputResponse_inputClass</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_type"><span class="hs-identifier">describeInputResponse_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_mediaConnectFlows"><span class="hs-identifier">describeInputResponse_mediaConnectFlows</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_inputSourceType"><span class="hs-identifier">describeInputResponse_inputSourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_tags"><span class="hs-identifier">describeInputResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_roleArn"><span class="hs-identifier">describeInputResponse_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_httpStatus"><span class="hs-identifier">describeInputResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.html"><span class="hs-identifier">Amazonka.MediaLive.Types</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Placeholder documentation for DescribeInputRequest</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- /See:/ 'newDescribeInput' smart constructor.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621679944279"><span id="local-6989586621679944280"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInput"><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput"><span class="hs-identifier hs-var">DescribeInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInput%27"><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput%27"><span class="hs-identifier hs-var">DescribeInput'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique ID of the input</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AinputId%3ADescribeInput%27"><span class="annot"><span class="annottext">DescribeInput -&gt; Text
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AinputId%3ADescribeInput%27"><span class="hs-identifier hs-var hs-var">inputId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679944273"><span id="local-6989586621679944275"><span class="annot"><span class="annottext">DescribeInput -&gt; DescribeInput -&gt; Bool
+(DescribeInput -&gt; DescribeInput -&gt; Bool)
+-&gt; (DescribeInput -&gt; DescribeInput -&gt; Bool) -&gt; Eq DescribeInput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeInput -&gt; DescribeInput -&gt; Bool
+$c/= :: DescribeInput -&gt; DescribeInput -&gt; Bool
+== :: DescribeInput -&gt; DescribeInput -&gt; Bool
+$c== :: DescribeInput -&gt; DescribeInput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679944264"><span id="local-6989586621679944266"><span id="local-6989586621679944268"><span id="local-6989586621679944270"><span class="annot"><span class="annottext">ReadPrec [DescribeInput]
+ReadPrec DescribeInput
+Int -&gt; ReadS DescribeInput
+ReadS [DescribeInput]
+(Int -&gt; ReadS DescribeInput)
+-&gt; ReadS [DescribeInput]
+-&gt; ReadPrec DescribeInput
+-&gt; ReadPrec [DescribeInput]
+-&gt; Read DescribeInput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeInput]
+$creadListPrec :: ReadPrec [DescribeInput]
+readPrec :: ReadPrec DescribeInput
+$creadPrec :: ReadPrec DescribeInput
+readList :: ReadS [DescribeInput]
+$creadList :: ReadS [DescribeInput]
+readsPrec :: Int -&gt; ReadS DescribeInput
+$creadsPrec :: Int -&gt; ReadS DescribeInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679944257"><span id="local-6989586621679944259"><span id="local-6989586621679944261"><span class="annot"><span class="annottext">Int -&gt; DescribeInput -&gt; ShowS
+[DescribeInput] -&gt; ShowS
+DescribeInput -&gt; String
+(Int -&gt; DescribeInput -&gt; ShowS)
+-&gt; (DescribeInput -&gt; String)
+-&gt; ([DescribeInput] -&gt; ShowS)
+-&gt; Show DescribeInput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeInput] -&gt; ShowS
+$cshowList :: [DescribeInput] -&gt; ShowS
+show :: DescribeInput -&gt; String
+$cshow :: DescribeInput -&gt; String
+showsPrec :: Int -&gt; DescribeInput -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeInput -&gt; Rep DescribeInput x)
+-&gt; (forall x. Rep DescribeInput x -&gt; DescribeInput)
+-&gt; Generic DescribeInput
+forall x. Rep DescribeInput x -&gt; DescribeInput
+forall x. DescribeInput -&gt; Rep DescribeInput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeInput x -&gt; DescribeInput
+$cfrom :: forall x. DescribeInput -&gt; Rep DescribeInput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'DescribeInput' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'inputId', 'describeInput_inputId' - Unique ID of the input</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#newDescribeInput"><span class="hs-identifier hs-type">newDescribeInput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'inputId'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput"><span class="hs-identifier hs-type">DescribeInput</span></a></span><span>
+</span><span id="line-86"></span><span id="newDescribeInput"><span class="annot"><span class="annottext">newDescribeInput :: Text -&gt; DescribeInput
+</span><a href="Amazonka.MediaLive.DescribeInput.html#newDescribeInput"><span class="hs-identifier hs-var hs-var">newDescribeInput</span></a></span></span><span> </span><span id="local-6989586621679944252"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679944252"><span class="hs-identifier hs-var">pInputId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">DescribeInput' :: Text -&gt; DescribeInput
+</span><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput%27"><span class="hs-identifier hs-type">DescribeInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputId:DescribeInput' :: Text
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AinputId%3ADescribeInput%27"><span class="hs-identifier hs-var">inputId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679944252"><span class="hs-identifier hs-var">pInputId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | Unique ID of the input</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInput_inputId"><span class="hs-identifier hs-type">describeInput_inputId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput"><span class="hs-identifier hs-type">DescribeInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="describeInput_inputId"><span class="annot"><span class="annottext">describeInput_inputId :: (Text -&gt; f Text) -&gt; DescribeInput -&gt; f DescribeInput
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInput_inputId"><span class="hs-identifier hs-var hs-var">describeInput_inputId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInput -&gt; Text)
+-&gt; (DescribeInput -&gt; Text -&gt; DescribeInput)
+-&gt; Lens DescribeInput DescribeInput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput%27"><span class="hs-identifier hs-type">DescribeInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944249"><span class="annot"><span class="annottext">Text
+inputId :: Text
+$sel:inputId:DescribeInput' :: DescribeInput -&gt; Text
+</span><a href="#local-6989586621679944249"><span class="hs-identifier hs-var hs-var">inputId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679944249"><span class="hs-identifier hs-var">inputId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944248"><span class="annot"><span class="annottext">s :: DescribeInput
+</span><a href="#local-6989586621679944248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput%27"><span class="hs-identifier hs-type">DescribeInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944247"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679944247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInput
+</span><a href="#local-6989586621679944248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputId:DescribeInput' :: Text
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AinputId%3ADescribeInput%27"><span class="hs-identifier hs-var">inputId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679944247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput"><span class="hs-identifier hs-type">DescribeInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput"><span class="hs-identifier hs-type">DescribeInput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput"><span class="hs-identifier hs-type">DescribeInput</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679944243"><span class="annot"><span class="annottext">request :: DescribeInput -&gt; Request DescribeInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeInput -&gt; Request DescribeInput
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MediaLive.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679944239"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeInput
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeInput)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeInput))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeInput
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeInput)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679944236"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679944236"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679944235"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679944235"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679944234"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe InputState
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe [InputDeviceSettings]
+-&gt; Maybe [Text]
+-&gt; Maybe [InputSource]
+-&gt; Maybe [InputDestination]
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe InputClass
+-&gt; Maybe InputType
+-&gt; Maybe [MediaConnectFlow]
+-&gt; Maybe InputSourceType
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-var">DescribeInputResponse'</span></a></span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InputState
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe [InputDeviceSettings]
+ -&gt; Maybe [Text]
+ -&gt; Maybe [InputSource]
+ -&gt; Maybe [InputDestination]
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe InputClass
+ -&gt; Maybe InputType
+ -&gt; Maybe [MediaConnectFlow]
+ -&gt; Maybe InputSourceType
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe InputState)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe [InputDeviceSettings]
+      -&gt; Maybe [Text]
+      -&gt; Maybe [InputSource]
+      -&gt; Maybe [InputDestination]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe InputClass
+      -&gt; Maybe InputType
+      -&gt; Maybe [MediaConnectFlow]
+      -&gt; Maybe InputSourceType
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InputState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe [InputDeviceSettings]
+   -&gt; Maybe [Text]
+   -&gt; Maybe [InputSource]
+   -&gt; Maybe [InputDestination]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe InputClass
+   -&gt; Maybe InputType
+   -&gt; Maybe [MediaConnectFlow]
+   -&gt; Maybe InputSourceType
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [InputDeviceSettings]
+      -&gt; Maybe [Text]
+      -&gt; Maybe [InputSource]
+      -&gt; Maybe [InputDestination]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe InputClass
+      -&gt; Maybe InputType
+      -&gt; Maybe [MediaConnectFlow]
+      -&gt; Maybe InputSourceType
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;securityGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [InputDeviceSettings]
+   -&gt; Maybe [Text]
+   -&gt; Maybe [InputSource]
+   -&gt; Maybe [InputDestination]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe InputClass
+   -&gt; Maybe InputType
+   -&gt; Maybe [MediaConnectFlow]
+   -&gt; Maybe InputSourceType
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [InputDeviceSettings]
+      -&gt; Maybe [Text]
+      -&gt; Maybe [InputSource]
+      -&gt; Maybe [InputDestination]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe InputClass
+      -&gt; Maybe InputType
+      -&gt; Maybe [MediaConnectFlow]
+      -&gt; Maybe InputSourceType
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [InputDeviceSettings]
+   -&gt; Maybe [Text]
+   -&gt; Maybe [InputSource]
+   -&gt; Maybe [InputDestination]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe InputClass
+   -&gt; Maybe InputType
+   -&gt; Maybe [MediaConnectFlow]
+   -&gt; Maybe InputSourceType
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe [InputDeviceSettings])
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe [InputSource]
+      -&gt; Maybe [InputDestination]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe InputClass
+      -&gt; Maybe InputType
+      -&gt; Maybe [MediaConnectFlow]
+      -&gt; Maybe InputSourceType
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [InputDeviceSettings]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputDevices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [InputDeviceSettings]))
+-&gt; Maybe [InputDeviceSettings]
+-&gt; Either String (Maybe [InputDeviceSettings])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InputDeviceSettings]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe [InputSource]
+   -&gt; Maybe [InputDestination]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe InputClass
+   -&gt; Maybe InputType
+   -&gt; Maybe [MediaConnectFlow]
+   -&gt; Maybe InputSourceType
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe [InputSource]
+      -&gt; Maybe [InputDestination]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe InputClass
+      -&gt; Maybe InputType
+      -&gt; Maybe [MediaConnectFlow]
+      -&gt; Maybe InputSourceType
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputPartnerIds&quot;</span></span><span>
+</span><span id="line-107"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-108"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [InputSource]
+   -&gt; Maybe [InputDestination]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe InputClass
+   -&gt; Maybe InputType
+   -&gt; Maybe [MediaConnectFlow]
+   -&gt; Maybe InputSourceType
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe [InputSource])
+-&gt; Either
+     String
+     (Maybe [InputDestination]
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe InputClass
+      -&gt; Maybe InputType
+      -&gt; Maybe [MediaConnectFlow]
+      -&gt; Maybe InputSourceType
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [InputSource]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [InputSource]))
+-&gt; Maybe [InputSource] -&gt; Either String (Maybe [InputSource])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InputSource]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [InputDestination]
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe InputClass
+   -&gt; Maybe InputType
+   -&gt; Maybe [MediaConnectFlow]
+   -&gt; Maybe InputSourceType
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe [InputDestination])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe InputClass
+      -&gt; Maybe InputType
+      -&gt; Maybe [MediaConnectFlow]
+      -&gt; Maybe InputSourceType
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [InputDestination]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [InputDestination]))
+-&gt; Maybe [InputDestination]
+-&gt; Either String (Maybe [InputDestination])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InputDestination]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe InputClass
+   -&gt; Maybe InputType
+   -&gt; Maybe [MediaConnectFlow]
+   -&gt; Maybe InputSourceType
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe InputClass
+      -&gt; Maybe InputType
+      -&gt; Maybe [MediaConnectFlow]
+      -&gt; Maybe InputSourceType
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe InputClass
+   -&gt; Maybe InputType
+   -&gt; Maybe [MediaConnectFlow]
+   -&gt; Maybe InputSourceType
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe InputClass
+      -&gt; Maybe InputType
+      -&gt; Maybe [MediaConnectFlow]
+      -&gt; Maybe InputSourceType
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attachedChannels&quot;</span></span><span>
+</span><span id="line-113"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-114"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe InputClass
+   -&gt; Maybe InputType
+   -&gt; Maybe [MediaConnectFlow]
+   -&gt; Maybe InputSourceType
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe InputClass
+      -&gt; Maybe InputType
+      -&gt; Maybe [MediaConnectFlow]
+      -&gt; Maybe InputSourceType
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe InputClass
+   -&gt; Maybe InputType
+   -&gt; Maybe [MediaConnectFlow]
+   -&gt; Maybe InputSourceType
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe InputClass)
+-&gt; Either
+     String
+     (Maybe InputType
+      -&gt; Maybe [MediaConnectFlow]
+      -&gt; Maybe InputSourceType
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InputClass)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputClass&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe InputType
+   -&gt; Maybe [MediaConnectFlow]
+   -&gt; Maybe InputSourceType
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe InputType)
+-&gt; Either
+     String
+     (Maybe [MediaConnectFlow]
+      -&gt; Maybe InputSourceType
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InputType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [MediaConnectFlow]
+   -&gt; Maybe InputSourceType
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe [MediaConnectFlow])
+-&gt; Either
+     String
+     (Maybe InputSourceType
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [MediaConnectFlow]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mediaConnectFlows&quot;</span></span><span>
+</span><span id="line-119"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [MediaConnectFlow]))
+-&gt; Maybe [MediaConnectFlow]
+-&gt; Either String (Maybe [MediaConnectFlow])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MediaConnectFlow]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-120"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe InputSourceType
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe InputSourceType)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text -&gt; Int -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InputSourceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputSourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text -&gt; Int -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeInputResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeInputResponse)
+-&gt; Either String Int -&gt; Either String DescribeInputResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679944236"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679944225"><span id="local-6989586621679944227"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput"><span class="hs-identifier hs-type">DescribeInput</span></a></span></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679944222"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput"><span class="hs-identifier hs-type">DescribeInput</span></a></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput"><span class="hs-identifier hs-type">DescribeInput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679944218"><span class="annot"><span class="annottext">toHeaders :: DescribeInput -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeInput -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-138"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput"><span class="hs-identifier hs-type">DescribeInput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679944212"><span class="annot"><span class="annottext">toPath :: DescribeInput -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput%27"><span class="hs-identifier hs-type">DescribeInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944210"><span class="annot"><span class="annottext">Text
+inputId :: Text
+$sel:inputId:DescribeInput' :: DescribeInput -&gt; Text
+</span><a href="#local-6989586621679944210"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/prod/inputs/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679944210"><span class="hs-identifier hs-var">inputId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInput"><span class="hs-identifier hs-type">DescribeInput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679944206"><span class="annot"><span class="annottext">toQuery :: DescribeInput -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeInput -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | Placeholder documentation for DescribeInputResponse</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- /See:/ 'newDescribeInputResponse' smart constructor.</span><span>
+</span><span id="line-153"></span><span id="local-6989586621679944203"><span id="local-6989586621679944204"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInputResponse"><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-var">DescribeInputResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInputResponse%27"><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-var">DescribeInputResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Astate%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe InputState
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Astate%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputState.html#InputState"><span class="hs-identifier hs-type">InputState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | A list of IDs for all the Input Security Groups attached to the input.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AsecurityGroups%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AsecurityGroups%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | The Unique ARN of the input (generated, immutable).</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3Aarn%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Aarn%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | Settings for the input devices.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AinputDevices%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe [InputDeviceSettings]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AinputDevices%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">inputDevices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceSettings.html#InputDeviceSettings"><span class="hs-identifier hs-type">InputDeviceSettings</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | A list of IDs for all Inputs which are partners of this one.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AinputPartnerIds%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AinputPartnerIds%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">inputPartnerIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | A list of the sources of the input (PULL-type).</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3Asources%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe [InputSource]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Asources%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">sources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSource.html#InputSource"><span class="hs-identifier hs-type">InputSource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | A list of the destinations of the input (PUSH-type).</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3Adestinations%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe [InputDestination]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Adestinations%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDestination.html#InputDestination"><span class="hs-identifier hs-type">InputDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | The user-assigned name (This is a mutable value).</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3Aname%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Aname%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | A list of channel IDs that that input is attached to (currently an input</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- can only be attached to one channel).</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AattachedChannels%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AattachedChannels%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">attachedChannels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The generated ID of the input (unique for user account, immutable).</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3Aid%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Aid%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | STANDARD - MediaLive expects two sources to be connected to this input.</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- If the channel is also STANDARD, both sources will be ingested. If the</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- channel is SINGLE_PIPELINE, only the first source will be ingested; the</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- second source will always be ignored, even if the first source fails.</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- SINGLE_PIPELINE - You can connect only one source to this input. If the</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- ChannelClass is also SINGLE_PIPELINE, this value is valid. If the</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- ChannelClass is STANDARD, this value is not valid because the channel</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- requires two sources in the input.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AinputClass%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe InputClass
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AinputClass%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">inputClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputClass.html#InputClass"><span class="hs-identifier hs-type">InputClass</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3Atype%27%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe InputType
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Atype%27%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputType.html#InputType"><span class="hs-identifier hs-type">InputType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | A list of MediaConnect Flows for this input.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AmediaConnectFlows%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe [MediaConnectFlow]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AmediaConnectFlows%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">mediaConnectFlows</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow"><span class="hs-identifier hs-type">MediaConnectFlow</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | Certain pull input sources can be dynamic, meaning that they can have</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- their URL\'s dynamically changes during input switch actions. Presently,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- this functionality only works with MP4_FILE and TS_FILE inputs.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3AinputSourceType%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe InputSourceType
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AinputSourceType%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">inputSourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSourceType.html#InputSourceType"><span class="hs-identifier hs-type">InputSourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | A collection of key-value pairs.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3Atags%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Atags%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the role this input assumes during and</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- after creation.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AroleArn%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AroleArn%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeInputResponse%27"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; Int
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AhttpStatus%3ADescribeInputResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679944182"><span id="local-6989586621679944184"><span class="annot"><span class="annottext">DescribeInputResponse -&gt; DescribeInputResponse -&gt; Bool
+(DescribeInputResponse -&gt; DescribeInputResponse -&gt; Bool)
+-&gt; (DescribeInputResponse -&gt; DescribeInputResponse -&gt; Bool)
+-&gt; Eq DescribeInputResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeInputResponse -&gt; DescribeInputResponse -&gt; Bool
+$c/= :: DescribeInputResponse -&gt; DescribeInputResponse -&gt; Bool
+== :: DescribeInputResponse -&gt; DescribeInputResponse -&gt; Bool
+$c== :: DescribeInputResponse -&gt; DescribeInputResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679944174"><span id="local-6989586621679944176"><span id="local-6989586621679944178"><span id="local-6989586621679944180"><span class="annot"><span class="annottext">ReadPrec [DescribeInputResponse]
+ReadPrec DescribeInputResponse
+Int -&gt; ReadS DescribeInputResponse
+ReadS [DescribeInputResponse]
+(Int -&gt; ReadS DescribeInputResponse)
+-&gt; ReadS [DescribeInputResponse]
+-&gt; ReadPrec DescribeInputResponse
+-&gt; ReadPrec [DescribeInputResponse]
+-&gt; Read DescribeInputResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeInputResponse]
+$creadListPrec :: ReadPrec [DescribeInputResponse]
+readPrec :: ReadPrec DescribeInputResponse
+$creadPrec :: ReadPrec DescribeInputResponse
+readList :: ReadS [DescribeInputResponse]
+$creadList :: ReadS [DescribeInputResponse]
+readsPrec :: Int -&gt; ReadS DescribeInputResponse
+$creadsPrec :: Int -&gt; ReadS DescribeInputResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679944168"><span id="local-6989586621679944170"><span id="local-6989586621679944172"><span class="annot"><span class="annottext">Int -&gt; DescribeInputResponse -&gt; ShowS
+[DescribeInputResponse] -&gt; ShowS
+DescribeInputResponse -&gt; String
+(Int -&gt; DescribeInputResponse -&gt; ShowS)
+-&gt; (DescribeInputResponse -&gt; String)
+-&gt; ([DescribeInputResponse] -&gt; ShowS)
+-&gt; Show DescribeInputResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeInputResponse] -&gt; ShowS
+$cshowList :: [DescribeInputResponse] -&gt; ShowS
+show :: DescribeInputResponse -&gt; String
+$cshow :: DescribeInputResponse -&gt; String
+showsPrec :: Int -&gt; DescribeInputResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeInputResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeInputResponse -&gt; Rep DescribeInputResponse x)
+-&gt; (forall x. Rep DescribeInputResponse x -&gt; DescribeInputResponse)
+-&gt; Generic DescribeInputResponse
+forall x. Rep DescribeInputResponse x -&gt; DescribeInputResponse
+forall x. DescribeInputResponse -&gt; Rep DescribeInputResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeInputResponse x -&gt; DescribeInputResponse
+$cfrom :: forall x. DescribeInputResponse -&gt; Rep DescribeInputResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Create a value of 'DescribeInputResponse' with all optional fields omitted.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'state', 'describeInputResponse_state' - Undocumented member.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'securityGroups', 'describeInputResponse_securityGroups' - A list of IDs for all the Input Security Groups attached to the input.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'arn', 'describeInputResponse_arn' - The Unique ARN of the input (generated, immutable).</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'inputDevices', 'describeInputResponse_inputDevices' - Settings for the input devices.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'inputPartnerIds', 'describeInputResponse_inputPartnerIds' - A list of IDs for all Inputs which are partners of this one.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'sources', 'describeInputResponse_sources' - A list of the sources of the input (PULL-type).</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'destinations', 'describeInputResponse_destinations' - A list of the destinations of the input (PUSH-type).</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'name', 'describeInputResponse_name' - The user-assigned name (This is a mutable value).</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'attachedChannels', 'describeInputResponse_attachedChannels' - A list of channel IDs that that input is attached to (currently an input</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- can only be attached to one channel).</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'id', 'describeInputResponse_id' - The generated ID of the input (unique for user account, immutable).</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'inputClass', 'describeInputResponse_inputClass' - STANDARD - MediaLive expects two sources to be connected to this input.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- If the channel is also STANDARD, both sources will be ingested. If the</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- channel is SINGLE_PIPELINE, only the first source will be ingested; the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- second source will always be ignored, even if the first source fails.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- SINGLE_PIPELINE - You can connect only one source to this input. If the</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- ChannelClass is also SINGLE_PIPELINE, this value is valid. If the</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- ChannelClass is STANDARD, this value is not valid because the channel</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- requires two sources in the input.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'type'', 'describeInputResponse_type' - Undocumented member.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- 'mediaConnectFlows', 'describeInputResponse_mediaConnectFlows' - A list of MediaConnect Flows for this input.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'inputSourceType', 'describeInputResponse_inputSourceType' - Certain pull input sources can be dynamic, meaning that they can have</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- their URL\'s dynamically changes during input switch actions. Presently,</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- this functionality only works with MP4_FILE and TS_FILE inputs.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- 'tags', 'describeInputResponse_tags' - A collection of key-value pairs.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'roleArn', 'describeInputResponse_roleArn' - The Amazon Resource Name (ARN) of the role this input assumes during and</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- after creation.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- 'httpStatus', 'describeInputResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#newDescribeInputResponse"><span class="hs-identifier hs-type">newDescribeInputResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-253"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-254"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-255"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span>
+</span><span id="line-256"></span><span id="newDescribeInputResponse"><span class="annot"><span class="annottext">newDescribeInputResponse :: Int -&gt; DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#newDescribeInputResponse"><span class="hs-identifier hs-var hs-var">newDescribeInputResponse</span></a></span></span><span> </span><span id="local-6989586621679944165"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679944165"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>  </span><span class="annot"><span class="annottext">DescribeInputResponse' :: Maybe InputState
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe [InputDeviceSettings]
+-&gt; Maybe [Text]
+-&gt; Maybe [InputSource]
+-&gt; Maybe [InputDestination]
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe InputClass
+-&gt; Maybe InputType
+-&gt; Maybe [MediaConnectFlow]
+-&gt; Maybe InputSourceType
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:DescribeInputResponse' :: Maybe InputState
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Astate%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityGroups:DescribeInputResponse' :: Maybe [Text]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AsecurityGroups%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DescribeInputResponse' :: Maybe Text
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Aarn%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputDevices:DescribeInputResponse' :: Maybe [InputDeviceSettings]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AinputDevices%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">inputDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputDeviceSettings]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputPartnerIds:DescribeInputResponse' :: Maybe [Text]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AinputPartnerIds%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">inputPartnerIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>      </span><span class="annot"><span class="annottext">$sel:sources:DescribeInputResponse' :: Maybe [InputSource]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Asources%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">sources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputSource]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinations:DescribeInputResponse' :: Maybe [InputDestination]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Adestinations%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputDestination]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DescribeInputResponse' :: Maybe Text
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Aname%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachedChannels:DescribeInputResponse' :: Maybe [Text]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AattachedChannels%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">attachedChannels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:DescribeInputResponse' :: Maybe Text
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Aid%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputClass:DescribeInputResponse' :: Maybe InputClass
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AinputClass%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">inputClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputClass
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':DescribeInputResponse' :: Maybe InputType
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Atype%27%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>      </span><span class="annot"><span class="annottext">$sel:mediaConnectFlows:DescribeInputResponse' :: Maybe [MediaConnectFlow]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AmediaConnectFlows%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">mediaConnectFlows</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MediaConnectFlow]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputSourceType:DescribeInputResponse' :: Maybe InputSourceType
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AinputSourceType%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">inputSourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputSourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:DescribeInputResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Atags%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:DescribeInputResponse' :: Maybe Text
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AroleArn%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInputResponse' :: Int
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AhttpStatus%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679944165"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-275"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_state"><span class="hs-identifier hs-type">describeInputResponse_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputState.html#InputState"><span class="hs-identifier hs-type">InputState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span id="describeInputResponse_state"><span class="annot"><span class="annottext">describeInputResponse_state :: (Maybe InputState -&gt; f (Maybe InputState))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_state"><span class="hs-identifier hs-var hs-var">describeInputResponse_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe InputState)
+-&gt; (DescribeInputResponse
+    -&gt; Maybe InputState -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe InputState)
+     (Maybe InputState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944164"><span class="annot"><span class="annottext">Maybe InputState
+state :: Maybe InputState
+$sel:state:DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe InputState
+</span><a href="#local-6989586621679944164"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputState
+</span><a href="#local-6989586621679944164"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944163"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944162"><span class="annot"><span class="annottext">Maybe InputState
+</span><a href="#local-6989586621679944162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:DescribeInputResponse' :: Maybe InputState
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Astate%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputState
+</span><a href="#local-6989586621679944162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | A list of IDs for all the Input Security Groups attached to the input.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_securityGroups"><span class="hs-identifier hs-type">describeInputResponse_securityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="describeInputResponse_securityGroups"><span class="annot"><span class="annottext">describeInputResponse_securityGroups :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_securityGroups"><span class="hs-identifier hs-var hs-var">describeInputResponse_securityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe [Text])
+-&gt; (DescribeInputResponse -&gt; Maybe [Text] -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944161"><span class="annot"><span class="annottext">Maybe [Text]
+securityGroups :: Maybe [Text]
+$sel:securityGroups:DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679944161"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679944161"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944160"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944159"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679944159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroups:DescribeInputResponse' :: Maybe [Text]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AsecurityGroups%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679944159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeInputResponse -&gt; f DescribeInputResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeInputResponse
+-&gt; f DescribeInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The Unique ARN of the input (generated, immutable).</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_arn"><span class="hs-identifier hs-type">describeInputResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="describeInputResponse_arn"><span class="annot"><span class="annottext">describeInputResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_arn"><span class="hs-identifier hs-var hs-var">describeInputResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe Text)
+-&gt; (DescribeInputResponse -&gt; Maybe Text -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944155"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679944155"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944155"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944154"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944153"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DescribeInputResponse' :: Maybe Text
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Aarn%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | Settings for the input devices.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_inputDevices"><span class="hs-identifier hs-type">describeInputResponse_inputDevices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDeviceSettings.html#InputDeviceSettings"><span class="hs-identifier hs-type">InputDeviceSettings</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="describeInputResponse_inputDevices"><span class="annot"><span class="annottext">describeInputResponse_inputDevices :: (Maybe [InputDeviceSettings] -&gt; f (Maybe [InputDeviceSettings]))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_inputDevices"><span class="hs-identifier hs-var hs-var">describeInputResponse_inputDevices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe [InputDeviceSettings])
+-&gt; (DescribeInputResponse
+    -&gt; Maybe [InputDeviceSettings] -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe [InputDeviceSettings])
+     (Maybe [InputDeviceSettings])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944152"><span class="annot"><span class="annottext">Maybe [InputDeviceSettings]
+inputDevices :: Maybe [InputDeviceSettings]
+$sel:inputDevices:DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe [InputDeviceSettings]
+</span><a href="#local-6989586621679944152"><span class="hs-identifier hs-var hs-var">inputDevices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputDeviceSettings]
+</span><a href="#local-6989586621679944152"><span class="hs-identifier hs-var">inputDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944151"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944150"><span class="annot"><span class="annottext">Maybe [InputDeviceSettings]
+</span><a href="#local-6989586621679944150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDevices:DescribeInputResponse' :: Maybe [InputDeviceSettings]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AinputDevices%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">inputDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputDeviceSettings]
+</span><a href="#local-6989586621679944150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputDeviceSettings] -&gt; f (Maybe [InputDeviceSettings]))
+ -&gt; DescribeInputResponse -&gt; f DescribeInputResponse)
+-&gt; ((Maybe [InputDeviceSettings]
+     -&gt; f (Maybe [InputDeviceSettings]))
+    -&gt; Maybe [InputDeviceSettings] -&gt; f (Maybe [InputDeviceSettings]))
+-&gt; (Maybe [InputDeviceSettings] -&gt; f (Maybe [InputDeviceSettings]))
+-&gt; DescribeInputResponse
+-&gt; f DescribeInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InputDeviceSettings]
+  [InputDeviceSettings]
+  [InputDeviceSettings]
+  [InputDeviceSettings]
+-&gt; Iso
+     (Maybe [InputDeviceSettings])
+     (Maybe [InputDeviceSettings])
+     (Maybe [InputDeviceSettings])
+     (Maybe [InputDeviceSettings])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InputDeviceSettings]
+  [InputDeviceSettings]
+  [InputDeviceSettings]
+  [InputDeviceSettings]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | A list of IDs for all Inputs which are partners of this one.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_inputPartnerIds"><span class="hs-identifier hs-type">describeInputResponse_inputPartnerIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span id="describeInputResponse_inputPartnerIds"><span class="annot"><span class="annottext">describeInputResponse_inputPartnerIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_inputPartnerIds"><span class="hs-identifier hs-var hs-var">describeInputResponse_inputPartnerIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe [Text])
+-&gt; (DescribeInputResponse -&gt; Maybe [Text] -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944149"><span class="annot"><span class="annottext">Maybe [Text]
+inputPartnerIds :: Maybe [Text]
+$sel:inputPartnerIds:DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679944149"><span class="hs-identifier hs-var hs-var">inputPartnerIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679944149"><span class="hs-identifier hs-var">inputPartnerIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944148"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944147"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679944147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputPartnerIds:DescribeInputResponse' :: Maybe [Text]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AinputPartnerIds%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">inputPartnerIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679944147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeInputResponse -&gt; f DescribeInputResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeInputResponse
+-&gt; f DescribeInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | A list of the sources of the input (PULL-type).</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_sources"><span class="hs-identifier hs-type">describeInputResponse_sources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSource.html#InputSource"><span class="hs-identifier hs-type">InputSource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span id="describeInputResponse_sources"><span class="annot"><span class="annottext">describeInputResponse_sources :: (Maybe [InputSource] -&gt; f (Maybe [InputSource]))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_sources"><span class="hs-identifier hs-var hs-var">describeInputResponse_sources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe [InputSource])
+-&gt; (DescribeInputResponse
+    -&gt; Maybe [InputSource] -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe [InputSource])
+     (Maybe [InputSource])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944146"><span class="annot"><span class="annottext">Maybe [InputSource]
+sources :: Maybe [InputSource]
+$sel:sources:DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe [InputSource]
+</span><a href="#local-6989586621679944146"><span class="hs-identifier hs-var hs-var">sources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputSource]
+</span><a href="#local-6989586621679944146"><span class="hs-identifier hs-var">sources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944145"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944144"><span class="annot"><span class="annottext">Maybe [InputSource]
+</span><a href="#local-6989586621679944144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sources:DescribeInputResponse' :: Maybe [InputSource]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Asources%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">sources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputSource]
+</span><a href="#local-6989586621679944144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputSource] -&gt; f (Maybe [InputSource]))
+ -&gt; DescribeInputResponse -&gt; f DescribeInputResponse)
+-&gt; ((Maybe [InputSource] -&gt; f (Maybe [InputSource]))
+    -&gt; Maybe [InputSource] -&gt; f (Maybe [InputSource]))
+-&gt; (Maybe [InputSource] -&gt; f (Maybe [InputSource]))
+-&gt; DescribeInputResponse
+-&gt; f DescribeInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [InputSource] [InputSource] [InputSource] [InputSource]
+-&gt; Iso
+     (Maybe [InputSource])
+     (Maybe [InputSource])
+     (Maybe [InputSource])
+     (Maybe [InputSource])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [InputSource] [InputSource] [InputSource] [InputSource]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- | A list of the destinations of the input (PUSH-type).</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_destinations"><span class="hs-identifier hs-type">describeInputResponse_destinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaLive.Types.InputDestination.html#InputDestination"><span class="hs-identifier hs-type">InputDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span id="describeInputResponse_destinations"><span class="annot"><span class="annottext">describeInputResponse_destinations :: (Maybe [InputDestination] -&gt; f (Maybe [InputDestination]))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_destinations"><span class="hs-identifier hs-var hs-var">describeInputResponse_destinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe [InputDestination])
+-&gt; (DescribeInputResponse
+    -&gt; Maybe [InputDestination] -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe [InputDestination])
+     (Maybe [InputDestination])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944143"><span class="annot"><span class="annottext">Maybe [InputDestination]
+destinations :: Maybe [InputDestination]
+$sel:destinations:DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe [InputDestination]
+</span><a href="#local-6989586621679944143"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputDestination]
+</span><a href="#local-6989586621679944143"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944142"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944141"><span class="annot"><span class="annottext">Maybe [InputDestination]
+</span><a href="#local-6989586621679944141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinations:DescribeInputResponse' :: Maybe [InputDestination]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Adestinations%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputDestination]
+</span><a href="#local-6989586621679944141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputDestination] -&gt; f (Maybe [InputDestination]))
+ -&gt; DescribeInputResponse -&gt; f DescribeInputResponse)
+-&gt; ((Maybe [InputDestination] -&gt; f (Maybe [InputDestination]))
+    -&gt; Maybe [InputDestination] -&gt; f (Maybe [InputDestination]))
+-&gt; (Maybe [InputDestination] -&gt; f (Maybe [InputDestination]))
+-&gt; DescribeInputResponse
+-&gt; f DescribeInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InputDestination]
+  [InputDestination]
+  [InputDestination]
+  [InputDestination]
+-&gt; Iso
+     (Maybe [InputDestination])
+     (Maybe [InputDestination])
+     (Maybe [InputDestination])
+     (Maybe [InputDestination])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InputDestination]
+  [InputDestination]
+  [InputDestination]
+  [InputDestination]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | The user-assigned name (This is a mutable value).</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_name"><span class="hs-identifier hs-type">describeInputResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span id="describeInputResponse_name"><span class="annot"><span class="annottext">describeInputResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_name"><span class="hs-identifier hs-var hs-var">describeInputResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe Text)
+-&gt; (DescribeInputResponse -&gt; Maybe Text -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944140"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679944140"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944140"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944139"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944138"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DescribeInputResponse' :: Maybe Text
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Aname%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | A list of channel IDs that that input is attached to (currently an input</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- can only be attached to one channel).</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_attachedChannels"><span class="hs-identifier hs-type">describeInputResponse_attachedChannels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span id="describeInputResponse_attachedChannels"><span class="annot"><span class="annottext">describeInputResponse_attachedChannels :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_attachedChannels"><span class="hs-identifier hs-var hs-var">describeInputResponse_attachedChannels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe [Text])
+-&gt; (DescribeInputResponse -&gt; Maybe [Text] -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944137"><span class="annot"><span class="annottext">Maybe [Text]
+attachedChannels :: Maybe [Text]
+$sel:attachedChannels:DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679944137"><span class="hs-identifier hs-var hs-var">attachedChannels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679944137"><span class="hs-identifier hs-var">attachedChannels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944136"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944135"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679944135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachedChannels:DescribeInputResponse' :: Maybe [Text]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AattachedChannels%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">attachedChannels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679944135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeInputResponse -&gt; f DescribeInputResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeInputResponse
+-&gt; f DescribeInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- | The generated ID of the input (unique for user account, immutable).</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_id"><span class="hs-identifier hs-type">describeInputResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span id="describeInputResponse_id"><span class="annot"><span class="annottext">describeInputResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_id"><span class="hs-identifier hs-var hs-var">describeInputResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe Text)
+-&gt; (DescribeInputResponse -&gt; Maybe Text -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944134"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679944134"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944134"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944133"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944132"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DescribeInputResponse' :: Maybe Text
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Aid%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- | STANDARD - MediaLive expects two sources to be connected to this input.</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- If the channel is also STANDARD, both sources will be ingested. If the</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- channel is SINGLE_PIPELINE, only the first source will be ingested; the</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- second source will always be ignored, even if the first source fails.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- SINGLE_PIPELINE - You can connect only one source to this input. If the</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- ChannelClass is also SINGLE_PIPELINE, this value is valid. If the</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- ChannelClass is STANDARD, this value is not valid because the channel</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- requires two sources in the input.</span><span>
+</span><span id="line-326"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_inputClass"><span class="hs-identifier hs-type">describeInputResponse_inputClass</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputClass.html#InputClass"><span class="hs-identifier hs-type">InputClass</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span id="describeInputResponse_inputClass"><span class="annot"><span class="annottext">describeInputResponse_inputClass :: (Maybe InputClass -&gt; f (Maybe InputClass))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_inputClass"><span class="hs-identifier hs-var hs-var">describeInputResponse_inputClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe InputClass)
+-&gt; (DescribeInputResponse
+    -&gt; Maybe InputClass -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe InputClass)
+     (Maybe InputClass)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944131"><span class="annot"><span class="annottext">Maybe InputClass
+inputClass :: Maybe InputClass
+$sel:inputClass:DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe InputClass
+</span><a href="#local-6989586621679944131"><span class="hs-identifier hs-var hs-var">inputClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputClass
+</span><a href="#local-6989586621679944131"><span class="hs-identifier hs-var">inputClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944130"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944129"><span class="annot"><span class="annottext">Maybe InputClass
+</span><a href="#local-6989586621679944129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputClass:DescribeInputResponse' :: Maybe InputClass
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AinputClass%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">inputClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputClass
+</span><a href="#local-6989586621679944129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-330"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_type"><span class="hs-identifier hs-type">describeInputResponse_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputType.html#InputType"><span class="hs-identifier hs-type">InputType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span id="describeInputResponse_type"><span class="annot"><span class="annottext">describeInputResponse_type :: (Maybe InputType -&gt; f (Maybe InputType))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_type"><span class="hs-identifier hs-var hs-var">describeInputResponse_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe InputType)
+-&gt; (DescribeInputResponse
+    -&gt; Maybe InputType -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe InputType)
+     (Maybe InputType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944128"><span class="annot"><span class="annottext">Maybe InputType
+type' :: Maybe InputType
+$sel:type':DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe InputType
+</span><a href="#local-6989586621679944128"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputType
+</span><a href="#local-6989586621679944128"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944127"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944126"><span class="annot"><span class="annottext">Maybe InputType
+</span><a href="#local-6989586621679944126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DescribeInputResponse' :: Maybe InputType
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Atype%27%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputType
+</span><a href="#local-6989586621679944126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- | A list of MediaConnect Flows for this input.</span><span>
+</span><span id="line-334"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_mediaConnectFlows"><span class="hs-identifier hs-type">describeInputResponse_mediaConnectFlows</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow"><span class="hs-identifier hs-type">MediaConnectFlow</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span id="describeInputResponse_mediaConnectFlows"><span class="annot"><span class="annottext">describeInputResponse_mediaConnectFlows :: (Maybe [MediaConnectFlow] -&gt; f (Maybe [MediaConnectFlow]))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_mediaConnectFlows"><span class="hs-identifier hs-var hs-var">describeInputResponse_mediaConnectFlows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe [MediaConnectFlow])
+-&gt; (DescribeInputResponse
+    -&gt; Maybe [MediaConnectFlow] -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe [MediaConnectFlow])
+     (Maybe [MediaConnectFlow])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944125"><span class="annot"><span class="annottext">Maybe [MediaConnectFlow]
+mediaConnectFlows :: Maybe [MediaConnectFlow]
+$sel:mediaConnectFlows:DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe [MediaConnectFlow]
+</span><a href="#local-6989586621679944125"><span class="hs-identifier hs-var hs-var">mediaConnectFlows</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MediaConnectFlow]
+</span><a href="#local-6989586621679944125"><span class="hs-identifier hs-var">mediaConnectFlows</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944124"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944123"><span class="annot"><span class="annottext">Maybe [MediaConnectFlow]
+</span><a href="#local-6989586621679944123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaConnectFlows:DescribeInputResponse' :: Maybe [MediaConnectFlow]
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AmediaConnectFlows%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">mediaConnectFlows</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MediaConnectFlow]
+</span><a href="#local-6989586621679944123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MediaConnectFlow] -&gt; f (Maybe [MediaConnectFlow]))
+ -&gt; DescribeInputResponse -&gt; f DescribeInputResponse)
+-&gt; ((Maybe [MediaConnectFlow] -&gt; f (Maybe [MediaConnectFlow]))
+    -&gt; Maybe [MediaConnectFlow] -&gt; f (Maybe [MediaConnectFlow]))
+-&gt; (Maybe [MediaConnectFlow] -&gt; f (Maybe [MediaConnectFlow]))
+-&gt; DescribeInputResponse
+-&gt; f DescribeInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MediaConnectFlow]
+  [MediaConnectFlow]
+  [MediaConnectFlow]
+  [MediaConnectFlow]
+-&gt; Iso
+     (Maybe [MediaConnectFlow])
+     (Maybe [MediaConnectFlow])
+     (Maybe [MediaConnectFlow])
+     (Maybe [MediaConnectFlow])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MediaConnectFlow]
+  [MediaConnectFlow]
+  [MediaConnectFlow]
+  [MediaConnectFlow]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | Certain pull input sources can be dynamic, meaning that they can have</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- their URL\'s dynamically changes during input switch actions. Presently,</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- this functionality only works with MP4_FILE and TS_FILE inputs.</span><span>
+</span><span id="line-340"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_inputSourceType"><span class="hs-identifier hs-type">describeInputResponse_inputSourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputSourceType.html#InputSourceType"><span class="hs-identifier hs-type">InputSourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span id="describeInputResponse_inputSourceType"><span class="annot"><span class="annottext">describeInputResponse_inputSourceType :: (Maybe InputSourceType -&gt; f (Maybe InputSourceType))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_inputSourceType"><span class="hs-identifier hs-var hs-var">describeInputResponse_inputSourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe InputSourceType)
+-&gt; (DescribeInputResponse
+    -&gt; Maybe InputSourceType -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe InputSourceType)
+     (Maybe InputSourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944122"><span class="annot"><span class="annottext">Maybe InputSourceType
+inputSourceType :: Maybe InputSourceType
+$sel:inputSourceType:DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe InputSourceType
+</span><a href="#local-6989586621679944122"><span class="hs-identifier hs-var hs-var">inputSourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputSourceType
+</span><a href="#local-6989586621679944122"><span class="hs-identifier hs-var">inputSourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944121"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944120"><span class="annot"><span class="annottext">Maybe InputSourceType
+</span><a href="#local-6989586621679944120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputSourceType:DescribeInputResponse' :: Maybe InputSourceType
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AinputSourceType%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">inputSourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputSourceType
+</span><a href="#local-6989586621679944120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- | A collection of key-value pairs.</span><span>
+</span><span id="line-344"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_tags"><span class="hs-identifier hs-type">describeInputResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span id="describeInputResponse_tags"><span class="annot"><span class="annottext">describeInputResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_tags"><span class="hs-identifier hs-var hs-var">describeInputResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (DescribeInputResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944119"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679944119"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679944119"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944118"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944117"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679944117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DescribeInputResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3Atags%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679944117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; DescribeInputResponse -&gt; f DescribeInputResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DescribeInputResponse
+-&gt; f DescribeInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-346"></span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the role this input assumes during and</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- after creation.</span><span>
+</span><span id="line-349"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_roleArn"><span class="hs-identifier hs-type">describeInputResponse_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span id="describeInputResponse_roleArn"><span class="annot"><span class="annottext">describeInputResponse_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_roleArn"><span class="hs-identifier hs-var hs-var">describeInputResponse_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Maybe Text)
+-&gt; (DescribeInputResponse -&gt; Maybe Text -&gt; DescribeInputResponse)
+-&gt; Lens
+     DescribeInputResponse
+     DescribeInputResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944116"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:DescribeInputResponse' :: DescribeInputResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679944116"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944116"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944115"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944114"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:DescribeInputResponse' :: Maybe Text
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AroleArn%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-353"></span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_httpStatus"><span class="hs-identifier hs-type">describeInputResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-354"></span><span id="describeInputResponse_httpStatus"><span class="annot"><span class="annottext">describeInputResponse_httpStatus :: (Int -&gt; f Int) -&gt; DescribeInputResponse -&gt; f DescribeInputResponse
+</span><a href="Amazonka.MediaLive.DescribeInput.html#describeInputResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeInputResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInputResponse -&gt; Int)
+-&gt; (DescribeInputResponse -&gt; Int -&gt; DescribeInputResponse)
+-&gt; Lens DescribeInputResponse DescribeInputResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944113"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeInputResponse' :: DescribeInputResponse -&gt; Int
+</span><a href="#local-6989586621679944113"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679944113"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944112"><span class="annot"><span class="annottext">s :: DescribeInputResponse
+</span><a href="#local-6989586621679944112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse%27"><span class="hs-identifier hs-type">DescribeInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944111"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679944111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInputResponse
+</span><a href="#local-6989586621679944112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInputResponse' :: Int
+</span><a href="Amazonka.MediaLive.DescribeInput.html#%24sel%3AhttpStatus%3ADescribeInputResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679944111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-355"></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679944109"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.DescribeInput.html#DescribeInputResponse"><span class="hs-identifier hs-type">DescribeInputResponse</span></a></span></span><span>
+</span><span id="line-357"></span></pre></body></html>

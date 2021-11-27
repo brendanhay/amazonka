@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.OfferingType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.OfferingType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.OfferingType.html#OfferingType"><span class="hs-identifier">OfferingType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.OfferingType.html#OfferingType_NO_UPFRONT"><span class="hs-identifier">OfferingType_NO_UPFRONT</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Offering type, e.g. \'NO_UPFRONT\'</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679909556"><span id="local-6989586621679909557"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OfferingType"><span class="annot"><a href="Amazonka.MediaLive.Types.OfferingType.html#OfferingType"><span class="hs-identifier hs-var">OfferingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OfferingType%27"><span class="annot"><a href="Amazonka.MediaLive.Types.OfferingType.html#OfferingType%27"><span class="hs-identifier hs-var">OfferingType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOfferingType"><span class="annot"><span class="annottext">OfferingType -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.OfferingType.html#fromOfferingType"><span class="hs-identifier hs-var hs-var">fromOfferingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679909548"><span id="local-6989586621679909550"><span id="local-6989586621679909552"><span class="annot"><span class="annottext">Int -&gt; OfferingType -&gt; ShowS
+[OfferingType] -&gt; ShowS
+OfferingType -&gt; String
+(Int -&gt; OfferingType -&gt; ShowS)
+-&gt; (OfferingType -&gt; String)
+-&gt; ([OfferingType] -&gt; ShowS)
+-&gt; Show OfferingType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OfferingType] -&gt; ShowS
+$cshowList :: [OfferingType] -&gt; ShowS
+show :: OfferingType -&gt; String
+$cshow :: OfferingType -&gt; String
+showsPrec :: Int -&gt; OfferingType -&gt; ShowS
+$cshowsPrec :: Int -&gt; OfferingType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679909539"><span id="local-6989586621679909541"><span id="local-6989586621679909543"><span id="local-6989586621679909545"><span class="annot"><span class="annottext">ReadPrec [OfferingType]
+ReadPrec OfferingType
+Int -&gt; ReadS OfferingType
+ReadS [OfferingType]
+(Int -&gt; ReadS OfferingType)
+-&gt; ReadS [OfferingType]
+-&gt; ReadPrec OfferingType
+-&gt; ReadPrec [OfferingType]
+-&gt; Read OfferingType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OfferingType]
+$creadListPrec :: ReadPrec [OfferingType]
+readPrec :: ReadPrec OfferingType
+$creadPrec :: ReadPrec OfferingType
+readList :: ReadS [OfferingType]
+$creadList :: ReadS [OfferingType]
+readsPrec :: Int -&gt; ReadS OfferingType
+$creadsPrec :: Int -&gt; ReadS OfferingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679909534"><span id="local-6989586621679909536"><span class="annot"><span class="annottext">OfferingType -&gt; OfferingType -&gt; Bool
+(OfferingType -&gt; OfferingType -&gt; Bool)
+-&gt; (OfferingType -&gt; OfferingType -&gt; Bool) -&gt; Eq OfferingType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OfferingType -&gt; OfferingType -&gt; Bool
+$c/= :: OfferingType -&gt; OfferingType -&gt; Bool
+== :: OfferingType -&gt; OfferingType -&gt; Bool
+$c== :: OfferingType -&gt; OfferingType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679909518"><span id="local-6989586621679909520"><span id="local-6989586621679909522"><span id="local-6989586621679909524"><span id="local-6989586621679909526"><span id="local-6989586621679909528"><span id="local-6989586621679909530"><span class="annot"><span class="annottext">Eq OfferingType
+Eq OfferingType
+-&gt; (OfferingType -&gt; OfferingType -&gt; Ordering)
+-&gt; (OfferingType -&gt; OfferingType -&gt; Bool)
+-&gt; (OfferingType -&gt; OfferingType -&gt; Bool)
+-&gt; (OfferingType -&gt; OfferingType -&gt; Bool)
+-&gt; (OfferingType -&gt; OfferingType -&gt; Bool)
+-&gt; (OfferingType -&gt; OfferingType -&gt; OfferingType)
+-&gt; (OfferingType -&gt; OfferingType -&gt; OfferingType)
+-&gt; Ord OfferingType
+OfferingType -&gt; OfferingType -&gt; Bool
+OfferingType -&gt; OfferingType -&gt; Ordering
+OfferingType -&gt; OfferingType -&gt; OfferingType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: OfferingType -&gt; OfferingType -&gt; OfferingType
+$cmin :: OfferingType -&gt; OfferingType -&gt; OfferingType
+max :: OfferingType -&gt; OfferingType -&gt; OfferingType
+$cmax :: OfferingType -&gt; OfferingType -&gt; OfferingType
+&gt;= :: OfferingType -&gt; OfferingType -&gt; Bool
+$c&gt;= :: OfferingType -&gt; OfferingType -&gt; Bool
+&gt; :: OfferingType -&gt; OfferingType -&gt; Bool
+$c&gt; :: OfferingType -&gt; OfferingType -&gt; Bool
+&lt;= :: OfferingType -&gt; OfferingType -&gt; Bool
+$c&lt;= :: OfferingType -&gt; OfferingType -&gt; Bool
+&lt; :: OfferingType -&gt; OfferingType -&gt; Bool
+$c&lt; :: OfferingType -&gt; OfferingType -&gt; Bool
+compare :: OfferingType -&gt; OfferingType -&gt; Ordering
+$ccompare :: OfferingType -&gt; OfferingType -&gt; Ordering
+$cp1Ord :: Eq OfferingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. OfferingType -&gt; Rep OfferingType x)
+-&gt; (forall x. Rep OfferingType x -&gt; OfferingType)
+-&gt; Generic OfferingType
+forall x. Rep OfferingType x -&gt; OfferingType
+forall x. OfferingType -&gt; Rep OfferingType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OfferingType x -&gt; OfferingType
+$cfrom :: forall x. OfferingType -&gt; Rep OfferingType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679909510"><span id="local-6989586621679909512"><span class="annot"><span class="annottext">Int -&gt; OfferingType -&gt; Int
+OfferingType -&gt; Int
+(Int -&gt; OfferingType -&gt; Int)
+-&gt; (OfferingType -&gt; Int) -&gt; Hashable OfferingType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: OfferingType -&gt; Int
+$chash :: OfferingType -&gt; Int
+hashWithSalt :: Int -&gt; OfferingType -&gt; Int
+$chashWithSalt :: Int -&gt; OfferingType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679909507"><span class="annot"><span class="annottext">OfferingType -&gt; ()
+(OfferingType -&gt; ()) -&gt; NFData OfferingType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: OfferingType -&gt; ()
+$crnf :: OfferingType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679909504"><span class="annot"><span class="annottext">Text -&gt; Either String OfferingType
+(Text -&gt; Either String OfferingType) -&gt; FromText OfferingType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String OfferingType
+$cfromText :: Text -&gt; Either String OfferingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679909501"><span class="annot"><span class="annottext">OfferingType -&gt; Text
+(OfferingType -&gt; Text) -&gt; ToText OfferingType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: OfferingType -&gt; Text
+$ctoText :: OfferingType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679909498"><span class="annot"><span class="annottext">OfferingType -&gt; ByteString
+(OfferingType -&gt; ByteString) -&gt; ToByteString OfferingType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: OfferingType -&gt; ByteString
+$ctoBS :: OfferingType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679909495"><span class="annot"><span class="annottext">OfferingType -&gt; ByteStringBuilder
+(OfferingType -&gt; ByteStringBuilder) -&gt; ToLog OfferingType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: OfferingType -&gt; ByteStringBuilder
+$cbuild :: OfferingType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679909492"><span class="annot"><span class="annottext">HeaderName -&gt; OfferingType -&gt; [Header]
+(HeaderName -&gt; OfferingType -&gt; [Header]) -&gt; ToHeader OfferingType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; OfferingType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; OfferingType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679909489"><span class="annot"><span class="annottext">OfferingType -&gt; QueryString
+(OfferingType -&gt; QueryString) -&gt; ToQuery OfferingType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: OfferingType -&gt; QueryString
+$ctoQuery :: OfferingType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679909484"><span id="local-6989586621679909486"><span class="annot"><span class="annottext">Value -&gt; Parser [OfferingType]
+Value -&gt; Parser OfferingType
+(Value -&gt; Parser OfferingType)
+-&gt; (Value -&gt; Parser [OfferingType]) -&gt; FromJSON OfferingType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [OfferingType]
+$cparseJSONList :: Value -&gt; Parser [OfferingType]
+parseJSON :: Value -&gt; Parser OfferingType
+$cparseJSON :: Value -&gt; Parser OfferingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679909479"><span id="local-6989586621679909481"><span class="annot"><span class="annottext">FromJSONKeyFunction [OfferingType]
+FromJSONKeyFunction OfferingType
+FromJSONKeyFunction OfferingType
+-&gt; FromJSONKeyFunction [OfferingType] -&gt; FromJSONKey OfferingType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [OfferingType]
+$cfromJSONKeyList :: FromJSONKeyFunction [OfferingType]
+fromJSONKey :: FromJSONKeyFunction OfferingType
+$cfromJSONKey :: FromJSONKeyFunction OfferingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679909470"><span id="local-6989586621679909472"><span id="local-6989586621679909474"><span id="local-6989586621679909476"><span class="annot"><span class="annottext">[OfferingType] -&gt; Encoding
+[OfferingType] -&gt; Value
+OfferingType -&gt; Encoding
+OfferingType -&gt; Value
+(OfferingType -&gt; Value)
+-&gt; (OfferingType -&gt; Encoding)
+-&gt; ([OfferingType] -&gt; Value)
+-&gt; ([OfferingType] -&gt; Encoding)
+-&gt; ToJSON OfferingType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [OfferingType] -&gt; Encoding
+$ctoEncodingList :: [OfferingType] -&gt; Encoding
+toJSONList :: [OfferingType] -&gt; Value
+$ctoJSONList :: [OfferingType] -&gt; Value
+toEncoding :: OfferingType -&gt; Encoding
+$ctoEncoding :: OfferingType -&gt; Encoding
+toJSON :: OfferingType -&gt; Value
+$ctoJSON :: OfferingType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679909465"><span id="local-6989586621679909467"><span class="annot"><span class="annottext">ToJSONKeyFunction [OfferingType]
+ToJSONKeyFunction OfferingType
+ToJSONKeyFunction OfferingType
+-&gt; ToJSONKeyFunction [OfferingType] -&gt; ToJSONKey OfferingType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [OfferingType]
+$ctoJSONKeyList :: ToJSONKeyFunction [OfferingType]
+toJSONKey :: ToJSONKeyFunction OfferingType
+$ctoJSONKey :: ToJSONKeyFunction OfferingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679909462"><span class="annot"><span class="annottext">[Node] -&gt; Either String OfferingType
+([Node] -&gt; Either String OfferingType) -&gt; FromXML OfferingType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String OfferingType
+$cparseXML :: [Node] -&gt; Either String OfferingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679909459"><span class="annot"><span class="annottext">OfferingType -&gt; XML
+(OfferingType -&gt; XML) -&gt; ToXML OfferingType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: OfferingType -&gt; XML
+$ctoXML :: OfferingType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.OfferingType.html#OfferingType_NO_UPFRONT"><span class="hs-identifier hs-type">OfferingType_NO_UPFRONT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.OfferingType.html#OfferingType"><span class="hs-identifier hs-type">OfferingType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOfferingType_NO_UPFRONT"><span id="%24mOfferingType_NO_UPFRONT"><span id="OfferingType_NO_UPFRONT"><span class="annot"><span class="annottext">$bOfferingType_NO_UPFRONT :: OfferingType
+$mOfferingType_NO_UPFRONT :: forall r. OfferingType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.OfferingType.html#%24bOfferingType_NO_UPFRONT"><span class="hs-identifier hs-var hs-var hs-var">OfferingType_NO_UPFRONT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.OfferingType.html#OfferingType%27"><span class="hs-identifier hs-type">OfferingType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_UPFRONT&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.OfferingType.html#OfferingType_NO_UPFRONT"><span class="hs-pragma hs-type">OfferingType_NO_UPFRONT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.OfferingType.html#OfferingType%27"><span class="hs-pragma hs-type">OfferingType'</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-67"></span></pre></body></html>

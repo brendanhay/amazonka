@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SSM.GetDefaultPatchBaseline</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the default patch baseline. Amazon Web Services Systems</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Manager supports creating multiple default patch baselines. For example,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- you can create a default patch baseline for each operating system.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- If you don\'t specify an operating system value, the default patch</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- baseline for Windows is returned.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.GetDefaultPatchBaseline</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier">GetDefaultPatchBaseline</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#newGetDefaultPatchBaseline"><span class="hs-identifier">newGetDefaultPatchBaseline</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaseline_operatingSystem"><span class="hs-identifier">getDefaultPatchBaseline_operatingSystem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier">GetDefaultPatchBaselineResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#newGetDefaultPatchBaselineResponse"><span class="hs-identifier">newGetDefaultPatchBaselineResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_operatingSystem"><span class="hs-identifier">getDefaultPatchBaselineResponse_operatingSystem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_baselineId"><span class="hs-identifier">getDefaultPatchBaselineResponse_baselineId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_httpStatus"><span class="hs-identifier">getDefaultPatchBaselineResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.html"><span class="hs-identifier">Amazonka.SSM.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newGetDefaultPatchBaseline' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679838883"><span id="local-6989586621679838884"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDefaultPatchBaseline"><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-var">GetDefaultPatchBaseline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDefaultPatchBaseline%27"><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline%27"><span class="hs-identifier hs-var">GetDefaultPatchBaseline'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns the default patch baseline for the specified operating system.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AoperatingSystem%3AGetDefaultPatchBaseline%27"><span class="annot"><span class="annottext">GetDefaultPatchBaseline -&gt; Maybe OperatingSystem
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#%24sel%3AoperatingSystem%3AGetDefaultPatchBaseline%27"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679838877"><span id="local-6989586621679838879"><span class="annot"><span class="annottext">GetDefaultPatchBaseline -&gt; GetDefaultPatchBaseline -&gt; Bool
+(GetDefaultPatchBaseline -&gt; GetDefaultPatchBaseline -&gt; Bool)
+-&gt; (GetDefaultPatchBaseline -&gt; GetDefaultPatchBaseline -&gt; Bool)
+-&gt; Eq GetDefaultPatchBaseline
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDefaultPatchBaseline -&gt; GetDefaultPatchBaseline -&gt; Bool
+$c/= :: GetDefaultPatchBaseline -&gt; GetDefaultPatchBaseline -&gt; Bool
+== :: GetDefaultPatchBaseline -&gt; GetDefaultPatchBaseline -&gt; Bool
+$c== :: GetDefaultPatchBaseline -&gt; GetDefaultPatchBaseline -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838868"><span id="local-6989586621679838870"><span id="local-6989586621679838872"><span id="local-6989586621679838874"><span class="annot"><span class="annottext">ReadPrec [GetDefaultPatchBaseline]
+ReadPrec GetDefaultPatchBaseline
+Int -&gt; ReadS GetDefaultPatchBaseline
+ReadS [GetDefaultPatchBaseline]
+(Int -&gt; ReadS GetDefaultPatchBaseline)
+-&gt; ReadS [GetDefaultPatchBaseline]
+-&gt; ReadPrec GetDefaultPatchBaseline
+-&gt; ReadPrec [GetDefaultPatchBaseline]
+-&gt; Read GetDefaultPatchBaseline
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDefaultPatchBaseline]
+$creadListPrec :: ReadPrec [GetDefaultPatchBaseline]
+readPrec :: ReadPrec GetDefaultPatchBaseline
+$creadPrec :: ReadPrec GetDefaultPatchBaseline
+readList :: ReadS [GetDefaultPatchBaseline]
+$creadList :: ReadS [GetDefaultPatchBaseline]
+readsPrec :: Int -&gt; ReadS GetDefaultPatchBaseline
+$creadsPrec :: Int -&gt; ReadS GetDefaultPatchBaseline
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838861"><span id="local-6989586621679838863"><span id="local-6989586621679838865"><span class="annot"><span class="annottext">Int -&gt; GetDefaultPatchBaseline -&gt; ShowS
+[GetDefaultPatchBaseline] -&gt; ShowS
+GetDefaultPatchBaseline -&gt; String
+(Int -&gt; GetDefaultPatchBaseline -&gt; ShowS)
+-&gt; (GetDefaultPatchBaseline -&gt; String)
+-&gt; ([GetDefaultPatchBaseline] -&gt; ShowS)
+-&gt; Show GetDefaultPatchBaseline
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDefaultPatchBaseline] -&gt; ShowS
+$cshowList :: [GetDefaultPatchBaseline] -&gt; ShowS
+show :: GetDefaultPatchBaseline -&gt; String
+$cshow :: GetDefaultPatchBaseline -&gt; String
+showsPrec :: Int -&gt; GetDefaultPatchBaseline -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDefaultPatchBaseline -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDefaultPatchBaseline -&gt; Rep GetDefaultPatchBaseline x)
+-&gt; (forall x.
+    Rep GetDefaultPatchBaseline x -&gt; GetDefaultPatchBaseline)
+-&gt; Generic GetDefaultPatchBaseline
+forall x. Rep GetDefaultPatchBaseline x -&gt; GetDefaultPatchBaseline
+forall x. GetDefaultPatchBaseline -&gt; Rep GetDefaultPatchBaseline x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDefaultPatchBaseline x -&gt; GetDefaultPatchBaseline
+$cfrom :: forall x. GetDefaultPatchBaseline -&gt; Rep GetDefaultPatchBaseline x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'GetDefaultPatchBaseline' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'operatingSystem', 'getDefaultPatchBaseline_operatingSystem' - Returns the default patch baseline for the specified operating system.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#newGetDefaultPatchBaseline"><span class="hs-identifier hs-type">newGetDefaultPatchBaseline</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span><span>
+</span><span id="line-73"></span><span id="newGetDefaultPatchBaseline"><span class="annot"><span class="annottext">newGetDefaultPatchBaseline :: GetDefaultPatchBaseline
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#newGetDefaultPatchBaseline"><span class="hs-identifier hs-var hs-var">newGetDefaultPatchBaseline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">GetDefaultPatchBaseline' :: Maybe OperatingSystem -&gt; GetDefaultPatchBaseline
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline%27"><span class="hs-identifier hs-type">GetDefaultPatchBaseline'</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operatingSystem:GetDefaultPatchBaseline' :: Maybe OperatingSystem
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#%24sel%3AoperatingSystem%3AGetDefaultPatchBaseline%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Returns the default patch baseline for the specified operating system.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaseline_operatingSystem"><span class="hs-identifier hs-type">getDefaultPatchBaseline_operatingSystem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="getDefaultPatchBaseline_operatingSystem"><span class="annot"><span class="annottext">getDefaultPatchBaseline_operatingSystem :: (Maybe OperatingSystem -&gt; f (Maybe OperatingSystem))
+-&gt; GetDefaultPatchBaseline -&gt; f GetDefaultPatchBaseline
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaseline_operatingSystem"><span class="hs-identifier hs-var hs-var">getDefaultPatchBaseline_operatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDefaultPatchBaseline -&gt; Maybe OperatingSystem)
+-&gt; (GetDefaultPatchBaseline
+    -&gt; Maybe OperatingSystem -&gt; GetDefaultPatchBaseline)
+-&gt; Lens
+     GetDefaultPatchBaseline
+     GetDefaultPatchBaseline
+     (Maybe OperatingSystem)
+     (Maybe OperatingSystem)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline%27"><span class="hs-identifier hs-type">GetDefaultPatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838854"><span class="annot"><span class="annottext">Maybe OperatingSystem
+operatingSystem :: Maybe OperatingSystem
+$sel:operatingSystem:GetDefaultPatchBaseline' :: GetDefaultPatchBaseline -&gt; Maybe OperatingSystem
+</span><a href="#local-6989586621679838854"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679838854"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838853"><span class="annot"><span class="annottext">s :: GetDefaultPatchBaseline
+</span><a href="#local-6989586621679838853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline%27"><span class="hs-identifier hs-type">GetDefaultPatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838852"><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679838852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDefaultPatchBaseline
+</span><a href="#local-6989586621679838853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystem:GetDefaultPatchBaseline' :: Maybe OperatingSystem
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#%24sel%3AoperatingSystem%3AGetDefaultPatchBaseline%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679838852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679838848"><span class="annot"><span class="annottext">request :: GetDefaultPatchBaseline -&gt; Request GetDefaultPatchBaseline
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetDefaultPatchBaseline -&gt; Request GetDefaultPatchBaseline
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679838844"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDefaultPatchBaseline
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDefaultPatchBaseline)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDefaultPatchBaseline))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDefaultPatchBaseline
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDefaultPatchBaseline)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679838841"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679838841"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679838840"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679838840"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679838839"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679838839"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+-&gt; Maybe Text -&gt; Int -&gt; GetDefaultPatchBaselineResponse
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">GetDefaultPatchBaselineResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OperatingSystem
+ -&gt; Maybe Text -&gt; Int -&gt; GetDefaultPatchBaselineResponse)
+-&gt; Either String (Maybe OperatingSystem)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; GetDefaultPatchBaselineResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679838839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OperatingSystem)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OperatingSystem&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; GetDefaultPatchBaselineResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetDefaultPatchBaselineResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679838839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BaselineId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDefaultPatchBaselineResponse)
+-&gt; Either String Int
+-&gt; Either String GetDefaultPatchBaselineResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679838841"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679838831"><span id="local-6989586621679838833"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679838828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679838824"><span class="annot"><span class="annottext">toHeaders :: GetDefaultPatchBaseline -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDefaultPatchBaseline -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonSSM.GetDefaultPatchBaseline&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-108"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-112"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679838814"><span id="local-6989586621679838816"><span id="local-6989586621679838818"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679838812"><span class="annot"><span class="annottext">toJSON :: GetDefaultPatchBaseline -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline%27"><span class="hs-identifier hs-type">GetDefaultPatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838810"><span class="annot"><span class="annottext">Maybe OperatingSystem
+operatingSystem :: Maybe OperatingSystem
+$sel:operatingSystem:GetDefaultPatchBaseline' :: GetDefaultPatchBaseline -&gt; Maybe OperatingSystem
+</span><a href="#local-6989586621679838810"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OperatingSystem&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OperatingSystem -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">(OperatingSystem -&gt; Pair) -&gt; Maybe OperatingSystem -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679838810"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679838804"><span class="annot"><span class="annottext">toPath :: GetDefaultPatchBaseline -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDefaultPatchBaseline -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679838800"><span class="annot"><span class="annottext">toQuery :: GetDefaultPatchBaseline -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDefaultPatchBaseline -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newGetDefaultPatchBaselineResponse' smart constructor.</span><span>
+</span><span id="line-132"></span><span id="local-6989586621679838797"><span id="local-6989586621679838798"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDefaultPatchBaselineResponse"><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-var">GetDefaultPatchBaselineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDefaultPatchBaselineResponse%27"><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">GetDefaultPatchBaselineResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The operating system for the returned patch baseline.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AoperatingSystem%3AGetDefaultPatchBaselineResponse%27"><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse -&gt; Maybe OperatingSystem
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#%24sel%3AoperatingSystem%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The ID of the default patch baseline.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AbaselineId%3AGetDefaultPatchBaselineResponse%27"><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#%24sel%3AbaselineId%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDefaultPatchBaselineResponse%27"><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse -&gt; Int
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#%24sel%3AhttpStatus%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679838790"><span id="local-6989586621679838792"><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse
+-&gt; GetDefaultPatchBaselineResponse -&gt; Bool
+(GetDefaultPatchBaselineResponse
+ -&gt; GetDefaultPatchBaselineResponse -&gt; Bool)
+-&gt; (GetDefaultPatchBaselineResponse
+    -&gt; GetDefaultPatchBaselineResponse -&gt; Bool)
+-&gt; Eq GetDefaultPatchBaselineResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDefaultPatchBaselineResponse
+-&gt; GetDefaultPatchBaselineResponse -&gt; Bool
+$c/= :: GetDefaultPatchBaselineResponse
+-&gt; GetDefaultPatchBaselineResponse -&gt; Bool
+== :: GetDefaultPatchBaselineResponse
+-&gt; GetDefaultPatchBaselineResponse -&gt; Bool
+$c== :: GetDefaultPatchBaselineResponse
+-&gt; GetDefaultPatchBaselineResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838782"><span id="local-6989586621679838784"><span id="local-6989586621679838786"><span id="local-6989586621679838788"><span class="annot"><span class="annottext">ReadPrec [GetDefaultPatchBaselineResponse]
+ReadPrec GetDefaultPatchBaselineResponse
+Int -&gt; ReadS GetDefaultPatchBaselineResponse
+ReadS [GetDefaultPatchBaselineResponse]
+(Int -&gt; ReadS GetDefaultPatchBaselineResponse)
+-&gt; ReadS [GetDefaultPatchBaselineResponse]
+-&gt; ReadPrec GetDefaultPatchBaselineResponse
+-&gt; ReadPrec [GetDefaultPatchBaselineResponse]
+-&gt; Read GetDefaultPatchBaselineResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDefaultPatchBaselineResponse]
+$creadListPrec :: ReadPrec [GetDefaultPatchBaselineResponse]
+readPrec :: ReadPrec GetDefaultPatchBaselineResponse
+$creadPrec :: ReadPrec GetDefaultPatchBaselineResponse
+readList :: ReadS [GetDefaultPatchBaselineResponse]
+$creadList :: ReadS [GetDefaultPatchBaselineResponse]
+readsPrec :: Int -&gt; ReadS GetDefaultPatchBaselineResponse
+$creadsPrec :: Int -&gt; ReadS GetDefaultPatchBaselineResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838776"><span id="local-6989586621679838778"><span id="local-6989586621679838780"><span class="annot"><span class="annottext">Int -&gt; GetDefaultPatchBaselineResponse -&gt; ShowS
+[GetDefaultPatchBaselineResponse] -&gt; ShowS
+GetDefaultPatchBaselineResponse -&gt; String
+(Int -&gt; GetDefaultPatchBaselineResponse -&gt; ShowS)
+-&gt; (GetDefaultPatchBaselineResponse -&gt; String)
+-&gt; ([GetDefaultPatchBaselineResponse] -&gt; ShowS)
+-&gt; Show GetDefaultPatchBaselineResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDefaultPatchBaselineResponse] -&gt; ShowS
+$cshowList :: [GetDefaultPatchBaselineResponse] -&gt; ShowS
+show :: GetDefaultPatchBaselineResponse -&gt; String
+$cshow :: GetDefaultPatchBaselineResponse -&gt; String
+showsPrec :: Int -&gt; GetDefaultPatchBaselineResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDefaultPatchBaselineResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDefaultPatchBaselineResponse
+ -&gt; Rep GetDefaultPatchBaselineResponse x)
+-&gt; (forall x.
+    Rep GetDefaultPatchBaselineResponse x
+    -&gt; GetDefaultPatchBaselineResponse)
+-&gt; Generic GetDefaultPatchBaselineResponse
+forall x.
+Rep GetDefaultPatchBaselineResponse x
+-&gt; GetDefaultPatchBaselineResponse
+forall x.
+GetDefaultPatchBaselineResponse
+-&gt; Rep GetDefaultPatchBaselineResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetDefaultPatchBaselineResponse x
+-&gt; GetDefaultPatchBaselineResponse
+$cfrom :: forall x.
+GetDefaultPatchBaselineResponse
+-&gt; Rep GetDefaultPatchBaselineResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'GetDefaultPatchBaselineResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'operatingSystem', 'getDefaultPatchBaselineResponse_operatingSystem' - The operating system for the returned patch baseline.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'baselineId', 'getDefaultPatchBaselineResponse_baselineId' - The ID of the default patch baseline.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'httpStatus', 'getDefaultPatchBaselineResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#newGetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">newGetDefaultPatchBaselineResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span>
+</span><span id="line-159"></span><span id="newGetDefaultPatchBaselineResponse"><span class="annot"><span class="annottext">newGetDefaultPatchBaselineResponse :: Int -&gt; GetDefaultPatchBaselineResponse
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#newGetDefaultPatchBaselineResponse"><span class="hs-identifier hs-var hs-var">newGetDefaultPatchBaselineResponse</span></a></span></span><span> </span><span id="local-6989586621679838773"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679838773"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse' :: Maybe OperatingSystem
+-&gt; Maybe Text -&gt; Int -&gt; GetDefaultPatchBaselineResponse
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operatingSystem:GetDefaultPatchBaselineResponse' :: Maybe OperatingSystem
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#%24sel%3AoperatingSystem%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:baselineId:GetDefaultPatchBaselineResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#%24sel%3AbaselineId%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">baselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDefaultPatchBaselineResponse' :: Int
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#%24sel%3AhttpStatus%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679838773"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The operating system for the returned patch baseline.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_operatingSystem"><span class="hs-identifier hs-type">getDefaultPatchBaselineResponse_operatingSystem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="getDefaultPatchBaselineResponse_operatingSystem"><span class="annot"><span class="annottext">getDefaultPatchBaselineResponse_operatingSystem :: (Maybe OperatingSystem -&gt; f (Maybe OperatingSystem))
+-&gt; GetDefaultPatchBaselineResponse
+-&gt; f GetDefaultPatchBaselineResponse
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_operatingSystem"><span class="hs-identifier hs-var hs-var">getDefaultPatchBaselineResponse_operatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDefaultPatchBaselineResponse -&gt; Maybe OperatingSystem)
+-&gt; (GetDefaultPatchBaselineResponse
+    -&gt; Maybe OperatingSystem -&gt; GetDefaultPatchBaselineResponse)
+-&gt; Lens
+     GetDefaultPatchBaselineResponse
+     GetDefaultPatchBaselineResponse
+     (Maybe OperatingSystem)
+     (Maybe OperatingSystem)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838772"><span class="annot"><span class="annottext">Maybe OperatingSystem
+operatingSystem :: Maybe OperatingSystem
+$sel:operatingSystem:GetDefaultPatchBaselineResponse' :: GetDefaultPatchBaselineResponse -&gt; Maybe OperatingSystem
+</span><a href="#local-6989586621679838772"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679838772"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838771"><span class="annot"><span class="annottext">s :: GetDefaultPatchBaselineResponse
+</span><a href="#local-6989586621679838771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838770"><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679838770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse
+</span><a href="#local-6989586621679838771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystem:GetDefaultPatchBaselineResponse' :: Maybe OperatingSystem
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#%24sel%3AoperatingSystem%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679838770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The ID of the default patch baseline.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_baselineId"><span class="hs-identifier hs-type">getDefaultPatchBaselineResponse_baselineId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="getDefaultPatchBaselineResponse_baselineId"><span class="annot"><span class="annottext">getDefaultPatchBaselineResponse_baselineId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDefaultPatchBaselineResponse
+-&gt; f GetDefaultPatchBaselineResponse
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_baselineId"><span class="hs-identifier hs-var hs-var">getDefaultPatchBaselineResponse_baselineId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDefaultPatchBaselineResponse -&gt; Maybe Text)
+-&gt; (GetDefaultPatchBaselineResponse
+    -&gt; Maybe Text -&gt; GetDefaultPatchBaselineResponse)
+-&gt; Lens
+     GetDefaultPatchBaselineResponse
+     GetDefaultPatchBaselineResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838769"><span class="annot"><span class="annottext">Maybe Text
+baselineId :: Maybe Text
+$sel:baselineId:GetDefaultPatchBaselineResponse' :: GetDefaultPatchBaselineResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679838769"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679838769"><span class="hs-identifier hs-var">baselineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838768"><span class="annot"><span class="annottext">s :: GetDefaultPatchBaselineResponse
+</span><a href="#local-6989586621679838768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838767"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679838767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse
+</span><a href="#local-6989586621679838768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baselineId:GetDefaultPatchBaselineResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#%24sel%3AbaselineId%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">baselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679838767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_httpStatus"><span class="hs-identifier hs-type">getDefaultPatchBaselineResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-177"></span><span id="getDefaultPatchBaselineResponse_httpStatus"><span class="annot"><span class="annottext">getDefaultPatchBaselineResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDefaultPatchBaselineResponse
+-&gt; f GetDefaultPatchBaselineResponse
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDefaultPatchBaselineResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDefaultPatchBaselineResponse -&gt; Int)
+-&gt; (GetDefaultPatchBaselineResponse
+    -&gt; Int -&gt; GetDefaultPatchBaselineResponse)
+-&gt; Lens
+     GetDefaultPatchBaselineResponse
+     GetDefaultPatchBaselineResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838766"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDefaultPatchBaselineResponse' :: GetDefaultPatchBaselineResponse -&gt; Int
+</span><a href="#local-6989586621679838766"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679838766"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838765"><span class="annot"><span class="annottext">s :: GetDefaultPatchBaselineResponse
+</span><a href="#local-6989586621679838765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838764"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679838764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse
+</span><a href="#local-6989586621679838765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDefaultPatchBaselineResponse' :: Int
+</span><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#%24sel%3AhttpStatus%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679838764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679838762"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span></span><span>
+</span><span id="line-182"></span></pre></body></html>

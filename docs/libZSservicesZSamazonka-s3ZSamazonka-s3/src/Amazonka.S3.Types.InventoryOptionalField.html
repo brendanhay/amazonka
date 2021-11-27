@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.S3.Types.InventoryOptionalField</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.Types.InventoryOptionalField</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier">InventoryOptionalField</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_BucketKeyStatus"><span class="hs-identifier">InventoryOptionalField_BucketKeyStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_ETag"><span class="hs-identifier">InventoryOptionalField_ETag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_EncryptionStatus"><span class="hs-identifier">InventoryOptionalField_EncryptionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_IntelligentTieringAccessTier"><span class="hs-identifier">InventoryOptionalField_IntelligentTieringAccessTier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_IsMultipartUploaded"><span class="hs-identifier">InventoryOptionalField_IsMultipartUploaded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_LastModifiedDate"><span class="hs-identifier">InventoryOptionalField_LastModifiedDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_ObjectLockLegalHoldStatus"><span class="hs-identifier">InventoryOptionalField_ObjectLockLegalHoldStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_ObjectLockMode"><span class="hs-identifier">InventoryOptionalField_ObjectLockMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_ObjectLockRetainUntilDate"><span class="hs-identifier">InventoryOptionalField_ObjectLockRetainUntilDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_ReplicationStatus"><span class="hs-identifier">InventoryOptionalField_ReplicationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_Size"><span class="hs-identifier">InventoryOptionalField_Size</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_StorageClass"><span class="hs-identifier">InventoryOptionalField_StorageClass</span></a></span><span>
+</span><span id="line-35"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html"><span class="hs-identifier">Amazonka.S3.Internal</span></a></span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679543162"><span id="local-6989586621679543163"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventoryOptionalField"><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-var">InventoryOptionalField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryOptionalField%27"><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-identifier hs-var">InventoryOptionalField'</span></a></span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInventoryOptionalField"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; Text
+</span><a href="Amazonka.S3.Types.InventoryOptionalField.html#fromInventoryOptionalField"><span class="hs-identifier hs-var hs-var">fromInventoryOptionalField</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679543154"><span id="local-6989586621679543156"><span id="local-6989586621679543158"><span class="annot"><span class="annottext">Int -&gt; InventoryOptionalField -&gt; ShowS
+[InventoryOptionalField] -&gt; ShowS
+InventoryOptionalField -&gt; String
+(Int -&gt; InventoryOptionalField -&gt; ShowS)
+-&gt; (InventoryOptionalField -&gt; String)
+-&gt; ([InventoryOptionalField] -&gt; ShowS)
+-&gt; Show InventoryOptionalField
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InventoryOptionalField] -&gt; ShowS
+$cshowList :: [InventoryOptionalField] -&gt; ShowS
+show :: InventoryOptionalField -&gt; String
+$cshow :: InventoryOptionalField -&gt; String
+showsPrec :: Int -&gt; InventoryOptionalField -&gt; ShowS
+$cshowsPrec :: Int -&gt; InventoryOptionalField -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679543145"><span id="local-6989586621679543147"><span id="local-6989586621679543149"><span id="local-6989586621679543151"><span class="annot"><span class="annottext">ReadPrec [InventoryOptionalField]
+ReadPrec InventoryOptionalField
+Int -&gt; ReadS InventoryOptionalField
+ReadS [InventoryOptionalField]
+(Int -&gt; ReadS InventoryOptionalField)
+-&gt; ReadS [InventoryOptionalField]
+-&gt; ReadPrec InventoryOptionalField
+-&gt; ReadPrec [InventoryOptionalField]
+-&gt; Read InventoryOptionalField
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InventoryOptionalField]
+$creadListPrec :: ReadPrec [InventoryOptionalField]
+readPrec :: ReadPrec InventoryOptionalField
+$creadPrec :: ReadPrec InventoryOptionalField
+readList :: ReadS [InventoryOptionalField]
+$creadList :: ReadS [InventoryOptionalField]
+readsPrec :: Int -&gt; ReadS InventoryOptionalField
+$creadsPrec :: Int -&gt; ReadS InventoryOptionalField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679543140"><span id="local-6989586621679543142"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
+(InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool)
+-&gt; (InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool)
+-&gt; Eq InventoryOptionalField
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
+$c/= :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
+== :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
+$c== :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679543124"><span id="local-6989586621679543126"><span id="local-6989586621679543128"><span id="local-6989586621679543130"><span id="local-6989586621679543132"><span id="local-6989586621679543134"><span id="local-6989586621679543136"><span class="annot"><span class="annottext">Eq InventoryOptionalField
+Eq InventoryOptionalField
+-&gt; (InventoryOptionalField -&gt; InventoryOptionalField -&gt; Ordering)
+-&gt; (InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool)
+-&gt; (InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool)
+-&gt; (InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool)
+-&gt; (InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool)
+-&gt; (InventoryOptionalField
+    -&gt; InventoryOptionalField -&gt; InventoryOptionalField)
+-&gt; (InventoryOptionalField
+    -&gt; InventoryOptionalField -&gt; InventoryOptionalField)
+-&gt; Ord InventoryOptionalField
+InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
+InventoryOptionalField -&gt; InventoryOptionalField -&gt; Ordering
+InventoryOptionalField
+-&gt; InventoryOptionalField -&gt; InventoryOptionalField
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InventoryOptionalField
+-&gt; InventoryOptionalField -&gt; InventoryOptionalField
+$cmin :: InventoryOptionalField
+-&gt; InventoryOptionalField -&gt; InventoryOptionalField
+max :: InventoryOptionalField
+-&gt; InventoryOptionalField -&gt; InventoryOptionalField
+$cmax :: InventoryOptionalField
+-&gt; InventoryOptionalField -&gt; InventoryOptionalField
+&gt;= :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
+$c&gt;= :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
+&gt; :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
+$c&gt; :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
+&lt;= :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
+$c&lt;= :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
+&lt; :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
+$c&lt; :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
+compare :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Ordering
+$ccompare :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Ordering
+$cp1Ord :: Eq InventoryOptionalField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InventoryOptionalField -&gt; Rep InventoryOptionalField x)
+-&gt; (forall x.
+    Rep InventoryOptionalField x -&gt; InventoryOptionalField)
+-&gt; Generic InventoryOptionalField
+forall x. Rep InventoryOptionalField x -&gt; InventoryOptionalField
+forall x. InventoryOptionalField -&gt; Rep InventoryOptionalField x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InventoryOptionalField x -&gt; InventoryOptionalField
+$cfrom :: forall x. InventoryOptionalField -&gt; Rep InventoryOptionalField x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679543116"><span id="local-6989586621679543118"><span class="annot"><span class="annottext">Int -&gt; InventoryOptionalField -&gt; Int
+InventoryOptionalField -&gt; Int
+(Int -&gt; InventoryOptionalField -&gt; Int)
+-&gt; (InventoryOptionalField -&gt; Int)
+-&gt; Hashable InventoryOptionalField
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InventoryOptionalField -&gt; Int
+$chash :: InventoryOptionalField -&gt; Int
+hashWithSalt :: Int -&gt; InventoryOptionalField -&gt; Int
+$chashWithSalt :: Int -&gt; InventoryOptionalField -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679543113"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; ()
+(InventoryOptionalField -&gt; ()) -&gt; NFData InventoryOptionalField
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InventoryOptionalField -&gt; ()
+$crnf :: InventoryOptionalField -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679543110"><span class="annot"><span class="annottext">Text -&gt; Either String InventoryOptionalField
+(Text -&gt; Either String InventoryOptionalField)
+-&gt; FromText InventoryOptionalField
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InventoryOptionalField
+$cfromText :: Text -&gt; Either String InventoryOptionalField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679543107"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; Text
+(InventoryOptionalField -&gt; Text) -&gt; ToText InventoryOptionalField
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InventoryOptionalField -&gt; Text
+$ctoText :: InventoryOptionalField -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679543104"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; ByteString
+(InventoryOptionalField -&gt; ByteString)
+-&gt; ToByteString InventoryOptionalField
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InventoryOptionalField -&gt; ByteString
+$ctoBS :: InventoryOptionalField -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679543101"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; ByteStringBuilder
+(InventoryOptionalField -&gt; ByteStringBuilder)
+-&gt; ToLog InventoryOptionalField
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InventoryOptionalField -&gt; ByteStringBuilder
+$cbuild :: InventoryOptionalField -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679543098"><span class="annot"><span class="annottext">HeaderName -&gt; InventoryOptionalField -&gt; [Header]
+(HeaderName -&gt; InventoryOptionalField -&gt; [Header])
+-&gt; ToHeader InventoryOptionalField
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InventoryOptionalField -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InventoryOptionalField -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679543095"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; QueryString
+(InventoryOptionalField -&gt; QueryString)
+-&gt; ToQuery InventoryOptionalField
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InventoryOptionalField -&gt; QueryString
+$ctoQuery :: InventoryOptionalField -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679543090"><span id="local-6989586621679543092"><span class="annot"><span class="annottext">Value -&gt; Parser [InventoryOptionalField]
+Value -&gt; Parser InventoryOptionalField
+(Value -&gt; Parser InventoryOptionalField)
+-&gt; (Value -&gt; Parser [InventoryOptionalField])
+-&gt; FromJSON InventoryOptionalField
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InventoryOptionalField]
+$cparseJSONList :: Value -&gt; Parser [InventoryOptionalField]
+parseJSON :: Value -&gt; Parser InventoryOptionalField
+$cparseJSON :: Value -&gt; Parser InventoryOptionalField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679543085"><span id="local-6989586621679543087"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventoryOptionalField]
+FromJSONKeyFunction InventoryOptionalField
+FromJSONKeyFunction InventoryOptionalField
+-&gt; FromJSONKeyFunction [InventoryOptionalField]
+-&gt; FromJSONKey InventoryOptionalField
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InventoryOptionalField]
+$cfromJSONKeyList :: FromJSONKeyFunction [InventoryOptionalField]
+fromJSONKey :: FromJSONKeyFunction InventoryOptionalField
+$cfromJSONKey :: FromJSONKeyFunction InventoryOptionalField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679543076"><span id="local-6989586621679543078"><span id="local-6989586621679543080"><span id="local-6989586621679543082"><span class="annot"><span class="annottext">[InventoryOptionalField] -&gt; Encoding
+[InventoryOptionalField] -&gt; Value
+InventoryOptionalField -&gt; Encoding
+InventoryOptionalField -&gt; Value
+(InventoryOptionalField -&gt; Value)
+-&gt; (InventoryOptionalField -&gt; Encoding)
+-&gt; ([InventoryOptionalField] -&gt; Value)
+-&gt; ([InventoryOptionalField] -&gt; Encoding)
+-&gt; ToJSON InventoryOptionalField
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InventoryOptionalField] -&gt; Encoding
+$ctoEncodingList :: [InventoryOptionalField] -&gt; Encoding
+toJSONList :: [InventoryOptionalField] -&gt; Value
+$ctoJSONList :: [InventoryOptionalField] -&gt; Value
+toEncoding :: InventoryOptionalField -&gt; Encoding
+$ctoEncoding :: InventoryOptionalField -&gt; Encoding
+toJSON :: InventoryOptionalField -&gt; Value
+$ctoJSON :: InventoryOptionalField -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679543071"><span id="local-6989586621679543073"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventoryOptionalField]
+ToJSONKeyFunction InventoryOptionalField
+ToJSONKeyFunction InventoryOptionalField
+-&gt; ToJSONKeyFunction [InventoryOptionalField]
+-&gt; ToJSONKey InventoryOptionalField
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InventoryOptionalField]
+$ctoJSONKeyList :: ToJSONKeyFunction [InventoryOptionalField]
+toJSONKey :: ToJSONKeyFunction InventoryOptionalField
+$ctoJSONKey :: ToJSONKeyFunction InventoryOptionalField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679543068"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventoryOptionalField
+([Node] -&gt; Either String InventoryOptionalField)
+-&gt; FromXML InventoryOptionalField
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InventoryOptionalField
+$cparseXML :: [Node] -&gt; Either String InventoryOptionalField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679543065"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; XML
+(InventoryOptionalField -&gt; XML) -&gt; ToXML InventoryOptionalField
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InventoryOptionalField -&gt; XML
+$ctoXML :: InventoryOptionalField -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_BucketKeyStatus"><span class="hs-identifier hs-type">InventoryOptionalField_BucketKeyStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-type">InventoryOptionalField</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryOptionalField_BucketKeyStatus"><span id="%24mInventoryOptionalField_BucketKeyStatus"><span id="InventoryOptionalField_BucketKeyStatus"><span class="annot"><span class="annottext">$bInventoryOptionalField_BucketKeyStatus :: InventoryOptionalField
+$mInventoryOptionalField_BucketKeyStatus :: forall r.
+InventoryOptionalField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.InventoryOptionalField.html#%24bInventoryOptionalField_BucketKeyStatus"><span class="hs-identifier hs-var hs-var hs-var">InventoryOptionalField_BucketKeyStatus</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-identifier hs-type">InventoryOptionalField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BucketKeyStatus&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_ETag"><span class="hs-identifier hs-type">InventoryOptionalField_ETag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-type">InventoryOptionalField</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryOptionalField_ETag"><span id="%24mInventoryOptionalField_ETag"><span id="InventoryOptionalField_ETag"><span class="annot"><span class="annottext">$bInventoryOptionalField_ETag :: InventoryOptionalField
+$mInventoryOptionalField_ETag :: forall r.
+InventoryOptionalField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.InventoryOptionalField.html#%24bInventoryOptionalField_ETag"><span class="hs-identifier hs-var hs-var hs-var">InventoryOptionalField_ETag</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-identifier hs-type">InventoryOptionalField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ETag&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_EncryptionStatus"><span class="hs-identifier hs-type">InventoryOptionalField_EncryptionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-type">InventoryOptionalField</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryOptionalField_EncryptionStatus"><span id="%24mInventoryOptionalField_EncryptionStatus"><span id="InventoryOptionalField_EncryptionStatus"><span class="annot"><span class="annottext">$bInventoryOptionalField_EncryptionStatus :: InventoryOptionalField
+$mInventoryOptionalField_EncryptionStatus :: forall r.
+InventoryOptionalField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.InventoryOptionalField.html#%24bInventoryOptionalField_EncryptionStatus"><span class="hs-identifier hs-var hs-var hs-var">InventoryOptionalField_EncryptionStatus</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-identifier hs-type">InventoryOptionalField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EncryptionStatus&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_IntelligentTieringAccessTier"><span class="hs-identifier hs-type">InventoryOptionalField_IntelligentTieringAccessTier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-type">InventoryOptionalField</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryOptionalField_IntelligentTieringAccessTier"><span id="%24mInventoryOptionalField_IntelligentTieringAccessTier"><span id="InventoryOptionalField_IntelligentTieringAccessTier"><span class="annot"><span class="annottext">$bInventoryOptionalField_IntelligentTieringAccessTier :: InventoryOptionalField
+$mInventoryOptionalField_IntelligentTieringAccessTier :: forall r.
+InventoryOptionalField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.InventoryOptionalField.html#%24bInventoryOptionalField_IntelligentTieringAccessTier"><span class="hs-identifier hs-var hs-var hs-var">InventoryOptionalField_IntelligentTieringAccessTier</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-identifier hs-type">InventoryOptionalField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IntelligentTieringAccessTier&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_IsMultipartUploaded"><span class="hs-identifier hs-type">InventoryOptionalField_IsMultipartUploaded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-type">InventoryOptionalField</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryOptionalField_IsMultipartUploaded"><span id="%24mInventoryOptionalField_IsMultipartUploaded"><span id="InventoryOptionalField_IsMultipartUploaded"><span class="annot"><span class="annottext">$bInventoryOptionalField_IsMultipartUploaded :: InventoryOptionalField
+$mInventoryOptionalField_IsMultipartUploaded :: forall r.
+InventoryOptionalField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.InventoryOptionalField.html#%24bInventoryOptionalField_IsMultipartUploaded"><span class="hs-identifier hs-var hs-var hs-var">InventoryOptionalField_IsMultipartUploaded</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-identifier hs-type">InventoryOptionalField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IsMultipartUploaded&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_LastModifiedDate"><span class="hs-identifier hs-type">InventoryOptionalField_LastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-type">InventoryOptionalField</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryOptionalField_LastModifiedDate"><span id="%24mInventoryOptionalField_LastModifiedDate"><span id="InventoryOptionalField_LastModifiedDate"><span class="annot"><span class="annottext">$bInventoryOptionalField_LastModifiedDate :: InventoryOptionalField
+$mInventoryOptionalField_LastModifiedDate :: forall r.
+InventoryOptionalField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.InventoryOptionalField.html#%24bInventoryOptionalField_LastModifiedDate"><span class="hs-identifier hs-var hs-var hs-var">InventoryOptionalField_LastModifiedDate</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-identifier hs-type">InventoryOptionalField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LastModifiedDate&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_ObjectLockLegalHoldStatus"><span class="hs-identifier hs-type">InventoryOptionalField_ObjectLockLegalHoldStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-type">InventoryOptionalField</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryOptionalField_ObjectLockLegalHoldStatus"><span id="%24mInventoryOptionalField_ObjectLockLegalHoldStatus"><span id="InventoryOptionalField_ObjectLockLegalHoldStatus"><span class="annot"><span class="annottext">$bInventoryOptionalField_ObjectLockLegalHoldStatus :: InventoryOptionalField
+$mInventoryOptionalField_ObjectLockLegalHoldStatus :: forall r.
+InventoryOptionalField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.InventoryOptionalField.html#%24bInventoryOptionalField_ObjectLockLegalHoldStatus"><span class="hs-identifier hs-var hs-var hs-var">InventoryOptionalField_ObjectLockLegalHoldStatus</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-identifier hs-type">InventoryOptionalField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ObjectLockLegalHoldStatus&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_ObjectLockMode"><span class="hs-identifier hs-type">InventoryOptionalField_ObjectLockMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-type">InventoryOptionalField</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryOptionalField_ObjectLockMode"><span id="%24mInventoryOptionalField_ObjectLockMode"><span id="InventoryOptionalField_ObjectLockMode"><span class="annot"><span class="annottext">$bInventoryOptionalField_ObjectLockMode :: InventoryOptionalField
+$mInventoryOptionalField_ObjectLockMode :: forall r.
+InventoryOptionalField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.InventoryOptionalField.html#%24bInventoryOptionalField_ObjectLockMode"><span class="hs-identifier hs-var hs-var hs-var">InventoryOptionalField_ObjectLockMode</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-identifier hs-type">InventoryOptionalField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ObjectLockMode&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_ObjectLockRetainUntilDate"><span class="hs-identifier hs-type">InventoryOptionalField_ObjectLockRetainUntilDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-type">InventoryOptionalField</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryOptionalField_ObjectLockRetainUntilDate"><span id="%24mInventoryOptionalField_ObjectLockRetainUntilDate"><span id="InventoryOptionalField_ObjectLockRetainUntilDate"><span class="annot"><span class="annottext">$bInventoryOptionalField_ObjectLockRetainUntilDate :: InventoryOptionalField
+$mInventoryOptionalField_ObjectLockRetainUntilDate :: forall r.
+InventoryOptionalField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.InventoryOptionalField.html#%24bInventoryOptionalField_ObjectLockRetainUntilDate"><span class="hs-identifier hs-var hs-var hs-var">InventoryOptionalField_ObjectLockRetainUntilDate</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-identifier hs-type">InventoryOptionalField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ObjectLockRetainUntilDate&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_ReplicationStatus"><span class="hs-identifier hs-type">InventoryOptionalField_ReplicationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-type">InventoryOptionalField</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryOptionalField_ReplicationStatus"><span id="%24mInventoryOptionalField_ReplicationStatus"><span id="InventoryOptionalField_ReplicationStatus"><span class="annot"><span class="annottext">$bInventoryOptionalField_ReplicationStatus :: InventoryOptionalField
+$mInventoryOptionalField_ReplicationStatus :: forall r.
+InventoryOptionalField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.InventoryOptionalField.html#%24bInventoryOptionalField_ReplicationStatus"><span class="hs-identifier hs-var hs-var hs-var">InventoryOptionalField_ReplicationStatus</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-identifier hs-type">InventoryOptionalField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ReplicationStatus&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_Size"><span class="hs-identifier hs-type">InventoryOptionalField_Size</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-type">InventoryOptionalField</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryOptionalField_Size"><span id="%24mInventoryOptionalField_Size"><span id="InventoryOptionalField_Size"><span class="annot"><span class="annottext">$bInventoryOptionalField_Size :: InventoryOptionalField
+$mInventoryOptionalField_Size :: forall r.
+InventoryOptionalField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.InventoryOptionalField.html#%24bInventoryOptionalField_Size"><span class="hs-identifier hs-var hs-var hs-var">InventoryOptionalField_Size</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-identifier hs-type">InventoryOptionalField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Size&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_StorageClass"><span class="hs-identifier hs-type">InventoryOptionalField_StorageClass</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-type">InventoryOptionalField</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryOptionalField_StorageClass"><span id="%24mInventoryOptionalField_StorageClass"><span id="InventoryOptionalField_StorageClass"><span class="annot"><span class="annottext">$bInventoryOptionalField_StorageClass :: InventoryOptionalField
+$mInventoryOptionalField_StorageClass :: forall r.
+InventoryOptionalField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.InventoryOptionalField.html#%24bInventoryOptionalField_StorageClass"><span class="hs-identifier hs-var hs-var hs-var">InventoryOptionalField_StorageClass</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-identifier hs-type">InventoryOptionalField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;StorageClass&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_BucketKeyStatus"><span class="hs-pragma hs-type">InventoryOptionalField_BucketKeyStatus</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_ETag"><span class="hs-pragma hs-type">InventoryOptionalField_ETag</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_EncryptionStatus"><span class="hs-pragma hs-type">InventoryOptionalField_EncryptionStatus</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_IntelligentTieringAccessTier"><span class="hs-pragma hs-type">InventoryOptionalField_IntelligentTieringAccessTier</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_IsMultipartUploaded"><span class="hs-pragma hs-type">InventoryOptionalField_IsMultipartUploaded</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_LastModifiedDate"><span class="hs-pragma hs-type">InventoryOptionalField_LastModifiedDate</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_ObjectLockLegalHoldStatus"><span class="hs-pragma hs-type">InventoryOptionalField_ObjectLockLegalHoldStatus</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_ObjectLockMode"><span class="hs-pragma hs-type">InventoryOptionalField_ObjectLockMode</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_ObjectLockRetainUntilDate"><span class="hs-pragma hs-type">InventoryOptionalField_ObjectLockRetainUntilDate</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_ReplicationStatus"><span class="hs-pragma hs-type">InventoryOptionalField_ReplicationStatus</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_Size"><span class="hs-pragma hs-type">InventoryOptionalField_Size</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField_StorageClass"><span class="hs-pragma hs-type">InventoryOptionalField_StorageClass</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-pragma hs-type">InventoryOptionalField'</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-122"></span></pre></body></html>

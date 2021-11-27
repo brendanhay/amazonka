@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppStream.Types.ImageBuilderState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppStream.Types.ImageBuilderState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState"><span class="hs-identifier">ImageBuilderState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_DELETING"><span class="hs-identifier">ImageBuilderState_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_FAILED"><span class="hs-identifier">ImageBuilderState_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_PENDING"><span class="hs-identifier">ImageBuilderState_PENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_PENDING_QUALIFICATION"><span class="hs-identifier">ImageBuilderState_PENDING_QUALIFICATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_REBOOTING"><span class="hs-identifier">ImageBuilderState_REBOOTING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_RUNNING"><span class="hs-identifier">ImageBuilderState_RUNNING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_SNAPSHOTTING"><span class="hs-identifier">ImageBuilderState_SNAPSHOTTING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_STOPPED"><span class="hs-identifier">ImageBuilderState_STOPPED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_STOPPING"><span class="hs-identifier">ImageBuilderState_STOPPING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_UPDATING"><span class="hs-identifier">ImageBuilderState_UPDATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_UPDATING_AGENT"><span class="hs-identifier">ImageBuilderState_UPDATING_AGENT</span></a></span><span>
+</span><span id="line-34"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679286476"><span id="local-6989586621679286477"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageBuilderState"><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState"><span class="hs-identifier hs-var">ImageBuilderState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageBuilderState%27"><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState%27"><span class="hs-identifier hs-var">ImageBuilderState'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromImageBuilderState"><span class="annot"><span class="annottext">ImageBuilderState -&gt; Text
+</span><a href="Amazonka.AppStream.Types.ImageBuilderState.html#fromImageBuilderState"><span class="hs-identifier hs-var hs-var">fromImageBuilderState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679286468"><span id="local-6989586621679286470"><span id="local-6989586621679286472"><span class="annot"><span class="annottext">Int -&gt; ImageBuilderState -&gt; ShowS
+[ImageBuilderState] -&gt; ShowS
+ImageBuilderState -&gt; String
+(Int -&gt; ImageBuilderState -&gt; ShowS)
+-&gt; (ImageBuilderState -&gt; String)
+-&gt; ([ImageBuilderState] -&gt; ShowS)
+-&gt; Show ImageBuilderState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImageBuilderState] -&gt; ShowS
+$cshowList :: [ImageBuilderState] -&gt; ShowS
+show :: ImageBuilderState -&gt; String
+$cshow :: ImageBuilderState -&gt; String
+showsPrec :: Int -&gt; ImageBuilderState -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImageBuilderState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679286459"><span id="local-6989586621679286461"><span id="local-6989586621679286463"><span id="local-6989586621679286465"><span class="annot"><span class="annottext">ReadPrec [ImageBuilderState]
+ReadPrec ImageBuilderState
+Int -&gt; ReadS ImageBuilderState
+ReadS [ImageBuilderState]
+(Int -&gt; ReadS ImageBuilderState)
+-&gt; ReadS [ImageBuilderState]
+-&gt; ReadPrec ImageBuilderState
+-&gt; ReadPrec [ImageBuilderState]
+-&gt; Read ImageBuilderState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImageBuilderState]
+$creadListPrec :: ReadPrec [ImageBuilderState]
+readPrec :: ReadPrec ImageBuilderState
+$creadPrec :: ReadPrec ImageBuilderState
+readList :: ReadS [ImageBuilderState]
+$creadList :: ReadS [ImageBuilderState]
+readsPrec :: Int -&gt; ReadS ImageBuilderState
+$creadsPrec :: Int -&gt; ReadS ImageBuilderState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679286454"><span id="local-6989586621679286456"><span class="annot"><span class="annottext">ImageBuilderState -&gt; ImageBuilderState -&gt; Bool
+(ImageBuilderState -&gt; ImageBuilderState -&gt; Bool)
+-&gt; (ImageBuilderState -&gt; ImageBuilderState -&gt; Bool)
+-&gt; Eq ImageBuilderState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImageBuilderState -&gt; ImageBuilderState -&gt; Bool
+$c/= :: ImageBuilderState -&gt; ImageBuilderState -&gt; Bool
+== :: ImageBuilderState -&gt; ImageBuilderState -&gt; Bool
+$c== :: ImageBuilderState -&gt; ImageBuilderState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679286438"><span id="local-6989586621679286440"><span id="local-6989586621679286442"><span id="local-6989586621679286444"><span id="local-6989586621679286446"><span id="local-6989586621679286448"><span id="local-6989586621679286450"><span class="annot"><span class="annottext">Eq ImageBuilderState
+Eq ImageBuilderState
+-&gt; (ImageBuilderState -&gt; ImageBuilderState -&gt; Ordering)
+-&gt; (ImageBuilderState -&gt; ImageBuilderState -&gt; Bool)
+-&gt; (ImageBuilderState -&gt; ImageBuilderState -&gt; Bool)
+-&gt; (ImageBuilderState -&gt; ImageBuilderState -&gt; Bool)
+-&gt; (ImageBuilderState -&gt; ImageBuilderState -&gt; Bool)
+-&gt; (ImageBuilderState -&gt; ImageBuilderState -&gt; ImageBuilderState)
+-&gt; (ImageBuilderState -&gt; ImageBuilderState -&gt; ImageBuilderState)
+-&gt; Ord ImageBuilderState
+ImageBuilderState -&gt; ImageBuilderState -&gt; Bool
+ImageBuilderState -&gt; ImageBuilderState -&gt; Ordering
+ImageBuilderState -&gt; ImageBuilderState -&gt; ImageBuilderState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ImageBuilderState -&gt; ImageBuilderState -&gt; ImageBuilderState
+$cmin :: ImageBuilderState -&gt; ImageBuilderState -&gt; ImageBuilderState
+max :: ImageBuilderState -&gt; ImageBuilderState -&gt; ImageBuilderState
+$cmax :: ImageBuilderState -&gt; ImageBuilderState -&gt; ImageBuilderState
+&gt;= :: ImageBuilderState -&gt; ImageBuilderState -&gt; Bool
+$c&gt;= :: ImageBuilderState -&gt; ImageBuilderState -&gt; Bool
+&gt; :: ImageBuilderState -&gt; ImageBuilderState -&gt; Bool
+$c&gt; :: ImageBuilderState -&gt; ImageBuilderState -&gt; Bool
+&lt;= :: ImageBuilderState -&gt; ImageBuilderState -&gt; Bool
+$c&lt;= :: ImageBuilderState -&gt; ImageBuilderState -&gt; Bool
+&lt; :: ImageBuilderState -&gt; ImageBuilderState -&gt; Bool
+$c&lt; :: ImageBuilderState -&gt; ImageBuilderState -&gt; Bool
+compare :: ImageBuilderState -&gt; ImageBuilderState -&gt; Ordering
+$ccompare :: ImageBuilderState -&gt; ImageBuilderState -&gt; Ordering
+$cp1Ord :: Eq ImageBuilderState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ImageBuilderState -&gt; Rep ImageBuilderState x)
+-&gt; (forall x. Rep ImageBuilderState x -&gt; ImageBuilderState)
+-&gt; Generic ImageBuilderState
+forall x. Rep ImageBuilderState x -&gt; ImageBuilderState
+forall x. ImageBuilderState -&gt; Rep ImageBuilderState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ImageBuilderState x -&gt; ImageBuilderState
+$cfrom :: forall x. ImageBuilderState -&gt; Rep ImageBuilderState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679286430"><span id="local-6989586621679286432"><span class="annot"><span class="annottext">Int -&gt; ImageBuilderState -&gt; Int
+ImageBuilderState -&gt; Int
+(Int -&gt; ImageBuilderState -&gt; Int)
+-&gt; (ImageBuilderState -&gt; Int) -&gt; Hashable ImageBuilderState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ImageBuilderState -&gt; Int
+$chash :: ImageBuilderState -&gt; Int
+hashWithSalt :: Int -&gt; ImageBuilderState -&gt; Int
+$chashWithSalt :: Int -&gt; ImageBuilderState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679286427"><span class="annot"><span class="annottext">ImageBuilderState -&gt; ()
+(ImageBuilderState -&gt; ()) -&gt; NFData ImageBuilderState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ImageBuilderState -&gt; ()
+$crnf :: ImageBuilderState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679286424"><span class="annot"><span class="annottext">Text -&gt; Either String ImageBuilderState
+(Text -&gt; Either String ImageBuilderState)
+-&gt; FromText ImageBuilderState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ImageBuilderState
+$cfromText :: Text -&gt; Either String ImageBuilderState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679286421"><span class="annot"><span class="annottext">ImageBuilderState -&gt; Text
+(ImageBuilderState -&gt; Text) -&gt; ToText ImageBuilderState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ImageBuilderState -&gt; Text
+$ctoText :: ImageBuilderState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679286418"><span class="annot"><span class="annottext">ImageBuilderState -&gt; ByteString
+(ImageBuilderState -&gt; ByteString) -&gt; ToByteString ImageBuilderState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ImageBuilderState -&gt; ByteString
+$ctoBS :: ImageBuilderState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679286415"><span class="annot"><span class="annottext">ImageBuilderState -&gt; ByteStringBuilder
+(ImageBuilderState -&gt; ByteStringBuilder) -&gt; ToLog ImageBuilderState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ImageBuilderState -&gt; ByteStringBuilder
+$cbuild :: ImageBuilderState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679286412"><span class="annot"><span class="annottext">HeaderName -&gt; ImageBuilderState -&gt; [Header]
+(HeaderName -&gt; ImageBuilderState -&gt; [Header])
+-&gt; ToHeader ImageBuilderState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ImageBuilderState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ImageBuilderState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679286409"><span class="annot"><span class="annottext">ImageBuilderState -&gt; QueryString
+(ImageBuilderState -&gt; QueryString) -&gt; ToQuery ImageBuilderState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ImageBuilderState -&gt; QueryString
+$ctoQuery :: ImageBuilderState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679286404"><span id="local-6989586621679286406"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageBuilderState]
+Value -&gt; Parser ImageBuilderState
+(Value -&gt; Parser ImageBuilderState)
+-&gt; (Value -&gt; Parser [ImageBuilderState])
+-&gt; FromJSON ImageBuilderState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ImageBuilderState]
+$cparseJSONList :: Value -&gt; Parser [ImageBuilderState]
+parseJSON :: Value -&gt; Parser ImageBuilderState
+$cparseJSON :: Value -&gt; Parser ImageBuilderState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679286399"><span id="local-6989586621679286401"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageBuilderState]
+FromJSONKeyFunction ImageBuilderState
+FromJSONKeyFunction ImageBuilderState
+-&gt; FromJSONKeyFunction [ImageBuilderState]
+-&gt; FromJSONKey ImageBuilderState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ImageBuilderState]
+$cfromJSONKeyList :: FromJSONKeyFunction [ImageBuilderState]
+fromJSONKey :: FromJSONKeyFunction ImageBuilderState
+$cfromJSONKey :: FromJSONKeyFunction ImageBuilderState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679286390"><span id="local-6989586621679286392"><span id="local-6989586621679286394"><span id="local-6989586621679286396"><span class="annot"><span class="annottext">[ImageBuilderState] -&gt; Encoding
+[ImageBuilderState] -&gt; Value
+ImageBuilderState -&gt; Encoding
+ImageBuilderState -&gt; Value
+(ImageBuilderState -&gt; Value)
+-&gt; (ImageBuilderState -&gt; Encoding)
+-&gt; ([ImageBuilderState] -&gt; Value)
+-&gt; ([ImageBuilderState] -&gt; Encoding)
+-&gt; ToJSON ImageBuilderState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ImageBuilderState] -&gt; Encoding
+$ctoEncodingList :: [ImageBuilderState] -&gt; Encoding
+toJSONList :: [ImageBuilderState] -&gt; Value
+$ctoJSONList :: [ImageBuilderState] -&gt; Value
+toEncoding :: ImageBuilderState -&gt; Encoding
+$ctoEncoding :: ImageBuilderState -&gt; Encoding
+toJSON :: ImageBuilderState -&gt; Value
+$ctoJSON :: ImageBuilderState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679286385"><span id="local-6989586621679286387"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageBuilderState]
+ToJSONKeyFunction ImageBuilderState
+ToJSONKeyFunction ImageBuilderState
+-&gt; ToJSONKeyFunction [ImageBuilderState]
+-&gt; ToJSONKey ImageBuilderState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ImageBuilderState]
+$ctoJSONKeyList :: ToJSONKeyFunction [ImageBuilderState]
+toJSONKey :: ToJSONKeyFunction ImageBuilderState
+$ctoJSONKey :: ToJSONKeyFunction ImageBuilderState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679286382"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageBuilderState
+([Node] -&gt; Either String ImageBuilderState)
+-&gt; FromXML ImageBuilderState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ImageBuilderState
+$cparseXML :: [Node] -&gt; Either String ImageBuilderState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679286379"><span class="annot"><span class="annottext">ImageBuilderState -&gt; XML
+(ImageBuilderState -&gt; XML) -&gt; ToXML ImageBuilderState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ImageBuilderState -&gt; XML
+$ctoXML :: ImageBuilderState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_DELETING"><span class="hs-identifier hs-type">ImageBuilderState_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState"><span class="hs-identifier hs-type">ImageBuilderState</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageBuilderState_DELETING"><span id="%24mImageBuilderState_DELETING"><span id="ImageBuilderState_DELETING"><span class="annot"><span class="annottext">$bImageBuilderState_DELETING :: ImageBuilderState
+$mImageBuilderState_DELETING :: forall r. ImageBuilderState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.ImageBuilderState.html#%24bImageBuilderState_DELETING"><span class="hs-identifier hs-var hs-var hs-var">ImageBuilderState_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState%27"><span class="hs-identifier hs-type">ImageBuilderState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_FAILED"><span class="hs-identifier hs-type">ImageBuilderState_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState"><span class="hs-identifier hs-type">ImageBuilderState</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageBuilderState_FAILED"><span id="%24mImageBuilderState_FAILED"><span id="ImageBuilderState_FAILED"><span class="annot"><span class="annottext">$bImageBuilderState_FAILED :: ImageBuilderState
+$mImageBuilderState_FAILED :: forall r. ImageBuilderState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.ImageBuilderState.html#%24bImageBuilderState_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ImageBuilderState_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState%27"><span class="hs-identifier hs-type">ImageBuilderState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_PENDING"><span class="hs-identifier hs-type">ImageBuilderState_PENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState"><span class="hs-identifier hs-type">ImageBuilderState</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageBuilderState_PENDING"><span id="%24mImageBuilderState_PENDING"><span id="ImageBuilderState_PENDING"><span class="annot"><span class="annottext">$bImageBuilderState_PENDING :: ImageBuilderState
+$mImageBuilderState_PENDING :: forall r. ImageBuilderState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.ImageBuilderState.html#%24bImageBuilderState_PENDING"><span class="hs-identifier hs-var hs-var hs-var">ImageBuilderState_PENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState%27"><span class="hs-identifier hs-type">ImageBuilderState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_PENDING_QUALIFICATION"><span class="hs-identifier hs-type">ImageBuilderState_PENDING_QUALIFICATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState"><span class="hs-identifier hs-type">ImageBuilderState</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageBuilderState_PENDING_QUALIFICATION"><span id="%24mImageBuilderState_PENDING_QUALIFICATION"><span id="ImageBuilderState_PENDING_QUALIFICATION"><span class="annot"><span class="annottext">$bImageBuilderState_PENDING_QUALIFICATION :: ImageBuilderState
+$mImageBuilderState_PENDING_QUALIFICATION :: forall r. ImageBuilderState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.ImageBuilderState.html#%24bImageBuilderState_PENDING_QUALIFICATION"><span class="hs-identifier hs-var hs-var hs-var">ImageBuilderState_PENDING_QUALIFICATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState%27"><span class="hs-identifier hs-type">ImageBuilderState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_QUALIFICATION&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_REBOOTING"><span class="hs-identifier hs-type">ImageBuilderState_REBOOTING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState"><span class="hs-identifier hs-type">ImageBuilderState</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageBuilderState_REBOOTING"><span id="%24mImageBuilderState_REBOOTING"><span id="ImageBuilderState_REBOOTING"><span class="annot"><span class="annottext">$bImageBuilderState_REBOOTING :: ImageBuilderState
+$mImageBuilderState_REBOOTING :: forall r. ImageBuilderState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.ImageBuilderState.html#%24bImageBuilderState_REBOOTING"><span class="hs-identifier hs-var hs-var hs-var">ImageBuilderState_REBOOTING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState%27"><span class="hs-identifier hs-type">ImageBuilderState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REBOOTING&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_RUNNING"><span class="hs-identifier hs-type">ImageBuilderState_RUNNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState"><span class="hs-identifier hs-type">ImageBuilderState</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageBuilderState_RUNNING"><span id="%24mImageBuilderState_RUNNING"><span id="ImageBuilderState_RUNNING"><span class="annot"><span class="annottext">$bImageBuilderState_RUNNING :: ImageBuilderState
+$mImageBuilderState_RUNNING :: forall r. ImageBuilderState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.ImageBuilderState.html#%24bImageBuilderState_RUNNING"><span class="hs-identifier hs-var hs-var hs-var">ImageBuilderState_RUNNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState%27"><span class="hs-identifier hs-type">ImageBuilderState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RUNNING&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_SNAPSHOTTING"><span class="hs-identifier hs-type">ImageBuilderState_SNAPSHOTTING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState"><span class="hs-identifier hs-type">ImageBuilderState</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageBuilderState_SNAPSHOTTING"><span id="%24mImageBuilderState_SNAPSHOTTING"><span id="ImageBuilderState_SNAPSHOTTING"><span class="annot"><span class="annottext">$bImageBuilderState_SNAPSHOTTING :: ImageBuilderState
+$mImageBuilderState_SNAPSHOTTING :: forall r. ImageBuilderState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.ImageBuilderState.html#%24bImageBuilderState_SNAPSHOTTING"><span class="hs-identifier hs-var hs-var hs-var">ImageBuilderState_SNAPSHOTTING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState%27"><span class="hs-identifier hs-type">ImageBuilderState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SNAPSHOTTING&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_STOPPED"><span class="hs-identifier hs-type">ImageBuilderState_STOPPED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState"><span class="hs-identifier hs-type">ImageBuilderState</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageBuilderState_STOPPED"><span id="%24mImageBuilderState_STOPPED"><span id="ImageBuilderState_STOPPED"><span class="annot"><span class="annottext">$bImageBuilderState_STOPPED :: ImageBuilderState
+$mImageBuilderState_STOPPED :: forall r. ImageBuilderState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.ImageBuilderState.html#%24bImageBuilderState_STOPPED"><span class="hs-identifier hs-var hs-var hs-var">ImageBuilderState_STOPPED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState%27"><span class="hs-identifier hs-type">ImageBuilderState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STOPPED&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_STOPPING"><span class="hs-identifier hs-type">ImageBuilderState_STOPPING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState"><span class="hs-identifier hs-type">ImageBuilderState</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageBuilderState_STOPPING"><span id="%24mImageBuilderState_STOPPING"><span id="ImageBuilderState_STOPPING"><span class="annot"><span class="annottext">$bImageBuilderState_STOPPING :: ImageBuilderState
+$mImageBuilderState_STOPPING :: forall r. ImageBuilderState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.ImageBuilderState.html#%24bImageBuilderState_STOPPING"><span class="hs-identifier hs-var hs-var hs-var">ImageBuilderState_STOPPING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState%27"><span class="hs-identifier hs-type">ImageBuilderState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STOPPING&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_UPDATING"><span class="hs-identifier hs-type">ImageBuilderState_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState"><span class="hs-identifier hs-type">ImageBuilderState</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageBuilderState_UPDATING"><span id="%24mImageBuilderState_UPDATING"><span id="ImageBuilderState_UPDATING"><span class="annot"><span class="annottext">$bImageBuilderState_UPDATING :: ImageBuilderState
+$mImageBuilderState_UPDATING :: forall r. ImageBuilderState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.ImageBuilderState.html#%24bImageBuilderState_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">ImageBuilderState_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState%27"><span class="hs-identifier hs-type">ImageBuilderState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_UPDATING_AGENT"><span class="hs-identifier hs-type">ImageBuilderState_UPDATING_AGENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState"><span class="hs-identifier hs-type">ImageBuilderState</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageBuilderState_UPDATING_AGENT"><span id="%24mImageBuilderState_UPDATING_AGENT"><span id="ImageBuilderState_UPDATING_AGENT"><span class="annot"><span class="annottext">$bImageBuilderState_UPDATING_AGENT :: ImageBuilderState
+$mImageBuilderState_UPDATING_AGENT :: forall r. ImageBuilderState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.ImageBuilderState.html#%24bImageBuilderState_UPDATING_AGENT"><span class="hs-identifier hs-var hs-var hs-var">ImageBuilderState_UPDATING_AGENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState%27"><span class="hs-identifier hs-type">ImageBuilderState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING_AGENT&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_DELETING"><span class="hs-pragma hs-type">ImageBuilderState_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_FAILED"><span class="hs-pragma hs-type">ImageBuilderState_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_PENDING"><span class="hs-pragma hs-type">ImageBuilderState_PENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_PENDING_QUALIFICATION"><span class="hs-pragma hs-type">ImageBuilderState_PENDING_QUALIFICATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_REBOOTING"><span class="hs-pragma hs-type">ImageBuilderState_REBOOTING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_RUNNING"><span class="hs-pragma hs-type">ImageBuilderState_RUNNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_SNAPSHOTTING"><span class="hs-pragma hs-type">ImageBuilderState_SNAPSHOTTING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_STOPPED"><span class="hs-pragma hs-type">ImageBuilderState_STOPPED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_STOPPING"><span class="hs-pragma hs-type">ImageBuilderState_STOPPING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_UPDATING"><span class="hs-pragma hs-type">ImageBuilderState_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState_UPDATING_AGENT"><span class="hs-pragma hs-type">ImageBuilderState_UPDATING_AGENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.ImageBuilderState.html#ImageBuilderState%27"><span class="hs-pragma hs-type">ImageBuilderState'</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-116"></span></pre></body></html>

@@ -1,0 +1,807 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.HealthLake.ListFHIRImportJobs</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all FHIR import jobs associated with an account and their</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- statuses.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.HealthLake.ListFHIRImportJobs</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier">ListFHIRImportJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#newListFHIRImportJobs"><span class="hs-identifier">newListFHIRImportJobs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_submittedAfter"><span class="hs-identifier">listFHIRImportJobs_submittedAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_jobName"><span class="hs-identifier">listFHIRImportJobs_jobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_submittedBefore"><span class="hs-identifier">listFHIRImportJobs_submittedBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_nextToken"><span class="hs-identifier">listFHIRImportJobs_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_jobStatus"><span class="hs-identifier">listFHIRImportJobs_jobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_maxResults"><span class="hs-identifier">listFHIRImportJobs_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_datastoreId"><span class="hs-identifier">listFHIRImportJobs_datastoreId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse"><span class="hs-identifier">ListFHIRImportJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#newListFHIRImportJobsResponse"><span class="hs-identifier">newListFHIRImportJobsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobsResponse_nextToken"><span class="hs-identifier">listFHIRImportJobsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobsResponse_httpStatus"><span class="hs-identifier">listFHIRImportJobsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobsResponse_importJobPropertiesList"><span class="hs-identifier">listFHIRImportJobsResponse_importJobPropertiesList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.html"><span class="hs-identifier">Amazonka.HealthLake.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListFHIRImportJobs' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679176209"><span id="local-6989586621679176210"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFHIRImportJobs"><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-var">ListFHIRImportJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFHIRImportJobs%27"><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-var">ListFHIRImportJobs'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This parameter limits the response to FHIR import jobs submitted after a</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- user specified date.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AsubmittedAfter%3AListFHIRImportJobs%27"><span class="annot"><span class="annottext">ListFHIRImportJobs -&gt; Maybe POSIX
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AsubmittedAfter%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var hs-var">submittedAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | This parameter limits the response to the import job with the specified</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- job name.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AjobName%3AListFHIRImportJobs%27"><span class="annot"><span class="annottext">ListFHIRImportJobs -&gt; Maybe Text
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AjobName%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | This parameter limits the response to FHIR import jobs submitted before</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- a user specified date.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AsubmittedBefore%3AListFHIRImportJobs%27"><span class="annot"><span class="annottext">ListFHIRImportJobs -&gt; Maybe POSIX
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AsubmittedBefore%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var hs-var">submittedBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | A pagination token used to identify the next page of results to return</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- for a ListFHIRImportJobs query.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AnextToken%3AListFHIRImportJobs%27"><span class="annot"><span class="annottext">ListFHIRImportJobs -&gt; Maybe Text
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AnextToken%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | This parameter limits the response to the import job with the specified</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- job status.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AjobStatus%3AListFHIRImportJobs%27"><span class="annot"><span class="annottext">ListFHIRImportJobs -&gt; Maybe JobStatus
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AjobStatus%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | This parameter limits the number of results returned for a</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- ListFHIRImportJobs to a maximum quantity specified by the user.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AmaxResults%3AListFHIRImportJobs%27"><span class="annot"><span class="annottext">ListFHIRImportJobs -&gt; Maybe Natural
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AmaxResults%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | This parameter limits the response to the import job with the specified</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- Data Store ID.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AdatastoreId%3AListFHIRImportJobs%27"><span class="annot"><span class="annottext">ListFHIRImportJobs -&gt; Text
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AdatastoreId%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var hs-var">datastoreId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176197"><span id="local-6989586621679176199"><span class="annot"><span class="annottext">ListFHIRImportJobs -&gt; ListFHIRImportJobs -&gt; Bool
+(ListFHIRImportJobs -&gt; ListFHIRImportJobs -&gt; Bool)
+-&gt; (ListFHIRImportJobs -&gt; ListFHIRImportJobs -&gt; Bool)
+-&gt; Eq ListFHIRImportJobs
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListFHIRImportJobs -&gt; ListFHIRImportJobs -&gt; Bool
+$c/= :: ListFHIRImportJobs -&gt; ListFHIRImportJobs -&gt; Bool
+== :: ListFHIRImportJobs -&gt; ListFHIRImportJobs -&gt; Bool
+$c== :: ListFHIRImportJobs -&gt; ListFHIRImportJobs -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176188"><span id="local-6989586621679176190"><span id="local-6989586621679176192"><span id="local-6989586621679176194"><span class="annot"><span class="annottext">ReadPrec [ListFHIRImportJobs]
+ReadPrec ListFHIRImportJobs
+Int -&gt; ReadS ListFHIRImportJobs
+ReadS [ListFHIRImportJobs]
+(Int -&gt; ReadS ListFHIRImportJobs)
+-&gt; ReadS [ListFHIRImportJobs]
+-&gt; ReadPrec ListFHIRImportJobs
+-&gt; ReadPrec [ListFHIRImportJobs]
+-&gt; Read ListFHIRImportJobs
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListFHIRImportJobs]
+$creadListPrec :: ReadPrec [ListFHIRImportJobs]
+readPrec :: ReadPrec ListFHIRImportJobs
+$creadPrec :: ReadPrec ListFHIRImportJobs
+readList :: ReadS [ListFHIRImportJobs]
+$creadList :: ReadS [ListFHIRImportJobs]
+readsPrec :: Int -&gt; ReadS ListFHIRImportJobs
+$creadsPrec :: Int -&gt; ReadS ListFHIRImportJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176181"><span id="local-6989586621679176183"><span id="local-6989586621679176185"><span class="annot"><span class="annottext">Int -&gt; ListFHIRImportJobs -&gt; ShowS
+[ListFHIRImportJobs] -&gt; ShowS
+ListFHIRImportJobs -&gt; String
+(Int -&gt; ListFHIRImportJobs -&gt; ShowS)
+-&gt; (ListFHIRImportJobs -&gt; String)
+-&gt; ([ListFHIRImportJobs] -&gt; ShowS)
+-&gt; Show ListFHIRImportJobs
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListFHIRImportJobs] -&gt; ShowS
+$cshowList :: [ListFHIRImportJobs] -&gt; ShowS
+show :: ListFHIRImportJobs -&gt; String
+$cshow :: ListFHIRImportJobs -&gt; String
+showsPrec :: Int -&gt; ListFHIRImportJobs -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListFHIRImportJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListFHIRImportJobs -&gt; Rep ListFHIRImportJobs x)
+-&gt; (forall x. Rep ListFHIRImportJobs x -&gt; ListFHIRImportJobs)
+-&gt; Generic ListFHIRImportJobs
+forall x. Rep ListFHIRImportJobs x -&gt; ListFHIRImportJobs
+forall x. ListFHIRImportJobs -&gt; Rep ListFHIRImportJobs x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListFHIRImportJobs x -&gt; ListFHIRImportJobs
+$cfrom :: forall x. ListFHIRImportJobs -&gt; Rep ListFHIRImportJobs x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'ListFHIRImportJobs' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'submittedAfter', 'listFHIRImportJobs_submittedAfter' - This parameter limits the response to FHIR import jobs submitted after a</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- user specified date.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'jobName', 'listFHIRImportJobs_jobName' - This parameter limits the response to the import job with the specified</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- job name.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'submittedBefore', 'listFHIRImportJobs_submittedBefore' - This parameter limits the response to FHIR import jobs submitted before</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- a user specified date.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'nextToken', 'listFHIRImportJobs_nextToken' - A pagination token used to identify the next page of results to return</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- for a ListFHIRImportJobs query.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'jobStatus', 'listFHIRImportJobs_jobStatus' - This parameter limits the response to the import job with the specified</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- job status.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'maxResults', 'listFHIRImportJobs_maxResults' - This parameter limits the number of results returned for a</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- ListFHIRImportJobs to a maximum quantity specified by the user.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'datastoreId', 'listFHIRImportJobs_datastoreId' - This parameter limits the response to the import job with the specified</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Data Store ID.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#newListFHIRImportJobs"><span class="hs-identifier hs-type">newListFHIRImportJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'datastoreId'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span>
+</span><span id="line-115"></span><span id="newListFHIRImportJobs"><span class="annot"><span class="annottext">newListFHIRImportJobs :: Text -&gt; ListFHIRImportJobs
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#newListFHIRImportJobs"><span class="hs-identifier hs-var hs-var">newListFHIRImportJobs</span></a></span></span><span> </span><span id="local-6989586621679176176"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176176"><span class="hs-identifier hs-var">pDatastoreId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">ListFHIRImportJobs' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe JobStatus
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; ListFHIRImportJobs
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:submittedAfter:ListFHIRImportJobs' :: Maybe POSIX
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AsubmittedAfter%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var">submittedAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobName:ListFHIRImportJobs' :: Maybe Text
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AjobName%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:submittedBefore:ListFHIRImportJobs' :: Maybe POSIX
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AsubmittedBefore%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var">submittedBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListFHIRImportJobs' :: Maybe Text
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AnextToken%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobStatus:ListFHIRImportJobs' :: Maybe JobStatus
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AjobStatus%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListFHIRImportJobs' :: Maybe Natural
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AmaxResults%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:datastoreId:ListFHIRImportJobs' :: Text
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AdatastoreId%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var">datastoreId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176176"><span class="hs-identifier hs-var">pDatastoreId_</span></a></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | This parameter limits the response to FHIR import jobs submitted after a</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- user specified date.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_submittedAfter"><span class="hs-identifier hs-type">listFHIRImportJobs_submittedAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="listFHIRImportJobs_submittedAfter"><span class="annot"><span class="annottext">listFHIRImportJobs_submittedAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListFHIRImportJobs -&gt; f ListFHIRImportJobs
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_submittedAfter"><span class="hs-identifier hs-var hs-var">listFHIRImportJobs_submittedAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFHIRImportJobs -&gt; Maybe POSIX)
+-&gt; (ListFHIRImportJobs -&gt; Maybe POSIX -&gt; ListFHIRImportJobs)
+-&gt; Lens
+     ListFHIRImportJobs ListFHIRImportJobs (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176173"><span class="annot"><span class="annottext">Maybe POSIX
+submittedAfter :: Maybe POSIX
+$sel:submittedAfter:ListFHIRImportJobs' :: ListFHIRImportJobs -&gt; Maybe POSIX
+</span><a href="#local-6989586621679176173"><span class="hs-identifier hs-var hs-var">submittedAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679176173"><span class="hs-identifier hs-var">submittedAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176172"><span class="annot"><span class="annottext">s :: ListFHIRImportJobs
+</span><a href="#local-6989586621679176172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176171"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679176171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFHIRImportJobs
+</span><a href="#local-6989586621679176172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:submittedAfter:ListFHIRImportJobs' :: Maybe POSIX
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AsubmittedAfter%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var">submittedAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679176171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListFHIRImportJobs -&gt; f ListFHIRImportJobs)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListFHIRImportJobs
+-&gt; f ListFHIRImportJobs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | This parameter limits the response to the import job with the specified</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- job name.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_jobName"><span class="hs-identifier hs-type">listFHIRImportJobs_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="listFHIRImportJobs_jobName"><span class="annot"><span class="annottext">listFHIRImportJobs_jobName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListFHIRImportJobs -&gt; f ListFHIRImportJobs
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_jobName"><span class="hs-identifier hs-var hs-var">listFHIRImportJobs_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFHIRImportJobs -&gt; Maybe Text)
+-&gt; (ListFHIRImportJobs -&gt; Maybe Text -&gt; ListFHIRImportJobs)
+-&gt; Lens
+     ListFHIRImportJobs ListFHIRImportJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176167"><span class="annot"><span class="annottext">Maybe Text
+jobName :: Maybe Text
+$sel:jobName:ListFHIRImportJobs' :: ListFHIRImportJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679176167"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176167"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176166"><span class="annot"><span class="annottext">s :: ListFHIRImportJobs
+</span><a href="#local-6989586621679176166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176165"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFHIRImportJobs
+</span><a href="#local-6989586621679176166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:ListFHIRImportJobs' :: Maybe Text
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AjobName%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | This parameter limits the response to FHIR import jobs submitted before</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- a user specified date.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_submittedBefore"><span class="hs-identifier hs-type">listFHIRImportJobs_submittedBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="listFHIRImportJobs_submittedBefore"><span class="annot"><span class="annottext">listFHIRImportJobs_submittedBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListFHIRImportJobs -&gt; f ListFHIRImportJobs
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_submittedBefore"><span class="hs-identifier hs-var hs-var">listFHIRImportJobs_submittedBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFHIRImportJobs -&gt; Maybe POSIX)
+-&gt; (ListFHIRImportJobs -&gt; Maybe POSIX -&gt; ListFHIRImportJobs)
+-&gt; Lens
+     ListFHIRImportJobs ListFHIRImportJobs (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176164"><span class="annot"><span class="annottext">Maybe POSIX
+submittedBefore :: Maybe POSIX
+$sel:submittedBefore:ListFHIRImportJobs' :: ListFHIRImportJobs -&gt; Maybe POSIX
+</span><a href="#local-6989586621679176164"><span class="hs-identifier hs-var hs-var">submittedBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679176164"><span class="hs-identifier hs-var">submittedBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176163"><span class="annot"><span class="annottext">s :: ListFHIRImportJobs
+</span><a href="#local-6989586621679176163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176162"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679176162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFHIRImportJobs
+</span><a href="#local-6989586621679176163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:submittedBefore:ListFHIRImportJobs' :: Maybe POSIX
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AsubmittedBefore%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var">submittedBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679176162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListFHIRImportJobs -&gt; f ListFHIRImportJobs)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListFHIRImportJobs
+-&gt; f ListFHIRImportJobs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | A pagination token used to identify the next page of results to return</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- for a ListFHIRImportJobs query.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_nextToken"><span class="hs-identifier hs-type">listFHIRImportJobs_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="listFHIRImportJobs_nextToken"><span class="annot"><span class="annottext">listFHIRImportJobs_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListFHIRImportJobs -&gt; f ListFHIRImportJobs
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_nextToken"><span class="hs-identifier hs-var hs-var">listFHIRImportJobs_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFHIRImportJobs -&gt; Maybe Text)
+-&gt; (ListFHIRImportJobs -&gt; Maybe Text -&gt; ListFHIRImportJobs)
+-&gt; Lens
+     ListFHIRImportJobs ListFHIRImportJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176161"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListFHIRImportJobs' :: ListFHIRImportJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679176161"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176161"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176160"><span class="annot"><span class="annottext">s :: ListFHIRImportJobs
+</span><a href="#local-6989586621679176160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176159"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFHIRImportJobs
+</span><a href="#local-6989586621679176160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFHIRImportJobs' :: Maybe Text
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AnextToken%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | This parameter limits the response to the import job with the specified</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- job status.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_jobStatus"><span class="hs-identifier hs-type">listFHIRImportJobs_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="listFHIRImportJobs_jobStatus"><span class="annot"><span class="annottext">listFHIRImportJobs_jobStatus :: (Maybe JobStatus -&gt; f (Maybe JobStatus))
+-&gt; ListFHIRImportJobs -&gt; f ListFHIRImportJobs
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_jobStatus"><span class="hs-identifier hs-var hs-var">listFHIRImportJobs_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFHIRImportJobs -&gt; Maybe JobStatus)
+-&gt; (ListFHIRImportJobs -&gt; Maybe JobStatus -&gt; ListFHIRImportJobs)
+-&gt; Lens
+     ListFHIRImportJobs
+     ListFHIRImportJobs
+     (Maybe JobStatus)
+     (Maybe JobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176158"><span class="annot"><span class="annottext">Maybe JobStatus
+jobStatus :: Maybe JobStatus
+$sel:jobStatus:ListFHIRImportJobs' :: ListFHIRImportJobs -&gt; Maybe JobStatus
+</span><a href="#local-6989586621679176158"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679176158"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176157"><span class="annot"><span class="annottext">s :: ListFHIRImportJobs
+</span><a href="#local-6989586621679176157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176156"><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679176156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFHIRImportJobs
+</span><a href="#local-6989586621679176157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:ListFHIRImportJobs' :: Maybe JobStatus
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AjobStatus%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679176156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | This parameter limits the number of results returned for a</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- ListFHIRImportJobs to a maximum quantity specified by the user.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_maxResults"><span class="hs-identifier hs-type">listFHIRImportJobs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="listFHIRImportJobs_maxResults"><span class="annot"><span class="annottext">listFHIRImportJobs_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListFHIRImportJobs -&gt; f ListFHIRImportJobs
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_maxResults"><span class="hs-identifier hs-var hs-var">listFHIRImportJobs_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFHIRImportJobs -&gt; Maybe Natural)
+-&gt; (ListFHIRImportJobs -&gt; Maybe Natural -&gt; ListFHIRImportJobs)
+-&gt; Lens
+     ListFHIRImportJobs
+     ListFHIRImportJobs
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176155"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListFHIRImportJobs' :: ListFHIRImportJobs -&gt; Maybe Natural
+</span><a href="#local-6989586621679176155"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679176155"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176154"><span class="annot"><span class="annottext">s :: ListFHIRImportJobs
+</span><a href="#local-6989586621679176154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176153"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679176153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFHIRImportJobs
+</span><a href="#local-6989586621679176154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListFHIRImportJobs' :: Maybe Natural
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AmaxResults%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679176153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | This parameter limits the response to the import job with the specified</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Data Store ID.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_datastoreId"><span class="hs-identifier hs-type">listFHIRImportJobs_datastoreId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-160"></span><span id="listFHIRImportJobs_datastoreId"><span class="annot"><span class="annottext">listFHIRImportJobs_datastoreId :: (Text -&gt; f Text) -&gt; ListFHIRImportJobs -&gt; f ListFHIRImportJobs
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobs_datastoreId"><span class="hs-identifier hs-var hs-var">listFHIRImportJobs_datastoreId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFHIRImportJobs -&gt; Text)
+-&gt; (ListFHIRImportJobs -&gt; Text -&gt; ListFHIRImportJobs)
+-&gt; Lens ListFHIRImportJobs ListFHIRImportJobs Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176152"><span class="annot"><span class="annottext">Text
+datastoreId :: Text
+$sel:datastoreId:ListFHIRImportJobs' :: ListFHIRImportJobs -&gt; Text
+</span><a href="#local-6989586621679176152"><span class="hs-identifier hs-var hs-var">datastoreId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176152"><span class="hs-identifier hs-var">datastoreId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176151"><span class="annot"><span class="annottext">s :: ListFHIRImportJobs
+</span><a href="#local-6989586621679176151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176150"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFHIRImportJobs
+</span><a href="#local-6989586621679176151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreId:ListFHIRImportJobs' :: Text
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AdatastoreId%3AListFHIRImportJobs%27"><span class="hs-identifier hs-var">datastoreId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-164"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse</span></a></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679176146"><span class="annot"><span class="annottext">request :: ListFHIRImportJobs -&gt; Request ListFHIRImportJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListFHIRImportJobs -&gt; Request ListFHIRImportJobs
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.HealthLake.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679176142"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListFHIRImportJobs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListFHIRImportJobs)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListFHIRImportJobs))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListFHIRImportJobs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListFHIRImportJobs)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176139"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176139"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679176138"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679176138"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679176137"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176137"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Int -&gt; [ImportJobProperties] -&gt; ListFHIRImportJobsResponse
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse%27"><span class="hs-identifier hs-var">ListFHIRImportJobsResponse'</span></a></span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Int -&gt; [ImportJobProperties] -&gt; ListFHIRImportJobsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; [ImportJobProperties] -&gt; ListFHIRImportJobsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176137"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; [ImportJobProperties] -&gt; ListFHIRImportJobsResponse)
+-&gt; Either String Int
+-&gt; Either
+     String ([ImportJobProperties] -&gt; ListFHIRImportJobsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176139"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Either String ([ImportJobProperties] -&gt; ListFHIRImportJobsResponse)
+-&gt; Either String [ImportJobProperties]
+-&gt; Either String ListFHIRImportJobsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176137"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [ImportJobProperties])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImportJobPropertiesList&quot;</span></span><span>
+</span><span id="line-174"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [ImportJobProperties])
+-&gt; [ImportJobProperties] -&gt; Either String [ImportJobProperties]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[ImportJobProperties]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-175"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176128"><span id="local-6989586621679176130"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span></span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176125"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679176121"><span class="annot"><span class="annottext">toHeaders :: ListFHIRImportJobs -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListFHIRImportJobs -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;HealthLake.ListFHIRImportJobs&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-189"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-191"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-193"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176111"><span id="local-6989586621679176113"><span id="local-6989586621679176115"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679176109"><span class="annot"><span class="annottext">toJSON :: ListFHIRImportJobs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs%27"><span class="hs-identifier hs-type">ListFHIRImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176101"><span id="local-6989586621679176102"><span id="local-6989586621679176103"><span id="local-6989586621679176104"><span id="local-6989586621679176105"><span id="local-6989586621679176106"><span id="local-6989586621679176107"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe POSIX
+Maybe JobStatus
+Text
+datastoreId :: Text
+maxResults :: Maybe Natural
+jobStatus :: Maybe JobStatus
+nextToken :: Maybe Text
+submittedBefore :: Maybe POSIX
+jobName :: Maybe Text
+submittedAfter :: Maybe POSIX
+$sel:datastoreId:ListFHIRImportJobs' :: ListFHIRImportJobs -&gt; Text
+$sel:maxResults:ListFHIRImportJobs' :: ListFHIRImportJobs -&gt; Maybe Natural
+$sel:jobStatus:ListFHIRImportJobs' :: ListFHIRImportJobs -&gt; Maybe JobStatus
+$sel:nextToken:ListFHIRImportJobs' :: ListFHIRImportJobs -&gt; Maybe Text
+$sel:submittedBefore:ListFHIRImportJobs' :: ListFHIRImportJobs -&gt; Maybe POSIX
+$sel:jobName:ListFHIRImportJobs' :: ListFHIRImportJobs -&gt; Maybe Text
+$sel:submittedAfter:ListFHIRImportJobs' :: ListFHIRImportJobs -&gt; Maybe POSIX
+</span><a href="#local-6989586621679176101"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-201"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubmittedAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679176107"><span class="hs-identifier hs-var">submittedAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176106"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubmittedBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679176105"><span class="hs-identifier hs-var">submittedBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176104"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JobStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(JobStatus -&gt; Pair) -&gt; Maybe JobStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679176103"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679176102"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatastoreId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176101"><span class="hs-identifier hs-var">datastoreId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679176095"><span class="annot"><span class="annottext">toPath :: ListFHIRImportJobs -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListFHIRImportJobs -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobs"><span class="hs-identifier hs-type">ListFHIRImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679176091"><span class="annot"><span class="annottext">toQuery :: ListFHIRImportJobs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListFHIRImportJobs -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | /See:/ 'newListFHIRImportJobsResponse' smart constructor.</span><span>
+</span><span id="line-220"></span><span id="local-6989586621679176088"><span id="local-6989586621679176089"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFHIRImportJobsResponse"><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse"><span class="hs-identifier hs-var">ListFHIRImportJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFHIRImportJobsResponse%27"><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse%27"><span class="hs-identifier hs-var">ListFHIRImportJobsResponse'</span></a></span></span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token used to identify the next page of results to return</span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- for a ListFHIRImportJobs query.</span><span>
+</span><span id="line-223"></span><span>    </span><span id="%24sel%3AnextToken%3AListFHIRImportJobsResponse%27"><span class="annot"><span class="annottext">ListFHIRImportJobsResponse -&gt; Maybe Text
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AnextToken%3AListFHIRImportJobsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-225"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListFHIRImportJobsResponse%27"><span class="annot"><span class="annottext">ListFHIRImportJobsResponse -&gt; Int
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AhttpStatus%3AListFHIRImportJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- | The properties of a listed FHIR import jobs, including the ID, ARN,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- name, and the status of the job.</span><span>
+</span><span id="line-228"></span><span>    </span><span id="%24sel%3AimportJobPropertiesList%3AListFHIRImportJobsResponse%27"><span class="annot"><span class="annottext">ListFHIRImportJobsResponse -&gt; [ImportJobProperties]
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AimportJobPropertiesList%3AListFHIRImportJobsResponse%27"><span class="hs-identifier hs-var hs-var">importJobPropertiesList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.HealthLake.Types.ImportJobProperties.html#ImportJobProperties"><span class="hs-identifier hs-type">ImportJobProperties</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176081"><span id="local-6989586621679176083"><span class="annot"><span class="annottext">ListFHIRImportJobsResponse -&gt; ListFHIRImportJobsResponse -&gt; Bool
+(ListFHIRImportJobsResponse -&gt; ListFHIRImportJobsResponse -&gt; Bool)
+-&gt; (ListFHIRImportJobsResponse
+    -&gt; ListFHIRImportJobsResponse -&gt; Bool)
+-&gt; Eq ListFHIRImportJobsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListFHIRImportJobsResponse -&gt; ListFHIRImportJobsResponse -&gt; Bool
+$c/= :: ListFHIRImportJobsResponse -&gt; ListFHIRImportJobsResponse -&gt; Bool
+== :: ListFHIRImportJobsResponse -&gt; ListFHIRImportJobsResponse -&gt; Bool
+$c== :: ListFHIRImportJobsResponse -&gt; ListFHIRImportJobsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176073"><span id="local-6989586621679176075"><span id="local-6989586621679176077"><span id="local-6989586621679176079"><span class="annot"><span class="annottext">ReadPrec [ListFHIRImportJobsResponse]
+ReadPrec ListFHIRImportJobsResponse
+Int -&gt; ReadS ListFHIRImportJobsResponse
+ReadS [ListFHIRImportJobsResponse]
+(Int -&gt; ReadS ListFHIRImportJobsResponse)
+-&gt; ReadS [ListFHIRImportJobsResponse]
+-&gt; ReadPrec ListFHIRImportJobsResponse
+-&gt; ReadPrec [ListFHIRImportJobsResponse]
+-&gt; Read ListFHIRImportJobsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListFHIRImportJobsResponse]
+$creadListPrec :: ReadPrec [ListFHIRImportJobsResponse]
+readPrec :: ReadPrec ListFHIRImportJobsResponse
+$creadPrec :: ReadPrec ListFHIRImportJobsResponse
+readList :: ReadS [ListFHIRImportJobsResponse]
+$creadList :: ReadS [ListFHIRImportJobsResponse]
+readsPrec :: Int -&gt; ReadS ListFHIRImportJobsResponse
+$creadsPrec :: Int -&gt; ReadS ListFHIRImportJobsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176067"><span id="local-6989586621679176069"><span id="local-6989586621679176071"><span class="annot"><span class="annottext">Int -&gt; ListFHIRImportJobsResponse -&gt; ShowS
+[ListFHIRImportJobsResponse] -&gt; ShowS
+ListFHIRImportJobsResponse -&gt; String
+(Int -&gt; ListFHIRImportJobsResponse -&gt; ShowS)
+-&gt; (ListFHIRImportJobsResponse -&gt; String)
+-&gt; ([ListFHIRImportJobsResponse] -&gt; ShowS)
+-&gt; Show ListFHIRImportJobsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListFHIRImportJobsResponse] -&gt; ShowS
+$cshowList :: [ListFHIRImportJobsResponse] -&gt; ShowS
+show :: ListFHIRImportJobsResponse -&gt; String
+$cshow :: ListFHIRImportJobsResponse -&gt; String
+showsPrec :: Int -&gt; ListFHIRImportJobsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListFHIRImportJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListFHIRImportJobsResponse -&gt; Rep ListFHIRImportJobsResponse x)
+-&gt; (forall x.
+    Rep ListFHIRImportJobsResponse x -&gt; ListFHIRImportJobsResponse)
+-&gt; Generic ListFHIRImportJobsResponse
+forall x.
+Rep ListFHIRImportJobsResponse x -&gt; ListFHIRImportJobsResponse
+forall x.
+ListFHIRImportJobsResponse -&gt; Rep ListFHIRImportJobsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListFHIRImportJobsResponse x -&gt; ListFHIRImportJobsResponse
+$cfrom :: forall x.
+ListFHIRImportJobsResponse -&gt; Rep ListFHIRImportJobsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- Create a value of 'ListFHIRImportJobsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- 'nextToken', 'listFHIRImportJobsResponse_nextToken' - A pagination token used to identify the next page of results to return</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- for a ListFHIRImportJobs query.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'httpStatus', 'listFHIRImportJobsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 'importJobPropertiesList', 'listFHIRImportJobsResponse_importJobPropertiesList' - The properties of a listed FHIR import jobs, including the ID, ARN,</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- name, and the status of the job.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#newListFHIRImportJobsResponse"><span class="hs-identifier hs-type">newListFHIRImportJobsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-248"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-249"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse</span></a></span><span>
+</span><span id="line-251"></span><span id="newListFHIRImportJobsResponse"><span class="annot"><span class="annottext">newListFHIRImportJobsResponse :: Int -&gt; ListFHIRImportJobsResponse
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#newListFHIRImportJobsResponse"><span class="hs-identifier hs-var hs-var">newListFHIRImportJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679176064"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176064"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>  </span><span class="annot"><span class="annottext">ListFHIRImportJobsResponse' :: Maybe Text
+-&gt; Int -&gt; [ImportJobProperties] -&gt; ListFHIRImportJobsResponse
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse%27"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse'</span></a></span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListFHIRImportJobsResponse' :: Maybe Text
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AnextToken%3AListFHIRImportJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListFHIRImportJobsResponse' :: Int
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AhttpStatus%3AListFHIRImportJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176064"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:importJobPropertiesList:ListFHIRImportJobsResponse' :: [ImportJobProperties]
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AimportJobPropertiesList%3AListFHIRImportJobsResponse%27"><span class="hs-identifier hs-var">importJobPropertiesList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ImportJobProperties]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | A pagination token used to identify the next page of results to return</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- for a ListFHIRImportJobs query.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobsResponse_nextToken"><span class="hs-identifier hs-type">listFHIRImportJobsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="listFHIRImportJobsResponse_nextToken"><span class="annot"><span class="annottext">listFHIRImportJobsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListFHIRImportJobsResponse -&gt; f ListFHIRImportJobsResponse
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listFHIRImportJobsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFHIRImportJobsResponse -&gt; Maybe Text)
+-&gt; (ListFHIRImportJobsResponse
+    -&gt; Maybe Text -&gt; ListFHIRImportJobsResponse)
+-&gt; Lens
+     ListFHIRImportJobsResponse
+     ListFHIRImportJobsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse%27"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176063"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListFHIRImportJobsResponse' :: ListFHIRImportJobsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679176063"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176063"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176062"><span class="annot"><span class="annottext">s :: ListFHIRImportJobsResponse
+</span><a href="#local-6989586621679176062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse%27"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176061"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFHIRImportJobsResponse
+</span><a href="#local-6989586621679176062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFHIRImportJobsResponse' :: Maybe Text
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AnextToken%3AListFHIRImportJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobsResponse_httpStatus"><span class="hs-identifier hs-type">listFHIRImportJobsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-266"></span><span id="listFHIRImportJobsResponse_httpStatus"><span class="annot"><span class="annottext">listFHIRImportJobsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListFHIRImportJobsResponse -&gt; f ListFHIRImportJobsResponse
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listFHIRImportJobsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFHIRImportJobsResponse -&gt; Int)
+-&gt; (ListFHIRImportJobsResponse
+    -&gt; Int -&gt; ListFHIRImportJobsResponse)
+-&gt; Lens
+     ListFHIRImportJobsResponse ListFHIRImportJobsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse%27"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176060"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListFHIRImportJobsResponse' :: ListFHIRImportJobsResponse -&gt; Int
+</span><a href="#local-6989586621679176060"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176060"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176059"><span class="annot"><span class="annottext">s :: ListFHIRImportJobsResponse
+</span><a href="#local-6989586621679176059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse%27"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176058"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFHIRImportJobsResponse
+</span><a href="#local-6989586621679176059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListFHIRImportJobsResponse' :: Int
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AhttpStatus%3AListFHIRImportJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | The properties of a listed FHIR import jobs, including the ID, ARN,</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- name, and the status of the job.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobsResponse_importJobPropertiesList"><span class="hs-identifier hs-type">listFHIRImportJobsResponse_importJobPropertiesList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.HealthLake.Types.ImportJobProperties.html#ImportJobProperties"><span class="hs-identifier hs-type">ImportJobProperties</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-271"></span><span id="listFHIRImportJobsResponse_importJobPropertiesList"><span class="annot"><span class="annottext">listFHIRImportJobsResponse_importJobPropertiesList :: ([ImportJobProperties] -&gt; f [ImportJobProperties])
+-&gt; ListFHIRImportJobsResponse -&gt; f ListFHIRImportJobsResponse
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#listFHIRImportJobsResponse_importJobPropertiesList"><span class="hs-identifier hs-var hs-var">listFHIRImportJobsResponse_importJobPropertiesList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFHIRImportJobsResponse -&gt; [ImportJobProperties])
+-&gt; (ListFHIRImportJobsResponse
+    -&gt; [ImportJobProperties] -&gt; ListFHIRImportJobsResponse)
+-&gt; Lens
+     ListFHIRImportJobsResponse
+     ListFHIRImportJobsResponse
+     [ImportJobProperties]
+     [ImportJobProperties]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse%27"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176057"><span class="annot"><span class="annottext">[ImportJobProperties]
+importJobPropertiesList :: [ImportJobProperties]
+$sel:importJobPropertiesList:ListFHIRImportJobsResponse' :: ListFHIRImportJobsResponse -&gt; [ImportJobProperties]
+</span><a href="#local-6989586621679176057"><span class="hs-identifier hs-var hs-var">importJobPropertiesList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ImportJobProperties]
+</span><a href="#local-6989586621679176057"><span class="hs-identifier hs-var">importJobPropertiesList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176056"><span class="annot"><span class="annottext">s :: ListFHIRImportJobsResponse
+</span><a href="#local-6989586621679176056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse%27"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176055"><span class="annot"><span class="annottext">[ImportJobProperties]
+</span><a href="#local-6989586621679176055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFHIRImportJobsResponse
+</span><a href="#local-6989586621679176056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importJobPropertiesList:ListFHIRImportJobsResponse' :: [ImportJobProperties]
+</span><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#%24sel%3AimportJobPropertiesList%3AListFHIRImportJobsResponse%27"><span class="hs-identifier hs-var">importJobPropertiesList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ImportJobProperties]
+</span><a href="#local-6989586621679176055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ImportJobProperties] -&gt; f [ImportJobProperties])
+ -&gt; ListFHIRImportJobsResponse -&gt; f ListFHIRImportJobsResponse)
+-&gt; (([ImportJobProperties] -&gt; f [ImportJobProperties])
+    -&gt; [ImportJobProperties] -&gt; f [ImportJobProperties])
+-&gt; ([ImportJobProperties] -&gt; f [ImportJobProperties])
+-&gt; ListFHIRImportJobsResponse
+-&gt; f ListFHIRImportJobsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ImportJobProperties] -&gt; f [ImportJobProperties])
+-&gt; [ImportJobProperties] -&gt; f [ImportJobProperties]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176052"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.ListFHIRImportJobs.html#ListFHIRImportJobsResponse"><span class="hs-identifier hs-type">ListFHIRImportJobsResponse</span></a></span></span><span>
+</span><span id="line-274"></span></pre></body></html>

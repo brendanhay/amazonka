@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AccessAnalyzer.CancelPolicyGeneration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Cancels the requested policy generation.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AccessAnalyzer.CancelPolicyGeneration</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration"><span class="hs-identifier">CancelPolicyGeneration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#newCancelPolicyGeneration"><span class="hs-identifier">newCancelPolicyGeneration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#cancelPolicyGeneration_jobId"><span class="hs-identifier">cancelPolicyGeneration_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGenerationResponse"><span class="hs-identifier">CancelPolicyGenerationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#newCancelPolicyGenerationResponse"><span class="hs-identifier">newCancelPolicyGenerationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#cancelPolicyGenerationResponse_httpStatus"><span class="hs-identifier">cancelPolicyGenerationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.html"><span class="hs-identifier">Amazonka.AccessAnalyzer.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newCancelPolicyGeneration' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679258535"><span id="local-6989586621679258536"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelPolicyGeneration"><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration"><span class="hs-identifier hs-var">CancelPolicyGeneration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelPolicyGeneration%27"><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration%27"><span class="hs-identifier hs-var">CancelPolicyGeneration'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @JobId@ that is returned by the @StartPolicyGeneration@ operation.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- The @JobId@ can be used with @GetGeneratedPolicy@ to retrieve the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- generated policies or used with @CancelPolicyGeneration@ to cancel the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- policy generation request.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AjobId%3ACancelPolicyGeneration%27"><span class="annot"><span class="annottext">CancelPolicyGeneration -&gt; Text
+</span><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#%24sel%3AjobId%3ACancelPolicyGeneration%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258529"><span id="local-6989586621679258531"><span class="annot"><span class="annottext">CancelPolicyGeneration -&gt; CancelPolicyGeneration -&gt; Bool
+(CancelPolicyGeneration -&gt; CancelPolicyGeneration -&gt; Bool)
+-&gt; (CancelPolicyGeneration -&gt; CancelPolicyGeneration -&gt; Bool)
+-&gt; Eq CancelPolicyGeneration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelPolicyGeneration -&gt; CancelPolicyGeneration -&gt; Bool
+$c/= :: CancelPolicyGeneration -&gt; CancelPolicyGeneration -&gt; Bool
+== :: CancelPolicyGeneration -&gt; CancelPolicyGeneration -&gt; Bool
+$c== :: CancelPolicyGeneration -&gt; CancelPolicyGeneration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258520"><span id="local-6989586621679258522"><span id="local-6989586621679258524"><span id="local-6989586621679258526"><span class="annot"><span class="annottext">ReadPrec [CancelPolicyGeneration]
+ReadPrec CancelPolicyGeneration
+Int -&gt; ReadS CancelPolicyGeneration
+ReadS [CancelPolicyGeneration]
+(Int -&gt; ReadS CancelPolicyGeneration)
+-&gt; ReadS [CancelPolicyGeneration]
+-&gt; ReadPrec CancelPolicyGeneration
+-&gt; ReadPrec [CancelPolicyGeneration]
+-&gt; Read CancelPolicyGeneration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelPolicyGeneration]
+$creadListPrec :: ReadPrec [CancelPolicyGeneration]
+readPrec :: ReadPrec CancelPolicyGeneration
+$creadPrec :: ReadPrec CancelPolicyGeneration
+readList :: ReadS [CancelPolicyGeneration]
+$creadList :: ReadS [CancelPolicyGeneration]
+readsPrec :: Int -&gt; ReadS CancelPolicyGeneration
+$creadsPrec :: Int -&gt; ReadS CancelPolicyGeneration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258513"><span id="local-6989586621679258515"><span id="local-6989586621679258517"><span class="annot"><span class="annottext">Int -&gt; CancelPolicyGeneration -&gt; ShowS
+[CancelPolicyGeneration] -&gt; ShowS
+CancelPolicyGeneration -&gt; String
+(Int -&gt; CancelPolicyGeneration -&gt; ShowS)
+-&gt; (CancelPolicyGeneration -&gt; String)
+-&gt; ([CancelPolicyGeneration] -&gt; ShowS)
+-&gt; Show CancelPolicyGeneration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelPolicyGeneration] -&gt; ShowS
+$cshowList :: [CancelPolicyGeneration] -&gt; ShowS
+show :: CancelPolicyGeneration -&gt; String
+$cshow :: CancelPolicyGeneration -&gt; String
+showsPrec :: Int -&gt; CancelPolicyGeneration -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelPolicyGeneration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CancelPolicyGeneration -&gt; Rep CancelPolicyGeneration x)
+-&gt; (forall x.
+    Rep CancelPolicyGeneration x -&gt; CancelPolicyGeneration)
+-&gt; Generic CancelPolicyGeneration
+forall x. Rep CancelPolicyGeneration x -&gt; CancelPolicyGeneration
+forall x. CancelPolicyGeneration -&gt; Rep CancelPolicyGeneration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CancelPolicyGeneration x -&gt; CancelPolicyGeneration
+$cfrom :: forall x. CancelPolicyGeneration -&gt; Rep CancelPolicyGeneration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'CancelPolicyGeneration' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'jobId', 'cancelPolicyGeneration_jobId' - The @JobId@ that is returned by the @StartPolicyGeneration@ operation.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The @JobId@ can be used with @GetGeneratedPolicy@ to retrieve the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- generated policies or used with @CancelPolicyGeneration@ to cancel the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- policy generation request.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#newCancelPolicyGeneration"><span class="hs-identifier hs-type">newCancelPolicyGeneration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration"><span class="hs-identifier hs-type">CancelPolicyGeneration</span></a></span><span>
+</span><span id="line-74"></span><span id="newCancelPolicyGeneration"><span class="annot"><span class="annottext">newCancelPolicyGeneration :: Text -&gt; CancelPolicyGeneration
+</span><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#newCancelPolicyGeneration"><span class="hs-identifier hs-var hs-var">newCancelPolicyGeneration</span></a></span></span><span> </span><span id="local-6989586621679258508"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258508"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">CancelPolicyGeneration' :: Text -&gt; CancelPolicyGeneration
+</span><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration%27"><span class="hs-identifier hs-type">CancelPolicyGeneration'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:CancelPolicyGeneration' :: Text
+</span><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#%24sel%3AjobId%3ACancelPolicyGeneration%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258508"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The @JobId@ that is returned by the @StartPolicyGeneration@ operation.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The @JobId@ can be used with @GetGeneratedPolicy@ to retrieve the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- generated policies or used with @CancelPolicyGeneration@ to cancel the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- policy generation request.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#cancelPolicyGeneration_jobId"><span class="hs-identifier hs-type">cancelPolicyGeneration_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration"><span class="hs-identifier hs-type">CancelPolicyGeneration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="cancelPolicyGeneration_jobId"><span class="annot"><span class="annottext">cancelPolicyGeneration_jobId :: (Text -&gt; f Text)
+-&gt; CancelPolicyGeneration -&gt; f CancelPolicyGeneration
+</span><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#cancelPolicyGeneration_jobId"><span class="hs-identifier hs-var hs-var">cancelPolicyGeneration_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelPolicyGeneration -&gt; Text)
+-&gt; (CancelPolicyGeneration -&gt; Text -&gt; CancelPolicyGeneration)
+-&gt; Lens CancelPolicyGeneration CancelPolicyGeneration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration%27"><span class="hs-identifier hs-type">CancelPolicyGeneration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258505"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:CancelPolicyGeneration' :: CancelPolicyGeneration -&gt; Text
+</span><a href="#local-6989586621679258505"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258505"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258504"><span class="annot"><span class="annottext">s :: CancelPolicyGeneration
+</span><a href="#local-6989586621679258504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration%27"><span class="hs-identifier hs-type">CancelPolicyGeneration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258503"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelPolicyGeneration
+</span><a href="#local-6989586621679258504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:CancelPolicyGeneration' :: Text
+</span><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#%24sel%3AjobId%3ACancelPolicyGeneration%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration"><span class="hs-identifier hs-type">CancelPolicyGeneration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration"><span class="hs-identifier hs-type">CancelPolicyGeneration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration"><span class="hs-identifier hs-type">CancelPolicyGeneration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGenerationResponse"><span class="hs-identifier hs-type">CancelPolicyGenerationResponse</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679258499"><span class="annot"><span class="annottext">request :: CancelPolicyGeneration -&gt; Request CancelPolicyGeneration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CancelPolicyGeneration -&gt; Request CancelPolicyGeneration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AccessAnalyzer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679258495"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CancelPolicyGeneration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CancelPolicyGeneration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse CancelPolicyGeneration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CancelPolicyGeneration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CancelPolicyGeneration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258492"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258492"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679258491"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679258491"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679258490"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679258490"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CancelPolicyGenerationResponse
+</span><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGenerationResponse%27"><span class="hs-identifier hs-var">CancelPolicyGenerationResponse'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CancelPolicyGenerationResponse)
+-&gt; Either String Int
+-&gt; Either String CancelPolicyGenerationResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258492"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258483"><span id="local-6989586621679258485"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration"><span class="hs-identifier hs-type">CancelPolicyGeneration</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258480"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration"><span class="hs-identifier hs-type">CancelPolicyGeneration</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration"><span class="hs-identifier hs-type">CancelPolicyGeneration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679258476"><span class="annot"><span class="annottext">toHeaders :: CancelPolicyGeneration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CancelPolicyGeneration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258466"><span id="local-6989586621679258468"><span id="local-6989586621679258470"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration"><span class="hs-identifier hs-type">CancelPolicyGeneration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679258464"><span class="annot"><span class="annottext">toJSON :: CancelPolicyGeneration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; CancelPolicyGeneration -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration"><span class="hs-identifier hs-type">CancelPolicyGeneration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679258459"><span class="annot"><span class="annottext">toPath :: CancelPolicyGeneration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration%27"><span class="hs-identifier hs-type">CancelPolicyGeneration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258457"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:CancelPolicyGeneration' :: CancelPolicyGeneration -&gt; Text
+</span><a href="#local-6989586621679258457"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/policy/generation/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258457"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGeneration"><span class="hs-identifier hs-type">CancelPolicyGeneration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679258453"><span class="annot"><span class="annottext">toQuery :: CancelPolicyGeneration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CancelPolicyGeneration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newCancelPolicyGenerationResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679258450"><span id="local-6989586621679258451"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelPolicyGenerationResponse"><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGenerationResponse"><span class="hs-identifier hs-var">CancelPolicyGenerationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelPolicyGenerationResponse%27"><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGenerationResponse%27"><span class="hs-identifier hs-var">CancelPolicyGenerationResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACancelPolicyGenerationResponse%27"><span class="annot"><span class="annottext">CancelPolicyGenerationResponse -&gt; Int
+</span><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#%24sel%3AhttpStatus%3ACancelPolicyGenerationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258445"><span id="local-6989586621679258447"><span class="annot"><span class="annottext">CancelPolicyGenerationResponse
+-&gt; CancelPolicyGenerationResponse -&gt; Bool
+(CancelPolicyGenerationResponse
+ -&gt; CancelPolicyGenerationResponse -&gt; Bool)
+-&gt; (CancelPolicyGenerationResponse
+    -&gt; CancelPolicyGenerationResponse -&gt; Bool)
+-&gt; Eq CancelPolicyGenerationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelPolicyGenerationResponse
+-&gt; CancelPolicyGenerationResponse -&gt; Bool
+$c/= :: CancelPolicyGenerationResponse
+-&gt; CancelPolicyGenerationResponse -&gt; Bool
+== :: CancelPolicyGenerationResponse
+-&gt; CancelPolicyGenerationResponse -&gt; Bool
+$c== :: CancelPolicyGenerationResponse
+-&gt; CancelPolicyGenerationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258437"><span id="local-6989586621679258439"><span id="local-6989586621679258441"><span id="local-6989586621679258443"><span class="annot"><span class="annottext">ReadPrec [CancelPolicyGenerationResponse]
+ReadPrec CancelPolicyGenerationResponse
+Int -&gt; ReadS CancelPolicyGenerationResponse
+ReadS [CancelPolicyGenerationResponse]
+(Int -&gt; ReadS CancelPolicyGenerationResponse)
+-&gt; ReadS [CancelPolicyGenerationResponse]
+-&gt; ReadPrec CancelPolicyGenerationResponse
+-&gt; ReadPrec [CancelPolicyGenerationResponse]
+-&gt; Read CancelPolicyGenerationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelPolicyGenerationResponse]
+$creadListPrec :: ReadPrec [CancelPolicyGenerationResponse]
+readPrec :: ReadPrec CancelPolicyGenerationResponse
+$creadPrec :: ReadPrec CancelPolicyGenerationResponse
+readList :: ReadS [CancelPolicyGenerationResponse]
+$creadList :: ReadS [CancelPolicyGenerationResponse]
+readsPrec :: Int -&gt; ReadS CancelPolicyGenerationResponse
+$creadsPrec :: Int -&gt; ReadS CancelPolicyGenerationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258431"><span id="local-6989586621679258433"><span id="local-6989586621679258435"><span class="annot"><span class="annottext">Int -&gt; CancelPolicyGenerationResponse -&gt; ShowS
+[CancelPolicyGenerationResponse] -&gt; ShowS
+CancelPolicyGenerationResponse -&gt; String
+(Int -&gt; CancelPolicyGenerationResponse -&gt; ShowS)
+-&gt; (CancelPolicyGenerationResponse -&gt; String)
+-&gt; ([CancelPolicyGenerationResponse] -&gt; ShowS)
+-&gt; Show CancelPolicyGenerationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelPolicyGenerationResponse] -&gt; ShowS
+$cshowList :: [CancelPolicyGenerationResponse] -&gt; ShowS
+show :: CancelPolicyGenerationResponse -&gt; String
+$cshow :: CancelPolicyGenerationResponse -&gt; String
+showsPrec :: Int -&gt; CancelPolicyGenerationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelPolicyGenerationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CancelPolicyGenerationResponse
+ -&gt; Rep CancelPolicyGenerationResponse x)
+-&gt; (forall x.
+    Rep CancelPolicyGenerationResponse x
+    -&gt; CancelPolicyGenerationResponse)
+-&gt; Generic CancelPolicyGenerationResponse
+forall x.
+Rep CancelPolicyGenerationResponse x
+-&gt; CancelPolicyGenerationResponse
+forall x.
+CancelPolicyGenerationResponse
+-&gt; Rep CancelPolicyGenerationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CancelPolicyGenerationResponse x
+-&gt; CancelPolicyGenerationResponse
+$cfrom :: forall x.
+CancelPolicyGenerationResponse
+-&gt; Rep CancelPolicyGenerationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Create a value of 'CancelPolicyGenerationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'httpStatus', 'cancelPolicyGenerationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#newCancelPolicyGenerationResponse"><span class="hs-identifier hs-type">newCancelPolicyGenerationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGenerationResponse"><span class="hs-identifier hs-type">CancelPolicyGenerationResponse</span></a></span><span>
+</span><span id="line-142"></span><span id="newCancelPolicyGenerationResponse"><span class="annot"><span class="annottext">newCancelPolicyGenerationResponse :: Int -&gt; CancelPolicyGenerationResponse
+</span><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#newCancelPolicyGenerationResponse"><span class="hs-identifier hs-var hs-var">newCancelPolicyGenerationResponse</span></a></span></span><span> </span><span id="local-6989586621679258428"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258428"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">CancelPolicyGenerationResponse' :: Int -&gt; CancelPolicyGenerationResponse
+</span><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGenerationResponse%27"><span class="hs-identifier hs-type">CancelPolicyGenerationResponse'</span></a></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CancelPolicyGenerationResponse' :: Int
+</span><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#%24sel%3AhttpStatus%3ACancelPolicyGenerationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258428"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#cancelPolicyGenerationResponse_httpStatus"><span class="hs-identifier hs-type">cancelPolicyGenerationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGenerationResponse"><span class="hs-identifier hs-type">CancelPolicyGenerationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-150"></span><span id="cancelPolicyGenerationResponse_httpStatus"><span class="annot"><span class="annottext">cancelPolicyGenerationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CancelPolicyGenerationResponse
+-&gt; f CancelPolicyGenerationResponse
+</span><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#cancelPolicyGenerationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">cancelPolicyGenerationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelPolicyGenerationResponse -&gt; Int)
+-&gt; (CancelPolicyGenerationResponse
+    -&gt; Int -&gt; CancelPolicyGenerationResponse)
+-&gt; Lens
+     CancelPolicyGenerationResponse
+     CancelPolicyGenerationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGenerationResponse%27"><span class="hs-identifier hs-type">CancelPolicyGenerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258427"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CancelPolicyGenerationResponse' :: CancelPolicyGenerationResponse -&gt; Int
+</span><a href="#local-6989586621679258427"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258427"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258426"><span class="annot"><span class="annottext">s :: CancelPolicyGenerationResponse
+</span><a href="#local-6989586621679258426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGenerationResponse%27"><span class="hs-identifier hs-type">CancelPolicyGenerationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258425"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelPolicyGenerationResponse
+</span><a href="#local-6989586621679258426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelPolicyGenerationResponse' :: Int
+</span><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#%24sel%3AhttpStatus%3ACancelPolicyGenerationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGenerationResponse"><span class="hs-identifier hs-type">CancelPolicyGenerationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679258423"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.AccessAnalyzer.CancelPolicyGeneration.html#CancelPolicyGenerationResponse"><span class="hs-identifier hs-type">CancelPolicyGenerationResponse</span></a></span></span><span>
+</span><span id="line-155"></span></pre></body></html>

@@ -1,0 +1,783 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppRunner.Types.AutoScalingConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppRunner.Types.AutoScalingConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.html"><span class="hs-identifier">Amazonka.AppRunner.Types.AutoScalingConfigurationStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes an App Runner automatic scaling configuration resource.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Multiple revisions of a configuration have the same</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- @AutoScalingConfigurationName@ and different</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- @AutoScalingConfigurationRevision@ values.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- A higher @MinSize@ increases the spread of your App Runner service over</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- more Availability Zones in the Amazon Web Services Region. The tradeoff</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- is a higher minimal cost.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- A lower @MaxSize@ controls your cost. The tradeoff is lower</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- responsiveness during peak demand.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newAutoScalingConfiguration' smart constructor.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621679202489"><span id="local-6989586621679202490"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoScalingConfiguration"><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-var">AutoScalingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingConfiguration%27"><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-var">AutoScalingConfiguration'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of the auto scaling configuration. If the status of a</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- configuration revision is @INACTIVE@, it was deleted and can\'t be used.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Inactive configuration revisions are permanently removed some time after</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- they are deleted.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Astatus%3AAutoScalingConfiguration%27"><span class="annot"><span class="annottext">AutoScalingConfiguration -&gt; Maybe AutoScalingConfigurationStatus
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3Astatus%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.html#AutoScalingConfigurationStatus"><span class="hs-identifier hs-type">AutoScalingConfigurationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The customer-provided auto scaling configuration name. It can be used in</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- multiple revisions of a configuration.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AautoScalingConfigurationName%3AAutoScalingConfiguration%27"><span class="annot"><span class="annottext">AutoScalingConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AautoScalingConfigurationName%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">autoScalingConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The time when the auto scaling configuration was created. It\'s in Unix</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- time stamp format.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AcreatedAt%3AAutoScalingConfiguration%27"><span class="annot"><span class="annottext">AutoScalingConfiguration -&gt; Maybe POSIX
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AcreatedAt%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The maximum number of instances that a service scales up to. At most</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @MaxSize@ instances actively serve traffic for your service.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AmaxSize%3AAutoScalingConfiguration%27"><span class="annot"><span class="annottext">AutoScalingConfiguration -&gt; Maybe Int
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AmaxSize%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">maxSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The revision of this auto scaling configuration. It\'s unique among all</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- the active configurations (@\&quot;Status\&quot;: \&quot;ACTIVE\&quot;@) that share the same</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @AutoScalingConfigurationName@.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AautoScalingConfigurationRevision%3AAutoScalingConfiguration%27"><span class="annot"><span class="annottext">AutoScalingConfiguration -&gt; Maybe Int
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AautoScalingConfigurationRevision%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">autoScalingConfigurationRevision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of this auto scaling configuration.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AautoScalingConfigurationArn%3AAutoScalingConfiguration%27"><span class="annot"><span class="annottext">AutoScalingConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AautoScalingConfigurationArn%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">autoScalingConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The minimum number of instances that App Runner provisions for a</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- service. The service always has at least @MinSize@ provisioned</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- instances. Some of them actively serve traffic. The rest of them</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- (provisioned and inactive instances) are a cost-effective compute</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- capacity reserve and are ready to be quickly activated. You pay for</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- memory usage of all the provisioned instances. You pay for CPU usage of</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- only the active subset.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- App Runner temporarily doubles the number of provisioned instances</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- during deployments, to maintain the same capacity for both old and new</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- code.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AminSize%3AAutoScalingConfiguration%27"><span class="annot"><span class="annottext">AutoScalingConfiguration -&gt; Maybe Int
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AminSize%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The time when the auto scaling configuration was deleted. It\'s in Unix</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- time stamp format.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AdeletedAt%3AAutoScalingConfiguration%27"><span class="annot"><span class="annottext">AutoScalingConfiguration -&gt; Maybe POSIX
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AdeletedAt%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">deletedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | It\'s set to @true@ for the configuration with the highest @Revision@</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- among all configurations that share the same @Name@. It\'s set to</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- @false@ otherwise.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Alatest%3AAutoScalingConfiguration%27"><span class="annot"><span class="annottext">AutoScalingConfiguration -&gt; Maybe Bool
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3Alatest%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">latest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The maximum number of concurrent requests that an instance processes. If</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- the number of concurrent requests exceeds this limit, App Runner scales</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- the service up.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AmaxConcurrency%3AAutoScalingConfiguration%27"><span class="annot"><span class="annottext">AutoScalingConfiguration -&gt; Maybe Int
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AmaxConcurrency%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var hs-var">maxConcurrency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202474"><span id="local-6989586621679202476"><span class="annot"><span class="annottext">AutoScalingConfiguration -&gt; AutoScalingConfiguration -&gt; Bool
+(AutoScalingConfiguration -&gt; AutoScalingConfiguration -&gt; Bool)
+-&gt; (AutoScalingConfiguration -&gt; AutoScalingConfiguration -&gt; Bool)
+-&gt; Eq AutoScalingConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AutoScalingConfiguration -&gt; AutoScalingConfiguration -&gt; Bool
+$c/= :: AutoScalingConfiguration -&gt; AutoScalingConfiguration -&gt; Bool
+== :: AutoScalingConfiguration -&gt; AutoScalingConfiguration -&gt; Bool
+$c== :: AutoScalingConfiguration -&gt; AutoScalingConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202465"><span id="local-6989586621679202467"><span id="local-6989586621679202469"><span id="local-6989586621679202471"><span class="annot"><span class="annottext">ReadPrec [AutoScalingConfiguration]
+ReadPrec AutoScalingConfiguration
+Int -&gt; ReadS AutoScalingConfiguration
+ReadS [AutoScalingConfiguration]
+(Int -&gt; ReadS AutoScalingConfiguration)
+-&gt; ReadS [AutoScalingConfiguration]
+-&gt; ReadPrec AutoScalingConfiguration
+-&gt; ReadPrec [AutoScalingConfiguration]
+-&gt; Read AutoScalingConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AutoScalingConfiguration]
+$creadListPrec :: ReadPrec [AutoScalingConfiguration]
+readPrec :: ReadPrec AutoScalingConfiguration
+$creadPrec :: ReadPrec AutoScalingConfiguration
+readList :: ReadS [AutoScalingConfiguration]
+$creadList :: ReadS [AutoScalingConfiguration]
+readsPrec :: Int -&gt; ReadS AutoScalingConfiguration
+$creadsPrec :: Int -&gt; ReadS AutoScalingConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202458"><span id="local-6989586621679202460"><span id="local-6989586621679202462"><span class="annot"><span class="annottext">Int -&gt; AutoScalingConfiguration -&gt; ShowS
+[AutoScalingConfiguration] -&gt; ShowS
+AutoScalingConfiguration -&gt; String
+(Int -&gt; AutoScalingConfiguration -&gt; ShowS)
+-&gt; (AutoScalingConfiguration -&gt; String)
+-&gt; ([AutoScalingConfiguration] -&gt; ShowS)
+-&gt; Show AutoScalingConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AutoScalingConfiguration] -&gt; ShowS
+$cshowList :: [AutoScalingConfiguration] -&gt; ShowS
+show :: AutoScalingConfiguration -&gt; String
+$cshow :: AutoScalingConfiguration -&gt; String
+showsPrec :: Int -&gt; AutoScalingConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; AutoScalingConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AutoScalingConfiguration -&gt; Rep AutoScalingConfiguration x)
+-&gt; (forall x.
+    Rep AutoScalingConfiguration x -&gt; AutoScalingConfiguration)
+-&gt; Generic AutoScalingConfiguration
+forall x.
+Rep AutoScalingConfiguration x -&gt; AutoScalingConfiguration
+forall x.
+AutoScalingConfiguration -&gt; Rep AutoScalingConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AutoScalingConfiguration x -&gt; AutoScalingConfiguration
+$cfrom :: forall x.
+AutoScalingConfiguration -&gt; Rep AutoScalingConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Create a value of 'AutoScalingConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'status', 'autoScalingConfiguration_status' - The current state of the auto scaling configuration. If the status of a</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- configuration revision is @INACTIVE@, it was deleted and can\'t be used.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Inactive configuration revisions are permanently removed some time after</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- they are deleted.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'autoScalingConfigurationName', 'autoScalingConfiguration_autoScalingConfigurationName' - The customer-provided auto scaling configuration name. It can be used in</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- multiple revisions of a configuration.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'createdAt', 'autoScalingConfiguration_createdAt' - The time when the auto scaling configuration was created. It\'s in Unix</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- time stamp format.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'maxSize', 'autoScalingConfiguration_maxSize' - The maximum number of instances that a service scales up to. At most</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- @MaxSize@ instances actively serve traffic for your service.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'autoScalingConfigurationRevision', 'autoScalingConfiguration_autoScalingConfigurationRevision' - The revision of this auto scaling configuration. It\'s unique among all</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- the active configurations (@\&quot;Status\&quot;: \&quot;ACTIVE\&quot;@) that share the same</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- @AutoScalingConfigurationName@.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'autoScalingConfigurationArn', 'autoScalingConfiguration_autoScalingConfigurationArn' - The Amazon Resource Name (ARN) of this auto scaling configuration.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'minSize', 'autoScalingConfiguration_minSize' - The minimum number of instances that App Runner provisions for a</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- service. The service always has at least @MinSize@ provisioned</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- instances. Some of them actively serve traffic. The rest of them</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- (provisioned and inactive instances) are a cost-effective compute</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- capacity reserve and are ready to be quickly activated. You pay for</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- memory usage of all the provisioned instances. You pay for CPU usage of</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- only the active subset.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- App Runner temporarily doubles the number of provisioned instances</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- during deployments, to maintain the same capacity for both old and new</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- code.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'deletedAt', 'autoScalingConfiguration_deletedAt' - The time when the auto scaling configuration was deleted. It\'s in Unix</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- time stamp format.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'latest', 'autoScalingConfiguration_latest' - It\'s set to @true@ for the configuration with the highest @Revision@</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- among all configurations that share the same @Name@. It\'s set to</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- @false@ otherwise.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'maxConcurrency', 'autoScalingConfiguration_maxConcurrency' - The maximum number of concurrent requests that an instance processes. If</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- the number of concurrent requests exceeds this limit, App Runner scales</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- the service up.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#newAutoScalingConfiguration"><span class="hs-identifier hs-type">newAutoScalingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span>
+</span><span id="line-139"></span><span id="newAutoScalingConfiguration"><span class="annot"><span class="annottext">newAutoScalingConfiguration :: AutoScalingConfiguration
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#newAutoScalingConfiguration"><span class="hs-identifier hs-var hs-var">newAutoScalingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">AutoScalingConfiguration' :: Maybe AutoScalingConfigurationStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe POSIX
+-&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; AutoScalingConfiguration
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:AutoScalingConfiguration' :: Maybe AutoScalingConfigurationStatus
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3Astatus%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingConfigurationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingConfigurationName:AutoScalingConfiguration' :: Maybe Text
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AautoScalingConfigurationName%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">autoScalingConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:AutoScalingConfiguration' :: Maybe POSIX
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AcreatedAt%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxSize:AutoScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AmaxSize%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">maxSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingConfigurationRevision:AutoScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AautoScalingConfigurationRevision%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">autoScalingConfigurationRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingConfigurationArn:AutoScalingConfiguration' :: Maybe Text
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AautoScalingConfigurationArn%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">autoScalingConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:minSize:AutoScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AminSize%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:deletedAt:AutoScalingConfiguration' :: Maybe POSIX
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AdeletedAt%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">deletedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:latest:AutoScalingConfiguration' :: Maybe Bool
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3Alatest%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">latest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxConcurrency:AutoScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AmaxConcurrency%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">maxConcurrency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The current state of the auto scaling configuration. If the status of a</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- configuration revision is @INACTIVE@, it was deleted and can\'t be used.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Inactive configuration revisions are permanently removed some time after</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- they are deleted.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_status"><span class="hs-identifier hs-type">autoScalingConfiguration_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfigurationStatus.html#AutoScalingConfigurationStatus"><span class="hs-identifier hs-type">AutoScalingConfigurationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="autoScalingConfiguration_status"><span class="annot"><span class="annottext">autoScalingConfiguration_status :: (Maybe AutoScalingConfigurationStatus
+ -&gt; f (Maybe AutoScalingConfigurationStatus))
+-&gt; AutoScalingConfiguration -&gt; f AutoScalingConfiguration
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_status"><span class="hs-identifier hs-var hs-var">autoScalingConfiguration_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingConfiguration -&gt; Maybe AutoScalingConfigurationStatus)
+-&gt; (AutoScalingConfiguration
+    -&gt; Maybe AutoScalingConfigurationStatus
+    -&gt; AutoScalingConfiguration)
+-&gt; Lens
+     AutoScalingConfiguration
+     AutoScalingConfiguration
+     (Maybe AutoScalingConfigurationStatus)
+     (Maybe AutoScalingConfigurationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202449"><span class="annot"><span class="annottext">Maybe AutoScalingConfigurationStatus
+status :: Maybe AutoScalingConfigurationStatus
+$sel:status:AutoScalingConfiguration' :: AutoScalingConfiguration -&gt; Maybe AutoScalingConfigurationStatus
+</span><a href="#local-6989586621679202449"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingConfigurationStatus
+</span><a href="#local-6989586621679202449"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202448"><span class="annot"><span class="annottext">s :: AutoScalingConfiguration
+</span><a href="#local-6989586621679202448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202447"><span class="annot"><span class="annottext">Maybe AutoScalingConfigurationStatus
+</span><a href="#local-6989586621679202447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingConfiguration
+</span><a href="#local-6989586621679202448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AutoScalingConfiguration' :: Maybe AutoScalingConfigurationStatus
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3Astatus%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingConfigurationStatus
+</span><a href="#local-6989586621679202447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The customer-provided auto scaling configuration name. It can be used in</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- multiple revisions of a configuration.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_autoScalingConfigurationName"><span class="hs-identifier hs-type">autoScalingConfiguration_autoScalingConfigurationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="autoScalingConfiguration_autoScalingConfigurationName"><span class="annot"><span class="annottext">autoScalingConfiguration_autoScalingConfigurationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AutoScalingConfiguration -&gt; f AutoScalingConfiguration
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_autoScalingConfigurationName"><span class="hs-identifier hs-var hs-var">autoScalingConfiguration_autoScalingConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingConfiguration -&gt; Maybe Text)
+-&gt; (AutoScalingConfiguration
+    -&gt; Maybe Text -&gt; AutoScalingConfiguration)
+-&gt; Lens
+     AutoScalingConfiguration
+     AutoScalingConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202445"><span class="annot"><span class="annottext">Maybe Text
+autoScalingConfigurationName :: Maybe Text
+$sel:autoScalingConfigurationName:AutoScalingConfiguration' :: AutoScalingConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679202445"><span class="hs-identifier hs-var hs-var">autoScalingConfigurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202445"><span class="hs-identifier hs-var">autoScalingConfigurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202444"><span class="annot"><span class="annottext">s :: AutoScalingConfiguration
+</span><a href="#local-6989586621679202444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202443"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingConfiguration
+</span><a href="#local-6989586621679202444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingConfigurationName:AutoScalingConfiguration' :: Maybe Text
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AautoScalingConfigurationName%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">autoScalingConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The time when the auto scaling configuration was created. It\'s in Unix</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- time stamp format.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_createdAt"><span class="hs-identifier hs-type">autoScalingConfiguration_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="autoScalingConfiguration_createdAt"><span class="annot"><span class="annottext">autoScalingConfiguration_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AutoScalingConfiguration -&gt; f AutoScalingConfiguration
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_createdAt"><span class="hs-identifier hs-var hs-var">autoScalingConfiguration_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingConfiguration -&gt; Maybe POSIX)
+-&gt; (AutoScalingConfiguration
+    -&gt; Maybe POSIX -&gt; AutoScalingConfiguration)
+-&gt; Lens
+     AutoScalingConfiguration
+     AutoScalingConfiguration
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202441"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:AutoScalingConfiguration' :: AutoScalingConfiguration -&gt; Maybe POSIX
+</span><a href="#local-6989586621679202441"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202441"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202440"><span class="annot"><span class="annottext">s :: AutoScalingConfiguration
+</span><a href="#local-6989586621679202440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202439"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingConfiguration
+</span><a href="#local-6989586621679202440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:AutoScalingConfiguration' :: Maybe POSIX
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AcreatedAt%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AutoScalingConfiguration -&gt; f AutoScalingConfiguration)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AutoScalingConfiguration
+-&gt; f AutoScalingConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The maximum number of instances that a service scales up to. At most</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- @MaxSize@ instances actively serve traffic for your service.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_maxSize"><span class="hs-identifier hs-type">autoScalingConfiguration_maxSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="autoScalingConfiguration_maxSize"><span class="annot"><span class="annottext">autoScalingConfiguration_maxSize :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AutoScalingConfiguration -&gt; f AutoScalingConfiguration
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_maxSize"><span class="hs-identifier hs-var hs-var">autoScalingConfiguration_maxSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingConfiguration -&gt; Maybe Int)
+-&gt; (AutoScalingConfiguration
+    -&gt; Maybe Int -&gt; AutoScalingConfiguration)
+-&gt; Lens
+     AutoScalingConfiguration
+     AutoScalingConfiguration
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202434"><span class="annot"><span class="annottext">Maybe Int
+maxSize :: Maybe Int
+$sel:maxSize:AutoScalingConfiguration' :: AutoScalingConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679202434"><span class="hs-identifier hs-var hs-var">maxSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679202434"><span class="hs-identifier hs-var">maxSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202433"><span class="annot"><span class="annottext">s :: AutoScalingConfiguration
+</span><a href="#local-6989586621679202433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202432"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679202432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingConfiguration
+</span><a href="#local-6989586621679202433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSize:AutoScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AmaxSize%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">maxSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679202432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The revision of this auto scaling configuration. It\'s unique among all</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- the active configurations (@\&quot;Status\&quot;: \&quot;ACTIVE\&quot;@) that share the same</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- @AutoScalingConfigurationName@.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_autoScalingConfigurationRevision"><span class="hs-identifier hs-type">autoScalingConfiguration_autoScalingConfigurationRevision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="autoScalingConfiguration_autoScalingConfigurationRevision"><span class="annot"><span class="annottext">autoScalingConfiguration_autoScalingConfigurationRevision :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AutoScalingConfiguration -&gt; f AutoScalingConfiguration
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_autoScalingConfigurationRevision"><span class="hs-identifier hs-var hs-var">autoScalingConfiguration_autoScalingConfigurationRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingConfiguration -&gt; Maybe Int)
+-&gt; (AutoScalingConfiguration
+    -&gt; Maybe Int -&gt; AutoScalingConfiguration)
+-&gt; Lens
+     AutoScalingConfiguration
+     AutoScalingConfiguration
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202430"><span class="annot"><span class="annottext">Maybe Int
+autoScalingConfigurationRevision :: Maybe Int
+$sel:autoScalingConfigurationRevision:AutoScalingConfiguration' :: AutoScalingConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679202430"><span class="hs-identifier hs-var hs-var">autoScalingConfigurationRevision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679202430"><span class="hs-identifier hs-var">autoScalingConfigurationRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202429"><span class="annot"><span class="annottext">s :: AutoScalingConfiguration
+</span><a href="#local-6989586621679202429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202428"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679202428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingConfiguration
+</span><a href="#local-6989586621679202429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingConfigurationRevision:AutoScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AautoScalingConfigurationRevision%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">autoScalingConfigurationRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679202428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of this auto scaling configuration.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_autoScalingConfigurationArn"><span class="hs-identifier hs-type">autoScalingConfiguration_autoScalingConfigurationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="autoScalingConfiguration_autoScalingConfigurationArn"><span class="annot"><span class="annottext">autoScalingConfiguration_autoScalingConfigurationArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AutoScalingConfiguration -&gt; f AutoScalingConfiguration
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_autoScalingConfigurationArn"><span class="hs-identifier hs-var hs-var">autoScalingConfiguration_autoScalingConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingConfiguration -&gt; Maybe Text)
+-&gt; (AutoScalingConfiguration
+    -&gt; Maybe Text -&gt; AutoScalingConfiguration)
+-&gt; Lens
+     AutoScalingConfiguration
+     AutoScalingConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202426"><span class="annot"><span class="annottext">Maybe Text
+autoScalingConfigurationArn :: Maybe Text
+$sel:autoScalingConfigurationArn:AutoScalingConfiguration' :: AutoScalingConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679202426"><span class="hs-identifier hs-var hs-var">autoScalingConfigurationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202426"><span class="hs-identifier hs-var">autoScalingConfigurationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202425"><span class="annot"><span class="annottext">s :: AutoScalingConfiguration
+</span><a href="#local-6989586621679202425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202424"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingConfiguration
+</span><a href="#local-6989586621679202425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingConfigurationArn:AutoScalingConfiguration' :: Maybe Text
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AautoScalingConfigurationArn%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">autoScalingConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The minimum number of instances that App Runner provisions for a</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- service. The service always has at least @MinSize@ provisioned</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- instances. Some of them actively serve traffic. The rest of them</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- (provisioned and inactive instances) are a cost-effective compute</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- capacity reserve and are ready to be quickly activated. You pay for</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- memory usage of all the provisioned instances. You pay for CPU usage of</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- only the active subset.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- App Runner temporarily doubles the number of provisioned instances</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- during deployments, to maintain the same capacity for both old and new</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- code.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_minSize"><span class="hs-identifier hs-type">autoScalingConfiguration_minSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="autoScalingConfiguration_minSize"><span class="annot"><span class="annottext">autoScalingConfiguration_minSize :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AutoScalingConfiguration -&gt; f AutoScalingConfiguration
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_minSize"><span class="hs-identifier hs-var hs-var">autoScalingConfiguration_minSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingConfiguration -&gt; Maybe Int)
+-&gt; (AutoScalingConfiguration
+    -&gt; Maybe Int -&gt; AutoScalingConfiguration)
+-&gt; Lens
+     AutoScalingConfiguration
+     AutoScalingConfiguration
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202422"><span class="annot"><span class="annottext">Maybe Int
+minSize :: Maybe Int
+$sel:minSize:AutoScalingConfiguration' :: AutoScalingConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679202422"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679202422"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202421"><span class="annot"><span class="annottext">s :: AutoScalingConfiguration
+</span><a href="#local-6989586621679202421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202420"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679202420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingConfiguration
+</span><a href="#local-6989586621679202421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minSize:AutoScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AminSize%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679202420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The time when the auto scaling configuration was deleted. It\'s in Unix</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- time stamp format.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_deletedAt"><span class="hs-identifier hs-type">autoScalingConfiguration_deletedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="autoScalingConfiguration_deletedAt"><span class="annot"><span class="annottext">autoScalingConfiguration_deletedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AutoScalingConfiguration -&gt; f AutoScalingConfiguration
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_deletedAt"><span class="hs-identifier hs-var hs-var">autoScalingConfiguration_deletedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingConfiguration -&gt; Maybe POSIX)
+-&gt; (AutoScalingConfiguration
+    -&gt; Maybe POSIX -&gt; AutoScalingConfiguration)
+-&gt; Lens
+     AutoScalingConfiguration
+     AutoScalingConfiguration
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202418"><span class="annot"><span class="annottext">Maybe POSIX
+deletedAt :: Maybe POSIX
+$sel:deletedAt:AutoScalingConfiguration' :: AutoScalingConfiguration -&gt; Maybe POSIX
+</span><a href="#local-6989586621679202418"><span class="hs-identifier hs-var hs-var">deletedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202418"><span class="hs-identifier hs-var">deletedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202417"><span class="annot"><span class="annottext">s :: AutoScalingConfiguration
+</span><a href="#local-6989586621679202417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202416"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingConfiguration
+</span><a href="#local-6989586621679202417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletedAt:AutoScalingConfiguration' :: Maybe POSIX
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AdeletedAt%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">deletedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AutoScalingConfiguration -&gt; f AutoScalingConfiguration)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AutoScalingConfiguration
+-&gt; f AutoScalingConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | It\'s set to @true@ for the configuration with the highest @Revision@</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- among all configurations that share the same @Name@. It\'s set to</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- @false@ otherwise.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_latest"><span class="hs-identifier hs-type">autoScalingConfiguration_latest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="autoScalingConfiguration_latest"><span class="annot"><span class="annottext">autoScalingConfiguration_latest :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AutoScalingConfiguration -&gt; f AutoScalingConfiguration
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_latest"><span class="hs-identifier hs-var hs-var">autoScalingConfiguration_latest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingConfiguration -&gt; Maybe Bool)
+-&gt; (AutoScalingConfiguration
+    -&gt; Maybe Bool -&gt; AutoScalingConfiguration)
+-&gt; Lens
+     AutoScalingConfiguration
+     AutoScalingConfiguration
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202414"><span class="annot"><span class="annottext">Maybe Bool
+latest :: Maybe Bool
+$sel:latest:AutoScalingConfiguration' :: AutoScalingConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679202414"><span class="hs-identifier hs-var hs-var">latest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202414"><span class="hs-identifier hs-var">latest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202413"><span class="annot"><span class="annottext">s :: AutoScalingConfiguration
+</span><a href="#local-6989586621679202413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202412"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingConfiguration
+</span><a href="#local-6989586621679202413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latest:AutoScalingConfiguration' :: Maybe Bool
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3Alatest%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">latest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The maximum number of concurrent requests that an instance processes. If</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- the number of concurrent requests exceeds this limit, App Runner scales</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- the service up.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_maxConcurrency"><span class="hs-identifier hs-type">autoScalingConfiguration_maxConcurrency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="autoScalingConfiguration_maxConcurrency"><span class="annot"><span class="annottext">autoScalingConfiguration_maxConcurrency :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AutoScalingConfiguration -&gt; f AutoScalingConfiguration
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#autoScalingConfiguration_maxConcurrency"><span class="hs-identifier hs-var hs-var">autoScalingConfiguration_maxConcurrency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingConfiguration -&gt; Maybe Int)
+-&gt; (AutoScalingConfiguration
+    -&gt; Maybe Int -&gt; AutoScalingConfiguration)
+-&gt; Lens
+     AutoScalingConfiguration
+     AutoScalingConfiguration
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202410"><span class="annot"><span class="annottext">Maybe Int
+maxConcurrency :: Maybe Int
+$sel:maxConcurrency:AutoScalingConfiguration' :: AutoScalingConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679202410"><span class="hs-identifier hs-var hs-var">maxConcurrency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679202410"><span class="hs-identifier hs-var">maxConcurrency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202409"><span class="annot"><span class="annottext">s :: AutoScalingConfiguration
+</span><a href="#local-6989586621679202409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-type">AutoScalingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202408"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679202408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingConfiguration
+</span><a href="#local-6989586621679202409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxConcurrency:AutoScalingConfiguration' :: Maybe Int
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#%24sel%3AmaxConcurrency%3AAutoScalingConfiguration%27"><span class="hs-identifier hs-var">maxConcurrency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679202408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202405"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679202403"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoScalingConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AutoScalingConfiguration)
+-&gt; Value
+-&gt; Parser AutoScalingConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AutoScalingConfiguration&quot;</span></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202400"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202400"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Maybe AutoScalingConfigurationStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe POSIX
+-&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; AutoScalingConfiguration
+</span><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration%27"><span class="hs-identifier hs-var">AutoScalingConfiguration'</span></a></span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AutoScalingConfigurationStatus
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe POSIX
+ -&gt; Maybe Bool
+ -&gt; Maybe Int
+ -&gt; AutoScalingConfiguration)
+-&gt; Parser (Maybe AutoScalingConfigurationStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; AutoScalingConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202400"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoScalingConfigurationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; AutoScalingConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; AutoScalingConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202400"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoScalingConfigurationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; AutoScalingConfiguration)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; AutoScalingConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202400"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; AutoScalingConfiguration)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; AutoScalingConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202400"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; AutoScalingConfiguration)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; AutoScalingConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202400"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoScalingConfigurationRevision&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; AutoScalingConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; AutoScalingConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202400"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoScalingConfigurationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; AutoScalingConfiguration)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Bool -&gt; Maybe Int -&gt; AutoScalingConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202400"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MinSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Bool -&gt; Maybe Int -&gt; AutoScalingConfiguration)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Bool -&gt; Maybe Int -&gt; AutoScalingConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202400"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeletedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Int -&gt; AutoScalingConfiguration)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Int -&gt; AutoScalingConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202400"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Latest&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; AutoScalingConfiguration)
+-&gt; Parser (Maybe Int) -&gt; Parser AutoScalingConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202400"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxConcurrency&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202394"><span id="local-6989586621679202396"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span></span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202391"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.AutoScalingConfiguration.html#AutoScalingConfiguration"><span class="hs-identifier hs-type">AutoScalingConfiguration</span></a></span></span><span>
+</span><span id="line-238"></span></pre></body></html>

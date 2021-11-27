@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#RequestCancelActivityTaskFailedCause"><span class="hs-identifier">RequestCancelActivityTaskFailedCause</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#RequestCancelActivityTaskFailedCause_ACTIVITY_ID_UNKNOWN"><span class="hs-identifier">RequestCancelActivityTaskFailedCause_ACTIVITY_ID_UNKNOWN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#RequestCancelActivityTaskFailedCause_OPERATION_NOT_PERMITTED"><span class="hs-identifier">RequestCancelActivityTaskFailedCause_OPERATION_NOT_PERMITTED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679347897"><span id="local-6989586621679347898"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RequestCancelActivityTaskFailedCause"><span class="annot"><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#RequestCancelActivityTaskFailedCause"><span class="hs-identifier hs-var">RequestCancelActivityTaskFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequestCancelActivityTaskFailedCause%27"><span class="annot"><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#RequestCancelActivityTaskFailedCause%27"><span class="hs-identifier hs-var">RequestCancelActivityTaskFailedCause'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRequestCancelActivityTaskFailedCause"><span class="annot"><span class="annottext">RequestCancelActivityTaskFailedCause -&gt; Text
+</span><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#fromRequestCancelActivityTaskFailedCause"><span class="hs-identifier hs-var hs-var">fromRequestCancelActivityTaskFailedCause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347889"><span id="local-6989586621679347891"><span id="local-6989586621679347893"><span class="annot"><span class="annottext">Int -&gt; RequestCancelActivityTaskFailedCause -&gt; ShowS
+[RequestCancelActivityTaskFailedCause] -&gt; ShowS
+RequestCancelActivityTaskFailedCause -&gt; String
+(Int -&gt; RequestCancelActivityTaskFailedCause -&gt; ShowS)
+-&gt; (RequestCancelActivityTaskFailedCause -&gt; String)
+-&gt; ([RequestCancelActivityTaskFailedCause] -&gt; ShowS)
+-&gt; Show RequestCancelActivityTaskFailedCause
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RequestCancelActivityTaskFailedCause] -&gt; ShowS
+$cshowList :: [RequestCancelActivityTaskFailedCause] -&gt; ShowS
+show :: RequestCancelActivityTaskFailedCause -&gt; String
+$cshow :: RequestCancelActivityTaskFailedCause -&gt; String
+showsPrec :: Int -&gt; RequestCancelActivityTaskFailedCause -&gt; ShowS
+$cshowsPrec :: Int -&gt; RequestCancelActivityTaskFailedCause -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679347880"><span id="local-6989586621679347882"><span id="local-6989586621679347884"><span id="local-6989586621679347886"><span class="annot"><span class="annottext">ReadPrec [RequestCancelActivityTaskFailedCause]
+ReadPrec RequestCancelActivityTaskFailedCause
+Int -&gt; ReadS RequestCancelActivityTaskFailedCause
+ReadS [RequestCancelActivityTaskFailedCause]
+(Int -&gt; ReadS RequestCancelActivityTaskFailedCause)
+-&gt; ReadS [RequestCancelActivityTaskFailedCause]
+-&gt; ReadPrec RequestCancelActivityTaskFailedCause
+-&gt; ReadPrec [RequestCancelActivityTaskFailedCause]
+-&gt; Read RequestCancelActivityTaskFailedCause
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RequestCancelActivityTaskFailedCause]
+$creadListPrec :: ReadPrec [RequestCancelActivityTaskFailedCause]
+readPrec :: ReadPrec RequestCancelActivityTaskFailedCause
+$creadPrec :: ReadPrec RequestCancelActivityTaskFailedCause
+readList :: ReadS [RequestCancelActivityTaskFailedCause]
+$creadList :: ReadS [RequestCancelActivityTaskFailedCause]
+readsPrec :: Int -&gt; ReadS RequestCancelActivityTaskFailedCause
+$creadsPrec :: Int -&gt; ReadS RequestCancelActivityTaskFailedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679347875"><span id="local-6989586621679347877"><span class="annot"><span class="annottext">RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Bool
+(RequestCancelActivityTaskFailedCause
+ -&gt; RequestCancelActivityTaskFailedCause -&gt; Bool)
+-&gt; (RequestCancelActivityTaskFailedCause
+    -&gt; RequestCancelActivityTaskFailedCause -&gt; Bool)
+-&gt; Eq RequestCancelActivityTaskFailedCause
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Bool
+$c/= :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Bool
+== :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Bool
+$c== :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679347859"><span id="local-6989586621679347861"><span id="local-6989586621679347863"><span id="local-6989586621679347865"><span id="local-6989586621679347867"><span id="local-6989586621679347869"><span id="local-6989586621679347871"><span class="annot"><span class="annottext">Eq RequestCancelActivityTaskFailedCause
+Eq RequestCancelActivityTaskFailedCause
+-&gt; (RequestCancelActivityTaskFailedCause
+    -&gt; RequestCancelActivityTaskFailedCause -&gt; Ordering)
+-&gt; (RequestCancelActivityTaskFailedCause
+    -&gt; RequestCancelActivityTaskFailedCause -&gt; Bool)
+-&gt; (RequestCancelActivityTaskFailedCause
+    -&gt; RequestCancelActivityTaskFailedCause -&gt; Bool)
+-&gt; (RequestCancelActivityTaskFailedCause
+    -&gt; RequestCancelActivityTaskFailedCause -&gt; Bool)
+-&gt; (RequestCancelActivityTaskFailedCause
+    -&gt; RequestCancelActivityTaskFailedCause -&gt; Bool)
+-&gt; (RequestCancelActivityTaskFailedCause
+    -&gt; RequestCancelActivityTaskFailedCause
+    -&gt; RequestCancelActivityTaskFailedCause)
+-&gt; (RequestCancelActivityTaskFailedCause
+    -&gt; RequestCancelActivityTaskFailedCause
+    -&gt; RequestCancelActivityTaskFailedCause)
+-&gt; Ord RequestCancelActivityTaskFailedCause
+RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Bool
+RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Ordering
+RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause
+$cmin :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause
+max :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause
+$cmax :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause
+&gt;= :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Bool
+$c&gt;= :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Bool
+&gt; :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Bool
+$c&gt; :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Bool
+&lt;= :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Bool
+$c&lt;= :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Bool
+&lt; :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Bool
+$c&lt; :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Bool
+compare :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Ordering
+$ccompare :: RequestCancelActivityTaskFailedCause
+-&gt; RequestCancelActivityTaskFailedCause -&gt; Ordering
+$cp1Ord :: Eq RequestCancelActivityTaskFailedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ RequestCancelActivityTaskFailedCause
+ -&gt; Rep RequestCancelActivityTaskFailedCause x)
+-&gt; (forall x.
+    Rep RequestCancelActivityTaskFailedCause x
+    -&gt; RequestCancelActivityTaskFailedCause)
+-&gt; Generic RequestCancelActivityTaskFailedCause
+forall x.
+Rep RequestCancelActivityTaskFailedCause x
+-&gt; RequestCancelActivityTaskFailedCause
+forall x.
+RequestCancelActivityTaskFailedCause
+-&gt; Rep RequestCancelActivityTaskFailedCause x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RequestCancelActivityTaskFailedCause x
+-&gt; RequestCancelActivityTaskFailedCause
+$cfrom :: forall x.
+RequestCancelActivityTaskFailedCause
+-&gt; Rep RequestCancelActivityTaskFailedCause x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347851"><span id="local-6989586621679347853"><span class="annot"><span class="annottext">Int -&gt; RequestCancelActivityTaskFailedCause -&gt; Int
+RequestCancelActivityTaskFailedCause -&gt; Int
+(Int -&gt; RequestCancelActivityTaskFailedCause -&gt; Int)
+-&gt; (RequestCancelActivityTaskFailedCause -&gt; Int)
+-&gt; Hashable RequestCancelActivityTaskFailedCause
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RequestCancelActivityTaskFailedCause -&gt; Int
+$chash :: RequestCancelActivityTaskFailedCause -&gt; Int
+hashWithSalt :: Int -&gt; RequestCancelActivityTaskFailedCause -&gt; Int
+$chashWithSalt :: Int -&gt; RequestCancelActivityTaskFailedCause -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679347848"><span class="annot"><span class="annottext">RequestCancelActivityTaskFailedCause -&gt; ()
+(RequestCancelActivityTaskFailedCause -&gt; ())
+-&gt; NFData RequestCancelActivityTaskFailedCause
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RequestCancelActivityTaskFailedCause -&gt; ()
+$crnf :: RequestCancelActivityTaskFailedCause -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679347845"><span class="annot"><span class="annottext">Text -&gt; Either String RequestCancelActivityTaskFailedCause
+(Text -&gt; Either String RequestCancelActivityTaskFailedCause)
+-&gt; FromText RequestCancelActivityTaskFailedCause
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RequestCancelActivityTaskFailedCause
+$cfromText :: Text -&gt; Either String RequestCancelActivityTaskFailedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679347842"><span class="annot"><span class="annottext">RequestCancelActivityTaskFailedCause -&gt; Text
+(RequestCancelActivityTaskFailedCause -&gt; Text)
+-&gt; ToText RequestCancelActivityTaskFailedCause
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RequestCancelActivityTaskFailedCause -&gt; Text
+$ctoText :: RequestCancelActivityTaskFailedCause -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679347839"><span class="annot"><span class="annottext">RequestCancelActivityTaskFailedCause -&gt; ByteString
+(RequestCancelActivityTaskFailedCause -&gt; ByteString)
+-&gt; ToByteString RequestCancelActivityTaskFailedCause
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RequestCancelActivityTaskFailedCause -&gt; ByteString
+$ctoBS :: RequestCancelActivityTaskFailedCause -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679347836"><span class="annot"><span class="annottext">RequestCancelActivityTaskFailedCause -&gt; ByteStringBuilder
+(RequestCancelActivityTaskFailedCause -&gt; ByteStringBuilder)
+-&gt; ToLog RequestCancelActivityTaskFailedCause
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RequestCancelActivityTaskFailedCause -&gt; ByteStringBuilder
+$cbuild :: RequestCancelActivityTaskFailedCause -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679347833"><span class="annot"><span class="annottext">HeaderName -&gt; RequestCancelActivityTaskFailedCause -&gt; [Header]
+(HeaderName -&gt; RequestCancelActivityTaskFailedCause -&gt; [Header])
+-&gt; ToHeader RequestCancelActivityTaskFailedCause
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RequestCancelActivityTaskFailedCause -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RequestCancelActivityTaskFailedCause -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679347830"><span class="annot"><span class="annottext">RequestCancelActivityTaskFailedCause -&gt; QueryString
+(RequestCancelActivityTaskFailedCause -&gt; QueryString)
+-&gt; ToQuery RequestCancelActivityTaskFailedCause
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RequestCancelActivityTaskFailedCause -&gt; QueryString
+$ctoQuery :: RequestCancelActivityTaskFailedCause -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679347825"><span id="local-6989586621679347827"><span class="annot"><span class="annottext">Value -&gt; Parser [RequestCancelActivityTaskFailedCause]
+Value -&gt; Parser RequestCancelActivityTaskFailedCause
+(Value -&gt; Parser RequestCancelActivityTaskFailedCause)
+-&gt; (Value -&gt; Parser [RequestCancelActivityTaskFailedCause])
+-&gt; FromJSON RequestCancelActivityTaskFailedCause
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RequestCancelActivityTaskFailedCause]
+$cparseJSONList :: Value -&gt; Parser [RequestCancelActivityTaskFailedCause]
+parseJSON :: Value -&gt; Parser RequestCancelActivityTaskFailedCause
+$cparseJSON :: Value -&gt; Parser RequestCancelActivityTaskFailedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679347820"><span id="local-6989586621679347822"><span class="annot"><span class="annottext">FromJSONKeyFunction [RequestCancelActivityTaskFailedCause]
+FromJSONKeyFunction RequestCancelActivityTaskFailedCause
+FromJSONKeyFunction RequestCancelActivityTaskFailedCause
+-&gt; FromJSONKeyFunction [RequestCancelActivityTaskFailedCause]
+-&gt; FromJSONKey RequestCancelActivityTaskFailedCause
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RequestCancelActivityTaskFailedCause]
+$cfromJSONKeyList :: FromJSONKeyFunction [RequestCancelActivityTaskFailedCause]
+fromJSONKey :: FromJSONKeyFunction RequestCancelActivityTaskFailedCause
+$cfromJSONKey :: FromJSONKeyFunction RequestCancelActivityTaskFailedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679347811"><span id="local-6989586621679347813"><span id="local-6989586621679347815"><span id="local-6989586621679347817"><span class="annot"><span class="annottext">[RequestCancelActivityTaskFailedCause] -&gt; Encoding
+[RequestCancelActivityTaskFailedCause] -&gt; Value
+RequestCancelActivityTaskFailedCause -&gt; Encoding
+RequestCancelActivityTaskFailedCause -&gt; Value
+(RequestCancelActivityTaskFailedCause -&gt; Value)
+-&gt; (RequestCancelActivityTaskFailedCause -&gt; Encoding)
+-&gt; ([RequestCancelActivityTaskFailedCause] -&gt; Value)
+-&gt; ([RequestCancelActivityTaskFailedCause] -&gt; Encoding)
+-&gt; ToJSON RequestCancelActivityTaskFailedCause
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RequestCancelActivityTaskFailedCause] -&gt; Encoding
+$ctoEncodingList :: [RequestCancelActivityTaskFailedCause] -&gt; Encoding
+toJSONList :: [RequestCancelActivityTaskFailedCause] -&gt; Value
+$ctoJSONList :: [RequestCancelActivityTaskFailedCause] -&gt; Value
+toEncoding :: RequestCancelActivityTaskFailedCause -&gt; Encoding
+$ctoEncoding :: RequestCancelActivityTaskFailedCause -&gt; Encoding
+toJSON :: RequestCancelActivityTaskFailedCause -&gt; Value
+$ctoJSON :: RequestCancelActivityTaskFailedCause -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679347806"><span id="local-6989586621679347808"><span class="annot"><span class="annottext">ToJSONKeyFunction [RequestCancelActivityTaskFailedCause]
+ToJSONKeyFunction RequestCancelActivityTaskFailedCause
+ToJSONKeyFunction RequestCancelActivityTaskFailedCause
+-&gt; ToJSONKeyFunction [RequestCancelActivityTaskFailedCause]
+-&gt; ToJSONKey RequestCancelActivityTaskFailedCause
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RequestCancelActivityTaskFailedCause]
+$ctoJSONKeyList :: ToJSONKeyFunction [RequestCancelActivityTaskFailedCause]
+toJSONKey :: ToJSONKeyFunction RequestCancelActivityTaskFailedCause
+$ctoJSONKey :: ToJSONKeyFunction RequestCancelActivityTaskFailedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679347803"><span class="annot"><span class="annottext">[Node] -&gt; Either String RequestCancelActivityTaskFailedCause
+([Node] -&gt; Either String RequestCancelActivityTaskFailedCause)
+-&gt; FromXML RequestCancelActivityTaskFailedCause
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RequestCancelActivityTaskFailedCause
+$cparseXML :: [Node] -&gt; Either String RequestCancelActivityTaskFailedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679347800"><span class="annot"><span class="annottext">RequestCancelActivityTaskFailedCause -&gt; XML
+(RequestCancelActivityTaskFailedCause -&gt; XML)
+-&gt; ToXML RequestCancelActivityTaskFailedCause
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RequestCancelActivityTaskFailedCause -&gt; XML
+$ctoXML :: RequestCancelActivityTaskFailedCause -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#RequestCancelActivityTaskFailedCause_ACTIVITY_ID_UNKNOWN"><span class="hs-identifier hs-type">RequestCancelActivityTaskFailedCause_ACTIVITY_ID_UNKNOWN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#RequestCancelActivityTaskFailedCause"><span class="hs-identifier hs-type">RequestCancelActivityTaskFailedCause</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequestCancelActivityTaskFailedCause_ACTIVITY_ID_UNKNOWN"><span id="%24mRequestCancelActivityTaskFailedCause_ACTIVITY_ID_UNKNOWN"><span id="RequestCancelActivityTaskFailedCause_ACTIVITY_ID_UNKNOWN"><span class="annot"><span class="annottext">$bRequestCancelActivityTaskFailedCause_ACTIVITY_ID_UNKNOWN :: RequestCancelActivityTaskFailedCause
+$mRequestCancelActivityTaskFailedCause_ACTIVITY_ID_UNKNOWN :: forall r.
+RequestCancelActivityTaskFailedCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#%24bRequestCancelActivityTaskFailedCause_ACTIVITY_ID_UNKNOWN"><span class="hs-identifier hs-var hs-var hs-var">RequestCancelActivityTaskFailedCause_ACTIVITY_ID_UNKNOWN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#RequestCancelActivityTaskFailedCause%27"><span class="hs-identifier hs-type">RequestCancelActivityTaskFailedCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVITY_ID_UNKNOWN&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#RequestCancelActivityTaskFailedCause_OPERATION_NOT_PERMITTED"><span class="hs-identifier hs-type">RequestCancelActivityTaskFailedCause_OPERATION_NOT_PERMITTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#RequestCancelActivityTaskFailedCause"><span class="hs-identifier hs-type">RequestCancelActivityTaskFailedCause</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequestCancelActivityTaskFailedCause_OPERATION_NOT_PERMITTED"><span id="%24mRequestCancelActivityTaskFailedCause_OPERATION_NOT_PERMITTED"><span id="RequestCancelActivityTaskFailedCause_OPERATION_NOT_PERMITTED"><span class="annot"><span class="annottext">$bRequestCancelActivityTaskFailedCause_OPERATION_NOT_PERMITTED :: RequestCancelActivityTaskFailedCause
+$mRequestCancelActivityTaskFailedCause_OPERATION_NOT_PERMITTED :: forall r.
+RequestCancelActivityTaskFailedCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#%24bRequestCancelActivityTaskFailedCause_OPERATION_NOT_PERMITTED"><span class="hs-identifier hs-var hs-var hs-var">RequestCancelActivityTaskFailedCause_OPERATION_NOT_PERMITTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#RequestCancelActivityTaskFailedCause%27"><span class="hs-identifier hs-type">RequestCancelActivityTaskFailedCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OPERATION_NOT_PERMITTED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#RequestCancelActivityTaskFailedCause_ACTIVITY_ID_UNKNOWN"><span class="hs-pragma hs-type">RequestCancelActivityTaskFailedCause_ACTIVITY_ID_UNKNOWN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#RequestCancelActivityTaskFailedCause_OPERATION_NOT_PERMITTED"><span class="hs-pragma hs-type">RequestCancelActivityTaskFailedCause_OPERATION_NOT_PERMITTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.RequestCancelActivityTaskFailedCause.html#RequestCancelActivityTaskFailedCause%27"><span class="hs-pragma hs-type">RequestCancelActivityTaskFailedCause'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EFS.DeleteAccessPoint</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified access point. After deletion is complete, new</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- clients can no longer connect to the access points. Clients connected to</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- the access point at the time of deletion will continue to function until</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- they terminate their connection.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This operation requires permissions for the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- @elasticfilesystem:DeleteAccessPoint@ action.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EFS.DeleteAccessPoint</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier">DeleteAccessPoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#newDeleteAccessPoint"><span class="hs-identifier">newDeleteAccessPoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#deleteAccessPoint_accessPointId"><span class="hs-identifier">deleteAccessPoint_accessPointId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse"><span class="hs-identifier">DeleteAccessPointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#newDeleteAccessPointResponse"><span class="hs-identifier">newDeleteAccessPointResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EFS.Types.html"><span class="hs-identifier">Amazonka.EFS.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteAccessPoint' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679192231"><span id="local-6989586621679192232"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAccessPoint"><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-var">DeleteAccessPoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAccessPoint%27"><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint%27"><span class="hs-identifier hs-var">DeleteAccessPoint'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the access point that you want to delete.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AaccessPointId%3ADeleteAccessPoint%27"><span class="annot"><span class="annottext">DeleteAccessPoint -&gt; Text
+</span><a href="Amazonka.EFS.DeleteAccessPoint.html#%24sel%3AaccessPointId%3ADeleteAccessPoint%27"><span class="hs-identifier hs-var hs-var">accessPointId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192225"><span id="local-6989586621679192227"><span class="annot"><span class="annottext">DeleteAccessPoint -&gt; DeleteAccessPoint -&gt; Bool
+(DeleteAccessPoint -&gt; DeleteAccessPoint -&gt; Bool)
+-&gt; (DeleteAccessPoint -&gt; DeleteAccessPoint -&gt; Bool)
+-&gt; Eq DeleteAccessPoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAccessPoint -&gt; DeleteAccessPoint -&gt; Bool
+$c/= :: DeleteAccessPoint -&gt; DeleteAccessPoint -&gt; Bool
+== :: DeleteAccessPoint -&gt; DeleteAccessPoint -&gt; Bool
+$c== :: DeleteAccessPoint -&gt; DeleteAccessPoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192216"><span id="local-6989586621679192218"><span id="local-6989586621679192220"><span id="local-6989586621679192222"><span class="annot"><span class="annottext">ReadPrec [DeleteAccessPoint]
+ReadPrec DeleteAccessPoint
+Int -&gt; ReadS DeleteAccessPoint
+ReadS [DeleteAccessPoint]
+(Int -&gt; ReadS DeleteAccessPoint)
+-&gt; ReadS [DeleteAccessPoint]
+-&gt; ReadPrec DeleteAccessPoint
+-&gt; ReadPrec [DeleteAccessPoint]
+-&gt; Read DeleteAccessPoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAccessPoint]
+$creadListPrec :: ReadPrec [DeleteAccessPoint]
+readPrec :: ReadPrec DeleteAccessPoint
+$creadPrec :: ReadPrec DeleteAccessPoint
+readList :: ReadS [DeleteAccessPoint]
+$creadList :: ReadS [DeleteAccessPoint]
+readsPrec :: Int -&gt; ReadS DeleteAccessPoint
+$creadsPrec :: Int -&gt; ReadS DeleteAccessPoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192209"><span id="local-6989586621679192211"><span id="local-6989586621679192213"><span class="annot"><span class="annottext">Int -&gt; DeleteAccessPoint -&gt; ShowS
+[DeleteAccessPoint] -&gt; ShowS
+DeleteAccessPoint -&gt; String
+(Int -&gt; DeleteAccessPoint -&gt; ShowS)
+-&gt; (DeleteAccessPoint -&gt; String)
+-&gt; ([DeleteAccessPoint] -&gt; ShowS)
+-&gt; Show DeleteAccessPoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAccessPoint] -&gt; ShowS
+$cshowList :: [DeleteAccessPoint] -&gt; ShowS
+show :: DeleteAccessPoint -&gt; String
+$cshow :: DeleteAccessPoint -&gt; String
+showsPrec :: Int -&gt; DeleteAccessPoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAccessPoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteAccessPoint -&gt; Rep DeleteAccessPoint x)
+-&gt; (forall x. Rep DeleteAccessPoint x -&gt; DeleteAccessPoint)
+-&gt; Generic DeleteAccessPoint
+forall x. Rep DeleteAccessPoint x -&gt; DeleteAccessPoint
+forall x. DeleteAccessPoint -&gt; Rep DeleteAccessPoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteAccessPoint x -&gt; DeleteAccessPoint
+$cfrom :: forall x. DeleteAccessPoint -&gt; Rep DeleteAccessPoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'DeleteAccessPoint' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'accessPointId', 'deleteAccessPoint_accessPointId' - The ID of the access point that you want to delete.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#newDeleteAccessPoint"><span class="hs-identifier hs-type">newDeleteAccessPoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'accessPointId'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span>
+</span><span id="line-71"></span><span id="newDeleteAccessPoint"><span class="annot"><span class="annottext">newDeleteAccessPoint :: Text -&gt; DeleteAccessPoint
+</span><a href="Amazonka.EFS.DeleteAccessPoint.html#newDeleteAccessPoint"><span class="hs-identifier hs-var hs-var">newDeleteAccessPoint</span></a></span></span><span> </span><span id="local-6989586621679192204"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192204"><span class="hs-identifier hs-var">pAccessPointId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DeleteAccessPoint' :: Text -&gt; DeleteAccessPoint
+</span><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint%27"><span class="hs-identifier hs-type">DeleteAccessPoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessPointId:DeleteAccessPoint' :: Text
+</span><a href="Amazonka.EFS.DeleteAccessPoint.html#%24sel%3AaccessPointId%3ADeleteAccessPoint%27"><span class="hs-identifier hs-var">accessPointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192204"><span class="hs-identifier hs-var">pAccessPointId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The ID of the access point that you want to delete.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#deleteAccessPoint_accessPointId"><span class="hs-identifier hs-type">deleteAccessPoint_accessPointId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="deleteAccessPoint_accessPointId"><span class="annot"><span class="annottext">deleteAccessPoint_accessPointId :: (Text -&gt; f Text) -&gt; DeleteAccessPoint -&gt; f DeleteAccessPoint
+</span><a href="Amazonka.EFS.DeleteAccessPoint.html#deleteAccessPoint_accessPointId"><span class="hs-identifier hs-var hs-var">deleteAccessPoint_accessPointId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAccessPoint -&gt; Text)
+-&gt; (DeleteAccessPoint -&gt; Text -&gt; DeleteAccessPoint)
+-&gt; Lens DeleteAccessPoint DeleteAccessPoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint%27"><span class="hs-identifier hs-type">DeleteAccessPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192201"><span class="annot"><span class="annottext">Text
+accessPointId :: Text
+$sel:accessPointId:DeleteAccessPoint' :: DeleteAccessPoint -&gt; Text
+</span><a href="#local-6989586621679192201"><span class="hs-identifier hs-var hs-var">accessPointId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192201"><span class="hs-identifier hs-var">accessPointId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192200"><span class="annot"><span class="annottext">s :: DeleteAccessPoint
+</span><a href="#local-6989586621679192200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint%27"><span class="hs-identifier hs-type">DeleteAccessPoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192199"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAccessPoint
+</span><a href="#local-6989586621679192200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessPointId:DeleteAccessPoint' :: Text
+</span><a href="Amazonka.EFS.DeleteAccessPoint.html#%24sel%3AaccessPointId%3ADeleteAccessPoint%27"><span class="hs-identifier hs-var">accessPointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse"><span class="hs-identifier hs-type">DeleteAccessPointResponse</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679192195"><span class="annot"><span class="annottext">request :: DeleteAccessPoint -&gt; Request DeleteAccessPoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAccessPoint -&gt; Request DeleteAccessPoint
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EFS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679192191"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteAccessPoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteAccessPoint)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteAccessPoint
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteAccessPoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteAccessPoint)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteAccessPoint
+DeleteAccessPointResponse
+</span><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse%27"><span class="hs-identifier hs-var">DeleteAccessPointResponse'</span></a></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192184"><span id="local-6989586621679192186"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679192177"><span class="annot"><span class="annottext">toHeaders :: DeleteAccessPoint -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteAccessPoint -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679192172"><span class="annot"><span class="annottext">toPath :: DeleteAccessPoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint%27"><span class="hs-identifier hs-type">DeleteAccessPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192170"><span class="annot"><span class="annottext">Text
+accessPointId :: Text
+$sel:accessPointId:DeleteAccessPoint' :: DeleteAccessPoint -&gt; Text
+</span><a href="#local-6989586621679192170"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2015-02-01/access-points/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192170"><span class="hs-identifier hs-var">accessPointId</span></a></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679192166"><span class="annot"><span class="annottext">toQuery :: DeleteAccessPoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteAccessPoint -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | /See:/ 'newDeleteAccessPointResponse' smart constructor.</span><span>
+</span><span id="line-104"></span><span id="local-6989586621679192163"><span id="local-6989586621679192164"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAccessPointResponse"><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse"><span class="hs-identifier hs-var">DeleteAccessPointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAccessPointResponse%27"><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse%27"><span class="hs-identifier hs-var">DeleteAccessPointResponse'</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192159"><span id="local-6989586621679192161"><span class="annot"><span class="annottext">DeleteAccessPointResponse -&gt; DeleteAccessPointResponse -&gt; Bool
+(DeleteAccessPointResponse -&gt; DeleteAccessPointResponse -&gt; Bool)
+-&gt; (DeleteAccessPointResponse -&gt; DeleteAccessPointResponse -&gt; Bool)
+-&gt; Eq DeleteAccessPointResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAccessPointResponse -&gt; DeleteAccessPointResponse -&gt; Bool
+$c/= :: DeleteAccessPointResponse -&gt; DeleteAccessPointResponse -&gt; Bool
+== :: DeleteAccessPointResponse -&gt; DeleteAccessPointResponse -&gt; Bool
+$c== :: DeleteAccessPointResponse -&gt; DeleteAccessPointResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192151"><span id="local-6989586621679192153"><span id="local-6989586621679192155"><span id="local-6989586621679192157"><span class="annot"><span class="annottext">ReadPrec [DeleteAccessPointResponse]
+ReadPrec DeleteAccessPointResponse
+Int -&gt; ReadS DeleteAccessPointResponse
+ReadS [DeleteAccessPointResponse]
+(Int -&gt; ReadS DeleteAccessPointResponse)
+-&gt; ReadS [DeleteAccessPointResponse]
+-&gt; ReadPrec DeleteAccessPointResponse
+-&gt; ReadPrec [DeleteAccessPointResponse]
+-&gt; Read DeleteAccessPointResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAccessPointResponse]
+$creadListPrec :: ReadPrec [DeleteAccessPointResponse]
+readPrec :: ReadPrec DeleteAccessPointResponse
+$creadPrec :: ReadPrec DeleteAccessPointResponse
+readList :: ReadS [DeleteAccessPointResponse]
+$creadList :: ReadS [DeleteAccessPointResponse]
+readsPrec :: Int -&gt; ReadS DeleteAccessPointResponse
+$creadsPrec :: Int -&gt; ReadS DeleteAccessPointResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192145"><span id="local-6989586621679192147"><span id="local-6989586621679192149"><span class="annot"><span class="annottext">Int -&gt; DeleteAccessPointResponse -&gt; ShowS
+[DeleteAccessPointResponse] -&gt; ShowS
+DeleteAccessPointResponse -&gt; String
+(Int -&gt; DeleteAccessPointResponse -&gt; ShowS)
+-&gt; (DeleteAccessPointResponse -&gt; String)
+-&gt; ([DeleteAccessPointResponse] -&gt; ShowS)
+-&gt; Show DeleteAccessPointResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAccessPointResponse] -&gt; ShowS
+$cshowList :: [DeleteAccessPointResponse] -&gt; ShowS
+show :: DeleteAccessPointResponse -&gt; String
+$cshow :: DeleteAccessPointResponse -&gt; String
+showsPrec :: Int -&gt; DeleteAccessPointResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAccessPointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteAccessPointResponse -&gt; Rep DeleteAccessPointResponse x)
+-&gt; (forall x.
+    Rep DeleteAccessPointResponse x -&gt; DeleteAccessPointResponse)
+-&gt; Generic DeleteAccessPointResponse
+forall x.
+Rep DeleteAccessPointResponse x -&gt; DeleteAccessPointResponse
+forall x.
+DeleteAccessPointResponse -&gt; Rep DeleteAccessPointResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteAccessPointResponse x -&gt; DeleteAccessPointResponse
+$cfrom :: forall x.
+DeleteAccessPointResponse -&gt; Rep DeleteAccessPointResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Create a value of 'DeleteAccessPointResponse' with all optional fields omitted.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#newDeleteAccessPointResponse"><span class="hs-identifier hs-type">newDeleteAccessPointResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse"><span class="hs-identifier hs-type">DeleteAccessPointResponse</span></a></span><span>
+</span><span id="line-115"></span><span id="newDeleteAccessPointResponse"><span class="annot"><span class="annottext">newDeleteAccessPointResponse :: DeleteAccessPointResponse
+</span><a href="Amazonka.EFS.DeleteAccessPoint.html#newDeleteAccessPointResponse"><span class="hs-identifier hs-var hs-var">newDeleteAccessPointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">DeleteAccessPointResponse
+</span><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse%27"><span class="hs-identifier hs-var">DeleteAccessPointResponse'</span></a></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse"><span class="hs-identifier hs-type">DeleteAccessPointResponse</span></a></span></span><span>
+</span><span id="line-119"></span></pre></body></html>

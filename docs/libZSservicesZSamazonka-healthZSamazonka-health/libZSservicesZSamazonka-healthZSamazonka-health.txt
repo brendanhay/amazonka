@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.AWSHealth.Types.DateTimeRange
+module Amazonka.AWSHealth.Types.DateTimeRange
 
 -- | A range of dates and times that is used by the <a>EventFilter</a> and
 --   <a>EntityFilter</a> objects. If <tt>from</tt> is set and <tt>to</tt>
@@ -48,16 +48,16 @@ dateTimeRange_to :: Lens' DateTimeRange (Maybe UTCTime)
 
 -- | The starting date and time of a time range.
 dateTimeRange_from :: Lens' DateTimeRange (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.DateTimeRange.DateTimeRange
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.DateTimeRange.DateTimeRange
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.DateTimeRange.DateTimeRange
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.DateTimeRange.DateTimeRange
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.DateTimeRange.DateTimeRange
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.DateTimeRange.DateTimeRange
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.Types.DateTimeRange.DateTimeRange
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.DateTimeRange.DateTimeRange
+instance GHC.Show.Show Amazonka.AWSHealth.Types.DateTimeRange.DateTimeRange
+instance GHC.Read.Read Amazonka.AWSHealth.Types.DateTimeRange.DateTimeRange
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.DateTimeRange.DateTimeRange
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.DateTimeRange.DateTimeRange
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.DateTimeRange.DateTimeRange
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.Types.DateTimeRange.DateTimeRange
 
 
-module Network.AWS.AWSHealth.Types.EntityAggregate
+module Amazonka.AWSHealth.Types.EntityAggregate
 
 -- | The number of entities that are affected by one or more events.
 --   Returned by the <a>DescribeEntityAggregates</a> operation.
@@ -119,44 +119,44 @@ entityAggregate_count :: Lens' EntityAggregate (Maybe Int)
 --   arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456
 --   </pre>
 entityAggregate_eventArn :: Lens' EntityAggregate (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.EntityAggregate.EntityAggregate
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.EntityAggregate.EntityAggregate
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.EntityAggregate.EntityAggregate
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.EntityAggregate.EntityAggregate
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.EntityAggregate.EntityAggregate
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.EntityAggregate.EntityAggregate
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.EntityAggregate.EntityAggregate
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.EntityAggregate.EntityAggregate
+instance GHC.Show.Show Amazonka.AWSHealth.Types.EntityAggregate.EntityAggregate
+instance GHC.Read.Read Amazonka.AWSHealth.Types.EntityAggregate.EntityAggregate
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.EntityAggregate.EntityAggregate
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.EntityAggregate.EntityAggregate
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.EntityAggregate.EntityAggregate
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.EntityAggregate.EntityAggregate
 
 
-module Network.AWS.AWSHealth.Types.EntityStatusCode
+module Amazonka.AWSHealth.Types.EntityStatusCode
 newtype EntityStatusCode
 EntityStatusCode' :: Text -> EntityStatusCode
 [fromEntityStatusCode] :: EntityStatusCode -> Text
 pattern EntityStatusCode_IMPAIRED :: EntityStatusCode
 pattern EntityStatusCode_UNIMPAIRED :: EntityStatusCode
 pattern EntityStatusCode_UNKNOWN :: EntityStatusCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance Network.AWS.Data.Text.ToText Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance Network.AWS.Data.Text.FromText Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance GHC.Classes.Ord Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance Amazonka.Data.XML.ToXML Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance Amazonka.Data.XML.FromXML Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance Amazonka.Data.Log.ToLog Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance Amazonka.Data.Text.ToText Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance Amazonka.Data.Text.FromText Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance GHC.Classes.Ord Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance GHC.Read.Read Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
+instance GHC.Show.Show Amazonka.AWSHealth.Types.EntityStatusCode.EntityStatusCode
 
 
-module Network.AWS.AWSHealth.Types.EntityFilter
+module Amazonka.AWSHealth.Types.EntityFilter
 
 -- | The values to use to filter results from the <a>EntityFilter</a>
 --   operation.
@@ -245,16 +245,16 @@ entityFilter_lastUpdatedTimes :: Lens' EntityFilter (Maybe (NonEmpty DateTimeRan
 --   <tt>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456",
 --   "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</tt>
 entityFilter_eventArns :: Lens' EntityFilter (NonEmpty Text)
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.EntityFilter.EntityFilter
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.EntityFilter.EntityFilter
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.EntityFilter.EntityFilter
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.EntityFilter.EntityFilter
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.EntityFilter.EntityFilter
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.EntityFilter.EntityFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.Types.EntityFilter.EntityFilter
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.EntityFilter.EntityFilter
+instance GHC.Show.Show Amazonka.AWSHealth.Types.EntityFilter.EntityFilter
+instance GHC.Read.Read Amazonka.AWSHealth.Types.EntityFilter.EntityFilter
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.EntityFilter.EntityFilter
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.EntityFilter.EntityFilter
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.EntityFilter.EntityFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.Types.EntityFilter.EntityFilter
 
 
-module Network.AWS.AWSHealth.Types.AffectedEntity
+module Amazonka.AWSHealth.Types.AffectedEntity
 
 -- | Information about an entity that is affected by a Health event.
 --   
@@ -390,16 +390,16 @@ affectedEntity_tags :: Lens' AffectedEntity (Maybe (HashMap Text Text))
 --   possible values are <tt>IMPAIRED</tt>, <tt>UNIMPAIRED</tt>, and
 --   <tt>UNKNOWN</tt>.
 affectedEntity_statusCode :: Lens' AffectedEntity (Maybe EntityStatusCode)
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.AffectedEntity.AffectedEntity
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.AffectedEntity.AffectedEntity
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.AffectedEntity.AffectedEntity
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.AffectedEntity.AffectedEntity
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.AffectedEntity.AffectedEntity
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.AffectedEntity.AffectedEntity
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.AffectedEntity.AffectedEntity
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.AffectedEntity.AffectedEntity
+instance GHC.Show.Show Amazonka.AWSHealth.Types.AffectedEntity.AffectedEntity
+instance GHC.Read.Read Amazonka.AWSHealth.Types.AffectedEntity.AffectedEntity
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.AffectedEntity.AffectedEntity
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.AffectedEntity.AffectedEntity
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.AffectedEntity.AffectedEntity
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.AffectedEntity.AffectedEntity
 
 
-module Network.AWS.AWSHealth.Types.EventAccountFilter
+module Amazonka.AWSHealth.Types.EventAccountFilter
 
 -- | The values used to filter results from the
 --   <a>DescribeEventDetailsForOrganization</a> and
@@ -462,16 +462,16 @@ eventAccountFilter_awsAccountId :: Lens' EventAccountFilter (Maybe Text)
 --   arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456
 --   </pre>
 eventAccountFilter_eventArn :: Lens' EventAccountFilter Text
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.EventAccountFilter.EventAccountFilter
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.EventAccountFilter.EventAccountFilter
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.EventAccountFilter.EventAccountFilter
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.EventAccountFilter.EventAccountFilter
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.EventAccountFilter.EventAccountFilter
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.EventAccountFilter.EventAccountFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.Types.EventAccountFilter.EventAccountFilter
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.EventAccountFilter.EventAccountFilter
+instance GHC.Show.Show Amazonka.AWSHealth.Types.EventAccountFilter.EventAccountFilter
+instance GHC.Read.Read Amazonka.AWSHealth.Types.EventAccountFilter.EventAccountFilter
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.EventAccountFilter.EventAccountFilter
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.EventAccountFilter.EventAccountFilter
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.EventAccountFilter.EventAccountFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.Types.EventAccountFilter.EventAccountFilter
 
 
-module Network.AWS.AWSHealth.Types.EventAggregate
+module Amazonka.AWSHealth.Types.EventAggregate
 
 -- | The number of events of each issue type. Returned by the
 --   <a>DescribeEventAggregates</a> operation.
@@ -508,42 +508,42 @@ eventAggregate_count :: Lens' EventAggregate (Maybe Int)
 
 -- | The issue type for the associated count.
 eventAggregate_aggregateValue :: Lens' EventAggregate (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.EventAggregate.EventAggregate
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.EventAggregate.EventAggregate
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.EventAggregate.EventAggregate
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.EventAggregate.EventAggregate
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.EventAggregate.EventAggregate
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.EventAggregate.EventAggregate
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.EventAggregate.EventAggregate
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.EventAggregate.EventAggregate
+instance GHC.Show.Show Amazonka.AWSHealth.Types.EventAggregate.EventAggregate
+instance GHC.Read.Read Amazonka.AWSHealth.Types.EventAggregate.EventAggregate
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.EventAggregate.EventAggregate
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.EventAggregate.EventAggregate
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.EventAggregate.EventAggregate
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.EventAggregate.EventAggregate
 
 
-module Network.AWS.AWSHealth.Types.EventAggregateField
+module Amazonka.AWSHealth.Types.EventAggregateField
 newtype EventAggregateField
 EventAggregateField' :: Text -> EventAggregateField
 [fromEventAggregateField] :: EventAggregateField -> Text
 pattern EventAggregateField_EventTypeCategory :: EventAggregateField
-instance Network.AWS.Data.XML.ToXML Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance Network.AWS.Data.XML.FromXML Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance Network.AWS.Data.Log.ToLog Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance Network.AWS.Data.Text.ToText Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance Network.AWS.Data.Text.FromText Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance GHC.Classes.Ord Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance Amazonka.Data.XML.ToXML Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance Amazonka.Data.XML.FromXML Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance Amazonka.Data.Headers.ToHeader Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance Amazonka.Data.Log.ToLog Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance Amazonka.Data.Text.ToText Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance Amazonka.Data.Text.FromText Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance GHC.Classes.Ord Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance GHC.Read.Read Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
+instance GHC.Show.Show Amazonka.AWSHealth.Types.EventAggregateField.EventAggregateField
 
 
-module Network.AWS.AWSHealth.Types.EventDescription
+module Amazonka.AWSHealth.Types.EventDescription
 
 -- | The detailed description of the event. Included in the information
 --   returned by the <a>DescribeEventDetails</a> operation.
@@ -571,16 +571,16 @@ newEventDescription :: EventDescription
 
 -- | The most recent description of the event.
 eventDescription_latestDescription :: Lens' EventDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.EventDescription.EventDescription
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.EventDescription.EventDescription
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.EventDescription.EventDescription
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.EventDescription.EventDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.EventDescription.EventDescription
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.EventDescription.EventDescription
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.EventDescription.EventDescription
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.EventDescription.EventDescription
+instance GHC.Show.Show Amazonka.AWSHealth.Types.EventDescription.EventDescription
+instance GHC.Read.Read Amazonka.AWSHealth.Types.EventDescription.EventDescription
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.EventDescription.EventDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.EventDescription.EventDescription
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.EventDescription.EventDescription
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.EventDescription.EventDescription
 
 
-module Network.AWS.AWSHealth.Types.EventDetailsErrorItem
+module Amazonka.AWSHealth.Types.EventDetailsErrorItem
 
 -- | Error information returned when a <a>DescribeEventDetails</a>
 --   operation can't find a specified event.
@@ -651,72 +651,72 @@ eventDetailsErrorItem_errorName :: Lens' EventDetailsErrorItem (Maybe Text)
 
 -- | A message that describes the error.
 eventDetailsErrorItem_errorMessage :: Lens' EventDetailsErrorItem (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.EventDetailsErrorItem.EventDetailsErrorItem
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.EventDetailsErrorItem.EventDetailsErrorItem
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.EventDetailsErrorItem.EventDetailsErrorItem
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.EventDetailsErrorItem.EventDetailsErrorItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.EventDetailsErrorItem.EventDetailsErrorItem
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.EventDetailsErrorItem.EventDetailsErrorItem
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.EventDetailsErrorItem.EventDetailsErrorItem
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.EventDetailsErrorItem.EventDetailsErrorItem
+instance GHC.Show.Show Amazonka.AWSHealth.Types.EventDetailsErrorItem.EventDetailsErrorItem
+instance GHC.Read.Read Amazonka.AWSHealth.Types.EventDetailsErrorItem.EventDetailsErrorItem
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.EventDetailsErrorItem.EventDetailsErrorItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.EventDetailsErrorItem.EventDetailsErrorItem
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.EventDetailsErrorItem.EventDetailsErrorItem
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.EventDetailsErrorItem.EventDetailsErrorItem
 
 
-module Network.AWS.AWSHealth.Types.EventScopeCode
+module Amazonka.AWSHealth.Types.EventScopeCode
 newtype EventScopeCode
 EventScopeCode' :: Text -> EventScopeCode
 [fromEventScopeCode] :: EventScopeCode -> Text
 pattern EventScopeCode_ACCOUNT_SPECIFIC :: EventScopeCode
 pattern EventScopeCode_NONE :: EventScopeCode
 pattern EventScopeCode_PUBLIC :: EventScopeCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance Network.AWS.Data.Text.ToText Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance Network.AWS.Data.Text.FromText Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance GHC.Classes.Ord Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance Amazonka.Data.XML.ToXML Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance Amazonka.Data.XML.FromXML Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance Amazonka.Data.Log.ToLog Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance Amazonka.Data.Text.ToText Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance Amazonka.Data.Text.FromText Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance GHC.Classes.Ord Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance GHC.Read.Read Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
+instance GHC.Show.Show Amazonka.AWSHealth.Types.EventScopeCode.EventScopeCode
 
 
-module Network.AWS.AWSHealth.Types.EventStatusCode
+module Amazonka.AWSHealth.Types.EventStatusCode
 newtype EventStatusCode
 EventStatusCode' :: Text -> EventStatusCode
 [fromEventStatusCode] :: EventStatusCode -> Text
 pattern EventStatusCode_Closed :: EventStatusCode
 pattern EventStatusCode_Open :: EventStatusCode
 pattern EventStatusCode_Upcoming :: EventStatusCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance Network.AWS.Data.Text.ToText Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance Network.AWS.Data.Text.FromText Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance GHC.Classes.Ord Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance Amazonka.Data.XML.ToXML Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance Amazonka.Data.XML.FromXML Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance Amazonka.Data.Log.ToLog Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance Amazonka.Data.Text.ToText Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance Amazonka.Data.Text.FromText Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance GHC.Classes.Ord Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance GHC.Read.Read Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
+instance GHC.Show.Show Amazonka.AWSHealth.Types.EventStatusCode.EventStatusCode
 
 
-module Network.AWS.AWSHealth.Types.EventTypeCategory
+module Amazonka.AWSHealth.Types.EventTypeCategory
 newtype EventTypeCategory
 EventTypeCategory' :: Text -> EventTypeCategory
 [fromEventTypeCategory] :: EventTypeCategory -> Text
@@ -724,28 +724,28 @@ pattern EventTypeCategory_AccountNotification :: EventTypeCategory
 pattern EventTypeCategory_Investigation :: EventTypeCategory
 pattern EventTypeCategory_Issue :: EventTypeCategory
 pattern EventTypeCategory_ScheduledChange :: EventTypeCategory
-instance Network.AWS.Data.XML.ToXML Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance Network.AWS.Data.XML.FromXML Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance Network.AWS.Data.Log.ToLog Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance Network.AWS.Data.Text.ToText Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance Network.AWS.Data.Text.FromText Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance GHC.Classes.Ord Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance Amazonka.Data.XML.ToXML Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance Amazonka.Data.XML.FromXML Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance Amazonka.Data.Headers.ToHeader Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance Amazonka.Data.Log.ToLog Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance Amazonka.Data.Text.ToText Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance Amazonka.Data.Text.FromText Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance GHC.Classes.Ord Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance GHC.Read.Read Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
+instance GHC.Show.Show Amazonka.AWSHealth.Types.EventTypeCategory.EventTypeCategory
 
 
-module Network.AWS.AWSHealth.Types.EventType
+module Amazonka.AWSHealth.Types.EventType
 
 -- | Contains the metadata about a type of event that is reported by AWS
 --   Health. The <tt>EventType</tt> shows the category, service, and the
@@ -813,16 +813,16 @@ eventType_category :: Lens' EventType (Maybe EventTypeCategory)
 --   <tt>AWS_SERVICE_DESCRIPTION </tt>; for example,
 --   <tt>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</tt>.
 eventType_code :: Lens' EventType (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.EventType.EventType
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.EventType.EventType
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.EventType.EventType
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.EventType.EventType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.EventType.EventType
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.EventType.EventType
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.EventType.EventType
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.EventType.EventType
+instance GHC.Show.Show Amazonka.AWSHealth.Types.EventType.EventType
+instance GHC.Read.Read Amazonka.AWSHealth.Types.EventType.EventType
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.EventType.EventType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.EventType.EventType
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.EventType.EventType
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.EventType.EventType
 
 
-module Network.AWS.AWSHealth.Types.EventFilter
+module Amazonka.AWSHealth.Types.EventFilter
 
 -- | The values to use to filter results from the <a>DescribeEvents</a> and
 --   <a>DescribeEventAggregates</a> operations.
@@ -984,16 +984,16 @@ eventFilter_tags :: Lens' EventFilter (Maybe [HashMap Text Text])
 
 -- | A list of dates and times that the event was last updated.
 eventFilter_lastUpdatedTimes :: Lens' EventFilter (Maybe (NonEmpty DateTimeRange))
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.EventFilter.EventFilter
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.EventFilter.EventFilter
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.EventFilter.EventFilter
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.EventFilter.EventFilter
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.EventFilter.EventFilter
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.EventFilter.EventFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.Types.EventFilter.EventFilter
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.EventFilter.EventFilter
+instance GHC.Show.Show Amazonka.AWSHealth.Types.EventFilter.EventFilter
+instance GHC.Read.Read Amazonka.AWSHealth.Types.EventFilter.EventFilter
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.EventFilter.EventFilter
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.EventFilter.EventFilter
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.EventFilter.EventFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.Types.EventFilter.EventFilter
 
 
-module Network.AWS.AWSHealth.Types.Event
+module Amazonka.AWSHealth.Types.Event
 
 -- | Summary information about an AWS Health event.
 --   
@@ -1207,16 +1207,16 @@ event_region :: Lens' Event (Maybe Text)
 -- | The most recent status of the event. Possible values are
 --   <tt>open</tt>, <tt>closed</tt>, and <tt>upcoming</tt>.
 event_statusCode :: Lens' Event (Maybe EventStatusCode)
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.Event.Event
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.Event.Event
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.Event.Event
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.Event.Event
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.Event.Event
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.Event.Event
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.Event.Event
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.Event.Event
+instance GHC.Show.Show Amazonka.AWSHealth.Types.Event.Event
+instance GHC.Read.Read Amazonka.AWSHealth.Types.Event.Event
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.Event.Event
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.Event.Event
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.Event.Event
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.Event.Event
 
 
-module Network.AWS.AWSHealth.Types.EventDetails
+module Amazonka.AWSHealth.Types.EventDetails
 
 -- | Detailed information about an event. A combination of an <a>Event</a>
 --   object, an <a>EventDescription</a> object, and additional metadata
@@ -1265,16 +1265,16 @@ eventDetails_eventDescription :: Lens' EventDetails (Maybe EventDescription)
 
 -- | Additional metadata about the event.
 eventDetails_eventMetadata :: Lens' EventDetails (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.EventDetails.EventDetails
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.EventDetails.EventDetails
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.EventDetails.EventDetails
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.EventDetails.EventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.EventDetails.EventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.EventDetails.EventDetails
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.EventDetails.EventDetails
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.EventDetails.EventDetails
+instance GHC.Show.Show Amazonka.AWSHealth.Types.EventDetails.EventDetails
+instance GHC.Read.Read Amazonka.AWSHealth.Types.EventDetails.EventDetails
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.EventDetails.EventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.EventDetails.EventDetails
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.EventDetails.EventDetails
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.EventDetails.EventDetails
 
 
-module Network.AWS.AWSHealth.Types.EventTypeFilter
+module Amazonka.AWSHealth.Types.EventTypeFilter
 
 -- | The values to use to filter results from the <a>DescribeEventTypes</a>
 --   operation.
@@ -1326,16 +1326,16 @@ eventTypeFilter_eventTypeCodes :: Lens' EventTypeFilter (Maybe (NonEmpty Text))
 -- | The AWS services associated with the event. For example, <tt>EC2</tt>,
 --   <tt>RDS</tt>.
 eventTypeFilter_services :: Lens' EventTypeFilter (Maybe (NonEmpty Text))
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.EventTypeFilter.EventTypeFilter
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.EventTypeFilter.EventTypeFilter
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.EventTypeFilter.EventTypeFilter
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.EventTypeFilter.EventTypeFilter
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.EventTypeFilter.EventTypeFilter
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.EventTypeFilter.EventTypeFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.Types.EventTypeFilter.EventTypeFilter
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.EventTypeFilter.EventTypeFilter
+instance GHC.Show.Show Amazonka.AWSHealth.Types.EventTypeFilter.EventTypeFilter
+instance GHC.Read.Read Amazonka.AWSHealth.Types.EventTypeFilter.EventTypeFilter
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.EventTypeFilter.EventTypeFilter
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.EventTypeFilter.EventTypeFilter
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.EventTypeFilter.EventTypeFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.Types.EventTypeFilter.EventTypeFilter
 
 
-module Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem
+module Amazonka.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem
 
 -- | Error information returned when a
 --   <a>DescribeAffectedEntitiesForOrganization</a> operation can't find or
@@ -1425,16 +1425,16 @@ organizationAffectedEntitiesErrorItem_errorName :: Lens' OrganizationAffectedEnt
 --   <tt>AWS_SERVICE_DESCRIPTION</tt>. For example,
 --   <tt>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</tt>.
 organizationAffectedEntitiesErrorItem_errorMessage :: Lens' OrganizationAffectedEntitiesErrorItem (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem.OrganizationAffectedEntitiesErrorItem
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem.OrganizationAffectedEntitiesErrorItem
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem.OrganizationAffectedEntitiesErrorItem
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem.OrganizationAffectedEntitiesErrorItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem.OrganizationAffectedEntitiesErrorItem
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem.OrganizationAffectedEntitiesErrorItem
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem.OrganizationAffectedEntitiesErrorItem
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem.OrganizationAffectedEntitiesErrorItem
+instance GHC.Show.Show Amazonka.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem.OrganizationAffectedEntitiesErrorItem
+instance GHC.Read.Read Amazonka.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem.OrganizationAffectedEntitiesErrorItem
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem.OrganizationAffectedEntitiesErrorItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem.OrganizationAffectedEntitiesErrorItem
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem.OrganizationAffectedEntitiesErrorItem
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem.OrganizationAffectedEntitiesErrorItem
 
 
-module Network.AWS.AWSHealth.Types.OrganizationEvent
+module Amazonka.AWSHealth.Types.OrganizationEvent
 
 -- | Summary information about an event, returned by the
 --   <a>DescribeEventsForOrganization</a> operation.
@@ -1624,16 +1624,16 @@ organizationEvent_region :: Lens' OrganizationEvent (Maybe Text)
 -- | The most recent status of the event. Possible values are
 --   <tt>open</tt>, <tt>closed</tt>, and <tt>upcoming</tt>.
 organizationEvent_statusCode :: Lens' OrganizationEvent (Maybe EventStatusCode)
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.OrganizationEvent.OrganizationEvent
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.OrganizationEvent.OrganizationEvent
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.OrganizationEvent.OrganizationEvent
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.OrganizationEvent.OrganizationEvent
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.OrganizationEvent.OrganizationEvent
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.OrganizationEvent.OrganizationEvent
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.OrganizationEvent.OrganizationEvent
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.OrganizationEvent.OrganizationEvent
+instance GHC.Show.Show Amazonka.AWSHealth.Types.OrganizationEvent.OrganizationEvent
+instance GHC.Read.Read Amazonka.AWSHealth.Types.OrganizationEvent.OrganizationEvent
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.OrganizationEvent.OrganizationEvent
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.OrganizationEvent.OrganizationEvent
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.OrganizationEvent.OrganizationEvent
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.OrganizationEvent.OrganizationEvent
 
 
-module Network.AWS.AWSHealth.Types.OrganizationEventDetails
+module Amazonka.AWSHealth.Types.OrganizationEventDetails
 
 -- | Detailed information about an event. A combination of an <a>Event</a>
 --   object, an <a>EventDescription</a> object, and additional metadata
@@ -1688,16 +1688,16 @@ organizationEventDetails_awsAccountId :: Lens' OrganizationEventDetails (Maybe T
 
 -- | Additional metadata about the event.
 organizationEventDetails_eventMetadata :: Lens' OrganizationEventDetails (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.OrganizationEventDetails.OrganizationEventDetails
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.OrganizationEventDetails.OrganizationEventDetails
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.OrganizationEventDetails.OrganizationEventDetails
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.OrganizationEventDetails.OrganizationEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.OrganizationEventDetails.OrganizationEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.OrganizationEventDetails.OrganizationEventDetails
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.OrganizationEventDetails.OrganizationEventDetails
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.OrganizationEventDetails.OrganizationEventDetails
+instance GHC.Show.Show Amazonka.AWSHealth.Types.OrganizationEventDetails.OrganizationEventDetails
+instance GHC.Read.Read Amazonka.AWSHealth.Types.OrganizationEventDetails.OrganizationEventDetails
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.OrganizationEventDetails.OrganizationEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.OrganizationEventDetails.OrganizationEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.OrganizationEventDetails.OrganizationEventDetails
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.OrganizationEventDetails.OrganizationEventDetails
 
 
-module Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem
+module Amazonka.AWSHealth.Types.OrganizationEventDetailsErrorItem
 
 -- | Error information returned when a
 --   <a>DescribeEventDetailsForOrganization</a> operation can't find a
@@ -1834,16 +1834,16 @@ organizationEventDetailsErrorItem_errorName :: Lens' OrganizationEventDetailsErr
 --   Support plan.</li>
 --   </ul>
 organizationEventDetailsErrorItem_errorMessage :: Lens' OrganizationEventDetailsErrorItem (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.OrganizationEventDetailsErrorItem
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.OrganizationEventDetailsErrorItem
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.OrganizationEventDetailsErrorItem
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.OrganizationEventDetailsErrorItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.OrganizationEventDetailsErrorItem
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.OrganizationEventDetailsErrorItem
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.OrganizationEventDetailsErrorItem
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.OrganizationEventDetailsErrorItem.OrganizationEventDetailsErrorItem
+instance GHC.Show.Show Amazonka.AWSHealth.Types.OrganizationEventDetailsErrorItem.OrganizationEventDetailsErrorItem
+instance GHC.Read.Read Amazonka.AWSHealth.Types.OrganizationEventDetailsErrorItem.OrganizationEventDetailsErrorItem
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.OrganizationEventDetailsErrorItem.OrganizationEventDetailsErrorItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AWSHealth.Types.OrganizationEventDetailsErrorItem.OrganizationEventDetailsErrorItem
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.OrganizationEventDetailsErrorItem.OrganizationEventDetailsErrorItem
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.OrganizationEventDetailsErrorItem.OrganizationEventDetailsErrorItem
 
 
-module Network.AWS.AWSHealth.Types.OrganizationEventFilter
+module Amazonka.AWSHealth.Types.OrganizationEventFilter
 
 -- | The values to filter results from the
 --   <a>DescribeEventsForOrganization</a> operation.
@@ -1973,16 +1973,16 @@ organizationEventFilter_entityValues :: Lens' OrganizationEventFilter (Maybe (No
 -- | The AWS services associated with the event. For example, <tt>EC2</tt>,
 --   <tt>RDS</tt>.
 organizationEventFilter_services :: Lens' OrganizationEventFilter (Maybe (NonEmpty Text))
-instance GHC.Generics.Generic Network.AWS.AWSHealth.Types.OrganizationEventFilter.OrganizationEventFilter
-instance GHC.Show.Show Network.AWS.AWSHealth.Types.OrganizationEventFilter.OrganizationEventFilter
-instance GHC.Read.Read Network.AWS.AWSHealth.Types.OrganizationEventFilter.OrganizationEventFilter
-instance GHC.Classes.Eq Network.AWS.AWSHealth.Types.OrganizationEventFilter.OrganizationEventFilter
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.Types.OrganizationEventFilter.OrganizationEventFilter
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.Types.OrganizationEventFilter.OrganizationEventFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.Types.OrganizationEventFilter.OrganizationEventFilter
+instance GHC.Generics.Generic Amazonka.AWSHealth.Types.OrganizationEventFilter.OrganizationEventFilter
+instance GHC.Show.Show Amazonka.AWSHealth.Types.OrganizationEventFilter.OrganizationEventFilter
+instance GHC.Read.Read Amazonka.AWSHealth.Types.OrganizationEventFilter.OrganizationEventFilter
+instance GHC.Classes.Eq Amazonka.AWSHealth.Types.OrganizationEventFilter.OrganizationEventFilter
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.Types.OrganizationEventFilter.OrganizationEventFilter
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.Types.OrganizationEventFilter.OrganizationEventFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.Types.OrganizationEventFilter.OrganizationEventFilter
 
 
-module Network.AWS.AWSHealth.Types
+module Amazonka.AWSHealth.Types
 
 -- | API version <tt>2016-08-04</tt> of the Amazon Health APIs and
 --   Notifications SDK configuration.
@@ -3711,7 +3711,7 @@ organizationEventFilter_services :: Lens' OrganizationEventFilter (Maybe (NonEmp
 --   AWS Health console to enable the organizational view feature. For more
 --   information, see <a>Aggregating AWS Health events</a> in the <i>AWS
 --   Health User Guide</i>.
-module Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization
+module Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization
 
 -- | <i>See:</i> <a>newEnableHealthServiceAccessForOrganization</a> smart
 --   constructor.
@@ -3737,22 +3737,22 @@ EnableHealthServiceAccessForOrganizationResponse' :: EnableHealthServiceAccessFo
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newEnableHealthServiceAccessForOrganizationResponse :: EnableHealthServiceAccessForOrganizationResponse
-instance GHC.Generics.Generic Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
-instance GHC.Show.Show Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
-instance GHC.Read.Read Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
-instance GHC.Classes.Eq Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
-instance GHC.Generics.Generic Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganizationResponse
-instance GHC.Show.Show Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganizationResponse
-instance GHC.Read.Read Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganizationResponse
-instance GHC.Classes.Eq Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganizationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganizationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
-instance Network.AWS.Data.Path.ToPath Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
+instance GHC.Generics.Generic Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
+instance GHC.Show.Show Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
+instance GHC.Read.Read Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
+instance GHC.Classes.Eq Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
+instance GHC.Generics.Generic Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganizationResponse
+instance GHC.Show.Show Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganizationResponse
+instance GHC.Read.Read Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganizationResponse
+instance GHC.Classes.Eq Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganizationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganizationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
+instance Amazonka.Data.Path.ToPath Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization.EnableHealthServiceAccessForOrganization
 
 
 -- | Disables AWS Health from working with AWS Organizations. To call this
@@ -3774,7 +3774,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.EnableHealthServic
 --   AWS accounts in your organization. If you call the AWS Health API
 --   operations for organizational view, AWS Health returns an error. AWS
 --   Health continues to aggregate health events for your AWS account.
-module Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization
+module Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization
 
 -- | <i>See:</i> <a>newDisableHealthServiceAccessForOrganization</a> smart
 --   constructor.
@@ -3801,29 +3801,29 @@ DisableHealthServiceAccessForOrganizationResponse' :: DisableHealthServiceAccess
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDisableHealthServiceAccessForOrganizationResponse :: DisableHealthServiceAccessForOrganizationResponse
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
-instance GHC.Show.Show Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
-instance GHC.Read.Read Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganizationResponse
-instance GHC.Show.Show Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganizationResponse
-instance GHC.Read.Read Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganizationResponse
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganizationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganizationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
-instance Network.AWS.Data.Path.ToPath Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
+instance GHC.Generics.Generic Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
+instance GHC.Show.Show Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
+instance GHC.Read.Read Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
+instance GHC.Classes.Eq Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
+instance GHC.Generics.Generic Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganizationResponse
+instance GHC.Show.Show Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganizationResponse
+instance GHC.Read.Read Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganizationResponse
+instance GHC.Classes.Eq Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganizationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganizationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
+instance Amazonka.Data.Path.ToPath Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization.DisableHealthServiceAccessForOrganization
 
 
 -- | This operation provides status information on enabling or disabling
 --   AWS Health to work with your organization. To call this operation, you
 --   must sign in as an IAM user, assume an IAM role, or sign in as the
 --   root user (not recommended) in the organization's management account.
-module Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization
+module Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization
 
 -- | <i>See:</i> <a>newDescribeHealthServiceStatusForOrganization</a> smart
 --   constructor.
@@ -3884,22 +3884,22 @@ describeHealthServiceStatusForOrganizationResponse_healthServiceAccessStatusForO
 
 -- | The response's http status code.
 describeHealthServiceStatusForOrganizationResponse_httpStatus :: Lens' DescribeHealthServiceStatusForOrganizationResponse Int
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganizationResponse
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganizationResponse
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganizationResponse
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganizationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganizationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
-instance Network.AWS.Data.Path.ToPath Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganizationResponse
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganizationResponse
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganizationResponse
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganizationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganizationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
+instance Amazonka.Data.Path.ToPath Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization.DescribeHealthServiceStatusForOrganization
 
 
 -- | Returns information about events across your organization in AWS
@@ -3933,7 +3933,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeHealthServ
 --   parameter in the next request to return more results.
 --   
 --   This operation returns paginated results.
-module Network.AWS.AWSHealth.DescribeEventsForOrganization
+module Amazonka.AWSHealth.DescribeEventsForOrganization
 
 -- | <i>See:</i> <a>newDescribeEventsForOrganization</a> smart constructor.
 data DescribeEventsForOrganization
@@ -4062,23 +4062,23 @@ describeEventsForOrganizationResponse_events :: Lens' DescribeEventsForOrganizat
 
 -- | The response's http status code.
 describeEventsForOrganizationResponse_httpStatus :: Lens' DescribeEventsForOrganizationResponse Int
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganizationResponse
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganizationResponse
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganizationResponse
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganizationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganizationResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
-instance Network.AWS.Data.Path.ToPath Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganizationResponse
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganizationResponse
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganizationResponse
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganizationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganizationResponse
+instance Amazonka.Pager.AWSPager Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
+instance Amazonka.Data.Path.ToPath Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.DescribeEventsForOrganization.DescribeEventsForOrganization
 
 
 -- | Returns information about events that meet the specified filter
@@ -4107,7 +4107,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeEventsForO
 --   </ul>
 --   
 --   This operation returns paginated results.
-module Network.AWS.AWSHealth.DescribeEvents
+module Amazonka.AWSHealth.DescribeEvents
 
 -- | <i>See:</i> <a>newDescribeEvents</a> smart constructor.
 data DescribeEvents
@@ -4232,23 +4232,23 @@ describeEventsResponse_events :: Lens' DescribeEventsResponse (Maybe [Event])
 
 -- | The response's http status code.
 describeEventsResponse_httpStatus :: Lens' DescribeEventsResponse Int
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeEvents.DescribeEvents
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeEvents.DescribeEvents
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeEvents.DescribeEvents
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeEvents.DescribeEvents
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeEvents.DescribeEventsResponse
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeEvents.DescribeEventsResponse
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeEvents.DescribeEventsResponse
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeEvents.DescribeEventsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AWSHealth.DescribeEvents.DescribeEvents
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeEvents.DescribeEventsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.AWSHealth.DescribeEvents.DescribeEvents
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.DescribeEvents.DescribeEvents
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeEvents.DescribeEvents
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AWSHealth.DescribeEvents.DescribeEvents
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.DescribeEvents.DescribeEvents
-instance Network.AWS.Data.Path.ToPath Network.AWS.AWSHealth.DescribeEvents.DescribeEvents
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeEvents.DescribeEvents
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeEvents.DescribeEvents
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeEvents.DescribeEvents
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeEvents.DescribeEvents
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeEvents.DescribeEvents
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeEvents.DescribeEventsResponse
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeEvents.DescribeEventsResponse
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeEvents.DescribeEventsResponse
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeEvents.DescribeEventsResponse
+instance Amazonka.Types.AWSRequest Amazonka.AWSHealth.DescribeEvents.DescribeEvents
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeEvents.DescribeEventsResponse
+instance Amazonka.Pager.AWSPager Amazonka.AWSHealth.DescribeEvents.DescribeEvents
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.DescribeEvents.DescribeEvents
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeEvents.DescribeEvents
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AWSHealth.DescribeEvents.DescribeEvents
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.DescribeEvents.DescribeEvents
+instance Amazonka.Data.Path.ToPath Amazonka.AWSHealth.DescribeEvents.DescribeEvents
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.DescribeEvents.DescribeEvents
 
 
 -- | Returns the event types that meet the specified filter criteria. You
@@ -4263,7 +4263,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeEvents.Des
 --   parameter in the next request to return more results.
 --   
 --   This operation returns paginated results.
-module Network.AWS.AWSHealth.DescribeEventTypes
+module Amazonka.AWSHealth.DescribeEventTypes
 
 -- | <i>See:</i> <a>newDescribeEventTypes</a> smart constructor.
 data DescribeEventTypes
@@ -4406,23 +4406,23 @@ describeEventTypesResponse_nextToken :: Lens' DescribeEventTypesResponse (Maybe 
 
 -- | The response's http status code.
 describeEventTypesResponse_httpStatus :: Lens' DescribeEventTypesResponse Int
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypes
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypes
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypes
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypes
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypesResponse
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypesResponse
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypesResponse
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypes
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypes
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypes
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypes
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypes
-instance Network.AWS.Data.Path.ToPath Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeEventTypes.DescribeEventTypes
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypes
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypes
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypes
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypes
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypesResponse
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypesResponse
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypesResponse
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypesResponse
+instance Amazonka.Types.AWSRequest Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypes
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypesResponse
+instance Amazonka.Pager.AWSPager Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypes
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypes
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypes
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypes
+instance Amazonka.Data.Path.ToPath Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypes
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.DescribeEventTypes.DescribeEventTypes
 
 
 -- | Returns detailed information about one or more specified events for
@@ -4461,7 +4461,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeEventTypes
 --   use this operation to allow or deny access to specific AWS Health
 --   events. For more information, see <a>Resource- and action-based
 --   conditions</a> in the <i>AWS Health User Guide</i>.
-module Network.AWS.AWSHealth.DescribeEventDetailsForOrganization
+module Amazonka.AWSHealth.DescribeEventDetailsForOrganization
 
 -- | <i>See:</i> <a>newDescribeEventDetailsForOrganization</a> smart
 --   constructor.
@@ -4550,22 +4550,22 @@ describeEventDetailsForOrganizationResponse_failedSet :: Lens' DescribeEventDeta
 
 -- | The response's http status code.
 describeEventDetailsForOrganizationResponse_httpStatus :: Lens' DescribeEventDetailsForOrganizationResponse Int
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganizationResponse
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganizationResponse
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganizationResponse
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganizationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganizationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
-instance Network.AWS.Data.Path.ToPath Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganizationResponse
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganizationResponse
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganizationResponse
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganizationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganizationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
+instance Amazonka.Data.Path.ToPath Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.DescribeEventDetailsForOrganization.DescribeEventDetailsForOrganization
 
 
 -- | Returns detailed information about one or more specified events.
@@ -4582,7 +4582,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeEventDetai
 --   operation to allow or deny access to specific AWS Health events. For
 --   more information, see <a>Resource- and action-based conditions</a> in
 --   the <i>AWS Health User Guide</i>.
-module Network.AWS.AWSHealth.DescribeEventDetails
+module Amazonka.AWSHealth.DescribeEventDetails
 
 -- | <i>See:</i> <a>newDescribeEventDetails</a> smart constructor.
 data DescribeEventDetails
@@ -4670,22 +4670,22 @@ describeEventDetailsResponse_failedSet :: Lens' DescribeEventDetailsResponse (Ma
 
 -- | The response's http status code.
 describeEventDetailsResponse_httpStatus :: Lens' DescribeEventDetailsResponse Int
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetails
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetails
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetails
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetails
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetailsResponse
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetailsResponse
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetailsResponse
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetailsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetails
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetailsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetails
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetails
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetails
-instance Network.AWS.Data.Path.ToPath Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetails
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeEventDetails.DescribeEventDetails
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetails
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetails
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetails
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetails
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetailsResponse
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetailsResponse
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetailsResponse
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetailsResponse
+instance Amazonka.Types.AWSRequest Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetails
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetailsResponse
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetails
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetails
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetails
+instance Amazonka.Data.Path.ToPath Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetails
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.DescribeEventDetails.DescribeEventDetails
 
 
 -- | Returns the number of events of each event type (issue, scheduled
@@ -4696,7 +4696,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeEventDetai
 --   parameter in the next request to return more results.
 --   
 --   This operation returns paginated results.
-module Network.AWS.AWSHealth.DescribeEventAggregates
+module Amazonka.AWSHealth.DescribeEventAggregates
 
 -- | <i>See:</i> <a>newDescribeEventAggregates</a> smart constructor.
 data DescribeEventAggregates
@@ -4824,29 +4824,29 @@ describeEventAggregatesResponse_eventAggregates :: Lens' DescribeEventAggregates
 
 -- | The response's http status code.
 describeEventAggregatesResponse_httpStatus :: Lens' DescribeEventAggregatesResponse Int
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregatesResponse
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregatesResponse
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregatesResponse
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregatesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregatesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
-instance Network.AWS.Data.Path.ToPath Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregatesResponse
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregatesResponse
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregatesResponse
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregatesResponse
+instance Amazonka.Types.AWSRequest Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregatesResponse
+instance Amazonka.Pager.AWSPager Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
+instance Amazonka.Data.Path.ToPath Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.DescribeEventAggregates.DescribeEventAggregates
 
 
 -- | Returns the number of entities that are affected by each of the
 --   specified events. If no events are specified, the counts of all
 --   affected entities are returned.
-module Network.AWS.AWSHealth.DescribeEntityAggregates
+module Amazonka.AWSHealth.DescribeEntityAggregates
 
 -- | <i>See:</i> <a>newDescribeEntityAggregates</a> smart constructor.
 data DescribeEntityAggregates
@@ -4914,22 +4914,22 @@ describeEntityAggregatesResponse_entityAggregates :: Lens' DescribeEntityAggrega
 
 -- | The response's http status code.
 describeEntityAggregatesResponse_httpStatus :: Lens' DescribeEntityAggregatesResponse Int
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregatesResponse
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregatesResponse
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregatesResponse
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregatesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregatesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
-instance Network.AWS.Data.Path.ToPath Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregatesResponse
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregatesResponse
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregatesResponse
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregatesResponse
+instance Amazonka.Types.AWSRequest Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregatesResponse
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
+instance Amazonka.Data.Path.ToPath Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.DescribeEntityAggregates.DescribeEntityAggregates
 
 
 -- | Returns a list of entities that have been affected by one or more
@@ -4957,7 +4957,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeEntityAggr
 --   </ul>
 --   
 --   This operation returns paginated results.
-module Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization
+module Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization
 
 -- | <i>See:</i> <a>newDescribeAffectedEntitiesForOrganization</a> smart
 --   constructor.
@@ -5117,23 +5117,23 @@ describeAffectedEntitiesForOrganizationResponse_nextToken :: Lens' DescribeAffec
 
 -- | The response's http status code.
 describeAffectedEntitiesForOrganizationResponse_httpStatus :: Lens' DescribeAffectedEntitiesForOrganizationResponse Int
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganizationResponse
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganizationResponse
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganizationResponse
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganizationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganizationResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
-instance Network.AWS.Data.Path.ToPath Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganizationResponse
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganizationResponse
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganizationResponse
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganizationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganizationResponse
+instance Amazonka.Pager.AWSPager Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
+instance Amazonka.Data.Path.ToPath Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization.DescribeAffectedEntitiesForOrganization
 
 
 -- | Returns a list of entities that have been affected by the specified
@@ -5156,7 +5156,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeAffectedEn
 --   </ul>
 --   
 --   This operation returns paginated results.
-module Network.AWS.AWSHealth.DescribeAffectedEntities
+module Amazonka.AWSHealth.DescribeAffectedEntities
 
 -- | <i>See:</i> <a>newDescribeAffectedEntities</a> smart constructor.
 data DescribeAffectedEntities
@@ -5287,23 +5287,23 @@ describeAffectedEntitiesResponse_nextToken :: Lens' DescribeAffectedEntitiesResp
 
 -- | The response's http status code.
 describeAffectedEntitiesResponse_httpStatus :: Lens' DescribeAffectedEntitiesResponse Int
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntitiesResponse
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntitiesResponse
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntitiesResponse
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntitiesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntitiesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
-instance Network.AWS.Data.Path.ToPath Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntitiesResponse
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntitiesResponse
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntitiesResponse
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntitiesResponse
+instance Amazonka.Types.AWSRequest Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntitiesResponse
+instance Amazonka.Pager.AWSPager Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
+instance Amazonka.Data.Path.ToPath Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.DescribeAffectedEntities.DescribeAffectedEntities
 
 
 -- | Returns a list of accounts in the organization from AWS Organizations
@@ -5319,7 +5319,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeAffectedEn
 --   parameter in the next request to return more results.
 --   
 --   This operation returns paginated results.
-module Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization
+module Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization
 
 -- | <i>See:</i> <a>newDescribeAffectedAccountsForOrganization</a> smart
 --   constructor.
@@ -5517,26 +5517,26 @@ describeAffectedAccountsForOrganizationResponse_nextToken :: Lens' DescribeAffec
 
 -- | The response's http status code.
 describeAffectedAccountsForOrganizationResponse_httpStatus :: Lens' DescribeAffectedAccountsForOrganizationResponse Int
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
-instance GHC.Generics.Generic Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganizationResponse
-instance GHC.Show.Show Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganizationResponse
-instance GHC.Read.Read Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganizationResponse
-instance GHC.Classes.Eq Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganizationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganizationResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
-instance Data.Hashable.Class.Hashable Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
-instance Control.DeepSeq.NFData Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
-instance Network.AWS.Data.Path.ToPath Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
+instance GHC.Generics.Generic Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganizationResponse
+instance GHC.Show.Show Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganizationResponse
+instance GHC.Read.Read Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganizationResponse
+instance GHC.Classes.Eq Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganizationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganizationResponse
+instance Amazonka.Pager.AWSPager Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
+instance Data.Hashable.Class.Hashable Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
+instance Control.DeepSeq.NFData Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
+instance Amazonka.Data.Path.ToPath Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
+instance Amazonka.Data.Query.ToQuery Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization.DescribeAffectedAccountsForOrganization
 
 
-module Network.AWS.AWSHealth.Lens
+module Amazonka.AWSHealth.Lens
 
 -- | A list of event ARNs (unique identifiers). For example:
 --   <tt>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456",
@@ -6275,7 +6275,7 @@ organizationEventFilter_entityValues :: Lens' OrganizationEventFilter (Maybe (No
 organizationEventFilter_services :: Lens' OrganizationEventFilter (Maybe (NonEmpty Text))
 
 
-module Network.AWS.AWSHealth.Waiters
+module Amazonka.AWSHealth.Waiters
 
 
 -- | Derived from API version <tt>2016-08-04</tt> of the AWS service
@@ -6328,7 +6328,7 @@ module Network.AWS.AWSHealth.Waiters
 --   results. Specify the <tt>nextToken</tt> in the next request to return
 --   more results.</li>
 --   </ul>
-module Network.AWS.AWSHealth
+module Amazonka.AWSHealth
 
 -- | API version <tt>2016-08-04</tt> of the Amazon Health APIs and
 --   Notifications SDK configuration.

@@ -1,0 +1,518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RDS.FailoverGlobalCluster</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Initiates the failover process for an Aurora global database</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- (GlobalCluster).</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- A failover for an Aurora global database promotes one of secondary</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- read-only DB clusters to be the primary DB cluster and demotes the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- primary DB cluster to being a secondary (read-only) DB cluster. In other</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- words, the role of the current primary DB cluster and the selected</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- (target) DB cluster are switched. The selected secondary DB cluster</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- assumes full read\/write capabilities for the Aurora global database.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- For more information about failing over an Amazon Aurora global</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- database, see</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.managed-failover Managed planned failover for Amazon Aurora global databases&gt;</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- in the /Amazon Aurora User Guide./</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- This action applies to GlobalCluster (Aurora global databases) only. Use</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- this action only on healthy Aurora global databases with running Aurora</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- DB clusters and no Region-wide outages, to test disaster recovery</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- scenarios or to reconfigure your Aurora global database topology.</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDS.FailoverGlobalCluster</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier">FailoverGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#newFailoverGlobalCluster"><span class="hs-identifier">newFailoverGlobalCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#failoverGlobalCluster_globalClusterIdentifier"><span class="hs-identifier">failoverGlobalCluster_globalClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#failoverGlobalCluster_targetDbClusterIdentifier"><span class="hs-identifier">failoverGlobalCluster_targetDbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier">FailoverGlobalClusterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#newFailoverGlobalClusterResponse"><span class="hs-identifier">newFailoverGlobalClusterResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#failoverGlobalClusterResponse_globalCluster"><span class="hs-identifier">failoverGlobalClusterResponse_globalCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#failoverGlobalClusterResponse_httpStatus"><span class="hs-identifier">failoverGlobalClusterResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.html"><span class="hs-identifier">Amazonka.RDS.Types</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newFailoverGlobalCluster' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621679784938"><span id="local-6989586621679784939"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverGlobalCluster"><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-var">FailoverGlobalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverGlobalCluster%27"><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-var">FailoverGlobalCluster'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier of the Aurora global database (GlobalCluster) that should be</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- failed over. The identifier is the unique key assigned by the user when</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- the Aurora global database was created. In other words, it\'s the name</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- of the Aurora global database that you want to fail over.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   Must match the identifier of an existing GlobalCluster (Aurora</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     global database).</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AglobalClusterIdentifier%3AFailoverGlobalCluster%27"><span class="annot"><span class="annottext">FailoverGlobalCluster -&gt; Text
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3AFailoverGlobalCluster%27"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | Identifier of the secondary Aurora DB cluster that you want to promote</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- to primary for the Aurora global database (GlobalCluster.) Use the</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- Amazon Resource Name (ARN) for the identifier so that Aurora can locate</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- the cluster in its Amazon Web Services Region.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AtargetDbClusterIdentifier%3AFailoverGlobalCluster%27"><span class="annot"><span class="annottext">FailoverGlobalCluster -&gt; Text
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#%24sel%3AtargetDbClusterIdentifier%3AFailoverGlobalCluster%27"><span class="hs-identifier hs-var hs-var">targetDbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679784931"><span id="local-6989586621679784933"><span class="annot"><span class="annottext">FailoverGlobalCluster -&gt; FailoverGlobalCluster -&gt; Bool
+(FailoverGlobalCluster -&gt; FailoverGlobalCluster -&gt; Bool)
+-&gt; (FailoverGlobalCluster -&gt; FailoverGlobalCluster -&gt; Bool)
+-&gt; Eq FailoverGlobalCluster
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FailoverGlobalCluster -&gt; FailoverGlobalCluster -&gt; Bool
+$c/= :: FailoverGlobalCluster -&gt; FailoverGlobalCluster -&gt; Bool
+== :: FailoverGlobalCluster -&gt; FailoverGlobalCluster -&gt; Bool
+$c== :: FailoverGlobalCluster -&gt; FailoverGlobalCluster -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784922"><span id="local-6989586621679784924"><span id="local-6989586621679784926"><span id="local-6989586621679784928"><span class="annot"><span class="annottext">ReadPrec [FailoverGlobalCluster]
+ReadPrec FailoverGlobalCluster
+Int -&gt; ReadS FailoverGlobalCluster
+ReadS [FailoverGlobalCluster]
+(Int -&gt; ReadS FailoverGlobalCluster)
+-&gt; ReadS [FailoverGlobalCluster]
+-&gt; ReadPrec FailoverGlobalCluster
+-&gt; ReadPrec [FailoverGlobalCluster]
+-&gt; Read FailoverGlobalCluster
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FailoverGlobalCluster]
+$creadListPrec :: ReadPrec [FailoverGlobalCluster]
+readPrec :: ReadPrec FailoverGlobalCluster
+$creadPrec :: ReadPrec FailoverGlobalCluster
+readList :: ReadS [FailoverGlobalCluster]
+$creadList :: ReadS [FailoverGlobalCluster]
+readsPrec :: Int -&gt; ReadS FailoverGlobalCluster
+$creadsPrec :: Int -&gt; ReadS FailoverGlobalCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784915"><span id="local-6989586621679784917"><span id="local-6989586621679784919"><span class="annot"><span class="annottext">Int -&gt; FailoverGlobalCluster -&gt; ShowS
+[FailoverGlobalCluster] -&gt; ShowS
+FailoverGlobalCluster -&gt; String
+(Int -&gt; FailoverGlobalCluster -&gt; ShowS)
+-&gt; (FailoverGlobalCluster -&gt; String)
+-&gt; ([FailoverGlobalCluster] -&gt; ShowS)
+-&gt; Show FailoverGlobalCluster
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FailoverGlobalCluster] -&gt; ShowS
+$cshowList :: [FailoverGlobalCluster] -&gt; ShowS
+show :: FailoverGlobalCluster -&gt; String
+$cshow :: FailoverGlobalCluster -&gt; String
+showsPrec :: Int -&gt; FailoverGlobalCluster -&gt; ShowS
+$cshowsPrec :: Int -&gt; FailoverGlobalCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FailoverGlobalCluster -&gt; Rep FailoverGlobalCluster x)
+-&gt; (forall x. Rep FailoverGlobalCluster x -&gt; FailoverGlobalCluster)
+-&gt; Generic FailoverGlobalCluster
+forall x. Rep FailoverGlobalCluster x -&gt; FailoverGlobalCluster
+forall x. FailoverGlobalCluster -&gt; Rep FailoverGlobalCluster x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FailoverGlobalCluster x -&gt; FailoverGlobalCluster
+$cfrom :: forall x. FailoverGlobalCluster -&gt; Rep FailoverGlobalCluster x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Create a value of 'FailoverGlobalCluster' with all optional fields omitted.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'globalClusterIdentifier', 'failoverGlobalCluster_globalClusterIdentifier' - Identifier of the Aurora global database (GlobalCluster) that should be</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- failed over. The identifier is the unique key assigned by the user when</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- the Aurora global database was created. In other words, it\'s the name</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- of the Aurora global database that you want to fail over.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- -   Must match the identifier of an existing GlobalCluster (Aurora</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--     global database).</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'targetDbClusterIdentifier', 'failoverGlobalCluster_targetDbClusterIdentifier' - Identifier of the secondary Aurora DB cluster that you want to promote</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- to primary for the Aurora global database (GlobalCluster.) Use the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Amazon Resource Name (ARN) for the identifier so that Aurora can locate</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- the cluster in its Amazon Web Services Region.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#newFailoverGlobalCluster"><span class="hs-identifier hs-type">newFailoverGlobalCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-comment">-- | 'globalClusterIdentifier'</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-comment">-- | 'targetDbClusterIdentifier'</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span>
+</span><span id="line-116"></span><span id="newFailoverGlobalCluster"><span class="annot"><span class="annottext">newFailoverGlobalCluster :: Text -&gt; Text -&gt; FailoverGlobalCluster
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#newFailoverGlobalCluster"><span class="hs-identifier hs-var hs-var">newFailoverGlobalCluster</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679784910"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784910"><span class="hs-identifier hs-var">pGlobalClusterIdentifier_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679784909"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784909"><span class="hs-identifier hs-var">pTargetDbClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">FailoverGlobalCluster' :: Text -&gt; Text -&gt; FailoverGlobalCluster
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:FailoverGlobalCluster' :: Text
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3AFailoverGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784910"><span class="hs-identifier hs-var">pGlobalClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetDbClusterIdentifier:FailoverGlobalCluster' :: Text
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#%24sel%3AtargetDbClusterIdentifier%3AFailoverGlobalCluster%27"><span class="hs-identifier hs-var">targetDbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784909"><span class="hs-identifier hs-var">pTargetDbClusterIdentifier_</span></a></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | Identifier of the Aurora global database (GlobalCluster) that should be</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- failed over. The identifier is the unique key assigned by the user when</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- the Aurora global database was created. In other words, it\'s the name</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- of the Aurora global database that you want to fail over.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- -   Must match the identifier of an existing GlobalCluster (Aurora</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--     global database).</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#failoverGlobalCluster_globalClusterIdentifier"><span class="hs-identifier hs-type">failoverGlobalCluster_globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-136"></span><span id="failoverGlobalCluster_globalClusterIdentifier"><span class="annot"><span class="annottext">failoverGlobalCluster_globalClusterIdentifier :: (Text -&gt; f Text)
+-&gt; FailoverGlobalCluster -&gt; f FailoverGlobalCluster
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#failoverGlobalCluster_globalClusterIdentifier"><span class="hs-identifier hs-var hs-var">failoverGlobalCluster_globalClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailoverGlobalCluster -&gt; Text)
+-&gt; (FailoverGlobalCluster -&gt; Text -&gt; FailoverGlobalCluster)
+-&gt; Lens FailoverGlobalCluster FailoverGlobalCluster Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784906"><span class="annot"><span class="annottext">Text
+globalClusterIdentifier :: Text
+$sel:globalClusterIdentifier:FailoverGlobalCluster' :: FailoverGlobalCluster -&gt; Text
+</span><a href="#local-6989586621679784906"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784906"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784905"><span class="annot"><span class="annottext">s :: FailoverGlobalCluster
+</span><a href="#local-6989586621679784905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784904"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalCluster
+</span><a href="#local-6989586621679784905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:FailoverGlobalCluster' :: Text
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3AFailoverGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Identifier of the secondary Aurora DB cluster that you want to promote</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- to primary for the Aurora global database (GlobalCluster.) Use the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Amazon Resource Name (ARN) for the identifier so that Aurora can locate</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- the cluster in its Amazon Web Services Region.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#failoverGlobalCluster_targetDbClusterIdentifier"><span class="hs-identifier hs-type">failoverGlobalCluster_targetDbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-143"></span><span id="failoverGlobalCluster_targetDbClusterIdentifier"><span class="annot"><span class="annottext">failoverGlobalCluster_targetDbClusterIdentifier :: (Text -&gt; f Text)
+-&gt; FailoverGlobalCluster -&gt; f FailoverGlobalCluster
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#failoverGlobalCluster_targetDbClusterIdentifier"><span class="hs-identifier hs-var hs-var">failoverGlobalCluster_targetDbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailoverGlobalCluster -&gt; Text)
+-&gt; (FailoverGlobalCluster -&gt; Text -&gt; FailoverGlobalCluster)
+-&gt; Lens FailoverGlobalCluster FailoverGlobalCluster Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784903"><span class="annot"><span class="annottext">Text
+targetDbClusterIdentifier :: Text
+$sel:targetDbClusterIdentifier:FailoverGlobalCluster' :: FailoverGlobalCluster -&gt; Text
+</span><a href="#local-6989586621679784903"><span class="hs-identifier hs-var hs-var">targetDbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784903"><span class="hs-identifier hs-var">targetDbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784902"><span class="annot"><span class="annottext">s :: FailoverGlobalCluster
+</span><a href="#local-6989586621679784902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784901"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalCluster
+</span><a href="#local-6989586621679784902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetDbClusterIdentifier:FailoverGlobalCluster' :: Text
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#%24sel%3AtargetDbClusterIdentifier%3AFailoverGlobalCluster%27"><span class="hs-identifier hs-var">targetDbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679784897"><span class="annot"><span class="annottext">request :: FailoverGlobalCluster -&gt; Request FailoverGlobalCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; FailoverGlobalCluster -&gt; Request FailoverGlobalCluster
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679784893"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy FailoverGlobalCluster
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse FailoverGlobalCluster)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse FailoverGlobalCluster))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy FailoverGlobalCluster
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse FailoverGlobalCluster)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailoverGlobalClusterResult&quot;</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679784890"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679784890"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679784889"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679784889"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679784888"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679784888"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe GlobalCluster -&gt; Int -&gt; FailoverGlobalClusterResponse
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var">FailoverGlobalClusterResponse'</span></a></span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GlobalCluster -&gt; Int -&gt; FailoverGlobalClusterResponse)
+-&gt; Either String (Maybe GlobalCluster)
+-&gt; Either String (Int -&gt; FailoverGlobalClusterResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679784888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe GlobalCluster)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalCluster&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; FailoverGlobalClusterResponse)
+-&gt; Either String Int -&gt; Either String FailoverGlobalClusterResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679784890"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784880"><span id="local-6989586621679784882"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784877"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679784873"><span class="annot"><span class="annottext">toHeaders :: FailoverGlobalCluster -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; FailoverGlobalCluster -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679784868"><span class="annot"><span class="annottext">toPath :: FailoverGlobalCluster -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; FailoverGlobalCluster -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679784864"><span class="annot"><span class="annottext">toQuery :: FailoverGlobalCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784861"><span id="local-6989586621679784862"><span class="annot"><span class="annottext">Text
+targetDbClusterIdentifier :: Text
+globalClusterIdentifier :: Text
+$sel:targetDbClusterIdentifier:FailoverGlobalCluster' :: FailoverGlobalCluster -&gt; Text
+$sel:globalClusterIdentifier:FailoverGlobalCluster' :: FailoverGlobalCluster -&gt; Text
+</span><a href="#local-6989586621679784861"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;FailoverGlobalCluster&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GlobalClusterIdentifier&quot;</span></span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784862"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TargetDbClusterIdentifier&quot;</span></span><span>
+</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784861"><span class="hs-identifier hs-var">targetDbClusterIdentifier</span></a></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newFailoverGlobalClusterResponse' smart constructor.</span><span>
+</span><span id="line-183"></span><span id="local-6989586621679784858"><span id="local-6989586621679784859"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverGlobalClusterResponse"><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-var">FailoverGlobalClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverGlobalClusterResponse%27"><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var">FailoverGlobalClusterResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AglobalCluster%3AFailoverGlobalClusterResponse%27"><span class="annot"><span class="annottext">FailoverGlobalClusterResponse -&gt; Maybe GlobalCluster
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#%24sel%3AglobalCluster%3AFailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var hs-var">globalCluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3AFailoverGlobalClusterResponse%27"><span class="annot"><span class="annottext">FailoverGlobalClusterResponse -&gt; Int
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#%24sel%3AhttpStatus%3AFailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679784852"><span id="local-6989586621679784854"><span class="annot"><span class="annottext">FailoverGlobalClusterResponse
+-&gt; FailoverGlobalClusterResponse -&gt; Bool
+(FailoverGlobalClusterResponse
+ -&gt; FailoverGlobalClusterResponse -&gt; Bool)
+-&gt; (FailoverGlobalClusterResponse
+    -&gt; FailoverGlobalClusterResponse -&gt; Bool)
+-&gt; Eq FailoverGlobalClusterResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FailoverGlobalClusterResponse
+-&gt; FailoverGlobalClusterResponse -&gt; Bool
+$c/= :: FailoverGlobalClusterResponse
+-&gt; FailoverGlobalClusterResponse -&gt; Bool
+== :: FailoverGlobalClusterResponse
+-&gt; FailoverGlobalClusterResponse -&gt; Bool
+$c== :: FailoverGlobalClusterResponse
+-&gt; FailoverGlobalClusterResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784844"><span id="local-6989586621679784846"><span id="local-6989586621679784848"><span id="local-6989586621679784850"><span class="annot"><span class="annottext">ReadPrec [FailoverGlobalClusterResponse]
+ReadPrec FailoverGlobalClusterResponse
+Int -&gt; ReadS FailoverGlobalClusterResponse
+ReadS [FailoverGlobalClusterResponse]
+(Int -&gt; ReadS FailoverGlobalClusterResponse)
+-&gt; ReadS [FailoverGlobalClusterResponse]
+-&gt; ReadPrec FailoverGlobalClusterResponse
+-&gt; ReadPrec [FailoverGlobalClusterResponse]
+-&gt; Read FailoverGlobalClusterResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FailoverGlobalClusterResponse]
+$creadListPrec :: ReadPrec [FailoverGlobalClusterResponse]
+readPrec :: ReadPrec FailoverGlobalClusterResponse
+$creadPrec :: ReadPrec FailoverGlobalClusterResponse
+readList :: ReadS [FailoverGlobalClusterResponse]
+$creadList :: ReadS [FailoverGlobalClusterResponse]
+readsPrec :: Int -&gt; ReadS FailoverGlobalClusterResponse
+$creadsPrec :: Int -&gt; ReadS FailoverGlobalClusterResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784838"><span id="local-6989586621679784840"><span id="local-6989586621679784842"><span class="annot"><span class="annottext">Int -&gt; FailoverGlobalClusterResponse -&gt; ShowS
+[FailoverGlobalClusterResponse] -&gt; ShowS
+FailoverGlobalClusterResponse -&gt; String
+(Int -&gt; FailoverGlobalClusterResponse -&gt; ShowS)
+-&gt; (FailoverGlobalClusterResponse -&gt; String)
+-&gt; ([FailoverGlobalClusterResponse] -&gt; ShowS)
+-&gt; Show FailoverGlobalClusterResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FailoverGlobalClusterResponse] -&gt; ShowS
+$cshowList :: [FailoverGlobalClusterResponse] -&gt; ShowS
+show :: FailoverGlobalClusterResponse -&gt; String
+$cshow :: FailoverGlobalClusterResponse -&gt; String
+showsPrec :: Int -&gt; FailoverGlobalClusterResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; FailoverGlobalClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ FailoverGlobalClusterResponse
+ -&gt; Rep FailoverGlobalClusterResponse x)
+-&gt; (forall x.
+    Rep FailoverGlobalClusterResponse x
+    -&gt; FailoverGlobalClusterResponse)
+-&gt; Generic FailoverGlobalClusterResponse
+forall x.
+Rep FailoverGlobalClusterResponse x
+-&gt; FailoverGlobalClusterResponse
+forall x.
+FailoverGlobalClusterResponse
+-&gt; Rep FailoverGlobalClusterResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FailoverGlobalClusterResponse x
+-&gt; FailoverGlobalClusterResponse
+$cfrom :: forall x.
+FailoverGlobalClusterResponse
+-&gt; Rep FailoverGlobalClusterResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Create a value of 'FailoverGlobalClusterResponse' with all optional fields omitted.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'globalCluster', 'failoverGlobalClusterResponse_globalCluster' - Undocumented member.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'httpStatus', 'failoverGlobalClusterResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#newFailoverGlobalClusterResponse"><span class="hs-identifier hs-type">newFailoverGlobalClusterResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span><span>
+</span><span id="line-205"></span><span id="newFailoverGlobalClusterResponse"><span class="annot"><span class="annottext">newFailoverGlobalClusterResponse :: Int -&gt; FailoverGlobalClusterResponse
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#newFailoverGlobalClusterResponse"><span class="hs-identifier hs-var hs-var">newFailoverGlobalClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679784835"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679784835"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">FailoverGlobalClusterResponse' :: Maybe GlobalCluster -&gt; Int -&gt; FailoverGlobalClusterResponse
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse'</span></a></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalCluster:FailoverGlobalClusterResponse' :: Maybe GlobalCluster
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#%24sel%3AglobalCluster%3AFailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var">globalCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">Maybe GlobalCluster
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:FailoverGlobalClusterResponse' :: Int
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#%24sel%3AhttpStatus%3AFailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679784835"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#failoverGlobalClusterResponse_globalCluster"><span class="hs-identifier hs-type">failoverGlobalClusterResponse_globalCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="failoverGlobalClusterResponse_globalCluster"><span class="annot"><span class="annottext">failoverGlobalClusterResponse_globalCluster :: (Maybe GlobalCluster -&gt; f (Maybe GlobalCluster))
+-&gt; FailoverGlobalClusterResponse -&gt; f FailoverGlobalClusterResponse
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#failoverGlobalClusterResponse_globalCluster"><span class="hs-identifier hs-var hs-var">failoverGlobalClusterResponse_globalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailoverGlobalClusterResponse -&gt; Maybe GlobalCluster)
+-&gt; (FailoverGlobalClusterResponse
+    -&gt; Maybe GlobalCluster -&gt; FailoverGlobalClusterResponse)
+-&gt; Lens
+     FailoverGlobalClusterResponse
+     FailoverGlobalClusterResponse
+     (Maybe GlobalCluster)
+     (Maybe GlobalCluster)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784834"><span class="annot"><span class="annottext">Maybe GlobalCluster
+globalCluster :: Maybe GlobalCluster
+$sel:globalCluster:FailoverGlobalClusterResponse' :: FailoverGlobalClusterResponse -&gt; Maybe GlobalCluster
+</span><a href="#local-6989586621679784834"><span class="hs-identifier hs-var hs-var">globalCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><a href="#local-6989586621679784834"><span class="hs-identifier hs-var">globalCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784833"><span class="annot"><span class="annottext">s :: FailoverGlobalClusterResponse
+</span><a href="#local-6989586621679784833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784832"><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><a href="#local-6989586621679784832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalClusterResponse
+</span><a href="#local-6989586621679784833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalCluster:FailoverGlobalClusterResponse' :: Maybe GlobalCluster
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#%24sel%3AglobalCluster%3AFailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var">globalCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><a href="#local-6989586621679784832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#failoverGlobalClusterResponse_httpStatus"><span class="hs-identifier hs-type">failoverGlobalClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-218"></span><span id="failoverGlobalClusterResponse_httpStatus"><span class="annot"><span class="annottext">failoverGlobalClusterResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; FailoverGlobalClusterResponse -&gt; f FailoverGlobalClusterResponse
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#failoverGlobalClusterResponse_httpStatus"><span class="hs-identifier hs-var hs-var">failoverGlobalClusterResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailoverGlobalClusterResponse -&gt; Int)
+-&gt; (FailoverGlobalClusterResponse
+    -&gt; Int -&gt; FailoverGlobalClusterResponse)
+-&gt; Lens
+     FailoverGlobalClusterResponse FailoverGlobalClusterResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784831"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:FailoverGlobalClusterResponse' :: FailoverGlobalClusterResponse -&gt; Int
+</span><a href="#local-6989586621679784831"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679784831"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784830"><span class="annot"><span class="annottext">s :: FailoverGlobalClusterResponse
+</span><a href="#local-6989586621679784830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784829"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679784829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalClusterResponse
+</span><a href="#local-6989586621679784830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:FailoverGlobalClusterResponse' :: Int
+</span><a href="Amazonka.RDS.FailoverGlobalCluster.html#%24sel%3AhttpStatus%3AFailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679784829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784827"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span></span><span>
+</span><span id="line-221"></span></pre></body></html>

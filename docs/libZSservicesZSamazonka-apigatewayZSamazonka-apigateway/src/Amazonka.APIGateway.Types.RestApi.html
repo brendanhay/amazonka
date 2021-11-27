@@ -1,0 +1,951 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.APIGateway.Types.RestApi</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.APIGateway.Types.RestApi</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKeySourceType.html"><span class="hs-identifier">Amazonka.APIGateway.Types.ApiKeySourceType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.EndpointConfiguration.html"><span class="hs-identifier">Amazonka.APIGateway.Types.EndpointConfiguration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Represents a REST API.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newRestApi' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679369084"><span id="local-6989586621679369085"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestApi"><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-var">RestApi</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestApi%27"><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-var">RestApi'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A nullable integer that is used to enable compression (with non-negative</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- between 0 and 10485760 (10M) bytes, inclusive) or disable compression</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- (with a null value) on an API. When compression is enabled, compression</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- or decompression is not applied on the payload if the payload size is</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- smaller than this value. Setting it to zero allows compression for any</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- payload size.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AminimumCompressionSize%3ARestApi%27"><span class="annot"><span class="annottext">RestApi -&gt; Maybe Int
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AminimumCompressionSize%3ARestApi%27"><span class="hs-identifier hs-var hs-var">minimumCompressionSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Specifies whether clients can invoke your API by using the default</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- @execute-api@ endpoint. By default, clients can invoke your API with the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- To require that clients use a custom domain name to invoke your API,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- disable the default endpoint.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdisableExecuteApiEndpoint%3ARestApi%27"><span class="annot"><span class="annottext">RestApi -&gt; Maybe Bool
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AdisableExecuteApiEndpoint%3ARestApi%27"><span class="hs-identifier hs-var hs-var">disableExecuteApiEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The list of binary media types supported by the RestApi. By default, the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- RestApi supports only UTF-8-encoded text payloads.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AbinaryMediaTypes%3ARestApi%27"><span class="annot"><span class="annottext">RestApi -&gt; Maybe [Text]
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AbinaryMediaTypes%3ARestApi%27"><span class="hs-identifier hs-var hs-var">binaryMediaTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The warning messages reported when @failonwarnings@ is turned on during</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- API import.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Awarnings%3ARestApi%27"><span class="annot"><span class="annottext">RestApi -&gt; Maybe [Text]
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Awarnings%3ARestApi%27"><span class="hs-identifier hs-var hs-var">warnings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The timestamp when the API was created.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcreatedDate%3ARestApi%27"><span class="annot"><span class="annottext">RestApi -&gt; Maybe POSIX
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AcreatedDate%3ARestApi%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The API\'s name.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Aname%3ARestApi%27"><span class="annot"><span class="annottext">RestApi -&gt; Maybe Text
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Aname%3ARestApi%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A version identifier for the API.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aversion%3ARestApi%27"><span class="annot"><span class="annottext">RestApi -&gt; Maybe Text
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Aversion%3ARestApi%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The source of the API key for metering requests according to a usage</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- plan. Valid values are:</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   @HEADER@ to read the API key from the @X-API-Key@ header of a</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     request.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     a custom authorizer.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AapiKeySource%3ARestApi%27"><span class="annot"><span class="annottext">RestApi -&gt; Maybe ApiKeySourceType
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AapiKeySource%3ARestApi%27"><span class="hs-identifier hs-var hs-var">apiKeySource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKeySourceType.html#ApiKeySourceType"><span class="hs-identifier hs-type">ApiKeySourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The API\'s identifier. This identifier is unique across all of your APIs</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- in API Gateway.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Aid%3ARestApi%27"><span class="annot"><span class="annottext">RestApi -&gt; Maybe Text
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Aid%3ARestApi%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | A stringified JSON policy document that applies to this RestApi</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- regardless of the caller and Method configuration.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Apolicy%3ARestApi%27"><span class="annot"><span class="annottext">RestApi -&gt; Maybe Text
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Apolicy%3ARestApi%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The endpoint configuration of this RestApi showing the endpoint types of</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- the API.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AendpointConfiguration%3ARestApi%27"><span class="annot"><span class="annottext">RestApi -&gt; Maybe EndpointConfiguration
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AendpointConfiguration%3ARestApi%27"><span class="hs-identifier hs-var hs-var">endpointConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.EndpointConfiguration.html#EndpointConfiguration"><span class="hs-identifier hs-type">EndpointConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The API\'s description.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Adescription%3ARestApi%27"><span class="annot"><span class="annottext">RestApi -&gt; Maybe Text
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Adescription%3ARestApi%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The collection of tags. Each tag element is associated with a given</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Atags%3ARestApi%27"><span class="annot"><span class="annottext">RestApi -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Atags%3ARestApi%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369066"><span id="local-6989586621679369068"><span class="annot"><span class="annottext">RestApi -&gt; RestApi -&gt; Bool
+(RestApi -&gt; RestApi -&gt; Bool)
+-&gt; (RestApi -&gt; RestApi -&gt; Bool) -&gt; Eq RestApi
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RestApi -&gt; RestApi -&gt; Bool
+$c/= :: RestApi -&gt; RestApi -&gt; Bool
+== :: RestApi -&gt; RestApi -&gt; Bool
+$c== :: RestApi -&gt; RestApi -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369057"><span id="local-6989586621679369059"><span id="local-6989586621679369061"><span id="local-6989586621679369063"><span class="annot"><span class="annottext">ReadPrec [RestApi]
+ReadPrec RestApi
+Int -&gt; ReadS RestApi
+ReadS [RestApi]
+(Int -&gt; ReadS RestApi)
+-&gt; ReadS [RestApi]
+-&gt; ReadPrec RestApi
+-&gt; ReadPrec [RestApi]
+-&gt; Read RestApi
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RestApi]
+$creadListPrec :: ReadPrec [RestApi]
+readPrec :: ReadPrec RestApi
+$creadPrec :: ReadPrec RestApi
+readList :: ReadS [RestApi]
+$creadList :: ReadS [RestApi]
+readsPrec :: Int -&gt; ReadS RestApi
+$creadsPrec :: Int -&gt; ReadS RestApi
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369050"><span id="local-6989586621679369052"><span id="local-6989586621679369054"><span class="annot"><span class="annottext">Int -&gt; RestApi -&gt; ShowS
+[RestApi] -&gt; ShowS
+RestApi -&gt; String
+(Int -&gt; RestApi -&gt; ShowS)
+-&gt; (RestApi -&gt; String) -&gt; ([RestApi] -&gt; ShowS) -&gt; Show RestApi
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RestApi] -&gt; ShowS
+$cshowList :: [RestApi] -&gt; ShowS
+show :: RestApi -&gt; String
+$cshow :: RestApi -&gt; String
+showsPrec :: Int -&gt; RestApi -&gt; ShowS
+$cshowsPrec :: Int -&gt; RestApi -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RestApi -&gt; Rep RestApi x)
+-&gt; (forall x. Rep RestApi x -&gt; RestApi) -&gt; Generic RestApi
+forall x. Rep RestApi x -&gt; RestApi
+forall x. RestApi -&gt; Rep RestApi x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RestApi x -&gt; RestApi
+$cfrom :: forall x. RestApi -&gt; Rep RestApi x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'RestApi' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'minimumCompressionSize', 'restApi_minimumCompressionSize' - A nullable integer that is used to enable compression (with non-negative</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- between 0 and 10485760 (10M) bytes, inclusive) or disable compression</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- (with a null value) on an API. When compression is enabled, compression</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- or decompression is not applied on the payload if the payload size is</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- smaller than this value. Setting it to zero allows compression for any</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- payload size.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'disableExecuteApiEndpoint', 'restApi_disableExecuteApiEndpoint' - Specifies whether clients can invoke your API by using the default</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- @execute-api@ endpoint. By default, clients can invoke your API with the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- To require that clients use a custom domain name to invoke your API,</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- disable the default endpoint.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'binaryMediaTypes', 'restApi_binaryMediaTypes' - The list of binary media types supported by the RestApi. By default, the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- RestApi supports only UTF-8-encoded text payloads.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'warnings', 'restApi_warnings' - The warning messages reported when @failonwarnings@ is turned on during</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- API import.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'createdDate', 'restApi_createdDate' - The timestamp when the API was created.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'name', 'restApi_name' - The API\'s name.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'version', 'restApi_version' - A version identifier for the API.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'apiKeySource', 'restApi_apiKeySource' - The source of the API key for metering requests according to a usage</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- plan. Valid values are:</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   @HEADER@ to read the API key from the @X-API-Key@ header of a</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--     request.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     a custom authorizer.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'id', 'restApi_id' - The API\'s identifier. This identifier is unique across all of your APIs</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- in API Gateway.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'policy', 'restApi_policy' - A stringified JSON policy document that applies to this RestApi</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- regardless of the caller and Method configuration.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'endpointConfiguration', 'restApi_endpointConfiguration' - The endpoint configuration of this RestApi showing the endpoint types of</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- the API.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'description', 'restApi_description' - The API\'s description.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'tags', 'restApi_tags' - The collection of tags. Each tag element is associated with a given</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#newRestApi"><span class="hs-identifier hs-type">newRestApi</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span>
+</span><span id="line-140"></span><span id="newRestApi"><span class="annot"><span class="annottext">newRestApi :: RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#newRestApi"><span class="hs-identifier hs-var hs-var">newRestApi</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">RestApi' :: Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ApiKeySourceType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe EndpointConfiguration
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:minimumCompressionSize:RestApi' :: Maybe Int
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AminimumCompressionSize%3ARestApi%27"><span class="hs-identifier hs-var">minimumCompressionSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:disableExecuteApiEndpoint:RestApi' :: Maybe Bool
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AdisableExecuteApiEndpoint%3ARestApi%27"><span class="hs-identifier hs-var">disableExecuteApiEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:binaryMediaTypes:RestApi' :: Maybe [Text]
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AbinaryMediaTypes%3ARestApi%27"><span class="hs-identifier hs-var">binaryMediaTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:warnings:RestApi' :: Maybe [Text]
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Awarnings%3ARestApi%27"><span class="hs-identifier hs-var">warnings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdDate:RestApi' :: Maybe POSIX
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AcreatedDate%3ARestApi%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:RestApi' :: Maybe Text
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Aname%3ARestApi%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:RestApi' :: Maybe Text
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Aversion%3ARestApi%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiKeySource:RestApi' :: Maybe ApiKeySourceType
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AapiKeySource%3ARestApi%27"><span class="hs-identifier hs-var">apiKeySource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiKeySourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:RestApi' :: Maybe Text
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Aid%3ARestApi%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:policy:RestApi' :: Maybe Text
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Apolicy%3ARestApi%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointConfiguration:RestApi' :: Maybe EndpointConfiguration
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AendpointConfiguration%3ARestApi%27"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:RestApi' :: Maybe Text
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Adescription%3ARestApi%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:RestApi' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Atags%3ARestApi%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | A nullable integer that is used to enable compression (with non-negative</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- between 0 and 10485760 (10M) bytes, inclusive) or disable compression</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- (with a null value) on an API. When compression is enabled, compression</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- or decompression is not applied on the payload if the payload size is</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- smaller than this value. Setting it to zero allows compression for any</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- payload size.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_minimumCompressionSize"><span class="hs-identifier hs-type">restApi_minimumCompressionSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="restApi_minimumCompressionSize"><span class="annot"><span class="annottext">restApi_minimumCompressionSize :: (Maybe Int -&gt; f (Maybe Int)) -&gt; RestApi -&gt; f RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_minimumCompressionSize"><span class="hs-identifier hs-var hs-var">restApi_minimumCompressionSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestApi -&gt; Maybe Int)
+-&gt; (RestApi -&gt; Maybe Int -&gt; RestApi)
+-&gt; Lens RestApi RestApi (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369041"><span class="annot"><span class="annottext">Maybe Int
+minimumCompressionSize :: Maybe Int
+$sel:minimumCompressionSize:RestApi' :: RestApi -&gt; Maybe Int
+</span><a href="#local-6989586621679369041"><span class="hs-identifier hs-var hs-var">minimumCompressionSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679369041"><span class="hs-identifier hs-var">minimumCompressionSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369040"><span class="annot"><span class="annottext">s :: RestApi
+</span><a href="#local-6989586621679369040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369039"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679369039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestApi
+</span><a href="#local-6989586621679369040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumCompressionSize:RestApi' :: Maybe Int
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AminimumCompressionSize%3ARestApi%27"><span class="hs-identifier hs-var">minimumCompressionSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679369039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | Specifies whether clients can invoke your API by using the default</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- @execute-api@ endpoint. By default, clients can invoke your API with the</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- To require that clients use a custom domain name to invoke your API,</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- disable the default endpoint.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_disableExecuteApiEndpoint"><span class="hs-identifier hs-type">restApi_disableExecuteApiEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="restApi_disableExecuteApiEndpoint"><span class="annot"><span class="annottext">restApi_disableExecuteApiEndpoint :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; RestApi -&gt; f RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_disableExecuteApiEndpoint"><span class="hs-identifier hs-var hs-var">restApi_disableExecuteApiEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestApi -&gt; Maybe Bool)
+-&gt; (RestApi -&gt; Maybe Bool -&gt; RestApi)
+-&gt; Lens RestApi RestApi (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369037"><span class="annot"><span class="annottext">Maybe Bool
+disableExecuteApiEndpoint :: Maybe Bool
+$sel:disableExecuteApiEndpoint:RestApi' :: RestApi -&gt; Maybe Bool
+</span><a href="#local-6989586621679369037"><span class="hs-identifier hs-var hs-var">disableExecuteApiEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679369037"><span class="hs-identifier hs-var">disableExecuteApiEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369036"><span class="annot"><span class="annottext">s :: RestApi
+</span><a href="#local-6989586621679369036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369035"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679369035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestApi
+</span><a href="#local-6989586621679369036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disableExecuteApiEndpoint:RestApi' :: Maybe Bool
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AdisableExecuteApiEndpoint%3ARestApi%27"><span class="hs-identifier hs-var">disableExecuteApiEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679369035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The list of binary media types supported by the RestApi. By default, the</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- RestApi supports only UTF-8-encoded text payloads.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_binaryMediaTypes"><span class="hs-identifier hs-type">restApi_binaryMediaTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="restApi_binaryMediaTypes"><span class="annot"><span class="annottext">restApi_binaryMediaTypes :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; RestApi -&gt; f RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_binaryMediaTypes"><span class="hs-identifier hs-var hs-var">restApi_binaryMediaTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestApi -&gt; Maybe [Text])
+-&gt; (RestApi -&gt; Maybe [Text] -&gt; RestApi)
+-&gt; Lens RestApi RestApi (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369033"><span class="annot"><span class="annottext">Maybe [Text]
+binaryMediaTypes :: Maybe [Text]
+$sel:binaryMediaTypes:RestApi' :: RestApi -&gt; Maybe [Text]
+</span><a href="#local-6989586621679369033"><span class="hs-identifier hs-var hs-var">binaryMediaTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679369033"><span class="hs-identifier hs-var">binaryMediaTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369032"><span class="annot"><span class="annottext">s :: RestApi
+</span><a href="#local-6989586621679369032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369031"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679369031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestApi
+</span><a href="#local-6989586621679369032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:binaryMediaTypes:RestApi' :: Maybe [Text]
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AbinaryMediaTypes%3ARestApi%27"><span class="hs-identifier hs-var">binaryMediaTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679369031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; RestApi -&gt; f RestApi)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; RestApi
+-&gt; f RestApi
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The warning messages reported when @failonwarnings@ is turned on during</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- API import.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_warnings"><span class="hs-identifier hs-type">restApi_warnings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="restApi_warnings"><span class="annot"><span class="annottext">restApi_warnings :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; RestApi -&gt; f RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_warnings"><span class="hs-identifier hs-var hs-var">restApi_warnings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestApi -&gt; Maybe [Text])
+-&gt; (RestApi -&gt; Maybe [Text] -&gt; RestApi)
+-&gt; Lens RestApi RestApi (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369026"><span class="annot"><span class="annottext">Maybe [Text]
+warnings :: Maybe [Text]
+$sel:warnings:RestApi' :: RestApi -&gt; Maybe [Text]
+</span><a href="#local-6989586621679369026"><span class="hs-identifier hs-var hs-var">warnings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679369026"><span class="hs-identifier hs-var">warnings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369025"><span class="annot"><span class="annottext">s :: RestApi
+</span><a href="#local-6989586621679369025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369024"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679369024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestApi
+</span><a href="#local-6989586621679369025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warnings:RestApi' :: Maybe [Text]
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Awarnings%3ARestApi%27"><span class="hs-identifier hs-var">warnings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679369024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; RestApi -&gt; f RestApi)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; RestApi
+-&gt; f RestApi
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The timestamp when the API was created.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_createdDate"><span class="hs-identifier hs-type">restApi_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="restApi_createdDate"><span class="annot"><span class="annottext">restApi_createdDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; RestApi -&gt; f RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_createdDate"><span class="hs-identifier hs-var hs-var">restApi_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestApi -&gt; Maybe POSIX)
+-&gt; (RestApi -&gt; Maybe POSIX -&gt; RestApi)
+-&gt; Lens RestApi RestApi (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369022"><span class="annot"><span class="annottext">Maybe POSIX
+createdDate :: Maybe POSIX
+$sel:createdDate:RestApi' :: RestApi -&gt; Maybe POSIX
+</span><a href="#local-6989586621679369022"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369022"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369021"><span class="annot"><span class="annottext">s :: RestApi
+</span><a href="#local-6989586621679369021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369020"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestApi
+</span><a href="#local-6989586621679369021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:RestApi' :: Maybe POSIX
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AcreatedDate%3ARestApi%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; RestApi -&gt; f RestApi)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RestApi
+-&gt; f RestApi
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The API\'s name.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_name"><span class="hs-identifier hs-type">restApi_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="restApi_name"><span class="annot"><span class="annottext">restApi_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RestApi -&gt; f RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_name"><span class="hs-identifier hs-var hs-var">restApi_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestApi -&gt; Maybe Text)
+-&gt; (RestApi -&gt; Maybe Text -&gt; RestApi)
+-&gt; Lens RestApi RestApi (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369017"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:RestApi' :: RestApi -&gt; Maybe Text
+</span><a href="#local-6989586621679369017"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369017"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369016"><span class="annot"><span class="annottext">s :: RestApi
+</span><a href="#local-6989586621679369016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369015"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestApi
+</span><a href="#local-6989586621679369016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RestApi' :: Maybe Text
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Aname%3ARestApi%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | A version identifier for the API.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_version"><span class="hs-identifier hs-type">restApi_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="restApi_version"><span class="annot"><span class="annottext">restApi_version :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RestApi -&gt; f RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_version"><span class="hs-identifier hs-var hs-var">restApi_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestApi -&gt; Maybe Text)
+-&gt; (RestApi -&gt; Maybe Text -&gt; RestApi)
+-&gt; Lens RestApi RestApi (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369013"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:RestApi' :: RestApi -&gt; Maybe Text
+</span><a href="#local-6989586621679369013"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369013"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369012"><span class="annot"><span class="annottext">s :: RestApi
+</span><a href="#local-6989586621679369012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369011"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestApi
+</span><a href="#local-6989586621679369012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:RestApi' :: Maybe Text
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Aversion%3ARestApi%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The source of the API key for metering requests according to a usage</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- plan. Valid values are:</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- -   @HEADER@ to read the API key from the @X-API-Key@ header of a</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     request.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- -   @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--     a custom authorizer.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_apiKeySource"><span class="hs-identifier hs-type">restApi_apiKeySource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ApiKeySourceType.html#ApiKeySourceType"><span class="hs-identifier hs-type">ApiKeySourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="restApi_apiKeySource"><span class="annot"><span class="annottext">restApi_apiKeySource :: (Maybe ApiKeySourceType -&gt; f (Maybe ApiKeySourceType))
+-&gt; RestApi -&gt; f RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_apiKeySource"><span class="hs-identifier hs-var hs-var">restApi_apiKeySource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestApi -&gt; Maybe ApiKeySourceType)
+-&gt; (RestApi -&gt; Maybe ApiKeySourceType -&gt; RestApi)
+-&gt; Lens
+     RestApi RestApi (Maybe ApiKeySourceType) (Maybe ApiKeySourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369009"><span class="annot"><span class="annottext">Maybe ApiKeySourceType
+apiKeySource :: Maybe ApiKeySourceType
+$sel:apiKeySource:RestApi' :: RestApi -&gt; Maybe ApiKeySourceType
+</span><a href="#local-6989586621679369009"><span class="hs-identifier hs-var hs-var">apiKeySource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiKeySourceType
+</span><a href="#local-6989586621679369009"><span class="hs-identifier hs-var">apiKeySource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369008"><span class="annot"><span class="annottext">s :: RestApi
+</span><a href="#local-6989586621679369008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369007"><span class="annot"><span class="annottext">Maybe ApiKeySourceType
+</span><a href="#local-6989586621679369007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestApi
+</span><a href="#local-6989586621679369008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeySource:RestApi' :: Maybe ApiKeySourceType
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AapiKeySource%3ARestApi%27"><span class="hs-identifier hs-var">apiKeySource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiKeySourceType
+</span><a href="#local-6989586621679369007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The API\'s identifier. This identifier is unique across all of your APIs</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- in API Gateway.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_id"><span class="hs-identifier hs-type">restApi_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="restApi_id"><span class="annot"><span class="annottext">restApi_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RestApi -&gt; f RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_id"><span class="hs-identifier hs-var hs-var">restApi_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestApi -&gt; Maybe Text)
+-&gt; (RestApi -&gt; Maybe Text -&gt; RestApi)
+-&gt; Lens RestApi RestApi (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369005"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:RestApi' :: RestApi -&gt; Maybe Text
+</span><a href="#local-6989586621679369005"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369005"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369004"><span class="annot"><span class="annottext">s :: RestApi
+</span><a href="#local-6989586621679369004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369003"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestApi
+</span><a href="#local-6989586621679369004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:RestApi' :: Maybe Text
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Aid%3ARestApi%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | A stringified JSON policy document that applies to this RestApi</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- regardless of the caller and Method configuration.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_policy"><span class="hs-identifier hs-type">restApi_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="restApi_policy"><span class="annot"><span class="annottext">restApi_policy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RestApi -&gt; f RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_policy"><span class="hs-identifier hs-var hs-var">restApi_policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestApi -&gt; Maybe Text)
+-&gt; (RestApi -&gt; Maybe Text -&gt; RestApi)
+-&gt; Lens RestApi RestApi (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369001"><span class="annot"><span class="annottext">Maybe Text
+policy :: Maybe Text
+$sel:policy:RestApi' :: RestApi -&gt; Maybe Text
+</span><a href="#local-6989586621679369001"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369001"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369000"><span class="annot"><span class="annottext">s :: RestApi
+</span><a href="#local-6989586621679369000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368999"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestApi
+</span><a href="#local-6989586621679369000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:RestApi' :: Maybe Text
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Apolicy%3ARestApi%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The endpoint configuration of this RestApi showing the endpoint types of</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- the API.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_endpointConfiguration"><span class="hs-identifier hs-type">restApi_endpointConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.EndpointConfiguration.html#EndpointConfiguration"><span class="hs-identifier hs-type">EndpointConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="restApi_endpointConfiguration"><span class="annot"><span class="annottext">restApi_endpointConfiguration :: (Maybe EndpointConfiguration -&gt; f (Maybe EndpointConfiguration))
+-&gt; RestApi -&gt; f RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_endpointConfiguration"><span class="hs-identifier hs-var hs-var">restApi_endpointConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestApi -&gt; Maybe EndpointConfiguration)
+-&gt; (RestApi -&gt; Maybe EndpointConfiguration -&gt; RestApi)
+-&gt; Lens
+     RestApi
+     RestApi
+     (Maybe EndpointConfiguration)
+     (Maybe EndpointConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368997"><span class="annot"><span class="annottext">Maybe EndpointConfiguration
+endpointConfiguration :: Maybe EndpointConfiguration
+$sel:endpointConfiguration:RestApi' :: RestApi -&gt; Maybe EndpointConfiguration
+</span><a href="#local-6989586621679368997"><span class="hs-identifier hs-var hs-var">endpointConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointConfiguration
+</span><a href="#local-6989586621679368997"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368996"><span class="annot"><span class="annottext">s :: RestApi
+</span><a href="#local-6989586621679368996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368995"><span class="annot"><span class="annottext">Maybe EndpointConfiguration
+</span><a href="#local-6989586621679368995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestApi
+</span><a href="#local-6989586621679368996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointConfiguration:RestApi' :: Maybe EndpointConfiguration
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3AendpointConfiguration%3ARestApi%27"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointConfiguration
+</span><a href="#local-6989586621679368995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The API\'s description.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_description"><span class="hs-identifier hs-type">restApi_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="restApi_description"><span class="annot"><span class="annottext">restApi_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RestApi -&gt; f RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_description"><span class="hs-identifier hs-var hs-var">restApi_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestApi -&gt; Maybe Text)
+-&gt; (RestApi -&gt; Maybe Text -&gt; RestApi)
+-&gt; Lens RestApi RestApi (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368993"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:RestApi' :: RestApi -&gt; Maybe Text
+</span><a href="#local-6989586621679368993"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368993"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368992"><span class="annot"><span class="annottext">s :: RestApi
+</span><a href="#local-6989586621679368992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368991"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestApi
+</span><a href="#local-6989586621679368992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:RestApi' :: Maybe Text
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Adescription%3ARestApi%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The collection of tags. Each tag element is associated with a given</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_tags"><span class="hs-identifier hs-type">restApi_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="restApi_tags"><span class="annot"><span class="annottext">restApi_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; RestApi -&gt; f RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#restApi_tags"><span class="hs-identifier hs-var hs-var">restApi_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestApi -&gt; Maybe (HashMap Text Text))
+-&gt; (RestApi -&gt; Maybe (HashMap Text Text) -&gt; RestApi)
+-&gt; Lens
+     RestApi
+     RestApi
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368989"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:RestApi' :: RestApi -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679368989"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679368989"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368988"><span class="annot"><span class="annottext">s :: RestApi
+</span><a href="#local-6989586621679368988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-type">RestApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368987"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679368987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestApi
+</span><a href="#local-6989586621679368988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RestApi' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#%24sel%3Atags%3ARestApi%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679368987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; RestApi -&gt; f RestApi)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; RestApi
+-&gt; f RestApi
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368984"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679368982"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RestApi
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser RestApi) -&gt; Value -&gt; Parser RestApi
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RestApi&quot;</span></span><span>
+</span><span id="line-234"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368979"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368979"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-235"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ApiKeySourceType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe EndpointConfiguration
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; RestApi
+</span><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi%27"><span class="hs-identifier hs-var">RestApi'</span></a></span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Bool
+ -&gt; Maybe [Text]
+ -&gt; Maybe [Text]
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ApiKeySourceType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe EndpointConfiguration
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; RestApi)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApiKeySourceType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; RestApi)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minimumCompressionSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApiKeySourceType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; RestApi)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApiKeySourceType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; RestApi)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;disableExecuteApiEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApiKeySourceType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; RestApi)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApiKeySourceType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; RestApi)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;binaryMediaTypes&quot;</span></span><span>
+</span><span id="line-239"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-240"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApiKeySourceType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; RestApi)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApiKeySourceType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; RestApi)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;warnings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApiKeySourceType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; RestApi)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApiKeySourceType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; RestApi)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApiKeySourceType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; RestApi)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ApiKeySourceType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; RestApi)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ApiKeySourceType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; RestApi)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ApiKeySourceType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; RestApi)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ApiKeySourceType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; RestApi)
+-&gt; Parser (Maybe ApiKeySourceType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; RestApi)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ApiKeySourceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;apiKeySource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; RestApi)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe EndpointConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; RestApi)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe EndpointConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; RestApi)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe EndpointConfiguration
+      -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; RestApi)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;policy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EndpointConfiguration
+   -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; RestApi)
+-&gt; Parser (Maybe EndpointConfiguration)
+-&gt; Parser (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; RestApi)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EndpointConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endpointConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; RestApi)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (HashMap Text Text) -&gt; RestApi)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; RestApi)
+-&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser RestApi
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368972"><span id="local-6989586621679368974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span></span></span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.RestApi.html#RestApi"><span class="hs-identifier hs-type">RestApi</span></a></span></span><span>
+</span><span id="line-256"></span></pre></body></html>

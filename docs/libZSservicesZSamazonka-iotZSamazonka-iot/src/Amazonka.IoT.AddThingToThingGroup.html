@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoT.AddThingToThingGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds a thing to a thing group.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions AddThingToThingGroup&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.AddThingToThingGroup</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier">AddThingToThingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#newAddThingToThingGroup"><span class="hs-identifier">newAddThingToThingGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroup_thingGroupArn"><span class="hs-identifier">addThingToThingGroup_thingGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroup_thingArn"><span class="hs-identifier">addThingToThingGroup_thingArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroup_thingGroupName"><span class="hs-identifier">addThingToThingGroup_thingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroup_overrideDynamicGroups"><span class="hs-identifier">addThingToThingGroup_overrideDynamicGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroup_thingName"><span class="hs-identifier">addThingToThingGroup_thingName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroupResponse"><span class="hs-identifier">AddThingToThingGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#newAddThingToThingGroupResponse"><span class="hs-identifier">newAddThingToThingGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroupResponse_httpStatus"><span class="hs-identifier">addThingToThingGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.html"><span class="hs-identifier">Amazonka.IoT.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newAddThingToThingGroup' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679856744"><span id="local-6989586621679856745"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddThingToThingGroup"><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-var">AddThingToThingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddThingToThingGroup%27"><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup%27"><span class="hs-identifier hs-var">AddThingToThingGroup'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the group to which you are adding a thing.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AthingGroupArn%3AAddThingToThingGroup%27"><span class="annot"><span class="annottext">AddThingToThingGroup -&gt; Maybe Text
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AthingGroupArn%3AAddThingToThingGroup%27"><span class="hs-identifier hs-var hs-var">thingGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The ARN of the thing to add to a group.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AthingArn%3AAddThingToThingGroup%27"><span class="annot"><span class="annottext">AddThingToThingGroup -&gt; Maybe Text
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AthingArn%3AAddThingToThingGroup%27"><span class="hs-identifier hs-var hs-var">thingArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The name of the group to which you are adding a thing.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AthingGroupName%3AAddThingToThingGroup%27"><span class="annot"><span class="annottext">AddThingToThingGroup -&gt; Maybe Text
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AthingGroupName%3AAddThingToThingGroup%27"><span class="hs-identifier hs-var hs-var">thingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Override dynamic thing groups with static thing groups when 10-group</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- limit is reached. If a thing belongs to 10 thing groups, and one or more</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- of those groups are dynamic thing groups, adding a thing to a static</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- group removes the thing from the last dynamic group.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AoverrideDynamicGroups%3AAddThingToThingGroup%27"><span class="annot"><span class="annottext">AddThingToThingGroup -&gt; Maybe Bool
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AoverrideDynamicGroups%3AAddThingToThingGroup%27"><span class="hs-identifier hs-var hs-var">overrideDynamicGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name of the thing to add to a group.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AthingName%3AAddThingToThingGroup%27"><span class="annot"><span class="annottext">AddThingToThingGroup -&gt; Maybe Text
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AthingName%3AAddThingToThingGroup%27"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679856734"><span id="local-6989586621679856736"><span class="annot"><span class="annottext">AddThingToThingGroup -&gt; AddThingToThingGroup -&gt; Bool
+(AddThingToThingGroup -&gt; AddThingToThingGroup -&gt; Bool)
+-&gt; (AddThingToThingGroup -&gt; AddThingToThingGroup -&gt; Bool)
+-&gt; Eq AddThingToThingGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddThingToThingGroup -&gt; AddThingToThingGroup -&gt; Bool
+$c/= :: AddThingToThingGroup -&gt; AddThingToThingGroup -&gt; Bool
+== :: AddThingToThingGroup -&gt; AddThingToThingGroup -&gt; Bool
+$c== :: AddThingToThingGroup -&gt; AddThingToThingGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679856725"><span id="local-6989586621679856727"><span id="local-6989586621679856729"><span id="local-6989586621679856731"><span class="annot"><span class="annottext">ReadPrec [AddThingToThingGroup]
+ReadPrec AddThingToThingGroup
+Int -&gt; ReadS AddThingToThingGroup
+ReadS [AddThingToThingGroup]
+(Int -&gt; ReadS AddThingToThingGroup)
+-&gt; ReadS [AddThingToThingGroup]
+-&gt; ReadPrec AddThingToThingGroup
+-&gt; ReadPrec [AddThingToThingGroup]
+-&gt; Read AddThingToThingGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddThingToThingGroup]
+$creadListPrec :: ReadPrec [AddThingToThingGroup]
+readPrec :: ReadPrec AddThingToThingGroup
+$creadPrec :: ReadPrec AddThingToThingGroup
+readList :: ReadS [AddThingToThingGroup]
+$creadList :: ReadS [AddThingToThingGroup]
+readsPrec :: Int -&gt; ReadS AddThingToThingGroup
+$creadsPrec :: Int -&gt; ReadS AddThingToThingGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679856718"><span id="local-6989586621679856720"><span id="local-6989586621679856722"><span class="annot"><span class="annottext">Int -&gt; AddThingToThingGroup -&gt; ShowS
+[AddThingToThingGroup] -&gt; ShowS
+AddThingToThingGroup -&gt; String
+(Int -&gt; AddThingToThingGroup -&gt; ShowS)
+-&gt; (AddThingToThingGroup -&gt; String)
+-&gt; ([AddThingToThingGroup] -&gt; ShowS)
+-&gt; Show AddThingToThingGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddThingToThingGroup] -&gt; ShowS
+$cshowList :: [AddThingToThingGroup] -&gt; ShowS
+show :: AddThingToThingGroup -&gt; String
+$cshow :: AddThingToThingGroup -&gt; String
+showsPrec :: Int -&gt; AddThingToThingGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddThingToThingGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AddThingToThingGroup -&gt; Rep AddThingToThingGroup x)
+-&gt; (forall x. Rep AddThingToThingGroup x -&gt; AddThingToThingGroup)
+-&gt; Generic AddThingToThingGroup
+forall x. Rep AddThingToThingGroup x -&gt; AddThingToThingGroup
+forall x. AddThingToThingGroup -&gt; Rep AddThingToThingGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddThingToThingGroup x -&gt; AddThingToThingGroup
+$cfrom :: forall x. AddThingToThingGroup -&gt; Rep AddThingToThingGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'AddThingToThingGroup' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'thingGroupArn', 'addThingToThingGroup_thingGroupArn' - The ARN of the group to which you are adding a thing.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'thingArn', 'addThingToThingGroup_thingArn' - The ARN of the thing to add to a group.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'thingGroupName', 'addThingToThingGroup_thingGroupName' - The name of the group to which you are adding a thing.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'overrideDynamicGroups', 'addThingToThingGroup_overrideDynamicGroups' - Override dynamic thing groups with static thing groups when 10-group</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- limit is reached. If a thing belongs to 10 thing groups, and one or more</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- of those groups are dynamic thing groups, adding a thing to a static</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- group removes the thing from the last dynamic group.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'thingName', 'addThingToThingGroup_thingName' - The name of the thing to add to a group.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#newAddThingToThingGroup"><span class="hs-identifier hs-type">newAddThingToThingGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span>
+</span><span id="line-96"></span><span id="newAddThingToThingGroup"><span class="annot"><span class="annottext">newAddThingToThingGroup :: AddThingToThingGroup
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#newAddThingToThingGroup"><span class="hs-identifier hs-var hs-var">newAddThingToThingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">AddThingToThingGroup' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; AddThingToThingGroup
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup%27"><span class="hs-identifier hs-type">AddThingToThingGroup'</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:thingGroupArn:AddThingToThingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AthingGroupArn%3AAddThingToThingGroup%27"><span class="hs-identifier hs-var">thingGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingArn:AddThingToThingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AthingArn%3AAddThingToThingGroup%27"><span class="hs-identifier hs-var">thingArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingGroupName:AddThingToThingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AthingGroupName%3AAddThingToThingGroup%27"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:overrideDynamicGroups:AddThingToThingGroup' :: Maybe Bool
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AoverrideDynamicGroups%3AAddThingToThingGroup%27"><span class="hs-identifier hs-var">overrideDynamicGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingName:AddThingToThingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AthingName%3AAddThingToThingGroup%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The ARN of the group to which you are adding a thing.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroup_thingGroupArn"><span class="hs-identifier hs-type">addThingToThingGroup_thingGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="addThingToThingGroup_thingGroupArn"><span class="annot"><span class="annottext">addThingToThingGroup_thingGroupArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddThingToThingGroup -&gt; f AddThingToThingGroup
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroup_thingGroupArn"><span class="hs-identifier hs-var hs-var">addThingToThingGroup_thingGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddThingToThingGroup -&gt; Maybe Text)
+-&gt; (AddThingToThingGroup -&gt; Maybe Text -&gt; AddThingToThingGroup)
+-&gt; Lens
+     AddThingToThingGroup AddThingToThingGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup%27"><span class="hs-identifier hs-type">AddThingToThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856711"><span class="annot"><span class="annottext">Maybe Text
+thingGroupArn :: Maybe Text
+$sel:thingGroupArn:AddThingToThingGroup' :: AddThingToThingGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679856711"><span class="hs-identifier hs-var hs-var">thingGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856711"><span class="hs-identifier hs-var">thingGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856710"><span class="annot"><span class="annottext">s :: AddThingToThingGroup
+</span><a href="#local-6989586621679856710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup%27"><span class="hs-identifier hs-type">AddThingToThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856709"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddThingToThingGroup
+</span><a href="#local-6989586621679856710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingGroupArn:AddThingToThingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AthingGroupArn%3AAddThingToThingGroup%27"><span class="hs-identifier hs-var">thingGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The ARN of the thing to add to a group.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroup_thingArn"><span class="hs-identifier hs-type">addThingToThingGroup_thingArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="addThingToThingGroup_thingArn"><span class="annot"><span class="annottext">addThingToThingGroup_thingArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddThingToThingGroup -&gt; f AddThingToThingGroup
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroup_thingArn"><span class="hs-identifier hs-var hs-var">addThingToThingGroup_thingArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddThingToThingGroup -&gt; Maybe Text)
+-&gt; (AddThingToThingGroup -&gt; Maybe Text -&gt; AddThingToThingGroup)
+-&gt; Lens
+     AddThingToThingGroup AddThingToThingGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup%27"><span class="hs-identifier hs-type">AddThingToThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856708"><span class="annot"><span class="annottext">Maybe Text
+thingArn :: Maybe Text
+$sel:thingArn:AddThingToThingGroup' :: AddThingToThingGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679856708"><span class="hs-identifier hs-var hs-var">thingArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856708"><span class="hs-identifier hs-var">thingArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856707"><span class="annot"><span class="annottext">s :: AddThingToThingGroup
+</span><a href="#local-6989586621679856707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup%27"><span class="hs-identifier hs-type">AddThingToThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856706"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddThingToThingGroup
+</span><a href="#local-6989586621679856707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingArn:AddThingToThingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AthingArn%3AAddThingToThingGroup%27"><span class="hs-identifier hs-var">thingArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The name of the group to which you are adding a thing.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroup_thingGroupName"><span class="hs-identifier hs-type">addThingToThingGroup_thingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="addThingToThingGroup_thingGroupName"><span class="annot"><span class="annottext">addThingToThingGroup_thingGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddThingToThingGroup -&gt; f AddThingToThingGroup
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroup_thingGroupName"><span class="hs-identifier hs-var hs-var">addThingToThingGroup_thingGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddThingToThingGroup -&gt; Maybe Text)
+-&gt; (AddThingToThingGroup -&gt; Maybe Text -&gt; AddThingToThingGroup)
+-&gt; Lens
+     AddThingToThingGroup AddThingToThingGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup%27"><span class="hs-identifier hs-type">AddThingToThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856705"><span class="annot"><span class="annottext">Maybe Text
+thingGroupName :: Maybe Text
+$sel:thingGroupName:AddThingToThingGroup' :: AddThingToThingGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679856705"><span class="hs-identifier hs-var hs-var">thingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856705"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856704"><span class="annot"><span class="annottext">s :: AddThingToThingGroup
+</span><a href="#local-6989586621679856704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup%27"><span class="hs-identifier hs-type">AddThingToThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856703"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddThingToThingGroup
+</span><a href="#local-6989586621679856704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingGroupName:AddThingToThingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AthingGroupName%3AAddThingToThingGroup%27"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | Override dynamic thing groups with static thing groups when 10-group</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- limit is reached. If a thing belongs to 10 thing groups, and one or more</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- of those groups are dynamic thing groups, adding a thing to a static</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- group removes the thing from the last dynamic group.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroup_overrideDynamicGroups"><span class="hs-identifier hs-type">addThingToThingGroup_overrideDynamicGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="addThingToThingGroup_overrideDynamicGroups"><span class="annot"><span class="annottext">addThingToThingGroup_overrideDynamicGroups :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AddThingToThingGroup -&gt; f AddThingToThingGroup
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroup_overrideDynamicGroups"><span class="hs-identifier hs-var hs-var">addThingToThingGroup_overrideDynamicGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddThingToThingGroup -&gt; Maybe Bool)
+-&gt; (AddThingToThingGroup -&gt; Maybe Bool -&gt; AddThingToThingGroup)
+-&gt; Lens
+     AddThingToThingGroup AddThingToThingGroup (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup%27"><span class="hs-identifier hs-type">AddThingToThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856702"><span class="annot"><span class="annottext">Maybe Bool
+overrideDynamicGroups :: Maybe Bool
+$sel:overrideDynamicGroups:AddThingToThingGroup' :: AddThingToThingGroup -&gt; Maybe Bool
+</span><a href="#local-6989586621679856702"><span class="hs-identifier hs-var hs-var">overrideDynamicGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679856702"><span class="hs-identifier hs-var">overrideDynamicGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856701"><span class="annot"><span class="annottext">s :: AddThingToThingGroup
+</span><a href="#local-6989586621679856701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup%27"><span class="hs-identifier hs-type">AddThingToThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856700"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679856700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddThingToThingGroup
+</span><a href="#local-6989586621679856701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overrideDynamicGroups:AddThingToThingGroup' :: Maybe Bool
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AoverrideDynamicGroups%3AAddThingToThingGroup%27"><span class="hs-identifier hs-var">overrideDynamicGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679856700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The name of the thing to add to a group.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroup_thingName"><span class="hs-identifier hs-type">addThingToThingGroup_thingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="addThingToThingGroup_thingName"><span class="annot"><span class="annottext">addThingToThingGroup_thingName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddThingToThingGroup -&gt; f AddThingToThingGroup
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroup_thingName"><span class="hs-identifier hs-var hs-var">addThingToThingGroup_thingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddThingToThingGroup -&gt; Maybe Text)
+-&gt; (AddThingToThingGroup -&gt; Maybe Text -&gt; AddThingToThingGroup)
+-&gt; Lens
+     AddThingToThingGroup AddThingToThingGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup%27"><span class="hs-identifier hs-type">AddThingToThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856699"><span class="annot"><span class="annottext">Maybe Text
+thingName :: Maybe Text
+$sel:thingName:AddThingToThingGroup' :: AddThingToThingGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679856699"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856699"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856698"><span class="annot"><span class="annottext">s :: AddThingToThingGroup
+</span><a href="#local-6989586621679856698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup%27"><span class="hs-identifier hs-type">AddThingToThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856697"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddThingToThingGroup
+</span><a href="#local-6989586621679856698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:AddThingToThingGroup' :: Maybe Text
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AthingName%3AAddThingToThingGroup%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroupResponse"><span class="hs-identifier hs-type">AddThingToThingGroupResponse</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679856693"><span class="annot"><span class="annottext">request :: AddThingToThingGroup -&gt; Request AddThingToThingGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddThingToThingGroup -&gt; Request AddThingToThingGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679856689"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AddThingToThingGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AddThingToThingGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse AddThingToThingGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AddThingToThingGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AddThingToThingGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679856686"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679856686"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679856685"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679856685"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679856684"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679856684"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AddThingToThingGroupResponse
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroupResponse%27"><span class="hs-identifier hs-var">AddThingToThingGroupResponse'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AddThingToThingGroupResponse)
+-&gt; Either String Int -&gt; Either String AddThingToThingGroupResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679856686"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679856677"><span id="local-6989586621679856679"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679856674"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679856670"><span class="annot"><span class="annottext">toHeaders :: AddThingToThingGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddThingToThingGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679856661"><span id="local-6989586621679856663"><span id="local-6989586621679856665"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679856659"><span class="annot"><span class="annottext">toJSON :: AddThingToThingGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup%27"><span class="hs-identifier hs-type">AddThingToThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856653"><span id="local-6989586621679856654"><span id="local-6989586621679856655"><span id="local-6989586621679856656"><span id="local-6989586621679856657"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+thingName :: Maybe Text
+overrideDynamicGroups :: Maybe Bool
+thingGroupName :: Maybe Text
+thingArn :: Maybe Text
+thingGroupArn :: Maybe Text
+$sel:thingName:AddThingToThingGroup' :: AddThingToThingGroup -&gt; Maybe Text
+$sel:overrideDynamicGroups:AddThingToThingGroup' :: AddThingToThingGroup -&gt; Maybe Bool
+$sel:thingGroupName:AddThingToThingGroup' :: AddThingToThingGroup -&gt; Maybe Text
+$sel:thingArn:AddThingToThingGroup' :: AddThingToThingGroup -&gt; Maybe Text
+$sel:thingGroupArn:AddThingToThingGroup' :: AddThingToThingGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679856653"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thingGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856657"><span class="hs-identifier hs-var">thingGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thingArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856656"><span class="hs-identifier hs-var">thingArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856655"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;overrideDynamicGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679856654"><span class="hs-identifier hs-var">overrideDynamicGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thingName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679856653"><span class="hs-identifier hs-var">thingName</span></a></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679856647"><span class="annot"><span class="annottext">toPath :: AddThingToThingGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; AddThingToThingGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/thing-groups/addThingToThingGroup&quot;</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroup"><span class="hs-identifier hs-type">AddThingToThingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679856643"><span class="annot"><span class="annottext">toQuery :: AddThingToThingGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddThingToThingGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | /See:/ 'newAddThingToThingGroupResponse' smart constructor.</span><span>
+</span><span id="line-170"></span><span id="local-6989586621679856640"><span id="local-6989586621679856641"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddThingToThingGroupResponse"><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroupResponse"><span class="hs-identifier hs-var">AddThingToThingGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddThingToThingGroupResponse%27"><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroupResponse%27"><span class="hs-identifier hs-var">AddThingToThingGroupResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddThingToThingGroupResponse%27"><span class="annot"><span class="annottext">AddThingToThingGroupResponse -&gt; Int
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AhttpStatus%3AAddThingToThingGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679856635"><span id="local-6989586621679856637"><span class="annot"><span class="annottext">AddThingToThingGroupResponse
+-&gt; AddThingToThingGroupResponse -&gt; Bool
+(AddThingToThingGroupResponse
+ -&gt; AddThingToThingGroupResponse -&gt; Bool)
+-&gt; (AddThingToThingGroupResponse
+    -&gt; AddThingToThingGroupResponse -&gt; Bool)
+-&gt; Eq AddThingToThingGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddThingToThingGroupResponse
+-&gt; AddThingToThingGroupResponse -&gt; Bool
+$c/= :: AddThingToThingGroupResponse
+-&gt; AddThingToThingGroupResponse -&gt; Bool
+== :: AddThingToThingGroupResponse
+-&gt; AddThingToThingGroupResponse -&gt; Bool
+$c== :: AddThingToThingGroupResponse
+-&gt; AddThingToThingGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679856627"><span id="local-6989586621679856629"><span id="local-6989586621679856631"><span id="local-6989586621679856633"><span class="annot"><span class="annottext">ReadPrec [AddThingToThingGroupResponse]
+ReadPrec AddThingToThingGroupResponse
+Int -&gt; ReadS AddThingToThingGroupResponse
+ReadS [AddThingToThingGroupResponse]
+(Int -&gt; ReadS AddThingToThingGroupResponse)
+-&gt; ReadS [AddThingToThingGroupResponse]
+-&gt; ReadPrec AddThingToThingGroupResponse
+-&gt; ReadPrec [AddThingToThingGroupResponse]
+-&gt; Read AddThingToThingGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddThingToThingGroupResponse]
+$creadListPrec :: ReadPrec [AddThingToThingGroupResponse]
+readPrec :: ReadPrec AddThingToThingGroupResponse
+$creadPrec :: ReadPrec AddThingToThingGroupResponse
+readList :: ReadS [AddThingToThingGroupResponse]
+$creadList :: ReadS [AddThingToThingGroupResponse]
+readsPrec :: Int -&gt; ReadS AddThingToThingGroupResponse
+$creadsPrec :: Int -&gt; ReadS AddThingToThingGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679856621"><span id="local-6989586621679856623"><span id="local-6989586621679856625"><span class="annot"><span class="annottext">Int -&gt; AddThingToThingGroupResponse -&gt; ShowS
+[AddThingToThingGroupResponse] -&gt; ShowS
+AddThingToThingGroupResponse -&gt; String
+(Int -&gt; AddThingToThingGroupResponse -&gt; ShowS)
+-&gt; (AddThingToThingGroupResponse -&gt; String)
+-&gt; ([AddThingToThingGroupResponse] -&gt; ShowS)
+-&gt; Show AddThingToThingGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddThingToThingGroupResponse] -&gt; ShowS
+$cshowList :: [AddThingToThingGroupResponse] -&gt; ShowS
+show :: AddThingToThingGroupResponse -&gt; String
+$cshow :: AddThingToThingGroupResponse -&gt; String
+showsPrec :: Int -&gt; AddThingToThingGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddThingToThingGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AddThingToThingGroupResponse -&gt; Rep AddThingToThingGroupResponse x)
+-&gt; (forall x.
+    Rep AddThingToThingGroupResponse x -&gt; AddThingToThingGroupResponse)
+-&gt; Generic AddThingToThingGroupResponse
+forall x.
+Rep AddThingToThingGroupResponse x -&gt; AddThingToThingGroupResponse
+forall x.
+AddThingToThingGroupResponse -&gt; Rep AddThingToThingGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AddThingToThingGroupResponse x -&gt; AddThingToThingGroupResponse
+$cfrom :: forall x.
+AddThingToThingGroupResponse -&gt; Rep AddThingToThingGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Create a value of 'AddThingToThingGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'httpStatus', 'addThingToThingGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#newAddThingToThingGroupResponse"><span class="hs-identifier hs-type">newAddThingToThingGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroupResponse"><span class="hs-identifier hs-type">AddThingToThingGroupResponse</span></a></span><span>
+</span><span id="line-189"></span><span id="newAddThingToThingGroupResponse"><span class="annot"><span class="annottext">newAddThingToThingGroupResponse :: Int -&gt; AddThingToThingGroupResponse
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#newAddThingToThingGroupResponse"><span class="hs-identifier hs-var hs-var">newAddThingToThingGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679856618"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679856618"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">AddThingToThingGroupResponse' :: Int -&gt; AddThingToThingGroupResponse
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroupResponse%27"><span class="hs-identifier hs-type">AddThingToThingGroupResponse'</span></a></span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AddThingToThingGroupResponse' :: Int
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AhttpStatus%3AAddThingToThingGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679856618"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroupResponse_httpStatus"><span class="hs-identifier hs-type">addThingToThingGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroupResponse"><span class="hs-identifier hs-type">AddThingToThingGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-197"></span><span id="addThingToThingGroupResponse_httpStatus"><span class="annot"><span class="annottext">addThingToThingGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AddThingToThingGroupResponse -&gt; f AddThingToThingGroupResponse
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#addThingToThingGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">addThingToThingGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddThingToThingGroupResponse -&gt; Int)
+-&gt; (AddThingToThingGroupResponse
+    -&gt; Int -&gt; AddThingToThingGroupResponse)
+-&gt; Lens
+     AddThingToThingGroupResponse AddThingToThingGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroupResponse%27"><span class="hs-identifier hs-type">AddThingToThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856617"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AddThingToThingGroupResponse' :: AddThingToThingGroupResponse -&gt; Int
+</span><a href="#local-6989586621679856617"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679856617"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856616"><span class="annot"><span class="annottext">s :: AddThingToThingGroupResponse
+</span><a href="#local-6989586621679856616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroupResponse%27"><span class="hs-identifier hs-type">AddThingToThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856615"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679856615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddThingToThingGroupResponse
+</span><a href="#local-6989586621679856616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddThingToThingGroupResponse' :: Int
+</span><a href="Amazonka.IoT.AddThingToThingGroup.html#%24sel%3AhttpStatus%3AAddThingToThingGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679856615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroupResponse"><span class="hs-identifier hs-type">AddThingToThingGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679856613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.AddThingToThingGroup.html#AddThingToThingGroupResponse"><span class="hs-identifier hs-type">AddThingToThingGroupResponse</span></a></span></span><span>
+</span><span id="line-200"></span></pre></body></html>

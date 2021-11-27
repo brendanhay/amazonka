@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CertificateManagerPCA.Types.CsrExtensions</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CertificateManagerPCA.Types.CsrExtensions</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.AccessDescription.html"><span class="hs-identifier">Amazonka.CertificateManagerPCA.Types.AccessDescription</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.KeyUsage.html"><span class="hs-identifier">Amazonka.CertificateManagerPCA.Types.KeyUsage</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the certificate extensions to be added to the certificate</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- signing request (CSR).</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCsrExtensions' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679210280"><span id="local-6989586621679210281"></span></span><span class="hs-keyword">data</span><span> </span><span id="CsrExtensions"><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-var">CsrExtensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CsrExtensions%27"><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-var">CsrExtensions'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For CA certificates, provides a path to additional information</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- pertaining to the CA, such as revocation and policy. For more</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc5280#section-4.2.2.2 Subject Information Access&gt;</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- in RFC 5280.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsubjectInformationAccess%3ACsrExtensions%27"><span class="annot"><span class="annottext">CsrExtensions -&gt; Maybe [AccessDescription]
+</span><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#%24sel%3AsubjectInformationAccess%3ACsrExtensions%27"><span class="hs-identifier hs-var hs-var">subjectInformationAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.AccessDescription.html#AccessDescription"><span class="hs-identifier hs-type">AccessDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Indicates the purpose of the certificate and of the key contained in the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- certificate.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AkeyUsage%3ACsrExtensions%27"><span class="annot"><span class="annottext">CsrExtensions -&gt; Maybe KeyUsage
+</span><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#%24sel%3AkeyUsage%3ACsrExtensions%27"><span class="hs-identifier hs-var hs-var">keyUsage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210273"><span id="local-6989586621679210275"><span class="annot"><span class="annottext">CsrExtensions -&gt; CsrExtensions -&gt; Bool
+(CsrExtensions -&gt; CsrExtensions -&gt; Bool)
+-&gt; (CsrExtensions -&gt; CsrExtensions -&gt; Bool) -&gt; Eq CsrExtensions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CsrExtensions -&gt; CsrExtensions -&gt; Bool
+$c/= :: CsrExtensions -&gt; CsrExtensions -&gt; Bool
+== :: CsrExtensions -&gt; CsrExtensions -&gt; Bool
+$c== :: CsrExtensions -&gt; CsrExtensions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210264"><span id="local-6989586621679210266"><span id="local-6989586621679210268"><span id="local-6989586621679210270"><span class="annot"><span class="annottext">ReadPrec [CsrExtensions]
+ReadPrec CsrExtensions
+Int -&gt; ReadS CsrExtensions
+ReadS [CsrExtensions]
+(Int -&gt; ReadS CsrExtensions)
+-&gt; ReadS [CsrExtensions]
+-&gt; ReadPrec CsrExtensions
+-&gt; ReadPrec [CsrExtensions]
+-&gt; Read CsrExtensions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CsrExtensions]
+$creadListPrec :: ReadPrec [CsrExtensions]
+readPrec :: ReadPrec CsrExtensions
+$creadPrec :: ReadPrec CsrExtensions
+readList :: ReadS [CsrExtensions]
+$creadList :: ReadS [CsrExtensions]
+readsPrec :: Int -&gt; ReadS CsrExtensions
+$creadsPrec :: Int -&gt; ReadS CsrExtensions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210257"><span id="local-6989586621679210259"><span id="local-6989586621679210261"><span class="annot"><span class="annottext">Int -&gt; CsrExtensions -&gt; ShowS
+[CsrExtensions] -&gt; ShowS
+CsrExtensions -&gt; String
+(Int -&gt; CsrExtensions -&gt; ShowS)
+-&gt; (CsrExtensions -&gt; String)
+-&gt; ([CsrExtensions] -&gt; ShowS)
+-&gt; Show CsrExtensions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CsrExtensions] -&gt; ShowS
+$cshowList :: [CsrExtensions] -&gt; ShowS
+show :: CsrExtensions -&gt; String
+$cshow :: CsrExtensions -&gt; String
+showsPrec :: Int -&gt; CsrExtensions -&gt; ShowS
+$cshowsPrec :: Int -&gt; CsrExtensions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CsrExtensions -&gt; Rep CsrExtensions x)
+-&gt; (forall x. Rep CsrExtensions x -&gt; CsrExtensions)
+-&gt; Generic CsrExtensions
+forall x. Rep CsrExtensions x -&gt; CsrExtensions
+forall x. CsrExtensions -&gt; Rep CsrExtensions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CsrExtensions x -&gt; CsrExtensions
+$cfrom :: forall x. CsrExtensions -&gt; Rep CsrExtensions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'CsrExtensions' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'subjectInformationAccess', 'csrExtensions_subjectInformationAccess' - For CA certificates, provides a path to additional information</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- pertaining to the CA, such as revocation and policy. For more</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc5280#section-4.2.2.2 Subject Information Access&gt;</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- in RFC 5280.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'keyUsage', 'csrExtensions_keyUsage' - Indicates the purpose of the certificate and of the key contained in the</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- certificate.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#newCsrExtensions"><span class="hs-identifier hs-type">newCsrExtensions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span><span>
+</span><span id="line-63"></span><span id="newCsrExtensions"><span class="annot"><span class="annottext">newCsrExtensions :: CsrExtensions
+</span><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#newCsrExtensions"><span class="hs-identifier hs-var hs-var">newCsrExtensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">CsrExtensions' :: Maybe [AccessDescription] -&gt; Maybe KeyUsage -&gt; CsrExtensions
+</span><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subjectInformationAccess:CsrExtensions' :: Maybe [AccessDescription]
+</span><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#%24sel%3AsubjectInformationAccess%3ACsrExtensions%27"><span class="hs-identifier hs-var">subjectInformationAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AccessDescription]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyUsage:CsrExtensions' :: Maybe KeyUsage
+</span><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#%24sel%3AkeyUsage%3ACsrExtensions%27"><span class="hs-identifier hs-var">keyUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | For CA certificates, provides a path to additional information</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- pertaining to the CA, such as revocation and policy. For more</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc5280#section-4.2.2.2 Subject Information Access&gt;</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- in RFC 5280.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#csrExtensions_subjectInformationAccess"><span class="hs-identifier hs-type">csrExtensions_subjectInformationAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.AccessDescription.html#AccessDescription"><span class="hs-identifier hs-type">AccessDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="csrExtensions_subjectInformationAccess"><span class="annot"><span class="annottext">csrExtensions_subjectInformationAccess :: (Maybe [AccessDescription] -&gt; f (Maybe [AccessDescription]))
+-&gt; CsrExtensions -&gt; f CsrExtensions
+</span><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#csrExtensions_subjectInformationAccess"><span class="hs-identifier hs-var hs-var">csrExtensions_subjectInformationAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsrExtensions -&gt; Maybe [AccessDescription])
+-&gt; (CsrExtensions -&gt; Maybe [AccessDescription] -&gt; CsrExtensions)
+-&gt; Lens
+     CsrExtensions
+     CsrExtensions
+     (Maybe [AccessDescription])
+     (Maybe [AccessDescription])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210248"><span class="annot"><span class="annottext">Maybe [AccessDescription]
+subjectInformationAccess :: Maybe [AccessDescription]
+$sel:subjectInformationAccess:CsrExtensions' :: CsrExtensions -&gt; Maybe [AccessDescription]
+</span><a href="#local-6989586621679210248"><span class="hs-identifier hs-var hs-var">subjectInformationAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AccessDescription]
+</span><a href="#local-6989586621679210248"><span class="hs-identifier hs-var">subjectInformationAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210247"><span class="annot"><span class="annottext">s :: CsrExtensions
+</span><a href="#local-6989586621679210247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210246"><span class="annot"><span class="annottext">Maybe [AccessDescription]
+</span><a href="#local-6989586621679210246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsrExtensions
+</span><a href="#local-6989586621679210247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subjectInformationAccess:CsrExtensions' :: Maybe [AccessDescription]
+</span><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#%24sel%3AsubjectInformationAccess%3ACsrExtensions%27"><span class="hs-identifier hs-var">subjectInformationAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AccessDescription]
+</span><a href="#local-6989586621679210246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AccessDescription] -&gt; f (Maybe [AccessDescription]))
+ -&gt; CsrExtensions -&gt; f CsrExtensions)
+-&gt; ((Maybe [AccessDescription] -&gt; f (Maybe [AccessDescription]))
+    -&gt; Maybe [AccessDescription] -&gt; f (Maybe [AccessDescription]))
+-&gt; (Maybe [AccessDescription] -&gt; f (Maybe [AccessDescription]))
+-&gt; CsrExtensions
+-&gt; f CsrExtensions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AccessDescription]
+  [AccessDescription]
+  [AccessDescription]
+  [AccessDescription]
+-&gt; Iso
+     (Maybe [AccessDescription])
+     (Maybe [AccessDescription])
+     (Maybe [AccessDescription])
+     (Maybe [AccessDescription])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AccessDescription]
+  [AccessDescription]
+  [AccessDescription]
+  [AccessDescription]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | Indicates the purpose of the certificate and of the key contained in the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- certificate.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#csrExtensions_keyUsage"><span class="hs-identifier hs-type">csrExtensions_keyUsage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="csrExtensions_keyUsage"><span class="annot"><span class="annottext">csrExtensions_keyUsage :: (Maybe KeyUsage -&gt; f (Maybe KeyUsage))
+-&gt; CsrExtensions -&gt; f CsrExtensions
+</span><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#csrExtensions_keyUsage"><span class="hs-identifier hs-var hs-var">csrExtensions_keyUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsrExtensions -&gt; Maybe KeyUsage)
+-&gt; (CsrExtensions -&gt; Maybe KeyUsage -&gt; CsrExtensions)
+-&gt; Lens
+     CsrExtensions CsrExtensions (Maybe KeyUsage) (Maybe KeyUsage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210241"><span class="annot"><span class="annottext">Maybe KeyUsage
+keyUsage :: Maybe KeyUsage
+$sel:keyUsage:CsrExtensions' :: CsrExtensions -&gt; Maybe KeyUsage
+</span><a href="#local-6989586621679210241"><span class="hs-identifier hs-var hs-var">keyUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsage
+</span><a href="#local-6989586621679210241"><span class="hs-identifier hs-var">keyUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210240"><span class="annot"><span class="annottext">s :: CsrExtensions
+</span><a href="#local-6989586621679210240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210239"><span class="annot"><span class="annottext">Maybe KeyUsage
+</span><a href="#local-6989586621679210239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsrExtensions
+</span><a href="#local-6989586621679210240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyUsage:CsrExtensions' :: Maybe KeyUsage
+</span><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#%24sel%3AkeyUsage%3ACsrExtensions%27"><span class="hs-identifier hs-var">keyUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsage
+</span><a href="#local-6989586621679210239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210236"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679210234"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CsrExtensions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CsrExtensions)
+-&gt; Value
+-&gt; Parser CsrExtensions
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CsrExtensions&quot;</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210231"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210231"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AccessDescription] -&gt; Maybe KeyUsage -&gt; CsrExtensions
+</span><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-var">CsrExtensions'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AccessDescription] -&gt; Maybe KeyUsage -&gt; CsrExtensions)
+-&gt; Parser (Maybe [AccessDescription])
+-&gt; Parser (Maybe KeyUsage -&gt; CsrExtensions)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AccessDescription]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubjectInformationAccess&quot;</span></span><span>
+</span><span id="line-90"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AccessDescription]))
+-&gt; Maybe [AccessDescription] -&gt; Parser (Maybe [AccessDescription])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AccessDescription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-91"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe KeyUsage -&gt; CsrExtensions)
+-&gt; Parser (Maybe KeyUsage) -&gt; Parser CsrExtensions
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KeyUsage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyUsage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210224"><span id="local-6989586621679210226"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210221"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210213"><span id="local-6989586621679210215"><span id="local-6989586621679210217"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679210211"><span class="annot"><span class="annottext">toJSON :: CsrExtensions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210208"><span id="local-6989586621679210209"><span class="annot"><span class="annottext">Maybe [AccessDescription]
+Maybe KeyUsage
+keyUsage :: Maybe KeyUsage
+subjectInformationAccess :: Maybe [AccessDescription]
+$sel:keyUsage:CsrExtensions' :: CsrExtensions -&gt; Maybe KeyUsage
+$sel:subjectInformationAccess:CsrExtensions' :: CsrExtensions -&gt; Maybe [AccessDescription]
+</span><a href="#local-6989586621679210208"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubjectInformationAccess&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AccessDescription] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">([AccessDescription] -&gt; Pair)
+-&gt; Maybe [AccessDescription] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AccessDescription]
+</span><a href="#local-6989586621679210209"><span class="hs-identifier hs-var">subjectInformationAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyUsage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KeyUsage -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Pair) -&gt; Maybe KeyUsage -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsage
+</span><a href="#local-6989586621679210208"><span class="hs-identifier hs-var">keyUsage</span></a></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span></pre></body></html>

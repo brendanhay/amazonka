@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#CmafPtsOffsetHandlingForBFrames"><span class="hs-identifier">CmafPtsOffsetHandlingForBFrames</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#CmafPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS"><span class="hs-identifier">CmafPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#CmafPtsOffsetHandlingForBFrames_ZERO_BASED"><span class="hs-identifier">CmafPtsOffsetHandlingForBFrames_ZERO_BASED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Use this setting only when your output video stream has B-frames, which</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- causes the initial presentation time stamp (PTS) to be offset from the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- initial decode time stamp (DTS). Specify how MediaConvert handles PTS</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- when writing time stamps in output DASH manifests. Choose Match initial</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- PTS (MATCH_INITIAL_PTS) when you want MediaConvert to use the initial</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- PTS as the first time stamp in the manifest. Choose Zero-based</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- (ZERO_BASED) to have MediaConvert ignore the initial PTS in the video</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- stream and instead write the initial time stamp as zero in the manifest.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- For outputs that don\'t have B-frames, the time stamps in your DASH</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- manifests start at zero regardless of your choice here.</span><span>
+</span><span id="line-42"></span><span id="local-6989586621679949979"><span id="local-6989586621679949980"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafPtsOffsetHandlingForBFrames"><span class="annot"><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#CmafPtsOffsetHandlingForBFrames"><span class="hs-identifier hs-var">CmafPtsOffsetHandlingForBFrames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafPtsOffsetHandlingForBFrames%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#CmafPtsOffsetHandlingForBFrames%27"><span class="hs-identifier hs-var">CmafPtsOffsetHandlingForBFrames'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmafPtsOffsetHandlingForBFrames"><span class="annot"><span class="annottext">CmafPtsOffsetHandlingForBFrames -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#fromCmafPtsOffsetHandlingForBFrames"><span class="hs-identifier hs-var hs-var">fromCmafPtsOffsetHandlingForBFrames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679949971"><span id="local-6989586621679949973"><span id="local-6989586621679949975"><span class="annot"><span class="annottext">Int -&gt; CmafPtsOffsetHandlingForBFrames -&gt; ShowS
+[CmafPtsOffsetHandlingForBFrames] -&gt; ShowS
+CmafPtsOffsetHandlingForBFrames -&gt; String
+(Int -&gt; CmafPtsOffsetHandlingForBFrames -&gt; ShowS)
+-&gt; (CmafPtsOffsetHandlingForBFrames -&gt; String)
+-&gt; ([CmafPtsOffsetHandlingForBFrames] -&gt; ShowS)
+-&gt; Show CmafPtsOffsetHandlingForBFrames
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CmafPtsOffsetHandlingForBFrames] -&gt; ShowS
+$cshowList :: [CmafPtsOffsetHandlingForBFrames] -&gt; ShowS
+show :: CmafPtsOffsetHandlingForBFrames -&gt; String
+$cshow :: CmafPtsOffsetHandlingForBFrames -&gt; String
+showsPrec :: Int -&gt; CmafPtsOffsetHandlingForBFrames -&gt; ShowS
+$cshowsPrec :: Int -&gt; CmafPtsOffsetHandlingForBFrames -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679949962"><span id="local-6989586621679949964"><span id="local-6989586621679949966"><span id="local-6989586621679949968"><span class="annot"><span class="annottext">ReadPrec [CmafPtsOffsetHandlingForBFrames]
+ReadPrec CmafPtsOffsetHandlingForBFrames
+Int -&gt; ReadS CmafPtsOffsetHandlingForBFrames
+ReadS [CmafPtsOffsetHandlingForBFrames]
+(Int -&gt; ReadS CmafPtsOffsetHandlingForBFrames)
+-&gt; ReadS [CmafPtsOffsetHandlingForBFrames]
+-&gt; ReadPrec CmafPtsOffsetHandlingForBFrames
+-&gt; ReadPrec [CmafPtsOffsetHandlingForBFrames]
+-&gt; Read CmafPtsOffsetHandlingForBFrames
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CmafPtsOffsetHandlingForBFrames]
+$creadListPrec :: ReadPrec [CmafPtsOffsetHandlingForBFrames]
+readPrec :: ReadPrec CmafPtsOffsetHandlingForBFrames
+$creadPrec :: ReadPrec CmafPtsOffsetHandlingForBFrames
+readList :: ReadS [CmafPtsOffsetHandlingForBFrames]
+$creadList :: ReadS [CmafPtsOffsetHandlingForBFrames]
+readsPrec :: Int -&gt; ReadS CmafPtsOffsetHandlingForBFrames
+$creadsPrec :: Int -&gt; ReadS CmafPtsOffsetHandlingForBFrames
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679949957"><span id="local-6989586621679949959"><span class="annot"><span class="annottext">CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool
+(CmafPtsOffsetHandlingForBFrames
+ -&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool)
+-&gt; (CmafPtsOffsetHandlingForBFrames
+    -&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool)
+-&gt; Eq CmafPtsOffsetHandlingForBFrames
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool
+$c/= :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool
+== :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool
+$c== :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679949941"><span id="local-6989586621679949943"><span id="local-6989586621679949945"><span id="local-6989586621679949947"><span id="local-6989586621679949949"><span id="local-6989586621679949951"><span id="local-6989586621679949953"><span class="annot"><span class="annottext">Eq CmafPtsOffsetHandlingForBFrames
+Eq CmafPtsOffsetHandlingForBFrames
+-&gt; (CmafPtsOffsetHandlingForBFrames
+    -&gt; CmafPtsOffsetHandlingForBFrames -&gt; Ordering)
+-&gt; (CmafPtsOffsetHandlingForBFrames
+    -&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool)
+-&gt; (CmafPtsOffsetHandlingForBFrames
+    -&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool)
+-&gt; (CmafPtsOffsetHandlingForBFrames
+    -&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool)
+-&gt; (CmafPtsOffsetHandlingForBFrames
+    -&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool)
+-&gt; (CmafPtsOffsetHandlingForBFrames
+    -&gt; CmafPtsOffsetHandlingForBFrames
+    -&gt; CmafPtsOffsetHandlingForBFrames)
+-&gt; (CmafPtsOffsetHandlingForBFrames
+    -&gt; CmafPtsOffsetHandlingForBFrames
+    -&gt; CmafPtsOffsetHandlingForBFrames)
+-&gt; Ord CmafPtsOffsetHandlingForBFrames
+CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool
+CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Ordering
+CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames
+$cmin :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames
+max :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames
+$cmax :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames
+&gt;= :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool
+$c&gt;= :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool
+&gt; :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool
+$c&gt; :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool
+&lt;= :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool
+$c&lt;= :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool
+&lt; :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool
+$c&lt; :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Bool
+compare :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Ordering
+$ccompare :: CmafPtsOffsetHandlingForBFrames
+-&gt; CmafPtsOffsetHandlingForBFrames -&gt; Ordering
+$cp1Ord :: Eq CmafPtsOffsetHandlingForBFrames
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ CmafPtsOffsetHandlingForBFrames
+ -&gt; Rep CmafPtsOffsetHandlingForBFrames x)
+-&gt; (forall x.
+    Rep CmafPtsOffsetHandlingForBFrames x
+    -&gt; CmafPtsOffsetHandlingForBFrames)
+-&gt; Generic CmafPtsOffsetHandlingForBFrames
+forall x.
+Rep CmafPtsOffsetHandlingForBFrames x
+-&gt; CmafPtsOffsetHandlingForBFrames
+forall x.
+CmafPtsOffsetHandlingForBFrames
+-&gt; Rep CmafPtsOffsetHandlingForBFrames x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CmafPtsOffsetHandlingForBFrames x
+-&gt; CmafPtsOffsetHandlingForBFrames
+$cfrom :: forall x.
+CmafPtsOffsetHandlingForBFrames
+-&gt; Rep CmafPtsOffsetHandlingForBFrames x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679949933"><span id="local-6989586621679949935"><span class="annot"><span class="annottext">Int -&gt; CmafPtsOffsetHandlingForBFrames -&gt; Int
+CmafPtsOffsetHandlingForBFrames -&gt; Int
+(Int -&gt; CmafPtsOffsetHandlingForBFrames -&gt; Int)
+-&gt; (CmafPtsOffsetHandlingForBFrames -&gt; Int)
+-&gt; Hashable CmafPtsOffsetHandlingForBFrames
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CmafPtsOffsetHandlingForBFrames -&gt; Int
+$chash :: CmafPtsOffsetHandlingForBFrames -&gt; Int
+hashWithSalt :: Int -&gt; CmafPtsOffsetHandlingForBFrames -&gt; Int
+$chashWithSalt :: Int -&gt; CmafPtsOffsetHandlingForBFrames -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679949930"><span class="annot"><span class="annottext">CmafPtsOffsetHandlingForBFrames -&gt; ()
+(CmafPtsOffsetHandlingForBFrames -&gt; ())
+-&gt; NFData CmafPtsOffsetHandlingForBFrames
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CmafPtsOffsetHandlingForBFrames -&gt; ()
+$crnf :: CmafPtsOffsetHandlingForBFrames -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679949927"><span class="annot"><span class="annottext">Text -&gt; Either String CmafPtsOffsetHandlingForBFrames
+(Text -&gt; Either String CmafPtsOffsetHandlingForBFrames)
+-&gt; FromText CmafPtsOffsetHandlingForBFrames
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CmafPtsOffsetHandlingForBFrames
+$cfromText :: Text -&gt; Either String CmafPtsOffsetHandlingForBFrames
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679949924"><span class="annot"><span class="annottext">CmafPtsOffsetHandlingForBFrames -&gt; Text
+(CmafPtsOffsetHandlingForBFrames -&gt; Text)
+-&gt; ToText CmafPtsOffsetHandlingForBFrames
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CmafPtsOffsetHandlingForBFrames -&gt; Text
+$ctoText :: CmafPtsOffsetHandlingForBFrames -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679949921"><span class="annot"><span class="annottext">CmafPtsOffsetHandlingForBFrames -&gt; ByteString
+(CmafPtsOffsetHandlingForBFrames -&gt; ByteString)
+-&gt; ToByteString CmafPtsOffsetHandlingForBFrames
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CmafPtsOffsetHandlingForBFrames -&gt; ByteString
+$ctoBS :: CmafPtsOffsetHandlingForBFrames -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679949918"><span class="annot"><span class="annottext">CmafPtsOffsetHandlingForBFrames -&gt; ByteStringBuilder
+(CmafPtsOffsetHandlingForBFrames -&gt; ByteStringBuilder)
+-&gt; ToLog CmafPtsOffsetHandlingForBFrames
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CmafPtsOffsetHandlingForBFrames -&gt; ByteStringBuilder
+$cbuild :: CmafPtsOffsetHandlingForBFrames -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679949915"><span class="annot"><span class="annottext">HeaderName -&gt; CmafPtsOffsetHandlingForBFrames -&gt; [Header]
+(HeaderName -&gt; CmafPtsOffsetHandlingForBFrames -&gt; [Header])
+-&gt; ToHeader CmafPtsOffsetHandlingForBFrames
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CmafPtsOffsetHandlingForBFrames -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CmafPtsOffsetHandlingForBFrames -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679949912"><span class="annot"><span class="annottext">CmafPtsOffsetHandlingForBFrames -&gt; QueryString
+(CmafPtsOffsetHandlingForBFrames -&gt; QueryString)
+-&gt; ToQuery CmafPtsOffsetHandlingForBFrames
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CmafPtsOffsetHandlingForBFrames -&gt; QueryString
+$ctoQuery :: CmafPtsOffsetHandlingForBFrames -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679949907"><span id="local-6989586621679949909"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafPtsOffsetHandlingForBFrames]
+Value -&gt; Parser CmafPtsOffsetHandlingForBFrames
+(Value -&gt; Parser CmafPtsOffsetHandlingForBFrames)
+-&gt; (Value -&gt; Parser [CmafPtsOffsetHandlingForBFrames])
+-&gt; FromJSON CmafPtsOffsetHandlingForBFrames
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CmafPtsOffsetHandlingForBFrames]
+$cparseJSONList :: Value -&gt; Parser [CmafPtsOffsetHandlingForBFrames]
+parseJSON :: Value -&gt; Parser CmafPtsOffsetHandlingForBFrames
+$cparseJSON :: Value -&gt; Parser CmafPtsOffsetHandlingForBFrames
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679949902"><span id="local-6989586621679949904"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafPtsOffsetHandlingForBFrames]
+FromJSONKeyFunction CmafPtsOffsetHandlingForBFrames
+FromJSONKeyFunction CmafPtsOffsetHandlingForBFrames
+-&gt; FromJSONKeyFunction [CmafPtsOffsetHandlingForBFrames]
+-&gt; FromJSONKey CmafPtsOffsetHandlingForBFrames
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CmafPtsOffsetHandlingForBFrames]
+$cfromJSONKeyList :: FromJSONKeyFunction [CmafPtsOffsetHandlingForBFrames]
+fromJSONKey :: FromJSONKeyFunction CmafPtsOffsetHandlingForBFrames
+$cfromJSONKey :: FromJSONKeyFunction CmafPtsOffsetHandlingForBFrames
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679949893"><span id="local-6989586621679949895"><span id="local-6989586621679949897"><span id="local-6989586621679949899"><span class="annot"><span class="annottext">[CmafPtsOffsetHandlingForBFrames] -&gt; Encoding
+[CmafPtsOffsetHandlingForBFrames] -&gt; Value
+CmafPtsOffsetHandlingForBFrames -&gt; Encoding
+CmafPtsOffsetHandlingForBFrames -&gt; Value
+(CmafPtsOffsetHandlingForBFrames -&gt; Value)
+-&gt; (CmafPtsOffsetHandlingForBFrames -&gt; Encoding)
+-&gt; ([CmafPtsOffsetHandlingForBFrames] -&gt; Value)
+-&gt; ([CmafPtsOffsetHandlingForBFrames] -&gt; Encoding)
+-&gt; ToJSON CmafPtsOffsetHandlingForBFrames
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CmafPtsOffsetHandlingForBFrames] -&gt; Encoding
+$ctoEncodingList :: [CmafPtsOffsetHandlingForBFrames] -&gt; Encoding
+toJSONList :: [CmafPtsOffsetHandlingForBFrames] -&gt; Value
+$ctoJSONList :: [CmafPtsOffsetHandlingForBFrames] -&gt; Value
+toEncoding :: CmafPtsOffsetHandlingForBFrames -&gt; Encoding
+$ctoEncoding :: CmafPtsOffsetHandlingForBFrames -&gt; Encoding
+toJSON :: CmafPtsOffsetHandlingForBFrames -&gt; Value
+$ctoJSON :: CmafPtsOffsetHandlingForBFrames -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679949888"><span id="local-6989586621679949890"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafPtsOffsetHandlingForBFrames]
+ToJSONKeyFunction CmafPtsOffsetHandlingForBFrames
+ToJSONKeyFunction CmafPtsOffsetHandlingForBFrames
+-&gt; ToJSONKeyFunction [CmafPtsOffsetHandlingForBFrames]
+-&gt; ToJSONKey CmafPtsOffsetHandlingForBFrames
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CmafPtsOffsetHandlingForBFrames]
+$ctoJSONKeyList :: ToJSONKeyFunction [CmafPtsOffsetHandlingForBFrames]
+toJSONKey :: ToJSONKeyFunction CmafPtsOffsetHandlingForBFrames
+$ctoJSONKey :: ToJSONKeyFunction CmafPtsOffsetHandlingForBFrames
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679949885"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafPtsOffsetHandlingForBFrames
+([Node] -&gt; Either String CmafPtsOffsetHandlingForBFrames)
+-&gt; FromXML CmafPtsOffsetHandlingForBFrames
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CmafPtsOffsetHandlingForBFrames
+$cparseXML :: [Node] -&gt; Either String CmafPtsOffsetHandlingForBFrames
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679949882"><span class="annot"><span class="annottext">CmafPtsOffsetHandlingForBFrames -&gt; XML
+(CmafPtsOffsetHandlingForBFrames -&gt; XML)
+-&gt; ToXML CmafPtsOffsetHandlingForBFrames
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CmafPtsOffsetHandlingForBFrames -&gt; XML
+$ctoXML :: CmafPtsOffsetHandlingForBFrames -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#CmafPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS"><span class="hs-identifier hs-type">CmafPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#CmafPtsOffsetHandlingForBFrames"><span class="hs-identifier hs-type">CmafPtsOffsetHandlingForBFrames</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCmafPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS"><span id="%24mCmafPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS"><span id="CmafPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS"><span class="annot"><span class="annottext">$bCmafPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS :: CmafPtsOffsetHandlingForBFrames
+$mCmafPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS :: forall r.
+CmafPtsOffsetHandlingForBFrames
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#%24bCmafPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS"><span class="hs-identifier hs-var hs-var hs-var">CmafPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#CmafPtsOffsetHandlingForBFrames%27"><span class="hs-identifier hs-type">CmafPtsOffsetHandlingForBFrames'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MATCH_INITIAL_PTS&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#CmafPtsOffsetHandlingForBFrames_ZERO_BASED"><span class="hs-identifier hs-type">CmafPtsOffsetHandlingForBFrames_ZERO_BASED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#CmafPtsOffsetHandlingForBFrames"><span class="hs-identifier hs-type">CmafPtsOffsetHandlingForBFrames</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCmafPtsOffsetHandlingForBFrames_ZERO_BASED"><span id="%24mCmafPtsOffsetHandlingForBFrames_ZERO_BASED"><span id="CmafPtsOffsetHandlingForBFrames_ZERO_BASED"><span class="annot"><span class="annottext">$bCmafPtsOffsetHandlingForBFrames_ZERO_BASED :: CmafPtsOffsetHandlingForBFrames
+$mCmafPtsOffsetHandlingForBFrames_ZERO_BASED :: forall r.
+CmafPtsOffsetHandlingForBFrames
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#%24bCmafPtsOffsetHandlingForBFrames_ZERO_BASED"><span class="hs-identifier hs-var hs-var hs-var">CmafPtsOffsetHandlingForBFrames_ZERO_BASED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#CmafPtsOffsetHandlingForBFrames%27"><span class="hs-identifier hs-type">CmafPtsOffsetHandlingForBFrames'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ZERO_BASED&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#CmafPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS"><span class="hs-pragma hs-type">CmafPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#CmafPtsOffsetHandlingForBFrames_ZERO_BASED"><span class="hs-pragma hs-type">CmafPtsOffsetHandlingForBFrames_ZERO_BASED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames.html#CmafPtsOffsetHandlingForBFrames%27"><span class="hs-pragma hs-type">CmafPtsOffsetHandlingForBFrames'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.LookoutVision.Types.DatasetImageStats
+module Amazonka.LookoutVision.Types.DatasetImageStats
 
 -- | Statistics about the images in a dataset.
 --   
@@ -59,16 +59,16 @@ datasetImageStats_labeled :: Lens' DatasetImageStats (Maybe Int)
 
 -- | The total number of images in the dataset.
 datasetImageStats_total :: Lens' DatasetImageStats (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.DatasetImageStats.DatasetImageStats
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.DatasetImageStats.DatasetImageStats
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.DatasetImageStats.DatasetImageStats
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.DatasetImageStats.DatasetImageStats
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.DatasetImageStats.DatasetImageStats
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.DatasetImageStats.DatasetImageStats
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.DatasetImageStats.DatasetImageStats
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.DatasetImageStats.DatasetImageStats
+instance GHC.Show.Show Amazonka.LookoutVision.Types.DatasetImageStats.DatasetImageStats
+instance GHC.Read.Read Amazonka.LookoutVision.Types.DatasetImageStats.DatasetImageStats
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.DatasetImageStats.DatasetImageStats
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.DatasetImageStats.DatasetImageStats
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.DatasetImageStats.DatasetImageStats
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.DatasetImageStats.DatasetImageStats
 
 
-module Network.AWS.LookoutVision.Types.DatasetStatus
+module Amazonka.LookoutVision.Types.DatasetStatus
 newtype DatasetStatus
 DatasetStatus' :: Text -> DatasetStatus
 [fromDatasetStatus] :: DatasetStatus -> Text
@@ -82,28 +82,28 @@ pattern DatasetStatus_UPDATE_COMPLETE :: DatasetStatus
 pattern DatasetStatus_UPDATE_FAILED_ROLLBACK_COMPLETE :: DatasetStatus
 pattern DatasetStatus_UPDATE_FAILED_ROLLBACK_IN_PROGRESS :: DatasetStatus
 pattern DatasetStatus_UPDATE_IN_PROGRESS :: DatasetStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance GHC.Classes.Ord Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.Text.ToText Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.Text.FromText Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance GHC.Classes.Ord Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance GHC.Read.Read Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
+instance GHC.Show.Show Amazonka.LookoutVision.Types.DatasetStatus.DatasetStatus
 
 
-module Network.AWS.LookoutVision.Types.DatasetMetadata
+module Amazonka.LookoutVision.Types.DatasetMetadata
 
 -- | Sumary information for an Amazon Lookout for Vision dataset.
 --   
@@ -158,16 +158,16 @@ datasetMetadata_creationTimestamp :: Lens' DatasetMetadata (Maybe UTCTime)
 
 -- | The type of the dataset.
 datasetMetadata_datasetType :: Lens' DatasetMetadata (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.DatasetMetadata.DatasetMetadata
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.DatasetMetadata.DatasetMetadata
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.DatasetMetadata.DatasetMetadata
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.DatasetMetadata.DatasetMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.DatasetMetadata.DatasetMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.DatasetMetadata.DatasetMetadata
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.DatasetMetadata.DatasetMetadata
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.DatasetMetadata.DatasetMetadata
+instance GHC.Show.Show Amazonka.LookoutVision.Types.DatasetMetadata.DatasetMetadata
+instance GHC.Read.Read Amazonka.LookoutVision.Types.DatasetMetadata.DatasetMetadata
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.DatasetMetadata.DatasetMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.DatasetMetadata.DatasetMetadata
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.DatasetMetadata.DatasetMetadata
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.DatasetMetadata.DatasetMetadata
 
 
-module Network.AWS.LookoutVision.Types.DatasetDescription
+module Amazonka.LookoutVision.Types.DatasetDescription
 
 -- | The description for a dataset. For more information, see
 --   DescribeDataset.
@@ -257,16 +257,16 @@ datasetDescription_projectName :: Lens' DatasetDescription (Maybe Text)
 -- | The Unix timestamp for the date and time that the dataset was last
 --   updated.
 datasetDescription_lastUpdatedTimestamp :: Lens' DatasetDescription (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.DatasetDescription.DatasetDescription
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.DatasetDescription.DatasetDescription
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.DatasetDescription.DatasetDescription
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.DatasetDescription.DatasetDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.DatasetDescription.DatasetDescription
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.DatasetDescription.DatasetDescription
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.DatasetDescription.DatasetDescription
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.DatasetDescription.DatasetDescription
+instance GHC.Show.Show Amazonka.LookoutVision.Types.DatasetDescription.DatasetDescription
+instance GHC.Read.Read Amazonka.LookoutVision.Types.DatasetDescription.DatasetDescription
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.DatasetDescription.DatasetDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.DatasetDescription.DatasetDescription
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.DatasetDescription.DatasetDescription
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.DatasetDescription.DatasetDescription
 
 
-module Network.AWS.LookoutVision.Types.ImageSource
+module Amazonka.LookoutVision.Types.ImageSource
 
 -- | The source for an image.
 --   
@@ -291,16 +291,16 @@ newImageSource :: ImageSource
 
 -- | The type of the image.
 imageSource_type :: Lens' ImageSource (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.ImageSource.ImageSource
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.ImageSource.ImageSource
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.ImageSource.ImageSource
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.ImageSource.ImageSource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.ImageSource.ImageSource
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.ImageSource.ImageSource
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.ImageSource.ImageSource
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.ImageSource.ImageSource
+instance GHC.Show.Show Amazonka.LookoutVision.Types.ImageSource.ImageSource
+instance GHC.Read.Read Amazonka.LookoutVision.Types.ImageSource.ImageSource
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.ImageSource.ImageSource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.ImageSource.ImageSource
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.ImageSource.ImageSource
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.ImageSource.ImageSource
 
 
-module Network.AWS.LookoutVision.Types.DetectAnomalyResult
+module Amazonka.LookoutVision.Types.DetectAnomalyResult
 
 -- | The prediction results from a call to DetectAnomalies.
 --   
@@ -354,16 +354,16 @@ detectAnomalyResult_confidence :: Lens' DetectAnomalyResult (Maybe Double)
 --   the images was supplied from the local computer. No other values are
 --   supported.
 detectAnomalyResult_source :: Lens' DetectAnomalyResult (Maybe ImageSource)
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.DetectAnomalyResult.DetectAnomalyResult
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.DetectAnomalyResult.DetectAnomalyResult
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.DetectAnomalyResult.DetectAnomalyResult
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.DetectAnomalyResult.DetectAnomalyResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.DetectAnomalyResult.DetectAnomalyResult
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.DetectAnomalyResult.DetectAnomalyResult
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.DetectAnomalyResult.DetectAnomalyResult
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.DetectAnomalyResult.DetectAnomalyResult
+instance GHC.Show.Show Amazonka.LookoutVision.Types.DetectAnomalyResult.DetectAnomalyResult
+instance GHC.Read.Read Amazonka.LookoutVision.Types.DetectAnomalyResult.DetectAnomalyResult
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.DetectAnomalyResult.DetectAnomalyResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.DetectAnomalyResult.DetectAnomalyResult
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.DetectAnomalyResult.DetectAnomalyResult
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.DetectAnomalyResult.DetectAnomalyResult
 
 
-module Network.AWS.LookoutVision.Types.InputS3Object
+module Amazonka.LookoutVision.Types.InputS3Object
 
 -- | Amazon S3 Location information for an input manifest file.
 --   
@@ -407,16 +407,16 @@ inputS3Object_bucket :: Lens' InputS3Object Text
 
 -- | The name and location of the manifest file withiin the bucket.
 inputS3Object_key :: Lens' InputS3Object Text
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.InputS3Object.InputS3Object
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.InputS3Object.InputS3Object
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.InputS3Object.InputS3Object
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.InputS3Object.InputS3Object
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.InputS3Object.InputS3Object
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.InputS3Object.InputS3Object
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.Types.InputS3Object.InputS3Object
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.InputS3Object.InputS3Object
+instance GHC.Show.Show Amazonka.LookoutVision.Types.InputS3Object.InputS3Object
+instance GHC.Read.Read Amazonka.LookoutVision.Types.InputS3Object.InputS3Object
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.InputS3Object.InputS3Object
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.InputS3Object.InputS3Object
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.InputS3Object.InputS3Object
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.Types.InputS3Object.InputS3Object
 
 
-module Network.AWS.LookoutVision.Types.DatasetGroundTruthManifest
+module Amazonka.LookoutVision.Types.DatasetGroundTruthManifest
 
 -- | Location information about a manifest file. You can use a manifest
 --   file to create a dataset.
@@ -444,16 +444,16 @@ newDatasetGroundTruthManifest :: DatasetGroundTruthManifest
 
 -- | The S3 bucket location for the manifest file.
 datasetGroundTruthManifest_s3Object :: Lens' DatasetGroundTruthManifest (Maybe InputS3Object)
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.DatasetGroundTruthManifest.DatasetGroundTruthManifest
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.DatasetGroundTruthManifest.DatasetGroundTruthManifest
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.DatasetGroundTruthManifest.DatasetGroundTruthManifest
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.DatasetGroundTruthManifest.DatasetGroundTruthManifest
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.DatasetGroundTruthManifest.DatasetGroundTruthManifest
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.DatasetGroundTruthManifest.DatasetGroundTruthManifest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.Types.DatasetGroundTruthManifest.DatasetGroundTruthManifest
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.DatasetGroundTruthManifest.DatasetGroundTruthManifest
+instance GHC.Show.Show Amazonka.LookoutVision.Types.DatasetGroundTruthManifest.DatasetGroundTruthManifest
+instance GHC.Read.Read Amazonka.LookoutVision.Types.DatasetGroundTruthManifest.DatasetGroundTruthManifest
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.DatasetGroundTruthManifest.DatasetGroundTruthManifest
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.DatasetGroundTruthManifest.DatasetGroundTruthManifest
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.DatasetGroundTruthManifest.DatasetGroundTruthManifest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.Types.DatasetGroundTruthManifest.DatasetGroundTruthManifest
 
 
-module Network.AWS.LookoutVision.Types.DatasetSource
+module Amazonka.LookoutVision.Types.DatasetSource
 
 -- | Information about the location of a manifest file that Amazon Lookout
 --   for Vision uses to to create a dataset.
@@ -481,16 +481,16 @@ newDatasetSource :: DatasetSource
 
 -- | Location information for the manifest file.
 datasetSource_groundTruthManifest :: Lens' DatasetSource (Maybe DatasetGroundTruthManifest)
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.DatasetSource.DatasetSource
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.DatasetSource.DatasetSource
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.DatasetSource.DatasetSource
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.DatasetSource.DatasetSource
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.DatasetSource.DatasetSource
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.DatasetSource.DatasetSource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.Types.DatasetSource.DatasetSource
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.DatasetSource.DatasetSource
+instance GHC.Show.Show Amazonka.LookoutVision.Types.DatasetSource.DatasetSource
+instance GHC.Read.Read Amazonka.LookoutVision.Types.DatasetSource.DatasetSource
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.DatasetSource.DatasetSource
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.DatasetSource.DatasetSource
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.DatasetSource.DatasetSource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.Types.DatasetSource.DatasetSource
 
 
-module Network.AWS.LookoutVision.Types.ModelHostingStatus
+module Amazonka.LookoutVision.Types.ModelHostingStatus
 newtype ModelHostingStatus
 ModelHostingStatus' :: Text -> ModelHostingStatus
 [fromModelHostingStatus] :: ModelHostingStatus -> Text
@@ -499,28 +499,28 @@ pattern ModelHostingStatus_HOSTING_FAILED :: ModelHostingStatus
 pattern ModelHostingStatus_STARTING_HOSTING :: ModelHostingStatus
 pattern ModelHostingStatus_STOPPING_HOSTING :: ModelHostingStatus
 pattern ModelHostingStatus_SYSTEM_UPDATING :: ModelHostingStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance GHC.Classes.Ord Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance Amazonka.Data.Text.ToText Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance Amazonka.Data.Text.FromText Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance GHC.Classes.Ord Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance GHC.Read.Read Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
+instance GHC.Show.Show Amazonka.LookoutVision.Types.ModelHostingStatus.ModelHostingStatus
 
 
-module Network.AWS.LookoutVision.Types.ModelPerformance
+module Amazonka.LookoutVision.Types.ModelPerformance
 
 -- | Information about the evaluation performance of a trained model.
 --   
@@ -565,16 +565,16 @@ modelPerformance_precision :: Lens' ModelPerformance (Maybe Double)
 
 -- | The overall F1 score metric for the trained model.
 modelPerformance_f1Score :: Lens' ModelPerformance (Maybe Double)
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.ModelPerformance.ModelPerformance
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.ModelPerformance.ModelPerformance
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.ModelPerformance.ModelPerformance
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.ModelPerformance.ModelPerformance
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.ModelPerformance.ModelPerformance
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.ModelPerformance.ModelPerformance
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.ModelPerformance.ModelPerformance
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.ModelPerformance.ModelPerformance
+instance GHC.Show.Show Amazonka.LookoutVision.Types.ModelPerformance.ModelPerformance
+instance GHC.Read.Read Amazonka.LookoutVision.Types.ModelPerformance.ModelPerformance
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.ModelPerformance.ModelPerformance
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.ModelPerformance.ModelPerformance
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.ModelPerformance.ModelPerformance
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.ModelPerformance.ModelPerformance
 
 
-module Network.AWS.LookoutVision.Types.ModelStatus
+module Amazonka.LookoutVision.Types.ModelStatus
 newtype ModelStatus
 ModelStatus' :: Text -> ModelStatus
 [fromModelStatus] :: ModelStatus -> Text
@@ -587,28 +587,28 @@ pattern ModelStatus_SYSTEM_UPDATING :: ModelStatus
 pattern ModelStatus_TRAINED :: ModelStatus
 pattern ModelStatus_TRAINING :: ModelStatus
 pattern ModelStatus_TRAINING_FAILED :: ModelStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance GHC.Classes.Ord Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.Text.ToText Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.Text.FromText Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance GHC.Classes.Ord Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance GHC.Read.Read Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
+instance GHC.Show.Show Amazonka.LookoutVision.Types.ModelStatus.ModelStatus
 
 
-module Network.AWS.LookoutVision.Types.ModelMetadata
+module Amazonka.LookoutVision.Types.ModelMetadata
 
 -- | Describes an Amazon Lookout for Vision model.
 --   
@@ -692,16 +692,16 @@ modelMetadata_modelVersion :: Lens' ModelMetadata (Maybe Text)
 
 -- | The description for the model.
 modelMetadata_description :: Lens' ModelMetadata (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.ModelMetadata.ModelMetadata
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.ModelMetadata.ModelMetadata
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.ModelMetadata.ModelMetadata
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.ModelMetadata.ModelMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.ModelMetadata.ModelMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.ModelMetadata.ModelMetadata
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.ModelMetadata.ModelMetadata
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.ModelMetadata.ModelMetadata
+instance GHC.Show.Show Amazonka.LookoutVision.Types.ModelMetadata.ModelMetadata
+instance GHC.Read.Read Amazonka.LookoutVision.Types.ModelMetadata.ModelMetadata
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.ModelMetadata.ModelMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.ModelMetadata.ModelMetadata
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.ModelMetadata.ModelMetadata
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.ModelMetadata.ModelMetadata
 
 
-module Network.AWS.LookoutVision.Types.OutputS3Object
+module Amazonka.LookoutVision.Types.OutputS3Object
 
 -- | The S3 location where Amazon Lookout for Vision saves training output.
 --   
@@ -736,16 +736,16 @@ outputS3Object_bucket :: Lens' OutputS3Object Text
 
 -- | The location of the training output in the bucket.
 outputS3Object_key :: Lens' OutputS3Object Text
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.OutputS3Object.OutputS3Object
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.OutputS3Object.OutputS3Object
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.OutputS3Object.OutputS3Object
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.OutputS3Object.OutputS3Object
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.OutputS3Object.OutputS3Object
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.OutputS3Object.OutputS3Object
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.OutputS3Object.OutputS3Object
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.OutputS3Object.OutputS3Object
+instance GHC.Show.Show Amazonka.LookoutVision.Types.OutputS3Object.OutputS3Object
+instance GHC.Read.Read Amazonka.LookoutVision.Types.OutputS3Object.OutputS3Object
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.OutputS3Object.OutputS3Object
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.OutputS3Object.OutputS3Object
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.OutputS3Object.OutputS3Object
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.OutputS3Object.OutputS3Object
 
 
-module Network.AWS.LookoutVision.Types.ProjectDescription
+module Amazonka.LookoutVision.Types.ProjectDescription
 
 -- | Describe an Amazon Lookout for Vision project. For more information,
 --   see DescribeProject.
@@ -802,16 +802,16 @@ projectDescription_projectArn :: Lens' ProjectDescription (Maybe Text)
 
 -- | A list of datasets in the project.
 projectDescription_datasets :: Lens' ProjectDescription (Maybe [DatasetMetadata])
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.ProjectDescription.ProjectDescription
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.ProjectDescription.ProjectDescription
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.ProjectDescription.ProjectDescription
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.ProjectDescription.ProjectDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.ProjectDescription.ProjectDescription
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.ProjectDescription.ProjectDescription
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.ProjectDescription.ProjectDescription
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.ProjectDescription.ProjectDescription
+instance GHC.Show.Show Amazonka.LookoutVision.Types.ProjectDescription.ProjectDescription
+instance GHC.Read.Read Amazonka.LookoutVision.Types.ProjectDescription.ProjectDescription
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.ProjectDescription.ProjectDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.ProjectDescription.ProjectDescription
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.ProjectDescription.ProjectDescription
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.ProjectDescription.ProjectDescription
 
 
-module Network.AWS.LookoutVision.Types.ProjectMetadata
+module Amazonka.LookoutVision.Types.ProjectMetadata
 
 -- | Metadata about an Amazon Lookout for Vision project.
 --   
@@ -857,16 +857,16 @@ projectMetadata_projectName :: Lens' ProjectMetadata (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of the project.
 projectMetadata_projectArn :: Lens' ProjectMetadata (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.ProjectMetadata.ProjectMetadata
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.ProjectMetadata.ProjectMetadata
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.ProjectMetadata.ProjectMetadata
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.ProjectMetadata.ProjectMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.ProjectMetadata.ProjectMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.ProjectMetadata.ProjectMetadata
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.ProjectMetadata.ProjectMetadata
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.ProjectMetadata.ProjectMetadata
+instance GHC.Show.Show Amazonka.LookoutVision.Types.ProjectMetadata.ProjectMetadata
+instance GHC.Read.Read Amazonka.LookoutVision.Types.ProjectMetadata.ProjectMetadata
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.ProjectMetadata.ProjectMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.ProjectMetadata.ProjectMetadata
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.ProjectMetadata.ProjectMetadata
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.ProjectMetadata.ProjectMetadata
 
 
-module Network.AWS.LookoutVision.Types.S3Location
+module Amazonka.LookoutVision.Types.S3Location
 
 -- | Information about the location training output.
 --   
@@ -902,17 +902,17 @@ s3Location_prefix :: Lens' S3Location (Maybe Text)
 
 -- | The S3 bucket that contains the training output.
 s3Location_bucket :: Lens' S3Location Text
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.S3Location.S3Location
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.S3Location.S3Location
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.S3Location.S3Location
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.S3Location.S3Location
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.S3Location.S3Location
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.S3Location.S3Location
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.S3Location.S3Location
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.Types.S3Location.S3Location
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.S3Location.S3Location
+instance GHC.Show.Show Amazonka.LookoutVision.Types.S3Location.S3Location
+instance GHC.Read.Read Amazonka.LookoutVision.Types.S3Location.S3Location
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.S3Location.S3Location
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.S3Location.S3Location
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.S3Location.S3Location
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.S3Location.S3Location
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.Types.S3Location.S3Location
 
 
-module Network.AWS.LookoutVision.Types.OutputConfig
+module Amazonka.LookoutVision.Types.OutputConfig
 
 -- | The S3 location where Amazon Lookout for Vision saves model training
 --   files.
@@ -939,17 +939,17 @@ newOutputConfig :: S3Location -> OutputConfig
 
 -- | The S3 location for the output.
 outputConfig_s3Location :: Lens' OutputConfig S3Location
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.OutputConfig.OutputConfig
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.OutputConfig.OutputConfig
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.OutputConfig.OutputConfig
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.OutputConfig.OutputConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.OutputConfig.OutputConfig
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.OutputConfig.OutputConfig
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.OutputConfig.OutputConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.Types.OutputConfig.OutputConfig
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.OutputConfig.OutputConfig
+instance GHC.Show.Show Amazonka.LookoutVision.Types.OutputConfig.OutputConfig
+instance GHC.Read.Read Amazonka.LookoutVision.Types.OutputConfig.OutputConfig
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.OutputConfig.OutputConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.OutputConfig.OutputConfig
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.OutputConfig.OutputConfig
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.OutputConfig.OutputConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.Types.OutputConfig.OutputConfig
 
 
-module Network.AWS.LookoutVision.Types.ModelDescription
+module Amazonka.LookoutVision.Types.ModelDescription
 
 -- | Describes an Amazon Lookout for Vision model.
 --   
@@ -1095,16 +1095,16 @@ modelDescription_description :: Lens' ModelDescription (Maybe Text)
 --   file that was used to test the trained model and generate the
 --   performance scores.
 modelDescription_evaluationManifest :: Lens' ModelDescription (Maybe OutputS3Object)
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.ModelDescription.ModelDescription
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.ModelDescription.ModelDescription
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.ModelDescription.ModelDescription
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.ModelDescription.ModelDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.ModelDescription.ModelDescription
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.ModelDescription.ModelDescription
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.ModelDescription.ModelDescription
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.ModelDescription.ModelDescription
+instance GHC.Show.Show Amazonka.LookoutVision.Types.ModelDescription.ModelDescription
+instance GHC.Read.Read Amazonka.LookoutVision.Types.ModelDescription.ModelDescription
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.ModelDescription.ModelDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.ModelDescription.ModelDescription
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.ModelDescription.ModelDescription
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.ModelDescription.ModelDescription
 
 
-module Network.AWS.LookoutVision.Types.Tag
+module Amazonka.LookoutVision.Types.Tag
 
 -- | A key and value pair that is attached to the specified Amazon Lookout
 --   for Vision model.
@@ -1139,17 +1139,17 @@ tag_key :: Lens' Tag Text
 
 -- | The value of the tag that is attached to the specified model.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.LookoutVision.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.LookoutVision.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.LookoutVision.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.LookoutVision.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutVision.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.LookoutVision.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.LookoutVision.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.LookoutVision.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.LookoutVision.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutVision.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.Types.Tag.Tag
 
 
-module Network.AWS.LookoutVision.Types
+module Amazonka.LookoutVision.Types
 
 -- | API version <tt>2020-11-20</tt> of the Amazon Lookout for Vision SDK
 --   configuration.
@@ -2093,7 +2093,7 @@ tag_value :: Lens' Tag Text
 --   
 --   This operation requires permissions to perform the
 --   <tt>lookoutvision:TagResource</tt> operation.
-module Network.AWS.LookoutVision.TagResource
+module Amazonka.LookoutVision.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2149,22 +2149,22 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.LookoutVision.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.LookoutVision.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.LookoutVision.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.LookoutVision.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.LookoutVision.TagResource.TagResource
+instance GHC.Show.Show Amazonka.LookoutVision.TagResource.TagResource
+instance GHC.Read.Read Amazonka.LookoutVision.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.LookoutVision.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.LookoutVision.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.LookoutVision.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.LookoutVision.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.TagResource.TagResource
 
 
 -- | Stops the hosting of a running model. The operation might take a while
@@ -2175,7 +2175,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.TagResource.Ta
 --   
 --   This operation requires permissions to perform the
 --   <tt>lookoutvision:StopModel</tt> operation.
-module Network.AWS.LookoutVision.StopModel
+module Amazonka.LookoutVision.StopModel
 
 -- | <i>See:</i> <a>newStopModel</a> smart constructor.
 data StopModel
@@ -2272,22 +2272,22 @@ stopModelResponse_status :: Lens' StopModelResponse (Maybe ModelHostingStatus)
 
 -- | The response's http status code.
 stopModelResponse_httpStatus :: Lens' StopModelResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.StopModel.StopModel
-instance GHC.Show.Show Network.AWS.LookoutVision.StopModel.StopModel
-instance GHC.Read.Read Network.AWS.LookoutVision.StopModel.StopModel
-instance GHC.Classes.Eq Network.AWS.LookoutVision.StopModel.StopModel
-instance GHC.Generics.Generic Network.AWS.LookoutVision.StopModel.StopModelResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.StopModel.StopModelResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.StopModel.StopModelResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.StopModel.StopModelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.StopModel.StopModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.StopModel.StopModelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.StopModel.StopModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.StopModel.StopModel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.StopModel.StopModel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.StopModel.StopModel
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.StopModel.StopModel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.StopModel.StopModel
+instance GHC.Generics.Generic Amazonka.LookoutVision.StopModel.StopModel
+instance GHC.Show.Show Amazonka.LookoutVision.StopModel.StopModel
+instance GHC.Read.Read Amazonka.LookoutVision.StopModel.StopModel
+instance GHC.Classes.Eq Amazonka.LookoutVision.StopModel.StopModel
+instance GHC.Generics.Generic Amazonka.LookoutVision.StopModel.StopModelResponse
+instance GHC.Show.Show Amazonka.LookoutVision.StopModel.StopModelResponse
+instance GHC.Read.Read Amazonka.LookoutVision.StopModel.StopModelResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.StopModel.StopModelResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.StopModel.StopModel
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.StopModel.StopModelResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.StopModel.StopModel
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.StopModel.StopModel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.StopModel.StopModel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.StopModel.StopModel
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.StopModel.StopModel
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.StopModel.StopModel
 
 
 -- | Starts the running of the version of an Amazon Lookout for Vision
@@ -2304,7 +2304,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.StopModel.Stop
 --   
 --   This operation requires permissions to perform the
 --   <tt>lookoutvision:StartModel</tt> operation.
-module Network.AWS.LookoutVision.StartModel
+module Amazonka.LookoutVision.StartModel
 
 -- | <i>See:</i> <a>newStartModel</a> smart constructor.
 data StartModel
@@ -2427,22 +2427,22 @@ startModelResponse_status :: Lens' StartModelResponse (Maybe ModelHostingStatus)
 
 -- | The response's http status code.
 startModelResponse_httpStatus :: Lens' StartModelResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.StartModel.StartModel
-instance GHC.Show.Show Network.AWS.LookoutVision.StartModel.StartModel
-instance GHC.Read.Read Network.AWS.LookoutVision.StartModel.StartModel
-instance GHC.Classes.Eq Network.AWS.LookoutVision.StartModel.StartModel
-instance GHC.Generics.Generic Network.AWS.LookoutVision.StartModel.StartModelResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.StartModel.StartModelResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.StartModel.StartModelResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.StartModel.StartModelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.StartModel.StartModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.StartModel.StartModelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.StartModel.StartModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.StartModel.StartModel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.StartModel.StartModel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.StartModel.StartModel
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.StartModel.StartModel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.StartModel.StartModel
+instance GHC.Generics.Generic Amazonka.LookoutVision.StartModel.StartModel
+instance GHC.Show.Show Amazonka.LookoutVision.StartModel.StartModel
+instance GHC.Read.Read Amazonka.LookoutVision.StartModel.StartModel
+instance GHC.Classes.Eq Amazonka.LookoutVision.StartModel.StartModel
+instance GHC.Generics.Generic Amazonka.LookoutVision.StartModel.StartModelResponse
+instance GHC.Show.Show Amazonka.LookoutVision.StartModel.StartModelResponse
+instance GHC.Read.Read Amazonka.LookoutVision.StartModel.StartModelResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.StartModel.StartModelResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.StartModel.StartModel
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.StartModel.StartModelResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.StartModel.StartModel
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.StartModel.StartModel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.StartModel.StartModel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.StartModel.StartModel
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.StartModel.StartModel
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.StartModel.StartModel
 
 
 -- | Returns a list of tags attached to the specified Amazon Lookout for
@@ -2450,7 +2450,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.StartModel.Sta
 --   
 --   This operation requires permissions to perform the
 --   <tt>lookoutvision:ListTagsForResource</tt> operation.
-module Network.AWS.LookoutVision.ListTagsForResource
+module Amazonka.LookoutVision.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -2511,21 +2511,21 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.LookoutVision.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.LookoutVision.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.LookoutVision.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.LookoutVision.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.LookoutVision.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.LookoutVision.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.LookoutVision.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.LookoutVision.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.LookoutVision.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.LookoutVision.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.LookoutVision.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists the Amazon Lookout for Vision projects in your AWS account.
@@ -2534,7 +2534,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.ListTagsForRes
 --   <tt>lookoutvision:ListProjects</tt> operation.
 --   
 --   This operation returns paginated results.
-module Network.AWS.LookoutVision.ListProjects
+module Amazonka.LookoutVision.ListProjects
 
 -- | <i>See:</i> <a>newListProjects</a> smart constructor.
 data ListProjects
@@ -2634,22 +2634,22 @@ listProjectsResponse_projects :: Lens' ListProjectsResponse (Maybe [ProjectMetad
 
 -- | The response's http status code.
 listProjectsResponse_httpStatus :: Lens' ListProjectsResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.ListProjects.ListProjects
-instance GHC.Show.Show Network.AWS.LookoutVision.ListProjects.ListProjects
-instance GHC.Read.Read Network.AWS.LookoutVision.ListProjects.ListProjects
-instance GHC.Classes.Eq Network.AWS.LookoutVision.ListProjects.ListProjects
-instance GHC.Generics.Generic Network.AWS.LookoutVision.ListProjects.ListProjectsResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.ListProjects.ListProjectsResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.ListProjects.ListProjectsResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.ListProjects.ListProjectsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.ListProjects.ListProjects
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.ListProjects.ListProjectsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.LookoutVision.ListProjects.ListProjects
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.ListProjects.ListProjects
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.ListProjects.ListProjects
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.ListProjects.ListProjects
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.ListProjects.ListProjects
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.ListProjects.ListProjects
+instance GHC.Generics.Generic Amazonka.LookoutVision.ListProjects.ListProjects
+instance GHC.Show.Show Amazonka.LookoutVision.ListProjects.ListProjects
+instance GHC.Read.Read Amazonka.LookoutVision.ListProjects.ListProjects
+instance GHC.Classes.Eq Amazonka.LookoutVision.ListProjects.ListProjects
+instance GHC.Generics.Generic Amazonka.LookoutVision.ListProjects.ListProjectsResponse
+instance GHC.Show.Show Amazonka.LookoutVision.ListProjects.ListProjectsResponse
+instance GHC.Read.Read Amazonka.LookoutVision.ListProjects.ListProjectsResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.ListProjects.ListProjectsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.ListProjects.ListProjects
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.ListProjects.ListProjectsResponse
+instance Amazonka.Pager.AWSPager Amazonka.LookoutVision.ListProjects.ListProjects
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.ListProjects.ListProjects
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.ListProjects.ListProjects
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.ListProjects.ListProjects
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.ListProjects.ListProjects
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.ListProjects.ListProjects
 
 
 -- | Lists the versions of a model in an Amazon Lookout for Vision project.
@@ -2658,7 +2658,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.ListProjects.L
 --   <tt>lookoutvision:ListModels</tt> operation.
 --   
 --   This operation returns paginated results.
-module Network.AWS.LookoutVision.ListModels
+module Amazonka.LookoutVision.ListModels
 
 -- | <i>See:</i> <a>newListModels</a> smart constructor.
 data ListModels
@@ -2768,22 +2768,22 @@ listModelsResponse_models :: Lens' ListModelsResponse (Maybe [ModelMetadata])
 
 -- | The response's http status code.
 listModelsResponse_httpStatus :: Lens' ListModelsResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.ListModels.ListModels
-instance GHC.Show.Show Network.AWS.LookoutVision.ListModels.ListModels
-instance GHC.Read.Read Network.AWS.LookoutVision.ListModels.ListModels
-instance GHC.Classes.Eq Network.AWS.LookoutVision.ListModels.ListModels
-instance GHC.Generics.Generic Network.AWS.LookoutVision.ListModels.ListModelsResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.ListModels.ListModelsResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.ListModels.ListModelsResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.ListModels.ListModelsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.ListModels.ListModels
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.ListModels.ListModelsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.LookoutVision.ListModels.ListModels
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.ListModels.ListModels
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.ListModels.ListModels
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.ListModels.ListModels
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.ListModels.ListModels
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.ListModels.ListModels
+instance GHC.Generics.Generic Amazonka.LookoutVision.ListModels.ListModels
+instance GHC.Show.Show Amazonka.LookoutVision.ListModels.ListModels
+instance GHC.Read.Read Amazonka.LookoutVision.ListModels.ListModels
+instance GHC.Classes.Eq Amazonka.LookoutVision.ListModels.ListModels
+instance GHC.Generics.Generic Amazonka.LookoutVision.ListModels.ListModelsResponse
+instance GHC.Show.Show Amazonka.LookoutVision.ListModels.ListModelsResponse
+instance GHC.Read.Read Amazonka.LookoutVision.ListModels.ListModelsResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.ListModels.ListModelsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.ListModels.ListModels
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.ListModels.ListModelsResponse
+instance Amazonka.Pager.AWSPager Amazonka.LookoutVision.ListModels.ListModels
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.ListModels.ListModels
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.ListModels.ListModels
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.ListModels.ListModels
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.ListModels.ListModels
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.ListModels.ListModels
 
 
 -- | Lists the JSON Lines within a dataset. An Amazon Lookout for Vision
@@ -2794,7 +2794,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.ListModels.Lis
 --   <tt>lookoutvision:ListDatasetEntries</tt> operation.
 --   
 --   This operation returns paginated results.
-module Network.AWS.LookoutVision.ListDatasetEntries
+module Amazonka.LookoutVision.ListDatasetEntries
 
 -- | <i>See:</i> <a>newListDatasetEntries</a> smart constructor.
 data ListDatasetEntries
@@ -3000,22 +3000,22 @@ listDatasetEntriesResponse_nextToken :: Lens' ListDatasetEntriesResponse (Maybe 
 
 -- | The response's http status code.
 listDatasetEntriesResponse_httpStatus :: Lens' ListDatasetEntriesResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntries
-instance GHC.Show.Show Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntries
-instance GHC.Read.Read Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntries
-instance GHC.Classes.Eq Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntries
-instance GHC.Generics.Generic Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntriesResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntriesResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntriesResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntriesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntries
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntriesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntries
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntries
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntries
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntries
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntries
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.ListDatasetEntries.ListDatasetEntries
+instance GHC.Generics.Generic Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntries
+instance GHC.Show.Show Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntries
+instance GHC.Read.Read Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntries
+instance GHC.Classes.Eq Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntries
+instance GHC.Generics.Generic Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntriesResponse
+instance GHC.Show.Show Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntriesResponse
+instance GHC.Read.Read Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntriesResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntriesResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntries
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntriesResponse
+instance Amazonka.Pager.AWSPager Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntries
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntries
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntries
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntries
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntries
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.ListDatasetEntries.ListDatasetEntries
 
 
 -- | Detects anomalies in an image that you supply.
@@ -3032,7 +3032,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.ListDatasetEnt
 --   
 --   This operation requires permissions to perform the
 --   <tt>lookoutvision:DetectAnomalies</tt> operation.
-module Network.AWS.LookoutVision.DetectAnomalies
+module Amazonka.LookoutVision.DetectAnomalies
 
 -- | <i>See:</i> <a>newDetectAnomalies</a> smart constructor.
 data DetectAnomalies
@@ -3127,25 +3127,25 @@ detectAnomaliesResponse_detectAnomalyResult :: Lens' DetectAnomaliesResponse (Ma
 
 -- | The response's http status code.
 detectAnomaliesResponse_httpStatus :: Lens' DetectAnomaliesResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.DetectAnomalies.DetectAnomalies
-instance GHC.Show.Show Network.AWS.LookoutVision.DetectAnomalies.DetectAnomalies
-instance GHC.Generics.Generic Network.AWS.LookoutVision.DetectAnomalies.DetectAnomaliesResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.DetectAnomalies.DetectAnomaliesResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.DetectAnomalies.DetectAnomaliesResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.DetectAnomalies.DetectAnomaliesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.DetectAnomalies.DetectAnomalies
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.DetectAnomalies.DetectAnomaliesResponse
-instance Network.AWS.Data.Body.ToBody Network.AWS.LookoutVision.DetectAnomalies.DetectAnomalies
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.DetectAnomalies.DetectAnomalies
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.DetectAnomalies.DetectAnomalies
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.DetectAnomalies.DetectAnomalies
+instance GHC.Generics.Generic Amazonka.LookoutVision.DetectAnomalies.DetectAnomalies
+instance GHC.Show.Show Amazonka.LookoutVision.DetectAnomalies.DetectAnomalies
+instance GHC.Generics.Generic Amazonka.LookoutVision.DetectAnomalies.DetectAnomaliesResponse
+instance GHC.Show.Show Amazonka.LookoutVision.DetectAnomalies.DetectAnomaliesResponse
+instance GHC.Read.Read Amazonka.LookoutVision.DetectAnomalies.DetectAnomaliesResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.DetectAnomalies.DetectAnomaliesResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.DetectAnomalies.DetectAnomalies
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.DetectAnomalies.DetectAnomaliesResponse
+instance Amazonka.Data.Body.ToBody Amazonka.LookoutVision.DetectAnomalies.DetectAnomalies
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.DetectAnomalies.DetectAnomalies
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.DetectAnomalies.DetectAnomalies
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.DetectAnomalies.DetectAnomalies
 
 
 -- | Describes an Amazon Lookout for Vision project.
 --   
 --   This operation requires permissions to perform the
 --   <tt>lookoutvision:DescribeProject</tt> operation.
-module Network.AWS.LookoutVision.DescribeProject
+module Amazonka.LookoutVision.DescribeProject
 
 -- | <i>See:</i> <a>newDescribeProject</a> smart constructor.
 data DescribeProject
@@ -3204,28 +3204,28 @@ describeProjectResponse_projectDescription :: Lens' DescribeProjectResponse (May
 
 -- | The response's http status code.
 describeProjectResponse_httpStatus :: Lens' DescribeProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.DescribeProject.DescribeProject
-instance GHC.Show.Show Network.AWS.LookoutVision.DescribeProject.DescribeProject
-instance GHC.Read.Read Network.AWS.LookoutVision.DescribeProject.DescribeProject
-instance GHC.Classes.Eq Network.AWS.LookoutVision.DescribeProject.DescribeProject
-instance GHC.Generics.Generic Network.AWS.LookoutVision.DescribeProject.DescribeProjectResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.DescribeProject.DescribeProjectResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.DescribeProject.DescribeProjectResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.DescribeProject.DescribeProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.DescribeProject.DescribeProject
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.DescribeProject.DescribeProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.DescribeProject.DescribeProject
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.DescribeProject.DescribeProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.DescribeProject.DescribeProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.DescribeProject.DescribeProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.DescribeProject.DescribeProject
+instance GHC.Generics.Generic Amazonka.LookoutVision.DescribeProject.DescribeProject
+instance GHC.Show.Show Amazonka.LookoutVision.DescribeProject.DescribeProject
+instance GHC.Read.Read Amazonka.LookoutVision.DescribeProject.DescribeProject
+instance GHC.Classes.Eq Amazonka.LookoutVision.DescribeProject.DescribeProject
+instance GHC.Generics.Generic Amazonka.LookoutVision.DescribeProject.DescribeProjectResponse
+instance GHC.Show.Show Amazonka.LookoutVision.DescribeProject.DescribeProjectResponse
+instance GHC.Read.Read Amazonka.LookoutVision.DescribeProject.DescribeProjectResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.DescribeProject.DescribeProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.DescribeProject.DescribeProject
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.DescribeProject.DescribeProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.DescribeProject.DescribeProject
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.DescribeProject.DescribeProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.DescribeProject.DescribeProject
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.DescribeProject.DescribeProject
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.DescribeProject.DescribeProject
 
 
 -- | Describes a version of an Amazon Lookout for Vision model.
 --   
 --   This operation requires permissions to perform the
 --   <tt>lookoutvision:DescribeModel</tt> operation.
-module Network.AWS.LookoutVision.DescribeModel
+module Amazonka.LookoutVision.DescribeModel
 
 -- | <i>See:</i> <a>newDescribeModel</a> smart constructor.
 data DescribeModel
@@ -3296,28 +3296,28 @@ describeModelResponse_modelDescription :: Lens' DescribeModelResponse (Maybe Mod
 
 -- | The response's http status code.
 describeModelResponse_httpStatus :: Lens' DescribeModelResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.DescribeModel.DescribeModel
-instance GHC.Show.Show Network.AWS.LookoutVision.DescribeModel.DescribeModel
-instance GHC.Read.Read Network.AWS.LookoutVision.DescribeModel.DescribeModel
-instance GHC.Classes.Eq Network.AWS.LookoutVision.DescribeModel.DescribeModel
-instance GHC.Generics.Generic Network.AWS.LookoutVision.DescribeModel.DescribeModelResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.DescribeModel.DescribeModelResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.DescribeModel.DescribeModelResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.DescribeModel.DescribeModelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.DescribeModel.DescribeModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.DescribeModel.DescribeModelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.DescribeModel.DescribeModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.DescribeModel.DescribeModel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.DescribeModel.DescribeModel
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.DescribeModel.DescribeModel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.DescribeModel.DescribeModel
+instance GHC.Generics.Generic Amazonka.LookoutVision.DescribeModel.DescribeModel
+instance GHC.Show.Show Amazonka.LookoutVision.DescribeModel.DescribeModel
+instance GHC.Read.Read Amazonka.LookoutVision.DescribeModel.DescribeModel
+instance GHC.Classes.Eq Amazonka.LookoutVision.DescribeModel.DescribeModel
+instance GHC.Generics.Generic Amazonka.LookoutVision.DescribeModel.DescribeModelResponse
+instance GHC.Show.Show Amazonka.LookoutVision.DescribeModel.DescribeModelResponse
+instance GHC.Read.Read Amazonka.LookoutVision.DescribeModel.DescribeModelResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.DescribeModel.DescribeModelResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.DescribeModel.DescribeModel
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.DescribeModel.DescribeModelResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.DescribeModel.DescribeModel
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.DescribeModel.DescribeModel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.DescribeModel.DescribeModel
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.DescribeModel.DescribeModel
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.DescribeModel.DescribeModel
 
 
 -- | Describe an Amazon Lookout for Vision dataset.
 --   
 --   This operation requires permissions to perform the
 --   <tt>lookoutvision:DescribeDataset</tt> operation.
-module Network.AWS.LookoutVision.DescribeDataset
+module Amazonka.LookoutVision.DescribeDataset
 
 -- | <i>See:</i> <a>newDescribeDataset</a> smart constructor.
 data DescribeDataset
@@ -3396,21 +3396,21 @@ describeDatasetResponse_datasetDescription :: Lens' DescribeDatasetResponse (May
 
 -- | The response's http status code.
 describeDatasetResponse_httpStatus :: Lens' DescribeDatasetResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.DescribeDataset.DescribeDataset
-instance GHC.Show.Show Network.AWS.LookoutVision.DescribeDataset.DescribeDataset
-instance GHC.Read.Read Network.AWS.LookoutVision.DescribeDataset.DescribeDataset
-instance GHC.Classes.Eq Network.AWS.LookoutVision.DescribeDataset.DescribeDataset
-instance GHC.Generics.Generic Network.AWS.LookoutVision.DescribeDataset.DescribeDatasetResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.DescribeDataset.DescribeDatasetResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.DescribeDataset.DescribeDatasetResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.DescribeDataset.DescribeDatasetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.DescribeDataset.DescribeDataset
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.DescribeDataset.DescribeDatasetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.DescribeDataset.DescribeDataset
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.DescribeDataset.DescribeDataset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.DescribeDataset.DescribeDataset
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.DescribeDataset.DescribeDataset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.DescribeDataset.DescribeDataset
+instance GHC.Generics.Generic Amazonka.LookoutVision.DescribeDataset.DescribeDataset
+instance GHC.Show.Show Amazonka.LookoutVision.DescribeDataset.DescribeDataset
+instance GHC.Read.Read Amazonka.LookoutVision.DescribeDataset.DescribeDataset
+instance GHC.Classes.Eq Amazonka.LookoutVision.DescribeDataset.DescribeDataset
+instance GHC.Generics.Generic Amazonka.LookoutVision.DescribeDataset.DescribeDatasetResponse
+instance GHC.Show.Show Amazonka.LookoutVision.DescribeDataset.DescribeDatasetResponse
+instance GHC.Read.Read Amazonka.LookoutVision.DescribeDataset.DescribeDatasetResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.DescribeDataset.DescribeDatasetResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.DescribeDataset.DescribeDataset
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.DescribeDataset.DescribeDatasetResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.DescribeDataset.DescribeDataset
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.DescribeDataset.DescribeDataset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.DescribeDataset.DescribeDataset
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.DescribeDataset.DescribeDataset
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.DescribeDataset.DescribeDataset
 
 
 -- | Deletes an Amazon Lookout for Vision project.
@@ -3425,7 +3425,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.DescribeDatase
 --   
 --   This operation requires permissions to perform the
 --   <tt>lookoutvision:DeleteProject</tt> operation.
-module Network.AWS.LookoutVision.DeleteProject
+module Amazonka.LookoutVision.DeleteProject
 
 -- | <i>See:</i> <a>newDeleteProject</a> smart constructor.
 data DeleteProject
@@ -3517,21 +3517,21 @@ deleteProjectResponse_projectArn :: Lens' DeleteProjectResponse (Maybe Text)
 
 -- | The response's http status code.
 deleteProjectResponse_httpStatus :: Lens' DeleteProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.DeleteProject.DeleteProject
-instance GHC.Show.Show Network.AWS.LookoutVision.DeleteProject.DeleteProject
-instance GHC.Read.Read Network.AWS.LookoutVision.DeleteProject.DeleteProject
-instance GHC.Classes.Eq Network.AWS.LookoutVision.DeleteProject.DeleteProject
-instance GHC.Generics.Generic Network.AWS.LookoutVision.DeleteProject.DeleteProjectResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.DeleteProject.DeleteProjectResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.DeleteProject.DeleteProjectResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.DeleteProject.DeleteProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.DeleteProject.DeleteProject
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.DeleteProject.DeleteProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.DeleteProject.DeleteProject
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.DeleteProject.DeleteProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.DeleteProject.DeleteProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.DeleteProject.DeleteProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.DeleteProject.DeleteProject
+instance GHC.Generics.Generic Amazonka.LookoutVision.DeleteProject.DeleteProject
+instance GHC.Show.Show Amazonka.LookoutVision.DeleteProject.DeleteProject
+instance GHC.Read.Read Amazonka.LookoutVision.DeleteProject.DeleteProject
+instance GHC.Classes.Eq Amazonka.LookoutVision.DeleteProject.DeleteProject
+instance GHC.Generics.Generic Amazonka.LookoutVision.DeleteProject.DeleteProjectResponse
+instance GHC.Show.Show Amazonka.LookoutVision.DeleteProject.DeleteProjectResponse
+instance GHC.Read.Read Amazonka.LookoutVision.DeleteProject.DeleteProjectResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.DeleteProject.DeleteProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.DeleteProject.DeleteProject
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.DeleteProject.DeleteProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.DeleteProject.DeleteProject
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.DeleteProject.DeleteProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.DeleteProject.DeleteProject
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.DeleteProject.DeleteProject
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.DeleteProject.DeleteProject
 
 
 -- | Deletes an Amazon Lookout for Vision model. You can't delete a running
@@ -3543,7 +3543,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.DeleteProject.
 --   
 --   This operation requires permissions to perform the
 --   <tt>lookoutvision:DeleteModel</tt> operation.
-module Network.AWS.LookoutVision.DeleteModel
+module Amazonka.LookoutVision.DeleteModel
 
 -- | <i>See:</i> <a>newDeleteModel</a> smart constructor.
 data DeleteModel
@@ -3645,21 +3645,21 @@ deleteModelResponse_modelArn :: Lens' DeleteModelResponse (Maybe Text)
 
 -- | The response's http status code.
 deleteModelResponse_httpStatus :: Lens' DeleteModelResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.DeleteModel.DeleteModel
-instance GHC.Show.Show Network.AWS.LookoutVision.DeleteModel.DeleteModel
-instance GHC.Read.Read Network.AWS.LookoutVision.DeleteModel.DeleteModel
-instance GHC.Classes.Eq Network.AWS.LookoutVision.DeleteModel.DeleteModel
-instance GHC.Generics.Generic Network.AWS.LookoutVision.DeleteModel.DeleteModelResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.DeleteModel.DeleteModelResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.DeleteModel.DeleteModelResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.DeleteModel.DeleteModelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.DeleteModel.DeleteModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.DeleteModel.DeleteModelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.DeleteModel.DeleteModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.DeleteModel.DeleteModel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.DeleteModel.DeleteModel
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.DeleteModel.DeleteModel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.DeleteModel.DeleteModel
+instance GHC.Generics.Generic Amazonka.LookoutVision.DeleteModel.DeleteModel
+instance GHC.Show.Show Amazonka.LookoutVision.DeleteModel.DeleteModel
+instance GHC.Read.Read Amazonka.LookoutVision.DeleteModel.DeleteModel
+instance GHC.Classes.Eq Amazonka.LookoutVision.DeleteModel.DeleteModel
+instance GHC.Generics.Generic Amazonka.LookoutVision.DeleteModel.DeleteModelResponse
+instance GHC.Show.Show Amazonka.LookoutVision.DeleteModel.DeleteModelResponse
+instance GHC.Read.Read Amazonka.LookoutVision.DeleteModel.DeleteModelResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.DeleteModel.DeleteModelResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.DeleteModel.DeleteModel
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.DeleteModel.DeleteModelResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.DeleteModel.DeleteModel
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.DeleteModel.DeleteModel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.DeleteModel.DeleteModel
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.DeleteModel.DeleteModel
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.DeleteModel.DeleteModel
 
 
 -- | Deletes an existing Amazon Lookout for Vision <tt>dataset</tt>.
@@ -3681,7 +3681,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.DeleteModel.De
 --   
 --   This operation requires permissions to perform the
 --   <tt>lookoutvision:DeleteDataset</tt> operation.
-module Network.AWS.LookoutVision.DeleteDataset
+module Amazonka.LookoutVision.DeleteDataset
 
 -- | <i>See:</i> <a>newDeleteDataset</a> smart constructor.
 data DeleteDataset
@@ -3784,21 +3784,21 @@ newDeleteDatasetResponse :: Int -> DeleteDatasetResponse
 
 -- | The response's http status code.
 deleteDatasetResponse_httpStatus :: Lens' DeleteDatasetResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.DeleteDataset.DeleteDataset
-instance GHC.Show.Show Network.AWS.LookoutVision.DeleteDataset.DeleteDataset
-instance GHC.Read.Read Network.AWS.LookoutVision.DeleteDataset.DeleteDataset
-instance GHC.Classes.Eq Network.AWS.LookoutVision.DeleteDataset.DeleteDataset
-instance GHC.Generics.Generic Network.AWS.LookoutVision.DeleteDataset.DeleteDatasetResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.DeleteDataset.DeleteDatasetResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.DeleteDataset.DeleteDatasetResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.DeleteDataset.DeleteDatasetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.DeleteDataset.DeleteDataset
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.DeleteDataset.DeleteDatasetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.DeleteDataset.DeleteDataset
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.DeleteDataset.DeleteDataset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.DeleteDataset.DeleteDataset
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.DeleteDataset.DeleteDataset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.DeleteDataset.DeleteDataset
+instance GHC.Generics.Generic Amazonka.LookoutVision.DeleteDataset.DeleteDataset
+instance GHC.Show.Show Amazonka.LookoutVision.DeleteDataset.DeleteDataset
+instance GHC.Read.Read Amazonka.LookoutVision.DeleteDataset.DeleteDataset
+instance GHC.Classes.Eq Amazonka.LookoutVision.DeleteDataset.DeleteDataset
+instance GHC.Generics.Generic Amazonka.LookoutVision.DeleteDataset.DeleteDatasetResponse
+instance GHC.Show.Show Amazonka.LookoutVision.DeleteDataset.DeleteDatasetResponse
+instance GHC.Read.Read Amazonka.LookoutVision.DeleteDataset.DeleteDatasetResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.DeleteDataset.DeleteDatasetResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.DeleteDataset.DeleteDataset
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.DeleteDataset.DeleteDatasetResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.DeleteDataset.DeleteDataset
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.DeleteDataset.DeleteDataset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.DeleteDataset.DeleteDataset
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.DeleteDataset.DeleteDataset
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.DeleteDataset.DeleteDataset
 
 
 -- | Creates an empty Amazon Lookout for Vision project. After you create
@@ -3806,7 +3806,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.DeleteDataset.
 --   
 --   This operation requires permissions to perform the
 --   <tt>lookoutvision:CreateProject</tt> operation.
-module Network.AWS.LookoutVision.CreateProject
+module Amazonka.LookoutVision.CreateProject
 
 -- | <i>See:</i> <a>newCreateProject</a> smart constructor.
 data CreateProject
@@ -3898,22 +3898,22 @@ createProjectResponse_projectMetadata :: Lens' CreateProjectResponse (Maybe Proj
 
 -- | The response's http status code.
 createProjectResponse_httpStatus :: Lens' CreateProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.CreateProject.CreateProject
-instance GHC.Show.Show Network.AWS.LookoutVision.CreateProject.CreateProject
-instance GHC.Read.Read Network.AWS.LookoutVision.CreateProject.CreateProject
-instance GHC.Classes.Eq Network.AWS.LookoutVision.CreateProject.CreateProject
-instance GHC.Generics.Generic Network.AWS.LookoutVision.CreateProject.CreateProjectResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.CreateProject.CreateProjectResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.CreateProject.CreateProjectResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.CreateProject.CreateProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.CreateProject.CreateProject
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.CreateProject.CreateProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.CreateProject.CreateProject
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.CreateProject.CreateProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.CreateProject.CreateProject
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.CreateProject.CreateProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.CreateProject.CreateProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.CreateProject.CreateProject
+instance GHC.Generics.Generic Amazonka.LookoutVision.CreateProject.CreateProject
+instance GHC.Show.Show Amazonka.LookoutVision.CreateProject.CreateProject
+instance GHC.Read.Read Amazonka.LookoutVision.CreateProject.CreateProject
+instance GHC.Classes.Eq Amazonka.LookoutVision.CreateProject.CreateProject
+instance GHC.Generics.Generic Amazonka.LookoutVision.CreateProject.CreateProjectResponse
+instance GHC.Show.Show Amazonka.LookoutVision.CreateProject.CreateProjectResponse
+instance GHC.Read.Read Amazonka.LookoutVision.CreateProject.CreateProjectResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.CreateProject.CreateProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.CreateProject.CreateProject
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.CreateProject.CreateProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.CreateProject.CreateProject
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.CreateProject.CreateProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.CreateProject.CreateProject
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.CreateProject.CreateProject
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.CreateProject.CreateProject
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.CreateProject.CreateProject
 
 
 -- | Creates a new version of a model within an an Amazon Lookout for
@@ -3936,7 +3936,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.CreateProject.
 --   <tt>lookoutvision:CreateModel</tt> operation. If you want to tag your
 --   model, you also require permission to the
 --   <tt>lookoutvision:TagResource</tt> operation.
-module Network.AWS.LookoutVision.CreateModel
+module Amazonka.LookoutVision.CreateModel
 
 -- | <i>See:</i> <a>newCreateModel</a> smart constructor.
 data CreateModel
@@ -4077,22 +4077,22 @@ createModelResponse_modelMetadata :: Lens' CreateModelResponse (Maybe ModelMetad
 
 -- | The response's http status code.
 createModelResponse_httpStatus :: Lens' CreateModelResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.CreateModel.CreateModel
-instance GHC.Show.Show Network.AWS.LookoutVision.CreateModel.CreateModel
-instance GHC.Read.Read Network.AWS.LookoutVision.CreateModel.CreateModel
-instance GHC.Classes.Eq Network.AWS.LookoutVision.CreateModel.CreateModel
-instance GHC.Generics.Generic Network.AWS.LookoutVision.CreateModel.CreateModelResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.CreateModel.CreateModelResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.CreateModel.CreateModelResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.CreateModel.CreateModelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.CreateModel.CreateModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.CreateModel.CreateModelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.CreateModel.CreateModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.CreateModel.CreateModel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.CreateModel.CreateModel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.CreateModel.CreateModel
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.CreateModel.CreateModel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.CreateModel.CreateModel
+instance GHC.Generics.Generic Amazonka.LookoutVision.CreateModel.CreateModel
+instance GHC.Show.Show Amazonka.LookoutVision.CreateModel.CreateModel
+instance GHC.Read.Read Amazonka.LookoutVision.CreateModel.CreateModel
+instance GHC.Classes.Eq Amazonka.LookoutVision.CreateModel.CreateModel
+instance GHC.Generics.Generic Amazonka.LookoutVision.CreateModel.CreateModelResponse
+instance GHC.Show.Show Amazonka.LookoutVision.CreateModel.CreateModelResponse
+instance GHC.Read.Read Amazonka.LookoutVision.CreateModel.CreateModelResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.CreateModel.CreateModelResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.CreateModel.CreateModel
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.CreateModel.CreateModelResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.CreateModel.CreateModel
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.CreateModel.CreateModel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.CreateModel.CreateModel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.CreateModel.CreateModel
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.CreateModel.CreateModel
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.CreateModel.CreateModel
 
 
 -- | Creates a new dataset in an Amazon Lookout for Vision project.
@@ -4109,7 +4109,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.CreateModel.Cr
 --   
 --   This operation requires permissions to perform the
 --   <tt>lookoutvision:CreateDataset</tt> operation.
-module Network.AWS.LookoutVision.CreateDataset
+module Amazonka.LookoutVision.CreateDataset
 
 -- | <i>See:</i> <a>newCreateDataset</a> smart constructor.
 data CreateDataset
@@ -4257,22 +4257,22 @@ createDatasetResponse_datasetMetadata :: Lens' CreateDatasetResponse (Maybe Data
 
 -- | The response's http status code.
 createDatasetResponse_httpStatus :: Lens' CreateDatasetResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.CreateDataset.CreateDataset
-instance GHC.Show.Show Network.AWS.LookoutVision.CreateDataset.CreateDataset
-instance GHC.Read.Read Network.AWS.LookoutVision.CreateDataset.CreateDataset
-instance GHC.Classes.Eq Network.AWS.LookoutVision.CreateDataset.CreateDataset
-instance GHC.Generics.Generic Network.AWS.LookoutVision.CreateDataset.CreateDatasetResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.CreateDataset.CreateDatasetResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.CreateDataset.CreateDatasetResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.CreateDataset.CreateDatasetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.CreateDataset.CreateDataset
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.CreateDataset.CreateDatasetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.CreateDataset.CreateDataset
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.CreateDataset.CreateDataset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.CreateDataset.CreateDataset
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.CreateDataset.CreateDataset
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.CreateDataset.CreateDataset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.CreateDataset.CreateDataset
+instance GHC.Generics.Generic Amazonka.LookoutVision.CreateDataset.CreateDataset
+instance GHC.Show.Show Amazonka.LookoutVision.CreateDataset.CreateDataset
+instance GHC.Read.Read Amazonka.LookoutVision.CreateDataset.CreateDataset
+instance GHC.Classes.Eq Amazonka.LookoutVision.CreateDataset.CreateDataset
+instance GHC.Generics.Generic Amazonka.LookoutVision.CreateDataset.CreateDatasetResponse
+instance GHC.Show.Show Amazonka.LookoutVision.CreateDataset.CreateDatasetResponse
+instance GHC.Read.Read Amazonka.LookoutVision.CreateDataset.CreateDatasetResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.CreateDataset.CreateDatasetResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.CreateDataset.CreateDataset
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.CreateDataset.CreateDatasetResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.CreateDataset.CreateDataset
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.CreateDataset.CreateDataset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.CreateDataset.CreateDataset
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.CreateDataset.CreateDataset
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.CreateDataset.CreateDataset
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.CreateDataset.CreateDataset
 
 
 -- | Removes one or more tags from an Amazon Lookout for Vision model. For
@@ -4281,7 +4281,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.CreateDataset.
 --   
 --   This operation requires permissions to perform the
 --   <tt>lookoutvision:UntagResource</tt> operation.
-module Network.AWS.LookoutVision.UntagResource
+module Amazonka.LookoutVision.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -4341,21 +4341,21 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.LookoutVision.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.LookoutVision.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.LookoutVision.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.LookoutVision.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.LookoutVision.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.LookoutVision.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.LookoutVision.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.LookoutVision.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.LookoutVision.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.LookoutVision.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.LookoutVision.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.UntagResource.UntagResource
 
 
 -- | Adds one or more JSON Line entries to a dataset. A JSON Line includes
@@ -4368,7 +4368,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.UntagResource.
 --   
 --   This operation requires permissions to perform the
 --   <tt>lookoutvision:UpdateDatasetEntries</tt> operation.
-module Network.AWS.LookoutVision.UpdateDatasetEntries
+module Amazonka.LookoutVision.UpdateDatasetEntries
 
 -- | <i>See:</i> <a>newUpdateDatasetEntries</a> smart constructor.
 data UpdateDatasetEntries
@@ -4505,25 +4505,25 @@ updateDatasetEntriesResponse_status :: Lens' UpdateDatasetEntriesResponse (Maybe
 
 -- | The response's http status code.
 updateDatasetEntriesResponse_httpStatus :: Lens' UpdateDatasetEntriesResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
-instance GHC.Show.Show Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
-instance GHC.Read.Read Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
-instance GHC.Classes.Eq Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
-instance GHC.Generics.Generic Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntriesResponse
-instance GHC.Show.Show Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntriesResponse
-instance GHC.Read.Read Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntriesResponse
-instance GHC.Classes.Eq Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntriesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntriesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
-instance Control.DeepSeq.NFData Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
+instance GHC.Generics.Generic Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
+instance GHC.Show.Show Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
+instance GHC.Read.Read Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
+instance GHC.Classes.Eq Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
+instance GHC.Generics.Generic Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntriesResponse
+instance GHC.Show.Show Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntriesResponse
+instance GHC.Read.Read Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntriesResponse
+instance GHC.Classes.Eq Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntriesResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntriesResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
+instance Control.DeepSeq.NFData Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutVision.UpdateDatasetEntries.UpdateDatasetEntries
 
 
-module Network.AWS.LookoutVision.Lens
+module Amazonka.LookoutVision.Lens
 
 -- | If the previous response was incomplete (because there is more data to
 --   retrieve), Amazon Lookout for Vision returns a pagination token in the
@@ -5167,7 +5167,7 @@ tag_key :: Lens' Tag Text
 tag_value :: Lens' Tag Text
 
 
-module Network.AWS.LookoutVision.Waiters
+module Amazonka.LookoutVision.Waiters
 
 
 -- | Derived from API version <tt>2020-11-20</tt> of the AWS service
@@ -5184,7 +5184,7 @@ module Network.AWS.LookoutVision.Waiters
 --   minuscule defects in silicon wafers — or any other physical item where
 --   quality is important such as a missing capacitor on printed circuit
 --   boards.
-module Network.AWS.LookoutVision
+module Amazonka.LookoutVision
 
 -- | API version <tt>2020-11-20</tt> of the Amazon Lookout for Vision SDK
 --   configuration.

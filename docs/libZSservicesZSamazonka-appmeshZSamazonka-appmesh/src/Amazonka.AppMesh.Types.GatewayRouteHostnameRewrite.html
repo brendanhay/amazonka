@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html"><span class="hs-identifier">Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | An object representing the gateway route host name to rewrite.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGatewayRouteHostnameRewrite' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679324304"><span id="local-6989586621679324305"></span></span><span class="hs-keyword">data</span><span> </span><span id="GatewayRouteHostnameRewrite"><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#GatewayRouteHostnameRewrite"><span class="hs-identifier hs-var">GatewayRouteHostnameRewrite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GatewayRouteHostnameRewrite%27"><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#GatewayRouteHostnameRewrite%27"><span class="hs-identifier hs-var">GatewayRouteHostnameRewrite'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The default target host name to write to.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdefaultTargetHostname%3AGatewayRouteHostnameRewrite%27"><span class="annot"><span class="annottext">GatewayRouteHostnameRewrite -&gt; Maybe DefaultGatewayRouteRewrite
+</span><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#%24sel%3AdefaultTargetHostname%3AGatewayRouteHostnameRewrite%27"><span class="hs-identifier hs-var hs-var">defaultTargetHostname</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite"><span class="hs-identifier hs-type">DefaultGatewayRouteRewrite</span></a></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324298"><span id="local-6989586621679324300"><span class="annot"><span class="annottext">GatewayRouteHostnameRewrite -&gt; GatewayRouteHostnameRewrite -&gt; Bool
+(GatewayRouteHostnameRewrite
+ -&gt; GatewayRouteHostnameRewrite -&gt; Bool)
+-&gt; (GatewayRouteHostnameRewrite
+    -&gt; GatewayRouteHostnameRewrite -&gt; Bool)
+-&gt; Eq GatewayRouteHostnameRewrite
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GatewayRouteHostnameRewrite -&gt; GatewayRouteHostnameRewrite -&gt; Bool
+$c/= :: GatewayRouteHostnameRewrite -&gt; GatewayRouteHostnameRewrite -&gt; Bool
+== :: GatewayRouteHostnameRewrite -&gt; GatewayRouteHostnameRewrite -&gt; Bool
+$c== :: GatewayRouteHostnameRewrite -&gt; GatewayRouteHostnameRewrite -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324289"><span id="local-6989586621679324291"><span id="local-6989586621679324293"><span id="local-6989586621679324295"><span class="annot"><span class="annottext">ReadPrec [GatewayRouteHostnameRewrite]
+ReadPrec GatewayRouteHostnameRewrite
+Int -&gt; ReadS GatewayRouteHostnameRewrite
+ReadS [GatewayRouteHostnameRewrite]
+(Int -&gt; ReadS GatewayRouteHostnameRewrite)
+-&gt; ReadS [GatewayRouteHostnameRewrite]
+-&gt; ReadPrec GatewayRouteHostnameRewrite
+-&gt; ReadPrec [GatewayRouteHostnameRewrite]
+-&gt; Read GatewayRouteHostnameRewrite
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GatewayRouteHostnameRewrite]
+$creadListPrec :: ReadPrec [GatewayRouteHostnameRewrite]
+readPrec :: ReadPrec GatewayRouteHostnameRewrite
+$creadPrec :: ReadPrec GatewayRouteHostnameRewrite
+readList :: ReadS [GatewayRouteHostnameRewrite]
+$creadList :: ReadS [GatewayRouteHostnameRewrite]
+readsPrec :: Int -&gt; ReadS GatewayRouteHostnameRewrite
+$creadsPrec :: Int -&gt; ReadS GatewayRouteHostnameRewrite
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324282"><span id="local-6989586621679324284"><span id="local-6989586621679324286"><span class="annot"><span class="annottext">Int -&gt; GatewayRouteHostnameRewrite -&gt; ShowS
+[GatewayRouteHostnameRewrite] -&gt; ShowS
+GatewayRouteHostnameRewrite -&gt; String
+(Int -&gt; GatewayRouteHostnameRewrite -&gt; ShowS)
+-&gt; (GatewayRouteHostnameRewrite -&gt; String)
+-&gt; ([GatewayRouteHostnameRewrite] -&gt; ShowS)
+-&gt; Show GatewayRouteHostnameRewrite
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GatewayRouteHostnameRewrite] -&gt; ShowS
+$cshowList :: [GatewayRouteHostnameRewrite] -&gt; ShowS
+show :: GatewayRouteHostnameRewrite -&gt; String
+$cshow :: GatewayRouteHostnameRewrite -&gt; String
+showsPrec :: Int -&gt; GatewayRouteHostnameRewrite -&gt; ShowS
+$cshowsPrec :: Int -&gt; GatewayRouteHostnameRewrite -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GatewayRouteHostnameRewrite -&gt; Rep GatewayRouteHostnameRewrite x)
+-&gt; (forall x.
+    Rep GatewayRouteHostnameRewrite x -&gt; GatewayRouteHostnameRewrite)
+-&gt; Generic GatewayRouteHostnameRewrite
+forall x.
+Rep GatewayRouteHostnameRewrite x -&gt; GatewayRouteHostnameRewrite
+forall x.
+GatewayRouteHostnameRewrite -&gt; Rep GatewayRouteHostnameRewrite x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GatewayRouteHostnameRewrite x -&gt; GatewayRouteHostnameRewrite
+$cfrom :: forall x.
+GatewayRouteHostnameRewrite -&gt; Rep GatewayRouteHostnameRewrite x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'GatewayRouteHostnameRewrite' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'defaultTargetHostname', 'gatewayRouteHostnameRewrite_defaultTargetHostname' - The default target host name to write to.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#newGatewayRouteHostnameRewrite"><span class="hs-identifier hs-type">newGatewayRouteHostnameRewrite</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#GatewayRouteHostnameRewrite"><span class="hs-identifier hs-type">GatewayRouteHostnameRewrite</span></a></span><span>
+</span><span id="line-47"></span><span id="newGatewayRouteHostnameRewrite"><span class="annot"><span class="annottext">newGatewayRouteHostnameRewrite :: GatewayRouteHostnameRewrite
+</span><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#newGatewayRouteHostnameRewrite"><span class="hs-identifier hs-var hs-var">newGatewayRouteHostnameRewrite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="annottext">GatewayRouteHostnameRewrite' :: Maybe DefaultGatewayRouteRewrite -&gt; GatewayRouteHostnameRewrite
+</span><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#GatewayRouteHostnameRewrite%27"><span class="hs-identifier hs-type">GatewayRouteHostnameRewrite'</span></a></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:defaultTargetHostname:GatewayRouteHostnameRewrite' :: Maybe DefaultGatewayRouteRewrite
+</span><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#%24sel%3AdefaultTargetHostname%3AGatewayRouteHostnameRewrite%27"><span class="hs-identifier hs-var">defaultTargetHostname</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>        </span><span class="annot"><span class="annottext">Maybe DefaultGatewayRouteRewrite
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | The default target host name to write to.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#gatewayRouteHostnameRewrite_defaultTargetHostname"><span class="hs-identifier hs-type">gatewayRouteHostnameRewrite_defaultTargetHostname</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#GatewayRouteHostnameRewrite"><span class="hs-identifier hs-type">GatewayRouteHostnameRewrite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite.html#DefaultGatewayRouteRewrite"><span class="hs-identifier hs-type">DefaultGatewayRouteRewrite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span id="gatewayRouteHostnameRewrite_defaultTargetHostname"><span class="annot"><span class="annottext">gatewayRouteHostnameRewrite_defaultTargetHostname :: (Maybe DefaultGatewayRouteRewrite
+ -&gt; f (Maybe DefaultGatewayRouteRewrite))
+-&gt; GatewayRouteHostnameRewrite -&gt; f GatewayRouteHostnameRewrite
+</span><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#gatewayRouteHostnameRewrite_defaultTargetHostname"><span class="hs-identifier hs-var hs-var">gatewayRouteHostnameRewrite_defaultTargetHostname</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatewayRouteHostnameRewrite -&gt; Maybe DefaultGatewayRouteRewrite)
+-&gt; (GatewayRouteHostnameRewrite
+    -&gt; Maybe DefaultGatewayRouteRewrite -&gt; GatewayRouteHostnameRewrite)
+-&gt; Lens
+     GatewayRouteHostnameRewrite
+     GatewayRouteHostnameRewrite
+     (Maybe DefaultGatewayRouteRewrite)
+     (Maybe DefaultGatewayRouteRewrite)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#GatewayRouteHostnameRewrite%27"><span class="hs-identifier hs-type">GatewayRouteHostnameRewrite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324273"><span class="annot"><span class="annottext">Maybe DefaultGatewayRouteRewrite
+defaultTargetHostname :: Maybe DefaultGatewayRouteRewrite
+$sel:defaultTargetHostname:GatewayRouteHostnameRewrite' :: GatewayRouteHostnameRewrite -&gt; Maybe DefaultGatewayRouteRewrite
+</span><a href="#local-6989586621679324273"><span class="hs-identifier hs-var hs-var">defaultTargetHostname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultGatewayRouteRewrite
+</span><a href="#local-6989586621679324273"><span class="hs-identifier hs-var">defaultTargetHostname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324272"><span class="annot"><span class="annottext">s :: GatewayRouteHostnameRewrite
+</span><a href="#local-6989586621679324272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#GatewayRouteHostnameRewrite%27"><span class="hs-identifier hs-type">GatewayRouteHostnameRewrite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324271"><span class="annot"><span class="annottext">Maybe DefaultGatewayRouteRewrite
+</span><a href="#local-6989586621679324271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayRouteHostnameRewrite
+</span><a href="#local-6989586621679324272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultTargetHostname:GatewayRouteHostnameRewrite' :: Maybe DefaultGatewayRouteRewrite
+</span><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#%24sel%3AdefaultTargetHostname%3AGatewayRouteHostnameRewrite%27"><span class="hs-identifier hs-var">defaultTargetHostname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultGatewayRouteRewrite
+</span><a href="#local-6989586621679324271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#GatewayRouteHostnameRewrite"><span class="hs-identifier hs-type">GatewayRouteHostnameRewrite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324268"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#GatewayRouteHostnameRewrite"><span class="hs-identifier hs-type">GatewayRouteHostnameRewrite</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679324266"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GatewayRouteHostnameRewrite
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser GatewayRouteHostnameRewrite)
+-&gt; Value
+-&gt; Parser GatewayRouteHostnameRewrite
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;GatewayRouteHostnameRewrite&quot;</span></span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679324263"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324263"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe DefaultGatewayRouteRewrite -&gt; GatewayRouteHostnameRewrite
+</span><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#GatewayRouteHostnameRewrite%27"><span class="hs-identifier hs-var">GatewayRouteHostnameRewrite'</span></a></span><span>
+</span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DefaultGatewayRouteRewrite -&gt; GatewayRouteHostnameRewrite)
+-&gt; Parser (Maybe DefaultGatewayRouteRewrite)
+-&gt; Parser GatewayRouteHostnameRewrite
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DefaultGatewayRouteRewrite)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultTargetHostname&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324257"><span id="local-6989586621679324259"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#GatewayRouteHostnameRewrite"><span class="hs-identifier hs-type">GatewayRouteHostnameRewrite</span></a></span></span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#GatewayRouteHostnameRewrite"><span class="hs-identifier hs-type">GatewayRouteHostnameRewrite</span></a></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324246"><span id="local-6989586621679324248"><span id="local-6989586621679324250"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#GatewayRouteHostnameRewrite"><span class="hs-identifier hs-type">GatewayRouteHostnameRewrite</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679324244"><span class="annot"><span class="annottext">toJSON :: GatewayRouteHostnameRewrite -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GatewayRouteHostnameRewrite.html#GatewayRouteHostnameRewrite%27"><span class="hs-identifier hs-type">GatewayRouteHostnameRewrite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324242"><span class="annot"><span class="annottext">Maybe DefaultGatewayRouteRewrite
+defaultTargetHostname :: Maybe DefaultGatewayRouteRewrite
+$sel:defaultTargetHostname:GatewayRouteHostnameRewrite' :: GatewayRouteHostnameRewrite -&gt; Maybe DefaultGatewayRouteRewrite
+</span><a href="#local-6989586621679324242"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-74"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultTargetHostname&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DefaultGatewayRouteRewrite -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>              </span><span class="annot"><span class="annottext">(DefaultGatewayRouteRewrite -&gt; Pair)
+-&gt; Maybe DefaultGatewayRouteRewrite -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DefaultGatewayRouteRewrite
+</span><a href="#local-6989586621679324242"><span class="hs-identifier hs-var">defaultTargetHostname</span></a></span><span>
+</span><span id="line-76"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span></pre></body></html>

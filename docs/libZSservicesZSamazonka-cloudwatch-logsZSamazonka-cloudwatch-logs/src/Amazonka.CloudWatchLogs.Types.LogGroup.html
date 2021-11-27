@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatchLogs.Types.LogGroup</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatchLogs.Types.LogGroup</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Represents a log group.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLogGroup' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679221002"><span id="local-6989586621679221003"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogGroup"><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-var">LogGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogGroup%27"><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-var">LogGroup'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The creation time of the log group, expressed as the number of</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- milliseconds after Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcreationTime%3ALogGroup%27"><span class="annot"><span class="annottext">LogGroup -&gt; Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AcreationTime%3ALogGroup%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The number of metric filters.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AmetricFilterCount%3ALogGroup%27"><span class="annot"><span class="annottext">LogGroup -&gt; Maybe Int
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AmetricFilterCount%3ALogGroup%27"><span class="hs-identifier hs-var hs-var">metricFilterCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the log group.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aarn%3ALogGroup%27"><span class="annot"><span class="annottext">LogGroup -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3Aarn%3ALogGroup%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the log group.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlogGroupName%3ALogGroup%27"><span class="annot"><span class="annottext">LogGroup -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AlogGroupName%3ALogGroup%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AretentionInDays%3ALogGroup%27"><span class="annot"><span class="annottext">LogGroup -&gt; Maybe Int
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AretentionInDays%3ALogGroup%27"><span class="hs-identifier hs-var hs-var">retentionInDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AkmsKeyId%3ALogGroup%27"><span class="annot"><span class="annottext">LogGroup -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AkmsKeyId%3ALogGroup%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The number of bytes stored.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AstoredBytes%3ALogGroup%27"><span class="annot"><span class="annottext">LogGroup -&gt; Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AstoredBytes%3ALogGroup%27"><span class="hs-identifier hs-var hs-var">storedBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220990"><span id="local-6989586621679220992"><span class="annot"><span class="annottext">LogGroup -&gt; LogGroup -&gt; Bool
+(LogGroup -&gt; LogGroup -&gt; Bool)
+-&gt; (LogGroup -&gt; LogGroup -&gt; Bool) -&gt; Eq LogGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LogGroup -&gt; LogGroup -&gt; Bool
+$c/= :: LogGroup -&gt; LogGroup -&gt; Bool
+== :: LogGroup -&gt; LogGroup -&gt; Bool
+$c== :: LogGroup -&gt; LogGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220981"><span id="local-6989586621679220983"><span id="local-6989586621679220985"><span id="local-6989586621679220987"><span class="annot"><span class="annottext">ReadPrec [LogGroup]
+ReadPrec LogGroup
+Int -&gt; ReadS LogGroup
+ReadS [LogGroup]
+(Int -&gt; ReadS LogGroup)
+-&gt; ReadS [LogGroup]
+-&gt; ReadPrec LogGroup
+-&gt; ReadPrec [LogGroup]
+-&gt; Read LogGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LogGroup]
+$creadListPrec :: ReadPrec [LogGroup]
+readPrec :: ReadPrec LogGroup
+$creadPrec :: ReadPrec LogGroup
+readList :: ReadS [LogGroup]
+$creadList :: ReadS [LogGroup]
+readsPrec :: Int -&gt; ReadS LogGroup
+$creadsPrec :: Int -&gt; ReadS LogGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220974"><span id="local-6989586621679220976"><span id="local-6989586621679220978"><span class="annot"><span class="annottext">Int -&gt; LogGroup -&gt; ShowS
+[LogGroup] -&gt; ShowS
+LogGroup -&gt; String
+(Int -&gt; LogGroup -&gt; ShowS)
+-&gt; (LogGroup -&gt; String) -&gt; ([LogGroup] -&gt; ShowS) -&gt; Show LogGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LogGroup] -&gt; ShowS
+$cshowList :: [LogGroup] -&gt; ShowS
+show :: LogGroup -&gt; String
+$cshow :: LogGroup -&gt; String
+showsPrec :: Int -&gt; LogGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; LogGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LogGroup -&gt; Rep LogGroup x)
+-&gt; (forall x. Rep LogGroup x -&gt; LogGroup) -&gt; Generic LogGroup
+forall x. Rep LogGroup x -&gt; LogGroup
+forall x. LogGroup -&gt; Rep LogGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LogGroup x -&gt; LogGroup
+$cfrom :: forall x. LogGroup -&gt; Rep LogGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'LogGroup' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'creationTime', 'logGroup_creationTime' - The creation time of the log group, expressed as the number of</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- milliseconds after Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'metricFilterCount', 'logGroup_metricFilterCount' - The number of metric filters.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'arn', 'logGroup_arn' - The Amazon Resource Name (ARN) of the log group.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'logGroupName', 'logGroup_logGroupName' - The name of the log group.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'retentionInDays', 'logGroup_retentionInDays' - Undocumented member.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'kmsKeyId', 'logGroup_kmsKeyId' - The Amazon Resource Name (ARN) of the CMK to use when encrypting log</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'storedBytes', 'logGroup_storedBytes' - The number of bytes stored.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#newLogGroup"><span class="hs-identifier hs-type">newLogGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span><span>
+</span><span id="line-73"></span><span id="newLogGroup"><span class="annot"><span class="annottext">newLogGroup :: LogGroup
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#newLogGroup"><span class="hs-identifier hs-var hs-var">newLogGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">LogGroup' :: Maybe Natural
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; LogGroup
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-type">LogGroup'</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:LogGroup' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AcreationTime%3ALogGroup%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricFilterCount:LogGroup' :: Maybe Int
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AmetricFilterCount%3ALogGroup%27"><span class="hs-identifier hs-var">metricFilterCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:LogGroup' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3Aarn%3ALogGroup%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:LogGroup' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AlogGroupName%3ALogGroup%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:retentionInDays:LogGroup' :: Maybe Int
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AretentionInDays%3ALogGroup%27"><span class="hs-identifier hs-var">retentionInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:LogGroup' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AkmsKeyId%3ALogGroup%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:storedBytes:LogGroup' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AstoredBytes%3ALogGroup%27"><span class="hs-identifier hs-var">storedBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The creation time of the log group, expressed as the number of</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- milliseconds after Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#logGroup_creationTime"><span class="hs-identifier hs-type">logGroup_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="logGroup_creationTime"><span class="annot"><span class="annottext">logGroup_creationTime :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; LogGroup -&gt; f LogGroup
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#logGroup_creationTime"><span class="hs-identifier hs-var hs-var">logGroup_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogGroup -&gt; Maybe Natural)
+-&gt; (LogGroup -&gt; Maybe Natural -&gt; LogGroup)
+-&gt; Lens LogGroup LogGroup (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-type">LogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220965"><span class="annot"><span class="annottext">Maybe Natural
+creationTime :: Maybe Natural
+$sel:creationTime:LogGroup' :: LogGroup -&gt; Maybe Natural
+</span><a href="#local-6989586621679220965"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679220965"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220964"><span class="annot"><span class="annottext">s :: LogGroup
+</span><a href="#local-6989586621679220964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-type">LogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220963"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679220963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogGroup
+</span><a href="#local-6989586621679220964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:LogGroup' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AcreationTime%3ALogGroup%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679220963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The number of metric filters.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#logGroup_metricFilterCount"><span class="hs-identifier hs-type">logGroup_metricFilterCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="logGroup_metricFilterCount"><span class="annot"><span class="annottext">logGroup_metricFilterCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; LogGroup -&gt; f LogGroup
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#logGroup_metricFilterCount"><span class="hs-identifier hs-var hs-var">logGroup_metricFilterCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogGroup -&gt; Maybe Int)
+-&gt; (LogGroup -&gt; Maybe Int -&gt; LogGroup)
+-&gt; Lens LogGroup LogGroup (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-type">LogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220961"><span class="annot"><span class="annottext">Maybe Int
+metricFilterCount :: Maybe Int
+$sel:metricFilterCount:LogGroup' :: LogGroup -&gt; Maybe Int
+</span><a href="#local-6989586621679220961"><span class="hs-identifier hs-var hs-var">metricFilterCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679220961"><span class="hs-identifier hs-var">metricFilterCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220960"><span class="annot"><span class="annottext">s :: LogGroup
+</span><a href="#local-6989586621679220960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-type">LogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220959"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679220959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogGroup
+</span><a href="#local-6989586621679220960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricFilterCount:LogGroup' :: Maybe Int
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AmetricFilterCount%3ALogGroup%27"><span class="hs-identifier hs-var">metricFilterCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679220959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the log group.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#logGroup_arn"><span class="hs-identifier hs-type">logGroup_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="logGroup_arn"><span class="annot"><span class="annottext">logGroup_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LogGroup -&gt; f LogGroup
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#logGroup_arn"><span class="hs-identifier hs-var hs-var">logGroup_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogGroup -&gt; Maybe Text)
+-&gt; (LogGroup -&gt; Maybe Text -&gt; LogGroup)
+-&gt; Lens LogGroup LogGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-type">LogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220957"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:LogGroup' :: LogGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679220957"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220957"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220956"><span class="annot"><span class="annottext">s :: LogGroup
+</span><a href="#local-6989586621679220956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-type">LogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220955"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogGroup
+</span><a href="#local-6989586621679220956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:LogGroup' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3Aarn%3ALogGroup%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The name of the log group.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#logGroup_logGroupName"><span class="hs-identifier hs-type">logGroup_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="logGroup_logGroupName"><span class="annot"><span class="annottext">logGroup_logGroupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LogGroup -&gt; f LogGroup
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#logGroup_logGroupName"><span class="hs-identifier hs-var hs-var">logGroup_logGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogGroup -&gt; Maybe Text)
+-&gt; (LogGroup -&gt; Maybe Text -&gt; LogGroup)
+-&gt; Lens LogGroup LogGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-type">LogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220953"><span class="annot"><span class="annottext">Maybe Text
+logGroupName :: Maybe Text
+$sel:logGroupName:LogGroup' :: LogGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679220953"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220953"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220952"><span class="annot"><span class="annottext">s :: LogGroup
+</span><a href="#local-6989586621679220952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-type">LogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220951"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogGroup
+</span><a href="#local-6989586621679220952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:LogGroup' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AlogGroupName%3ALogGroup%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#logGroup_retentionInDays"><span class="hs-identifier hs-type">logGroup_retentionInDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="logGroup_retentionInDays"><span class="annot"><span class="annottext">logGroup_retentionInDays :: (Maybe Int -&gt; f (Maybe Int)) -&gt; LogGroup -&gt; f LogGroup
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#logGroup_retentionInDays"><span class="hs-identifier hs-var hs-var">logGroup_retentionInDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogGroup -&gt; Maybe Int)
+-&gt; (LogGroup -&gt; Maybe Int -&gt; LogGroup)
+-&gt; Lens LogGroup LogGroup (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-type">LogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220949"><span class="annot"><span class="annottext">Maybe Int
+retentionInDays :: Maybe Int
+$sel:retentionInDays:LogGroup' :: LogGroup -&gt; Maybe Int
+</span><a href="#local-6989586621679220949"><span class="hs-identifier hs-var hs-var">retentionInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679220949"><span class="hs-identifier hs-var">retentionInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220948"><span class="annot"><span class="annottext">s :: LogGroup
+</span><a href="#local-6989586621679220948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-type">LogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220947"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679220947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogGroup
+</span><a href="#local-6989586621679220948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionInDays:LogGroup' :: Maybe Int
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AretentionInDays%3ALogGroup%27"><span class="hs-identifier hs-var">retentionInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679220947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#logGroup_kmsKeyId"><span class="hs-identifier hs-type">logGroup_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="logGroup_kmsKeyId"><span class="annot"><span class="annottext">logGroup_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LogGroup -&gt; f LogGroup
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#logGroup_kmsKeyId"><span class="hs-identifier hs-var hs-var">logGroup_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogGroup -&gt; Maybe Text)
+-&gt; (LogGroup -&gt; Maybe Text -&gt; LogGroup)
+-&gt; Lens LogGroup LogGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-type">LogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220945"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyId :: Maybe Text
+$sel:kmsKeyId:LogGroup' :: LogGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679220945"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220945"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220944"><span class="annot"><span class="annottext">s :: LogGroup
+</span><a href="#local-6989586621679220944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-type">LogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220943"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogGroup
+</span><a href="#local-6989586621679220944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:LogGroup' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AkmsKeyId%3ALogGroup%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The number of bytes stored.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#logGroup_storedBytes"><span class="hs-identifier hs-type">logGroup_storedBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="logGroup_storedBytes"><span class="annot"><span class="annottext">logGroup_storedBytes :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; LogGroup -&gt; f LogGroup
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#logGroup_storedBytes"><span class="hs-identifier hs-var hs-var">logGroup_storedBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogGroup -&gt; Maybe Natural)
+-&gt; (LogGroup -&gt; Maybe Natural -&gt; LogGroup)
+-&gt; Lens LogGroup LogGroup (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-type">LogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220941"><span class="annot"><span class="annottext">Maybe Natural
+storedBytes :: Maybe Natural
+$sel:storedBytes:LogGroup' :: LogGroup -&gt; Maybe Natural
+</span><a href="#local-6989586621679220941"><span class="hs-identifier hs-var hs-var">storedBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679220941"><span class="hs-identifier hs-var">storedBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220940"><span class="annot"><span class="annottext">s :: LogGroup
+</span><a href="#local-6989586621679220940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-type">LogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220939"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679220939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogGroup
+</span><a href="#local-6989586621679220940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storedBytes:LogGroup' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#%24sel%3AstoredBytes%3ALogGroup%27"><span class="hs-identifier hs-var">storedBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679220939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220936"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679220934"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser LogGroup) -&gt; Value -&gt; Parser LogGroup
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LogGroup&quot;</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679220931"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220931"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; LogGroup
+</span><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup%27"><span class="hs-identifier hs-var">LogGroup'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; LogGroup)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; LogGroup)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; LogGroup)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; LogGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricFilterCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; LogGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe Natural -&gt; LogGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe Natural -&gt; LogGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int -&gt; Maybe Text -&gt; Maybe Natural -&gt; LogGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Text -&gt; Maybe Natural -&gt; LogGroup)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Text -&gt; Maybe Natural -&gt; LogGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;retentionInDays&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Natural -&gt; LogGroup)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Natural -&gt; LogGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; LogGroup)
+-&gt; Parser (Maybe Natural) -&gt; Parser LogGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;storedBytes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220925"><span id="local-6989586621679220927"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogGroup.html#LogGroup"><span class="hs-identifier hs-type">LogGroup</span></a></span></span><span>
+</span><span id="line-132"></span></pre></body></html>

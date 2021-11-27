@@ -1,0 +1,629 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.LookoutVision.UpdateDatasetEntries</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds one or more JSON Line entries to a dataset. A JSON Line includes</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- information about an image used for training or testing an Amazon</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Lookout for Vision model. The following is an example JSON Line.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Updating a dataset might take a while to complete. To check the current</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- status, call DescribeDataset and check the @Status@ field in the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- This operation requires permissions to perform the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @lookoutvision:UpdateDatasetEntries@ operation.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LookoutVision.UpdateDatasetEntries</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier">UpdateDatasetEntries</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#newUpdateDatasetEntries"><span class="hs-identifier">newUpdateDatasetEntries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntries_clientToken"><span class="hs-identifier">updateDatasetEntries_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntries_projectName"><span class="hs-identifier">updateDatasetEntries_projectName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntries_datasetType"><span class="hs-identifier">updateDatasetEntries_datasetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntries_changes"><span class="hs-identifier">updateDatasetEntries_changes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse"><span class="hs-identifier">UpdateDatasetEntriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#newUpdateDatasetEntriesResponse"><span class="hs-identifier">newUpdateDatasetEntriesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntriesResponse_status"><span class="hs-identifier">updateDatasetEntriesResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntriesResponse_httpStatus"><span class="hs-identifier">updateDatasetEntriesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.html"><span class="hs-identifier">Amazonka.LookoutVision.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newUpdateDatasetEntries' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679187144"><span id="local-6989586621679187145"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDatasetEntries"><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-var">UpdateDatasetEntries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDatasetEntries%27"><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries%27"><span class="hs-identifier hs-var">UpdateDatasetEntries'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ClientToken is an idempotency token that ensures a call to</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @UpdateDatasetEntries@ completes only once. You choose the value to</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- pass. For example, An issue, such as an network outage, might prevent</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- you from getting a response from @UpdateDatasetEntries@. In this case,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- safely retry your call to @UpdateDatasetEntries@ by using the same</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @ClientToken@ parameter value. An error occurs if the other input</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- parameters are not the same as in the first request. Using a different</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- value for @ClientToken@ is considered a new call to</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @UpdateDatasetEntries@. An idempotency token is active for 8 hours.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AclientToken%3AUpdateDatasetEntries%27"><span class="annot"><span class="annottext">UpdateDatasetEntries -&gt; Maybe Text
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3AclientToken%3AUpdateDatasetEntries%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The name of the project that contains the dataset that you want to</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AprojectName%3AUpdateDatasetEntries%27"><span class="annot"><span class="annottext">UpdateDatasetEntries -&gt; Text
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3AprojectName%3AUpdateDatasetEntries%27"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The type of the dataset that you want to update. Specify @train@ to</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- update the training dataset. Specify @test@ to update the test dataset.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- If you have a single dataset project, specify @train@.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AdatasetType%3AUpdateDatasetEntries%27"><span class="annot"><span class="annottext">UpdateDatasetEntries -&gt; Text
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3AdatasetType%3AUpdateDatasetEntries%27"><span class="hs-identifier hs-var hs-var">datasetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The entries to add to the dataset.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Achanges%3AUpdateDatasetEntries%27"><span class="annot"><span class="annottext">UpdateDatasetEntries -&gt; Base64
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3Achanges%3AUpdateDatasetEntries%27"><span class="hs-identifier hs-var hs-var">changes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187135"><span id="local-6989586621679187137"><span class="annot"><span class="annottext">UpdateDatasetEntries -&gt; UpdateDatasetEntries -&gt; Bool
+(UpdateDatasetEntries -&gt; UpdateDatasetEntries -&gt; Bool)
+-&gt; (UpdateDatasetEntries -&gt; UpdateDatasetEntries -&gt; Bool)
+-&gt; Eq UpdateDatasetEntries
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDatasetEntries -&gt; UpdateDatasetEntries -&gt; Bool
+$c/= :: UpdateDatasetEntries -&gt; UpdateDatasetEntries -&gt; Bool
+== :: UpdateDatasetEntries -&gt; UpdateDatasetEntries -&gt; Bool
+$c== :: UpdateDatasetEntries -&gt; UpdateDatasetEntries -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187126"><span id="local-6989586621679187128"><span id="local-6989586621679187130"><span id="local-6989586621679187132"><span class="annot"><span class="annottext">ReadPrec [UpdateDatasetEntries]
+ReadPrec UpdateDatasetEntries
+Int -&gt; ReadS UpdateDatasetEntries
+ReadS [UpdateDatasetEntries]
+(Int -&gt; ReadS UpdateDatasetEntries)
+-&gt; ReadS [UpdateDatasetEntries]
+-&gt; ReadPrec UpdateDatasetEntries
+-&gt; ReadPrec [UpdateDatasetEntries]
+-&gt; Read UpdateDatasetEntries
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDatasetEntries]
+$creadListPrec :: ReadPrec [UpdateDatasetEntries]
+readPrec :: ReadPrec UpdateDatasetEntries
+$creadPrec :: ReadPrec UpdateDatasetEntries
+readList :: ReadS [UpdateDatasetEntries]
+$creadList :: ReadS [UpdateDatasetEntries]
+readsPrec :: Int -&gt; ReadS UpdateDatasetEntries
+$creadsPrec :: Int -&gt; ReadS UpdateDatasetEntries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187119"><span id="local-6989586621679187121"><span id="local-6989586621679187123"><span class="annot"><span class="annottext">Int -&gt; UpdateDatasetEntries -&gt; ShowS
+[UpdateDatasetEntries] -&gt; ShowS
+UpdateDatasetEntries -&gt; String
+(Int -&gt; UpdateDatasetEntries -&gt; ShowS)
+-&gt; (UpdateDatasetEntries -&gt; String)
+-&gt; ([UpdateDatasetEntries] -&gt; ShowS)
+-&gt; Show UpdateDatasetEntries
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDatasetEntries] -&gt; ShowS
+$cshowList :: [UpdateDatasetEntries] -&gt; ShowS
+show :: UpdateDatasetEntries -&gt; String
+$cshow :: UpdateDatasetEntries -&gt; String
+showsPrec :: Int -&gt; UpdateDatasetEntries -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDatasetEntries -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateDatasetEntries -&gt; Rep UpdateDatasetEntries x)
+-&gt; (forall x. Rep UpdateDatasetEntries x -&gt; UpdateDatasetEntries)
+-&gt; Generic UpdateDatasetEntries
+forall x. Rep UpdateDatasetEntries x -&gt; UpdateDatasetEntries
+forall x. UpdateDatasetEntries -&gt; Rep UpdateDatasetEntries x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateDatasetEntries x -&gt; UpdateDatasetEntries
+$cfrom :: forall x. UpdateDatasetEntries -&gt; Rep UpdateDatasetEntries x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Create a value of 'UpdateDatasetEntries' with all optional fields omitted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'clientToken', 'updateDatasetEntries_clientToken' - ClientToken is an idempotency token that ensures a call to</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- @UpdateDatasetEntries@ completes only once. You choose the value to</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- pass. For example, An issue, such as an network outage, might prevent</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- you from getting a response from @UpdateDatasetEntries@. In this case,</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- safely retry your call to @UpdateDatasetEntries@ by using the same</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- @ClientToken@ parameter value. An error occurs if the other input</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- parameters are not the same as in the first request. Using a different</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- value for @ClientToken@ is considered a new call to</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- @UpdateDatasetEntries@. An idempotency token is active for 8 hours.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'projectName', 'updateDatasetEntries_projectName' - The name of the project that contains the dataset that you want to</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'datasetType', 'updateDatasetEntries_datasetType' - The type of the dataset that you want to update. Specify @train@ to</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- update the training dataset. Specify @test@ to update the test dataset.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- If you have a single dataset project, specify @train@.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'changes', 'updateDatasetEntries_changes' - The entries to add to the dataset.--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#newUpdateDatasetEntries"><span class="hs-identifier hs-type">newUpdateDatasetEntries</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'projectName'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-comment">-- | 'datasetType'</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'changes'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span><span>
+</span><span id="line-123"></span><span id="newUpdateDatasetEntries"><span class="annot"><span class="annottext">newUpdateDatasetEntries :: Text -&gt; Text -&gt; ByteString -&gt; UpdateDatasetEntries
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#newUpdateDatasetEntries"><span class="hs-identifier hs-var hs-var">newUpdateDatasetEntries</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679187114"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187114"><span class="hs-identifier hs-var">pProjectName_</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679187113"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187113"><span class="hs-identifier hs-var">pDatasetType_</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679187112"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679187112"><span class="hs-identifier hs-var">pChanges_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">UpdateDatasetEntries' :: Maybe Text -&gt; Text -&gt; Text -&gt; Base64 -&gt; UpdateDatasetEntries
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries%27"><span class="hs-identifier hs-type">UpdateDatasetEntries'</span></a></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:UpdateDatasetEntries' :: Maybe Text
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3AclientToken%3AUpdateDatasetEntries%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:projectName:UpdateDatasetEntries' :: Text
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3AprojectName%3AUpdateDatasetEntries%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187114"><span class="hs-identifier hs-var">pProjectName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:datasetType:UpdateDatasetEntries' :: Text
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3AdatasetType%3AUpdateDatasetEntries%27"><span class="hs-identifier hs-var">datasetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187113"><span class="hs-identifier hs-var">pDatasetType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">$sel:changes:UpdateDatasetEntries' :: Base64
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3Achanges%3AUpdateDatasetEntries%27"><span class="hs-identifier hs-var">changes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
+-&gt; Tagged Base64 (Identity Base64)
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span> </span><span class="annot"><span class="annottext">(Tagged ByteString (Identity ByteString)
+ -&gt; Tagged Base64 (Identity Base64))
+-&gt; ByteString -&gt; Base64
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679187112"><span class="hs-identifier hs-var">pChanges_</span></a></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | ClientToken is an idempotency token that ensures a call to</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- @UpdateDatasetEntries@ completes only once. You choose the value to</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- pass. For example, An issue, such as an network outage, might prevent</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- you from getting a response from @UpdateDatasetEntries@. In this case,</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- safely retry your call to @UpdateDatasetEntries@ by using the same</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- @ClientToken@ parameter value. An error occurs if the other input</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- parameters are not the same as in the first request. Using a different</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- value for @ClientToken@ is considered a new call to</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @UpdateDatasetEntries@. An idempotency token is active for 8 hours.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntries_clientToken"><span class="hs-identifier hs-type">updateDatasetEntries_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="updateDatasetEntries_clientToken"><span class="annot"><span class="annottext">updateDatasetEntries_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDatasetEntries -&gt; f UpdateDatasetEntries
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntries_clientToken"><span class="hs-identifier hs-var hs-var">updateDatasetEntries_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDatasetEntries -&gt; Maybe Text)
+-&gt; (UpdateDatasetEntries -&gt; Maybe Text -&gt; UpdateDatasetEntries)
+-&gt; Lens
+     UpdateDatasetEntries UpdateDatasetEntries (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries%27"><span class="hs-identifier hs-type">UpdateDatasetEntries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187107"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Maybe Text
+</span><a href="#local-6989586621679187107"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187107"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187106"><span class="annot"><span class="annottext">s :: UpdateDatasetEntries
+</span><a href="#local-6989586621679187106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries%27"><span class="hs-identifier hs-type">UpdateDatasetEntries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187105"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDatasetEntries
+</span><a href="#local-6989586621679187106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:UpdateDatasetEntries' :: Maybe Text
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3AclientToken%3AUpdateDatasetEntries%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The name of the project that contains the dataset that you want to</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntries_projectName"><span class="hs-identifier hs-type">updateDatasetEntries_projectName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-150"></span><span id="updateDatasetEntries_projectName"><span class="annot"><span class="annottext">updateDatasetEntries_projectName :: (Text -&gt; f Text) -&gt; UpdateDatasetEntries -&gt; f UpdateDatasetEntries
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntries_projectName"><span class="hs-identifier hs-var hs-var">updateDatasetEntries_projectName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDatasetEntries -&gt; Text)
+-&gt; (UpdateDatasetEntries -&gt; Text -&gt; UpdateDatasetEntries)
+-&gt; Lens UpdateDatasetEntries UpdateDatasetEntries Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries%27"><span class="hs-identifier hs-type">UpdateDatasetEntries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187104"><span class="annot"><span class="annottext">Text
+projectName :: Text
+$sel:projectName:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Text
+</span><a href="#local-6989586621679187104"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187104"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187103"><span class="annot"><span class="annottext">s :: UpdateDatasetEntries
+</span><a href="#local-6989586621679187103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries%27"><span class="hs-identifier hs-type">UpdateDatasetEntries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187102"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDatasetEntries
+</span><a href="#local-6989586621679187103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:UpdateDatasetEntries' :: Text
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3AprojectName%3AUpdateDatasetEntries%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The type of the dataset that you want to update. Specify @train@ to</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- update the training dataset. Specify @test@ to update the test dataset.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- If you have a single dataset project, specify @train@.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntries_datasetType"><span class="hs-identifier hs-type">updateDatasetEntries_datasetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-156"></span><span id="updateDatasetEntries_datasetType"><span class="annot"><span class="annottext">updateDatasetEntries_datasetType :: (Text -&gt; f Text) -&gt; UpdateDatasetEntries -&gt; f UpdateDatasetEntries
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntries_datasetType"><span class="hs-identifier hs-var hs-var">updateDatasetEntries_datasetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDatasetEntries -&gt; Text)
+-&gt; (UpdateDatasetEntries -&gt; Text -&gt; UpdateDatasetEntries)
+-&gt; Lens UpdateDatasetEntries UpdateDatasetEntries Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries%27"><span class="hs-identifier hs-type">UpdateDatasetEntries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187101"><span class="annot"><span class="annottext">Text
+datasetType :: Text
+$sel:datasetType:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Text
+</span><a href="#local-6989586621679187101"><span class="hs-identifier hs-var hs-var">datasetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187101"><span class="hs-identifier hs-var">datasetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187100"><span class="annot"><span class="annottext">s :: UpdateDatasetEntries
+</span><a href="#local-6989586621679187100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries%27"><span class="hs-identifier hs-type">UpdateDatasetEntries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187099"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDatasetEntries
+</span><a href="#local-6989586621679187100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetType:UpdateDatasetEntries' :: Text
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3AdatasetType%3AUpdateDatasetEntries%27"><span class="hs-identifier hs-var">datasetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The entries to add to the dataset.--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntries_changes"><span class="hs-identifier hs-type">updateDatasetEntries_changes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-164"></span><span id="updateDatasetEntries_changes"><span class="annot"><span class="annottext">updateDatasetEntries_changes :: (ByteString -&gt; f ByteString)
+-&gt; UpdateDatasetEntries -&gt; f UpdateDatasetEntries
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntries_changes"><span class="hs-identifier hs-var hs-var">updateDatasetEntries_changes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDatasetEntries -&gt; Base64)
+-&gt; (UpdateDatasetEntries -&gt; Base64 -&gt; UpdateDatasetEntries)
+-&gt; Lens UpdateDatasetEntries UpdateDatasetEntries Base64 Base64
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries%27"><span class="hs-identifier hs-type">UpdateDatasetEntries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187098"><span class="annot"><span class="annottext">Base64
+changes :: Base64
+$sel:changes:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Base64
+</span><a href="#local-6989586621679187098"><span class="hs-identifier hs-var hs-var">changes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679187098"><span class="hs-identifier hs-var">changes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187097"><span class="annot"><span class="annottext">s :: UpdateDatasetEntries
+</span><a href="#local-6989586621679187097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries%27"><span class="hs-identifier hs-type">UpdateDatasetEntries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187096"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679187096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDatasetEntries
+</span><a href="#local-6989586621679187097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changes:UpdateDatasetEntries' :: Base64
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3Achanges%3AUpdateDatasetEntries%27"><span class="hs-identifier hs-var">changes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679187096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64)
+ -&gt; UpdateDatasetEntries -&gt; f UpdateDatasetEntries)
+-&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
+-&gt; (ByteString -&gt; f ByteString)
+-&gt; UpdateDatasetEntries
+-&gt; f UpdateDatasetEntries
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-168"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse"><span class="hs-identifier hs-type">UpdateDatasetEntriesResponse</span></a></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679187091"><span class="annot"><span class="annottext">request :: UpdateDatasetEntries -&gt; Request UpdateDatasetEntries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDatasetEntries -&gt; Request UpdateDatasetEntries
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.LookoutVision.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679187087"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateDatasetEntries
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDatasetEntries)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateDatasetEntries))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateDatasetEntries
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDatasetEntries)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679187084"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187084"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679187083"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679187083"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679187082"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187082"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">Maybe DatasetStatus -&gt; Int -&gt; UpdateDatasetEntriesResponse
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse%27"><span class="hs-identifier hs-var">UpdateDatasetEntriesResponse'</span></a></span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DatasetStatus -&gt; Int -&gt; UpdateDatasetEntriesResponse)
+-&gt; Either String (Maybe DatasetStatus)
+-&gt; Either String (Int -&gt; UpdateDatasetEntriesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DatasetStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateDatasetEntriesResponse)
+-&gt; Either String Int -&gt; Either String UpdateDatasetEntriesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187084"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187074"><span id="local-6989586621679187076"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span></span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187071"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679187067"><span class="annot"><span class="annottext">toHeaders :: UpdateDatasetEntries -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries%27"><span class="hs-identifier hs-type">UpdateDatasetEntries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187062"><span id="local-6989586621679187063"><span id="local-6989586621679187064"><span id="local-6989586621679187065"><span class="annot"><span class="annottext">Maybe Text
+Text
+Base64
+changes :: Base64
+datasetType :: Text
+projectName :: Text
+clientToken :: Maybe Text
+$sel:changes:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Base64
+$sel:datasetType:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Text
+$sel:projectName:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Text
+$sel:clientToken:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Maybe Text
+</span><a href="#local-6989586621679187062"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amzn-Client-Token&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187065"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187054"><span id="local-6989586621679187056"><span id="local-6989586621679187058"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679187052"><span class="annot"><span class="annottext">toJSON :: UpdateDatasetEntries -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries%27"><span class="hs-identifier hs-type">UpdateDatasetEntries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187047"><span id="local-6989586621679187048"><span id="local-6989586621679187049"><span id="local-6989586621679187050"><span class="annot"><span class="annottext">Maybe Text
+Text
+Base64
+changes :: Base64
+datasetType :: Text
+projectName :: Text
+clientToken :: Maybe Text
+$sel:changes:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Base64
+$sel:datasetType:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Text
+$sel:projectName:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Text
+$sel:clientToken:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Maybe Text
+</span><a href="#local-6989586621679187047"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-195"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Changes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679187047"><span class="hs-identifier hs-var">changes</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679187041"><span class="annot"><span class="annottext">toPath :: UpdateDatasetEntries -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries%27"><span class="hs-identifier hs-type">UpdateDatasetEntries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187036"><span id="local-6989586621679187037"><span id="local-6989586621679187038"><span id="local-6989586621679187039"><span class="annot"><span class="annottext">Maybe Text
+Text
+Base64
+changes :: Base64
+datasetType :: Text
+projectName :: Text
+clientToken :: Maybe Text
+$sel:changes:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Base64
+$sel:datasetType:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Text
+$sel:projectName:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Text
+$sel:clientToken:UpdateDatasetEntries' :: UpdateDatasetEntries -&gt; Maybe Text
+</span><a href="#local-6989586621679187036"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-11-20/projects/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187038"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/datasets/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187037"><span class="hs-identifier hs-var">datasetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/entries&quot;</span></span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntries"><span class="hs-identifier hs-type">UpdateDatasetEntries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679187032"><span class="annot"><span class="annottext">toQuery :: UpdateDatasetEntries -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDatasetEntries -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | /See:/ 'newUpdateDatasetEntriesResponse' smart constructor.</span><span>
+</span><span id="line-212"></span><span id="local-6989586621679187028"><span id="local-6989586621679187029"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDatasetEntriesResponse"><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse"><span class="hs-identifier hs-var">UpdateDatasetEntriesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDatasetEntriesResponse%27"><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse%27"><span class="hs-identifier hs-var">UpdateDatasetEntriesResponse'</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the dataset update.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3Astatus%3AUpdateDatasetEntriesResponse%27"><span class="annot"><span class="annottext">UpdateDatasetEntriesResponse -&gt; Maybe DatasetStatus
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3Astatus%3AUpdateDatasetEntriesResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier hs-type">DatasetStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDatasetEntriesResponse%27"><span class="annot"><span class="annottext">UpdateDatasetEntriesResponse -&gt; Int
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3AhttpStatus%3AUpdateDatasetEntriesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187022"><span id="local-6989586621679187024"><span class="annot"><span class="annottext">UpdateDatasetEntriesResponse
+-&gt; UpdateDatasetEntriesResponse -&gt; Bool
+(UpdateDatasetEntriesResponse
+ -&gt; UpdateDatasetEntriesResponse -&gt; Bool)
+-&gt; (UpdateDatasetEntriesResponse
+    -&gt; UpdateDatasetEntriesResponse -&gt; Bool)
+-&gt; Eq UpdateDatasetEntriesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDatasetEntriesResponse
+-&gt; UpdateDatasetEntriesResponse -&gt; Bool
+$c/= :: UpdateDatasetEntriesResponse
+-&gt; UpdateDatasetEntriesResponse -&gt; Bool
+== :: UpdateDatasetEntriesResponse
+-&gt; UpdateDatasetEntriesResponse -&gt; Bool
+$c== :: UpdateDatasetEntriesResponse
+-&gt; UpdateDatasetEntriesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187014"><span id="local-6989586621679187016"><span id="local-6989586621679187018"><span id="local-6989586621679187020"><span class="annot"><span class="annottext">ReadPrec [UpdateDatasetEntriesResponse]
+ReadPrec UpdateDatasetEntriesResponse
+Int -&gt; ReadS UpdateDatasetEntriesResponse
+ReadS [UpdateDatasetEntriesResponse]
+(Int -&gt; ReadS UpdateDatasetEntriesResponse)
+-&gt; ReadS [UpdateDatasetEntriesResponse]
+-&gt; ReadPrec UpdateDatasetEntriesResponse
+-&gt; ReadPrec [UpdateDatasetEntriesResponse]
+-&gt; Read UpdateDatasetEntriesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDatasetEntriesResponse]
+$creadListPrec :: ReadPrec [UpdateDatasetEntriesResponse]
+readPrec :: ReadPrec UpdateDatasetEntriesResponse
+$creadPrec :: ReadPrec UpdateDatasetEntriesResponse
+readList :: ReadS [UpdateDatasetEntriesResponse]
+$creadList :: ReadS [UpdateDatasetEntriesResponse]
+readsPrec :: Int -&gt; ReadS UpdateDatasetEntriesResponse
+$creadsPrec :: Int -&gt; ReadS UpdateDatasetEntriesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187008"><span id="local-6989586621679187010"><span id="local-6989586621679187012"><span class="annot"><span class="annottext">Int -&gt; UpdateDatasetEntriesResponse -&gt; ShowS
+[UpdateDatasetEntriesResponse] -&gt; ShowS
+UpdateDatasetEntriesResponse -&gt; String
+(Int -&gt; UpdateDatasetEntriesResponse -&gt; ShowS)
+-&gt; (UpdateDatasetEntriesResponse -&gt; String)
+-&gt; ([UpdateDatasetEntriesResponse] -&gt; ShowS)
+-&gt; Show UpdateDatasetEntriesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDatasetEntriesResponse] -&gt; ShowS
+$cshowList :: [UpdateDatasetEntriesResponse] -&gt; ShowS
+show :: UpdateDatasetEntriesResponse -&gt; String
+$cshow :: UpdateDatasetEntriesResponse -&gt; String
+showsPrec :: Int -&gt; UpdateDatasetEntriesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDatasetEntriesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateDatasetEntriesResponse -&gt; Rep UpdateDatasetEntriesResponse x)
+-&gt; (forall x.
+    Rep UpdateDatasetEntriesResponse x -&gt; UpdateDatasetEntriesResponse)
+-&gt; Generic UpdateDatasetEntriesResponse
+forall x.
+Rep UpdateDatasetEntriesResponse x -&gt; UpdateDatasetEntriesResponse
+forall x.
+UpdateDatasetEntriesResponse -&gt; Rep UpdateDatasetEntriesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateDatasetEntriesResponse x -&gt; UpdateDatasetEntriesResponse
+$cfrom :: forall x.
+UpdateDatasetEntriesResponse -&gt; Rep UpdateDatasetEntriesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- Create a value of 'UpdateDatasetEntriesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'status', 'updateDatasetEntriesResponse_status' - The status of the dataset update.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'httpStatus', 'updateDatasetEntriesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#newUpdateDatasetEntriesResponse"><span class="hs-identifier hs-type">newUpdateDatasetEntriesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse"><span class="hs-identifier hs-type">UpdateDatasetEntriesResponse</span></a></span><span>
+</span><span id="line-235"></span><span id="newUpdateDatasetEntriesResponse"><span class="annot"><span class="annottext">newUpdateDatasetEntriesResponse :: Int -&gt; UpdateDatasetEntriesResponse
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#newUpdateDatasetEntriesResponse"><span class="hs-identifier hs-var hs-var">newUpdateDatasetEntriesResponse</span></a></span></span><span> </span><span id="local-6989586621679187005"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187005"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>  </span><span class="annot"><span class="annottext">UpdateDatasetEntriesResponse' :: Maybe DatasetStatus -&gt; Int -&gt; UpdateDatasetEntriesResponse
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse%27"><span class="hs-identifier hs-type">UpdateDatasetEntriesResponse'</span></a></span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:UpdateDatasetEntriesResponse' :: Maybe DatasetStatus
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3Astatus%3AUpdateDatasetEntriesResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">Maybe DatasetStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDatasetEntriesResponse' :: Int
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3AhttpStatus%3AUpdateDatasetEntriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187005"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The status of the dataset update.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntriesResponse_status"><span class="hs-identifier hs-type">updateDatasetEntriesResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse"><span class="hs-identifier hs-type">UpdateDatasetEntriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier hs-type">DatasetStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="updateDatasetEntriesResponse_status"><span class="annot"><span class="annottext">updateDatasetEntriesResponse_status :: (Maybe DatasetStatus -&gt; f (Maybe DatasetStatus))
+-&gt; UpdateDatasetEntriesResponse -&gt; f UpdateDatasetEntriesResponse
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntriesResponse_status"><span class="hs-identifier hs-var hs-var">updateDatasetEntriesResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDatasetEntriesResponse -&gt; Maybe DatasetStatus)
+-&gt; (UpdateDatasetEntriesResponse
+    -&gt; Maybe DatasetStatus -&gt; UpdateDatasetEntriesResponse)
+-&gt; Lens
+     UpdateDatasetEntriesResponse
+     UpdateDatasetEntriesResponse
+     (Maybe DatasetStatus)
+     (Maybe DatasetStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse%27"><span class="hs-identifier hs-type">UpdateDatasetEntriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187004"><span class="annot"><span class="annottext">Maybe DatasetStatus
+status :: Maybe DatasetStatus
+$sel:status:UpdateDatasetEntriesResponse' :: UpdateDatasetEntriesResponse -&gt; Maybe DatasetStatus
+</span><a href="#local-6989586621679187004"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetStatus
+</span><a href="#local-6989586621679187004"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187003"><span class="annot"><span class="annottext">s :: UpdateDatasetEntriesResponse
+</span><a href="#local-6989586621679187003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse%27"><span class="hs-identifier hs-type">UpdateDatasetEntriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187002"><span class="annot"><span class="annottext">Maybe DatasetStatus
+</span><a href="#local-6989586621679187002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDatasetEntriesResponse
+</span><a href="#local-6989586621679187003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdateDatasetEntriesResponse' :: Maybe DatasetStatus
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3Astatus%3AUpdateDatasetEntriesResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetStatus
+</span><a href="#local-6989586621679187002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse"><span class="hs-identifier hs-type">UpdateDatasetEntriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntriesResponse_httpStatus"><span class="hs-identifier hs-type">updateDatasetEntriesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse"><span class="hs-identifier hs-type">UpdateDatasetEntriesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-248"></span><span id="updateDatasetEntriesResponse_httpStatus"><span class="annot"><span class="annottext">updateDatasetEntriesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateDatasetEntriesResponse -&gt; f UpdateDatasetEntriesResponse
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#updateDatasetEntriesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateDatasetEntriesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDatasetEntriesResponse -&gt; Int)
+-&gt; (UpdateDatasetEntriesResponse
+    -&gt; Int -&gt; UpdateDatasetEntriesResponse)
+-&gt; Lens
+     UpdateDatasetEntriesResponse UpdateDatasetEntriesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse%27"><span class="hs-identifier hs-type">UpdateDatasetEntriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187001"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateDatasetEntriesResponse' :: UpdateDatasetEntriesResponse -&gt; Int
+</span><a href="#local-6989586621679187001"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187001"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187000"><span class="annot"><span class="annottext">s :: UpdateDatasetEntriesResponse
+</span><a href="#local-6989586621679187000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse%27"><span class="hs-identifier hs-type">UpdateDatasetEntriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186999"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDatasetEntriesResponse
+</span><a href="#local-6989586621679187000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDatasetEntriesResponse' :: Int
+</span><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#%24sel%3AhttpStatus%3AUpdateDatasetEntriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse"><span class="hs-identifier hs-type">UpdateDatasetEntriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.UpdateDatasetEntries.html#UpdateDatasetEntriesResponse"><span class="hs-identifier hs-type">UpdateDatasetEntriesResponse</span></a></span></span><span>
+</span><span id="line-251"></span></pre></body></html>

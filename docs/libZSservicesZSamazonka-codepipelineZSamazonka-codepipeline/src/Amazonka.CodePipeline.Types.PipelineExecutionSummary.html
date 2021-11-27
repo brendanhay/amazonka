@@ -1,0 +1,625 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodePipeline.Types.PipelineExecutionSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodePipeline.Types.PipelineExecutionSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ExecutionTrigger.html"><span class="hs-identifier">Amazonka.CodePipeline.Types.ExecutionTrigger</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionStatus.html"><span class="hs-identifier">Amazonka.CodePipeline.Types.PipelineExecutionStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.SourceRevision.html"><span class="hs-identifier">Amazonka.CodePipeline.Types.SourceRevision</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.StopExecutionTrigger.html"><span class="hs-identifier">Amazonka.CodePipeline.Types.StopExecutionTrigger</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Summary information about a pipeline execution.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newPipelineExecutionSummary' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679283596"><span id="local-6989586621679283597"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineExecutionSummary"><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-var">PipelineExecutionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineExecutionSummary%27"><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-var">PipelineExecutionSummary'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the pipeline execution.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   InProgress: The pipeline execution is currently running.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   Stopped: The pipeline execution was manually stopped. For more</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped Stopped Executions&gt;.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   Stopping: The pipeline execution received a request to be manually</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     stopped. Depending on the selected stop mode, the execution is</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     either completing or abandoning in-progress actions. For more</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped Stopped Executions&gt;.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   Succeeded: The pipeline execution was completed successfully.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   Superseded: While this pipeline execution was waiting for the next</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     stage to be completed, a newer pipeline execution advanced and</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     continued through the pipeline instead. For more information, see</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded Superseded Executions&gt;.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   Failed: The pipeline execution was not completed successfully.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Astatus%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe PipelineExecutionStatus
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3Astatus%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionStatus.html#PipelineExecutionStatus"><span class="hs-identifier hs-type">PipelineExecutionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The date and time when the pipeline execution began, in timestamp</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AstartTime%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AstartTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The interaction that stopped a pipeline execution.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AstopTrigger%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe StopExecutionTrigger
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AstopTrigger%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">stopTrigger</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger"><span class="hs-identifier hs-type">StopExecutionTrigger</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The ID of the pipeline execution.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3ApipelineExecutionId%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe Text
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3ApipelineExecutionId%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A list of the source artifact revisions that initiated a pipeline</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AsourceRevisions%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe [SourceRevision]
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AsourceRevisions%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">sourceRevisions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodePipeline.Types.SourceRevision.html#SourceRevision"><span class="hs-identifier hs-type">SourceRevision</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The interaction or event that started a pipeline execution, such as</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- automated change detection or a @StartPipelineExecution@ API call.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Atrigger%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe ExecutionTrigger
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3Atrigger%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">trigger</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The date and time of the last change to the pipeline execution, in</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- timestamp format.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AlastUpdateTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283584"><span id="local-6989586621679283586"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; PipelineExecutionSummary -&gt; Bool
+(PipelineExecutionSummary -&gt; PipelineExecutionSummary -&gt; Bool)
+-&gt; (PipelineExecutionSummary -&gt; PipelineExecutionSummary -&gt; Bool)
+-&gt; Eq PipelineExecutionSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PipelineExecutionSummary -&gt; PipelineExecutionSummary -&gt; Bool
+$c/= :: PipelineExecutionSummary -&gt; PipelineExecutionSummary -&gt; Bool
+== :: PipelineExecutionSummary -&gt; PipelineExecutionSummary -&gt; Bool
+$c== :: PipelineExecutionSummary -&gt; PipelineExecutionSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283575"><span id="local-6989586621679283577"><span id="local-6989586621679283579"><span id="local-6989586621679283581"><span class="annot"><span class="annottext">ReadPrec [PipelineExecutionSummary]
+ReadPrec PipelineExecutionSummary
+Int -&gt; ReadS PipelineExecutionSummary
+ReadS [PipelineExecutionSummary]
+(Int -&gt; ReadS PipelineExecutionSummary)
+-&gt; ReadS [PipelineExecutionSummary]
+-&gt; ReadPrec PipelineExecutionSummary
+-&gt; ReadPrec [PipelineExecutionSummary]
+-&gt; Read PipelineExecutionSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PipelineExecutionSummary]
+$creadListPrec :: ReadPrec [PipelineExecutionSummary]
+readPrec :: ReadPrec PipelineExecutionSummary
+$creadPrec :: ReadPrec PipelineExecutionSummary
+readList :: ReadS [PipelineExecutionSummary]
+$creadList :: ReadS [PipelineExecutionSummary]
+readsPrec :: Int -&gt; ReadS PipelineExecutionSummary
+$creadsPrec :: Int -&gt; ReadS PipelineExecutionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283568"><span id="local-6989586621679283570"><span id="local-6989586621679283572"><span class="annot"><span class="annottext">Int -&gt; PipelineExecutionSummary -&gt; ShowS
+[PipelineExecutionSummary] -&gt; ShowS
+PipelineExecutionSummary -&gt; String
+(Int -&gt; PipelineExecutionSummary -&gt; ShowS)
+-&gt; (PipelineExecutionSummary -&gt; String)
+-&gt; ([PipelineExecutionSummary] -&gt; ShowS)
+-&gt; Show PipelineExecutionSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PipelineExecutionSummary] -&gt; ShowS
+$cshowList :: [PipelineExecutionSummary] -&gt; ShowS
+show :: PipelineExecutionSummary -&gt; String
+$cshow :: PipelineExecutionSummary -&gt; String
+showsPrec :: Int -&gt; PipelineExecutionSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; PipelineExecutionSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PipelineExecutionSummary -&gt; Rep PipelineExecutionSummary x)
+-&gt; (forall x.
+    Rep PipelineExecutionSummary x -&gt; PipelineExecutionSummary)
+-&gt; Generic PipelineExecutionSummary
+forall x.
+Rep PipelineExecutionSummary x -&gt; PipelineExecutionSummary
+forall x.
+PipelineExecutionSummary -&gt; Rep PipelineExecutionSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PipelineExecutionSummary x -&gt; PipelineExecutionSummary
+$cfrom :: forall x.
+PipelineExecutionSummary -&gt; Rep PipelineExecutionSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'PipelineExecutionSummary' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'status', 'pipelineExecutionSummary_status' - The status of the pipeline execution.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- -   InProgress: The pipeline execution is currently running.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- -   Stopped: The pipeline execution was manually stopped. For more</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped Stopped Executions&gt;.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- -   Stopping: The pipeline execution received a request to be manually</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--     stopped. Depending on the selected stop mode, the execution is</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--     either completing or abandoning in-progress actions. For more</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped Stopped Executions&gt;.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   Succeeded: The pipeline execution was completed successfully.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- -   Superseded: While this pipeline execution was waiting for the next</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--     stage to be completed, a newer pipeline execution advanced and</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--     continued through the pipeline instead. For more information, see</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded Superseded Executions&gt;.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -   Failed: The pipeline execution was not completed successfully.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'startTime', 'pipelineExecutionSummary_startTime' - The date and time when the pipeline execution began, in timestamp</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'stopTrigger', 'pipelineExecutionSummary_stopTrigger' - The interaction that stopped a pipeline execution.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'pipelineExecutionId', 'pipelineExecutionSummary_pipelineExecutionId' - The ID of the pipeline execution.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'sourceRevisions', 'pipelineExecutionSummary_sourceRevisions' - A list of the source artifact revisions that initiated a pipeline</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'trigger', 'pipelineExecutionSummary_trigger' - The interaction or event that started a pipeline execution, such as</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- automated change detection or a @StartPipelineExecution@ API call.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'lastUpdateTime', 'pipelineExecutionSummary_lastUpdateTime' - The date and time of the last change to the pipeline execution, in</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- timestamp format.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#newPipelineExecutionSummary"><span class="hs-identifier hs-type">newPipelineExecutionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span>
+</span><span id="line-124"></span><span id="newPipelineExecutionSummary"><span class="annot"><span class="annottext">newPipelineExecutionSummary :: PipelineExecutionSummary
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#newPipelineExecutionSummary"><span class="hs-identifier hs-var hs-var">newPipelineExecutionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">PipelineExecutionSummary' :: Maybe PipelineExecutionStatus
+-&gt; Maybe POSIX
+-&gt; Maybe StopExecutionTrigger
+-&gt; Maybe Text
+-&gt; Maybe [SourceRevision]
+-&gt; Maybe ExecutionTrigger
+-&gt; Maybe POSIX
+-&gt; PipelineExecutionSummary
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:PipelineExecutionSummary' :: Maybe PipelineExecutionStatus
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3Astatus%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:PipelineExecutionSummary' :: Maybe POSIX
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AstartTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:stopTrigger:PipelineExecutionSummary' :: Maybe StopExecutionTrigger
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AstopTrigger%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">stopTrigger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StopExecutionTrigger
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:PipelineExecutionSummary' :: Maybe Text
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3ApipelineExecutionId%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceRevisions:PipelineExecutionSummary' :: Maybe [SourceRevision]
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AsourceRevisions%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">sourceRevisions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SourceRevision]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:trigger:PipelineExecutionSummary' :: Maybe ExecutionTrigger
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3Atrigger%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">trigger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionTrigger
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:PipelineExecutionSummary' :: Maybe POSIX
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AlastUpdateTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The status of the pipeline execution.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   InProgress: The pipeline execution is currently running.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   Stopped: The pipeline execution was manually stopped. For more</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped Stopped Executions&gt;.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- -   Stopping: The pipeline execution received a request to be manually</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     stopped. Depending on the selected stop mode, the execution is</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     either completing or abandoning in-progress actions. For more</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped Stopped Executions&gt;.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- -   Succeeded: The pipeline execution was completed successfully.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   Superseded: While this pipeline execution was waiting for the next</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     stage to be completed, a newer pipeline execution advanced and</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     continued through the pipeline instead. For more information, see</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded Superseded Executions&gt;.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   Failed: The pipeline execution was not completed successfully.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_status"><span class="hs-identifier hs-type">pipelineExecutionSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionStatus.html#PipelineExecutionStatus"><span class="hs-identifier hs-type">PipelineExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="pipelineExecutionSummary_status"><span class="annot"><span class="annottext">pipelineExecutionSummary_status :: (Maybe PipelineExecutionStatus
+ -&gt; f (Maybe PipelineExecutionStatus))
+-&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_status"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe PipelineExecutionStatus)
+-&gt; (PipelineExecutionSummary
+    -&gt; Maybe PipelineExecutionStatus -&gt; PipelineExecutionSummary)
+-&gt; Lens
+     PipelineExecutionSummary
+     PipelineExecutionSummary
+     (Maybe PipelineExecutionStatus)
+     (Maybe PipelineExecutionStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283559"><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
+status :: Maybe PipelineExecutionStatus
+$sel:status:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe PipelineExecutionStatus
+</span><a href="#local-6989586621679283559"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
+</span><a href="#local-6989586621679283559"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283558"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
+</span><a href="#local-6989586621679283558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283557"><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
+</span><a href="#local-6989586621679283557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
+</span><a href="#local-6989586621679283558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:PipelineExecutionSummary' :: Maybe PipelineExecutionStatus
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3Astatus%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
+</span><a href="#local-6989586621679283557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The date and time when the pipeline execution began, in timestamp</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_startTime"><span class="hs-identifier hs-type">pipelineExecutionSummary_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="pipelineExecutionSummary_startTime"><span class="annot"><span class="annottext">pipelineExecutionSummary_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_startTime"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe POSIX)
+-&gt; (PipelineExecutionSummary
+    -&gt; Maybe POSIX -&gt; PipelineExecutionSummary)
+-&gt; Lens
+     PipelineExecutionSummary
+     PipelineExecutionSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283555"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679283555"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679283555"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283554"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
+</span><a href="#local-6989586621679283554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283553"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679283553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
+</span><a href="#local-6989586621679283554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:PipelineExecutionSummary' :: Maybe POSIX
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AstartTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679283553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PipelineExecutionSummary
+-&gt; f PipelineExecutionSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The interaction that stopped a pipeline execution.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_stopTrigger"><span class="hs-identifier hs-type">pipelineExecutionSummary_stopTrigger</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger"><span class="hs-identifier hs-type">StopExecutionTrigger</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="pipelineExecutionSummary_stopTrigger"><span class="annot"><span class="annottext">pipelineExecutionSummary_stopTrigger :: (Maybe StopExecutionTrigger -&gt; f (Maybe StopExecutionTrigger))
+-&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_stopTrigger"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_stopTrigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe StopExecutionTrigger)
+-&gt; (PipelineExecutionSummary
+    -&gt; Maybe StopExecutionTrigger -&gt; PipelineExecutionSummary)
+-&gt; Lens
+     PipelineExecutionSummary
+     PipelineExecutionSummary
+     (Maybe StopExecutionTrigger)
+     (Maybe StopExecutionTrigger)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283548"><span class="annot"><span class="annottext">Maybe StopExecutionTrigger
+stopTrigger :: Maybe StopExecutionTrigger
+$sel:stopTrigger:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe StopExecutionTrigger
+</span><a href="#local-6989586621679283548"><span class="hs-identifier hs-var hs-var">stopTrigger</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StopExecutionTrigger
+</span><a href="#local-6989586621679283548"><span class="hs-identifier hs-var">stopTrigger</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283547"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
+</span><a href="#local-6989586621679283547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283546"><span class="annot"><span class="annottext">Maybe StopExecutionTrigger
+</span><a href="#local-6989586621679283546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
+</span><a href="#local-6989586621679283547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopTrigger:PipelineExecutionSummary' :: Maybe StopExecutionTrigger
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AstopTrigger%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">stopTrigger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StopExecutionTrigger
+</span><a href="#local-6989586621679283546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The ID of the pipeline execution.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_pipelineExecutionId"><span class="hs-identifier hs-type">pipelineExecutionSummary_pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="pipelineExecutionSummary_pipelineExecutionId"><span class="annot"><span class="annottext">pipelineExecutionSummary_pipelineExecutionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_pipelineExecutionId"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_pipelineExecutionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe Text)
+-&gt; (PipelineExecutionSummary
+    -&gt; Maybe Text -&gt; PipelineExecutionSummary)
+-&gt; Lens
+     PipelineExecutionSummary
+     PipelineExecutionSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283544"><span class="annot"><span class="annottext">Maybe Text
+pipelineExecutionId :: Maybe Text
+$sel:pipelineExecutionId:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679283544"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283544"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283543"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
+</span><a href="#local-6989586621679283543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283542"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
+</span><a href="#local-6989586621679283543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:PipelineExecutionSummary' :: Maybe Text
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3ApipelineExecutionId%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | A list of the source artifact revisions that initiated a pipeline</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_sourceRevisions"><span class="hs-identifier hs-type">pipelineExecutionSummary_sourceRevisions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodePipeline.Types.SourceRevision.html#SourceRevision"><span class="hs-identifier hs-type">SourceRevision</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="pipelineExecutionSummary_sourceRevisions"><span class="annot"><span class="annottext">pipelineExecutionSummary_sourceRevisions :: (Maybe [SourceRevision] -&gt; f (Maybe [SourceRevision]))
+-&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_sourceRevisions"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_sourceRevisions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe [SourceRevision])
+-&gt; (PipelineExecutionSummary
+    -&gt; Maybe [SourceRevision] -&gt; PipelineExecutionSummary)
+-&gt; Lens
+     PipelineExecutionSummary
+     PipelineExecutionSummary
+     (Maybe [SourceRevision])
+     (Maybe [SourceRevision])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283540"><span class="annot"><span class="annottext">Maybe [SourceRevision]
+sourceRevisions :: Maybe [SourceRevision]
+$sel:sourceRevisions:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe [SourceRevision]
+</span><a href="#local-6989586621679283540"><span class="hs-identifier hs-var hs-var">sourceRevisions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SourceRevision]
+</span><a href="#local-6989586621679283540"><span class="hs-identifier hs-var">sourceRevisions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283539"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
+</span><a href="#local-6989586621679283539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283538"><span class="annot"><span class="annottext">Maybe [SourceRevision]
+</span><a href="#local-6989586621679283538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
+</span><a href="#local-6989586621679283539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRevisions:PipelineExecutionSummary' :: Maybe [SourceRevision]
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AsourceRevisions%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">sourceRevisions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SourceRevision]
+</span><a href="#local-6989586621679283538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SourceRevision] -&gt; f (Maybe [SourceRevision]))
+ -&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary)
+-&gt; ((Maybe [SourceRevision] -&gt; f (Maybe [SourceRevision]))
+    -&gt; Maybe [SourceRevision] -&gt; f (Maybe [SourceRevision]))
+-&gt; (Maybe [SourceRevision] -&gt; f (Maybe [SourceRevision]))
+-&gt; PipelineExecutionSummary
+-&gt; f PipelineExecutionSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SourceRevision] [SourceRevision] [SourceRevision] [SourceRevision]
+-&gt; Iso
+     (Maybe [SourceRevision])
+     (Maybe [SourceRevision])
+     (Maybe [SourceRevision])
+     (Maybe [SourceRevision])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SourceRevision] [SourceRevision] [SourceRevision] [SourceRevision]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The interaction or event that started a pipeline execution, such as</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- automated change detection or a @StartPipelineExecution@ API call.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_trigger"><span class="hs-identifier hs-type">pipelineExecutionSummary_trigger</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="pipelineExecutionSummary_trigger"><span class="annot"><span class="annottext">pipelineExecutionSummary_trigger :: (Maybe ExecutionTrigger -&gt; f (Maybe ExecutionTrigger))
+-&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_trigger"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_trigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe ExecutionTrigger)
+-&gt; (PipelineExecutionSummary
+    -&gt; Maybe ExecutionTrigger -&gt; PipelineExecutionSummary)
+-&gt; Lens
+     PipelineExecutionSummary
+     PipelineExecutionSummary
+     (Maybe ExecutionTrigger)
+     (Maybe ExecutionTrigger)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283535"><span class="annot"><span class="annottext">Maybe ExecutionTrigger
+trigger :: Maybe ExecutionTrigger
+$sel:trigger:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe ExecutionTrigger
+</span><a href="#local-6989586621679283535"><span class="hs-identifier hs-var hs-var">trigger</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionTrigger
+</span><a href="#local-6989586621679283535"><span class="hs-identifier hs-var">trigger</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283534"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
+</span><a href="#local-6989586621679283534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283533"><span class="annot"><span class="annottext">Maybe ExecutionTrigger
+</span><a href="#local-6989586621679283533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
+</span><a href="#local-6989586621679283534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trigger:PipelineExecutionSummary' :: Maybe ExecutionTrigger
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3Atrigger%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">trigger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionTrigger
+</span><a href="#local-6989586621679283533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The date and time of the last change to the pipeline execution, in</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- timestamp format.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_lastUpdateTime"><span class="hs-identifier hs-type">pipelineExecutionSummary_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="pipelineExecutionSummary_lastUpdateTime"><span class="annot"><span class="annottext">pipelineExecutionSummary_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_lastUpdateTime"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe POSIX)
+-&gt; (PipelineExecutionSummary
+    -&gt; Maybe POSIX -&gt; PipelineExecutionSummary)
+-&gt; Lens
+     PipelineExecutionSummary
+     PipelineExecutionSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283531"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdateTime :: Maybe POSIX
+$sel:lastUpdateTime:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679283531"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679283531"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283530"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
+</span><a href="#local-6989586621679283530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283529"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679283529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
+</span><a href="#local-6989586621679283530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:PipelineExecutionSummary' :: Maybe POSIX
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AlastUpdateTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679283529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PipelineExecutionSummary
+-&gt; f PipelineExecutionSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283526"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679283524"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineExecutionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PipelineExecutionSummary)
+-&gt; Value
+-&gt; Parser PipelineExecutionSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PipelineExecutionSummary&quot;</span></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283521"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283521"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>          </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
+-&gt; Maybe POSIX
+-&gt; Maybe StopExecutionTrigger
+-&gt; Maybe Text
+-&gt; Maybe [SourceRevision]
+-&gt; Maybe ExecutionTrigger
+-&gt; Maybe POSIX
+-&gt; PipelineExecutionSummary
+</span><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-var">PipelineExecutionSummary'</span></a></span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PipelineExecutionStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe StopExecutionTrigger
+ -&gt; Maybe Text
+ -&gt; Maybe [SourceRevision]
+ -&gt; Maybe ExecutionTrigger
+ -&gt; Maybe POSIX
+ -&gt; PipelineExecutionSummary)
+-&gt; Parser (Maybe PipelineExecutionStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe StopExecutionTrigger
+      -&gt; Maybe Text
+      -&gt; Maybe [SourceRevision]
+      -&gt; Maybe ExecutionTrigger
+      -&gt; Maybe POSIX
+      -&gt; PipelineExecutionSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PipelineExecutionStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe StopExecutionTrigger
+   -&gt; Maybe Text
+   -&gt; Maybe [SourceRevision]
+   -&gt; Maybe ExecutionTrigger
+   -&gt; Maybe POSIX
+   -&gt; PipelineExecutionSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe StopExecutionTrigger
+      -&gt; Maybe Text
+      -&gt; Maybe [SourceRevision]
+      -&gt; Maybe ExecutionTrigger
+      -&gt; Maybe POSIX
+      -&gt; PipelineExecutionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe StopExecutionTrigger
+   -&gt; Maybe Text
+   -&gt; Maybe [SourceRevision]
+   -&gt; Maybe ExecutionTrigger
+   -&gt; Maybe POSIX
+   -&gt; PipelineExecutionSummary)
+-&gt; Parser (Maybe StopExecutionTrigger)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [SourceRevision]
+      -&gt; Maybe ExecutionTrigger
+      -&gt; Maybe POSIX
+      -&gt; PipelineExecutionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StopExecutionTrigger)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stopTrigger&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [SourceRevision]
+   -&gt; Maybe ExecutionTrigger
+   -&gt; Maybe POSIX
+   -&gt; PipelineExecutionSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [SourceRevision]
+      -&gt; Maybe ExecutionTrigger
+      -&gt; Maybe POSIX
+      -&gt; PipelineExecutionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pipelineExecutionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [SourceRevision]
+   -&gt; Maybe ExecutionTrigger
+   -&gt; Maybe POSIX
+   -&gt; PipelineExecutionSummary)
+-&gt; Parser (Maybe [SourceRevision])
+-&gt; Parser
+     (Maybe ExecutionTrigger -&gt; Maybe POSIX -&gt; PipelineExecutionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SourceRevision]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceRevisions&quot;</span></span><span>
+</span><span id="line-199"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [SourceRevision]))
+-&gt; Maybe [SourceRevision] -&gt; Parser (Maybe [SourceRevision])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SourceRevision]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-200"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ExecutionTrigger -&gt; Maybe POSIX -&gt; PipelineExecutionSummary)
+-&gt; Parser (Maybe ExecutionTrigger)
+-&gt; Parser (Maybe POSIX -&gt; PipelineExecutionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExecutionTrigger)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;trigger&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; PipelineExecutionSummary)
+-&gt; Parser (Maybe POSIX) -&gt; Parser PipelineExecutionSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283514"><span id="local-6989586621679283516"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span></span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283511"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span></span><span>
+</span><span id="line-208"></span></pre></body></html>

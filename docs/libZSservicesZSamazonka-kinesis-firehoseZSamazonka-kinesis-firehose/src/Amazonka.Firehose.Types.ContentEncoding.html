@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Firehose.Types.ContentEncoding</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Firehose.Types.ContentEncoding</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ContentEncoding.html#ContentEncoding"><span class="hs-identifier">ContentEncoding</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Firehose.Types.ContentEncoding.html#ContentEncoding_GZIP"><span class="hs-identifier">ContentEncoding_GZIP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Firehose.Types.ContentEncoding.html#ContentEncoding_NONE"><span class="hs-identifier">ContentEncoding_NONE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679269047"><span id="local-6989586621679269048"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContentEncoding"><span class="annot"><a href="Amazonka.Firehose.Types.ContentEncoding.html#ContentEncoding"><span class="hs-identifier hs-var">ContentEncoding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContentEncoding%27"><span class="annot"><a href="Amazonka.Firehose.Types.ContentEncoding.html#ContentEncoding%27"><span class="hs-identifier hs-var">ContentEncoding'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContentEncoding"><span class="annot"><span class="annottext">ContentEncoding -&gt; Text
+</span><a href="Amazonka.Firehose.Types.ContentEncoding.html#fromContentEncoding"><span class="hs-identifier hs-var hs-var">fromContentEncoding</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679269039"><span id="local-6989586621679269041"><span id="local-6989586621679269043"><span class="annot"><span class="annottext">Int -&gt; ContentEncoding -&gt; ShowS
+[ContentEncoding] -&gt; ShowS
+ContentEncoding -&gt; String
+(Int -&gt; ContentEncoding -&gt; ShowS)
+-&gt; (ContentEncoding -&gt; String)
+-&gt; ([ContentEncoding] -&gt; ShowS)
+-&gt; Show ContentEncoding
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContentEncoding] -&gt; ShowS
+$cshowList :: [ContentEncoding] -&gt; ShowS
+show :: ContentEncoding -&gt; String
+$cshow :: ContentEncoding -&gt; String
+showsPrec :: Int -&gt; ContentEncoding -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContentEncoding -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679269030"><span id="local-6989586621679269032"><span id="local-6989586621679269034"><span id="local-6989586621679269036"><span class="annot"><span class="annottext">ReadPrec [ContentEncoding]
+ReadPrec ContentEncoding
+Int -&gt; ReadS ContentEncoding
+ReadS [ContentEncoding]
+(Int -&gt; ReadS ContentEncoding)
+-&gt; ReadS [ContentEncoding]
+-&gt; ReadPrec ContentEncoding
+-&gt; ReadPrec [ContentEncoding]
+-&gt; Read ContentEncoding
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContentEncoding]
+$creadListPrec :: ReadPrec [ContentEncoding]
+readPrec :: ReadPrec ContentEncoding
+$creadPrec :: ReadPrec ContentEncoding
+readList :: ReadS [ContentEncoding]
+$creadList :: ReadS [ContentEncoding]
+readsPrec :: Int -&gt; ReadS ContentEncoding
+$creadsPrec :: Int -&gt; ReadS ContentEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679269025"><span id="local-6989586621679269027"><span class="annot"><span class="annottext">ContentEncoding -&gt; ContentEncoding -&gt; Bool
+(ContentEncoding -&gt; ContentEncoding -&gt; Bool)
+-&gt; (ContentEncoding -&gt; ContentEncoding -&gt; Bool)
+-&gt; Eq ContentEncoding
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContentEncoding -&gt; ContentEncoding -&gt; Bool
+$c/= :: ContentEncoding -&gt; ContentEncoding -&gt; Bool
+== :: ContentEncoding -&gt; ContentEncoding -&gt; Bool
+$c== :: ContentEncoding -&gt; ContentEncoding -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679269009"><span id="local-6989586621679269011"><span id="local-6989586621679269013"><span id="local-6989586621679269015"><span id="local-6989586621679269017"><span id="local-6989586621679269019"><span id="local-6989586621679269021"><span class="annot"><span class="annottext">Eq ContentEncoding
+Eq ContentEncoding
+-&gt; (ContentEncoding -&gt; ContentEncoding -&gt; Ordering)
+-&gt; (ContentEncoding -&gt; ContentEncoding -&gt; Bool)
+-&gt; (ContentEncoding -&gt; ContentEncoding -&gt; Bool)
+-&gt; (ContentEncoding -&gt; ContentEncoding -&gt; Bool)
+-&gt; (ContentEncoding -&gt; ContentEncoding -&gt; Bool)
+-&gt; (ContentEncoding -&gt; ContentEncoding -&gt; ContentEncoding)
+-&gt; (ContentEncoding -&gt; ContentEncoding -&gt; ContentEncoding)
+-&gt; Ord ContentEncoding
+ContentEncoding -&gt; ContentEncoding -&gt; Bool
+ContentEncoding -&gt; ContentEncoding -&gt; Ordering
+ContentEncoding -&gt; ContentEncoding -&gt; ContentEncoding
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ContentEncoding -&gt; ContentEncoding -&gt; ContentEncoding
+$cmin :: ContentEncoding -&gt; ContentEncoding -&gt; ContentEncoding
+max :: ContentEncoding -&gt; ContentEncoding -&gt; ContentEncoding
+$cmax :: ContentEncoding -&gt; ContentEncoding -&gt; ContentEncoding
+&gt;= :: ContentEncoding -&gt; ContentEncoding -&gt; Bool
+$c&gt;= :: ContentEncoding -&gt; ContentEncoding -&gt; Bool
+&gt; :: ContentEncoding -&gt; ContentEncoding -&gt; Bool
+$c&gt; :: ContentEncoding -&gt; ContentEncoding -&gt; Bool
+&lt;= :: ContentEncoding -&gt; ContentEncoding -&gt; Bool
+$c&lt;= :: ContentEncoding -&gt; ContentEncoding -&gt; Bool
+&lt; :: ContentEncoding -&gt; ContentEncoding -&gt; Bool
+$c&lt; :: ContentEncoding -&gt; ContentEncoding -&gt; Bool
+compare :: ContentEncoding -&gt; ContentEncoding -&gt; Ordering
+$ccompare :: ContentEncoding -&gt; ContentEncoding -&gt; Ordering
+$cp1Ord :: Eq ContentEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ContentEncoding -&gt; Rep ContentEncoding x)
+-&gt; (forall x. Rep ContentEncoding x -&gt; ContentEncoding)
+-&gt; Generic ContentEncoding
+forall x. Rep ContentEncoding x -&gt; ContentEncoding
+forall x. ContentEncoding -&gt; Rep ContentEncoding x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ContentEncoding x -&gt; ContentEncoding
+$cfrom :: forall x. ContentEncoding -&gt; Rep ContentEncoding x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679269001"><span id="local-6989586621679269003"><span class="annot"><span class="annottext">Int -&gt; ContentEncoding -&gt; Int
+ContentEncoding -&gt; Int
+(Int -&gt; ContentEncoding -&gt; Int)
+-&gt; (ContentEncoding -&gt; Int) -&gt; Hashable ContentEncoding
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ContentEncoding -&gt; Int
+$chash :: ContentEncoding -&gt; Int
+hashWithSalt :: Int -&gt; ContentEncoding -&gt; Int
+$chashWithSalt :: Int -&gt; ContentEncoding -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679268998"><span class="annot"><span class="annottext">ContentEncoding -&gt; ()
+(ContentEncoding -&gt; ()) -&gt; NFData ContentEncoding
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ContentEncoding -&gt; ()
+$crnf :: ContentEncoding -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679268995"><span class="annot"><span class="annottext">Text -&gt; Either String ContentEncoding
+(Text -&gt; Either String ContentEncoding) -&gt; FromText ContentEncoding
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ContentEncoding
+$cfromText :: Text -&gt; Either String ContentEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679268992"><span class="annot"><span class="annottext">ContentEncoding -&gt; Text
+(ContentEncoding -&gt; Text) -&gt; ToText ContentEncoding
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ContentEncoding -&gt; Text
+$ctoText :: ContentEncoding -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679268989"><span class="annot"><span class="annottext">ContentEncoding -&gt; ByteString
+(ContentEncoding -&gt; ByteString) -&gt; ToByteString ContentEncoding
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ContentEncoding -&gt; ByteString
+$ctoBS :: ContentEncoding -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679268986"><span class="annot"><span class="annottext">ContentEncoding -&gt; ByteStringBuilder
+(ContentEncoding -&gt; ByteStringBuilder) -&gt; ToLog ContentEncoding
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ContentEncoding -&gt; ByteStringBuilder
+$cbuild :: ContentEncoding -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679268983"><span class="annot"><span class="annottext">HeaderName -&gt; ContentEncoding -&gt; [Header]
+(HeaderName -&gt; ContentEncoding -&gt; [Header])
+-&gt; ToHeader ContentEncoding
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ContentEncoding -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ContentEncoding -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679268980"><span class="annot"><span class="annottext">ContentEncoding -&gt; QueryString
+(ContentEncoding -&gt; QueryString) -&gt; ToQuery ContentEncoding
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ContentEncoding -&gt; QueryString
+$ctoQuery :: ContentEncoding -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679268975"><span id="local-6989586621679268977"><span class="annot"><span class="annottext">Value -&gt; Parser [ContentEncoding]
+Value -&gt; Parser ContentEncoding
+(Value -&gt; Parser ContentEncoding)
+-&gt; (Value -&gt; Parser [ContentEncoding]) -&gt; FromJSON ContentEncoding
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ContentEncoding]
+$cparseJSONList :: Value -&gt; Parser [ContentEncoding]
+parseJSON :: Value -&gt; Parser ContentEncoding
+$cparseJSON :: Value -&gt; Parser ContentEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679268970"><span id="local-6989586621679268972"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContentEncoding]
+FromJSONKeyFunction ContentEncoding
+FromJSONKeyFunction ContentEncoding
+-&gt; FromJSONKeyFunction [ContentEncoding]
+-&gt; FromJSONKey ContentEncoding
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ContentEncoding]
+$cfromJSONKeyList :: FromJSONKeyFunction [ContentEncoding]
+fromJSONKey :: FromJSONKeyFunction ContentEncoding
+$cfromJSONKey :: FromJSONKeyFunction ContentEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679268961"><span id="local-6989586621679268963"><span id="local-6989586621679268965"><span id="local-6989586621679268967"><span class="annot"><span class="annottext">[ContentEncoding] -&gt; Encoding
+[ContentEncoding] -&gt; Value
+ContentEncoding -&gt; Encoding
+ContentEncoding -&gt; Value
+(ContentEncoding -&gt; Value)
+-&gt; (ContentEncoding -&gt; Encoding)
+-&gt; ([ContentEncoding] -&gt; Value)
+-&gt; ([ContentEncoding] -&gt; Encoding)
+-&gt; ToJSON ContentEncoding
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ContentEncoding] -&gt; Encoding
+$ctoEncodingList :: [ContentEncoding] -&gt; Encoding
+toJSONList :: [ContentEncoding] -&gt; Value
+$ctoJSONList :: [ContentEncoding] -&gt; Value
+toEncoding :: ContentEncoding -&gt; Encoding
+$ctoEncoding :: ContentEncoding -&gt; Encoding
+toJSON :: ContentEncoding -&gt; Value
+$ctoJSON :: ContentEncoding -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679268956"><span id="local-6989586621679268958"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContentEncoding]
+ToJSONKeyFunction ContentEncoding
+ToJSONKeyFunction ContentEncoding
+-&gt; ToJSONKeyFunction [ContentEncoding] -&gt; ToJSONKey ContentEncoding
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ContentEncoding]
+$ctoJSONKeyList :: ToJSONKeyFunction [ContentEncoding]
+toJSONKey :: ToJSONKeyFunction ContentEncoding
+$ctoJSONKey :: ToJSONKeyFunction ContentEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679268953"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContentEncoding
+([Node] -&gt; Either String ContentEncoding)
+-&gt; FromXML ContentEncoding
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ContentEncoding
+$cparseXML :: [Node] -&gt; Either String ContentEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679268950"><span class="annot"><span class="annottext">ContentEncoding -&gt; XML
+(ContentEncoding -&gt; XML) -&gt; ToXML ContentEncoding
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ContentEncoding -&gt; XML
+$ctoXML :: ContentEncoding -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ContentEncoding.html#ContentEncoding_GZIP"><span class="hs-identifier hs-type">ContentEncoding_GZIP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ContentEncoding.html#ContentEncoding"><span class="hs-identifier hs-type">ContentEncoding</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContentEncoding_GZIP"><span id="%24mContentEncoding_GZIP"><span id="ContentEncoding_GZIP"><span class="annot"><span class="annottext">$bContentEncoding_GZIP :: ContentEncoding
+$mContentEncoding_GZIP :: forall r. ContentEncoding -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Firehose.Types.ContentEncoding.html#%24bContentEncoding_GZIP"><span class="hs-identifier hs-var hs-var hs-var">ContentEncoding_GZIP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ContentEncoding.html#ContentEncoding%27"><span class="hs-identifier hs-type">ContentEncoding'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GZIP&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ContentEncoding.html#ContentEncoding_NONE"><span class="hs-identifier hs-type">ContentEncoding_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ContentEncoding.html#ContentEncoding"><span class="hs-identifier hs-type">ContentEncoding</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContentEncoding_NONE"><span id="%24mContentEncoding_NONE"><span id="ContentEncoding_NONE"><span class="annot"><span class="annottext">$bContentEncoding_NONE :: ContentEncoding
+$mContentEncoding_NONE :: forall r. ContentEncoding -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Firehose.Types.ContentEncoding.html#%24bContentEncoding_NONE"><span class="hs-identifier hs-var hs-var hs-var">ContentEncoding_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ContentEncoding.html#ContentEncoding%27"><span class="hs-identifier hs-type">ContentEncoding'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.ContentEncoding.html#ContentEncoding_GZIP"><span class="hs-pragma hs-type">ContentEncoding_GZIP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.ContentEncoding.html#ContentEncoding_NONE"><span class="hs-pragma hs-type">ContentEncoding_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.ContentEncoding.html#ContentEncoding%27"><span class="hs-pragma hs-type">ContentEncoding'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

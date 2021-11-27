@@ -1,0 +1,676 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Organizations.InviteAccountToOrganization</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Sends an invitation to another account to join your organization as a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- member account. AWS Organizations sends email on your behalf to the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- email address that is associated with the other account\'s owner. The</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- invitation is implemented as a Handshake whose details are in the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- -   You can invite AWS accounts only from the same seller as the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--     management account. For example, if your organization\'s management</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--     account was created by Amazon Internet Services Pvt. Ltd (AISPL), an</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     AWS seller in India, you can invite only other AISPL accounts to</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     your organization. You can\'t combine accounts from AISPL and AWS or</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     from any other AWS seller. For more information, see</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html Consolidated Billing in India&gt;.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- -   If you receive an exception that indicates that you exceeded your</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     account limits for the organization or that the operation failed</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     because your organization is still initializing, wait one hour and</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     then try again. If the error persists after an hour, contact</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     &lt;https://console.aws.amazon.com/support/home#/ AWS Support&gt;.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- If the request includes tags, then the requester must have the</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- @organizations:TagResource@ permission.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- This operation can be called only from the organization\'s management</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Organizations.InviteAccountToOrganization</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier">InviteAccountToOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#newInviteAccountToOrganization"><span class="hs-identifier">newInviteAccountToOrganization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#inviteAccountToOrganization_notes"><span class="hs-identifier">inviteAccountToOrganization_notes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#inviteAccountToOrganization_tags"><span class="hs-identifier">inviteAccountToOrganization_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#inviteAccountToOrganization_target"><span class="hs-identifier">inviteAccountToOrganization_target</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse"><span class="hs-identifier">InviteAccountToOrganizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#newInviteAccountToOrganizationResponse"><span class="hs-identifier">newInviteAccountToOrganizationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#inviteAccountToOrganizationResponse_handshake"><span class="hs-identifier">inviteAccountToOrganizationResponse_handshake</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#inviteAccountToOrganizationResponse_httpStatus"><span class="hs-identifier">inviteAccountToOrganizationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.html"><span class="hs-identifier">Amazonka.Organizations.Types</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | /See:/ 'newInviteAccountToOrganization' smart constructor.</span><span>
+</span><span id="line-76"></span><span id="local-6989586621679245882"><span id="local-6989586621679245883"></span></span><span class="hs-keyword">data</span><span> </span><span id="InviteAccountToOrganization"><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-var">InviteAccountToOrganization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InviteAccountToOrganization%27"><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization%27"><span class="hs-identifier hs-var">InviteAccountToOrganization'</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Additional information that you want to include in the generated email</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- to the recipient account owner.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Anotes%3AInviteAccountToOrganization%27"><span class="annot"><span class="annottext">InviteAccountToOrganization -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#%24sel%3Anotes%3AInviteAccountToOrganization%27"><span class="hs-identifier hs-var hs-var">notes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | A list of tags that you want to attach to the account when it becomes a</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- member of the organization. For each tag in the list, you must specify</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- both a tag key and a value. You can set the value to an empty string,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- but you can\'t set it to @null@. For more information about tagging, see</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources&gt;</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- in the AWS Organizations User Guide.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- Any tags in the request are checked for compliance with any applicable</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- tag policies when the request is made. The request is rejected if the</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- tags in the request don\'t match the requirements of the policy at that</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- time. Tag policy compliance is /__not__/ checked again when the</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- invitation is accepted and the tags are actually attached to the</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- account. That means that if the tag policy changes between the</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- invitation and the acceptance, then that tags could potentially be</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- non-compliant.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- If any one of the tags is invalid or if you exceed the allowed number of</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- tags for an account, then the entire request fails and invitations are</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- not sent.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3Atags%3AInviteAccountToOrganization%27"><span class="annot"><span class="annottext">InviteAccountToOrganization -&gt; Maybe [Tag]
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#%24sel%3Atags%3AInviteAccountToOrganization%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Organizations.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | The identifier (ID) of the AWS account that you want to invite to join</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- your organization. This is a JSON object that contains the following</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- elements:</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- @{ \&quot;Type\&quot;: \&quot;ACCOUNT\&quot;, \&quot;Id\&quot;: \&quot;\&lt; account id number &gt;\&quot; }@</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- If you use the AWS CLI, you can submit this as a single string, similar</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- to the following example:</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- @--target Id=123456789012,Type=ACCOUNT@</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- If you specify @\&quot;Type\&quot;: \&quot;ACCOUNT\&quot;@, you must provide the AWS account</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- ID number as the @Id@. If you specify @\&quot;Type\&quot;: \&quot;EMAIL\&quot;@, you must</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- specify the email address that is associated with the account.</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- @--target Id=diego\@example.com,Type=EMAIL@</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3Atarget%3AInviteAccountToOrganization%27"><span class="annot"><span class="annottext">InviteAccountToOrganization -&gt; HandshakeParty
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#%24sel%3Atarget%3AInviteAccountToOrganization%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245874"><span id="local-6989586621679245876"><span class="annot"><span class="annottext">InviteAccountToOrganization -&gt; InviteAccountToOrganization -&gt; Bool
+(InviteAccountToOrganization
+ -&gt; InviteAccountToOrganization -&gt; Bool)
+-&gt; (InviteAccountToOrganization
+    -&gt; InviteAccountToOrganization -&gt; Bool)
+-&gt; Eq InviteAccountToOrganization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InviteAccountToOrganization -&gt; InviteAccountToOrganization -&gt; Bool
+$c/= :: InviteAccountToOrganization -&gt; InviteAccountToOrganization -&gt; Bool
+== :: InviteAccountToOrganization -&gt; InviteAccountToOrganization -&gt; Bool
+$c== :: InviteAccountToOrganization -&gt; InviteAccountToOrganization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245867"><span id="local-6989586621679245869"><span id="local-6989586621679245871"><span class="annot"><span class="annottext">Int -&gt; InviteAccountToOrganization -&gt; ShowS
+[InviteAccountToOrganization] -&gt; ShowS
+InviteAccountToOrganization -&gt; String
+(Int -&gt; InviteAccountToOrganization -&gt; ShowS)
+-&gt; (InviteAccountToOrganization -&gt; String)
+-&gt; ([InviteAccountToOrganization] -&gt; ShowS)
+-&gt; Show InviteAccountToOrganization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InviteAccountToOrganization] -&gt; ShowS
+$cshowList :: [InviteAccountToOrganization] -&gt; ShowS
+show :: InviteAccountToOrganization -&gt; String
+$cshow :: InviteAccountToOrganization -&gt; String
+showsPrec :: Int -&gt; InviteAccountToOrganization -&gt; ShowS
+$cshowsPrec :: Int -&gt; InviteAccountToOrganization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ InviteAccountToOrganization -&gt; Rep InviteAccountToOrganization x)
+-&gt; (forall x.
+    Rep InviteAccountToOrganization x -&gt; InviteAccountToOrganization)
+-&gt; Generic InviteAccountToOrganization
+forall x.
+Rep InviteAccountToOrganization x -&gt; InviteAccountToOrganization
+forall x.
+InviteAccountToOrganization -&gt; Rep InviteAccountToOrganization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep InviteAccountToOrganization x -&gt; InviteAccountToOrganization
+$cfrom :: forall x.
+InviteAccountToOrganization -&gt; Rep InviteAccountToOrganization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Create a value of 'InviteAccountToOrganization' with all optional fields omitted.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'notes', 'inviteAccountToOrganization_notes' - Additional information that you want to include in the generated email</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- to the recipient account owner.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'tags', 'inviteAccountToOrganization_tags' - A list of tags that you want to attach to the account when it becomes a</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- member of the organization. For each tag in the list, you must specify</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- both a tag key and a value. You can set the value to an empty string,</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- but you can\'t set it to @null@. For more information about tagging, see</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources&gt;</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- in the AWS Organizations User Guide.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Any tags in the request are checked for compliance with any applicable</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- tag policies when the request is made. The request is rejected if the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- tags in the request don\'t match the requirements of the policy at that</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- time. Tag policy compliance is /__not__/ checked again when the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- invitation is accepted and the tags are actually attached to the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- account. That means that if the tag policy changes between the</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- invitation and the acceptance, then that tags could potentially be</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- non-compliant.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- If any one of the tags is invalid or if you exceed the allowed number of</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- tags for an account, then the entire request fails and invitations are</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- not sent.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'target', 'inviteAccountToOrganization_target' - The identifier (ID) of the AWS account that you want to invite to join</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- your organization. This is a JSON object that contains the following</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- elements:</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- @{ \&quot;Type\&quot;: \&quot;ACCOUNT\&quot;, \&quot;Id\&quot;: \&quot;\&lt; account id number &gt;\&quot; }@</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- If you use the AWS CLI, you can submit this as a single string, similar</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- to the following example:</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- @--target Id=123456789012,Type=ACCOUNT@</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- If you specify @\&quot;Type\&quot;: \&quot;ACCOUNT\&quot;@, you must provide the AWS account</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- ID number as the @Id@. If you specify @\&quot;Type\&quot;: \&quot;EMAIL\&quot;@, you must</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- specify the email address that is associated with the account.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- @--target Id=diego\@example.com,Type=EMAIL@</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#newInviteAccountToOrganization"><span class="hs-identifier hs-type">newInviteAccountToOrganization</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-comment">-- | 'target'</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Amazonka.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-type">InviteAccountToOrganization</span></a></span><span>
+</span><span id="line-171"></span><span id="newInviteAccountToOrganization"><span class="annot"><span class="annottext">newInviteAccountToOrganization :: HandshakeParty -&gt; InviteAccountToOrganization
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#newInviteAccountToOrganization"><span class="hs-identifier hs-var hs-var">newInviteAccountToOrganization</span></a></span></span><span> </span><span id="local-6989586621679245862"><span class="annot"><span class="annottext">HandshakeParty
+</span><a href="#local-6989586621679245862"><span class="hs-identifier hs-var">pTarget_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">InviteAccountToOrganization' :: Maybe (Sensitive Text)
+-&gt; Maybe [Tag] -&gt; HandshakeParty -&gt; InviteAccountToOrganization
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization%27"><span class="hs-identifier hs-type">InviteAccountToOrganization'</span></a></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:notes:InviteAccountToOrganization' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#%24sel%3Anotes%3AInviteAccountToOrganization%27"><span class="hs-identifier hs-var">notes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:InviteAccountToOrganization' :: Maybe [Tag]
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#%24sel%3Atags%3AInviteAccountToOrganization%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:InviteAccountToOrganization' :: HandshakeParty
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#%24sel%3Atarget%3AInviteAccountToOrganization%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HandshakeParty
+</span><a href="#local-6989586621679245862"><span class="hs-identifier hs-var">pTarget_</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | Additional information that you want to include in the generated email</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- to the recipient account owner.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#inviteAccountToOrganization_notes"><span class="hs-identifier hs-type">inviteAccountToOrganization_notes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-type">InviteAccountToOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="inviteAccountToOrganization_notes"><span class="annot"><span class="annottext">inviteAccountToOrganization_notes :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InviteAccountToOrganization -&gt; f InviteAccountToOrganization
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#inviteAccountToOrganization_notes"><span class="hs-identifier hs-var hs-var">inviteAccountToOrganization_notes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InviteAccountToOrganization -&gt; Maybe (Sensitive Text))
+-&gt; (InviteAccountToOrganization
+    -&gt; Maybe (Sensitive Text) -&gt; InviteAccountToOrganization)
+-&gt; Lens
+     InviteAccountToOrganization
+     InviteAccountToOrganization
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization%27"><span class="hs-identifier hs-type">InviteAccountToOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245859"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+notes :: Maybe (Sensitive Text)
+$sel:notes:InviteAccountToOrganization' :: InviteAccountToOrganization -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679245859"><span class="hs-identifier hs-var hs-var">notes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679245859"><span class="hs-identifier hs-var">notes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245858"><span class="annot"><span class="annottext">s :: InviteAccountToOrganization
+</span><a href="#local-6989586621679245858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization%27"><span class="hs-identifier hs-type">InviteAccountToOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245857"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679245857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InviteAccountToOrganization
+</span><a href="#local-6989586621679245858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notes:InviteAccountToOrganization' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#%24sel%3Anotes%3AInviteAccountToOrganization%27"><span class="hs-identifier hs-var">notes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679245857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-type">InviteAccountToOrganization</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; InviteAccountToOrganization -&gt; f InviteAccountToOrganization)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; InviteAccountToOrganization
+-&gt; f InviteAccountToOrganization
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | A list of tags that you want to attach to the account when it becomes a</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- member of the organization. For each tag in the list, you must specify</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- both a tag key and a value. You can set the value to an empty string,</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- but you can\'t set it to @null@. For more information about tagging, see</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources&gt;</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- in the AWS Organizations User Guide.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Any tags in the request are checked for compliance with any applicable</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- tag policies when the request is made. The request is rejected if the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- tags in the request don\'t match the requirements of the policy at that</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- time. Tag policy compliance is /__not__/ checked again when the</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- invitation is accepted and the tags are actually attached to the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- account. That means that if the tag policy changes between the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- invitation and the acceptance, then that tags could potentially be</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- non-compliant.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- If any one of the tags is invalid or if you exceed the allowed number of</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- tags for an account, then the entire request fails and invitations are</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- not sent.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#inviteAccountToOrganization_tags"><span class="hs-identifier hs-type">inviteAccountToOrganization_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-type">InviteAccountToOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Organizations.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="inviteAccountToOrganization_tags"><span class="annot"><span class="annottext">inviteAccountToOrganization_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; InviteAccountToOrganization -&gt; f InviteAccountToOrganization
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#inviteAccountToOrganization_tags"><span class="hs-identifier hs-var hs-var">inviteAccountToOrganization_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InviteAccountToOrganization -&gt; Maybe [Tag])
+-&gt; (InviteAccountToOrganization
+    -&gt; Maybe [Tag] -&gt; InviteAccountToOrganization)
+-&gt; Lens
+     InviteAccountToOrganization
+     InviteAccountToOrganization
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization%27"><span class="hs-identifier hs-type">InviteAccountToOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245853"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:InviteAccountToOrganization' :: InviteAccountToOrganization -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679245853"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679245853"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245852"><span class="annot"><span class="annottext">s :: InviteAccountToOrganization
+</span><a href="#local-6989586621679245852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization%27"><span class="hs-identifier hs-type">InviteAccountToOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245851"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679245851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InviteAccountToOrganization
+</span><a href="#local-6989586621679245852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:InviteAccountToOrganization' :: Maybe [Tag]
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#%24sel%3Atags%3AInviteAccountToOrganization%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679245851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-type">InviteAccountToOrganization</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; InviteAccountToOrganization -&gt; f InviteAccountToOrganization)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; InviteAccountToOrganization
+-&gt; f InviteAccountToOrganization
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The identifier (ID) of the AWS account that you want to invite to join</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- your organization. This is a JSON object that contains the following</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- elements:</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- @{ \&quot;Type\&quot;: \&quot;ACCOUNT\&quot;, \&quot;Id\&quot;: \&quot;\&lt; account id number &gt;\&quot; }@</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- If you use the AWS CLI, you can submit this as a single string, similar</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- to the following example:</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- @--target Id=123456789012,Type=ACCOUNT@</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- If you specify @\&quot;Type\&quot;: \&quot;ACCOUNT\&quot;@, you must provide the AWS account</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- ID number as the @Id@. If you specify @\&quot;Type\&quot;: \&quot;EMAIL\&quot;@, you must</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- specify the email address that is associated with the account.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- @--target Id=diego\@example.com,Type=EMAIL@</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#inviteAccountToOrganization_target"><span class="hs-identifier hs-type">inviteAccountToOrganization_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-type">InviteAccountToOrganization</span></a></span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span><span>
+</span><span id="line-223"></span><span id="inviteAccountToOrganization_target"><span class="annot"><span class="annottext">inviteAccountToOrganization_target :: (HandshakeParty -&gt; f HandshakeParty)
+-&gt; InviteAccountToOrganization -&gt; f InviteAccountToOrganization
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#inviteAccountToOrganization_target"><span class="hs-identifier hs-var hs-var">inviteAccountToOrganization_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InviteAccountToOrganization -&gt; HandshakeParty)
+-&gt; (InviteAccountToOrganization
+    -&gt; HandshakeParty -&gt; InviteAccountToOrganization)
+-&gt; Lens
+     InviteAccountToOrganization
+     InviteAccountToOrganization
+     HandshakeParty
+     HandshakeParty
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization%27"><span class="hs-identifier hs-type">InviteAccountToOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245849"><span class="annot"><span class="annottext">HandshakeParty
+target :: HandshakeParty
+$sel:target:InviteAccountToOrganization' :: InviteAccountToOrganization -&gt; HandshakeParty
+</span><a href="#local-6989586621679245849"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HandshakeParty
+</span><a href="#local-6989586621679245849"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245848"><span class="annot"><span class="annottext">s :: InviteAccountToOrganization
+</span><a href="#local-6989586621679245848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization%27"><span class="hs-identifier hs-type">InviteAccountToOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245847"><span class="annot"><span class="annottext">HandshakeParty
+</span><a href="#local-6989586621679245847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InviteAccountToOrganization
+</span><a href="#local-6989586621679245848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:InviteAccountToOrganization' :: HandshakeParty
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#%24sel%3Atarget%3AInviteAccountToOrganization%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HandshakeParty
+</span><a href="#local-6989586621679245847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-type">InviteAccountToOrganization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-type">InviteAccountToOrganization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-227"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-type">InviteAccountToOrganization</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse"><span class="hs-identifier hs-type">InviteAccountToOrganizationResponse</span></a></span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679245843"><span class="annot"><span class="annottext">request :: InviteAccountToOrganization -&gt; Request InviteAccountToOrganization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; InviteAccountToOrganization
+-&gt; Request InviteAccountToOrganization
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Organizations.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679245839"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy InviteAccountToOrganization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse InviteAccountToOrganization)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse InviteAccountToOrganization))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy InviteAccountToOrganization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse InviteAccountToOrganization)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-232"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245836"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245836"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679245835"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679245835"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679245834"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245834"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-233"></span><span>          </span><span class="annot"><span class="annottext">Maybe Handshake -&gt; Int -&gt; InviteAccountToOrganizationResponse
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse%27"><span class="hs-identifier hs-var">InviteAccountToOrganizationResponse'</span></a></span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Handshake -&gt; Int -&gt; InviteAccountToOrganizationResponse)
+-&gt; Either String (Maybe Handshake)
+-&gt; Either String (Int -&gt; InviteAccountToOrganizationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Handshake)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Handshake&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; InviteAccountToOrganizationResponse)
+-&gt; Either String Int
+-&gt; Either String InviteAccountToOrganizationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245836"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245826"><span id="local-6989586621679245828"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-type">InviteAccountToOrganization</span></a></span></span></span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245823"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-type">InviteAccountToOrganization</span></a></span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-type">InviteAccountToOrganization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679245819"><span class="annot"><span class="annottext">toHeaders :: InviteAccountToOrganization -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; InviteAccountToOrganization -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-246"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-247"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSOrganizationsV20161128.InviteAccountToOrganization&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-248"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-249"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-251"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-252"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-253"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245809"><span id="local-6989586621679245811"><span id="local-6989586621679245813"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-type">InviteAccountToOrganization</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679245807"><span class="annot"><span class="annottext">toJSON :: InviteAccountToOrganization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization%27"><span class="hs-identifier hs-type">InviteAccountToOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245803"><span id="local-6989586621679245804"><span id="local-6989586621679245805"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe (Sensitive Text)
+HandshakeParty
+target :: HandshakeParty
+tags :: Maybe [Tag]
+notes :: Maybe (Sensitive Text)
+$sel:target:InviteAccountToOrganization' :: InviteAccountToOrganization -&gt; HandshakeParty
+$sel:tags:InviteAccountToOrganization' :: InviteAccountToOrganization -&gt; Maybe [Tag]
+$sel:notes:InviteAccountToOrganization' :: InviteAccountToOrganization -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679245803"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-260"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-261"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Notes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679245805"><span class="hs-identifier hs-var">notes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679245804"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Target&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HandshakeParty -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HandshakeParty
+</span><a href="#local-6989586621679245803"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-265"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-type">InviteAccountToOrganization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679245797"><span class="annot"><span class="annottext">toPath :: InviteAccountToOrganization -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; InviteAccountToOrganization -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganization"><span class="hs-identifier hs-type">InviteAccountToOrganization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679245793"><span class="annot"><span class="annottext">toQuery :: InviteAccountToOrganization -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; InviteAccountToOrganization -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | /See:/ 'newInviteAccountToOrganizationResponse' smart constructor.</span><span>
+</span><span id="line-274"></span><span id="local-6989586621679245790"><span id="local-6989586621679245791"></span></span><span class="hs-keyword">data</span><span> </span><span id="InviteAccountToOrganizationResponse"><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse"><span class="hs-identifier hs-var">InviteAccountToOrganizationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InviteAccountToOrganizationResponse%27"><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse%27"><span class="hs-identifier hs-var">InviteAccountToOrganizationResponse'</span></a></span></span><span>
+</span><span id="line-275"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure that contains details about the handshake that is created to</span><span>
+</span><span id="line-276"></span><span>    </span><span class="hs-comment">-- support this invitation request.</span><span>
+</span><span id="line-277"></span><span>    </span><span id="%24sel%3Ahandshake%3AInviteAccountToOrganizationResponse%27"><span class="annot"><span class="annottext">InviteAccountToOrganizationResponse -&gt; Maybe Handshake
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#%24sel%3Ahandshake%3AInviteAccountToOrganizationResponse%27"><span class="hs-identifier hs-var hs-var">handshake</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.Handshake.html#Handshake"><span class="hs-identifier hs-type">Handshake</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-279"></span><span>    </span><span id="%24sel%3AhttpStatus%3AInviteAccountToOrganizationResponse%27"><span class="annot"><span class="annottext">InviteAccountToOrganizationResponse -&gt; Int
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#%24sel%3AhttpStatus%3AInviteAccountToOrganizationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-280"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-281"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245784"><span id="local-6989586621679245786"><span class="annot"><span class="annottext">InviteAccountToOrganizationResponse
+-&gt; InviteAccountToOrganizationResponse -&gt; Bool
+(InviteAccountToOrganizationResponse
+ -&gt; InviteAccountToOrganizationResponse -&gt; Bool)
+-&gt; (InviteAccountToOrganizationResponse
+    -&gt; InviteAccountToOrganizationResponse -&gt; Bool)
+-&gt; Eq InviteAccountToOrganizationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InviteAccountToOrganizationResponse
+-&gt; InviteAccountToOrganizationResponse -&gt; Bool
+$c/= :: InviteAccountToOrganizationResponse
+-&gt; InviteAccountToOrganizationResponse -&gt; Bool
+== :: InviteAccountToOrganizationResponse
+-&gt; InviteAccountToOrganizationResponse -&gt; Bool
+$c== :: InviteAccountToOrganizationResponse
+-&gt; InviteAccountToOrganizationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245778"><span id="local-6989586621679245780"><span id="local-6989586621679245782"><span class="annot"><span class="annottext">Int -&gt; InviteAccountToOrganizationResponse -&gt; ShowS
+[InviteAccountToOrganizationResponse] -&gt; ShowS
+InviteAccountToOrganizationResponse -&gt; String
+(Int -&gt; InviteAccountToOrganizationResponse -&gt; ShowS)
+-&gt; (InviteAccountToOrganizationResponse -&gt; String)
+-&gt; ([InviteAccountToOrganizationResponse] -&gt; ShowS)
+-&gt; Show InviteAccountToOrganizationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InviteAccountToOrganizationResponse] -&gt; ShowS
+$cshowList :: [InviteAccountToOrganizationResponse] -&gt; ShowS
+show :: InviteAccountToOrganizationResponse -&gt; String
+$cshow :: InviteAccountToOrganizationResponse -&gt; String
+showsPrec :: Int -&gt; InviteAccountToOrganizationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; InviteAccountToOrganizationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ InviteAccountToOrganizationResponse
+ -&gt; Rep InviteAccountToOrganizationResponse x)
+-&gt; (forall x.
+    Rep InviteAccountToOrganizationResponse x
+    -&gt; InviteAccountToOrganizationResponse)
+-&gt; Generic InviteAccountToOrganizationResponse
+forall x.
+Rep InviteAccountToOrganizationResponse x
+-&gt; InviteAccountToOrganizationResponse
+forall x.
+InviteAccountToOrganizationResponse
+-&gt; Rep InviteAccountToOrganizationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep InviteAccountToOrganizationResponse x
+-&gt; InviteAccountToOrganizationResponse
+$cfrom :: forall x.
+InviteAccountToOrganizationResponse
+-&gt; Rep InviteAccountToOrganizationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- Create a value of 'InviteAccountToOrganizationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- 'handshake', 'inviteAccountToOrganizationResponse_handshake' - A structure that contains details about the handshake that is created to</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- support this invitation request.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- 'httpStatus', 'inviteAccountToOrganizationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#newInviteAccountToOrganizationResponse"><span class="hs-identifier hs-type">newInviteAccountToOrganizationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-296"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-297"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-298"></span><span>  </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse"><span class="hs-identifier hs-type">InviteAccountToOrganizationResponse</span></a></span><span>
+</span><span id="line-299"></span><span id="newInviteAccountToOrganizationResponse"><span class="annot"><span class="annottext">newInviteAccountToOrganizationResponse :: Int -&gt; InviteAccountToOrganizationResponse
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#newInviteAccountToOrganizationResponse"><span class="hs-identifier hs-var hs-var">newInviteAccountToOrganizationResponse</span></a></span></span><span> </span><span id="local-6989586621679245775"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245775"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-300"></span><span>  </span><span class="annot"><span class="annottext">InviteAccountToOrganizationResponse' :: Maybe Handshake -&gt; Int -&gt; InviteAccountToOrganizationResponse
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse%27"><span class="hs-identifier hs-type">InviteAccountToOrganizationResponse'</span></a></span><span>
+</span><span id="line-301"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:handshake:InviteAccountToOrganizationResponse' :: Maybe Handshake
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#%24sel%3Ahandshake%3AInviteAccountToOrganizationResponse%27"><span class="hs-identifier hs-var">handshake</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-302"></span><span>        </span><span class="annot"><span class="annottext">Maybe Handshake
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:InviteAccountToOrganizationResponse' :: Int
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#%24sel%3AhttpStatus%3AInviteAccountToOrganizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245775"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-304"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | A structure that contains details about the handshake that is created to</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- support this invitation request.</span><span>
+</span><span id="line-308"></span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#inviteAccountToOrganizationResponse_handshake"><span class="hs-identifier hs-type">inviteAccountToOrganizationResponse_handshake</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse"><span class="hs-identifier hs-type">InviteAccountToOrganizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.Handshake.html#Handshake"><span class="hs-identifier hs-type">Handshake</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span id="inviteAccountToOrganizationResponse_handshake"><span class="annot"><span class="annottext">inviteAccountToOrganizationResponse_handshake :: (Maybe Handshake -&gt; f (Maybe Handshake))
+-&gt; InviteAccountToOrganizationResponse
+-&gt; f InviteAccountToOrganizationResponse
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#inviteAccountToOrganizationResponse_handshake"><span class="hs-identifier hs-var hs-var">inviteAccountToOrganizationResponse_handshake</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InviteAccountToOrganizationResponse -&gt; Maybe Handshake)
+-&gt; (InviteAccountToOrganizationResponse
+    -&gt; Maybe Handshake -&gt; InviteAccountToOrganizationResponse)
+-&gt; Lens
+     InviteAccountToOrganizationResponse
+     InviteAccountToOrganizationResponse
+     (Maybe Handshake)
+     (Maybe Handshake)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse%27"><span class="hs-identifier hs-type">InviteAccountToOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245774"><span class="annot"><span class="annottext">Maybe Handshake
+handshake :: Maybe Handshake
+$sel:handshake:InviteAccountToOrganizationResponse' :: InviteAccountToOrganizationResponse -&gt; Maybe Handshake
+</span><a href="#local-6989586621679245774"><span class="hs-identifier hs-var hs-var">handshake</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Handshake
+</span><a href="#local-6989586621679245774"><span class="hs-identifier hs-var">handshake</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245773"><span class="annot"><span class="annottext">s :: InviteAccountToOrganizationResponse
+</span><a href="#local-6989586621679245773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse%27"><span class="hs-identifier hs-type">InviteAccountToOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245772"><span class="annot"><span class="annottext">Maybe Handshake
+</span><a href="#local-6989586621679245772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InviteAccountToOrganizationResponse
+</span><a href="#local-6989586621679245773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshake:InviteAccountToOrganizationResponse' :: Maybe Handshake
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#%24sel%3Ahandshake%3AInviteAccountToOrganizationResponse%27"><span class="hs-identifier hs-var">handshake</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Handshake
+</span><a href="#local-6989586621679245772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse"><span class="hs-identifier hs-type">InviteAccountToOrganizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#inviteAccountToOrganizationResponse_httpStatus"><span class="hs-identifier hs-type">inviteAccountToOrganizationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse"><span class="hs-identifier hs-type">InviteAccountToOrganizationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-313"></span><span id="inviteAccountToOrganizationResponse_httpStatus"><span class="annot"><span class="annottext">inviteAccountToOrganizationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; InviteAccountToOrganizationResponse
+-&gt; f InviteAccountToOrganizationResponse
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#inviteAccountToOrganizationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">inviteAccountToOrganizationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InviteAccountToOrganizationResponse -&gt; Int)
+-&gt; (InviteAccountToOrganizationResponse
+    -&gt; Int -&gt; InviteAccountToOrganizationResponse)
+-&gt; Lens
+     InviteAccountToOrganizationResponse
+     InviteAccountToOrganizationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse%27"><span class="hs-identifier hs-type">InviteAccountToOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245771"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:InviteAccountToOrganizationResponse' :: InviteAccountToOrganizationResponse -&gt; Int
+</span><a href="#local-6989586621679245771"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245771"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245770"><span class="annot"><span class="annottext">s :: InviteAccountToOrganizationResponse
+</span><a href="#local-6989586621679245770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse%27"><span class="hs-identifier hs-type">InviteAccountToOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245769"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InviteAccountToOrganizationResponse
+</span><a href="#local-6989586621679245770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:InviteAccountToOrganizationResponse' :: Int
+</span><a href="Amazonka.Organizations.InviteAccountToOrganization.html#%24sel%3AhttpStatus%3AInviteAccountToOrganizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse"><span class="hs-identifier hs-type">InviteAccountToOrganizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-316"></span><span>  </span><span id="local-6989586621679245767"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><a href="Amazonka.Organizations.InviteAccountToOrganization.html#InviteAccountToOrganizationResponse"><span class="hs-identifier hs-type">InviteAccountToOrganizationResponse</span></a></span></span><span>
+</span><span id="line-318"></span></pre></body></html>

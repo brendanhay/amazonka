@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Discovery.Types.ConfigurationItemType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Discovery.Types.ConfigurationItemType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType"><span class="hs-identifier">ConfigurationItemType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType_APPLICATION"><span class="hs-identifier">ConfigurationItemType_APPLICATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType_CONNECTION"><span class="hs-identifier">ConfigurationItemType_CONNECTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType_PROCESS"><span class="hs-identifier">ConfigurationItemType_PROCESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType_SERVER"><span class="hs-identifier">ConfigurationItemType_SERVER</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679201882"><span id="local-6989586621679201883"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConfigurationItemType"><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType"><span class="hs-identifier hs-var">ConfigurationItemType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationItemType%27"><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType%27"><span class="hs-identifier hs-var">ConfigurationItemType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConfigurationItemType"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; Text
+</span><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#fromConfigurationItemType"><span class="hs-identifier hs-var hs-var">fromConfigurationItemType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201874"><span id="local-6989586621679201876"><span id="local-6989586621679201878"><span class="annot"><span class="annottext">Int -&gt; ConfigurationItemType -&gt; ShowS
+[ConfigurationItemType] -&gt; ShowS
+ConfigurationItemType -&gt; String
+(Int -&gt; ConfigurationItemType -&gt; ShowS)
+-&gt; (ConfigurationItemType -&gt; String)
+-&gt; ([ConfigurationItemType] -&gt; ShowS)
+-&gt; Show ConfigurationItemType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConfigurationItemType] -&gt; ShowS
+$cshowList :: [ConfigurationItemType] -&gt; ShowS
+show :: ConfigurationItemType -&gt; String
+$cshow :: ConfigurationItemType -&gt; String
+showsPrec :: Int -&gt; ConfigurationItemType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConfigurationItemType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679201865"><span id="local-6989586621679201867"><span id="local-6989586621679201869"><span id="local-6989586621679201871"><span class="annot"><span class="annottext">ReadPrec [ConfigurationItemType]
+ReadPrec ConfigurationItemType
+Int -&gt; ReadS ConfigurationItemType
+ReadS [ConfigurationItemType]
+(Int -&gt; ReadS ConfigurationItemType)
+-&gt; ReadS [ConfigurationItemType]
+-&gt; ReadPrec ConfigurationItemType
+-&gt; ReadPrec [ConfigurationItemType]
+-&gt; Read ConfigurationItemType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConfigurationItemType]
+$creadListPrec :: ReadPrec [ConfigurationItemType]
+readPrec :: ReadPrec ConfigurationItemType
+$creadPrec :: ReadPrec ConfigurationItemType
+readList :: ReadS [ConfigurationItemType]
+$creadList :: ReadS [ConfigurationItemType]
+readsPrec :: Int -&gt; ReadS ConfigurationItemType
+$creadsPrec :: Int -&gt; ReadS ConfigurationItemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679201860"><span id="local-6989586621679201862"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
+(ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool)
+-&gt; (ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool)
+-&gt; Eq ConfigurationItemType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
+$c/= :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
+== :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
+$c== :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679201844"><span id="local-6989586621679201846"><span id="local-6989586621679201848"><span id="local-6989586621679201850"><span id="local-6989586621679201852"><span id="local-6989586621679201854"><span id="local-6989586621679201856"><span class="annot"><span class="annottext">Eq ConfigurationItemType
+Eq ConfigurationItemType
+-&gt; (ConfigurationItemType -&gt; ConfigurationItemType -&gt; Ordering)
+-&gt; (ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool)
+-&gt; (ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool)
+-&gt; (ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool)
+-&gt; (ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool)
+-&gt; (ConfigurationItemType
+    -&gt; ConfigurationItemType -&gt; ConfigurationItemType)
+-&gt; (ConfigurationItemType
+    -&gt; ConfigurationItemType -&gt; ConfigurationItemType)
+-&gt; Ord ConfigurationItemType
+ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
+ConfigurationItemType -&gt; ConfigurationItemType -&gt; Ordering
+ConfigurationItemType
+-&gt; ConfigurationItemType -&gt; ConfigurationItemType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ConfigurationItemType
+-&gt; ConfigurationItemType -&gt; ConfigurationItemType
+$cmin :: ConfigurationItemType
+-&gt; ConfigurationItemType -&gt; ConfigurationItemType
+max :: ConfigurationItemType
+-&gt; ConfigurationItemType -&gt; ConfigurationItemType
+$cmax :: ConfigurationItemType
+-&gt; ConfigurationItemType -&gt; ConfigurationItemType
+&gt;= :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
+$c&gt;= :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
+&gt; :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
+$c&gt; :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
+&lt;= :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
+$c&lt;= :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
+&lt; :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
+$c&lt; :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
+compare :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Ordering
+$ccompare :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Ordering
+$cp1Ord :: Eq ConfigurationItemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ConfigurationItemType -&gt; Rep ConfigurationItemType x)
+-&gt; (forall x. Rep ConfigurationItemType x -&gt; ConfigurationItemType)
+-&gt; Generic ConfigurationItemType
+forall x. Rep ConfigurationItemType x -&gt; ConfigurationItemType
+forall x. ConfigurationItemType -&gt; Rep ConfigurationItemType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConfigurationItemType x -&gt; ConfigurationItemType
+$cfrom :: forall x. ConfigurationItemType -&gt; Rep ConfigurationItemType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201836"><span id="local-6989586621679201838"><span class="annot"><span class="annottext">Int -&gt; ConfigurationItemType -&gt; Int
+ConfigurationItemType -&gt; Int
+(Int -&gt; ConfigurationItemType -&gt; Int)
+-&gt; (ConfigurationItemType -&gt; Int) -&gt; Hashable ConfigurationItemType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ConfigurationItemType -&gt; Int
+$chash :: ConfigurationItemType -&gt; Int
+hashWithSalt :: Int -&gt; ConfigurationItemType -&gt; Int
+$chashWithSalt :: Int -&gt; ConfigurationItemType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679201833"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; ()
+(ConfigurationItemType -&gt; ()) -&gt; NFData ConfigurationItemType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ConfigurationItemType -&gt; ()
+$crnf :: ConfigurationItemType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679201830"><span class="annot"><span class="annottext">Text -&gt; Either String ConfigurationItemType
+(Text -&gt; Either String ConfigurationItemType)
+-&gt; FromText ConfigurationItemType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ConfigurationItemType
+$cfromText :: Text -&gt; Either String ConfigurationItemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679201827"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; Text
+(ConfigurationItemType -&gt; Text) -&gt; ToText ConfigurationItemType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ConfigurationItemType -&gt; Text
+$ctoText :: ConfigurationItemType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679201824"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; ByteString
+(ConfigurationItemType -&gt; ByteString)
+-&gt; ToByteString ConfigurationItemType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ConfigurationItemType -&gt; ByteString
+$ctoBS :: ConfigurationItemType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679201821"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; ByteStringBuilder
+(ConfigurationItemType -&gt; ByteStringBuilder)
+-&gt; ToLog ConfigurationItemType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ConfigurationItemType -&gt; ByteStringBuilder
+$cbuild :: ConfigurationItemType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679201818"><span class="annot"><span class="annottext">HeaderName -&gt; ConfigurationItemType -&gt; [Header]
+(HeaderName -&gt; ConfigurationItemType -&gt; [Header])
+-&gt; ToHeader ConfigurationItemType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ConfigurationItemType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ConfigurationItemType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679201815"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; QueryString
+(ConfigurationItemType -&gt; QueryString)
+-&gt; ToQuery ConfigurationItemType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ConfigurationItemType -&gt; QueryString
+$ctoQuery :: ConfigurationItemType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679201810"><span id="local-6989586621679201812"><span class="annot"><span class="annottext">Value -&gt; Parser [ConfigurationItemType]
+Value -&gt; Parser ConfigurationItemType
+(Value -&gt; Parser ConfigurationItemType)
+-&gt; (Value -&gt; Parser [ConfigurationItemType])
+-&gt; FromJSON ConfigurationItemType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ConfigurationItemType]
+$cparseJSONList :: Value -&gt; Parser [ConfigurationItemType]
+parseJSON :: Value -&gt; Parser ConfigurationItemType
+$cparseJSON :: Value -&gt; Parser ConfigurationItemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679201805"><span id="local-6989586621679201807"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConfigurationItemType]
+FromJSONKeyFunction ConfigurationItemType
+FromJSONKeyFunction ConfigurationItemType
+-&gt; FromJSONKeyFunction [ConfigurationItemType]
+-&gt; FromJSONKey ConfigurationItemType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ConfigurationItemType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ConfigurationItemType]
+fromJSONKey :: FromJSONKeyFunction ConfigurationItemType
+$cfromJSONKey :: FromJSONKeyFunction ConfigurationItemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679201796"><span id="local-6989586621679201798"><span id="local-6989586621679201800"><span id="local-6989586621679201802"><span class="annot"><span class="annottext">[ConfigurationItemType] -&gt; Encoding
+[ConfigurationItemType] -&gt; Value
+ConfigurationItemType -&gt; Encoding
+ConfigurationItemType -&gt; Value
+(ConfigurationItemType -&gt; Value)
+-&gt; (ConfigurationItemType -&gt; Encoding)
+-&gt; ([ConfigurationItemType] -&gt; Value)
+-&gt; ([ConfigurationItemType] -&gt; Encoding)
+-&gt; ToJSON ConfigurationItemType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ConfigurationItemType] -&gt; Encoding
+$ctoEncodingList :: [ConfigurationItemType] -&gt; Encoding
+toJSONList :: [ConfigurationItemType] -&gt; Value
+$ctoJSONList :: [ConfigurationItemType] -&gt; Value
+toEncoding :: ConfigurationItemType -&gt; Encoding
+$ctoEncoding :: ConfigurationItemType -&gt; Encoding
+toJSON :: ConfigurationItemType -&gt; Value
+$ctoJSON :: ConfigurationItemType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679201791"><span id="local-6989586621679201793"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConfigurationItemType]
+ToJSONKeyFunction ConfigurationItemType
+ToJSONKeyFunction ConfigurationItemType
+-&gt; ToJSONKeyFunction [ConfigurationItemType]
+-&gt; ToJSONKey ConfigurationItemType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ConfigurationItemType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ConfigurationItemType]
+toJSONKey :: ToJSONKeyFunction ConfigurationItemType
+$ctoJSONKey :: ToJSONKeyFunction ConfigurationItemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679201788"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConfigurationItemType
+([Node] -&gt; Either String ConfigurationItemType)
+-&gt; FromXML ConfigurationItemType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ConfigurationItemType
+$cparseXML :: [Node] -&gt; Either String ConfigurationItemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679201785"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; XML
+(ConfigurationItemType -&gt; XML) -&gt; ToXML ConfigurationItemType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ConfigurationItemType -&gt; XML
+$ctoXML :: ConfigurationItemType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType_APPLICATION"><span class="hs-identifier hs-type">ConfigurationItemType_APPLICATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType"><span class="hs-identifier hs-type">ConfigurationItemType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConfigurationItemType_APPLICATION"><span id="%24mConfigurationItemType_APPLICATION"><span id="ConfigurationItemType_APPLICATION"><span class="annot"><span class="annottext">$bConfigurationItemType_APPLICATION :: ConfigurationItemType
+$mConfigurationItemType_APPLICATION :: forall r.
+ConfigurationItemType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#%24bConfigurationItemType_APPLICATION"><span class="hs-identifier hs-var hs-var hs-var">ConfigurationItemType_APPLICATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType%27"><span class="hs-identifier hs-type">ConfigurationItemType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;APPLICATION&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType_CONNECTION"><span class="hs-identifier hs-type">ConfigurationItemType_CONNECTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType"><span class="hs-identifier hs-type">ConfigurationItemType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConfigurationItemType_CONNECTION"><span id="%24mConfigurationItemType_CONNECTION"><span id="ConfigurationItemType_CONNECTION"><span class="annot"><span class="annottext">$bConfigurationItemType_CONNECTION :: ConfigurationItemType
+$mConfigurationItemType_CONNECTION :: forall r.
+ConfigurationItemType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#%24bConfigurationItemType_CONNECTION"><span class="hs-identifier hs-var hs-var hs-var">ConfigurationItemType_CONNECTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType%27"><span class="hs-identifier hs-type">ConfigurationItemType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONNECTION&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType_PROCESS"><span class="hs-identifier hs-type">ConfigurationItemType_PROCESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType"><span class="hs-identifier hs-type">ConfigurationItemType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConfigurationItemType_PROCESS"><span id="%24mConfigurationItemType_PROCESS"><span id="ConfigurationItemType_PROCESS"><span class="annot"><span class="annottext">$bConfigurationItemType_PROCESS :: ConfigurationItemType
+$mConfigurationItemType_PROCESS :: forall r.
+ConfigurationItemType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#%24bConfigurationItemType_PROCESS"><span class="hs-identifier hs-var hs-var hs-var">ConfigurationItemType_PROCESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType%27"><span class="hs-identifier hs-type">ConfigurationItemType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROCESS&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType_SERVER"><span class="hs-identifier hs-type">ConfigurationItemType_SERVER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType"><span class="hs-identifier hs-type">ConfigurationItemType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConfigurationItemType_SERVER"><span id="%24mConfigurationItemType_SERVER"><span id="ConfigurationItemType_SERVER"><span class="annot"><span class="annottext">$bConfigurationItemType_SERVER :: ConfigurationItemType
+$mConfigurationItemType_SERVER :: forall r.
+ConfigurationItemType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#%24bConfigurationItemType_SERVER"><span class="hs-identifier hs-var hs-var hs-var">ConfigurationItemType_SERVER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType%27"><span class="hs-identifier hs-type">ConfigurationItemType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SERVER&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType_APPLICATION"><span class="hs-pragma hs-type">ConfigurationItemType_APPLICATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType_CONNECTION"><span class="hs-pragma hs-type">ConfigurationItemType_CONNECTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType_PROCESS"><span class="hs-pragma hs-type">ConfigurationItemType_PROCESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType_SERVER"><span class="hs-pragma hs-type">ConfigurationItemType_SERVER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType%27"><span class="hs-pragma hs-type">ConfigurationItemType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

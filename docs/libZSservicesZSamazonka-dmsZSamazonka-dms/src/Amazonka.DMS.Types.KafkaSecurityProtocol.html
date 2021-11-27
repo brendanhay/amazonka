@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DMS.Types.KafkaSecurityProtocol</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DMS.Types.KafkaSecurityProtocol</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol"><span class="hs-identifier">KafkaSecurityProtocol</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol_Plaintext"><span class="hs-identifier">KafkaSecurityProtocol_Plaintext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol_Sasl_ssl"><span class="hs-identifier">KafkaSecurityProtocol_Sasl_ssl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol_Ssl_authentication"><span class="hs-identifier">KafkaSecurityProtocol_Ssl_authentication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol_Ssl_encryption"><span class="hs-identifier">KafkaSecurityProtocol_Ssl_encryption</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679432541"><span id="local-6989586621679432542"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="KafkaSecurityProtocol"><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol"><span class="hs-identifier hs-var">KafkaSecurityProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KafkaSecurityProtocol%27"><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol%27"><span class="hs-identifier hs-var">KafkaSecurityProtocol'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromKafkaSecurityProtocol"><span class="annot"><span class="annottext">KafkaSecurityProtocol -&gt; Text
+</span><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#fromKafkaSecurityProtocol"><span class="hs-identifier hs-var hs-var">fromKafkaSecurityProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432533"><span id="local-6989586621679432535"><span id="local-6989586621679432537"><span class="annot"><span class="annottext">Int -&gt; KafkaSecurityProtocol -&gt; ShowS
+[KafkaSecurityProtocol] -&gt; ShowS
+KafkaSecurityProtocol -&gt; String
+(Int -&gt; KafkaSecurityProtocol -&gt; ShowS)
+-&gt; (KafkaSecurityProtocol -&gt; String)
+-&gt; ([KafkaSecurityProtocol] -&gt; ShowS)
+-&gt; Show KafkaSecurityProtocol
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [KafkaSecurityProtocol] -&gt; ShowS
+$cshowList :: [KafkaSecurityProtocol] -&gt; ShowS
+show :: KafkaSecurityProtocol -&gt; String
+$cshow :: KafkaSecurityProtocol -&gt; String
+showsPrec :: Int -&gt; KafkaSecurityProtocol -&gt; ShowS
+$cshowsPrec :: Int -&gt; KafkaSecurityProtocol -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679432524"><span id="local-6989586621679432526"><span id="local-6989586621679432528"><span id="local-6989586621679432530"><span class="annot"><span class="annottext">ReadPrec [KafkaSecurityProtocol]
+ReadPrec KafkaSecurityProtocol
+Int -&gt; ReadS KafkaSecurityProtocol
+ReadS [KafkaSecurityProtocol]
+(Int -&gt; ReadS KafkaSecurityProtocol)
+-&gt; ReadS [KafkaSecurityProtocol]
+-&gt; ReadPrec KafkaSecurityProtocol
+-&gt; ReadPrec [KafkaSecurityProtocol]
+-&gt; Read KafkaSecurityProtocol
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [KafkaSecurityProtocol]
+$creadListPrec :: ReadPrec [KafkaSecurityProtocol]
+readPrec :: ReadPrec KafkaSecurityProtocol
+$creadPrec :: ReadPrec KafkaSecurityProtocol
+readList :: ReadS [KafkaSecurityProtocol]
+$creadList :: ReadS [KafkaSecurityProtocol]
+readsPrec :: Int -&gt; ReadS KafkaSecurityProtocol
+$creadsPrec :: Int -&gt; ReadS KafkaSecurityProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679432519"><span id="local-6989586621679432521"><span class="annot"><span class="annottext">KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool
+(KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool)
+-&gt; (KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool)
+-&gt; Eq KafkaSecurityProtocol
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool
+$c/= :: KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool
+== :: KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool
+$c== :: KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679432503"><span id="local-6989586621679432505"><span id="local-6989586621679432507"><span id="local-6989586621679432509"><span id="local-6989586621679432511"><span id="local-6989586621679432513"><span id="local-6989586621679432515"><span class="annot"><span class="annottext">Eq KafkaSecurityProtocol
+Eq KafkaSecurityProtocol
+-&gt; (KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Ordering)
+-&gt; (KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool)
+-&gt; (KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool)
+-&gt; (KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool)
+-&gt; (KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool)
+-&gt; (KafkaSecurityProtocol
+    -&gt; KafkaSecurityProtocol -&gt; KafkaSecurityProtocol)
+-&gt; (KafkaSecurityProtocol
+    -&gt; KafkaSecurityProtocol -&gt; KafkaSecurityProtocol)
+-&gt; Ord KafkaSecurityProtocol
+KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool
+KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Ordering
+KafkaSecurityProtocol
+-&gt; KafkaSecurityProtocol -&gt; KafkaSecurityProtocol
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: KafkaSecurityProtocol
+-&gt; KafkaSecurityProtocol -&gt; KafkaSecurityProtocol
+$cmin :: KafkaSecurityProtocol
+-&gt; KafkaSecurityProtocol -&gt; KafkaSecurityProtocol
+max :: KafkaSecurityProtocol
+-&gt; KafkaSecurityProtocol -&gt; KafkaSecurityProtocol
+$cmax :: KafkaSecurityProtocol
+-&gt; KafkaSecurityProtocol -&gt; KafkaSecurityProtocol
+&gt;= :: KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool
+$c&gt;= :: KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool
+&gt; :: KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool
+$c&gt; :: KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool
+&lt;= :: KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool
+$c&lt;= :: KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool
+&lt; :: KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool
+$c&lt; :: KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Bool
+compare :: KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Ordering
+$ccompare :: KafkaSecurityProtocol -&gt; KafkaSecurityProtocol -&gt; Ordering
+$cp1Ord :: Eq KafkaSecurityProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. KafkaSecurityProtocol -&gt; Rep KafkaSecurityProtocol x)
+-&gt; (forall x. Rep KafkaSecurityProtocol x -&gt; KafkaSecurityProtocol)
+-&gt; Generic KafkaSecurityProtocol
+forall x. Rep KafkaSecurityProtocol x -&gt; KafkaSecurityProtocol
+forall x. KafkaSecurityProtocol -&gt; Rep KafkaSecurityProtocol x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep KafkaSecurityProtocol x -&gt; KafkaSecurityProtocol
+$cfrom :: forall x. KafkaSecurityProtocol -&gt; Rep KafkaSecurityProtocol x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432495"><span id="local-6989586621679432497"><span class="annot"><span class="annottext">Int -&gt; KafkaSecurityProtocol -&gt; Int
+KafkaSecurityProtocol -&gt; Int
+(Int -&gt; KafkaSecurityProtocol -&gt; Int)
+-&gt; (KafkaSecurityProtocol -&gt; Int) -&gt; Hashable KafkaSecurityProtocol
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: KafkaSecurityProtocol -&gt; Int
+$chash :: KafkaSecurityProtocol -&gt; Int
+hashWithSalt :: Int -&gt; KafkaSecurityProtocol -&gt; Int
+$chashWithSalt :: Int -&gt; KafkaSecurityProtocol -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679432492"><span class="annot"><span class="annottext">KafkaSecurityProtocol -&gt; ()
+(KafkaSecurityProtocol -&gt; ()) -&gt; NFData KafkaSecurityProtocol
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: KafkaSecurityProtocol -&gt; ()
+$crnf :: KafkaSecurityProtocol -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679432489"><span class="annot"><span class="annottext">Text -&gt; Either String KafkaSecurityProtocol
+(Text -&gt; Either String KafkaSecurityProtocol)
+-&gt; FromText KafkaSecurityProtocol
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String KafkaSecurityProtocol
+$cfromText :: Text -&gt; Either String KafkaSecurityProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679432486"><span class="annot"><span class="annottext">KafkaSecurityProtocol -&gt; Text
+(KafkaSecurityProtocol -&gt; Text) -&gt; ToText KafkaSecurityProtocol
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: KafkaSecurityProtocol -&gt; Text
+$ctoText :: KafkaSecurityProtocol -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679432483"><span class="annot"><span class="annottext">KafkaSecurityProtocol -&gt; ByteString
+(KafkaSecurityProtocol -&gt; ByteString)
+-&gt; ToByteString KafkaSecurityProtocol
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: KafkaSecurityProtocol -&gt; ByteString
+$ctoBS :: KafkaSecurityProtocol -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679432480"><span class="annot"><span class="annottext">KafkaSecurityProtocol -&gt; ByteStringBuilder
+(KafkaSecurityProtocol -&gt; ByteStringBuilder)
+-&gt; ToLog KafkaSecurityProtocol
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: KafkaSecurityProtocol -&gt; ByteStringBuilder
+$cbuild :: KafkaSecurityProtocol -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679432477"><span class="annot"><span class="annottext">HeaderName -&gt; KafkaSecurityProtocol -&gt; [Header]
+(HeaderName -&gt; KafkaSecurityProtocol -&gt; [Header])
+-&gt; ToHeader KafkaSecurityProtocol
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; KafkaSecurityProtocol -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; KafkaSecurityProtocol -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679432474"><span class="annot"><span class="annottext">KafkaSecurityProtocol -&gt; QueryString
+(KafkaSecurityProtocol -&gt; QueryString)
+-&gt; ToQuery KafkaSecurityProtocol
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: KafkaSecurityProtocol -&gt; QueryString
+$ctoQuery :: KafkaSecurityProtocol -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679432469"><span id="local-6989586621679432471"><span class="annot"><span class="annottext">Value -&gt; Parser [KafkaSecurityProtocol]
+Value -&gt; Parser KafkaSecurityProtocol
+(Value -&gt; Parser KafkaSecurityProtocol)
+-&gt; (Value -&gt; Parser [KafkaSecurityProtocol])
+-&gt; FromJSON KafkaSecurityProtocol
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [KafkaSecurityProtocol]
+$cparseJSONList :: Value -&gt; Parser [KafkaSecurityProtocol]
+parseJSON :: Value -&gt; Parser KafkaSecurityProtocol
+$cparseJSON :: Value -&gt; Parser KafkaSecurityProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679432464"><span id="local-6989586621679432466"><span class="annot"><span class="annottext">FromJSONKeyFunction [KafkaSecurityProtocol]
+FromJSONKeyFunction KafkaSecurityProtocol
+FromJSONKeyFunction KafkaSecurityProtocol
+-&gt; FromJSONKeyFunction [KafkaSecurityProtocol]
+-&gt; FromJSONKey KafkaSecurityProtocol
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [KafkaSecurityProtocol]
+$cfromJSONKeyList :: FromJSONKeyFunction [KafkaSecurityProtocol]
+fromJSONKey :: FromJSONKeyFunction KafkaSecurityProtocol
+$cfromJSONKey :: FromJSONKeyFunction KafkaSecurityProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679432455"><span id="local-6989586621679432457"><span id="local-6989586621679432459"><span id="local-6989586621679432461"><span class="annot"><span class="annottext">[KafkaSecurityProtocol] -&gt; Encoding
+[KafkaSecurityProtocol] -&gt; Value
+KafkaSecurityProtocol -&gt; Encoding
+KafkaSecurityProtocol -&gt; Value
+(KafkaSecurityProtocol -&gt; Value)
+-&gt; (KafkaSecurityProtocol -&gt; Encoding)
+-&gt; ([KafkaSecurityProtocol] -&gt; Value)
+-&gt; ([KafkaSecurityProtocol] -&gt; Encoding)
+-&gt; ToJSON KafkaSecurityProtocol
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [KafkaSecurityProtocol] -&gt; Encoding
+$ctoEncodingList :: [KafkaSecurityProtocol] -&gt; Encoding
+toJSONList :: [KafkaSecurityProtocol] -&gt; Value
+$ctoJSONList :: [KafkaSecurityProtocol] -&gt; Value
+toEncoding :: KafkaSecurityProtocol -&gt; Encoding
+$ctoEncoding :: KafkaSecurityProtocol -&gt; Encoding
+toJSON :: KafkaSecurityProtocol -&gt; Value
+$ctoJSON :: KafkaSecurityProtocol -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679432450"><span id="local-6989586621679432452"><span class="annot"><span class="annottext">ToJSONKeyFunction [KafkaSecurityProtocol]
+ToJSONKeyFunction KafkaSecurityProtocol
+ToJSONKeyFunction KafkaSecurityProtocol
+-&gt; ToJSONKeyFunction [KafkaSecurityProtocol]
+-&gt; ToJSONKey KafkaSecurityProtocol
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [KafkaSecurityProtocol]
+$ctoJSONKeyList :: ToJSONKeyFunction [KafkaSecurityProtocol]
+toJSONKey :: ToJSONKeyFunction KafkaSecurityProtocol
+$ctoJSONKey :: ToJSONKeyFunction KafkaSecurityProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679432447"><span class="annot"><span class="annottext">[Node] -&gt; Either String KafkaSecurityProtocol
+([Node] -&gt; Either String KafkaSecurityProtocol)
+-&gt; FromXML KafkaSecurityProtocol
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String KafkaSecurityProtocol
+$cparseXML :: [Node] -&gt; Either String KafkaSecurityProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679432444"><span class="annot"><span class="annottext">KafkaSecurityProtocol -&gt; XML
+(KafkaSecurityProtocol -&gt; XML) -&gt; ToXML KafkaSecurityProtocol
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: KafkaSecurityProtocol -&gt; XML
+$ctoXML :: KafkaSecurityProtocol -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol_Plaintext"><span class="hs-identifier hs-type">KafkaSecurityProtocol_Plaintext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol"><span class="hs-identifier hs-type">KafkaSecurityProtocol</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKafkaSecurityProtocol_Plaintext"><span id="%24mKafkaSecurityProtocol_Plaintext"><span id="KafkaSecurityProtocol_Plaintext"><span class="annot"><span class="annottext">$bKafkaSecurityProtocol_Plaintext :: KafkaSecurityProtocol
+$mKafkaSecurityProtocol_Plaintext :: forall r.
+KafkaSecurityProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#%24bKafkaSecurityProtocol_Plaintext"><span class="hs-identifier hs-var hs-var hs-var">KafkaSecurityProtocol_Plaintext</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol%27"><span class="hs-identifier hs-type">KafkaSecurityProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;plaintext&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol_Sasl_ssl"><span class="hs-identifier hs-type">KafkaSecurityProtocol_Sasl_ssl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol"><span class="hs-identifier hs-type">KafkaSecurityProtocol</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKafkaSecurityProtocol_Sasl_ssl"><span id="%24mKafkaSecurityProtocol_Sasl_ssl"><span id="KafkaSecurityProtocol_Sasl_ssl"><span class="annot"><span class="annottext">$bKafkaSecurityProtocol_Sasl_ssl :: KafkaSecurityProtocol
+$mKafkaSecurityProtocol_Sasl_ssl :: forall r.
+KafkaSecurityProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#%24bKafkaSecurityProtocol_Sasl_ssl"><span class="hs-identifier hs-var hs-var hs-var">KafkaSecurityProtocol_Sasl_ssl</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol%27"><span class="hs-identifier hs-type">KafkaSecurityProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;sasl-ssl&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol_Ssl_authentication"><span class="hs-identifier hs-type">KafkaSecurityProtocol_Ssl_authentication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol"><span class="hs-identifier hs-type">KafkaSecurityProtocol</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKafkaSecurityProtocol_Ssl_authentication"><span id="%24mKafkaSecurityProtocol_Ssl_authentication"><span id="KafkaSecurityProtocol_Ssl_authentication"><span class="annot"><span class="annottext">$bKafkaSecurityProtocol_Ssl_authentication :: KafkaSecurityProtocol
+$mKafkaSecurityProtocol_Ssl_authentication :: forall r.
+KafkaSecurityProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#%24bKafkaSecurityProtocol_Ssl_authentication"><span class="hs-identifier hs-var hs-var hs-var">KafkaSecurityProtocol_Ssl_authentication</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol%27"><span class="hs-identifier hs-type">KafkaSecurityProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ssl-authentication&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol_Ssl_encryption"><span class="hs-identifier hs-type">KafkaSecurityProtocol_Ssl_encryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol"><span class="hs-identifier hs-type">KafkaSecurityProtocol</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKafkaSecurityProtocol_Ssl_encryption"><span id="%24mKafkaSecurityProtocol_Ssl_encryption"><span id="KafkaSecurityProtocol_Ssl_encryption"><span class="annot"><span class="annottext">$bKafkaSecurityProtocol_Ssl_encryption :: KafkaSecurityProtocol
+$mKafkaSecurityProtocol_Ssl_encryption :: forall r.
+KafkaSecurityProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#%24bKafkaSecurityProtocol_Ssl_encryption"><span class="hs-identifier hs-var hs-var hs-var">KafkaSecurityProtocol_Ssl_encryption</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol%27"><span class="hs-identifier hs-type">KafkaSecurityProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ssl-encryption&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol_Plaintext"><span class="hs-pragma hs-type">KafkaSecurityProtocol_Plaintext</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol_Sasl_ssl"><span class="hs-pragma hs-type">KafkaSecurityProtocol_Sasl_ssl</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol_Ssl_authentication"><span class="hs-pragma hs-type">KafkaSecurityProtocol_Ssl_authentication</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol_Ssl_encryption"><span class="hs-pragma hs-type">KafkaSecurityProtocol_Ssl_encryption</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.KafkaSecurityProtocol.html#KafkaSecurityProtocol%27"><span class="hs-pragma hs-type">KafkaSecurityProtocol'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

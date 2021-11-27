@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html"><span class="hs-identifier">Amazonka.SWF.Types.WorkflowExecution</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Provides the details of the @ExternalWorkflowExecutionSignaled@ event.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newExternalWorkflowExecutionSignaledEventAttributes' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679352221"><span id="local-6989586621679352222"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExternalWorkflowExecutionSignaledEventAttributes"><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes"><span class="hs-identifier hs-var">ExternalWorkflowExecutionSignaledEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExternalWorkflowExecutionSignaledEventAttributes%27"><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes%27"><span class="hs-identifier hs-var">ExternalWorkflowExecutionSignaledEventAttributes'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The external workflow execution that the signal was delivered to.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AworkflowExecution%3AExternalWorkflowExecutionSignaledEventAttributes%27"><span class="annot"><span class="annottext">ExternalWorkflowExecutionSignaledEventAttributes
+-&gt; WorkflowExecution
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#%24sel%3AworkflowExecution%3AExternalWorkflowExecutionSignaledEventAttributes%27"><span class="hs-identifier hs-var hs-var">workflowExecution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html#WorkflowExecution"><span class="hs-identifier hs-type">WorkflowExecution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- corresponding to the @SignalExternalWorkflowExecution@ decision to</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- request this signal. This information can be useful for diagnosing</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- problems by tracing back the chain of events leading up to this event.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AinitiatedEventId%3AExternalWorkflowExecutionSignaledEventAttributes%27"><span class="annot"><span class="annottext">ExternalWorkflowExecutionSignaledEventAttributes -&gt; Integer
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#%24sel%3AinitiatedEventId%3AExternalWorkflowExecutionSignaledEventAttributes%27"><span class="hs-identifier hs-var hs-var">initiatedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352214"><span id="local-6989586621679352216"><span class="annot"><span class="annottext">ExternalWorkflowExecutionSignaledEventAttributes
+-&gt; ExternalWorkflowExecutionSignaledEventAttributes -&gt; Bool
+(ExternalWorkflowExecutionSignaledEventAttributes
+ -&gt; ExternalWorkflowExecutionSignaledEventAttributes -&gt; Bool)
+-&gt; (ExternalWorkflowExecutionSignaledEventAttributes
+    -&gt; ExternalWorkflowExecutionSignaledEventAttributes -&gt; Bool)
+-&gt; Eq ExternalWorkflowExecutionSignaledEventAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExternalWorkflowExecutionSignaledEventAttributes
+-&gt; ExternalWorkflowExecutionSignaledEventAttributes -&gt; Bool
+$c/= :: ExternalWorkflowExecutionSignaledEventAttributes
+-&gt; ExternalWorkflowExecutionSignaledEventAttributes -&gt; Bool
+== :: ExternalWorkflowExecutionSignaledEventAttributes
+-&gt; ExternalWorkflowExecutionSignaledEventAttributes -&gt; Bool
+$c== :: ExternalWorkflowExecutionSignaledEventAttributes
+-&gt; ExternalWorkflowExecutionSignaledEventAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352205"><span id="local-6989586621679352207"><span id="local-6989586621679352209"><span id="local-6989586621679352211"><span class="annot"><span class="annottext">ReadPrec [ExternalWorkflowExecutionSignaledEventAttributes]
+ReadPrec ExternalWorkflowExecutionSignaledEventAttributes
+Int -&gt; ReadS ExternalWorkflowExecutionSignaledEventAttributes
+ReadS [ExternalWorkflowExecutionSignaledEventAttributes]
+(Int -&gt; ReadS ExternalWorkflowExecutionSignaledEventAttributes)
+-&gt; ReadS [ExternalWorkflowExecutionSignaledEventAttributes]
+-&gt; ReadPrec ExternalWorkflowExecutionSignaledEventAttributes
+-&gt; ReadPrec [ExternalWorkflowExecutionSignaledEventAttributes]
+-&gt; Read ExternalWorkflowExecutionSignaledEventAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExternalWorkflowExecutionSignaledEventAttributes]
+$creadListPrec :: ReadPrec [ExternalWorkflowExecutionSignaledEventAttributes]
+readPrec :: ReadPrec ExternalWorkflowExecutionSignaledEventAttributes
+$creadPrec :: ReadPrec ExternalWorkflowExecutionSignaledEventAttributes
+readList :: ReadS [ExternalWorkflowExecutionSignaledEventAttributes]
+$creadList :: ReadS [ExternalWorkflowExecutionSignaledEventAttributes]
+readsPrec :: Int -&gt; ReadS ExternalWorkflowExecutionSignaledEventAttributes
+$creadsPrec :: Int -&gt; ReadS ExternalWorkflowExecutionSignaledEventAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352198"><span id="local-6989586621679352200"><span id="local-6989586621679352202"><span class="annot"><span class="annottext">Int -&gt; ExternalWorkflowExecutionSignaledEventAttributes -&gt; ShowS
+[ExternalWorkflowExecutionSignaledEventAttributes] -&gt; ShowS
+ExternalWorkflowExecutionSignaledEventAttributes -&gt; String
+(Int -&gt; ExternalWorkflowExecutionSignaledEventAttributes -&gt; ShowS)
+-&gt; (ExternalWorkflowExecutionSignaledEventAttributes -&gt; String)
+-&gt; ([ExternalWorkflowExecutionSignaledEventAttributes] -&gt; ShowS)
+-&gt; Show ExternalWorkflowExecutionSignaledEventAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExternalWorkflowExecutionSignaledEventAttributes] -&gt; ShowS
+$cshowList :: [ExternalWorkflowExecutionSignaledEventAttributes] -&gt; ShowS
+show :: ExternalWorkflowExecutionSignaledEventAttributes -&gt; String
+$cshow :: ExternalWorkflowExecutionSignaledEventAttributes -&gt; String
+showsPrec :: Int -&gt; ExternalWorkflowExecutionSignaledEventAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExternalWorkflowExecutionSignaledEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ExternalWorkflowExecutionSignaledEventAttributes
+ -&gt; Rep ExternalWorkflowExecutionSignaledEventAttributes x)
+-&gt; (forall x.
+    Rep ExternalWorkflowExecutionSignaledEventAttributes x
+    -&gt; ExternalWorkflowExecutionSignaledEventAttributes)
+-&gt; Generic ExternalWorkflowExecutionSignaledEventAttributes
+forall x.
+Rep ExternalWorkflowExecutionSignaledEventAttributes x
+-&gt; ExternalWorkflowExecutionSignaledEventAttributes
+forall x.
+ExternalWorkflowExecutionSignaledEventAttributes
+-&gt; Rep ExternalWorkflowExecutionSignaledEventAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ExternalWorkflowExecutionSignaledEventAttributes x
+-&gt; ExternalWorkflowExecutionSignaledEventAttributes
+$cfrom :: forall x.
+ExternalWorkflowExecutionSignaledEventAttributes
+-&gt; Rep ExternalWorkflowExecutionSignaledEventAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'ExternalWorkflowExecutionSignaledEventAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'workflowExecution', 'externalWorkflowExecutionSignaledEventAttributes_workflowExecution' - The external workflow execution that the signal was delivered to.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'initiatedEventId', 'externalWorkflowExecutionSignaledEventAttributes_initiatedEventId' - The ID of the @SignalExternalWorkflowExecutionInitiated@ event</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- corresponding to the @SignalExternalWorkflowExecution@ decision to</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- request this signal. This information can be useful for diagnosing</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- problems by tracing back the chain of events leading up to this event.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#newExternalWorkflowExecutionSignaledEventAttributes"><span class="hs-identifier hs-type">newExternalWorkflowExecutionSignaledEventAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-comment">-- | 'workflowExecution'</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html#WorkflowExecution"><span class="hs-identifier hs-type">WorkflowExecution</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-comment">-- | 'initiatedEventId'</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionSignaledEventAttributes</span></a></span><span>
+</span><span id="line-61"></span><span id="newExternalWorkflowExecutionSignaledEventAttributes"><span class="annot"><span class="annottext">newExternalWorkflowExecutionSignaledEventAttributes :: WorkflowExecution
+-&gt; Integer -&gt; ExternalWorkflowExecutionSignaledEventAttributes
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#newExternalWorkflowExecutionSignaledEventAttributes"><span class="hs-identifier hs-var hs-var">newExternalWorkflowExecutionSignaledEventAttributes</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679352192"><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679352192"><span class="hs-identifier hs-var">pWorkflowExecution_</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679352191"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679352191"><span class="hs-identifier hs-var">pInitiatedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">ExternalWorkflowExecutionSignaledEventAttributes' :: WorkflowExecution
+-&gt; Integer -&gt; ExternalWorkflowExecutionSignaledEventAttributes
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes%27"><span class="hs-identifier hs-type">ExternalWorkflowExecutionSignaledEventAttributes'</span></a></span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workflowExecution:ExternalWorkflowExecutionSignaledEventAttributes' :: WorkflowExecution
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#%24sel%3AworkflowExecution%3AExternalWorkflowExecutionSignaledEventAttributes%27"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679352192"><span class="hs-identifier hs-var">pWorkflowExecution_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">$sel:initiatedEventId:ExternalWorkflowExecutionSignaledEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#%24sel%3AinitiatedEventId%3AExternalWorkflowExecutionSignaledEventAttributes%27"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679352191"><span class="hs-identifier hs-var">pInitiatedEventId_</span></a></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The external workflow execution that the signal was delivered to.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#externalWorkflowExecutionSignaledEventAttributes_workflowExecution"><span class="hs-identifier hs-type">externalWorkflowExecutionSignaledEventAttributes_workflowExecution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionSignaledEventAttributes</span></a></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html#WorkflowExecution"><span class="hs-identifier hs-type">WorkflowExecution</span></a></span><span>
+</span><span id="line-73"></span><span id="externalWorkflowExecutionSignaledEventAttributes_workflowExecution"><span class="annot"><span class="annottext">externalWorkflowExecutionSignaledEventAttributes_workflowExecution :: (WorkflowExecution -&gt; f WorkflowExecution)
+-&gt; ExternalWorkflowExecutionSignaledEventAttributes
+-&gt; f ExternalWorkflowExecutionSignaledEventAttributes
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#externalWorkflowExecutionSignaledEventAttributes_workflowExecution"><span class="hs-identifier hs-var hs-var">externalWorkflowExecutionSignaledEventAttributes_workflowExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExternalWorkflowExecutionSignaledEventAttributes
+ -&gt; WorkflowExecution)
+-&gt; (ExternalWorkflowExecutionSignaledEventAttributes
+    -&gt; WorkflowExecution
+    -&gt; ExternalWorkflowExecutionSignaledEventAttributes)
+-&gt; Lens
+     ExternalWorkflowExecutionSignaledEventAttributes
+     ExternalWorkflowExecutionSignaledEventAttributes
+     WorkflowExecution
+     WorkflowExecution
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes%27"><span class="hs-identifier hs-type">ExternalWorkflowExecutionSignaledEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352187"><span class="annot"><span class="annottext">WorkflowExecution
+workflowExecution :: WorkflowExecution
+$sel:workflowExecution:ExternalWorkflowExecutionSignaledEventAttributes' :: ExternalWorkflowExecutionSignaledEventAttributes
+-&gt; WorkflowExecution
+</span><a href="#local-6989586621679352187"><span class="hs-identifier hs-var hs-var">workflowExecution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679352187"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352186"><span class="annot"><span class="annottext">s :: ExternalWorkflowExecutionSignaledEventAttributes
+</span><a href="#local-6989586621679352186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes%27"><span class="hs-identifier hs-type">ExternalWorkflowExecutionSignaledEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352185"><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679352185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExternalWorkflowExecutionSignaledEventAttributes
+</span><a href="#local-6989586621679352186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowExecution:ExternalWorkflowExecutionSignaledEventAttributes' :: WorkflowExecution
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#%24sel%3AworkflowExecution%3AExternalWorkflowExecutionSignaledEventAttributes%27"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679352185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionSignaledEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- corresponding to the @SignalExternalWorkflowExecution@ decision to</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- request this signal. This information can be useful for diagnosing</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- problems by tracing back the chain of events leading up to this event.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#externalWorkflowExecutionSignaledEventAttributes_initiatedEventId"><span class="hs-identifier hs-type">externalWorkflowExecutionSignaledEventAttributes_initiatedEventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionSignaledEventAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-80"></span><span id="externalWorkflowExecutionSignaledEventAttributes_initiatedEventId"><span class="annot"><span class="annottext">externalWorkflowExecutionSignaledEventAttributes_initiatedEventId :: (Integer -&gt; f Integer)
+-&gt; ExternalWorkflowExecutionSignaledEventAttributes
+-&gt; f ExternalWorkflowExecutionSignaledEventAttributes
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#externalWorkflowExecutionSignaledEventAttributes_initiatedEventId"><span class="hs-identifier hs-var hs-var">externalWorkflowExecutionSignaledEventAttributes_initiatedEventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExternalWorkflowExecutionSignaledEventAttributes -&gt; Integer)
+-&gt; (ExternalWorkflowExecutionSignaledEventAttributes
+    -&gt; Integer -&gt; ExternalWorkflowExecutionSignaledEventAttributes)
+-&gt; Lens
+     ExternalWorkflowExecutionSignaledEventAttributes
+     ExternalWorkflowExecutionSignaledEventAttributes
+     Integer
+     Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes%27"><span class="hs-identifier hs-type">ExternalWorkflowExecutionSignaledEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352183"><span class="annot"><span class="annottext">Integer
+initiatedEventId :: Integer
+$sel:initiatedEventId:ExternalWorkflowExecutionSignaledEventAttributes' :: ExternalWorkflowExecutionSignaledEventAttributes -&gt; Integer
+</span><a href="#local-6989586621679352183"><span class="hs-identifier hs-var hs-var">initiatedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679352183"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352182"><span class="annot"><span class="annottext">s :: ExternalWorkflowExecutionSignaledEventAttributes
+</span><a href="#local-6989586621679352182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes%27"><span class="hs-identifier hs-type">ExternalWorkflowExecutionSignaledEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352181"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679352181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExternalWorkflowExecutionSignaledEventAttributes
+</span><a href="#local-6989586621679352182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiatedEventId:ExternalWorkflowExecutionSignaledEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#%24sel%3AinitiatedEventId%3AExternalWorkflowExecutionSignaledEventAttributes%27"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679352181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionSignaledEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679352178"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionSignaledEventAttributes</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679352176"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExternalWorkflowExecutionSignaledEventAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object
+    -&gt; Parser ExternalWorkflowExecutionSignaledEventAttributes)
+-&gt; Value
+-&gt; Parser ExternalWorkflowExecutionSignaledEventAttributes
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ExternalWorkflowExecutionSignaledEventAttributes&quot;</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679352173"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679352173"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">WorkflowExecution
+-&gt; Integer -&gt; ExternalWorkflowExecutionSignaledEventAttributes
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes%27"><span class="hs-identifier hs-var">ExternalWorkflowExecutionSignaledEventAttributes'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(WorkflowExecution
+ -&gt; Integer -&gt; ExternalWorkflowExecutionSignaledEventAttributes)
+-&gt; Parser WorkflowExecution
+-&gt; Parser
+     (Integer -&gt; ExternalWorkflowExecutionSignaledEventAttributes)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679352173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowExecution
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workflowExecution&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Integer -&gt; ExternalWorkflowExecutionSignaledEventAttributes)
+-&gt; Parser Integer
+-&gt; Parser ExternalWorkflowExecutionSignaledEventAttributes
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679352173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;initiatedEventId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679352167"><span id="local-6989586621679352169"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionSignaledEventAttributes</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679352164"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes.html#ExternalWorkflowExecutionSignaledEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionSignaledEventAttributes</span></a></span></span><span>
+</span><span id="line-102"></span></pre></body></html>

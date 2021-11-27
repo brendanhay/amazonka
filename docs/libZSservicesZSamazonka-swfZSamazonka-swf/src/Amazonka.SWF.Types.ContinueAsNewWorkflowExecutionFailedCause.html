@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause"><span class="hs-identifier">ContinueAsNewWorkflowExecutionFailedCause</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"><span class="hs-identifier">ContinueAsNewWorkflowExecutionFailedCause_CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_CHILD_POLICY_UNDEFINED"><span class="hs-identifier">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_CHILD_POLICY_UNDEFINED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"><span class="hs-identifier">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_LIST_UNDEFINED"><span class="hs-identifier">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_LIST_UNDEFINED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"><span class="hs-identifier">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_OPERATION_NOT_PERMITTED"><span class="hs-identifier">ContinueAsNewWorkflowExecutionFailedCause_OPERATION_NOT_PERMITTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_UNHANDLED_DECISION"><span class="hs-identifier">ContinueAsNewWorkflowExecutionFailedCause_UNHANDLED_DECISION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DEPRECATED"><span class="hs-identifier">ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DEPRECATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DOES_NOT_EXIST"><span class="hs-identifier">ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DOES_NOT_EXIST</span></a></span><span>
+</span><span id="line-32"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679344101"><span id="local-6989586621679344102"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContinueAsNewWorkflowExecutionFailedCause"><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause"><span class="hs-identifier hs-var">ContinueAsNewWorkflowExecutionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinueAsNewWorkflowExecutionFailedCause%27"><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-var">ContinueAsNewWorkflowExecutionFailedCause'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContinueAsNewWorkflowExecutionFailedCause"><span class="annot"><span class="annottext">ContinueAsNewWorkflowExecutionFailedCause -&gt; Text
+</span><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#fromContinueAsNewWorkflowExecutionFailedCause"><span class="hs-identifier hs-var hs-var">fromContinueAsNewWorkflowExecutionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344093"><span id="local-6989586621679344095"><span id="local-6989586621679344097"><span class="annot"><span class="annottext">Int -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; ShowS
+[ContinueAsNewWorkflowExecutionFailedCause] -&gt; ShowS
+ContinueAsNewWorkflowExecutionFailedCause -&gt; String
+(Int -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; ShowS)
+-&gt; (ContinueAsNewWorkflowExecutionFailedCause -&gt; String)
+-&gt; ([ContinueAsNewWorkflowExecutionFailedCause] -&gt; ShowS)
+-&gt; Show ContinueAsNewWorkflowExecutionFailedCause
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContinueAsNewWorkflowExecutionFailedCause] -&gt; ShowS
+$cshowList :: [ContinueAsNewWorkflowExecutionFailedCause] -&gt; ShowS
+show :: ContinueAsNewWorkflowExecutionFailedCause -&gt; String
+$cshow :: ContinueAsNewWorkflowExecutionFailedCause -&gt; String
+showsPrec :: Int -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679344084"><span id="local-6989586621679344086"><span id="local-6989586621679344088"><span id="local-6989586621679344090"><span class="annot"><span class="annottext">ReadPrec [ContinueAsNewWorkflowExecutionFailedCause]
+ReadPrec ContinueAsNewWorkflowExecutionFailedCause
+Int -&gt; ReadS ContinueAsNewWorkflowExecutionFailedCause
+ReadS [ContinueAsNewWorkflowExecutionFailedCause]
+(Int -&gt; ReadS ContinueAsNewWorkflowExecutionFailedCause)
+-&gt; ReadS [ContinueAsNewWorkflowExecutionFailedCause]
+-&gt; ReadPrec ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ReadPrec [ContinueAsNewWorkflowExecutionFailedCause]
+-&gt; Read ContinueAsNewWorkflowExecutionFailedCause
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContinueAsNewWorkflowExecutionFailedCause]
+$creadListPrec :: ReadPrec [ContinueAsNewWorkflowExecutionFailedCause]
+readPrec :: ReadPrec ContinueAsNewWorkflowExecutionFailedCause
+$creadPrec :: ReadPrec ContinueAsNewWorkflowExecutionFailedCause
+readList :: ReadS [ContinueAsNewWorkflowExecutionFailedCause]
+$creadList :: ReadS [ContinueAsNewWorkflowExecutionFailedCause]
+readsPrec :: Int -&gt; ReadS ContinueAsNewWorkflowExecutionFailedCause
+$creadsPrec :: Int -&gt; ReadS ContinueAsNewWorkflowExecutionFailedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679344079"><span id="local-6989586621679344081"><span class="annot"><span class="annottext">ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool
+(ContinueAsNewWorkflowExecutionFailedCause
+ -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool)
+-&gt; (ContinueAsNewWorkflowExecutionFailedCause
+    -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool)
+-&gt; Eq ContinueAsNewWorkflowExecutionFailedCause
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool
+$c/= :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool
+== :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool
+$c== :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679344063"><span id="local-6989586621679344065"><span id="local-6989586621679344067"><span id="local-6989586621679344069"><span id="local-6989586621679344071"><span id="local-6989586621679344073"><span id="local-6989586621679344075"><span class="annot"><span class="annottext">Eq ContinueAsNewWorkflowExecutionFailedCause
+Eq ContinueAsNewWorkflowExecutionFailedCause
+-&gt; (ContinueAsNewWorkflowExecutionFailedCause
+    -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Ordering)
+-&gt; (ContinueAsNewWorkflowExecutionFailedCause
+    -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool)
+-&gt; (ContinueAsNewWorkflowExecutionFailedCause
+    -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool)
+-&gt; (ContinueAsNewWorkflowExecutionFailedCause
+    -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool)
+-&gt; (ContinueAsNewWorkflowExecutionFailedCause
+    -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool)
+-&gt; (ContinueAsNewWorkflowExecutionFailedCause
+    -&gt; ContinueAsNewWorkflowExecutionFailedCause
+    -&gt; ContinueAsNewWorkflowExecutionFailedCause)
+-&gt; (ContinueAsNewWorkflowExecutionFailedCause
+    -&gt; ContinueAsNewWorkflowExecutionFailedCause
+    -&gt; ContinueAsNewWorkflowExecutionFailedCause)
+-&gt; Ord ContinueAsNewWorkflowExecutionFailedCause
+ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool
+ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Ordering
+ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause
+$cmin :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause
+max :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause
+$cmax :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause
+&gt;= :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool
+$c&gt;= :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool
+&gt; :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool
+$c&gt; :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool
+&lt;= :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool
+$c&lt;= :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool
+&lt; :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool
+$c&lt; :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Bool
+compare :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Ordering
+$ccompare :: ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Ordering
+$cp1Ord :: Eq ContinueAsNewWorkflowExecutionFailedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ContinueAsNewWorkflowExecutionFailedCause
+ -&gt; Rep ContinueAsNewWorkflowExecutionFailedCause x)
+-&gt; (forall x.
+    Rep ContinueAsNewWorkflowExecutionFailedCause x
+    -&gt; ContinueAsNewWorkflowExecutionFailedCause)
+-&gt; Generic ContinueAsNewWorkflowExecutionFailedCause
+forall x.
+Rep ContinueAsNewWorkflowExecutionFailedCause x
+-&gt; ContinueAsNewWorkflowExecutionFailedCause
+forall x.
+ContinueAsNewWorkflowExecutionFailedCause
+-&gt; Rep ContinueAsNewWorkflowExecutionFailedCause x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ContinueAsNewWorkflowExecutionFailedCause x
+-&gt; ContinueAsNewWorkflowExecutionFailedCause
+$cfrom :: forall x.
+ContinueAsNewWorkflowExecutionFailedCause
+-&gt; Rep ContinueAsNewWorkflowExecutionFailedCause x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344055"><span id="local-6989586621679344057"><span class="annot"><span class="annottext">Int -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Int
+ContinueAsNewWorkflowExecutionFailedCause -&gt; Int
+(Int -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Int)
+-&gt; (ContinueAsNewWorkflowExecutionFailedCause -&gt; Int)
+-&gt; Hashable ContinueAsNewWorkflowExecutionFailedCause
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ContinueAsNewWorkflowExecutionFailedCause -&gt; Int
+$chash :: ContinueAsNewWorkflowExecutionFailedCause -&gt; Int
+hashWithSalt :: Int -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Int
+$chashWithSalt :: Int -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679344052"><span class="annot"><span class="annottext">ContinueAsNewWorkflowExecutionFailedCause -&gt; ()
+(ContinueAsNewWorkflowExecutionFailedCause -&gt; ())
+-&gt; NFData ContinueAsNewWorkflowExecutionFailedCause
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ContinueAsNewWorkflowExecutionFailedCause -&gt; ()
+$crnf :: ContinueAsNewWorkflowExecutionFailedCause -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679344049"><span class="annot"><span class="annottext">Text -&gt; Either String ContinueAsNewWorkflowExecutionFailedCause
+(Text -&gt; Either String ContinueAsNewWorkflowExecutionFailedCause)
+-&gt; FromText ContinueAsNewWorkflowExecutionFailedCause
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ContinueAsNewWorkflowExecutionFailedCause
+$cfromText :: Text -&gt; Either String ContinueAsNewWorkflowExecutionFailedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679344046"><span class="annot"><span class="annottext">ContinueAsNewWorkflowExecutionFailedCause -&gt; Text
+(ContinueAsNewWorkflowExecutionFailedCause -&gt; Text)
+-&gt; ToText ContinueAsNewWorkflowExecutionFailedCause
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ContinueAsNewWorkflowExecutionFailedCause -&gt; Text
+$ctoText :: ContinueAsNewWorkflowExecutionFailedCause -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679344043"><span class="annot"><span class="annottext">ContinueAsNewWorkflowExecutionFailedCause -&gt; ByteString
+(ContinueAsNewWorkflowExecutionFailedCause -&gt; ByteString)
+-&gt; ToByteString ContinueAsNewWorkflowExecutionFailedCause
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ContinueAsNewWorkflowExecutionFailedCause -&gt; ByteString
+$ctoBS :: ContinueAsNewWorkflowExecutionFailedCause -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679344040"><span class="annot"><span class="annottext">ContinueAsNewWorkflowExecutionFailedCause -&gt; ByteStringBuilder
+(ContinueAsNewWorkflowExecutionFailedCause -&gt; ByteStringBuilder)
+-&gt; ToLog ContinueAsNewWorkflowExecutionFailedCause
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ContinueAsNewWorkflowExecutionFailedCause -&gt; ByteStringBuilder
+$cbuild :: ContinueAsNewWorkflowExecutionFailedCause -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679344037"><span class="annot"><span class="annottext">HeaderName -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; [Header]
+(HeaderName
+ -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; [Header])
+-&gt; ToHeader ContinueAsNewWorkflowExecutionFailedCause
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ContinueAsNewWorkflowExecutionFailedCause -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679344034"><span class="annot"><span class="annottext">ContinueAsNewWorkflowExecutionFailedCause -&gt; QueryString
+(ContinueAsNewWorkflowExecutionFailedCause -&gt; QueryString)
+-&gt; ToQuery ContinueAsNewWorkflowExecutionFailedCause
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ContinueAsNewWorkflowExecutionFailedCause -&gt; QueryString
+$ctoQuery :: ContinueAsNewWorkflowExecutionFailedCause -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679344029"><span id="local-6989586621679344031"><span class="annot"><span class="annottext">Value -&gt; Parser [ContinueAsNewWorkflowExecutionFailedCause]
+Value -&gt; Parser ContinueAsNewWorkflowExecutionFailedCause
+(Value -&gt; Parser ContinueAsNewWorkflowExecutionFailedCause)
+-&gt; (Value -&gt; Parser [ContinueAsNewWorkflowExecutionFailedCause])
+-&gt; FromJSON ContinueAsNewWorkflowExecutionFailedCause
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ContinueAsNewWorkflowExecutionFailedCause]
+$cparseJSONList :: Value -&gt; Parser [ContinueAsNewWorkflowExecutionFailedCause]
+parseJSON :: Value -&gt; Parser ContinueAsNewWorkflowExecutionFailedCause
+$cparseJSON :: Value -&gt; Parser ContinueAsNewWorkflowExecutionFailedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679344024"><span id="local-6989586621679344026"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContinueAsNewWorkflowExecutionFailedCause]
+FromJSONKeyFunction ContinueAsNewWorkflowExecutionFailedCause
+FromJSONKeyFunction ContinueAsNewWorkflowExecutionFailedCause
+-&gt; FromJSONKeyFunction [ContinueAsNewWorkflowExecutionFailedCause]
+-&gt; FromJSONKey ContinueAsNewWorkflowExecutionFailedCause
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ContinueAsNewWorkflowExecutionFailedCause]
+$cfromJSONKeyList :: FromJSONKeyFunction [ContinueAsNewWorkflowExecutionFailedCause]
+fromJSONKey :: FromJSONKeyFunction ContinueAsNewWorkflowExecutionFailedCause
+$cfromJSONKey :: FromJSONKeyFunction ContinueAsNewWorkflowExecutionFailedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679344015"><span id="local-6989586621679344017"><span id="local-6989586621679344019"><span id="local-6989586621679344021"><span class="annot"><span class="annottext">[ContinueAsNewWorkflowExecutionFailedCause] -&gt; Encoding
+[ContinueAsNewWorkflowExecutionFailedCause] -&gt; Value
+ContinueAsNewWorkflowExecutionFailedCause -&gt; Encoding
+ContinueAsNewWorkflowExecutionFailedCause -&gt; Value
+(ContinueAsNewWorkflowExecutionFailedCause -&gt; Value)
+-&gt; (ContinueAsNewWorkflowExecutionFailedCause -&gt; Encoding)
+-&gt; ([ContinueAsNewWorkflowExecutionFailedCause] -&gt; Value)
+-&gt; ([ContinueAsNewWorkflowExecutionFailedCause] -&gt; Encoding)
+-&gt; ToJSON ContinueAsNewWorkflowExecutionFailedCause
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ContinueAsNewWorkflowExecutionFailedCause] -&gt; Encoding
+$ctoEncodingList :: [ContinueAsNewWorkflowExecutionFailedCause] -&gt; Encoding
+toJSONList :: [ContinueAsNewWorkflowExecutionFailedCause] -&gt; Value
+$ctoJSONList :: [ContinueAsNewWorkflowExecutionFailedCause] -&gt; Value
+toEncoding :: ContinueAsNewWorkflowExecutionFailedCause -&gt; Encoding
+$ctoEncoding :: ContinueAsNewWorkflowExecutionFailedCause -&gt; Encoding
+toJSON :: ContinueAsNewWorkflowExecutionFailedCause -&gt; Value
+$ctoJSON :: ContinueAsNewWorkflowExecutionFailedCause -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679344010"><span id="local-6989586621679344012"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContinueAsNewWorkflowExecutionFailedCause]
+ToJSONKeyFunction ContinueAsNewWorkflowExecutionFailedCause
+ToJSONKeyFunction ContinueAsNewWorkflowExecutionFailedCause
+-&gt; ToJSONKeyFunction [ContinueAsNewWorkflowExecutionFailedCause]
+-&gt; ToJSONKey ContinueAsNewWorkflowExecutionFailedCause
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ContinueAsNewWorkflowExecutionFailedCause]
+$ctoJSONKeyList :: ToJSONKeyFunction [ContinueAsNewWorkflowExecutionFailedCause]
+toJSONKey :: ToJSONKeyFunction ContinueAsNewWorkflowExecutionFailedCause
+$ctoJSONKey :: ToJSONKeyFunction ContinueAsNewWorkflowExecutionFailedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679344007"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContinueAsNewWorkflowExecutionFailedCause
+([Node] -&gt; Either String ContinueAsNewWorkflowExecutionFailedCause)
+-&gt; FromXML ContinueAsNewWorkflowExecutionFailedCause
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ContinueAsNewWorkflowExecutionFailedCause
+$cparseXML :: [Node] -&gt; Either String ContinueAsNewWorkflowExecutionFailedCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679344004"><span class="annot"><span class="annottext">ContinueAsNewWorkflowExecutionFailedCause -&gt; XML
+(ContinueAsNewWorkflowExecutionFailedCause -&gt; XML)
+-&gt; ToXML ContinueAsNewWorkflowExecutionFailedCause
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ContinueAsNewWorkflowExecutionFailedCause -&gt; XML
+$ctoXML :: ContinueAsNewWorkflowExecutionFailedCause -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause_CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContinueAsNewWorkflowExecutionFailedCause_CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"><span id="%24mContinueAsNewWorkflowExecutionFailedCause_CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"><span id="ContinueAsNewWorkflowExecutionFailedCause_CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"><span class="annot"><span class="annottext">$bContinueAsNewWorkflowExecutionFailedCause_CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED :: ContinueAsNewWorkflowExecutionFailedCause
+$mContinueAsNewWorkflowExecutionFailedCause_CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED :: forall r.
+ContinueAsNewWorkflowExecutionFailedCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#%24bContinueAsNewWorkflowExecutionFailedCause_CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"><span class="hs-identifier hs-var hs-var hs-var">ContinueAsNewWorkflowExecutionFailedCause_CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_CHILD_POLICY_UNDEFINED"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_CHILD_POLICY_UNDEFINED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContinueAsNewWorkflowExecutionFailedCause_DEFAULT_CHILD_POLICY_UNDEFINED"><span id="%24mContinueAsNewWorkflowExecutionFailedCause_DEFAULT_CHILD_POLICY_UNDEFINED"><span id="ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_CHILD_POLICY_UNDEFINED"><span class="annot"><span class="annottext">$bContinueAsNewWorkflowExecutionFailedCause_DEFAULT_CHILD_POLICY_UNDEFINED :: ContinueAsNewWorkflowExecutionFailedCause
+$mContinueAsNewWorkflowExecutionFailedCause_DEFAULT_CHILD_POLICY_UNDEFINED :: forall r.
+ContinueAsNewWorkflowExecutionFailedCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#%24bContinueAsNewWorkflowExecutionFailedCause_DEFAULT_CHILD_POLICY_UNDEFINED"><span class="hs-identifier hs-var hs-var hs-var">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_CHILD_POLICY_UNDEFINED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEFAULT_CHILD_POLICY_UNDEFINED&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContinueAsNewWorkflowExecutionFailedCause_DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"><span id="%24mContinueAsNewWorkflowExecutionFailedCause_DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"><span id="ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"><span class="annot"><span class="annottext">$bContinueAsNewWorkflowExecutionFailedCause_DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED :: ContinueAsNewWorkflowExecutionFailedCause
+$mContinueAsNewWorkflowExecutionFailedCause_DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED :: forall r.
+ContinueAsNewWorkflowExecutionFailedCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#%24bContinueAsNewWorkflowExecutionFailedCause_DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"><span class="hs-identifier hs-var hs-var hs-var">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_LIST_UNDEFINED"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_LIST_UNDEFINED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_LIST_UNDEFINED"><span id="%24mContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_LIST_UNDEFINED"><span id="ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_LIST_UNDEFINED"><span class="annot"><span class="annottext">$bContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_LIST_UNDEFINED :: ContinueAsNewWorkflowExecutionFailedCause
+$mContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_LIST_UNDEFINED :: forall r.
+ContinueAsNewWorkflowExecutionFailedCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#%24bContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_LIST_UNDEFINED"><span class="hs-identifier hs-var hs-var hs-var">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_LIST_UNDEFINED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEFAULT_TASK_LIST_UNDEFINED&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"><span id="%24mContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"><span id="ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"><span class="annot"><span class="annottext">$bContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED :: ContinueAsNewWorkflowExecutionFailedCause
+$mContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED :: forall r.
+ContinueAsNewWorkflowExecutionFailedCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#%24bContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"><span class="hs-identifier hs-var hs-var hs-var">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_OPERATION_NOT_PERMITTED"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause_OPERATION_NOT_PERMITTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContinueAsNewWorkflowExecutionFailedCause_OPERATION_NOT_PERMITTED"><span id="%24mContinueAsNewWorkflowExecutionFailedCause_OPERATION_NOT_PERMITTED"><span id="ContinueAsNewWorkflowExecutionFailedCause_OPERATION_NOT_PERMITTED"><span class="annot"><span class="annottext">$bContinueAsNewWorkflowExecutionFailedCause_OPERATION_NOT_PERMITTED :: ContinueAsNewWorkflowExecutionFailedCause
+$mContinueAsNewWorkflowExecutionFailedCause_OPERATION_NOT_PERMITTED :: forall r.
+ContinueAsNewWorkflowExecutionFailedCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#%24bContinueAsNewWorkflowExecutionFailedCause_OPERATION_NOT_PERMITTED"><span class="hs-identifier hs-var hs-var hs-var">ContinueAsNewWorkflowExecutionFailedCause_OPERATION_NOT_PERMITTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OPERATION_NOT_PERMITTED&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_UNHANDLED_DECISION"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause_UNHANDLED_DECISION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContinueAsNewWorkflowExecutionFailedCause_UNHANDLED_DECISION"><span id="%24mContinueAsNewWorkflowExecutionFailedCause_UNHANDLED_DECISION"><span id="ContinueAsNewWorkflowExecutionFailedCause_UNHANDLED_DECISION"><span class="annot"><span class="annottext">$bContinueAsNewWorkflowExecutionFailedCause_UNHANDLED_DECISION :: ContinueAsNewWorkflowExecutionFailedCause
+$mContinueAsNewWorkflowExecutionFailedCause_UNHANDLED_DECISION :: forall r.
+ContinueAsNewWorkflowExecutionFailedCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#%24bContinueAsNewWorkflowExecutionFailedCause_UNHANDLED_DECISION"><span class="hs-identifier hs-var hs-var hs-var">ContinueAsNewWorkflowExecutionFailedCause_UNHANDLED_DECISION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNHANDLED_DECISION&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DEPRECATED"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DEPRECATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DEPRECATED"><span id="%24mContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DEPRECATED"><span id="ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DEPRECATED"><span class="annot"><span class="annottext">$bContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DEPRECATED :: ContinueAsNewWorkflowExecutionFailedCause
+$mContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DEPRECATED :: forall r.
+ContinueAsNewWorkflowExecutionFailedCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#%24bContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DEPRECATED"><span class="hs-identifier hs-var hs-var hs-var">ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DEPRECATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WORKFLOW_TYPE_DEPRECATED&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DOES_NOT_EXIST"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DOES_NOT_EXIST</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DOES_NOT_EXIST"><span id="%24mContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DOES_NOT_EXIST"><span id="ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DOES_NOT_EXIST"><span class="annot"><span class="annottext">$bContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DOES_NOT_EXIST :: ContinueAsNewWorkflowExecutionFailedCause
+$mContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DOES_NOT_EXIST :: forall r.
+ContinueAsNewWorkflowExecutionFailedCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#%24bContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DOES_NOT_EXIST"><span class="hs-identifier hs-var hs-var hs-var">ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DOES_NOT_EXIST</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-type">ContinueAsNewWorkflowExecutionFailedCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WORKFLOW_TYPE_DOES_NOT_EXIST&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"><span class="hs-pragma hs-type">ContinueAsNewWorkflowExecutionFailedCause_CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_CHILD_POLICY_UNDEFINED"><span class="hs-pragma hs-type">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_CHILD_POLICY_UNDEFINED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"><span class="hs-pragma hs-type">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_LIST_UNDEFINED"><span class="hs-pragma hs-type">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_LIST_UNDEFINED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"><span class="hs-pragma hs-type">ContinueAsNewWorkflowExecutionFailedCause_DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_OPERATION_NOT_PERMITTED"><span class="hs-pragma hs-type">ContinueAsNewWorkflowExecutionFailedCause_OPERATION_NOT_PERMITTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_UNHANDLED_DECISION"><span class="hs-pragma hs-type">ContinueAsNewWorkflowExecutionFailedCause_UNHANDLED_DECISION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DEPRECATED"><span class="hs-pragma hs-type">ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DEPRECATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DOES_NOT_EXIST"><span class="hs-pragma hs-type">ContinueAsNewWorkflowExecutionFailedCause_WORKFLOW_TYPE_DOES_NOT_EXIST</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause.html#ContinueAsNewWorkflowExecutionFailedCause%27"><span class="hs-pragma hs-type">ContinueAsNewWorkflowExecutionFailedCause'</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-106"></span></pre></body></html>

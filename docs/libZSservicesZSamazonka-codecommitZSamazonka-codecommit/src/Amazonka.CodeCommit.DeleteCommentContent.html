@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeCommit.DeleteCommentContent</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the content of a comment made on a change, file, or commit in a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- repository.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeCommit.DeleteCommentContent</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier">DeleteCommentContent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#newDeleteCommentContent"><span class="hs-identifier">newDeleteCommentContent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#deleteCommentContent_commentId"><span class="hs-identifier">deleteCommentContent_commentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier">DeleteCommentContentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#newDeleteCommentContentResponse"><span class="hs-identifier">newDeleteCommentContentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#deleteCommentContentResponse_comment"><span class="hs-identifier">deleteCommentContentResponse_comment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#deleteCommentContentResponse_httpStatus"><span class="hs-identifier">deleteCommentContentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.html"><span class="hs-identifier">Amazonka.CodeCommit.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteCommentContent' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679369080"><span id="local-6989586621679369081"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCommentContent"><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-var">DeleteCommentContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCommentContent%27"><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent%27"><span class="hs-identifier hs-var">DeleteCommentContent'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique, system-generated ID of the comment. To get this ID, use</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- GetCommentsForComparedCommit or GetCommentsForPullRequest.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcommentId%3ADeleteCommentContent%27"><span class="annot"><span class="annottext">DeleteCommentContent -&gt; Text
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#%24sel%3AcommentId%3ADeleteCommentContent%27"><span class="hs-identifier hs-var hs-var">commentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369074"><span id="local-6989586621679369076"><span class="annot"><span class="annottext">DeleteCommentContent -&gt; DeleteCommentContent -&gt; Bool
+(DeleteCommentContent -&gt; DeleteCommentContent -&gt; Bool)
+-&gt; (DeleteCommentContent -&gt; DeleteCommentContent -&gt; Bool)
+-&gt; Eq DeleteCommentContent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteCommentContent -&gt; DeleteCommentContent -&gt; Bool
+$c/= :: DeleteCommentContent -&gt; DeleteCommentContent -&gt; Bool
+== :: DeleteCommentContent -&gt; DeleteCommentContent -&gt; Bool
+$c== :: DeleteCommentContent -&gt; DeleteCommentContent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369065"><span id="local-6989586621679369067"><span id="local-6989586621679369069"><span id="local-6989586621679369071"><span class="annot"><span class="annottext">ReadPrec [DeleteCommentContent]
+ReadPrec DeleteCommentContent
+Int -&gt; ReadS DeleteCommentContent
+ReadS [DeleteCommentContent]
+(Int -&gt; ReadS DeleteCommentContent)
+-&gt; ReadS [DeleteCommentContent]
+-&gt; ReadPrec DeleteCommentContent
+-&gt; ReadPrec [DeleteCommentContent]
+-&gt; Read DeleteCommentContent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteCommentContent]
+$creadListPrec :: ReadPrec [DeleteCommentContent]
+readPrec :: ReadPrec DeleteCommentContent
+$creadPrec :: ReadPrec DeleteCommentContent
+readList :: ReadS [DeleteCommentContent]
+$creadList :: ReadS [DeleteCommentContent]
+readsPrec :: Int -&gt; ReadS DeleteCommentContent
+$creadsPrec :: Int -&gt; ReadS DeleteCommentContent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369058"><span id="local-6989586621679369060"><span id="local-6989586621679369062"><span class="annot"><span class="annottext">Int -&gt; DeleteCommentContent -&gt; ShowS
+[DeleteCommentContent] -&gt; ShowS
+DeleteCommentContent -&gt; String
+(Int -&gt; DeleteCommentContent -&gt; ShowS)
+-&gt; (DeleteCommentContent -&gt; String)
+-&gt; ([DeleteCommentContent] -&gt; ShowS)
+-&gt; Show DeleteCommentContent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteCommentContent] -&gt; ShowS
+$cshowList :: [DeleteCommentContent] -&gt; ShowS
+show :: DeleteCommentContent -&gt; String
+$cshow :: DeleteCommentContent -&gt; String
+showsPrec :: Int -&gt; DeleteCommentContent -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteCommentContent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteCommentContent -&gt; Rep DeleteCommentContent x)
+-&gt; (forall x. Rep DeleteCommentContent x -&gt; DeleteCommentContent)
+-&gt; Generic DeleteCommentContent
+forall x. Rep DeleteCommentContent x -&gt; DeleteCommentContent
+forall x. DeleteCommentContent -&gt; Rep DeleteCommentContent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteCommentContent x -&gt; DeleteCommentContent
+$cfrom :: forall x. DeleteCommentContent -&gt; Rep DeleteCommentContent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'DeleteCommentContent' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'commentId', 'deleteCommentContent_commentId' - The unique, system-generated ID of the comment. To get this ID, use</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- GetCommentsForComparedCommit or GetCommentsForPullRequest.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#newDeleteCommentContent"><span class="hs-identifier hs-type">newDeleteCommentContent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'commentId'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span>
+</span><span id="line-72"></span><span id="newDeleteCommentContent"><span class="annot"><span class="annottext">newDeleteCommentContent :: Text -&gt; DeleteCommentContent
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#newDeleteCommentContent"><span class="hs-identifier hs-var hs-var">newDeleteCommentContent</span></a></span></span><span> </span><span id="local-6989586621679369053"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369053"><span class="hs-identifier hs-var">pCommentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteCommentContent' :: Text -&gt; DeleteCommentContent
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent%27"><span class="hs-identifier hs-type">DeleteCommentContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commentId:DeleteCommentContent' :: Text
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#%24sel%3AcommentId%3ADeleteCommentContent%27"><span class="hs-identifier hs-var">commentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369053"><span class="hs-identifier hs-var">pCommentId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The unique, system-generated ID of the comment. To get this ID, use</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- GetCommentsForComparedCommit or GetCommentsForPullRequest.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#deleteCommentContent_commentId"><span class="hs-identifier hs-type">deleteCommentContent_commentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="deleteCommentContent_commentId"><span class="annot"><span class="annottext">deleteCommentContent_commentId :: (Text -&gt; f Text) -&gt; DeleteCommentContent -&gt; f DeleteCommentContent
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#deleteCommentContent_commentId"><span class="hs-identifier hs-var hs-var">deleteCommentContent_commentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCommentContent -&gt; Text)
+-&gt; (DeleteCommentContent -&gt; Text -&gt; DeleteCommentContent)
+-&gt; Lens DeleteCommentContent DeleteCommentContent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent%27"><span class="hs-identifier hs-type">DeleteCommentContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369050"><span class="annot"><span class="annottext">Text
+commentId :: Text
+$sel:commentId:DeleteCommentContent' :: DeleteCommentContent -&gt; Text
+</span><a href="#local-6989586621679369050"><span class="hs-identifier hs-var hs-var">commentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369050"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369049"><span class="annot"><span class="annottext">s :: DeleteCommentContent
+</span><a href="#local-6989586621679369049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent%27"><span class="hs-identifier hs-type">DeleteCommentContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369048"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCommentContent
+</span><a href="#local-6989586621679369049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commentId:DeleteCommentContent' :: Text
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#%24sel%3AcommentId%3ADeleteCommentContent%27"><span class="hs-identifier hs-var">commentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679369044"><span class="annot"><span class="annottext">request :: DeleteCommentContent -&gt; Request DeleteCommentContent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteCommentContent -&gt; Request DeleteCommentContent
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679369040"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteCommentContent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteCommentContent)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteCommentContent))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteCommentContent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteCommentContent)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369037"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369037"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679369036"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679369036"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679369035"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369035"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Comment -&gt; Int -&gt; DeleteCommentContentResponse
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-var">DeleteCommentContentResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Comment -&gt; Int -&gt; DeleteCommentContentResponse)
+-&gt; Either String (Maybe Comment)
+-&gt; Either String (Int -&gt; DeleteCommentContentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369035"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Comment)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;comment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteCommentContentResponse)
+-&gt; Either String Int -&gt; Either String DeleteCommentContentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369037"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369027"><span id="local-6989586621679369029"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369024"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679369020"><span class="annot"><span class="annottext">toHeaders :: DeleteCommentContent -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteCommentContent -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeCommit_20150413.DeleteCommentContent&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-104"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-108"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369010"><span id="local-6989586621679369012"><span id="local-6989586621679369014"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679369008"><span class="annot"><span class="annottext">toJSON :: DeleteCommentContent -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent%27"><span class="hs-identifier hs-type">DeleteCommentContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369006"><span class="annot"><span class="annottext">Text
+commentId :: Text
+$sel:commentId:DeleteCommentContent' :: DeleteCommentContent -&gt; Text
+</span><a href="#local-6989586621679369006"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;commentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369006"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679369000"><span class="annot"><span class="annottext">toPath :: DeleteCommentContent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteCommentContent -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679368996"><span class="annot"><span class="annottext">toQuery :: DeleteCommentContent -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteCommentContent -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newDeleteCommentContentResponse' smart constructor.</span><span>
+</span><span id="line-126"></span><span id="local-6989586621679368993"><span id="local-6989586621679368994"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCommentContentResponse"><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-var">DeleteCommentContentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCommentContentResponse%27"><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-var">DeleteCommentContentResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the comment you just deleted.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3Acomment%3ADeleteCommentContentResponse%27"><span class="annot"><span class="annottext">DeleteCommentContentResponse -&gt; Maybe Comment
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#%24sel%3Acomment%3ADeleteCommentContentResponse%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteCommentContentResponse%27"><span class="annot"><span class="annottext">DeleteCommentContentResponse -&gt; Int
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#%24sel%3AhttpStatus%3ADeleteCommentContentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368987"><span id="local-6989586621679368989"><span class="annot"><span class="annottext">DeleteCommentContentResponse
+-&gt; DeleteCommentContentResponse -&gt; Bool
+(DeleteCommentContentResponse
+ -&gt; DeleteCommentContentResponse -&gt; Bool)
+-&gt; (DeleteCommentContentResponse
+    -&gt; DeleteCommentContentResponse -&gt; Bool)
+-&gt; Eq DeleteCommentContentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteCommentContentResponse
+-&gt; DeleteCommentContentResponse -&gt; Bool
+$c/= :: DeleteCommentContentResponse
+-&gt; DeleteCommentContentResponse -&gt; Bool
+== :: DeleteCommentContentResponse
+-&gt; DeleteCommentContentResponse -&gt; Bool
+$c== :: DeleteCommentContentResponse
+-&gt; DeleteCommentContentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368979"><span id="local-6989586621679368981"><span id="local-6989586621679368983"><span id="local-6989586621679368985"><span class="annot"><span class="annottext">ReadPrec [DeleteCommentContentResponse]
+ReadPrec DeleteCommentContentResponse
+Int -&gt; ReadS DeleteCommentContentResponse
+ReadS [DeleteCommentContentResponse]
+(Int -&gt; ReadS DeleteCommentContentResponse)
+-&gt; ReadS [DeleteCommentContentResponse]
+-&gt; ReadPrec DeleteCommentContentResponse
+-&gt; ReadPrec [DeleteCommentContentResponse]
+-&gt; Read DeleteCommentContentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteCommentContentResponse]
+$creadListPrec :: ReadPrec [DeleteCommentContentResponse]
+readPrec :: ReadPrec DeleteCommentContentResponse
+$creadPrec :: ReadPrec DeleteCommentContentResponse
+readList :: ReadS [DeleteCommentContentResponse]
+$creadList :: ReadS [DeleteCommentContentResponse]
+readsPrec :: Int -&gt; ReadS DeleteCommentContentResponse
+$creadsPrec :: Int -&gt; ReadS DeleteCommentContentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368973"><span id="local-6989586621679368975"><span id="local-6989586621679368977"><span class="annot"><span class="annottext">Int -&gt; DeleteCommentContentResponse -&gt; ShowS
+[DeleteCommentContentResponse] -&gt; ShowS
+DeleteCommentContentResponse -&gt; String
+(Int -&gt; DeleteCommentContentResponse -&gt; ShowS)
+-&gt; (DeleteCommentContentResponse -&gt; String)
+-&gt; ([DeleteCommentContentResponse] -&gt; ShowS)
+-&gt; Show DeleteCommentContentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteCommentContentResponse] -&gt; ShowS
+$cshowList :: [DeleteCommentContentResponse] -&gt; ShowS
+show :: DeleteCommentContentResponse -&gt; String
+$cshow :: DeleteCommentContentResponse -&gt; String
+showsPrec :: Int -&gt; DeleteCommentContentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteCommentContentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteCommentContentResponse -&gt; Rep DeleteCommentContentResponse x)
+-&gt; (forall x.
+    Rep DeleteCommentContentResponse x -&gt; DeleteCommentContentResponse)
+-&gt; Generic DeleteCommentContentResponse
+forall x.
+Rep DeleteCommentContentResponse x -&gt; DeleteCommentContentResponse
+forall x.
+DeleteCommentContentResponse -&gt; Rep DeleteCommentContentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteCommentContentResponse x -&gt; DeleteCommentContentResponse
+$cfrom :: forall x.
+DeleteCommentContentResponse -&gt; Rep DeleteCommentContentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Create a value of 'DeleteCommentContentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'comment', 'deleteCommentContentResponse_comment' - Information about the comment you just deleted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'httpStatus', 'deleteCommentContentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#newDeleteCommentContentResponse"><span class="hs-identifier hs-type">newDeleteCommentContentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span><span>
+</span><span id="line-149"></span><span id="newDeleteCommentContentResponse"><span class="annot"><span class="annottext">newDeleteCommentContentResponse :: Int -&gt; DeleteCommentContentResponse
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#newDeleteCommentContentResponse"><span class="hs-identifier hs-var hs-var">newDeleteCommentContentResponse</span></a></span></span><span> </span><span id="local-6989586621679368970"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368970"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">DeleteCommentContentResponse' :: Maybe Comment -&gt; Int -&gt; DeleteCommentContentResponse
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-type">DeleteCommentContentResponse'</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:comment:DeleteCommentContentResponse' :: Maybe Comment
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#%24sel%3Acomment%3ADeleteCommentContentResponse%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Maybe Comment
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCommentContentResponse' :: Int
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#%24sel%3AhttpStatus%3ADeleteCommentContentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368970"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Information about the comment you just deleted.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#deleteCommentContentResponse_comment"><span class="hs-identifier hs-type">deleteCommentContentResponse_comment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="deleteCommentContentResponse_comment"><span class="annot"><span class="annottext">deleteCommentContentResponse_comment :: (Maybe Comment -&gt; f (Maybe Comment))
+-&gt; DeleteCommentContentResponse -&gt; f DeleteCommentContentResponse
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#deleteCommentContentResponse_comment"><span class="hs-identifier hs-var hs-var">deleteCommentContentResponse_comment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCommentContentResponse -&gt; Maybe Comment)
+-&gt; (DeleteCommentContentResponse
+    -&gt; Maybe Comment -&gt; DeleteCommentContentResponse)
+-&gt; Lens
+     DeleteCommentContentResponse
+     DeleteCommentContentResponse
+     (Maybe Comment)
+     (Maybe Comment)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-type">DeleteCommentContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368969"><span class="annot"><span class="annottext">Maybe Comment
+comment :: Maybe Comment
+$sel:comment:DeleteCommentContentResponse' :: DeleteCommentContentResponse -&gt; Maybe Comment
+</span><a href="#local-6989586621679368969"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Comment
+</span><a href="#local-6989586621679368969"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368968"><span class="annot"><span class="annottext">s :: DeleteCommentContentResponse
+</span><a href="#local-6989586621679368968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-type">DeleteCommentContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368967"><span class="annot"><span class="annottext">Maybe Comment
+</span><a href="#local-6989586621679368967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCommentContentResponse
+</span><a href="#local-6989586621679368968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:DeleteCommentContentResponse' :: Maybe Comment
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#%24sel%3Acomment%3ADeleteCommentContentResponse%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Comment
+</span><a href="#local-6989586621679368967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#deleteCommentContentResponse_httpStatus"><span class="hs-identifier hs-type">deleteCommentContentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-162"></span><span id="deleteCommentContentResponse_httpStatus"><span class="annot"><span class="annottext">deleteCommentContentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteCommentContentResponse -&gt; f DeleteCommentContentResponse
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#deleteCommentContentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteCommentContentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCommentContentResponse -&gt; Int)
+-&gt; (DeleteCommentContentResponse
+    -&gt; Int -&gt; DeleteCommentContentResponse)
+-&gt; Lens
+     DeleteCommentContentResponse DeleteCommentContentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-type">DeleteCommentContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368966"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteCommentContentResponse' :: DeleteCommentContentResponse -&gt; Int
+</span><a href="#local-6989586621679368966"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368966"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368965"><span class="annot"><span class="annottext">s :: DeleteCommentContentResponse
+</span><a href="#local-6989586621679368965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-type">DeleteCommentContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368964"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCommentContentResponse
+</span><a href="#local-6989586621679368965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCommentContentResponse' :: Int
+</span><a href="Amazonka.CodeCommit.DeleteCommentContent.html#%24sel%3AhttpStatus%3ADeleteCommentContentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368962"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span></span><span>
+</span><span id="line-165"></span></pre></body></html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportServerSideEncryption.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ExportServerSideEncryption</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionDestinationEntry.html"><span class="hs-identifier">Amazonka.DataExchange.Types.RevisionDestinationEntry</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Details of the operation to be performed by the job.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newExportRevisionsToS3RequestDetails' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679238203"><span id="local-6989586621679238204"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportRevisionsToS3RequestDetails"><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails"><span class="hs-identifier hs-var">ExportRevisionsToS3RequestDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportRevisionsToS3RequestDetails%27"><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-var">ExportRevisionsToS3RequestDetails'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Encryption configuration for the export job.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aencryption%3AExportRevisionsToS3RequestDetails%27"><span class="annot"><span class="annottext">ExportRevisionsToS3RequestDetails
+-&gt; Maybe ExportServerSideEncryption
+</span><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#%24sel%3Aencryption%3AExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportServerSideEncryption.html#ExportServerSideEncryption"><span class="hs-identifier hs-type">ExportServerSideEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The destination for the revision.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3ArevisionDestinations%3AExportRevisionsToS3RequestDetails%27"><span class="annot"><span class="annottext">ExportRevisionsToS3RequestDetails -&gt; [RevisionDestinationEntry]
+</span><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#%24sel%3ArevisionDestinations%3AExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-var hs-var">revisionDestinations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionDestinationEntry.html#RevisionDestinationEntry"><span class="hs-identifier hs-type">RevisionDestinationEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the data set associated with this export job.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdataSetId%3AExportRevisionsToS3RequestDetails%27"><span class="annot"><span class="annottext">ExportRevisionsToS3RequestDetails -&gt; Text
+</span><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#%24sel%3AdataSetId%3AExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238195"><span id="local-6989586621679238197"><span class="annot"><span class="annottext">ExportRevisionsToS3RequestDetails
+-&gt; ExportRevisionsToS3RequestDetails -&gt; Bool
+(ExportRevisionsToS3RequestDetails
+ -&gt; ExportRevisionsToS3RequestDetails -&gt; Bool)
+-&gt; (ExportRevisionsToS3RequestDetails
+    -&gt; ExportRevisionsToS3RequestDetails -&gt; Bool)
+-&gt; Eq ExportRevisionsToS3RequestDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExportRevisionsToS3RequestDetails
+-&gt; ExportRevisionsToS3RequestDetails -&gt; Bool
+$c/= :: ExportRevisionsToS3RequestDetails
+-&gt; ExportRevisionsToS3RequestDetails -&gt; Bool
+== :: ExportRevisionsToS3RequestDetails
+-&gt; ExportRevisionsToS3RequestDetails -&gt; Bool
+$c== :: ExportRevisionsToS3RequestDetails
+-&gt; ExportRevisionsToS3RequestDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238186"><span id="local-6989586621679238188"><span id="local-6989586621679238190"><span id="local-6989586621679238192"><span class="annot"><span class="annottext">ReadPrec [ExportRevisionsToS3RequestDetails]
+ReadPrec ExportRevisionsToS3RequestDetails
+Int -&gt; ReadS ExportRevisionsToS3RequestDetails
+ReadS [ExportRevisionsToS3RequestDetails]
+(Int -&gt; ReadS ExportRevisionsToS3RequestDetails)
+-&gt; ReadS [ExportRevisionsToS3RequestDetails]
+-&gt; ReadPrec ExportRevisionsToS3RequestDetails
+-&gt; ReadPrec [ExportRevisionsToS3RequestDetails]
+-&gt; Read ExportRevisionsToS3RequestDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExportRevisionsToS3RequestDetails]
+$creadListPrec :: ReadPrec [ExportRevisionsToS3RequestDetails]
+readPrec :: ReadPrec ExportRevisionsToS3RequestDetails
+$creadPrec :: ReadPrec ExportRevisionsToS3RequestDetails
+readList :: ReadS [ExportRevisionsToS3RequestDetails]
+$creadList :: ReadS [ExportRevisionsToS3RequestDetails]
+readsPrec :: Int -&gt; ReadS ExportRevisionsToS3RequestDetails
+$creadsPrec :: Int -&gt; ReadS ExportRevisionsToS3RequestDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238179"><span id="local-6989586621679238181"><span id="local-6989586621679238183"><span class="annot"><span class="annottext">Int -&gt; ExportRevisionsToS3RequestDetails -&gt; ShowS
+[ExportRevisionsToS3RequestDetails] -&gt; ShowS
+ExportRevisionsToS3RequestDetails -&gt; String
+(Int -&gt; ExportRevisionsToS3RequestDetails -&gt; ShowS)
+-&gt; (ExportRevisionsToS3RequestDetails -&gt; String)
+-&gt; ([ExportRevisionsToS3RequestDetails] -&gt; ShowS)
+-&gt; Show ExportRevisionsToS3RequestDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExportRevisionsToS3RequestDetails] -&gt; ShowS
+$cshowList :: [ExportRevisionsToS3RequestDetails] -&gt; ShowS
+show :: ExportRevisionsToS3RequestDetails -&gt; String
+$cshow :: ExportRevisionsToS3RequestDetails -&gt; String
+showsPrec :: Int -&gt; ExportRevisionsToS3RequestDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExportRevisionsToS3RequestDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ExportRevisionsToS3RequestDetails
+ -&gt; Rep ExportRevisionsToS3RequestDetails x)
+-&gt; (forall x.
+    Rep ExportRevisionsToS3RequestDetails x
+    -&gt; ExportRevisionsToS3RequestDetails)
+-&gt; Generic ExportRevisionsToS3RequestDetails
+forall x.
+Rep ExportRevisionsToS3RequestDetails x
+-&gt; ExportRevisionsToS3RequestDetails
+forall x.
+ExportRevisionsToS3RequestDetails
+-&gt; Rep ExportRevisionsToS3RequestDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ExportRevisionsToS3RequestDetails x
+-&gt; ExportRevisionsToS3RequestDetails
+$cfrom :: forall x.
+ExportRevisionsToS3RequestDetails
+-&gt; Rep ExportRevisionsToS3RequestDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'ExportRevisionsToS3RequestDetails' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'encryption', 'exportRevisionsToS3RequestDetails_encryption' - Encryption configuration for the export job.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'revisionDestinations', 'exportRevisionsToS3RequestDetails_revisionDestinations' - The destination for the revision.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'dataSetId', 'exportRevisionsToS3RequestDetails_dataSetId' - The unique identifier for the data set associated with this export job.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#newExportRevisionsToS3RequestDetails"><span class="hs-identifier hs-type">newExportRevisionsToS3RequestDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'dataSetId'</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails</span></a></span><span>
+</span><span id="line-58"></span><span id="newExportRevisionsToS3RequestDetails"><span class="annot"><span class="annottext">newExportRevisionsToS3RequestDetails :: Text -&gt; ExportRevisionsToS3RequestDetails
+</span><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#newExportRevisionsToS3RequestDetails"><span class="hs-identifier hs-var hs-var">newExportRevisionsToS3RequestDetails</span></a></span></span><span> </span><span id="local-6989586621679238173"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238173"><span class="hs-identifier hs-var">pDataSetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ExportRevisionsToS3RequestDetails' :: Maybe ExportServerSideEncryption
+-&gt; [RevisionDestinationEntry]
+-&gt; Text
+-&gt; ExportRevisionsToS3RequestDetails
+</span><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryption:ExportRevisionsToS3RequestDetails' :: Maybe ExportServerSideEncryption
+</span><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#%24sel%3Aencryption%3AExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe ExportServerSideEncryption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:revisionDestinations:ExportRevisionsToS3RequestDetails' :: [RevisionDestinationEntry]
+</span><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#%24sel%3ArevisionDestinations%3AExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-var">revisionDestinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RevisionDestinationEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSetId:ExportRevisionsToS3RequestDetails' :: Text
+</span><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#%24sel%3AdataSetId%3AExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238173"><span class="hs-identifier hs-var">pDataSetId_</span></a></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | Encryption configuration for the export job.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#exportRevisionsToS3RequestDetails_encryption"><span class="hs-identifier hs-type">exportRevisionsToS3RequestDetails_encryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportServerSideEncryption.html#ExportServerSideEncryption"><span class="hs-identifier hs-type">ExportServerSideEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="exportRevisionsToS3RequestDetails_encryption"><span class="annot"><span class="annottext">exportRevisionsToS3RequestDetails_encryption :: (Maybe ExportServerSideEncryption
+ -&gt; f (Maybe ExportServerSideEncryption))
+-&gt; ExportRevisionsToS3RequestDetails
+-&gt; f ExportRevisionsToS3RequestDetails
+</span><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#exportRevisionsToS3RequestDetails_encryption"><span class="hs-identifier hs-var hs-var">exportRevisionsToS3RequestDetails_encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportRevisionsToS3RequestDetails
+ -&gt; Maybe ExportServerSideEncryption)
+-&gt; (ExportRevisionsToS3RequestDetails
+    -&gt; Maybe ExportServerSideEncryption
+    -&gt; ExportRevisionsToS3RequestDetails)
+-&gt; Lens
+     ExportRevisionsToS3RequestDetails
+     ExportRevisionsToS3RequestDetails
+     (Maybe ExportServerSideEncryption)
+     (Maybe ExportServerSideEncryption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238169"><span class="annot"><span class="annottext">Maybe ExportServerSideEncryption
+encryption :: Maybe ExportServerSideEncryption
+$sel:encryption:ExportRevisionsToS3RequestDetails' :: ExportRevisionsToS3RequestDetails
+-&gt; Maybe ExportServerSideEncryption
+</span><a href="#local-6989586621679238169"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExportServerSideEncryption
+</span><a href="#local-6989586621679238169"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238168"><span class="annot"><span class="annottext">s :: ExportRevisionsToS3RequestDetails
+</span><a href="#local-6989586621679238168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238167"><span class="annot"><span class="annottext">Maybe ExportServerSideEncryption
+</span><a href="#local-6989586621679238167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportRevisionsToS3RequestDetails
+</span><a href="#local-6989586621679238168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:ExportRevisionsToS3RequestDetails' :: Maybe ExportServerSideEncryption
+</span><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#%24sel%3Aencryption%3AExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExportServerSideEncryption
+</span><a href="#local-6989586621679238167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The destination for the revision.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#exportRevisionsToS3RequestDetails_revisionDestinations"><span class="hs-identifier hs-type">exportRevisionsToS3RequestDetails_revisionDestinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionDestinationEntry.html#RevisionDestinationEntry"><span class="hs-identifier hs-type">RevisionDestinationEntry</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-72"></span><span id="exportRevisionsToS3RequestDetails_revisionDestinations"><span class="annot"><span class="annottext">exportRevisionsToS3RequestDetails_revisionDestinations :: ([RevisionDestinationEntry] -&gt; f [RevisionDestinationEntry])
+-&gt; ExportRevisionsToS3RequestDetails
+-&gt; f ExportRevisionsToS3RequestDetails
+</span><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#exportRevisionsToS3RequestDetails_revisionDestinations"><span class="hs-identifier hs-var hs-var">exportRevisionsToS3RequestDetails_revisionDestinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportRevisionsToS3RequestDetails -&gt; [RevisionDestinationEntry])
+-&gt; (ExportRevisionsToS3RequestDetails
+    -&gt; [RevisionDestinationEntry] -&gt; ExportRevisionsToS3RequestDetails)
+-&gt; Lens
+     ExportRevisionsToS3RequestDetails
+     ExportRevisionsToS3RequestDetails
+     [RevisionDestinationEntry]
+     [RevisionDestinationEntry]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238165"><span class="annot"><span class="annottext">[RevisionDestinationEntry]
+revisionDestinations :: [RevisionDestinationEntry]
+$sel:revisionDestinations:ExportRevisionsToS3RequestDetails' :: ExportRevisionsToS3RequestDetails -&gt; [RevisionDestinationEntry]
+</span><a href="#local-6989586621679238165"><span class="hs-identifier hs-var hs-var">revisionDestinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RevisionDestinationEntry]
+</span><a href="#local-6989586621679238165"><span class="hs-identifier hs-var">revisionDestinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238164"><span class="annot"><span class="annottext">s :: ExportRevisionsToS3RequestDetails
+</span><a href="#local-6989586621679238164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238163"><span class="annot"><span class="annottext">[RevisionDestinationEntry]
+</span><a href="#local-6989586621679238163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportRevisionsToS3RequestDetails
+</span><a href="#local-6989586621679238164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionDestinations:ExportRevisionsToS3RequestDetails' :: [RevisionDestinationEntry]
+</span><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#%24sel%3ArevisionDestinations%3AExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-var">revisionDestinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RevisionDestinationEntry]
+</span><a href="#local-6989586621679238163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RevisionDestinationEntry] -&gt; f [RevisionDestinationEntry])
+ -&gt; ExportRevisionsToS3RequestDetails
+ -&gt; f ExportRevisionsToS3RequestDetails)
+-&gt; (([RevisionDestinationEntry] -&gt; f [RevisionDestinationEntry])
+    -&gt; [RevisionDestinationEntry] -&gt; f [RevisionDestinationEntry])
+-&gt; ([RevisionDestinationEntry] -&gt; f [RevisionDestinationEntry])
+-&gt; ExportRevisionsToS3RequestDetails
+-&gt; f ExportRevisionsToS3RequestDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([RevisionDestinationEntry] -&gt; f [RevisionDestinationEntry])
+-&gt; [RevisionDestinationEntry] -&gt; f [RevisionDestinationEntry]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The unique identifier for the data set associated with this export job.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#exportRevisionsToS3RequestDetails_dataSetId"><span class="hs-identifier hs-type">exportRevisionsToS3RequestDetails_dataSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="exportRevisionsToS3RequestDetails_dataSetId"><span class="annot"><span class="annottext">exportRevisionsToS3RequestDetails_dataSetId :: (Text -&gt; f Text)
+-&gt; ExportRevisionsToS3RequestDetails
+-&gt; f ExportRevisionsToS3RequestDetails
+</span><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#exportRevisionsToS3RequestDetails_dataSetId"><span class="hs-identifier hs-var hs-var">exportRevisionsToS3RequestDetails_dataSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportRevisionsToS3RequestDetails -&gt; Text)
+-&gt; (ExportRevisionsToS3RequestDetails
+    -&gt; Text -&gt; ExportRevisionsToS3RequestDetails)
+-&gt; Lens
+     ExportRevisionsToS3RequestDetails
+     ExportRevisionsToS3RequestDetails
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238159"><span class="annot"><span class="annottext">Text
+dataSetId :: Text
+$sel:dataSetId:ExportRevisionsToS3RequestDetails' :: ExportRevisionsToS3RequestDetails -&gt; Text
+</span><a href="#local-6989586621679238159"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238159"><span class="hs-identifier hs-var">dataSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238158"><span class="annot"><span class="annottext">s :: ExportRevisionsToS3RequestDetails
+</span><a href="#local-6989586621679238158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238157"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportRevisionsToS3RequestDetails
+</span><a href="#local-6989586621679238158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetId:ExportRevisionsToS3RequestDetails' :: Text
+</span><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#%24sel%3AdataSetId%3AExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679238153"><span id="local-6989586621679238155"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails</span></a></span></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679238150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails</span></a></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679238142"><span id="local-6989586621679238144"><span id="local-6989586621679238146"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails</span></a></span></span></span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679238140"><span class="annot"><span class="annottext">toJSON :: ExportRevisionsToS3RequestDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails%27"><span class="hs-identifier hs-type">ExportRevisionsToS3RequestDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238136"><span id="local-6989586621679238137"><span id="local-6989586621679238138"><span class="annot"><span class="annottext">[RevisionDestinationEntry]
+Maybe ExportServerSideEncryption
+Text
+dataSetId :: Text
+revisionDestinations :: [RevisionDestinationEntry]
+encryption :: Maybe ExportServerSideEncryption
+$sel:dataSetId:ExportRevisionsToS3RequestDetails' :: ExportRevisionsToS3RequestDetails -&gt; Text
+$sel:revisionDestinations:ExportRevisionsToS3RequestDetails' :: ExportRevisionsToS3RequestDetails -&gt; [RevisionDestinationEntry]
+$sel:encryption:ExportRevisionsToS3RequestDetails' :: ExportRevisionsToS3RequestDetails
+-&gt; Maybe ExportServerSideEncryption
+</span><a href="#local-6989586621679238136"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-93"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Encryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExportServerSideEncryption -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ExportServerSideEncryption -&gt; Pair)
+-&gt; Maybe ExportServerSideEncryption -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExportServerSideEncryption
+</span><a href="#local-6989586621679238138"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-95"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RevisionDestinations&quot;</span></span><span>
+</span><span id="line-96"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [RevisionDestinationEntry] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[RevisionDestinationEntry]
+</span><a href="#local-6989586621679238137"><span class="hs-identifier hs-var">revisionDestinations</span></a></span><span>
+</span><span id="line-97"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238136"><span class="hs-identifier hs-var">dataSetId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span></pre></body></html>

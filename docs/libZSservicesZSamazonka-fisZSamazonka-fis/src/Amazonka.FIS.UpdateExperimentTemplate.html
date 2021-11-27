@@ -1,0 +1,818 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.FIS.UpdateExperimentTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the specified experiment template.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FIS.UpdateExperimentTemplate</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier">UpdateExperimentTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#newUpdateExperimentTemplate"><span class="hs-identifier">newUpdateExperimentTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_actions"><span class="hs-identifier">updateExperimentTemplate_actions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_stopConditions"><span class="hs-identifier">updateExperimentTemplate_stopConditions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_targets"><span class="hs-identifier">updateExperimentTemplate_targets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_description"><span class="hs-identifier">updateExperimentTemplate_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_roleArn"><span class="hs-identifier">updateExperimentTemplate_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_id"><span class="hs-identifier">updateExperimentTemplate_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse"><span class="hs-identifier">UpdateExperimentTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#newUpdateExperimentTemplateResponse"><span class="hs-identifier">newUpdateExperimentTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplateResponse_experimentTemplate"><span class="hs-identifier">updateExperimentTemplateResponse_experimentTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplateResponse_httpStatus"><span class="hs-identifier">updateExperimentTemplateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FIS.Types.html"><span class="hs-identifier">Amazonka.FIS.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateExperimentTemplate' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679189354"><span id="local-6989586621679189355"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateExperimentTemplate"><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-var">UpdateExperimentTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateExperimentTemplate%27"><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-var">UpdateExperimentTemplate'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The actions for the experiment.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aactions%3AUpdateExperimentTemplate%27"><span class="annot"><span class="annottext">UpdateExperimentTemplate
+-&gt; Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3Aactions%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.Types.UpdateExperimentTemplateActionInputItem.html#UpdateExperimentTemplateActionInputItem"><span class="hs-identifier hs-type">UpdateExperimentTemplateActionInputItem</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The stop conditions for the experiment.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AstopConditions%3AUpdateExperimentTemplate%27"><span class="annot"><span class="annottext">UpdateExperimentTemplate
+-&gt; Maybe [UpdateExperimentTemplateStopConditionInput]
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3AstopConditions%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var hs-var">stopConditions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.FIS.Types.UpdateExperimentTemplateStopConditionInput.html#UpdateExperimentTemplateStopConditionInput"><span class="hs-identifier hs-type">UpdateExperimentTemplateStopConditionInput</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The targets for the experiment.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Atargets%3AUpdateExperimentTemplate%27"><span class="annot"><span class="annottext">UpdateExperimentTemplate
+-&gt; Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3Atargets%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.Types.UpdateExperimentTemplateTargetInput.html#UpdateExperimentTemplateTargetInput"><span class="hs-identifier hs-type">UpdateExperimentTemplateTargetInput</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A description for the template.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateExperimentTemplate%27"><span class="annot"><span class="annottext">UpdateExperimentTemplate -&gt; Maybe Text
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3Adescription%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- service permission to perform service actions on your behalf.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AroleArn%3AUpdateExperimentTemplate%27"><span class="annot"><span class="annottext">UpdateExperimentTemplate -&gt; Maybe Text
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3AroleArn%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ID of the experiment template.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Aid%3AUpdateExperimentTemplate%27"><span class="annot"><span class="annottext">UpdateExperimentTemplate -&gt; Text
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3Aid%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189343"><span id="local-6989586621679189345"><span class="annot"><span class="annottext">UpdateExperimentTemplate -&gt; UpdateExperimentTemplate -&gt; Bool
+(UpdateExperimentTemplate -&gt; UpdateExperimentTemplate -&gt; Bool)
+-&gt; (UpdateExperimentTemplate -&gt; UpdateExperimentTemplate -&gt; Bool)
+-&gt; Eq UpdateExperimentTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateExperimentTemplate -&gt; UpdateExperimentTemplate -&gt; Bool
+$c/= :: UpdateExperimentTemplate -&gt; UpdateExperimentTemplate -&gt; Bool
+== :: UpdateExperimentTemplate -&gt; UpdateExperimentTemplate -&gt; Bool
+$c== :: UpdateExperimentTemplate -&gt; UpdateExperimentTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189334"><span id="local-6989586621679189336"><span id="local-6989586621679189338"><span id="local-6989586621679189340"><span class="annot"><span class="annottext">ReadPrec [UpdateExperimentTemplate]
+ReadPrec UpdateExperimentTemplate
+Int -&gt; ReadS UpdateExperimentTemplate
+ReadS [UpdateExperimentTemplate]
+(Int -&gt; ReadS UpdateExperimentTemplate)
+-&gt; ReadS [UpdateExperimentTemplate]
+-&gt; ReadPrec UpdateExperimentTemplate
+-&gt; ReadPrec [UpdateExperimentTemplate]
+-&gt; Read UpdateExperimentTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateExperimentTemplate]
+$creadListPrec :: ReadPrec [UpdateExperimentTemplate]
+readPrec :: ReadPrec UpdateExperimentTemplate
+$creadPrec :: ReadPrec UpdateExperimentTemplate
+readList :: ReadS [UpdateExperimentTemplate]
+$creadList :: ReadS [UpdateExperimentTemplate]
+readsPrec :: Int -&gt; ReadS UpdateExperimentTemplate
+$creadsPrec :: Int -&gt; ReadS UpdateExperimentTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189327"><span id="local-6989586621679189329"><span id="local-6989586621679189331"><span class="annot"><span class="annottext">Int -&gt; UpdateExperimentTemplate -&gt; ShowS
+[UpdateExperimentTemplate] -&gt; ShowS
+UpdateExperimentTemplate -&gt; String
+(Int -&gt; UpdateExperimentTemplate -&gt; ShowS)
+-&gt; (UpdateExperimentTemplate -&gt; String)
+-&gt; ([UpdateExperimentTemplate] -&gt; ShowS)
+-&gt; Show UpdateExperimentTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateExperimentTemplate] -&gt; ShowS
+$cshowList :: [UpdateExperimentTemplate] -&gt; ShowS
+show :: UpdateExperimentTemplate -&gt; String
+$cshow :: UpdateExperimentTemplate -&gt; String
+showsPrec :: Int -&gt; UpdateExperimentTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateExperimentTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateExperimentTemplate -&gt; Rep UpdateExperimentTemplate x)
+-&gt; (forall x.
+    Rep UpdateExperimentTemplate x -&gt; UpdateExperimentTemplate)
+-&gt; Generic UpdateExperimentTemplate
+forall x.
+Rep UpdateExperimentTemplate x -&gt; UpdateExperimentTemplate
+forall x.
+UpdateExperimentTemplate -&gt; Rep UpdateExperimentTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateExperimentTemplate x -&gt; UpdateExperimentTemplate
+$cfrom :: forall x.
+UpdateExperimentTemplate -&gt; Rep UpdateExperimentTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'UpdateExperimentTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'actions', 'updateExperimentTemplate_actions' - The actions for the experiment.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'stopConditions', 'updateExperimentTemplate_stopConditions' - The stop conditions for the experiment.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'targets', 'updateExperimentTemplate_targets' - The targets for the experiment.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'description', 'updateExperimentTemplate_description' - A description for the template.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'roleArn', 'updateExperimentTemplate_roleArn' - The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- service permission to perform service actions on your behalf.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'id', 'updateExperimentTemplate_id' - The ID of the experiment template.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#newUpdateExperimentTemplate"><span class="hs-identifier hs-type">newUpdateExperimentTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span>
+</span><span id="line-96"></span><span id="newUpdateExperimentTemplate"><span class="annot"><span class="annottext">newUpdateExperimentTemplate :: Text -&gt; UpdateExperimentTemplate
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#newUpdateExperimentTemplate"><span class="hs-identifier hs-var hs-var">newUpdateExperimentTemplate</span></a></span></span><span> </span><span id="local-6989586621679189322"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189322"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">UpdateExperimentTemplate' :: Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+-&gt; Maybe [UpdateExperimentTemplateStopConditionInput]
+-&gt; Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; UpdateExperimentTemplate
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-type">UpdateExperimentTemplate'</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:actions:UpdateExperimentTemplate' :: Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3Aactions%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:stopConditions:UpdateExperimentTemplate' :: Maybe [UpdateExperimentTemplateStopConditionInput]
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3AstopConditions%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var">stopConditions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateExperimentTemplateStopConditionInput]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:targets:UpdateExperimentTemplate' :: Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3Atargets%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateExperimentTemplate' :: Maybe Text
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3Adescription%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:UpdateExperimentTemplate' :: Maybe Text
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3AroleArn%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:UpdateExperimentTemplate' :: Text
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3Aid%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189322"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The actions for the experiment.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_actions"><span class="hs-identifier hs-type">updateExperimentTemplate_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.Types.UpdateExperimentTemplateActionInputItem.html#UpdateExperimentTemplateActionInputItem"><span class="hs-identifier hs-type">UpdateExperimentTemplateActionInputItem</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="updateExperimentTemplate_actions"><span class="annot"><span class="annottext">updateExperimentTemplate_actions :: (Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+ -&gt; f (Maybe
+         (HashMap Text UpdateExperimentTemplateActionInputItem)))
+-&gt; UpdateExperimentTemplate -&gt; f UpdateExperimentTemplate
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_actions"><span class="hs-identifier hs-var hs-var">updateExperimentTemplate_actions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateExperimentTemplate
+ -&gt; Maybe (HashMap Text UpdateExperimentTemplateActionInputItem))
+-&gt; (UpdateExperimentTemplate
+    -&gt; Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+    -&gt; UpdateExperimentTemplate)
+-&gt; Lens
+     UpdateExperimentTemplate
+     UpdateExperimentTemplate
+     (Maybe (HashMap Text UpdateExperimentTemplateActionInputItem))
+     (Maybe (HashMap Text UpdateExperimentTemplateActionInputItem))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-type">UpdateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189319"><span class="annot"><span class="annottext">Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+actions :: Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+$sel:actions:UpdateExperimentTemplate' :: UpdateExperimentTemplate
+-&gt; Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+</span><a href="#local-6989586621679189319"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+</span><a href="#local-6989586621679189319"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189318"><span class="annot"><span class="annottext">s :: UpdateExperimentTemplate
+</span><a href="#local-6989586621679189318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-type">UpdateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189317"><span class="annot"><span class="annottext">Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+</span><a href="#local-6989586621679189317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperimentTemplate
+</span><a href="#local-6989586621679189318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:UpdateExperimentTemplate' :: Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3Aactions%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+</span><a href="#local-6989586621679189317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+  -&gt; f (Maybe
+          (HashMap Text UpdateExperimentTemplateActionInputItem)))
+ -&gt; UpdateExperimentTemplate -&gt; f UpdateExperimentTemplate)
+-&gt; ((Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+     -&gt; f (Maybe
+             (HashMap Text UpdateExperimentTemplateActionInputItem)))
+    -&gt; Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+    -&gt; f (Maybe
+            (HashMap Text UpdateExperimentTemplateActionInputItem)))
+-&gt; (Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+    -&gt; f (Maybe
+            (HashMap Text UpdateExperimentTemplateActionInputItem)))
+-&gt; UpdateExperimentTemplate
+-&gt; f UpdateExperimentTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text UpdateExperimentTemplateActionInputItem)
+  (HashMap Text UpdateExperimentTemplateActionInputItem)
+  (HashMap Text UpdateExperimentTemplateActionInputItem)
+  (HashMap Text UpdateExperimentTemplateActionInputItem)
+-&gt; Iso
+     (Maybe (HashMap Text UpdateExperimentTemplateActionInputItem))
+     (Maybe (HashMap Text UpdateExperimentTemplateActionInputItem))
+     (Maybe (HashMap Text UpdateExperimentTemplateActionInputItem))
+     (Maybe (HashMap Text UpdateExperimentTemplateActionInputItem))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text UpdateExperimentTemplateActionInputItem)
+  (HashMap Text UpdateExperimentTemplateActionInputItem)
+  (HashMap Text UpdateExperimentTemplateActionInputItem)
+  (HashMap Text UpdateExperimentTemplateActionInputItem)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The stop conditions for the experiment.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_stopConditions"><span class="hs-identifier hs-type">updateExperimentTemplate_stopConditions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.FIS.Types.UpdateExperimentTemplateStopConditionInput.html#UpdateExperimentTemplateStopConditionInput"><span class="hs-identifier hs-type">UpdateExperimentTemplateStopConditionInput</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="updateExperimentTemplate_stopConditions"><span class="annot"><span class="annottext">updateExperimentTemplate_stopConditions :: (Maybe [UpdateExperimentTemplateStopConditionInput]
+ -&gt; f (Maybe [UpdateExperimentTemplateStopConditionInput]))
+-&gt; UpdateExperimentTemplate -&gt; f UpdateExperimentTemplate
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_stopConditions"><span class="hs-identifier hs-var hs-var">updateExperimentTemplate_stopConditions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateExperimentTemplate
+ -&gt; Maybe [UpdateExperimentTemplateStopConditionInput])
+-&gt; (UpdateExperimentTemplate
+    -&gt; Maybe [UpdateExperimentTemplateStopConditionInput]
+    -&gt; UpdateExperimentTemplate)
+-&gt; Lens
+     UpdateExperimentTemplate
+     UpdateExperimentTemplate
+     (Maybe [UpdateExperimentTemplateStopConditionInput])
+     (Maybe [UpdateExperimentTemplateStopConditionInput])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-type">UpdateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189313"><span class="annot"><span class="annottext">Maybe [UpdateExperimentTemplateStopConditionInput]
+stopConditions :: Maybe [UpdateExperimentTemplateStopConditionInput]
+$sel:stopConditions:UpdateExperimentTemplate' :: UpdateExperimentTemplate
+-&gt; Maybe [UpdateExperimentTemplateStopConditionInput]
+</span><a href="#local-6989586621679189313"><span class="hs-identifier hs-var hs-var">stopConditions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateExperimentTemplateStopConditionInput]
+</span><a href="#local-6989586621679189313"><span class="hs-identifier hs-var">stopConditions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189312"><span class="annot"><span class="annottext">s :: UpdateExperimentTemplate
+</span><a href="#local-6989586621679189312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-type">UpdateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189311"><span class="annot"><span class="annottext">Maybe [UpdateExperimentTemplateStopConditionInput]
+</span><a href="#local-6989586621679189311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperimentTemplate
+</span><a href="#local-6989586621679189312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopConditions:UpdateExperimentTemplate' :: Maybe [UpdateExperimentTemplateStopConditionInput]
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3AstopConditions%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var">stopConditions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateExperimentTemplateStopConditionInput]
+</span><a href="#local-6989586621679189311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UpdateExperimentTemplateStopConditionInput]
+  -&gt; f (Maybe [UpdateExperimentTemplateStopConditionInput]))
+ -&gt; UpdateExperimentTemplate -&gt; f UpdateExperimentTemplate)
+-&gt; ((Maybe [UpdateExperimentTemplateStopConditionInput]
+     -&gt; f (Maybe [UpdateExperimentTemplateStopConditionInput]))
+    -&gt; Maybe [UpdateExperimentTemplateStopConditionInput]
+    -&gt; f (Maybe [UpdateExperimentTemplateStopConditionInput]))
+-&gt; (Maybe [UpdateExperimentTemplateStopConditionInput]
+    -&gt; f (Maybe [UpdateExperimentTemplateStopConditionInput]))
+-&gt; UpdateExperimentTemplate
+-&gt; f UpdateExperimentTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UpdateExperimentTemplateStopConditionInput]
+  [UpdateExperimentTemplateStopConditionInput]
+  [UpdateExperimentTemplateStopConditionInput]
+  [UpdateExperimentTemplateStopConditionInput]
+-&gt; Iso
+     (Maybe [UpdateExperimentTemplateStopConditionInput])
+     (Maybe [UpdateExperimentTemplateStopConditionInput])
+     (Maybe [UpdateExperimentTemplateStopConditionInput])
+     (Maybe [UpdateExperimentTemplateStopConditionInput])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UpdateExperimentTemplateStopConditionInput]
+  [UpdateExperimentTemplateStopConditionInput]
+  [UpdateExperimentTemplateStopConditionInput]
+  [UpdateExperimentTemplateStopConditionInput]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The targets for the experiment.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_targets"><span class="hs-identifier hs-type">updateExperimentTemplate_targets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.Types.UpdateExperimentTemplateTargetInput.html#UpdateExperimentTemplateTargetInput"><span class="hs-identifier hs-type">UpdateExperimentTemplateTargetInput</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="updateExperimentTemplate_targets"><span class="annot"><span class="annottext">updateExperimentTemplate_targets :: (Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+ -&gt; f (Maybe (HashMap Text UpdateExperimentTemplateTargetInput)))
+-&gt; UpdateExperimentTemplate -&gt; f UpdateExperimentTemplate
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_targets"><span class="hs-identifier hs-var hs-var">updateExperimentTemplate_targets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateExperimentTemplate
+ -&gt; Maybe (HashMap Text UpdateExperimentTemplateTargetInput))
+-&gt; (UpdateExperimentTemplate
+    -&gt; Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+    -&gt; UpdateExperimentTemplate)
+-&gt; Lens
+     UpdateExperimentTemplate
+     UpdateExperimentTemplate
+     (Maybe (HashMap Text UpdateExperimentTemplateTargetInput))
+     (Maybe (HashMap Text UpdateExperimentTemplateTargetInput))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-type">UpdateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189310"><span class="annot"><span class="annottext">Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+targets :: Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+$sel:targets:UpdateExperimentTemplate' :: UpdateExperimentTemplate
+-&gt; Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+</span><a href="#local-6989586621679189310"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+</span><a href="#local-6989586621679189310"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189309"><span class="annot"><span class="annottext">s :: UpdateExperimentTemplate
+</span><a href="#local-6989586621679189309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-type">UpdateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189308"><span class="annot"><span class="annottext">Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+</span><a href="#local-6989586621679189308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperimentTemplate
+</span><a href="#local-6989586621679189309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:UpdateExperimentTemplate' :: Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3Atargets%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+</span><a href="#local-6989586621679189308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+  -&gt; f (Maybe (HashMap Text UpdateExperimentTemplateTargetInput)))
+ -&gt; UpdateExperimentTemplate -&gt; f UpdateExperimentTemplate)
+-&gt; ((Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+     -&gt; f (Maybe (HashMap Text UpdateExperimentTemplateTargetInput)))
+    -&gt; Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+    -&gt; f (Maybe (HashMap Text UpdateExperimentTemplateTargetInput)))
+-&gt; (Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+    -&gt; f (Maybe (HashMap Text UpdateExperimentTemplateTargetInput)))
+-&gt; UpdateExperimentTemplate
+-&gt; f UpdateExperimentTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text UpdateExperimentTemplateTargetInput)
+  (HashMap Text UpdateExperimentTemplateTargetInput)
+  (HashMap Text UpdateExperimentTemplateTargetInput)
+  (HashMap Text UpdateExperimentTemplateTargetInput)
+-&gt; Iso
+     (Maybe (HashMap Text UpdateExperimentTemplateTargetInput))
+     (Maybe (HashMap Text UpdateExperimentTemplateTargetInput))
+     (Maybe (HashMap Text UpdateExperimentTemplateTargetInput))
+     (Maybe (HashMap Text UpdateExperimentTemplateTargetInput))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text UpdateExperimentTemplateTargetInput)
+  (HashMap Text UpdateExperimentTemplateTargetInput)
+  (HashMap Text UpdateExperimentTemplateTargetInput)
+  (HashMap Text UpdateExperimentTemplateTargetInput)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | A description for the template.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_description"><span class="hs-identifier hs-type">updateExperimentTemplate_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="updateExperimentTemplate_description"><span class="annot"><span class="annottext">updateExperimentTemplate_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateExperimentTemplate -&gt; f UpdateExperimentTemplate
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_description"><span class="hs-identifier hs-var hs-var">updateExperimentTemplate_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateExperimentTemplate -&gt; Maybe Text)
+-&gt; (UpdateExperimentTemplate
+    -&gt; Maybe Text -&gt; UpdateExperimentTemplate)
+-&gt; Lens
+     UpdateExperimentTemplate
+     UpdateExperimentTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-type">UpdateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189307"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateExperimentTemplate' :: UpdateExperimentTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679189307"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189307"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189306"><span class="annot"><span class="annottext">s :: UpdateExperimentTemplate
+</span><a href="#local-6989586621679189306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-type">UpdateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189305"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperimentTemplate
+</span><a href="#local-6989586621679189306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateExperimentTemplate' :: Maybe Text
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3Adescription%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- service permission to perform service actions on your behalf.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_roleArn"><span class="hs-identifier hs-type">updateExperimentTemplate_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="updateExperimentTemplate_roleArn"><span class="annot"><span class="annottext">updateExperimentTemplate_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateExperimentTemplate -&gt; f UpdateExperimentTemplate
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_roleArn"><span class="hs-identifier hs-var hs-var">updateExperimentTemplate_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateExperimentTemplate -&gt; Maybe Text)
+-&gt; (UpdateExperimentTemplate
+    -&gt; Maybe Text -&gt; UpdateExperimentTemplate)
+-&gt; Lens
+     UpdateExperimentTemplate
+     UpdateExperimentTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-type">UpdateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189304"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:UpdateExperimentTemplate' :: UpdateExperimentTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679189304"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189304"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189303"><span class="annot"><span class="annottext">s :: UpdateExperimentTemplate
+</span><a href="#local-6989586621679189303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-type">UpdateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189302"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperimentTemplate
+</span><a href="#local-6989586621679189303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:UpdateExperimentTemplate' :: Maybe Text
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3AroleArn%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The ID of the experiment template.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_id"><span class="hs-identifier hs-type">updateExperimentTemplate_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="updateExperimentTemplate_id"><span class="annot"><span class="annottext">updateExperimentTemplate_id :: (Text -&gt; f Text)
+-&gt; UpdateExperimentTemplate -&gt; f UpdateExperimentTemplate
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplate_id"><span class="hs-identifier hs-var hs-var">updateExperimentTemplate_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateExperimentTemplate -&gt; Text)
+-&gt; (UpdateExperimentTemplate -&gt; Text -&gt; UpdateExperimentTemplate)
+-&gt; Lens UpdateExperimentTemplate UpdateExperimentTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-type">UpdateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189301"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:UpdateExperimentTemplate' :: UpdateExperimentTemplate -&gt; Text
+</span><a href="#local-6989586621679189301"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189301"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189300"><span class="annot"><span class="annottext">s :: UpdateExperimentTemplate
+</span><a href="#local-6989586621679189300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-type">UpdateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189299"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperimentTemplate
+</span><a href="#local-6989586621679189300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:UpdateExperimentTemplate' :: Text
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3Aid%3AUpdateExperimentTemplate%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse"><span class="hs-identifier hs-type">UpdateExperimentTemplateResponse</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679189295"><span class="annot"><span class="annottext">request :: UpdateExperimentTemplate -&gt; Request UpdateExperimentTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateExperimentTemplate -&gt; Request UpdateExperimentTemplate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FIS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679189291"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateExperimentTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateExperimentTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateExperimentTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateExperimentTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateExperimentTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679189288"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189288"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679189287"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679189287"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679189286"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189286"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe ExperimentTemplate -&gt; Int -&gt; UpdateExperimentTemplateResponse
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse%27"><span class="hs-identifier hs-var">UpdateExperimentTemplateResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ExperimentTemplate
+ -&gt; Int -&gt; UpdateExperimentTemplateResponse)
+-&gt; Either String (Maybe ExperimentTemplate)
+-&gt; Either String (Int -&gt; UpdateExperimentTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ExperimentTemplate)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;experimentTemplate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateExperimentTemplateResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateExperimentTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189288"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189278"><span id="local-6989586621679189280"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679189271"><span class="annot"><span class="annottext">toHeaders :: UpdateExperimentTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateExperimentTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-156"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189261"><span id="local-6989586621679189263"><span id="local-6989586621679189265"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679189259"><span class="annot"><span class="annottext">toJSON :: UpdateExperimentTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-type">UpdateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189252"><span id="local-6989586621679189253"><span id="local-6989586621679189254"><span id="local-6989586621679189255"><span id="local-6989586621679189256"><span id="local-6989586621679189257"><span class="annot"><span class="annottext">Maybe [UpdateExperimentTemplateStopConditionInput]
+Maybe Text
+Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+Text
+id :: Text
+roleArn :: Maybe Text
+description :: Maybe Text
+targets :: Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+stopConditions :: Maybe [UpdateExperimentTemplateStopConditionInput]
+actions :: Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+$sel:id:UpdateExperimentTemplate' :: UpdateExperimentTemplate -&gt; Text
+$sel:roleArn:UpdateExperimentTemplate' :: UpdateExperimentTemplate -&gt; Maybe Text
+$sel:description:UpdateExperimentTemplate' :: UpdateExperimentTemplate -&gt; Maybe Text
+$sel:targets:UpdateExperimentTemplate' :: UpdateExperimentTemplate
+-&gt; Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+$sel:stopConditions:UpdateExperimentTemplate' :: UpdateExperimentTemplate
+-&gt; Maybe [UpdateExperimentTemplateStopConditionInput]
+$sel:actions:UpdateExperimentTemplate' :: UpdateExperimentTemplate
+-&gt; Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+</span><a href="#local-6989586621679189252"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
+-&gt; HashMap Text UpdateExperimentTemplateActionInputItem -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text UpdateExperimentTemplateActionInputItem -&gt; Pair)
+-&gt; Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+</span><a href="#local-6989586621679189257"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stopConditions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [UpdateExperimentTemplateStopConditionInput] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">([UpdateExperimentTemplateStopConditionInput] -&gt; Pair)
+-&gt; Maybe [UpdateExperimentTemplateStopConditionInput] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateExperimentTemplateStopConditionInput]
+</span><a href="#local-6989586621679189256"><span class="hs-identifier hs-var">stopConditions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text UpdateExperimentTemplateTargetInput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text UpdateExperimentTemplateTargetInput -&gt; Pair)
+-&gt; Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+</span><a href="#local-6989586621679189255"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189254"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189253"><span class="hs-identifier hs-var">roleArn</span></a></span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679189246"><span class="annot"><span class="annottext">toPath :: UpdateExperimentTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate%27"><span class="hs-identifier hs-type">UpdateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189239"><span id="local-6989586621679189240"><span id="local-6989586621679189241"><span id="local-6989586621679189242"><span id="local-6989586621679189243"><span id="local-6989586621679189244"><span class="annot"><span class="annottext">Maybe [UpdateExperimentTemplateStopConditionInput]
+Maybe Text
+Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+Text
+id :: Text
+roleArn :: Maybe Text
+description :: Maybe Text
+targets :: Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+stopConditions :: Maybe [UpdateExperimentTemplateStopConditionInput]
+actions :: Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+$sel:id:UpdateExperimentTemplate' :: UpdateExperimentTemplate -&gt; Text
+$sel:roleArn:UpdateExperimentTemplate' :: UpdateExperimentTemplate -&gt; Maybe Text
+$sel:description:UpdateExperimentTemplate' :: UpdateExperimentTemplate -&gt; Maybe Text
+$sel:targets:UpdateExperimentTemplate' :: UpdateExperimentTemplate
+-&gt; Maybe (HashMap Text UpdateExperimentTemplateTargetInput)
+$sel:stopConditions:UpdateExperimentTemplate' :: UpdateExperimentTemplate
+-&gt; Maybe [UpdateExperimentTemplateStopConditionInput]
+$sel:actions:UpdateExperimentTemplate' :: UpdateExperimentTemplate
+-&gt; Maybe (HashMap Text UpdateExperimentTemplateActionInputItem)
+</span><a href="#local-6989586621679189239"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/experimentTemplates/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189239"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplate"><span class="hs-identifier hs-type">UpdateExperimentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679189235"><span class="annot"><span class="annottext">toQuery :: UpdateExperimentTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateExperimentTemplate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newUpdateExperimentTemplateResponse' smart constructor.</span><span>
+</span><span id="line-182"></span><span id="local-6989586621679189232"><span id="local-6989586621679189233"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateExperimentTemplateResponse"><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse"><span class="hs-identifier hs-var">UpdateExperimentTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateExperimentTemplateResponse%27"><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse%27"><span class="hs-identifier hs-var">UpdateExperimentTemplateResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the experiment template.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AexperimentTemplate%3AUpdateExperimentTemplateResponse%27"><span class="annot"><span class="annottext">UpdateExperimentTemplateResponse -&gt; Maybe ExperimentTemplate
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3AexperimentTemplate%3AUpdateExperimentTemplateResponse%27"><span class="hs-identifier hs-var hs-var">experimentTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.Types.ExperimentTemplate.html#ExperimentTemplate"><span class="hs-identifier hs-type">ExperimentTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateExperimentTemplateResponse%27"><span class="annot"><span class="annottext">UpdateExperimentTemplateResponse -&gt; Int
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3AhttpStatus%3AUpdateExperimentTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189226"><span id="local-6989586621679189228"><span class="annot"><span class="annottext">UpdateExperimentTemplateResponse
+-&gt; UpdateExperimentTemplateResponse -&gt; Bool
+(UpdateExperimentTemplateResponse
+ -&gt; UpdateExperimentTemplateResponse -&gt; Bool)
+-&gt; (UpdateExperimentTemplateResponse
+    -&gt; UpdateExperimentTemplateResponse -&gt; Bool)
+-&gt; Eq UpdateExperimentTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateExperimentTemplateResponse
+-&gt; UpdateExperimentTemplateResponse -&gt; Bool
+$c/= :: UpdateExperimentTemplateResponse
+-&gt; UpdateExperimentTemplateResponse -&gt; Bool
+== :: UpdateExperimentTemplateResponse
+-&gt; UpdateExperimentTemplateResponse -&gt; Bool
+$c== :: UpdateExperimentTemplateResponse
+-&gt; UpdateExperimentTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189218"><span id="local-6989586621679189220"><span id="local-6989586621679189222"><span id="local-6989586621679189224"><span class="annot"><span class="annottext">ReadPrec [UpdateExperimentTemplateResponse]
+ReadPrec UpdateExperimentTemplateResponse
+Int -&gt; ReadS UpdateExperimentTemplateResponse
+ReadS [UpdateExperimentTemplateResponse]
+(Int -&gt; ReadS UpdateExperimentTemplateResponse)
+-&gt; ReadS [UpdateExperimentTemplateResponse]
+-&gt; ReadPrec UpdateExperimentTemplateResponse
+-&gt; ReadPrec [UpdateExperimentTemplateResponse]
+-&gt; Read UpdateExperimentTemplateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateExperimentTemplateResponse]
+$creadListPrec :: ReadPrec [UpdateExperimentTemplateResponse]
+readPrec :: ReadPrec UpdateExperimentTemplateResponse
+$creadPrec :: ReadPrec UpdateExperimentTemplateResponse
+readList :: ReadS [UpdateExperimentTemplateResponse]
+$creadList :: ReadS [UpdateExperimentTemplateResponse]
+readsPrec :: Int -&gt; ReadS UpdateExperimentTemplateResponse
+$creadsPrec :: Int -&gt; ReadS UpdateExperimentTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189212"><span id="local-6989586621679189214"><span id="local-6989586621679189216"><span class="annot"><span class="annottext">Int -&gt; UpdateExperimentTemplateResponse -&gt; ShowS
+[UpdateExperimentTemplateResponse] -&gt; ShowS
+UpdateExperimentTemplateResponse -&gt; String
+(Int -&gt; UpdateExperimentTemplateResponse -&gt; ShowS)
+-&gt; (UpdateExperimentTemplateResponse -&gt; String)
+-&gt; ([UpdateExperimentTemplateResponse] -&gt; ShowS)
+-&gt; Show UpdateExperimentTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateExperimentTemplateResponse] -&gt; ShowS
+$cshowList :: [UpdateExperimentTemplateResponse] -&gt; ShowS
+show :: UpdateExperimentTemplateResponse -&gt; String
+$cshow :: UpdateExperimentTemplateResponse -&gt; String
+showsPrec :: Int -&gt; UpdateExperimentTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateExperimentTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateExperimentTemplateResponse
+ -&gt; Rep UpdateExperimentTemplateResponse x)
+-&gt; (forall x.
+    Rep UpdateExperimentTemplateResponse x
+    -&gt; UpdateExperimentTemplateResponse)
+-&gt; Generic UpdateExperimentTemplateResponse
+forall x.
+Rep UpdateExperimentTemplateResponse x
+-&gt; UpdateExperimentTemplateResponse
+forall x.
+UpdateExperimentTemplateResponse
+-&gt; Rep UpdateExperimentTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateExperimentTemplateResponse x
+-&gt; UpdateExperimentTemplateResponse
+$cfrom :: forall x.
+UpdateExperimentTemplateResponse
+-&gt; Rep UpdateExperimentTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Create a value of 'UpdateExperimentTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'experimentTemplate', 'updateExperimentTemplateResponse_experimentTemplate' - Information about the experiment template.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'httpStatus', 'updateExperimentTemplateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#newUpdateExperimentTemplateResponse"><span class="hs-identifier hs-type">newUpdateExperimentTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse"><span class="hs-identifier hs-type">UpdateExperimentTemplateResponse</span></a></span><span>
+</span><span id="line-205"></span><span id="newUpdateExperimentTemplateResponse"><span class="annot"><span class="annottext">newUpdateExperimentTemplateResponse :: Int -&gt; UpdateExperimentTemplateResponse
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#newUpdateExperimentTemplateResponse"><span class="hs-identifier hs-var hs-var">newUpdateExperimentTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679189209"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189209"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">UpdateExperimentTemplateResponse' :: Maybe ExperimentTemplate -&gt; Int -&gt; UpdateExperimentTemplateResponse
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse%27"><span class="hs-identifier hs-type">UpdateExperimentTemplateResponse'</span></a></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:experimentTemplate:UpdateExperimentTemplateResponse' :: Maybe ExperimentTemplate
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3AexperimentTemplate%3AUpdateExperimentTemplateResponse%27"><span class="hs-identifier hs-var">experimentTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">Maybe ExperimentTemplate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateExperimentTemplateResponse' :: Int
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3AhttpStatus%3AUpdateExperimentTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189209"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | Information about the experiment template.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplateResponse_experimentTemplate"><span class="hs-identifier hs-type">updateExperimentTemplateResponse_experimentTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse"><span class="hs-identifier hs-type">UpdateExperimentTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.Types.ExperimentTemplate.html#ExperimentTemplate"><span class="hs-identifier hs-type">ExperimentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="updateExperimentTemplateResponse_experimentTemplate"><span class="annot"><span class="annottext">updateExperimentTemplateResponse_experimentTemplate :: (Maybe ExperimentTemplate -&gt; f (Maybe ExperimentTemplate))
+-&gt; UpdateExperimentTemplateResponse
+-&gt; f UpdateExperimentTemplateResponse
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplateResponse_experimentTemplate"><span class="hs-identifier hs-var hs-var">updateExperimentTemplateResponse_experimentTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateExperimentTemplateResponse -&gt; Maybe ExperimentTemplate)
+-&gt; (UpdateExperimentTemplateResponse
+    -&gt; Maybe ExperimentTemplate -&gt; UpdateExperimentTemplateResponse)
+-&gt; Lens
+     UpdateExperimentTemplateResponse
+     UpdateExperimentTemplateResponse
+     (Maybe ExperimentTemplate)
+     (Maybe ExperimentTemplate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse%27"><span class="hs-identifier hs-type">UpdateExperimentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189208"><span class="annot"><span class="annottext">Maybe ExperimentTemplate
+experimentTemplate :: Maybe ExperimentTemplate
+$sel:experimentTemplate:UpdateExperimentTemplateResponse' :: UpdateExperimentTemplateResponse -&gt; Maybe ExperimentTemplate
+</span><a href="#local-6989586621679189208"><span class="hs-identifier hs-var hs-var">experimentTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExperimentTemplate
+</span><a href="#local-6989586621679189208"><span class="hs-identifier hs-var">experimentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189207"><span class="annot"><span class="annottext">s :: UpdateExperimentTemplateResponse
+</span><a href="#local-6989586621679189207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse%27"><span class="hs-identifier hs-type">UpdateExperimentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189206"><span class="annot"><span class="annottext">Maybe ExperimentTemplate
+</span><a href="#local-6989586621679189206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperimentTemplateResponse
+</span><a href="#local-6989586621679189207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:experimentTemplate:UpdateExperimentTemplateResponse' :: Maybe ExperimentTemplate
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3AexperimentTemplate%3AUpdateExperimentTemplateResponse%27"><span class="hs-identifier hs-var">experimentTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExperimentTemplate
+</span><a href="#local-6989586621679189206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse"><span class="hs-identifier hs-type">UpdateExperimentTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplateResponse_httpStatus"><span class="hs-identifier hs-type">updateExperimentTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse"><span class="hs-identifier hs-type">UpdateExperimentTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-218"></span><span id="updateExperimentTemplateResponse_httpStatus"><span class="annot"><span class="annottext">updateExperimentTemplateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateExperimentTemplateResponse
+-&gt; f UpdateExperimentTemplateResponse
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#updateExperimentTemplateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateExperimentTemplateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateExperimentTemplateResponse -&gt; Int)
+-&gt; (UpdateExperimentTemplateResponse
+    -&gt; Int -&gt; UpdateExperimentTemplateResponse)
+-&gt; Lens
+     UpdateExperimentTemplateResponse
+     UpdateExperimentTemplateResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse%27"><span class="hs-identifier hs-type">UpdateExperimentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189205"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateExperimentTemplateResponse' :: UpdateExperimentTemplateResponse -&gt; Int
+</span><a href="#local-6989586621679189205"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189205"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189204"><span class="annot"><span class="annottext">s :: UpdateExperimentTemplateResponse
+</span><a href="#local-6989586621679189204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse%27"><span class="hs-identifier hs-type">UpdateExperimentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189203"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperimentTemplateResponse
+</span><a href="#local-6989586621679189204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateExperimentTemplateResponse' :: Int
+</span><a href="Amazonka.FIS.UpdateExperimentTemplate.html#%24sel%3AhttpStatus%3AUpdateExperimentTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse"><span class="hs-identifier hs-type">UpdateExperimentTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679189201"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Amazonka.FIS.UpdateExperimentTemplate.html#UpdateExperimentTemplateResponse"><span class="hs-identifier hs-type">UpdateExperimentTemplateResponse</span></a></span></span><span>
+</span><span id="line-223"></span></pre></body></html>

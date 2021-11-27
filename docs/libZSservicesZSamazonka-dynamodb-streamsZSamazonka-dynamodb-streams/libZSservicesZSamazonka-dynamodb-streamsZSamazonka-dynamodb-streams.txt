@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.DynamoDBStreams.Types.AttributeValue
+module Amazonka.DynamoDBStreams.Types.AttributeValue
 
 -- | Represents the data for an attribute.
 --   
@@ -274,16 +274,16 @@ attributeValue_s :: Lens' AttributeValue (Maybe Text)
 --   "BOOL": true
 --   </pre>
 attributeValue_bool :: Lens' AttributeValue (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.AttributeValue.AttributeValue
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.AttributeValue.AttributeValue
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.AttributeValue.AttributeValue
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.Types.AttributeValue.AttributeValue
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DynamoDBStreams.Types.AttributeValue.AttributeValue
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.Types.AttributeValue.AttributeValue
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.Types.AttributeValue.AttributeValue
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.Types.AttributeValue.AttributeValue
+instance GHC.Show.Show Amazonka.DynamoDBStreams.Types.AttributeValue.AttributeValue
+instance GHC.Read.Read Amazonka.DynamoDBStreams.Types.AttributeValue.AttributeValue
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.Types.AttributeValue.AttributeValue
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DynamoDBStreams.Types.AttributeValue.AttributeValue
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.Types.AttributeValue.AttributeValue
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.Types.AttributeValue.AttributeValue
 
 
-module Network.AWS.DynamoDBStreams.Types.Identity
+module Amazonka.DynamoDBStreams.Types.Identity
 
 -- | Contains details about the type of identity that made the request.
 --   
@@ -320,43 +320,43 @@ identity_principalId :: Lens' Identity (Maybe Text)
 
 -- | The type of the identity. For Time To Live, the type is "Service".
 identity_type :: Lens' Identity (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.Identity.Identity
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.Identity.Identity
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.Identity.Identity
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.Types.Identity.Identity
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DynamoDBStreams.Types.Identity.Identity
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.Types.Identity.Identity
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.Types.Identity.Identity
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.Types.Identity.Identity
+instance GHC.Show.Show Amazonka.DynamoDBStreams.Types.Identity.Identity
+instance GHC.Read.Read Amazonka.DynamoDBStreams.Types.Identity.Identity
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.Types.Identity.Identity
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DynamoDBStreams.Types.Identity.Identity
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.Types.Identity.Identity
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.Types.Identity.Identity
 
 
-module Network.AWS.DynamoDBStreams.Types.KeyType
+module Amazonka.DynamoDBStreams.Types.KeyType
 newtype KeyType
 KeyType' :: Text -> KeyType
 [fromKeyType] :: KeyType -> Text
 pattern KeyType_HASH :: KeyType
 pattern KeyType_RANGE :: KeyType
-instance Network.AWS.Data.XML.ToXML Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance Network.AWS.Data.XML.FromXML Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance Network.AWS.Data.Log.ToLog Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance Network.AWS.Data.Text.ToText Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance Network.AWS.Data.Text.FromText Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance GHC.Classes.Ord Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.KeyType.KeyType
+instance Amazonka.Data.XML.ToXML Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance Amazonka.Data.XML.FromXML Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance Amazonka.Data.Query.ToQuery Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance Amazonka.Data.Headers.ToHeader Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance Amazonka.Data.Log.ToLog Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance Amazonka.Data.Text.ToText Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance Amazonka.Data.Text.FromText Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance GHC.Classes.Ord Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance GHC.Read.Read Amazonka.DynamoDBStreams.Types.KeyType.KeyType
+instance GHC.Show.Show Amazonka.DynamoDBStreams.Types.KeyType.KeyType
 
 
-module Network.AWS.DynamoDBStreams.Types.KeySchemaElement
+module Amazonka.DynamoDBStreams.Types.KeySchemaElement
 
 -- | Represents <i>a single element</i> of a key schema. A key schema
 --   specifies the attributes that make up the primary key of a table, or
@@ -448,44 +448,44 @@ keySchemaElement_attributeName :: Lens' KeySchemaElement Text
 --   with the same partition key physically close together, in sorted order
 --   by the sort key value.
 keySchemaElement_keyType :: Lens' KeySchemaElement KeyType
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.KeySchemaElement.KeySchemaElement
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.KeySchemaElement.KeySchemaElement
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.KeySchemaElement.KeySchemaElement
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.Types.KeySchemaElement.KeySchemaElement
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DynamoDBStreams.Types.KeySchemaElement.KeySchemaElement
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.Types.KeySchemaElement.KeySchemaElement
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.Types.KeySchemaElement.KeySchemaElement
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.Types.KeySchemaElement.KeySchemaElement
+instance GHC.Show.Show Amazonka.DynamoDBStreams.Types.KeySchemaElement.KeySchemaElement
+instance GHC.Read.Read Amazonka.DynamoDBStreams.Types.KeySchemaElement.KeySchemaElement
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.Types.KeySchemaElement.KeySchemaElement
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DynamoDBStreams.Types.KeySchemaElement.KeySchemaElement
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.Types.KeySchemaElement.KeySchemaElement
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.Types.KeySchemaElement.KeySchemaElement
 
 
-module Network.AWS.DynamoDBStreams.Types.OperationType
+module Amazonka.DynamoDBStreams.Types.OperationType
 newtype OperationType
 OperationType' :: Text -> OperationType
 [fromOperationType] :: OperationType -> Text
 pattern OperationType_INSERT :: OperationType
 pattern OperationType_MODIFY :: OperationType
 pattern OperationType_REMOVE :: OperationType
-instance Network.AWS.Data.XML.ToXML Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance Network.AWS.Data.XML.FromXML Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance Network.AWS.Data.Log.ToLog Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance Network.AWS.Data.Text.ToText Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance Network.AWS.Data.Text.FromText Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance GHC.Classes.Ord Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.OperationType.OperationType
+instance Amazonka.Data.XML.ToXML Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance Amazonka.Data.XML.FromXML Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance Amazonka.Data.Query.ToQuery Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance Amazonka.Data.Headers.ToHeader Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance Amazonka.Data.Log.ToLog Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance Amazonka.Data.Text.ToText Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance Amazonka.Data.Text.FromText Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance GHC.Classes.Ord Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance GHC.Read.Read Amazonka.DynamoDBStreams.Types.OperationType.OperationType
+instance GHC.Show.Show Amazonka.DynamoDBStreams.Types.OperationType.OperationType
 
 
-module Network.AWS.DynamoDBStreams.Types.SequenceNumberRange
+module Amazonka.DynamoDBStreams.Types.SequenceNumberRange
 
 -- | The beginning and ending sequence numbers for the stream records
 --   contained within a shard.
@@ -529,16 +529,16 @@ sequenceNumberRange_startingSequenceNumber :: Lens' SequenceNumberRange (Maybe T
 -- | The last sequence number for the stream records contained within a
 --   shard. String contains numeric characters only.
 sequenceNumberRange_endingSequenceNumber :: Lens' SequenceNumberRange (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.SequenceNumberRange
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.SequenceNumberRange
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.SequenceNumberRange
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.SequenceNumberRange
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.SequenceNumberRange
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.SequenceNumberRange
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.Types.SequenceNumberRange.SequenceNumberRange
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.Types.SequenceNumberRange.SequenceNumberRange
+instance GHC.Show.Show Amazonka.DynamoDBStreams.Types.SequenceNumberRange.SequenceNumberRange
+instance GHC.Read.Read Amazonka.DynamoDBStreams.Types.SequenceNumberRange.SequenceNumberRange
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.Types.SequenceNumberRange.SequenceNumberRange
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DynamoDBStreams.Types.SequenceNumberRange.SequenceNumberRange
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.Types.SequenceNumberRange.SequenceNumberRange
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.Types.SequenceNumberRange.SequenceNumberRange
 
 
-module Network.AWS.DynamoDBStreams.Types.Shard
+module Amazonka.DynamoDBStreams.Types.Shard
 
 -- | A uniquely identified group of stream records within a stream.
 --   
@@ -582,16 +582,16 @@ shard_sequenceNumberRange :: Lens' Shard (Maybe SequenceNumberRange)
 
 -- | The system-generated identifier for this shard.
 shard_shardId :: Lens' Shard (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.Shard.Shard
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.Shard.Shard
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.Shard.Shard
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.Types.Shard.Shard
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DynamoDBStreams.Types.Shard.Shard
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.Types.Shard.Shard
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.Types.Shard.Shard
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.Types.Shard.Shard
+instance GHC.Show.Show Amazonka.DynamoDBStreams.Types.Shard.Shard
+instance GHC.Read.Read Amazonka.DynamoDBStreams.Types.Shard.Shard
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.Types.Shard.Shard
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DynamoDBStreams.Types.Shard.Shard
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.Types.Shard.Shard
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.Types.Shard.Shard
 
 
-module Network.AWS.DynamoDBStreams.Types.ShardIteratorType
+module Amazonka.DynamoDBStreams.Types.ShardIteratorType
 newtype ShardIteratorType
 ShardIteratorType' :: Text -> ShardIteratorType
 [fromShardIteratorType] :: ShardIteratorType -> Text
@@ -599,28 +599,28 @@ pattern ShardIteratorType_AFTER_SEQUENCE_NUMBER :: ShardIteratorType
 pattern ShardIteratorType_AT_SEQUENCE_NUMBER :: ShardIteratorType
 pattern ShardIteratorType_LATEST :: ShardIteratorType
 pattern ShardIteratorType_TRIM_HORIZON :: ShardIteratorType
-instance Network.AWS.Data.XML.ToXML Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance Network.AWS.Data.XML.FromXML Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance Network.AWS.Data.Log.ToLog Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance Network.AWS.Data.Text.ToText Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance Network.AWS.Data.Text.FromText Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance GHC.Classes.Ord Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.XML.ToXML Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.XML.FromXML Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.Query.ToQuery Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.Headers.ToHeader Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.Log.ToLog Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.Text.ToText Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.Text.FromText Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance GHC.Classes.Ord Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance GHC.Read.Read Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
+instance GHC.Show.Show Amazonka.DynamoDBStreams.Types.ShardIteratorType.ShardIteratorType
 
 
-module Network.AWS.DynamoDBStreams.Types.Stream
+module Amazonka.DynamoDBStreams.Types.Stream
 
 -- | Represents all of the data describing a particular stream.
 --   
@@ -696,16 +696,16 @@ stream_streamArn :: Lens' Stream (Maybe Text)
 
 -- | The DynamoDB table with which the stream is associated.
 stream_tableName :: Lens' Stream (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.Stream.Stream
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.Stream.Stream
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.Stream.Stream
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.Types.Stream.Stream
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DynamoDBStreams.Types.Stream.Stream
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.Types.Stream.Stream
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.Types.Stream.Stream
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.Types.Stream.Stream
+instance GHC.Show.Show Amazonka.DynamoDBStreams.Types.Stream.Stream
+instance GHC.Read.Read Amazonka.DynamoDBStreams.Types.Stream.Stream
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.Types.Stream.Stream
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DynamoDBStreams.Types.Stream.Stream
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.Types.Stream.Stream
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.Types.Stream.Stream
 
 
-module Network.AWS.DynamoDBStreams.Types.StreamStatus
+module Amazonka.DynamoDBStreams.Types.StreamStatus
 newtype StreamStatus
 StreamStatus' :: Text -> StreamStatus
 [fromStreamStatus] :: StreamStatus -> Text
@@ -713,28 +713,28 @@ pattern StreamStatus_DISABLED :: StreamStatus
 pattern StreamStatus_DISABLING :: StreamStatus
 pattern StreamStatus_ENABLED :: StreamStatus
 pattern StreamStatus_ENABLING :: StreamStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance GHC.Classes.Ord Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.XML.ToXML Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.XML.FromXML Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Log.ToLog Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Text.ToText Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Text.FromText Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance GHC.Classes.Ord Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance GHC.Read.Read Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
+instance GHC.Show.Show Amazonka.DynamoDBStreams.Types.StreamStatus.StreamStatus
 
 
-module Network.AWS.DynamoDBStreams.Types.StreamViewType
+module Amazonka.DynamoDBStreams.Types.StreamViewType
 newtype StreamViewType
 StreamViewType' :: Text -> StreamViewType
 [fromStreamViewType] :: StreamViewType -> Text
@@ -742,28 +742,28 @@ pattern StreamViewType_KEYS_ONLY :: StreamViewType
 pattern StreamViewType_NEW_AND_OLD_IMAGES :: StreamViewType
 pattern StreamViewType_NEW_IMAGE :: StreamViewType
 pattern StreamViewType_OLD_IMAGE :: StreamViewType
-instance Network.AWS.Data.XML.ToXML Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance Network.AWS.Data.XML.FromXML Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance Network.AWS.Data.Log.ToLog Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance Network.AWS.Data.Text.ToText Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance Network.AWS.Data.Text.FromText Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance GHC.Classes.Ord Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance Amazonka.Data.XML.ToXML Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance Amazonka.Data.XML.FromXML Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance Amazonka.Data.Query.ToQuery Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance Amazonka.Data.Headers.ToHeader Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance Amazonka.Data.Log.ToLog Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance Amazonka.Data.Text.ToText Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance Amazonka.Data.Text.FromText Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance GHC.Classes.Ord Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance GHC.Read.Read Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
+instance GHC.Show.Show Amazonka.DynamoDBStreams.Types.StreamViewType.StreamViewType
 
 
-module Network.AWS.DynamoDBStreams.Types.StreamRecord
+module Amazonka.DynamoDBStreams.Types.StreamRecord
 
 -- | A description of a single data modification that was performed on an
 --   item in a DynamoDB table.
@@ -885,16 +885,16 @@ streamRecord_oldImage :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue)
 
 -- | The item in the DynamoDB table as it appeared after it was modified.
 streamRecord_newImage :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue))
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.StreamRecord.StreamRecord
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.StreamRecord.StreamRecord
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.StreamRecord.StreamRecord
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.Types.StreamRecord.StreamRecord
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DynamoDBStreams.Types.StreamRecord.StreamRecord
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.Types.StreamRecord.StreamRecord
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.Types.StreamRecord.StreamRecord
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.Types.StreamRecord.StreamRecord
+instance GHC.Show.Show Amazonka.DynamoDBStreams.Types.StreamRecord.StreamRecord
+instance GHC.Read.Read Amazonka.DynamoDBStreams.Types.StreamRecord.StreamRecord
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.Types.StreamRecord.StreamRecord
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DynamoDBStreams.Types.StreamRecord.StreamRecord
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.Types.StreamRecord.StreamRecord
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.Types.StreamRecord.StreamRecord
 
 
-module Network.AWS.DynamoDBStreams.Types.Record
+module Amazonka.DynamoDBStreams.Types.Record
 
 -- | A description of a unique event within a stream.
 --   
@@ -1039,16 +1039,16 @@ record_eventSource :: Lens' Record (Maybe Text)
 -- | A globally unique identifier for the event that was recorded in this
 --   stream record.
 record_eventID :: Lens' Record (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.Record.Record
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.Record.Record
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.Record.Record
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.Types.Record.Record
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DynamoDBStreams.Types.Record.Record
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.Types.Record.Record
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.Types.Record.Record
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.Types.Record.Record
+instance GHC.Show.Show Amazonka.DynamoDBStreams.Types.Record.Record
+instance GHC.Read.Read Amazonka.DynamoDBStreams.Types.Record.Record
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.Types.Record.Record
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DynamoDBStreams.Types.Record.Record
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.Types.Record.Record
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.Types.Record.Record
 
 
-module Network.AWS.DynamoDBStreams.Types.StreamDescription
+module Amazonka.DynamoDBStreams.Types.StreamDescription
 
 -- | Represents all of the data describing a particular stream.
 --   
@@ -1280,16 +1280,16 @@ streamDescription_tableName :: Lens' StreamDescription (Maybe Text)
 
 -- | The date and time when the request to create this stream was issued.
 streamDescription_creationRequestDateTime :: Lens' StreamDescription (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.StreamDescription.StreamDescription
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.StreamDescription.StreamDescription
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.StreamDescription.StreamDescription
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.Types.StreamDescription.StreamDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DynamoDBStreams.Types.StreamDescription.StreamDescription
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.Types.StreamDescription.StreamDescription
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.Types.StreamDescription.StreamDescription
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.Types.StreamDescription.StreamDescription
+instance GHC.Show.Show Amazonka.DynamoDBStreams.Types.StreamDescription.StreamDescription
+instance GHC.Read.Read Amazonka.DynamoDBStreams.Types.StreamDescription.StreamDescription
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.Types.StreamDescription.StreamDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DynamoDBStreams.Types.StreamDescription.StreamDescription
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.Types.StreamDescription.StreamDescription
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.Types.StreamDescription.StreamDescription
 
 
-module Network.AWS.DynamoDBStreams.Types
+module Amazonka.DynamoDBStreams.Types
 
 -- | API version <tt>2012-08-10</tt> of the Amazon DynamoDB Streams SDK
 --   configuration.
@@ -2434,7 +2434,7 @@ streamRecord_newImage :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue)
 --   
 --   You can call <tt>ListStreams</tt> at a maximum rate of 5 times per
 --   second.
-module Network.AWS.DynamoDBStreams.ListStreams
+module Amazonka.DynamoDBStreams.ListStreams
 
 -- | Represents the input of a <tt>ListStreams</tt> operation.
 --   
@@ -2565,22 +2565,22 @@ listStreamsResponse_streams :: Lens' ListStreamsResponse (Maybe [Stream])
 
 -- | The response's http status code.
 listStreamsResponse_httpStatus :: Lens' ListStreamsResponse Int
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.ListStreams.ListStreams
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.ListStreams.ListStreams
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.ListStreams.ListStreams
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.ListStreams.ListStreams
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.ListStreams.ListStreamsResponse
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.ListStreams.ListStreamsResponse
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.ListStreams.ListStreamsResponse
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.ListStreams.ListStreamsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DynamoDBStreams.ListStreams.ListStreams
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.ListStreams.ListStreamsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.ListStreams.ListStreams
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.ListStreams.ListStreams
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DynamoDBStreams.ListStreams.ListStreams
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DynamoDBStreams.ListStreams.ListStreams
-instance Network.AWS.Data.Path.ToPath Network.AWS.DynamoDBStreams.ListStreams.ListStreams
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DynamoDBStreams.ListStreams.ListStreams
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.ListStreams.ListStreams
+instance GHC.Show.Show Amazonka.DynamoDBStreams.ListStreams.ListStreams
+instance GHC.Read.Read Amazonka.DynamoDBStreams.ListStreams.ListStreams
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.ListStreams.ListStreams
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.ListStreams.ListStreamsResponse
+instance GHC.Show.Show Amazonka.DynamoDBStreams.ListStreams.ListStreamsResponse
+instance GHC.Read.Read Amazonka.DynamoDBStreams.ListStreams.ListStreamsResponse
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.ListStreams.ListStreamsResponse
+instance Amazonka.Types.AWSRequest Amazonka.DynamoDBStreams.ListStreams.ListStreams
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.ListStreams.ListStreamsResponse
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.ListStreams.ListStreams
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.ListStreams.ListStreams
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DynamoDBStreams.ListStreams.ListStreams
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DynamoDBStreams.ListStreams.ListStreams
+instance Amazonka.Data.Path.ToPath Amazonka.DynamoDBStreams.ListStreams.ListStreams
+instance Amazonka.Data.Query.ToQuery Amazonka.DynamoDBStreams.ListStreams.ListStreams
 
 
 -- | Returns a shard iterator. A shard iterator provides information about
@@ -2590,7 +2590,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DynamoDBStreams.ListStreams.
 --   
 --   A shard iterator expires 15 minutes after it is returned to the
 --   requester.
-module Network.AWS.DynamoDBStreams.GetShardIterator
+module Amazonka.DynamoDBStreams.GetShardIterator
 
 -- | Represents the input of a <tt>GetShardIterator</tt> operation.
 --   
@@ -2740,22 +2740,22 @@ getShardIteratorResponse_shardIterator :: Lens' GetShardIteratorResponse (Maybe 
 
 -- | The response's http status code.
 getShardIteratorResponse_httpStatus :: Lens' GetShardIteratorResponse Int
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIterator
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIterator
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIterator
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIterator
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIteratorResponse
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIteratorResponse
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIteratorResponse
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIteratorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIterator
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIteratorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIterator
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIterator
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIterator
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIterator
-instance Network.AWS.Data.Path.ToPath Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIterator
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DynamoDBStreams.GetShardIterator.GetShardIterator
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.GetShardIterator.GetShardIterator
+instance GHC.Show.Show Amazonka.DynamoDBStreams.GetShardIterator.GetShardIterator
+instance GHC.Read.Read Amazonka.DynamoDBStreams.GetShardIterator.GetShardIterator
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.GetShardIterator.GetShardIterator
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.GetShardIterator.GetShardIteratorResponse
+instance GHC.Show.Show Amazonka.DynamoDBStreams.GetShardIterator.GetShardIteratorResponse
+instance GHC.Read.Read Amazonka.DynamoDBStreams.GetShardIterator.GetShardIteratorResponse
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.GetShardIterator.GetShardIteratorResponse
+instance Amazonka.Types.AWSRequest Amazonka.DynamoDBStreams.GetShardIterator.GetShardIterator
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.GetShardIterator.GetShardIteratorResponse
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.GetShardIterator.GetShardIterator
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.GetShardIterator.GetShardIterator
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DynamoDBStreams.GetShardIterator.GetShardIterator
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DynamoDBStreams.GetShardIterator.GetShardIterator
+instance Amazonka.Data.Path.ToPath Amazonka.DynamoDBStreams.GetShardIterator.GetShardIterator
+instance Amazonka.Data.Query.ToQuery Amazonka.DynamoDBStreams.GetShardIterator.GetShardIterator
 
 
 -- | Retrieves the stream records from a given shard.
@@ -2770,7 +2770,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DynamoDBStreams.GetShardIter
 --   
 --   <tt>GetRecords</tt> can retrieve a maximum of 1 MB of data or 1000
 --   stream records, whichever comes first.
-module Network.AWS.DynamoDBStreams.GetRecords
+module Amazonka.DynamoDBStreams.GetRecords
 
 -- | Represents the input of a <tt>GetRecords</tt> operation.
 --   
@@ -2866,22 +2866,22 @@ getRecordsResponse_nextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
 
 -- | The response's http status code.
 getRecordsResponse_httpStatus :: Lens' GetRecordsResponse Int
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.GetRecords.GetRecords
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.GetRecords.GetRecords
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.GetRecords.GetRecords
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.GetRecords.GetRecords
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.GetRecords.GetRecordsResponse
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.GetRecords.GetRecordsResponse
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.GetRecords.GetRecordsResponse
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.GetRecords.GetRecordsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DynamoDBStreams.GetRecords.GetRecords
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.GetRecords.GetRecordsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.GetRecords.GetRecords
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.GetRecords.GetRecords
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DynamoDBStreams.GetRecords.GetRecords
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DynamoDBStreams.GetRecords.GetRecords
-instance Network.AWS.Data.Path.ToPath Network.AWS.DynamoDBStreams.GetRecords.GetRecords
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DynamoDBStreams.GetRecords.GetRecords
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.GetRecords.GetRecords
+instance GHC.Show.Show Amazonka.DynamoDBStreams.GetRecords.GetRecords
+instance GHC.Read.Read Amazonka.DynamoDBStreams.GetRecords.GetRecords
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.GetRecords.GetRecords
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.GetRecords.GetRecordsResponse
+instance GHC.Show.Show Amazonka.DynamoDBStreams.GetRecords.GetRecordsResponse
+instance GHC.Read.Read Amazonka.DynamoDBStreams.GetRecords.GetRecordsResponse
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.GetRecords.GetRecordsResponse
+instance Amazonka.Types.AWSRequest Amazonka.DynamoDBStreams.GetRecords.GetRecords
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.GetRecords.GetRecordsResponse
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.GetRecords.GetRecords
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.GetRecords.GetRecords
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DynamoDBStreams.GetRecords.GetRecords
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DynamoDBStreams.GetRecords.GetRecords
+instance Amazonka.Data.Path.ToPath Amazonka.DynamoDBStreams.GetRecords.GetRecords
+instance Amazonka.Data.Query.ToQuery Amazonka.DynamoDBStreams.GetRecords.GetRecords
 
 
 -- | Returns information about a stream, including the current status of
@@ -2898,7 +2898,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DynamoDBStreams.GetRecords.G
 --   both <tt>StartingSequenceNumber</tt> and <tt>EndingSequenceNumber</tt>
 --   are present, then that shard is closed and can no longer receive more
 --   data.
-module Network.AWS.DynamoDBStreams.DescribeStream
+module Amazonka.DynamoDBStreams.DescribeStream
 
 -- | Represents the input of a <tt>DescribeStream</tt> operation.
 --   
@@ -2993,25 +2993,25 @@ describeStreamResponse_streamDescription :: Lens' DescribeStreamResponse (Maybe 
 
 -- | The response's http status code.
 describeStreamResponse_httpStatus :: Lens' DescribeStreamResponse Int
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.DescribeStream.DescribeStream
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.DescribeStream.DescribeStream
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.DescribeStream.DescribeStream
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.DescribeStream.DescribeStream
-instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.DescribeStream.DescribeStreamResponse
-instance GHC.Show.Show Network.AWS.DynamoDBStreams.DescribeStream.DescribeStreamResponse
-instance GHC.Read.Read Network.AWS.DynamoDBStreams.DescribeStream.DescribeStreamResponse
-instance GHC.Classes.Eq Network.AWS.DynamoDBStreams.DescribeStream.DescribeStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DynamoDBStreams.DescribeStream.DescribeStream
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.DescribeStream.DescribeStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DynamoDBStreams.DescribeStream.DescribeStream
-instance Control.DeepSeq.NFData Network.AWS.DynamoDBStreams.DescribeStream.DescribeStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DynamoDBStreams.DescribeStream.DescribeStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DynamoDBStreams.DescribeStream.DescribeStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.DynamoDBStreams.DescribeStream.DescribeStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DynamoDBStreams.DescribeStream.DescribeStream
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.DescribeStream.DescribeStream
+instance GHC.Show.Show Amazonka.DynamoDBStreams.DescribeStream.DescribeStream
+instance GHC.Read.Read Amazonka.DynamoDBStreams.DescribeStream.DescribeStream
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.DescribeStream.DescribeStream
+instance GHC.Generics.Generic Amazonka.DynamoDBStreams.DescribeStream.DescribeStreamResponse
+instance GHC.Show.Show Amazonka.DynamoDBStreams.DescribeStream.DescribeStreamResponse
+instance GHC.Read.Read Amazonka.DynamoDBStreams.DescribeStream.DescribeStreamResponse
+instance GHC.Classes.Eq Amazonka.DynamoDBStreams.DescribeStream.DescribeStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.DynamoDBStreams.DescribeStream.DescribeStream
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.DescribeStream.DescribeStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.DynamoDBStreams.DescribeStream.DescribeStream
+instance Control.DeepSeq.NFData Amazonka.DynamoDBStreams.DescribeStream.DescribeStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DynamoDBStreams.DescribeStream.DescribeStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DynamoDBStreams.DescribeStream.DescribeStream
+instance Amazonka.Data.Path.ToPath Amazonka.DynamoDBStreams.DescribeStream.DescribeStream
+instance Amazonka.Data.Query.ToQuery Amazonka.DynamoDBStreams.DescribeStream.DescribeStream
 
 
-module Network.AWS.DynamoDBStreams.Lens
+module Amazonka.DynamoDBStreams.Lens
 
 -- | The sequence number of a stream record in the shard from which to
 --   start reading.
@@ -3420,7 +3420,7 @@ streamRecord_oldImage :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue)
 streamRecord_newImage :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue))
 
 
-module Network.AWS.DynamoDBStreams.Waiters
+module Amazonka.DynamoDBStreams.Waiters
 
 
 -- | Derived from API version <tt>2012-08-10</tt> of the AWS service
@@ -3432,7 +3432,7 @@ module Network.AWS.DynamoDBStreams.Waiters
 --   processing stream records. To learn more about application development
 --   with Streams, see <a>Capturing Table Activity with DynamoDB
 --   Streams</a> in the Amazon DynamoDB Developer Guide.
-module Network.AWS.DynamoDBStreams
+module Amazonka.DynamoDBStreams
 
 -- | API version <tt>2012-08-10</tt> of the Amazon DynamoDB Streams SDK
 --   configuration.

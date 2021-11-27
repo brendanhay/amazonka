@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Personalize.Types.RecipeProvider</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Personalize.Types.RecipeProvider</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.RecipeProvider.html#RecipeProvider"><span class="hs-identifier">RecipeProvider</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Personalize.Types.RecipeProvider.html#RecipeProvider_SERVICE"><span class="hs-identifier">RecipeProvider_SERVICE</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679272266"><span id="local-6989586621679272267"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecipeProvider"><span class="annot"><a href="Amazonka.Personalize.Types.RecipeProvider.html#RecipeProvider"><span class="hs-identifier hs-var">RecipeProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecipeProvider%27"><span class="annot"><a href="Amazonka.Personalize.Types.RecipeProvider.html#RecipeProvider%27"><span class="hs-identifier hs-var">RecipeProvider'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRecipeProvider"><span class="annot"><span class="annottext">RecipeProvider -&gt; Text
+</span><a href="Amazonka.Personalize.Types.RecipeProvider.html#fromRecipeProvider"><span class="hs-identifier hs-var hs-var">fromRecipeProvider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272258"><span id="local-6989586621679272260"><span id="local-6989586621679272262"><span class="annot"><span class="annottext">Int -&gt; RecipeProvider -&gt; ShowS
+[RecipeProvider] -&gt; ShowS
+RecipeProvider -&gt; String
+(Int -&gt; RecipeProvider -&gt; ShowS)
+-&gt; (RecipeProvider -&gt; String)
+-&gt; ([RecipeProvider] -&gt; ShowS)
+-&gt; Show RecipeProvider
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RecipeProvider] -&gt; ShowS
+$cshowList :: [RecipeProvider] -&gt; ShowS
+show :: RecipeProvider -&gt; String
+$cshow :: RecipeProvider -&gt; String
+showsPrec :: Int -&gt; RecipeProvider -&gt; ShowS
+$cshowsPrec :: Int -&gt; RecipeProvider -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679272249"><span id="local-6989586621679272251"><span id="local-6989586621679272253"><span id="local-6989586621679272255"><span class="annot"><span class="annottext">ReadPrec [RecipeProvider]
+ReadPrec RecipeProvider
+Int -&gt; ReadS RecipeProvider
+ReadS [RecipeProvider]
+(Int -&gt; ReadS RecipeProvider)
+-&gt; ReadS [RecipeProvider]
+-&gt; ReadPrec RecipeProvider
+-&gt; ReadPrec [RecipeProvider]
+-&gt; Read RecipeProvider
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RecipeProvider]
+$creadListPrec :: ReadPrec [RecipeProvider]
+readPrec :: ReadPrec RecipeProvider
+$creadPrec :: ReadPrec RecipeProvider
+readList :: ReadS [RecipeProvider]
+$creadList :: ReadS [RecipeProvider]
+readsPrec :: Int -&gt; ReadS RecipeProvider
+$creadsPrec :: Int -&gt; ReadS RecipeProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679272244"><span id="local-6989586621679272246"><span class="annot"><span class="annottext">RecipeProvider -&gt; RecipeProvider -&gt; Bool
+(RecipeProvider -&gt; RecipeProvider -&gt; Bool)
+-&gt; (RecipeProvider -&gt; RecipeProvider -&gt; Bool) -&gt; Eq RecipeProvider
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RecipeProvider -&gt; RecipeProvider -&gt; Bool
+$c/= :: RecipeProvider -&gt; RecipeProvider -&gt; Bool
+== :: RecipeProvider -&gt; RecipeProvider -&gt; Bool
+$c== :: RecipeProvider -&gt; RecipeProvider -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679272228"><span id="local-6989586621679272230"><span id="local-6989586621679272232"><span id="local-6989586621679272234"><span id="local-6989586621679272236"><span id="local-6989586621679272238"><span id="local-6989586621679272240"><span class="annot"><span class="annottext">Eq RecipeProvider
+Eq RecipeProvider
+-&gt; (RecipeProvider -&gt; RecipeProvider -&gt; Ordering)
+-&gt; (RecipeProvider -&gt; RecipeProvider -&gt; Bool)
+-&gt; (RecipeProvider -&gt; RecipeProvider -&gt; Bool)
+-&gt; (RecipeProvider -&gt; RecipeProvider -&gt; Bool)
+-&gt; (RecipeProvider -&gt; RecipeProvider -&gt; Bool)
+-&gt; (RecipeProvider -&gt; RecipeProvider -&gt; RecipeProvider)
+-&gt; (RecipeProvider -&gt; RecipeProvider -&gt; RecipeProvider)
+-&gt; Ord RecipeProvider
+RecipeProvider -&gt; RecipeProvider -&gt; Bool
+RecipeProvider -&gt; RecipeProvider -&gt; Ordering
+RecipeProvider -&gt; RecipeProvider -&gt; RecipeProvider
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RecipeProvider -&gt; RecipeProvider -&gt; RecipeProvider
+$cmin :: RecipeProvider -&gt; RecipeProvider -&gt; RecipeProvider
+max :: RecipeProvider -&gt; RecipeProvider -&gt; RecipeProvider
+$cmax :: RecipeProvider -&gt; RecipeProvider -&gt; RecipeProvider
+&gt;= :: RecipeProvider -&gt; RecipeProvider -&gt; Bool
+$c&gt;= :: RecipeProvider -&gt; RecipeProvider -&gt; Bool
+&gt; :: RecipeProvider -&gt; RecipeProvider -&gt; Bool
+$c&gt; :: RecipeProvider -&gt; RecipeProvider -&gt; Bool
+&lt;= :: RecipeProvider -&gt; RecipeProvider -&gt; Bool
+$c&lt;= :: RecipeProvider -&gt; RecipeProvider -&gt; Bool
+&lt; :: RecipeProvider -&gt; RecipeProvider -&gt; Bool
+$c&lt; :: RecipeProvider -&gt; RecipeProvider -&gt; Bool
+compare :: RecipeProvider -&gt; RecipeProvider -&gt; Ordering
+$ccompare :: RecipeProvider -&gt; RecipeProvider -&gt; Ordering
+$cp1Ord :: Eq RecipeProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RecipeProvider -&gt; Rep RecipeProvider x)
+-&gt; (forall x. Rep RecipeProvider x -&gt; RecipeProvider)
+-&gt; Generic RecipeProvider
+forall x. Rep RecipeProvider x -&gt; RecipeProvider
+forall x. RecipeProvider -&gt; Rep RecipeProvider x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RecipeProvider x -&gt; RecipeProvider
+$cfrom :: forall x. RecipeProvider -&gt; Rep RecipeProvider x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272220"><span id="local-6989586621679272222"><span class="annot"><span class="annottext">Int -&gt; RecipeProvider -&gt; Int
+RecipeProvider -&gt; Int
+(Int -&gt; RecipeProvider -&gt; Int)
+-&gt; (RecipeProvider -&gt; Int) -&gt; Hashable RecipeProvider
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RecipeProvider -&gt; Int
+$chash :: RecipeProvider -&gt; Int
+hashWithSalt :: Int -&gt; RecipeProvider -&gt; Int
+$chashWithSalt :: Int -&gt; RecipeProvider -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679272217"><span class="annot"><span class="annottext">RecipeProvider -&gt; ()
+(RecipeProvider -&gt; ()) -&gt; NFData RecipeProvider
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RecipeProvider -&gt; ()
+$crnf :: RecipeProvider -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679272214"><span class="annot"><span class="annottext">Text -&gt; Either String RecipeProvider
+(Text -&gt; Either String RecipeProvider) -&gt; FromText RecipeProvider
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RecipeProvider
+$cfromText :: Text -&gt; Either String RecipeProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679272211"><span class="annot"><span class="annottext">RecipeProvider -&gt; Text
+(RecipeProvider -&gt; Text) -&gt; ToText RecipeProvider
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RecipeProvider -&gt; Text
+$ctoText :: RecipeProvider -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679272208"><span class="annot"><span class="annottext">RecipeProvider -&gt; ByteString
+(RecipeProvider -&gt; ByteString) -&gt; ToByteString RecipeProvider
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RecipeProvider -&gt; ByteString
+$ctoBS :: RecipeProvider -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679272205"><span class="annot"><span class="annottext">RecipeProvider -&gt; ByteStringBuilder
+(RecipeProvider -&gt; ByteStringBuilder) -&gt; ToLog RecipeProvider
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RecipeProvider -&gt; ByteStringBuilder
+$cbuild :: RecipeProvider -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679272202"><span class="annot"><span class="annottext">HeaderName -&gt; RecipeProvider -&gt; [Header]
+(HeaderName -&gt; RecipeProvider -&gt; [Header])
+-&gt; ToHeader RecipeProvider
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RecipeProvider -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RecipeProvider -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679272199"><span class="annot"><span class="annottext">RecipeProvider -&gt; QueryString
+(RecipeProvider -&gt; QueryString) -&gt; ToQuery RecipeProvider
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RecipeProvider -&gt; QueryString
+$ctoQuery :: RecipeProvider -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679272194"><span id="local-6989586621679272196"><span class="annot"><span class="annottext">Value -&gt; Parser [RecipeProvider]
+Value -&gt; Parser RecipeProvider
+(Value -&gt; Parser RecipeProvider)
+-&gt; (Value -&gt; Parser [RecipeProvider]) -&gt; FromJSON RecipeProvider
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RecipeProvider]
+$cparseJSONList :: Value -&gt; Parser [RecipeProvider]
+parseJSON :: Value -&gt; Parser RecipeProvider
+$cparseJSON :: Value -&gt; Parser RecipeProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679272189"><span id="local-6989586621679272191"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecipeProvider]
+FromJSONKeyFunction RecipeProvider
+FromJSONKeyFunction RecipeProvider
+-&gt; FromJSONKeyFunction [RecipeProvider]
+-&gt; FromJSONKey RecipeProvider
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RecipeProvider]
+$cfromJSONKeyList :: FromJSONKeyFunction [RecipeProvider]
+fromJSONKey :: FromJSONKeyFunction RecipeProvider
+$cfromJSONKey :: FromJSONKeyFunction RecipeProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679272180"><span id="local-6989586621679272182"><span id="local-6989586621679272184"><span id="local-6989586621679272186"><span class="annot"><span class="annottext">[RecipeProvider] -&gt; Encoding
+[RecipeProvider] -&gt; Value
+RecipeProvider -&gt; Encoding
+RecipeProvider -&gt; Value
+(RecipeProvider -&gt; Value)
+-&gt; (RecipeProvider -&gt; Encoding)
+-&gt; ([RecipeProvider] -&gt; Value)
+-&gt; ([RecipeProvider] -&gt; Encoding)
+-&gt; ToJSON RecipeProvider
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RecipeProvider] -&gt; Encoding
+$ctoEncodingList :: [RecipeProvider] -&gt; Encoding
+toJSONList :: [RecipeProvider] -&gt; Value
+$ctoJSONList :: [RecipeProvider] -&gt; Value
+toEncoding :: RecipeProvider -&gt; Encoding
+$ctoEncoding :: RecipeProvider -&gt; Encoding
+toJSON :: RecipeProvider -&gt; Value
+$ctoJSON :: RecipeProvider -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679272175"><span id="local-6989586621679272177"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecipeProvider]
+ToJSONKeyFunction RecipeProvider
+ToJSONKeyFunction RecipeProvider
+-&gt; ToJSONKeyFunction [RecipeProvider] -&gt; ToJSONKey RecipeProvider
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RecipeProvider]
+$ctoJSONKeyList :: ToJSONKeyFunction [RecipeProvider]
+toJSONKey :: ToJSONKeyFunction RecipeProvider
+$ctoJSONKey :: ToJSONKeyFunction RecipeProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679272172"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecipeProvider
+([Node] -&gt; Either String RecipeProvider) -&gt; FromXML RecipeProvider
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RecipeProvider
+$cparseXML :: [Node] -&gt; Either String RecipeProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679272169"><span class="annot"><span class="annottext">RecipeProvider -&gt; XML
+(RecipeProvider -&gt; XML) -&gt; ToXML RecipeProvider
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RecipeProvider -&gt; XML
+$ctoXML :: RecipeProvider -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.RecipeProvider.html#RecipeProvider_SERVICE"><span class="hs-identifier hs-type">RecipeProvider_SERVICE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.RecipeProvider.html#RecipeProvider"><span class="hs-identifier hs-type">RecipeProvider</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecipeProvider_SERVICE"><span id="%24mRecipeProvider_SERVICE"><span id="RecipeProvider_SERVICE"><span class="annot"><span class="annottext">$bRecipeProvider_SERVICE :: RecipeProvider
+$mRecipeProvider_SERVICE :: forall r. RecipeProvider -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Personalize.Types.RecipeProvider.html#%24bRecipeProvider_SERVICE"><span class="hs-identifier hs-var hs-var hs-var">RecipeProvider_SERVICE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.RecipeProvider.html#RecipeProvider%27"><span class="hs-identifier hs-type">RecipeProvider'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SERVICE&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.Personalize.Types.RecipeProvider.html#RecipeProvider_SERVICE"><span class="hs-pragma hs-type">RecipeProvider_SERVICE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.Personalize.Types.RecipeProvider.html#RecipeProvider%27"><span class="hs-pragma hs-type">RecipeProvider'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

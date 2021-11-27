@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFormation.Types.ResourceSignalStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFormation.Types.ResourceSignalStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus"><span class="hs-identifier">ResourceSignalStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus_FAILURE"><span class="hs-identifier">ResourceSignalStatus_FAILURE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus_SUCCESS"><span class="hs-identifier">ResourceSignalStatus_SUCCESS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679419973"><span id="local-6989586621679419974"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceSignalStatus"><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus"><span class="hs-identifier hs-var">ResourceSignalStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceSignalStatus%27"><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus%27"><span class="hs-identifier hs-var">ResourceSignalStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResourceSignalStatus"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; Text
+</span><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#fromResourceSignalStatus"><span class="hs-identifier hs-var hs-var">fromResourceSignalStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679419965"><span id="local-6989586621679419967"><span id="local-6989586621679419969"><span class="annot"><span class="annottext">Int -&gt; ResourceSignalStatus -&gt; ShowS
+[ResourceSignalStatus] -&gt; ShowS
+ResourceSignalStatus -&gt; String
+(Int -&gt; ResourceSignalStatus -&gt; ShowS)
+-&gt; (ResourceSignalStatus -&gt; String)
+-&gt; ([ResourceSignalStatus] -&gt; ShowS)
+-&gt; Show ResourceSignalStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceSignalStatus] -&gt; ShowS
+$cshowList :: [ResourceSignalStatus] -&gt; ShowS
+show :: ResourceSignalStatus -&gt; String
+$cshow :: ResourceSignalStatus -&gt; String
+showsPrec :: Int -&gt; ResourceSignalStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceSignalStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679419956"><span id="local-6989586621679419958"><span id="local-6989586621679419960"><span id="local-6989586621679419962"><span class="annot"><span class="annottext">ReadPrec [ResourceSignalStatus]
+ReadPrec ResourceSignalStatus
+Int -&gt; ReadS ResourceSignalStatus
+ReadS [ResourceSignalStatus]
+(Int -&gt; ReadS ResourceSignalStatus)
+-&gt; ReadS [ResourceSignalStatus]
+-&gt; ReadPrec ResourceSignalStatus
+-&gt; ReadPrec [ResourceSignalStatus]
+-&gt; Read ResourceSignalStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceSignalStatus]
+$creadListPrec :: ReadPrec [ResourceSignalStatus]
+readPrec :: ReadPrec ResourceSignalStatus
+$creadPrec :: ReadPrec ResourceSignalStatus
+readList :: ReadS [ResourceSignalStatus]
+$creadList :: ReadS [ResourceSignalStatus]
+readsPrec :: Int -&gt; ReadS ResourceSignalStatus
+$creadsPrec :: Int -&gt; ReadS ResourceSignalStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679419951"><span id="local-6989586621679419953"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
+(ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool)
+-&gt; (ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool)
+-&gt; Eq ResourceSignalStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
+$c/= :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
+== :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
+$c== :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679419935"><span id="local-6989586621679419937"><span id="local-6989586621679419939"><span id="local-6989586621679419941"><span id="local-6989586621679419943"><span id="local-6989586621679419945"><span id="local-6989586621679419947"><span class="annot"><span class="annottext">Eq ResourceSignalStatus
+Eq ResourceSignalStatus
+-&gt; (ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Ordering)
+-&gt; (ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool)
+-&gt; (ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool)
+-&gt; (ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool)
+-&gt; (ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool)
+-&gt; (ResourceSignalStatus
+    -&gt; ResourceSignalStatus -&gt; ResourceSignalStatus)
+-&gt; (ResourceSignalStatus
+    -&gt; ResourceSignalStatus -&gt; ResourceSignalStatus)
+-&gt; Ord ResourceSignalStatus
+ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
+ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Ordering
+ResourceSignalStatus
+-&gt; ResourceSignalStatus -&gt; ResourceSignalStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ResourceSignalStatus
+-&gt; ResourceSignalStatus -&gt; ResourceSignalStatus
+$cmin :: ResourceSignalStatus
+-&gt; ResourceSignalStatus -&gt; ResourceSignalStatus
+max :: ResourceSignalStatus
+-&gt; ResourceSignalStatus -&gt; ResourceSignalStatus
+$cmax :: ResourceSignalStatus
+-&gt; ResourceSignalStatus -&gt; ResourceSignalStatus
+&gt;= :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
+$c&gt;= :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
+&gt; :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
+$c&gt; :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
+&lt;= :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
+$c&lt;= :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
+&lt; :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
+$c&lt; :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
+compare :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Ordering
+$ccompare :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Ordering
+$cp1Ord :: Eq ResourceSignalStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ResourceSignalStatus -&gt; Rep ResourceSignalStatus x)
+-&gt; (forall x. Rep ResourceSignalStatus x -&gt; ResourceSignalStatus)
+-&gt; Generic ResourceSignalStatus
+forall x. Rep ResourceSignalStatus x -&gt; ResourceSignalStatus
+forall x. ResourceSignalStatus -&gt; Rep ResourceSignalStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResourceSignalStatus x -&gt; ResourceSignalStatus
+$cfrom :: forall x. ResourceSignalStatus -&gt; Rep ResourceSignalStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679419927"><span id="local-6989586621679419929"><span class="annot"><span class="annottext">Int -&gt; ResourceSignalStatus -&gt; Int
+ResourceSignalStatus -&gt; Int
+(Int -&gt; ResourceSignalStatus -&gt; Int)
+-&gt; (ResourceSignalStatus -&gt; Int) -&gt; Hashable ResourceSignalStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ResourceSignalStatus -&gt; Int
+$chash :: ResourceSignalStatus -&gt; Int
+hashWithSalt :: Int -&gt; ResourceSignalStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ResourceSignalStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679419924"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; ()
+(ResourceSignalStatus -&gt; ()) -&gt; NFData ResourceSignalStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ResourceSignalStatus -&gt; ()
+$crnf :: ResourceSignalStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679419921"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceSignalStatus
+(Text -&gt; Either String ResourceSignalStatus)
+-&gt; FromText ResourceSignalStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ResourceSignalStatus
+$cfromText :: Text -&gt; Either String ResourceSignalStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679419918"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; Text
+(ResourceSignalStatus -&gt; Text) -&gt; ToText ResourceSignalStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ResourceSignalStatus -&gt; Text
+$ctoText :: ResourceSignalStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679419915"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; ByteString
+(ResourceSignalStatus -&gt; ByteString)
+-&gt; ToByteString ResourceSignalStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ResourceSignalStatus -&gt; ByteString
+$ctoBS :: ResourceSignalStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679419912"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; ByteStringBuilder
+(ResourceSignalStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ResourceSignalStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ResourceSignalStatus -&gt; ByteStringBuilder
+$cbuild :: ResourceSignalStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679419909"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceSignalStatus -&gt; [Header]
+(HeaderName -&gt; ResourceSignalStatus -&gt; [Header])
+-&gt; ToHeader ResourceSignalStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ResourceSignalStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ResourceSignalStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679419906"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; QueryString
+(ResourceSignalStatus -&gt; QueryString)
+-&gt; ToQuery ResourceSignalStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ResourceSignalStatus -&gt; QueryString
+$ctoQuery :: ResourceSignalStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679419901"><span id="local-6989586621679419903"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceSignalStatus]
+Value -&gt; Parser ResourceSignalStatus
+(Value -&gt; Parser ResourceSignalStatus)
+-&gt; (Value -&gt; Parser [ResourceSignalStatus])
+-&gt; FromJSON ResourceSignalStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ResourceSignalStatus]
+$cparseJSONList :: Value -&gt; Parser [ResourceSignalStatus]
+parseJSON :: Value -&gt; Parser ResourceSignalStatus
+$cparseJSON :: Value -&gt; Parser ResourceSignalStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679419896"><span id="local-6989586621679419898"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceSignalStatus]
+FromJSONKeyFunction ResourceSignalStatus
+FromJSONKeyFunction ResourceSignalStatus
+-&gt; FromJSONKeyFunction [ResourceSignalStatus]
+-&gt; FromJSONKey ResourceSignalStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ResourceSignalStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ResourceSignalStatus]
+fromJSONKey :: FromJSONKeyFunction ResourceSignalStatus
+$cfromJSONKey :: FromJSONKeyFunction ResourceSignalStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679419887"><span id="local-6989586621679419889"><span id="local-6989586621679419891"><span id="local-6989586621679419893"><span class="annot"><span class="annottext">[ResourceSignalStatus] -&gt; Encoding
+[ResourceSignalStatus] -&gt; Value
+ResourceSignalStatus -&gt; Encoding
+ResourceSignalStatus -&gt; Value
+(ResourceSignalStatus -&gt; Value)
+-&gt; (ResourceSignalStatus -&gt; Encoding)
+-&gt; ([ResourceSignalStatus] -&gt; Value)
+-&gt; ([ResourceSignalStatus] -&gt; Encoding)
+-&gt; ToJSON ResourceSignalStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ResourceSignalStatus] -&gt; Encoding
+$ctoEncodingList :: [ResourceSignalStatus] -&gt; Encoding
+toJSONList :: [ResourceSignalStatus] -&gt; Value
+$ctoJSONList :: [ResourceSignalStatus] -&gt; Value
+toEncoding :: ResourceSignalStatus -&gt; Encoding
+$ctoEncoding :: ResourceSignalStatus -&gt; Encoding
+toJSON :: ResourceSignalStatus -&gt; Value
+$ctoJSON :: ResourceSignalStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679419882"><span id="local-6989586621679419884"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceSignalStatus]
+ToJSONKeyFunction ResourceSignalStatus
+ToJSONKeyFunction ResourceSignalStatus
+-&gt; ToJSONKeyFunction [ResourceSignalStatus]
+-&gt; ToJSONKey ResourceSignalStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ResourceSignalStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ResourceSignalStatus]
+toJSONKey :: ToJSONKeyFunction ResourceSignalStatus
+$ctoJSONKey :: ToJSONKeyFunction ResourceSignalStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679419879"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceSignalStatus
+([Node] -&gt; Either String ResourceSignalStatus)
+-&gt; FromXML ResourceSignalStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ResourceSignalStatus
+$cparseXML :: [Node] -&gt; Either String ResourceSignalStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679419876"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; XML
+(ResourceSignalStatus -&gt; XML) -&gt; ToXML ResourceSignalStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ResourceSignalStatus -&gt; XML
+$ctoXML :: ResourceSignalStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus_FAILURE"><span class="hs-identifier hs-type">ResourceSignalStatus_FAILURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus"><span class="hs-identifier hs-type">ResourceSignalStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceSignalStatus_FAILURE"><span id="%24mResourceSignalStatus_FAILURE"><span id="ResourceSignalStatus_FAILURE"><span class="annot"><span class="annottext">$bResourceSignalStatus_FAILURE :: ResourceSignalStatus
+$mResourceSignalStatus_FAILURE :: forall r. ResourceSignalStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#%24bResourceSignalStatus_FAILURE"><span class="hs-identifier hs-var hs-var hs-var">ResourceSignalStatus_FAILURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus%27"><span class="hs-identifier hs-type">ResourceSignalStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILURE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus_SUCCESS"><span class="hs-identifier hs-type">ResourceSignalStatus_SUCCESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus"><span class="hs-identifier hs-type">ResourceSignalStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceSignalStatus_SUCCESS"><span id="%24mResourceSignalStatus_SUCCESS"><span id="ResourceSignalStatus_SUCCESS"><span class="annot"><span class="annottext">$bResourceSignalStatus_SUCCESS :: ResourceSignalStatus
+$mResourceSignalStatus_SUCCESS :: forall r. ResourceSignalStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#%24bResourceSignalStatus_SUCCESS"><span class="hs-identifier hs-var hs-var hs-var">ResourceSignalStatus_SUCCESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus%27"><span class="hs-identifier hs-type">ResourceSignalStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCESS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus_FAILURE"><span class="hs-pragma hs-type">ResourceSignalStatus_FAILURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus_SUCCESS"><span class="hs-pragma hs-type">ResourceSignalStatus_SUCCESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus%27"><span class="hs-pragma hs-type">ResourceSignalStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

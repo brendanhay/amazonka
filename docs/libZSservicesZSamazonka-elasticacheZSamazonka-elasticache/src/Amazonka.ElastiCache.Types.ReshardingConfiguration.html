@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElastiCache.Types.ReshardingConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElastiCache.Types.ReshardingConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A list of @PreferredAvailabilityZones@ objects that specifies the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- configuration of a node group in the resharded cluster.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newReshardingConfiguration' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679404194"><span id="local-6989586621679404195"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReshardingConfiguration"><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration"><span class="hs-identifier hs-var">ReshardingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReshardingConfiguration%27"><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration%27"><span class="hs-identifier hs-var">ReshardingConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of preferred availability zones for the nodes in this cluster.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3ApreferredAvailabilityZones%3AReshardingConfiguration%27"><span class="annot"><span class="annottext">ReshardingConfiguration -&gt; Maybe [Text]
+</span><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#%24sel%3ApreferredAvailabilityZones%3AReshardingConfiguration%27"><span class="hs-identifier hs-var hs-var">preferredAvailabilityZones</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- id for the node group these configuration values apply to.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AnodeGroupId%3AReshardingConfiguration%27"><span class="annot"><span class="annottext">ReshardingConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#%24sel%3AnodeGroupId%3AReshardingConfiguration%27"><span class="hs-identifier hs-var hs-var">nodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679404187"><span id="local-6989586621679404189"><span class="annot"><span class="annottext">ReshardingConfiguration -&gt; ReshardingConfiguration -&gt; Bool
+(ReshardingConfiguration -&gt; ReshardingConfiguration -&gt; Bool)
+-&gt; (ReshardingConfiguration -&gt; ReshardingConfiguration -&gt; Bool)
+-&gt; Eq ReshardingConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReshardingConfiguration -&gt; ReshardingConfiguration -&gt; Bool
+$c/= :: ReshardingConfiguration -&gt; ReshardingConfiguration -&gt; Bool
+== :: ReshardingConfiguration -&gt; ReshardingConfiguration -&gt; Bool
+$c== :: ReshardingConfiguration -&gt; ReshardingConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404178"><span id="local-6989586621679404180"><span id="local-6989586621679404182"><span id="local-6989586621679404184"><span class="annot"><span class="annottext">ReadPrec [ReshardingConfiguration]
+ReadPrec ReshardingConfiguration
+Int -&gt; ReadS ReshardingConfiguration
+ReadS [ReshardingConfiguration]
+(Int -&gt; ReadS ReshardingConfiguration)
+-&gt; ReadS [ReshardingConfiguration]
+-&gt; ReadPrec ReshardingConfiguration
+-&gt; ReadPrec [ReshardingConfiguration]
+-&gt; Read ReshardingConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReshardingConfiguration]
+$creadListPrec :: ReadPrec [ReshardingConfiguration]
+readPrec :: ReadPrec ReshardingConfiguration
+$creadPrec :: ReadPrec ReshardingConfiguration
+readList :: ReadS [ReshardingConfiguration]
+$creadList :: ReadS [ReshardingConfiguration]
+readsPrec :: Int -&gt; ReadS ReshardingConfiguration
+$creadsPrec :: Int -&gt; ReadS ReshardingConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404171"><span id="local-6989586621679404173"><span id="local-6989586621679404175"><span class="annot"><span class="annottext">Int -&gt; ReshardingConfiguration -&gt; ShowS
+[ReshardingConfiguration] -&gt; ShowS
+ReshardingConfiguration -&gt; String
+(Int -&gt; ReshardingConfiguration -&gt; ShowS)
+-&gt; (ReshardingConfiguration -&gt; String)
+-&gt; ([ReshardingConfiguration] -&gt; ShowS)
+-&gt; Show ReshardingConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReshardingConfiguration] -&gt; ShowS
+$cshowList :: [ReshardingConfiguration] -&gt; ShowS
+show :: ReshardingConfiguration -&gt; String
+$cshow :: ReshardingConfiguration -&gt; String
+showsPrec :: Int -&gt; ReshardingConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReshardingConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ReshardingConfiguration -&gt; Rep ReshardingConfiguration x)
+-&gt; (forall x.
+    Rep ReshardingConfiguration x -&gt; ReshardingConfiguration)
+-&gt; Generic ReshardingConfiguration
+forall x. Rep ReshardingConfiguration x -&gt; ReshardingConfiguration
+forall x. ReshardingConfiguration -&gt; Rep ReshardingConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReshardingConfiguration x -&gt; ReshardingConfiguration
+$cfrom :: forall x. ReshardingConfiguration -&gt; Rep ReshardingConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'ReshardingConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'preferredAvailabilityZones', 'reshardingConfiguration_preferredAvailabilityZones' - A list of preferred availability zones for the nodes in this cluster.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'nodeGroupId', 'reshardingConfiguration_nodeGroupId' - Either the ElastiCache for Redis supplied 4-digit id or a user supplied</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- id for the node group these configuration values apply to.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#newReshardingConfiguration"><span class="hs-identifier hs-type">newReshardingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration"><span class="hs-identifier hs-type">ReshardingConfiguration</span></a></span><span>
+</span><span id="line-53"></span><span id="newReshardingConfiguration"><span class="annot"><span class="annottext">newReshardingConfiguration :: ReshardingConfiguration
+</span><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#newReshardingConfiguration"><span class="hs-identifier hs-var hs-var">newReshardingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">ReshardingConfiguration' :: Maybe [Text] -&gt; Maybe Text -&gt; ReshardingConfiguration
+</span><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration%27"><span class="hs-identifier hs-type">ReshardingConfiguration'</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:preferredAvailabilityZones:ReshardingConfiguration' :: Maybe [Text]
+</span><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#%24sel%3ApreferredAvailabilityZones%3AReshardingConfiguration%27"><span class="hs-identifier hs-var">preferredAvailabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeGroupId:ReshardingConfiguration' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#%24sel%3AnodeGroupId%3AReshardingConfiguration%27"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | A list of preferred availability zones for the nodes in this cluster.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#reshardingConfiguration_preferredAvailabilityZones"><span class="hs-identifier hs-type">reshardingConfiguration_preferredAvailabilityZones</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration"><span class="hs-identifier hs-type">ReshardingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="reshardingConfiguration_preferredAvailabilityZones"><span class="annot"><span class="annottext">reshardingConfiguration_preferredAvailabilityZones :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ReshardingConfiguration -&gt; f ReshardingConfiguration
+</span><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#reshardingConfiguration_preferredAvailabilityZones"><span class="hs-identifier hs-var hs-var">reshardingConfiguration_preferredAvailabilityZones</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReshardingConfiguration -&gt; Maybe [Text])
+-&gt; (ReshardingConfiguration
+    -&gt; Maybe [Text] -&gt; ReshardingConfiguration)
+-&gt; Lens
+     ReshardingConfiguration
+     ReshardingConfiguration
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration%27"><span class="hs-identifier hs-type">ReshardingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404162"><span class="annot"><span class="annottext">Maybe [Text]
+preferredAvailabilityZones :: Maybe [Text]
+$sel:preferredAvailabilityZones:ReshardingConfiguration' :: ReshardingConfiguration -&gt; Maybe [Text]
+</span><a href="#local-6989586621679404162"><span class="hs-identifier hs-var hs-var">preferredAvailabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679404162"><span class="hs-identifier hs-var">preferredAvailabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404161"><span class="annot"><span class="annottext">s :: ReshardingConfiguration
+</span><a href="#local-6989586621679404161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration%27"><span class="hs-identifier hs-type">ReshardingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404160"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679404160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReshardingConfiguration
+</span><a href="#local-6989586621679404161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preferredAvailabilityZones:ReshardingConfiguration' :: Maybe [Text]
+</span><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#%24sel%3ApreferredAvailabilityZones%3AReshardingConfiguration%27"><span class="hs-identifier hs-var">preferredAvailabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679404160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration"><span class="hs-identifier hs-type">ReshardingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ReshardingConfiguration -&gt; f ReshardingConfiguration)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ReshardingConfiguration
+-&gt; f ReshardingConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- id for the node group these configuration values apply to.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#reshardingConfiguration_nodeGroupId"><span class="hs-identifier hs-type">reshardingConfiguration_nodeGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration"><span class="hs-identifier hs-type">ReshardingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="reshardingConfiguration_nodeGroupId"><span class="annot"><span class="annottext">reshardingConfiguration_nodeGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReshardingConfiguration -&gt; f ReshardingConfiguration
+</span><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#reshardingConfiguration_nodeGroupId"><span class="hs-identifier hs-var hs-var">reshardingConfiguration_nodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReshardingConfiguration -&gt; Maybe Text)
+-&gt; (ReshardingConfiguration
+    -&gt; Maybe Text -&gt; ReshardingConfiguration)
+-&gt; Lens
+     ReshardingConfiguration
+     ReshardingConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration%27"><span class="hs-identifier hs-type">ReshardingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404155"><span class="annot"><span class="annottext">Maybe Text
+nodeGroupId :: Maybe Text
+$sel:nodeGroupId:ReshardingConfiguration' :: ReshardingConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679404155"><span class="hs-identifier hs-var hs-var">nodeGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404155"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404154"><span class="annot"><span class="annottext">s :: ReshardingConfiguration
+</span><a href="#local-6989586621679404154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration%27"><span class="hs-identifier hs-type">ReshardingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404153"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReshardingConfiguration
+</span><a href="#local-6989586621679404154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeGroupId:ReshardingConfiguration' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#%24sel%3AnodeGroupId%3AReshardingConfiguration%27"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration"><span class="hs-identifier hs-type">ReshardingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404149"><span id="local-6989586621679404151"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration"><span class="hs-identifier hs-type">ReshardingConfiguration</span></a></span></span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404146"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration"><span class="hs-identifier hs-type">ReshardingConfiguration</span></a></span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration"><span class="hs-identifier hs-type">ReshardingConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679404142"><span class="annot"><span class="annottext">toQuery :: ReshardingConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReshardingConfiguration.html#ReshardingConfiguration%27"><span class="hs-identifier hs-type">ReshardingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404139"><span id="local-6989586621679404140"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe Text
+nodeGroupId :: Maybe Text
+preferredAvailabilityZones :: Maybe [Text]
+$sel:nodeGroupId:ReshardingConfiguration' :: ReshardingConfiguration -&gt; Maybe Text
+$sel:preferredAvailabilityZones:ReshardingConfiguration' :: ReshardingConfiguration -&gt; Maybe [Text]
+</span><a href="#local-6989586621679404139"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PreferredAvailabilityZones&quot;</span></span><span>
+</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-78"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span>
+</span><span id="line-79"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679404140"><span class="hs-identifier hs-var">preferredAvailabilityZones</span></a></span><span>
+</span><span id="line-80"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NodeGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404139"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-83"></span></pre></body></html>

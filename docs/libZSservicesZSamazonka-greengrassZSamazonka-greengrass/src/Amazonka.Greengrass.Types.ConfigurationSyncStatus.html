@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Greengrass.Types.ConfigurationSyncStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Greengrass.Types.ConfigurationSyncStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus"><span class="hs-identifier">ConfigurationSyncStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus_InSync"><span class="hs-identifier">ConfigurationSyncStatus_InSync</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus_OutOfSync"><span class="hs-identifier">ConfigurationSyncStatus_OutOfSync</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679340862"><span id="local-6989586621679340863"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConfigurationSyncStatus"><span class="annot"><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus"><span class="hs-identifier hs-var">ConfigurationSyncStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationSyncStatus%27"><span class="annot"><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus%27"><span class="hs-identifier hs-var">ConfigurationSyncStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConfigurationSyncStatus"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; Text
+</span><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#fromConfigurationSyncStatus"><span class="hs-identifier hs-var hs-var">fromConfigurationSyncStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340854"><span id="local-6989586621679340856"><span id="local-6989586621679340858"><span class="annot"><span class="annottext">Int -&gt; ConfigurationSyncStatus -&gt; ShowS
+[ConfigurationSyncStatus] -&gt; ShowS
+ConfigurationSyncStatus -&gt; String
+(Int -&gt; ConfigurationSyncStatus -&gt; ShowS)
+-&gt; (ConfigurationSyncStatus -&gt; String)
+-&gt; ([ConfigurationSyncStatus] -&gt; ShowS)
+-&gt; Show ConfigurationSyncStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConfigurationSyncStatus] -&gt; ShowS
+$cshowList :: [ConfigurationSyncStatus] -&gt; ShowS
+show :: ConfigurationSyncStatus -&gt; String
+$cshow :: ConfigurationSyncStatus -&gt; String
+showsPrec :: Int -&gt; ConfigurationSyncStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConfigurationSyncStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679340845"><span id="local-6989586621679340847"><span id="local-6989586621679340849"><span id="local-6989586621679340851"><span class="annot"><span class="annottext">ReadPrec [ConfigurationSyncStatus]
+ReadPrec ConfigurationSyncStatus
+Int -&gt; ReadS ConfigurationSyncStatus
+ReadS [ConfigurationSyncStatus]
+(Int -&gt; ReadS ConfigurationSyncStatus)
+-&gt; ReadS [ConfigurationSyncStatus]
+-&gt; ReadPrec ConfigurationSyncStatus
+-&gt; ReadPrec [ConfigurationSyncStatus]
+-&gt; Read ConfigurationSyncStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConfigurationSyncStatus]
+$creadListPrec :: ReadPrec [ConfigurationSyncStatus]
+readPrec :: ReadPrec ConfigurationSyncStatus
+$creadPrec :: ReadPrec ConfigurationSyncStatus
+readList :: ReadS [ConfigurationSyncStatus]
+$creadList :: ReadS [ConfigurationSyncStatus]
+readsPrec :: Int -&gt; ReadS ConfigurationSyncStatus
+$creadsPrec :: Int -&gt; ReadS ConfigurationSyncStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679340840"><span id="local-6989586621679340842"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
+(ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool)
+-&gt; (ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool)
+-&gt; Eq ConfigurationSyncStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
+$c/= :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
+== :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
+$c== :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679340824"><span id="local-6989586621679340826"><span id="local-6989586621679340828"><span id="local-6989586621679340830"><span id="local-6989586621679340832"><span id="local-6989586621679340834"><span id="local-6989586621679340836"><span class="annot"><span class="annottext">Eq ConfigurationSyncStatus
+Eq ConfigurationSyncStatus
+-&gt; (ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Ordering)
+-&gt; (ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool)
+-&gt; (ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool)
+-&gt; (ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool)
+-&gt; (ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool)
+-&gt; (ConfigurationSyncStatus
+    -&gt; ConfigurationSyncStatus -&gt; ConfigurationSyncStatus)
+-&gt; (ConfigurationSyncStatus
+    -&gt; ConfigurationSyncStatus -&gt; ConfigurationSyncStatus)
+-&gt; Ord ConfigurationSyncStatus
+ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
+ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Ordering
+ConfigurationSyncStatus
+-&gt; ConfigurationSyncStatus -&gt; ConfigurationSyncStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ConfigurationSyncStatus
+-&gt; ConfigurationSyncStatus -&gt; ConfigurationSyncStatus
+$cmin :: ConfigurationSyncStatus
+-&gt; ConfigurationSyncStatus -&gt; ConfigurationSyncStatus
+max :: ConfigurationSyncStatus
+-&gt; ConfigurationSyncStatus -&gt; ConfigurationSyncStatus
+$cmax :: ConfigurationSyncStatus
+-&gt; ConfigurationSyncStatus -&gt; ConfigurationSyncStatus
+&gt;= :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
+$c&gt;= :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
+&gt; :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
+$c&gt; :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
+&lt;= :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
+$c&lt;= :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
+&lt; :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
+$c&lt; :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
+compare :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Ordering
+$ccompare :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Ordering
+$cp1Ord :: Eq ConfigurationSyncStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ConfigurationSyncStatus -&gt; Rep ConfigurationSyncStatus x)
+-&gt; (forall x.
+    Rep ConfigurationSyncStatus x -&gt; ConfigurationSyncStatus)
+-&gt; Generic ConfigurationSyncStatus
+forall x. Rep ConfigurationSyncStatus x -&gt; ConfigurationSyncStatus
+forall x. ConfigurationSyncStatus -&gt; Rep ConfigurationSyncStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConfigurationSyncStatus x -&gt; ConfigurationSyncStatus
+$cfrom :: forall x. ConfigurationSyncStatus -&gt; Rep ConfigurationSyncStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340816"><span id="local-6989586621679340818"><span class="annot"><span class="annottext">Int -&gt; ConfigurationSyncStatus -&gt; Int
+ConfigurationSyncStatus -&gt; Int
+(Int -&gt; ConfigurationSyncStatus -&gt; Int)
+-&gt; (ConfigurationSyncStatus -&gt; Int)
+-&gt; Hashable ConfigurationSyncStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ConfigurationSyncStatus -&gt; Int
+$chash :: ConfigurationSyncStatus -&gt; Int
+hashWithSalt :: Int -&gt; ConfigurationSyncStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ConfigurationSyncStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679340813"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; ()
+(ConfigurationSyncStatus -&gt; ()) -&gt; NFData ConfigurationSyncStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ConfigurationSyncStatus -&gt; ()
+$crnf :: ConfigurationSyncStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679340810"><span class="annot"><span class="annottext">Text -&gt; Either String ConfigurationSyncStatus
+(Text -&gt; Either String ConfigurationSyncStatus)
+-&gt; FromText ConfigurationSyncStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ConfigurationSyncStatus
+$cfromText :: Text -&gt; Either String ConfigurationSyncStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679340807"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; Text
+(ConfigurationSyncStatus -&gt; Text) -&gt; ToText ConfigurationSyncStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ConfigurationSyncStatus -&gt; Text
+$ctoText :: ConfigurationSyncStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679340804"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; ByteString
+(ConfigurationSyncStatus -&gt; ByteString)
+-&gt; ToByteString ConfigurationSyncStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ConfigurationSyncStatus -&gt; ByteString
+$ctoBS :: ConfigurationSyncStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679340801"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; ByteStringBuilder
+(ConfigurationSyncStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ConfigurationSyncStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ConfigurationSyncStatus -&gt; ByteStringBuilder
+$cbuild :: ConfigurationSyncStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679340798"><span class="annot"><span class="annottext">HeaderName -&gt; ConfigurationSyncStatus -&gt; [Header]
+(HeaderName -&gt; ConfigurationSyncStatus -&gt; [Header])
+-&gt; ToHeader ConfigurationSyncStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ConfigurationSyncStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ConfigurationSyncStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679340795"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; QueryString
+(ConfigurationSyncStatus -&gt; QueryString)
+-&gt; ToQuery ConfigurationSyncStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ConfigurationSyncStatus -&gt; QueryString
+$ctoQuery :: ConfigurationSyncStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679340790"><span id="local-6989586621679340792"><span class="annot"><span class="annottext">Value -&gt; Parser [ConfigurationSyncStatus]
+Value -&gt; Parser ConfigurationSyncStatus
+(Value -&gt; Parser ConfigurationSyncStatus)
+-&gt; (Value -&gt; Parser [ConfigurationSyncStatus])
+-&gt; FromJSON ConfigurationSyncStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ConfigurationSyncStatus]
+$cparseJSONList :: Value -&gt; Parser [ConfigurationSyncStatus]
+parseJSON :: Value -&gt; Parser ConfigurationSyncStatus
+$cparseJSON :: Value -&gt; Parser ConfigurationSyncStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679340785"><span id="local-6989586621679340787"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConfigurationSyncStatus]
+FromJSONKeyFunction ConfigurationSyncStatus
+FromJSONKeyFunction ConfigurationSyncStatus
+-&gt; FromJSONKeyFunction [ConfigurationSyncStatus]
+-&gt; FromJSONKey ConfigurationSyncStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ConfigurationSyncStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ConfigurationSyncStatus]
+fromJSONKey :: FromJSONKeyFunction ConfigurationSyncStatus
+$cfromJSONKey :: FromJSONKeyFunction ConfigurationSyncStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679340776"><span id="local-6989586621679340778"><span id="local-6989586621679340780"><span id="local-6989586621679340782"><span class="annot"><span class="annottext">[ConfigurationSyncStatus] -&gt; Encoding
+[ConfigurationSyncStatus] -&gt; Value
+ConfigurationSyncStatus -&gt; Encoding
+ConfigurationSyncStatus -&gt; Value
+(ConfigurationSyncStatus -&gt; Value)
+-&gt; (ConfigurationSyncStatus -&gt; Encoding)
+-&gt; ([ConfigurationSyncStatus] -&gt; Value)
+-&gt; ([ConfigurationSyncStatus] -&gt; Encoding)
+-&gt; ToJSON ConfigurationSyncStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ConfigurationSyncStatus] -&gt; Encoding
+$ctoEncodingList :: [ConfigurationSyncStatus] -&gt; Encoding
+toJSONList :: [ConfigurationSyncStatus] -&gt; Value
+$ctoJSONList :: [ConfigurationSyncStatus] -&gt; Value
+toEncoding :: ConfigurationSyncStatus -&gt; Encoding
+$ctoEncoding :: ConfigurationSyncStatus -&gt; Encoding
+toJSON :: ConfigurationSyncStatus -&gt; Value
+$ctoJSON :: ConfigurationSyncStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679340771"><span id="local-6989586621679340773"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConfigurationSyncStatus]
+ToJSONKeyFunction ConfigurationSyncStatus
+ToJSONKeyFunction ConfigurationSyncStatus
+-&gt; ToJSONKeyFunction [ConfigurationSyncStatus]
+-&gt; ToJSONKey ConfigurationSyncStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ConfigurationSyncStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ConfigurationSyncStatus]
+toJSONKey :: ToJSONKeyFunction ConfigurationSyncStatus
+$ctoJSONKey :: ToJSONKeyFunction ConfigurationSyncStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679340768"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConfigurationSyncStatus
+([Node] -&gt; Either String ConfigurationSyncStatus)
+-&gt; FromXML ConfigurationSyncStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ConfigurationSyncStatus
+$cparseXML :: [Node] -&gt; Either String ConfigurationSyncStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679340765"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; XML
+(ConfigurationSyncStatus -&gt; XML) -&gt; ToXML ConfigurationSyncStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ConfigurationSyncStatus -&gt; XML
+$ctoXML :: ConfigurationSyncStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus_InSync"><span class="hs-identifier hs-type">ConfigurationSyncStatus_InSync</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus"><span class="hs-identifier hs-type">ConfigurationSyncStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConfigurationSyncStatus_InSync"><span id="%24mConfigurationSyncStatus_InSync"><span id="ConfigurationSyncStatus_InSync"><span class="annot"><span class="annottext">$bConfigurationSyncStatus_InSync :: ConfigurationSyncStatus
+$mConfigurationSyncStatus_InSync :: forall r.
+ConfigurationSyncStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#%24bConfigurationSyncStatus_InSync"><span class="hs-identifier hs-var hs-var hs-var">ConfigurationSyncStatus_InSync</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus%27"><span class="hs-identifier hs-type">ConfigurationSyncStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InSync&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus_OutOfSync"><span class="hs-identifier hs-type">ConfigurationSyncStatus_OutOfSync</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus"><span class="hs-identifier hs-type">ConfigurationSyncStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConfigurationSyncStatus_OutOfSync"><span id="%24mConfigurationSyncStatus_OutOfSync"><span id="ConfigurationSyncStatus_OutOfSync"><span class="annot"><span class="annottext">$bConfigurationSyncStatus_OutOfSync :: ConfigurationSyncStatus
+$mConfigurationSyncStatus_OutOfSync :: forall r.
+ConfigurationSyncStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#%24bConfigurationSyncStatus_OutOfSync"><span class="hs-identifier hs-var hs-var hs-var">ConfigurationSyncStatus_OutOfSync</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus%27"><span class="hs-identifier hs-type">ConfigurationSyncStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OutOfSync&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus_InSync"><span class="hs-pragma hs-type">ConfigurationSyncStatus_InSync</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus_OutOfSync"><span class="hs-pragma hs-type">ConfigurationSyncStatus_OutOfSync</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus%27"><span class="hs-pragma hs-type">ConfigurationSyncStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

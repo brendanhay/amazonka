@@ -1,0 +1,604 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.Types.DataSetSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.Types.DataSetSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetImportMode.html"><span class="hs-identifier">Amazonka.QuickSight.Types.DataSetImportMode</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionDataSet.html"><span class="hs-identifier">Amazonka.QuickSight.Types.RowLevelPermissionDataSet</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Dataset summary.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDataSetSummary' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679566439"><span id="local-6989586621679566440"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataSetSummary"><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-var">DataSetSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataSetSummary%27"><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-var">DataSetSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The last time that this dataset was updated.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3ADataSetSummary%27"><span class="annot"><span class="annottext">DataSetSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3AlastUpdatedTime%3ADataSetSummary%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aarn%3ADataSetSummary%27"><span class="annot"><span class="annottext">DataSetSummary -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3Aarn%3ADataSetSummary%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The time that this dataset was created.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreatedTime%3ADataSetSummary%27"><span class="annot"><span class="annottext">DataSetSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3AcreatedTime%3ADataSetSummary%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Whether or not the row level permission tags are applied.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ArowLevelPermissionTagConfigurationApplied%3ADataSetSummary%27"><span class="annot"><span class="annottext">DataSetSummary -&gt; Maybe Bool
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3ArowLevelPermissionTagConfigurationApplied%3ADataSetSummary%27"><span class="hs-identifier hs-var hs-var">rowLevelPermissionTagConfigurationApplied</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A value that indicates if the dataset has column level permission</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- configured.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcolumnLevelPermissionRulesApplied%3ADataSetSummary%27"><span class="annot"><span class="annottext">DataSetSummary -&gt; Maybe Bool
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3AcolumnLevelPermissionRulesApplied%3ADataSetSummary%27"><span class="hs-identifier hs-var hs-var">columnLevelPermissionRulesApplied</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether you want to import the data into SPICE.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AimportMode%3ADataSetSummary%27"><span class="annot"><span class="annottext">DataSetSummary -&gt; Maybe DataSetImportMode
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3AimportMode%3ADataSetSummary%27"><span class="hs-identifier hs-var hs-var">importMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetImportMode.html#DataSetImportMode"><span class="hs-identifier hs-type">DataSetImportMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ID of the dataset.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdataSetId%3ADataSetSummary%27"><span class="annot"><span class="annottext">DataSetSummary -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3AdataSetId%3ADataSetSummary%27"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | A display name for the dataset.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aname%3ADataSetSummary%27"><span class="annot"><span class="annottext">DataSetSummary -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3Aname%3ADataSetSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The row-level security configuration for the dataset.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3ArowLevelPermissionDataSet%3ADataSetSummary%27"><span class="annot"><span class="annottext">DataSetSummary -&gt; Maybe RowLevelPermissionDataSet
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3ArowLevelPermissionDataSet%3ADataSetSummary%27"><span class="hs-identifier hs-var hs-var">rowLevelPermissionDataSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionDataSet.html#RowLevelPermissionDataSet"><span class="hs-identifier hs-type">RowLevelPermissionDataSet</span></a></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679566425"><span id="local-6989586621679566427"><span class="annot"><span class="annottext">DataSetSummary -&gt; DataSetSummary -&gt; Bool
+(DataSetSummary -&gt; DataSetSummary -&gt; Bool)
+-&gt; (DataSetSummary -&gt; DataSetSummary -&gt; Bool) -&gt; Eq DataSetSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataSetSummary -&gt; DataSetSummary -&gt; Bool
+$c/= :: DataSetSummary -&gt; DataSetSummary -&gt; Bool
+== :: DataSetSummary -&gt; DataSetSummary -&gt; Bool
+$c== :: DataSetSummary -&gt; DataSetSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566416"><span id="local-6989586621679566418"><span id="local-6989586621679566420"><span id="local-6989586621679566422"><span class="annot"><span class="annottext">ReadPrec [DataSetSummary]
+ReadPrec DataSetSummary
+Int -&gt; ReadS DataSetSummary
+ReadS [DataSetSummary]
+(Int -&gt; ReadS DataSetSummary)
+-&gt; ReadS [DataSetSummary]
+-&gt; ReadPrec DataSetSummary
+-&gt; ReadPrec [DataSetSummary]
+-&gt; Read DataSetSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataSetSummary]
+$creadListPrec :: ReadPrec [DataSetSummary]
+readPrec :: ReadPrec DataSetSummary
+$creadPrec :: ReadPrec DataSetSummary
+readList :: ReadS [DataSetSummary]
+$creadList :: ReadS [DataSetSummary]
+readsPrec :: Int -&gt; ReadS DataSetSummary
+$creadsPrec :: Int -&gt; ReadS DataSetSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566409"><span id="local-6989586621679566411"><span id="local-6989586621679566413"><span class="annot"><span class="annottext">Int -&gt; DataSetSummary -&gt; ShowS
+[DataSetSummary] -&gt; ShowS
+DataSetSummary -&gt; String
+(Int -&gt; DataSetSummary -&gt; ShowS)
+-&gt; (DataSetSummary -&gt; String)
+-&gt; ([DataSetSummary] -&gt; ShowS)
+-&gt; Show DataSetSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataSetSummary] -&gt; ShowS
+$cshowList :: [DataSetSummary] -&gt; ShowS
+show :: DataSetSummary -&gt; String
+$cshow :: DataSetSummary -&gt; String
+showsPrec :: Int -&gt; DataSetSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataSetSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DataSetSummary -&gt; Rep DataSetSummary x)
+-&gt; (forall x. Rep DataSetSummary x -&gt; DataSetSummary)
+-&gt; Generic DataSetSummary
+forall x. Rep DataSetSummary x -&gt; DataSetSummary
+forall x. DataSetSummary -&gt; Rep DataSetSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DataSetSummary x -&gt; DataSetSummary
+$cfrom :: forall x. DataSetSummary -&gt; Rep DataSetSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'DataSetSummary' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'lastUpdatedTime', 'dataSetSummary_lastUpdatedTime' - The last time that this dataset was updated.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'arn', 'dataSetSummary_arn' - The Amazon Resource Name (ARN) of the dataset.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'createdTime', 'dataSetSummary_createdTime' - The time that this dataset was created.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'rowLevelPermissionTagConfigurationApplied', 'dataSetSummary_rowLevelPermissionTagConfigurationApplied' - Whether or not the row level permission tags are applied.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'columnLevelPermissionRulesApplied', 'dataSetSummary_columnLevelPermissionRulesApplied' - A value that indicates if the dataset has column level permission</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- configured.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'importMode', 'dataSetSummary_importMode' - A value that indicates whether you want to import the data into SPICE.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'dataSetId', 'dataSetSummary_dataSetId' - The ID of the dataset.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'name', 'dataSetSummary_name' - A display name for the dataset.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'rowLevelPermissionDataSet', 'dataSetSummary_rowLevelPermissionDataSet' - The row-level security configuration for the dataset.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#newDataSetSummary"><span class="hs-identifier hs-type">newDataSetSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span>
+</span><span id="line-82"></span><span id="newDataSetSummary"><span class="annot"><span class="annottext">newDataSetSummary :: DataSetSummary
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#newDataSetSummary"><span class="hs-identifier hs-var hs-var">newDataSetSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">DataSetSummary' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe DataSetImportMode
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe RowLevelPermissionDataSet
+-&gt; DataSetSummary
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:DataSetSummary' :: Maybe POSIX
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3AlastUpdatedTime%3ADataSetSummary%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DataSetSummary' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3Aarn%3ADataSetSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:DataSetSummary' :: Maybe POSIX
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3AcreatedTime%3ADataSetSummary%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:rowLevelPermissionTagConfigurationApplied:DataSetSummary' :: Maybe Bool
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3ArowLevelPermissionTagConfigurationApplied%3ADataSetSummary%27"><span class="hs-identifier hs-var">rowLevelPermissionTagConfigurationApplied</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:columnLevelPermissionRulesApplied:DataSetSummary' :: Maybe Bool
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3AcolumnLevelPermissionRulesApplied%3ADataSetSummary%27"><span class="hs-identifier hs-var">columnLevelPermissionRulesApplied</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:importMode:DataSetSummary' :: Maybe DataSetImportMode
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3AimportMode%3ADataSetSummary%27"><span class="hs-identifier hs-var">importMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSetImportMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSetId:DataSetSummary' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3AdataSetId%3ADataSetSummary%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DataSetSummary' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3Aname%3ADataSetSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:rowLevelPermissionDataSet:DataSetSummary' :: Maybe RowLevelPermissionDataSet
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3ArowLevelPermissionDataSet%3ADataSetSummary%27"><span class="hs-identifier hs-var">rowLevelPermissionDataSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RowLevelPermissionDataSet
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The last time that this dataset was updated.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_lastUpdatedTime"><span class="hs-identifier hs-type">dataSetSummary_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="dataSetSummary_lastUpdatedTime"><span class="annot"><span class="annottext">dataSetSummary_lastUpdatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DataSetSummary -&gt; f DataSetSummary
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">dataSetSummary_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetSummary -&gt; Maybe POSIX)
+-&gt; (DataSetSummary -&gt; Maybe POSIX -&gt; DataSetSummary)
+-&gt; Lens DataSetSummary DataSetSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566400"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedTime :: Maybe POSIX
+$sel:lastUpdatedTime:DataSetSummary' :: DataSetSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679566400"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679566400"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566399"><span class="annot"><span class="annottext">s :: DataSetSummary
+</span><a href="#local-6989586621679566399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566398"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679566398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetSummary
+</span><a href="#local-6989586621679566399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:DataSetSummary' :: Maybe POSIX
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3AlastUpdatedTime%3ADataSetSummary%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679566398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DataSetSummary -&gt; f DataSetSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DataSetSummary
+-&gt; f DataSetSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_arn"><span class="hs-identifier hs-type">dataSetSummary_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="dataSetSummary_arn"><span class="annot"><span class="annottext">dataSetSummary_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DataSetSummary -&gt; f DataSetSummary
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_arn"><span class="hs-identifier hs-var hs-var">dataSetSummary_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetSummary -&gt; Maybe Text)
+-&gt; (DataSetSummary -&gt; Maybe Text -&gt; DataSetSummary)
+-&gt; Lens DataSetSummary DataSetSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566393"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DataSetSummary' :: DataSetSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679566393"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566393"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566392"><span class="annot"><span class="annottext">s :: DataSetSummary
+</span><a href="#local-6989586621679566392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566391"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetSummary
+</span><a href="#local-6989586621679566392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DataSetSummary' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3Aarn%3ADataSetSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The time that this dataset was created.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_createdTime"><span class="hs-identifier hs-type">dataSetSummary_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="dataSetSummary_createdTime"><span class="annot"><span class="annottext">dataSetSummary_createdTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DataSetSummary -&gt; f DataSetSummary
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_createdTime"><span class="hs-identifier hs-var hs-var">dataSetSummary_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetSummary -&gt; Maybe POSIX)
+-&gt; (DataSetSummary -&gt; Maybe POSIX -&gt; DataSetSummary)
+-&gt; Lens DataSetSummary DataSetSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566389"><span class="annot"><span class="annottext">Maybe POSIX
+createdTime :: Maybe POSIX
+$sel:createdTime:DataSetSummary' :: DataSetSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679566389"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679566389"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566388"><span class="annot"><span class="annottext">s :: DataSetSummary
+</span><a href="#local-6989586621679566388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566387"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679566387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetSummary
+</span><a href="#local-6989586621679566388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:DataSetSummary' :: Maybe POSIX
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3AcreatedTime%3ADataSetSummary%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679566387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DataSetSummary -&gt; f DataSetSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DataSetSummary
+-&gt; f DataSetSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | Whether or not the row level permission tags are applied.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_rowLevelPermissionTagConfigurationApplied"><span class="hs-identifier hs-type">dataSetSummary_rowLevelPermissionTagConfigurationApplied</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="dataSetSummary_rowLevelPermissionTagConfigurationApplied"><span class="annot"><span class="annottext">dataSetSummary_rowLevelPermissionTagConfigurationApplied :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DataSetSummary -&gt; f DataSetSummary
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_rowLevelPermissionTagConfigurationApplied"><span class="hs-identifier hs-var hs-var">dataSetSummary_rowLevelPermissionTagConfigurationApplied</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetSummary -&gt; Maybe Bool)
+-&gt; (DataSetSummary -&gt; Maybe Bool -&gt; DataSetSummary)
+-&gt; Lens DataSetSummary DataSetSummary (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566385"><span class="annot"><span class="annottext">Maybe Bool
+rowLevelPermissionTagConfigurationApplied :: Maybe Bool
+$sel:rowLevelPermissionTagConfigurationApplied:DataSetSummary' :: DataSetSummary -&gt; Maybe Bool
+</span><a href="#local-6989586621679566385"><span class="hs-identifier hs-var hs-var">rowLevelPermissionTagConfigurationApplied</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679566385"><span class="hs-identifier hs-var">rowLevelPermissionTagConfigurationApplied</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566384"><span class="annot"><span class="annottext">s :: DataSetSummary
+</span><a href="#local-6989586621679566384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566383"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679566383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetSummary
+</span><a href="#local-6989586621679566384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rowLevelPermissionTagConfigurationApplied:DataSetSummary' :: Maybe Bool
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3ArowLevelPermissionTagConfigurationApplied%3ADataSetSummary%27"><span class="hs-identifier hs-var">rowLevelPermissionTagConfigurationApplied</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679566383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | A value that indicates if the dataset has column level permission</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- configured.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_columnLevelPermissionRulesApplied"><span class="hs-identifier hs-type">dataSetSummary_columnLevelPermissionRulesApplied</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="dataSetSummary_columnLevelPermissionRulesApplied"><span class="annot"><span class="annottext">dataSetSummary_columnLevelPermissionRulesApplied :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DataSetSummary -&gt; f DataSetSummary
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_columnLevelPermissionRulesApplied"><span class="hs-identifier hs-var hs-var">dataSetSummary_columnLevelPermissionRulesApplied</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetSummary -&gt; Maybe Bool)
+-&gt; (DataSetSummary -&gt; Maybe Bool -&gt; DataSetSummary)
+-&gt; Lens DataSetSummary DataSetSummary (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566381"><span class="annot"><span class="annottext">Maybe Bool
+columnLevelPermissionRulesApplied :: Maybe Bool
+$sel:columnLevelPermissionRulesApplied:DataSetSummary' :: DataSetSummary -&gt; Maybe Bool
+</span><a href="#local-6989586621679566381"><span class="hs-identifier hs-var hs-var">columnLevelPermissionRulesApplied</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679566381"><span class="hs-identifier hs-var">columnLevelPermissionRulesApplied</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566380"><span class="annot"><span class="annottext">s :: DataSetSummary
+</span><a href="#local-6989586621679566380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566379"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679566379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetSummary
+</span><a href="#local-6989586621679566380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnLevelPermissionRulesApplied:DataSetSummary' :: Maybe Bool
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3AcolumnLevelPermissionRulesApplied%3ADataSetSummary%27"><span class="hs-identifier hs-var">columnLevelPermissionRulesApplied</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679566379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | A value that indicates whether you want to import the data into SPICE.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_importMode"><span class="hs-identifier hs-type">dataSetSummary_importMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetImportMode.html#DataSetImportMode"><span class="hs-identifier hs-type">DataSetImportMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="dataSetSummary_importMode"><span class="annot"><span class="annottext">dataSetSummary_importMode :: (Maybe DataSetImportMode -&gt; f (Maybe DataSetImportMode))
+-&gt; DataSetSummary -&gt; f DataSetSummary
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_importMode"><span class="hs-identifier hs-var hs-var">dataSetSummary_importMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetSummary -&gt; Maybe DataSetImportMode)
+-&gt; (DataSetSummary -&gt; Maybe DataSetImportMode -&gt; DataSetSummary)
+-&gt; Lens
+     DataSetSummary
+     DataSetSummary
+     (Maybe DataSetImportMode)
+     (Maybe DataSetImportMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566377"><span class="annot"><span class="annottext">Maybe DataSetImportMode
+importMode :: Maybe DataSetImportMode
+$sel:importMode:DataSetSummary' :: DataSetSummary -&gt; Maybe DataSetImportMode
+</span><a href="#local-6989586621679566377"><span class="hs-identifier hs-var hs-var">importMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataSetImportMode
+</span><a href="#local-6989586621679566377"><span class="hs-identifier hs-var">importMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566376"><span class="annot"><span class="annottext">s :: DataSetSummary
+</span><a href="#local-6989586621679566376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566375"><span class="annot"><span class="annottext">Maybe DataSetImportMode
+</span><a href="#local-6989586621679566375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetSummary
+</span><a href="#local-6989586621679566376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importMode:DataSetSummary' :: Maybe DataSetImportMode
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3AimportMode%3ADataSetSummary%27"><span class="hs-identifier hs-var">importMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSetImportMode
+</span><a href="#local-6989586621679566375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The ID of the dataset.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_dataSetId"><span class="hs-identifier hs-type">dataSetSummary_dataSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="dataSetSummary_dataSetId"><span class="annot"><span class="annottext">dataSetSummary_dataSetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DataSetSummary -&gt; f DataSetSummary
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_dataSetId"><span class="hs-identifier hs-var hs-var">dataSetSummary_dataSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetSummary -&gt; Maybe Text)
+-&gt; (DataSetSummary -&gt; Maybe Text -&gt; DataSetSummary)
+-&gt; Lens DataSetSummary DataSetSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566373"><span class="annot"><span class="annottext">Maybe Text
+dataSetId :: Maybe Text
+$sel:dataSetId:DataSetSummary' :: DataSetSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679566373"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566373"><span class="hs-identifier hs-var">dataSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566372"><span class="annot"><span class="annottext">s :: DataSetSummary
+</span><a href="#local-6989586621679566372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566371"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetSummary
+</span><a href="#local-6989586621679566372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetId:DataSetSummary' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3AdataSetId%3ADataSetSummary%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | A display name for the dataset.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_name"><span class="hs-identifier hs-type">dataSetSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="dataSetSummary_name"><span class="annot"><span class="annottext">dataSetSummary_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DataSetSummary -&gt; f DataSetSummary
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_name"><span class="hs-identifier hs-var hs-var">dataSetSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetSummary -&gt; Maybe Text)
+-&gt; (DataSetSummary -&gt; Maybe Text -&gt; DataSetSummary)
+-&gt; Lens DataSetSummary DataSetSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566369"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:DataSetSummary' :: DataSetSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679566369"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566369"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566368"><span class="annot"><span class="annottext">s :: DataSetSummary
+</span><a href="#local-6989586621679566368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566367"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetSummary
+</span><a href="#local-6989586621679566368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DataSetSummary' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3Aname%3ADataSetSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The row-level security configuration for the dataset.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_rowLevelPermissionDataSet"><span class="hs-identifier hs-type">dataSetSummary_rowLevelPermissionDataSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowLevelPermissionDataSet.html#RowLevelPermissionDataSet"><span class="hs-identifier hs-type">RowLevelPermissionDataSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="dataSetSummary_rowLevelPermissionDataSet"><span class="annot"><span class="annottext">dataSetSummary_rowLevelPermissionDataSet :: (Maybe RowLevelPermissionDataSet
+ -&gt; f (Maybe RowLevelPermissionDataSet))
+-&gt; DataSetSummary -&gt; f DataSetSummary
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#dataSetSummary_rowLevelPermissionDataSet"><span class="hs-identifier hs-var hs-var">dataSetSummary_rowLevelPermissionDataSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetSummary -&gt; Maybe RowLevelPermissionDataSet)
+-&gt; (DataSetSummary
+    -&gt; Maybe RowLevelPermissionDataSet -&gt; DataSetSummary)
+-&gt; Lens
+     DataSetSummary
+     DataSetSummary
+     (Maybe RowLevelPermissionDataSet)
+     (Maybe RowLevelPermissionDataSet)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566365"><span class="annot"><span class="annottext">Maybe RowLevelPermissionDataSet
+rowLevelPermissionDataSet :: Maybe RowLevelPermissionDataSet
+$sel:rowLevelPermissionDataSet:DataSetSummary' :: DataSetSummary -&gt; Maybe RowLevelPermissionDataSet
+</span><a href="#local-6989586621679566365"><span class="hs-identifier hs-var hs-var">rowLevelPermissionDataSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RowLevelPermissionDataSet
+</span><a href="#local-6989586621679566365"><span class="hs-identifier hs-var">rowLevelPermissionDataSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566364"><span class="annot"><span class="annottext">s :: DataSetSummary
+</span><a href="#local-6989586621679566364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-type">DataSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566363"><span class="annot"><span class="annottext">Maybe RowLevelPermissionDataSet
+</span><a href="#local-6989586621679566363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetSummary
+</span><a href="#local-6989586621679566364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rowLevelPermissionDataSet:DataSetSummary' :: Maybe RowLevelPermissionDataSet
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#%24sel%3ArowLevelPermissionDataSet%3ADataSetSummary%27"><span class="hs-identifier hs-var">rowLevelPermissionDataSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RowLevelPermissionDataSet
+</span><a href="#local-6989586621679566363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679566360"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679566358"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataSetSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DataSetSummary)
+-&gt; Value
+-&gt; Parser DataSetSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DataSetSummary&quot;</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679566355"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679566355"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe DataSetImportMode
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe RowLevelPermissionDataSet
+-&gt; DataSetSummary
+</span><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary%27"><span class="hs-identifier hs-var">DataSetSummary'</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe DataSetImportMode
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe RowLevelPermissionDataSet
+ -&gt; DataSetSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe DataSetImportMode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RowLevelPermissionDataSet
+      -&gt; DataSetSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679566355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe DataSetImportMode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RowLevelPermissionDataSet
+   -&gt; DataSetSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe DataSetImportMode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RowLevelPermissionDataSet
+      -&gt; DataSetSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679566355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe DataSetImportMode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RowLevelPermissionDataSet
+   -&gt; DataSetSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe DataSetImportMode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RowLevelPermissionDataSet
+      -&gt; DataSetSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679566355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe DataSetImportMode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RowLevelPermissionDataSet
+   -&gt; DataSetSummary)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe DataSetImportMode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RowLevelPermissionDataSet
+      -&gt; DataSetSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679566355"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-143"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RowLevelPermissionTagConfigurationApplied&quot;</span></span><span>
+</span><span id="line-144"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe DataSetImportMode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RowLevelPermissionDataSet
+   -&gt; DataSetSummary)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe DataSetImportMode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RowLevelPermissionDataSet
+      -&gt; DataSetSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679566355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ColumnLevelPermissionRulesApplied&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DataSetImportMode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RowLevelPermissionDataSet
+   -&gt; DataSetSummary)
+-&gt; Parser (Maybe DataSetImportMode)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe RowLevelPermissionDataSet -&gt; DataSetSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679566355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DataSetImportMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImportMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe RowLevelPermissionDataSet -&gt; DataSetSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe RowLevelPermissionDataSet -&gt; DataSetSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679566355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe RowLevelPermissionDataSet -&gt; DataSetSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe RowLevelPermissionDataSet -&gt; DataSetSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679566355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe RowLevelPermissionDataSet -&gt; DataSetSummary)
+-&gt; Parser (Maybe RowLevelPermissionDataSet)
+-&gt; Parser DataSetSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679566355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RowLevelPermissionDataSet)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RowLevelPermissionDataSet&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679566349"><span id="local-6989586621679566351"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679566346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetSummary.html#DataSetSummary"><span class="hs-identifier hs-type">DataSetSummary</span></a></span></span><span>
+</span><span id="line-155"></span></pre></body></html>

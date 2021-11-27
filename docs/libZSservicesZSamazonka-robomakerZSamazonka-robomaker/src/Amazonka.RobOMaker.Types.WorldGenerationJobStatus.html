@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.RobOMaker.Types.WorldGenerationJobStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RobOMaker.Types.WorldGenerationJobStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus"><span class="hs-identifier">WorldGenerationJobStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Canceled"><span class="hs-identifier">WorldGenerationJobStatus_Canceled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Canceling"><span class="hs-identifier">WorldGenerationJobStatus_Canceling</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Completed"><span class="hs-identifier">WorldGenerationJobStatus_Completed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Failed"><span class="hs-identifier">WorldGenerationJobStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_PartialFailed"><span class="hs-identifier">WorldGenerationJobStatus_PartialFailed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Pending"><span class="hs-identifier">WorldGenerationJobStatus_Pending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Running"><span class="hs-identifier">WorldGenerationJobStatus_Running</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679375132"><span id="local-6989586621679375133"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorldGenerationJobStatus"><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus"><span class="hs-identifier hs-var">WorldGenerationJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorldGenerationJobStatus%27"><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus%27"><span class="hs-identifier hs-var">WorldGenerationJobStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWorldGenerationJobStatus"><span class="annot"><span class="annottext">WorldGenerationJobStatus -&gt; Text
+</span><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#fromWorldGenerationJobStatus"><span class="hs-identifier hs-var hs-var">fromWorldGenerationJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375124"><span id="local-6989586621679375126"><span id="local-6989586621679375128"><span class="annot"><span class="annottext">Int -&gt; WorldGenerationJobStatus -&gt; ShowS
+[WorldGenerationJobStatus] -&gt; ShowS
+WorldGenerationJobStatus -&gt; String
+(Int -&gt; WorldGenerationJobStatus -&gt; ShowS)
+-&gt; (WorldGenerationJobStatus -&gt; String)
+-&gt; ([WorldGenerationJobStatus] -&gt; ShowS)
+-&gt; Show WorldGenerationJobStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WorldGenerationJobStatus] -&gt; ShowS
+$cshowList :: [WorldGenerationJobStatus] -&gt; ShowS
+show :: WorldGenerationJobStatus -&gt; String
+$cshow :: WorldGenerationJobStatus -&gt; String
+showsPrec :: Int -&gt; WorldGenerationJobStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; WorldGenerationJobStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679375115"><span id="local-6989586621679375117"><span id="local-6989586621679375119"><span id="local-6989586621679375121"><span class="annot"><span class="annottext">ReadPrec [WorldGenerationJobStatus]
+ReadPrec WorldGenerationJobStatus
+Int -&gt; ReadS WorldGenerationJobStatus
+ReadS [WorldGenerationJobStatus]
+(Int -&gt; ReadS WorldGenerationJobStatus)
+-&gt; ReadS [WorldGenerationJobStatus]
+-&gt; ReadPrec WorldGenerationJobStatus
+-&gt; ReadPrec [WorldGenerationJobStatus]
+-&gt; Read WorldGenerationJobStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WorldGenerationJobStatus]
+$creadListPrec :: ReadPrec [WorldGenerationJobStatus]
+readPrec :: ReadPrec WorldGenerationJobStatus
+$creadPrec :: ReadPrec WorldGenerationJobStatus
+readList :: ReadS [WorldGenerationJobStatus]
+$creadList :: ReadS [WorldGenerationJobStatus]
+readsPrec :: Int -&gt; ReadS WorldGenerationJobStatus
+$creadsPrec :: Int -&gt; ReadS WorldGenerationJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679375110"><span id="local-6989586621679375112"><span class="annot"><span class="annottext">WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool
+(WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool)
+-&gt; (WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool)
+-&gt; Eq WorldGenerationJobStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool
+$c/= :: WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool
+== :: WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool
+$c== :: WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679375094"><span id="local-6989586621679375096"><span id="local-6989586621679375098"><span id="local-6989586621679375100"><span id="local-6989586621679375102"><span id="local-6989586621679375104"><span id="local-6989586621679375106"><span class="annot"><span class="annottext">Eq WorldGenerationJobStatus
+Eq WorldGenerationJobStatus
+-&gt; (WorldGenerationJobStatus
+    -&gt; WorldGenerationJobStatus -&gt; Ordering)
+-&gt; (WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool)
+-&gt; (WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool)
+-&gt; (WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool)
+-&gt; (WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool)
+-&gt; (WorldGenerationJobStatus
+    -&gt; WorldGenerationJobStatus -&gt; WorldGenerationJobStatus)
+-&gt; (WorldGenerationJobStatus
+    -&gt; WorldGenerationJobStatus -&gt; WorldGenerationJobStatus)
+-&gt; Ord WorldGenerationJobStatus
+WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool
+WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Ordering
+WorldGenerationJobStatus
+-&gt; WorldGenerationJobStatus -&gt; WorldGenerationJobStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: WorldGenerationJobStatus
+-&gt; WorldGenerationJobStatus -&gt; WorldGenerationJobStatus
+$cmin :: WorldGenerationJobStatus
+-&gt; WorldGenerationJobStatus -&gt; WorldGenerationJobStatus
+max :: WorldGenerationJobStatus
+-&gt; WorldGenerationJobStatus -&gt; WorldGenerationJobStatus
+$cmax :: WorldGenerationJobStatus
+-&gt; WorldGenerationJobStatus -&gt; WorldGenerationJobStatus
+&gt;= :: WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool
+$c&gt;= :: WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool
+&gt; :: WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool
+$c&gt; :: WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool
+&lt;= :: WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool
+$c&lt;= :: WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool
+&lt; :: WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool
+$c&lt; :: WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Bool
+compare :: WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Ordering
+$ccompare :: WorldGenerationJobStatus -&gt; WorldGenerationJobStatus -&gt; Ordering
+$cp1Ord :: Eq WorldGenerationJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ WorldGenerationJobStatus -&gt; Rep WorldGenerationJobStatus x)
+-&gt; (forall x.
+    Rep WorldGenerationJobStatus x -&gt; WorldGenerationJobStatus)
+-&gt; Generic WorldGenerationJobStatus
+forall x.
+Rep WorldGenerationJobStatus x -&gt; WorldGenerationJobStatus
+forall x.
+WorldGenerationJobStatus -&gt; Rep WorldGenerationJobStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep WorldGenerationJobStatus x -&gt; WorldGenerationJobStatus
+$cfrom :: forall x.
+WorldGenerationJobStatus -&gt; Rep WorldGenerationJobStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375086"><span id="local-6989586621679375088"><span class="annot"><span class="annottext">Int -&gt; WorldGenerationJobStatus -&gt; Int
+WorldGenerationJobStatus -&gt; Int
+(Int -&gt; WorldGenerationJobStatus -&gt; Int)
+-&gt; (WorldGenerationJobStatus -&gt; Int)
+-&gt; Hashable WorldGenerationJobStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: WorldGenerationJobStatus -&gt; Int
+$chash :: WorldGenerationJobStatus -&gt; Int
+hashWithSalt :: Int -&gt; WorldGenerationJobStatus -&gt; Int
+$chashWithSalt :: Int -&gt; WorldGenerationJobStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679375083"><span class="annot"><span class="annottext">WorldGenerationJobStatus -&gt; ()
+(WorldGenerationJobStatus -&gt; ()) -&gt; NFData WorldGenerationJobStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: WorldGenerationJobStatus -&gt; ()
+$crnf :: WorldGenerationJobStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679375080"><span class="annot"><span class="annottext">Text -&gt; Either String WorldGenerationJobStatus
+(Text -&gt; Either String WorldGenerationJobStatus)
+-&gt; FromText WorldGenerationJobStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String WorldGenerationJobStatus
+$cfromText :: Text -&gt; Either String WorldGenerationJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679375077"><span class="annot"><span class="annottext">WorldGenerationJobStatus -&gt; Text
+(WorldGenerationJobStatus -&gt; Text)
+-&gt; ToText WorldGenerationJobStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: WorldGenerationJobStatus -&gt; Text
+$ctoText :: WorldGenerationJobStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679375074"><span class="annot"><span class="annottext">WorldGenerationJobStatus -&gt; ByteString
+(WorldGenerationJobStatus -&gt; ByteString)
+-&gt; ToByteString WorldGenerationJobStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: WorldGenerationJobStatus -&gt; ByteString
+$ctoBS :: WorldGenerationJobStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679375071"><span class="annot"><span class="annottext">WorldGenerationJobStatus -&gt; ByteStringBuilder
+(WorldGenerationJobStatus -&gt; ByteStringBuilder)
+-&gt; ToLog WorldGenerationJobStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: WorldGenerationJobStatus -&gt; ByteStringBuilder
+$cbuild :: WorldGenerationJobStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679375068"><span class="annot"><span class="annottext">HeaderName -&gt; WorldGenerationJobStatus -&gt; [Header]
+(HeaderName -&gt; WorldGenerationJobStatus -&gt; [Header])
+-&gt; ToHeader WorldGenerationJobStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; WorldGenerationJobStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; WorldGenerationJobStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679375065"><span class="annot"><span class="annottext">WorldGenerationJobStatus -&gt; QueryString
+(WorldGenerationJobStatus -&gt; QueryString)
+-&gt; ToQuery WorldGenerationJobStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: WorldGenerationJobStatus -&gt; QueryString
+$ctoQuery :: WorldGenerationJobStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679375060"><span id="local-6989586621679375062"><span class="annot"><span class="annottext">Value -&gt; Parser [WorldGenerationJobStatus]
+Value -&gt; Parser WorldGenerationJobStatus
+(Value -&gt; Parser WorldGenerationJobStatus)
+-&gt; (Value -&gt; Parser [WorldGenerationJobStatus])
+-&gt; FromJSON WorldGenerationJobStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [WorldGenerationJobStatus]
+$cparseJSONList :: Value -&gt; Parser [WorldGenerationJobStatus]
+parseJSON :: Value -&gt; Parser WorldGenerationJobStatus
+$cparseJSON :: Value -&gt; Parser WorldGenerationJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679375055"><span id="local-6989586621679375057"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorldGenerationJobStatus]
+FromJSONKeyFunction WorldGenerationJobStatus
+FromJSONKeyFunction WorldGenerationJobStatus
+-&gt; FromJSONKeyFunction [WorldGenerationJobStatus]
+-&gt; FromJSONKey WorldGenerationJobStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [WorldGenerationJobStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [WorldGenerationJobStatus]
+fromJSONKey :: FromJSONKeyFunction WorldGenerationJobStatus
+$cfromJSONKey :: FromJSONKeyFunction WorldGenerationJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679375046"><span id="local-6989586621679375048"><span id="local-6989586621679375050"><span id="local-6989586621679375052"><span class="annot"><span class="annottext">[WorldGenerationJobStatus] -&gt; Encoding
+[WorldGenerationJobStatus] -&gt; Value
+WorldGenerationJobStatus -&gt; Encoding
+WorldGenerationJobStatus -&gt; Value
+(WorldGenerationJobStatus -&gt; Value)
+-&gt; (WorldGenerationJobStatus -&gt; Encoding)
+-&gt; ([WorldGenerationJobStatus] -&gt; Value)
+-&gt; ([WorldGenerationJobStatus] -&gt; Encoding)
+-&gt; ToJSON WorldGenerationJobStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [WorldGenerationJobStatus] -&gt; Encoding
+$ctoEncodingList :: [WorldGenerationJobStatus] -&gt; Encoding
+toJSONList :: [WorldGenerationJobStatus] -&gt; Value
+$ctoJSONList :: [WorldGenerationJobStatus] -&gt; Value
+toEncoding :: WorldGenerationJobStatus -&gt; Encoding
+$ctoEncoding :: WorldGenerationJobStatus -&gt; Encoding
+toJSON :: WorldGenerationJobStatus -&gt; Value
+$ctoJSON :: WorldGenerationJobStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679375041"><span id="local-6989586621679375043"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorldGenerationJobStatus]
+ToJSONKeyFunction WorldGenerationJobStatus
+ToJSONKeyFunction WorldGenerationJobStatus
+-&gt; ToJSONKeyFunction [WorldGenerationJobStatus]
+-&gt; ToJSONKey WorldGenerationJobStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [WorldGenerationJobStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [WorldGenerationJobStatus]
+toJSONKey :: ToJSONKeyFunction WorldGenerationJobStatus
+$ctoJSONKey :: ToJSONKeyFunction WorldGenerationJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679375038"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorldGenerationJobStatus
+([Node] -&gt; Either String WorldGenerationJobStatus)
+-&gt; FromXML WorldGenerationJobStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String WorldGenerationJobStatus
+$cparseXML :: [Node] -&gt; Either String WorldGenerationJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679375035"><span class="annot"><span class="annottext">WorldGenerationJobStatus -&gt; XML
+(WorldGenerationJobStatus -&gt; XML) -&gt; ToXML WorldGenerationJobStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: WorldGenerationJobStatus -&gt; XML
+$ctoXML :: WorldGenerationJobStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Canceled"><span class="hs-identifier hs-type">WorldGenerationJobStatus_Canceled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus"><span class="hs-identifier hs-type">WorldGenerationJobStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorldGenerationJobStatus_Canceled"><span id="%24mWorldGenerationJobStatus_Canceled"><span id="WorldGenerationJobStatus_Canceled"><span class="annot"><span class="annottext">$bWorldGenerationJobStatus_Canceled :: WorldGenerationJobStatus
+$mWorldGenerationJobStatus_Canceled :: forall r.
+WorldGenerationJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#%24bWorldGenerationJobStatus_Canceled"><span class="hs-identifier hs-var hs-var hs-var">WorldGenerationJobStatus_Canceled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus%27"><span class="hs-identifier hs-type">WorldGenerationJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Canceled&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Canceling"><span class="hs-identifier hs-type">WorldGenerationJobStatus_Canceling</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus"><span class="hs-identifier hs-type">WorldGenerationJobStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorldGenerationJobStatus_Canceling"><span id="%24mWorldGenerationJobStatus_Canceling"><span id="WorldGenerationJobStatus_Canceling"><span class="annot"><span class="annottext">$bWorldGenerationJobStatus_Canceling :: WorldGenerationJobStatus
+$mWorldGenerationJobStatus_Canceling :: forall r.
+WorldGenerationJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#%24bWorldGenerationJobStatus_Canceling"><span class="hs-identifier hs-var hs-var hs-var">WorldGenerationJobStatus_Canceling</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus%27"><span class="hs-identifier hs-type">WorldGenerationJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Canceling&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Completed"><span class="hs-identifier hs-type">WorldGenerationJobStatus_Completed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus"><span class="hs-identifier hs-type">WorldGenerationJobStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorldGenerationJobStatus_Completed"><span id="%24mWorldGenerationJobStatus_Completed"><span id="WorldGenerationJobStatus_Completed"><span class="annot"><span class="annottext">$bWorldGenerationJobStatus_Completed :: WorldGenerationJobStatus
+$mWorldGenerationJobStatus_Completed :: forall r.
+WorldGenerationJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#%24bWorldGenerationJobStatus_Completed"><span class="hs-identifier hs-var hs-var hs-var">WorldGenerationJobStatus_Completed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus%27"><span class="hs-identifier hs-type">WorldGenerationJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Completed&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Failed"><span class="hs-identifier hs-type">WorldGenerationJobStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus"><span class="hs-identifier hs-type">WorldGenerationJobStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorldGenerationJobStatus_Failed"><span id="%24mWorldGenerationJobStatus_Failed"><span id="WorldGenerationJobStatus_Failed"><span class="annot"><span class="annottext">$bWorldGenerationJobStatus_Failed :: WorldGenerationJobStatus
+$mWorldGenerationJobStatus_Failed :: forall r.
+WorldGenerationJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#%24bWorldGenerationJobStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">WorldGenerationJobStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus%27"><span class="hs-identifier hs-type">WorldGenerationJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_PartialFailed"><span class="hs-identifier hs-type">WorldGenerationJobStatus_PartialFailed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus"><span class="hs-identifier hs-type">WorldGenerationJobStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorldGenerationJobStatus_PartialFailed"><span id="%24mWorldGenerationJobStatus_PartialFailed"><span id="WorldGenerationJobStatus_PartialFailed"><span class="annot"><span class="annottext">$bWorldGenerationJobStatus_PartialFailed :: WorldGenerationJobStatus
+$mWorldGenerationJobStatus_PartialFailed :: forall r.
+WorldGenerationJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#%24bWorldGenerationJobStatus_PartialFailed"><span class="hs-identifier hs-var hs-var hs-var">WorldGenerationJobStatus_PartialFailed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus%27"><span class="hs-identifier hs-type">WorldGenerationJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PartialFailed&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Pending"><span class="hs-identifier hs-type">WorldGenerationJobStatus_Pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus"><span class="hs-identifier hs-type">WorldGenerationJobStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorldGenerationJobStatus_Pending"><span id="%24mWorldGenerationJobStatus_Pending"><span id="WorldGenerationJobStatus_Pending"><span class="annot"><span class="annottext">$bWorldGenerationJobStatus_Pending :: WorldGenerationJobStatus
+$mWorldGenerationJobStatus_Pending :: forall r.
+WorldGenerationJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#%24bWorldGenerationJobStatus_Pending"><span class="hs-identifier hs-var hs-var hs-var">WorldGenerationJobStatus_Pending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus%27"><span class="hs-identifier hs-type">WorldGenerationJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Pending&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Running"><span class="hs-identifier hs-type">WorldGenerationJobStatus_Running</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus"><span class="hs-identifier hs-type">WorldGenerationJobStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorldGenerationJobStatus_Running"><span id="%24mWorldGenerationJobStatus_Running"><span id="WorldGenerationJobStatus_Running"><span class="annot"><span class="annottext">$bWorldGenerationJobStatus_Running :: WorldGenerationJobStatus
+$mWorldGenerationJobStatus_Running :: forall r.
+WorldGenerationJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#%24bWorldGenerationJobStatus_Running"><span class="hs-identifier hs-var hs-var hs-var">WorldGenerationJobStatus_Running</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus%27"><span class="hs-identifier hs-type">WorldGenerationJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Running&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Canceled"><span class="hs-pragma hs-type">WorldGenerationJobStatus_Canceled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Canceling"><span class="hs-pragma hs-type">WorldGenerationJobStatus_Canceling</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Completed"><span class="hs-pragma hs-type">WorldGenerationJobStatus_Completed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Failed"><span class="hs-pragma hs-type">WorldGenerationJobStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_PartialFailed"><span class="hs-pragma hs-type">WorldGenerationJobStatus_PartialFailed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Pending"><span class="hs-pragma hs-type">WorldGenerationJobStatus_Pending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus_Running"><span class="hs-pragma hs-type">WorldGenerationJobStatus_Running</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.Types.WorldGenerationJobStatus.html#WorldGenerationJobStatus%27"><span class="hs-pragma hs-type">WorldGenerationJobStatus'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

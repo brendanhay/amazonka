@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeBuild.Types.Webhook</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeBuild.Types.Webhook</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.WebhookBuildType.html"><span class="hs-identifier">Amazonka.CodeBuild.Types.WebhookBuildType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.WebhookFilter.html"><span class="hs-identifier">Amazonka.CodeBuild.Types.WebhookFilter</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Information about a webhook that connects repository events to a build</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- project in CodeBuild.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newWebhook' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679381227"><span id="local-6989586621679381228"></span></span><span class="hs-keyword">data</span><span> </span><span id="Webhook"><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-var">Webhook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Webhook%27"><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-var">Webhook'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A regular expression used to determine which repository branches are</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- built when a webhook is triggered. If the name of a branch matches the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- regular expression, then it is built. If @branchFilter@ is empty, then</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- all branches are built.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- It is recommended that you use @filterGroups@ instead of @branchFilter@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AbranchFilter%3AWebhook%27"><span class="annot"><span class="annottext">Webhook -&gt; Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3AbranchFilter%3AWebhook%27"><span class="hs-identifier hs-var hs-var">branchFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A timestamp that indicates the last time a repository\'s secret token</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- was modified.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlastModifiedSecret%3AWebhook%27"><span class="annot"><span class="annottext">Webhook -&gt; Maybe POSIX
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3AlastModifiedSecret%3AWebhook%27"><span class="hs-identifier hs-var hs-var">lastModifiedSecret</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The URL to the webhook.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aurl%3AWebhook%27"><span class="annot"><span class="annottext">Webhook -&gt; Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3Aurl%3AWebhook%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The secret token of the associated repository.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- A Bitbucket webhook does not support @secret@.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Asecret%3AWebhook%27"><span class="annot"><span class="annottext">Webhook -&gt; Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3Asecret%3AWebhook%27"><span class="hs-identifier hs-var hs-var">secret</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | An array of arrays of @WebhookFilter@ objects used to determine which</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- webhooks are triggered. At least one @WebhookFilter@ in the array must</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- specify @EVENT@ as its @type@.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- For a build to be triggered, at least one filter group in the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- @filterGroups@ array must pass. For a filter group to pass, each of its</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- filters must pass.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AfilterGroups%3AWebhook%27"><span class="annot"><span class="annottext">Webhook -&gt; Maybe [[WebhookFilter]]
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3AfilterGroups%3AWebhook%27"><span class="hs-identifier hs-var hs-var">filterGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The CodeBuild endpoint where webhook events are sent.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3ApayloadUrl%3AWebhook%27"><span class="annot"><span class="annottext">Webhook -&gt; Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3ApayloadUrl%3AWebhook%27"><span class="hs-identifier hs-var hs-var">payloadUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Specifies the type of build this webhook will trigger.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AbuildType%3AWebhook%27"><span class="annot"><span class="annottext">Webhook -&gt; Maybe WebhookBuildType
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3AbuildType%3AWebhook%27"><span class="hs-identifier hs-var hs-var">buildType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.WebhookBuildType.html#WebhookBuildType"><span class="hs-identifier hs-type">WebhookBuildType</span></a></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381215"><span id="local-6989586621679381217"><span class="annot"><span class="annottext">Webhook -&gt; Webhook -&gt; Bool
+(Webhook -&gt; Webhook -&gt; Bool)
+-&gt; (Webhook -&gt; Webhook -&gt; Bool) -&gt; Eq Webhook
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Webhook -&gt; Webhook -&gt; Bool
+$c/= :: Webhook -&gt; Webhook -&gt; Bool
+== :: Webhook -&gt; Webhook -&gt; Bool
+$c== :: Webhook -&gt; Webhook -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381206"><span id="local-6989586621679381208"><span id="local-6989586621679381210"><span id="local-6989586621679381212"><span class="annot"><span class="annottext">ReadPrec [Webhook]
+ReadPrec Webhook
+Int -&gt; ReadS Webhook
+ReadS [Webhook]
+(Int -&gt; ReadS Webhook)
+-&gt; ReadS [Webhook]
+-&gt; ReadPrec Webhook
+-&gt; ReadPrec [Webhook]
+-&gt; Read Webhook
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Webhook]
+$creadListPrec :: ReadPrec [Webhook]
+readPrec :: ReadPrec Webhook
+$creadPrec :: ReadPrec Webhook
+readList :: ReadS [Webhook]
+$creadList :: ReadS [Webhook]
+readsPrec :: Int -&gt; ReadS Webhook
+$creadsPrec :: Int -&gt; ReadS Webhook
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381199"><span id="local-6989586621679381201"><span id="local-6989586621679381203"><span class="annot"><span class="annottext">Int -&gt; Webhook -&gt; ShowS
+[Webhook] -&gt; ShowS
+Webhook -&gt; String
+(Int -&gt; Webhook -&gt; ShowS)
+-&gt; (Webhook -&gt; String) -&gt; ([Webhook] -&gt; ShowS) -&gt; Show Webhook
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Webhook] -&gt; ShowS
+$cshowList :: [Webhook] -&gt; ShowS
+show :: Webhook -&gt; String
+$cshow :: Webhook -&gt; String
+showsPrec :: Int -&gt; Webhook -&gt; ShowS
+$cshowsPrec :: Int -&gt; Webhook -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Webhook -&gt; Rep Webhook x)
+-&gt; (forall x. Rep Webhook x -&gt; Webhook) -&gt; Generic Webhook
+forall x. Rep Webhook x -&gt; Webhook
+forall x. Webhook -&gt; Rep Webhook x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Webhook x -&gt; Webhook
+$cfrom :: forall x. Webhook -&gt; Rep Webhook x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'Webhook' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'branchFilter', 'webhook_branchFilter' - A regular expression used to determine which repository branches are</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- built when a webhook is triggered. If the name of a branch matches the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- regular expression, then it is built. If @branchFilter@ is empty, then</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- all branches are built.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- It is recommended that you use @filterGroups@ instead of @branchFilter@.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'lastModifiedSecret', 'webhook_lastModifiedSecret' - A timestamp that indicates the last time a repository\'s secret token</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- was modified.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'url', 'webhook_url' - The URL to the webhook.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'secret', 'webhook_secret' - The secret token of the associated repository.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- A Bitbucket webhook does not support @secret@.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'filterGroups', 'webhook_filterGroups' - An array of arrays of @WebhookFilter@ objects used to determine which</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- webhooks are triggered. At least one @WebhookFilter@ in the array must</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- specify @EVENT@ as its @type@.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- For a build to be triggered, at least one filter group in the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- @filterGroups@ array must pass. For a filter group to pass, each of its</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- filters must pass.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'payloadUrl', 'webhook_payloadUrl' - The CodeBuild endpoint where webhook events are sent.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'buildType', 'webhook_buildType' - Specifies the type of build this webhook will trigger.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#newWebhook"><span class="hs-identifier hs-type">newWebhook</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span><span>
+</span><span id="line-101"></span><span id="newWebhook"><span class="annot"><span class="annottext">newWebhook :: Webhook
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#newWebhook"><span class="hs-identifier hs-var hs-var">newWebhook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">Webhook' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [[WebhookFilter]]
+-&gt; Maybe Text
+-&gt; Maybe WebhookBuildType
+-&gt; Webhook
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-type">Webhook'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:branchFilter:Webhook' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3AbranchFilter%3AWebhook%27"><span class="hs-identifier hs-var">branchFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedSecret:Webhook' :: Maybe POSIX
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3AlastModifiedSecret%3AWebhook%27"><span class="hs-identifier hs-var">lastModifiedSecret</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:Webhook' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3Aurl%3AWebhook%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:secret:Webhook' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3Asecret%3AWebhook%27"><span class="hs-identifier hs-var">secret</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterGroups:Webhook' :: Maybe [[WebhookFilter]]
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3AfilterGroups%3AWebhook%27"><span class="hs-identifier hs-var">filterGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:payloadUrl:Webhook' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3ApayloadUrl%3AWebhook%27"><span class="hs-identifier hs-var">payloadUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:buildType:Webhook' :: Maybe WebhookBuildType
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3AbuildType%3AWebhook%27"><span class="hs-identifier hs-var">buildType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WebhookBuildType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | A regular expression used to determine which repository branches are</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- built when a webhook is triggered. If the name of a branch matches the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- regular expression, then it is built. If @branchFilter@ is empty, then</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- all branches are built.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- It is recommended that you use @filterGroups@ instead of @branchFilter@.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#webhook_branchFilter"><span class="hs-identifier hs-type">webhook_branchFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="webhook_branchFilter"><span class="annot"><span class="annottext">webhook_branchFilter :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Webhook -&gt; f Webhook
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#webhook_branchFilter"><span class="hs-identifier hs-var hs-var">webhook_branchFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Webhook -&gt; Maybe Text)
+-&gt; (Webhook -&gt; Maybe Text -&gt; Webhook)
+-&gt; Lens Webhook Webhook (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-type">Webhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381190"><span class="annot"><span class="annottext">Maybe Text
+branchFilter :: Maybe Text
+$sel:branchFilter:Webhook' :: Webhook -&gt; Maybe Text
+</span><a href="#local-6989586621679381190"><span class="hs-identifier hs-var hs-var">branchFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381190"><span class="hs-identifier hs-var">branchFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381189"><span class="annot"><span class="annottext">s :: Webhook
+</span><a href="#local-6989586621679381189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-type">Webhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381188"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Webhook
+</span><a href="#local-6989586621679381189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchFilter:Webhook' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3AbranchFilter%3AWebhook%27"><span class="hs-identifier hs-var">branchFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | A timestamp that indicates the last time a repository\'s secret token</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- was modified.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#webhook_lastModifiedSecret"><span class="hs-identifier hs-type">webhook_lastModifiedSecret</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="webhook_lastModifiedSecret"><span class="annot"><span class="annottext">webhook_lastModifiedSecret :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Webhook -&gt; f Webhook
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#webhook_lastModifiedSecret"><span class="hs-identifier hs-var hs-var">webhook_lastModifiedSecret</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Webhook -&gt; Maybe POSIX)
+-&gt; (Webhook -&gt; Maybe POSIX -&gt; Webhook)
+-&gt; Lens Webhook Webhook (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-type">Webhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381186"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedSecret :: Maybe POSIX
+$sel:lastModifiedSecret:Webhook' :: Webhook -&gt; Maybe POSIX
+</span><a href="#local-6989586621679381186"><span class="hs-identifier hs-var hs-var">lastModifiedSecret</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679381186"><span class="hs-identifier hs-var">lastModifiedSecret</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381185"><span class="annot"><span class="annottext">s :: Webhook
+</span><a href="#local-6989586621679381185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-type">Webhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381184"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679381184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Webhook
+</span><a href="#local-6989586621679381185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedSecret:Webhook' :: Maybe POSIX
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3AlastModifiedSecret%3AWebhook%27"><span class="hs-identifier hs-var">lastModifiedSecret</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679381184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Webhook -&gt; f Webhook)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Webhook
+-&gt; f Webhook
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The URL to the webhook.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#webhook_url"><span class="hs-identifier hs-type">webhook_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="webhook_url"><span class="annot"><span class="annottext">webhook_url :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Webhook -&gt; f Webhook
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#webhook_url"><span class="hs-identifier hs-var hs-var">webhook_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Webhook -&gt; Maybe Text)
+-&gt; (Webhook -&gt; Maybe Text -&gt; Webhook)
+-&gt; Lens Webhook Webhook (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-type">Webhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381179"><span class="annot"><span class="annottext">Maybe Text
+url :: Maybe Text
+$sel:url:Webhook' :: Webhook -&gt; Maybe Text
+</span><a href="#local-6989586621679381179"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381179"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381178"><span class="annot"><span class="annottext">s :: Webhook
+</span><a href="#local-6989586621679381178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-type">Webhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381177"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Webhook
+</span><a href="#local-6989586621679381178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:Webhook' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3Aurl%3AWebhook%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The secret token of the associated repository.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- A Bitbucket webhook does not support @secret@.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#webhook_secret"><span class="hs-identifier hs-type">webhook_secret</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="webhook_secret"><span class="annot"><span class="annottext">webhook_secret :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Webhook -&gt; f Webhook
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#webhook_secret"><span class="hs-identifier hs-var hs-var">webhook_secret</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Webhook -&gt; Maybe Text)
+-&gt; (Webhook -&gt; Maybe Text -&gt; Webhook)
+-&gt; Lens Webhook Webhook (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-type">Webhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381175"><span class="annot"><span class="annottext">Maybe Text
+secret :: Maybe Text
+$sel:secret:Webhook' :: Webhook -&gt; Maybe Text
+</span><a href="#local-6989586621679381175"><span class="hs-identifier hs-var hs-var">secret</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381175"><span class="hs-identifier hs-var">secret</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381174"><span class="annot"><span class="annottext">s :: Webhook
+</span><a href="#local-6989586621679381174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-type">Webhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381173"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Webhook
+</span><a href="#local-6989586621679381174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secret:Webhook' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3Asecret%3AWebhook%27"><span class="hs-identifier hs-var">secret</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | An array of arrays of @WebhookFilter@ objects used to determine which</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- webhooks are triggered. At least one @WebhookFilter@ in the array must</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- specify @EVENT@ as its @type@.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- For a build to be triggered, at least one filter group in the</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- @filterGroups@ array must pass. For a filter group to pass, each of its</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- filters must pass.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#webhook_filterGroups"><span class="hs-identifier hs-type">webhook_filterGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="webhook_filterGroups"><span class="annot"><span class="annottext">webhook_filterGroups :: (Maybe [[WebhookFilter]] -&gt; f (Maybe [[WebhookFilter]]))
+-&gt; Webhook -&gt; f Webhook
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#webhook_filterGroups"><span class="hs-identifier hs-var hs-var">webhook_filterGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Webhook -&gt; Maybe [[WebhookFilter]])
+-&gt; (Webhook -&gt; Maybe [[WebhookFilter]] -&gt; Webhook)
+-&gt; Lens
+     Webhook Webhook (Maybe [[WebhookFilter]]) (Maybe [[WebhookFilter]])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-type">Webhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381171"><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
+filterGroups :: Maybe [[WebhookFilter]]
+$sel:filterGroups:Webhook' :: Webhook -&gt; Maybe [[WebhookFilter]]
+</span><a href="#local-6989586621679381171"><span class="hs-identifier hs-var hs-var">filterGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
+</span><a href="#local-6989586621679381171"><span class="hs-identifier hs-var">filterGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381170"><span class="annot"><span class="annottext">s :: Webhook
+</span><a href="#local-6989586621679381170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-type">Webhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381169"><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
+</span><a href="#local-6989586621679381169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Webhook
+</span><a href="#local-6989586621679381170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterGroups:Webhook' :: Maybe [[WebhookFilter]]
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3AfilterGroups%3AWebhook%27"><span class="hs-identifier hs-var">filterGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
+</span><a href="#local-6989586621679381169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [[WebhookFilter]] -&gt; f (Maybe [[WebhookFilter]]))
+ -&gt; Webhook -&gt; f Webhook)
+-&gt; ((Maybe [[WebhookFilter]] -&gt; f (Maybe [[WebhookFilter]]))
+    -&gt; Maybe [[WebhookFilter]] -&gt; f (Maybe [[WebhookFilter]]))
+-&gt; (Maybe [[WebhookFilter]] -&gt; f (Maybe [[WebhookFilter]]))
+-&gt; Webhook
+-&gt; f Webhook
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [[WebhookFilter]]
+  [[WebhookFilter]]
+  [[WebhookFilter]]
+  [[WebhookFilter]]
+-&gt; Iso
+     (Maybe [[WebhookFilter]])
+     (Maybe [[WebhookFilter]])
+     (Maybe [[WebhookFilter]])
+     (Maybe [[WebhookFilter]])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [[WebhookFilter]]
+  [[WebhookFilter]]
+  [[WebhookFilter]]
+  [[WebhookFilter]]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The CodeBuild endpoint where webhook events are sent.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#webhook_payloadUrl"><span class="hs-identifier hs-type">webhook_payloadUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="webhook_payloadUrl"><span class="annot"><span class="annottext">webhook_payloadUrl :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Webhook -&gt; f Webhook
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#webhook_payloadUrl"><span class="hs-identifier hs-var hs-var">webhook_payloadUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Webhook -&gt; Maybe Text)
+-&gt; (Webhook -&gt; Maybe Text -&gt; Webhook)
+-&gt; Lens Webhook Webhook (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-type">Webhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381166"><span class="annot"><span class="annottext">Maybe Text
+payloadUrl :: Maybe Text
+$sel:payloadUrl:Webhook' :: Webhook -&gt; Maybe Text
+</span><a href="#local-6989586621679381166"><span class="hs-identifier hs-var hs-var">payloadUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381166"><span class="hs-identifier hs-var">payloadUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381165"><span class="annot"><span class="annottext">s :: Webhook
+</span><a href="#local-6989586621679381165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-type">Webhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381164"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Webhook
+</span><a href="#local-6989586621679381165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payloadUrl:Webhook' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3ApayloadUrl%3AWebhook%27"><span class="hs-identifier hs-var">payloadUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | Specifies the type of build this webhook will trigger.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#webhook_buildType"><span class="hs-identifier hs-type">webhook_buildType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.WebhookBuildType.html#WebhookBuildType"><span class="hs-identifier hs-type">WebhookBuildType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="webhook_buildType"><span class="annot"><span class="annottext">webhook_buildType :: (Maybe WebhookBuildType -&gt; f (Maybe WebhookBuildType))
+-&gt; Webhook -&gt; f Webhook
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#webhook_buildType"><span class="hs-identifier hs-var hs-var">webhook_buildType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Webhook -&gt; Maybe WebhookBuildType)
+-&gt; (Webhook -&gt; Maybe WebhookBuildType -&gt; Webhook)
+-&gt; Lens
+     Webhook Webhook (Maybe WebhookBuildType) (Maybe WebhookBuildType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-type">Webhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381162"><span class="annot"><span class="annottext">Maybe WebhookBuildType
+buildType :: Maybe WebhookBuildType
+$sel:buildType:Webhook' :: Webhook -&gt; Maybe WebhookBuildType
+</span><a href="#local-6989586621679381162"><span class="hs-identifier hs-var hs-var">buildType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WebhookBuildType
+</span><a href="#local-6989586621679381162"><span class="hs-identifier hs-var">buildType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381161"><span class="annot"><span class="annottext">s :: Webhook
+</span><a href="#local-6989586621679381161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-type">Webhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381160"><span class="annot"><span class="annottext">Maybe WebhookBuildType
+</span><a href="#local-6989586621679381160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Webhook
+</span><a href="#local-6989586621679381161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildType:Webhook' :: Maybe WebhookBuildType
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#%24sel%3AbuildType%3AWebhook%27"><span class="hs-identifier hs-var">buildType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WebhookBuildType
+</span><a href="#local-6989586621679381160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381157"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679381155"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Webhook
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Webhook) -&gt; Value -&gt; Parser Webhook
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Webhook&quot;</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381152"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381152"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [[WebhookFilter]]
+-&gt; Maybe Text
+-&gt; Maybe WebhookBuildType
+-&gt; Webhook
+</span><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook%27"><span class="hs-identifier hs-var">Webhook'</span></a></span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [[WebhookFilter]]
+ -&gt; Maybe Text
+ -&gt; Maybe WebhookBuildType
+ -&gt; Webhook)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [[WebhookFilter]]
+      -&gt; Maybe Text
+      -&gt; Maybe WebhookBuildType
+      -&gt; Webhook)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;branchFilter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [[WebhookFilter]]
+   -&gt; Maybe Text
+   -&gt; Maybe WebhookBuildType
+   -&gt; Webhook)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [[WebhookFilter]]
+      -&gt; Maybe Text
+      -&gt; Maybe WebhookBuildType
+      -&gt; Webhook)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastModifiedSecret&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [[WebhookFilter]]
+   -&gt; Maybe Text
+   -&gt; Maybe WebhookBuildType
+   -&gt; Webhook)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [[WebhookFilter]]
+      -&gt; Maybe Text
+      -&gt; Maybe WebhookBuildType
+      -&gt; Webhook)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;url&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [[WebhookFilter]]
+   -&gt; Maybe Text
+   -&gt; Maybe WebhookBuildType
+   -&gt; Webhook)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [[WebhookFilter]]
+      -&gt; Maybe Text -&gt; Maybe WebhookBuildType -&gt; Webhook)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;secret&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [[WebhookFilter]]
+   -&gt; Maybe Text -&gt; Maybe WebhookBuildType -&gt; Webhook)
+-&gt; Parser (Maybe [[WebhookFilter]])
+-&gt; Parser (Maybe Text -&gt; Maybe WebhookBuildType -&gt; Webhook)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [[WebhookFilter]]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filterGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [[WebhookFilter]]))
+-&gt; Maybe [[WebhookFilter]] -&gt; Parser (Maybe [[WebhookFilter]])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe WebhookBuildType -&gt; Webhook)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe WebhookBuildType -&gt; Webhook)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;payloadUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe WebhookBuildType -&gt; Webhook)
+-&gt; Parser (Maybe WebhookBuildType) -&gt; Parser Webhook
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WebhookBuildType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;buildType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381145"><span id="local-6989586621679381147"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381142"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.Webhook.html#Webhook"><span class="hs-identifier hs-type">Webhook</span></a></span></span><span>
+</span><span id="line-172"></span></pre></body></html>

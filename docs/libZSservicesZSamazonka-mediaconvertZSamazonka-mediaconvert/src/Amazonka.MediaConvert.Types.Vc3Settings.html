@@ -1,0 +1,893 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.Vc3Settings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.Vc3Settings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Class.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.Vc3Class</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3FramerateControl.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.Vc3FramerateControl</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3FramerateConversionAlgorithm.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.Vc3FramerateConversionAlgorithm</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.Vc3InterlaceMode</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3ScanTypeConversionMode.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.Vc3ScanTypeConversionMode</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3SlowPal.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.Vc3SlowPal</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Telecine.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.Vc3Telecine</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Required when you set (Codec) under (VideoDescription)&gt;(CodecSettings)</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- to the value VC3</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newVc3Settings' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621680012414"><span id="local-6989586621680012415"></span></span><span class="hs-keyword">data</span><span> </span><span id="Vc3Settings"><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-var">Vc3Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vc3Settings%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-var">Vc3Settings'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Ignore this setting unless your input frame rate is 23.976 or 24 frames</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- per second (fps). Enable slow PAL to create a 25 fps output by</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- relabeling the video frames and resampling your audio. Note that</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- enabling this setting will slightly reduce the duration of your video.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Related settings: You must also set Framerate to 25. In your JSON job</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- specification, set (framerateControl) to (SPECIFIED),</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- (framerateNumerator) to 25 and (framerateDenominator) to 1.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AslowPal%3AVc3Settings%27"><span class="annot"><span class="annottext">Vc3Settings -&gt; Maybe Vc3SlowPal
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AslowPal%3AVc3Settings%27"><span class="hs-identifier hs-var hs-var">slowPal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal"><span class="hs-identifier hs-type">Vc3SlowPal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | When you do frame rate conversion from 23.976 frames per second (fps) to</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- 29.97 fps, and your output scan type is interlaced, you can optionally</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- enable hard telecine (HARD) to create a smoother picture. When you keep</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- the default value, None (NONE), MediaConvert does a standard frame rate</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- conversion to 29.97 without doing anything with the field polarity to</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- create a smoother picture.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Atelecine%3AVc3Settings%27"><span class="annot"><span class="annottext">Vc3Settings -&gt; Maybe Vc3Telecine
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3Atelecine%3AVc3Settings%27"><span class="hs-identifier hs-var hs-var">telecine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Telecine.html#Vc3Telecine"><span class="hs-identifier hs-type">Vc3Telecine</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Optional. Choose the scan line type for this output. If you don\'t</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- specify a value, MediaConvert will create a progressive output.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AinterlaceMode%3AVc3Settings%27"><span class="annot"><span class="annottext">Vc3Settings -&gt; Maybe Vc3InterlaceMode
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AinterlaceMode%3AVc3Settings%27"><span class="hs-identifier hs-var hs-var">interlaceMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode"><span class="hs-identifier hs-type">Vc3InterlaceMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Use this setting for interlaced outputs, when your output frame rate is</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- half of your input frame rate. In this situation, choose Optimized</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- interlacing (INTERLACED_OPTIMIZE) to create a better quality interlaced</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- output. In this case, each progressive frame from the input corresponds</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- to an interlaced field in the output. Keep the default value, Basic</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- interlacing (INTERLACED), for all other output frame rates. With basic</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- interlacing, MediaConvert performs any frame rate conversion first and</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- then interlaces the frames. When you choose Optimized interlacing and</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- you set your output frame rate to a value that isn\'t suitable for</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- optimized interlacing, MediaConvert automatically falls back to basic</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- interlacing. Required settings: To use optimized interlacing, you must</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- set Telecine (telecine) to None (NONE) or Soft (SOFT). You can\'t use</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- optimized interlacing for hard telecine outputs. You must also set</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Interlace mode (interlaceMode) to a value other than Progressive</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- (PROGRESSIVE).</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AscanTypeConversionMode%3AVc3Settings%27"><span class="annot"><span class="annottext">Vc3Settings -&gt; Maybe Vc3ScanTypeConversionMode
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AscanTypeConversionMode%3AVc3Settings%27"><span class="hs-identifier hs-var hs-var">scanTypeConversionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3ScanTypeConversionMode.html#Vc3ScanTypeConversionMode"><span class="hs-identifier hs-type">Vc3ScanTypeConversionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | When you use the API for transcode jobs that use frame rate conversion,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- 23.976 fps. Use FramerateDenominator to specify the denominator of this</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- fraction. In this example, use 1001 for the value of</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- FramerateDenominator. When you use the console for transcode jobs that</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- use frame rate conversion, provide the value as a decimal number for</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- Framerate. In this example, specify 23.976.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AframerateDenominator%3AVc3Settings%27"><span class="annot"><span class="annottext">Vc3Settings -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateDenominator%3AVc3Settings%27"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | Specify the VC3 class to choose the quality characteristics for this</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- output. VC3 class, together with the settings Framerate</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- (framerateNumerator and framerateDenominator) and Resolution (height and</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- width), determine your output bitrate. For example, say that your video</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- resolution is 1920x1080 and your framerate is 29.97. Then Class 145</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- (CLASS_145) gives you an output with a bitrate of approximately 145 Mbps</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- and Class 220 (CLASS_220) gives you and output with a bitrate of</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- approximately 220 Mbps. VC3 class also specifies the color bit depth of</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- your output.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3Avc3Class%3AVc3Settings%27"><span class="annot"><span class="annottext">Vc3Settings -&gt; Maybe Vc3Class
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3Avc3Class%3AVc3Settings%27"><span class="hs-identifier hs-var hs-var">vc3Class</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Class.html#Vc3Class"><span class="hs-identifier hs-type">Vc3Class</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | Choose the method that you want MediaConvert to use when increasing or</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- decreasing the frame rate. We recommend using drop duplicate</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- 30 fps. For numerically complex conversions, you can use interpolate</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- might introduce undesirable video artifacts. For complex frame rate</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- conversions, especially if your source video has already been converted</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- from its original cadence, use FrameFormer (FRAMEFORMER) to do</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- motion-compensated interpolation. FrameFormer chooses the best</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- conversion method frame by frame. Note that using FrameFormer increases</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- the transcoding time and incurs a significant add-on cost.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AframerateConversionAlgorithm%3AVc3Settings%27"><span class="annot"><span class="annottext">Vc3Settings -&gt; Maybe Vc3FramerateConversionAlgorithm
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateConversionAlgorithm%3AVc3Settings%27"><span class="hs-identifier hs-var hs-var">framerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3FramerateConversionAlgorithm.html#Vc3FramerateConversionAlgorithm"><span class="hs-identifier hs-type">Vc3FramerateConversionAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | If you are using the console, use the Framerate setting to specify the</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- frame rate for this output. If you want to keep the same frame rate as</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- the input video, choose Follow source. If you want to do frame rate</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- conversion, choose a frame rate from the dropdown list or choose Custom.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- The framerates shown in the dropdown list are decimal approximations of</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- fractions. If you choose Custom, specify your frame rate as a fraction.</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- If you are creating your transcoding job specification as a JSON file</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- without the console, use FramerateControl to specify which value the</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- service uses for the frame rate for this output. Choose</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- from the input. Choose SPECIFIED if you want the service to use the</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- frame rate you specify in the settings FramerateNumerator and</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- FramerateDenominator.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AframerateControl%3AVc3Settings%27"><span class="annot"><span class="annottext">Vc3Settings -&gt; Maybe Vc3FramerateControl
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateControl%3AVc3Settings%27"><span class="hs-identifier hs-var hs-var">framerateControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3FramerateControl.html#Vc3FramerateControl"><span class="hs-identifier hs-type">Vc3FramerateControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | When you use the API for transcode jobs that use frame rate conversion,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- 23.976 fps. Use FramerateNumerator to specify the numerator of this</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- fraction. In this example, use 24000 for the value of</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- FramerateNumerator. When you use the console for transcode jobs that use</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- frame rate conversion, provide the value as a decimal number for</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- Framerate. In this example, specify 23.976.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AframerateNumerator%3AVc3Settings%27"><span class="annot"><span class="annottext">Vc3Settings -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateNumerator%3AVc3Settings%27"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680012400"><span id="local-6989586621680012402"><span class="annot"><span class="annottext">Vc3Settings -&gt; Vc3Settings -&gt; Bool
+(Vc3Settings -&gt; Vc3Settings -&gt; Bool)
+-&gt; (Vc3Settings -&gt; Vc3Settings -&gt; Bool) -&gt; Eq Vc3Settings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Vc3Settings -&gt; Vc3Settings -&gt; Bool
+$c/= :: Vc3Settings -&gt; Vc3Settings -&gt; Bool
+== :: Vc3Settings -&gt; Vc3Settings -&gt; Bool
+$c== :: Vc3Settings -&gt; Vc3Settings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680012391"><span id="local-6989586621680012393"><span id="local-6989586621680012395"><span id="local-6989586621680012397"><span class="annot"><span class="annottext">ReadPrec [Vc3Settings]
+ReadPrec Vc3Settings
+Int -&gt; ReadS Vc3Settings
+ReadS [Vc3Settings]
+(Int -&gt; ReadS Vc3Settings)
+-&gt; ReadS [Vc3Settings]
+-&gt; ReadPrec Vc3Settings
+-&gt; ReadPrec [Vc3Settings]
+-&gt; Read Vc3Settings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Vc3Settings]
+$creadListPrec :: ReadPrec [Vc3Settings]
+readPrec :: ReadPrec Vc3Settings
+$creadPrec :: ReadPrec Vc3Settings
+readList :: ReadS [Vc3Settings]
+$creadList :: ReadS [Vc3Settings]
+readsPrec :: Int -&gt; ReadS Vc3Settings
+$creadsPrec :: Int -&gt; ReadS Vc3Settings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680012384"><span id="local-6989586621680012386"><span id="local-6989586621680012388"><span class="annot"><span class="annottext">Int -&gt; Vc3Settings -&gt; ShowS
+[Vc3Settings] -&gt; ShowS
+Vc3Settings -&gt; String
+(Int -&gt; Vc3Settings -&gt; ShowS)
+-&gt; (Vc3Settings -&gt; String)
+-&gt; ([Vc3Settings] -&gt; ShowS)
+-&gt; Show Vc3Settings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Vc3Settings] -&gt; ShowS
+$cshowList :: [Vc3Settings] -&gt; ShowS
+show :: Vc3Settings -&gt; String
+$cshow :: Vc3Settings -&gt; String
+showsPrec :: Int -&gt; Vc3Settings -&gt; ShowS
+$cshowsPrec :: Int -&gt; Vc3Settings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Vc3Settings -&gt; Rep Vc3Settings x)
+-&gt; (forall x. Rep Vc3Settings x -&gt; Vc3Settings)
+-&gt; Generic Vc3Settings
+forall x. Rep Vc3Settings x -&gt; Vc3Settings
+forall x. Vc3Settings -&gt; Rep Vc3Settings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Vc3Settings x -&gt; Vc3Settings
+$cfrom :: forall x. Vc3Settings -&gt; Rep Vc3Settings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Create a value of 'Vc3Settings' with all optional fields omitted.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'slowPal', 'vc3Settings_slowPal' - Ignore this setting unless your input frame rate is 23.976 or 24 frames</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- per second (fps). Enable slow PAL to create a 25 fps output by</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- relabeling the video frames and resampling your audio. Note that</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- enabling this setting will slightly reduce the duration of your video.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Related settings: You must also set Framerate to 25. In your JSON job</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- specification, set (framerateControl) to (SPECIFIED),</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- (framerateNumerator) to 25 and (framerateDenominator) to 1.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'telecine', 'vc3Settings_telecine' - When you do frame rate conversion from 23.976 frames per second (fps) to</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 29.97 fps, and your output scan type is interlaced, you can optionally</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- enable hard telecine (HARD) to create a smoother picture. When you keep</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- the default value, None (NONE), MediaConvert does a standard frame rate</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- conversion to 29.97 without doing anything with the field polarity to</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- create a smoother picture.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'interlaceMode', 'vc3Settings_interlaceMode' - Optional. Choose the scan line type for this output. If you don\'t</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- specify a value, MediaConvert will create a progressive output.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'scanTypeConversionMode', 'vc3Settings_scanTypeConversionMode' - Use this setting for interlaced outputs, when your output frame rate is</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- half of your input frame rate. In this situation, choose Optimized</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- interlacing (INTERLACED_OPTIMIZE) to create a better quality interlaced</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- output. In this case, each progressive frame from the input corresponds</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- to an interlaced field in the output. Keep the default value, Basic</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- interlacing (INTERLACED), for all other output frame rates. With basic</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- interlacing, MediaConvert performs any frame rate conversion first and</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- then interlaces the frames. When you choose Optimized interlacing and</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- you set your output frame rate to a value that isn\'t suitable for</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- optimized interlacing, MediaConvert automatically falls back to basic</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- interlacing. Required settings: To use optimized interlacing, you must</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- set Telecine (telecine) to None (NONE) or Soft (SOFT). You can\'t use</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- optimized interlacing for hard telecine outputs. You must also set</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Interlace mode (interlaceMode) to a value other than Progressive</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- (PROGRESSIVE).</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'framerateDenominator', 'vc3Settings_framerateDenominator' - When you use the API for transcode jobs that use frame rate conversion,</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 23.976 fps. Use FramerateDenominator to specify the denominator of this</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- fraction. In this example, use 1001 for the value of</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- FramerateDenominator. When you use the console for transcode jobs that</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- use frame rate conversion, provide the value as a decimal number for</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Framerate. In this example, specify 23.976.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'vc3Class', 'vc3Settings_vc3Class' - Specify the VC3 class to choose the quality characteristics for this</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- output. VC3 class, together with the settings Framerate</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- (framerateNumerator and framerateDenominator) and Resolution (height and</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- width), determine your output bitrate. For example, say that your video</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- resolution is 1920x1080 and your framerate is 29.97. Then Class 145</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- (CLASS_145) gives you an output with a bitrate of approximately 145 Mbps</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- and Class 220 (CLASS_220) gives you and output with a bitrate of</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- approximately 220 Mbps. VC3 class also specifies the color bit depth of</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- your output.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'framerateConversionAlgorithm', 'vc3Settings_framerateConversionAlgorithm' - Choose the method that you want MediaConvert to use when increasing or</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- decreasing the frame rate. We recommend using drop duplicate</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 30 fps. For numerically complex conversions, you can use interpolate</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- might introduce undesirable video artifacts. For complex frame rate</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- conversions, especially if your source video has already been converted</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- from its original cadence, use FrameFormer (FRAMEFORMER) to do</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- motion-compensated interpolation. FrameFormer chooses the best</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- conversion method frame by frame. Note that using FrameFormer increases</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- the transcoding time and incurs a significant add-on cost.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'framerateControl', 'vc3Settings_framerateControl' - If you are using the console, use the Framerate setting to specify the</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- frame rate for this output. If you want to keep the same frame rate as</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- the input video, choose Follow source. If you want to do frame rate</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- conversion, choose a frame rate from the dropdown list or choose Custom.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- The framerates shown in the dropdown list are decimal approximations of</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- fractions. If you choose Custom, specify your frame rate as a fraction.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- If you are creating your transcoding job specification as a JSON file</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- without the console, use FramerateControl to specify which value the</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- service uses for the frame rate for this output. Choose</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- from the input. Choose SPECIFIED if you want the service to use the</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- frame rate you specify in the settings FramerateNumerator and</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- FramerateDenominator.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'framerateNumerator', 'vc3Settings_framerateNumerator' - When you use the API for transcode jobs that use frame rate conversion,</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 23.976 fps. Use FramerateNumerator to specify the numerator of this</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- fraction. In this example, use 24000 for the value of</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- FramerateNumerator. When you use the console for transcode jobs that use</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- frame rate conversion, provide the value as a decimal number for</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Framerate. In this example, specify 23.976.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#newVc3Settings"><span class="hs-identifier hs-type">newVc3Settings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span>
+</span><span id="line-222"></span><span id="newVc3Settings"><span class="annot"><span class="annottext">newVc3Settings :: Vc3Settings
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#newVc3Settings"><span class="hs-identifier hs-var hs-var">newVc3Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><span class="annottext">Vc3Settings' :: Maybe Vc3SlowPal
+-&gt; Maybe Vc3Telecine
+-&gt; Maybe Vc3InterlaceMode
+-&gt; Maybe Vc3ScanTypeConversionMode
+-&gt; Maybe Natural
+-&gt; Maybe Vc3Class
+-&gt; Maybe Vc3FramerateConversionAlgorithm
+-&gt; Maybe Vc3FramerateControl
+-&gt; Maybe Natural
+-&gt; Vc3Settings
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:slowPal:Vc3Settings' :: Maybe Vc3SlowPal
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AslowPal%3AVc3Settings%27"><span class="hs-identifier hs-var">slowPal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3SlowPal
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:telecine:Vc3Settings' :: Maybe Vc3Telecine
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3Atelecine%3AVc3Settings%27"><span class="hs-identifier hs-var">telecine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Telecine
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:interlaceMode:Vc3Settings' :: Maybe Vc3InterlaceMode
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AinterlaceMode%3AVc3Settings%27"><span class="hs-identifier hs-var">interlaceMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3InterlaceMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:scanTypeConversionMode:Vc3Settings' :: Maybe Vc3ScanTypeConversionMode
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AscanTypeConversionMode%3AVc3Settings%27"><span class="hs-identifier hs-var">scanTypeConversionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3ScanTypeConversionMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:framerateDenominator:Vc3Settings' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateDenominator%3AVc3Settings%27"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:vc3Class:Vc3Settings' :: Maybe Vc3Class
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3Avc3Class%3AVc3Settings%27"><span class="hs-identifier hs-var">vc3Class</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Class
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:framerateConversionAlgorithm:Vc3Settings' :: Maybe Vc3FramerateConversionAlgorithm
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateConversionAlgorithm%3AVc3Settings%27"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateConversionAlgorithm
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:framerateControl:Vc3Settings' :: Maybe Vc3FramerateControl
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateControl%3AVc3Settings%27"><span class="hs-identifier hs-var">framerateControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateControl
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:framerateNumerator:Vc3Settings' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateNumerator%3AVc3Settings%27"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | Ignore this setting unless your input frame rate is 23.976 or 24 frames</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- per second (fps). Enable slow PAL to create a 25 fps output by</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- relabeling the video frames and resampling your audio. Note that</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- enabling this setting will slightly reduce the duration of your video.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- Related settings: You must also set Framerate to 25. In your JSON job</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- specification, set (framerateControl) to (SPECIFIED),</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- (framerateNumerator) to 25 and (framerateDenominator) to 1.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_slowPal"><span class="hs-identifier hs-type">vc3Settings_slowPal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3SlowPal.html#Vc3SlowPal"><span class="hs-identifier hs-type">Vc3SlowPal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="vc3Settings_slowPal"><span class="annot"><span class="annottext">vc3Settings_slowPal :: (Maybe Vc3SlowPal -&gt; f (Maybe Vc3SlowPal))
+-&gt; Vc3Settings -&gt; f Vc3Settings
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_slowPal"><span class="hs-identifier hs-var hs-var">vc3Settings_slowPal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vc3Settings -&gt; Maybe Vc3SlowPal)
+-&gt; (Vc3Settings -&gt; Maybe Vc3SlowPal -&gt; Vc3Settings)
+-&gt; Lens
+     Vc3Settings Vc3Settings (Maybe Vc3SlowPal) (Maybe Vc3SlowPal)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012375"><span class="annot"><span class="annottext">Maybe Vc3SlowPal
+slowPal :: Maybe Vc3SlowPal
+$sel:slowPal:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3SlowPal
+</span><a href="#local-6989586621680012375"><span class="hs-identifier hs-var hs-var">slowPal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3SlowPal
+</span><a href="#local-6989586621680012375"><span class="hs-identifier hs-var">slowPal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012374"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012373"><span class="annot"><span class="annottext">Maybe Vc3SlowPal
+</span><a href="#local-6989586621680012373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slowPal:Vc3Settings' :: Maybe Vc3SlowPal
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AslowPal%3AVc3Settings%27"><span class="hs-identifier hs-var">slowPal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3SlowPal
+</span><a href="#local-6989586621680012373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | When you do frame rate conversion from 23.976 frames per second (fps) to</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- 29.97 fps, and your output scan type is interlaced, you can optionally</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- enable hard telecine (HARD) to create a smoother picture. When you keep</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- the default value, None (NONE), MediaConvert does a standard frame rate</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- conversion to 29.97 without doing anything with the field polarity to</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- create a smoother picture.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_telecine"><span class="hs-identifier hs-type">vc3Settings_telecine</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Telecine.html#Vc3Telecine"><span class="hs-identifier hs-type">Vc3Telecine</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="vc3Settings_telecine"><span class="annot"><span class="annottext">vc3Settings_telecine :: (Maybe Vc3Telecine -&gt; f (Maybe Vc3Telecine))
+-&gt; Vc3Settings -&gt; f Vc3Settings
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_telecine"><span class="hs-identifier hs-var hs-var">vc3Settings_telecine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vc3Settings -&gt; Maybe Vc3Telecine)
+-&gt; (Vc3Settings -&gt; Maybe Vc3Telecine -&gt; Vc3Settings)
+-&gt; Lens
+     Vc3Settings Vc3Settings (Maybe Vc3Telecine) (Maybe Vc3Telecine)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012371"><span class="annot"><span class="annottext">Maybe Vc3Telecine
+telecine :: Maybe Vc3Telecine
+$sel:telecine:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3Telecine
+</span><a href="#local-6989586621680012371"><span class="hs-identifier hs-var hs-var">telecine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Telecine
+</span><a href="#local-6989586621680012371"><span class="hs-identifier hs-var">telecine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012370"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012369"><span class="annot"><span class="annottext">Maybe Vc3Telecine
+</span><a href="#local-6989586621680012369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:telecine:Vc3Settings' :: Maybe Vc3Telecine
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3Atelecine%3AVc3Settings%27"><span class="hs-identifier hs-var">telecine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Telecine
+</span><a href="#local-6989586621680012369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | Optional. Choose the scan line type for this output. If you don\'t</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- specify a value, MediaConvert will create a progressive output.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_interlaceMode"><span class="hs-identifier hs-type">vc3Settings_interlaceMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode"><span class="hs-identifier hs-type">Vc3InterlaceMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="vc3Settings_interlaceMode"><span class="annot"><span class="annottext">vc3Settings_interlaceMode :: (Maybe Vc3InterlaceMode -&gt; f (Maybe Vc3InterlaceMode))
+-&gt; Vc3Settings -&gt; f Vc3Settings
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_interlaceMode"><span class="hs-identifier hs-var hs-var">vc3Settings_interlaceMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vc3Settings -&gt; Maybe Vc3InterlaceMode)
+-&gt; (Vc3Settings -&gt; Maybe Vc3InterlaceMode -&gt; Vc3Settings)
+-&gt; Lens
+     Vc3Settings
+     Vc3Settings
+     (Maybe Vc3InterlaceMode)
+     (Maybe Vc3InterlaceMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012367"><span class="annot"><span class="annottext">Maybe Vc3InterlaceMode
+interlaceMode :: Maybe Vc3InterlaceMode
+$sel:interlaceMode:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3InterlaceMode
+</span><a href="#local-6989586621680012367"><span class="hs-identifier hs-var hs-var">interlaceMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3InterlaceMode
+</span><a href="#local-6989586621680012367"><span class="hs-identifier hs-var">interlaceMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012366"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012365"><span class="annot"><span class="annottext">Maybe Vc3InterlaceMode
+</span><a href="#local-6989586621680012365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interlaceMode:Vc3Settings' :: Maybe Vc3InterlaceMode
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AinterlaceMode%3AVc3Settings%27"><span class="hs-identifier hs-var">interlaceMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3InterlaceMode
+</span><a href="#local-6989586621680012365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | Use this setting for interlaced outputs, when your output frame rate is</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- half of your input frame rate. In this situation, choose Optimized</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- interlacing (INTERLACED_OPTIMIZE) to create a better quality interlaced</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- output. In this case, each progressive frame from the input corresponds</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- to an interlaced field in the output. Keep the default value, Basic</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- interlacing (INTERLACED), for all other output frame rates. With basic</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- interlacing, MediaConvert performs any frame rate conversion first and</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- then interlaces the frames. When you choose Optimized interlacing and</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- you set your output frame rate to a value that isn\'t suitable for</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- optimized interlacing, MediaConvert automatically falls back to basic</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- interlacing. Required settings: To use optimized interlacing, you must</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- set Telecine (telecine) to None (NONE) or Soft (SOFT). You can\'t use</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- optimized interlacing for hard telecine outputs. You must also set</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- Interlace mode (interlaceMode) to a value other than Progressive</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- (PROGRESSIVE).</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_scanTypeConversionMode"><span class="hs-identifier hs-type">vc3Settings_scanTypeConversionMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3ScanTypeConversionMode.html#Vc3ScanTypeConversionMode"><span class="hs-identifier hs-type">Vc3ScanTypeConversionMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="vc3Settings_scanTypeConversionMode"><span class="annot"><span class="annottext">vc3Settings_scanTypeConversionMode :: (Maybe Vc3ScanTypeConversionMode
+ -&gt; f (Maybe Vc3ScanTypeConversionMode))
+-&gt; Vc3Settings -&gt; f Vc3Settings
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_scanTypeConversionMode"><span class="hs-identifier hs-var hs-var">vc3Settings_scanTypeConversionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vc3Settings -&gt; Maybe Vc3ScanTypeConversionMode)
+-&gt; (Vc3Settings -&gt; Maybe Vc3ScanTypeConversionMode -&gt; Vc3Settings)
+-&gt; Lens
+     Vc3Settings
+     Vc3Settings
+     (Maybe Vc3ScanTypeConversionMode)
+     (Maybe Vc3ScanTypeConversionMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012363"><span class="annot"><span class="annottext">Maybe Vc3ScanTypeConversionMode
+scanTypeConversionMode :: Maybe Vc3ScanTypeConversionMode
+$sel:scanTypeConversionMode:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3ScanTypeConversionMode
+</span><a href="#local-6989586621680012363"><span class="hs-identifier hs-var hs-var">scanTypeConversionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3ScanTypeConversionMode
+</span><a href="#local-6989586621680012363"><span class="hs-identifier hs-var">scanTypeConversionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012362"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012361"><span class="annot"><span class="annottext">Maybe Vc3ScanTypeConversionMode
+</span><a href="#local-6989586621680012361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanTypeConversionMode:Vc3Settings' :: Maybe Vc3ScanTypeConversionMode
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AscanTypeConversionMode%3AVc3Settings%27"><span class="hs-identifier hs-var">scanTypeConversionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3ScanTypeConversionMode
+</span><a href="#local-6989586621680012361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | When you use the API for transcode jobs that use frame rate conversion,</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- 23.976 fps. Use FramerateDenominator to specify the denominator of this</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- fraction. In this example, use 1001 for the value of</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- FramerateDenominator. When you use the console for transcode jobs that</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- use frame rate conversion, provide the value as a decimal number for</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- Framerate. In this example, specify 23.976.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_framerateDenominator"><span class="hs-identifier hs-type">vc3Settings_framerateDenominator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span id="vc3Settings_framerateDenominator"><span class="annot"><span class="annottext">vc3Settings_framerateDenominator :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Vc3Settings -&gt; f Vc3Settings
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_framerateDenominator"><span class="hs-identifier hs-var hs-var">vc3Settings_framerateDenominator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vc3Settings -&gt; Maybe Natural)
+-&gt; (Vc3Settings -&gt; Maybe Natural -&gt; Vc3Settings)
+-&gt; Lens Vc3Settings Vc3Settings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012359"><span class="annot"><span class="annottext">Maybe Natural
+framerateDenominator :: Maybe Natural
+$sel:framerateDenominator:Vc3Settings' :: Vc3Settings -&gt; Maybe Natural
+</span><a href="#local-6989586621680012359"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680012359"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012358"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012357"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680012357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateDenominator:Vc3Settings' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateDenominator%3AVc3Settings%27"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680012357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | Specify the VC3 class to choose the quality characteristics for this</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- output. VC3 class, together with the settings Framerate</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- (framerateNumerator and framerateDenominator) and Resolution (height and</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- width), determine your output bitrate. For example, say that your video</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- resolution is 1920x1080 and your framerate is 29.97. Then Class 145</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- (CLASS_145) gives you an output with a bitrate of approximately 145 Mbps</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- and Class 220 (CLASS_220) gives you and output with a bitrate of</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- approximately 220 Mbps. VC3 class also specifies the color bit depth of</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- your output.</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_vc3Class"><span class="hs-identifier hs-type">vc3Settings_vc3Class</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Class.html#Vc3Class"><span class="hs-identifier hs-type">Vc3Class</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span id="vc3Settings_vc3Class"><span class="annot"><span class="annottext">vc3Settings_vc3Class :: (Maybe Vc3Class -&gt; f (Maybe Vc3Class))
+-&gt; Vc3Settings -&gt; f Vc3Settings
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_vc3Class"><span class="hs-identifier hs-var hs-var">vc3Settings_vc3Class</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vc3Settings -&gt; Maybe Vc3Class)
+-&gt; (Vc3Settings -&gt; Maybe Vc3Class -&gt; Vc3Settings)
+-&gt; Lens Vc3Settings Vc3Settings (Maybe Vc3Class) (Maybe Vc3Class)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012355"><span class="annot"><span class="annottext">Maybe Vc3Class
+vc3Class :: Maybe Vc3Class
+$sel:vc3Class:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3Class
+</span><a href="#local-6989586621680012355"><span class="hs-identifier hs-var hs-var">vc3Class</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Class
+</span><a href="#local-6989586621680012355"><span class="hs-identifier hs-var">vc3Class</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012354"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012353"><span class="annot"><span class="annottext">Maybe Vc3Class
+</span><a href="#local-6989586621680012353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vc3Class:Vc3Settings' :: Maybe Vc3Class
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3Avc3Class%3AVc3Settings%27"><span class="hs-identifier hs-var">vc3Class</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Class
+</span><a href="#local-6989586621680012353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | Choose the method that you want MediaConvert to use when increasing or</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- decreasing the frame rate. We recommend using drop duplicate</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- 30 fps. For numerically complex conversions, you can use interpolate</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- might introduce undesirable video artifacts. For complex frame rate</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- conversions, especially if your source video has already been converted</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- from its original cadence, use FrameFormer (FRAMEFORMER) to do</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- motion-compensated interpolation. FrameFormer chooses the best</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- conversion method frame by frame. Note that using FrameFormer increases</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- the transcoding time and incurs a significant add-on cost.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_framerateConversionAlgorithm"><span class="hs-identifier hs-type">vc3Settings_framerateConversionAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3FramerateConversionAlgorithm.html#Vc3FramerateConversionAlgorithm"><span class="hs-identifier hs-type">Vc3FramerateConversionAlgorithm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span id="vc3Settings_framerateConversionAlgorithm"><span class="annot"><span class="annottext">vc3Settings_framerateConversionAlgorithm :: (Maybe Vc3FramerateConversionAlgorithm
+ -&gt; f (Maybe Vc3FramerateConversionAlgorithm))
+-&gt; Vc3Settings -&gt; f Vc3Settings
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_framerateConversionAlgorithm"><span class="hs-identifier hs-var hs-var">vc3Settings_framerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vc3Settings -&gt; Maybe Vc3FramerateConversionAlgorithm)
+-&gt; (Vc3Settings
+    -&gt; Maybe Vc3FramerateConversionAlgorithm -&gt; Vc3Settings)
+-&gt; Lens
+     Vc3Settings
+     Vc3Settings
+     (Maybe Vc3FramerateConversionAlgorithm)
+     (Maybe Vc3FramerateConversionAlgorithm)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012351"><span class="annot"><span class="annottext">Maybe Vc3FramerateConversionAlgorithm
+framerateConversionAlgorithm :: Maybe Vc3FramerateConversionAlgorithm
+$sel:framerateConversionAlgorithm:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3FramerateConversionAlgorithm
+</span><a href="#local-6989586621680012351"><span class="hs-identifier hs-var hs-var">framerateConversionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateConversionAlgorithm
+</span><a href="#local-6989586621680012351"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012350"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012349"><span class="annot"><span class="annottext">Maybe Vc3FramerateConversionAlgorithm
+</span><a href="#local-6989586621680012349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateConversionAlgorithm:Vc3Settings' :: Maybe Vc3FramerateConversionAlgorithm
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateConversionAlgorithm%3AVc3Settings%27"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateConversionAlgorithm
+</span><a href="#local-6989586621680012349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | If you are using the console, use the Framerate setting to specify the</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- frame rate for this output. If you want to keep the same frame rate as</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- the input video, choose Follow source. If you want to do frame rate</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- conversion, choose a frame rate from the dropdown list or choose Custom.</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- The framerates shown in the dropdown list are decimal approximations of</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- fractions. If you choose Custom, specify your frame rate as a fraction.</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- If you are creating your transcoding job specification as a JSON file</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- without the console, use FramerateControl to specify which value the</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- service uses for the frame rate for this output. Choose</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- from the input. Choose SPECIFIED if you want the service to use the</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- frame rate you specify in the settings FramerateNumerator and</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- FramerateDenominator.</span><span>
+</span><span id="line-326"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_framerateControl"><span class="hs-identifier hs-type">vc3Settings_framerateControl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3FramerateControl.html#Vc3FramerateControl"><span class="hs-identifier hs-type">Vc3FramerateControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span id="vc3Settings_framerateControl"><span class="annot"><span class="annottext">vc3Settings_framerateControl :: (Maybe Vc3FramerateControl -&gt; f (Maybe Vc3FramerateControl))
+-&gt; Vc3Settings -&gt; f Vc3Settings
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_framerateControl"><span class="hs-identifier hs-var hs-var">vc3Settings_framerateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vc3Settings -&gt; Maybe Vc3FramerateControl)
+-&gt; (Vc3Settings -&gt; Maybe Vc3FramerateControl -&gt; Vc3Settings)
+-&gt; Lens
+     Vc3Settings
+     Vc3Settings
+     (Maybe Vc3FramerateControl)
+     (Maybe Vc3FramerateControl)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012347"><span class="annot"><span class="annottext">Maybe Vc3FramerateControl
+framerateControl :: Maybe Vc3FramerateControl
+$sel:framerateControl:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3FramerateControl
+</span><a href="#local-6989586621680012347"><span class="hs-identifier hs-var hs-var">framerateControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateControl
+</span><a href="#local-6989586621680012347"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012346"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012345"><span class="annot"><span class="annottext">Maybe Vc3FramerateControl
+</span><a href="#local-6989586621680012345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateControl:Vc3Settings' :: Maybe Vc3FramerateControl
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateControl%3AVc3Settings%27"><span class="hs-identifier hs-var">framerateControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateControl
+</span><a href="#local-6989586621680012345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- | When you use the API for transcode jobs that use frame rate conversion,</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- 23.976 fps. Use FramerateNumerator to specify the numerator of this</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- fraction. In this example, use 24000 for the value of</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- FramerateNumerator. When you use the console for transcode jobs that use</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- frame rate conversion, provide the value as a decimal number for</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- Framerate. In this example, specify 23.976.</span><span>
+</span><span id="line-336"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_framerateNumerator"><span class="hs-identifier hs-type">vc3Settings_framerateNumerator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span id="vc3Settings_framerateNumerator"><span class="annot"><span class="annottext">vc3Settings_framerateNumerator :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Vc3Settings -&gt; f Vc3Settings
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#vc3Settings_framerateNumerator"><span class="hs-identifier hs-var hs-var">vc3Settings_framerateNumerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vc3Settings -&gt; Maybe Natural)
+-&gt; (Vc3Settings -&gt; Maybe Natural -&gt; Vc3Settings)
+-&gt; Lens Vc3Settings Vc3Settings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012343"><span class="annot"><span class="annottext">Maybe Natural
+framerateNumerator :: Maybe Natural
+$sel:framerateNumerator:Vc3Settings' :: Vc3Settings -&gt; Maybe Natural
+</span><a href="#local-6989586621680012343"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680012343"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012342"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012341"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680012341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateNumerator:Vc3Settings' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateNumerator%3AVc3Settings%27"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680012341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680012338"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-340"></span><span>  </span><span id="local-6989586621680012336"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Vc3Settings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-341"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Vc3Settings) -&gt; Value -&gt; Parser Vc3Settings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-342"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Vc3Settings&quot;</span></span><span>
+</span><span id="line-343"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680012333"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680012333"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-344"></span><span>          </span><span class="annot"><span class="annottext">Maybe Vc3SlowPal
+-&gt; Maybe Vc3Telecine
+-&gt; Maybe Vc3InterlaceMode
+-&gt; Maybe Vc3ScanTypeConversionMode
+-&gt; Maybe Natural
+-&gt; Maybe Vc3Class
+-&gt; Maybe Vc3FramerateConversionAlgorithm
+-&gt; Maybe Vc3FramerateControl
+-&gt; Maybe Natural
+-&gt; Vc3Settings
+</span><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-var">Vc3Settings'</span></a></span><span>
+</span><span id="line-345"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Vc3SlowPal
+ -&gt; Maybe Vc3Telecine
+ -&gt; Maybe Vc3InterlaceMode
+ -&gt; Maybe Vc3ScanTypeConversionMode
+ -&gt; Maybe Natural
+ -&gt; Maybe Vc3Class
+ -&gt; Maybe Vc3FramerateConversionAlgorithm
+ -&gt; Maybe Vc3FramerateControl
+ -&gt; Maybe Natural
+ -&gt; Vc3Settings)
+-&gt; Parser (Maybe Vc3SlowPal)
+-&gt; Parser
+     (Maybe Vc3Telecine
+      -&gt; Maybe Vc3InterlaceMode
+      -&gt; Maybe Vc3ScanTypeConversionMode
+      -&gt; Maybe Natural
+      -&gt; Maybe Vc3Class
+      -&gt; Maybe Vc3FramerateConversionAlgorithm
+      -&gt; Maybe Vc3FramerateControl
+      -&gt; Maybe Natural
+      -&gt; Vc3Settings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680012333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3SlowPal)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;slowPal&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-346"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Vc3Telecine
+   -&gt; Maybe Vc3InterlaceMode
+   -&gt; Maybe Vc3ScanTypeConversionMode
+   -&gt; Maybe Natural
+   -&gt; Maybe Vc3Class
+   -&gt; Maybe Vc3FramerateConversionAlgorithm
+   -&gt; Maybe Vc3FramerateControl
+   -&gt; Maybe Natural
+   -&gt; Vc3Settings)
+-&gt; Parser (Maybe Vc3Telecine)
+-&gt; Parser
+     (Maybe Vc3InterlaceMode
+      -&gt; Maybe Vc3ScanTypeConversionMode
+      -&gt; Maybe Natural
+      -&gt; Maybe Vc3Class
+      -&gt; Maybe Vc3FramerateConversionAlgorithm
+      -&gt; Maybe Vc3FramerateControl
+      -&gt; Maybe Natural
+      -&gt; Vc3Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680012333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3Telecine)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;telecine&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Vc3InterlaceMode
+   -&gt; Maybe Vc3ScanTypeConversionMode
+   -&gt; Maybe Natural
+   -&gt; Maybe Vc3Class
+   -&gt; Maybe Vc3FramerateConversionAlgorithm
+   -&gt; Maybe Vc3FramerateControl
+   -&gt; Maybe Natural
+   -&gt; Vc3Settings)
+-&gt; Parser (Maybe Vc3InterlaceMode)
+-&gt; Parser
+     (Maybe Vc3ScanTypeConversionMode
+      -&gt; Maybe Natural
+      -&gt; Maybe Vc3Class
+      -&gt; Maybe Vc3FramerateConversionAlgorithm
+      -&gt; Maybe Vc3FramerateControl
+      -&gt; Maybe Natural
+      -&gt; Vc3Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680012333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3InterlaceMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;interlaceMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Vc3ScanTypeConversionMode
+   -&gt; Maybe Natural
+   -&gt; Maybe Vc3Class
+   -&gt; Maybe Vc3FramerateConversionAlgorithm
+   -&gt; Maybe Vc3FramerateControl
+   -&gt; Maybe Natural
+   -&gt; Vc3Settings)
+-&gt; Parser (Maybe Vc3ScanTypeConversionMode)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Vc3Class
+      -&gt; Maybe Vc3FramerateConversionAlgorithm
+      -&gt; Maybe Vc3FramerateControl
+      -&gt; Maybe Natural
+      -&gt; Vc3Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680012333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3ScanTypeConversionMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scanTypeConversionMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Vc3Class
+   -&gt; Maybe Vc3FramerateConversionAlgorithm
+   -&gt; Maybe Vc3FramerateControl
+   -&gt; Maybe Natural
+   -&gt; Vc3Settings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Vc3Class
+      -&gt; Maybe Vc3FramerateConversionAlgorithm
+      -&gt; Maybe Vc3FramerateControl
+      -&gt; Maybe Natural
+      -&gt; Vc3Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680012333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Vc3Class
+   -&gt; Maybe Vc3FramerateConversionAlgorithm
+   -&gt; Maybe Vc3FramerateControl
+   -&gt; Maybe Natural
+   -&gt; Vc3Settings)
+-&gt; Parser (Maybe Vc3Class)
+-&gt; Parser
+     (Maybe Vc3FramerateConversionAlgorithm
+      -&gt; Maybe Vc3FramerateControl -&gt; Maybe Natural -&gt; Vc3Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680012333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3Class)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vc3Class&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Vc3FramerateConversionAlgorithm
+   -&gt; Maybe Vc3FramerateControl -&gt; Maybe Natural -&gt; Vc3Settings)
+-&gt; Parser (Maybe Vc3FramerateConversionAlgorithm)
+-&gt; Parser
+     (Maybe Vc3FramerateControl -&gt; Maybe Natural -&gt; Vc3Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680012333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3FramerateConversionAlgorithm)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateConversionAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Vc3FramerateControl -&gt; Maybe Natural -&gt; Vc3Settings)
+-&gt; Parser (Maybe Vc3FramerateControl)
+-&gt; Parser (Maybe Natural -&gt; Vc3Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680012333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3FramerateControl)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateControl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Vc3Settings)
+-&gt; Parser (Maybe Natural) -&gt; Parser Vc3Settings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680012333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-355"></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680012327"><span id="local-6989586621680012329"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span></span></span><span>
+</span><span id="line-357"></span><span>
+</span><span id="line-358"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680012324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span></span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680012316"><span id="local-6989586621680012318"><span id="local-6989586621680012320"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-361"></span><span>  </span><span id="local-6989586621680012314"><span class="annot"><span class="annottext">toJSON :: Vc3Settings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012304"><span id="local-6989586621680012305"><span id="local-6989586621680012306"><span id="local-6989586621680012307"><span id="local-6989586621680012308"><span id="local-6989586621680012309"><span id="local-6989586621680012310"><span id="local-6989586621680012311"><span id="local-6989586621680012312"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Vc3Class
+Maybe Vc3FramerateControl
+Maybe Vc3FramerateConversionAlgorithm
+Maybe Vc3InterlaceMode
+Maybe Vc3ScanTypeConversionMode
+Maybe Vc3SlowPal
+Maybe Vc3Telecine
+framerateNumerator :: Maybe Natural
+framerateControl :: Maybe Vc3FramerateControl
+framerateConversionAlgorithm :: Maybe Vc3FramerateConversionAlgorithm
+vc3Class :: Maybe Vc3Class
+framerateDenominator :: Maybe Natural
+scanTypeConversionMode :: Maybe Vc3ScanTypeConversionMode
+interlaceMode :: Maybe Vc3InterlaceMode
+telecine :: Maybe Vc3Telecine
+slowPal :: Maybe Vc3SlowPal
+$sel:framerateNumerator:Vc3Settings' :: Vc3Settings -&gt; Maybe Natural
+$sel:framerateControl:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3FramerateControl
+$sel:framerateConversionAlgorithm:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3FramerateConversionAlgorithm
+$sel:vc3Class:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3Class
+$sel:framerateDenominator:Vc3Settings' :: Vc3Settings -&gt; Maybe Natural
+$sel:scanTypeConversionMode:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3ScanTypeConversionMode
+$sel:interlaceMode:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3InterlaceMode
+$sel:telecine:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3Telecine
+$sel:slowPal:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3SlowPal
+</span><a href="#local-6989586621680012304"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-362"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-363"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-364"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;slowPal&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vc3SlowPal -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Vc3SlowPal -&gt; Pair) -&gt; Maybe Vc3SlowPal -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vc3SlowPal
+</span><a href="#local-6989586621680012312"><span class="hs-identifier hs-var">slowPal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-365"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;telecine&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vc3Telecine -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Vc3Telecine -&gt; Pair) -&gt; Maybe Vc3Telecine -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Telecine
+</span><a href="#local-6989586621680012311"><span class="hs-identifier hs-var">telecine</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;interlaceMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vc3InterlaceMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Vc3InterlaceMode -&gt; Pair) -&gt; Maybe Vc3InterlaceMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vc3InterlaceMode
+</span><a href="#local-6989586621680012310"><span class="hs-identifier hs-var">interlaceMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-367"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scanTypeConversionMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vc3ScanTypeConversionMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-368"></span><span>              </span><span class="annot"><span class="annottext">(Vc3ScanTypeConversionMode -&gt; Pair)
+-&gt; Maybe Vc3ScanTypeConversionMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vc3ScanTypeConversionMode
+</span><a href="#local-6989586621680012309"><span class="hs-identifier hs-var">scanTypeConversionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-370"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680012308"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-371"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vc3Class&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vc3Class -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Vc3Class -&gt; Pair) -&gt; Maybe Vc3Class -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Class
+</span><a href="#local-6989586621680012307"><span class="hs-identifier hs-var">vc3Class</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-372"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateConversionAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vc3FramerateConversionAlgorithm -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span>              </span><span class="annot"><span class="annottext">(Vc3FramerateConversionAlgorithm -&gt; Pair)
+-&gt; Maybe Vc3FramerateConversionAlgorithm -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateConversionAlgorithm
+</span><a href="#local-6989586621680012306"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-374"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateControl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vc3FramerateControl -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-375"></span><span>              </span><span class="annot"><span class="annottext">(Vc3FramerateControl -&gt; Pair)
+-&gt; Maybe Vc3FramerateControl -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateControl
+</span><a href="#local-6989586621680012305"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680012304"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span>
+</span><span id="line-378"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-379"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-380"></span></pre></body></html>

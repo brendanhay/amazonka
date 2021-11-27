@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.MxfProfile</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.MxfProfile</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile"><span class="hs-identifier">MxfProfile</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile_D_10"><span class="hs-identifier">MxfProfile_D_10</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile_OP1A"><span class="hs-identifier">MxfProfile_OP1A</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile_XAVC"><span class="hs-identifier">MxfProfile_XAVC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile_XDCAM"><span class="hs-identifier">MxfProfile_XDCAM</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Specify the MXF profile, also called shim, for this output. When you</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- choose Auto, MediaConvert chooses a profile based on the video codec and</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- resolution. For a list of codecs supported with each MXF profile, see</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/codecs-supported-with-each-mxf-profile.html.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- For more information about the automatic selection behavior, see</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/default-automatic-selection-of-mxf-profiles.html.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621679996290"><span id="local-6989586621679996291"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MxfProfile"><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile"><span class="hs-identifier hs-var">MxfProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MxfProfile%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile%27"><span class="hs-identifier hs-var">MxfProfile'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMxfProfile"><span class="annot"><span class="annottext">MxfProfile -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.MxfProfile.html#fromMxfProfile"><span class="hs-identifier hs-var hs-var">fromMxfProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679996282"><span id="local-6989586621679996284"><span id="local-6989586621679996286"><span class="annot"><span class="annottext">Int -&gt; MxfProfile -&gt; ShowS
+[MxfProfile] -&gt; ShowS
+MxfProfile -&gt; String
+(Int -&gt; MxfProfile -&gt; ShowS)
+-&gt; (MxfProfile -&gt; String)
+-&gt; ([MxfProfile] -&gt; ShowS)
+-&gt; Show MxfProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MxfProfile] -&gt; ShowS
+$cshowList :: [MxfProfile] -&gt; ShowS
+show :: MxfProfile -&gt; String
+$cshow :: MxfProfile -&gt; String
+showsPrec :: Int -&gt; MxfProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; MxfProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679996273"><span id="local-6989586621679996275"><span id="local-6989586621679996277"><span id="local-6989586621679996279"><span class="annot"><span class="annottext">ReadPrec [MxfProfile]
+ReadPrec MxfProfile
+Int -&gt; ReadS MxfProfile
+ReadS [MxfProfile]
+(Int -&gt; ReadS MxfProfile)
+-&gt; ReadS [MxfProfile]
+-&gt; ReadPrec MxfProfile
+-&gt; ReadPrec [MxfProfile]
+-&gt; Read MxfProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MxfProfile]
+$creadListPrec :: ReadPrec [MxfProfile]
+readPrec :: ReadPrec MxfProfile
+$creadPrec :: ReadPrec MxfProfile
+readList :: ReadS [MxfProfile]
+$creadList :: ReadS [MxfProfile]
+readsPrec :: Int -&gt; ReadS MxfProfile
+$creadsPrec :: Int -&gt; ReadS MxfProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679996268"><span id="local-6989586621679996270"><span class="annot"><span class="annottext">MxfProfile -&gt; MxfProfile -&gt; Bool
+(MxfProfile -&gt; MxfProfile -&gt; Bool)
+-&gt; (MxfProfile -&gt; MxfProfile -&gt; Bool) -&gt; Eq MxfProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MxfProfile -&gt; MxfProfile -&gt; Bool
+$c/= :: MxfProfile -&gt; MxfProfile -&gt; Bool
+== :: MxfProfile -&gt; MxfProfile -&gt; Bool
+$c== :: MxfProfile -&gt; MxfProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679996252"><span id="local-6989586621679996254"><span id="local-6989586621679996256"><span id="local-6989586621679996258"><span id="local-6989586621679996260"><span id="local-6989586621679996262"><span id="local-6989586621679996264"><span class="annot"><span class="annottext">Eq MxfProfile
+Eq MxfProfile
+-&gt; (MxfProfile -&gt; MxfProfile -&gt; Ordering)
+-&gt; (MxfProfile -&gt; MxfProfile -&gt; Bool)
+-&gt; (MxfProfile -&gt; MxfProfile -&gt; Bool)
+-&gt; (MxfProfile -&gt; MxfProfile -&gt; Bool)
+-&gt; (MxfProfile -&gt; MxfProfile -&gt; Bool)
+-&gt; (MxfProfile -&gt; MxfProfile -&gt; MxfProfile)
+-&gt; (MxfProfile -&gt; MxfProfile -&gt; MxfProfile)
+-&gt; Ord MxfProfile
+MxfProfile -&gt; MxfProfile -&gt; Bool
+MxfProfile -&gt; MxfProfile -&gt; Ordering
+MxfProfile -&gt; MxfProfile -&gt; MxfProfile
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MxfProfile -&gt; MxfProfile -&gt; MxfProfile
+$cmin :: MxfProfile -&gt; MxfProfile -&gt; MxfProfile
+max :: MxfProfile -&gt; MxfProfile -&gt; MxfProfile
+$cmax :: MxfProfile -&gt; MxfProfile -&gt; MxfProfile
+&gt;= :: MxfProfile -&gt; MxfProfile -&gt; Bool
+$c&gt;= :: MxfProfile -&gt; MxfProfile -&gt; Bool
+&gt; :: MxfProfile -&gt; MxfProfile -&gt; Bool
+$c&gt; :: MxfProfile -&gt; MxfProfile -&gt; Bool
+&lt;= :: MxfProfile -&gt; MxfProfile -&gt; Bool
+$c&lt;= :: MxfProfile -&gt; MxfProfile -&gt; Bool
+&lt; :: MxfProfile -&gt; MxfProfile -&gt; Bool
+$c&lt; :: MxfProfile -&gt; MxfProfile -&gt; Bool
+compare :: MxfProfile -&gt; MxfProfile -&gt; Ordering
+$ccompare :: MxfProfile -&gt; MxfProfile -&gt; Ordering
+$cp1Ord :: Eq MxfProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MxfProfile -&gt; Rep MxfProfile x)
+-&gt; (forall x. Rep MxfProfile x -&gt; MxfProfile) -&gt; Generic MxfProfile
+forall x. Rep MxfProfile x -&gt; MxfProfile
+forall x. MxfProfile -&gt; Rep MxfProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MxfProfile x -&gt; MxfProfile
+$cfrom :: forall x. MxfProfile -&gt; Rep MxfProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679996244"><span id="local-6989586621679996246"><span class="annot"><span class="annottext">Int -&gt; MxfProfile -&gt; Int
+MxfProfile -&gt; Int
+(Int -&gt; MxfProfile -&gt; Int)
+-&gt; (MxfProfile -&gt; Int) -&gt; Hashable MxfProfile
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MxfProfile -&gt; Int
+$chash :: MxfProfile -&gt; Int
+hashWithSalt :: Int -&gt; MxfProfile -&gt; Int
+$chashWithSalt :: Int -&gt; MxfProfile -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679996241"><span class="annot"><span class="annottext">MxfProfile -&gt; ()
+(MxfProfile -&gt; ()) -&gt; NFData MxfProfile
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MxfProfile -&gt; ()
+$crnf :: MxfProfile -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679996238"><span class="annot"><span class="annottext">Text -&gt; Either String MxfProfile
+(Text -&gt; Either String MxfProfile) -&gt; FromText MxfProfile
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MxfProfile
+$cfromText :: Text -&gt; Either String MxfProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679996235"><span class="annot"><span class="annottext">MxfProfile -&gt; Text
+(MxfProfile -&gt; Text) -&gt; ToText MxfProfile
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MxfProfile -&gt; Text
+$ctoText :: MxfProfile -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679996232"><span class="annot"><span class="annottext">MxfProfile -&gt; ByteString
+(MxfProfile -&gt; ByteString) -&gt; ToByteString MxfProfile
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MxfProfile -&gt; ByteString
+$ctoBS :: MxfProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679996229"><span class="annot"><span class="annottext">MxfProfile -&gt; ByteStringBuilder
+(MxfProfile -&gt; ByteStringBuilder) -&gt; ToLog MxfProfile
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MxfProfile -&gt; ByteStringBuilder
+$cbuild :: MxfProfile -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679996226"><span class="annot"><span class="annottext">HeaderName -&gt; MxfProfile -&gt; [Header]
+(HeaderName -&gt; MxfProfile -&gt; [Header]) -&gt; ToHeader MxfProfile
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MxfProfile -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MxfProfile -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679996223"><span class="annot"><span class="annottext">MxfProfile -&gt; QueryString
+(MxfProfile -&gt; QueryString) -&gt; ToQuery MxfProfile
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MxfProfile -&gt; QueryString
+$ctoQuery :: MxfProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679996218"><span id="local-6989586621679996220"><span class="annot"><span class="annottext">Value -&gt; Parser [MxfProfile]
+Value -&gt; Parser MxfProfile
+(Value -&gt; Parser MxfProfile)
+-&gt; (Value -&gt; Parser [MxfProfile]) -&gt; FromJSON MxfProfile
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MxfProfile]
+$cparseJSONList :: Value -&gt; Parser [MxfProfile]
+parseJSON :: Value -&gt; Parser MxfProfile
+$cparseJSON :: Value -&gt; Parser MxfProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679996213"><span id="local-6989586621679996215"><span class="annot"><span class="annottext">FromJSONKeyFunction [MxfProfile]
+FromJSONKeyFunction MxfProfile
+FromJSONKeyFunction MxfProfile
+-&gt; FromJSONKeyFunction [MxfProfile] -&gt; FromJSONKey MxfProfile
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MxfProfile]
+$cfromJSONKeyList :: FromJSONKeyFunction [MxfProfile]
+fromJSONKey :: FromJSONKeyFunction MxfProfile
+$cfromJSONKey :: FromJSONKeyFunction MxfProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679996204"><span id="local-6989586621679996206"><span id="local-6989586621679996208"><span id="local-6989586621679996210"><span class="annot"><span class="annottext">[MxfProfile] -&gt; Encoding
+[MxfProfile] -&gt; Value
+MxfProfile -&gt; Encoding
+MxfProfile -&gt; Value
+(MxfProfile -&gt; Value)
+-&gt; (MxfProfile -&gt; Encoding)
+-&gt; ([MxfProfile] -&gt; Value)
+-&gt; ([MxfProfile] -&gt; Encoding)
+-&gt; ToJSON MxfProfile
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MxfProfile] -&gt; Encoding
+$ctoEncodingList :: [MxfProfile] -&gt; Encoding
+toJSONList :: [MxfProfile] -&gt; Value
+$ctoJSONList :: [MxfProfile] -&gt; Value
+toEncoding :: MxfProfile -&gt; Encoding
+$ctoEncoding :: MxfProfile -&gt; Encoding
+toJSON :: MxfProfile -&gt; Value
+$ctoJSON :: MxfProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679996199"><span id="local-6989586621679996201"><span class="annot"><span class="annottext">ToJSONKeyFunction [MxfProfile]
+ToJSONKeyFunction MxfProfile
+ToJSONKeyFunction MxfProfile
+-&gt; ToJSONKeyFunction [MxfProfile] -&gt; ToJSONKey MxfProfile
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MxfProfile]
+$ctoJSONKeyList :: ToJSONKeyFunction [MxfProfile]
+toJSONKey :: ToJSONKeyFunction MxfProfile
+$ctoJSONKey :: ToJSONKeyFunction MxfProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679996196"><span class="annot"><span class="annottext">[Node] -&gt; Either String MxfProfile
+([Node] -&gt; Either String MxfProfile) -&gt; FromXML MxfProfile
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MxfProfile
+$cparseXML :: [Node] -&gt; Either String MxfProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679996193"><span class="annot"><span class="annottext">MxfProfile -&gt; XML
+(MxfProfile -&gt; XML) -&gt; ToXML MxfProfile
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MxfProfile -&gt; XML
+$ctoXML :: MxfProfile -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile_D_10"><span class="hs-identifier hs-type">MxfProfile_D_10</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile"><span class="hs-identifier hs-type">MxfProfile</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMxfProfile_D_10"><span id="%24mMxfProfile_D_10"><span id="MxfProfile_D_10"><span class="annot"><span class="annottext">$bMxfProfile_D_10 :: MxfProfile
+$mMxfProfile_D_10 :: forall r. MxfProfile -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.MxfProfile.html#%24bMxfProfile_D_10"><span class="hs-identifier hs-var hs-var hs-var">MxfProfile_D_10</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile%27"><span class="hs-identifier hs-type">MxfProfile'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;D_10&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile_OP1A"><span class="hs-identifier hs-type">MxfProfile_OP1A</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile"><span class="hs-identifier hs-type">MxfProfile</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMxfProfile_OP1A"><span id="%24mMxfProfile_OP1A"><span id="MxfProfile_OP1A"><span class="annot"><span class="annottext">$bMxfProfile_OP1A :: MxfProfile
+$mMxfProfile_OP1A :: forall r. MxfProfile -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.MxfProfile.html#%24bMxfProfile_OP1A"><span class="hs-identifier hs-var hs-var hs-var">MxfProfile_OP1A</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile%27"><span class="hs-identifier hs-type">MxfProfile'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OP1A&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile_XAVC"><span class="hs-identifier hs-type">MxfProfile_XAVC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile"><span class="hs-identifier hs-type">MxfProfile</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMxfProfile_XAVC"><span id="%24mMxfProfile_XAVC"><span id="MxfProfile_XAVC"><span class="annot"><span class="annottext">$bMxfProfile_XAVC :: MxfProfile
+$mMxfProfile_XAVC :: forall r. MxfProfile -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.MxfProfile.html#%24bMxfProfile_XAVC"><span class="hs-identifier hs-var hs-var hs-var">MxfProfile_XAVC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile%27"><span class="hs-identifier hs-type">MxfProfile'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;XAVC&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile_XDCAM"><span class="hs-identifier hs-type">MxfProfile_XDCAM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile"><span class="hs-identifier hs-type">MxfProfile</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMxfProfile_XDCAM"><span id="%24mMxfProfile_XDCAM"><span id="MxfProfile_XDCAM"><span class="annot"><span class="annottext">$bMxfProfile_XDCAM :: MxfProfile
+$mMxfProfile_XDCAM :: forall r. MxfProfile -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.MxfProfile.html#%24bMxfProfile_XDCAM"><span class="hs-identifier hs-var hs-var hs-var">MxfProfile_XDCAM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile%27"><span class="hs-identifier hs-type">MxfProfile'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;XDCAM&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile_D_10"><span class="hs-pragma hs-type">MxfProfile_D_10</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile_OP1A"><span class="hs-pragma hs-type">MxfProfile_OP1A</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile_XAVC"><span class="hs-pragma hs-type">MxfProfile_XAVC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile_XDCAM"><span class="hs-pragma hs-type">MxfProfile_XDCAM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MxfProfile.html#MxfProfile%27"><span class="hs-pragma hs-type">MxfProfile'</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-87"></span></pre></body></html>

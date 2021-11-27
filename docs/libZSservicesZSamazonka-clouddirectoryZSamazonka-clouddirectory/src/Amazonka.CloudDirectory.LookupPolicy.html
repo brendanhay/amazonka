@@ -1,0 +1,711 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudDirectory.LookupPolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all policies from the root of the Directory to the object</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specified. If there are no policies present, an empty list is returned.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- If policies are present, and if some objects don\'t have the policies</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- attached, it returns the @ObjectIdentifier@ for such objects. If</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- policies are present, it returns @ObjectIdentifier@, @policyId@, and</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @policyType@. Paths that don\'t lead to the root from the target object</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- are ignored. For more information, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies&gt;.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudDirectory.LookupPolicy</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier">LookupPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#newLookupPolicy"><span class="hs-identifier">newLookupPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicy_nextToken"><span class="hs-identifier">lookupPolicy_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicy_maxResults"><span class="hs-identifier">lookupPolicy_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicy_directoryArn"><span class="hs-identifier">lookupPolicy_directoryArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicy_objectReference"><span class="hs-identifier">lookupPolicy_objectReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse"><span class="hs-identifier">LookupPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#newLookupPolicyResponse"><span class="hs-identifier">newLookupPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicyResponse_nextToken"><span class="hs-identifier">lookupPolicyResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicyResponse_policyToPathList"><span class="hs-identifier">lookupPolicyResponse_policyToPathList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicyResponse_httpStatus"><span class="hs-identifier">lookupPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.html"><span class="hs-identifier">Amazonka.CloudDirectory.Types</span></a></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newLookupPolicy' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679336186"><span id="local-6989586621679336187"></span></span><span class="hs-keyword">data</span><span> </span><span id="LookupPolicy"><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-var">LookupPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LookupPolicy%27"><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy%27"><span class="hs-identifier hs-var">LookupPolicy'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to request the next page of results.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3ALookupPolicy%27"><span class="annot"><span class="annottext">LookupPolicy -&gt; Maybe Text
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AnextToken%3ALookupPolicy%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to be retrieved in a single call. This is an</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- approximate number.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AmaxResults%3ALookupPolicy%27"><span class="annot"><span class="annottext">LookupPolicy -&gt; Maybe Natural
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AmaxResults%3ALookupPolicy%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that is associated with the Directory.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- For more information, see arns.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AdirectoryArn%3ALookupPolicy%27"><span class="annot"><span class="annottext">LookupPolicy -&gt; Text
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AdirectoryArn%3ALookupPolicy%27"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Reference that identifies the object whose policies will be looked up.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AobjectReference%3ALookupPolicy%27"><span class="annot"><span class="annottext">LookupPolicy -&gt; ObjectReference
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AobjectReference%3ALookupPolicy%27"><span class="hs-identifier hs-var hs-var">objectReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336177"><span id="local-6989586621679336179"><span class="annot"><span class="annottext">LookupPolicy -&gt; LookupPolicy -&gt; Bool
+(LookupPolicy -&gt; LookupPolicy -&gt; Bool)
+-&gt; (LookupPolicy -&gt; LookupPolicy -&gt; Bool) -&gt; Eq LookupPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LookupPolicy -&gt; LookupPolicy -&gt; Bool
+$c/= :: LookupPolicy -&gt; LookupPolicy -&gt; Bool
+== :: LookupPolicy -&gt; LookupPolicy -&gt; Bool
+$c== :: LookupPolicy -&gt; LookupPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336168"><span id="local-6989586621679336170"><span id="local-6989586621679336172"><span id="local-6989586621679336174"><span class="annot"><span class="annottext">ReadPrec [LookupPolicy]
+ReadPrec LookupPolicy
+Int -&gt; ReadS LookupPolicy
+ReadS [LookupPolicy]
+(Int -&gt; ReadS LookupPolicy)
+-&gt; ReadS [LookupPolicy]
+-&gt; ReadPrec LookupPolicy
+-&gt; ReadPrec [LookupPolicy]
+-&gt; Read LookupPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LookupPolicy]
+$creadListPrec :: ReadPrec [LookupPolicy]
+readPrec :: ReadPrec LookupPolicy
+$creadPrec :: ReadPrec LookupPolicy
+readList :: ReadS [LookupPolicy]
+$creadList :: ReadS [LookupPolicy]
+readsPrec :: Int -&gt; ReadS LookupPolicy
+$creadsPrec :: Int -&gt; ReadS LookupPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336161"><span id="local-6989586621679336163"><span id="local-6989586621679336165"><span class="annot"><span class="annottext">Int -&gt; LookupPolicy -&gt; ShowS
+[LookupPolicy] -&gt; ShowS
+LookupPolicy -&gt; String
+(Int -&gt; LookupPolicy -&gt; ShowS)
+-&gt; (LookupPolicy -&gt; String)
+-&gt; ([LookupPolicy] -&gt; ShowS)
+-&gt; Show LookupPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LookupPolicy] -&gt; ShowS
+$cshowList :: [LookupPolicy] -&gt; ShowS
+show :: LookupPolicy -&gt; String
+$cshow :: LookupPolicy -&gt; String
+showsPrec :: Int -&gt; LookupPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; LookupPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LookupPolicy -&gt; Rep LookupPolicy x)
+-&gt; (forall x. Rep LookupPolicy x -&gt; LookupPolicy)
+-&gt; Generic LookupPolicy
+forall x. Rep LookupPolicy x -&gt; LookupPolicy
+forall x. LookupPolicy -&gt; Rep LookupPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LookupPolicy x -&gt; LookupPolicy
+$cfrom :: forall x. LookupPolicy -&gt; Rep LookupPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'LookupPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'nextToken', 'lookupPolicy_nextToken' - The token to request the next page of results.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'maxResults', 'lookupPolicy_maxResults' - The maximum number of items to be retrieved in a single call. This is an</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- approximate number.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'directoryArn', 'lookupPolicy_directoryArn' - The Amazon Resource Name (ARN) that is associated with the Directory.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- For more information, see arns.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'objectReference', 'lookupPolicy_objectReference' - Reference that identifies the object whose policies will be looked up.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#newLookupPolicy"><span class="hs-identifier hs-type">newLookupPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'directoryArn'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'objectReference'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span><span>
+</span><span id="line-100"></span><span id="newLookupPolicy"><span class="annot"><span class="annottext">newLookupPolicy :: Text -&gt; ObjectReference -&gt; LookupPolicy
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#newLookupPolicy"><span class="hs-identifier hs-var hs-var">newLookupPolicy</span></a></span></span><span> </span><span id="local-6989586621679336156"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336156"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span id="local-6989586621679336155"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679336155"><span class="hs-identifier hs-var">pObjectReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">LookupPolicy' :: Maybe Text
+-&gt; Maybe Natural -&gt; Text -&gt; ObjectReference -&gt; LookupPolicy
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy%27"><span class="hs-identifier hs-type">LookupPolicy'</span></a></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:LookupPolicy' :: Maybe Text
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AnextToken%3ALookupPolicy%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:LookupPolicy' :: Maybe Natural
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AmaxResults%3ALookupPolicy%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryArn:LookupPolicy' :: Text
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AdirectoryArn%3ALookupPolicy%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336156"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:objectReference:LookupPolicy' :: ObjectReference
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AobjectReference%3ALookupPolicy%27"><span class="hs-identifier hs-var">objectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679336155"><span class="hs-identifier hs-var">pObjectReference_</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The token to request the next page of results.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicy_nextToken"><span class="hs-identifier hs-type">lookupPolicy_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="lookupPolicy_nextToken"><span class="annot"><span class="annottext">lookupPolicy_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LookupPolicy -&gt; f LookupPolicy
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicy_nextToken"><span class="hs-identifier hs-var hs-var">lookupPolicy_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupPolicy -&gt; Maybe Text)
+-&gt; (LookupPolicy -&gt; Maybe Text -&gt; LookupPolicy)
+-&gt; Lens LookupPolicy LookupPolicy (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy%27"><span class="hs-identifier hs-type">LookupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336153"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:LookupPolicy' :: LookupPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679336153"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336153"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336152"><span class="annot"><span class="annottext">s :: LookupPolicy
+</span><a href="#local-6989586621679336152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy%27"><span class="hs-identifier hs-type">LookupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336151"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupPolicy
+</span><a href="#local-6989586621679336152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:LookupPolicy' :: Maybe Text
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AnextToken%3ALookupPolicy%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The maximum number of items to be retrieved in a single call. This is an</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- approximate number.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicy_maxResults"><span class="hs-identifier hs-type">lookupPolicy_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="lookupPolicy_maxResults"><span class="annot"><span class="annottext">lookupPolicy_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; LookupPolicy -&gt; f LookupPolicy
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicy_maxResults"><span class="hs-identifier hs-var hs-var">lookupPolicy_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupPolicy -&gt; Maybe Natural)
+-&gt; (LookupPolicy -&gt; Maybe Natural -&gt; LookupPolicy)
+-&gt; Lens LookupPolicy LookupPolicy (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy%27"><span class="hs-identifier hs-type">LookupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336150"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:LookupPolicy' :: LookupPolicy -&gt; Maybe Natural
+</span><a href="#local-6989586621679336150"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679336150"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336149"><span class="annot"><span class="annottext">s :: LookupPolicy
+</span><a href="#local-6989586621679336149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy%27"><span class="hs-identifier hs-type">LookupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336148"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679336148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupPolicy
+</span><a href="#local-6989586621679336149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:LookupPolicy' :: Maybe Natural
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AmaxResults%3ALookupPolicy%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679336148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that is associated with the Directory.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- For more information, see arns.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicy_directoryArn"><span class="hs-identifier hs-type">lookupPolicy_directoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="lookupPolicy_directoryArn"><span class="annot"><span class="annottext">lookupPolicy_directoryArn :: (Text -&gt; f Text) -&gt; LookupPolicy -&gt; f LookupPolicy
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicy_directoryArn"><span class="hs-identifier hs-var hs-var">lookupPolicy_directoryArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupPolicy -&gt; Text)
+-&gt; (LookupPolicy -&gt; Text -&gt; LookupPolicy)
+-&gt; Lens LookupPolicy LookupPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy%27"><span class="hs-identifier hs-type">LookupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336147"><span class="annot"><span class="annottext">Text
+directoryArn :: Text
+$sel:directoryArn:LookupPolicy' :: LookupPolicy -&gt; Text
+</span><a href="#local-6989586621679336147"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336147"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336146"><span class="annot"><span class="annottext">s :: LookupPolicy
+</span><a href="#local-6989586621679336146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy%27"><span class="hs-identifier hs-type">LookupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336145"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupPolicy
+</span><a href="#local-6989586621679336146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:LookupPolicy' :: Text
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AdirectoryArn%3ALookupPolicy%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Reference that identifies the object whose policies will be looked up.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicy_objectReference"><span class="hs-identifier hs-type">lookupPolicy_objectReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
+</span><span id="line-124"></span><span id="lookupPolicy_objectReference"><span class="annot"><span class="annottext">lookupPolicy_objectReference :: (ObjectReference -&gt; f ObjectReference)
+-&gt; LookupPolicy -&gt; f LookupPolicy
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicy_objectReference"><span class="hs-identifier hs-var hs-var">lookupPolicy_objectReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupPolicy -&gt; ObjectReference)
+-&gt; (LookupPolicy -&gt; ObjectReference -&gt; LookupPolicy)
+-&gt; Lens LookupPolicy LookupPolicy ObjectReference ObjectReference
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy%27"><span class="hs-identifier hs-type">LookupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336144"><span class="annot"><span class="annottext">ObjectReference
+objectReference :: ObjectReference
+$sel:objectReference:LookupPolicy' :: LookupPolicy -&gt; ObjectReference
+</span><a href="#local-6989586621679336144"><span class="hs-identifier hs-var hs-var">objectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679336144"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336143"><span class="annot"><span class="annottext">s :: LookupPolicy
+</span><a href="#local-6989586621679336143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy%27"><span class="hs-identifier hs-type">LookupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336142"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679336142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupPolicy
+</span><a href="#local-6989586621679336143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectReference:LookupPolicy' :: ObjectReference
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AobjectReference%3ALookupPolicy%27"><span class="hs-identifier hs-var">objectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679336142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679336138"><span class="annot"><span class="annottext">page :: LookupPolicy -&gt; AWSResponse LookupPolicy -&gt; Maybe LookupPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679336136"><span class="annot"><span class="annottext">LookupPolicy
+</span><a href="#local-6989586621679336136"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679336135"><span class="annot"><span class="annottext">AWSResponse LookupPolicy
+</span><a href="#local-6989586621679336135"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-129"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse LookupPolicy
+LookupPolicyResponse
+</span><a href="#local-6989586621679336135"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">LookupPolicyResponse
+-&gt; Getting (First Text) LookupPolicyResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; LookupPolicyResponse -&gt; Const (First Text) LookupPolicyResponse
+Lens' LookupPolicyResponse (Maybe Text)
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicyResponse_nextToken"><span class="hs-identifier hs-var">lookupPolicyResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; LookupPolicyResponse -&gt; Const (First Text) LookupPolicyResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) LookupPolicyResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-131"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Maybe LookupPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyToPath] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-134"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse LookupPolicy
+LookupPolicyResponse
+</span><a href="#local-6989586621679336135"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">LookupPolicyResponse
+-&gt; Getting
+     (First [PolicyToPath]) LookupPolicyResponse [PolicyToPath]
+-&gt; Maybe [PolicyToPath]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [PolicyToPath]
+ -&gt; Const (First [PolicyToPath]) (Maybe [PolicyToPath]))
+-&gt; LookupPolicyResponse
+-&gt; Const (First [PolicyToPath]) LookupPolicyResponse
+Lens' LookupPolicyResponse (Maybe [PolicyToPath])
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicyResponse_policyToPathList"><span class="hs-identifier hs-var">lookupPolicyResponse_policyToPathList</span></a></span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [PolicyToPath]
+  -&gt; Const (First [PolicyToPath]) (Maybe [PolicyToPath]))
+ -&gt; LookupPolicyResponse
+ -&gt; Const (First [PolicyToPath]) LookupPolicyResponse)
+-&gt; (([PolicyToPath] -&gt; Const (First [PolicyToPath]) [PolicyToPath])
+    -&gt; Maybe [PolicyToPath]
+    -&gt; Const (First [PolicyToPath]) (Maybe [PolicyToPath]))
+-&gt; Getting
+     (First [PolicyToPath]) LookupPolicyResponse [PolicyToPath]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PolicyToPath] -&gt; Const (First [PolicyToPath]) [PolicyToPath])
+-&gt; Maybe [PolicyToPath]
+-&gt; Const (First [PolicyToPath]) (Maybe [PolicyToPath])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-137"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">Maybe LookupPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">LookupPolicy -&gt; Maybe LookupPolicy
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(LookupPolicy -&gt; Maybe LookupPolicy)
+-&gt; LookupPolicy -&gt; Maybe LookupPolicy
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">LookupPolicy
+</span><a href="#local-6989586621679336136"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">LookupPolicy -&gt; (LookupPolicy -&gt; LookupPolicy) -&gt; LookupPolicy
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; LookupPolicy -&gt; Identity LookupPolicy
+Lens LookupPolicy LookupPolicy (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicy_nextToken"><span class="hs-identifier hs-var">lookupPolicy_nextToken</span></a></span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; LookupPolicy -&gt; Identity LookupPolicy)
+-&gt; Maybe Text -&gt; LookupPolicy -&gt; LookupPolicy
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse LookupPolicy
+LookupPolicyResponse
+</span><a href="#local-6989586621679336135"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">LookupPolicyResponse
+-&gt; Getting (First Text) LookupPolicyResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; LookupPolicyResponse -&gt; Const (First Text) LookupPolicyResponse
+Lens' LookupPolicyResponse (Maybe Text)
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicyResponse_nextToken"><span class="hs-identifier hs-var">lookupPolicyResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; LookupPolicyResponse -&gt; Const (First Text) LookupPolicyResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) LookupPolicyResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse"><span class="hs-identifier hs-type">LookupPolicyResponse</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679336125"><span class="annot"><span class="annottext">request :: LookupPolicy -&gt; Request LookupPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; LookupPolicy -&gt; Request LookupPolicy
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679336121"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy LookupPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse LookupPolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse LookupPolicy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy LookupPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse LookupPolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679336118"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336118"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679336117"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679336117"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679336116"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679336116"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [PolicyToPath] -&gt; Int -&gt; LookupPolicyResponse
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse%27"><span class="hs-identifier hs-var">LookupPolicyResponse'</span></a></span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [PolicyToPath] -&gt; Int -&gt; LookupPolicyResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [PolicyToPath] -&gt; Int -&gt; LookupPolicyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679336116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [PolicyToPath] -&gt; Int -&gt; LookupPolicyResponse)
+-&gt; Either String (Maybe [PolicyToPath])
+-&gt; Either String (Int -&gt; LookupPolicyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679336116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PolicyToPath]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyToPathList&quot;</span></span><span>
+</span><span id="line-155"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PolicyToPath]))
+-&gt; Maybe [PolicyToPath] -&gt; Either String (Maybe [PolicyToPath])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyToPath]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-156"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; LookupPolicyResponse)
+-&gt; Either String Int -&gt; Either String LookupPolicyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336118"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336107"><span id="local-6989586621679336109"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679336100"><span class="annot"><span class="annottext">toHeaders :: LookupPolicy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy%27"><span class="hs-identifier hs-type">LookupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336095"><span id="local-6989586621679336096"><span id="local-6989586621679336097"><span id="local-6989586621679336098"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+ObjectReference
+objectReference :: ObjectReference
+directoryArn :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:objectReference:LookupPolicy' :: LookupPolicy -&gt; ObjectReference
+$sel:directoryArn:LookupPolicy' :: LookupPolicy -&gt; Text
+$sel:maxResults:LookupPolicy' :: LookupPolicy -&gt; Maybe Natural
+$sel:nextToken:LookupPolicy' :: LookupPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679336095"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336096"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336087"><span id="local-6989586621679336089"><span id="local-6989586621679336091"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679336085"><span class="annot"><span class="annottext">toJSON :: LookupPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy%27"><span class="hs-identifier hs-type">LookupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336080"><span id="local-6989586621679336081"><span id="local-6989586621679336082"><span id="local-6989586621679336083"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+ObjectReference
+objectReference :: ObjectReference
+directoryArn :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:objectReference:LookupPolicy' :: LookupPolicy -&gt; ObjectReference
+$sel:directoryArn:LookupPolicy' :: LookupPolicy -&gt; Text
+$sel:maxResults:LookupPolicy' :: LookupPolicy -&gt; Maybe Natural
+$sel:nextToken:LookupPolicy' :: LookupPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679336080"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336083"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679336082"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-176"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ObjectReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679336080"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679336074"><span class="annot"><span class="annottext">toPath :: LookupPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; LookupPolicy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/policy/lookup&quot;</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicy"><span class="hs-identifier hs-type">LookupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679336069"><span class="annot"><span class="annottext">toQuery :: LookupPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; LookupPolicy -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | /See:/ 'newLookupPolicyResponse' smart constructor.</span><span>
+</span><span id="line-189"></span><span id="local-6989586621679336066"><span id="local-6989586621679336067"></span></span><span class="hs-keyword">data</span><span> </span><span id="LookupPolicyResponse"><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse"><span class="hs-identifier hs-var">LookupPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LookupPolicyResponse%27"><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse%27"><span class="hs-identifier hs-var">LookupPolicyResponse'</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AnextToken%3ALookupPolicyResponse%27"><span class="annot"><span class="annottext">LookupPolicyResponse -&gt; Maybe Text
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AnextToken%3ALookupPolicyResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | Provides list of path to policies. Policies contain @PolicyId@,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- @ObjectIdentifier@, and @PolicyType@. For more information, see</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies&gt;.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3ApolicyToPathList%3ALookupPolicyResponse%27"><span class="annot"><span class="annottext">LookupPolicyResponse -&gt; Maybe [PolicyToPath]
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3ApolicyToPathList%3ALookupPolicyResponse%27"><span class="hs-identifier hs-var hs-var">policyToPathList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AhttpStatus%3ALookupPolicyResponse%27"><span class="annot"><span class="annottext">LookupPolicyResponse -&gt; Int
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AhttpStatus%3ALookupPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336059"><span id="local-6989586621679336061"><span class="annot"><span class="annottext">LookupPolicyResponse -&gt; LookupPolicyResponse -&gt; Bool
+(LookupPolicyResponse -&gt; LookupPolicyResponse -&gt; Bool)
+-&gt; (LookupPolicyResponse -&gt; LookupPolicyResponse -&gt; Bool)
+-&gt; Eq LookupPolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LookupPolicyResponse -&gt; LookupPolicyResponse -&gt; Bool
+$c/= :: LookupPolicyResponse -&gt; LookupPolicyResponse -&gt; Bool
+== :: LookupPolicyResponse -&gt; LookupPolicyResponse -&gt; Bool
+$c== :: LookupPolicyResponse -&gt; LookupPolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336051"><span id="local-6989586621679336053"><span id="local-6989586621679336055"><span id="local-6989586621679336057"><span class="annot"><span class="annottext">ReadPrec [LookupPolicyResponse]
+ReadPrec LookupPolicyResponse
+Int -&gt; ReadS LookupPolicyResponse
+ReadS [LookupPolicyResponse]
+(Int -&gt; ReadS LookupPolicyResponse)
+-&gt; ReadS [LookupPolicyResponse]
+-&gt; ReadPrec LookupPolicyResponse
+-&gt; ReadPrec [LookupPolicyResponse]
+-&gt; Read LookupPolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LookupPolicyResponse]
+$creadListPrec :: ReadPrec [LookupPolicyResponse]
+readPrec :: ReadPrec LookupPolicyResponse
+$creadPrec :: ReadPrec LookupPolicyResponse
+readList :: ReadS [LookupPolicyResponse]
+$creadList :: ReadS [LookupPolicyResponse]
+readsPrec :: Int -&gt; ReadS LookupPolicyResponse
+$creadsPrec :: Int -&gt; ReadS LookupPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336045"><span id="local-6989586621679336047"><span id="local-6989586621679336049"><span class="annot"><span class="annottext">Int -&gt; LookupPolicyResponse -&gt; ShowS
+[LookupPolicyResponse] -&gt; ShowS
+LookupPolicyResponse -&gt; String
+(Int -&gt; LookupPolicyResponse -&gt; ShowS)
+-&gt; (LookupPolicyResponse -&gt; String)
+-&gt; ([LookupPolicyResponse] -&gt; ShowS)
+-&gt; Show LookupPolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LookupPolicyResponse] -&gt; ShowS
+$cshowList :: [LookupPolicyResponse] -&gt; ShowS
+show :: LookupPolicyResponse -&gt; String
+$cshow :: LookupPolicyResponse -&gt; String
+showsPrec :: Int -&gt; LookupPolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; LookupPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LookupPolicyResponse -&gt; Rep LookupPolicyResponse x)
+-&gt; (forall x. Rep LookupPolicyResponse x -&gt; LookupPolicyResponse)
+-&gt; Generic LookupPolicyResponse
+forall x. Rep LookupPolicyResponse x -&gt; LookupPolicyResponse
+forall x. LookupPolicyResponse -&gt; Rep LookupPolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LookupPolicyResponse x -&gt; LookupPolicyResponse
+$cfrom :: forall x. LookupPolicyResponse -&gt; Rep LookupPolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Create a value of 'LookupPolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'nextToken', 'lookupPolicyResponse_nextToken' - The pagination token.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'policyToPathList', 'lookupPolicyResponse_policyToPathList' - Provides list of path to policies. Policies contain @PolicyId@,</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- @ObjectIdentifier@, and @PolicyType@. For more information, see</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies&gt;.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'httpStatus', 'lookupPolicyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#newLookupPolicyResponse"><span class="hs-identifier hs-type">newLookupPolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse"><span class="hs-identifier hs-type">LookupPolicyResponse</span></a></span><span>
+</span><span id="line-220"></span><span id="newLookupPolicyResponse"><span class="annot"><span class="annottext">newLookupPolicyResponse :: Int -&gt; LookupPolicyResponse
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#newLookupPolicyResponse"><span class="hs-identifier hs-var hs-var">newLookupPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679336042"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336042"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><span class="annottext">LookupPolicyResponse' :: Maybe Text -&gt; Maybe [PolicyToPath] -&gt; Int -&gt; LookupPolicyResponse
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse%27"><span class="hs-identifier hs-type">LookupPolicyResponse'</span></a></span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:LookupPolicyResponse' :: Maybe Text
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AnextToken%3ALookupPolicyResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyToPathList:LookupPolicyResponse' :: Maybe [PolicyToPath]
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3ApolicyToPathList%3ALookupPolicyResponse%27"><span class="hs-identifier hs-var">policyToPathList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyToPath]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:LookupPolicyResponse' :: Int
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AhttpStatus%3ALookupPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336042"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicyResponse_nextToken"><span class="hs-identifier hs-type">lookupPolicyResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse"><span class="hs-identifier hs-type">LookupPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="lookupPolicyResponse_nextToken"><span class="annot"><span class="annottext">lookupPolicyResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LookupPolicyResponse -&gt; f LookupPolicyResponse
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicyResponse_nextToken"><span class="hs-identifier hs-var hs-var">lookupPolicyResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupPolicyResponse -&gt; Maybe Text)
+-&gt; (LookupPolicyResponse -&gt; Maybe Text -&gt; LookupPolicyResponse)
+-&gt; Lens' LookupPolicyResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse%27"><span class="hs-identifier hs-type">LookupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336041"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:LookupPolicyResponse' :: LookupPolicyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679336041"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336041"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336040"><span class="annot"><span class="annottext">s :: LookupPolicyResponse
+</span><a href="#local-6989586621679336040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse%27"><span class="hs-identifier hs-type">LookupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336039"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupPolicyResponse
+</span><a href="#local-6989586621679336040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:LookupPolicyResponse' :: Maybe Text
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AnextToken%3ALookupPolicyResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse"><span class="hs-identifier hs-type">LookupPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | Provides list of path to policies. Policies contain @PolicyId@,</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- @ObjectIdentifier@, and @PolicyType@. For more information, see</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies&gt;.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicyResponse_policyToPathList"><span class="hs-identifier hs-type">lookupPolicyResponse_policyToPathList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse"><span class="hs-identifier hs-type">LookupPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="lookupPolicyResponse_policyToPathList"><span class="annot"><span class="annottext">lookupPolicyResponse_policyToPathList :: (Maybe [PolicyToPath] -&gt; f (Maybe [PolicyToPath]))
+-&gt; LookupPolicyResponse -&gt; f LookupPolicyResponse
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicyResponse_policyToPathList"><span class="hs-identifier hs-var hs-var">lookupPolicyResponse_policyToPathList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupPolicyResponse -&gt; Maybe [PolicyToPath])
+-&gt; (LookupPolicyResponse
+    -&gt; Maybe [PolicyToPath] -&gt; LookupPolicyResponse)
+-&gt; Lens' LookupPolicyResponse (Maybe [PolicyToPath])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse%27"><span class="hs-identifier hs-type">LookupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336038"><span class="annot"><span class="annottext">Maybe [PolicyToPath]
+policyToPathList :: Maybe [PolicyToPath]
+$sel:policyToPathList:LookupPolicyResponse' :: LookupPolicyResponse -&gt; Maybe [PolicyToPath]
+</span><a href="#local-6989586621679336038"><span class="hs-identifier hs-var hs-var">policyToPathList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyToPath]
+</span><a href="#local-6989586621679336038"><span class="hs-identifier hs-var">policyToPathList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336037"><span class="annot"><span class="annottext">s :: LookupPolicyResponse
+</span><a href="#local-6989586621679336037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse%27"><span class="hs-identifier hs-type">LookupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336036"><span class="annot"><span class="annottext">Maybe [PolicyToPath]
+</span><a href="#local-6989586621679336036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupPolicyResponse
+</span><a href="#local-6989586621679336037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyToPathList:LookupPolicyResponse' :: Maybe [PolicyToPath]
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3ApolicyToPathList%3ALookupPolicyResponse%27"><span class="hs-identifier hs-var">policyToPathList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyToPath]
+</span><a href="#local-6989586621679336036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse"><span class="hs-identifier hs-type">LookupPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyToPath] -&gt; f (Maybe [PolicyToPath]))
+ -&gt; LookupPolicyResponse -&gt; f LookupPolicyResponse)
+-&gt; ((Maybe [PolicyToPath] -&gt; f (Maybe [PolicyToPath]))
+    -&gt; Maybe [PolicyToPath] -&gt; f (Maybe [PolicyToPath]))
+-&gt; (Maybe [PolicyToPath] -&gt; f (Maybe [PolicyToPath]))
+-&gt; LookupPolicyResponse
+-&gt; f LookupPolicyResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PolicyToPath] [PolicyToPath] [PolicyToPath] [PolicyToPath]
+-&gt; Iso
+     (Maybe [PolicyToPath])
+     (Maybe [PolicyToPath])
+     (Maybe [PolicyToPath])
+     (Maybe [PolicyToPath])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PolicyToPath] [PolicyToPath] [PolicyToPath] [PolicyToPath]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicyResponse_httpStatus"><span class="hs-identifier hs-type">lookupPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse"><span class="hs-identifier hs-type">LookupPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-239"></span><span id="lookupPolicyResponse_httpStatus"><span class="annot"><span class="annottext">lookupPolicyResponse_httpStatus :: (Int -&gt; f Int) -&gt; LookupPolicyResponse -&gt; f LookupPolicyResponse
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#lookupPolicyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">lookupPolicyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupPolicyResponse -&gt; Int)
+-&gt; (LookupPolicyResponse -&gt; Int -&gt; LookupPolicyResponse)
+-&gt; Lens LookupPolicyResponse LookupPolicyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse%27"><span class="hs-identifier hs-type">LookupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336033"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:LookupPolicyResponse' :: LookupPolicyResponse -&gt; Int
+</span><a href="#local-6989586621679336033"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336033"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336032"><span class="annot"><span class="annottext">s :: LookupPolicyResponse
+</span><a href="#local-6989586621679336032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse%27"><span class="hs-identifier hs-type">LookupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336031"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupPolicyResponse
+</span><a href="#local-6989586621679336032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:LookupPolicyResponse' :: Int
+</span><a href="Amazonka.CloudDirectory.LookupPolicy.html#%24sel%3AhttpStatus%3ALookupPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse"><span class="hs-identifier hs-type">LookupPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.LookupPolicy.html#LookupPolicyResponse"><span class="hs-identifier hs-type">LookupPolicyResponse</span></a></span></span><span>
+</span><span id="line-242"></span></pre></body></html>

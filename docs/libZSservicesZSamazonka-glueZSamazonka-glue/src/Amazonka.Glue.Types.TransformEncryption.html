@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Glue.Types.TransformEncryption</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.Types.TransformEncryption</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.MLUserDataEncryption.html"><span class="hs-identifier">Amazonka.Glue.Types.MLUserDataEncryption</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The encryption-at-rest settings of the transform that apply to accessing</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- user data. Machine learning transforms can access user data encrypted in</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Amazon S3 using KMS.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Additionally, imported labels and trained transforms can now be</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- encrypted using a customer provided KMS key.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newTransformEncryption' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679702133"><span id="local-6989586621679702134"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransformEncryption"><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption"><span class="hs-identifier hs-var">TransformEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformEncryption%27"><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption%27"><span class="hs-identifier hs-var">TransformEncryption'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An @MLUserDataEncryption@ object containing the encryption mode and</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- customer-provided KMS key ID.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmlUserDataEncryption%3ATransformEncryption%27"><span class="annot"><span class="annottext">TransformEncryption -&gt; Maybe MLUserDataEncryption
+</span><a href="Amazonka.Glue.Types.TransformEncryption.html#%24sel%3AmlUserDataEncryption%3ATransformEncryption%27"><span class="hs-identifier hs-var hs-var">mlUserDataEncryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.MLUserDataEncryption.html#MLUserDataEncryption"><span class="hs-identifier hs-type">MLUserDataEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the security configuration.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AtaskRunSecurityConfigurationName%3ATransformEncryption%27"><span class="annot"><span class="annottext">TransformEncryption -&gt; Maybe Text
+</span><a href="Amazonka.Glue.Types.TransformEncryption.html#%24sel%3AtaskRunSecurityConfigurationName%3ATransformEncryption%27"><span class="hs-identifier hs-var hs-var">taskRunSecurityConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679702126"><span id="local-6989586621679702128"><span class="annot"><span class="annottext">TransformEncryption -&gt; TransformEncryption -&gt; Bool
+(TransformEncryption -&gt; TransformEncryption -&gt; Bool)
+-&gt; (TransformEncryption -&gt; TransformEncryption -&gt; Bool)
+-&gt; Eq TransformEncryption
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TransformEncryption -&gt; TransformEncryption -&gt; Bool
+$c/= :: TransformEncryption -&gt; TransformEncryption -&gt; Bool
+== :: TransformEncryption -&gt; TransformEncryption -&gt; Bool
+$c== :: TransformEncryption -&gt; TransformEncryption -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679702117"><span id="local-6989586621679702119"><span id="local-6989586621679702121"><span id="local-6989586621679702123"><span class="annot"><span class="annottext">ReadPrec [TransformEncryption]
+ReadPrec TransformEncryption
+Int -&gt; ReadS TransformEncryption
+ReadS [TransformEncryption]
+(Int -&gt; ReadS TransformEncryption)
+-&gt; ReadS [TransformEncryption]
+-&gt; ReadPrec TransformEncryption
+-&gt; ReadPrec [TransformEncryption]
+-&gt; Read TransformEncryption
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TransformEncryption]
+$creadListPrec :: ReadPrec [TransformEncryption]
+readPrec :: ReadPrec TransformEncryption
+$creadPrec :: ReadPrec TransformEncryption
+readList :: ReadS [TransformEncryption]
+$creadList :: ReadS [TransformEncryption]
+readsPrec :: Int -&gt; ReadS TransformEncryption
+$creadsPrec :: Int -&gt; ReadS TransformEncryption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679702110"><span id="local-6989586621679702112"><span id="local-6989586621679702114"><span class="annot"><span class="annottext">Int -&gt; TransformEncryption -&gt; ShowS
+[TransformEncryption] -&gt; ShowS
+TransformEncryption -&gt; String
+(Int -&gt; TransformEncryption -&gt; ShowS)
+-&gt; (TransformEncryption -&gt; String)
+-&gt; ([TransformEncryption] -&gt; ShowS)
+-&gt; Show TransformEncryption
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TransformEncryption] -&gt; ShowS
+$cshowList :: [TransformEncryption] -&gt; ShowS
+show :: TransformEncryption -&gt; String
+$cshow :: TransformEncryption -&gt; String
+showsPrec :: Int -&gt; TransformEncryption -&gt; ShowS
+$cshowsPrec :: Int -&gt; TransformEncryption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TransformEncryption -&gt; Rep TransformEncryption x)
+-&gt; (forall x. Rep TransformEncryption x -&gt; TransformEncryption)
+-&gt; Generic TransformEncryption
+forall x. Rep TransformEncryption x -&gt; TransformEncryption
+forall x. TransformEncryption -&gt; Rep TransformEncryption x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TransformEncryption x -&gt; TransformEncryption
+$cfrom :: forall x. TransformEncryption -&gt; Rep TransformEncryption x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'TransformEncryption' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'mlUserDataEncryption', 'transformEncryption_mlUserDataEncryption' - An @MLUserDataEncryption@ object containing the encryption mode and</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- customer-provided KMS key ID.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'taskRunSecurityConfigurationName', 'transformEncryption_taskRunSecurityConfigurationName' - The name of the security configuration.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#newTransformEncryption"><span class="hs-identifier hs-type">newTransformEncryption</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption"><span class="hs-identifier hs-type">TransformEncryption</span></a></span><span>
+</span><span id="line-58"></span><span id="newTransformEncryption"><span class="annot"><span class="annottext">newTransformEncryption :: TransformEncryption
+</span><a href="Amazonka.Glue.Types.TransformEncryption.html#newTransformEncryption"><span class="hs-identifier hs-var hs-var">newTransformEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">TransformEncryption' :: Maybe MLUserDataEncryption -&gt; Maybe Text -&gt; TransformEncryption
+</span><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption%27"><span class="hs-identifier hs-type">TransformEncryption'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mlUserDataEncryption:TransformEncryption' :: Maybe MLUserDataEncryption
+</span><a href="Amazonka.Glue.Types.TransformEncryption.html#%24sel%3AmlUserDataEncryption%3ATransformEncryption%27"><span class="hs-identifier hs-var">mlUserDataEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe MLUserDataEncryption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskRunSecurityConfigurationName:TransformEncryption' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.TransformEncryption.html#%24sel%3AtaskRunSecurityConfigurationName%3ATransformEncryption%27"><span class="hs-identifier hs-var">taskRunSecurityConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | An @MLUserDataEncryption@ object containing the encryption mode and</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- customer-provided KMS key ID.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#transformEncryption_mlUserDataEncryption"><span class="hs-identifier hs-type">transformEncryption_mlUserDataEncryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption"><span class="hs-identifier hs-type">TransformEncryption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.MLUserDataEncryption.html#MLUserDataEncryption"><span class="hs-identifier hs-type">MLUserDataEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="transformEncryption_mlUserDataEncryption"><span class="annot"><span class="annottext">transformEncryption_mlUserDataEncryption :: (Maybe MLUserDataEncryption -&gt; f (Maybe MLUserDataEncryption))
+-&gt; TransformEncryption -&gt; f TransformEncryption
+</span><a href="Amazonka.Glue.Types.TransformEncryption.html#transformEncryption_mlUserDataEncryption"><span class="hs-identifier hs-var hs-var">transformEncryption_mlUserDataEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformEncryption -&gt; Maybe MLUserDataEncryption)
+-&gt; (TransformEncryption
+    -&gt; Maybe MLUserDataEncryption -&gt; TransformEncryption)
+-&gt; Lens
+     TransformEncryption
+     TransformEncryption
+     (Maybe MLUserDataEncryption)
+     (Maybe MLUserDataEncryption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption%27"><span class="hs-identifier hs-type">TransformEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679702101"><span class="annot"><span class="annottext">Maybe MLUserDataEncryption
+mlUserDataEncryption :: Maybe MLUserDataEncryption
+$sel:mlUserDataEncryption:TransformEncryption' :: TransformEncryption -&gt; Maybe MLUserDataEncryption
+</span><a href="#local-6989586621679702101"><span class="hs-identifier hs-var hs-var">mlUserDataEncryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MLUserDataEncryption
+</span><a href="#local-6989586621679702101"><span class="hs-identifier hs-var">mlUserDataEncryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679702100"><span class="annot"><span class="annottext">s :: TransformEncryption
+</span><a href="#local-6989586621679702100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption%27"><span class="hs-identifier hs-type">TransformEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679702099"><span class="annot"><span class="annottext">Maybe MLUserDataEncryption
+</span><a href="#local-6989586621679702099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformEncryption
+</span><a href="#local-6989586621679702100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mlUserDataEncryption:TransformEncryption' :: Maybe MLUserDataEncryption
+</span><a href="Amazonka.Glue.Types.TransformEncryption.html#%24sel%3AmlUserDataEncryption%3ATransformEncryption%27"><span class="hs-identifier hs-var">mlUserDataEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MLUserDataEncryption
+</span><a href="#local-6989586621679702099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption"><span class="hs-identifier hs-type">TransformEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The name of the security configuration.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#transformEncryption_taskRunSecurityConfigurationName"><span class="hs-identifier hs-type">transformEncryption_taskRunSecurityConfigurationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption"><span class="hs-identifier hs-type">TransformEncryption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="transformEncryption_taskRunSecurityConfigurationName"><span class="annot"><span class="annottext">transformEncryption_taskRunSecurityConfigurationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransformEncryption -&gt; f TransformEncryption
+</span><a href="Amazonka.Glue.Types.TransformEncryption.html#transformEncryption_taskRunSecurityConfigurationName"><span class="hs-identifier hs-var hs-var">transformEncryption_taskRunSecurityConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformEncryption -&gt; Maybe Text)
+-&gt; (TransformEncryption -&gt; Maybe Text -&gt; TransformEncryption)
+-&gt; Lens
+     TransformEncryption TransformEncryption (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption%27"><span class="hs-identifier hs-type">TransformEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679702097"><span class="annot"><span class="annottext">Maybe Text
+taskRunSecurityConfigurationName :: Maybe Text
+$sel:taskRunSecurityConfigurationName:TransformEncryption' :: TransformEncryption -&gt; Maybe Text
+</span><a href="#local-6989586621679702097"><span class="hs-identifier hs-var hs-var">taskRunSecurityConfigurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679702097"><span class="hs-identifier hs-var">taskRunSecurityConfigurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679702096"><span class="annot"><span class="annottext">s :: TransformEncryption
+</span><a href="#local-6989586621679702096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption%27"><span class="hs-identifier hs-type">TransformEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679702095"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679702095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformEncryption
+</span><a href="#local-6989586621679702096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskRunSecurityConfigurationName:TransformEncryption' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.TransformEncryption.html#%24sel%3AtaskRunSecurityConfigurationName%3ATransformEncryption%27"><span class="hs-identifier hs-var">taskRunSecurityConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679702095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption"><span class="hs-identifier hs-type">TransformEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679702092"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption"><span class="hs-identifier hs-type">TransformEncryption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679702090"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TransformEncryption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TransformEncryption)
+-&gt; Value
+-&gt; Parser TransformEncryption
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TransformEncryption&quot;</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679702087"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679702087"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe MLUserDataEncryption -&gt; Maybe Text -&gt; TransformEncryption
+</span><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption%27"><span class="hs-identifier hs-var">TransformEncryption'</span></a></span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MLUserDataEncryption -&gt; Maybe Text -&gt; TransformEncryption)
+-&gt; Parser (Maybe MLUserDataEncryption)
+-&gt; Parser (Maybe Text -&gt; TransformEncryption)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679702087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MLUserDataEncryption)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MlUserDataEncryption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; TransformEncryption)
+-&gt; Parser (Maybe Text) -&gt; Parser TransformEncryption
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679702087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TaskRunSecurityConfigurationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679702081"><span id="local-6989586621679702083"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption"><span class="hs-identifier hs-type">TransformEncryption</span></a></span></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679702078"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption"><span class="hs-identifier hs-type">TransformEncryption</span></a></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679702070"><span id="local-6989586621679702072"><span id="local-6989586621679702074"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption"><span class="hs-identifier hs-type">TransformEncryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679702068"><span class="annot"><span class="annottext">toJSON :: TransformEncryption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TransformEncryption.html#TransformEncryption%27"><span class="hs-identifier hs-type">TransformEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679702065"><span id="local-6989586621679702066"><span class="annot"><span class="annottext">Maybe Text
+Maybe MLUserDataEncryption
+taskRunSecurityConfigurationName :: Maybe Text
+mlUserDataEncryption :: Maybe MLUserDataEncryption
+$sel:taskRunSecurityConfigurationName:TransformEncryption' :: TransformEncryption -&gt; Maybe Text
+$sel:mlUserDataEncryption:TransformEncryption' :: TransformEncryption -&gt; Maybe MLUserDataEncryption
+</span><a href="#local-6989586621679702065"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-92"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MlUserDataEncryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MLUserDataEncryption -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>              </span><span class="annot"><span class="annottext">(MLUserDataEncryption -&gt; Pair)
+-&gt; Maybe MLUserDataEncryption -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MLUserDataEncryption
+</span><a href="#local-6989586621679702066"><span class="hs-identifier hs-var">mlUserDataEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TaskRunSecurityConfigurationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679702065"><span class="hs-identifier hs-var">taskRunSecurityConfigurationName</span></a></span><span>
+</span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span></pre></body></html>

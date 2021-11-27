@@ -1,0 +1,461 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AccessAnalyzer.Types.AccessPreview</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AccessAnalyzer.Types.AccessPreview</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html"><span class="hs-identifier">Amazonka.AccessAnalyzer.Types.AccessPreviewStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatusReason.html"><span class="hs-identifier">Amazonka.AccessAnalyzer.Types.AccessPreviewStatusReason</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.Configuration.html"><span class="hs-identifier">Amazonka.AccessAnalyzer.Types.Configuration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Contains information about an access preview.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAccessPreview' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679252593"><span id="local-6989586621679252594"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessPreview"><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-var">AccessPreview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessPreview%27"><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview%27"><span class="hs-identifier hs-var">AccessPreview'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provides more details about the current status of the access preview.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- For example, if the creation of the access preview fails, a @Failed@</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- status is returned. This failure can be due to an internal issue with</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the analysis or due to an invalid resource configuration.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstatusReason%3AAccessPreview%27"><span class="annot"><span class="annottext">AccessPreview -&gt; Maybe AccessPreviewStatusReason
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3AstatusReason%3AAccessPreview%27"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatusReason.html#AccessPreviewStatusReason"><span class="hs-identifier hs-type">AccessPreviewStatusReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ARN of the analyzer used to generate the access preview.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AanalyzerArn%3AAccessPreview%27"><span class="annot"><span class="annottext">AccessPreview -&gt; Text
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3AanalyzerArn%3AAccessPreview%27"><span class="hs-identifier hs-var hs-var">analyzerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A map of resource ARNs for the proposed resource configuration.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aconfigurations%3AAccessPreview%27"><span class="annot"><span class="annottext">AccessPreview -&gt; HashMap Text Configuration
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3Aconfigurations%3AAccessPreview%27"><span class="hs-identifier hs-var hs-var">configurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The time at which the access preview was created.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcreatedAt%3AAccessPreview%27"><span class="annot"><span class="annottext">AccessPreview -&gt; POSIX
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3AcreatedAt%3AAccessPreview%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The unique ID for the access preview.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aid%3AAccessPreview%27"><span class="annot"><span class="annottext">AccessPreview -&gt; Text
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3Aid%3AAccessPreview%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The status of the access preview.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   @Creating@ - The access preview creation is in progress.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   @Completed@ - The access preview is complete. You can preview</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     findings for external access to the resource.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   @Failed@ - The access preview creation has failed.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Astatus%3AAccessPreview%27"><span class="annot"><span class="annottext">AccessPreview -&gt; AccessPreviewStatus
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3Astatus%3AAccessPreview%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus"><span class="hs-identifier hs-type">AccessPreviewStatus</span></a></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252582"><span id="local-6989586621679252584"><span class="annot"><span class="annottext">AccessPreview -&gt; AccessPreview -&gt; Bool
+(AccessPreview -&gt; AccessPreview -&gt; Bool)
+-&gt; (AccessPreview -&gt; AccessPreview -&gt; Bool) -&gt; Eq AccessPreview
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AccessPreview -&gt; AccessPreview -&gt; Bool
+$c/= :: AccessPreview -&gt; AccessPreview -&gt; Bool
+== :: AccessPreview -&gt; AccessPreview -&gt; Bool
+$c== :: AccessPreview -&gt; AccessPreview -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252573"><span id="local-6989586621679252575"><span id="local-6989586621679252577"><span id="local-6989586621679252579"><span class="annot"><span class="annottext">ReadPrec [AccessPreview]
+ReadPrec AccessPreview
+Int -&gt; ReadS AccessPreview
+ReadS [AccessPreview]
+(Int -&gt; ReadS AccessPreview)
+-&gt; ReadS [AccessPreview]
+-&gt; ReadPrec AccessPreview
+-&gt; ReadPrec [AccessPreview]
+-&gt; Read AccessPreview
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AccessPreview]
+$creadListPrec :: ReadPrec [AccessPreview]
+readPrec :: ReadPrec AccessPreview
+$creadPrec :: ReadPrec AccessPreview
+readList :: ReadS [AccessPreview]
+$creadList :: ReadS [AccessPreview]
+readsPrec :: Int -&gt; ReadS AccessPreview
+$creadsPrec :: Int -&gt; ReadS AccessPreview
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252566"><span id="local-6989586621679252568"><span id="local-6989586621679252570"><span class="annot"><span class="annottext">Int -&gt; AccessPreview -&gt; ShowS
+[AccessPreview] -&gt; ShowS
+AccessPreview -&gt; String
+(Int -&gt; AccessPreview -&gt; ShowS)
+-&gt; (AccessPreview -&gt; String)
+-&gt; ([AccessPreview] -&gt; ShowS)
+-&gt; Show AccessPreview
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AccessPreview] -&gt; ShowS
+$cshowList :: [AccessPreview] -&gt; ShowS
+show :: AccessPreview -&gt; String
+$cshow :: AccessPreview -&gt; String
+showsPrec :: Int -&gt; AccessPreview -&gt; ShowS
+$cshowsPrec :: Int -&gt; AccessPreview -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AccessPreview -&gt; Rep AccessPreview x)
+-&gt; (forall x. Rep AccessPreview x -&gt; AccessPreview)
+-&gt; Generic AccessPreview
+forall x. Rep AccessPreview x -&gt; AccessPreview
+forall x. AccessPreview -&gt; Rep AccessPreview x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AccessPreview x -&gt; AccessPreview
+$cfrom :: forall x. AccessPreview -&gt; Rep AccessPreview x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'AccessPreview' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'statusReason', 'accessPreview_statusReason' - Provides more details about the current status of the access preview.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- For example, if the creation of the access preview fails, a @Failed@</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- status is returned. This failure can be due to an internal issue with</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- the analysis or due to an invalid resource configuration.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'analyzerArn', 'accessPreview_analyzerArn' - The ARN of the analyzer used to generate the access preview.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'configurations', 'accessPreview_configurations' - A map of resource ARNs for the proposed resource configuration.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'createdAt', 'accessPreview_createdAt' - The time at which the access preview was created.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'id', 'accessPreview_id' - The unique ID for the access preview.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'status', 'accessPreview_status' - The status of the access preview.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- -   @Creating@ - The access preview creation is in progress.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -   @Completed@ - The access preview is complete. You can preview</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--     findings for external access to the resource.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- -   @Failed@ - The access preview creation has failed.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#newAccessPreview"><span class="hs-identifier hs-type">newAccessPreview</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'analyzerArn'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'createdAt'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus"><span class="hs-identifier hs-type">AccessPreviewStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span><span>
+</span><span id="line-99"></span><span id="newAccessPreview"><span class="annot"><span class="annottext">newAccessPreview :: Text -&gt; UTCTime -&gt; Text -&gt; AccessPreviewStatus -&gt; AccessPreview
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#newAccessPreview"><span class="hs-identifier hs-var hs-var">newAccessPreview</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679252560"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252560"><span class="hs-identifier hs-var">pAnalyzerArn_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679252559"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679252559"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679252558"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252558"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679252557"><span class="annot"><span class="annottext">AccessPreviewStatus
+</span><a href="#local-6989586621679252557"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">AccessPreview' :: Maybe AccessPreviewStatusReason
+-&gt; Text
+-&gt; HashMap Text Configuration
+-&gt; POSIX
+-&gt; Text
+-&gt; AccessPreviewStatus
+-&gt; AccessPreview
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview%27"><span class="hs-identifier hs-type">AccessPreview'</span></a></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusReason:AccessPreview' :: Maybe AccessPreviewStatusReason
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3AstatusReason%3AAccessPreview%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPreviewStatusReason
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:analyzerArn:AccessPreview' :: Text
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3AanalyzerArn%3AAccessPreview%27"><span class="hs-identifier hs-var">analyzerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252560"><span class="hs-identifier hs-var">pAnalyzerArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:configurations:AccessPreview' :: HashMap Text Configuration
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3Aconfigurations%3AAccessPreview%27"><span class="hs-identifier hs-var">configurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Configuration
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:AccessPreview' :: POSIX
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3AcreatedAt%3AAccessPreview%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679252559"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:AccessPreview' :: Text
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3Aid%3AAccessPreview%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252558"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:AccessPreview' :: AccessPreviewStatus
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3Astatus%3AAccessPreview%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccessPreviewStatus
+</span><a href="#local-6989586621679252557"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Provides more details about the current status of the access preview.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- For example, if the creation of the access preview fails, a @Failed@</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- status is returned. This failure can be due to an internal issue with</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- the analysis or due to an invalid resource configuration.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#accessPreview_statusReason"><span class="hs-identifier hs-type">accessPreview_statusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatusReason.html#AccessPreviewStatusReason"><span class="hs-identifier hs-type">AccessPreviewStatusReason</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="accessPreview_statusReason"><span class="annot"><span class="annottext">accessPreview_statusReason :: (Maybe AccessPreviewStatusReason
+ -&gt; f (Maybe AccessPreviewStatusReason))
+-&gt; AccessPreview -&gt; f AccessPreview
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#accessPreview_statusReason"><span class="hs-identifier hs-var hs-var">accessPreview_statusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessPreview -&gt; Maybe AccessPreviewStatusReason)
+-&gt; (AccessPreview
+    -&gt; Maybe AccessPreviewStatusReason -&gt; AccessPreview)
+-&gt; Lens
+     AccessPreview
+     AccessPreview
+     (Maybe AccessPreviewStatusReason)
+     (Maybe AccessPreviewStatusReason)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview%27"><span class="hs-identifier hs-type">AccessPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252551"><span class="annot"><span class="annottext">Maybe AccessPreviewStatusReason
+statusReason :: Maybe AccessPreviewStatusReason
+$sel:statusReason:AccessPreview' :: AccessPreview -&gt; Maybe AccessPreviewStatusReason
+</span><a href="#local-6989586621679252551"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPreviewStatusReason
+</span><a href="#local-6989586621679252551"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252550"><span class="annot"><span class="annottext">s :: AccessPreview
+</span><a href="#local-6989586621679252550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview%27"><span class="hs-identifier hs-type">AccessPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252549"><span class="annot"><span class="annottext">Maybe AccessPreviewStatusReason
+</span><a href="#local-6989586621679252549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessPreview
+</span><a href="#local-6989586621679252550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:AccessPreview' :: Maybe AccessPreviewStatusReason
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3AstatusReason%3AAccessPreview%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPreviewStatusReason
+</span><a href="#local-6989586621679252549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The ARN of the analyzer used to generate the access preview.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#accessPreview_analyzerArn"><span class="hs-identifier hs-type">accessPreview_analyzerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-123"></span><span id="accessPreview_analyzerArn"><span class="annot"><span class="annottext">accessPreview_analyzerArn :: (Text -&gt; f Text) -&gt; AccessPreview -&gt; f AccessPreview
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#accessPreview_analyzerArn"><span class="hs-identifier hs-var hs-var">accessPreview_analyzerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessPreview -&gt; Text)
+-&gt; (AccessPreview -&gt; Text -&gt; AccessPreview)
+-&gt; Lens AccessPreview AccessPreview Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview%27"><span class="hs-identifier hs-type">AccessPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252547"><span class="annot"><span class="annottext">Text
+analyzerArn :: Text
+$sel:analyzerArn:AccessPreview' :: AccessPreview -&gt; Text
+</span><a href="#local-6989586621679252547"><span class="hs-identifier hs-var hs-var">analyzerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252547"><span class="hs-identifier hs-var">analyzerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252546"><span class="annot"><span class="annottext">s :: AccessPreview
+</span><a href="#local-6989586621679252546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview%27"><span class="hs-identifier hs-type">AccessPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252545"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessPreview
+</span><a href="#local-6989586621679252546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analyzerArn:AccessPreview' :: Text
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3AanalyzerArn%3AAccessPreview%27"><span class="hs-identifier hs-var">analyzerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | A map of resource ARNs for the proposed resource configuration.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#accessPreview_configurations"><span class="hs-identifier hs-type">accessPreview_configurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="accessPreview_configurations"><span class="annot"><span class="annottext">accessPreview_configurations :: (HashMap Text Configuration -&gt; f (HashMap Text Configuration))
+-&gt; AccessPreview -&gt; f AccessPreview
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#accessPreview_configurations"><span class="hs-identifier hs-var hs-var">accessPreview_configurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessPreview -&gt; HashMap Text Configuration)
+-&gt; (AccessPreview -&gt; HashMap Text Configuration -&gt; AccessPreview)
+-&gt; Lens
+     AccessPreview
+     AccessPreview
+     (HashMap Text Configuration)
+     (HashMap Text Configuration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview%27"><span class="hs-identifier hs-type">AccessPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252543"><span class="annot"><span class="annottext">HashMap Text Configuration
+configurations :: HashMap Text Configuration
+$sel:configurations:AccessPreview' :: AccessPreview -&gt; HashMap Text Configuration
+</span><a href="#local-6989586621679252543"><span class="hs-identifier hs-var hs-var">configurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Configuration
+</span><a href="#local-6989586621679252543"><span class="hs-identifier hs-var">configurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252542"><span class="annot"><span class="annottext">s :: AccessPreview
+</span><a href="#local-6989586621679252542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview%27"><span class="hs-identifier hs-type">AccessPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252541"><span class="annot"><span class="annottext">HashMap Text Configuration
+</span><a href="#local-6989586621679252541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessPreview
+</span><a href="#local-6989586621679252542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurations:AccessPreview' :: HashMap Text Configuration
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3Aconfigurations%3AAccessPreview%27"><span class="hs-identifier hs-var">configurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Configuration
+</span><a href="#local-6989586621679252541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Configuration -&gt; f (HashMap Text Configuration))
+ -&gt; AccessPreview -&gt; f AccessPreview)
+-&gt; ((HashMap Text Configuration -&gt; f (HashMap Text Configuration))
+    -&gt; HashMap Text Configuration -&gt; f (HashMap Text Configuration))
+-&gt; (HashMap Text Configuration -&gt; f (HashMap Text Configuration))
+-&gt; AccessPreview
+-&gt; f AccessPreview
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Configuration -&gt; f (HashMap Text Configuration))
+-&gt; HashMap Text Configuration -&gt; f (HashMap Text Configuration)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The time at which the access preview was created.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#accessPreview_createdAt"><span class="hs-identifier hs-type">accessPreview_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-131"></span><span id="accessPreview_createdAt"><span class="annot"><span class="annottext">accessPreview_createdAt :: (UTCTime -&gt; f UTCTime) -&gt; AccessPreview -&gt; f AccessPreview
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#accessPreview_createdAt"><span class="hs-identifier hs-var hs-var">accessPreview_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessPreview -&gt; POSIX)
+-&gt; (AccessPreview -&gt; POSIX -&gt; AccessPreview)
+-&gt; Lens AccessPreview AccessPreview POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview%27"><span class="hs-identifier hs-type">AccessPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252537"><span class="annot"><span class="annottext">POSIX
+createdAt :: POSIX
+$sel:createdAt:AccessPreview' :: AccessPreview -&gt; POSIX
+</span><a href="#local-6989586621679252537"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679252537"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252536"><span class="annot"><span class="annottext">s :: AccessPreview
+</span><a href="#local-6989586621679252536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview%27"><span class="hs-identifier hs-type">AccessPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252535"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679252535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessPreview
+</span><a href="#local-6989586621679252536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:AccessPreview' :: POSIX
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3AcreatedAt%3AAccessPreview%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679252535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; AccessPreview -&gt; f AccessPreview)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; AccessPreview
+-&gt; f AccessPreview
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The unique ID for the access preview.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#accessPreview_id"><span class="hs-identifier hs-type">accessPreview_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-135"></span><span id="accessPreview_id"><span class="annot"><span class="annottext">accessPreview_id :: (Text -&gt; f Text) -&gt; AccessPreview -&gt; f AccessPreview
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#accessPreview_id"><span class="hs-identifier hs-var hs-var">accessPreview_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessPreview -&gt; Text)
+-&gt; (AccessPreview -&gt; Text -&gt; AccessPreview)
+-&gt; Lens AccessPreview AccessPreview Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview%27"><span class="hs-identifier hs-type">AccessPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252533"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:AccessPreview' :: AccessPreview -&gt; Text
+</span><a href="#local-6989586621679252533"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252533"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252532"><span class="annot"><span class="annottext">s :: AccessPreview
+</span><a href="#local-6989586621679252532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview%27"><span class="hs-identifier hs-type">AccessPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252531"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessPreview
+</span><a href="#local-6989586621679252532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:AccessPreview' :: Text
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3Aid%3AAccessPreview%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The status of the access preview.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   @Creating@ - The access preview creation is in progress.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- -   @Completed@ - The access preview is complete. You can preview</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--     findings for external access to the resource.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   @Failed@ - The access preview creation has failed.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#accessPreview_status"><span class="hs-identifier hs-type">accessPreview_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus"><span class="hs-identifier hs-type">AccessPreviewStatus</span></a></span><span>
+</span><span id="line-146"></span><span id="accessPreview_status"><span class="annot"><span class="annottext">accessPreview_status :: (AccessPreviewStatus -&gt; f AccessPreviewStatus)
+-&gt; AccessPreview -&gt; f AccessPreview
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#accessPreview_status"><span class="hs-identifier hs-var hs-var">accessPreview_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessPreview -&gt; AccessPreviewStatus)
+-&gt; (AccessPreview -&gt; AccessPreviewStatus -&gt; AccessPreview)
+-&gt; Lens
+     AccessPreview AccessPreview AccessPreviewStatus AccessPreviewStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview%27"><span class="hs-identifier hs-type">AccessPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252529"><span class="annot"><span class="annottext">AccessPreviewStatus
+status :: AccessPreviewStatus
+$sel:status:AccessPreview' :: AccessPreview -&gt; AccessPreviewStatus
+</span><a href="#local-6989586621679252529"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessPreviewStatus
+</span><a href="#local-6989586621679252529"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252528"><span class="annot"><span class="annottext">s :: AccessPreview
+</span><a href="#local-6989586621679252528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview%27"><span class="hs-identifier hs-type">AccessPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252527"><span class="annot"><span class="annottext">AccessPreviewStatus
+</span><a href="#local-6989586621679252527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessPreview
+</span><a href="#local-6989586621679252528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AccessPreview' :: AccessPreviewStatus
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#%24sel%3Astatus%3AAccessPreview%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccessPreviewStatus
+</span><a href="#local-6989586621679252527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252524"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679252522"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessPreview
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AccessPreview)
+-&gt; Value
+-&gt; Parser AccessPreview
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AccessPreview&quot;</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252519"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252519"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe AccessPreviewStatusReason
+-&gt; Text
+-&gt; HashMap Text Configuration
+-&gt; POSIX
+-&gt; Text
+-&gt; AccessPreviewStatus
+-&gt; AccessPreview
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview%27"><span class="hs-identifier hs-var">AccessPreview'</span></a></span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AccessPreviewStatusReason
+ -&gt; Text
+ -&gt; HashMap Text Configuration
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; AccessPreviewStatus
+ -&gt; AccessPreview)
+-&gt; Parser (Maybe AccessPreviewStatusReason)
+-&gt; Parser
+     (Text
+      -&gt; HashMap Text Configuration
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; AccessPreviewStatus
+      -&gt; AccessPreview)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPreviewStatusReason)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; HashMap Text Configuration
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; AccessPreviewStatus
+   -&gt; AccessPreview)
+-&gt; Parser Text
+-&gt; Parser
+     (HashMap Text Configuration
+      -&gt; POSIX -&gt; Text -&gt; AccessPreviewStatus -&gt; AccessPreview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;analyzerArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (HashMap Text Configuration
+   -&gt; POSIX -&gt; Text -&gt; AccessPreviewStatus -&gt; AccessPreview)
+-&gt; Parser (HashMap Text Configuration)
+-&gt; Parser (POSIX -&gt; Text -&gt; AccessPreviewStatus -&gt; AccessPreview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (HashMap Text Configuration))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Configuration))
+-&gt; HashMap Text Configuration
+-&gt; Parser (HashMap Text Configuration)
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Configuration
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; Text -&gt; AccessPreviewStatus -&gt; AccessPreview)
+-&gt; Parser POSIX
+-&gt; Parser (Text -&gt; AccessPreviewStatus -&gt; AccessPreview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; AccessPreviewStatus -&gt; AccessPreview)
+-&gt; Parser Text -&gt; Parser (AccessPreviewStatus -&gt; AccessPreview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (AccessPreviewStatus -&gt; AccessPreview)
+-&gt; Parser AccessPreviewStatus -&gt; Parser AccessPreview
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AccessPreviewStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252511"><span id="local-6989586621679252513"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252508"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreview.html#AccessPreview"><span class="hs-identifier hs-type">AccessPreview</span></a></span></span><span>
+</span><span id="line-165"></span></pre></body></html>

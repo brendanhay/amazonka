@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LicenseManager.Types.LicenseStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LicenseManager.Types.LicenseStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus"><span class="hs-identifier">LicenseStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_AVAILABLE"><span class="hs-identifier">LicenseStatus_AVAILABLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_DEACTIVATED"><span class="hs-identifier">LicenseStatus_DEACTIVATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_DELETED"><span class="hs-identifier">LicenseStatus_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_EXPIRED"><span class="hs-identifier">LicenseStatus_EXPIRED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_PENDING_AVAILABLE"><span class="hs-identifier">LicenseStatus_PENDING_AVAILABLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_PENDING_DELETE"><span class="hs-identifier">LicenseStatus_PENDING_DELETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_SUSPENDED"><span class="hs-identifier">LicenseStatus_SUSPENDED</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679298891"><span id="local-6989586621679298892"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LicenseStatus"><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus"><span class="hs-identifier hs-var">LicenseStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LicenseStatus%27"><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus%27"><span class="hs-identifier hs-var">LicenseStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLicenseStatus"><span class="annot"><span class="annottext">LicenseStatus -&gt; Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#fromLicenseStatus"><span class="hs-identifier hs-var hs-var">fromLicenseStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298883"><span id="local-6989586621679298885"><span id="local-6989586621679298887"><span class="annot"><span class="annottext">Int -&gt; LicenseStatus -&gt; ShowS
+[LicenseStatus] -&gt; ShowS
+LicenseStatus -&gt; String
+(Int -&gt; LicenseStatus -&gt; ShowS)
+-&gt; (LicenseStatus -&gt; String)
+-&gt; ([LicenseStatus] -&gt; ShowS)
+-&gt; Show LicenseStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LicenseStatus] -&gt; ShowS
+$cshowList :: [LicenseStatus] -&gt; ShowS
+show :: LicenseStatus -&gt; String
+$cshow :: LicenseStatus -&gt; String
+showsPrec :: Int -&gt; LicenseStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; LicenseStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679298874"><span id="local-6989586621679298876"><span id="local-6989586621679298878"><span id="local-6989586621679298880"><span class="annot"><span class="annottext">ReadPrec [LicenseStatus]
+ReadPrec LicenseStatus
+Int -&gt; ReadS LicenseStatus
+ReadS [LicenseStatus]
+(Int -&gt; ReadS LicenseStatus)
+-&gt; ReadS [LicenseStatus]
+-&gt; ReadPrec LicenseStatus
+-&gt; ReadPrec [LicenseStatus]
+-&gt; Read LicenseStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LicenseStatus]
+$creadListPrec :: ReadPrec [LicenseStatus]
+readPrec :: ReadPrec LicenseStatus
+$creadPrec :: ReadPrec LicenseStatus
+readList :: ReadS [LicenseStatus]
+$creadList :: ReadS [LicenseStatus]
+readsPrec :: Int -&gt; ReadS LicenseStatus
+$creadsPrec :: Int -&gt; ReadS LicenseStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679298869"><span id="local-6989586621679298871"><span class="annot"><span class="annottext">LicenseStatus -&gt; LicenseStatus -&gt; Bool
+(LicenseStatus -&gt; LicenseStatus -&gt; Bool)
+-&gt; (LicenseStatus -&gt; LicenseStatus -&gt; Bool) -&gt; Eq LicenseStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LicenseStatus -&gt; LicenseStatus -&gt; Bool
+$c/= :: LicenseStatus -&gt; LicenseStatus -&gt; Bool
+== :: LicenseStatus -&gt; LicenseStatus -&gt; Bool
+$c== :: LicenseStatus -&gt; LicenseStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679298853"><span id="local-6989586621679298855"><span id="local-6989586621679298857"><span id="local-6989586621679298859"><span id="local-6989586621679298861"><span id="local-6989586621679298863"><span id="local-6989586621679298865"><span class="annot"><span class="annottext">Eq LicenseStatus
+Eq LicenseStatus
+-&gt; (LicenseStatus -&gt; LicenseStatus -&gt; Ordering)
+-&gt; (LicenseStatus -&gt; LicenseStatus -&gt; Bool)
+-&gt; (LicenseStatus -&gt; LicenseStatus -&gt; Bool)
+-&gt; (LicenseStatus -&gt; LicenseStatus -&gt; Bool)
+-&gt; (LicenseStatus -&gt; LicenseStatus -&gt; Bool)
+-&gt; (LicenseStatus -&gt; LicenseStatus -&gt; LicenseStatus)
+-&gt; (LicenseStatus -&gt; LicenseStatus -&gt; LicenseStatus)
+-&gt; Ord LicenseStatus
+LicenseStatus -&gt; LicenseStatus -&gt; Bool
+LicenseStatus -&gt; LicenseStatus -&gt; Ordering
+LicenseStatus -&gt; LicenseStatus -&gt; LicenseStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LicenseStatus -&gt; LicenseStatus -&gt; LicenseStatus
+$cmin :: LicenseStatus -&gt; LicenseStatus -&gt; LicenseStatus
+max :: LicenseStatus -&gt; LicenseStatus -&gt; LicenseStatus
+$cmax :: LicenseStatus -&gt; LicenseStatus -&gt; LicenseStatus
+&gt;= :: LicenseStatus -&gt; LicenseStatus -&gt; Bool
+$c&gt;= :: LicenseStatus -&gt; LicenseStatus -&gt; Bool
+&gt; :: LicenseStatus -&gt; LicenseStatus -&gt; Bool
+$c&gt; :: LicenseStatus -&gt; LicenseStatus -&gt; Bool
+&lt;= :: LicenseStatus -&gt; LicenseStatus -&gt; Bool
+$c&lt;= :: LicenseStatus -&gt; LicenseStatus -&gt; Bool
+&lt; :: LicenseStatus -&gt; LicenseStatus -&gt; Bool
+$c&lt; :: LicenseStatus -&gt; LicenseStatus -&gt; Bool
+compare :: LicenseStatus -&gt; LicenseStatus -&gt; Ordering
+$ccompare :: LicenseStatus -&gt; LicenseStatus -&gt; Ordering
+$cp1Ord :: Eq LicenseStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. LicenseStatus -&gt; Rep LicenseStatus x)
+-&gt; (forall x. Rep LicenseStatus x -&gt; LicenseStatus)
+-&gt; Generic LicenseStatus
+forall x. Rep LicenseStatus x -&gt; LicenseStatus
+forall x. LicenseStatus -&gt; Rep LicenseStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LicenseStatus x -&gt; LicenseStatus
+$cfrom :: forall x. LicenseStatus -&gt; Rep LicenseStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298845"><span id="local-6989586621679298847"><span class="annot"><span class="annottext">Int -&gt; LicenseStatus -&gt; Int
+LicenseStatus -&gt; Int
+(Int -&gt; LicenseStatus -&gt; Int)
+-&gt; (LicenseStatus -&gt; Int) -&gt; Hashable LicenseStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LicenseStatus -&gt; Int
+$chash :: LicenseStatus -&gt; Int
+hashWithSalt :: Int -&gt; LicenseStatus -&gt; Int
+$chashWithSalt :: Int -&gt; LicenseStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298842"><span class="annot"><span class="annottext">LicenseStatus -&gt; ()
+(LicenseStatus -&gt; ()) -&gt; NFData LicenseStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LicenseStatus -&gt; ()
+$crnf :: LicenseStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298839"><span class="annot"><span class="annottext">Text -&gt; Either String LicenseStatus
+(Text -&gt; Either String LicenseStatus) -&gt; FromText LicenseStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LicenseStatus
+$cfromText :: Text -&gt; Either String LicenseStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298836"><span class="annot"><span class="annottext">LicenseStatus -&gt; Text
+(LicenseStatus -&gt; Text) -&gt; ToText LicenseStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LicenseStatus -&gt; Text
+$ctoText :: LicenseStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298833"><span class="annot"><span class="annottext">LicenseStatus -&gt; ByteString
+(LicenseStatus -&gt; ByteString) -&gt; ToByteString LicenseStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LicenseStatus -&gt; ByteString
+$ctoBS :: LicenseStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298830"><span class="annot"><span class="annottext">LicenseStatus -&gt; ByteStringBuilder
+(LicenseStatus -&gt; ByteStringBuilder) -&gt; ToLog LicenseStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LicenseStatus -&gt; ByteStringBuilder
+$cbuild :: LicenseStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298827"><span class="annot"><span class="annottext">HeaderName -&gt; LicenseStatus -&gt; [Header]
+(HeaderName -&gt; LicenseStatus -&gt; [Header]) -&gt; ToHeader LicenseStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LicenseStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LicenseStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298824"><span class="annot"><span class="annottext">LicenseStatus -&gt; QueryString
+(LicenseStatus -&gt; QueryString) -&gt; ToQuery LicenseStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LicenseStatus -&gt; QueryString
+$ctoQuery :: LicenseStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679298819"><span id="local-6989586621679298821"><span class="annot"><span class="annottext">Value -&gt; Parser [LicenseStatus]
+Value -&gt; Parser LicenseStatus
+(Value -&gt; Parser LicenseStatus)
+-&gt; (Value -&gt; Parser [LicenseStatus]) -&gt; FromJSON LicenseStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LicenseStatus]
+$cparseJSONList :: Value -&gt; Parser [LicenseStatus]
+parseJSON :: Value -&gt; Parser LicenseStatus
+$cparseJSON :: Value -&gt; Parser LicenseStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679298814"><span id="local-6989586621679298816"><span class="annot"><span class="annottext">FromJSONKeyFunction [LicenseStatus]
+FromJSONKeyFunction LicenseStatus
+FromJSONKeyFunction LicenseStatus
+-&gt; FromJSONKeyFunction [LicenseStatus] -&gt; FromJSONKey LicenseStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LicenseStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [LicenseStatus]
+fromJSONKey :: FromJSONKeyFunction LicenseStatus
+$cfromJSONKey :: FromJSONKeyFunction LicenseStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679298805"><span id="local-6989586621679298807"><span id="local-6989586621679298809"><span id="local-6989586621679298811"><span class="annot"><span class="annottext">[LicenseStatus] -&gt; Encoding
+[LicenseStatus] -&gt; Value
+LicenseStatus -&gt; Encoding
+LicenseStatus -&gt; Value
+(LicenseStatus -&gt; Value)
+-&gt; (LicenseStatus -&gt; Encoding)
+-&gt; ([LicenseStatus] -&gt; Value)
+-&gt; ([LicenseStatus] -&gt; Encoding)
+-&gt; ToJSON LicenseStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LicenseStatus] -&gt; Encoding
+$ctoEncodingList :: [LicenseStatus] -&gt; Encoding
+toJSONList :: [LicenseStatus] -&gt; Value
+$ctoJSONList :: [LicenseStatus] -&gt; Value
+toEncoding :: LicenseStatus -&gt; Encoding
+$ctoEncoding :: LicenseStatus -&gt; Encoding
+toJSON :: LicenseStatus -&gt; Value
+$ctoJSON :: LicenseStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679298800"><span id="local-6989586621679298802"><span class="annot"><span class="annottext">ToJSONKeyFunction [LicenseStatus]
+ToJSONKeyFunction LicenseStatus
+ToJSONKeyFunction LicenseStatus
+-&gt; ToJSONKeyFunction [LicenseStatus] -&gt; ToJSONKey LicenseStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LicenseStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [LicenseStatus]
+toJSONKey :: ToJSONKeyFunction LicenseStatus
+$ctoJSONKey :: ToJSONKeyFunction LicenseStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679298797"><span class="annot"><span class="annottext">[Node] -&gt; Either String LicenseStatus
+([Node] -&gt; Either String LicenseStatus) -&gt; FromXML LicenseStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LicenseStatus
+$cparseXML :: [Node] -&gt; Either String LicenseStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679298794"><span class="annot"><span class="annottext">LicenseStatus -&gt; XML
+(LicenseStatus -&gt; XML) -&gt; ToXML LicenseStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LicenseStatus -&gt; XML
+$ctoXML :: LicenseStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_AVAILABLE"><span class="hs-identifier hs-type">LicenseStatus_AVAILABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus"><span class="hs-identifier hs-type">LicenseStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLicenseStatus_AVAILABLE"><span id="%24mLicenseStatus_AVAILABLE"><span id="LicenseStatus_AVAILABLE"><span class="annot"><span class="annottext">$bLicenseStatus_AVAILABLE :: LicenseStatus
+$mLicenseStatus_AVAILABLE :: forall r. LicenseStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#%24bLicenseStatus_AVAILABLE"><span class="hs-identifier hs-var hs-var hs-var">LicenseStatus_AVAILABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus%27"><span class="hs-identifier hs-type">LicenseStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AVAILABLE&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_DEACTIVATED"><span class="hs-identifier hs-type">LicenseStatus_DEACTIVATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus"><span class="hs-identifier hs-type">LicenseStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLicenseStatus_DEACTIVATED"><span id="%24mLicenseStatus_DEACTIVATED"><span id="LicenseStatus_DEACTIVATED"><span class="annot"><span class="annottext">$bLicenseStatus_DEACTIVATED :: LicenseStatus
+$mLicenseStatus_DEACTIVATED :: forall r. LicenseStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#%24bLicenseStatus_DEACTIVATED"><span class="hs-identifier hs-var hs-var hs-var">LicenseStatus_DEACTIVATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus%27"><span class="hs-identifier hs-type">LicenseStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEACTIVATED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_DELETED"><span class="hs-identifier hs-type">LicenseStatus_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus"><span class="hs-identifier hs-type">LicenseStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLicenseStatus_DELETED"><span id="%24mLicenseStatus_DELETED"><span id="LicenseStatus_DELETED"><span class="annot"><span class="annottext">$bLicenseStatus_DELETED :: LicenseStatus
+$mLicenseStatus_DELETED :: forall r. LicenseStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#%24bLicenseStatus_DELETED"><span class="hs-identifier hs-var hs-var hs-var">LicenseStatus_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus%27"><span class="hs-identifier hs-type">LicenseStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_EXPIRED"><span class="hs-identifier hs-type">LicenseStatus_EXPIRED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus"><span class="hs-identifier hs-type">LicenseStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLicenseStatus_EXPIRED"><span id="%24mLicenseStatus_EXPIRED"><span id="LicenseStatus_EXPIRED"><span class="annot"><span class="annottext">$bLicenseStatus_EXPIRED :: LicenseStatus
+$mLicenseStatus_EXPIRED :: forall r. LicenseStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#%24bLicenseStatus_EXPIRED"><span class="hs-identifier hs-var hs-var hs-var">LicenseStatus_EXPIRED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus%27"><span class="hs-identifier hs-type">LicenseStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXPIRED&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_PENDING_AVAILABLE"><span class="hs-identifier hs-type">LicenseStatus_PENDING_AVAILABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus"><span class="hs-identifier hs-type">LicenseStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLicenseStatus_PENDING_AVAILABLE"><span id="%24mLicenseStatus_PENDING_AVAILABLE"><span id="LicenseStatus_PENDING_AVAILABLE"><span class="annot"><span class="annottext">$bLicenseStatus_PENDING_AVAILABLE :: LicenseStatus
+$mLicenseStatus_PENDING_AVAILABLE :: forall r. LicenseStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#%24bLicenseStatus_PENDING_AVAILABLE"><span class="hs-identifier hs-var hs-var hs-var">LicenseStatus_PENDING_AVAILABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus%27"><span class="hs-identifier hs-type">LicenseStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_AVAILABLE&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_PENDING_DELETE"><span class="hs-identifier hs-type">LicenseStatus_PENDING_DELETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus"><span class="hs-identifier hs-type">LicenseStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLicenseStatus_PENDING_DELETE"><span id="%24mLicenseStatus_PENDING_DELETE"><span id="LicenseStatus_PENDING_DELETE"><span class="annot"><span class="annottext">$bLicenseStatus_PENDING_DELETE :: LicenseStatus
+$mLicenseStatus_PENDING_DELETE :: forall r. LicenseStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#%24bLicenseStatus_PENDING_DELETE"><span class="hs-identifier hs-var hs-var hs-var">LicenseStatus_PENDING_DELETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus%27"><span class="hs-identifier hs-type">LicenseStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_DELETE&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_SUSPENDED"><span class="hs-identifier hs-type">LicenseStatus_SUSPENDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus"><span class="hs-identifier hs-type">LicenseStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLicenseStatus_SUSPENDED"><span id="%24mLicenseStatus_SUSPENDED"><span id="LicenseStatus_SUSPENDED"><span class="annot"><span class="annottext">$bLicenseStatus_SUSPENDED :: LicenseStatus
+$mLicenseStatus_SUSPENDED :: forall r. LicenseStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#%24bLicenseStatus_SUSPENDED"><span class="hs-identifier hs-var hs-var hs-var">LicenseStatus_SUSPENDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus%27"><span class="hs-identifier hs-type">LicenseStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUSPENDED&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_AVAILABLE"><span class="hs-pragma hs-type">LicenseStatus_AVAILABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_DEACTIVATED"><span class="hs-pragma hs-type">LicenseStatus_DEACTIVATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_DELETED"><span class="hs-pragma hs-type">LicenseStatus_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_EXPIRED"><span class="hs-pragma hs-type">LicenseStatus_EXPIRED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_PENDING_AVAILABLE"><span class="hs-pragma hs-type">LicenseStatus_PENDING_AVAILABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_PENDING_DELETE"><span class="hs-pragma hs-type">LicenseStatus_PENDING_DELETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus_SUSPENDED"><span class="hs-pragma hs-type">LicenseStatus_SUSPENDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseStatus.html#LicenseStatus%27"><span class="hs-pragma hs-type">LicenseStatus'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

@@ -1,0 +1,744 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Allows or restricts mirroring network services.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- By default, Amazon DNS network services are not eligible for Traffic</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Mirror. Use @AddNetworkServices@ to add network services to a Traffic</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Mirror filter. When a network service is added to the Traffic Mirror</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- filter, all traffic related to that network service will be mirrored.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- When you no longer want to mirror network services, use</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- @RemoveNetworkServices@ to remove the network services from the Traffic</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Mirror filter.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier">ModifyTrafficMirrorFilterNetworkServices</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#newModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier">newModifyTrafficMirrorFilterNetworkServices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServices_addNetworkServices"><span class="hs-identifier">modifyTrafficMirrorFilterNetworkServices_addNetworkServices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServices_removeNetworkServices"><span class="hs-identifier">modifyTrafficMirrorFilterNetworkServices_removeNetworkServices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServices_dryRun"><span class="hs-identifier">modifyTrafficMirrorFilterNetworkServices_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServices_trafficMirrorFilterId"><span class="hs-identifier">modifyTrafficMirrorFilterNetworkServices_trafficMirrorFilterId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse"><span class="hs-identifier">ModifyTrafficMirrorFilterNetworkServicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#newModifyTrafficMirrorFilterNetworkServicesResponse"><span class="hs-identifier">newModifyTrafficMirrorFilterNetworkServicesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServicesResponse_trafficMirrorFilter"><span class="hs-identifier">modifyTrafficMirrorFilterNetworkServicesResponse_trafficMirrorFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServicesResponse_httpStatus"><span class="hs-identifier">modifyTrafficMirrorFilterNetworkServicesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newModifyTrafficMirrorFilterNetworkServices' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621681216709"><span id="local-6989586621681216710"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyTrafficMirrorFilterNetworkServices"><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-var">ModifyTrafficMirrorFilterNetworkServices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyTrafficMirrorFilterNetworkServices%27"><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-var">ModifyTrafficMirrorFilterNetworkServices'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The network service, for example Amazon DNS, that you want to mirror.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AaddNetworkServices%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServices
+-&gt; Maybe [TrafficMirrorNetworkService]
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AaddNetworkServices%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-var hs-var">addNetworkServices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TrafficMirrorNetworkService.html#TrafficMirrorNetworkService"><span class="hs-identifier hs-type">TrafficMirrorNetworkService</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The network service, for example Amazon DNS, that you no longer want to</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- mirror.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AremoveNetworkServices%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServices
+-&gt; Maybe [TrafficMirrorNetworkService]
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AremoveNetworkServices%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-var hs-var">removeNetworkServices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TrafficMirrorNetworkService.html#TrafficMirrorNetworkService"><span class="hs-identifier hs-type">TrafficMirrorNetworkService</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServices -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AdryRun%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The ID of the Traffic Mirror filter.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AtrafficMirrorFilterId%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServices -&gt; Text
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AtrafficMirrorFilterId%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-var hs-var">trafficMirrorFilterId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681216700"><span id="local-6989586621681216702"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServices
+-&gt; ModifyTrafficMirrorFilterNetworkServices -&gt; Bool
+(ModifyTrafficMirrorFilterNetworkServices
+ -&gt; ModifyTrafficMirrorFilterNetworkServices -&gt; Bool)
+-&gt; (ModifyTrafficMirrorFilterNetworkServices
+    -&gt; ModifyTrafficMirrorFilterNetworkServices -&gt; Bool)
+-&gt; Eq ModifyTrafficMirrorFilterNetworkServices
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyTrafficMirrorFilterNetworkServices
+-&gt; ModifyTrafficMirrorFilterNetworkServices -&gt; Bool
+$c/= :: ModifyTrafficMirrorFilterNetworkServices
+-&gt; ModifyTrafficMirrorFilterNetworkServices -&gt; Bool
+== :: ModifyTrafficMirrorFilterNetworkServices
+-&gt; ModifyTrafficMirrorFilterNetworkServices -&gt; Bool
+$c== :: ModifyTrafficMirrorFilterNetworkServices
+-&gt; ModifyTrafficMirrorFilterNetworkServices -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681216691"><span id="local-6989586621681216693"><span id="local-6989586621681216695"><span id="local-6989586621681216697"><span class="annot"><span class="annottext">ReadPrec [ModifyTrafficMirrorFilterNetworkServices]
+ReadPrec ModifyTrafficMirrorFilterNetworkServices
+Int -&gt; ReadS ModifyTrafficMirrorFilterNetworkServices
+ReadS [ModifyTrafficMirrorFilterNetworkServices]
+(Int -&gt; ReadS ModifyTrafficMirrorFilterNetworkServices)
+-&gt; ReadS [ModifyTrafficMirrorFilterNetworkServices]
+-&gt; ReadPrec ModifyTrafficMirrorFilterNetworkServices
+-&gt; ReadPrec [ModifyTrafficMirrorFilterNetworkServices]
+-&gt; Read ModifyTrafficMirrorFilterNetworkServices
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyTrafficMirrorFilterNetworkServices]
+$creadListPrec :: ReadPrec [ModifyTrafficMirrorFilterNetworkServices]
+readPrec :: ReadPrec ModifyTrafficMirrorFilterNetworkServices
+$creadPrec :: ReadPrec ModifyTrafficMirrorFilterNetworkServices
+readList :: ReadS [ModifyTrafficMirrorFilterNetworkServices]
+$creadList :: ReadS [ModifyTrafficMirrorFilterNetworkServices]
+readsPrec :: Int -&gt; ReadS ModifyTrafficMirrorFilterNetworkServices
+$creadsPrec :: Int -&gt; ReadS ModifyTrafficMirrorFilterNetworkServices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681216684"><span id="local-6989586621681216686"><span id="local-6989586621681216688"><span class="annot"><span class="annottext">Int -&gt; ModifyTrafficMirrorFilterNetworkServices -&gt; ShowS
+[ModifyTrafficMirrorFilterNetworkServices] -&gt; ShowS
+ModifyTrafficMirrorFilterNetworkServices -&gt; String
+(Int -&gt; ModifyTrafficMirrorFilterNetworkServices -&gt; ShowS)
+-&gt; (ModifyTrafficMirrorFilterNetworkServices -&gt; String)
+-&gt; ([ModifyTrafficMirrorFilterNetworkServices] -&gt; ShowS)
+-&gt; Show ModifyTrafficMirrorFilterNetworkServices
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyTrafficMirrorFilterNetworkServices] -&gt; ShowS
+$cshowList :: [ModifyTrafficMirrorFilterNetworkServices] -&gt; ShowS
+show :: ModifyTrafficMirrorFilterNetworkServices -&gt; String
+$cshow :: ModifyTrafficMirrorFilterNetworkServices -&gt; String
+showsPrec :: Int -&gt; ModifyTrafficMirrorFilterNetworkServices -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyTrafficMirrorFilterNetworkServices -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyTrafficMirrorFilterNetworkServices
+ -&gt; Rep ModifyTrafficMirrorFilterNetworkServices x)
+-&gt; (forall x.
+    Rep ModifyTrafficMirrorFilterNetworkServices x
+    -&gt; ModifyTrafficMirrorFilterNetworkServices)
+-&gt; Generic ModifyTrafficMirrorFilterNetworkServices
+forall x.
+Rep ModifyTrafficMirrorFilterNetworkServices x
+-&gt; ModifyTrafficMirrorFilterNetworkServices
+forall x.
+ModifyTrafficMirrorFilterNetworkServices
+-&gt; Rep ModifyTrafficMirrorFilterNetworkServices x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModifyTrafficMirrorFilterNetworkServices x
+-&gt; ModifyTrafficMirrorFilterNetworkServices
+$cfrom :: forall x.
+ModifyTrafficMirrorFilterNetworkServices
+-&gt; Rep ModifyTrafficMirrorFilterNetworkServices x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'ModifyTrafficMirrorFilterNetworkServices' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'addNetworkServices', 'modifyTrafficMirrorFilterNetworkServices_addNetworkServices' - The network service, for example Amazon DNS, that you want to mirror.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'removeNetworkServices', 'modifyTrafficMirrorFilterNetworkServices_removeNetworkServices' - The network service, for example Amazon DNS, that you no longer want to</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- mirror.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'dryRun', 'modifyTrafficMirrorFilterNetworkServices_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'trafficMirrorFilterId', 'modifyTrafficMirrorFilterNetworkServices_trafficMirrorFilterId' - The ID of the Traffic Mirror filter.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#newModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">newModifyTrafficMirrorFilterNetworkServices</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'trafficMirrorFilterId'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span><span>
+</span><span id="line-100"></span><span id="newModifyTrafficMirrorFilterNetworkServices"><span class="annot"><span class="annottext">newModifyTrafficMirrorFilterNetworkServices :: Text -&gt; ModifyTrafficMirrorFilterNetworkServices
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#newModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-var hs-var">newModifyTrafficMirrorFilterNetworkServices</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621681216679"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681216679"><span class="hs-identifier hs-var">pTrafficMirrorFilterId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServices' :: Maybe [TrafficMirrorNetworkService]
+-&gt; Maybe [TrafficMirrorNetworkService]
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; ModifyTrafficMirrorFilterNetworkServices
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices'</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:addNetworkServices:ModifyTrafficMirrorFilterNetworkServices' :: Maybe [TrafficMirrorNetworkService]
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AaddNetworkServices%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-var">addNetworkServices</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TrafficMirrorNetworkService]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:removeNetworkServices:ModifyTrafficMirrorFilterNetworkServices' :: Maybe [TrafficMirrorNetworkService]
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AremoveNetworkServices%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-var">removeNetworkServices</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TrafficMirrorNetworkService]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyTrafficMirrorFilterNetworkServices' :: Maybe Bool
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AdryRun%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:trafficMirrorFilterId:ModifyTrafficMirrorFilterNetworkServices' :: Text
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AtrafficMirrorFilterId%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-var">trafficMirrorFilterId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681216679"><span class="hs-identifier hs-var">pTrafficMirrorFilterId_</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The network service, for example Amazon DNS, that you want to mirror.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServices_addNetworkServices"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterNetworkServices_addNetworkServices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TrafficMirrorNetworkService.html#TrafficMirrorNetworkService"><span class="hs-identifier hs-type">TrafficMirrorNetworkService</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="modifyTrafficMirrorFilterNetworkServices_addNetworkServices"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterNetworkServices_addNetworkServices :: (Maybe [TrafficMirrorNetworkService]
+ -&gt; f (Maybe [TrafficMirrorNetworkService]))
+-&gt; ModifyTrafficMirrorFilterNetworkServices
+-&gt; f ModifyTrafficMirrorFilterNetworkServices
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServices_addNetworkServices"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterNetworkServices_addNetworkServices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterNetworkServices
+ -&gt; Maybe [TrafficMirrorNetworkService])
+-&gt; (ModifyTrafficMirrorFilterNetworkServices
+    -&gt; Maybe [TrafficMirrorNetworkService]
+    -&gt; ModifyTrafficMirrorFilterNetworkServices)
+-&gt; Lens
+     ModifyTrafficMirrorFilterNetworkServices
+     ModifyTrafficMirrorFilterNetworkServices
+     (Maybe [TrafficMirrorNetworkService])
+     (Maybe [TrafficMirrorNetworkService])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681216676"><span class="annot"><span class="annottext">Maybe [TrafficMirrorNetworkService]
+addNetworkServices :: Maybe [TrafficMirrorNetworkService]
+$sel:addNetworkServices:ModifyTrafficMirrorFilterNetworkServices' :: ModifyTrafficMirrorFilterNetworkServices
+-&gt; Maybe [TrafficMirrorNetworkService]
+</span><a href="#local-6989586621681216676"><span class="hs-identifier hs-var hs-var">addNetworkServices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TrafficMirrorNetworkService]
+</span><a href="#local-6989586621681216676"><span class="hs-identifier hs-var">addNetworkServices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681216675"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterNetworkServices
+</span><a href="#local-6989586621681216675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681216674"><span class="annot"><span class="annottext">Maybe [TrafficMirrorNetworkService]
+</span><a href="#local-6989586621681216674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServices
+</span><a href="#local-6989586621681216675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addNetworkServices:ModifyTrafficMirrorFilterNetworkServices' :: Maybe [TrafficMirrorNetworkService]
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AaddNetworkServices%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-var">addNetworkServices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TrafficMirrorNetworkService]
+</span><a href="#local-6989586621681216674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TrafficMirrorNetworkService]
+  -&gt; f (Maybe [TrafficMirrorNetworkService]))
+ -&gt; ModifyTrafficMirrorFilterNetworkServices
+ -&gt; f ModifyTrafficMirrorFilterNetworkServices)
+-&gt; ((Maybe [TrafficMirrorNetworkService]
+     -&gt; f (Maybe [TrafficMirrorNetworkService]))
+    -&gt; Maybe [TrafficMirrorNetworkService]
+    -&gt; f (Maybe [TrafficMirrorNetworkService]))
+-&gt; (Maybe [TrafficMirrorNetworkService]
+    -&gt; f (Maybe [TrafficMirrorNetworkService]))
+-&gt; ModifyTrafficMirrorFilterNetworkServices
+-&gt; f ModifyTrafficMirrorFilterNetworkServices
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TrafficMirrorNetworkService]
+  [TrafficMirrorNetworkService]
+  [TrafficMirrorNetworkService]
+  [TrafficMirrorNetworkService]
+-&gt; Iso
+     (Maybe [TrafficMirrorNetworkService])
+     (Maybe [TrafficMirrorNetworkService])
+     (Maybe [TrafficMirrorNetworkService])
+     (Maybe [TrafficMirrorNetworkService])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TrafficMirrorNetworkService]
+  [TrafficMirrorNetworkService]
+  [TrafficMirrorNetworkService]
+  [TrafficMirrorNetworkService]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The network service, for example Amazon DNS, that you no longer want to</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- mirror.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServices_removeNetworkServices"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterNetworkServices_removeNetworkServices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TrafficMirrorNetworkService.html#TrafficMirrorNetworkService"><span class="hs-identifier hs-type">TrafficMirrorNetworkService</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="modifyTrafficMirrorFilterNetworkServices_removeNetworkServices"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterNetworkServices_removeNetworkServices :: (Maybe [TrafficMirrorNetworkService]
+ -&gt; f (Maybe [TrafficMirrorNetworkService]))
+-&gt; ModifyTrafficMirrorFilterNetworkServices
+-&gt; f ModifyTrafficMirrorFilterNetworkServices
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServices_removeNetworkServices"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterNetworkServices_removeNetworkServices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterNetworkServices
+ -&gt; Maybe [TrafficMirrorNetworkService])
+-&gt; (ModifyTrafficMirrorFilterNetworkServices
+    -&gt; Maybe [TrafficMirrorNetworkService]
+    -&gt; ModifyTrafficMirrorFilterNetworkServices)
+-&gt; Lens
+     ModifyTrafficMirrorFilterNetworkServices
+     ModifyTrafficMirrorFilterNetworkServices
+     (Maybe [TrafficMirrorNetworkService])
+     (Maybe [TrafficMirrorNetworkService])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681216670"><span class="annot"><span class="annottext">Maybe [TrafficMirrorNetworkService]
+removeNetworkServices :: Maybe [TrafficMirrorNetworkService]
+$sel:removeNetworkServices:ModifyTrafficMirrorFilterNetworkServices' :: ModifyTrafficMirrorFilterNetworkServices
+-&gt; Maybe [TrafficMirrorNetworkService]
+</span><a href="#local-6989586621681216670"><span class="hs-identifier hs-var hs-var">removeNetworkServices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TrafficMirrorNetworkService]
+</span><a href="#local-6989586621681216670"><span class="hs-identifier hs-var">removeNetworkServices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681216669"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterNetworkServices
+</span><a href="#local-6989586621681216669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681216668"><span class="annot"><span class="annottext">Maybe [TrafficMirrorNetworkService]
+</span><a href="#local-6989586621681216668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServices
+</span><a href="#local-6989586621681216669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeNetworkServices:ModifyTrafficMirrorFilterNetworkServices' :: Maybe [TrafficMirrorNetworkService]
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AremoveNetworkServices%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-var">removeNetworkServices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TrafficMirrorNetworkService]
+</span><a href="#local-6989586621681216668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TrafficMirrorNetworkService]
+  -&gt; f (Maybe [TrafficMirrorNetworkService]))
+ -&gt; ModifyTrafficMirrorFilterNetworkServices
+ -&gt; f ModifyTrafficMirrorFilterNetworkServices)
+-&gt; ((Maybe [TrafficMirrorNetworkService]
+     -&gt; f (Maybe [TrafficMirrorNetworkService]))
+    -&gt; Maybe [TrafficMirrorNetworkService]
+    -&gt; f (Maybe [TrafficMirrorNetworkService]))
+-&gt; (Maybe [TrafficMirrorNetworkService]
+    -&gt; f (Maybe [TrafficMirrorNetworkService]))
+-&gt; ModifyTrafficMirrorFilterNetworkServices
+-&gt; f ModifyTrafficMirrorFilterNetworkServices
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TrafficMirrorNetworkService]
+  [TrafficMirrorNetworkService]
+  [TrafficMirrorNetworkService]
+  [TrafficMirrorNetworkService]
+-&gt; Iso
+     (Maybe [TrafficMirrorNetworkService])
+     (Maybe [TrafficMirrorNetworkService])
+     (Maybe [TrafficMirrorNetworkService])
+     (Maybe [TrafficMirrorNetworkService])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TrafficMirrorNetworkService]
+  [TrafficMirrorNetworkService]
+  [TrafficMirrorNetworkService]
+  [TrafficMirrorNetworkService]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServices_dryRun"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterNetworkServices_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="modifyTrafficMirrorFilterNetworkServices_dryRun"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterNetworkServices_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ModifyTrafficMirrorFilterNetworkServices
+-&gt; f ModifyTrafficMirrorFilterNetworkServices
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServices_dryRun"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterNetworkServices_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterNetworkServices -&gt; Maybe Bool)
+-&gt; (ModifyTrafficMirrorFilterNetworkServices
+    -&gt; Maybe Bool -&gt; ModifyTrafficMirrorFilterNetworkServices)
+-&gt; Lens
+     ModifyTrafficMirrorFilterNetworkServices
+     ModifyTrafficMirrorFilterNetworkServices
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681216667"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ModifyTrafficMirrorFilterNetworkServices' :: ModifyTrafficMirrorFilterNetworkServices -&gt; Maybe Bool
+</span><a href="#local-6989586621681216667"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681216667"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681216666"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterNetworkServices
+</span><a href="#local-6989586621681216666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681216665"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681216665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServices
+</span><a href="#local-6989586621681216666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyTrafficMirrorFilterNetworkServices' :: Maybe Bool
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AdryRun%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681216665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The ID of the Traffic Mirror filter.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServices_trafficMirrorFilterId"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterNetworkServices_trafficMirrorFilterId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="modifyTrafficMirrorFilterNetworkServices_trafficMirrorFilterId"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterNetworkServices_trafficMirrorFilterId :: (Text -&gt; f Text)
+-&gt; ModifyTrafficMirrorFilterNetworkServices
+-&gt; f ModifyTrafficMirrorFilterNetworkServices
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServices_trafficMirrorFilterId"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterNetworkServices_trafficMirrorFilterId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterNetworkServices -&gt; Text)
+-&gt; (ModifyTrafficMirrorFilterNetworkServices
+    -&gt; Text -&gt; ModifyTrafficMirrorFilterNetworkServices)
+-&gt; Lens
+     ModifyTrafficMirrorFilterNetworkServices
+     ModifyTrafficMirrorFilterNetworkServices
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681216664"><span class="annot"><span class="annottext">Text
+trafficMirrorFilterId :: Text
+$sel:trafficMirrorFilterId:ModifyTrafficMirrorFilterNetworkServices' :: ModifyTrafficMirrorFilterNetworkServices -&gt; Text
+</span><a href="#local-6989586621681216664"><span class="hs-identifier hs-var hs-var">trafficMirrorFilterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681216664"><span class="hs-identifier hs-var">trafficMirrorFilterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681216663"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterNetworkServices
+</span><a href="#local-6989586621681216663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681216662"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681216662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServices
+</span><a href="#local-6989586621681216663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficMirrorFilterId:ModifyTrafficMirrorFilterNetworkServices' :: Text
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AtrafficMirrorFilterId%3AModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-var">trafficMirrorFilterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681216662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-137"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServicesResponse</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621681216658"><span class="annot"><span class="annottext">request :: ModifyTrafficMirrorFilterNetworkServices
+-&gt; Request ModifyTrafficMirrorFilterNetworkServices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ModifyTrafficMirrorFilterNetworkServices
+-&gt; Request ModifyTrafficMirrorFilterNetworkServices
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621681216654"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ModifyTrafficMirrorFilterNetworkServices
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ModifyTrafficMirrorFilterNetworkServices)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either
+      String (AWSResponse ModifyTrafficMirrorFilterNetworkServices))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ModifyTrafficMirrorFilterNetworkServices
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ModifyTrafficMirrorFilterNetworkServices)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681216651"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681216651"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681216650"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681216650"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681216649"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681216649"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe TrafficMirrorFilter
+-&gt; Int -&gt; ModifyTrafficMirrorFilterNetworkServicesResponse
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="hs-identifier hs-var">ModifyTrafficMirrorFilterNetworkServicesResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TrafficMirrorFilter
+ -&gt; Int -&gt; ModifyTrafficMirrorFilterNetworkServicesResponse)
+-&gt; Either String (Maybe TrafficMirrorFilter)
+-&gt; Either
+     String (Int -&gt; ModifyTrafficMirrorFilterNetworkServicesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681216649"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TrafficMirrorFilter)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;trafficMirrorFilter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; ModifyTrafficMirrorFilterNetworkServicesResponse)
+-&gt; Either String Int
+-&gt; Either String ModifyTrafficMirrorFilterNetworkServicesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681216651"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621681216641"><span id="local-6989586621681216643"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621681216638"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621681216634"><span class="annot"><span class="annottext">toHeaders :: ModifyTrafficMirrorFilterNetworkServices -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ModifyTrafficMirrorFilterNetworkServices -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621681216629"><span class="annot"><span class="annottext">toPath :: ModifyTrafficMirrorFilterNetworkServices -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; ModifyTrafficMirrorFilterNetworkServices -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices</span></a></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621681216625"><span class="annot"><span class="annottext">toQuery :: ModifyTrafficMirrorFilterNetworkServices -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServices%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681216620"><span id="local-6989586621681216621"><span id="local-6989586621681216622"><span id="local-6989586621681216623"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [TrafficMirrorNetworkService]
+Text
+trafficMirrorFilterId :: Text
+dryRun :: Maybe Bool
+removeNetworkServices :: Maybe [TrafficMirrorNetworkService]
+addNetworkServices :: Maybe [TrafficMirrorNetworkService]
+$sel:trafficMirrorFilterId:ModifyTrafficMirrorFilterNetworkServices' :: ModifyTrafficMirrorFilterNetworkServices -&gt; Text
+$sel:dryRun:ModifyTrafficMirrorFilterNetworkServices' :: ModifyTrafficMirrorFilterNetworkServices -&gt; Maybe Bool
+$sel:removeNetworkServices:ModifyTrafficMirrorFilterNetworkServices' :: ModifyTrafficMirrorFilterNetworkServices
+-&gt; Maybe [TrafficMirrorNetworkService]
+$sel:addNetworkServices:ModifyTrafficMirrorFilterNetworkServices' :: ModifyTrafficMirrorFilterNetworkServices
+-&gt; Maybe [TrafficMirrorNetworkService]
+</span><a href="#local-6989586621681216620"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ModifyTrafficMirrorFilterNetworkServices&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-177"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-178"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [TrafficMirrorNetworkService] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AddNetworkService&quot;</span></span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">([TrafficMirrorNetworkService] -&gt; QueryString)
+-&gt; Maybe [TrafficMirrorNetworkService] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TrafficMirrorNetworkService]
+</span><a href="#local-6989586621681216623"><span class="hs-identifier hs-var">addNetworkServices</span></a></span><span>
+</span><span id="line-184"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [TrafficMirrorNetworkService] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RemoveNetworkService&quot;</span></span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">([TrafficMirrorNetworkService] -&gt; QueryString)
+-&gt; Maybe [TrafficMirrorNetworkService] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TrafficMirrorNetworkService]
+</span><a href="#local-6989586621681216622"><span class="hs-identifier hs-var">removeNetworkServices</span></a></span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681216621"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TrafficMirrorFilterId&quot;</span></span><span>
+</span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681216620"><span class="hs-identifier hs-var">trafficMirrorFilterId</span></a></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | /See:/ 'newModifyTrafficMirrorFilterNetworkServicesResponse' smart constructor.</span><span>
+</span><span id="line-195"></span><span id="local-6989586621681216616"><span id="local-6989586621681216617"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyTrafficMirrorFilterNetworkServicesResponse"><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse"><span class="hs-identifier hs-var">ModifyTrafficMirrorFilterNetworkServicesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="hs-identifier hs-var">ModifyTrafficMirrorFilterNetworkServicesResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Traffic Mirror filter that the network service is associated with.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AtrafficMirrorFilter%3AModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServicesResponse
+-&gt; Maybe TrafficMirrorFilter
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AtrafficMirrorFilter%3AModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="hs-identifier hs-var hs-var">trafficMirrorFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TrafficMirrorFilter.html#TrafficMirrorFilter"><span class="hs-identifier hs-type">TrafficMirrorFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; Int
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AhttpStatus%3AModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681216610"><span id="local-6989586621681216612"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServicesResponse
+-&gt; ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; Bool
+(ModifyTrafficMirrorFilterNetworkServicesResponse
+ -&gt; ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; Bool)
+-&gt; (ModifyTrafficMirrorFilterNetworkServicesResponse
+    -&gt; ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; Bool)
+-&gt; Eq ModifyTrafficMirrorFilterNetworkServicesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyTrafficMirrorFilterNetworkServicesResponse
+-&gt; ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; Bool
+$c/= :: ModifyTrafficMirrorFilterNetworkServicesResponse
+-&gt; ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; Bool
+== :: ModifyTrafficMirrorFilterNetworkServicesResponse
+-&gt; ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; Bool
+$c== :: ModifyTrafficMirrorFilterNetworkServicesResponse
+-&gt; ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681216602"><span id="local-6989586621681216604"><span id="local-6989586621681216606"><span id="local-6989586621681216608"><span class="annot"><span class="annottext">ReadPrec [ModifyTrafficMirrorFilterNetworkServicesResponse]
+ReadPrec ModifyTrafficMirrorFilterNetworkServicesResponse
+Int -&gt; ReadS ModifyTrafficMirrorFilterNetworkServicesResponse
+ReadS [ModifyTrafficMirrorFilterNetworkServicesResponse]
+(Int -&gt; ReadS ModifyTrafficMirrorFilterNetworkServicesResponse)
+-&gt; ReadS [ModifyTrafficMirrorFilterNetworkServicesResponse]
+-&gt; ReadPrec ModifyTrafficMirrorFilterNetworkServicesResponse
+-&gt; ReadPrec [ModifyTrafficMirrorFilterNetworkServicesResponse]
+-&gt; Read ModifyTrafficMirrorFilterNetworkServicesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyTrafficMirrorFilterNetworkServicesResponse]
+$creadListPrec :: ReadPrec [ModifyTrafficMirrorFilterNetworkServicesResponse]
+readPrec :: ReadPrec ModifyTrafficMirrorFilterNetworkServicesResponse
+$creadPrec :: ReadPrec ModifyTrafficMirrorFilterNetworkServicesResponse
+readList :: ReadS [ModifyTrafficMirrorFilterNetworkServicesResponse]
+$creadList :: ReadS [ModifyTrafficMirrorFilterNetworkServicesResponse]
+readsPrec :: Int -&gt; ReadS ModifyTrafficMirrorFilterNetworkServicesResponse
+$creadsPrec :: Int -&gt; ReadS ModifyTrafficMirrorFilterNetworkServicesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681216596"><span id="local-6989586621681216598"><span id="local-6989586621681216600"><span class="annot"><span class="annottext">Int -&gt; ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; ShowS
+[ModifyTrafficMirrorFilterNetworkServicesResponse] -&gt; ShowS
+ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; String
+(Int -&gt; ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; ShowS)
+-&gt; (ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; String)
+-&gt; ([ModifyTrafficMirrorFilterNetworkServicesResponse] -&gt; ShowS)
+-&gt; Show ModifyTrafficMirrorFilterNetworkServicesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyTrafficMirrorFilterNetworkServicesResponse] -&gt; ShowS
+$cshowList :: [ModifyTrafficMirrorFilterNetworkServicesResponse] -&gt; ShowS
+show :: ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; String
+$cshow :: ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; String
+showsPrec :: Int -&gt; ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyTrafficMirrorFilterNetworkServicesResponse
+ -&gt; Rep ModifyTrafficMirrorFilterNetworkServicesResponse x)
+-&gt; (forall x.
+    Rep ModifyTrafficMirrorFilterNetworkServicesResponse x
+    -&gt; ModifyTrafficMirrorFilterNetworkServicesResponse)
+-&gt; Generic ModifyTrafficMirrorFilterNetworkServicesResponse
+forall x.
+Rep ModifyTrafficMirrorFilterNetworkServicesResponse x
+-&gt; ModifyTrafficMirrorFilterNetworkServicesResponse
+forall x.
+ModifyTrafficMirrorFilterNetworkServicesResponse
+-&gt; Rep ModifyTrafficMirrorFilterNetworkServicesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModifyTrafficMirrorFilterNetworkServicesResponse x
+-&gt; ModifyTrafficMirrorFilterNetworkServicesResponse
+$cfrom :: forall x.
+ModifyTrafficMirrorFilterNetworkServicesResponse
+-&gt; Rep ModifyTrafficMirrorFilterNetworkServicesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Create a value of 'ModifyTrafficMirrorFilterNetworkServicesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'trafficMirrorFilter', 'modifyTrafficMirrorFilterNetworkServicesResponse_trafficMirrorFilter' - The Traffic Mirror filter that the network service is associated with.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'httpStatus', 'modifyTrafficMirrorFilterNetworkServicesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#newModifyTrafficMirrorFilterNetworkServicesResponse"><span class="hs-identifier hs-type">newModifyTrafficMirrorFilterNetworkServicesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServicesResponse</span></a></span><span>
+</span><span id="line-218"></span><span id="newModifyTrafficMirrorFilterNetworkServicesResponse"><span class="annot"><span class="annottext">newModifyTrafficMirrorFilterNetworkServicesResponse :: Int -&gt; ModifyTrafficMirrorFilterNetworkServicesResponse
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#newModifyTrafficMirrorFilterNetworkServicesResponse"><span class="hs-identifier hs-var hs-var">newModifyTrafficMirrorFilterNetworkServicesResponse</span></a></span></span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621681216593"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681216593"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServicesResponse' :: Maybe TrafficMirrorFilter
+-&gt; Int -&gt; ModifyTrafficMirrorFilterNetworkServicesResponse
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServicesResponse'</span></a></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trafficMirrorFilter:ModifyTrafficMirrorFilterNetworkServicesResponse' :: Maybe TrafficMirrorFilter
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AtrafficMirrorFilter%3AModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="hs-identifier hs-var">trafficMirrorFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Maybe TrafficMirrorFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyTrafficMirrorFilterNetworkServicesResponse' :: Int
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AhttpStatus%3AModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681216593"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The Traffic Mirror filter that the network service is associated with.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServicesResponse_trafficMirrorFilter"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterNetworkServicesResponse_trafficMirrorFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TrafficMirrorFilter.html#TrafficMirrorFilter"><span class="hs-identifier hs-type">TrafficMirrorFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="modifyTrafficMirrorFilterNetworkServicesResponse_trafficMirrorFilter"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterNetworkServicesResponse_trafficMirrorFilter :: (Maybe TrafficMirrorFilter -&gt; f (Maybe TrafficMirrorFilter))
+-&gt; ModifyTrafficMirrorFilterNetworkServicesResponse
+-&gt; f ModifyTrafficMirrorFilterNetworkServicesResponse
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServicesResponse_trafficMirrorFilter"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterNetworkServicesResponse_trafficMirrorFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterNetworkServicesResponse
+ -&gt; Maybe TrafficMirrorFilter)
+-&gt; (ModifyTrafficMirrorFilterNetworkServicesResponse
+    -&gt; Maybe TrafficMirrorFilter
+    -&gt; ModifyTrafficMirrorFilterNetworkServicesResponse)
+-&gt; Lens
+     ModifyTrafficMirrorFilterNetworkServicesResponse
+     ModifyTrafficMirrorFilterNetworkServicesResponse
+     (Maybe TrafficMirrorFilter)
+     (Maybe TrafficMirrorFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681216592"><span class="annot"><span class="annottext">Maybe TrafficMirrorFilter
+trafficMirrorFilter :: Maybe TrafficMirrorFilter
+$sel:trafficMirrorFilter:ModifyTrafficMirrorFilterNetworkServicesResponse' :: ModifyTrafficMirrorFilterNetworkServicesResponse
+-&gt; Maybe TrafficMirrorFilter
+</span><a href="#local-6989586621681216592"><span class="hs-identifier hs-var hs-var">trafficMirrorFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorFilter
+</span><a href="#local-6989586621681216592"><span class="hs-identifier hs-var">trafficMirrorFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681216591"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterNetworkServicesResponse
+</span><a href="#local-6989586621681216591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681216590"><span class="annot"><span class="annottext">Maybe TrafficMirrorFilter
+</span><a href="#local-6989586621681216590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServicesResponse
+</span><a href="#local-6989586621681216591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficMirrorFilter:ModifyTrafficMirrorFilterNetworkServicesResponse' :: Maybe TrafficMirrorFilter
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AtrafficMirrorFilter%3AModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="hs-identifier hs-var">trafficMirrorFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorFilter
+</span><a href="#local-6989586621681216590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServicesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServicesResponse_httpStatus"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterNetworkServicesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServicesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-232"></span><span id="modifyTrafficMirrorFilterNetworkServicesResponse_httpStatus"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterNetworkServicesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ModifyTrafficMirrorFilterNetworkServicesResponse
+-&gt; f ModifyTrafficMirrorFilterNetworkServicesResponse
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#modifyTrafficMirrorFilterNetworkServicesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterNetworkServicesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; Int)
+-&gt; (ModifyTrafficMirrorFilterNetworkServicesResponse
+    -&gt; Int -&gt; ModifyTrafficMirrorFilterNetworkServicesResponse)
+-&gt; Lens
+     ModifyTrafficMirrorFilterNetworkServicesResponse
+     ModifyTrafficMirrorFilterNetworkServicesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681216589"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ModifyTrafficMirrorFilterNetworkServicesResponse' :: ModifyTrafficMirrorFilterNetworkServicesResponse -&gt; Int
+</span><a href="#local-6989586621681216589"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681216589"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681216588"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterNetworkServicesResponse
+</span><a href="#local-6989586621681216588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681216587"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681216587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterNetworkServicesResponse
+</span><a href="#local-6989586621681216588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyTrafficMirrorFilterNetworkServicesResponse' :: Int
+</span><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#%24sel%3AhttpStatus%3AModifyTrafficMirrorFilterNetworkServicesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681216587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServicesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621681216585"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyTrafficMirrorFilterNetworkServices.html#ModifyTrafficMirrorFilterNetworkServicesResponse"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterNetworkServicesResponse</span></a></span></span><span>
+</span><span id="line-237"></span></pre></body></html>

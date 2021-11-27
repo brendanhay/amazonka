@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudHSMV2.ModifyCluster</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modifies AWS CloudHSM cluster.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudHSMV2.ModifyCluster</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier">ModifyCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#newModifyCluster"><span class="hs-identifier">newModifyCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#modifyCluster_backupRetentionPolicy"><span class="hs-identifier">modifyCluster_backupRetentionPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#modifyCluster_clusterId"><span class="hs-identifier">modifyCluster_clusterId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier">ModifyClusterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#newModifyClusterResponse"><span class="hs-identifier">newModifyClusterResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#modifyClusterResponse_cluster"><span class="hs-identifier">modifyClusterResponse_cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#modifyClusterResponse_httpStatus"><span class="hs-identifier">modifyClusterResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.html"><span class="hs-identifier">Amazonka.CloudHSMV2.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newModifyCluster' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679175331"><span id="local-6989586621679175332"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyCluster"><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-var">ModifyCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyCluster%27"><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-var">ModifyCluster'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A policy that defines how the service retains backups.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AbackupRetentionPolicy%3AModifyCluster%27"><span class="annot"><span class="annottext">ModifyCluster -&gt; BackupRetentionPolicy
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#%24sel%3AbackupRetentionPolicy%3AModifyCluster%27"><span class="hs-identifier hs-var hs-var">backupRetentionPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.BackupRetentionPolicy.html#BackupRetentionPolicy"><span class="hs-identifier hs-type">BackupRetentionPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The identifier (ID) of the cluster that you want to modify. To find the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- cluster ID, use DescribeClusters.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AclusterId%3AModifyCluster%27"><span class="annot"><span class="annottext">ModifyCluster -&gt; Text
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#%24sel%3AclusterId%3AModifyCluster%27"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175324"><span id="local-6989586621679175326"><span class="annot"><span class="annottext">ModifyCluster -&gt; ModifyCluster -&gt; Bool
+(ModifyCluster -&gt; ModifyCluster -&gt; Bool)
+-&gt; (ModifyCluster -&gt; ModifyCluster -&gt; Bool) -&gt; Eq ModifyCluster
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyCluster -&gt; ModifyCluster -&gt; Bool
+$c/= :: ModifyCluster -&gt; ModifyCluster -&gt; Bool
+== :: ModifyCluster -&gt; ModifyCluster -&gt; Bool
+$c== :: ModifyCluster -&gt; ModifyCluster -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175315"><span id="local-6989586621679175317"><span id="local-6989586621679175319"><span id="local-6989586621679175321"><span class="annot"><span class="annottext">ReadPrec [ModifyCluster]
+ReadPrec ModifyCluster
+Int -&gt; ReadS ModifyCluster
+ReadS [ModifyCluster]
+(Int -&gt; ReadS ModifyCluster)
+-&gt; ReadS [ModifyCluster]
+-&gt; ReadPrec ModifyCluster
+-&gt; ReadPrec [ModifyCluster]
+-&gt; Read ModifyCluster
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyCluster]
+$creadListPrec :: ReadPrec [ModifyCluster]
+readPrec :: ReadPrec ModifyCluster
+$creadPrec :: ReadPrec ModifyCluster
+readList :: ReadS [ModifyCluster]
+$creadList :: ReadS [ModifyCluster]
+readsPrec :: Int -&gt; ReadS ModifyCluster
+$creadsPrec :: Int -&gt; ReadS ModifyCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175308"><span id="local-6989586621679175310"><span id="local-6989586621679175312"><span class="annot"><span class="annottext">Int -&gt; ModifyCluster -&gt; ShowS
+[ModifyCluster] -&gt; ShowS
+ModifyCluster -&gt; String
+(Int -&gt; ModifyCluster -&gt; ShowS)
+-&gt; (ModifyCluster -&gt; String)
+-&gt; ([ModifyCluster] -&gt; ShowS)
+-&gt; Show ModifyCluster
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyCluster] -&gt; ShowS
+$cshowList :: [ModifyCluster] -&gt; ShowS
+show :: ModifyCluster -&gt; String
+$cshow :: ModifyCluster -&gt; String
+showsPrec :: Int -&gt; ModifyCluster -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ModifyCluster -&gt; Rep ModifyCluster x)
+-&gt; (forall x. Rep ModifyCluster x -&gt; ModifyCluster)
+-&gt; Generic ModifyCluster
+forall x. Rep ModifyCluster x -&gt; ModifyCluster
+forall x. ModifyCluster -&gt; Rep ModifyCluster x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModifyCluster x -&gt; ModifyCluster
+$cfrom :: forall x. ModifyCluster -&gt; Rep ModifyCluster x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'ModifyCluster' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'backupRetentionPolicy', 'modifyCluster_backupRetentionPolicy' - A policy that defines how the service retains backups.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'clusterId', 'modifyCluster_clusterId' - The identifier (ID) of the cluster that you want to modify. To find the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- cluster ID, use DescribeClusters.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#newModifyCluster"><span class="hs-identifier hs-type">newModifyCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'backupRetentionPolicy'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.BackupRetentionPolicy.html#BackupRetentionPolicy"><span class="hs-identifier hs-type">BackupRetentionPolicy</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'clusterId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span>
+</span><span id="line-78"></span><span id="newModifyCluster"><span class="annot"><span class="annottext">newModifyCluster :: BackupRetentionPolicy -&gt; Text -&gt; ModifyCluster
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#newModifyCluster"><span class="hs-identifier hs-var hs-var">newModifyCluster</span></a></span></span><span> </span><span id="local-6989586621679175303"><span class="annot"><span class="annottext">BackupRetentionPolicy
+</span><a href="#local-6989586621679175303"><span class="hs-identifier hs-var">pBackupRetentionPolicy_</span></a></span></span><span> </span><span id="local-6989586621679175302"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175302"><span class="hs-identifier hs-var">pClusterId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">ModifyCluster' :: BackupRetentionPolicy -&gt; Text -&gt; ModifyCluster
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backupRetentionPolicy:ModifyCluster' :: BackupRetentionPolicy
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#%24sel%3AbackupRetentionPolicy%3AModifyCluster%27"><span class="hs-identifier hs-var">backupRetentionPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">BackupRetentionPolicy
+</span><a href="#local-6989586621679175303"><span class="hs-identifier hs-var">pBackupRetentionPolicy_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterId:ModifyCluster' :: Text
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#%24sel%3AclusterId%3AModifyCluster%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175302"><span class="hs-identifier hs-var">pClusterId_</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | A policy that defines how the service retains backups.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#modifyCluster_backupRetentionPolicy"><span class="hs-identifier hs-type">modifyCluster_backupRetentionPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.BackupRetentionPolicy.html#BackupRetentionPolicy"><span class="hs-identifier hs-type">BackupRetentionPolicy</span></a></span><span>
+</span><span id="line-87"></span><span id="modifyCluster_backupRetentionPolicy"><span class="annot"><span class="annottext">modifyCluster_backupRetentionPolicy :: (BackupRetentionPolicy -&gt; f BackupRetentionPolicy)
+-&gt; ModifyCluster -&gt; f ModifyCluster
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#modifyCluster_backupRetentionPolicy"><span class="hs-identifier hs-var hs-var">modifyCluster_backupRetentionPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyCluster -&gt; BackupRetentionPolicy)
+-&gt; (ModifyCluster -&gt; BackupRetentionPolicy -&gt; ModifyCluster)
+-&gt; Lens
+     ModifyCluster
+     ModifyCluster
+     BackupRetentionPolicy
+     BackupRetentionPolicy
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175299"><span class="annot"><span class="annottext">BackupRetentionPolicy
+backupRetentionPolicy :: BackupRetentionPolicy
+$sel:backupRetentionPolicy:ModifyCluster' :: ModifyCluster -&gt; BackupRetentionPolicy
+</span><a href="#local-6989586621679175299"><span class="hs-identifier hs-var hs-var">backupRetentionPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackupRetentionPolicy
+</span><a href="#local-6989586621679175299"><span class="hs-identifier hs-var">backupRetentionPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175298"><span class="annot"><span class="annottext">s :: ModifyCluster
+</span><a href="#local-6989586621679175298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175297"><span class="annot"><span class="annottext">BackupRetentionPolicy
+</span><a href="#local-6989586621679175297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCluster
+</span><a href="#local-6989586621679175298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupRetentionPolicy:ModifyCluster' :: BackupRetentionPolicy
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#%24sel%3AbackupRetentionPolicy%3AModifyCluster%27"><span class="hs-identifier hs-var">backupRetentionPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BackupRetentionPolicy
+</span><a href="#local-6989586621679175297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The identifier (ID) of the cluster that you want to modify. To find the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- cluster ID, use DescribeClusters.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#modifyCluster_clusterId"><span class="hs-identifier hs-type">modifyCluster_clusterId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="modifyCluster_clusterId"><span class="annot"><span class="annottext">modifyCluster_clusterId :: (Text -&gt; f Text) -&gt; ModifyCluster -&gt; f ModifyCluster
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#modifyCluster_clusterId"><span class="hs-identifier hs-var hs-var">modifyCluster_clusterId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyCluster -&gt; Text)
+-&gt; (ModifyCluster -&gt; Text -&gt; ModifyCluster)
+-&gt; Lens ModifyCluster ModifyCluster Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175296"><span class="annot"><span class="annottext">Text
+clusterId :: Text
+$sel:clusterId:ModifyCluster' :: ModifyCluster -&gt; Text
+</span><a href="#local-6989586621679175296"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175296"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175295"><span class="annot"><span class="annottext">s :: ModifyCluster
+</span><a href="#local-6989586621679175295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175294"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCluster
+</span><a href="#local-6989586621679175295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:ModifyCluster' :: Text
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#%24sel%3AclusterId%3AModifyCluster%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679175290"><span class="annot"><span class="annottext">request :: ModifyCluster -&gt; Request ModifyCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyCluster -&gt; Request ModifyCluster
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudHSMV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679175286"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ModifyCluster
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ModifyCluster)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ModifyCluster))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ModifyCluster
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ModifyCluster)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175283"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175283"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175282"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679175282"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175281"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175281"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; ModifyClusterResponse
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-var">ModifyClusterResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; ModifyClusterResponse)
+-&gt; Either String (Maybe Cluster)
+-&gt; Either String (Int -&gt; ModifyClusterResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175281"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Cluster&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ModifyClusterResponse)
+-&gt; Either String Int -&gt; Either String ModifyClusterResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175283"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175273"><span id="local-6989586621679175275"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175270"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679175266"><span class="annot"><span class="annottext">toHeaders :: ModifyCluster -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyCluster -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;BaldrApiService.ModifyCluster&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-122"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175256"><span id="local-6989586621679175258"><span id="local-6989586621679175260"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679175254"><span class="annot"><span class="annottext">toJSON :: ModifyCluster -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175251"><span id="local-6989586621679175252"><span class="annot"><span class="annottext">Text
+BackupRetentionPolicy
+clusterId :: Text
+backupRetentionPolicy :: BackupRetentionPolicy
+$sel:clusterId:ModifyCluster' :: ModifyCluster -&gt; Text
+$sel:backupRetentionPolicy:ModifyCluster' :: ModifyCluster -&gt; BackupRetentionPolicy
+</span><a href="#local-6989586621679175251"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-131"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupRetentionPolicy&quot;</span></span><span>
+</span><span id="line-132"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; BackupRetentionPolicy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">BackupRetentionPolicy
+</span><a href="#local-6989586621679175252"><span class="hs-identifier hs-var">backupRetentionPolicy</span></a></span><span>
+</span><span id="line-133"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175251"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679175245"><span class="annot"><span class="annottext">toPath :: ModifyCluster -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyCluster -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679175241"><span class="annot"><span class="annottext">toQuery :: ModifyCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ModifyCluster -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newModifyClusterResponse' smart constructor.</span><span>
+</span><span id="line-145"></span><span id="local-6989586621679175238"><span id="local-6989586621679175239"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyClusterResponse"><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-var">ModifyClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyClusterResponse%27"><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-var">ModifyClusterResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Acluster%3AModifyClusterResponse%27"><span class="annot"><span class="annottext">ModifyClusterResponse -&gt; Maybe Cluster
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#%24sel%3Acluster%3AModifyClusterResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyClusterResponse%27"><span class="annot"><span class="annottext">ModifyClusterResponse -&gt; Int
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#%24sel%3AhttpStatus%3AModifyClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175232"><span id="local-6989586621679175234"><span class="annot"><span class="annottext">ModifyClusterResponse -&gt; ModifyClusterResponse -&gt; Bool
+(ModifyClusterResponse -&gt; ModifyClusterResponse -&gt; Bool)
+-&gt; (ModifyClusterResponse -&gt; ModifyClusterResponse -&gt; Bool)
+-&gt; Eq ModifyClusterResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyClusterResponse -&gt; ModifyClusterResponse -&gt; Bool
+$c/= :: ModifyClusterResponse -&gt; ModifyClusterResponse -&gt; Bool
+== :: ModifyClusterResponse -&gt; ModifyClusterResponse -&gt; Bool
+$c== :: ModifyClusterResponse -&gt; ModifyClusterResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175224"><span id="local-6989586621679175226"><span id="local-6989586621679175228"><span id="local-6989586621679175230"><span class="annot"><span class="annottext">ReadPrec [ModifyClusterResponse]
+ReadPrec ModifyClusterResponse
+Int -&gt; ReadS ModifyClusterResponse
+ReadS [ModifyClusterResponse]
+(Int -&gt; ReadS ModifyClusterResponse)
+-&gt; ReadS [ModifyClusterResponse]
+-&gt; ReadPrec ModifyClusterResponse
+-&gt; ReadPrec [ModifyClusterResponse]
+-&gt; Read ModifyClusterResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyClusterResponse]
+$creadListPrec :: ReadPrec [ModifyClusterResponse]
+readPrec :: ReadPrec ModifyClusterResponse
+$creadPrec :: ReadPrec ModifyClusterResponse
+readList :: ReadS [ModifyClusterResponse]
+$creadList :: ReadS [ModifyClusterResponse]
+readsPrec :: Int -&gt; ReadS ModifyClusterResponse
+$creadsPrec :: Int -&gt; ReadS ModifyClusterResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175218"><span id="local-6989586621679175220"><span id="local-6989586621679175222"><span class="annot"><span class="annottext">Int -&gt; ModifyClusterResponse -&gt; ShowS
+[ModifyClusterResponse] -&gt; ShowS
+ModifyClusterResponse -&gt; String
+(Int -&gt; ModifyClusterResponse -&gt; ShowS)
+-&gt; (ModifyClusterResponse -&gt; String)
+-&gt; ([ModifyClusterResponse] -&gt; ShowS)
+-&gt; Show ModifyClusterResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyClusterResponse] -&gt; ShowS
+$cshowList :: [ModifyClusterResponse] -&gt; ShowS
+show :: ModifyClusterResponse -&gt; String
+$cshow :: ModifyClusterResponse -&gt; String
+showsPrec :: Int -&gt; ModifyClusterResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ModifyClusterResponse -&gt; Rep ModifyClusterResponse x)
+-&gt; (forall x. Rep ModifyClusterResponse x -&gt; ModifyClusterResponse)
+-&gt; Generic ModifyClusterResponse
+forall x. Rep ModifyClusterResponse x -&gt; ModifyClusterResponse
+forall x. ModifyClusterResponse -&gt; Rep ModifyClusterResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModifyClusterResponse x -&gt; ModifyClusterResponse
+$cfrom :: forall x. ModifyClusterResponse -&gt; Rep ModifyClusterResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Create a value of 'ModifyClusterResponse' with all optional fields omitted.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'cluster', 'modifyClusterResponse_cluster' - Undocumented member.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'httpStatus', 'modifyClusterResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#newModifyClusterResponse"><span class="hs-identifier hs-type">newModifyClusterResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span><span>
+</span><span id="line-167"></span><span id="newModifyClusterResponse"><span class="annot"><span class="annottext">newModifyClusterResponse :: Int -&gt; ModifyClusterResponse
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#newModifyClusterResponse"><span class="hs-identifier hs-var hs-var">newModifyClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679175215"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175215"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">ModifyClusterResponse' :: Maybe Cluster -&gt; Int -&gt; ModifyClusterResponse
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-type">ModifyClusterResponse'</span></a></span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:ModifyClusterResponse' :: Maybe Cluster
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#%24sel%3Acluster%3AModifyClusterResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyClusterResponse' :: Int
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#%24sel%3AhttpStatus%3AModifyClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175215"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#modifyClusterResponse_cluster"><span class="hs-identifier hs-type">modifyClusterResponse_cluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="modifyClusterResponse_cluster"><span class="annot"><span class="annottext">modifyClusterResponse_cluster :: (Maybe Cluster -&gt; f (Maybe Cluster))
+-&gt; ModifyClusterResponse -&gt; f ModifyClusterResponse
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#modifyClusterResponse_cluster"><span class="hs-identifier hs-var hs-var">modifyClusterResponse_cluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyClusterResponse -&gt; Maybe Cluster)
+-&gt; (ModifyClusterResponse
+    -&gt; Maybe Cluster -&gt; ModifyClusterResponse)
+-&gt; Lens
+     ModifyClusterResponse
+     ModifyClusterResponse
+     (Maybe Cluster)
+     (Maybe Cluster)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-type">ModifyClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175214"><span class="annot"><span class="annottext">Maybe Cluster
+cluster :: Maybe Cluster
+$sel:cluster:ModifyClusterResponse' :: ModifyClusterResponse -&gt; Maybe Cluster
+</span><a href="#local-6989586621679175214"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679175214"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175213"><span class="annot"><span class="annottext">s :: ModifyClusterResponse
+</span><a href="#local-6989586621679175213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-type">ModifyClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175212"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679175212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyClusterResponse
+</span><a href="#local-6989586621679175213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:ModifyClusterResponse' :: Maybe Cluster
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#%24sel%3Acluster%3AModifyClusterResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679175212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#modifyClusterResponse_httpStatus"><span class="hs-identifier hs-type">modifyClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span id="modifyClusterResponse_httpStatus"><span class="annot"><span class="annottext">modifyClusterResponse_httpStatus :: (Int -&gt; f Int) -&gt; ModifyClusterResponse -&gt; f ModifyClusterResponse
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#modifyClusterResponse_httpStatus"><span class="hs-identifier hs-var hs-var">modifyClusterResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyClusterResponse -&gt; Int)
+-&gt; (ModifyClusterResponse -&gt; Int -&gt; ModifyClusterResponse)
+-&gt; Lens ModifyClusterResponse ModifyClusterResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-type">ModifyClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175211"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ModifyClusterResponse' :: ModifyClusterResponse -&gt; Int
+</span><a href="#local-6989586621679175211"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175211"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175210"><span class="annot"><span class="annottext">s :: ModifyClusterResponse
+</span><a href="#local-6989586621679175210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-type">ModifyClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175209"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyClusterResponse
+</span><a href="#local-6989586621679175210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyClusterResponse' :: Int
+</span><a href="Amazonka.CloudHSMV2.ModifyCluster.html#%24sel%3AhttpStatus%3AModifyClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175207"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span></span><span>
+</span><span id="line-182"></span></pre></body></html>

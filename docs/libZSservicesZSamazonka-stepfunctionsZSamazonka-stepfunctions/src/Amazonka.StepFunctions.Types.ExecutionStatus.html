@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.StepFunctions.Types.ExecutionStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StepFunctions.Types.ExecutionStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier">ExecutionStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus_ABORTED"><span class="hs-identifier">ExecutionStatus_ABORTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus_FAILED"><span class="hs-identifier">ExecutionStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus_RUNNING"><span class="hs-identifier">ExecutionStatus_RUNNING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus_SUCCEEDED"><span class="hs-identifier">ExecutionStatus_SUCCEEDED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus_TIMED_OUT"><span class="hs-identifier">ExecutionStatus_TIMED_OUT</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679223554"><span id="local-6989586621679223555"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExecutionStatus"><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-var">ExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionStatus%27"><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus%27"><span class="hs-identifier hs-var">ExecutionStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExecutionStatus"><span class="annot"><span class="annottext">ExecutionStatus -&gt; Text
+</span><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#fromExecutionStatus"><span class="hs-identifier hs-var hs-var">fromExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679223546"><span id="local-6989586621679223548"><span id="local-6989586621679223550"><span class="annot"><span class="annottext">Int -&gt; ExecutionStatus -&gt; ShowS
+[ExecutionStatus] -&gt; ShowS
+ExecutionStatus -&gt; String
+(Int -&gt; ExecutionStatus -&gt; ShowS)
+-&gt; (ExecutionStatus -&gt; String)
+-&gt; ([ExecutionStatus] -&gt; ShowS)
+-&gt; Show ExecutionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExecutionStatus] -&gt; ShowS
+$cshowList :: [ExecutionStatus] -&gt; ShowS
+show :: ExecutionStatus -&gt; String
+$cshow :: ExecutionStatus -&gt; String
+showsPrec :: Int -&gt; ExecutionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExecutionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679223537"><span id="local-6989586621679223539"><span id="local-6989586621679223541"><span id="local-6989586621679223543"><span class="annot"><span class="annottext">ReadPrec [ExecutionStatus]
+ReadPrec ExecutionStatus
+Int -&gt; ReadS ExecutionStatus
+ReadS [ExecutionStatus]
+(Int -&gt; ReadS ExecutionStatus)
+-&gt; ReadS [ExecutionStatus]
+-&gt; ReadPrec ExecutionStatus
+-&gt; ReadPrec [ExecutionStatus]
+-&gt; Read ExecutionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExecutionStatus]
+$creadListPrec :: ReadPrec [ExecutionStatus]
+readPrec :: ReadPrec ExecutionStatus
+$creadPrec :: ReadPrec ExecutionStatus
+readList :: ReadS [ExecutionStatus]
+$creadList :: ReadS [ExecutionStatus]
+readsPrec :: Int -&gt; ReadS ExecutionStatus
+$creadsPrec :: Int -&gt; ReadS ExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679223532"><span id="local-6989586621679223534"><span class="annot"><span class="annottext">ExecutionStatus -&gt; ExecutionStatus -&gt; Bool
+(ExecutionStatus -&gt; ExecutionStatus -&gt; Bool)
+-&gt; (ExecutionStatus -&gt; ExecutionStatus -&gt; Bool)
+-&gt; Eq ExecutionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExecutionStatus -&gt; ExecutionStatus -&gt; Bool
+$c/= :: ExecutionStatus -&gt; ExecutionStatus -&gt; Bool
+== :: ExecutionStatus -&gt; ExecutionStatus -&gt; Bool
+$c== :: ExecutionStatus -&gt; ExecutionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679223516"><span id="local-6989586621679223518"><span id="local-6989586621679223520"><span id="local-6989586621679223522"><span id="local-6989586621679223524"><span id="local-6989586621679223526"><span id="local-6989586621679223528"><span class="annot"><span class="annottext">Eq ExecutionStatus
+Eq ExecutionStatus
+-&gt; (ExecutionStatus -&gt; ExecutionStatus -&gt; Ordering)
+-&gt; (ExecutionStatus -&gt; ExecutionStatus -&gt; Bool)
+-&gt; (ExecutionStatus -&gt; ExecutionStatus -&gt; Bool)
+-&gt; (ExecutionStatus -&gt; ExecutionStatus -&gt; Bool)
+-&gt; (ExecutionStatus -&gt; ExecutionStatus -&gt; Bool)
+-&gt; (ExecutionStatus -&gt; ExecutionStatus -&gt; ExecutionStatus)
+-&gt; (ExecutionStatus -&gt; ExecutionStatus -&gt; ExecutionStatus)
+-&gt; Ord ExecutionStatus
+ExecutionStatus -&gt; ExecutionStatus -&gt; Bool
+ExecutionStatus -&gt; ExecutionStatus -&gt; Ordering
+ExecutionStatus -&gt; ExecutionStatus -&gt; ExecutionStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ExecutionStatus -&gt; ExecutionStatus -&gt; ExecutionStatus
+$cmin :: ExecutionStatus -&gt; ExecutionStatus -&gt; ExecutionStatus
+max :: ExecutionStatus -&gt; ExecutionStatus -&gt; ExecutionStatus
+$cmax :: ExecutionStatus -&gt; ExecutionStatus -&gt; ExecutionStatus
+&gt;= :: ExecutionStatus -&gt; ExecutionStatus -&gt; Bool
+$c&gt;= :: ExecutionStatus -&gt; ExecutionStatus -&gt; Bool
+&gt; :: ExecutionStatus -&gt; ExecutionStatus -&gt; Bool
+$c&gt; :: ExecutionStatus -&gt; ExecutionStatus -&gt; Bool
+&lt;= :: ExecutionStatus -&gt; ExecutionStatus -&gt; Bool
+$c&lt;= :: ExecutionStatus -&gt; ExecutionStatus -&gt; Bool
+&lt; :: ExecutionStatus -&gt; ExecutionStatus -&gt; Bool
+$c&lt; :: ExecutionStatus -&gt; ExecutionStatus -&gt; Bool
+compare :: ExecutionStatus -&gt; ExecutionStatus -&gt; Ordering
+$ccompare :: ExecutionStatus -&gt; ExecutionStatus -&gt; Ordering
+$cp1Ord :: Eq ExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ExecutionStatus -&gt; Rep ExecutionStatus x)
+-&gt; (forall x. Rep ExecutionStatus x -&gt; ExecutionStatus)
+-&gt; Generic ExecutionStatus
+forall x. Rep ExecutionStatus x -&gt; ExecutionStatus
+forall x. ExecutionStatus -&gt; Rep ExecutionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExecutionStatus x -&gt; ExecutionStatus
+$cfrom :: forall x. ExecutionStatus -&gt; Rep ExecutionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679223508"><span id="local-6989586621679223510"><span class="annot"><span class="annottext">Int -&gt; ExecutionStatus -&gt; Int
+ExecutionStatus -&gt; Int
+(Int -&gt; ExecutionStatus -&gt; Int)
+-&gt; (ExecutionStatus -&gt; Int) -&gt; Hashable ExecutionStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ExecutionStatus -&gt; Int
+$chash :: ExecutionStatus -&gt; Int
+hashWithSalt :: Int -&gt; ExecutionStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ExecutionStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679223505"><span class="annot"><span class="annottext">ExecutionStatus -&gt; ()
+(ExecutionStatus -&gt; ()) -&gt; NFData ExecutionStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ExecutionStatus -&gt; ()
+$crnf :: ExecutionStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679223502"><span class="annot"><span class="annottext">Text -&gt; Either String ExecutionStatus
+(Text -&gt; Either String ExecutionStatus) -&gt; FromText ExecutionStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ExecutionStatus
+$cfromText :: Text -&gt; Either String ExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679223499"><span class="annot"><span class="annottext">ExecutionStatus -&gt; Text
+(ExecutionStatus -&gt; Text) -&gt; ToText ExecutionStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ExecutionStatus -&gt; Text
+$ctoText :: ExecutionStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679223496"><span class="annot"><span class="annottext">ExecutionStatus -&gt; ByteString
+(ExecutionStatus -&gt; ByteString) -&gt; ToByteString ExecutionStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ExecutionStatus -&gt; ByteString
+$ctoBS :: ExecutionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679223493"><span class="annot"><span class="annottext">ExecutionStatus -&gt; ByteStringBuilder
+(ExecutionStatus -&gt; ByteStringBuilder) -&gt; ToLog ExecutionStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ExecutionStatus -&gt; ByteStringBuilder
+$cbuild :: ExecutionStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679223490"><span class="annot"><span class="annottext">HeaderName -&gt; ExecutionStatus -&gt; [Header]
+(HeaderName -&gt; ExecutionStatus -&gt; [Header])
+-&gt; ToHeader ExecutionStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ExecutionStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ExecutionStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679223487"><span class="annot"><span class="annottext">ExecutionStatus -&gt; QueryString
+(ExecutionStatus -&gt; QueryString) -&gt; ToQuery ExecutionStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ExecutionStatus -&gt; QueryString
+$ctoQuery :: ExecutionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679223482"><span id="local-6989586621679223484"><span class="annot"><span class="annottext">Value -&gt; Parser [ExecutionStatus]
+Value -&gt; Parser ExecutionStatus
+(Value -&gt; Parser ExecutionStatus)
+-&gt; (Value -&gt; Parser [ExecutionStatus]) -&gt; FromJSON ExecutionStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ExecutionStatus]
+$cparseJSONList :: Value -&gt; Parser [ExecutionStatus]
+parseJSON :: Value -&gt; Parser ExecutionStatus
+$cparseJSON :: Value -&gt; Parser ExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679223477"><span id="local-6989586621679223479"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExecutionStatus]
+FromJSONKeyFunction ExecutionStatus
+FromJSONKeyFunction ExecutionStatus
+-&gt; FromJSONKeyFunction [ExecutionStatus]
+-&gt; FromJSONKey ExecutionStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ExecutionStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ExecutionStatus]
+fromJSONKey :: FromJSONKeyFunction ExecutionStatus
+$cfromJSONKey :: FromJSONKeyFunction ExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679223468"><span id="local-6989586621679223470"><span id="local-6989586621679223472"><span id="local-6989586621679223474"><span class="annot"><span class="annottext">[ExecutionStatus] -&gt; Encoding
+[ExecutionStatus] -&gt; Value
+ExecutionStatus -&gt; Encoding
+ExecutionStatus -&gt; Value
+(ExecutionStatus -&gt; Value)
+-&gt; (ExecutionStatus -&gt; Encoding)
+-&gt; ([ExecutionStatus] -&gt; Value)
+-&gt; ([ExecutionStatus] -&gt; Encoding)
+-&gt; ToJSON ExecutionStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ExecutionStatus] -&gt; Encoding
+$ctoEncodingList :: [ExecutionStatus] -&gt; Encoding
+toJSONList :: [ExecutionStatus] -&gt; Value
+$ctoJSONList :: [ExecutionStatus] -&gt; Value
+toEncoding :: ExecutionStatus -&gt; Encoding
+$ctoEncoding :: ExecutionStatus -&gt; Encoding
+toJSON :: ExecutionStatus -&gt; Value
+$ctoJSON :: ExecutionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679223463"><span id="local-6989586621679223465"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExecutionStatus]
+ToJSONKeyFunction ExecutionStatus
+ToJSONKeyFunction ExecutionStatus
+-&gt; ToJSONKeyFunction [ExecutionStatus] -&gt; ToJSONKey ExecutionStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ExecutionStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ExecutionStatus]
+toJSONKey :: ToJSONKeyFunction ExecutionStatus
+$ctoJSONKey :: ToJSONKeyFunction ExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679223460"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExecutionStatus
+([Node] -&gt; Either String ExecutionStatus)
+-&gt; FromXML ExecutionStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ExecutionStatus
+$cparseXML :: [Node] -&gt; Either String ExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679223457"><span class="annot"><span class="annottext">ExecutionStatus -&gt; XML
+(ExecutionStatus -&gt; XML) -&gt; ToXML ExecutionStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ExecutionStatus -&gt; XML
+$ctoXML :: ExecutionStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus_ABORTED"><span class="hs-identifier hs-type">ExecutionStatus_ABORTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExecutionStatus_ABORTED"><span id="%24mExecutionStatus_ABORTED"><span id="ExecutionStatus_ABORTED"><span class="annot"><span class="annottext">$bExecutionStatus_ABORTED :: ExecutionStatus
+$mExecutionStatus_ABORTED :: forall r. ExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#%24bExecutionStatus_ABORTED"><span class="hs-identifier hs-var hs-var hs-var">ExecutionStatus_ABORTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus%27"><span class="hs-identifier hs-type">ExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ABORTED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus_FAILED"><span class="hs-identifier hs-type">ExecutionStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExecutionStatus_FAILED"><span id="%24mExecutionStatus_FAILED"><span id="ExecutionStatus_FAILED"><span class="annot"><span class="annottext">$bExecutionStatus_FAILED :: ExecutionStatus
+$mExecutionStatus_FAILED :: forall r. ExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#%24bExecutionStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ExecutionStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus%27"><span class="hs-identifier hs-type">ExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus_RUNNING"><span class="hs-identifier hs-type">ExecutionStatus_RUNNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExecutionStatus_RUNNING"><span id="%24mExecutionStatus_RUNNING"><span id="ExecutionStatus_RUNNING"><span class="annot"><span class="annottext">$bExecutionStatus_RUNNING :: ExecutionStatus
+$mExecutionStatus_RUNNING :: forall r. ExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#%24bExecutionStatus_RUNNING"><span class="hs-identifier hs-var hs-var hs-var">ExecutionStatus_RUNNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus%27"><span class="hs-identifier hs-type">ExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RUNNING&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus_SUCCEEDED"><span class="hs-identifier hs-type">ExecutionStatus_SUCCEEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExecutionStatus_SUCCEEDED"><span id="%24mExecutionStatus_SUCCEEDED"><span id="ExecutionStatus_SUCCEEDED"><span class="annot"><span class="annottext">$bExecutionStatus_SUCCEEDED :: ExecutionStatus
+$mExecutionStatus_SUCCEEDED :: forall r. ExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#%24bExecutionStatus_SUCCEEDED"><span class="hs-identifier hs-var hs-var hs-var">ExecutionStatus_SUCCEEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus%27"><span class="hs-identifier hs-type">ExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCEEDED&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus_TIMED_OUT"><span class="hs-identifier hs-type">ExecutionStatus_TIMED_OUT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExecutionStatus_TIMED_OUT"><span id="%24mExecutionStatus_TIMED_OUT"><span id="ExecutionStatus_TIMED_OUT"><span class="annot"><span class="annottext">$bExecutionStatus_TIMED_OUT :: ExecutionStatus
+$mExecutionStatus_TIMED_OUT :: forall r. ExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#%24bExecutionStatus_TIMED_OUT"><span class="hs-identifier hs-var hs-var hs-var">ExecutionStatus_TIMED_OUT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus%27"><span class="hs-identifier hs-type">ExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TIMED_OUT&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus_ABORTED"><span class="hs-pragma hs-type">ExecutionStatus_ABORTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus_FAILED"><span class="hs-pragma hs-type">ExecutionStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus_RUNNING"><span class="hs-pragma hs-type">ExecutionStatus_RUNNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus_SUCCEEDED"><span class="hs-pragma hs-type">ExecutionStatus_SUCCEEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus_TIMED_OUT"><span class="hs-pragma hs-type">ExecutionStatus_TIMED_OUT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus%27"><span class="hs-pragma hs-type">ExecutionStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

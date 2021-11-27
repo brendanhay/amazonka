@@ -5,33 +5,33 @@
 @version 2.0
 
 
-module Network.AWS.Translate.Types.EncryptionKeyType
+module Amazonka.Translate.Types.EncryptionKeyType
 newtype EncryptionKeyType
 EncryptionKeyType' :: Text -> EncryptionKeyType
 [fromEncryptionKeyType] :: EncryptionKeyType -> Text
 pattern EncryptionKeyType_KMS :: EncryptionKeyType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance Network.AWS.Data.Text.ToText Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance Network.AWS.Data.Text.FromText Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance GHC.Generics.Generic Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance GHC.Classes.Ord Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance GHC.Classes.Eq Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance GHC.Read.Read Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
-instance GHC.Show.Show Network.AWS.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance Amazonka.Data.XML.ToXML Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance Amazonka.Data.XML.FromXML Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance Amazonka.Data.Log.ToLog Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance Amazonka.Data.Text.ToText Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance Amazonka.Data.Text.FromText Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance GHC.Generics.Generic Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance GHC.Classes.Ord Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance GHC.Classes.Eq Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance GHC.Read.Read Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
+instance GHC.Show.Show Amazonka.Translate.Types.EncryptionKeyType.EncryptionKeyType
 
 
-module Network.AWS.Translate.Types.EncryptionKey
+module Amazonka.Translate.Types.EncryptionKey
 
 -- | The encryption key used to encrypt this object.
 --   
@@ -72,17 +72,17 @@ encryptionKey_type :: Lens' EncryptionKey EncryptionKeyType
 -- | The Amazon Resource Name (ARN) of the encryption key being used to
 --   encrypt the custom terminology.
 encryptionKey_id :: Lens' EncryptionKey Text
-instance GHC.Generics.Generic Network.AWS.Translate.Types.EncryptionKey.EncryptionKey
-instance GHC.Show.Show Network.AWS.Translate.Types.EncryptionKey.EncryptionKey
-instance GHC.Read.Read Network.AWS.Translate.Types.EncryptionKey.EncryptionKey
-instance GHC.Classes.Eq Network.AWS.Translate.Types.EncryptionKey.EncryptionKey
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.EncryptionKey.EncryptionKey
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.EncryptionKey.EncryptionKey
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.EncryptionKey.EncryptionKey
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.Types.EncryptionKey.EncryptionKey
+instance GHC.Generics.Generic Amazonka.Translate.Types.EncryptionKey.EncryptionKey
+instance GHC.Show.Show Amazonka.Translate.Types.EncryptionKey.EncryptionKey
+instance GHC.Read.Read Amazonka.Translate.Types.EncryptionKey.EncryptionKey
+instance GHC.Classes.Eq Amazonka.Translate.Types.EncryptionKey.EncryptionKey
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.EncryptionKey.EncryptionKey
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.EncryptionKey.EncryptionKey
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.EncryptionKey.EncryptionKey
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.Types.EncryptionKey.EncryptionKey
 
 
-module Network.AWS.Translate.Types.InputDataConfig
+module Amazonka.Translate.Types.InputDataConfig
 
 -- | The input configuration properties for requesting a batch translation
 --   job.
@@ -208,17 +208,17 @@ inputDataConfig_s3Uri :: Lens' InputDataConfig Text
 --   <tt>text/plain</tt>, your costs will cover the translation of every
 --   character.
 inputDataConfig_contentType :: Lens' InputDataConfig Text
-instance GHC.Generics.Generic Network.AWS.Translate.Types.InputDataConfig.InputDataConfig
-instance GHC.Show.Show Network.AWS.Translate.Types.InputDataConfig.InputDataConfig
-instance GHC.Read.Read Network.AWS.Translate.Types.InputDataConfig.InputDataConfig
-instance GHC.Classes.Eq Network.AWS.Translate.Types.InputDataConfig.InputDataConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.InputDataConfig.InputDataConfig
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.InputDataConfig.InputDataConfig
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.InputDataConfig.InputDataConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.Types.InputDataConfig.InputDataConfig
+instance GHC.Generics.Generic Amazonka.Translate.Types.InputDataConfig.InputDataConfig
+instance GHC.Show.Show Amazonka.Translate.Types.InputDataConfig.InputDataConfig
+instance GHC.Read.Read Amazonka.Translate.Types.InputDataConfig.InputDataConfig
+instance GHC.Classes.Eq Amazonka.Translate.Types.InputDataConfig.InputDataConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.InputDataConfig.InputDataConfig
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.InputDataConfig.InputDataConfig
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.InputDataConfig.InputDataConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.Types.InputDataConfig.InputDataConfig
 
 
-module Network.AWS.Translate.Types.JobDetails
+module Amazonka.Translate.Types.JobDetails
 
 -- | The number of documents successfully and unsuccessfully processed
 --   during a translation job.
@@ -269,16 +269,16 @@ jobDetails_documentsWithErrorsCount :: Lens' JobDetails (Maybe Int)
 
 -- | The number of documents used as input in a translation job.
 jobDetails_inputDocumentsCount :: Lens' JobDetails (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.Translate.Types.JobDetails.JobDetails
-instance GHC.Show.Show Network.AWS.Translate.Types.JobDetails.JobDetails
-instance GHC.Read.Read Network.AWS.Translate.Types.JobDetails.JobDetails
-instance GHC.Classes.Eq Network.AWS.Translate.Types.JobDetails.JobDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.JobDetails.JobDetails
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.JobDetails.JobDetails
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.JobDetails.JobDetails
+instance GHC.Generics.Generic Amazonka.Translate.Types.JobDetails.JobDetails
+instance GHC.Show.Show Amazonka.Translate.Types.JobDetails.JobDetails
+instance GHC.Read.Read Amazonka.Translate.Types.JobDetails.JobDetails
+instance GHC.Classes.Eq Amazonka.Translate.Types.JobDetails.JobDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.JobDetails.JobDetails
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.JobDetails.JobDetails
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.JobDetails.JobDetails
 
 
-module Network.AWS.Translate.Types.JobStatus
+module Amazonka.Translate.Types.JobStatus
 newtype JobStatus
 JobStatus' :: Text -> JobStatus
 [fromJobStatus] :: JobStatus -> Text
@@ -289,54 +289,54 @@ pattern JobStatus_IN_PROGRESS :: JobStatus
 pattern JobStatus_STOPPED :: JobStatus
 pattern JobStatus_STOP_REQUESTED :: JobStatus
 pattern JobStatus_SUBMITTED :: JobStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Translate.Types.JobStatus.JobStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Translate.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Translate.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Translate.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Translate.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Translate.Types.JobStatus.JobStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Translate.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Translate.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Translate.Types.JobStatus.JobStatus
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.JobStatus.JobStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.JobStatus.JobStatus
-instance GHC.Generics.Generic Network.AWS.Translate.Types.JobStatus.JobStatus
-instance GHC.Classes.Ord Network.AWS.Translate.Types.JobStatus.JobStatus
-instance GHC.Classes.Eq Network.AWS.Translate.Types.JobStatus.JobStatus
-instance GHC.Read.Read Network.AWS.Translate.Types.JobStatus.JobStatus
-instance GHC.Show.Show Network.AWS.Translate.Types.JobStatus.JobStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Translate.Types.JobStatus.JobStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Translate.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Translate.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Translate.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.JobStatus.JobStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.Types.JobStatus.JobStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Translate.Types.JobStatus.JobStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Translate.Types.JobStatus.JobStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Translate.Types.JobStatus.JobStatus
+instance Amazonka.Data.Text.ToText Amazonka.Translate.Types.JobStatus.JobStatus
+instance Amazonka.Data.Text.FromText Amazonka.Translate.Types.JobStatus.JobStatus
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.JobStatus.JobStatus
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.JobStatus.JobStatus
+instance GHC.Generics.Generic Amazonka.Translate.Types.JobStatus.JobStatus
+instance GHC.Classes.Ord Amazonka.Translate.Types.JobStatus.JobStatus
+instance GHC.Classes.Eq Amazonka.Translate.Types.JobStatus.JobStatus
+instance GHC.Read.Read Amazonka.Translate.Types.JobStatus.JobStatus
+instance GHC.Show.Show Amazonka.Translate.Types.JobStatus.JobStatus
 
 
-module Network.AWS.Translate.Types.MergeStrategy
+module Amazonka.Translate.Types.MergeStrategy
 newtype MergeStrategy
 MergeStrategy' :: Text -> MergeStrategy
 [fromMergeStrategy] :: MergeStrategy -> Text
 pattern MergeStrategy_OVERWRITE :: MergeStrategy
-instance Network.AWS.Data.XML.ToXML Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance Network.AWS.Data.XML.FromXML Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance Network.AWS.Data.Log.ToLog Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance Network.AWS.Data.Text.ToText Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance Network.AWS.Data.Text.FromText Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance GHC.Generics.Generic Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance GHC.Classes.Ord Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance GHC.Classes.Eq Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance GHC.Read.Read Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
-instance GHC.Show.Show Network.AWS.Translate.Types.MergeStrategy.MergeStrategy
+instance Amazonka.Data.XML.ToXML Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance Amazonka.Data.XML.FromXML Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance Amazonka.Data.Headers.ToHeader Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance Amazonka.Data.Log.ToLog Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance Amazonka.Data.Text.ToText Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance Amazonka.Data.Text.FromText Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance GHC.Generics.Generic Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance GHC.Classes.Ord Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance GHC.Classes.Eq Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance GHC.Read.Read Amazonka.Translate.Types.MergeStrategy.MergeStrategy
+instance GHC.Show.Show Amazonka.Translate.Types.MergeStrategy.MergeStrategy
 
 
-module Network.AWS.Translate.Types.OutputDataConfig
+module Amazonka.Translate.Types.OutputDataConfig
 
 -- | The output configuration properties for a batch translation job.
 --   
@@ -368,17 +368,17 @@ newOutputDataConfig :: Text -> OutputDataConfig
 --   file. The folder must be in the same Region as the API endpoint that
 --   you are calling.
 outputDataConfig_s3Uri :: Lens' OutputDataConfig Text
-instance GHC.Generics.Generic Network.AWS.Translate.Types.OutputDataConfig.OutputDataConfig
-instance GHC.Show.Show Network.AWS.Translate.Types.OutputDataConfig.OutputDataConfig
-instance GHC.Read.Read Network.AWS.Translate.Types.OutputDataConfig.OutputDataConfig
-instance GHC.Classes.Eq Network.AWS.Translate.Types.OutputDataConfig.OutputDataConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.OutputDataConfig.OutputDataConfig
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.OutputDataConfig.OutputDataConfig
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.OutputDataConfig.OutputDataConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Generics.Generic Amazonka.Translate.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Show.Show Amazonka.Translate.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Read.Read Amazonka.Translate.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Classes.Eq Amazonka.Translate.Types.OutputDataConfig.OutputDataConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.OutputDataConfig.OutputDataConfig
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.OutputDataConfig.OutputDataConfig
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.OutputDataConfig.OutputDataConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.Types.OutputDataConfig.OutputDataConfig
 
 
-module Network.AWS.Translate.Types.ParallelDataDataLocation
+module Amazonka.Translate.Types.ParallelDataDataLocation
 
 -- | The location of the most recent parallel data input file that was
 --   successfully imported into Amazon Translate.
@@ -419,44 +419,44 @@ parallelDataDataLocation_repositoryType :: Lens' ParallelDataDataLocation Text
 -- | The Amazon S3 location of the parallel data input file. The location
 --   is returned as a presigned URL to that has a 30 minute expiration.
 parallelDataDataLocation_location :: Lens' ParallelDataDataLocation Text
-instance GHC.Generics.Generic Network.AWS.Translate.Types.ParallelDataDataLocation.ParallelDataDataLocation
-instance GHC.Show.Show Network.AWS.Translate.Types.ParallelDataDataLocation.ParallelDataDataLocation
-instance GHC.Read.Read Network.AWS.Translate.Types.ParallelDataDataLocation.ParallelDataDataLocation
-instance GHC.Classes.Eq Network.AWS.Translate.Types.ParallelDataDataLocation.ParallelDataDataLocation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.ParallelDataDataLocation.ParallelDataDataLocation
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.ParallelDataDataLocation.ParallelDataDataLocation
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.ParallelDataDataLocation.ParallelDataDataLocation
+instance GHC.Generics.Generic Amazonka.Translate.Types.ParallelDataDataLocation.ParallelDataDataLocation
+instance GHC.Show.Show Amazonka.Translate.Types.ParallelDataDataLocation.ParallelDataDataLocation
+instance GHC.Read.Read Amazonka.Translate.Types.ParallelDataDataLocation.ParallelDataDataLocation
+instance GHC.Classes.Eq Amazonka.Translate.Types.ParallelDataDataLocation.ParallelDataDataLocation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.ParallelDataDataLocation.ParallelDataDataLocation
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.ParallelDataDataLocation.ParallelDataDataLocation
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.ParallelDataDataLocation.ParallelDataDataLocation
 
 
-module Network.AWS.Translate.Types.ParallelDataFormat
+module Amazonka.Translate.Types.ParallelDataFormat
 newtype ParallelDataFormat
 ParallelDataFormat' :: Text -> ParallelDataFormat
 [fromParallelDataFormat] :: ParallelDataFormat -> Text
 pattern ParallelDataFormat_CSV :: ParallelDataFormat
 pattern ParallelDataFormat_TMX :: ParallelDataFormat
 pattern ParallelDataFormat_TSV :: ParallelDataFormat
-instance Network.AWS.Data.XML.ToXML Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance Network.AWS.Data.XML.FromXML Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance Network.AWS.Data.Log.ToLog Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance Network.AWS.Data.Text.ToText Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance Network.AWS.Data.Text.FromText Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance GHC.Generics.Generic Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance GHC.Classes.Ord Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance GHC.Classes.Eq Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance GHC.Read.Read Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
-instance GHC.Show.Show Network.AWS.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance Amazonka.Data.XML.ToXML Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance Amazonka.Data.XML.FromXML Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance Amazonka.Data.Headers.ToHeader Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance Amazonka.Data.Log.ToLog Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance Amazonka.Data.Text.ToText Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance Amazonka.Data.Text.FromText Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance GHC.Generics.Generic Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance GHC.Classes.Ord Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance GHC.Classes.Eq Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance GHC.Read.Read Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
+instance GHC.Show.Show Amazonka.Translate.Types.ParallelDataFormat.ParallelDataFormat
 
 
-module Network.AWS.Translate.Types.ParallelDataConfig
+module Amazonka.Translate.Types.ParallelDataConfig
 
 -- | Specifies the format and S3 location of the parallel data input file.
 --   
@@ -498,17 +498,17 @@ parallelDataConfig_s3Uri :: Lens' ParallelDataConfig Text
 
 -- | The format of the parallel data input file.
 parallelDataConfig_format :: Lens' ParallelDataConfig ParallelDataFormat
-instance GHC.Generics.Generic Network.AWS.Translate.Types.ParallelDataConfig.ParallelDataConfig
-instance GHC.Show.Show Network.AWS.Translate.Types.ParallelDataConfig.ParallelDataConfig
-instance GHC.Read.Read Network.AWS.Translate.Types.ParallelDataConfig.ParallelDataConfig
-instance GHC.Classes.Eq Network.AWS.Translate.Types.ParallelDataConfig.ParallelDataConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.ParallelDataConfig.ParallelDataConfig
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.ParallelDataConfig.ParallelDataConfig
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.ParallelDataConfig.ParallelDataConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.Types.ParallelDataConfig.ParallelDataConfig
+instance GHC.Generics.Generic Amazonka.Translate.Types.ParallelDataConfig.ParallelDataConfig
+instance GHC.Show.Show Amazonka.Translate.Types.ParallelDataConfig.ParallelDataConfig
+instance GHC.Read.Read Amazonka.Translate.Types.ParallelDataConfig.ParallelDataConfig
+instance GHC.Classes.Eq Amazonka.Translate.Types.ParallelDataConfig.ParallelDataConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.ParallelDataConfig.ParallelDataConfig
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.ParallelDataConfig.ParallelDataConfig
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.ParallelDataConfig.ParallelDataConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.Types.ParallelDataConfig.ParallelDataConfig
 
 
-module Network.AWS.Translate.Types.ParallelDataStatus
+module Amazonka.Translate.Types.ParallelDataStatus
 newtype ParallelDataStatus
 ParallelDataStatus' :: Text -> ParallelDataStatus
 [fromParallelDataStatus] :: ParallelDataStatus -> Text
@@ -517,28 +517,28 @@ pattern ParallelDataStatus_CREATING :: ParallelDataStatus
 pattern ParallelDataStatus_DELETING :: ParallelDataStatus
 pattern ParallelDataStatus_FAILED :: ParallelDataStatus
 pattern ParallelDataStatus_UPDATING :: ParallelDataStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance GHC.Generics.Generic Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance GHC.Classes.Ord Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance GHC.Classes.Eq Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance GHC.Read.Read Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
-instance GHC.Show.Show Network.AWS.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance Amazonka.Data.Text.ToText Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance Amazonka.Data.Text.FromText Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance GHC.Generics.Generic Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance GHC.Classes.Ord Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance GHC.Classes.Eq Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance GHC.Read.Read Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
+instance GHC.Show.Show Amazonka.Translate.Types.ParallelDataStatus.ParallelDataStatus
 
 
-module Network.AWS.Translate.Types.ParallelDataProperties
+module Amazonka.Translate.Types.ParallelDataProperties
 
 -- | The properties of a parallel data resource.
 --   
@@ -756,16 +756,16 @@ parallelDataProperties_skippedRecordCount :: Lens' ParallelDataProperties (Maybe
 
 -- | Specifies the format and S3 location of the parallel data input file.
 parallelDataProperties_parallelDataConfig :: Lens' ParallelDataProperties (Maybe ParallelDataConfig)
-instance GHC.Generics.Generic Network.AWS.Translate.Types.ParallelDataProperties.ParallelDataProperties
-instance GHC.Show.Show Network.AWS.Translate.Types.ParallelDataProperties.ParallelDataProperties
-instance GHC.Read.Read Network.AWS.Translate.Types.ParallelDataProperties.ParallelDataProperties
-instance GHC.Classes.Eq Network.AWS.Translate.Types.ParallelDataProperties.ParallelDataProperties
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.ParallelDataProperties.ParallelDataProperties
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.ParallelDataProperties.ParallelDataProperties
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.ParallelDataProperties.ParallelDataProperties
+instance GHC.Generics.Generic Amazonka.Translate.Types.ParallelDataProperties.ParallelDataProperties
+instance GHC.Show.Show Amazonka.Translate.Types.ParallelDataProperties.ParallelDataProperties
+instance GHC.Read.Read Amazonka.Translate.Types.ParallelDataProperties.ParallelDataProperties
+instance GHC.Classes.Eq Amazonka.Translate.Types.ParallelDataProperties.ParallelDataProperties
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.ParallelDataProperties.ParallelDataProperties
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.ParallelDataProperties.ParallelDataProperties
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.ParallelDataProperties.ParallelDataProperties
 
 
-module Network.AWS.Translate.Types.Term
+module Amazonka.Translate.Types.Term
 
 -- | The term being translated by the custom terminology.
 --   
@@ -803,16 +803,16 @@ term_targetText :: Lens' Term (Maybe Text)
 -- | The source text of the term being translated by the custom
 --   terminology.
 term_sourceText :: Lens' Term (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Translate.Types.Term.Term
-instance GHC.Show.Show Network.AWS.Translate.Types.Term.Term
-instance GHC.Read.Read Network.AWS.Translate.Types.Term.Term
-instance GHC.Classes.Eq Network.AWS.Translate.Types.Term.Term
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.Term.Term
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.Term.Term
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.Term.Term
+instance GHC.Generics.Generic Amazonka.Translate.Types.Term.Term
+instance GHC.Show.Show Amazonka.Translate.Types.Term.Term
+instance GHC.Read.Read Amazonka.Translate.Types.Term.Term
+instance GHC.Classes.Eq Amazonka.Translate.Types.Term.Term
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.Term.Term
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.Term.Term
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.Term.Term
 
 
-module Network.AWS.Translate.Types.AppliedTerminology
+module Amazonka.Translate.Types.AppliedTerminology
 
 -- | The custom terminology applied to the input text by Amazon Translate
 --   for the translated text response. This is optional in the response and
@@ -863,43 +863,43 @@ appliedTerminology_terms :: Lens' AppliedTerminology (Maybe [Term])
 -- | The name of the custom terminology applied to the input text by Amazon
 --   Translate for the translated text response.
 appliedTerminology_name :: Lens' AppliedTerminology (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Translate.Types.AppliedTerminology.AppliedTerminology
-instance GHC.Show.Show Network.AWS.Translate.Types.AppliedTerminology.AppliedTerminology
-instance GHC.Read.Read Network.AWS.Translate.Types.AppliedTerminology.AppliedTerminology
-instance GHC.Classes.Eq Network.AWS.Translate.Types.AppliedTerminology.AppliedTerminology
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.AppliedTerminology.AppliedTerminology
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.AppliedTerminology.AppliedTerminology
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.AppliedTerminology.AppliedTerminology
+instance GHC.Generics.Generic Amazonka.Translate.Types.AppliedTerminology.AppliedTerminology
+instance GHC.Show.Show Amazonka.Translate.Types.AppliedTerminology.AppliedTerminology
+instance GHC.Read.Read Amazonka.Translate.Types.AppliedTerminology.AppliedTerminology
+instance GHC.Classes.Eq Amazonka.Translate.Types.AppliedTerminology.AppliedTerminology
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.AppliedTerminology.AppliedTerminology
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.AppliedTerminology.AppliedTerminology
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.AppliedTerminology.AppliedTerminology
 
 
-module Network.AWS.Translate.Types.TerminologyDataFormat
+module Amazonka.Translate.Types.TerminologyDataFormat
 newtype TerminologyDataFormat
 TerminologyDataFormat' :: Text -> TerminologyDataFormat
 [fromTerminologyDataFormat] :: TerminologyDataFormat -> Text
 pattern TerminologyDataFormat_CSV :: TerminologyDataFormat
 pattern TerminologyDataFormat_TMX :: TerminologyDataFormat
-instance Network.AWS.Data.XML.ToXML Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance Network.AWS.Data.XML.FromXML Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance Network.AWS.Data.Log.ToLog Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance Network.AWS.Data.Text.ToText Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance Network.AWS.Data.Text.FromText Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance GHC.Generics.Generic Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance GHC.Classes.Ord Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance GHC.Classes.Eq Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance GHC.Read.Read Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
-instance GHC.Show.Show Network.AWS.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance Amazonka.Data.XML.ToXML Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance Amazonka.Data.XML.FromXML Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance Amazonka.Data.Headers.ToHeader Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance Amazonka.Data.Log.ToLog Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance Amazonka.Data.Text.ToText Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance Amazonka.Data.Text.FromText Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance GHC.Generics.Generic Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance GHC.Classes.Ord Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance GHC.Classes.Eq Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance GHC.Read.Read Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
+instance GHC.Show.Show Amazonka.Translate.Types.TerminologyDataFormat.TerminologyDataFormat
 
 
-module Network.AWS.Translate.Types.TerminologyData
+module Amazonka.Translate.Types.TerminologyData
 
 -- | The data associated with the custom terminology.
 --   
@@ -953,15 +953,15 @@ terminologyData_file :: Lens' TerminologyData ByteString
 
 -- | The data format of the custom terminology. Either CSV or TMX.
 terminologyData_format :: Lens' TerminologyData TerminologyDataFormat
-instance GHC.Generics.Generic Network.AWS.Translate.Types.TerminologyData.TerminologyData
-instance GHC.Show.Show Network.AWS.Translate.Types.TerminologyData.TerminologyData
-instance GHC.Classes.Eq Network.AWS.Translate.Types.TerminologyData.TerminologyData
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.TerminologyData.TerminologyData
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.TerminologyData.TerminologyData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.Types.TerminologyData.TerminologyData
+instance GHC.Generics.Generic Amazonka.Translate.Types.TerminologyData.TerminologyData
+instance GHC.Show.Show Amazonka.Translate.Types.TerminologyData.TerminologyData
+instance GHC.Classes.Eq Amazonka.Translate.Types.TerminologyData.TerminologyData
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.TerminologyData.TerminologyData
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.TerminologyData.TerminologyData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.Types.TerminologyData.TerminologyData
 
 
-module Network.AWS.Translate.Types.TerminologyDataLocation
+module Amazonka.Translate.Types.TerminologyDataLocation
 
 -- | The location of the custom terminology data.
 --   
@@ -998,16 +998,16 @@ terminologyDataLocation_repositoryType :: Lens' TerminologyDataLocation Text
 
 -- | The location of the custom terminology data.
 terminologyDataLocation_location :: Lens' TerminologyDataLocation Text
-instance GHC.Generics.Generic Network.AWS.Translate.Types.TerminologyDataLocation.TerminologyDataLocation
-instance GHC.Show.Show Network.AWS.Translate.Types.TerminologyDataLocation.TerminologyDataLocation
-instance GHC.Read.Read Network.AWS.Translate.Types.TerminologyDataLocation.TerminologyDataLocation
-instance GHC.Classes.Eq Network.AWS.Translate.Types.TerminologyDataLocation.TerminologyDataLocation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.TerminologyDataLocation.TerminologyDataLocation
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.TerminologyDataLocation.TerminologyDataLocation
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.TerminologyDataLocation.TerminologyDataLocation
+instance GHC.Generics.Generic Amazonka.Translate.Types.TerminologyDataLocation.TerminologyDataLocation
+instance GHC.Show.Show Amazonka.Translate.Types.TerminologyDataLocation.TerminologyDataLocation
+instance GHC.Read.Read Amazonka.Translate.Types.TerminologyDataLocation.TerminologyDataLocation
+instance GHC.Classes.Eq Amazonka.Translate.Types.TerminologyDataLocation.TerminologyDataLocation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.TerminologyDataLocation.TerminologyDataLocation
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.TerminologyDataLocation.TerminologyDataLocation
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.TerminologyDataLocation.TerminologyDataLocation
 
 
-module Network.AWS.Translate.Types.TerminologyProperties
+module Amazonka.Translate.Types.TerminologyProperties
 
 -- | The properties of the custom terminology.
 --   
@@ -1134,16 +1134,16 @@ terminologyProperties_encryptionKey :: Lens' TerminologyProperties (Maybe Encryp
 
 -- | The description of the custom terminology properties.
 terminologyProperties_description :: Lens' TerminologyProperties (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Translate.Types.TerminologyProperties.TerminologyProperties
-instance GHC.Show.Show Network.AWS.Translate.Types.TerminologyProperties.TerminologyProperties
-instance GHC.Read.Read Network.AWS.Translate.Types.TerminologyProperties.TerminologyProperties
-instance GHC.Classes.Eq Network.AWS.Translate.Types.TerminologyProperties.TerminologyProperties
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.TerminologyProperties.TerminologyProperties
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.TerminologyProperties.TerminologyProperties
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.TerminologyProperties.TerminologyProperties
+instance GHC.Generics.Generic Amazonka.Translate.Types.TerminologyProperties.TerminologyProperties
+instance GHC.Show.Show Amazonka.Translate.Types.TerminologyProperties.TerminologyProperties
+instance GHC.Read.Read Amazonka.Translate.Types.TerminologyProperties.TerminologyProperties
+instance GHC.Classes.Eq Amazonka.Translate.Types.TerminologyProperties.TerminologyProperties
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.TerminologyProperties.TerminologyProperties
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.TerminologyProperties.TerminologyProperties
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.TerminologyProperties.TerminologyProperties
 
 
-module Network.AWS.Translate.Types.TextTranslationJobFilter
+module Amazonka.Translate.Types.TextTranslationJobFilter
 
 -- | Provides information for filtering a list of translation jobs. For
 --   more information, see ListTextTranslationJobs.
@@ -1215,16 +1215,16 @@ textTranslationJobFilter_jobName :: Lens' TextTranslationJobFilter (Maybe Text)
 
 -- | Filters the list of jobs based by job status.
 textTranslationJobFilter_jobStatus :: Lens' TextTranslationJobFilter (Maybe JobStatus)
-instance GHC.Generics.Generic Network.AWS.Translate.Types.TextTranslationJobFilter.TextTranslationJobFilter
-instance GHC.Show.Show Network.AWS.Translate.Types.TextTranslationJobFilter.TextTranslationJobFilter
-instance GHC.Read.Read Network.AWS.Translate.Types.TextTranslationJobFilter.TextTranslationJobFilter
-instance GHC.Classes.Eq Network.AWS.Translate.Types.TextTranslationJobFilter.TextTranslationJobFilter
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.TextTranslationJobFilter.TextTranslationJobFilter
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.TextTranslationJobFilter.TextTranslationJobFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.Types.TextTranslationJobFilter.TextTranslationJobFilter
+instance GHC.Generics.Generic Amazonka.Translate.Types.TextTranslationJobFilter.TextTranslationJobFilter
+instance GHC.Show.Show Amazonka.Translate.Types.TextTranslationJobFilter.TextTranslationJobFilter
+instance GHC.Read.Read Amazonka.Translate.Types.TextTranslationJobFilter.TextTranslationJobFilter
+instance GHC.Classes.Eq Amazonka.Translate.Types.TextTranslationJobFilter.TextTranslationJobFilter
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.TextTranslationJobFilter.TextTranslationJobFilter
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.TextTranslationJobFilter.TextTranslationJobFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.Types.TextTranslationJobFilter.TextTranslationJobFilter
 
 
-module Network.AWS.Translate.Types.TextTranslationJobProperties
+module Amazonka.Translate.Types.TextTranslationJobProperties
 
 -- | Provides information about a translation job.
 --   
@@ -1413,16 +1413,16 @@ textTranslationJobProperties_jobStatus :: Lens' TextTranslationJobProperties (Ma
 -- | An explanation of any errors that may have occured during the
 --   translation job.
 textTranslationJobProperties_message :: Lens' TextTranslationJobProperties (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Translate.Types.TextTranslationJobProperties.TextTranslationJobProperties
-instance GHC.Show.Show Network.AWS.Translate.Types.TextTranslationJobProperties.TextTranslationJobProperties
-instance GHC.Read.Read Network.AWS.Translate.Types.TextTranslationJobProperties.TextTranslationJobProperties
-instance GHC.Classes.Eq Network.AWS.Translate.Types.TextTranslationJobProperties.TextTranslationJobProperties
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Translate.Types.TextTranslationJobProperties.TextTranslationJobProperties
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.Types.TextTranslationJobProperties.TextTranslationJobProperties
-instance Control.DeepSeq.NFData Network.AWS.Translate.Types.TextTranslationJobProperties.TextTranslationJobProperties
+instance GHC.Generics.Generic Amazonka.Translate.Types.TextTranslationJobProperties.TextTranslationJobProperties
+instance GHC.Show.Show Amazonka.Translate.Types.TextTranslationJobProperties.TextTranslationJobProperties
+instance GHC.Read.Read Amazonka.Translate.Types.TextTranslationJobProperties.TextTranslationJobProperties
+instance GHC.Classes.Eq Amazonka.Translate.Types.TextTranslationJobProperties.TextTranslationJobProperties
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Translate.Types.TextTranslationJobProperties.TextTranslationJobProperties
+instance Data.Hashable.Class.Hashable Amazonka.Translate.Types.TextTranslationJobProperties.TextTranslationJobProperties
+instance Control.DeepSeq.NFData Amazonka.Translate.Types.TextTranslationJobProperties.TextTranslationJobProperties
 
 
-module Network.AWS.Translate.Types
+module Amazonka.Translate.Types
 
 -- | API version <tt>2017-07-01</tt> of the Amazon Translate SDK
 --   configuration.
@@ -2631,7 +2631,7 @@ textTranslationJobProperties_message :: Lens' TextTranslationJobProperties (Mayb
 -- | Translates input text from the source language to the target language.
 --   For a list of available languages and language codes, see
 --   what-is-languages.
-module Network.AWS.Translate.TranslateText
+module Amazonka.Translate.TranslateText
 
 -- | <i>See:</i> <a>newTranslateText</a> smart constructor.
 data TranslateText
@@ -2789,22 +2789,22 @@ translateTextResponse_sourceLanguageCode :: Lens' TranslateTextResponse Text
 
 -- | The language code for the language of the target text.
 translateTextResponse_targetLanguageCode :: Lens' TranslateTextResponse Text
-instance GHC.Generics.Generic Network.AWS.Translate.TranslateText.TranslateText
-instance GHC.Show.Show Network.AWS.Translate.TranslateText.TranslateText
-instance GHC.Read.Read Network.AWS.Translate.TranslateText.TranslateText
-instance GHC.Classes.Eq Network.AWS.Translate.TranslateText.TranslateText
-instance GHC.Generics.Generic Network.AWS.Translate.TranslateText.TranslateTextResponse
-instance GHC.Show.Show Network.AWS.Translate.TranslateText.TranslateTextResponse
-instance GHC.Read.Read Network.AWS.Translate.TranslateText.TranslateTextResponse
-instance GHC.Classes.Eq Network.AWS.Translate.TranslateText.TranslateTextResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Translate.TranslateText.TranslateText
-instance Control.DeepSeq.NFData Network.AWS.Translate.TranslateText.TranslateTextResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.TranslateText.TranslateText
-instance Control.DeepSeq.NFData Network.AWS.Translate.TranslateText.TranslateText
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Translate.TranslateText.TranslateText
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.TranslateText.TranslateText
-instance Network.AWS.Data.Path.ToPath Network.AWS.Translate.TranslateText.TranslateText
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.TranslateText.TranslateText
+instance GHC.Generics.Generic Amazonka.Translate.TranslateText.TranslateText
+instance GHC.Show.Show Amazonka.Translate.TranslateText.TranslateText
+instance GHC.Read.Read Amazonka.Translate.TranslateText.TranslateText
+instance GHC.Classes.Eq Amazonka.Translate.TranslateText.TranslateText
+instance GHC.Generics.Generic Amazonka.Translate.TranslateText.TranslateTextResponse
+instance GHC.Show.Show Amazonka.Translate.TranslateText.TranslateTextResponse
+instance GHC.Read.Read Amazonka.Translate.TranslateText.TranslateTextResponse
+instance GHC.Classes.Eq Amazonka.Translate.TranslateText.TranslateTextResponse
+instance Amazonka.Types.AWSRequest Amazonka.Translate.TranslateText.TranslateText
+instance Control.DeepSeq.NFData Amazonka.Translate.TranslateText.TranslateTextResponse
+instance Data.Hashable.Class.Hashable Amazonka.Translate.TranslateText.TranslateText
+instance Control.DeepSeq.NFData Amazonka.Translate.TranslateText.TranslateText
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Translate.TranslateText.TranslateText
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.TranslateText.TranslateText
+instance Amazonka.Data.Path.ToPath Amazonka.Translate.TranslateText.TranslateText
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.TranslateText.TranslateText
 
 
 -- | Stops an asynchronous batch translation job that is in progress.
@@ -2819,7 +2819,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.TranslateText.Tran
 --   StartTextTranslationJob operation. You can use the
 --   DescribeTextTranslationJob or ListTextTranslationJobs operations to
 --   get a batch translation job's <tt>JobId</tt>.
-module Network.AWS.Translate.StopTextTranslationJob
+module Amazonka.Translate.StopTextTranslationJob
 
 -- | <i>See:</i> <a>newStopTextTranslationJob</a> smart constructor.
 data StopTextTranslationJob
@@ -2892,22 +2892,22 @@ stopTextTranslationJobResponse_jobStatus :: Lens' StopTextTranslationJobResponse
 
 -- | The response's http status code.
 stopTextTranslationJobResponse_httpStatus :: Lens' StopTextTranslationJobResponse Int
-instance GHC.Generics.Generic Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJob
-instance GHC.Show.Show Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJob
-instance GHC.Read.Read Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJob
-instance GHC.Classes.Eq Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJob
-instance GHC.Generics.Generic Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJobResponse
-instance GHC.Show.Show Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJobResponse
-instance GHC.Read.Read Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJobResponse
-instance GHC.Classes.Eq Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJob
-instance Control.DeepSeq.NFData Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJob
-instance Control.DeepSeq.NFData Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.StopTextTranslationJob.StopTextTranslationJob
+instance GHC.Generics.Generic Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJob
+instance GHC.Show.Show Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJob
+instance GHC.Read.Read Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJob
+instance GHC.Classes.Eq Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJob
+instance GHC.Generics.Generic Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJobResponse
+instance GHC.Show.Show Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJobResponse
+instance GHC.Read.Read Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJobResponse
+instance GHC.Classes.Eq Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJob
+instance Control.DeepSeq.NFData Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJob
+instance Control.DeepSeq.NFData Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJob
+instance Amazonka.Data.Path.ToPath Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJob
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.StopTextTranslationJob.StopTextTranslationJob
 
 
 -- | Starts an asynchronous batch translation job. Batch translation jobs
@@ -2921,7 +2921,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.StopTextTranslatio
 --   
 --   Amazon Translate does not support batch translation of multiple source
 --   languages at once.
-module Network.AWS.Translate.StartTextTranslationJob
+module Amazonka.Translate.StartTextTranslationJob
 
 -- | <i>See:</i> <a>newStartTextTranslationJob</a> smart constructor.
 data StartTextTranslationJob
@@ -3154,26 +3154,26 @@ startTextTranslationJobResponse_jobStatus :: Lens' StartTextTranslationJobRespon
 
 -- | The response's http status code.
 startTextTranslationJobResponse_httpStatus :: Lens' StartTextTranslationJobResponse Int
-instance GHC.Generics.Generic Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJob
-instance GHC.Show.Show Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJob
-instance GHC.Read.Read Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJob
-instance GHC.Classes.Eq Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJob
-instance GHC.Generics.Generic Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJobResponse
-instance GHC.Show.Show Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJobResponse
-instance GHC.Read.Read Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJobResponse
-instance GHC.Classes.Eq Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJob
-instance Control.DeepSeq.NFData Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJob
-instance Control.DeepSeq.NFData Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.StartTextTranslationJob.StartTextTranslationJob
+instance GHC.Generics.Generic Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJob
+instance GHC.Show.Show Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJob
+instance GHC.Read.Read Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJob
+instance GHC.Classes.Eq Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJob
+instance GHC.Generics.Generic Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJobResponse
+instance GHC.Show.Show Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJobResponse
+instance GHC.Read.Read Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJobResponse
+instance GHC.Classes.Eq Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJob
+instance Control.DeepSeq.NFData Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJob
+instance Control.DeepSeq.NFData Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJob
+instance Amazonka.Data.Path.ToPath Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJob
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.StartTextTranslationJob.StartTextTranslationJob
 
 
 -- | Gets a list of the batch translation jobs that you have submitted.
-module Network.AWS.Translate.ListTextTranslationJobs
+module Amazonka.Translate.ListTextTranslationJobs
 
 -- | <i>See:</i> <a>newListTextTranslationJobs</a> smart constructor.
 data ListTextTranslationJobs
@@ -3275,28 +3275,28 @@ listTextTranslationJobsResponse_nextToken :: Lens' ListTextTranslationJobsRespon
 
 -- | The response's http status code.
 listTextTranslationJobsResponse_httpStatus :: Lens' ListTextTranslationJobsResponse Int
-instance GHC.Generics.Generic Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobs
-instance GHC.Show.Show Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobs
-instance GHC.Read.Read Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobs
-instance GHC.Classes.Eq Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobs
-instance GHC.Generics.Generic Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobsResponse
-instance GHC.Show.Show Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobsResponse
-instance GHC.Read.Read Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobsResponse
-instance GHC.Classes.Eq Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobs
-instance Control.DeepSeq.NFData Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobs
-instance Control.DeepSeq.NFData Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.ListTextTranslationJobs.ListTextTranslationJobs
+instance GHC.Generics.Generic Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobs
+instance GHC.Show.Show Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobs
+instance GHC.Read.Read Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobs
+instance GHC.Classes.Eq Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobs
+instance GHC.Generics.Generic Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobsResponse
+instance GHC.Show.Show Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobsResponse
+instance GHC.Read.Read Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobsResponse
+instance GHC.Classes.Eq Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobs
+instance Control.DeepSeq.NFData Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobs
+instance Control.DeepSeq.NFData Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobs
+instance Amazonka.Data.Path.ToPath Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.ListTextTranslationJobs.ListTextTranslationJobs
 
 
 -- | Provides a list of custom terminologies associated with your account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Translate.ListTerminologies
+module Amazonka.Translate.ListTerminologies
 
 -- | <i>See:</i> <a>newListTerminologies</a> smart constructor.
 data ListTerminologies
@@ -3384,27 +3384,27 @@ listTerminologiesResponse_nextToken :: Lens' ListTerminologiesResponse (Maybe Te
 
 -- | The response's http status code.
 listTerminologiesResponse_httpStatus :: Lens' ListTerminologiesResponse Int
-instance GHC.Generics.Generic Network.AWS.Translate.ListTerminologies.ListTerminologies
-instance GHC.Show.Show Network.AWS.Translate.ListTerminologies.ListTerminologies
-instance GHC.Read.Read Network.AWS.Translate.ListTerminologies.ListTerminologies
-instance GHC.Classes.Eq Network.AWS.Translate.ListTerminologies.ListTerminologies
-instance GHC.Generics.Generic Network.AWS.Translate.ListTerminologies.ListTerminologiesResponse
-instance GHC.Show.Show Network.AWS.Translate.ListTerminologies.ListTerminologiesResponse
-instance GHC.Read.Read Network.AWS.Translate.ListTerminologies.ListTerminologiesResponse
-instance GHC.Classes.Eq Network.AWS.Translate.ListTerminologies.ListTerminologiesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Translate.ListTerminologies.ListTerminologies
-instance Control.DeepSeq.NFData Network.AWS.Translate.ListTerminologies.ListTerminologiesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Translate.ListTerminologies.ListTerminologies
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.ListTerminologies.ListTerminologies
-instance Control.DeepSeq.NFData Network.AWS.Translate.ListTerminologies.ListTerminologies
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Translate.ListTerminologies.ListTerminologies
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.ListTerminologies.ListTerminologies
-instance Network.AWS.Data.Path.ToPath Network.AWS.Translate.ListTerminologies.ListTerminologies
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.ListTerminologies.ListTerminologies
+instance GHC.Generics.Generic Amazonka.Translate.ListTerminologies.ListTerminologies
+instance GHC.Show.Show Amazonka.Translate.ListTerminologies.ListTerminologies
+instance GHC.Read.Read Amazonka.Translate.ListTerminologies.ListTerminologies
+instance GHC.Classes.Eq Amazonka.Translate.ListTerminologies.ListTerminologies
+instance GHC.Generics.Generic Amazonka.Translate.ListTerminologies.ListTerminologiesResponse
+instance GHC.Show.Show Amazonka.Translate.ListTerminologies.ListTerminologiesResponse
+instance GHC.Read.Read Amazonka.Translate.ListTerminologies.ListTerminologiesResponse
+instance GHC.Classes.Eq Amazonka.Translate.ListTerminologies.ListTerminologiesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Translate.ListTerminologies.ListTerminologies
+instance Control.DeepSeq.NFData Amazonka.Translate.ListTerminologies.ListTerminologiesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Translate.ListTerminologies.ListTerminologies
+instance Data.Hashable.Class.Hashable Amazonka.Translate.ListTerminologies.ListTerminologies
+instance Control.DeepSeq.NFData Amazonka.Translate.ListTerminologies.ListTerminologies
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Translate.ListTerminologies.ListTerminologies
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.ListTerminologies.ListTerminologies
+instance Amazonka.Data.Path.ToPath Amazonka.Translate.ListTerminologies.ListTerminologies
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.ListTerminologies.ListTerminologies
 
 
 -- | Provides a list of your parallel data resources in Amazon Translate.
-module Network.AWS.Translate.ListParallelData
+module Amazonka.Translate.ListParallelData
 
 -- | <i>See:</i> <a>newListParallelData</a> smart constructor.
 data ListParallelData
@@ -3494,22 +3494,22 @@ listParallelDataResponse_nextToken :: Lens' ListParallelDataResponse (Maybe Text
 
 -- | The response's http status code.
 listParallelDataResponse_httpStatus :: Lens' ListParallelDataResponse Int
-instance GHC.Generics.Generic Network.AWS.Translate.ListParallelData.ListParallelData
-instance GHC.Show.Show Network.AWS.Translate.ListParallelData.ListParallelData
-instance GHC.Read.Read Network.AWS.Translate.ListParallelData.ListParallelData
-instance GHC.Classes.Eq Network.AWS.Translate.ListParallelData.ListParallelData
-instance GHC.Generics.Generic Network.AWS.Translate.ListParallelData.ListParallelDataResponse
-instance GHC.Show.Show Network.AWS.Translate.ListParallelData.ListParallelDataResponse
-instance GHC.Read.Read Network.AWS.Translate.ListParallelData.ListParallelDataResponse
-instance GHC.Classes.Eq Network.AWS.Translate.ListParallelData.ListParallelDataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Translate.ListParallelData.ListParallelData
-instance Control.DeepSeq.NFData Network.AWS.Translate.ListParallelData.ListParallelDataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.ListParallelData.ListParallelData
-instance Control.DeepSeq.NFData Network.AWS.Translate.ListParallelData.ListParallelData
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Translate.ListParallelData.ListParallelData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.ListParallelData.ListParallelData
-instance Network.AWS.Data.Path.ToPath Network.AWS.Translate.ListParallelData.ListParallelData
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.ListParallelData.ListParallelData
+instance GHC.Generics.Generic Amazonka.Translate.ListParallelData.ListParallelData
+instance GHC.Show.Show Amazonka.Translate.ListParallelData.ListParallelData
+instance GHC.Read.Read Amazonka.Translate.ListParallelData.ListParallelData
+instance GHC.Classes.Eq Amazonka.Translate.ListParallelData.ListParallelData
+instance GHC.Generics.Generic Amazonka.Translate.ListParallelData.ListParallelDataResponse
+instance GHC.Show.Show Amazonka.Translate.ListParallelData.ListParallelDataResponse
+instance GHC.Read.Read Amazonka.Translate.ListParallelData.ListParallelDataResponse
+instance GHC.Classes.Eq Amazonka.Translate.ListParallelData.ListParallelDataResponse
+instance Amazonka.Types.AWSRequest Amazonka.Translate.ListParallelData.ListParallelData
+instance Control.DeepSeq.NFData Amazonka.Translate.ListParallelData.ListParallelDataResponse
+instance Data.Hashable.Class.Hashable Amazonka.Translate.ListParallelData.ListParallelData
+instance Control.DeepSeq.NFData Amazonka.Translate.ListParallelData.ListParallelData
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Translate.ListParallelData.ListParallelData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.ListParallelData.ListParallelData
+instance Amazonka.Data.Path.ToPath Amazonka.Translate.ListParallelData.ListParallelData
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.ListParallelData.ListParallelData
 
 
 -- | Creates or updates a custom terminology, depending on whether or not
@@ -3523,7 +3523,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.ListParallelData.L
 --   terminology take up to 10 minutes to fully propagate and be available
 --   for use in a translation due to cache policies with the DataPlane
 --   service that performs the translations.
-module Network.AWS.Translate.ImportTerminology
+module Amazonka.Translate.ImportTerminology
 
 -- | <i>See:</i> <a>newImportTerminology</a> smart constructor.
 data ImportTerminology
@@ -3629,25 +3629,25 @@ importTerminologyResponse_terminologyProperties :: Lens' ImportTerminologyRespon
 
 -- | The response's http status code.
 importTerminologyResponse_httpStatus :: Lens' ImportTerminologyResponse Int
-instance GHC.Generics.Generic Network.AWS.Translate.ImportTerminology.ImportTerminology
-instance GHC.Show.Show Network.AWS.Translate.ImportTerminology.ImportTerminology
-instance GHC.Classes.Eq Network.AWS.Translate.ImportTerminology.ImportTerminology
-instance GHC.Generics.Generic Network.AWS.Translate.ImportTerminology.ImportTerminologyResponse
-instance GHC.Show.Show Network.AWS.Translate.ImportTerminology.ImportTerminologyResponse
-instance GHC.Read.Read Network.AWS.Translate.ImportTerminology.ImportTerminologyResponse
-instance GHC.Classes.Eq Network.AWS.Translate.ImportTerminology.ImportTerminologyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Translate.ImportTerminology.ImportTerminology
-instance Control.DeepSeq.NFData Network.AWS.Translate.ImportTerminology.ImportTerminologyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.ImportTerminology.ImportTerminology
-instance Control.DeepSeq.NFData Network.AWS.Translate.ImportTerminology.ImportTerminology
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Translate.ImportTerminology.ImportTerminology
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.ImportTerminology.ImportTerminology
-instance Network.AWS.Data.Path.ToPath Network.AWS.Translate.ImportTerminology.ImportTerminology
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.ImportTerminology.ImportTerminology
+instance GHC.Generics.Generic Amazonka.Translate.ImportTerminology.ImportTerminology
+instance GHC.Show.Show Amazonka.Translate.ImportTerminology.ImportTerminology
+instance GHC.Classes.Eq Amazonka.Translate.ImportTerminology.ImportTerminology
+instance GHC.Generics.Generic Amazonka.Translate.ImportTerminology.ImportTerminologyResponse
+instance GHC.Show.Show Amazonka.Translate.ImportTerminology.ImportTerminologyResponse
+instance GHC.Read.Read Amazonka.Translate.ImportTerminology.ImportTerminologyResponse
+instance GHC.Classes.Eq Amazonka.Translate.ImportTerminology.ImportTerminologyResponse
+instance Amazonka.Types.AWSRequest Amazonka.Translate.ImportTerminology.ImportTerminology
+instance Control.DeepSeq.NFData Amazonka.Translate.ImportTerminology.ImportTerminologyResponse
+instance Data.Hashable.Class.Hashable Amazonka.Translate.ImportTerminology.ImportTerminology
+instance Control.DeepSeq.NFData Amazonka.Translate.ImportTerminology.ImportTerminology
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Translate.ImportTerminology.ImportTerminology
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.ImportTerminology.ImportTerminology
+instance Amazonka.Data.Path.ToPath Amazonka.Translate.ImportTerminology.ImportTerminology
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.ImportTerminology.ImportTerminology
 
 
 -- | Retrieves a custom terminology.
-module Network.AWS.Translate.GetTerminology
+module Amazonka.Translate.GetTerminology
 
 -- | <i>See:</i> <a>newGetTerminology</a> smart constructor.
 data GetTerminology
@@ -3733,26 +3733,26 @@ getTerminologyResponse_terminologyDataLocation :: Lens' GetTerminologyResponse (
 
 -- | The response's http status code.
 getTerminologyResponse_httpStatus :: Lens' GetTerminologyResponse Int
-instance GHC.Generics.Generic Network.AWS.Translate.GetTerminology.GetTerminology
-instance GHC.Show.Show Network.AWS.Translate.GetTerminology.GetTerminology
-instance GHC.Read.Read Network.AWS.Translate.GetTerminology.GetTerminology
-instance GHC.Classes.Eq Network.AWS.Translate.GetTerminology.GetTerminology
-instance GHC.Generics.Generic Network.AWS.Translate.GetTerminology.GetTerminologyResponse
-instance GHC.Show.Show Network.AWS.Translate.GetTerminology.GetTerminologyResponse
-instance GHC.Read.Read Network.AWS.Translate.GetTerminology.GetTerminologyResponse
-instance GHC.Classes.Eq Network.AWS.Translate.GetTerminology.GetTerminologyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Translate.GetTerminology.GetTerminology
-instance Control.DeepSeq.NFData Network.AWS.Translate.GetTerminology.GetTerminologyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.GetTerminology.GetTerminology
-instance Control.DeepSeq.NFData Network.AWS.Translate.GetTerminology.GetTerminology
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Translate.GetTerminology.GetTerminology
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.GetTerminology.GetTerminology
-instance Network.AWS.Data.Path.ToPath Network.AWS.Translate.GetTerminology.GetTerminology
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.GetTerminology.GetTerminology
+instance GHC.Generics.Generic Amazonka.Translate.GetTerminology.GetTerminology
+instance GHC.Show.Show Amazonka.Translate.GetTerminology.GetTerminology
+instance GHC.Read.Read Amazonka.Translate.GetTerminology.GetTerminology
+instance GHC.Classes.Eq Amazonka.Translate.GetTerminology.GetTerminology
+instance GHC.Generics.Generic Amazonka.Translate.GetTerminology.GetTerminologyResponse
+instance GHC.Show.Show Amazonka.Translate.GetTerminology.GetTerminologyResponse
+instance GHC.Read.Read Amazonka.Translate.GetTerminology.GetTerminologyResponse
+instance GHC.Classes.Eq Amazonka.Translate.GetTerminology.GetTerminologyResponse
+instance Amazonka.Types.AWSRequest Amazonka.Translate.GetTerminology.GetTerminology
+instance Control.DeepSeq.NFData Amazonka.Translate.GetTerminology.GetTerminologyResponse
+instance Data.Hashable.Class.Hashable Amazonka.Translate.GetTerminology.GetTerminology
+instance Control.DeepSeq.NFData Amazonka.Translate.GetTerminology.GetTerminology
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Translate.GetTerminology.GetTerminology
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.GetTerminology.GetTerminology
+instance Amazonka.Data.Path.ToPath Amazonka.Translate.GetTerminology.GetTerminology
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.GetTerminology.GetTerminology
 
 
 -- | Provides information about a parallel data resource.
-module Network.AWS.Translate.GetParallelData
+module Amazonka.Translate.GetParallelData
 
 -- | <i>See:</i> <a>newGetParallelData</a> smart constructor.
 data GetParallelData
@@ -3870,28 +3870,28 @@ getParallelDataResponse_latestUpdateAttemptAuxiliaryDataLocation :: Lens' GetPar
 
 -- | The response's http status code.
 getParallelDataResponse_httpStatus :: Lens' GetParallelDataResponse Int
-instance GHC.Generics.Generic Network.AWS.Translate.GetParallelData.GetParallelData
-instance GHC.Show.Show Network.AWS.Translate.GetParallelData.GetParallelData
-instance GHC.Read.Read Network.AWS.Translate.GetParallelData.GetParallelData
-instance GHC.Classes.Eq Network.AWS.Translate.GetParallelData.GetParallelData
-instance GHC.Generics.Generic Network.AWS.Translate.GetParallelData.GetParallelDataResponse
-instance GHC.Show.Show Network.AWS.Translate.GetParallelData.GetParallelDataResponse
-instance GHC.Read.Read Network.AWS.Translate.GetParallelData.GetParallelDataResponse
-instance GHC.Classes.Eq Network.AWS.Translate.GetParallelData.GetParallelDataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Translate.GetParallelData.GetParallelData
-instance Control.DeepSeq.NFData Network.AWS.Translate.GetParallelData.GetParallelDataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.GetParallelData.GetParallelData
-instance Control.DeepSeq.NFData Network.AWS.Translate.GetParallelData.GetParallelData
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Translate.GetParallelData.GetParallelData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.GetParallelData.GetParallelData
-instance Network.AWS.Data.Path.ToPath Network.AWS.Translate.GetParallelData.GetParallelData
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.GetParallelData.GetParallelData
+instance GHC.Generics.Generic Amazonka.Translate.GetParallelData.GetParallelData
+instance GHC.Show.Show Amazonka.Translate.GetParallelData.GetParallelData
+instance GHC.Read.Read Amazonka.Translate.GetParallelData.GetParallelData
+instance GHC.Classes.Eq Amazonka.Translate.GetParallelData.GetParallelData
+instance GHC.Generics.Generic Amazonka.Translate.GetParallelData.GetParallelDataResponse
+instance GHC.Show.Show Amazonka.Translate.GetParallelData.GetParallelDataResponse
+instance GHC.Read.Read Amazonka.Translate.GetParallelData.GetParallelDataResponse
+instance GHC.Classes.Eq Amazonka.Translate.GetParallelData.GetParallelDataResponse
+instance Amazonka.Types.AWSRequest Amazonka.Translate.GetParallelData.GetParallelData
+instance Control.DeepSeq.NFData Amazonka.Translate.GetParallelData.GetParallelDataResponse
+instance Data.Hashable.Class.Hashable Amazonka.Translate.GetParallelData.GetParallelData
+instance Control.DeepSeq.NFData Amazonka.Translate.GetParallelData.GetParallelData
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Translate.GetParallelData.GetParallelData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.GetParallelData.GetParallelData
+instance Amazonka.Data.Path.ToPath Amazonka.Translate.GetParallelData.GetParallelData
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.GetParallelData.GetParallelData
 
 
 -- | Gets the properties associated with an asycnhronous batch translation
 --   job including name, ID, status, source and target languages,
 --   input/output S3 buckets, and so on.
-module Network.AWS.Translate.DescribeTextTranslationJob
+module Amazonka.Translate.DescribeTextTranslationJob
 
 -- | <i>See:</i> <a>newDescribeTextTranslationJob</a> smart constructor.
 data DescribeTextTranslationJob
@@ -3960,26 +3960,26 @@ describeTextTranslationJobResponse_textTranslationJobProperties :: Lens' Describ
 
 -- | The response's http status code.
 describeTextTranslationJobResponse_httpStatus :: Lens' DescribeTextTranslationJobResponse Int
-instance GHC.Generics.Generic Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
-instance GHC.Show.Show Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
-instance GHC.Read.Read Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
-instance GHC.Classes.Eq Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
-instance GHC.Generics.Generic Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJobResponse
-instance GHC.Show.Show Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJobResponse
-instance GHC.Read.Read Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJobResponse
-instance GHC.Classes.Eq Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
-instance Control.DeepSeq.NFData Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
-instance Control.DeepSeq.NFData Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
+instance GHC.Generics.Generic Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
+instance GHC.Show.Show Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
+instance GHC.Read.Read Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
+instance GHC.Classes.Eq Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
+instance GHC.Generics.Generic Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJobResponse
+instance GHC.Show.Show Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJobResponse
+instance GHC.Read.Read Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJobResponse
+instance GHC.Classes.Eq Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
+instance Control.DeepSeq.NFData Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
+instance Control.DeepSeq.NFData Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
+instance Amazonka.Data.Path.ToPath Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.DescribeTextTranslationJob.DescribeTextTranslationJob
 
 
 -- | A synchronous action that deletes a custom terminology.
-module Network.AWS.Translate.DeleteTerminology
+module Amazonka.Translate.DeleteTerminology
 
 -- | <i>See:</i> <a>newDeleteTerminology</a> smart constructor.
 data DeleteTerminology
@@ -4014,26 +4014,26 @@ DeleteTerminologyResponse' :: DeleteTerminologyResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteTerminologyResponse :: DeleteTerminologyResponse
-instance GHC.Generics.Generic Network.AWS.Translate.DeleteTerminology.DeleteTerminology
-instance GHC.Show.Show Network.AWS.Translate.DeleteTerminology.DeleteTerminology
-instance GHC.Read.Read Network.AWS.Translate.DeleteTerminology.DeleteTerminology
-instance GHC.Classes.Eq Network.AWS.Translate.DeleteTerminology.DeleteTerminology
-instance GHC.Generics.Generic Network.AWS.Translate.DeleteTerminology.DeleteTerminologyResponse
-instance GHC.Show.Show Network.AWS.Translate.DeleteTerminology.DeleteTerminologyResponse
-instance GHC.Read.Read Network.AWS.Translate.DeleteTerminology.DeleteTerminologyResponse
-instance GHC.Classes.Eq Network.AWS.Translate.DeleteTerminology.DeleteTerminologyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Translate.DeleteTerminology.DeleteTerminology
-instance Control.DeepSeq.NFData Network.AWS.Translate.DeleteTerminology.DeleteTerminologyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.DeleteTerminology.DeleteTerminology
-instance Control.DeepSeq.NFData Network.AWS.Translate.DeleteTerminology.DeleteTerminology
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Translate.DeleteTerminology.DeleteTerminology
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.DeleteTerminology.DeleteTerminology
-instance Network.AWS.Data.Path.ToPath Network.AWS.Translate.DeleteTerminology.DeleteTerminology
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.DeleteTerminology.DeleteTerminology
+instance GHC.Generics.Generic Amazonka.Translate.DeleteTerminology.DeleteTerminology
+instance GHC.Show.Show Amazonka.Translate.DeleteTerminology.DeleteTerminology
+instance GHC.Read.Read Amazonka.Translate.DeleteTerminology.DeleteTerminology
+instance GHC.Classes.Eq Amazonka.Translate.DeleteTerminology.DeleteTerminology
+instance GHC.Generics.Generic Amazonka.Translate.DeleteTerminology.DeleteTerminologyResponse
+instance GHC.Show.Show Amazonka.Translate.DeleteTerminology.DeleteTerminologyResponse
+instance GHC.Read.Read Amazonka.Translate.DeleteTerminology.DeleteTerminologyResponse
+instance GHC.Classes.Eq Amazonka.Translate.DeleteTerminology.DeleteTerminologyResponse
+instance Amazonka.Types.AWSRequest Amazonka.Translate.DeleteTerminology.DeleteTerminology
+instance Control.DeepSeq.NFData Amazonka.Translate.DeleteTerminology.DeleteTerminologyResponse
+instance Data.Hashable.Class.Hashable Amazonka.Translate.DeleteTerminology.DeleteTerminology
+instance Control.DeepSeq.NFData Amazonka.Translate.DeleteTerminology.DeleteTerminology
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Translate.DeleteTerminology.DeleteTerminology
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.DeleteTerminology.DeleteTerminology
+instance Amazonka.Data.Path.ToPath Amazonka.Translate.DeleteTerminology.DeleteTerminology
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.DeleteTerminology.DeleteTerminology
 
 
 -- | Deletes a parallel data resource in Amazon Translate.
-module Network.AWS.Translate.DeleteParallelData
+module Amazonka.Translate.DeleteParallelData
 
 -- | <i>See:</i> <a>newDeleteParallelData</a> smart constructor.
 data DeleteParallelData
@@ -4101,22 +4101,22 @@ deleteParallelDataResponse_name :: Lens' DeleteParallelDataResponse (Maybe Text)
 
 -- | The response's http status code.
 deleteParallelDataResponse_httpStatus :: Lens' DeleteParallelDataResponse Int
-instance GHC.Generics.Generic Network.AWS.Translate.DeleteParallelData.DeleteParallelData
-instance GHC.Show.Show Network.AWS.Translate.DeleteParallelData.DeleteParallelData
-instance GHC.Read.Read Network.AWS.Translate.DeleteParallelData.DeleteParallelData
-instance GHC.Classes.Eq Network.AWS.Translate.DeleteParallelData.DeleteParallelData
-instance GHC.Generics.Generic Network.AWS.Translate.DeleteParallelData.DeleteParallelDataResponse
-instance GHC.Show.Show Network.AWS.Translate.DeleteParallelData.DeleteParallelDataResponse
-instance GHC.Read.Read Network.AWS.Translate.DeleteParallelData.DeleteParallelDataResponse
-instance GHC.Classes.Eq Network.AWS.Translate.DeleteParallelData.DeleteParallelDataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Translate.DeleteParallelData.DeleteParallelData
-instance Control.DeepSeq.NFData Network.AWS.Translate.DeleteParallelData.DeleteParallelDataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.DeleteParallelData.DeleteParallelData
-instance Control.DeepSeq.NFData Network.AWS.Translate.DeleteParallelData.DeleteParallelData
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Translate.DeleteParallelData.DeleteParallelData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.DeleteParallelData.DeleteParallelData
-instance Network.AWS.Data.Path.ToPath Network.AWS.Translate.DeleteParallelData.DeleteParallelData
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.DeleteParallelData.DeleteParallelData
+instance GHC.Generics.Generic Amazonka.Translate.DeleteParallelData.DeleteParallelData
+instance GHC.Show.Show Amazonka.Translate.DeleteParallelData.DeleteParallelData
+instance GHC.Read.Read Amazonka.Translate.DeleteParallelData.DeleteParallelData
+instance GHC.Classes.Eq Amazonka.Translate.DeleteParallelData.DeleteParallelData
+instance GHC.Generics.Generic Amazonka.Translate.DeleteParallelData.DeleteParallelDataResponse
+instance GHC.Show.Show Amazonka.Translate.DeleteParallelData.DeleteParallelDataResponse
+instance GHC.Read.Read Amazonka.Translate.DeleteParallelData.DeleteParallelDataResponse
+instance GHC.Classes.Eq Amazonka.Translate.DeleteParallelData.DeleteParallelDataResponse
+instance Amazonka.Types.AWSRequest Amazonka.Translate.DeleteParallelData.DeleteParallelData
+instance Control.DeepSeq.NFData Amazonka.Translate.DeleteParallelData.DeleteParallelDataResponse
+instance Data.Hashable.Class.Hashable Amazonka.Translate.DeleteParallelData.DeleteParallelData
+instance Control.DeepSeq.NFData Amazonka.Translate.DeleteParallelData.DeleteParallelData
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Translate.DeleteParallelData.DeleteParallelData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.DeleteParallelData.DeleteParallelData
+instance Amazonka.Data.Path.ToPath Amazonka.Translate.DeleteParallelData.DeleteParallelData
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.DeleteParallelData.DeleteParallelData
 
 
 -- | Creates a parallel data resource in Amazon Translate by importing an
@@ -4124,7 +4124,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.DeleteParallelData
 --   source phrases and their translations from your translation memory. By
 --   adding parallel data, you can influence the style, tone, and word
 --   choice in your translation output.
-module Network.AWS.Translate.CreateParallelData
+module Amazonka.Translate.CreateParallelData
 
 -- | <i>See:</i> <a>newCreateParallelData</a> smart constructor.
 data CreateParallelData
@@ -4240,27 +4240,27 @@ createParallelDataResponse_name :: Lens' CreateParallelDataResponse (Maybe Text)
 
 -- | The response's http status code.
 createParallelDataResponse_httpStatus :: Lens' CreateParallelDataResponse Int
-instance GHC.Generics.Generic Network.AWS.Translate.CreateParallelData.CreateParallelData
-instance GHC.Show.Show Network.AWS.Translate.CreateParallelData.CreateParallelData
-instance GHC.Read.Read Network.AWS.Translate.CreateParallelData.CreateParallelData
-instance GHC.Classes.Eq Network.AWS.Translate.CreateParallelData.CreateParallelData
-instance GHC.Generics.Generic Network.AWS.Translate.CreateParallelData.CreateParallelDataResponse
-instance GHC.Show.Show Network.AWS.Translate.CreateParallelData.CreateParallelDataResponse
-instance GHC.Read.Read Network.AWS.Translate.CreateParallelData.CreateParallelDataResponse
-instance GHC.Classes.Eq Network.AWS.Translate.CreateParallelData.CreateParallelDataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Translate.CreateParallelData.CreateParallelData
-instance Control.DeepSeq.NFData Network.AWS.Translate.CreateParallelData.CreateParallelDataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.CreateParallelData.CreateParallelData
-instance Control.DeepSeq.NFData Network.AWS.Translate.CreateParallelData.CreateParallelData
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Translate.CreateParallelData.CreateParallelData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.CreateParallelData.CreateParallelData
-instance Network.AWS.Data.Path.ToPath Network.AWS.Translate.CreateParallelData.CreateParallelData
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.CreateParallelData.CreateParallelData
+instance GHC.Generics.Generic Amazonka.Translate.CreateParallelData.CreateParallelData
+instance GHC.Show.Show Amazonka.Translate.CreateParallelData.CreateParallelData
+instance GHC.Read.Read Amazonka.Translate.CreateParallelData.CreateParallelData
+instance GHC.Classes.Eq Amazonka.Translate.CreateParallelData.CreateParallelData
+instance GHC.Generics.Generic Amazonka.Translate.CreateParallelData.CreateParallelDataResponse
+instance GHC.Show.Show Amazonka.Translate.CreateParallelData.CreateParallelDataResponse
+instance GHC.Read.Read Amazonka.Translate.CreateParallelData.CreateParallelDataResponse
+instance GHC.Classes.Eq Amazonka.Translate.CreateParallelData.CreateParallelDataResponse
+instance Amazonka.Types.AWSRequest Amazonka.Translate.CreateParallelData.CreateParallelData
+instance Control.DeepSeq.NFData Amazonka.Translate.CreateParallelData.CreateParallelDataResponse
+instance Data.Hashable.Class.Hashable Amazonka.Translate.CreateParallelData.CreateParallelData
+instance Control.DeepSeq.NFData Amazonka.Translate.CreateParallelData.CreateParallelData
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Translate.CreateParallelData.CreateParallelData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.CreateParallelData.CreateParallelData
+instance Amazonka.Data.Path.ToPath Amazonka.Translate.CreateParallelData.CreateParallelData
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.CreateParallelData.CreateParallelData
 
 
 -- | Updates a previously created parallel data resource by importing a new
 --   input file from Amazon S3.
-module Network.AWS.Translate.UpdateParallelData
+module Amazonka.Translate.UpdateParallelData
 
 -- | <i>See:</i> <a>newUpdateParallelData</a> smart constructor.
 data UpdateParallelData
@@ -4394,25 +4394,25 @@ updateParallelDataResponse_latestUpdateAttemptStatus :: Lens' UpdateParallelData
 
 -- | The response's http status code.
 updateParallelDataResponse_httpStatus :: Lens' UpdateParallelDataResponse Int
-instance GHC.Generics.Generic Network.AWS.Translate.UpdateParallelData.UpdateParallelData
-instance GHC.Show.Show Network.AWS.Translate.UpdateParallelData.UpdateParallelData
-instance GHC.Read.Read Network.AWS.Translate.UpdateParallelData.UpdateParallelData
-instance GHC.Classes.Eq Network.AWS.Translate.UpdateParallelData.UpdateParallelData
-instance GHC.Generics.Generic Network.AWS.Translate.UpdateParallelData.UpdateParallelDataResponse
-instance GHC.Show.Show Network.AWS.Translate.UpdateParallelData.UpdateParallelDataResponse
-instance GHC.Read.Read Network.AWS.Translate.UpdateParallelData.UpdateParallelDataResponse
-instance GHC.Classes.Eq Network.AWS.Translate.UpdateParallelData.UpdateParallelDataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Translate.UpdateParallelData.UpdateParallelData
-instance Control.DeepSeq.NFData Network.AWS.Translate.UpdateParallelData.UpdateParallelDataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Translate.UpdateParallelData.UpdateParallelData
-instance Control.DeepSeq.NFData Network.AWS.Translate.UpdateParallelData.UpdateParallelData
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Translate.UpdateParallelData.UpdateParallelData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Translate.UpdateParallelData.UpdateParallelData
-instance Network.AWS.Data.Path.ToPath Network.AWS.Translate.UpdateParallelData.UpdateParallelData
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Translate.UpdateParallelData.UpdateParallelData
+instance GHC.Generics.Generic Amazonka.Translate.UpdateParallelData.UpdateParallelData
+instance GHC.Show.Show Amazonka.Translate.UpdateParallelData.UpdateParallelData
+instance GHC.Read.Read Amazonka.Translate.UpdateParallelData.UpdateParallelData
+instance GHC.Classes.Eq Amazonka.Translate.UpdateParallelData.UpdateParallelData
+instance GHC.Generics.Generic Amazonka.Translate.UpdateParallelData.UpdateParallelDataResponse
+instance GHC.Show.Show Amazonka.Translate.UpdateParallelData.UpdateParallelDataResponse
+instance GHC.Read.Read Amazonka.Translate.UpdateParallelData.UpdateParallelDataResponse
+instance GHC.Classes.Eq Amazonka.Translate.UpdateParallelData.UpdateParallelDataResponse
+instance Amazonka.Types.AWSRequest Amazonka.Translate.UpdateParallelData.UpdateParallelData
+instance Control.DeepSeq.NFData Amazonka.Translate.UpdateParallelData.UpdateParallelDataResponse
+instance Data.Hashable.Class.Hashable Amazonka.Translate.UpdateParallelData.UpdateParallelData
+instance Control.DeepSeq.NFData Amazonka.Translate.UpdateParallelData.UpdateParallelData
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Translate.UpdateParallelData.UpdateParallelData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Translate.UpdateParallelData.UpdateParallelData
+instance Amazonka.Data.Path.ToPath Amazonka.Translate.UpdateParallelData.UpdateParallelData
+instance Amazonka.Data.Query.ToQuery Amazonka.Translate.UpdateParallelData.UpdateParallelData
 
 
-module Network.AWS.Translate.Lens
+module Amazonka.Translate.Lens
 
 -- | The identifier that Amazon Translate generated for the job. The
 --   StartTextTranslationJob operation returns this identifier in its
@@ -5032,7 +5032,7 @@ textTranslationJobProperties_jobStatus :: Lens' TextTranslationJobProperties (Ma
 textTranslationJobProperties_message :: Lens' TextTranslationJobProperties (Maybe Text)
 
 
-module Network.AWS.Translate.Waiters
+module Amazonka.Translate.Waiters
 
 
 -- | Derived from API version <tt>2017-07-01</tt> of the AWS service
@@ -5040,7 +5040,7 @@ module Network.AWS.Translate.Waiters
 --   
 --   Provides translation between one source language and another of the
 --   same set of languages.
-module Network.AWS.Translate
+module Amazonka.Translate
 
 -- | API version <tt>2017-07-01</tt> of the Amazon Translate SDK
 --   configuration.

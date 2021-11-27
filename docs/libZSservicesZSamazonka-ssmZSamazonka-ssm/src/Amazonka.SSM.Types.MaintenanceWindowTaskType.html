@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.MaintenanceWindowTaskType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.MaintenanceWindowTaskType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType"><span class="hs-identifier">MaintenanceWindowTaskType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType_AUTOMATION"><span class="hs-identifier">MaintenanceWindowTaskType_AUTOMATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType_LAMBDA"><span class="hs-identifier">MaintenanceWindowTaskType_LAMBDA</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType_RUN_COMMAND"><span class="hs-identifier">MaintenanceWindowTaskType_RUN_COMMAND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType_STEP_FUNCTIONS"><span class="hs-identifier">MaintenanceWindowTaskType_STEP_FUNCTIONS</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679799994"><span id="local-6989586621679799995"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MaintenanceWindowTaskType"><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType"><span class="hs-identifier hs-var">MaintenanceWindowTaskType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MaintenanceWindowTaskType%27"><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType%27"><span class="hs-identifier hs-var">MaintenanceWindowTaskType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMaintenanceWindowTaskType"><span class="annot"><span class="annottext">MaintenanceWindowTaskType -&gt; Text
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#fromMaintenanceWindowTaskType"><span class="hs-identifier hs-var hs-var">fromMaintenanceWindowTaskType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679799986"><span id="local-6989586621679799988"><span id="local-6989586621679799990"><span class="annot"><span class="annottext">Int -&gt; MaintenanceWindowTaskType -&gt; ShowS
+[MaintenanceWindowTaskType] -&gt; ShowS
+MaintenanceWindowTaskType -&gt; String
+(Int -&gt; MaintenanceWindowTaskType -&gt; ShowS)
+-&gt; (MaintenanceWindowTaskType -&gt; String)
+-&gt; ([MaintenanceWindowTaskType] -&gt; ShowS)
+-&gt; Show MaintenanceWindowTaskType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MaintenanceWindowTaskType] -&gt; ShowS
+$cshowList :: [MaintenanceWindowTaskType] -&gt; ShowS
+show :: MaintenanceWindowTaskType -&gt; String
+$cshow :: MaintenanceWindowTaskType -&gt; String
+showsPrec :: Int -&gt; MaintenanceWindowTaskType -&gt; ShowS
+$cshowsPrec :: Int -&gt; MaintenanceWindowTaskType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679799977"><span id="local-6989586621679799979"><span id="local-6989586621679799981"><span id="local-6989586621679799983"><span class="annot"><span class="annottext">ReadPrec [MaintenanceWindowTaskType]
+ReadPrec MaintenanceWindowTaskType
+Int -&gt; ReadS MaintenanceWindowTaskType
+ReadS [MaintenanceWindowTaskType]
+(Int -&gt; ReadS MaintenanceWindowTaskType)
+-&gt; ReadS [MaintenanceWindowTaskType]
+-&gt; ReadPrec MaintenanceWindowTaskType
+-&gt; ReadPrec [MaintenanceWindowTaskType]
+-&gt; Read MaintenanceWindowTaskType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MaintenanceWindowTaskType]
+$creadListPrec :: ReadPrec [MaintenanceWindowTaskType]
+readPrec :: ReadPrec MaintenanceWindowTaskType
+$creadPrec :: ReadPrec MaintenanceWindowTaskType
+readList :: ReadS [MaintenanceWindowTaskType]
+$creadList :: ReadS [MaintenanceWindowTaskType]
+readsPrec :: Int -&gt; ReadS MaintenanceWindowTaskType
+$creadsPrec :: Int -&gt; ReadS MaintenanceWindowTaskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679799972"><span id="local-6989586621679799974"><span class="annot"><span class="annottext">MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool
+(MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool)
+-&gt; (MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool)
+-&gt; Eq MaintenanceWindowTaskType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool
+$c/= :: MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool
+== :: MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool
+$c== :: MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679799956"><span id="local-6989586621679799958"><span id="local-6989586621679799960"><span id="local-6989586621679799962"><span id="local-6989586621679799964"><span id="local-6989586621679799966"><span id="local-6989586621679799968"><span class="annot"><span class="annottext">Eq MaintenanceWindowTaskType
+Eq MaintenanceWindowTaskType
+-&gt; (MaintenanceWindowTaskType
+    -&gt; MaintenanceWindowTaskType -&gt; Ordering)
+-&gt; (MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool)
+-&gt; (MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool)
+-&gt; (MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool)
+-&gt; (MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool)
+-&gt; (MaintenanceWindowTaskType
+    -&gt; MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType)
+-&gt; (MaintenanceWindowTaskType
+    -&gt; MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType)
+-&gt; Ord MaintenanceWindowTaskType
+MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool
+MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Ordering
+MaintenanceWindowTaskType
+-&gt; MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MaintenanceWindowTaskType
+-&gt; MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType
+$cmin :: MaintenanceWindowTaskType
+-&gt; MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType
+max :: MaintenanceWindowTaskType
+-&gt; MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType
+$cmax :: MaintenanceWindowTaskType
+-&gt; MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType
+&gt;= :: MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool
+$c&gt;= :: MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool
+&gt; :: MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool
+$c&gt; :: MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool
+&lt;= :: MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool
+$c&lt;= :: MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool
+&lt; :: MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool
+$c&lt; :: MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Bool
+compare :: MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Ordering
+$ccompare :: MaintenanceWindowTaskType -&gt; MaintenanceWindowTaskType -&gt; Ordering
+$cp1Ord :: Eq MaintenanceWindowTaskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ MaintenanceWindowTaskType -&gt; Rep MaintenanceWindowTaskType x)
+-&gt; (forall x.
+    Rep MaintenanceWindowTaskType x -&gt; MaintenanceWindowTaskType)
+-&gt; Generic MaintenanceWindowTaskType
+forall x.
+Rep MaintenanceWindowTaskType x -&gt; MaintenanceWindowTaskType
+forall x.
+MaintenanceWindowTaskType -&gt; Rep MaintenanceWindowTaskType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep MaintenanceWindowTaskType x -&gt; MaintenanceWindowTaskType
+$cfrom :: forall x.
+MaintenanceWindowTaskType -&gt; Rep MaintenanceWindowTaskType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679799948"><span id="local-6989586621679799950"><span class="annot"><span class="annottext">Int -&gt; MaintenanceWindowTaskType -&gt; Int
+MaintenanceWindowTaskType -&gt; Int
+(Int -&gt; MaintenanceWindowTaskType -&gt; Int)
+-&gt; (MaintenanceWindowTaskType -&gt; Int)
+-&gt; Hashable MaintenanceWindowTaskType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MaintenanceWindowTaskType -&gt; Int
+$chash :: MaintenanceWindowTaskType -&gt; Int
+hashWithSalt :: Int -&gt; MaintenanceWindowTaskType -&gt; Int
+$chashWithSalt :: Int -&gt; MaintenanceWindowTaskType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679799945"><span class="annot"><span class="annottext">MaintenanceWindowTaskType -&gt; ()
+(MaintenanceWindowTaskType -&gt; ())
+-&gt; NFData MaintenanceWindowTaskType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MaintenanceWindowTaskType -&gt; ()
+$crnf :: MaintenanceWindowTaskType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679799942"><span class="annot"><span class="annottext">Text -&gt; Either String MaintenanceWindowTaskType
+(Text -&gt; Either String MaintenanceWindowTaskType)
+-&gt; FromText MaintenanceWindowTaskType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MaintenanceWindowTaskType
+$cfromText :: Text -&gt; Either String MaintenanceWindowTaskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679799939"><span class="annot"><span class="annottext">MaintenanceWindowTaskType -&gt; Text
+(MaintenanceWindowTaskType -&gt; Text)
+-&gt; ToText MaintenanceWindowTaskType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MaintenanceWindowTaskType -&gt; Text
+$ctoText :: MaintenanceWindowTaskType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679799936"><span class="annot"><span class="annottext">MaintenanceWindowTaskType -&gt; ByteString
+(MaintenanceWindowTaskType -&gt; ByteString)
+-&gt; ToByteString MaintenanceWindowTaskType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MaintenanceWindowTaskType -&gt; ByteString
+$ctoBS :: MaintenanceWindowTaskType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679799933"><span class="annot"><span class="annottext">MaintenanceWindowTaskType -&gt; ByteStringBuilder
+(MaintenanceWindowTaskType -&gt; ByteStringBuilder)
+-&gt; ToLog MaintenanceWindowTaskType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MaintenanceWindowTaskType -&gt; ByteStringBuilder
+$cbuild :: MaintenanceWindowTaskType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679799930"><span class="annot"><span class="annottext">HeaderName -&gt; MaintenanceWindowTaskType -&gt; [Header]
+(HeaderName -&gt; MaintenanceWindowTaskType -&gt; [Header])
+-&gt; ToHeader MaintenanceWindowTaskType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MaintenanceWindowTaskType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MaintenanceWindowTaskType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679799927"><span class="annot"><span class="annottext">MaintenanceWindowTaskType -&gt; QueryString
+(MaintenanceWindowTaskType -&gt; QueryString)
+-&gt; ToQuery MaintenanceWindowTaskType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MaintenanceWindowTaskType -&gt; QueryString
+$ctoQuery :: MaintenanceWindowTaskType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679799922"><span id="local-6989586621679799924"><span class="annot"><span class="annottext">Value -&gt; Parser [MaintenanceWindowTaskType]
+Value -&gt; Parser MaintenanceWindowTaskType
+(Value -&gt; Parser MaintenanceWindowTaskType)
+-&gt; (Value -&gt; Parser [MaintenanceWindowTaskType])
+-&gt; FromJSON MaintenanceWindowTaskType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MaintenanceWindowTaskType]
+$cparseJSONList :: Value -&gt; Parser [MaintenanceWindowTaskType]
+parseJSON :: Value -&gt; Parser MaintenanceWindowTaskType
+$cparseJSON :: Value -&gt; Parser MaintenanceWindowTaskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679799917"><span id="local-6989586621679799919"><span class="annot"><span class="annottext">FromJSONKeyFunction [MaintenanceWindowTaskType]
+FromJSONKeyFunction MaintenanceWindowTaskType
+FromJSONKeyFunction MaintenanceWindowTaskType
+-&gt; FromJSONKeyFunction [MaintenanceWindowTaskType]
+-&gt; FromJSONKey MaintenanceWindowTaskType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MaintenanceWindowTaskType]
+$cfromJSONKeyList :: FromJSONKeyFunction [MaintenanceWindowTaskType]
+fromJSONKey :: FromJSONKeyFunction MaintenanceWindowTaskType
+$cfromJSONKey :: FromJSONKeyFunction MaintenanceWindowTaskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679799908"><span id="local-6989586621679799910"><span id="local-6989586621679799912"><span id="local-6989586621679799914"><span class="annot"><span class="annottext">[MaintenanceWindowTaskType] -&gt; Encoding
+[MaintenanceWindowTaskType] -&gt; Value
+MaintenanceWindowTaskType -&gt; Encoding
+MaintenanceWindowTaskType -&gt; Value
+(MaintenanceWindowTaskType -&gt; Value)
+-&gt; (MaintenanceWindowTaskType -&gt; Encoding)
+-&gt; ([MaintenanceWindowTaskType] -&gt; Value)
+-&gt; ([MaintenanceWindowTaskType] -&gt; Encoding)
+-&gt; ToJSON MaintenanceWindowTaskType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MaintenanceWindowTaskType] -&gt; Encoding
+$ctoEncodingList :: [MaintenanceWindowTaskType] -&gt; Encoding
+toJSONList :: [MaintenanceWindowTaskType] -&gt; Value
+$ctoJSONList :: [MaintenanceWindowTaskType] -&gt; Value
+toEncoding :: MaintenanceWindowTaskType -&gt; Encoding
+$ctoEncoding :: MaintenanceWindowTaskType -&gt; Encoding
+toJSON :: MaintenanceWindowTaskType -&gt; Value
+$ctoJSON :: MaintenanceWindowTaskType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679799903"><span id="local-6989586621679799905"><span class="annot"><span class="annottext">ToJSONKeyFunction [MaintenanceWindowTaskType]
+ToJSONKeyFunction MaintenanceWindowTaskType
+ToJSONKeyFunction MaintenanceWindowTaskType
+-&gt; ToJSONKeyFunction [MaintenanceWindowTaskType]
+-&gt; ToJSONKey MaintenanceWindowTaskType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MaintenanceWindowTaskType]
+$ctoJSONKeyList :: ToJSONKeyFunction [MaintenanceWindowTaskType]
+toJSONKey :: ToJSONKeyFunction MaintenanceWindowTaskType
+$ctoJSONKey :: ToJSONKeyFunction MaintenanceWindowTaskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679799900"><span class="annot"><span class="annottext">[Node] -&gt; Either String MaintenanceWindowTaskType
+([Node] -&gt; Either String MaintenanceWindowTaskType)
+-&gt; FromXML MaintenanceWindowTaskType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MaintenanceWindowTaskType
+$cparseXML :: [Node] -&gt; Either String MaintenanceWindowTaskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679799897"><span class="annot"><span class="annottext">MaintenanceWindowTaskType -&gt; XML
+(MaintenanceWindowTaskType -&gt; XML)
+-&gt; ToXML MaintenanceWindowTaskType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MaintenanceWindowTaskType -&gt; XML
+$ctoXML :: MaintenanceWindowTaskType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType_AUTOMATION"><span class="hs-identifier hs-type">MaintenanceWindowTaskType_AUTOMATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType"><span class="hs-identifier hs-type">MaintenanceWindowTaskType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMaintenanceWindowTaskType_AUTOMATION"><span id="%24mMaintenanceWindowTaskType_AUTOMATION"><span id="MaintenanceWindowTaskType_AUTOMATION"><span class="annot"><span class="annottext">$bMaintenanceWindowTaskType_AUTOMATION :: MaintenanceWindowTaskType
+$mMaintenanceWindowTaskType_AUTOMATION :: forall r.
+MaintenanceWindowTaskType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#%24bMaintenanceWindowTaskType_AUTOMATION"><span class="hs-identifier hs-var hs-var hs-var">MaintenanceWindowTaskType_AUTOMATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType%27"><span class="hs-identifier hs-type">MaintenanceWindowTaskType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTOMATION&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType_LAMBDA"><span class="hs-identifier hs-type">MaintenanceWindowTaskType_LAMBDA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType"><span class="hs-identifier hs-type">MaintenanceWindowTaskType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMaintenanceWindowTaskType_LAMBDA"><span id="%24mMaintenanceWindowTaskType_LAMBDA"><span id="MaintenanceWindowTaskType_LAMBDA"><span class="annot"><span class="annottext">$bMaintenanceWindowTaskType_LAMBDA :: MaintenanceWindowTaskType
+$mMaintenanceWindowTaskType_LAMBDA :: forall r.
+MaintenanceWindowTaskType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#%24bMaintenanceWindowTaskType_LAMBDA"><span class="hs-identifier hs-var hs-var hs-var">MaintenanceWindowTaskType_LAMBDA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType%27"><span class="hs-identifier hs-type">MaintenanceWindowTaskType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LAMBDA&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType_RUN_COMMAND"><span class="hs-identifier hs-type">MaintenanceWindowTaskType_RUN_COMMAND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType"><span class="hs-identifier hs-type">MaintenanceWindowTaskType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMaintenanceWindowTaskType_RUN_COMMAND"><span id="%24mMaintenanceWindowTaskType_RUN_COMMAND"><span id="MaintenanceWindowTaskType_RUN_COMMAND"><span class="annot"><span class="annottext">$bMaintenanceWindowTaskType_RUN_COMMAND :: MaintenanceWindowTaskType
+$mMaintenanceWindowTaskType_RUN_COMMAND :: forall r.
+MaintenanceWindowTaskType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#%24bMaintenanceWindowTaskType_RUN_COMMAND"><span class="hs-identifier hs-var hs-var hs-var">MaintenanceWindowTaskType_RUN_COMMAND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType%27"><span class="hs-identifier hs-type">MaintenanceWindowTaskType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RUN_COMMAND&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType_STEP_FUNCTIONS"><span class="hs-identifier hs-type">MaintenanceWindowTaskType_STEP_FUNCTIONS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType"><span class="hs-identifier hs-type">MaintenanceWindowTaskType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMaintenanceWindowTaskType_STEP_FUNCTIONS"><span id="%24mMaintenanceWindowTaskType_STEP_FUNCTIONS"><span id="MaintenanceWindowTaskType_STEP_FUNCTIONS"><span class="annot"><span class="annottext">$bMaintenanceWindowTaskType_STEP_FUNCTIONS :: MaintenanceWindowTaskType
+$mMaintenanceWindowTaskType_STEP_FUNCTIONS :: forall r.
+MaintenanceWindowTaskType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#%24bMaintenanceWindowTaskType_STEP_FUNCTIONS"><span class="hs-identifier hs-var hs-var hs-var">MaintenanceWindowTaskType_STEP_FUNCTIONS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType%27"><span class="hs-identifier hs-type">MaintenanceWindowTaskType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STEP_FUNCTIONS&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType_AUTOMATION"><span class="hs-pragma hs-type">MaintenanceWindowTaskType_AUTOMATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType_LAMBDA"><span class="hs-pragma hs-type">MaintenanceWindowTaskType_LAMBDA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType_RUN_COMMAND"><span class="hs-pragma hs-type">MaintenanceWindowTaskType_RUN_COMMAND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType_STEP_FUNCTIONS"><span class="hs-pragma hs-type">MaintenanceWindowTaskType_STEP_FUNCTIONS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.MaintenanceWindowTaskType.html#MaintenanceWindowTaskType%27"><span class="hs-pragma hs-type">MaintenanceWindowTaskType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

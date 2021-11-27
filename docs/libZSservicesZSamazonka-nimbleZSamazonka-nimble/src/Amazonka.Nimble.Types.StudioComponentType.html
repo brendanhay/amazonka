@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Nimble.Types.StudioComponentType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Nimble.Types.StudioComponentType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType"><span class="hs-identifier">StudioComponentType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType_ACTIVE_DIRECTORY"><span class="hs-identifier">StudioComponentType_ACTIVE_DIRECTORY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType_COMPUTE_FARM"><span class="hs-identifier">StudioComponentType_COMPUTE_FARM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType_CUSTOM"><span class="hs-identifier">StudioComponentType_CUSTOM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType_LICENSE_SERVICE"><span class="hs-identifier">StudioComponentType_LICENSE_SERVICE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType_SHARED_FILE_SYSTEM"><span class="hs-identifier">StudioComponentType_SHARED_FILE_SYSTEM</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679287202"><span id="local-6989586621679287203"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StudioComponentType"><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType"><span class="hs-identifier hs-var">StudioComponentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StudioComponentType%27"><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType%27"><span class="hs-identifier hs-var">StudioComponentType'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStudioComponentType"><span class="annot"><span class="annottext">StudioComponentType -&gt; Text
+</span><a href="Amazonka.Nimble.Types.StudioComponentType.html#fromStudioComponentType"><span class="hs-identifier hs-var hs-var">fromStudioComponentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679287194"><span id="local-6989586621679287196"><span id="local-6989586621679287198"><span class="annot"><span class="annottext">Int -&gt; StudioComponentType -&gt; ShowS
+[StudioComponentType] -&gt; ShowS
+StudioComponentType -&gt; String
+(Int -&gt; StudioComponentType -&gt; ShowS)
+-&gt; (StudioComponentType -&gt; String)
+-&gt; ([StudioComponentType] -&gt; ShowS)
+-&gt; Show StudioComponentType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StudioComponentType] -&gt; ShowS
+$cshowList :: [StudioComponentType] -&gt; ShowS
+show :: StudioComponentType -&gt; String
+$cshow :: StudioComponentType -&gt; String
+showsPrec :: Int -&gt; StudioComponentType -&gt; ShowS
+$cshowsPrec :: Int -&gt; StudioComponentType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679287185"><span id="local-6989586621679287187"><span id="local-6989586621679287189"><span id="local-6989586621679287191"><span class="annot"><span class="annottext">ReadPrec [StudioComponentType]
+ReadPrec StudioComponentType
+Int -&gt; ReadS StudioComponentType
+ReadS [StudioComponentType]
+(Int -&gt; ReadS StudioComponentType)
+-&gt; ReadS [StudioComponentType]
+-&gt; ReadPrec StudioComponentType
+-&gt; ReadPrec [StudioComponentType]
+-&gt; Read StudioComponentType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StudioComponentType]
+$creadListPrec :: ReadPrec [StudioComponentType]
+readPrec :: ReadPrec StudioComponentType
+$creadPrec :: ReadPrec StudioComponentType
+readList :: ReadS [StudioComponentType]
+$creadList :: ReadS [StudioComponentType]
+readsPrec :: Int -&gt; ReadS StudioComponentType
+$creadsPrec :: Int -&gt; ReadS StudioComponentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679287180"><span id="local-6989586621679287182"><span class="annot"><span class="annottext">StudioComponentType -&gt; StudioComponentType -&gt; Bool
+(StudioComponentType -&gt; StudioComponentType -&gt; Bool)
+-&gt; (StudioComponentType -&gt; StudioComponentType -&gt; Bool)
+-&gt; Eq StudioComponentType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StudioComponentType -&gt; StudioComponentType -&gt; Bool
+$c/= :: StudioComponentType -&gt; StudioComponentType -&gt; Bool
+== :: StudioComponentType -&gt; StudioComponentType -&gt; Bool
+$c== :: StudioComponentType -&gt; StudioComponentType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679287164"><span id="local-6989586621679287166"><span id="local-6989586621679287168"><span id="local-6989586621679287170"><span id="local-6989586621679287172"><span id="local-6989586621679287174"><span id="local-6989586621679287176"><span class="annot"><span class="annottext">Eq StudioComponentType
+Eq StudioComponentType
+-&gt; (StudioComponentType -&gt; StudioComponentType -&gt; Ordering)
+-&gt; (StudioComponentType -&gt; StudioComponentType -&gt; Bool)
+-&gt; (StudioComponentType -&gt; StudioComponentType -&gt; Bool)
+-&gt; (StudioComponentType -&gt; StudioComponentType -&gt; Bool)
+-&gt; (StudioComponentType -&gt; StudioComponentType -&gt; Bool)
+-&gt; (StudioComponentType
+    -&gt; StudioComponentType -&gt; StudioComponentType)
+-&gt; (StudioComponentType
+    -&gt; StudioComponentType -&gt; StudioComponentType)
+-&gt; Ord StudioComponentType
+StudioComponentType -&gt; StudioComponentType -&gt; Bool
+StudioComponentType -&gt; StudioComponentType -&gt; Ordering
+StudioComponentType -&gt; StudioComponentType -&gt; StudioComponentType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StudioComponentType -&gt; StudioComponentType -&gt; StudioComponentType
+$cmin :: StudioComponentType -&gt; StudioComponentType -&gt; StudioComponentType
+max :: StudioComponentType -&gt; StudioComponentType -&gt; StudioComponentType
+$cmax :: StudioComponentType -&gt; StudioComponentType -&gt; StudioComponentType
+&gt;= :: StudioComponentType -&gt; StudioComponentType -&gt; Bool
+$c&gt;= :: StudioComponentType -&gt; StudioComponentType -&gt; Bool
+&gt; :: StudioComponentType -&gt; StudioComponentType -&gt; Bool
+$c&gt; :: StudioComponentType -&gt; StudioComponentType -&gt; Bool
+&lt;= :: StudioComponentType -&gt; StudioComponentType -&gt; Bool
+$c&lt;= :: StudioComponentType -&gt; StudioComponentType -&gt; Bool
+&lt; :: StudioComponentType -&gt; StudioComponentType -&gt; Bool
+$c&lt; :: StudioComponentType -&gt; StudioComponentType -&gt; Bool
+compare :: StudioComponentType -&gt; StudioComponentType -&gt; Ordering
+$ccompare :: StudioComponentType -&gt; StudioComponentType -&gt; Ordering
+$cp1Ord :: Eq StudioComponentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. StudioComponentType -&gt; Rep StudioComponentType x)
+-&gt; (forall x. Rep StudioComponentType x -&gt; StudioComponentType)
+-&gt; Generic StudioComponentType
+forall x. Rep StudioComponentType x -&gt; StudioComponentType
+forall x. StudioComponentType -&gt; Rep StudioComponentType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StudioComponentType x -&gt; StudioComponentType
+$cfrom :: forall x. StudioComponentType -&gt; Rep StudioComponentType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679287156"><span id="local-6989586621679287158"><span class="annot"><span class="annottext">Int -&gt; StudioComponentType -&gt; Int
+StudioComponentType -&gt; Int
+(Int -&gt; StudioComponentType -&gt; Int)
+-&gt; (StudioComponentType -&gt; Int) -&gt; Hashable StudioComponentType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StudioComponentType -&gt; Int
+$chash :: StudioComponentType -&gt; Int
+hashWithSalt :: Int -&gt; StudioComponentType -&gt; Int
+$chashWithSalt :: Int -&gt; StudioComponentType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679287153"><span class="annot"><span class="annottext">StudioComponentType -&gt; ()
+(StudioComponentType -&gt; ()) -&gt; NFData StudioComponentType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StudioComponentType -&gt; ()
+$crnf :: StudioComponentType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679287150"><span class="annot"><span class="annottext">Text -&gt; Either String StudioComponentType
+(Text -&gt; Either String StudioComponentType)
+-&gt; FromText StudioComponentType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StudioComponentType
+$cfromText :: Text -&gt; Either String StudioComponentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679287147"><span class="annot"><span class="annottext">StudioComponentType -&gt; Text
+(StudioComponentType -&gt; Text) -&gt; ToText StudioComponentType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StudioComponentType -&gt; Text
+$ctoText :: StudioComponentType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679287144"><span class="annot"><span class="annottext">StudioComponentType -&gt; ByteString
+(StudioComponentType -&gt; ByteString)
+-&gt; ToByteString StudioComponentType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StudioComponentType -&gt; ByteString
+$ctoBS :: StudioComponentType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679287141"><span class="annot"><span class="annottext">StudioComponentType -&gt; ByteStringBuilder
+(StudioComponentType -&gt; ByteStringBuilder)
+-&gt; ToLog StudioComponentType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StudioComponentType -&gt; ByteStringBuilder
+$cbuild :: StudioComponentType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679287138"><span class="annot"><span class="annottext">HeaderName -&gt; StudioComponentType -&gt; [Header]
+(HeaderName -&gt; StudioComponentType -&gt; [Header])
+-&gt; ToHeader StudioComponentType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StudioComponentType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StudioComponentType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679287135"><span class="annot"><span class="annottext">StudioComponentType -&gt; QueryString
+(StudioComponentType -&gt; QueryString) -&gt; ToQuery StudioComponentType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StudioComponentType -&gt; QueryString
+$ctoQuery :: StudioComponentType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679287130"><span id="local-6989586621679287132"><span class="annot"><span class="annottext">Value -&gt; Parser [StudioComponentType]
+Value -&gt; Parser StudioComponentType
+(Value -&gt; Parser StudioComponentType)
+-&gt; (Value -&gt; Parser [StudioComponentType])
+-&gt; FromJSON StudioComponentType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StudioComponentType]
+$cparseJSONList :: Value -&gt; Parser [StudioComponentType]
+parseJSON :: Value -&gt; Parser StudioComponentType
+$cparseJSON :: Value -&gt; Parser StudioComponentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679287125"><span id="local-6989586621679287127"><span class="annot"><span class="annottext">FromJSONKeyFunction [StudioComponentType]
+FromJSONKeyFunction StudioComponentType
+FromJSONKeyFunction StudioComponentType
+-&gt; FromJSONKeyFunction [StudioComponentType]
+-&gt; FromJSONKey StudioComponentType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StudioComponentType]
+$cfromJSONKeyList :: FromJSONKeyFunction [StudioComponentType]
+fromJSONKey :: FromJSONKeyFunction StudioComponentType
+$cfromJSONKey :: FromJSONKeyFunction StudioComponentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679287116"><span id="local-6989586621679287118"><span id="local-6989586621679287120"><span id="local-6989586621679287122"><span class="annot"><span class="annottext">[StudioComponentType] -&gt; Encoding
+[StudioComponentType] -&gt; Value
+StudioComponentType -&gt; Encoding
+StudioComponentType -&gt; Value
+(StudioComponentType -&gt; Value)
+-&gt; (StudioComponentType -&gt; Encoding)
+-&gt; ([StudioComponentType] -&gt; Value)
+-&gt; ([StudioComponentType] -&gt; Encoding)
+-&gt; ToJSON StudioComponentType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StudioComponentType] -&gt; Encoding
+$ctoEncodingList :: [StudioComponentType] -&gt; Encoding
+toJSONList :: [StudioComponentType] -&gt; Value
+$ctoJSONList :: [StudioComponentType] -&gt; Value
+toEncoding :: StudioComponentType -&gt; Encoding
+$ctoEncoding :: StudioComponentType -&gt; Encoding
+toJSON :: StudioComponentType -&gt; Value
+$ctoJSON :: StudioComponentType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679287111"><span id="local-6989586621679287113"><span class="annot"><span class="annottext">ToJSONKeyFunction [StudioComponentType]
+ToJSONKeyFunction StudioComponentType
+ToJSONKeyFunction StudioComponentType
+-&gt; ToJSONKeyFunction [StudioComponentType]
+-&gt; ToJSONKey StudioComponentType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StudioComponentType]
+$ctoJSONKeyList :: ToJSONKeyFunction [StudioComponentType]
+toJSONKey :: ToJSONKeyFunction StudioComponentType
+$ctoJSONKey :: ToJSONKeyFunction StudioComponentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679287108"><span class="annot"><span class="annottext">[Node] -&gt; Either String StudioComponentType
+([Node] -&gt; Either String StudioComponentType)
+-&gt; FromXML StudioComponentType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StudioComponentType
+$cparseXML :: [Node] -&gt; Either String StudioComponentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679287105"><span class="annot"><span class="annottext">StudioComponentType -&gt; XML
+(StudioComponentType -&gt; XML) -&gt; ToXML StudioComponentType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StudioComponentType -&gt; XML
+$ctoXML :: StudioComponentType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType_ACTIVE_DIRECTORY"><span class="hs-identifier hs-type">StudioComponentType_ACTIVE_DIRECTORY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType"><span class="hs-identifier hs-type">StudioComponentType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStudioComponentType_ACTIVE_DIRECTORY"><span id="%24mStudioComponentType_ACTIVE_DIRECTORY"><span id="StudioComponentType_ACTIVE_DIRECTORY"><span class="annot"><span class="annottext">$bStudioComponentType_ACTIVE_DIRECTORY :: StudioComponentType
+$mStudioComponentType_ACTIVE_DIRECTORY :: forall r. StudioComponentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StudioComponentType.html#%24bStudioComponentType_ACTIVE_DIRECTORY"><span class="hs-identifier hs-var hs-var hs-var">StudioComponentType_ACTIVE_DIRECTORY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType%27"><span class="hs-identifier hs-type">StudioComponentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE_DIRECTORY&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType_COMPUTE_FARM"><span class="hs-identifier hs-type">StudioComponentType_COMPUTE_FARM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType"><span class="hs-identifier hs-type">StudioComponentType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStudioComponentType_COMPUTE_FARM"><span id="%24mStudioComponentType_COMPUTE_FARM"><span id="StudioComponentType_COMPUTE_FARM"><span class="annot"><span class="annottext">$bStudioComponentType_COMPUTE_FARM :: StudioComponentType
+$mStudioComponentType_COMPUTE_FARM :: forall r. StudioComponentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StudioComponentType.html#%24bStudioComponentType_COMPUTE_FARM"><span class="hs-identifier hs-var hs-var hs-var">StudioComponentType_COMPUTE_FARM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType%27"><span class="hs-identifier hs-type">StudioComponentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPUTE_FARM&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType_CUSTOM"><span class="hs-identifier hs-type">StudioComponentType_CUSTOM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType"><span class="hs-identifier hs-type">StudioComponentType</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStudioComponentType_CUSTOM"><span id="%24mStudioComponentType_CUSTOM"><span id="StudioComponentType_CUSTOM"><span class="annot"><span class="annottext">$bStudioComponentType_CUSTOM :: StudioComponentType
+$mStudioComponentType_CUSTOM :: forall r. StudioComponentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StudioComponentType.html#%24bStudioComponentType_CUSTOM"><span class="hs-identifier hs-var hs-var hs-var">StudioComponentType_CUSTOM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType%27"><span class="hs-identifier hs-type">StudioComponentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CUSTOM&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType_LICENSE_SERVICE"><span class="hs-identifier hs-type">StudioComponentType_LICENSE_SERVICE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType"><span class="hs-identifier hs-type">StudioComponentType</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStudioComponentType_LICENSE_SERVICE"><span id="%24mStudioComponentType_LICENSE_SERVICE"><span id="StudioComponentType_LICENSE_SERVICE"><span class="annot"><span class="annottext">$bStudioComponentType_LICENSE_SERVICE :: StudioComponentType
+$mStudioComponentType_LICENSE_SERVICE :: forall r. StudioComponentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StudioComponentType.html#%24bStudioComponentType_LICENSE_SERVICE"><span class="hs-identifier hs-var hs-var hs-var">StudioComponentType_LICENSE_SERVICE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType%27"><span class="hs-identifier hs-type">StudioComponentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LICENSE_SERVICE&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType_SHARED_FILE_SYSTEM"><span class="hs-identifier hs-type">StudioComponentType_SHARED_FILE_SYSTEM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType"><span class="hs-identifier hs-type">StudioComponentType</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStudioComponentType_SHARED_FILE_SYSTEM"><span id="%24mStudioComponentType_SHARED_FILE_SYSTEM"><span id="StudioComponentType_SHARED_FILE_SYSTEM"><span class="annot"><span class="annottext">$bStudioComponentType_SHARED_FILE_SYSTEM :: StudioComponentType
+$mStudioComponentType_SHARED_FILE_SYSTEM :: forall r. StudioComponentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Nimble.Types.StudioComponentType.html#%24bStudioComponentType_SHARED_FILE_SYSTEM"><span class="hs-identifier hs-var hs-var hs-var">StudioComponentType_SHARED_FILE_SYSTEM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType%27"><span class="hs-identifier hs-type">StudioComponentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SHARED_FILE_SYSTEM&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType_ACTIVE_DIRECTORY"><span class="hs-pragma hs-type">StudioComponentType_ACTIVE_DIRECTORY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType_COMPUTE_FARM"><span class="hs-pragma hs-type">StudioComponentType_COMPUTE_FARM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType_CUSTOM"><span class="hs-pragma hs-type">StudioComponentType_CUSTOM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType_LICENSE_SERVICE"><span class="hs-pragma hs-type">StudioComponentType_LICENSE_SERVICE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType_SHARED_FILE_SYSTEM"><span class="hs-pragma hs-type">StudioComponentType_SHARED_FILE_SYSTEM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponentType.html#StudioComponentType%27"><span class="hs-pragma hs-type">StudioComponentType'</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-87"></span></pre></body></html>

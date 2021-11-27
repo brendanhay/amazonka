@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisAnalytics.Types.InputParallelism</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.InputParallelism</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Describes the number of in-application streams to create for a given</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- streaming source. For information about parallelism, see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInputParallelism' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679205399"><span id="local-6989586621679205400"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputParallelism"><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-var">InputParallelism</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputParallelism%27"><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#InputParallelism%27"><span class="hs-identifier hs-var">InputParallelism'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Number of in-application streams to create. For more information, see</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html Limits&gt;.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Acount%3AInputParallelism%27"><span class="annot"><span class="annottext">InputParallelism -&gt; Maybe Natural
+</span><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#%24sel%3Acount%3AInputParallelism%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205393"><span id="local-6989586621679205395"><span class="annot"><span class="annottext">InputParallelism -&gt; InputParallelism -&gt; Bool
+(InputParallelism -&gt; InputParallelism -&gt; Bool)
+-&gt; (InputParallelism -&gt; InputParallelism -&gt; Bool)
+-&gt; Eq InputParallelism
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InputParallelism -&gt; InputParallelism -&gt; Bool
+$c/= :: InputParallelism -&gt; InputParallelism -&gt; Bool
+== :: InputParallelism -&gt; InputParallelism -&gt; Bool
+$c== :: InputParallelism -&gt; InputParallelism -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205384"><span id="local-6989586621679205386"><span id="local-6989586621679205388"><span id="local-6989586621679205390"><span class="annot"><span class="annottext">ReadPrec [InputParallelism]
+ReadPrec InputParallelism
+Int -&gt; ReadS InputParallelism
+ReadS [InputParallelism]
+(Int -&gt; ReadS InputParallelism)
+-&gt; ReadS [InputParallelism]
+-&gt; ReadPrec InputParallelism
+-&gt; ReadPrec [InputParallelism]
+-&gt; Read InputParallelism
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InputParallelism]
+$creadListPrec :: ReadPrec [InputParallelism]
+readPrec :: ReadPrec InputParallelism
+$creadPrec :: ReadPrec InputParallelism
+readList :: ReadS [InputParallelism]
+$creadList :: ReadS [InputParallelism]
+readsPrec :: Int -&gt; ReadS InputParallelism
+$creadsPrec :: Int -&gt; ReadS InputParallelism
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205377"><span id="local-6989586621679205379"><span id="local-6989586621679205381"><span class="annot"><span class="annottext">Int -&gt; InputParallelism -&gt; ShowS
+[InputParallelism] -&gt; ShowS
+InputParallelism -&gt; String
+(Int -&gt; InputParallelism -&gt; ShowS)
+-&gt; (InputParallelism -&gt; String)
+-&gt; ([InputParallelism] -&gt; ShowS)
+-&gt; Show InputParallelism
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InputParallelism] -&gt; ShowS
+$cshowList :: [InputParallelism] -&gt; ShowS
+show :: InputParallelism -&gt; String
+$cshow :: InputParallelism -&gt; String
+showsPrec :: Int -&gt; InputParallelism -&gt; ShowS
+$cshowsPrec :: Int -&gt; InputParallelism -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InputParallelism -&gt; Rep InputParallelism x)
+-&gt; (forall x. Rep InputParallelism x -&gt; InputParallelism)
+-&gt; Generic InputParallelism
+forall x. Rep InputParallelism x -&gt; InputParallelism
+forall x. InputParallelism -&gt; Rep InputParallelism x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InputParallelism x -&gt; InputParallelism
+$cfrom :: forall x. InputParallelism -&gt; Rep InputParallelism x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'InputParallelism' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'count', 'inputParallelism_count' - Number of in-application streams to create. For more information, see</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html Limits&gt;.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#newInputParallelism"><span class="hs-identifier hs-type">newInputParallelism</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span><span>
+</span><span id="line-50"></span><span id="newInputParallelism"><span class="annot"><span class="annottext">newInputParallelism :: InputParallelism
+</span><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#newInputParallelism"><span class="hs-identifier hs-var hs-var">newInputParallelism</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">InputParallelism' :: Maybe Natural -&gt; InputParallelism
+</span><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#InputParallelism%27"><span class="hs-identifier hs-type">InputParallelism'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:InputParallelism' :: Maybe Natural
+</span><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#%24sel%3Acount%3AInputParallelism%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | Number of in-application streams to create. For more information, see</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html Limits&gt;.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#inputParallelism_count"><span class="hs-identifier hs-type">inputParallelism_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span id="inputParallelism_count"><span class="annot"><span class="annottext">inputParallelism_count :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InputParallelism -&gt; f InputParallelism
+</span><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#inputParallelism_count"><span class="hs-identifier hs-var hs-var">inputParallelism_count</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputParallelism -&gt; Maybe Natural)
+-&gt; (InputParallelism -&gt; Maybe Natural -&gt; InputParallelism)
+-&gt; Lens
+     InputParallelism InputParallelism (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#InputParallelism%27"><span class="hs-identifier hs-type">InputParallelism'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205368"><span class="annot"><span class="annottext">Maybe Natural
+count :: Maybe Natural
+$sel:count:InputParallelism' :: InputParallelism -&gt; Maybe Natural
+</span><a href="#local-6989586621679205368"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679205368"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205367"><span class="annot"><span class="annottext">s :: InputParallelism
+</span><a href="#local-6989586621679205367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#InputParallelism%27"><span class="hs-identifier hs-type">InputParallelism'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205366"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679205366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputParallelism
+</span><a href="#local-6989586621679205367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:InputParallelism' :: Maybe Natural
+</span><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#%24sel%3Acount%3AInputParallelism%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679205366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205363"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679205361"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputParallelism
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InputParallelism)
+-&gt; Value
+-&gt; Parser InputParallelism
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InputParallelism&quot;</span></span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205358"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205358"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; InputParallelism
+</span><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#InputParallelism%27"><span class="hs-identifier hs-var">InputParallelism'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; InputParallelism)
+-&gt; Parser (Maybe Natural) -&gt; Parser InputParallelism
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Count&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205352"><span id="local-6989586621679205354"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span></span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205349"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205341"><span id="local-6989586621679205343"><span id="local-6989586621679205345"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679205339"><span class="annot"><span class="annottext">toJSON :: InputParallelism -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelism.html#InputParallelism%27"><span class="hs-identifier hs-type">InputParallelism'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205337"><span class="annot"><span class="annottext">Maybe Natural
+count :: Maybe Natural
+$sel:count:InputParallelism' :: InputParallelism -&gt; Maybe Natural
+</span><a href="#local-6989586621679205337"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-74"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Count&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679205337"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span></pre></body></html>

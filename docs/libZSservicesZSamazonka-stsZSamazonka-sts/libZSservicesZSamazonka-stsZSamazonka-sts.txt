@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.STS.Types.AssumedRoleUser
+module Amazonka.STS.Types.AssumedRoleUser
 
 -- | The identifiers for the temporary security credentials that the
 --   operation returns.
@@ -56,16 +56,16 @@ assumedRoleUser_assumedRoleId :: Lens' AssumedRoleUser Text
 --   them in policies, see <a>IAM Identifiers</a> in the <i>IAM User
 --   Guide</i>.
 assumedRoleUser_arn :: Lens' AssumedRoleUser Text
-instance GHC.Generics.Generic Network.AWS.STS.Types.AssumedRoleUser.AssumedRoleUser
-instance GHC.Show.Show Network.AWS.STS.Types.AssumedRoleUser.AssumedRoleUser
-instance GHC.Read.Read Network.AWS.STS.Types.AssumedRoleUser.AssumedRoleUser
-instance GHC.Classes.Eq Network.AWS.STS.Types.AssumedRoleUser.AssumedRoleUser
-instance Network.AWS.Data.XML.FromXML Network.AWS.STS.Types.AssumedRoleUser.AssumedRoleUser
-instance Data.Hashable.Class.Hashable Network.AWS.STS.Types.AssumedRoleUser.AssumedRoleUser
-instance Control.DeepSeq.NFData Network.AWS.STS.Types.AssumedRoleUser.AssumedRoleUser
+instance GHC.Generics.Generic Amazonka.STS.Types.AssumedRoleUser.AssumedRoleUser
+instance GHC.Show.Show Amazonka.STS.Types.AssumedRoleUser.AssumedRoleUser
+instance GHC.Read.Read Amazonka.STS.Types.AssumedRoleUser.AssumedRoleUser
+instance GHC.Classes.Eq Amazonka.STS.Types.AssumedRoleUser.AssumedRoleUser
+instance Amazonka.Data.XML.FromXML Amazonka.STS.Types.AssumedRoleUser.AssumedRoleUser
+instance Data.Hashable.Class.Hashable Amazonka.STS.Types.AssumedRoleUser.AssumedRoleUser
+instance Control.DeepSeq.NFData Amazonka.STS.Types.AssumedRoleUser.AssumedRoleUser
 
 
-module Network.AWS.STS.Types.FederatedUser
+module Amazonka.STS.Types.FederatedUser
 
 -- | Identifiers for the federated user that is associated with the
 --   credentials.
@@ -111,16 +111,16 @@ federatedUser_federatedUserId :: Lens' FederatedUser Text
 --   credentials. For more information about ARNs and how to use them in
 --   policies, see <a>IAM Identifiers</a> in the <i>IAM User Guide</i>.
 federatedUser_arn :: Lens' FederatedUser Text
-instance GHC.Generics.Generic Network.AWS.STS.Types.FederatedUser.FederatedUser
-instance GHC.Show.Show Network.AWS.STS.Types.FederatedUser.FederatedUser
-instance GHC.Read.Read Network.AWS.STS.Types.FederatedUser.FederatedUser
-instance GHC.Classes.Eq Network.AWS.STS.Types.FederatedUser.FederatedUser
-instance Network.AWS.Data.XML.FromXML Network.AWS.STS.Types.FederatedUser.FederatedUser
-instance Data.Hashable.Class.Hashable Network.AWS.STS.Types.FederatedUser.FederatedUser
-instance Control.DeepSeq.NFData Network.AWS.STS.Types.FederatedUser.FederatedUser
+instance GHC.Generics.Generic Amazonka.STS.Types.FederatedUser.FederatedUser
+instance GHC.Show.Show Amazonka.STS.Types.FederatedUser.FederatedUser
+instance GHC.Read.Read Amazonka.STS.Types.FederatedUser.FederatedUser
+instance GHC.Classes.Eq Amazonka.STS.Types.FederatedUser.FederatedUser
+instance Amazonka.Data.XML.FromXML Amazonka.STS.Types.FederatedUser.FederatedUser
+instance Data.Hashable.Class.Hashable Amazonka.STS.Types.FederatedUser.FederatedUser
+instance Control.DeepSeq.NFData Amazonka.STS.Types.FederatedUser.FederatedUser
 
 
-module Network.AWS.STS.Types.PolicyDescriptorType
+module Amazonka.STS.Types.PolicyDescriptorType
 
 -- | A reference to the IAM managed policy that is passed as a session
 --   policy for a role session or a federated user session.
@@ -156,16 +156,16 @@ newPolicyDescriptorType :: PolicyDescriptorType
 --   <a>Amazon Resource Names (ARNs) and Amazon Web Services Service
 --   Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
 policyDescriptorType_arn :: Lens' PolicyDescriptorType (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.STS.Types.PolicyDescriptorType.PolicyDescriptorType
-instance GHC.Show.Show Network.AWS.STS.Types.PolicyDescriptorType.PolicyDescriptorType
-instance GHC.Read.Read Network.AWS.STS.Types.PolicyDescriptorType.PolicyDescriptorType
-instance GHC.Classes.Eq Network.AWS.STS.Types.PolicyDescriptorType.PolicyDescriptorType
-instance Data.Hashable.Class.Hashable Network.AWS.STS.Types.PolicyDescriptorType.PolicyDescriptorType
-instance Control.DeepSeq.NFData Network.AWS.STS.Types.PolicyDescriptorType.PolicyDescriptorType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.Types.PolicyDescriptorType.PolicyDescriptorType
+instance GHC.Generics.Generic Amazonka.STS.Types.PolicyDescriptorType.PolicyDescriptorType
+instance GHC.Show.Show Amazonka.STS.Types.PolicyDescriptorType.PolicyDescriptorType
+instance GHC.Read.Read Amazonka.STS.Types.PolicyDescriptorType.PolicyDescriptorType
+instance GHC.Classes.Eq Amazonka.STS.Types.PolicyDescriptorType.PolicyDescriptorType
+instance Data.Hashable.Class.Hashable Amazonka.STS.Types.PolicyDescriptorType.PolicyDescriptorType
+instance Control.DeepSeq.NFData Amazonka.STS.Types.PolicyDescriptorType.PolicyDescriptorType
+instance Amazonka.Data.Query.ToQuery Amazonka.STS.Types.PolicyDescriptorType.PolicyDescriptorType
 
 
-module Network.AWS.STS.Types.Tag
+module Amazonka.STS.Types.Tag
 
 -- | You can pass custom key-value pair attributes when you assume a role
 --   or federate a user. These are called session tags. You can then use
@@ -225,16 +225,16 @@ tag_key :: Lens' Tag Text
 --   can’t exceed 256 characters. For these and additional limits, see
 --   <a>IAM and STS Character Limits</a> in the <i>IAM User Guide</i>.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.STS.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.STS.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.STS.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.STS.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.STS.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.STS.Types.Tag.Tag
-instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.STS.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.STS.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.STS.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.STS.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.STS.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.STS.Types.Tag.Tag
+instance Amazonka.Data.Query.ToQuery Amazonka.STS.Types.Tag.Tag
 
 
-module Network.AWS.STS.Types
+module Amazonka.STS.Types
 
 -- | API version <tt>2011-06-15</tt> of the Amazon Security Token Service
 --   SDK configuration.
@@ -546,7 +546,7 @@ tag_value :: Lens' Tag Text
 --   For more information about using <tt>GetSessionToken</tt> to create
 --   temporary credentials, go to <a>Temporary Credentials for Users in
 --   Untrusted Environments</a> in the <i>IAM User Guide</i>.
-module Network.AWS.STS.GetSessionToken
+module Amazonka.STS.GetSessionToken
 
 -- | <i>See:</i> <a>newGetSessionToken</a> smart constructor.
 data GetSessionToken
@@ -723,20 +723,20 @@ getSessionTokenResponse_credentials :: Lens' GetSessionTokenResponse (Maybe Auth
 
 -- | The response's http status code.
 getSessionTokenResponse_httpStatus :: Lens' GetSessionTokenResponse Int
-instance GHC.Generics.Generic Network.AWS.STS.GetSessionToken.GetSessionToken
-instance GHC.Show.Show Network.AWS.STS.GetSessionToken.GetSessionToken
-instance GHC.Read.Read Network.AWS.STS.GetSessionToken.GetSessionToken
-instance GHC.Classes.Eq Network.AWS.STS.GetSessionToken.GetSessionToken
-instance GHC.Generics.Generic Network.AWS.STS.GetSessionToken.GetSessionTokenResponse
-instance GHC.Show.Show Network.AWS.STS.GetSessionToken.GetSessionTokenResponse
-instance GHC.Classes.Eq Network.AWS.STS.GetSessionToken.GetSessionTokenResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.STS.GetSessionToken.GetSessionToken
-instance Control.DeepSeq.NFData Network.AWS.STS.GetSessionToken.GetSessionTokenResponse
-instance Data.Hashable.Class.Hashable Network.AWS.STS.GetSessionToken.GetSessionToken
-instance Control.DeepSeq.NFData Network.AWS.STS.GetSessionToken.GetSessionToken
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.STS.GetSessionToken.GetSessionToken
-instance Network.AWS.Data.Path.ToPath Network.AWS.STS.GetSessionToken.GetSessionToken
-instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.GetSessionToken.GetSessionToken
+instance GHC.Generics.Generic Amazonka.STS.GetSessionToken.GetSessionToken
+instance GHC.Show.Show Amazonka.STS.GetSessionToken.GetSessionToken
+instance GHC.Read.Read Amazonka.STS.GetSessionToken.GetSessionToken
+instance GHC.Classes.Eq Amazonka.STS.GetSessionToken.GetSessionToken
+instance GHC.Generics.Generic Amazonka.STS.GetSessionToken.GetSessionTokenResponse
+instance GHC.Show.Show Amazonka.STS.GetSessionToken.GetSessionTokenResponse
+instance GHC.Classes.Eq Amazonka.STS.GetSessionToken.GetSessionTokenResponse
+instance Amazonka.Types.AWSRequest Amazonka.STS.GetSessionToken.GetSessionToken
+instance Control.DeepSeq.NFData Amazonka.STS.GetSessionToken.GetSessionTokenResponse
+instance Data.Hashable.Class.Hashable Amazonka.STS.GetSessionToken.GetSessionToken
+instance Control.DeepSeq.NFData Amazonka.STS.GetSessionToken.GetSessionToken
+instance Amazonka.Data.Headers.ToHeaders Amazonka.STS.GetSessionToken.GetSessionToken
+instance Amazonka.Data.Path.ToPath Amazonka.STS.GetSessionToken.GetSessionToken
+instance Amazonka.Data.Query.ToQuery Amazonka.STS.GetSessionToken.GetSessionToken
 
 
 -- | Returns a set of temporary security credentials (consisting of an
@@ -909,7 +909,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.GetSessionToken.GetSessi
 --   <tt>Department</tt> and <tt>department</tt> are not saved as separate
 --   tags, and the session tag passed in the request takes precedence over
 --   the user tag.
-module Network.AWS.STS.GetFederationToken
+module Amazonka.STS.GetFederationToken
 
 -- | <i>See:</i> <a>newGetFederationToken</a> smart constructor.
 data GetFederationToken
@@ -1416,20 +1416,20 @@ getFederationTokenResponse_federatedUser :: Lens' GetFederationTokenResponse (Ma
 
 -- | The response's http status code.
 getFederationTokenResponse_httpStatus :: Lens' GetFederationTokenResponse Int
-instance GHC.Generics.Generic Network.AWS.STS.GetFederationToken.GetFederationToken
-instance GHC.Show.Show Network.AWS.STS.GetFederationToken.GetFederationToken
-instance GHC.Read.Read Network.AWS.STS.GetFederationToken.GetFederationToken
-instance GHC.Classes.Eq Network.AWS.STS.GetFederationToken.GetFederationToken
-instance GHC.Generics.Generic Network.AWS.STS.GetFederationToken.GetFederationTokenResponse
-instance GHC.Show.Show Network.AWS.STS.GetFederationToken.GetFederationTokenResponse
-instance GHC.Classes.Eq Network.AWS.STS.GetFederationToken.GetFederationTokenResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.STS.GetFederationToken.GetFederationToken
-instance Control.DeepSeq.NFData Network.AWS.STS.GetFederationToken.GetFederationTokenResponse
-instance Data.Hashable.Class.Hashable Network.AWS.STS.GetFederationToken.GetFederationToken
-instance Control.DeepSeq.NFData Network.AWS.STS.GetFederationToken.GetFederationToken
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.STS.GetFederationToken.GetFederationToken
-instance Network.AWS.Data.Path.ToPath Network.AWS.STS.GetFederationToken.GetFederationToken
-instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.GetFederationToken.GetFederationToken
+instance GHC.Generics.Generic Amazonka.STS.GetFederationToken.GetFederationToken
+instance GHC.Show.Show Amazonka.STS.GetFederationToken.GetFederationToken
+instance GHC.Read.Read Amazonka.STS.GetFederationToken.GetFederationToken
+instance GHC.Classes.Eq Amazonka.STS.GetFederationToken.GetFederationToken
+instance GHC.Generics.Generic Amazonka.STS.GetFederationToken.GetFederationTokenResponse
+instance GHC.Show.Show Amazonka.STS.GetFederationToken.GetFederationTokenResponse
+instance GHC.Classes.Eq Amazonka.STS.GetFederationToken.GetFederationTokenResponse
+instance Amazonka.Types.AWSRequest Amazonka.STS.GetFederationToken.GetFederationToken
+instance Control.DeepSeq.NFData Amazonka.STS.GetFederationToken.GetFederationTokenResponse
+instance Data.Hashable.Class.Hashable Amazonka.STS.GetFederationToken.GetFederationToken
+instance Control.DeepSeq.NFData Amazonka.STS.GetFederationToken.GetFederationToken
+instance Amazonka.Data.Headers.ToHeaders Amazonka.STS.GetFederationToken.GetFederationToken
+instance Amazonka.Data.Path.ToPath Amazonka.STS.GetFederationToken.GetFederationToken
+instance Amazonka.Data.Query.ToQuery Amazonka.STS.GetFederationToken.GetFederationToken
 
 
 -- | Returns details about the IAM user or role whose credentials are used
@@ -1442,7 +1442,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.GetFederationToken.GetFe
 --   same information is returned when an IAM user or role is denied
 --   access. To view an example response, see <a>I Am Not Authorized to
 --   Perform: iam:DeleteVirtualMFADevice</a> in the <i>IAM User Guide</i>.
-module Network.AWS.STS.GetCallerIdentity
+module Amazonka.STS.GetCallerIdentity
 
 -- | <i>See:</i> <a>newGetCallerIdentity</a> smart constructor.
 data GetCallerIdentity
@@ -1525,21 +1525,21 @@ getCallerIdentityResponse_userId :: Lens' GetCallerIdentityResponse (Maybe Text)
 
 -- | The response's http status code.
 getCallerIdentityResponse_httpStatus :: Lens' GetCallerIdentityResponse Int
-instance GHC.Generics.Generic Network.AWS.STS.GetCallerIdentity.GetCallerIdentity
-instance GHC.Show.Show Network.AWS.STS.GetCallerIdentity.GetCallerIdentity
-instance GHC.Read.Read Network.AWS.STS.GetCallerIdentity.GetCallerIdentity
-instance GHC.Classes.Eq Network.AWS.STS.GetCallerIdentity.GetCallerIdentity
-instance GHC.Generics.Generic Network.AWS.STS.GetCallerIdentity.GetCallerIdentityResponse
-instance GHC.Show.Show Network.AWS.STS.GetCallerIdentity.GetCallerIdentityResponse
-instance GHC.Read.Read Network.AWS.STS.GetCallerIdentity.GetCallerIdentityResponse
-instance GHC.Classes.Eq Network.AWS.STS.GetCallerIdentity.GetCallerIdentityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.STS.GetCallerIdentity.GetCallerIdentity
-instance Control.DeepSeq.NFData Network.AWS.STS.GetCallerIdentity.GetCallerIdentityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.STS.GetCallerIdentity.GetCallerIdentity
-instance Control.DeepSeq.NFData Network.AWS.STS.GetCallerIdentity.GetCallerIdentity
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.STS.GetCallerIdentity.GetCallerIdentity
-instance Network.AWS.Data.Path.ToPath Network.AWS.STS.GetCallerIdentity.GetCallerIdentity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.GetCallerIdentity.GetCallerIdentity
+instance GHC.Generics.Generic Amazonka.STS.GetCallerIdentity.GetCallerIdentity
+instance GHC.Show.Show Amazonka.STS.GetCallerIdentity.GetCallerIdentity
+instance GHC.Read.Read Amazonka.STS.GetCallerIdentity.GetCallerIdentity
+instance GHC.Classes.Eq Amazonka.STS.GetCallerIdentity.GetCallerIdentity
+instance GHC.Generics.Generic Amazonka.STS.GetCallerIdentity.GetCallerIdentityResponse
+instance GHC.Show.Show Amazonka.STS.GetCallerIdentity.GetCallerIdentityResponse
+instance GHC.Read.Read Amazonka.STS.GetCallerIdentity.GetCallerIdentityResponse
+instance GHC.Classes.Eq Amazonka.STS.GetCallerIdentity.GetCallerIdentityResponse
+instance Amazonka.Types.AWSRequest Amazonka.STS.GetCallerIdentity.GetCallerIdentity
+instance Control.DeepSeq.NFData Amazonka.STS.GetCallerIdentity.GetCallerIdentityResponse
+instance Data.Hashable.Class.Hashable Amazonka.STS.GetCallerIdentity.GetCallerIdentity
+instance Control.DeepSeq.NFData Amazonka.STS.GetCallerIdentity.GetCallerIdentity
+instance Amazonka.Data.Headers.ToHeaders Amazonka.STS.GetCallerIdentity.GetCallerIdentity
+instance Amazonka.Data.Path.ToPath Amazonka.STS.GetCallerIdentity.GetCallerIdentity
+instance Amazonka.Data.Query.ToQuery Amazonka.STS.GetCallerIdentity.GetCallerIdentity
 
 
 -- | Returns the account identifier for the specified access key ID.
@@ -1566,7 +1566,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.GetCallerIdentity.GetCal
 --   might be active, inactive, or deleted. Active keys might not have
 --   permissions to perform an operation. Providing a deleted access key
 --   might return an error that the key doesn't exist.
-module Network.AWS.STS.GetAccessKeyInfo
+module Amazonka.STS.GetAccessKeyInfo
 
 -- | <i>See:</i> <a>newGetAccessKeyInfo</a> smart constructor.
 data GetAccessKeyInfo
@@ -1636,21 +1636,21 @@ getAccessKeyInfoResponse_account :: Lens' GetAccessKeyInfoResponse (Maybe Text)
 
 -- | The response's http status code.
 getAccessKeyInfoResponse_httpStatus :: Lens' GetAccessKeyInfoResponse Int
-instance GHC.Generics.Generic Network.AWS.STS.GetAccessKeyInfo.GetAccessKeyInfo
-instance GHC.Show.Show Network.AWS.STS.GetAccessKeyInfo.GetAccessKeyInfo
-instance GHC.Read.Read Network.AWS.STS.GetAccessKeyInfo.GetAccessKeyInfo
-instance GHC.Classes.Eq Network.AWS.STS.GetAccessKeyInfo.GetAccessKeyInfo
-instance GHC.Generics.Generic Network.AWS.STS.GetAccessKeyInfo.GetAccessKeyInfoResponse
-instance GHC.Show.Show Network.AWS.STS.GetAccessKeyInfo.GetAccessKeyInfoResponse
-instance GHC.Read.Read Network.AWS.STS.GetAccessKeyInfo.GetAccessKeyInfoResponse
-instance GHC.Classes.Eq Network.AWS.STS.GetAccessKeyInfo.GetAccessKeyInfoResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.STS.GetAccessKeyInfo.GetAccessKeyInfo
-instance Control.DeepSeq.NFData Network.AWS.STS.GetAccessKeyInfo.GetAccessKeyInfoResponse
-instance Data.Hashable.Class.Hashable Network.AWS.STS.GetAccessKeyInfo.GetAccessKeyInfo
-instance Control.DeepSeq.NFData Network.AWS.STS.GetAccessKeyInfo.GetAccessKeyInfo
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.STS.GetAccessKeyInfo.GetAccessKeyInfo
-instance Network.AWS.Data.Path.ToPath Network.AWS.STS.GetAccessKeyInfo.GetAccessKeyInfo
-instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.GetAccessKeyInfo.GetAccessKeyInfo
+instance GHC.Generics.Generic Amazonka.STS.GetAccessKeyInfo.GetAccessKeyInfo
+instance GHC.Show.Show Amazonka.STS.GetAccessKeyInfo.GetAccessKeyInfo
+instance GHC.Read.Read Amazonka.STS.GetAccessKeyInfo.GetAccessKeyInfo
+instance GHC.Classes.Eq Amazonka.STS.GetAccessKeyInfo.GetAccessKeyInfo
+instance GHC.Generics.Generic Amazonka.STS.GetAccessKeyInfo.GetAccessKeyInfoResponse
+instance GHC.Show.Show Amazonka.STS.GetAccessKeyInfo.GetAccessKeyInfoResponse
+instance GHC.Read.Read Amazonka.STS.GetAccessKeyInfo.GetAccessKeyInfoResponse
+instance GHC.Classes.Eq Amazonka.STS.GetAccessKeyInfo.GetAccessKeyInfoResponse
+instance Amazonka.Types.AWSRequest Amazonka.STS.GetAccessKeyInfo.GetAccessKeyInfo
+instance Control.DeepSeq.NFData Amazonka.STS.GetAccessKeyInfo.GetAccessKeyInfoResponse
+instance Data.Hashable.Class.Hashable Amazonka.STS.GetAccessKeyInfo.GetAccessKeyInfo
+instance Control.DeepSeq.NFData Amazonka.STS.GetAccessKeyInfo.GetAccessKeyInfo
+instance Amazonka.Data.Headers.ToHeaders Amazonka.STS.GetAccessKeyInfo.GetAccessKeyInfo
+instance Amazonka.Data.Path.ToPath Amazonka.STS.GetAccessKeyInfo.GetAccessKeyInfo
+instance Amazonka.Data.Query.ToQuery Amazonka.STS.GetAccessKeyInfo.GetAccessKeyInfo
 
 
 -- | Decodes additional information about the authorization status of a
@@ -1688,7 +1688,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.GetAccessKeyInfo.GetAcce
 --   <li>The values of condition keys in the context of the user's
 --   request.</li>
 --   </ul>
-module Network.AWS.STS.DecodeAuthorizationMessage
+module Amazonka.STS.DecodeAuthorizationMessage
 
 -- | <i>See:</i> <a>newDecodeAuthorizationMessage</a> smart constructor.
 data DecodeAuthorizationMessage
@@ -1752,21 +1752,21 @@ decodeAuthorizationMessageResponse_decodedMessage :: Lens' DecodeAuthorizationMe
 
 -- | The response's http status code.
 decodeAuthorizationMessageResponse_httpStatus :: Lens' DecodeAuthorizationMessageResponse Int
-instance GHC.Generics.Generic Network.AWS.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
-instance GHC.Show.Show Network.AWS.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
-instance GHC.Read.Read Network.AWS.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
-instance GHC.Classes.Eq Network.AWS.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
-instance GHC.Generics.Generic Network.AWS.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessageResponse
-instance GHC.Show.Show Network.AWS.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessageResponse
-instance GHC.Read.Read Network.AWS.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessageResponse
-instance GHC.Classes.Eq Network.AWS.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
-instance Control.DeepSeq.NFData Network.AWS.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
-instance Control.DeepSeq.NFData Network.AWS.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
-instance Network.AWS.Data.Path.ToPath Network.AWS.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
+instance GHC.Generics.Generic Amazonka.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
+instance GHC.Show.Show Amazonka.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
+instance GHC.Read.Read Amazonka.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
+instance GHC.Classes.Eq Amazonka.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
+instance GHC.Generics.Generic Amazonka.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessageResponse
+instance GHC.Show.Show Amazonka.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessageResponse
+instance GHC.Read.Read Amazonka.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessageResponse
+instance GHC.Classes.Eq Amazonka.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessageResponse
+instance Amazonka.Types.AWSRequest Amazonka.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
+instance Control.DeepSeq.NFData Amazonka.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessageResponse
+instance Data.Hashable.Class.Hashable Amazonka.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
+instance Control.DeepSeq.NFData Amazonka.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
+instance Amazonka.Data.Path.ToPath Amazonka.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
+instance Amazonka.Data.Query.ToQuery Amazonka.STS.DecodeAuthorizationMessage.DecodeAuthorizationMessage
 
 
 -- | Returns a set of temporary security credentials for users who have
@@ -1913,7 +1913,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.DecodeAuthorizationMessa
 --   to use web identity federation to get access to content in Amazon
 --   S3.</li>
 --   </ul>
-module Network.AWS.STS.AssumeRoleWithWebIdentity
+module Amazonka.STS.AssumeRoleWithWebIdentity
 
 -- | <i>See:</i> <a>newAssumeRoleWithWebIdentity</a> smart constructor.
 data AssumeRoleWithWebIdentity
@@ -2506,20 +2506,20 @@ assumeRoleWithWebIdentityResponse_provider :: Lens' AssumeRoleWithWebIdentityRes
 
 -- | The response's http status code.
 assumeRoleWithWebIdentityResponse_httpStatus :: Lens' AssumeRoleWithWebIdentityResponse Int
-instance GHC.Generics.Generic Network.AWS.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
-instance GHC.Show.Show Network.AWS.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
-instance GHC.Read.Read Network.AWS.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
-instance GHC.Classes.Eq Network.AWS.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
-instance GHC.Generics.Generic Network.AWS.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentityResponse
-instance GHC.Show.Show Network.AWS.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentityResponse
-instance GHC.Classes.Eq Network.AWS.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
-instance Control.DeepSeq.NFData Network.AWS.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
-instance Control.DeepSeq.NFData Network.AWS.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
-instance Network.AWS.Data.Path.ToPath Network.AWS.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
+instance GHC.Generics.Generic Amazonka.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
+instance GHC.Show.Show Amazonka.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
+instance GHC.Read.Read Amazonka.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
+instance GHC.Classes.Eq Amazonka.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
+instance GHC.Generics.Generic Amazonka.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentityResponse
+instance GHC.Show.Show Amazonka.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentityResponse
+instance GHC.Classes.Eq Amazonka.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentityResponse
+instance Amazonka.Types.AWSRequest Amazonka.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
+instance Control.DeepSeq.NFData Amazonka.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentityResponse
+instance Data.Hashable.Class.Hashable Amazonka.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
+instance Control.DeepSeq.NFData Amazonka.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
+instance Amazonka.Data.Headers.ToHeaders Amazonka.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
+instance Amazonka.Data.Path.ToPath Amazonka.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
+instance Amazonka.Data.Query.ToQuery Amazonka.STS.AssumeRoleWithWebIdentity.AssumeRoleWithWebIdentity
 
 
 -- | Returns a set of temporary security credentials for users who have
@@ -2657,7 +2657,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.AssumeRoleWithWebIdentit
 --   <li><a>Creating a Role for SAML 2.0 Federation</a> in the <i>IAM User
 --   Guide</i>.</li>
 --   </ul>
-module Network.AWS.STS.AssumeRoleWithSAML
+module Amazonka.STS.AssumeRoleWithSAML
 
 -- | <i>See:</i> <a>newAssumeRoleWithSAML</a> smart constructor.
 data AssumeRoleWithSAML
@@ -3240,20 +3240,20 @@ assumeRoleWithSAMLResponse_issuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Tex
 
 -- | The response's http status code.
 assumeRoleWithSAMLResponse_httpStatus :: Lens' AssumeRoleWithSAMLResponse Int
-instance GHC.Generics.Generic Network.AWS.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
-instance GHC.Show.Show Network.AWS.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
-instance GHC.Read.Read Network.AWS.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
-instance GHC.Classes.Eq Network.AWS.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
-instance GHC.Generics.Generic Network.AWS.STS.AssumeRoleWithSAML.AssumeRoleWithSAMLResponse
-instance GHC.Show.Show Network.AWS.STS.AssumeRoleWithSAML.AssumeRoleWithSAMLResponse
-instance GHC.Classes.Eq Network.AWS.STS.AssumeRoleWithSAML.AssumeRoleWithSAMLResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
-instance Control.DeepSeq.NFData Network.AWS.STS.AssumeRoleWithSAML.AssumeRoleWithSAMLResponse
-instance Data.Hashable.Class.Hashable Network.AWS.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
-instance Control.DeepSeq.NFData Network.AWS.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
-instance Network.AWS.Data.Path.ToPath Network.AWS.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
-instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
+instance GHC.Generics.Generic Amazonka.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
+instance GHC.Show.Show Amazonka.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
+instance GHC.Read.Read Amazonka.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
+instance GHC.Classes.Eq Amazonka.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
+instance GHC.Generics.Generic Amazonka.STS.AssumeRoleWithSAML.AssumeRoleWithSAMLResponse
+instance GHC.Show.Show Amazonka.STS.AssumeRoleWithSAML.AssumeRoleWithSAMLResponse
+instance GHC.Classes.Eq Amazonka.STS.AssumeRoleWithSAML.AssumeRoleWithSAMLResponse
+instance Amazonka.Types.AWSRequest Amazonka.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
+instance Control.DeepSeq.NFData Amazonka.STS.AssumeRoleWithSAML.AssumeRoleWithSAMLResponse
+instance Data.Hashable.Class.Hashable Amazonka.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
+instance Control.DeepSeq.NFData Amazonka.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
+instance Amazonka.Data.Headers.ToHeaders Amazonka.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
+instance Amazonka.Data.Path.ToPath Amazonka.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
+instance Amazonka.Data.Query.ToQuery Amazonka.STS.AssumeRoleWithSAML.AssumeRoleWithSAML
 
 
 -- | Returns a set of temporary security credentials that you can use to
@@ -3354,7 +3354,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.AssumeRoleWithSAML.Assum
 --   <tt>SerialNumber</tt> value identifies the user's hardware or virtual
 --   MFA device. The <tt>TokenCode</tt> is the time-based one-time password
 --   (TOTP) that the MFA device produces.
-module Network.AWS.STS.AssumeRole
+module Amazonka.STS.AssumeRole
 
 -- | <i>See:</i> <a>newAssumeRole</a> smart constructor.
 data AssumeRole
@@ -4166,23 +4166,23 @@ assumeRoleResponse_sourceIdentity :: Lens' AssumeRoleResponse (Maybe Text)
 
 -- | The response's http status code.
 assumeRoleResponse_httpStatus :: Lens' AssumeRoleResponse Int
-instance GHC.Generics.Generic Network.AWS.STS.AssumeRole.AssumeRole
-instance GHC.Show.Show Network.AWS.STS.AssumeRole.AssumeRole
-instance GHC.Read.Read Network.AWS.STS.AssumeRole.AssumeRole
-instance GHC.Classes.Eq Network.AWS.STS.AssumeRole.AssumeRole
-instance GHC.Generics.Generic Network.AWS.STS.AssumeRole.AssumeRoleResponse
-instance GHC.Show.Show Network.AWS.STS.AssumeRole.AssumeRoleResponse
-instance GHC.Classes.Eq Network.AWS.STS.AssumeRole.AssumeRoleResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.STS.AssumeRole.AssumeRole
-instance Control.DeepSeq.NFData Network.AWS.STS.AssumeRole.AssumeRoleResponse
-instance Data.Hashable.Class.Hashable Network.AWS.STS.AssumeRole.AssumeRole
-instance Control.DeepSeq.NFData Network.AWS.STS.AssumeRole.AssumeRole
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.STS.AssumeRole.AssumeRole
-instance Network.AWS.Data.Path.ToPath Network.AWS.STS.AssumeRole.AssumeRole
-instance Network.AWS.Data.Query.ToQuery Network.AWS.STS.AssumeRole.AssumeRole
+instance GHC.Generics.Generic Amazonka.STS.AssumeRole.AssumeRole
+instance GHC.Show.Show Amazonka.STS.AssumeRole.AssumeRole
+instance GHC.Read.Read Amazonka.STS.AssumeRole.AssumeRole
+instance GHC.Classes.Eq Amazonka.STS.AssumeRole.AssumeRole
+instance GHC.Generics.Generic Amazonka.STS.AssumeRole.AssumeRoleResponse
+instance GHC.Show.Show Amazonka.STS.AssumeRole.AssumeRoleResponse
+instance GHC.Classes.Eq Amazonka.STS.AssumeRole.AssumeRoleResponse
+instance Amazonka.Types.AWSRequest Amazonka.STS.AssumeRole.AssumeRole
+instance Control.DeepSeq.NFData Amazonka.STS.AssumeRole.AssumeRoleResponse
+instance Data.Hashable.Class.Hashable Amazonka.STS.AssumeRole.AssumeRole
+instance Control.DeepSeq.NFData Amazonka.STS.AssumeRole.AssumeRole
+instance Amazonka.Data.Headers.ToHeaders Amazonka.STS.AssumeRole.AssumeRole
+instance Amazonka.Data.Path.ToPath Amazonka.STS.AssumeRole.AssumeRole
+instance Amazonka.Data.Query.ToQuery Amazonka.STS.AssumeRole.AssumeRole
 
 
-module Network.AWS.STS.Lens
+module Amazonka.STS.Lens
 
 -- | The Amazon Web Services ARN associated with the calling entity.
 getCallerIdentityResponse_arn :: Lens' GetCallerIdentityResponse (Maybe Text)
@@ -5087,7 +5087,7 @@ tag_key :: Lens' Tag Text
 tag_value :: Lens' Tag Text
 
 
-module Network.AWS.STS.Waiters
+module Amazonka.STS.Waiters
 
 
 -- | Derived from API version <tt>2011-06-15</tt> of the AWS service
@@ -5100,7 +5100,7 @@ module Network.AWS.STS.Waiters
 --   users or for users that you authenticate (federated users). This guide
 --   provides descriptions of the STS API. For more information about using
 --   this service, see <a>Temporary Security Credentials</a>.
-module Network.AWS.STS
+module Amazonka.STS
 
 -- | API version <tt>2011-06-15</tt> of the Amazon Security Token Service
 --   SDK configuration.

@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Schemas.Types.SchemaVersionSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Schemas.Types.SchemaVersionSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.Type.html"><span class="hs-identifier">Amazonka.Schemas.Types.Type</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | /See:/ 'newSchemaVersionSummary' smart constructor.</span><span>
+</span><span id="line-28"></span><span id="local-6989586621679199357"><span id="local-6989586621679199358"></span></span><span class="hs-keyword">data</span><span> </span><span id="SchemaVersionSummary"><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary"><span class="hs-identifier hs-var">SchemaVersionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaVersionSummary%27"><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary%27"><span class="hs-identifier hs-var">SchemaVersionSummary'</span></a></span></span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version number of the schema.</span><span>
+</span><span id="line-30"></span><span>    </span><span id="%24sel%3AschemaVersion%3ASchemaVersionSummary%27"><span class="annot"><span class="annottext">SchemaVersionSummary -&gt; Maybe Text
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#%24sel%3AschemaVersion%3ASchemaVersionSummary%27"><span class="hs-identifier hs-var hs-var">schemaVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- | The name of the schema.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AschemaName%3ASchemaVersionSummary%27"><span class="annot"><span class="annottext">SchemaVersionSummary -&gt; Maybe Text
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#%24sel%3AschemaName%3ASchemaVersionSummary%27"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ARN of the schema version.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AschemaArn%3ASchemaVersionSummary%27"><span class="annot"><span class="annottext">SchemaVersionSummary -&gt; Maybe Text
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#%24sel%3AschemaArn%3ASchemaVersionSummary%27"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The type of schema.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Atype%27%3ASchemaVersionSummary%27"><span class="annot"><span class="annottext">SchemaVersionSummary -&gt; Maybe Type
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#%24sel%3Atype%27%3ASchemaVersionSummary%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199348"><span id="local-6989586621679199350"><span class="annot"><span class="annottext">SchemaVersionSummary -&gt; SchemaVersionSummary -&gt; Bool
+(SchemaVersionSummary -&gt; SchemaVersionSummary -&gt; Bool)
+-&gt; (SchemaVersionSummary -&gt; SchemaVersionSummary -&gt; Bool)
+-&gt; Eq SchemaVersionSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SchemaVersionSummary -&gt; SchemaVersionSummary -&gt; Bool
+$c/= :: SchemaVersionSummary -&gt; SchemaVersionSummary -&gt; Bool
+== :: SchemaVersionSummary -&gt; SchemaVersionSummary -&gt; Bool
+$c== :: SchemaVersionSummary -&gt; SchemaVersionSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199339"><span id="local-6989586621679199341"><span id="local-6989586621679199343"><span id="local-6989586621679199345"><span class="annot"><span class="annottext">ReadPrec [SchemaVersionSummary]
+ReadPrec SchemaVersionSummary
+Int -&gt; ReadS SchemaVersionSummary
+ReadS [SchemaVersionSummary]
+(Int -&gt; ReadS SchemaVersionSummary)
+-&gt; ReadS [SchemaVersionSummary]
+-&gt; ReadPrec SchemaVersionSummary
+-&gt; ReadPrec [SchemaVersionSummary]
+-&gt; Read SchemaVersionSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SchemaVersionSummary]
+$creadListPrec :: ReadPrec [SchemaVersionSummary]
+readPrec :: ReadPrec SchemaVersionSummary
+$creadPrec :: ReadPrec SchemaVersionSummary
+readList :: ReadS [SchemaVersionSummary]
+$creadList :: ReadS [SchemaVersionSummary]
+readsPrec :: Int -&gt; ReadS SchemaVersionSummary
+$creadsPrec :: Int -&gt; ReadS SchemaVersionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199332"><span id="local-6989586621679199334"><span id="local-6989586621679199336"><span class="annot"><span class="annottext">Int -&gt; SchemaVersionSummary -&gt; ShowS
+[SchemaVersionSummary] -&gt; ShowS
+SchemaVersionSummary -&gt; String
+(Int -&gt; SchemaVersionSummary -&gt; ShowS)
+-&gt; (SchemaVersionSummary -&gt; String)
+-&gt; ([SchemaVersionSummary] -&gt; ShowS)
+-&gt; Show SchemaVersionSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SchemaVersionSummary] -&gt; ShowS
+$cshowList :: [SchemaVersionSummary] -&gt; ShowS
+show :: SchemaVersionSummary -&gt; String
+$cshow :: SchemaVersionSummary -&gt; String
+showsPrec :: Int -&gt; SchemaVersionSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; SchemaVersionSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SchemaVersionSummary -&gt; Rep SchemaVersionSummary x)
+-&gt; (forall x. Rep SchemaVersionSummary x -&gt; SchemaVersionSummary)
+-&gt; Generic SchemaVersionSummary
+forall x. Rep SchemaVersionSummary x -&gt; SchemaVersionSummary
+forall x. SchemaVersionSummary -&gt; Rep SchemaVersionSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SchemaVersionSummary x -&gt; SchemaVersionSummary
+$cfrom :: forall x. SchemaVersionSummary -&gt; Rep SchemaVersionSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'SchemaVersionSummary' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'schemaVersion', 'schemaVersionSummary_schemaVersion' - The version number of the schema.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'schemaName', 'schemaVersionSummary_schemaName' - The name of the schema.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'schemaArn', 'schemaVersionSummary_schemaArn' - The ARN of the schema version.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'type'', 'schemaVersionSummary_type' - The type of schema.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#newSchemaVersionSummary"><span class="hs-identifier hs-type">newSchemaVersionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary"><span class="hs-identifier hs-type">SchemaVersionSummary</span></a></span><span>
+</span><span id="line-57"></span><span id="newSchemaVersionSummary"><span class="annot"><span class="annottext">newSchemaVersionSummary :: SchemaVersionSummary
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#newSchemaVersionSummary"><span class="hs-identifier hs-var hs-var">newSchemaVersionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">SchemaVersionSummary' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Type -&gt; SchemaVersionSummary
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary%27"><span class="hs-identifier hs-type">SchemaVersionSummary'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schemaVersion:SchemaVersionSummary' :: Maybe Text
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#%24sel%3AschemaVersion%3ASchemaVersionSummary%27"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaName:SchemaVersionSummary' :: Maybe Text
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#%24sel%3AschemaName%3ASchemaVersionSummary%27"><span class="hs-identifier hs-var">schemaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaArn:SchemaVersionSummary' :: Maybe Text
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#%24sel%3AschemaArn%3ASchemaVersionSummary%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':SchemaVersionSummary' :: Maybe Type
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#%24sel%3Atype%27%3ASchemaVersionSummary%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Type
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The version number of the schema.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#schemaVersionSummary_schemaVersion"><span class="hs-identifier hs-type">schemaVersionSummary_schemaVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary"><span class="hs-identifier hs-type">SchemaVersionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="schemaVersionSummary_schemaVersion"><span class="annot"><span class="annottext">schemaVersionSummary_schemaVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SchemaVersionSummary -&gt; f SchemaVersionSummary
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#schemaVersionSummary_schemaVersion"><span class="hs-identifier hs-var hs-var">schemaVersionSummary_schemaVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SchemaVersionSummary -&gt; Maybe Text)
+-&gt; (SchemaVersionSummary -&gt; Maybe Text -&gt; SchemaVersionSummary)
+-&gt; Lens
+     SchemaVersionSummary SchemaVersionSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary%27"><span class="hs-identifier hs-type">SchemaVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199323"><span class="annot"><span class="annottext">Maybe Text
+schemaVersion :: Maybe Text
+$sel:schemaVersion:SchemaVersionSummary' :: SchemaVersionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679199323"><span class="hs-identifier hs-var hs-var">schemaVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199323"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199322"><span class="annot"><span class="annottext">s :: SchemaVersionSummary
+</span><a href="#local-6989586621679199322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary%27"><span class="hs-identifier hs-type">SchemaVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199321"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaVersionSummary
+</span><a href="#local-6989586621679199322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersion:SchemaVersionSummary' :: Maybe Text
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#%24sel%3AschemaVersion%3ASchemaVersionSummary%27"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary"><span class="hs-identifier hs-type">SchemaVersionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The name of the schema.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#schemaVersionSummary_schemaName"><span class="hs-identifier hs-type">schemaVersionSummary_schemaName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary"><span class="hs-identifier hs-type">SchemaVersionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="schemaVersionSummary_schemaName"><span class="annot"><span class="annottext">schemaVersionSummary_schemaName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SchemaVersionSummary -&gt; f SchemaVersionSummary
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#schemaVersionSummary_schemaName"><span class="hs-identifier hs-var hs-var">schemaVersionSummary_schemaName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SchemaVersionSummary -&gt; Maybe Text)
+-&gt; (SchemaVersionSummary -&gt; Maybe Text -&gt; SchemaVersionSummary)
+-&gt; Lens
+     SchemaVersionSummary SchemaVersionSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary%27"><span class="hs-identifier hs-type">SchemaVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199319"><span class="annot"><span class="annottext">Maybe Text
+schemaName :: Maybe Text
+$sel:schemaName:SchemaVersionSummary' :: SchemaVersionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679199319"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199319"><span class="hs-identifier hs-var">schemaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199318"><span class="annot"><span class="annottext">s :: SchemaVersionSummary
+</span><a href="#local-6989586621679199318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary%27"><span class="hs-identifier hs-type">SchemaVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199317"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaVersionSummary
+</span><a href="#local-6989586621679199318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaName:SchemaVersionSummary' :: Maybe Text
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#%24sel%3AschemaName%3ASchemaVersionSummary%27"><span class="hs-identifier hs-var">schemaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary"><span class="hs-identifier hs-type">SchemaVersionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The ARN of the schema version.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#schemaVersionSummary_schemaArn"><span class="hs-identifier hs-type">schemaVersionSummary_schemaArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary"><span class="hs-identifier hs-type">SchemaVersionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="schemaVersionSummary_schemaArn"><span class="annot"><span class="annottext">schemaVersionSummary_schemaArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SchemaVersionSummary -&gt; f SchemaVersionSummary
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#schemaVersionSummary_schemaArn"><span class="hs-identifier hs-var hs-var">schemaVersionSummary_schemaArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SchemaVersionSummary -&gt; Maybe Text)
+-&gt; (SchemaVersionSummary -&gt; Maybe Text -&gt; SchemaVersionSummary)
+-&gt; Lens
+     SchemaVersionSummary SchemaVersionSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary%27"><span class="hs-identifier hs-type">SchemaVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199315"><span class="annot"><span class="annottext">Maybe Text
+schemaArn :: Maybe Text
+$sel:schemaArn:SchemaVersionSummary' :: SchemaVersionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679199315"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199315"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199314"><span class="annot"><span class="annottext">s :: SchemaVersionSummary
+</span><a href="#local-6989586621679199314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary%27"><span class="hs-identifier hs-type">SchemaVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199313"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaVersionSummary
+</span><a href="#local-6989586621679199314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:SchemaVersionSummary' :: Maybe Text
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#%24sel%3AschemaArn%3ASchemaVersionSummary%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary"><span class="hs-identifier hs-type">SchemaVersionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The type of schema.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#schemaVersionSummary_type"><span class="hs-identifier hs-type">schemaVersionSummary_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary"><span class="hs-identifier hs-type">SchemaVersionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="schemaVersionSummary_type"><span class="annot"><span class="annottext">schemaVersionSummary_type :: (Maybe Type -&gt; f (Maybe Type))
+-&gt; SchemaVersionSummary -&gt; f SchemaVersionSummary
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#schemaVersionSummary_type"><span class="hs-identifier hs-var hs-var">schemaVersionSummary_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SchemaVersionSummary -&gt; Maybe Type)
+-&gt; (SchemaVersionSummary -&gt; Maybe Type -&gt; SchemaVersionSummary)
+-&gt; Lens
+     SchemaVersionSummary SchemaVersionSummary (Maybe Type) (Maybe Type)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary%27"><span class="hs-identifier hs-type">SchemaVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199311"><span class="annot"><span class="annottext">Maybe Type
+type' :: Maybe Type
+$sel:type':SchemaVersionSummary' :: SchemaVersionSummary -&gt; Maybe Type
+</span><a href="#local-6989586621679199311"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Type
+</span><a href="#local-6989586621679199311"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199310"><span class="annot"><span class="annottext">s :: SchemaVersionSummary
+</span><a href="#local-6989586621679199310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary%27"><span class="hs-identifier hs-type">SchemaVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199309"><span class="annot"><span class="annottext">Maybe Type
+</span><a href="#local-6989586621679199309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaVersionSummary
+</span><a href="#local-6989586621679199310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':SchemaVersionSummary' :: Maybe Type
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#%24sel%3Atype%27%3ASchemaVersionSummary%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Type
+</span><a href="#local-6989586621679199309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary"><span class="hs-identifier hs-type">SchemaVersionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199306"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary"><span class="hs-identifier hs-type">SchemaVersionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679199304"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SchemaVersionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SchemaVersionSummary)
+-&gt; Value
+-&gt; Parser SchemaVersionSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SchemaVersionSummary&quot;</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199301"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199301"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Type -&gt; SchemaVersionSummary
+</span><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary%27"><span class="hs-identifier hs-var">SchemaVersionSummary'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Type -&gt; SchemaVersionSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Type -&gt; SchemaVersionSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Type -&gt; SchemaVersionSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Type -&gt; SchemaVersionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Type -&gt; SchemaVersionSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Type -&gt; SchemaVersionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Type -&gt; SchemaVersionSummary)
+-&gt; Parser (Maybe Type) -&gt; Parser SchemaVersionSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Type)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199295"><span id="local-6989586621679199297"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary"><span class="hs-identifier hs-type">SchemaVersionSummary</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199292"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Schemas.Types.SchemaVersionSummary.html#SchemaVersionSummary"><span class="hs-identifier hs-type">SchemaVersionSummary</span></a></span></span><span>
+</span><span id="line-97"></span></pre></body></html>

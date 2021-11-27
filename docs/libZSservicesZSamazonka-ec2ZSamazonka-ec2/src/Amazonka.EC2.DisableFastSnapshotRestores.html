@@ -1,0 +1,743 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.DisableFastSnapshotRestores</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disables fast snapshot restores for the specified snapshots in the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specified Availability Zones.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.DisableFastSnapshotRestores</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier">DisableFastSnapshotRestores</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#newDisableFastSnapshotRestores"><span class="hs-identifier">newDisableFastSnapshotRestores</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestores_dryRun"><span class="hs-identifier">disableFastSnapshotRestores_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestores_availabilityZones"><span class="hs-identifier">disableFastSnapshotRestores_availabilityZones</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestores_sourceSnapshotIds"><span class="hs-identifier">disableFastSnapshotRestores_sourceSnapshotIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse"><span class="hs-identifier">DisableFastSnapshotRestoresResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#newDisableFastSnapshotRestoresResponse"><span class="hs-identifier">newDisableFastSnapshotRestoresResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestoresResponse_unsuccessful"><span class="hs-identifier">disableFastSnapshotRestoresResponse_unsuccessful</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestoresResponse_successful"><span class="hs-identifier">disableFastSnapshotRestoresResponse_successful</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestoresResponse_httpStatus"><span class="hs-identifier">disableFastSnapshotRestoresResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDisableFastSnapshotRestores' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621681237065"><span id="local-6989586621681237066"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableFastSnapshotRestores"><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier hs-var">DisableFastSnapshotRestores</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableFastSnapshotRestores%27"><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores%27"><span class="hs-identifier hs-var">DisableFastSnapshotRestores'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdryRun%3ADisableFastSnapshotRestores%27"><span class="annot"><span class="annottext">DisableFastSnapshotRestores -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3AdryRun%3ADisableFastSnapshotRestores%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | One or more Availability Zones. For example, @us-east-2a@.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AavailabilityZones%3ADisableFastSnapshotRestores%27"><span class="annot"><span class="annottext">DisableFastSnapshotRestores -&gt; [Text]
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3AavailabilityZones%3ADisableFastSnapshotRestores%27"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The IDs of one or more snapshots. For example, @snap-1234567890abcdef0@.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AsourceSnapshotIds%3ADisableFastSnapshotRestores%27"><span class="annot"><span class="annottext">DisableFastSnapshotRestores -&gt; [Text]
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3AsourceSnapshotIds%3ADisableFastSnapshotRestores%27"><span class="hs-identifier hs-var hs-var">sourceSnapshotIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681237057"><span id="local-6989586621681237059"><span class="annot"><span class="annottext">DisableFastSnapshotRestores -&gt; DisableFastSnapshotRestores -&gt; Bool
+(DisableFastSnapshotRestores
+ -&gt; DisableFastSnapshotRestores -&gt; Bool)
+-&gt; (DisableFastSnapshotRestores
+    -&gt; DisableFastSnapshotRestores -&gt; Bool)
+-&gt; Eq DisableFastSnapshotRestores
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisableFastSnapshotRestores -&gt; DisableFastSnapshotRestores -&gt; Bool
+$c/= :: DisableFastSnapshotRestores -&gt; DisableFastSnapshotRestores -&gt; Bool
+== :: DisableFastSnapshotRestores -&gt; DisableFastSnapshotRestores -&gt; Bool
+$c== :: DisableFastSnapshotRestores -&gt; DisableFastSnapshotRestores -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681237048"><span id="local-6989586621681237050"><span id="local-6989586621681237052"><span id="local-6989586621681237054"><span class="annot"><span class="annottext">ReadPrec [DisableFastSnapshotRestores]
+ReadPrec DisableFastSnapshotRestores
+Int -&gt; ReadS DisableFastSnapshotRestores
+ReadS [DisableFastSnapshotRestores]
+(Int -&gt; ReadS DisableFastSnapshotRestores)
+-&gt; ReadS [DisableFastSnapshotRestores]
+-&gt; ReadPrec DisableFastSnapshotRestores
+-&gt; ReadPrec [DisableFastSnapshotRestores]
+-&gt; Read DisableFastSnapshotRestores
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisableFastSnapshotRestores]
+$creadListPrec :: ReadPrec [DisableFastSnapshotRestores]
+readPrec :: ReadPrec DisableFastSnapshotRestores
+$creadPrec :: ReadPrec DisableFastSnapshotRestores
+readList :: ReadS [DisableFastSnapshotRestores]
+$creadList :: ReadS [DisableFastSnapshotRestores]
+readsPrec :: Int -&gt; ReadS DisableFastSnapshotRestores
+$creadsPrec :: Int -&gt; ReadS DisableFastSnapshotRestores
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681237041"><span id="local-6989586621681237043"><span id="local-6989586621681237045"><span class="annot"><span class="annottext">Int -&gt; DisableFastSnapshotRestores -&gt; ShowS
+[DisableFastSnapshotRestores] -&gt; ShowS
+DisableFastSnapshotRestores -&gt; String
+(Int -&gt; DisableFastSnapshotRestores -&gt; ShowS)
+-&gt; (DisableFastSnapshotRestores -&gt; String)
+-&gt; ([DisableFastSnapshotRestores] -&gt; ShowS)
+-&gt; Show DisableFastSnapshotRestores
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisableFastSnapshotRestores] -&gt; ShowS
+$cshowList :: [DisableFastSnapshotRestores] -&gt; ShowS
+show :: DisableFastSnapshotRestores -&gt; String
+$cshow :: DisableFastSnapshotRestores -&gt; String
+showsPrec :: Int -&gt; DisableFastSnapshotRestores -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisableFastSnapshotRestores -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisableFastSnapshotRestores -&gt; Rep DisableFastSnapshotRestores x)
+-&gt; (forall x.
+    Rep DisableFastSnapshotRestores x -&gt; DisableFastSnapshotRestores)
+-&gt; Generic DisableFastSnapshotRestores
+forall x.
+Rep DisableFastSnapshotRestores x -&gt; DisableFastSnapshotRestores
+forall x.
+DisableFastSnapshotRestores -&gt; Rep DisableFastSnapshotRestores x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisableFastSnapshotRestores x -&gt; DisableFastSnapshotRestores
+$cfrom :: forall x.
+DisableFastSnapshotRestores -&gt; Rep DisableFastSnapshotRestores x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'DisableFastSnapshotRestores' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'dryRun', 'disableFastSnapshotRestores_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'availabilityZones', 'disableFastSnapshotRestores_availabilityZones' - One or more Availability Zones. For example, @us-east-2a@.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'sourceSnapshotIds', 'disableFastSnapshotRestores_sourceSnapshotIds' - The IDs of one or more snapshots. For example, @snap-1234567890abcdef0@.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#newDisableFastSnapshotRestores"><span class="hs-identifier hs-type">newDisableFastSnapshotRestores</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier hs-type">DisableFastSnapshotRestores</span></a></span><span>
+</span><span id="line-85"></span><span id="newDisableFastSnapshotRestores"><span class="annot"><span class="annottext">newDisableFastSnapshotRestores :: DisableFastSnapshotRestores
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#newDisableFastSnapshotRestores"><span class="hs-identifier hs-var hs-var">newDisableFastSnapshotRestores</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">DisableFastSnapshotRestores' :: Maybe Bool -&gt; [Text] -&gt; [Text] -&gt; DisableFastSnapshotRestores
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores%27"><span class="hs-identifier hs-type">DisableFastSnapshotRestores'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:DisableFastSnapshotRestores' :: Maybe Bool
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3AdryRun%3ADisableFastSnapshotRestores%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZones:DisableFastSnapshotRestores' :: [Text]
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3AavailabilityZones%3ADisableFastSnapshotRestores%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceSnapshotIds:DisableFastSnapshotRestores' :: [Text]
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3AsourceSnapshotIds%3ADisableFastSnapshotRestores%27"><span class="hs-identifier hs-var">sourceSnapshotIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestores_dryRun"><span class="hs-identifier hs-type">disableFastSnapshotRestores_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier hs-type">DisableFastSnapshotRestores</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="disableFastSnapshotRestores_dryRun"><span class="annot"><span class="annottext">disableFastSnapshotRestores_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DisableFastSnapshotRestores -&gt; f DisableFastSnapshotRestores
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestores_dryRun"><span class="hs-identifier hs-var hs-var">disableFastSnapshotRestores_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableFastSnapshotRestores -&gt; Maybe Bool)
+-&gt; (DisableFastSnapshotRestores
+    -&gt; Maybe Bool -&gt; DisableFastSnapshotRestores)
+-&gt; Lens
+     DisableFastSnapshotRestores
+     DisableFastSnapshotRestores
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores%27"><span class="hs-identifier hs-type">DisableFastSnapshotRestores'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237034"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DisableFastSnapshotRestores' :: DisableFastSnapshotRestores -&gt; Maybe Bool
+</span><a href="#local-6989586621681237034"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681237034"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681237033"><span class="annot"><span class="annottext">s :: DisableFastSnapshotRestores
+</span><a href="#local-6989586621681237033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores%27"><span class="hs-identifier hs-type">DisableFastSnapshotRestores'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681237032"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681237032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableFastSnapshotRestores
+</span><a href="#local-6989586621681237033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DisableFastSnapshotRestores' :: Maybe Bool
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3AdryRun%3ADisableFastSnapshotRestores%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681237032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier hs-type">DisableFastSnapshotRestores</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | One or more Availability Zones. For example, @us-east-2a@.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestores_availabilityZones"><span class="hs-identifier hs-type">disableFastSnapshotRestores_availabilityZones</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier hs-type">DisableFastSnapshotRestores</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span><span id="disableFastSnapshotRestores_availabilityZones"><span class="annot"><span class="annottext">disableFastSnapshotRestores_availabilityZones :: ([Text] -&gt; f [Text])
+-&gt; DisableFastSnapshotRestores -&gt; f DisableFastSnapshotRestores
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestores_availabilityZones"><span class="hs-identifier hs-var hs-var">disableFastSnapshotRestores_availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableFastSnapshotRestores -&gt; [Text])
+-&gt; (DisableFastSnapshotRestores
+    -&gt; [Text] -&gt; DisableFastSnapshotRestores)
+-&gt; Lens
+     DisableFastSnapshotRestores
+     DisableFastSnapshotRestores
+     [Text]
+     [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores%27"><span class="hs-identifier hs-type">DisableFastSnapshotRestores'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237031"><span class="annot"><span class="annottext">[Text]
+availabilityZones :: [Text]
+$sel:availabilityZones:DisableFastSnapshotRestores' :: DisableFastSnapshotRestores -&gt; [Text]
+</span><a href="#local-6989586621681237031"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681237031"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681237030"><span class="annot"><span class="annottext">s :: DisableFastSnapshotRestores
+</span><a href="#local-6989586621681237030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores%27"><span class="hs-identifier hs-type">DisableFastSnapshotRestores'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681237029"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681237029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableFastSnapshotRestores
+</span><a href="#local-6989586621681237030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZones:DisableFastSnapshotRestores' :: [Text]
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3AavailabilityZones%3ADisableFastSnapshotRestores%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681237029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier hs-type">DisableFastSnapshotRestores</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; DisableFastSnapshotRestores -&gt; f DisableFastSnapshotRestores)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; DisableFastSnapshotRestores
+-&gt; f DisableFastSnapshotRestores
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The IDs of one or more snapshots. For example, @snap-1234567890abcdef0@.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestores_sourceSnapshotIds"><span class="hs-identifier hs-type">disableFastSnapshotRestores_sourceSnapshotIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier hs-type">DisableFastSnapshotRestores</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span id="disableFastSnapshotRestores_sourceSnapshotIds"><span class="annot"><span class="annottext">disableFastSnapshotRestores_sourceSnapshotIds :: ([Text] -&gt; f [Text])
+-&gt; DisableFastSnapshotRestores -&gt; f DisableFastSnapshotRestores
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestores_sourceSnapshotIds"><span class="hs-identifier hs-var hs-var">disableFastSnapshotRestores_sourceSnapshotIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableFastSnapshotRestores -&gt; [Text])
+-&gt; (DisableFastSnapshotRestores
+    -&gt; [Text] -&gt; DisableFastSnapshotRestores)
+-&gt; Lens
+     DisableFastSnapshotRestores
+     DisableFastSnapshotRestores
+     [Text]
+     [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores%27"><span class="hs-identifier hs-type">DisableFastSnapshotRestores'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237026"><span class="annot"><span class="annottext">[Text]
+sourceSnapshotIds :: [Text]
+$sel:sourceSnapshotIds:DisableFastSnapshotRestores' :: DisableFastSnapshotRestores -&gt; [Text]
+</span><a href="#local-6989586621681237026"><span class="hs-identifier hs-var hs-var">sourceSnapshotIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681237026"><span class="hs-identifier hs-var">sourceSnapshotIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681237025"><span class="annot"><span class="annottext">s :: DisableFastSnapshotRestores
+</span><a href="#local-6989586621681237025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores%27"><span class="hs-identifier hs-type">DisableFastSnapshotRestores'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681237024"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681237024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableFastSnapshotRestores
+</span><a href="#local-6989586621681237025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceSnapshotIds:DisableFastSnapshotRestores' :: [Text]
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3AsourceSnapshotIds%3ADisableFastSnapshotRestores%27"><span class="hs-identifier hs-var">sourceSnapshotIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681237024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier hs-type">DisableFastSnapshotRestores</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; DisableFastSnapshotRestores -&gt; f DisableFastSnapshotRestores)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; DisableFastSnapshotRestores
+-&gt; f DisableFastSnapshotRestores
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier hs-type">DisableFastSnapshotRestores</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier hs-type">DisableFastSnapshotRestores</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621681237020"><span class="annot"><span class="annottext">request :: DisableFastSnapshotRestores -&gt; Request DisableFastSnapshotRestores
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DisableFastSnapshotRestores
+-&gt; Request DisableFastSnapshotRestores
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621681237016"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisableFastSnapshotRestores
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisableFastSnapshotRestores)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse DisableFastSnapshotRestores))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisableFastSnapshotRestores
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisableFastSnapshotRestores)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681237013"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681237013"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681237012"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681237012"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681237011"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681237011"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DisableFastSnapshotRestoreErrorItem]
+-&gt; Maybe [DisableFastSnapshotRestoreSuccessItem]
+-&gt; Int
+-&gt; DisableFastSnapshotRestoresResponse
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-var">DisableFastSnapshotRestoresResponse'</span></a></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [DisableFastSnapshotRestoreErrorItem]
+ -&gt; Maybe [DisableFastSnapshotRestoreSuccessItem]
+ -&gt; Int
+ -&gt; DisableFastSnapshotRestoresResponse)
+-&gt; Either String (Maybe [DisableFastSnapshotRestoreErrorItem])
+-&gt; Either
+     String
+     (Maybe [DisableFastSnapshotRestoreSuccessItem]
+      -&gt; Int -&gt; DisableFastSnapshotRestoresResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681237011"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;unsuccessful&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-118"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe [DisableFastSnapshotRestoreErrorItem]))
+-&gt; Either String (Maybe [DisableFastSnapshotRestoreErrorItem])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [DisableFastSnapshotRestoreErrorItem])
+-&gt; [Node]
+-&gt; Either String (Maybe [DisableFastSnapshotRestoreErrorItem])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+-&gt; [Node] -&gt; Either String [DisableFastSnapshotRestoreErrorItem]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [DisableFastSnapshotRestoreSuccessItem]
+   -&gt; Int -&gt; DisableFastSnapshotRestoresResponse)
+-&gt; Either String (Maybe [DisableFastSnapshotRestoreSuccessItem])
+-&gt; Either String (Int -&gt; DisableFastSnapshotRestoresResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681237011"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;successful&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe [DisableFastSnapshotRestoreSuccessItem]))
+-&gt; Either String (Maybe [DisableFastSnapshotRestoreSuccessItem])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [DisableFastSnapshotRestoreSuccessItem])
+-&gt; [Node]
+-&gt; Either String (Maybe [DisableFastSnapshotRestoreSuccessItem])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+-&gt; [Node] -&gt; Either String [DisableFastSnapshotRestoreSuccessItem]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DisableFastSnapshotRestoresResponse)
+-&gt; Either String Int
+-&gt; Either String DisableFastSnapshotRestoresResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681237013"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681237000"><span id="local-6989586621681237002"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier hs-type">DisableFastSnapshotRestores</span></a></span></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681236997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier hs-type">DisableFastSnapshotRestores</span></a></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier hs-type">DisableFastSnapshotRestores</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621681236993"><span class="annot"><span class="annottext">toHeaders :: DisableFastSnapshotRestores -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DisableFastSnapshotRestores -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier hs-type">DisableFastSnapshotRestores</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621681236988"><span class="annot"><span class="annottext">toPath :: DisableFastSnapshotRestores -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisableFastSnapshotRestores -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores"><span class="hs-identifier hs-type">DisableFastSnapshotRestores</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621681236984"><span class="annot"><span class="annottext">toQuery :: DisableFastSnapshotRestores -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestores%27"><span class="hs-identifier hs-type">DisableFastSnapshotRestores'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681236980"><span id="local-6989586621681236981"><span id="local-6989586621681236982"><span class="annot"><span class="annottext">[Text]
+Maybe Bool
+sourceSnapshotIds :: [Text]
+availabilityZones :: [Text]
+dryRun :: Maybe Bool
+$sel:sourceSnapshotIds:DisableFastSnapshotRestores' :: DisableFastSnapshotRestores -&gt; [Text]
+$sel:availabilityZones:DisableFastSnapshotRestores' :: DisableFastSnapshotRestores -&gt; [Text]
+$sel:dryRun:DisableFastSnapshotRestores' :: DisableFastSnapshotRestores -&gt; Maybe Bool
+</span><a href="#local-6989586621681236980"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DisableFastSnapshotRestores&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-142"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681236982"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681236981"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SourceSnapshotId&quot;</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681236980"><span class="hs-identifier hs-var">sourceSnapshotIds</span></a></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newDisableFastSnapshotRestoresResponse' smart constructor.</span><span>
+</span><span id="line-155"></span><span id="local-6989586621681236976"><span id="local-6989586621681236977"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableFastSnapshotRestoresResponse"><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse"><span class="hs-identifier hs-var">DisableFastSnapshotRestoresResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableFastSnapshotRestoresResponse%27"><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-var">DisableFastSnapshotRestoresResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the snapshots for which fast snapshot restores could</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- not be disabled.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3Aunsuccessful%3ADisableFastSnapshotRestoresResponse%27"><span class="annot"><span class="annottext">DisableFastSnapshotRestoresResponse
+-&gt; Maybe [DisableFastSnapshotRestoreErrorItem]
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3Aunsuccessful%3ADisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-var hs-var">unsuccessful</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.DisableFastSnapshotRestoreErrorItem.html#DisableFastSnapshotRestoreErrorItem"><span class="hs-identifier hs-type">DisableFastSnapshotRestoreErrorItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | Information about the snapshots for which fast snapshot restores were</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- successfully disabled.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3Asuccessful%3ADisableFastSnapshotRestoresResponse%27"><span class="annot"><span class="annottext">DisableFastSnapshotRestoresResponse
+-&gt; Maybe [DisableFastSnapshotRestoreSuccessItem]
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3Asuccessful%3ADisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-var hs-var">successful</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.DisableFastSnapshotRestoreSuccessItem.html#DisableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">DisableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisableFastSnapshotRestoresResponse%27"><span class="annot"><span class="annottext">DisableFastSnapshotRestoresResponse -&gt; Int
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3AhttpStatus%3ADisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681236969"><span id="local-6989586621681236971"><span class="annot"><span class="annottext">DisableFastSnapshotRestoresResponse
+-&gt; DisableFastSnapshotRestoresResponse -&gt; Bool
+(DisableFastSnapshotRestoresResponse
+ -&gt; DisableFastSnapshotRestoresResponse -&gt; Bool)
+-&gt; (DisableFastSnapshotRestoresResponse
+    -&gt; DisableFastSnapshotRestoresResponse -&gt; Bool)
+-&gt; Eq DisableFastSnapshotRestoresResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisableFastSnapshotRestoresResponse
+-&gt; DisableFastSnapshotRestoresResponse -&gt; Bool
+$c/= :: DisableFastSnapshotRestoresResponse
+-&gt; DisableFastSnapshotRestoresResponse -&gt; Bool
+== :: DisableFastSnapshotRestoresResponse
+-&gt; DisableFastSnapshotRestoresResponse -&gt; Bool
+$c== :: DisableFastSnapshotRestoresResponse
+-&gt; DisableFastSnapshotRestoresResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681236961"><span id="local-6989586621681236963"><span id="local-6989586621681236965"><span id="local-6989586621681236967"><span class="annot"><span class="annottext">ReadPrec [DisableFastSnapshotRestoresResponse]
+ReadPrec DisableFastSnapshotRestoresResponse
+Int -&gt; ReadS DisableFastSnapshotRestoresResponse
+ReadS [DisableFastSnapshotRestoresResponse]
+(Int -&gt; ReadS DisableFastSnapshotRestoresResponse)
+-&gt; ReadS [DisableFastSnapshotRestoresResponse]
+-&gt; ReadPrec DisableFastSnapshotRestoresResponse
+-&gt; ReadPrec [DisableFastSnapshotRestoresResponse]
+-&gt; Read DisableFastSnapshotRestoresResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisableFastSnapshotRestoresResponse]
+$creadListPrec :: ReadPrec [DisableFastSnapshotRestoresResponse]
+readPrec :: ReadPrec DisableFastSnapshotRestoresResponse
+$creadPrec :: ReadPrec DisableFastSnapshotRestoresResponse
+readList :: ReadS [DisableFastSnapshotRestoresResponse]
+$creadList :: ReadS [DisableFastSnapshotRestoresResponse]
+readsPrec :: Int -&gt; ReadS DisableFastSnapshotRestoresResponse
+$creadsPrec :: Int -&gt; ReadS DisableFastSnapshotRestoresResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681236955"><span id="local-6989586621681236957"><span id="local-6989586621681236959"><span class="annot"><span class="annottext">Int -&gt; DisableFastSnapshotRestoresResponse -&gt; ShowS
+[DisableFastSnapshotRestoresResponse] -&gt; ShowS
+DisableFastSnapshotRestoresResponse -&gt; String
+(Int -&gt; DisableFastSnapshotRestoresResponse -&gt; ShowS)
+-&gt; (DisableFastSnapshotRestoresResponse -&gt; String)
+-&gt; ([DisableFastSnapshotRestoresResponse] -&gt; ShowS)
+-&gt; Show DisableFastSnapshotRestoresResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisableFastSnapshotRestoresResponse] -&gt; ShowS
+$cshowList :: [DisableFastSnapshotRestoresResponse] -&gt; ShowS
+show :: DisableFastSnapshotRestoresResponse -&gt; String
+$cshow :: DisableFastSnapshotRestoresResponse -&gt; String
+showsPrec :: Int -&gt; DisableFastSnapshotRestoresResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisableFastSnapshotRestoresResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisableFastSnapshotRestoresResponse
+ -&gt; Rep DisableFastSnapshotRestoresResponse x)
+-&gt; (forall x.
+    Rep DisableFastSnapshotRestoresResponse x
+    -&gt; DisableFastSnapshotRestoresResponse)
+-&gt; Generic DisableFastSnapshotRestoresResponse
+forall x.
+Rep DisableFastSnapshotRestoresResponse x
+-&gt; DisableFastSnapshotRestoresResponse
+forall x.
+DisableFastSnapshotRestoresResponse
+-&gt; Rep DisableFastSnapshotRestoresResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisableFastSnapshotRestoresResponse x
+-&gt; DisableFastSnapshotRestoresResponse
+$cfrom :: forall x.
+DisableFastSnapshotRestoresResponse
+-&gt; Rep DisableFastSnapshotRestoresResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Create a value of 'DisableFastSnapshotRestoresResponse' with all optional fields omitted.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'unsuccessful', 'disableFastSnapshotRestoresResponse_unsuccessful' - Information about the snapshots for which fast snapshot restores could</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- not be disabled.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'successful', 'disableFastSnapshotRestoresResponse_successful' - Information about the snapshots for which fast snapshot restores were</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- successfully disabled.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'httpStatus', 'disableFastSnapshotRestoresResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#newDisableFastSnapshotRestoresResponse"><span class="hs-identifier hs-type">newDisableFastSnapshotRestoresResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse</span></a></span><span>
+</span><span id="line-186"></span><span id="newDisableFastSnapshotRestoresResponse"><span class="annot"><span class="annottext">newDisableFastSnapshotRestoresResponse :: Int -&gt; DisableFastSnapshotRestoresResponse
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#newDisableFastSnapshotRestoresResponse"><span class="hs-identifier hs-var hs-var">newDisableFastSnapshotRestoresResponse</span></a></span></span><span> </span><span id="local-6989586621681236952"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681236952"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="annottext">DisableFastSnapshotRestoresResponse' :: Maybe [DisableFastSnapshotRestoreErrorItem]
+-&gt; Maybe [DisableFastSnapshotRestoreSuccessItem]
+-&gt; Int
+-&gt; DisableFastSnapshotRestoresResponse
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse'</span></a></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:unsuccessful:DisableFastSnapshotRestoresResponse' :: Maybe [DisableFastSnapshotRestoreErrorItem]
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3Aunsuccessful%3ADisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-var">unsuccessful</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">Maybe [DisableFastSnapshotRestoreErrorItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:successful:DisableFastSnapshotRestoresResponse' :: Maybe [DisableFastSnapshotRestoreSuccessItem]
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3Asuccessful%3ADisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-var">successful</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DisableFastSnapshotRestoreSuccessItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DisableFastSnapshotRestoresResponse' :: Int
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3AhttpStatus%3ADisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681236952"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | Information about the snapshots for which fast snapshot restores could</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- not be disabled.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestoresResponse_unsuccessful"><span class="hs-identifier hs-type">disableFastSnapshotRestoresResponse_unsuccessful</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.DisableFastSnapshotRestoreErrorItem.html#DisableFastSnapshotRestoreErrorItem"><span class="hs-identifier hs-type">DisableFastSnapshotRestoreErrorItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="disableFastSnapshotRestoresResponse_unsuccessful"><span class="annot"><span class="annottext">disableFastSnapshotRestoresResponse_unsuccessful :: (Maybe [DisableFastSnapshotRestoreErrorItem]
+ -&gt; f (Maybe [DisableFastSnapshotRestoreErrorItem]))
+-&gt; DisableFastSnapshotRestoresResponse
+-&gt; f DisableFastSnapshotRestoresResponse
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestoresResponse_unsuccessful"><span class="hs-identifier hs-var hs-var">disableFastSnapshotRestoresResponse_unsuccessful</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableFastSnapshotRestoresResponse
+ -&gt; Maybe [DisableFastSnapshotRestoreErrorItem])
+-&gt; (DisableFastSnapshotRestoresResponse
+    -&gt; Maybe [DisableFastSnapshotRestoreErrorItem]
+    -&gt; DisableFastSnapshotRestoresResponse)
+-&gt; Lens
+     DisableFastSnapshotRestoresResponse
+     DisableFastSnapshotRestoresResponse
+     (Maybe [DisableFastSnapshotRestoreErrorItem])
+     (Maybe [DisableFastSnapshotRestoreErrorItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681236951"><span class="annot"><span class="annottext">Maybe [DisableFastSnapshotRestoreErrorItem]
+unsuccessful :: Maybe [DisableFastSnapshotRestoreErrorItem]
+$sel:unsuccessful:DisableFastSnapshotRestoresResponse' :: DisableFastSnapshotRestoresResponse
+-&gt; Maybe [DisableFastSnapshotRestoreErrorItem]
+</span><a href="#local-6989586621681236951"><span class="hs-identifier hs-var hs-var">unsuccessful</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DisableFastSnapshotRestoreErrorItem]
+</span><a href="#local-6989586621681236951"><span class="hs-identifier hs-var">unsuccessful</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681236950"><span class="annot"><span class="annottext">s :: DisableFastSnapshotRestoresResponse
+</span><a href="#local-6989586621681236950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681236949"><span class="annot"><span class="annottext">Maybe [DisableFastSnapshotRestoreErrorItem]
+</span><a href="#local-6989586621681236949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableFastSnapshotRestoresResponse
+</span><a href="#local-6989586621681236950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unsuccessful:DisableFastSnapshotRestoresResponse' :: Maybe [DisableFastSnapshotRestoreErrorItem]
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3Aunsuccessful%3ADisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-var">unsuccessful</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DisableFastSnapshotRestoreErrorItem]
+</span><a href="#local-6989586621681236949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DisableFastSnapshotRestoreErrorItem]
+  -&gt; f (Maybe [DisableFastSnapshotRestoreErrorItem]))
+ -&gt; DisableFastSnapshotRestoresResponse
+ -&gt; f DisableFastSnapshotRestoresResponse)
+-&gt; ((Maybe [DisableFastSnapshotRestoreErrorItem]
+     -&gt; f (Maybe [DisableFastSnapshotRestoreErrorItem]))
+    -&gt; Maybe [DisableFastSnapshotRestoreErrorItem]
+    -&gt; f (Maybe [DisableFastSnapshotRestoreErrorItem]))
+-&gt; (Maybe [DisableFastSnapshotRestoreErrorItem]
+    -&gt; f (Maybe [DisableFastSnapshotRestoreErrorItem]))
+-&gt; DisableFastSnapshotRestoresResponse
+-&gt; f DisableFastSnapshotRestoresResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DisableFastSnapshotRestoreErrorItem]
+  [DisableFastSnapshotRestoreErrorItem]
+  [DisableFastSnapshotRestoreErrorItem]
+  [DisableFastSnapshotRestoreErrorItem]
+-&gt; Iso
+     (Maybe [DisableFastSnapshotRestoreErrorItem])
+     (Maybe [DisableFastSnapshotRestoreErrorItem])
+     (Maybe [DisableFastSnapshotRestoreErrorItem])
+     (Maybe [DisableFastSnapshotRestoreErrorItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DisableFastSnapshotRestoreErrorItem]
+  [DisableFastSnapshotRestoreErrorItem]
+  [DisableFastSnapshotRestoreErrorItem]
+  [DisableFastSnapshotRestoreErrorItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | Information about the snapshots for which fast snapshot restores were</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- successfully disabled.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestoresResponse_successful"><span class="hs-identifier hs-type">disableFastSnapshotRestoresResponse_successful</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.DisableFastSnapshotRestoreSuccessItem.html#DisableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">DisableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="disableFastSnapshotRestoresResponse_successful"><span class="annot"><span class="annottext">disableFastSnapshotRestoresResponse_successful :: (Maybe [DisableFastSnapshotRestoreSuccessItem]
+ -&gt; f (Maybe [DisableFastSnapshotRestoreSuccessItem]))
+-&gt; DisableFastSnapshotRestoresResponse
+-&gt; f DisableFastSnapshotRestoresResponse
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestoresResponse_successful"><span class="hs-identifier hs-var hs-var">disableFastSnapshotRestoresResponse_successful</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableFastSnapshotRestoresResponse
+ -&gt; Maybe [DisableFastSnapshotRestoreSuccessItem])
+-&gt; (DisableFastSnapshotRestoresResponse
+    -&gt; Maybe [DisableFastSnapshotRestoreSuccessItem]
+    -&gt; DisableFastSnapshotRestoresResponse)
+-&gt; Lens
+     DisableFastSnapshotRestoresResponse
+     DisableFastSnapshotRestoresResponse
+     (Maybe [DisableFastSnapshotRestoreSuccessItem])
+     (Maybe [DisableFastSnapshotRestoreSuccessItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681236947"><span class="annot"><span class="annottext">Maybe [DisableFastSnapshotRestoreSuccessItem]
+successful :: Maybe [DisableFastSnapshotRestoreSuccessItem]
+$sel:successful:DisableFastSnapshotRestoresResponse' :: DisableFastSnapshotRestoresResponse
+-&gt; Maybe [DisableFastSnapshotRestoreSuccessItem]
+</span><a href="#local-6989586621681236947"><span class="hs-identifier hs-var hs-var">successful</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DisableFastSnapshotRestoreSuccessItem]
+</span><a href="#local-6989586621681236947"><span class="hs-identifier hs-var">successful</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681236946"><span class="annot"><span class="annottext">s :: DisableFastSnapshotRestoresResponse
+</span><a href="#local-6989586621681236946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681236945"><span class="annot"><span class="annottext">Maybe [DisableFastSnapshotRestoreSuccessItem]
+</span><a href="#local-6989586621681236945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableFastSnapshotRestoresResponse
+</span><a href="#local-6989586621681236946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successful:DisableFastSnapshotRestoresResponse' :: Maybe [DisableFastSnapshotRestoreSuccessItem]
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3Asuccessful%3ADisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-var">successful</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DisableFastSnapshotRestoreSuccessItem]
+</span><a href="#local-6989586621681236945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DisableFastSnapshotRestoreSuccessItem]
+  -&gt; f (Maybe [DisableFastSnapshotRestoreSuccessItem]))
+ -&gt; DisableFastSnapshotRestoresResponse
+ -&gt; f DisableFastSnapshotRestoresResponse)
+-&gt; ((Maybe [DisableFastSnapshotRestoreSuccessItem]
+     -&gt; f (Maybe [DisableFastSnapshotRestoreSuccessItem]))
+    -&gt; Maybe [DisableFastSnapshotRestoreSuccessItem]
+    -&gt; f (Maybe [DisableFastSnapshotRestoreSuccessItem]))
+-&gt; (Maybe [DisableFastSnapshotRestoreSuccessItem]
+    -&gt; f (Maybe [DisableFastSnapshotRestoreSuccessItem]))
+-&gt; DisableFastSnapshotRestoresResponse
+-&gt; f DisableFastSnapshotRestoresResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DisableFastSnapshotRestoreSuccessItem]
+  [DisableFastSnapshotRestoreSuccessItem]
+  [DisableFastSnapshotRestoreSuccessItem]
+  [DisableFastSnapshotRestoreSuccessItem]
+-&gt; Iso
+     (Maybe [DisableFastSnapshotRestoreSuccessItem])
+     (Maybe [DisableFastSnapshotRestoreSuccessItem])
+     (Maybe [DisableFastSnapshotRestoreSuccessItem])
+     (Maybe [DisableFastSnapshotRestoreSuccessItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DisableFastSnapshotRestoreSuccessItem]
+  [DisableFastSnapshotRestoreSuccessItem]
+  [DisableFastSnapshotRestoreSuccessItem]
+  [DisableFastSnapshotRestoreSuccessItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestoresResponse_httpStatus"><span class="hs-identifier hs-type">disableFastSnapshotRestoresResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-206"></span><span id="disableFastSnapshotRestoresResponse_httpStatus"><span class="annot"><span class="annottext">disableFastSnapshotRestoresResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DisableFastSnapshotRestoresResponse
+-&gt; f DisableFastSnapshotRestoresResponse
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#disableFastSnapshotRestoresResponse_httpStatus"><span class="hs-identifier hs-var hs-var">disableFastSnapshotRestoresResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableFastSnapshotRestoresResponse -&gt; Int)
+-&gt; (DisableFastSnapshotRestoresResponse
+    -&gt; Int -&gt; DisableFastSnapshotRestoresResponse)
+-&gt; Lens
+     DisableFastSnapshotRestoresResponse
+     DisableFastSnapshotRestoresResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681236944"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DisableFastSnapshotRestoresResponse' :: DisableFastSnapshotRestoresResponse -&gt; Int
+</span><a href="#local-6989586621681236944"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681236944"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681236943"><span class="annot"><span class="annottext">s :: DisableFastSnapshotRestoresResponse
+</span><a href="#local-6989586621681236943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681236942"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681236942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableFastSnapshotRestoresResponse
+</span><a href="#local-6989586621681236943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisableFastSnapshotRestoresResponse' :: Int
+</span><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#%24sel%3AhttpStatus%3ADisableFastSnapshotRestoresResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681236942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621681236940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DisableFastSnapshotRestores.html#DisableFastSnapshotRestoresResponse"><span class="hs-identifier hs-type">DisableFastSnapshotRestoresResponse</span></a></span></span><span>
+</span><span id="line-211"></span></pre></body></html>

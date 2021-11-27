@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Wisdom.Types.FilterField</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Wisdom.Types.FilterField</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.FilterField.html#FilterField"><span class="hs-identifier">FilterField</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Wisdom.Types.FilterField.html#FilterField_NAME"><span class="hs-identifier">FilterField_NAME</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679220079"><span id="local-6989586621679220080"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FilterField"><span class="annot"><a href="Amazonka.Wisdom.Types.FilterField.html#FilterField"><span class="hs-identifier hs-var">FilterField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FilterField%27"><span class="annot"><a href="Amazonka.Wisdom.Types.FilterField.html#FilterField%27"><span class="hs-identifier hs-var">FilterField'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFilterField"><span class="annot"><span class="annottext">FilterField -&gt; Text
+</span><a href="Amazonka.Wisdom.Types.FilterField.html#fromFilterField"><span class="hs-identifier hs-var hs-var">fromFilterField</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220071"><span id="local-6989586621679220073"><span id="local-6989586621679220075"><span class="annot"><span class="annottext">Int -&gt; FilterField -&gt; ShowS
+[FilterField] -&gt; ShowS
+FilterField -&gt; String
+(Int -&gt; FilterField -&gt; ShowS)
+-&gt; (FilterField -&gt; String)
+-&gt; ([FilterField] -&gt; ShowS)
+-&gt; Show FilterField
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FilterField] -&gt; ShowS
+$cshowList :: [FilterField] -&gt; ShowS
+show :: FilterField -&gt; String
+$cshow :: FilterField -&gt; String
+showsPrec :: Int -&gt; FilterField -&gt; ShowS
+$cshowsPrec :: Int -&gt; FilterField -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679220062"><span id="local-6989586621679220064"><span id="local-6989586621679220066"><span id="local-6989586621679220068"><span class="annot"><span class="annottext">ReadPrec [FilterField]
+ReadPrec FilterField
+Int -&gt; ReadS FilterField
+ReadS [FilterField]
+(Int -&gt; ReadS FilterField)
+-&gt; ReadS [FilterField]
+-&gt; ReadPrec FilterField
+-&gt; ReadPrec [FilterField]
+-&gt; Read FilterField
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FilterField]
+$creadListPrec :: ReadPrec [FilterField]
+readPrec :: ReadPrec FilterField
+$creadPrec :: ReadPrec FilterField
+readList :: ReadS [FilterField]
+$creadList :: ReadS [FilterField]
+readsPrec :: Int -&gt; ReadS FilterField
+$creadsPrec :: Int -&gt; ReadS FilterField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679220057"><span id="local-6989586621679220059"><span class="annot"><span class="annottext">FilterField -&gt; FilterField -&gt; Bool
+(FilterField -&gt; FilterField -&gt; Bool)
+-&gt; (FilterField -&gt; FilterField -&gt; Bool) -&gt; Eq FilterField
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FilterField -&gt; FilterField -&gt; Bool
+$c/= :: FilterField -&gt; FilterField -&gt; Bool
+== :: FilterField -&gt; FilterField -&gt; Bool
+$c== :: FilterField -&gt; FilterField -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679220041"><span id="local-6989586621679220043"><span id="local-6989586621679220045"><span id="local-6989586621679220047"><span id="local-6989586621679220049"><span id="local-6989586621679220051"><span id="local-6989586621679220053"><span class="annot"><span class="annottext">Eq FilterField
+Eq FilterField
+-&gt; (FilterField -&gt; FilterField -&gt; Ordering)
+-&gt; (FilterField -&gt; FilterField -&gt; Bool)
+-&gt; (FilterField -&gt; FilterField -&gt; Bool)
+-&gt; (FilterField -&gt; FilterField -&gt; Bool)
+-&gt; (FilterField -&gt; FilterField -&gt; Bool)
+-&gt; (FilterField -&gt; FilterField -&gt; FilterField)
+-&gt; (FilterField -&gt; FilterField -&gt; FilterField)
+-&gt; Ord FilterField
+FilterField -&gt; FilterField -&gt; Bool
+FilterField -&gt; FilterField -&gt; Ordering
+FilterField -&gt; FilterField -&gt; FilterField
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FilterField -&gt; FilterField -&gt; FilterField
+$cmin :: FilterField -&gt; FilterField -&gt; FilterField
+max :: FilterField -&gt; FilterField -&gt; FilterField
+$cmax :: FilterField -&gt; FilterField -&gt; FilterField
+&gt;= :: FilterField -&gt; FilterField -&gt; Bool
+$c&gt;= :: FilterField -&gt; FilterField -&gt; Bool
+&gt; :: FilterField -&gt; FilterField -&gt; Bool
+$c&gt; :: FilterField -&gt; FilterField -&gt; Bool
+&lt;= :: FilterField -&gt; FilterField -&gt; Bool
+$c&lt;= :: FilterField -&gt; FilterField -&gt; Bool
+&lt; :: FilterField -&gt; FilterField -&gt; Bool
+$c&lt; :: FilterField -&gt; FilterField -&gt; Bool
+compare :: FilterField -&gt; FilterField -&gt; Ordering
+$ccompare :: FilterField -&gt; FilterField -&gt; Ordering
+$cp1Ord :: Eq FilterField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FilterField -&gt; Rep FilterField x)
+-&gt; (forall x. Rep FilterField x -&gt; FilterField)
+-&gt; Generic FilterField
+forall x. Rep FilterField x -&gt; FilterField
+forall x. FilterField -&gt; Rep FilterField x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FilterField x -&gt; FilterField
+$cfrom :: forall x. FilterField -&gt; Rep FilterField x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220033"><span id="local-6989586621679220035"><span class="annot"><span class="annottext">Int -&gt; FilterField -&gt; Int
+FilterField -&gt; Int
+(Int -&gt; FilterField -&gt; Int)
+-&gt; (FilterField -&gt; Int) -&gt; Hashable FilterField
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FilterField -&gt; Int
+$chash :: FilterField -&gt; Int
+hashWithSalt :: Int -&gt; FilterField -&gt; Int
+$chashWithSalt :: Int -&gt; FilterField -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679220030"><span class="annot"><span class="annottext">FilterField -&gt; ()
+(FilterField -&gt; ()) -&gt; NFData FilterField
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FilterField -&gt; ()
+$crnf :: FilterField -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679220027"><span class="annot"><span class="annottext">Text -&gt; Either String FilterField
+(Text -&gt; Either String FilterField) -&gt; FromText FilterField
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FilterField
+$cfromText :: Text -&gt; Either String FilterField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679220024"><span class="annot"><span class="annottext">FilterField -&gt; Text
+(FilterField -&gt; Text) -&gt; ToText FilterField
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FilterField -&gt; Text
+$ctoText :: FilterField -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679220021"><span class="annot"><span class="annottext">FilterField -&gt; ByteString
+(FilterField -&gt; ByteString) -&gt; ToByteString FilterField
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FilterField -&gt; ByteString
+$ctoBS :: FilterField -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679220018"><span class="annot"><span class="annottext">FilterField -&gt; ByteStringBuilder
+(FilterField -&gt; ByteStringBuilder) -&gt; ToLog FilterField
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FilterField -&gt; ByteStringBuilder
+$cbuild :: FilterField -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679220015"><span class="annot"><span class="annottext">HeaderName -&gt; FilterField -&gt; [Header]
+(HeaderName -&gt; FilterField -&gt; [Header]) -&gt; ToHeader FilterField
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FilterField -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FilterField -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679220012"><span class="annot"><span class="annottext">FilterField -&gt; QueryString
+(FilterField -&gt; QueryString) -&gt; ToQuery FilterField
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FilterField -&gt; QueryString
+$ctoQuery :: FilterField -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679220007"><span id="local-6989586621679220009"><span class="annot"><span class="annottext">Value -&gt; Parser [FilterField]
+Value -&gt; Parser FilterField
+(Value -&gt; Parser FilterField)
+-&gt; (Value -&gt; Parser [FilterField]) -&gt; FromJSON FilterField
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FilterField]
+$cparseJSONList :: Value -&gt; Parser [FilterField]
+parseJSON :: Value -&gt; Parser FilterField
+$cparseJSON :: Value -&gt; Parser FilterField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679220002"><span id="local-6989586621679220004"><span class="annot"><span class="annottext">FromJSONKeyFunction [FilterField]
+FromJSONKeyFunction FilterField
+FromJSONKeyFunction FilterField
+-&gt; FromJSONKeyFunction [FilterField] -&gt; FromJSONKey FilterField
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FilterField]
+$cfromJSONKeyList :: FromJSONKeyFunction [FilterField]
+fromJSONKey :: FromJSONKeyFunction FilterField
+$cfromJSONKey :: FromJSONKeyFunction FilterField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679219993"><span id="local-6989586621679219995"><span id="local-6989586621679219997"><span id="local-6989586621679219999"><span class="annot"><span class="annottext">[FilterField] -&gt; Encoding
+[FilterField] -&gt; Value
+FilterField -&gt; Encoding
+FilterField -&gt; Value
+(FilterField -&gt; Value)
+-&gt; (FilterField -&gt; Encoding)
+-&gt; ([FilterField] -&gt; Value)
+-&gt; ([FilterField] -&gt; Encoding)
+-&gt; ToJSON FilterField
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FilterField] -&gt; Encoding
+$ctoEncodingList :: [FilterField] -&gt; Encoding
+toJSONList :: [FilterField] -&gt; Value
+$ctoJSONList :: [FilterField] -&gt; Value
+toEncoding :: FilterField -&gt; Encoding
+$ctoEncoding :: FilterField -&gt; Encoding
+toJSON :: FilterField -&gt; Value
+$ctoJSON :: FilterField -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679219988"><span id="local-6989586621679219990"><span class="annot"><span class="annottext">ToJSONKeyFunction [FilterField]
+ToJSONKeyFunction FilterField
+ToJSONKeyFunction FilterField
+-&gt; ToJSONKeyFunction [FilterField] -&gt; ToJSONKey FilterField
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FilterField]
+$ctoJSONKeyList :: ToJSONKeyFunction [FilterField]
+toJSONKey :: ToJSONKeyFunction FilterField
+$ctoJSONKey :: ToJSONKeyFunction FilterField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679219985"><span class="annot"><span class="annottext">[Node] -&gt; Either String FilterField
+([Node] -&gt; Either String FilterField) -&gt; FromXML FilterField
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FilterField
+$cparseXML :: [Node] -&gt; Either String FilterField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679219982"><span class="annot"><span class="annottext">FilterField -&gt; XML
+(FilterField -&gt; XML) -&gt; ToXML FilterField
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FilterField -&gt; XML
+$ctoXML :: FilterField -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.FilterField.html#FilterField_NAME"><span class="hs-identifier hs-type">FilterField_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.FilterField.html#FilterField"><span class="hs-identifier hs-type">FilterField</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFilterField_NAME"><span id="%24mFilterField_NAME"><span id="FilterField_NAME"><span class="annot"><span class="annottext">$bFilterField_NAME :: FilterField
+$mFilterField_NAME :: forall r. FilterField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Wisdom.Types.FilterField.html#%24bFilterField_NAME"><span class="hs-identifier hs-var hs-var hs-var">FilterField_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.FilterField.html#FilterField%27"><span class="hs-identifier hs-type">FilterField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NAME&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.Wisdom.Types.FilterField.html#FilterField_NAME"><span class="hs-pragma hs-type">FilterField_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.Wisdom.Types.FilterField.html#FilterField%27"><span class="hs-pragma hs-type">FilterField'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

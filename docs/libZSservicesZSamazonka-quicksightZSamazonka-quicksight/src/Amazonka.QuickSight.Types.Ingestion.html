@@ -1,0 +1,681 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.Types.Ingestion</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.Types.Ingestion</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ErrorInfo.html"><span class="hs-identifier">Amazonka.QuickSight.Types.ErrorInfo</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IngestionRequestSource.html"><span class="hs-identifier">Amazonka.QuickSight.Types.IngestionRequestSource</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IngestionRequestType.html"><span class="hs-identifier">Amazonka.QuickSight.Types.IngestionRequestType</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IngestionStatus.html"><span class="hs-identifier">Amazonka.QuickSight.Types.IngestionStatus</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.QueueInfo.html"><span class="hs-identifier">Amazonka.QuickSight.Types.QueueInfo</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowInfo.html"><span class="hs-identifier">Amazonka.QuickSight.Types.RowInfo</span></a></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Information about the SPICE ingestion for a dataset.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newIngestion' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679563740"><span id="local-6989586621679563741"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ingestion"><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-var">Ingestion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ingestion%27"><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-var">Ingestion'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Event source for this ingestion.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ArequestSource%3AIngestion%27"><span class="annot"><span class="annottext">Ingestion -&gt; Maybe IngestionRequestSource
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3ArequestSource%3AIngestion%27"><span class="hs-identifier hs-var hs-var">requestSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IngestionRequestSource.html#IngestionRequestSource"><span class="hs-identifier hs-type">IngestionRequestSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AqueueInfo%3AIngestion%27"><span class="annot"><span class="annottext">Ingestion -&gt; Maybe QueueInfo
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AqueueInfo%3AIngestion%27"><span class="hs-identifier hs-var hs-var">queueInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.QueueInfo.html#QueueInfo"><span class="hs-identifier hs-type">QueueInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The time that this ingestion took, measured in seconds.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AingestionTimeInSeconds%3AIngestion%27"><span class="annot"><span class="annottext">Ingestion -&gt; Maybe Integer
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AingestionTimeInSeconds%3AIngestion%27"><span class="hs-identifier hs-var hs-var">ingestionTimeInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Type of this ingestion.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3ArequestType%3AIngestion%27"><span class="annot"><span class="annottext">Ingestion -&gt; Maybe IngestionRequestType
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3ArequestType%3AIngestion%27"><span class="hs-identifier hs-var hs-var">requestType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IngestionRequestType.html#IngestionRequestType"><span class="hs-identifier hs-type">IngestionRequestType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The size of the data ingested, in bytes.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AingestionSizeInBytes%3AIngestion%27"><span class="annot"><span class="annottext">Ingestion -&gt; Maybe Integer
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AingestionSizeInBytes%3AIngestion%27"><span class="hs-identifier hs-var hs-var">ingestionSizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3ArowInfo%3AIngestion%27"><span class="annot"><span class="annottext">Ingestion -&gt; Maybe RowInfo
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3ArowInfo%3AIngestion%27"><span class="hs-identifier hs-var hs-var">rowInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowInfo.html#RowInfo"><span class="hs-identifier hs-type">RowInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Ingestion ID.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AingestionId%3AIngestion%27"><span class="annot"><span class="annottext">Ingestion -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AingestionId%3AIngestion%27"><span class="hs-identifier hs-var hs-var">ingestionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Error information for this ingestion.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AerrorInfo%3AIngestion%27"><span class="annot"><span class="annottext">Ingestion -&gt; Maybe ErrorInfo
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AerrorInfo%3AIngestion%27"><span class="hs-identifier hs-var hs-var">errorInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aarn%3AIngestion%27"><span class="annot"><span class="annottext">Ingestion -&gt; Text
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3Aarn%3AIngestion%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Ingestion status.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AingestionStatus%3AIngestion%27"><span class="annot"><span class="annottext">Ingestion -&gt; IngestionStatus
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AingestionStatus%3AIngestion%27"><span class="hs-identifier hs-var hs-var">ingestionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IngestionStatus.html#IngestionStatus"><span class="hs-identifier hs-type">IngestionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The time that this ingestion started.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcreatedTime%3AIngestion%27"><span class="annot"><span class="annottext">Ingestion -&gt; POSIX
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AcreatedTime%3AIngestion%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679563724"><span id="local-6989586621679563726"><span class="annot"><span class="annottext">Ingestion -&gt; Ingestion -&gt; Bool
+(Ingestion -&gt; Ingestion -&gt; Bool)
+-&gt; (Ingestion -&gt; Ingestion -&gt; Bool) -&gt; Eq Ingestion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Ingestion -&gt; Ingestion -&gt; Bool
+$c/= :: Ingestion -&gt; Ingestion -&gt; Bool
+== :: Ingestion -&gt; Ingestion -&gt; Bool
+$c== :: Ingestion -&gt; Ingestion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679563715"><span id="local-6989586621679563717"><span id="local-6989586621679563719"><span id="local-6989586621679563721"><span class="annot"><span class="annottext">ReadPrec [Ingestion]
+ReadPrec Ingestion
+Int -&gt; ReadS Ingestion
+ReadS [Ingestion]
+(Int -&gt; ReadS Ingestion)
+-&gt; ReadS [Ingestion]
+-&gt; ReadPrec Ingestion
+-&gt; ReadPrec [Ingestion]
+-&gt; Read Ingestion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Ingestion]
+$creadListPrec :: ReadPrec [Ingestion]
+readPrec :: ReadPrec Ingestion
+$creadPrec :: ReadPrec Ingestion
+readList :: ReadS [Ingestion]
+$creadList :: ReadS [Ingestion]
+readsPrec :: Int -&gt; ReadS Ingestion
+$creadsPrec :: Int -&gt; ReadS Ingestion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679563708"><span id="local-6989586621679563710"><span id="local-6989586621679563712"><span class="annot"><span class="annottext">Int -&gt; Ingestion -&gt; ShowS
+[Ingestion] -&gt; ShowS
+Ingestion -&gt; String
+(Int -&gt; Ingestion -&gt; ShowS)
+-&gt; (Ingestion -&gt; String)
+-&gt; ([Ingestion] -&gt; ShowS)
+-&gt; Show Ingestion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Ingestion] -&gt; ShowS
+$cshowList :: [Ingestion] -&gt; ShowS
+show :: Ingestion -&gt; String
+$cshow :: Ingestion -&gt; String
+showsPrec :: Int -&gt; Ingestion -&gt; ShowS
+$cshowsPrec :: Int -&gt; Ingestion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Ingestion -&gt; Rep Ingestion x)
+-&gt; (forall x. Rep Ingestion x -&gt; Ingestion) -&gt; Generic Ingestion
+forall x. Rep Ingestion x -&gt; Ingestion
+forall x. Ingestion -&gt; Rep Ingestion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Ingestion x -&gt; Ingestion
+$cfrom :: forall x. Ingestion -&gt; Rep Ingestion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'Ingestion' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'requestSource', 'ingestion_requestSource' - Event source for this ingestion.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'queueInfo', 'ingestion_queueInfo' - Undocumented member.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'ingestionTimeInSeconds', 'ingestion_ingestionTimeInSeconds' - The time that this ingestion took, measured in seconds.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'requestType', 'ingestion_requestType' - Type of this ingestion.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'ingestionSizeInBytes', 'ingestion_ingestionSizeInBytes' - The size of the data ingested, in bytes.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'rowInfo', 'ingestion_rowInfo' - Undocumented member.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'ingestionId', 'ingestion_ingestionId' - Ingestion ID.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'errorInfo', 'ingestion_errorInfo' - Error information for this ingestion.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'arn', 'ingestion_arn' - The Amazon Resource Name (ARN) of the resource.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'ingestionStatus', 'ingestion_ingestionStatus' - Ingestion status.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'createdTime', 'ingestion_createdTime' - The time that this ingestion started.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#newIngestion"><span class="hs-identifier hs-type">newIngestion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'ingestionStatus'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.IngestionStatus.html#IngestionStatus"><span class="hs-identifier hs-type">IngestionStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'createdTime'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span>
+</span><span id="line-96"></span><span id="newIngestion"><span class="annot"><span class="annottext">newIngestion :: Text -&gt; IngestionStatus -&gt; UTCTime -&gt; Ingestion
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#newIngestion"><span class="hs-identifier hs-var hs-var">newIngestion</span></a></span></span><span> </span><span id="local-6989586621679563702"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563702"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span id="local-6989586621679563701"><span class="annot"><span class="annottext">IngestionStatus
+</span><a href="#local-6989586621679563701"><span class="hs-identifier hs-var">pIngestionStatus_</span></a></span></span><span> </span><span id="local-6989586621679563700"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679563700"><span class="hs-identifier hs-var">pCreatedTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">Ingestion' :: Maybe IngestionRequestSource
+-&gt; Maybe QueueInfo
+-&gt; Maybe Integer
+-&gt; Maybe IngestionRequestType
+-&gt; Maybe Integer
+-&gt; Maybe RowInfo
+-&gt; Maybe Text
+-&gt; Maybe ErrorInfo
+-&gt; Text
+-&gt; IngestionStatus
+-&gt; POSIX
+-&gt; Ingestion
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestSource:Ingestion' :: Maybe IngestionRequestSource
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3ArequestSource%3AIngestion%27"><span class="hs-identifier hs-var">requestSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionRequestSource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:queueInfo:Ingestion' :: Maybe QueueInfo
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AqueueInfo%3AIngestion%27"><span class="hs-identifier hs-var">queueInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueueInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:ingestionTimeInSeconds:Ingestion' :: Maybe Integer
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AingestionTimeInSeconds%3AIngestion%27"><span class="hs-identifier hs-var">ingestionTimeInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestType:Ingestion' :: Maybe IngestionRequestType
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3ArequestType%3AIngestion%27"><span class="hs-identifier hs-var">requestType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionRequestType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:ingestionSizeInBytes:Ingestion' :: Maybe Integer
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AingestionSizeInBytes%3AIngestion%27"><span class="hs-identifier hs-var">ingestionSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:rowInfo:Ingestion' :: Maybe RowInfo
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3ArowInfo%3AIngestion%27"><span class="hs-identifier hs-var">rowInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RowInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:ingestionId:Ingestion' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AingestionId%3AIngestion%27"><span class="hs-identifier hs-var">ingestionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorInfo:Ingestion' :: Maybe ErrorInfo
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AerrorInfo%3AIngestion%27"><span class="hs-identifier hs-var">errorInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Ingestion' :: Text
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3Aarn%3AIngestion%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563702"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:ingestionStatus:Ingestion' :: IngestionStatus
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AingestionStatus%3AIngestion%27"><span class="hs-identifier hs-var">ingestionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IngestionStatus
+</span><a href="#local-6989586621679563701"><span class="hs-identifier hs-var">pIngestionStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:Ingestion' :: POSIX
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AcreatedTime%3AIngestion%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679563700"><span class="hs-identifier hs-var">pCreatedTime_</span></a></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Event source for this ingestion.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_requestSource"><span class="hs-identifier hs-type">ingestion_requestSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IngestionRequestSource.html#IngestionRequestSource"><span class="hs-identifier hs-type">IngestionRequestSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="ingestion_requestSource"><span class="annot"><span class="annottext">ingestion_requestSource :: (Maybe IngestionRequestSource -&gt; f (Maybe IngestionRequestSource))
+-&gt; Ingestion -&gt; f Ingestion
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_requestSource"><span class="hs-identifier hs-var hs-var">ingestion_requestSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ingestion -&gt; Maybe IngestionRequestSource)
+-&gt; (Ingestion -&gt; Maybe IngestionRequestSource -&gt; Ingestion)
+-&gt; Lens
+     Ingestion
+     Ingestion
+     (Maybe IngestionRequestSource)
+     (Maybe IngestionRequestSource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563694"><span class="annot"><span class="annottext">Maybe IngestionRequestSource
+requestSource :: Maybe IngestionRequestSource
+$sel:requestSource:Ingestion' :: Ingestion -&gt; Maybe IngestionRequestSource
+</span><a href="#local-6989586621679563694"><span class="hs-identifier hs-var hs-var">requestSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionRequestSource
+</span><a href="#local-6989586621679563694"><span class="hs-identifier hs-var">requestSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563693"><span class="annot"><span class="annottext">s :: Ingestion
+</span><a href="#local-6989586621679563693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563692"><span class="annot"><span class="annottext">Maybe IngestionRequestSource
+</span><a href="#local-6989586621679563692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ingestion
+</span><a href="#local-6989586621679563693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestSource:Ingestion' :: Maybe IngestionRequestSource
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3ArequestSource%3AIngestion%27"><span class="hs-identifier hs-var">requestSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionRequestSource
+</span><a href="#local-6989586621679563692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_queueInfo"><span class="hs-identifier hs-type">ingestion_queueInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.QueueInfo.html#QueueInfo"><span class="hs-identifier hs-type">QueueInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="ingestion_queueInfo"><span class="annot"><span class="annottext">ingestion_queueInfo :: (Maybe QueueInfo -&gt; f (Maybe QueueInfo))
+-&gt; Ingestion -&gt; f Ingestion
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_queueInfo"><span class="hs-identifier hs-var hs-var">ingestion_queueInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ingestion -&gt; Maybe QueueInfo)
+-&gt; (Ingestion -&gt; Maybe QueueInfo -&gt; Ingestion)
+-&gt; Lens Ingestion Ingestion (Maybe QueueInfo) (Maybe QueueInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563690"><span class="annot"><span class="annottext">Maybe QueueInfo
+queueInfo :: Maybe QueueInfo
+$sel:queueInfo:Ingestion' :: Ingestion -&gt; Maybe QueueInfo
+</span><a href="#local-6989586621679563690"><span class="hs-identifier hs-var hs-var">queueInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueueInfo
+</span><a href="#local-6989586621679563690"><span class="hs-identifier hs-var">queueInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563689"><span class="annot"><span class="annottext">s :: Ingestion
+</span><a href="#local-6989586621679563689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563688"><span class="annot"><span class="annottext">Maybe QueueInfo
+</span><a href="#local-6989586621679563688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ingestion
+</span><a href="#local-6989586621679563689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueInfo:Ingestion' :: Maybe QueueInfo
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AqueueInfo%3AIngestion%27"><span class="hs-identifier hs-var">queueInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueueInfo
+</span><a href="#local-6989586621679563688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The time that this ingestion took, measured in seconds.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_ingestionTimeInSeconds"><span class="hs-identifier hs-type">ingestion_ingestionTimeInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="ingestion_ingestionTimeInSeconds"><span class="annot"><span class="annottext">ingestion_ingestionTimeInSeconds :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Ingestion -&gt; f Ingestion
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_ingestionTimeInSeconds"><span class="hs-identifier hs-var hs-var">ingestion_ingestionTimeInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ingestion -&gt; Maybe Integer)
+-&gt; (Ingestion -&gt; Maybe Integer -&gt; Ingestion)
+-&gt; Lens Ingestion Ingestion (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563686"><span class="annot"><span class="annottext">Maybe Integer
+ingestionTimeInSeconds :: Maybe Integer
+$sel:ingestionTimeInSeconds:Ingestion' :: Ingestion -&gt; Maybe Integer
+</span><a href="#local-6989586621679563686"><span class="hs-identifier hs-var hs-var">ingestionTimeInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679563686"><span class="hs-identifier hs-var">ingestionTimeInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563685"><span class="annot"><span class="annottext">s :: Ingestion
+</span><a href="#local-6989586621679563685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563684"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679563684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ingestion
+</span><a href="#local-6989586621679563685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestionTimeInSeconds:Ingestion' :: Maybe Integer
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AingestionTimeInSeconds%3AIngestion%27"><span class="hs-identifier hs-var">ingestionTimeInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679563684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Type of this ingestion.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_requestType"><span class="hs-identifier hs-type">ingestion_requestType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IngestionRequestType.html#IngestionRequestType"><span class="hs-identifier hs-type">IngestionRequestType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="ingestion_requestType"><span class="annot"><span class="annottext">ingestion_requestType :: (Maybe IngestionRequestType -&gt; f (Maybe IngestionRequestType))
+-&gt; Ingestion -&gt; f Ingestion
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_requestType"><span class="hs-identifier hs-var hs-var">ingestion_requestType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ingestion -&gt; Maybe IngestionRequestType)
+-&gt; (Ingestion -&gt; Maybe IngestionRequestType -&gt; Ingestion)
+-&gt; Lens
+     Ingestion
+     Ingestion
+     (Maybe IngestionRequestType)
+     (Maybe IngestionRequestType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563682"><span class="annot"><span class="annottext">Maybe IngestionRequestType
+requestType :: Maybe IngestionRequestType
+$sel:requestType:Ingestion' :: Ingestion -&gt; Maybe IngestionRequestType
+</span><a href="#local-6989586621679563682"><span class="hs-identifier hs-var hs-var">requestType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionRequestType
+</span><a href="#local-6989586621679563682"><span class="hs-identifier hs-var">requestType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563681"><span class="annot"><span class="annottext">s :: Ingestion
+</span><a href="#local-6989586621679563681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563680"><span class="annot"><span class="annottext">Maybe IngestionRequestType
+</span><a href="#local-6989586621679563680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ingestion
+</span><a href="#local-6989586621679563681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestType:Ingestion' :: Maybe IngestionRequestType
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3ArequestType%3AIngestion%27"><span class="hs-identifier hs-var">requestType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionRequestType
+</span><a href="#local-6989586621679563680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The size of the data ingested, in bytes.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_ingestionSizeInBytes"><span class="hs-identifier hs-type">ingestion_ingestionSizeInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="ingestion_ingestionSizeInBytes"><span class="annot"><span class="annottext">ingestion_ingestionSizeInBytes :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Ingestion -&gt; f Ingestion
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_ingestionSizeInBytes"><span class="hs-identifier hs-var hs-var">ingestion_ingestionSizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ingestion -&gt; Maybe Integer)
+-&gt; (Ingestion -&gt; Maybe Integer -&gt; Ingestion)
+-&gt; Lens Ingestion Ingestion (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563678"><span class="annot"><span class="annottext">Maybe Integer
+ingestionSizeInBytes :: Maybe Integer
+$sel:ingestionSizeInBytes:Ingestion' :: Ingestion -&gt; Maybe Integer
+</span><a href="#local-6989586621679563678"><span class="hs-identifier hs-var hs-var">ingestionSizeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679563678"><span class="hs-identifier hs-var">ingestionSizeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563677"><span class="annot"><span class="annottext">s :: Ingestion
+</span><a href="#local-6989586621679563677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563676"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679563676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ingestion
+</span><a href="#local-6989586621679563677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestionSizeInBytes:Ingestion' :: Maybe Integer
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AingestionSizeInBytes%3AIngestion%27"><span class="hs-identifier hs-var">ingestionSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679563676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_rowInfo"><span class="hs-identifier hs-type">ingestion_rowInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RowInfo.html#RowInfo"><span class="hs-identifier hs-type">RowInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="ingestion_rowInfo"><span class="annot"><span class="annottext">ingestion_rowInfo :: (Maybe RowInfo -&gt; f (Maybe RowInfo)) -&gt; Ingestion -&gt; f Ingestion
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_rowInfo"><span class="hs-identifier hs-var hs-var">ingestion_rowInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ingestion -&gt; Maybe RowInfo)
+-&gt; (Ingestion -&gt; Maybe RowInfo -&gt; Ingestion)
+-&gt; Lens Ingestion Ingestion (Maybe RowInfo) (Maybe RowInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563674"><span class="annot"><span class="annottext">Maybe RowInfo
+rowInfo :: Maybe RowInfo
+$sel:rowInfo:Ingestion' :: Ingestion -&gt; Maybe RowInfo
+</span><a href="#local-6989586621679563674"><span class="hs-identifier hs-var hs-var">rowInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RowInfo
+</span><a href="#local-6989586621679563674"><span class="hs-identifier hs-var">rowInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563673"><span class="annot"><span class="annottext">s :: Ingestion
+</span><a href="#local-6989586621679563673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563672"><span class="annot"><span class="annottext">Maybe RowInfo
+</span><a href="#local-6989586621679563672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ingestion
+</span><a href="#local-6989586621679563673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rowInfo:Ingestion' :: Maybe RowInfo
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3ArowInfo%3AIngestion%27"><span class="hs-identifier hs-var">rowInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RowInfo
+</span><a href="#local-6989586621679563672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | Ingestion ID.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_ingestionId"><span class="hs-identifier hs-type">ingestion_ingestionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="ingestion_ingestionId"><span class="annot"><span class="annottext">ingestion_ingestionId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Ingestion -&gt; f Ingestion
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_ingestionId"><span class="hs-identifier hs-var hs-var">ingestion_ingestionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ingestion -&gt; Maybe Text)
+-&gt; (Ingestion -&gt; Maybe Text -&gt; Ingestion)
+-&gt; Lens Ingestion Ingestion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563670"><span class="annot"><span class="annottext">Maybe Text
+ingestionId :: Maybe Text
+$sel:ingestionId:Ingestion' :: Ingestion -&gt; Maybe Text
+</span><a href="#local-6989586621679563670"><span class="hs-identifier hs-var hs-var">ingestionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679563670"><span class="hs-identifier hs-var">ingestionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563669"><span class="annot"><span class="annottext">s :: Ingestion
+</span><a href="#local-6989586621679563669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563668"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679563668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ingestion
+</span><a href="#local-6989586621679563669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestionId:Ingestion' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AingestionId%3AIngestion%27"><span class="hs-identifier hs-var">ingestionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679563668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | Error information for this ingestion.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_errorInfo"><span class="hs-identifier hs-type">ingestion_errorInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="ingestion_errorInfo"><span class="annot"><span class="annottext">ingestion_errorInfo :: (Maybe ErrorInfo -&gt; f (Maybe ErrorInfo))
+-&gt; Ingestion -&gt; f Ingestion
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_errorInfo"><span class="hs-identifier hs-var hs-var">ingestion_errorInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ingestion -&gt; Maybe ErrorInfo)
+-&gt; (Ingestion -&gt; Maybe ErrorInfo -&gt; Ingestion)
+-&gt; Lens Ingestion Ingestion (Maybe ErrorInfo) (Maybe ErrorInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563666"><span class="annot"><span class="annottext">Maybe ErrorInfo
+errorInfo :: Maybe ErrorInfo
+$sel:errorInfo:Ingestion' :: Ingestion -&gt; Maybe ErrorInfo
+</span><a href="#local-6989586621679563666"><span class="hs-identifier hs-var hs-var">errorInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorInfo
+</span><a href="#local-6989586621679563666"><span class="hs-identifier hs-var">errorInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563665"><span class="annot"><span class="annottext">s :: Ingestion
+</span><a href="#local-6989586621679563665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563664"><span class="annot"><span class="annottext">Maybe ErrorInfo
+</span><a href="#local-6989586621679563664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ingestion
+</span><a href="#local-6989586621679563665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorInfo:Ingestion' :: Maybe ErrorInfo
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AerrorInfo%3AIngestion%27"><span class="hs-identifier hs-var">errorInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorInfo
+</span><a href="#local-6989586621679563664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_arn"><span class="hs-identifier hs-type">ingestion_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-145"></span><span id="ingestion_arn"><span class="annot"><span class="annottext">ingestion_arn :: (Text -&gt; f Text) -&gt; Ingestion -&gt; f Ingestion
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_arn"><span class="hs-identifier hs-var hs-var">ingestion_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ingestion -&gt; Text)
+-&gt; (Ingestion -&gt; Text -&gt; Ingestion)
+-&gt; Lens Ingestion Ingestion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563662"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:Ingestion' :: Ingestion -&gt; Text
+</span><a href="#local-6989586621679563662"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563662"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563661"><span class="annot"><span class="annottext">s :: Ingestion
+</span><a href="#local-6989586621679563661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563660"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ingestion
+</span><a href="#local-6989586621679563661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Ingestion' :: Text
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3Aarn%3AIngestion%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | Ingestion status.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_ingestionStatus"><span class="hs-identifier hs-type">ingestion_ingestionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IngestionStatus.html#IngestionStatus"><span class="hs-identifier hs-type">IngestionStatus</span></a></span><span>
+</span><span id="line-149"></span><span id="ingestion_ingestionStatus"><span class="annot"><span class="annottext">ingestion_ingestionStatus :: (IngestionStatus -&gt; f IngestionStatus) -&gt; Ingestion -&gt; f Ingestion
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_ingestionStatus"><span class="hs-identifier hs-var hs-var">ingestion_ingestionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ingestion -&gt; IngestionStatus)
+-&gt; (Ingestion -&gt; IngestionStatus -&gt; Ingestion)
+-&gt; Lens Ingestion Ingestion IngestionStatus IngestionStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563658"><span class="annot"><span class="annottext">IngestionStatus
+ingestionStatus :: IngestionStatus
+$sel:ingestionStatus:Ingestion' :: Ingestion -&gt; IngestionStatus
+</span><a href="#local-6989586621679563658"><span class="hs-identifier hs-var hs-var">ingestionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IngestionStatus
+</span><a href="#local-6989586621679563658"><span class="hs-identifier hs-var">ingestionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563657"><span class="annot"><span class="annottext">s :: Ingestion
+</span><a href="#local-6989586621679563657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563656"><span class="annot"><span class="annottext">IngestionStatus
+</span><a href="#local-6989586621679563656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ingestion
+</span><a href="#local-6989586621679563657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestionStatus:Ingestion' :: IngestionStatus
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AingestionStatus%3AIngestion%27"><span class="hs-identifier hs-var">ingestionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IngestionStatus
+</span><a href="#local-6989586621679563656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The time that this ingestion started.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_createdTime"><span class="hs-identifier hs-type">ingestion_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-153"></span><span id="ingestion_createdTime"><span class="annot"><span class="annottext">ingestion_createdTime :: (UTCTime -&gt; f UTCTime) -&gt; Ingestion -&gt; f Ingestion
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#ingestion_createdTime"><span class="hs-identifier hs-var hs-var">ingestion_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ingestion -&gt; POSIX)
+-&gt; (Ingestion -&gt; POSIX -&gt; Ingestion)
+-&gt; Lens Ingestion Ingestion POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563654"><span class="annot"><span class="annottext">POSIX
+createdTime :: POSIX
+$sel:createdTime:Ingestion' :: Ingestion -&gt; POSIX
+</span><a href="#local-6989586621679563654"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679563654"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563653"><span class="annot"><span class="annottext">s :: Ingestion
+</span><a href="#local-6989586621679563653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-type">Ingestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563652"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679563652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ingestion
+</span><a href="#local-6989586621679563653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:Ingestion' :: POSIX
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#%24sel%3AcreatedTime%3AIngestion%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679563652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; Ingestion -&gt; f Ingestion)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; Ingestion
+-&gt; f Ingestion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679563648"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679563646"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Ingestion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Ingestion) -&gt; Value -&gt; Parser Ingestion
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Ingestion&quot;</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679563643"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679563643"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe IngestionRequestSource
+-&gt; Maybe QueueInfo
+-&gt; Maybe Integer
+-&gt; Maybe IngestionRequestType
+-&gt; Maybe Integer
+-&gt; Maybe RowInfo
+-&gt; Maybe Text
+-&gt; Maybe ErrorInfo
+-&gt; Text
+-&gt; IngestionStatus
+-&gt; POSIX
+-&gt; Ingestion
+</span><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion%27"><span class="hs-identifier hs-var">Ingestion'</span></a></span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">(Maybe IngestionRequestSource
+ -&gt; Maybe QueueInfo
+ -&gt; Maybe Integer
+ -&gt; Maybe IngestionRequestType
+ -&gt; Maybe Integer
+ -&gt; Maybe RowInfo
+ -&gt; Maybe Text
+ -&gt; Maybe ErrorInfo
+ -&gt; Text
+ -&gt; IngestionStatus
+ -&gt; POSIX
+ -&gt; Ingestion)
+-&gt; Parser (Maybe IngestionRequestSource)
+-&gt; Parser
+     (Maybe QueueInfo
+      -&gt; Maybe Integer
+      -&gt; Maybe IngestionRequestType
+      -&gt; Maybe Integer
+      -&gt; Maybe RowInfo
+      -&gt; Maybe Text
+      -&gt; Maybe ErrorInfo
+      -&gt; Text
+      -&gt; IngestionStatus
+      -&gt; POSIX
+      -&gt; Ingestion)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679563643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IngestionRequestSource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe QueueInfo
+   -&gt; Maybe Integer
+   -&gt; Maybe IngestionRequestType
+   -&gt; Maybe Integer
+   -&gt; Maybe RowInfo
+   -&gt; Maybe Text
+   -&gt; Maybe ErrorInfo
+   -&gt; Text
+   -&gt; IngestionStatus
+   -&gt; POSIX
+   -&gt; Ingestion)
+-&gt; Parser (Maybe QueueInfo)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe IngestionRequestType
+      -&gt; Maybe Integer
+      -&gt; Maybe RowInfo
+      -&gt; Maybe Text
+      -&gt; Maybe ErrorInfo
+      -&gt; Text
+      -&gt; IngestionStatus
+      -&gt; POSIX
+      -&gt; Ingestion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679563643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe QueueInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QueueInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe IngestionRequestType
+   -&gt; Maybe Integer
+   -&gt; Maybe RowInfo
+   -&gt; Maybe Text
+   -&gt; Maybe ErrorInfo
+   -&gt; Text
+   -&gt; IngestionStatus
+   -&gt; POSIX
+   -&gt; Ingestion)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe IngestionRequestType
+      -&gt; Maybe Integer
+      -&gt; Maybe RowInfo
+      -&gt; Maybe Text
+      -&gt; Maybe ErrorInfo
+      -&gt; Text
+      -&gt; IngestionStatus
+      -&gt; POSIX
+      -&gt; Ingestion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679563643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IngestionTimeInSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe IngestionRequestType
+   -&gt; Maybe Integer
+   -&gt; Maybe RowInfo
+   -&gt; Maybe Text
+   -&gt; Maybe ErrorInfo
+   -&gt; Text
+   -&gt; IngestionStatus
+   -&gt; POSIX
+   -&gt; Ingestion)
+-&gt; Parser (Maybe IngestionRequestType)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe RowInfo
+      -&gt; Maybe Text
+      -&gt; Maybe ErrorInfo
+      -&gt; Text
+      -&gt; IngestionStatus
+      -&gt; POSIX
+      -&gt; Ingestion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679563643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IngestionRequestType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe RowInfo
+   -&gt; Maybe Text
+   -&gt; Maybe ErrorInfo
+   -&gt; Text
+   -&gt; IngestionStatus
+   -&gt; POSIX
+   -&gt; Ingestion)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe RowInfo
+      -&gt; Maybe Text
+      -&gt; Maybe ErrorInfo
+      -&gt; Text
+      -&gt; IngestionStatus
+      -&gt; POSIX
+      -&gt; Ingestion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679563643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IngestionSizeInBytes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RowInfo
+   -&gt; Maybe Text
+   -&gt; Maybe ErrorInfo
+   -&gt; Text
+   -&gt; IngestionStatus
+   -&gt; POSIX
+   -&gt; Ingestion)
+-&gt; Parser (Maybe RowInfo)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ErrorInfo
+      -&gt; Text
+      -&gt; IngestionStatus
+      -&gt; POSIX
+      -&gt; Ingestion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679563643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RowInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RowInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ErrorInfo
+   -&gt; Text
+   -&gt; IngestionStatus
+   -&gt; POSIX
+   -&gt; Ingestion)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ErrorInfo -&gt; Text -&gt; IngestionStatus -&gt; POSIX -&gt; Ingestion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679563643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IngestionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ErrorInfo -&gt; Text -&gt; IngestionStatus -&gt; POSIX -&gt; Ingestion)
+-&gt; Parser (Maybe ErrorInfo)
+-&gt; Parser (Text -&gt; IngestionStatus -&gt; POSIX -&gt; Ingestion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679563643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ErrorInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; IngestionStatus -&gt; POSIX -&gt; Ingestion)
+-&gt; Parser Text -&gt; Parser (IngestionStatus -&gt; POSIX -&gt; Ingestion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679563643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser (IngestionStatus -&gt; POSIX -&gt; Ingestion)
+-&gt; Parser IngestionStatus -&gt; Parser (POSIX -&gt; Ingestion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679563643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser IngestionStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IngestionStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; Ingestion) -&gt; Parser POSIX -&gt; Parser Ingestion
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679563643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679563636"><span id="local-6989586621679563638"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679563633"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Ingestion.html#Ingestion"><span class="hs-identifier hs-type">Ingestion</span></a></span></span><span>
+</span><span id="line-177"></span></pre></body></html>

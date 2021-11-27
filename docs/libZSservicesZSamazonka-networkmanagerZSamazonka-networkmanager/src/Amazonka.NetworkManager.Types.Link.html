@@ -1,0 +1,667 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.NetworkManager.Types.Link</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.NetworkManager.Types.Link</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Bandwidth.html"><span class="hs-identifier">Amazonka.NetworkManager.Types.Bandwidth</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.LinkState.html"><span class="hs-identifier">Amazonka.NetworkManager.Types.LinkState</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Tag.html"><span class="hs-identifier">Amazonka.NetworkManager.Types.Tag</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes a link.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLink' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679221850"><span id="local-6989586621679221851"></span></span><span class="hs-keyword">data</span><span> </span><span id="Link"><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-var">Link</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Link%27"><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-var">Link'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the link.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astate%3ALink%27"><span class="annot"><span class="annottext">Link -&gt; Maybe LinkState
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Astate%3ALink%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.LinkState.html#LinkState"><span class="hs-identifier hs-type">LinkState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the link.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlinkArn%3ALink%27"><span class="annot"><span class="annottext">Link -&gt; Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3AlinkArn%3ALink%27"><span class="hs-identifier hs-var hs-var">linkArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The date and time that the link was created.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcreatedAt%3ALink%27"><span class="annot"><span class="annottext">Link -&gt; Maybe POSIX
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3AcreatedAt%3ALink%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the global network.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AglobalNetworkId%3ALink%27"><span class="annot"><span class="annottext">Link -&gt; Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3AglobalNetworkId%3ALink%27"><span class="hs-identifier hs-var hs-var">globalNetworkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The bandwidth for the link.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Abandwidth%3ALink%27"><span class="annot"><span class="annottext">Link -&gt; Maybe Bandwidth
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Abandwidth%3ALink%27"><span class="hs-identifier hs-var hs-var">bandwidth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Bandwidth.html#Bandwidth"><span class="hs-identifier hs-type">Bandwidth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID of the link.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AlinkId%3ALink%27"><span class="annot"><span class="annottext">Link -&gt; Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3AlinkId%3ALink%27"><span class="hs-identifier hs-var hs-var">linkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The type of the link.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Atype%27%3ALink%27"><span class="annot"><span class="annottext">Link -&gt; Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Atype%27%3ALink%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The ID of the site.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AsiteId%3ALink%27"><span class="annot"><span class="annottext">Link -&gt; Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3AsiteId%3ALink%27"><span class="hs-identifier hs-var hs-var">siteId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The description of the link.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Adescription%3ALink%27"><span class="annot"><span class="annottext">Link -&gt; Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Adescription%3ALink%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The provider of the link.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aprovider%3ALink%27"><span class="annot"><span class="annottext">Link -&gt; Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Aprovider%3ALink%27"><span class="hs-identifier hs-var hs-var">provider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The tags for the link.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Atags%3ALink%27"><span class="annot"><span class="annottext">Link -&gt; Maybe [Tag]
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Atags%3ALink%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221834"><span id="local-6989586621679221836"><span class="annot"><span class="annottext">Link -&gt; Link -&gt; Bool
+(Link -&gt; Link -&gt; Bool) -&gt; (Link -&gt; Link -&gt; Bool) -&gt; Eq Link
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Link -&gt; Link -&gt; Bool
+$c/= :: Link -&gt; Link -&gt; Bool
+== :: Link -&gt; Link -&gt; Bool
+$c== :: Link -&gt; Link -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221825"><span id="local-6989586621679221827"><span id="local-6989586621679221829"><span id="local-6989586621679221831"><span class="annot"><span class="annottext">ReadPrec [Link]
+ReadPrec Link
+Int -&gt; ReadS Link
+ReadS [Link]
+(Int -&gt; ReadS Link)
+-&gt; ReadS [Link] -&gt; ReadPrec Link -&gt; ReadPrec [Link] -&gt; Read Link
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Link]
+$creadListPrec :: ReadPrec [Link]
+readPrec :: ReadPrec Link
+$creadPrec :: ReadPrec Link
+readList :: ReadS [Link]
+$creadList :: ReadS [Link]
+readsPrec :: Int -&gt; ReadS Link
+$creadsPrec :: Int -&gt; ReadS Link
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221818"><span id="local-6989586621679221820"><span id="local-6989586621679221822"><span class="annot"><span class="annottext">Int -&gt; Link -&gt; ShowS
+[Link] -&gt; ShowS
+Link -&gt; String
+(Int -&gt; Link -&gt; ShowS)
+-&gt; (Link -&gt; String) -&gt; ([Link] -&gt; ShowS) -&gt; Show Link
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Link] -&gt; ShowS
+$cshowList :: [Link] -&gt; ShowS
+show :: Link -&gt; String
+$cshow :: Link -&gt; String
+showsPrec :: Int -&gt; Link -&gt; ShowS
+$cshowsPrec :: Int -&gt; Link -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Link -&gt; Rep Link x)
+-&gt; (forall x. Rep Link x -&gt; Link) -&gt; Generic Link
+forall x. Rep Link x -&gt; Link
+forall x. Link -&gt; Rep Link x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Link x -&gt; Link
+$cfrom :: forall x. Link -&gt; Rep Link x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'Link' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'state', 'link_state' - The state of the link.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'linkArn', 'link_linkArn' - The Amazon Resource Name (ARN) of the link.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'createdAt', 'link_createdAt' - The date and time that the link was created.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'globalNetworkId', 'link_globalNetworkId' - The ID of the global network.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'bandwidth', 'link_bandwidth' - The bandwidth for the link.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'linkId', 'link_linkId' - The ID of the link.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'type'', 'link_type' - The type of the link.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'siteId', 'link_siteId' - The ID of the site.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'description', 'link_description' - The description of the link.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'provider', 'link_provider' - The provider of the link.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'tags', 'link_tags' - The tags for the link.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#newLink"><span class="hs-identifier hs-type">newLink</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span>
+</span><span id="line-89"></span><span id="newLink"><span class="annot"><span class="annottext">newLink :: Link
+</span><a href="Amazonka.NetworkManager.Types.Link.html#newLink"><span class="hs-identifier hs-var hs-var">newLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">Link' :: Maybe LinkState
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Bandwidth
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Link
+</span><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:Link' :: Maybe LinkState
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Astate%3ALink%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LinkState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:linkArn:Link' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3AlinkArn%3ALink%27"><span class="hs-identifier hs-var">linkArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:Link' :: Maybe POSIX
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3AcreatedAt%3ALink%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalNetworkId:Link' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3AglobalNetworkId%3ALink%27"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:bandwidth:Link' :: Maybe Bandwidth
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Abandwidth%3ALink%27"><span class="hs-identifier hs-var">bandwidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bandwidth
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:linkId:Link' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3AlinkId%3ALink%27"><span class="hs-identifier hs-var">linkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Link' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Atype%27%3ALink%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:siteId:Link' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3AsiteId%3ALink%27"><span class="hs-identifier hs-var">siteId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Link' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Adescription%3ALink%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:provider:Link' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Aprovider%3ALink%27"><span class="hs-identifier hs-var">provider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Link' :: Maybe [Tag]
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Atags%3ALink%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The state of the link.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#link_state"><span class="hs-identifier hs-type">link_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.LinkState.html#LinkState"><span class="hs-identifier hs-type">LinkState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="link_state"><span class="annot"><span class="annottext">link_state :: (Maybe LinkState -&gt; f (Maybe LinkState)) -&gt; Link -&gt; f Link
+</span><a href="Amazonka.NetworkManager.Types.Link.html#link_state"><span class="hs-identifier hs-var hs-var">link_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Link -&gt; Maybe LinkState)
+-&gt; (Link -&gt; Maybe LinkState -&gt; Link)
+-&gt; Lens Link Link (Maybe LinkState) (Maybe LinkState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221809"><span class="annot"><span class="annottext">Maybe LinkState
+state :: Maybe LinkState
+$sel:state:Link' :: Link -&gt; Maybe LinkState
+</span><a href="#local-6989586621679221809"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LinkState
+</span><a href="#local-6989586621679221809"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221808"><span class="annot"><span class="annottext">s :: Link
+</span><a href="#local-6989586621679221808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221807"><span class="annot"><span class="annottext">Maybe LinkState
+</span><a href="#local-6989586621679221807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Link
+</span><a href="#local-6989586621679221808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:Link' :: Maybe LinkState
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Astate%3ALink%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LinkState
+</span><a href="#local-6989586621679221807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the link.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#link_linkArn"><span class="hs-identifier hs-type">link_linkArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="link_linkArn"><span class="annot"><span class="annottext">link_linkArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Link -&gt; f Link
+</span><a href="Amazonka.NetworkManager.Types.Link.html#link_linkArn"><span class="hs-identifier hs-var hs-var">link_linkArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Link -&gt; Maybe Text)
+-&gt; (Link -&gt; Maybe Text -&gt; Link)
+-&gt; Lens Link Link (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221805"><span class="annot"><span class="annottext">Maybe Text
+linkArn :: Maybe Text
+$sel:linkArn:Link' :: Link -&gt; Maybe Text
+</span><a href="#local-6989586621679221805"><span class="hs-identifier hs-var hs-var">linkArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221805"><span class="hs-identifier hs-var">linkArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221804"><span class="annot"><span class="annottext">s :: Link
+</span><a href="#local-6989586621679221804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221803"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Link
+</span><a href="#local-6989586621679221804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkArn:Link' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3AlinkArn%3ALink%27"><span class="hs-identifier hs-var">linkArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The date and time that the link was created.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#link_createdAt"><span class="hs-identifier hs-type">link_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="link_createdAt"><span class="annot"><span class="annottext">link_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Link -&gt; f Link
+</span><a href="Amazonka.NetworkManager.Types.Link.html#link_createdAt"><span class="hs-identifier hs-var hs-var">link_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Link -&gt; Maybe POSIX)
+-&gt; (Link -&gt; Maybe POSIX -&gt; Link)
+-&gt; Lens Link Link (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221801"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:Link' :: Link -&gt; Maybe POSIX
+</span><a href="#local-6989586621679221801"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679221801"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221800"><span class="annot"><span class="annottext">s :: Link
+</span><a href="#local-6989586621679221800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221799"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679221799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Link
+</span><a href="#local-6989586621679221800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:Link' :: Maybe POSIX
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3AcreatedAt%3ALink%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679221799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Link -&gt; f Link)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Link
+-&gt; f Link
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The ID of the global network.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#link_globalNetworkId"><span class="hs-identifier hs-type">link_globalNetworkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="link_globalNetworkId"><span class="annot"><span class="annottext">link_globalNetworkId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Link -&gt; f Link
+</span><a href="Amazonka.NetworkManager.Types.Link.html#link_globalNetworkId"><span class="hs-identifier hs-var hs-var">link_globalNetworkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Link -&gt; Maybe Text)
+-&gt; (Link -&gt; Maybe Text -&gt; Link)
+-&gt; Lens Link Link (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221794"><span class="annot"><span class="annottext">Maybe Text
+globalNetworkId :: Maybe Text
+$sel:globalNetworkId:Link' :: Link -&gt; Maybe Text
+</span><a href="#local-6989586621679221794"><span class="hs-identifier hs-var hs-var">globalNetworkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221794"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221793"><span class="annot"><span class="annottext">s :: Link
+</span><a href="#local-6989586621679221793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221792"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Link
+</span><a href="#local-6989586621679221793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalNetworkId:Link' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3AglobalNetworkId%3ALink%27"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The bandwidth for the link.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#link_bandwidth"><span class="hs-identifier hs-type">link_bandwidth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Bandwidth.html#Bandwidth"><span class="hs-identifier hs-type">Bandwidth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="link_bandwidth"><span class="annot"><span class="annottext">link_bandwidth :: (Maybe Bandwidth -&gt; f (Maybe Bandwidth)) -&gt; Link -&gt; f Link
+</span><a href="Amazonka.NetworkManager.Types.Link.html#link_bandwidth"><span class="hs-identifier hs-var hs-var">link_bandwidth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Link -&gt; Maybe Bandwidth)
+-&gt; (Link -&gt; Maybe Bandwidth -&gt; Link)
+-&gt; Lens Link Link (Maybe Bandwidth) (Maybe Bandwidth)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221790"><span class="annot"><span class="annottext">Maybe Bandwidth
+bandwidth :: Maybe Bandwidth
+$sel:bandwidth:Link' :: Link -&gt; Maybe Bandwidth
+</span><a href="#local-6989586621679221790"><span class="hs-identifier hs-var hs-var">bandwidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bandwidth
+</span><a href="#local-6989586621679221790"><span class="hs-identifier hs-var">bandwidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221789"><span class="annot"><span class="annottext">s :: Link
+</span><a href="#local-6989586621679221789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221788"><span class="annot"><span class="annottext">Maybe Bandwidth
+</span><a href="#local-6989586621679221788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Link
+</span><a href="#local-6989586621679221789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bandwidth:Link' :: Maybe Bandwidth
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Abandwidth%3ALink%27"><span class="hs-identifier hs-var">bandwidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bandwidth
+</span><a href="#local-6989586621679221788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The ID of the link.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#link_linkId"><span class="hs-identifier hs-type">link_linkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="link_linkId"><span class="annot"><span class="annottext">link_linkId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Link -&gt; f Link
+</span><a href="Amazonka.NetworkManager.Types.Link.html#link_linkId"><span class="hs-identifier hs-var hs-var">link_linkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Link -&gt; Maybe Text)
+-&gt; (Link -&gt; Maybe Text -&gt; Link)
+-&gt; Lens Link Link (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221786"><span class="annot"><span class="annottext">Maybe Text
+linkId :: Maybe Text
+$sel:linkId:Link' :: Link -&gt; Maybe Text
+</span><a href="#local-6989586621679221786"><span class="hs-identifier hs-var hs-var">linkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221786"><span class="hs-identifier hs-var">linkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221785"><span class="annot"><span class="annottext">s :: Link
+</span><a href="#local-6989586621679221785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221784"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Link
+</span><a href="#local-6989586621679221785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkId:Link' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3AlinkId%3ALink%27"><span class="hs-identifier hs-var">linkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The type of the link.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#link_type"><span class="hs-identifier hs-type">link_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="link_type"><span class="annot"><span class="annottext">link_type :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Link -&gt; f Link
+</span><a href="Amazonka.NetworkManager.Types.Link.html#link_type"><span class="hs-identifier hs-var hs-var">link_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Link -&gt; Maybe Text)
+-&gt; (Link -&gt; Maybe Text -&gt; Link)
+-&gt; Lens Link Link (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221782"><span class="annot"><span class="annottext">Maybe Text
+type' :: Maybe Text
+$sel:type':Link' :: Link -&gt; Maybe Text
+</span><a href="#local-6989586621679221782"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221782"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221781"><span class="annot"><span class="annottext">s :: Link
+</span><a href="#local-6989586621679221781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221780"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Link
+</span><a href="#local-6989586621679221781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Link' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Atype%27%3ALink%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The ID of the site.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#link_siteId"><span class="hs-identifier hs-type">link_siteId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="link_siteId"><span class="annot"><span class="annottext">link_siteId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Link -&gt; f Link
+</span><a href="Amazonka.NetworkManager.Types.Link.html#link_siteId"><span class="hs-identifier hs-var hs-var">link_siteId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Link -&gt; Maybe Text)
+-&gt; (Link -&gt; Maybe Text -&gt; Link)
+-&gt; Lens Link Link (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221778"><span class="annot"><span class="annottext">Maybe Text
+siteId :: Maybe Text
+$sel:siteId:Link' :: Link -&gt; Maybe Text
+</span><a href="#local-6989586621679221778"><span class="hs-identifier hs-var hs-var">siteId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221778"><span class="hs-identifier hs-var">siteId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221777"><span class="annot"><span class="annottext">s :: Link
+</span><a href="#local-6989586621679221777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221776"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Link
+</span><a href="#local-6989586621679221777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:siteId:Link' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3AsiteId%3ALink%27"><span class="hs-identifier hs-var">siteId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The description of the link.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#link_description"><span class="hs-identifier hs-type">link_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="link_description"><span class="annot"><span class="annottext">link_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Link -&gt; f Link
+</span><a href="Amazonka.NetworkManager.Types.Link.html#link_description"><span class="hs-identifier hs-var hs-var">link_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Link -&gt; Maybe Text)
+-&gt; (Link -&gt; Maybe Text -&gt; Link)
+-&gt; Lens Link Link (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221774"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:Link' :: Link -&gt; Maybe Text
+</span><a href="#local-6989586621679221774"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221774"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221773"><span class="annot"><span class="annottext">s :: Link
+</span><a href="#local-6989586621679221773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221772"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Link
+</span><a href="#local-6989586621679221773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Link' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Adescription%3ALink%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The provider of the link.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#link_provider"><span class="hs-identifier hs-type">link_provider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="link_provider"><span class="annot"><span class="annottext">link_provider :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Link -&gt; f Link
+</span><a href="Amazonka.NetworkManager.Types.Link.html#link_provider"><span class="hs-identifier hs-var hs-var">link_provider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Link -&gt; Maybe Text)
+-&gt; (Link -&gt; Maybe Text -&gt; Link)
+-&gt; Lens Link Link (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221770"><span class="annot"><span class="annottext">Maybe Text
+provider :: Maybe Text
+$sel:provider:Link' :: Link -&gt; Maybe Text
+</span><a href="#local-6989586621679221770"><span class="hs-identifier hs-var hs-var">provider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221770"><span class="hs-identifier hs-var">provider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221769"><span class="annot"><span class="annottext">s :: Link
+</span><a href="#local-6989586621679221769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221768"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Link
+</span><a href="#local-6989586621679221769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provider:Link' :: Maybe Text
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Aprovider%3ALink%27"><span class="hs-identifier hs-var">provider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The tags for the link.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#link_tags"><span class="hs-identifier hs-type">link_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="link_tags"><span class="annot"><span class="annottext">link_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Link -&gt; f Link
+</span><a href="Amazonka.NetworkManager.Types.Link.html#link_tags"><span class="hs-identifier hs-var hs-var">link_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Link -&gt; Maybe [Tag])
+-&gt; (Link -&gt; Maybe [Tag] -&gt; Link)
+-&gt; Lens Link Link (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221766"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:Link' :: Link -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679221766"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679221766"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221765"><span class="annot"><span class="annottext">s :: Link
+</span><a href="#local-6989586621679221765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-type">Link'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221764"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679221764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Link
+</span><a href="#local-6989586621679221765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Link' :: Maybe [Tag]
+</span><a href="Amazonka.NetworkManager.Types.Link.html#%24sel%3Atags%3ALink%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679221764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Link -&gt; f Link)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; Link
+-&gt; f Link
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221760"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679221758"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Link
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Link) -&gt; Value -&gt; Parser Link
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Link&quot;</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221755"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe LinkState
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Bandwidth
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Link
+</span><a href="Amazonka.NetworkManager.Types.Link.html#Link%27"><span class="hs-identifier hs-var">Link'</span></a></span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LinkState
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Bandwidth
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Tag]
+ -&gt; Link)
+-&gt; Parser (Maybe LinkState)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bandwidth
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Link)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LinkState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bandwidth
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Link)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bandwidth
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Link)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LinkArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bandwidth
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Link)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bandwidth
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Link)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bandwidth
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Link)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bandwidth
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Link)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalNetworkId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bandwidth
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Link)
+-&gt; Parser (Maybe Bandwidth)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Link)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bandwidth)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Bandwidth&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Link)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Link)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LinkId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Link)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Link)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Link)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Link)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SiteId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Link)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe [Tag] -&gt; Link)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Tag] -&gt; Link)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Tag] -&gt; Link)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Provider&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Tag] -&gt; Link) -&gt; Parser (Maybe [Tag]) -&gt; Parser Link
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221748"><span id="local-6989586621679221750"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221745"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkManager.Types.Link.html#Link"><span class="hs-identifier hs-type">Link</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AmplifyBackend.Types.MFAMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AmplifyBackend.Types.MFAMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode"><span class="hs-identifier">MFAMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode_OFF"><span class="hs-identifier">MFAMode_OFF</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode_ON"><span class="hs-identifier">MFAMode_ON</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode_OPTIONAL"><span class="hs-identifier">MFAMode_OPTIONAL</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679230414"><span id="local-6989586621679230415"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MFAMode"><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode"><span class="hs-identifier hs-var">MFAMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MFAMode%27"><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode%27"><span class="hs-identifier hs-var">MFAMode'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromMFAMode"><span class="annot"><span class="annottext">MFAMode -&gt; Text
+</span><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#fromMFAMode"><span class="hs-identifier hs-var hs-var">fromMFAMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679230406"><span id="local-6989586621679230408"><span id="local-6989586621679230410"><span class="annot"><span class="annottext">Int -&gt; MFAMode -&gt; ShowS
+[MFAMode] -&gt; ShowS
+MFAMode -&gt; String
+(Int -&gt; MFAMode -&gt; ShowS)
+-&gt; (MFAMode -&gt; String) -&gt; ([MFAMode] -&gt; ShowS) -&gt; Show MFAMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MFAMode] -&gt; ShowS
+$cshowList :: [MFAMode] -&gt; ShowS
+show :: MFAMode -&gt; String
+$cshow :: MFAMode -&gt; String
+showsPrec :: Int -&gt; MFAMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; MFAMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679230397"><span id="local-6989586621679230399"><span id="local-6989586621679230401"><span id="local-6989586621679230403"><span class="annot"><span class="annottext">ReadPrec [MFAMode]
+ReadPrec MFAMode
+Int -&gt; ReadS MFAMode
+ReadS [MFAMode]
+(Int -&gt; ReadS MFAMode)
+-&gt; ReadS [MFAMode]
+-&gt; ReadPrec MFAMode
+-&gt; ReadPrec [MFAMode]
+-&gt; Read MFAMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MFAMode]
+$creadListPrec :: ReadPrec [MFAMode]
+readPrec :: ReadPrec MFAMode
+$creadPrec :: ReadPrec MFAMode
+readList :: ReadS [MFAMode]
+$creadList :: ReadS [MFAMode]
+readsPrec :: Int -&gt; ReadS MFAMode
+$creadsPrec :: Int -&gt; ReadS MFAMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679230392"><span id="local-6989586621679230394"><span class="annot"><span class="annottext">MFAMode -&gt; MFAMode -&gt; Bool
+(MFAMode -&gt; MFAMode -&gt; Bool)
+-&gt; (MFAMode -&gt; MFAMode -&gt; Bool) -&gt; Eq MFAMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MFAMode -&gt; MFAMode -&gt; Bool
+$c/= :: MFAMode -&gt; MFAMode -&gt; Bool
+== :: MFAMode -&gt; MFAMode -&gt; Bool
+$c== :: MFAMode -&gt; MFAMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679230376"><span id="local-6989586621679230378"><span id="local-6989586621679230380"><span id="local-6989586621679230382"><span id="local-6989586621679230384"><span id="local-6989586621679230386"><span id="local-6989586621679230388"><span class="annot"><span class="annottext">Eq MFAMode
+Eq MFAMode
+-&gt; (MFAMode -&gt; MFAMode -&gt; Ordering)
+-&gt; (MFAMode -&gt; MFAMode -&gt; Bool)
+-&gt; (MFAMode -&gt; MFAMode -&gt; Bool)
+-&gt; (MFAMode -&gt; MFAMode -&gt; Bool)
+-&gt; (MFAMode -&gt; MFAMode -&gt; Bool)
+-&gt; (MFAMode -&gt; MFAMode -&gt; MFAMode)
+-&gt; (MFAMode -&gt; MFAMode -&gt; MFAMode)
+-&gt; Ord MFAMode
+MFAMode -&gt; MFAMode -&gt; Bool
+MFAMode -&gt; MFAMode -&gt; Ordering
+MFAMode -&gt; MFAMode -&gt; MFAMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MFAMode -&gt; MFAMode -&gt; MFAMode
+$cmin :: MFAMode -&gt; MFAMode -&gt; MFAMode
+max :: MFAMode -&gt; MFAMode -&gt; MFAMode
+$cmax :: MFAMode -&gt; MFAMode -&gt; MFAMode
+&gt;= :: MFAMode -&gt; MFAMode -&gt; Bool
+$c&gt;= :: MFAMode -&gt; MFAMode -&gt; Bool
+&gt; :: MFAMode -&gt; MFAMode -&gt; Bool
+$c&gt; :: MFAMode -&gt; MFAMode -&gt; Bool
+&lt;= :: MFAMode -&gt; MFAMode -&gt; Bool
+$c&lt;= :: MFAMode -&gt; MFAMode -&gt; Bool
+&lt; :: MFAMode -&gt; MFAMode -&gt; Bool
+$c&lt; :: MFAMode -&gt; MFAMode -&gt; Bool
+compare :: MFAMode -&gt; MFAMode -&gt; Ordering
+$ccompare :: MFAMode -&gt; MFAMode -&gt; Ordering
+$cp1Ord :: Eq MFAMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MFAMode -&gt; Rep MFAMode x)
+-&gt; (forall x. Rep MFAMode x -&gt; MFAMode) -&gt; Generic MFAMode
+forall x. Rep MFAMode x -&gt; MFAMode
+forall x. MFAMode -&gt; Rep MFAMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MFAMode x -&gt; MFAMode
+$cfrom :: forall x. MFAMode -&gt; Rep MFAMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679230368"><span id="local-6989586621679230370"><span class="annot"><span class="annottext">Int -&gt; MFAMode -&gt; Int
+MFAMode -&gt; Int
+(Int -&gt; MFAMode -&gt; Int) -&gt; (MFAMode -&gt; Int) -&gt; Hashable MFAMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MFAMode -&gt; Int
+$chash :: MFAMode -&gt; Int
+hashWithSalt :: Int -&gt; MFAMode -&gt; Int
+$chashWithSalt :: Int -&gt; MFAMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679230365"><span class="annot"><span class="annottext">MFAMode -&gt; ()
+(MFAMode -&gt; ()) -&gt; NFData MFAMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MFAMode -&gt; ()
+$crnf :: MFAMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679230362"><span class="annot"><span class="annottext">Text -&gt; Either String MFAMode
+(Text -&gt; Either String MFAMode) -&gt; FromText MFAMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MFAMode
+$cfromText :: Text -&gt; Either String MFAMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679230359"><span class="annot"><span class="annottext">MFAMode -&gt; Text
+(MFAMode -&gt; Text) -&gt; ToText MFAMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MFAMode -&gt; Text
+$ctoText :: MFAMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679230356"><span class="annot"><span class="annottext">MFAMode -&gt; ByteString
+(MFAMode -&gt; ByteString) -&gt; ToByteString MFAMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MFAMode -&gt; ByteString
+$ctoBS :: MFAMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679230353"><span class="annot"><span class="annottext">MFAMode -&gt; ByteStringBuilder
+(MFAMode -&gt; ByteStringBuilder) -&gt; ToLog MFAMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MFAMode -&gt; ByteStringBuilder
+$cbuild :: MFAMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679230350"><span class="annot"><span class="annottext">HeaderName -&gt; MFAMode -&gt; [Header]
+(HeaderName -&gt; MFAMode -&gt; [Header]) -&gt; ToHeader MFAMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MFAMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MFAMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679230347"><span class="annot"><span class="annottext">MFAMode -&gt; QueryString
+(MFAMode -&gt; QueryString) -&gt; ToQuery MFAMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MFAMode -&gt; QueryString
+$ctoQuery :: MFAMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679230342"><span id="local-6989586621679230344"><span class="annot"><span class="annottext">Value -&gt; Parser [MFAMode]
+Value -&gt; Parser MFAMode
+(Value -&gt; Parser MFAMode)
+-&gt; (Value -&gt; Parser [MFAMode]) -&gt; FromJSON MFAMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MFAMode]
+$cparseJSONList :: Value -&gt; Parser [MFAMode]
+parseJSON :: Value -&gt; Parser MFAMode
+$cparseJSON :: Value -&gt; Parser MFAMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679230337"><span id="local-6989586621679230339"><span class="annot"><span class="annottext">FromJSONKeyFunction [MFAMode]
+FromJSONKeyFunction MFAMode
+FromJSONKeyFunction MFAMode
+-&gt; FromJSONKeyFunction [MFAMode] -&gt; FromJSONKey MFAMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MFAMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [MFAMode]
+fromJSONKey :: FromJSONKeyFunction MFAMode
+$cfromJSONKey :: FromJSONKeyFunction MFAMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679230328"><span id="local-6989586621679230330"><span id="local-6989586621679230332"><span id="local-6989586621679230334"><span class="annot"><span class="annottext">[MFAMode] -&gt; Encoding
+[MFAMode] -&gt; Value
+MFAMode -&gt; Encoding
+MFAMode -&gt; Value
+(MFAMode -&gt; Value)
+-&gt; (MFAMode -&gt; Encoding)
+-&gt; ([MFAMode] -&gt; Value)
+-&gt; ([MFAMode] -&gt; Encoding)
+-&gt; ToJSON MFAMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MFAMode] -&gt; Encoding
+$ctoEncodingList :: [MFAMode] -&gt; Encoding
+toJSONList :: [MFAMode] -&gt; Value
+$ctoJSONList :: [MFAMode] -&gt; Value
+toEncoding :: MFAMode -&gt; Encoding
+$ctoEncoding :: MFAMode -&gt; Encoding
+toJSON :: MFAMode -&gt; Value
+$ctoJSON :: MFAMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679230323"><span id="local-6989586621679230325"><span class="annot"><span class="annottext">ToJSONKeyFunction [MFAMode]
+ToJSONKeyFunction MFAMode
+ToJSONKeyFunction MFAMode
+-&gt; ToJSONKeyFunction [MFAMode] -&gt; ToJSONKey MFAMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MFAMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [MFAMode]
+toJSONKey :: ToJSONKeyFunction MFAMode
+$ctoJSONKey :: ToJSONKeyFunction MFAMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679230320"><span class="annot"><span class="annottext">[Node] -&gt; Either String MFAMode
+([Node] -&gt; Either String MFAMode) -&gt; FromXML MFAMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MFAMode
+$cparseXML :: [Node] -&gt; Either String MFAMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679230317"><span class="annot"><span class="annottext">MFAMode -&gt; XML
+(MFAMode -&gt; XML) -&gt; ToXML MFAMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MFAMode -&gt; XML
+$ctoXML :: MFAMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode_OFF"><span class="hs-identifier hs-type">MFAMode_OFF</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode"><span class="hs-identifier hs-type">MFAMode</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMFAMode_OFF"><span id="%24mMFAMode_OFF"><span id="MFAMode_OFF"><span class="annot"><span class="annottext">$bMFAMode_OFF :: MFAMode
+$mMFAMode_OFF :: forall r. MFAMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#%24bMFAMode_OFF"><span class="hs-identifier hs-var hs-var hs-var">MFAMode_OFF</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode%27"><span class="hs-identifier hs-type">MFAMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OFF&quot;</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode_ON"><span class="hs-identifier hs-type">MFAMode_ON</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode"><span class="hs-identifier hs-type">MFAMode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMFAMode_ON"><span id="%24mMFAMode_ON"><span id="MFAMode_ON"><span class="annot"><span class="annottext">$bMFAMode_ON :: MFAMode
+$mMFAMode_ON :: forall r. MFAMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#%24bMFAMode_ON"><span class="hs-identifier hs-var hs-var hs-var">MFAMode_ON</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode%27"><span class="hs-identifier hs-type">MFAMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ON&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode_OPTIONAL"><span class="hs-identifier hs-type">MFAMode_OPTIONAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode"><span class="hs-identifier hs-type">MFAMode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMFAMode_OPTIONAL"><span id="%24mMFAMode_OPTIONAL"><span id="MFAMode_OPTIONAL"><span class="annot"><span class="annottext">$bMFAMode_OPTIONAL :: MFAMode
+$mMFAMode_OPTIONAL :: forall r. MFAMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#%24bMFAMode_OPTIONAL"><span class="hs-identifier hs-var hs-var hs-var">MFAMode_OPTIONAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode%27"><span class="hs-identifier hs-type">MFAMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OPTIONAL&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode_OFF"><span class="hs-pragma hs-type">MFAMode_OFF</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode_ON"><span class="hs-pragma hs-type">MFAMode_ON</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode_OPTIONAL"><span class="hs-pragma hs-type">MFAMode_OPTIONAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.MFAMode.html#MFAMode%27"><span class="hs-pragma hs-type">MFAMode'</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-73"></span></pre></body></html>

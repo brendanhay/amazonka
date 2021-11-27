@@ -1,0 +1,770 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AmplifyBackend.GetBackendAPI</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the details for a backend API.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AmplifyBackend.GetBackendAPI</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier">GetBackendAPI</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#newGetBackendAPI"><span class="hs-identifier">newGetBackendAPI</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPI_resourceConfig"><span class="hs-identifier">getBackendAPI_resourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPI_appId"><span class="hs-identifier">getBackendAPI_appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPI_backendEnvironmentName"><span class="hs-identifier">getBackendAPI_backendEnvironmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPI_resourceName"><span class="hs-identifier">getBackendAPI_resourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier">GetBackendAPIResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#newGetBackendAPIResponse"><span class="hs-identifier">newGetBackendAPIResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_resourceName"><span class="hs-identifier">getBackendAPIResponse_resourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_error"><span class="hs-identifier">getBackendAPIResponse_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_appId"><span class="hs-identifier">getBackendAPIResponse_appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_resourceConfig"><span class="hs-identifier">getBackendAPIResponse_resourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_backendEnvironmentName"><span class="hs-identifier">getBackendAPIResponse_backendEnvironmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_httpStatus"><span class="hs-identifier">getBackendAPIResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.html"><span class="hs-identifier">Amazonka.AmplifyBackend.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | The request body for GetBackendAPI.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newGetBackendAPI' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679237040"><span id="local-6989586621679237041"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBackendAPI"><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-var">GetBackendAPI</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBackendAPI%27"><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI%27"><span class="hs-identifier hs-var">GetBackendAPI'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Defines the resource configuration for the data model in your Amplify</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- project.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AresourceConfig%3AGetBackendAPI%27"><span class="annot"><span class="annottext">GetBackendAPI -&gt; Maybe BackendAPIResourceConfig
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AresourceConfig%3AGetBackendAPI%27"><span class="hs-identifier hs-var hs-var">resourceConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.BackendAPIResourceConfig.html#BackendAPIResourceConfig"><span class="hs-identifier hs-type">BackendAPIResourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AappId%3AGetBackendAPI%27"><span class="annot"><span class="annottext">GetBackendAPI -&gt; Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AappId%3AGetBackendAPI%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AbackendEnvironmentName%3AGetBackendAPI%27"><span class="annot"><span class="annottext">GetBackendAPI -&gt; Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AbackendEnvironmentName%3AGetBackendAPI%27"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The name of this resource.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AresourceName%3AGetBackendAPI%27"><span class="annot"><span class="annottext">GetBackendAPI -&gt; Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AresourceName%3AGetBackendAPI%27"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237031"><span id="local-6989586621679237033"><span class="annot"><span class="annottext">GetBackendAPI -&gt; GetBackendAPI -&gt; Bool
+(GetBackendAPI -&gt; GetBackendAPI -&gt; Bool)
+-&gt; (GetBackendAPI -&gt; GetBackendAPI -&gt; Bool) -&gt; Eq GetBackendAPI
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBackendAPI -&gt; GetBackendAPI -&gt; Bool
+$c/= :: GetBackendAPI -&gt; GetBackendAPI -&gt; Bool
+== :: GetBackendAPI -&gt; GetBackendAPI -&gt; Bool
+$c== :: GetBackendAPI -&gt; GetBackendAPI -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237022"><span id="local-6989586621679237024"><span id="local-6989586621679237026"><span id="local-6989586621679237028"><span class="annot"><span class="annottext">ReadPrec [GetBackendAPI]
+ReadPrec GetBackendAPI
+Int -&gt; ReadS GetBackendAPI
+ReadS [GetBackendAPI]
+(Int -&gt; ReadS GetBackendAPI)
+-&gt; ReadS [GetBackendAPI]
+-&gt; ReadPrec GetBackendAPI
+-&gt; ReadPrec [GetBackendAPI]
+-&gt; Read GetBackendAPI
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBackendAPI]
+$creadListPrec :: ReadPrec [GetBackendAPI]
+readPrec :: ReadPrec GetBackendAPI
+$creadPrec :: ReadPrec GetBackendAPI
+readList :: ReadS [GetBackendAPI]
+$creadList :: ReadS [GetBackendAPI]
+readsPrec :: Int -&gt; ReadS GetBackendAPI
+$creadsPrec :: Int -&gt; ReadS GetBackendAPI
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237015"><span id="local-6989586621679237017"><span id="local-6989586621679237019"><span class="annot"><span class="annottext">Int -&gt; GetBackendAPI -&gt; ShowS
+[GetBackendAPI] -&gt; ShowS
+GetBackendAPI -&gt; String
+(Int -&gt; GetBackendAPI -&gt; ShowS)
+-&gt; (GetBackendAPI -&gt; String)
+-&gt; ([GetBackendAPI] -&gt; ShowS)
+-&gt; Show GetBackendAPI
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBackendAPI] -&gt; ShowS
+$cshowList :: [GetBackendAPI] -&gt; ShowS
+show :: GetBackendAPI -&gt; String
+$cshow :: GetBackendAPI -&gt; String
+showsPrec :: Int -&gt; GetBackendAPI -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBackendAPI -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetBackendAPI -&gt; Rep GetBackendAPI x)
+-&gt; (forall x. Rep GetBackendAPI x -&gt; GetBackendAPI)
+-&gt; Generic GetBackendAPI
+forall x. Rep GetBackendAPI x -&gt; GetBackendAPI
+forall x. GetBackendAPI -&gt; Rep GetBackendAPI x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetBackendAPI x -&gt; GetBackendAPI
+$cfrom :: forall x. GetBackendAPI -&gt; Rep GetBackendAPI x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'GetBackendAPI' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'resourceConfig', 'getBackendAPI_resourceConfig' - Defines the resource configuration for the data model in your Amplify</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- project.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'appId', 'getBackendAPI_appId' - The app ID.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'backendEnvironmentName', 'getBackendAPI_backendEnvironmentName' - The name of the backend environment.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'resourceName', 'getBackendAPI_resourceName' - The name of this resource.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#newGetBackendAPI"><span class="hs-identifier hs-type">newGetBackendAPI</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'appId'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'backendEnvironmentName'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'resourceName'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span><span>
+</span><span id="line-96"></span><span id="newGetBackendAPI"><span class="annot"><span class="annottext">newGetBackendAPI :: Text -&gt; Text -&gt; Text -&gt; GetBackendAPI
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#newGetBackendAPI"><span class="hs-identifier hs-var hs-var">newGetBackendAPI</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679237010"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237010"><span class="hs-identifier hs-var">pAppId_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679237009"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237009"><span class="hs-identifier hs-var">pBackendEnvironmentName_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679237008"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237008"><span class="hs-identifier hs-var">pResourceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">GetBackendAPI' :: Maybe BackendAPIResourceConfig
+-&gt; Text -&gt; Text -&gt; Text -&gt; GetBackendAPI
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI%27"><span class="hs-identifier hs-type">GetBackendAPI'</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceConfig:GetBackendAPI' :: Maybe BackendAPIResourceConfig
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AresourceConfig%3AGetBackendAPI%27"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackendAPIResourceConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:appId:GetBackendAPI' :: Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AappId%3AGetBackendAPI%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237010"><span class="hs-identifier hs-var">pAppId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:GetBackendAPI' :: Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AbackendEnvironmentName%3AGetBackendAPI%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237009"><span class="hs-identifier hs-var">pBackendEnvironmentName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceName:GetBackendAPI' :: Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AresourceName%3AGetBackendAPI%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237008"><span class="hs-identifier hs-var">pResourceName_</span></a></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Defines the resource configuration for the data model in your Amplify</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- project.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPI_resourceConfig"><span class="hs-identifier hs-type">getBackendAPI_resourceConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.BackendAPIResourceConfig.html#BackendAPIResourceConfig"><span class="hs-identifier hs-type">BackendAPIResourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="getBackendAPI_resourceConfig"><span class="annot"><span class="annottext">getBackendAPI_resourceConfig :: (Maybe BackendAPIResourceConfig
+ -&gt; f (Maybe BackendAPIResourceConfig))
+-&gt; GetBackendAPI -&gt; f GetBackendAPI
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPI_resourceConfig"><span class="hs-identifier hs-var hs-var">getBackendAPI_resourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBackendAPI -&gt; Maybe BackendAPIResourceConfig)
+-&gt; (GetBackendAPI
+    -&gt; Maybe BackendAPIResourceConfig -&gt; GetBackendAPI)
+-&gt; Lens
+     GetBackendAPI
+     GetBackendAPI
+     (Maybe BackendAPIResourceConfig)
+     (Maybe BackendAPIResourceConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI%27"><span class="hs-identifier hs-type">GetBackendAPI'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237005"><span class="annot"><span class="annottext">Maybe BackendAPIResourceConfig
+resourceConfig :: Maybe BackendAPIResourceConfig
+$sel:resourceConfig:GetBackendAPI' :: GetBackendAPI -&gt; Maybe BackendAPIResourceConfig
+</span><a href="#local-6989586621679237005"><span class="hs-identifier hs-var hs-var">resourceConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BackendAPIResourceConfig
+</span><a href="#local-6989586621679237005"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237004"><span class="annot"><span class="annottext">s :: GetBackendAPI
+</span><a href="#local-6989586621679237004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI%27"><span class="hs-identifier hs-type">GetBackendAPI'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237003"><span class="annot"><span class="annottext">Maybe BackendAPIResourceConfig
+</span><a href="#local-6989586621679237003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBackendAPI
+</span><a href="#local-6989586621679237004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceConfig:GetBackendAPI' :: Maybe BackendAPIResourceConfig
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AresourceConfig%3AGetBackendAPI%27"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackendAPIResourceConfig
+</span><a href="#local-6989586621679237003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPI_appId"><span class="hs-identifier hs-type">getBackendAPI_appId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="getBackendAPI_appId"><span class="annot"><span class="annottext">getBackendAPI_appId :: (Text -&gt; f Text) -&gt; GetBackendAPI -&gt; f GetBackendAPI
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPI_appId"><span class="hs-identifier hs-var hs-var">getBackendAPI_appId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBackendAPI -&gt; Text)
+-&gt; (GetBackendAPI -&gt; Text -&gt; GetBackendAPI)
+-&gt; Lens GetBackendAPI GetBackendAPI Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI%27"><span class="hs-identifier hs-type">GetBackendAPI'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237002"><span class="annot"><span class="annottext">Text
+appId :: Text
+$sel:appId:GetBackendAPI' :: GetBackendAPI -&gt; Text
+</span><a href="#local-6989586621679237002"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237002"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237001"><span class="annot"><span class="annottext">s :: GetBackendAPI
+</span><a href="#local-6989586621679237001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI%27"><span class="hs-identifier hs-type">GetBackendAPI'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237000"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBackendAPI
+</span><a href="#local-6989586621679237001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:GetBackendAPI' :: Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AappId%3AGetBackendAPI%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPI_backendEnvironmentName"><span class="hs-identifier hs-type">getBackendAPI_backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="getBackendAPI_backendEnvironmentName"><span class="annot"><span class="annottext">getBackendAPI_backendEnvironmentName :: (Text -&gt; f Text) -&gt; GetBackendAPI -&gt; f GetBackendAPI
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPI_backendEnvironmentName"><span class="hs-identifier hs-var hs-var">getBackendAPI_backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBackendAPI -&gt; Text)
+-&gt; (GetBackendAPI -&gt; Text -&gt; GetBackendAPI)
+-&gt; Lens GetBackendAPI GetBackendAPI Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI%27"><span class="hs-identifier hs-type">GetBackendAPI'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236999"><span class="annot"><span class="annottext">Text
+backendEnvironmentName :: Text
+$sel:backendEnvironmentName:GetBackendAPI' :: GetBackendAPI -&gt; Text
+</span><a href="#local-6989586621679236999"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236999"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236998"><span class="annot"><span class="annottext">s :: GetBackendAPI
+</span><a href="#local-6989586621679236998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI%27"><span class="hs-identifier hs-type">GetBackendAPI'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236997"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBackendAPI
+</span><a href="#local-6989586621679236998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:GetBackendAPI' :: Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AbackendEnvironmentName%3AGetBackendAPI%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The name of this resource.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPI_resourceName"><span class="hs-identifier hs-type">getBackendAPI_resourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="getBackendAPI_resourceName"><span class="annot"><span class="annottext">getBackendAPI_resourceName :: (Text -&gt; f Text) -&gt; GetBackendAPI -&gt; f GetBackendAPI
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPI_resourceName"><span class="hs-identifier hs-var hs-var">getBackendAPI_resourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBackendAPI -&gt; Text)
+-&gt; (GetBackendAPI -&gt; Text -&gt; GetBackendAPI)
+-&gt; Lens GetBackendAPI GetBackendAPI Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI%27"><span class="hs-identifier hs-type">GetBackendAPI'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236996"><span class="annot"><span class="annottext">Text
+resourceName :: Text
+$sel:resourceName:GetBackendAPI' :: GetBackendAPI -&gt; Text
+</span><a href="#local-6989586621679236996"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236996"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236995"><span class="annot"><span class="annottext">s :: GetBackendAPI
+</span><a href="#local-6989586621679236995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI%27"><span class="hs-identifier hs-type">GetBackendAPI'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236994"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBackendAPI
+</span><a href="#local-6989586621679236995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:GetBackendAPI' :: Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AresourceName%3AGetBackendAPI%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-type">GetBackendAPIResponse</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679236990"><span class="annot"><span class="annottext">request :: GetBackendAPI -&gt; Request GetBackendAPI
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetBackendAPI -&gt; Request GetBackendAPI
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AmplifyBackend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679236986"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetBackendAPI
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetBackendAPI)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetBackendAPI))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetBackendAPI
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetBackendAPI)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679236983"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236983"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679236982"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679236982"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679236981"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236981"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe BackendAPIResourceConfig
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetBackendAPIResponse
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse%27"><span class="hs-identifier hs-var">GetBackendAPIResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe BackendAPIResourceConfig
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; GetBackendAPIResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe BackendAPIResourceConfig
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetBackendAPIResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe BackendAPIResourceConfig
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetBackendAPIResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe BackendAPIResourceConfig
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetBackendAPIResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;error&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe BackendAPIResourceConfig
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetBackendAPIResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe BackendAPIResourceConfig
+      -&gt; Maybe Text -&gt; Int -&gt; GetBackendAPIResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;appId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe BackendAPIResourceConfig
+   -&gt; Maybe Text -&gt; Int -&gt; GetBackendAPIResponse)
+-&gt; Either String (Maybe BackendAPIResourceConfig)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetBackendAPIResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BackendAPIResourceConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetBackendAPIResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetBackendAPIResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;backendEnvironmentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetBackendAPIResponse)
+-&gt; Either String Int -&gt; Either String GetBackendAPIResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236983"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236973"><span id="local-6989586621679236975"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236970"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679236966"><span class="annot"><span class="annottext">toHeaders :: GetBackendAPI -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetBackendAPI -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-152"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236956"><span id="local-6989586621679236958"><span id="local-6989586621679236960"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679236954"><span class="annot"><span class="annottext">toJSON :: GetBackendAPI -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI%27"><span class="hs-identifier hs-type">GetBackendAPI'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236949"><span id="local-6989586621679236950"><span id="local-6989586621679236951"><span id="local-6989586621679236952"><span class="annot"><span class="annottext">Maybe BackendAPIResourceConfig
+Text
+resourceName :: Text
+backendEnvironmentName :: Text
+appId :: Text
+resourceConfig :: Maybe BackendAPIResourceConfig
+$sel:resourceName:GetBackendAPI' :: GetBackendAPI -&gt; Text
+$sel:backendEnvironmentName:GetBackendAPI' :: GetBackendAPI -&gt; Text
+$sel:appId:GetBackendAPI' :: GetBackendAPI -&gt; Text
+$sel:resourceConfig:GetBackendAPI' :: GetBackendAPI -&gt; Maybe BackendAPIResourceConfig
+</span><a href="#local-6989586621679236949"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BackendAPIResourceConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">(BackendAPIResourceConfig -&gt; Pair)
+-&gt; Maybe BackendAPIResourceConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BackendAPIResourceConfig
+</span><a href="#local-6989586621679236952"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236949"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679236943"><span class="annot"><span class="annottext">toPath :: GetBackendAPI -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI%27"><span class="hs-identifier hs-type">GetBackendAPI'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236938"><span id="local-6989586621679236939"><span id="local-6989586621679236940"><span id="local-6989586621679236941"><span class="annot"><span class="annottext">Maybe BackendAPIResourceConfig
+Text
+resourceName :: Text
+backendEnvironmentName :: Text
+appId :: Text
+resourceConfig :: Maybe BackendAPIResourceConfig
+$sel:resourceName:GetBackendAPI' :: GetBackendAPI -&gt; Text
+$sel:backendEnvironmentName:GetBackendAPI' :: GetBackendAPI -&gt; Text
+$sel:appId:GetBackendAPI' :: GetBackendAPI -&gt; Text
+$sel:resourceConfig:GetBackendAPI' :: GetBackendAPI -&gt; Maybe BackendAPIResourceConfig
+</span><a href="#local-6989586621679236938"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/backend/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236940"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/api/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236939"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/details&quot;</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPI"><span class="hs-identifier hs-type">GetBackendAPI</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679236934"><span class="annot"><span class="annottext">toQuery :: GetBackendAPI -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBackendAPI -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | /See:/ 'newGetBackendAPIResponse' smart constructor.</span><span>
+</span><span id="line-180"></span><span id="local-6989586621679236931"><span id="local-6989586621679236932"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBackendAPIResponse"><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-var">GetBackendAPIResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBackendAPIResponse%27"><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse%27"><span class="hs-identifier hs-var">GetBackendAPIResponse'</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of this resource.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AresourceName%3AGetBackendAPIResponse%27"><span class="annot"><span class="annottext">GetBackendAPIResponse -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AresourceName%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | If the request fails, this error is returned.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3Aerror%3AGetBackendAPIResponse%27"><span class="annot"><span class="annottext">GetBackendAPIResponse -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3Aerror%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AappId%3AGetBackendAPIResponse%27"><span class="annot"><span class="annottext">GetBackendAPIResponse -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AappId%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | The resource configuration for this response object.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AresourceConfig%3AGetBackendAPIResponse%27"><span class="annot"><span class="annottext">GetBackendAPIResponse -&gt; Maybe BackendAPIResourceConfig
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AresourceConfig%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var hs-var">resourceConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.BackendAPIResourceConfig.html#BackendAPIResourceConfig"><span class="hs-identifier hs-type">BackendAPIResourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AbackendEnvironmentName%3AGetBackendAPIResponse%27"><span class="annot"><span class="annottext">GetBackendAPIResponse -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AbackendEnvironmentName%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBackendAPIResponse%27"><span class="annot"><span class="annottext">GetBackendAPIResponse -&gt; Int
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AhttpStatus%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236921"><span id="local-6989586621679236923"><span class="annot"><span class="annottext">GetBackendAPIResponse -&gt; GetBackendAPIResponse -&gt; Bool
+(GetBackendAPIResponse -&gt; GetBackendAPIResponse -&gt; Bool)
+-&gt; (GetBackendAPIResponse -&gt; GetBackendAPIResponse -&gt; Bool)
+-&gt; Eq GetBackendAPIResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBackendAPIResponse -&gt; GetBackendAPIResponse -&gt; Bool
+$c/= :: GetBackendAPIResponse -&gt; GetBackendAPIResponse -&gt; Bool
+== :: GetBackendAPIResponse -&gt; GetBackendAPIResponse -&gt; Bool
+$c== :: GetBackendAPIResponse -&gt; GetBackendAPIResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236913"><span id="local-6989586621679236915"><span id="local-6989586621679236917"><span id="local-6989586621679236919"><span class="annot"><span class="annottext">ReadPrec [GetBackendAPIResponse]
+ReadPrec GetBackendAPIResponse
+Int -&gt; ReadS GetBackendAPIResponse
+ReadS [GetBackendAPIResponse]
+(Int -&gt; ReadS GetBackendAPIResponse)
+-&gt; ReadS [GetBackendAPIResponse]
+-&gt; ReadPrec GetBackendAPIResponse
+-&gt; ReadPrec [GetBackendAPIResponse]
+-&gt; Read GetBackendAPIResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBackendAPIResponse]
+$creadListPrec :: ReadPrec [GetBackendAPIResponse]
+readPrec :: ReadPrec GetBackendAPIResponse
+$creadPrec :: ReadPrec GetBackendAPIResponse
+readList :: ReadS [GetBackendAPIResponse]
+$creadList :: ReadS [GetBackendAPIResponse]
+readsPrec :: Int -&gt; ReadS GetBackendAPIResponse
+$creadsPrec :: Int -&gt; ReadS GetBackendAPIResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236907"><span id="local-6989586621679236909"><span id="local-6989586621679236911"><span class="annot"><span class="annottext">Int -&gt; GetBackendAPIResponse -&gt; ShowS
+[GetBackendAPIResponse] -&gt; ShowS
+GetBackendAPIResponse -&gt; String
+(Int -&gt; GetBackendAPIResponse -&gt; ShowS)
+-&gt; (GetBackendAPIResponse -&gt; String)
+-&gt; ([GetBackendAPIResponse] -&gt; ShowS)
+-&gt; Show GetBackendAPIResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBackendAPIResponse] -&gt; ShowS
+$cshowList :: [GetBackendAPIResponse] -&gt; ShowS
+show :: GetBackendAPIResponse -&gt; String
+$cshow :: GetBackendAPIResponse -&gt; String
+showsPrec :: Int -&gt; GetBackendAPIResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBackendAPIResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetBackendAPIResponse -&gt; Rep GetBackendAPIResponse x)
+-&gt; (forall x. Rep GetBackendAPIResponse x -&gt; GetBackendAPIResponse)
+-&gt; Generic GetBackendAPIResponse
+forall x. Rep GetBackendAPIResponse x -&gt; GetBackendAPIResponse
+forall x. GetBackendAPIResponse -&gt; Rep GetBackendAPIResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetBackendAPIResponse x -&gt; GetBackendAPIResponse
+$cfrom :: forall x. GetBackendAPIResponse -&gt; Rep GetBackendAPIResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Create a value of 'GetBackendAPIResponse' with all optional fields omitted.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'resourceName', 'getBackendAPIResponse_resourceName' - The name of this resource.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'error', 'getBackendAPIResponse_error' - If the request fails, this error is returned.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'appId', 'getBackendAPIResponse_appId' - The app ID.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'resourceConfig', 'getBackendAPIResponse_resourceConfig' - The resource configuration for this response object.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'backendEnvironmentName', 'getBackendAPIResponse_backendEnvironmentName' - The name of the backend environment.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'httpStatus', 'getBackendAPIResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#newGetBackendAPIResponse"><span class="hs-identifier hs-type">newGetBackendAPIResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-type">GetBackendAPIResponse</span></a></span><span>
+</span><span id="line-219"></span><span id="newGetBackendAPIResponse"><span class="annot"><span class="annottext">newGetBackendAPIResponse :: Int -&gt; GetBackendAPIResponse
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#newGetBackendAPIResponse"><span class="hs-identifier hs-var hs-var">newGetBackendAPIResponse</span></a></span></span><span> </span><span id="local-6989586621679236904"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236904"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>  </span><span class="annot"><span class="annottext">GetBackendAPIResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe BackendAPIResourceConfig
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetBackendAPIResponse
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse%27"><span class="hs-identifier hs-type">GetBackendAPIResponse'</span></a></span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceName:GetBackendAPIResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AresourceName%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:error:GetBackendAPIResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3Aerror%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:appId:GetBackendAPIResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AappId%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceConfig:GetBackendAPIResponse' :: Maybe BackendAPIResourceConfig
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AresourceConfig%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackendAPIResourceConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:GetBackendAPIResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AbackendEnvironmentName%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBackendAPIResponse' :: Int
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AhttpStatus%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236904"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The name of this resource.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_resourceName"><span class="hs-identifier hs-type">getBackendAPIResponse_resourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-type">GetBackendAPIResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="getBackendAPIResponse_resourceName"><span class="annot"><span class="annottext">getBackendAPIResponse_resourceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBackendAPIResponse -&gt; f GetBackendAPIResponse
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_resourceName"><span class="hs-identifier hs-var hs-var">getBackendAPIResponse_resourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBackendAPIResponse -&gt; Maybe Text)
+-&gt; (GetBackendAPIResponse -&gt; Maybe Text -&gt; GetBackendAPIResponse)
+-&gt; Lens
+     GetBackendAPIResponse
+     GetBackendAPIResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse%27"><span class="hs-identifier hs-type">GetBackendAPIResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236903"><span class="annot"><span class="annottext">Maybe Text
+resourceName :: Maybe Text
+$sel:resourceName:GetBackendAPIResponse' :: GetBackendAPIResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679236903"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236903"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236902"><span class="annot"><span class="annottext">s :: GetBackendAPIResponse
+</span><a href="#local-6989586621679236902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse%27"><span class="hs-identifier hs-type">GetBackendAPIResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236901"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBackendAPIResponse
+</span><a href="#local-6989586621679236902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:GetBackendAPIResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AresourceName%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-type">GetBackendAPIResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | If the request fails, this error is returned.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_error"><span class="hs-identifier hs-type">getBackendAPIResponse_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-type">GetBackendAPIResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="getBackendAPIResponse_error"><span class="annot"><span class="annottext">getBackendAPIResponse_error :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBackendAPIResponse -&gt; f GetBackendAPIResponse
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_error"><span class="hs-identifier hs-var hs-var">getBackendAPIResponse_error</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBackendAPIResponse -&gt; Maybe Text)
+-&gt; (GetBackendAPIResponse -&gt; Maybe Text -&gt; GetBackendAPIResponse)
+-&gt; Lens
+     GetBackendAPIResponse
+     GetBackendAPIResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse%27"><span class="hs-identifier hs-type">GetBackendAPIResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236900"><span class="annot"><span class="annottext">Maybe Text
+error :: Maybe Text
+$sel:error:GetBackendAPIResponse' :: GetBackendAPIResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679236900"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236900"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236899"><span class="annot"><span class="annottext">s :: GetBackendAPIResponse
+</span><a href="#local-6989586621679236899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse%27"><span class="hs-identifier hs-type">GetBackendAPIResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236898"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBackendAPIResponse
+</span><a href="#local-6989586621679236899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:GetBackendAPIResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3Aerror%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-type">GetBackendAPIResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_appId"><span class="hs-identifier hs-type">getBackendAPIResponse_appId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-type">GetBackendAPIResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="getBackendAPIResponse_appId"><span class="annot"><span class="annottext">getBackendAPIResponse_appId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBackendAPIResponse -&gt; f GetBackendAPIResponse
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_appId"><span class="hs-identifier hs-var hs-var">getBackendAPIResponse_appId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBackendAPIResponse -&gt; Maybe Text)
+-&gt; (GetBackendAPIResponse -&gt; Maybe Text -&gt; GetBackendAPIResponse)
+-&gt; Lens
+     GetBackendAPIResponse
+     GetBackendAPIResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse%27"><span class="hs-identifier hs-type">GetBackendAPIResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236897"><span class="annot"><span class="annottext">Maybe Text
+appId :: Maybe Text
+$sel:appId:GetBackendAPIResponse' :: GetBackendAPIResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679236897"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236897"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236896"><span class="annot"><span class="annottext">s :: GetBackendAPIResponse
+</span><a href="#local-6989586621679236896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse%27"><span class="hs-identifier hs-type">GetBackendAPIResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236895"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBackendAPIResponse
+</span><a href="#local-6989586621679236896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:GetBackendAPIResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AappId%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-type">GetBackendAPIResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The resource configuration for this response object.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_resourceConfig"><span class="hs-identifier hs-type">getBackendAPIResponse_resourceConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-type">GetBackendAPIResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.BackendAPIResourceConfig.html#BackendAPIResourceConfig"><span class="hs-identifier hs-type">BackendAPIResourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="getBackendAPIResponse_resourceConfig"><span class="annot"><span class="annottext">getBackendAPIResponse_resourceConfig :: (Maybe BackendAPIResourceConfig
+ -&gt; f (Maybe BackendAPIResourceConfig))
+-&gt; GetBackendAPIResponse -&gt; f GetBackendAPIResponse
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_resourceConfig"><span class="hs-identifier hs-var hs-var">getBackendAPIResponse_resourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBackendAPIResponse -&gt; Maybe BackendAPIResourceConfig)
+-&gt; (GetBackendAPIResponse
+    -&gt; Maybe BackendAPIResourceConfig -&gt; GetBackendAPIResponse)
+-&gt; Lens
+     GetBackendAPIResponse
+     GetBackendAPIResponse
+     (Maybe BackendAPIResourceConfig)
+     (Maybe BackendAPIResourceConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse%27"><span class="hs-identifier hs-type">GetBackendAPIResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236894"><span class="annot"><span class="annottext">Maybe BackendAPIResourceConfig
+resourceConfig :: Maybe BackendAPIResourceConfig
+$sel:resourceConfig:GetBackendAPIResponse' :: GetBackendAPIResponse -&gt; Maybe BackendAPIResourceConfig
+</span><a href="#local-6989586621679236894"><span class="hs-identifier hs-var hs-var">resourceConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BackendAPIResourceConfig
+</span><a href="#local-6989586621679236894"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236893"><span class="annot"><span class="annottext">s :: GetBackendAPIResponse
+</span><a href="#local-6989586621679236893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse%27"><span class="hs-identifier hs-type">GetBackendAPIResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236892"><span class="annot"><span class="annottext">Maybe BackendAPIResourceConfig
+</span><a href="#local-6989586621679236892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBackendAPIResponse
+</span><a href="#local-6989586621679236893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceConfig:GetBackendAPIResponse' :: Maybe BackendAPIResourceConfig
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AresourceConfig%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackendAPIResourceConfig
+</span><a href="#local-6989586621679236892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-type">GetBackendAPIResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_backendEnvironmentName"><span class="hs-identifier hs-type">getBackendAPIResponse_backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-type">GetBackendAPIResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="getBackendAPIResponse_backendEnvironmentName"><span class="annot"><span class="annottext">getBackendAPIResponse_backendEnvironmentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBackendAPIResponse -&gt; f GetBackendAPIResponse
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_backendEnvironmentName"><span class="hs-identifier hs-var hs-var">getBackendAPIResponse_backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBackendAPIResponse -&gt; Maybe Text)
+-&gt; (GetBackendAPIResponse -&gt; Maybe Text -&gt; GetBackendAPIResponse)
+-&gt; Lens
+     GetBackendAPIResponse
+     GetBackendAPIResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse%27"><span class="hs-identifier hs-type">GetBackendAPIResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236891"><span class="annot"><span class="annottext">Maybe Text
+backendEnvironmentName :: Maybe Text
+$sel:backendEnvironmentName:GetBackendAPIResponse' :: GetBackendAPIResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679236891"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236891"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236890"><span class="annot"><span class="annottext">s :: GetBackendAPIResponse
+</span><a href="#local-6989586621679236890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse%27"><span class="hs-identifier hs-type">GetBackendAPIResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236889"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBackendAPIResponse
+</span><a href="#local-6989586621679236890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:GetBackendAPIResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AbackendEnvironmentName%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-type">GetBackendAPIResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_httpStatus"><span class="hs-identifier hs-type">getBackendAPIResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-type">GetBackendAPIResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-252"></span><span id="getBackendAPIResponse_httpStatus"><span class="annot"><span class="annottext">getBackendAPIResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetBackendAPIResponse -&gt; f GetBackendAPIResponse
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#getBackendAPIResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getBackendAPIResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBackendAPIResponse -&gt; Int)
+-&gt; (GetBackendAPIResponse -&gt; Int -&gt; GetBackendAPIResponse)
+-&gt; Lens GetBackendAPIResponse GetBackendAPIResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse%27"><span class="hs-identifier hs-type">GetBackendAPIResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236888"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetBackendAPIResponse' :: GetBackendAPIResponse -&gt; Int
+</span><a href="#local-6989586621679236888"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236888"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236887"><span class="annot"><span class="annottext">s :: GetBackendAPIResponse
+</span><a href="#local-6989586621679236887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse%27"><span class="hs-identifier hs-type">GetBackendAPIResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236886"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBackendAPIResponse
+</span><a href="#local-6989586621679236887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBackendAPIResponse' :: Int
+</span><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#%24sel%3AhttpStatus%3AGetBackendAPIResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-type">GetBackendAPIResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236884"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.GetBackendAPI.html#GetBackendAPIResponse"><span class="hs-identifier hs-type">GetBackendAPIResponse</span></a></span></span><span>
+</span><span id="line-255"></span></pre></body></html>

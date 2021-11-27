@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.CloudControl.Types.HandlerErrorCode
+module Amazonka.CloudControl.Types.HandlerErrorCode
 newtype HandlerErrorCode
 HandlerErrorCode' :: Text -> HandlerErrorCode
 [fromHandlerErrorCode] :: HandlerErrorCode -> Text
@@ -24,56 +24,56 @@ pattern HandlerErrorCode_ServiceInternalError :: HandlerErrorCode
 pattern HandlerErrorCode_ServiceLimitExceeded :: HandlerErrorCode
 pattern HandlerErrorCode_ServiceTimeout :: HandlerErrorCode
 pattern HandlerErrorCode_Throttling :: HandlerErrorCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance Data.Hashable.Class.Hashable Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance GHC.Generics.Generic Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance GHC.Classes.Ord Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance GHC.Classes.Eq Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance GHC.Read.Read Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
-instance GHC.Show.Show Network.AWS.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance Amazonka.Data.XML.ToXML Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance Amazonka.Data.XML.FromXML Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance Amazonka.Data.Log.ToLog Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance Amazonka.Data.Text.ToText Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance Amazonka.Data.Text.FromText Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance Control.DeepSeq.NFData Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance Data.Hashable.Class.Hashable Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance GHC.Generics.Generic Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance GHC.Classes.Ord Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance GHC.Classes.Eq Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance GHC.Read.Read Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
+instance GHC.Show.Show Amazonka.CloudControl.Types.HandlerErrorCode.HandlerErrorCode
 
 
-module Network.AWS.CloudControl.Types.Operation
+module Amazonka.CloudControl.Types.Operation
 newtype Operation
 Operation' :: Text -> Operation
 [fromOperation] :: Operation -> Text
 pattern Operation_CREATE :: Operation
 pattern Operation_DELETE :: Operation
 pattern Operation_UPDATE :: Operation
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudControl.Types.Operation.Operation
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudControl.Types.Operation.Operation
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudControl.Types.Operation.Operation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudControl.Types.Operation.Operation
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudControl.Types.Operation.Operation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudControl.Types.Operation.Operation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.Types.Operation.Operation
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudControl.Types.Operation.Operation
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudControl.Types.Operation.Operation
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudControl.Types.Operation.Operation
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudControl.Types.Operation.Operation
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudControl.Types.Operation.Operation
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.Types.Operation.Operation
-instance Data.Hashable.Class.Hashable Network.AWS.CloudControl.Types.Operation.Operation
-instance GHC.Generics.Generic Network.AWS.CloudControl.Types.Operation.Operation
-instance GHC.Classes.Ord Network.AWS.CloudControl.Types.Operation.Operation
-instance GHC.Classes.Eq Network.AWS.CloudControl.Types.Operation.Operation
-instance GHC.Read.Read Network.AWS.CloudControl.Types.Operation.Operation
-instance GHC.Show.Show Network.AWS.CloudControl.Types.Operation.Operation
+instance Amazonka.Data.XML.ToXML Amazonka.CloudControl.Types.Operation.Operation
+instance Amazonka.Data.XML.FromXML Amazonka.CloudControl.Types.Operation.Operation
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudControl.Types.Operation.Operation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudControl.Types.Operation.Operation
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudControl.Types.Operation.Operation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudControl.Types.Operation.Operation
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudControl.Types.Operation.Operation
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudControl.Types.Operation.Operation
+instance Amazonka.Data.Log.ToLog Amazonka.CloudControl.Types.Operation.Operation
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudControl.Types.Operation.Operation
+instance Amazonka.Data.Text.ToText Amazonka.CloudControl.Types.Operation.Operation
+instance Amazonka.Data.Text.FromText Amazonka.CloudControl.Types.Operation.Operation
+instance Control.DeepSeq.NFData Amazonka.CloudControl.Types.Operation.Operation
+instance Data.Hashable.Class.Hashable Amazonka.CloudControl.Types.Operation.Operation
+instance GHC.Generics.Generic Amazonka.CloudControl.Types.Operation.Operation
+instance GHC.Classes.Ord Amazonka.CloudControl.Types.Operation.Operation
+instance GHC.Classes.Eq Amazonka.CloudControl.Types.Operation.Operation
+instance GHC.Read.Read Amazonka.CloudControl.Types.Operation.Operation
+instance GHC.Show.Show Amazonka.CloudControl.Types.Operation.Operation
 
 
-module Network.AWS.CloudControl.Types.OperationStatus
+module Amazonka.CloudControl.Types.OperationStatus
 newtype OperationStatus
 OperationStatus' :: Text -> OperationStatus
 [fromOperationStatus] :: OperationStatus -> Text
@@ -83,28 +83,28 @@ pattern OperationStatus_FAILED :: OperationStatus
 pattern OperationStatus_IN_PROGRESS :: OperationStatus
 pattern OperationStatus_PENDING :: OperationStatus
 pattern OperationStatus_SUCCESS :: OperationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance GHC.Generics.Generic Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance GHC.Classes.Ord Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance GHC.Classes.Eq Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance GHC.Read.Read Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
-instance GHC.Show.Show Network.AWS.CloudControl.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.Text.ToText Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.Text.FromText Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance Control.DeepSeq.NFData Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance Data.Hashable.Class.Hashable Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance GHC.Generics.Generic Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance GHC.Classes.Ord Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance GHC.Classes.Eq Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance GHC.Read.Read Amazonka.CloudControl.Types.OperationStatus.OperationStatus
+instance GHC.Show.Show Amazonka.CloudControl.Types.OperationStatus.OperationStatus
 
 
-module Network.AWS.CloudControl.Types.ProgressEvent
+module Amazonka.CloudControl.Types.ProgressEvent
 
 -- | Represents the current status of a resource operation request. For
 --   more information, see <a>Managing resource operation requests</a> in
@@ -295,15 +295,15 @@ progressEvent_statusMessage :: Lens' ProgressEvent (Maybe Text)
 --   /CloudFormation Command Line Interface User Guide for Extension
 --   Development/.
 progressEvent_errorCode :: Lens' ProgressEvent (Maybe HandlerErrorCode)
-instance GHC.Generics.Generic Network.AWS.CloudControl.Types.ProgressEvent.ProgressEvent
-instance GHC.Show.Show Network.AWS.CloudControl.Types.ProgressEvent.ProgressEvent
-instance GHC.Classes.Eq Network.AWS.CloudControl.Types.ProgressEvent.ProgressEvent
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudControl.Types.ProgressEvent.ProgressEvent
-instance Data.Hashable.Class.Hashable Network.AWS.CloudControl.Types.ProgressEvent.ProgressEvent
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.Types.ProgressEvent.ProgressEvent
+instance GHC.Generics.Generic Amazonka.CloudControl.Types.ProgressEvent.ProgressEvent
+instance GHC.Show.Show Amazonka.CloudControl.Types.ProgressEvent.ProgressEvent
+instance GHC.Classes.Eq Amazonka.CloudControl.Types.ProgressEvent.ProgressEvent
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudControl.Types.ProgressEvent.ProgressEvent
+instance Data.Hashable.Class.Hashable Amazonka.CloudControl.Types.ProgressEvent.ProgressEvent
+instance Control.DeepSeq.NFData Amazonka.CloudControl.Types.ProgressEvent.ProgressEvent
 
 
-module Network.AWS.CloudControl.Types.ResourceDescription
+module Amazonka.CloudControl.Types.ResourceDescription
 
 -- | Represents information about a provisioned resource.
 --   
@@ -349,15 +349,15 @@ resourceDescription_identifier :: Lens' ResourceDescription (Maybe Text)
 
 -- | A list of the resource properties and their current values.
 resourceDescription_properties :: Lens' ResourceDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudControl.Types.ResourceDescription.ResourceDescription
-instance GHC.Show.Show Network.AWS.CloudControl.Types.ResourceDescription.ResourceDescription
-instance GHC.Classes.Eq Network.AWS.CloudControl.Types.ResourceDescription.ResourceDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudControl.Types.ResourceDescription.ResourceDescription
-instance Data.Hashable.Class.Hashable Network.AWS.CloudControl.Types.ResourceDescription.ResourceDescription
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.Types.ResourceDescription.ResourceDescription
+instance GHC.Generics.Generic Amazonka.CloudControl.Types.ResourceDescription.ResourceDescription
+instance GHC.Show.Show Amazonka.CloudControl.Types.ResourceDescription.ResourceDescription
+instance GHC.Classes.Eq Amazonka.CloudControl.Types.ResourceDescription.ResourceDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudControl.Types.ResourceDescription.ResourceDescription
+instance Data.Hashable.Class.Hashable Amazonka.CloudControl.Types.ResourceDescription.ResourceDescription
+instance Control.DeepSeq.NFData Amazonka.CloudControl.Types.ResourceDescription.ResourceDescription
 
 
-module Network.AWS.CloudControl.Types.ResourceRequestStatusFilter
+module Amazonka.CloudControl.Types.ResourceRequestStatusFilter
 
 -- | The filter criteria to use in determining the requests returned.
 --   
@@ -427,16 +427,16 @@ resourceRequestStatusFilter_operationStatuses :: Lens' ResourceRequestStatusFilt
 
 -- | The operation types to include in the filter.
 resourceRequestStatusFilter_operations :: Lens' ResourceRequestStatusFilter (Maybe [Operation])
-instance GHC.Generics.Generic Network.AWS.CloudControl.Types.ResourceRequestStatusFilter.ResourceRequestStatusFilter
-instance GHC.Show.Show Network.AWS.CloudControl.Types.ResourceRequestStatusFilter.ResourceRequestStatusFilter
-instance GHC.Read.Read Network.AWS.CloudControl.Types.ResourceRequestStatusFilter.ResourceRequestStatusFilter
-instance GHC.Classes.Eq Network.AWS.CloudControl.Types.ResourceRequestStatusFilter.ResourceRequestStatusFilter
-instance Data.Hashable.Class.Hashable Network.AWS.CloudControl.Types.ResourceRequestStatusFilter.ResourceRequestStatusFilter
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.Types.ResourceRequestStatusFilter.ResourceRequestStatusFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudControl.Types.ResourceRequestStatusFilter.ResourceRequestStatusFilter
+instance GHC.Generics.Generic Amazonka.CloudControl.Types.ResourceRequestStatusFilter.ResourceRequestStatusFilter
+instance GHC.Show.Show Amazonka.CloudControl.Types.ResourceRequestStatusFilter.ResourceRequestStatusFilter
+instance GHC.Read.Read Amazonka.CloudControl.Types.ResourceRequestStatusFilter.ResourceRequestStatusFilter
+instance GHC.Classes.Eq Amazonka.CloudControl.Types.ResourceRequestStatusFilter.ResourceRequestStatusFilter
+instance Data.Hashable.Class.Hashable Amazonka.CloudControl.Types.ResourceRequestStatusFilter.ResourceRequestStatusFilter
+instance Control.DeepSeq.NFData Amazonka.CloudControl.Types.ResourceRequestStatusFilter.ResourceRequestStatusFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudControl.Types.ResourceRequestStatusFilter.ResourceRequestStatusFilter
 
 
-module Network.AWS.CloudControl.Types
+module Amazonka.CloudControl.Types
 
 -- | API version <tt>2021-09-30</tt> of the Amazon Cloud Control API SDK
 --   configuration.
@@ -870,7 +870,7 @@ resourceRequestStatusFilter_operations :: Lens' ResourceRequestStatusFilter (May
 --   You can use this action to return information about existing resources
 --   in your account and Amazon Web Services Region, whether or not those
 --   resources were provisioned using Cloud Control API.
-module Network.AWS.CloudControl.ListResources
+module Amazonka.CloudControl.ListResources
 
 -- | <i>See:</i> <a>newListResources</a> smart constructor.
 data ListResources
@@ -1077,20 +1077,20 @@ listResourcesResponse_nextToken :: Lens' ListResourcesResponse (Maybe Text)
 
 -- | The response's http status code.
 listResourcesResponse_httpStatus :: Lens' ListResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudControl.ListResources.ListResources
-instance GHC.Show.Show Network.AWS.CloudControl.ListResources.ListResources
-instance GHC.Classes.Eq Network.AWS.CloudControl.ListResources.ListResources
-instance GHC.Generics.Generic Network.AWS.CloudControl.ListResources.ListResourcesResponse
-instance GHC.Show.Show Network.AWS.CloudControl.ListResources.ListResourcesResponse
-instance GHC.Classes.Eq Network.AWS.CloudControl.ListResources.ListResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudControl.ListResources.ListResources
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.ListResources.ListResourcesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudControl.ListResources.ListResources
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.ListResources.ListResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudControl.ListResources.ListResources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudControl.ListResources.ListResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudControl.ListResources.ListResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.ListResources.ListResources
+instance GHC.Generics.Generic Amazonka.CloudControl.ListResources.ListResources
+instance GHC.Show.Show Amazonka.CloudControl.ListResources.ListResources
+instance GHC.Classes.Eq Amazonka.CloudControl.ListResources.ListResources
+instance GHC.Generics.Generic Amazonka.CloudControl.ListResources.ListResourcesResponse
+instance GHC.Show.Show Amazonka.CloudControl.ListResources.ListResourcesResponse
+instance GHC.Classes.Eq Amazonka.CloudControl.ListResources.ListResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudControl.ListResources.ListResources
+instance Control.DeepSeq.NFData Amazonka.CloudControl.ListResources.ListResourcesResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudControl.ListResources.ListResources
+instance Control.DeepSeq.NFData Amazonka.CloudControl.ListResources.ListResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudControl.ListResources.ListResources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudControl.ListResources.ListResources
+instance Amazonka.Data.Path.ToPath Amazonka.CloudControl.ListResources.ListResources
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudControl.ListResources.ListResources
 
 
 -- | Returns existing resource operation requests. This includes requests
@@ -1099,7 +1099,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.ListResources.L
 --   Control API User Guide</i>.
 --   
 --   Resource operation requests expire after seven days.
-module Network.AWS.CloudControl.ListResourceRequests
+module Amazonka.CloudControl.ListResourceRequests
 
 -- | <i>See:</i> <a>newListResourceRequests</a> smart constructor.
 data ListResourceRequests
@@ -1231,28 +1231,28 @@ listResourceRequestsResponse_nextToken :: Lens' ListResourceRequestsResponse (Ma
 
 -- | The response's http status code.
 listResourceRequestsResponse_httpStatus :: Lens' ListResourceRequestsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudControl.ListResourceRequests.ListResourceRequests
-instance GHC.Show.Show Network.AWS.CloudControl.ListResourceRequests.ListResourceRequests
-instance GHC.Read.Read Network.AWS.CloudControl.ListResourceRequests.ListResourceRequests
-instance GHC.Classes.Eq Network.AWS.CloudControl.ListResourceRequests.ListResourceRequests
-instance GHC.Generics.Generic Network.AWS.CloudControl.ListResourceRequests.ListResourceRequestsResponse
-instance GHC.Show.Show Network.AWS.CloudControl.ListResourceRequests.ListResourceRequestsResponse
-instance GHC.Classes.Eq Network.AWS.CloudControl.ListResourceRequests.ListResourceRequestsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudControl.ListResourceRequests.ListResourceRequests
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.ListResourceRequests.ListResourceRequestsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudControl.ListResourceRequests.ListResourceRequests
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.ListResourceRequests.ListResourceRequests
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudControl.ListResourceRequests.ListResourceRequests
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudControl.ListResourceRequests.ListResourceRequests
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudControl.ListResourceRequests.ListResourceRequests
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.ListResourceRequests.ListResourceRequests
+instance GHC.Generics.Generic Amazonka.CloudControl.ListResourceRequests.ListResourceRequests
+instance GHC.Show.Show Amazonka.CloudControl.ListResourceRequests.ListResourceRequests
+instance GHC.Read.Read Amazonka.CloudControl.ListResourceRequests.ListResourceRequests
+instance GHC.Classes.Eq Amazonka.CloudControl.ListResourceRequests.ListResourceRequests
+instance GHC.Generics.Generic Amazonka.CloudControl.ListResourceRequests.ListResourceRequestsResponse
+instance GHC.Show.Show Amazonka.CloudControl.ListResourceRequests.ListResourceRequestsResponse
+instance GHC.Classes.Eq Amazonka.CloudControl.ListResourceRequests.ListResourceRequestsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudControl.ListResourceRequests.ListResourceRequests
+instance Control.DeepSeq.NFData Amazonka.CloudControl.ListResourceRequests.ListResourceRequestsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudControl.ListResourceRequests.ListResourceRequests
+instance Control.DeepSeq.NFData Amazonka.CloudControl.ListResourceRequests.ListResourceRequests
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudControl.ListResourceRequests.ListResourceRequests
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudControl.ListResourceRequests.ListResourceRequests
+instance Amazonka.Data.Path.ToPath Amazonka.CloudControl.ListResourceRequests.ListResourceRequests
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudControl.ListResourceRequests.ListResourceRequests
 
 
 -- | Returns the current status of a resource operation request. For more
 --   information, see <a>Tracking the progress of resource operation
 --   requests</a> in the <i>Amazon Web Services Cloud Control API User
 --   Guide</i>.
-module Network.AWS.CloudControl.GetResourceRequestStatus
+module Amazonka.CloudControl.GetResourceRequestStatus
 
 -- | <i>See:</i> <a>newGetResourceRequestStatus</a> smart constructor.
 data GetResourceRequestStatus
@@ -1323,21 +1323,21 @@ getResourceRequestStatusResponse_progressEvent :: Lens' GetResourceRequestStatus
 
 -- | The response's http status code.
 getResourceRequestStatusResponse_httpStatus :: Lens' GetResourceRequestStatusResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
-instance GHC.Show.Show Network.AWS.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
-instance GHC.Read.Read Network.AWS.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
-instance GHC.Classes.Eq Network.AWS.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
-instance GHC.Generics.Generic Network.AWS.CloudControl.GetResourceRequestStatus.GetResourceRequestStatusResponse
-instance GHC.Show.Show Network.AWS.CloudControl.GetResourceRequestStatus.GetResourceRequestStatusResponse
-instance GHC.Classes.Eq Network.AWS.CloudControl.GetResourceRequestStatus.GetResourceRequestStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.GetResourceRequestStatus.GetResourceRequestStatusResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
+instance GHC.Generics.Generic Amazonka.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
+instance GHC.Show.Show Amazonka.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
+instance GHC.Read.Read Amazonka.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
+instance GHC.Classes.Eq Amazonka.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
+instance GHC.Generics.Generic Amazonka.CloudControl.GetResourceRequestStatus.GetResourceRequestStatusResponse
+instance GHC.Show.Show Amazonka.CloudControl.GetResourceRequestStatus.GetResourceRequestStatusResponse
+instance GHC.Classes.Eq Amazonka.CloudControl.GetResourceRequestStatus.GetResourceRequestStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
+instance Control.DeepSeq.NFData Amazonka.CloudControl.GetResourceRequestStatus.GetResourceRequestStatusResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
+instance Control.DeepSeq.NFData Amazonka.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
+instance Amazonka.Data.Path.ToPath Amazonka.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudControl.GetResourceRequestStatus.GetResourceRequestStatus
 
 
 -- | Returns information about the current state of the specified resource.
@@ -1346,7 +1346,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.GetResourceRequ
 --   You can use this action to return information about an existing
 --   resource in your account and Amazon Web Services Region, whether or
 --   not those resources were provisioned using Cloud Control API.
-module Network.AWS.CloudControl.GetResource
+module Amazonka.CloudControl.GetResource
 
 -- | <i>See:</i> <a>newGetResource</a> smart constructor.
 data GetResource
@@ -1517,21 +1517,21 @@ getResourceResponse_resourceDescription :: Lens' GetResourceResponse (Maybe Reso
 
 -- | The response's http status code.
 getResourceResponse_httpStatus :: Lens' GetResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudControl.GetResource.GetResource
-instance GHC.Show.Show Network.AWS.CloudControl.GetResource.GetResource
-instance GHC.Read.Read Network.AWS.CloudControl.GetResource.GetResource
-instance GHC.Classes.Eq Network.AWS.CloudControl.GetResource.GetResource
-instance GHC.Generics.Generic Network.AWS.CloudControl.GetResource.GetResourceResponse
-instance GHC.Show.Show Network.AWS.CloudControl.GetResource.GetResourceResponse
-instance GHC.Classes.Eq Network.AWS.CloudControl.GetResource.GetResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudControl.GetResource.GetResource
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.GetResource.GetResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudControl.GetResource.GetResource
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.GetResource.GetResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudControl.GetResource.GetResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudControl.GetResource.GetResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudControl.GetResource.GetResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.GetResource.GetResource
+instance GHC.Generics.Generic Amazonka.CloudControl.GetResource.GetResource
+instance GHC.Show.Show Amazonka.CloudControl.GetResource.GetResource
+instance GHC.Read.Read Amazonka.CloudControl.GetResource.GetResource
+instance GHC.Classes.Eq Amazonka.CloudControl.GetResource.GetResource
+instance GHC.Generics.Generic Amazonka.CloudControl.GetResource.GetResourceResponse
+instance GHC.Show.Show Amazonka.CloudControl.GetResource.GetResourceResponse
+instance GHC.Classes.Eq Amazonka.CloudControl.GetResource.GetResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudControl.GetResource.GetResource
+instance Control.DeepSeq.NFData Amazonka.CloudControl.GetResource.GetResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudControl.GetResource.GetResource
+instance Control.DeepSeq.NFData Amazonka.CloudControl.GetResource.GetResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudControl.GetResource.GetResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudControl.GetResource.GetResource
+instance Amazonka.Data.Path.ToPath Amazonka.CloudControl.GetResource.GetResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudControl.GetResource.GetResource
 
 
 -- | Deletes the specified resource. For details, see <a>Deleting a
@@ -1542,7 +1542,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.GetResource.Get
 --   the progress of your request by calling
 --   <a>GetResourceRequestStatus</a> using the <tt>RequestToken</tt> of the
 --   <tt>ProgressEvent</tt> returned by <tt>DeleteResource</tt>.
-module Network.AWS.CloudControl.DeleteResource
+module Amazonka.CloudControl.DeleteResource
 
 -- | <i>See:</i> <a>newDeleteResource</a> smart constructor.
 data DeleteResource
@@ -1775,21 +1775,21 @@ deleteResourceResponse_progressEvent :: Lens' DeleteResourceResponse (Maybe Prog
 
 -- | The response's http status code.
 deleteResourceResponse_httpStatus :: Lens' DeleteResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudControl.DeleteResource.DeleteResource
-instance GHC.Show.Show Network.AWS.CloudControl.DeleteResource.DeleteResource
-instance GHC.Read.Read Network.AWS.CloudControl.DeleteResource.DeleteResource
-instance GHC.Classes.Eq Network.AWS.CloudControl.DeleteResource.DeleteResource
-instance GHC.Generics.Generic Network.AWS.CloudControl.DeleteResource.DeleteResourceResponse
-instance GHC.Show.Show Network.AWS.CloudControl.DeleteResource.DeleteResourceResponse
-instance GHC.Classes.Eq Network.AWS.CloudControl.DeleteResource.DeleteResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudControl.DeleteResource.DeleteResource
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.DeleteResource.DeleteResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudControl.DeleteResource.DeleteResource
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.DeleteResource.DeleteResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudControl.DeleteResource.DeleteResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudControl.DeleteResource.DeleteResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudControl.DeleteResource.DeleteResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.DeleteResource.DeleteResource
+instance GHC.Generics.Generic Amazonka.CloudControl.DeleteResource.DeleteResource
+instance GHC.Show.Show Amazonka.CloudControl.DeleteResource.DeleteResource
+instance GHC.Read.Read Amazonka.CloudControl.DeleteResource.DeleteResource
+instance GHC.Classes.Eq Amazonka.CloudControl.DeleteResource.DeleteResource
+instance GHC.Generics.Generic Amazonka.CloudControl.DeleteResource.DeleteResourceResponse
+instance GHC.Show.Show Amazonka.CloudControl.DeleteResource.DeleteResourceResponse
+instance GHC.Classes.Eq Amazonka.CloudControl.DeleteResource.DeleteResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudControl.DeleteResource.DeleteResource
+instance Control.DeepSeq.NFData Amazonka.CloudControl.DeleteResource.DeleteResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudControl.DeleteResource.DeleteResource
+instance Control.DeepSeq.NFData Amazonka.CloudControl.DeleteResource.DeleteResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudControl.DeleteResource.DeleteResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudControl.DeleteResource.DeleteResource
+instance Amazonka.Data.Path.ToPath Amazonka.CloudControl.DeleteResource.DeleteResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudControl.DeleteResource.DeleteResource
 
 
 -- | Creates the specified resource. For more information, see <a>Creating
@@ -1800,7 +1800,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.DeleteResource.
 --   the progress of your request by calling
 --   <a>GetResourceRequestStatus</a> using the <tt>RequestToken</tt> of the
 --   <tt>ProgressEvent</tt> type returned by <tt>CreateResource</tt>.
-module Network.AWS.CloudControl.CreateResource
+module Amazonka.CloudControl.CreateResource
 
 -- | <i>See:</i> <a>newCreateResource</a> smart constructor.
 data CreateResource
@@ -2049,20 +2049,20 @@ createResourceResponse_progressEvent :: Lens' CreateResourceResponse (Maybe Prog
 
 -- | The response's http status code.
 createResourceResponse_httpStatus :: Lens' CreateResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudControl.CreateResource.CreateResource
-instance GHC.Show.Show Network.AWS.CloudControl.CreateResource.CreateResource
-instance GHC.Classes.Eq Network.AWS.CloudControl.CreateResource.CreateResource
-instance GHC.Generics.Generic Network.AWS.CloudControl.CreateResource.CreateResourceResponse
-instance GHC.Show.Show Network.AWS.CloudControl.CreateResource.CreateResourceResponse
-instance GHC.Classes.Eq Network.AWS.CloudControl.CreateResource.CreateResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudControl.CreateResource.CreateResource
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.CreateResource.CreateResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudControl.CreateResource.CreateResource
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.CreateResource.CreateResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudControl.CreateResource.CreateResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudControl.CreateResource.CreateResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudControl.CreateResource.CreateResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.CreateResource.CreateResource
+instance GHC.Generics.Generic Amazonka.CloudControl.CreateResource.CreateResource
+instance GHC.Show.Show Amazonka.CloudControl.CreateResource.CreateResource
+instance GHC.Classes.Eq Amazonka.CloudControl.CreateResource.CreateResource
+instance GHC.Generics.Generic Amazonka.CloudControl.CreateResource.CreateResourceResponse
+instance GHC.Show.Show Amazonka.CloudControl.CreateResource.CreateResourceResponse
+instance GHC.Classes.Eq Amazonka.CloudControl.CreateResource.CreateResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudControl.CreateResource.CreateResource
+instance Control.DeepSeq.NFData Amazonka.CloudControl.CreateResource.CreateResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudControl.CreateResource.CreateResource
+instance Control.DeepSeq.NFData Amazonka.CloudControl.CreateResource.CreateResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudControl.CreateResource.CreateResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudControl.CreateResource.CreateResource
+instance Amazonka.Data.Path.ToPath Amazonka.CloudControl.CreateResource.CreateResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudControl.CreateResource.CreateResource
 
 
 -- | Cancels the specified resource operation request. For more
@@ -2071,7 +2071,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.CreateResource.
 --   
 --   Only resource operations requests with a status of <tt>PENDING</tt> or
 --   <tt>IN_PROGRESS</tt> can be cancelled.
-module Network.AWS.CloudControl.CancelResourceRequest
+module Amazonka.CloudControl.CancelResourceRequest
 
 -- | <i>See:</i> <a>newCancelResourceRequest</a> smart constructor.
 data CancelResourceRequest
@@ -2131,21 +2131,21 @@ cancelResourceRequestResponse_progressEvent :: Lens' CancelResourceRequestRespon
 
 -- | The response's http status code.
 cancelResourceRequestResponse_httpStatus :: Lens' CancelResourceRequestResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudControl.CancelResourceRequest.CancelResourceRequest
-instance GHC.Show.Show Network.AWS.CloudControl.CancelResourceRequest.CancelResourceRequest
-instance GHC.Read.Read Network.AWS.CloudControl.CancelResourceRequest.CancelResourceRequest
-instance GHC.Classes.Eq Network.AWS.CloudControl.CancelResourceRequest.CancelResourceRequest
-instance GHC.Generics.Generic Network.AWS.CloudControl.CancelResourceRequest.CancelResourceRequestResponse
-instance GHC.Show.Show Network.AWS.CloudControl.CancelResourceRequest.CancelResourceRequestResponse
-instance GHC.Classes.Eq Network.AWS.CloudControl.CancelResourceRequest.CancelResourceRequestResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudControl.CancelResourceRequest.CancelResourceRequest
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.CancelResourceRequest.CancelResourceRequestResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudControl.CancelResourceRequest.CancelResourceRequest
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.CancelResourceRequest.CancelResourceRequest
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudControl.CancelResourceRequest.CancelResourceRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudControl.CancelResourceRequest.CancelResourceRequest
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudControl.CancelResourceRequest.CancelResourceRequest
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.CancelResourceRequest.CancelResourceRequest
+instance GHC.Generics.Generic Amazonka.CloudControl.CancelResourceRequest.CancelResourceRequest
+instance GHC.Show.Show Amazonka.CloudControl.CancelResourceRequest.CancelResourceRequest
+instance GHC.Read.Read Amazonka.CloudControl.CancelResourceRequest.CancelResourceRequest
+instance GHC.Classes.Eq Amazonka.CloudControl.CancelResourceRequest.CancelResourceRequest
+instance GHC.Generics.Generic Amazonka.CloudControl.CancelResourceRequest.CancelResourceRequestResponse
+instance GHC.Show.Show Amazonka.CloudControl.CancelResourceRequest.CancelResourceRequestResponse
+instance GHC.Classes.Eq Amazonka.CloudControl.CancelResourceRequest.CancelResourceRequestResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudControl.CancelResourceRequest.CancelResourceRequest
+instance Control.DeepSeq.NFData Amazonka.CloudControl.CancelResourceRequest.CancelResourceRequestResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudControl.CancelResourceRequest.CancelResourceRequest
+instance Control.DeepSeq.NFData Amazonka.CloudControl.CancelResourceRequest.CancelResourceRequest
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudControl.CancelResourceRequest.CancelResourceRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudControl.CancelResourceRequest.CancelResourceRequest
+instance Amazonka.Data.Path.ToPath Amazonka.CloudControl.CancelResourceRequest.CancelResourceRequest
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudControl.CancelResourceRequest.CancelResourceRequest
 
 
 -- | Updates the specified property values in the resource.
@@ -2167,7 +2167,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.CancelResourceR
 --   refer to the related topic for the resource in the <a>Resource and
 --   property types reference</a> in the <i>Amazon Web Services
 --   CloudFormation Users Guide</i>.
-module Network.AWS.CloudControl.UpdateResource
+module Amazonka.CloudControl.UpdateResource
 
 -- | <i>See:</i> <a>newUpdateResource</a> smart constructor.
 data UpdateResource
@@ -2416,23 +2416,23 @@ updateResourceResponse_progressEvent :: Lens' UpdateResourceResponse (Maybe Prog
 
 -- | The response's http status code.
 updateResourceResponse_httpStatus :: Lens' UpdateResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudControl.UpdateResource.UpdateResource
-instance GHC.Show.Show Network.AWS.CloudControl.UpdateResource.UpdateResource
-instance GHC.Classes.Eq Network.AWS.CloudControl.UpdateResource.UpdateResource
-instance GHC.Generics.Generic Network.AWS.CloudControl.UpdateResource.UpdateResourceResponse
-instance GHC.Show.Show Network.AWS.CloudControl.UpdateResource.UpdateResourceResponse
-instance GHC.Classes.Eq Network.AWS.CloudControl.UpdateResource.UpdateResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudControl.UpdateResource.UpdateResource
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.UpdateResource.UpdateResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudControl.UpdateResource.UpdateResource
-instance Control.DeepSeq.NFData Network.AWS.CloudControl.UpdateResource.UpdateResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudControl.UpdateResource.UpdateResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudControl.UpdateResource.UpdateResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudControl.UpdateResource.UpdateResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudControl.UpdateResource.UpdateResource
+instance GHC.Generics.Generic Amazonka.CloudControl.UpdateResource.UpdateResource
+instance GHC.Show.Show Amazonka.CloudControl.UpdateResource.UpdateResource
+instance GHC.Classes.Eq Amazonka.CloudControl.UpdateResource.UpdateResource
+instance GHC.Generics.Generic Amazonka.CloudControl.UpdateResource.UpdateResourceResponse
+instance GHC.Show.Show Amazonka.CloudControl.UpdateResource.UpdateResourceResponse
+instance GHC.Classes.Eq Amazonka.CloudControl.UpdateResource.UpdateResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudControl.UpdateResource.UpdateResource
+instance Control.DeepSeq.NFData Amazonka.CloudControl.UpdateResource.UpdateResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudControl.UpdateResource.UpdateResource
+instance Control.DeepSeq.NFData Amazonka.CloudControl.UpdateResource.UpdateResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudControl.UpdateResource.UpdateResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudControl.UpdateResource.UpdateResource
+instance Amazonka.Data.Path.ToPath Amazonka.CloudControl.UpdateResource.UpdateResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudControl.UpdateResource.UpdateResource
 
 
-module Network.AWS.CloudControl.Lens
+module Amazonka.CloudControl.Lens
 
 -- | For private resource types, the type version to use in this resource
 --   operation. If you do not specify a resource version, CloudFormation
@@ -2889,7 +2889,7 @@ resourceRequestStatusFilter_operationStatuses :: Lens' ResourceRequestStatusFilt
 resourceRequestStatusFilter_operations :: Lens' ResourceRequestStatusFilter (Maybe [Operation])
 
 
-module Network.AWS.CloudControl.Waiters
+module Amazonka.CloudControl.Waiters
 
 -- | Polls <a>GetResourceRequestStatus</a> every 5 seconds until a
 --   successful state is reached. An error is returned after 720 failed
@@ -2911,7 +2911,7 @@ newResourceRequestSuccess :: Wait GetResourceRequestStatus
 --   
 --   For more information about Amazon Web Services Cloud Control API, see
 --   the <a>Amazon Web Services Cloud Control API User Guide</a>.
-module Network.AWS.CloudControl
+module Amazonka.CloudControl
 
 -- | API version <tt>2021-09-30</tt> of the Amazon Cloud Control API SDK
 --   configuration.

@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoT1ClickDevices.Types.Device</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT1ClickDevices.Types.Device</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Attributes.html"><span class="hs-identifier">Amazonka.IoT1ClickDevices.Types.Attributes</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | /See:/ 'newDevice' smart constructor.</span><span>
+</span><span id="line-28"></span><span id="local-6989586621679152870"><span id="local-6989586621679152871"></span></span><span class="hs-keyword">data</span><span> </span><span id="Device"><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device"><span class="hs-identifier hs-var">Device</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Device%27"><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device%27"><span class="hs-identifier hs-var">Device'</span></a></span></span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user specified attributes associated with the device for an event.</span><span>
+</span><span id="line-30"></span><span>    </span><span id="%24sel%3Aattributes%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe Attributes
+</span><a href="Amazonka.IoT1ClickDevices.Types.Device.html#%24sel%3Aattributes%3ADevice%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Attributes.html#Attributes"><span class="hs-identifier hs-type">Attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the device.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdeviceId%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe Text
+</span><a href="Amazonka.IoT1ClickDevices.Types.Device.html#%24sel%3AdeviceId%3ADevice%27"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The device type, such as \&quot;button\&quot;.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Atype%27%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe Text
+</span><a href="Amazonka.IoT1ClickDevices.Types.Device.html#%24sel%3Atype%27%3ADevice%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152862"><span id="local-6989586621679152864"><span class="annot"><span class="annottext">Device -&gt; Device -&gt; Bool
+(Device -&gt; Device -&gt; Bool)
+-&gt; (Device -&gt; Device -&gt; Bool) -&gt; Eq Device
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Device -&gt; Device -&gt; Bool
+$c/= :: Device -&gt; Device -&gt; Bool
+== :: Device -&gt; Device -&gt; Bool
+$c== :: Device -&gt; Device -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152853"><span id="local-6989586621679152855"><span id="local-6989586621679152857"><span id="local-6989586621679152859"><span class="annot"><span class="annottext">ReadPrec [Device]
+ReadPrec Device
+Int -&gt; ReadS Device
+ReadS [Device]
+(Int -&gt; ReadS Device)
+-&gt; ReadS [Device]
+-&gt; ReadPrec Device
+-&gt; ReadPrec [Device]
+-&gt; Read Device
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Device]
+$creadListPrec :: ReadPrec [Device]
+readPrec :: ReadPrec Device
+$creadPrec :: ReadPrec Device
+readList :: ReadS [Device]
+$creadList :: ReadS [Device]
+readsPrec :: Int -&gt; ReadS Device
+$creadsPrec :: Int -&gt; ReadS Device
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152846"><span id="local-6989586621679152848"><span id="local-6989586621679152850"><span class="annot"><span class="annottext">Int -&gt; Device -&gt; ShowS
+[Device] -&gt; ShowS
+Device -&gt; String
+(Int -&gt; Device -&gt; ShowS)
+-&gt; (Device -&gt; String) -&gt; ([Device] -&gt; ShowS) -&gt; Show Device
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Device] -&gt; ShowS
+$cshowList :: [Device] -&gt; ShowS
+show :: Device -&gt; String
+$cshow :: Device -&gt; String
+showsPrec :: Int -&gt; Device -&gt; ShowS
+$cshowsPrec :: Int -&gt; Device -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Device -&gt; Rep Device x)
+-&gt; (forall x. Rep Device x -&gt; Device) -&gt; Generic Device
+forall x. Rep Device x -&gt; Device
+forall x. Device -&gt; Rep Device x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Device x -&gt; Device
+$cfrom :: forall x. Device -&gt; Rep Device x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'Device' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'attributes', 'device_attributes' - The user specified attributes associated with the device for an event.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'deviceId', 'device_deviceId' - The unique identifier of the device.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'type'', 'device_type' - The device type, such as \&quot;button\&quot;.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#newDevice"><span class="hs-identifier hs-type">newDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span>
+</span><span id="line-53"></span><span id="newDevice"><span class="annot"><span class="annottext">newDevice :: Device
+</span><a href="Amazonka.IoT1ClickDevices.Types.Device.html#newDevice"><span class="hs-identifier hs-var hs-var">newDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">Device' :: Maybe Attributes -&gt; Maybe Text -&gt; Maybe Text -&gt; Device
+</span><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributes:Device' :: Maybe Attributes
+</span><a href="Amazonka.IoT1ClickDevices.Types.Device.html#%24sel%3Aattributes%3ADevice%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Attributes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceId:Device' :: Maybe Text
+</span><a href="Amazonka.IoT1ClickDevices.Types.Device.html#%24sel%3AdeviceId%3ADevice%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Device' :: Maybe Text
+</span><a href="Amazonka.IoT1ClickDevices.Types.Device.html#%24sel%3Atype%27%3ADevice%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The user specified attributes associated with the device for an event.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#device_attributes"><span class="hs-identifier hs-type">device_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Attributes.html#Attributes"><span class="hs-identifier hs-type">Attributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="device_attributes"><span class="annot"><span class="annottext">device_attributes :: (Maybe Attributes -&gt; f (Maybe Attributes)) -&gt; Device -&gt; f Device
+</span><a href="Amazonka.IoT1ClickDevices.Types.Device.html#device_attributes"><span class="hs-identifier hs-var hs-var">device_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe Attributes)
+-&gt; (Device -&gt; Maybe Attributes -&gt; Device)
+-&gt; Lens Device Device (Maybe Attributes) (Maybe Attributes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152837"><span class="annot"><span class="annottext">Maybe Attributes
+attributes :: Maybe Attributes
+$sel:attributes:Device' :: Device -&gt; Maybe Attributes
+</span><a href="#local-6989586621679152837"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Attributes
+</span><a href="#local-6989586621679152837"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152836"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679152836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152835"><span class="annot"><span class="annottext">Maybe Attributes
+</span><a href="#local-6989586621679152835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679152836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Device' :: Maybe Attributes
+</span><a href="Amazonka.IoT1ClickDevices.Types.Device.html#%24sel%3Aattributes%3ADevice%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Attributes
+</span><a href="#local-6989586621679152835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The unique identifier of the device.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#device_deviceId"><span class="hs-identifier hs-type">device_deviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="device_deviceId"><span class="annot"><span class="annottext">device_deviceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Device -&gt; f Device
+</span><a href="Amazonka.IoT1ClickDevices.Types.Device.html#device_deviceId"><span class="hs-identifier hs-var hs-var">device_deviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe Text)
+-&gt; (Device -&gt; Maybe Text -&gt; Device)
+-&gt; Lens Device Device (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152833"><span class="annot"><span class="annottext">Maybe Text
+deviceId :: Maybe Text
+$sel:deviceId:Device' :: Device -&gt; Maybe Text
+</span><a href="#local-6989586621679152833"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152833"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152832"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679152832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152831"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679152832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:Device' :: Maybe Text
+</span><a href="Amazonka.IoT1ClickDevices.Types.Device.html#%24sel%3AdeviceId%3ADevice%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The device type, such as \&quot;button\&quot;.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#device_type"><span class="hs-identifier hs-type">device_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="device_type"><span class="annot"><span class="annottext">device_type :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Device -&gt; f Device
+</span><a href="Amazonka.IoT1ClickDevices.Types.Device.html#device_type"><span class="hs-identifier hs-var hs-var">device_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe Text)
+-&gt; (Device -&gt; Maybe Text -&gt; Device)
+-&gt; Lens Device Device (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152829"><span class="annot"><span class="annottext">Maybe Text
+type' :: Maybe Text
+$sel:type':Device' :: Device -&gt; Maybe Text
+</span><a href="#local-6989586621679152829"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152829"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152828"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679152828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152827"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679152828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Device' :: Maybe Text
+</span><a href="Amazonka.IoT1ClickDevices.Types.Device.html#%24sel%3Atype%27%3ADevice%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152824"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679152822"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Device
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Device) -&gt; Value -&gt; Parser Device
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Device&quot;</span></span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152819"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152819"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Attributes -&gt; Maybe Text -&gt; Maybe Text -&gt; Device
+</span><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device%27"><span class="hs-identifier hs-var">Device'</span></a></span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Attributes -&gt; Maybe Text -&gt; Maybe Text -&gt; Device)
+-&gt; Parser (Maybe Attributes)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Device)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Attributes)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attributes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Device)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Device)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Device)
+-&gt; Parser (Maybe Text) -&gt; Parser Device
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152813"><span id="local-6989586621679152815"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152810"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT1ClickDevices.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span><span>
+</span><span id="line-86"></span></pre></body></html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RAM.ListPendingInvitationResources</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the resources in a resource share that is shared with you but that</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the invitation is still pending for.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RAM.ListPendingInvitationResources</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier">ListPendingInvitationResources</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#newListPendingInvitationResources"><span class="hs-identifier">newListPendingInvitationResources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResources_nextToken"><span class="hs-identifier">listPendingInvitationResources_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResources_maxResults"><span class="hs-identifier">listPendingInvitationResources_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResources_resourceShareInvitationArn"><span class="hs-identifier">listPendingInvitationResources_resourceShareInvitationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse"><span class="hs-identifier">ListPendingInvitationResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#newListPendingInvitationResourcesResponse"><span class="hs-identifier">newListPendingInvitationResourcesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResourcesResponse_resources"><span class="hs-identifier">listPendingInvitationResourcesResponse_resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResourcesResponse_nextToken"><span class="hs-identifier">listPendingInvitationResourcesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResourcesResponse_httpStatus"><span class="hs-identifier">listPendingInvitationResourcesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.html"><span class="hs-identifier">Amazonka.RAM.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListPendingInvitationResources' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679206025"><span id="local-6989586621679206026"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPendingInvitationResources"><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-var">ListPendingInvitationResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPendingInvitationResources%27"><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources%27"><span class="hs-identifier hs-var">ListPendingInvitationResources'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AListPendingInvitationResources%27"><span class="annot"><span class="annottext">ListPendingInvitationResources -&gt; Maybe Text
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3AnextToken%3AListPendingInvitationResources%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListPendingInvitationResources%27"><span class="annot"><span class="annottext">ListPendingInvitationResources -&gt; Maybe Natural
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3AmaxResults%3AListPendingInvitationResources%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the invitation.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AresourceShareInvitationArn%3AListPendingInvitationResources%27"><span class="annot"><span class="annottext">ListPendingInvitationResources -&gt; Text
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3AresourceShareInvitationArn%3AListPendingInvitationResources%27"><span class="hs-identifier hs-var hs-var">resourceShareInvitationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206017"><span id="local-6989586621679206019"><span class="annot"><span class="annottext">ListPendingInvitationResources
+-&gt; ListPendingInvitationResources -&gt; Bool
+(ListPendingInvitationResources
+ -&gt; ListPendingInvitationResources -&gt; Bool)
+-&gt; (ListPendingInvitationResources
+    -&gt; ListPendingInvitationResources -&gt; Bool)
+-&gt; Eq ListPendingInvitationResources
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPendingInvitationResources
+-&gt; ListPendingInvitationResources -&gt; Bool
+$c/= :: ListPendingInvitationResources
+-&gt; ListPendingInvitationResources -&gt; Bool
+== :: ListPendingInvitationResources
+-&gt; ListPendingInvitationResources -&gt; Bool
+$c== :: ListPendingInvitationResources
+-&gt; ListPendingInvitationResources -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206008"><span id="local-6989586621679206010"><span id="local-6989586621679206012"><span id="local-6989586621679206014"><span class="annot"><span class="annottext">ReadPrec [ListPendingInvitationResources]
+ReadPrec ListPendingInvitationResources
+Int -&gt; ReadS ListPendingInvitationResources
+ReadS [ListPendingInvitationResources]
+(Int -&gt; ReadS ListPendingInvitationResources)
+-&gt; ReadS [ListPendingInvitationResources]
+-&gt; ReadPrec ListPendingInvitationResources
+-&gt; ReadPrec [ListPendingInvitationResources]
+-&gt; Read ListPendingInvitationResources
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPendingInvitationResources]
+$creadListPrec :: ReadPrec [ListPendingInvitationResources]
+readPrec :: ReadPrec ListPendingInvitationResources
+$creadPrec :: ReadPrec ListPendingInvitationResources
+readList :: ReadS [ListPendingInvitationResources]
+$creadList :: ReadS [ListPendingInvitationResources]
+readsPrec :: Int -&gt; ReadS ListPendingInvitationResources
+$creadsPrec :: Int -&gt; ReadS ListPendingInvitationResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206001"><span id="local-6989586621679206003"><span id="local-6989586621679206005"><span class="annot"><span class="annottext">Int -&gt; ListPendingInvitationResources -&gt; ShowS
+[ListPendingInvitationResources] -&gt; ShowS
+ListPendingInvitationResources -&gt; String
+(Int -&gt; ListPendingInvitationResources -&gt; ShowS)
+-&gt; (ListPendingInvitationResources -&gt; String)
+-&gt; ([ListPendingInvitationResources] -&gt; ShowS)
+-&gt; Show ListPendingInvitationResources
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPendingInvitationResources] -&gt; ShowS
+$cshowList :: [ListPendingInvitationResources] -&gt; ShowS
+show :: ListPendingInvitationResources -&gt; String
+$cshow :: ListPendingInvitationResources -&gt; String
+showsPrec :: Int -&gt; ListPendingInvitationResources -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPendingInvitationResources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPendingInvitationResources
+ -&gt; Rep ListPendingInvitationResources x)
+-&gt; (forall x.
+    Rep ListPendingInvitationResources x
+    -&gt; ListPendingInvitationResources)
+-&gt; Generic ListPendingInvitationResources
+forall x.
+Rep ListPendingInvitationResources x
+-&gt; ListPendingInvitationResources
+forall x.
+ListPendingInvitationResources
+-&gt; Rep ListPendingInvitationResources x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListPendingInvitationResources x
+-&gt; ListPendingInvitationResources
+$cfrom :: forall x.
+ListPendingInvitationResources
+-&gt; Rep ListPendingInvitationResources x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'ListPendingInvitationResources' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'nextToken', 'listPendingInvitationResources_nextToken' - The token for the next page of results.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'maxResults', 'listPendingInvitationResources_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'resourceShareInvitationArn', 'listPendingInvitationResources_resourceShareInvitationArn' - The Amazon Resource Name (ARN) of the invitation.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#newListPendingInvitationResources"><span class="hs-identifier hs-type">newListPendingInvitationResources</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'resourceShareInvitationArn'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-type">ListPendingInvitationResources</span></a></span><span>
+</span><span id="line-85"></span><span id="newListPendingInvitationResources"><span class="annot"><span class="annottext">newListPendingInvitationResources :: Text -&gt; ListPendingInvitationResources
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#newListPendingInvitationResources"><span class="hs-identifier hs-var hs-var">newListPendingInvitationResources</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679205996"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205996"><span class="hs-identifier hs-var">pResourceShareInvitationArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">ListPendingInvitationResources' :: Maybe Text
+-&gt; Maybe Natural -&gt; Text -&gt; ListPendingInvitationResources
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources%27"><span class="hs-identifier hs-type">ListPendingInvitationResources'</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPendingInvitationResources' :: Maybe Text
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3AnextToken%3AListPendingInvitationResources%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxResults:ListPendingInvitationResources' :: Maybe Natural
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3AmaxResults%3AListPendingInvitationResources%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceShareInvitationArn:ListPendingInvitationResources' :: Text
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3AresourceShareInvitationArn%3AListPendingInvitationResources%27"><span class="hs-identifier hs-var">resourceShareInvitationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205996"><span class="hs-identifier hs-var">pResourceShareInvitationArn_</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResources_nextToken"><span class="hs-identifier hs-type">listPendingInvitationResources_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-type">ListPendingInvitationResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="listPendingInvitationResources_nextToken"><span class="annot"><span class="annottext">listPendingInvitationResources_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPendingInvitationResources
+-&gt; f ListPendingInvitationResources
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResources_nextToken"><span class="hs-identifier hs-var hs-var">listPendingInvitationResources_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPendingInvitationResources -&gt; Maybe Text)
+-&gt; (ListPendingInvitationResources
+    -&gt; Maybe Text -&gt; ListPendingInvitationResources)
+-&gt; Lens
+     ListPendingInvitationResources
+     ListPendingInvitationResources
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources%27"><span class="hs-identifier hs-type">ListPendingInvitationResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205993"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPendingInvitationResources' :: ListPendingInvitationResources -&gt; Maybe Text
+</span><a href="#local-6989586621679205993"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205993"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205992"><span class="annot"><span class="annottext">s :: ListPendingInvitationResources
+</span><a href="#local-6989586621679205992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources%27"><span class="hs-identifier hs-type">ListPendingInvitationResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205991"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPendingInvitationResources
+</span><a href="#local-6989586621679205992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPendingInvitationResources' :: Maybe Text
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3AnextToken%3AListPendingInvitationResources%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-type">ListPendingInvitationResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResources_maxResults"><span class="hs-identifier hs-type">listPendingInvitationResources_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-type">ListPendingInvitationResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="listPendingInvitationResources_maxResults"><span class="annot"><span class="annottext">listPendingInvitationResources_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListPendingInvitationResources
+-&gt; f ListPendingInvitationResources
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResources_maxResults"><span class="hs-identifier hs-var hs-var">listPendingInvitationResources_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPendingInvitationResources -&gt; Maybe Natural)
+-&gt; (ListPendingInvitationResources
+    -&gt; Maybe Natural -&gt; ListPendingInvitationResources)
+-&gt; Lens
+     ListPendingInvitationResources
+     ListPendingInvitationResources
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources%27"><span class="hs-identifier hs-type">ListPendingInvitationResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205990"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListPendingInvitationResources' :: ListPendingInvitationResources -&gt; Maybe Natural
+</span><a href="#local-6989586621679205990"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679205990"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205989"><span class="annot"><span class="annottext">s :: ListPendingInvitationResources
+</span><a href="#local-6989586621679205989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources%27"><span class="hs-identifier hs-type">ListPendingInvitationResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205988"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679205988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPendingInvitationResources
+</span><a href="#local-6989586621679205989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListPendingInvitationResources' :: Maybe Natural
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3AmaxResults%3AListPendingInvitationResources%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679205988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-type">ListPendingInvitationResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the invitation.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResources_resourceShareInvitationArn"><span class="hs-identifier hs-type">listPendingInvitationResources_resourceShareInvitationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-type">ListPendingInvitationResources</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="listPendingInvitationResources_resourceShareInvitationArn"><span class="annot"><span class="annottext">listPendingInvitationResources_resourceShareInvitationArn :: (Text -&gt; f Text)
+-&gt; ListPendingInvitationResources
+-&gt; f ListPendingInvitationResources
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResources_resourceShareInvitationArn"><span class="hs-identifier hs-var hs-var">listPendingInvitationResources_resourceShareInvitationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPendingInvitationResources -&gt; Text)
+-&gt; (ListPendingInvitationResources
+    -&gt; Text -&gt; ListPendingInvitationResources)
+-&gt; Lens
+     ListPendingInvitationResources
+     ListPendingInvitationResources
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources%27"><span class="hs-identifier hs-type">ListPendingInvitationResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205987"><span class="annot"><span class="annottext">Text
+resourceShareInvitationArn :: Text
+$sel:resourceShareInvitationArn:ListPendingInvitationResources' :: ListPendingInvitationResources -&gt; Text
+</span><a href="#local-6989586621679205987"><span class="hs-identifier hs-var hs-var">resourceShareInvitationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205987"><span class="hs-identifier hs-var">resourceShareInvitationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205986"><span class="annot"><span class="annottext">s :: ListPendingInvitationResources
+</span><a href="#local-6989586621679205986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources%27"><span class="hs-identifier hs-type">ListPendingInvitationResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205985"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPendingInvitationResources
+</span><a href="#local-6989586621679205986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceShareInvitationArn:ListPendingInvitationResources' :: Text
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3AresourceShareInvitationArn%3AListPendingInvitationResources%27"><span class="hs-identifier hs-var">resourceShareInvitationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-type">ListPendingInvitationResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-type">ListPendingInvitationResources</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-type">ListPendingInvitationResources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679205981"><span class="annot"><span class="annottext">request :: ListPendingInvitationResources
+-&gt; Request ListPendingInvitationResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListPendingInvitationResources
+-&gt; Request ListPendingInvitationResources
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679205977"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListPendingInvitationResources
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ListPendingInvitationResources)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListPendingInvitationResources))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListPendingInvitationResources
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ListPendingInvitationResources)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205974"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205974"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679205973"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679205973"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679205972"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205972"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Resource]
+-&gt; Maybe Text -&gt; Int -&gt; ListPendingInvitationResourcesResponse
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-var">ListPendingInvitationResourcesResponse'</span></a></span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Resource]
+ -&gt; Maybe Text -&gt; Int -&gt; ListPendingInvitationResourcesResponse)
+-&gt; Either String (Maybe [Resource])
+-&gt; Either
+     String
+     (Maybe Text -&gt; Int -&gt; ListPendingInvitationResourcesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Resource]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Resource]))
+-&gt; Maybe [Resource] -&gt; Either String (Maybe [Resource])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; ListPendingInvitationResourcesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListPendingInvitationResourcesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListPendingInvitationResourcesResponse)
+-&gt; Either String Int
+-&gt; Either String ListPendingInvitationResourcesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205974"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679205963"><span id="local-6989586621679205965"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-type">ListPendingInvitationResources</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679205960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-type">ListPendingInvitationResources</span></a></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-type">ListPendingInvitationResources</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679205956"><span class="annot"><span class="annottext">toHeaders :: ListPendingInvitationResources -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ListPendingInvitationResources -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-144"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205946"><span id="local-6989586621679205948"><span id="local-6989586621679205950"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-type">ListPendingInvitationResources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679205944"><span class="annot"><span class="annottext">toJSON :: ListPendingInvitationResources -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources%27"><span class="hs-identifier hs-type">ListPendingInvitationResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205940"><span id="local-6989586621679205941"><span id="local-6989586621679205942"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+resourceShareInvitationArn :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:resourceShareInvitationArn:ListPendingInvitationResources' :: ListPendingInvitationResources -&gt; Text
+$sel:maxResults:ListPendingInvitationResources' :: ListPendingInvitationResources -&gt; Maybe Natural
+$sel:nextToken:ListPendingInvitationResources' :: ListPendingInvitationResources -&gt; Maybe Text
+</span><a href="#local-6989586621679205940"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205942"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679205941"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-155"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceShareInvitationArn&quot;</span></span><span>
+</span><span id="line-156"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205940"><span class="hs-identifier hs-var">resourceShareInvitationArn</span></a></span><span>
+</span><span id="line-157"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-type">ListPendingInvitationResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679205934"><span class="annot"><span class="annottext">toPath :: ListPendingInvitationResources -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ListPendingInvitationResources -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/listpendinginvitationresources&quot;</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResources"><span class="hs-identifier hs-type">ListPendingInvitationResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679205930"><span class="annot"><span class="annottext">toQuery :: ListPendingInvitationResources -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListPendingInvitationResources -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | /See:/ 'newListPendingInvitationResourcesResponse' smart constructor.</span><span>
+</span><span id="line-169"></span><span id="local-6989586621679205927"><span id="local-6989586621679205928"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPendingInvitationResourcesResponse"><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse"><span class="hs-identifier hs-var">ListPendingInvitationResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPendingInvitationResourcesResponse%27"><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-var">ListPendingInvitationResourcesResponse'</span></a></span></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the resources included the resource share.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3Aresources%3AListPendingInvitationResourcesResponse%27"><span class="annot"><span class="annottext">ListPendingInvitationResourcesResponse -&gt; Maybe [Resource]
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3Aresources%3AListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RAM.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AnextToken%3AListPendingInvitationResourcesResponse%27"><span class="annot"><span class="annottext">ListPendingInvitationResourcesResponse -&gt; Maybe Text
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3AnextToken%3AListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPendingInvitationResourcesResponse%27"><span class="annot"><span class="annottext">ListPendingInvitationResourcesResponse -&gt; Int
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3AhttpStatus%3AListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205920"><span id="local-6989586621679205922"><span class="annot"><span class="annottext">ListPendingInvitationResourcesResponse
+-&gt; ListPendingInvitationResourcesResponse -&gt; Bool
+(ListPendingInvitationResourcesResponse
+ -&gt; ListPendingInvitationResourcesResponse -&gt; Bool)
+-&gt; (ListPendingInvitationResourcesResponse
+    -&gt; ListPendingInvitationResourcesResponse -&gt; Bool)
+-&gt; Eq ListPendingInvitationResourcesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPendingInvitationResourcesResponse
+-&gt; ListPendingInvitationResourcesResponse -&gt; Bool
+$c/= :: ListPendingInvitationResourcesResponse
+-&gt; ListPendingInvitationResourcesResponse -&gt; Bool
+== :: ListPendingInvitationResourcesResponse
+-&gt; ListPendingInvitationResourcesResponse -&gt; Bool
+$c== :: ListPendingInvitationResourcesResponse
+-&gt; ListPendingInvitationResourcesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205912"><span id="local-6989586621679205914"><span id="local-6989586621679205916"><span id="local-6989586621679205918"><span class="annot"><span class="annottext">ReadPrec [ListPendingInvitationResourcesResponse]
+ReadPrec ListPendingInvitationResourcesResponse
+Int -&gt; ReadS ListPendingInvitationResourcesResponse
+ReadS [ListPendingInvitationResourcesResponse]
+(Int -&gt; ReadS ListPendingInvitationResourcesResponse)
+-&gt; ReadS [ListPendingInvitationResourcesResponse]
+-&gt; ReadPrec ListPendingInvitationResourcesResponse
+-&gt; ReadPrec [ListPendingInvitationResourcesResponse]
+-&gt; Read ListPendingInvitationResourcesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPendingInvitationResourcesResponse]
+$creadListPrec :: ReadPrec [ListPendingInvitationResourcesResponse]
+readPrec :: ReadPrec ListPendingInvitationResourcesResponse
+$creadPrec :: ReadPrec ListPendingInvitationResourcesResponse
+readList :: ReadS [ListPendingInvitationResourcesResponse]
+$creadList :: ReadS [ListPendingInvitationResourcesResponse]
+readsPrec :: Int -&gt; ReadS ListPendingInvitationResourcesResponse
+$creadsPrec :: Int -&gt; ReadS ListPendingInvitationResourcesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205906"><span id="local-6989586621679205908"><span id="local-6989586621679205910"><span class="annot"><span class="annottext">Int -&gt; ListPendingInvitationResourcesResponse -&gt; ShowS
+[ListPendingInvitationResourcesResponse] -&gt; ShowS
+ListPendingInvitationResourcesResponse -&gt; String
+(Int -&gt; ListPendingInvitationResourcesResponse -&gt; ShowS)
+-&gt; (ListPendingInvitationResourcesResponse -&gt; String)
+-&gt; ([ListPendingInvitationResourcesResponse] -&gt; ShowS)
+-&gt; Show ListPendingInvitationResourcesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPendingInvitationResourcesResponse] -&gt; ShowS
+$cshowList :: [ListPendingInvitationResourcesResponse] -&gt; ShowS
+show :: ListPendingInvitationResourcesResponse -&gt; String
+$cshow :: ListPendingInvitationResourcesResponse -&gt; String
+showsPrec :: Int -&gt; ListPendingInvitationResourcesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPendingInvitationResourcesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPendingInvitationResourcesResponse
+ -&gt; Rep ListPendingInvitationResourcesResponse x)
+-&gt; (forall x.
+    Rep ListPendingInvitationResourcesResponse x
+    -&gt; ListPendingInvitationResourcesResponse)
+-&gt; Generic ListPendingInvitationResourcesResponse
+forall x.
+Rep ListPendingInvitationResourcesResponse x
+-&gt; ListPendingInvitationResourcesResponse
+forall x.
+ListPendingInvitationResourcesResponse
+-&gt; Rep ListPendingInvitationResourcesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListPendingInvitationResourcesResponse x
+-&gt; ListPendingInvitationResourcesResponse
+$cfrom :: forall x.
+ListPendingInvitationResourcesResponse
+-&gt; Rep ListPendingInvitationResourcesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Create a value of 'ListPendingInvitationResourcesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'resources', 'listPendingInvitationResourcesResponse_resources' - Information about the resources included the resource share.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'nextToken', 'listPendingInvitationResourcesResponse_nextToken' - The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'listPendingInvitationResourcesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#newListPendingInvitationResourcesResponse"><span class="hs-identifier hs-type">newListPendingInvitationResourcesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newListPendingInvitationResourcesResponse"><span class="annot"><span class="annottext">newListPendingInvitationResourcesResponse :: Int -&gt; ListPendingInvitationResourcesResponse
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#newListPendingInvitationResourcesResponse"><span class="hs-identifier hs-var hs-var">newListPendingInvitationResourcesResponse</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679205903"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">ListPendingInvitationResourcesResponse' :: Maybe [Resource]
+-&gt; Maybe Text -&gt; Int -&gt; ListPendingInvitationResourcesResponse
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse'</span></a></span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resources:ListPendingInvitationResourcesResponse' :: Maybe [Resource]
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3Aresources%3AListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Resource]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextToken:ListPendingInvitationResourcesResponse' :: Maybe Text
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3AnextToken%3AListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPendingInvitationResourcesResponse' :: Int
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3AhttpStatus%3AListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | Information about the resources included the resource share.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResourcesResponse_resources"><span class="hs-identifier hs-type">listPendingInvitationResourcesResponse_resources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RAM.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="listPendingInvitationResourcesResponse_resources"><span class="annot"><span class="annottext">listPendingInvitationResourcesResponse_resources :: (Maybe [Resource] -&gt; f (Maybe [Resource]))
+-&gt; ListPendingInvitationResourcesResponse
+-&gt; f ListPendingInvitationResourcesResponse
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResourcesResponse_resources"><span class="hs-identifier hs-var hs-var">listPendingInvitationResourcesResponse_resources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPendingInvitationResourcesResponse -&gt; Maybe [Resource])
+-&gt; (ListPendingInvitationResourcesResponse
+    -&gt; Maybe [Resource] -&gt; ListPendingInvitationResourcesResponse)
+-&gt; Lens
+     ListPendingInvitationResourcesResponse
+     ListPendingInvitationResourcesResponse
+     (Maybe [Resource])
+     (Maybe [Resource])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205902"><span class="annot"><span class="annottext">Maybe [Resource]
+resources :: Maybe [Resource]
+$sel:resources:ListPendingInvitationResourcesResponse' :: ListPendingInvitationResourcesResponse -&gt; Maybe [Resource]
+</span><a href="#local-6989586621679205902"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
+</span><a href="#local-6989586621679205902"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205901"><span class="annot"><span class="annottext">s :: ListPendingInvitationResourcesResponse
+</span><a href="#local-6989586621679205901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205900"><span class="annot"><span class="annottext">Maybe [Resource]
+</span><a href="#local-6989586621679205900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPendingInvitationResourcesResponse
+</span><a href="#local-6989586621679205901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:ListPendingInvitationResourcesResponse' :: Maybe [Resource]
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3Aresources%3AListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
+</span><a href="#local-6989586621679205900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Resource] -&gt; f (Maybe [Resource]))
+ -&gt; ListPendingInvitationResourcesResponse
+ -&gt; f ListPendingInvitationResourcesResponse)
+-&gt; ((Maybe [Resource] -&gt; f (Maybe [Resource]))
+    -&gt; Maybe [Resource] -&gt; f (Maybe [Resource]))
+-&gt; (Maybe [Resource] -&gt; f (Maybe [Resource]))
+-&gt; ListPendingInvitationResourcesResponse
+-&gt; f ListPendingInvitationResourcesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Resource] [Resource] [Resource] [Resource]
+-&gt; Iso
+     (Maybe [Resource])
+     (Maybe [Resource])
+     (Maybe [Resource])
+     (Maybe [Resource])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Resource] [Resource] [Resource] [Resource]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResourcesResponse_nextToken"><span class="hs-identifier hs-type">listPendingInvitationResourcesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="listPendingInvitationResourcesResponse_nextToken"><span class="annot"><span class="annottext">listPendingInvitationResourcesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPendingInvitationResourcesResponse
+-&gt; f ListPendingInvitationResourcesResponse
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResourcesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listPendingInvitationResourcesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPendingInvitationResourcesResponse -&gt; Maybe Text)
+-&gt; (ListPendingInvitationResourcesResponse
+    -&gt; Maybe Text -&gt; ListPendingInvitationResourcesResponse)
+-&gt; Lens
+     ListPendingInvitationResourcesResponse
+     ListPendingInvitationResourcesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205896"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPendingInvitationResourcesResponse' :: ListPendingInvitationResourcesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679205896"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205896"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205895"><span class="annot"><span class="annottext">s :: ListPendingInvitationResourcesResponse
+</span><a href="#local-6989586621679205895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205894"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPendingInvitationResourcesResponse
+</span><a href="#local-6989586621679205895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPendingInvitationResourcesResponse' :: Maybe Text
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3AnextToken%3AListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResourcesResponse_httpStatus"><span class="hs-identifier hs-type">listPendingInvitationResourcesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-218"></span><span id="listPendingInvitationResourcesResponse_httpStatus"><span class="annot"><span class="annottext">listPendingInvitationResourcesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListPendingInvitationResourcesResponse
+-&gt; f ListPendingInvitationResourcesResponse
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#listPendingInvitationResourcesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listPendingInvitationResourcesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPendingInvitationResourcesResponse -&gt; Int)
+-&gt; (ListPendingInvitationResourcesResponse
+    -&gt; Int -&gt; ListPendingInvitationResourcesResponse)
+-&gt; Lens
+     ListPendingInvitationResourcesResponse
+     ListPendingInvitationResourcesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205893"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListPendingInvitationResourcesResponse' :: ListPendingInvitationResourcesResponse -&gt; Int
+</span><a href="#local-6989586621679205893"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205893"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205892"><span class="annot"><span class="annottext">s :: ListPendingInvitationResourcesResponse
+</span><a href="#local-6989586621679205892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205891"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPendingInvitationResourcesResponse
+</span><a href="#local-6989586621679205892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPendingInvitationResourcesResponse' :: Int
+</span><a href="Amazonka.RAM.ListPendingInvitationResources.html#%24sel%3AhttpStatus%3AListPendingInvitationResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679205889"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.ListPendingInvitationResources.html#ListPendingInvitationResourcesResponse"><span class="hs-identifier hs-type">ListPendingInvitationResourcesResponse</span></a></span></span><span>
+</span><span id="line-223"></span></pre></body></html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Snowball.Types.TransferOption</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Snowball.Types.TransferOption</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption"><span class="hs-identifier">TransferOption</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption_EXPORT"><span class="hs-identifier">TransferOption_EXPORT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption_IMPORT"><span class="hs-identifier">TransferOption_IMPORT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption_LOCAL_USE"><span class="hs-identifier">TransferOption_LOCAL_USE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679226210"><span id="local-6989586621679226211"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransferOption"><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption"><span class="hs-identifier hs-var">TransferOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransferOption%27"><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption%27"><span class="hs-identifier hs-var">TransferOption'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTransferOption"><span class="annot"><span class="annottext">TransferOption -&gt; Text
+</span><a href="Amazonka.Snowball.Types.TransferOption.html#fromTransferOption"><span class="hs-identifier hs-var hs-var">fromTransferOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226202"><span id="local-6989586621679226204"><span id="local-6989586621679226206"><span class="annot"><span class="annottext">Int -&gt; TransferOption -&gt; ShowS
+[TransferOption] -&gt; ShowS
+TransferOption -&gt; String
+(Int -&gt; TransferOption -&gt; ShowS)
+-&gt; (TransferOption -&gt; String)
+-&gt; ([TransferOption] -&gt; ShowS)
+-&gt; Show TransferOption
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TransferOption] -&gt; ShowS
+$cshowList :: [TransferOption] -&gt; ShowS
+show :: TransferOption -&gt; String
+$cshow :: TransferOption -&gt; String
+showsPrec :: Int -&gt; TransferOption -&gt; ShowS
+$cshowsPrec :: Int -&gt; TransferOption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679226193"><span id="local-6989586621679226195"><span id="local-6989586621679226197"><span id="local-6989586621679226199"><span class="annot"><span class="annottext">ReadPrec [TransferOption]
+ReadPrec TransferOption
+Int -&gt; ReadS TransferOption
+ReadS [TransferOption]
+(Int -&gt; ReadS TransferOption)
+-&gt; ReadS [TransferOption]
+-&gt; ReadPrec TransferOption
+-&gt; ReadPrec [TransferOption]
+-&gt; Read TransferOption
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TransferOption]
+$creadListPrec :: ReadPrec [TransferOption]
+readPrec :: ReadPrec TransferOption
+$creadPrec :: ReadPrec TransferOption
+readList :: ReadS [TransferOption]
+$creadList :: ReadS [TransferOption]
+readsPrec :: Int -&gt; ReadS TransferOption
+$creadsPrec :: Int -&gt; ReadS TransferOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679226188"><span id="local-6989586621679226190"><span class="annot"><span class="annottext">TransferOption -&gt; TransferOption -&gt; Bool
+(TransferOption -&gt; TransferOption -&gt; Bool)
+-&gt; (TransferOption -&gt; TransferOption -&gt; Bool) -&gt; Eq TransferOption
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TransferOption -&gt; TransferOption -&gt; Bool
+$c/= :: TransferOption -&gt; TransferOption -&gt; Bool
+== :: TransferOption -&gt; TransferOption -&gt; Bool
+$c== :: TransferOption -&gt; TransferOption -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679226172"><span id="local-6989586621679226174"><span id="local-6989586621679226176"><span id="local-6989586621679226178"><span id="local-6989586621679226180"><span id="local-6989586621679226182"><span id="local-6989586621679226184"><span class="annot"><span class="annottext">Eq TransferOption
+Eq TransferOption
+-&gt; (TransferOption -&gt; TransferOption -&gt; Ordering)
+-&gt; (TransferOption -&gt; TransferOption -&gt; Bool)
+-&gt; (TransferOption -&gt; TransferOption -&gt; Bool)
+-&gt; (TransferOption -&gt; TransferOption -&gt; Bool)
+-&gt; (TransferOption -&gt; TransferOption -&gt; Bool)
+-&gt; (TransferOption -&gt; TransferOption -&gt; TransferOption)
+-&gt; (TransferOption -&gt; TransferOption -&gt; TransferOption)
+-&gt; Ord TransferOption
+TransferOption -&gt; TransferOption -&gt; Bool
+TransferOption -&gt; TransferOption -&gt; Ordering
+TransferOption -&gt; TransferOption -&gt; TransferOption
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TransferOption -&gt; TransferOption -&gt; TransferOption
+$cmin :: TransferOption -&gt; TransferOption -&gt; TransferOption
+max :: TransferOption -&gt; TransferOption -&gt; TransferOption
+$cmax :: TransferOption -&gt; TransferOption -&gt; TransferOption
+&gt;= :: TransferOption -&gt; TransferOption -&gt; Bool
+$c&gt;= :: TransferOption -&gt; TransferOption -&gt; Bool
+&gt; :: TransferOption -&gt; TransferOption -&gt; Bool
+$c&gt; :: TransferOption -&gt; TransferOption -&gt; Bool
+&lt;= :: TransferOption -&gt; TransferOption -&gt; Bool
+$c&lt;= :: TransferOption -&gt; TransferOption -&gt; Bool
+&lt; :: TransferOption -&gt; TransferOption -&gt; Bool
+$c&lt; :: TransferOption -&gt; TransferOption -&gt; Bool
+compare :: TransferOption -&gt; TransferOption -&gt; Ordering
+$ccompare :: TransferOption -&gt; TransferOption -&gt; Ordering
+$cp1Ord :: Eq TransferOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TransferOption -&gt; Rep TransferOption x)
+-&gt; (forall x. Rep TransferOption x -&gt; TransferOption)
+-&gt; Generic TransferOption
+forall x. Rep TransferOption x -&gt; TransferOption
+forall x. TransferOption -&gt; Rep TransferOption x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TransferOption x -&gt; TransferOption
+$cfrom :: forall x. TransferOption -&gt; Rep TransferOption x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226164"><span id="local-6989586621679226166"><span class="annot"><span class="annottext">Int -&gt; TransferOption -&gt; Int
+TransferOption -&gt; Int
+(Int -&gt; TransferOption -&gt; Int)
+-&gt; (TransferOption -&gt; Int) -&gt; Hashable TransferOption
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TransferOption -&gt; Int
+$chash :: TransferOption -&gt; Int
+hashWithSalt :: Int -&gt; TransferOption -&gt; Int
+$chashWithSalt :: Int -&gt; TransferOption -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679226161"><span class="annot"><span class="annottext">TransferOption -&gt; ()
+(TransferOption -&gt; ()) -&gt; NFData TransferOption
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TransferOption -&gt; ()
+$crnf :: TransferOption -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679226158"><span class="annot"><span class="annottext">Text -&gt; Either String TransferOption
+(Text -&gt; Either String TransferOption) -&gt; FromText TransferOption
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TransferOption
+$cfromText :: Text -&gt; Either String TransferOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679226155"><span class="annot"><span class="annottext">TransferOption -&gt; Text
+(TransferOption -&gt; Text) -&gt; ToText TransferOption
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TransferOption -&gt; Text
+$ctoText :: TransferOption -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679226152"><span class="annot"><span class="annottext">TransferOption -&gt; ByteString
+(TransferOption -&gt; ByteString) -&gt; ToByteString TransferOption
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TransferOption -&gt; ByteString
+$ctoBS :: TransferOption -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679226149"><span class="annot"><span class="annottext">TransferOption -&gt; ByteStringBuilder
+(TransferOption -&gt; ByteStringBuilder) -&gt; ToLog TransferOption
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TransferOption -&gt; ByteStringBuilder
+$cbuild :: TransferOption -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679226146"><span class="annot"><span class="annottext">HeaderName -&gt; TransferOption -&gt; [Header]
+(HeaderName -&gt; TransferOption -&gt; [Header])
+-&gt; ToHeader TransferOption
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TransferOption -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TransferOption -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679226143"><span class="annot"><span class="annottext">TransferOption -&gt; QueryString
+(TransferOption -&gt; QueryString) -&gt; ToQuery TransferOption
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TransferOption -&gt; QueryString
+$ctoQuery :: TransferOption -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679226138"><span id="local-6989586621679226140"><span class="annot"><span class="annottext">Value -&gt; Parser [TransferOption]
+Value -&gt; Parser TransferOption
+(Value -&gt; Parser TransferOption)
+-&gt; (Value -&gt; Parser [TransferOption]) -&gt; FromJSON TransferOption
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TransferOption]
+$cparseJSONList :: Value -&gt; Parser [TransferOption]
+parseJSON :: Value -&gt; Parser TransferOption
+$cparseJSON :: Value -&gt; Parser TransferOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679226133"><span id="local-6989586621679226135"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransferOption]
+FromJSONKeyFunction TransferOption
+FromJSONKeyFunction TransferOption
+-&gt; FromJSONKeyFunction [TransferOption]
+-&gt; FromJSONKey TransferOption
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TransferOption]
+$cfromJSONKeyList :: FromJSONKeyFunction [TransferOption]
+fromJSONKey :: FromJSONKeyFunction TransferOption
+$cfromJSONKey :: FromJSONKeyFunction TransferOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679226124"><span id="local-6989586621679226126"><span id="local-6989586621679226128"><span id="local-6989586621679226130"><span class="annot"><span class="annottext">[TransferOption] -&gt; Encoding
+[TransferOption] -&gt; Value
+TransferOption -&gt; Encoding
+TransferOption -&gt; Value
+(TransferOption -&gt; Value)
+-&gt; (TransferOption -&gt; Encoding)
+-&gt; ([TransferOption] -&gt; Value)
+-&gt; ([TransferOption] -&gt; Encoding)
+-&gt; ToJSON TransferOption
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TransferOption] -&gt; Encoding
+$ctoEncodingList :: [TransferOption] -&gt; Encoding
+toJSONList :: [TransferOption] -&gt; Value
+$ctoJSONList :: [TransferOption] -&gt; Value
+toEncoding :: TransferOption -&gt; Encoding
+$ctoEncoding :: TransferOption -&gt; Encoding
+toJSON :: TransferOption -&gt; Value
+$ctoJSON :: TransferOption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679226119"><span id="local-6989586621679226121"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransferOption]
+ToJSONKeyFunction TransferOption
+ToJSONKeyFunction TransferOption
+-&gt; ToJSONKeyFunction [TransferOption] -&gt; ToJSONKey TransferOption
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TransferOption]
+$ctoJSONKeyList :: ToJSONKeyFunction [TransferOption]
+toJSONKey :: ToJSONKeyFunction TransferOption
+$ctoJSONKey :: ToJSONKeyFunction TransferOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679226116"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransferOption
+([Node] -&gt; Either String TransferOption) -&gt; FromXML TransferOption
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TransferOption
+$cparseXML :: [Node] -&gt; Either String TransferOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679226113"><span class="annot"><span class="annottext">TransferOption -&gt; XML
+(TransferOption -&gt; XML) -&gt; ToXML TransferOption
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TransferOption -&gt; XML
+$ctoXML :: TransferOption -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption_EXPORT"><span class="hs-identifier hs-type">TransferOption_EXPORT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption"><span class="hs-identifier hs-type">TransferOption</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransferOption_EXPORT"><span id="%24mTransferOption_EXPORT"><span id="TransferOption_EXPORT"><span class="annot"><span class="annottext">$bTransferOption_EXPORT :: TransferOption
+$mTransferOption_EXPORT :: forall r. TransferOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.TransferOption.html#%24bTransferOption_EXPORT"><span class="hs-identifier hs-var hs-var hs-var">TransferOption_EXPORT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption%27"><span class="hs-identifier hs-type">TransferOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXPORT&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption_IMPORT"><span class="hs-identifier hs-type">TransferOption_IMPORT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption"><span class="hs-identifier hs-type">TransferOption</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransferOption_IMPORT"><span id="%24mTransferOption_IMPORT"><span id="TransferOption_IMPORT"><span class="annot"><span class="annottext">$bTransferOption_IMPORT :: TransferOption
+$mTransferOption_IMPORT :: forall r. TransferOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.TransferOption.html#%24bTransferOption_IMPORT"><span class="hs-identifier hs-var hs-var hs-var">TransferOption_IMPORT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption%27"><span class="hs-identifier hs-type">TransferOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IMPORT&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption_LOCAL_USE"><span class="hs-identifier hs-type">TransferOption_LOCAL_USE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption"><span class="hs-identifier hs-type">TransferOption</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransferOption_LOCAL_USE"><span id="%24mTransferOption_LOCAL_USE"><span id="TransferOption_LOCAL_USE"><span class="annot"><span class="annottext">$bTransferOption_LOCAL_USE :: TransferOption
+$mTransferOption_LOCAL_USE :: forall r. TransferOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Snowball.Types.TransferOption.html#%24bTransferOption_LOCAL_USE"><span class="hs-identifier hs-var hs-var hs-var">TransferOption_LOCAL_USE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption%27"><span class="hs-identifier hs-type">TransferOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LOCAL_USE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption_EXPORT"><span class="hs-pragma hs-type">TransferOption_EXPORT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption_IMPORT"><span class="hs-pragma hs-type">TransferOption_IMPORT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption_LOCAL_USE"><span class="hs-pragma hs-type">TransferOption_LOCAL_USE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.Types.TransferOption.html#TransferOption%27"><span class="hs-pragma hs-type">TransferOption'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

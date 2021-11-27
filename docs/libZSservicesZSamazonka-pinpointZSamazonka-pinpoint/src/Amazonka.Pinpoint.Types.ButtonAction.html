@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.Types.ButtonAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.Types.ButtonAction</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction"><span class="hs-identifier">ButtonAction</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction_CLOSE"><span class="hs-identifier">ButtonAction_CLOSE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction_DEEP_LINK"><span class="hs-identifier">ButtonAction_DEEP_LINK</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction_LINK"><span class="hs-identifier">ButtonAction_LINK</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679592557"><span id="local-6989586621679592558"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ButtonAction"><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction"><span class="hs-identifier hs-var">ButtonAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ButtonAction%27"><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction%27"><span class="hs-identifier hs-var">ButtonAction'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromButtonAction"><span class="annot"><span class="annottext">ButtonAction -&gt; Text
+</span><a href="Amazonka.Pinpoint.Types.ButtonAction.html#fromButtonAction"><span class="hs-identifier hs-var hs-var">fromButtonAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679592549"><span id="local-6989586621679592551"><span id="local-6989586621679592553"><span class="annot"><span class="annottext">Int -&gt; ButtonAction -&gt; ShowS
+[ButtonAction] -&gt; ShowS
+ButtonAction -&gt; String
+(Int -&gt; ButtonAction -&gt; ShowS)
+-&gt; (ButtonAction -&gt; String)
+-&gt; ([ButtonAction] -&gt; ShowS)
+-&gt; Show ButtonAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ButtonAction] -&gt; ShowS
+$cshowList :: [ButtonAction] -&gt; ShowS
+show :: ButtonAction -&gt; String
+$cshow :: ButtonAction -&gt; String
+showsPrec :: Int -&gt; ButtonAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; ButtonAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679592540"><span id="local-6989586621679592542"><span id="local-6989586621679592544"><span id="local-6989586621679592546"><span class="annot"><span class="annottext">ReadPrec [ButtonAction]
+ReadPrec ButtonAction
+Int -&gt; ReadS ButtonAction
+ReadS [ButtonAction]
+(Int -&gt; ReadS ButtonAction)
+-&gt; ReadS [ButtonAction]
+-&gt; ReadPrec ButtonAction
+-&gt; ReadPrec [ButtonAction]
+-&gt; Read ButtonAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ButtonAction]
+$creadListPrec :: ReadPrec [ButtonAction]
+readPrec :: ReadPrec ButtonAction
+$creadPrec :: ReadPrec ButtonAction
+readList :: ReadS [ButtonAction]
+$creadList :: ReadS [ButtonAction]
+readsPrec :: Int -&gt; ReadS ButtonAction
+$creadsPrec :: Int -&gt; ReadS ButtonAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679592535"><span id="local-6989586621679592537"><span class="annot"><span class="annottext">ButtonAction -&gt; ButtonAction -&gt; Bool
+(ButtonAction -&gt; ButtonAction -&gt; Bool)
+-&gt; (ButtonAction -&gt; ButtonAction -&gt; Bool) -&gt; Eq ButtonAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ButtonAction -&gt; ButtonAction -&gt; Bool
+$c/= :: ButtonAction -&gt; ButtonAction -&gt; Bool
+== :: ButtonAction -&gt; ButtonAction -&gt; Bool
+$c== :: ButtonAction -&gt; ButtonAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679592519"><span id="local-6989586621679592521"><span id="local-6989586621679592523"><span id="local-6989586621679592525"><span id="local-6989586621679592527"><span id="local-6989586621679592529"><span id="local-6989586621679592531"><span class="annot"><span class="annottext">Eq ButtonAction
+Eq ButtonAction
+-&gt; (ButtonAction -&gt; ButtonAction -&gt; Ordering)
+-&gt; (ButtonAction -&gt; ButtonAction -&gt; Bool)
+-&gt; (ButtonAction -&gt; ButtonAction -&gt; Bool)
+-&gt; (ButtonAction -&gt; ButtonAction -&gt; Bool)
+-&gt; (ButtonAction -&gt; ButtonAction -&gt; Bool)
+-&gt; (ButtonAction -&gt; ButtonAction -&gt; ButtonAction)
+-&gt; (ButtonAction -&gt; ButtonAction -&gt; ButtonAction)
+-&gt; Ord ButtonAction
+ButtonAction -&gt; ButtonAction -&gt; Bool
+ButtonAction -&gt; ButtonAction -&gt; Ordering
+ButtonAction -&gt; ButtonAction -&gt; ButtonAction
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ButtonAction -&gt; ButtonAction -&gt; ButtonAction
+$cmin :: ButtonAction -&gt; ButtonAction -&gt; ButtonAction
+max :: ButtonAction -&gt; ButtonAction -&gt; ButtonAction
+$cmax :: ButtonAction -&gt; ButtonAction -&gt; ButtonAction
+&gt;= :: ButtonAction -&gt; ButtonAction -&gt; Bool
+$c&gt;= :: ButtonAction -&gt; ButtonAction -&gt; Bool
+&gt; :: ButtonAction -&gt; ButtonAction -&gt; Bool
+$c&gt; :: ButtonAction -&gt; ButtonAction -&gt; Bool
+&lt;= :: ButtonAction -&gt; ButtonAction -&gt; Bool
+$c&lt;= :: ButtonAction -&gt; ButtonAction -&gt; Bool
+&lt; :: ButtonAction -&gt; ButtonAction -&gt; Bool
+$c&lt; :: ButtonAction -&gt; ButtonAction -&gt; Bool
+compare :: ButtonAction -&gt; ButtonAction -&gt; Ordering
+$ccompare :: ButtonAction -&gt; ButtonAction -&gt; Ordering
+$cp1Ord :: Eq ButtonAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ButtonAction -&gt; Rep ButtonAction x)
+-&gt; (forall x. Rep ButtonAction x -&gt; ButtonAction)
+-&gt; Generic ButtonAction
+forall x. Rep ButtonAction x -&gt; ButtonAction
+forall x. ButtonAction -&gt; Rep ButtonAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ButtonAction x -&gt; ButtonAction
+$cfrom :: forall x. ButtonAction -&gt; Rep ButtonAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679592511"><span id="local-6989586621679592513"><span class="annot"><span class="annottext">Int -&gt; ButtonAction -&gt; Int
+ButtonAction -&gt; Int
+(Int -&gt; ButtonAction -&gt; Int)
+-&gt; (ButtonAction -&gt; Int) -&gt; Hashable ButtonAction
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ButtonAction -&gt; Int
+$chash :: ButtonAction -&gt; Int
+hashWithSalt :: Int -&gt; ButtonAction -&gt; Int
+$chashWithSalt :: Int -&gt; ButtonAction -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679592508"><span class="annot"><span class="annottext">ButtonAction -&gt; ()
+(ButtonAction -&gt; ()) -&gt; NFData ButtonAction
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ButtonAction -&gt; ()
+$crnf :: ButtonAction -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679592505"><span class="annot"><span class="annottext">Text -&gt; Either String ButtonAction
+(Text -&gt; Either String ButtonAction) -&gt; FromText ButtonAction
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ButtonAction
+$cfromText :: Text -&gt; Either String ButtonAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679592502"><span class="annot"><span class="annottext">ButtonAction -&gt; Text
+(ButtonAction -&gt; Text) -&gt; ToText ButtonAction
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ButtonAction -&gt; Text
+$ctoText :: ButtonAction -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679592499"><span class="annot"><span class="annottext">ButtonAction -&gt; ByteString
+(ButtonAction -&gt; ByteString) -&gt; ToByteString ButtonAction
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ButtonAction -&gt; ByteString
+$ctoBS :: ButtonAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679592496"><span class="annot"><span class="annottext">ButtonAction -&gt; ByteStringBuilder
+(ButtonAction -&gt; ByteStringBuilder) -&gt; ToLog ButtonAction
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ButtonAction -&gt; ByteStringBuilder
+$cbuild :: ButtonAction -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679592493"><span class="annot"><span class="annottext">HeaderName -&gt; ButtonAction -&gt; [Header]
+(HeaderName -&gt; ButtonAction -&gt; [Header]) -&gt; ToHeader ButtonAction
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ButtonAction -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ButtonAction -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679592490"><span class="annot"><span class="annottext">ButtonAction -&gt; QueryString
+(ButtonAction -&gt; QueryString) -&gt; ToQuery ButtonAction
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ButtonAction -&gt; QueryString
+$ctoQuery :: ButtonAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679592485"><span id="local-6989586621679592487"><span class="annot"><span class="annottext">Value -&gt; Parser [ButtonAction]
+Value -&gt; Parser ButtonAction
+(Value -&gt; Parser ButtonAction)
+-&gt; (Value -&gt; Parser [ButtonAction]) -&gt; FromJSON ButtonAction
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ButtonAction]
+$cparseJSONList :: Value -&gt; Parser [ButtonAction]
+parseJSON :: Value -&gt; Parser ButtonAction
+$cparseJSON :: Value -&gt; Parser ButtonAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679592480"><span id="local-6989586621679592482"><span class="annot"><span class="annottext">FromJSONKeyFunction [ButtonAction]
+FromJSONKeyFunction ButtonAction
+FromJSONKeyFunction ButtonAction
+-&gt; FromJSONKeyFunction [ButtonAction] -&gt; FromJSONKey ButtonAction
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ButtonAction]
+$cfromJSONKeyList :: FromJSONKeyFunction [ButtonAction]
+fromJSONKey :: FromJSONKeyFunction ButtonAction
+$cfromJSONKey :: FromJSONKeyFunction ButtonAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679592471"><span id="local-6989586621679592473"><span id="local-6989586621679592475"><span id="local-6989586621679592477"><span class="annot"><span class="annottext">[ButtonAction] -&gt; Encoding
+[ButtonAction] -&gt; Value
+ButtonAction -&gt; Encoding
+ButtonAction -&gt; Value
+(ButtonAction -&gt; Value)
+-&gt; (ButtonAction -&gt; Encoding)
+-&gt; ([ButtonAction] -&gt; Value)
+-&gt; ([ButtonAction] -&gt; Encoding)
+-&gt; ToJSON ButtonAction
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ButtonAction] -&gt; Encoding
+$ctoEncodingList :: [ButtonAction] -&gt; Encoding
+toJSONList :: [ButtonAction] -&gt; Value
+$ctoJSONList :: [ButtonAction] -&gt; Value
+toEncoding :: ButtonAction -&gt; Encoding
+$ctoEncoding :: ButtonAction -&gt; Encoding
+toJSON :: ButtonAction -&gt; Value
+$ctoJSON :: ButtonAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679592466"><span id="local-6989586621679592468"><span class="annot"><span class="annottext">ToJSONKeyFunction [ButtonAction]
+ToJSONKeyFunction ButtonAction
+ToJSONKeyFunction ButtonAction
+-&gt; ToJSONKeyFunction [ButtonAction] -&gt; ToJSONKey ButtonAction
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ButtonAction]
+$ctoJSONKeyList :: ToJSONKeyFunction [ButtonAction]
+toJSONKey :: ToJSONKeyFunction ButtonAction
+$ctoJSONKey :: ToJSONKeyFunction ButtonAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679592463"><span class="annot"><span class="annottext">[Node] -&gt; Either String ButtonAction
+([Node] -&gt; Either String ButtonAction) -&gt; FromXML ButtonAction
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ButtonAction
+$cparseXML :: [Node] -&gt; Either String ButtonAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679592460"><span class="annot"><span class="annottext">ButtonAction -&gt; XML
+(ButtonAction -&gt; XML) -&gt; ToXML ButtonAction
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ButtonAction -&gt; XML
+$ctoXML :: ButtonAction -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction_CLOSE"><span class="hs-identifier hs-type">ButtonAction_CLOSE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction"><span class="hs-identifier hs-type">ButtonAction</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bButtonAction_CLOSE"><span id="%24mButtonAction_CLOSE"><span id="ButtonAction_CLOSE"><span class="annot"><span class="annottext">$bButtonAction_CLOSE :: ButtonAction
+$mButtonAction_CLOSE :: forall r. ButtonAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Pinpoint.Types.ButtonAction.html#%24bButtonAction_CLOSE"><span class="hs-identifier hs-var hs-var hs-var">ButtonAction_CLOSE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction%27"><span class="hs-identifier hs-type">ButtonAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLOSE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction_DEEP_LINK"><span class="hs-identifier hs-type">ButtonAction_DEEP_LINK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction"><span class="hs-identifier hs-type">ButtonAction</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bButtonAction_DEEP_LINK"><span id="%24mButtonAction_DEEP_LINK"><span id="ButtonAction_DEEP_LINK"><span class="annot"><span class="annottext">$bButtonAction_DEEP_LINK :: ButtonAction
+$mButtonAction_DEEP_LINK :: forall r. ButtonAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Pinpoint.Types.ButtonAction.html#%24bButtonAction_DEEP_LINK"><span class="hs-identifier hs-var hs-var hs-var">ButtonAction_DEEP_LINK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction%27"><span class="hs-identifier hs-type">ButtonAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEEP_LINK&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction_LINK"><span class="hs-identifier hs-type">ButtonAction_LINK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction"><span class="hs-identifier hs-type">ButtonAction</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bButtonAction_LINK"><span id="%24mButtonAction_LINK"><span id="ButtonAction_LINK"><span class="annot"><span class="annottext">$bButtonAction_LINK :: ButtonAction
+$mButtonAction_LINK :: forall r. ButtonAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Pinpoint.Types.ButtonAction.html#%24bButtonAction_LINK"><span class="hs-identifier hs-var hs-var hs-var">ButtonAction_LINK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction%27"><span class="hs-identifier hs-type">ButtonAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LINK&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction_CLOSE"><span class="hs-pragma hs-type">ButtonAction_CLOSE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction_DEEP_LINK"><span class="hs-pragma hs-type">ButtonAction_DEEP_LINK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction_LINK"><span class="hs-pragma hs-type">ButtonAction_LINK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ButtonAction.html#ButtonAction%27"><span class="hs-pragma hs-type">ButtonAction'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RAM.GetPermission</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the contents of an RAM permission in JSON format.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RAM.GetPermission</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission"><span class="hs-identifier">GetPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#newGetPermission"><span class="hs-identifier">newGetPermission</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#getPermission_permissionVersion"><span class="hs-identifier">getPermission_permissionVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#getPermission_permissionArn"><span class="hs-identifier">getPermission_permissionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse"><span class="hs-identifier">GetPermissionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#newGetPermissionResponse"><span class="hs-identifier">newGetPermissionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#getPermissionResponse_permission"><span class="hs-identifier">getPermissionResponse_permission</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#getPermissionResponse_httpStatus"><span class="hs-identifier">getPermissionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.html"><span class="hs-identifier">Amazonka.RAM.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetPermission' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679207476"><span id="local-6989586621679207477"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPermission"><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission"><span class="hs-identifier hs-var">GetPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPermission%27"><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission%27"><span class="hs-identifier hs-var">GetPermission'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the version of the permission.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3ApermissionVersion%3AGetPermission%27"><span class="annot"><span class="annottext">GetPermission -&gt; Maybe Int
+</span><a href="Amazonka.RAM.GetPermission.html#%24sel%3ApermissionVersion%3AGetPermission%27"><span class="hs-identifier hs-var hs-var">permissionVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the permission.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3ApermissionArn%3AGetPermission%27"><span class="annot"><span class="annottext">GetPermission -&gt; Text
+</span><a href="Amazonka.RAM.GetPermission.html#%24sel%3ApermissionArn%3AGetPermission%27"><span class="hs-identifier hs-var hs-var">permissionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207469"><span id="local-6989586621679207471"><span class="annot"><span class="annottext">GetPermission -&gt; GetPermission -&gt; Bool
+(GetPermission -&gt; GetPermission -&gt; Bool)
+-&gt; (GetPermission -&gt; GetPermission -&gt; Bool) -&gt; Eq GetPermission
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPermission -&gt; GetPermission -&gt; Bool
+$c/= :: GetPermission -&gt; GetPermission -&gt; Bool
+== :: GetPermission -&gt; GetPermission -&gt; Bool
+$c== :: GetPermission -&gt; GetPermission -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207460"><span id="local-6989586621679207462"><span id="local-6989586621679207464"><span id="local-6989586621679207466"><span class="annot"><span class="annottext">ReadPrec [GetPermission]
+ReadPrec GetPermission
+Int -&gt; ReadS GetPermission
+ReadS [GetPermission]
+(Int -&gt; ReadS GetPermission)
+-&gt; ReadS [GetPermission]
+-&gt; ReadPrec GetPermission
+-&gt; ReadPrec [GetPermission]
+-&gt; Read GetPermission
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPermission]
+$creadListPrec :: ReadPrec [GetPermission]
+readPrec :: ReadPrec GetPermission
+$creadPrec :: ReadPrec GetPermission
+readList :: ReadS [GetPermission]
+$creadList :: ReadS [GetPermission]
+readsPrec :: Int -&gt; ReadS GetPermission
+$creadsPrec :: Int -&gt; ReadS GetPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207453"><span id="local-6989586621679207455"><span id="local-6989586621679207457"><span class="annot"><span class="annottext">Int -&gt; GetPermission -&gt; ShowS
+[GetPermission] -&gt; ShowS
+GetPermission -&gt; String
+(Int -&gt; GetPermission -&gt; ShowS)
+-&gt; (GetPermission -&gt; String)
+-&gt; ([GetPermission] -&gt; ShowS)
+-&gt; Show GetPermission
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPermission] -&gt; ShowS
+$cshowList :: [GetPermission] -&gt; ShowS
+show :: GetPermission -&gt; String
+$cshow :: GetPermission -&gt; String
+showsPrec :: Int -&gt; GetPermission -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetPermission -&gt; Rep GetPermission x)
+-&gt; (forall x. Rep GetPermission x -&gt; GetPermission)
+-&gt; Generic GetPermission
+forall x. Rep GetPermission x -&gt; GetPermission
+forall x. GetPermission -&gt; Rep GetPermission x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetPermission x -&gt; GetPermission
+$cfrom :: forall x. GetPermission -&gt; Rep GetPermission x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'GetPermission' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'permissionVersion', 'getPermission_permissionVersion' - The identifier for the version of the permission.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'permissionArn', 'getPermission_permissionArn' - The Amazon Resource Name (ARN) of the permission.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#newGetPermission"><span class="hs-identifier hs-type">newGetPermission</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'permissionArn'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission"><span class="hs-identifier hs-type">GetPermission</span></a></span><span>
+</span><span id="line-74"></span><span id="newGetPermission"><span class="annot"><span class="annottext">newGetPermission :: Text -&gt; GetPermission
+</span><a href="Amazonka.RAM.GetPermission.html#newGetPermission"><span class="hs-identifier hs-var hs-var">newGetPermission</span></a></span></span><span> </span><span id="local-6989586621679207448"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207448"><span class="hs-identifier hs-var">pPermissionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">GetPermission' :: Maybe Int -&gt; Text -&gt; GetPermission
+</span><a href="Amazonka.RAM.GetPermission.html#GetPermission%27"><span class="hs-identifier hs-type">GetPermission'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:permissionVersion:GetPermission' :: Maybe Int
+</span><a href="Amazonka.RAM.GetPermission.html#%24sel%3ApermissionVersion%3AGetPermission%27"><span class="hs-identifier hs-var">permissionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissionArn:GetPermission' :: Text
+</span><a href="Amazonka.RAM.GetPermission.html#%24sel%3ApermissionArn%3AGetPermission%27"><span class="hs-identifier hs-var">permissionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207448"><span class="hs-identifier hs-var">pPermissionArn_</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The identifier for the version of the permission.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#getPermission_permissionVersion"><span class="hs-identifier hs-type">getPermission_permissionVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission"><span class="hs-identifier hs-type">GetPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="getPermission_permissionVersion"><span class="annot"><span class="annottext">getPermission_permissionVersion :: (Maybe Int -&gt; f (Maybe Int)) -&gt; GetPermission -&gt; f GetPermission
+</span><a href="Amazonka.RAM.GetPermission.html#getPermission_permissionVersion"><span class="hs-identifier hs-var hs-var">getPermission_permissionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPermission -&gt; Maybe Int)
+-&gt; (GetPermission -&gt; Maybe Int -&gt; GetPermission)
+-&gt; Lens GetPermission GetPermission (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission%27"><span class="hs-identifier hs-type">GetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207445"><span class="annot"><span class="annottext">Maybe Int
+permissionVersion :: Maybe Int
+$sel:permissionVersion:GetPermission' :: GetPermission -&gt; Maybe Int
+</span><a href="#local-6989586621679207445"><span class="hs-identifier hs-var hs-var">permissionVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679207445"><span class="hs-identifier hs-var">permissionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207444"><span class="annot"><span class="annottext">s :: GetPermission
+</span><a href="#local-6989586621679207444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission%27"><span class="hs-identifier hs-type">GetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207443"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679207443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPermission
+</span><a href="#local-6989586621679207444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionVersion:GetPermission' :: Maybe Int
+</span><a href="Amazonka.RAM.GetPermission.html#%24sel%3ApermissionVersion%3AGetPermission%27"><span class="hs-identifier hs-var">permissionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679207443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission"><span class="hs-identifier hs-type">GetPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the permission.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#getPermission_permissionArn"><span class="hs-identifier hs-type">getPermission_permissionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission"><span class="hs-identifier hs-type">GetPermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="getPermission_permissionArn"><span class="annot"><span class="annottext">getPermission_permissionArn :: (Text -&gt; f Text) -&gt; GetPermission -&gt; f GetPermission
+</span><a href="Amazonka.RAM.GetPermission.html#getPermission_permissionArn"><span class="hs-identifier hs-var hs-var">getPermission_permissionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPermission -&gt; Text)
+-&gt; (GetPermission -&gt; Text -&gt; GetPermission)
+-&gt; Lens GetPermission GetPermission Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission%27"><span class="hs-identifier hs-type">GetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207442"><span class="annot"><span class="annottext">Text
+permissionArn :: Text
+$sel:permissionArn:GetPermission' :: GetPermission -&gt; Text
+</span><a href="#local-6989586621679207442"><span class="hs-identifier hs-var hs-var">permissionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207442"><span class="hs-identifier hs-var">permissionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207441"><span class="annot"><span class="annottext">s :: GetPermission
+</span><a href="#local-6989586621679207441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission%27"><span class="hs-identifier hs-type">GetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207440"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPermission
+</span><a href="#local-6989586621679207441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionArn:GetPermission' :: Text
+</span><a href="Amazonka.RAM.GetPermission.html#%24sel%3ApermissionArn%3AGetPermission%27"><span class="hs-identifier hs-var">permissionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission"><span class="hs-identifier hs-type">GetPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission"><span class="hs-identifier hs-type">GetPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission"><span class="hs-identifier hs-type">GetPermission</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse"><span class="hs-identifier hs-type">GetPermissionResponse</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679207436"><span class="annot"><span class="annottext">request :: GetPermission -&gt; Request GetPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetPermission -&gt; Request GetPermission
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679207432"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetPermission
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetPermission)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetPermission))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetPermission
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetPermission)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679207429"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207429"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679207428"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679207428"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679207427"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207427"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourceSharePermissionDetail -&gt; Int -&gt; GetPermissionResponse
+</span><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse%27"><span class="hs-identifier hs-var">GetPermissionResponse'</span></a></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ResourceSharePermissionDetail
+ -&gt; Int -&gt; GetPermissionResponse)
+-&gt; Either String (Maybe ResourceSharePermissionDetail)
+-&gt; Either String (Int -&gt; GetPermissionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207427"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe ResourceSharePermissionDetail)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;permission&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetPermissionResponse)
+-&gt; Either String Int -&gt; Either String GetPermissionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207429"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207419"><span id="local-6989586621679207421"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission"><span class="hs-identifier hs-type">GetPermission</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207416"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission"><span class="hs-identifier hs-type">GetPermission</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission"><span class="hs-identifier hs-type">GetPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679207412"><span class="annot"><span class="annottext">toHeaders :: GetPermission -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetPermission -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-112"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207402"><span id="local-6989586621679207404"><span id="local-6989586621679207406"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission"><span class="hs-identifier hs-type">GetPermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679207400"><span class="annot"><span class="annottext">toJSON :: GetPermission -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission%27"><span class="hs-identifier hs-type">GetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207397"><span id="local-6989586621679207398"><span class="annot"><span class="annottext">Maybe Int
+Text
+permissionArn :: Text
+permissionVersion :: Maybe Int
+$sel:permissionArn:GetPermission' :: GetPermission -&gt; Text
+$sel:permissionVersion:GetPermission' :: GetPermission -&gt; Maybe Int
+</span><a href="#local-6989586621679207397"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;permissionVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679207398"><span class="hs-identifier hs-var">permissionVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;permissionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207397"><span class="hs-identifier hs-var">permissionArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission"><span class="hs-identifier hs-type">GetPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679207391"><span class="annot"><span class="annottext">toPath :: GetPermission -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetPermission -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/getpermission&quot;</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermission"><span class="hs-identifier hs-type">GetPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679207387"><span class="annot"><span class="annottext">toQuery :: GetPermission -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetPermission -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newGetPermissionResponse' smart constructor.</span><span>
+</span><span id="line-134"></span><span id="local-6989586621679207384"><span id="local-6989586621679207385"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPermissionResponse"><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse"><span class="hs-identifier hs-var">GetPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPermissionResponse%27"><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse%27"><span class="hs-identifier hs-var">GetPermissionResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the permission.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3Apermission%3AGetPermissionResponse%27"><span class="annot"><span class="annottext">GetPermissionResponse -&gt; Maybe ResourceSharePermissionDetail
+</span><a href="Amazonka.RAM.GetPermission.html#%24sel%3Apermission%3AGetPermissionResponse%27"><span class="hs-identifier hs-var hs-var">permission</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetPermissionResponse%27"><span class="annot"><span class="annottext">GetPermissionResponse -&gt; Int
+</span><a href="Amazonka.RAM.GetPermission.html#%24sel%3AhttpStatus%3AGetPermissionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207378"><span id="local-6989586621679207380"><span class="annot"><span class="annottext">GetPermissionResponse -&gt; GetPermissionResponse -&gt; Bool
+(GetPermissionResponse -&gt; GetPermissionResponse -&gt; Bool)
+-&gt; (GetPermissionResponse -&gt; GetPermissionResponse -&gt; Bool)
+-&gt; Eq GetPermissionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPermissionResponse -&gt; GetPermissionResponse -&gt; Bool
+$c/= :: GetPermissionResponse -&gt; GetPermissionResponse -&gt; Bool
+== :: GetPermissionResponse -&gt; GetPermissionResponse -&gt; Bool
+$c== :: GetPermissionResponse -&gt; GetPermissionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207370"><span id="local-6989586621679207372"><span id="local-6989586621679207374"><span id="local-6989586621679207376"><span class="annot"><span class="annottext">ReadPrec [GetPermissionResponse]
+ReadPrec GetPermissionResponse
+Int -&gt; ReadS GetPermissionResponse
+ReadS [GetPermissionResponse]
+(Int -&gt; ReadS GetPermissionResponse)
+-&gt; ReadS [GetPermissionResponse]
+-&gt; ReadPrec GetPermissionResponse
+-&gt; ReadPrec [GetPermissionResponse]
+-&gt; Read GetPermissionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPermissionResponse]
+$creadListPrec :: ReadPrec [GetPermissionResponse]
+readPrec :: ReadPrec GetPermissionResponse
+$creadPrec :: ReadPrec GetPermissionResponse
+readList :: ReadS [GetPermissionResponse]
+$creadList :: ReadS [GetPermissionResponse]
+readsPrec :: Int -&gt; ReadS GetPermissionResponse
+$creadsPrec :: Int -&gt; ReadS GetPermissionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207364"><span id="local-6989586621679207366"><span id="local-6989586621679207368"><span class="annot"><span class="annottext">Int -&gt; GetPermissionResponse -&gt; ShowS
+[GetPermissionResponse] -&gt; ShowS
+GetPermissionResponse -&gt; String
+(Int -&gt; GetPermissionResponse -&gt; ShowS)
+-&gt; (GetPermissionResponse -&gt; String)
+-&gt; ([GetPermissionResponse] -&gt; ShowS)
+-&gt; Show GetPermissionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPermissionResponse] -&gt; ShowS
+$cshowList :: [GetPermissionResponse] -&gt; ShowS
+show :: GetPermissionResponse -&gt; String
+$cshow :: GetPermissionResponse -&gt; String
+showsPrec :: Int -&gt; GetPermissionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPermissionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetPermissionResponse -&gt; Rep GetPermissionResponse x)
+-&gt; (forall x. Rep GetPermissionResponse x -&gt; GetPermissionResponse)
+-&gt; Generic GetPermissionResponse
+forall x. Rep GetPermissionResponse x -&gt; GetPermissionResponse
+forall x. GetPermissionResponse -&gt; Rep GetPermissionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetPermissionResponse x -&gt; GetPermissionResponse
+$cfrom :: forall x. GetPermissionResponse -&gt; Rep GetPermissionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'GetPermissionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'permission', 'getPermissionResponse_permission' - Information about the permission.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'getPermissionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#newGetPermissionResponse"><span class="hs-identifier hs-type">newGetPermissionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse"><span class="hs-identifier hs-type">GetPermissionResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newGetPermissionResponse"><span class="annot"><span class="annottext">newGetPermissionResponse :: Int -&gt; GetPermissionResponse
+</span><a href="Amazonka.RAM.GetPermission.html#newGetPermissionResponse"><span class="hs-identifier hs-var hs-var">newGetPermissionResponse</span></a></span></span><span> </span><span id="local-6989586621679207361"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207361"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">GetPermissionResponse' :: Maybe ResourceSharePermissionDetail -&gt; Int -&gt; GetPermissionResponse
+</span><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse%27"><span class="hs-identifier hs-type">GetPermissionResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:permission:GetPermissionResponse' :: Maybe ResourceSharePermissionDetail
+</span><a href="Amazonka.RAM.GetPermission.html#%24sel%3Apermission%3AGetPermissionResponse%27"><span class="hs-identifier hs-var">permission</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Maybe ResourceSharePermissionDetail
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetPermissionResponse' :: Int
+</span><a href="Amazonka.RAM.GetPermission.html#%24sel%3AhttpStatus%3AGetPermissionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207361"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Information about the permission.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#getPermissionResponse_permission"><span class="hs-identifier hs-type">getPermissionResponse_permission</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse"><span class="hs-identifier hs-type">GetPermissionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="getPermissionResponse_permission"><span class="annot"><span class="annottext">getPermissionResponse_permission :: (Maybe ResourceSharePermissionDetail
+ -&gt; f (Maybe ResourceSharePermissionDetail))
+-&gt; GetPermissionResponse -&gt; f GetPermissionResponse
+</span><a href="Amazonka.RAM.GetPermission.html#getPermissionResponse_permission"><span class="hs-identifier hs-var hs-var">getPermissionResponse_permission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPermissionResponse -&gt; Maybe ResourceSharePermissionDetail)
+-&gt; (GetPermissionResponse
+    -&gt; Maybe ResourceSharePermissionDetail -&gt; GetPermissionResponse)
+-&gt; Lens
+     GetPermissionResponse
+     GetPermissionResponse
+     (Maybe ResourceSharePermissionDetail)
+     (Maybe ResourceSharePermissionDetail)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse%27"><span class="hs-identifier hs-type">GetPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207360"><span class="annot"><span class="annottext">Maybe ResourceSharePermissionDetail
+permission :: Maybe ResourceSharePermissionDetail
+$sel:permission:GetPermissionResponse' :: GetPermissionResponse -&gt; Maybe ResourceSharePermissionDetail
+</span><a href="#local-6989586621679207360"><span class="hs-identifier hs-var hs-var">permission</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceSharePermissionDetail
+</span><a href="#local-6989586621679207360"><span class="hs-identifier hs-var">permission</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207359"><span class="annot"><span class="annottext">s :: GetPermissionResponse
+</span><a href="#local-6989586621679207359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse%27"><span class="hs-identifier hs-type">GetPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207358"><span class="annot"><span class="annottext">Maybe ResourceSharePermissionDetail
+</span><a href="#local-6989586621679207358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPermissionResponse
+</span><a href="#local-6989586621679207359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permission:GetPermissionResponse' :: Maybe ResourceSharePermissionDetail
+</span><a href="Amazonka.RAM.GetPermission.html#%24sel%3Apermission%3AGetPermissionResponse%27"><span class="hs-identifier hs-var">permission</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceSharePermissionDetail
+</span><a href="#local-6989586621679207358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse"><span class="hs-identifier hs-type">GetPermissionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#getPermissionResponse_httpStatus"><span class="hs-identifier hs-type">getPermissionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse"><span class="hs-identifier hs-type">GetPermissionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="getPermissionResponse_httpStatus"><span class="annot"><span class="annottext">getPermissionResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetPermissionResponse -&gt; f GetPermissionResponse
+</span><a href="Amazonka.RAM.GetPermission.html#getPermissionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getPermissionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPermissionResponse -&gt; Int)
+-&gt; (GetPermissionResponse -&gt; Int -&gt; GetPermissionResponse)
+-&gt; Lens GetPermissionResponse GetPermissionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse%27"><span class="hs-identifier hs-type">GetPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207357"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetPermissionResponse' :: GetPermissionResponse -&gt; Int
+</span><a href="#local-6989586621679207357"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207357"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207356"><span class="annot"><span class="annottext">s :: GetPermissionResponse
+</span><a href="#local-6989586621679207356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse%27"><span class="hs-identifier hs-type">GetPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207355"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPermissionResponse
+</span><a href="#local-6989586621679207356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPermissionResponse' :: Int
+</span><a href="Amazonka.RAM.GetPermission.html#%24sel%3AhttpStatus%3AGetPermissionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse"><span class="hs-identifier hs-type">GetPermissionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetPermission.html#GetPermissionResponse"><span class="hs-identifier hs-type">GetPermissionResponse</span></a></span></span><span>
+</span><span id="line-173"></span></pre></body></html>

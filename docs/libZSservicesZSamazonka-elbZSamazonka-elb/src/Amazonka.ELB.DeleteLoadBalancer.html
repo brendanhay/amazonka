@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ELB.DeleteLoadBalancer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified load balancer.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- If you are attempting to recreate a load balancer, you must reconfigure</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- all settings. The DNS name associated with a deleted load balancer are</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- no longer usable. The name and associated DNS record of the deleted load</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- balancer no longer exist and traffic sent to any of its IP addresses is</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- no longer delivered to your instances.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- If the load balancer does not exist or has already been deleted, the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- call to @DeleteLoadBalancer@ still succeeds.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ELB.DeleteLoadBalancer</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier">DeleteLoadBalancer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#newDeleteLoadBalancer"><span class="hs-identifier">newDeleteLoadBalancer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#deleteLoadBalancer_loadBalancerName"><span class="hs-identifier">deleteLoadBalancer_loadBalancerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse"><span class="hs-identifier">DeleteLoadBalancerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#newDeleteLoadBalancerResponse"><span class="hs-identifier">newDeleteLoadBalancerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#deleteLoadBalancerResponse_httpStatus"><span class="hs-identifier">deleteLoadBalancerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ELB.Types.html"><span class="hs-identifier">Amazonka.ELB.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | Contains the parameters for DeleteLoadBalancer.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newDeleteLoadBalancer' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679202409"><span id="local-6989586621679202410"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLoadBalancer"><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-var">DeleteLoadBalancer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLoadBalancer%27"><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer%27"><span class="hs-identifier hs-var">DeleteLoadBalancer'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the load balancer.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AloadBalancerName%3ADeleteLoadBalancer%27"><span class="annot"><span class="annottext">DeleteLoadBalancer -&gt; Text
+</span><a href="Amazonka.ELB.DeleteLoadBalancer.html#%24sel%3AloadBalancerName%3ADeleteLoadBalancer%27"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202403"><span id="local-6989586621679202405"><span class="annot"><span class="annottext">DeleteLoadBalancer -&gt; DeleteLoadBalancer -&gt; Bool
+(DeleteLoadBalancer -&gt; DeleteLoadBalancer -&gt; Bool)
+-&gt; (DeleteLoadBalancer -&gt; DeleteLoadBalancer -&gt; Bool)
+-&gt; Eq DeleteLoadBalancer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteLoadBalancer -&gt; DeleteLoadBalancer -&gt; Bool
+$c/= :: DeleteLoadBalancer -&gt; DeleteLoadBalancer -&gt; Bool
+== :: DeleteLoadBalancer -&gt; DeleteLoadBalancer -&gt; Bool
+$c== :: DeleteLoadBalancer -&gt; DeleteLoadBalancer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202394"><span id="local-6989586621679202396"><span id="local-6989586621679202398"><span id="local-6989586621679202400"><span class="annot"><span class="annottext">ReadPrec [DeleteLoadBalancer]
+ReadPrec DeleteLoadBalancer
+Int -&gt; ReadS DeleteLoadBalancer
+ReadS [DeleteLoadBalancer]
+(Int -&gt; ReadS DeleteLoadBalancer)
+-&gt; ReadS [DeleteLoadBalancer]
+-&gt; ReadPrec DeleteLoadBalancer
+-&gt; ReadPrec [DeleteLoadBalancer]
+-&gt; Read DeleteLoadBalancer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteLoadBalancer]
+$creadListPrec :: ReadPrec [DeleteLoadBalancer]
+readPrec :: ReadPrec DeleteLoadBalancer
+$creadPrec :: ReadPrec DeleteLoadBalancer
+readList :: ReadS [DeleteLoadBalancer]
+$creadList :: ReadS [DeleteLoadBalancer]
+readsPrec :: Int -&gt; ReadS DeleteLoadBalancer
+$creadsPrec :: Int -&gt; ReadS DeleteLoadBalancer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202387"><span id="local-6989586621679202389"><span id="local-6989586621679202391"><span class="annot"><span class="annottext">Int -&gt; DeleteLoadBalancer -&gt; ShowS
+[DeleteLoadBalancer] -&gt; ShowS
+DeleteLoadBalancer -&gt; String
+(Int -&gt; DeleteLoadBalancer -&gt; ShowS)
+-&gt; (DeleteLoadBalancer -&gt; String)
+-&gt; ([DeleteLoadBalancer] -&gt; ShowS)
+-&gt; Show DeleteLoadBalancer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteLoadBalancer] -&gt; ShowS
+$cshowList :: [DeleteLoadBalancer] -&gt; ShowS
+show :: DeleteLoadBalancer -&gt; String
+$cshow :: DeleteLoadBalancer -&gt; String
+showsPrec :: Int -&gt; DeleteLoadBalancer -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteLoadBalancer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteLoadBalancer -&gt; Rep DeleteLoadBalancer x)
+-&gt; (forall x. Rep DeleteLoadBalancer x -&gt; DeleteLoadBalancer)
+-&gt; Generic DeleteLoadBalancer
+forall x. Rep DeleteLoadBalancer x -&gt; DeleteLoadBalancer
+forall x. DeleteLoadBalancer -&gt; Rep DeleteLoadBalancer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteLoadBalancer x -&gt; DeleteLoadBalancer
+$cfrom :: forall x. DeleteLoadBalancer -&gt; Rep DeleteLoadBalancer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'DeleteLoadBalancer' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'loadBalancerName', 'deleteLoadBalancer_loadBalancerName' - The name of the load balancer.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#newDeleteLoadBalancer"><span class="hs-identifier hs-type">newDeleteLoadBalancer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'loadBalancerName'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span>
+</span><span id="line-79"></span><span id="newDeleteLoadBalancer"><span class="annot"><span class="annottext">newDeleteLoadBalancer :: Text -&gt; DeleteLoadBalancer
+</span><a href="Amazonka.ELB.DeleteLoadBalancer.html#newDeleteLoadBalancer"><span class="hs-identifier hs-var hs-var">newDeleteLoadBalancer</span></a></span></span><span> </span><span id="local-6989586621679202382"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202382"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DeleteLoadBalancer' :: Text -&gt; DeleteLoadBalancer
+</span><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer%27"><span class="hs-identifier hs-type">DeleteLoadBalancer'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loadBalancerName:DeleteLoadBalancer' :: Text
+</span><a href="Amazonka.ELB.DeleteLoadBalancer.html#%24sel%3AloadBalancerName%3ADeleteLoadBalancer%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202382"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The name of the load balancer.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#deleteLoadBalancer_loadBalancerName"><span class="hs-identifier hs-type">deleteLoadBalancer_loadBalancerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="deleteLoadBalancer_loadBalancerName"><span class="annot"><span class="annottext">deleteLoadBalancer_loadBalancerName :: (Text -&gt; f Text) -&gt; DeleteLoadBalancer -&gt; f DeleteLoadBalancer
+</span><a href="Amazonka.ELB.DeleteLoadBalancer.html#deleteLoadBalancer_loadBalancerName"><span class="hs-identifier hs-var hs-var">deleteLoadBalancer_loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteLoadBalancer -&gt; Text)
+-&gt; (DeleteLoadBalancer -&gt; Text -&gt; DeleteLoadBalancer)
+-&gt; Lens DeleteLoadBalancer DeleteLoadBalancer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer%27"><span class="hs-identifier hs-type">DeleteLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202379"><span class="annot"><span class="annottext">Text
+loadBalancerName :: Text
+$sel:loadBalancerName:DeleteLoadBalancer' :: DeleteLoadBalancer -&gt; Text
+</span><a href="#local-6989586621679202379"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202379"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202378"><span class="annot"><span class="annottext">s :: DeleteLoadBalancer
+</span><a href="#local-6989586621679202378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer%27"><span class="hs-identifier hs-type">DeleteLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202377"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLoadBalancer
+</span><a href="#local-6989586621679202378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:DeleteLoadBalancer' :: Text
+</span><a href="Amazonka.ELB.DeleteLoadBalancer.html#%24sel%3AloadBalancerName%3ADeleteLoadBalancer%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679202373"><span class="annot"><span class="annottext">request :: DeleteLoadBalancer -&gt; Request DeleteLoadBalancer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteLoadBalancer -&gt; Request DeleteLoadBalancer
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ELB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679202369"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteLoadBalancer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteLoadBalancer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DeleteLoadBalancer))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteLoadBalancer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteLoadBalancer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeleteLoadBalancerResult&quot;</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202366"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202366"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679202365"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679202365"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679202364"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679202364"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteLoadBalancerResponse
+</span><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse%27"><span class="hs-identifier hs-var">DeleteLoadBalancerResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteLoadBalancerResponse)
+-&gt; Either String Int -&gt; Either String DeleteLoadBalancerResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202366"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202357"><span id="local-6989586621679202359"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202354"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679202350"><span class="annot"><span class="annottext">toHeaders :: DeleteLoadBalancer -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteLoadBalancer -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679202345"><span class="annot"><span class="annottext">toPath :: DeleteLoadBalancer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteLoadBalancer -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679202341"><span class="annot"><span class="annottext">toQuery :: DeleteLoadBalancer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer%27"><span class="hs-identifier hs-type">DeleteLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202339"><span class="annot"><span class="annottext">Text
+loadBalancerName :: Text
+$sel:loadBalancerName:DeleteLoadBalancer' :: DeleteLoadBalancer -&gt; Text
+</span><a href="#local-6989586621679202339"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteLoadBalancer&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2012-06-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LoadBalancerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202339"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Contains the output of DeleteLoadBalancer.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- /See:/ 'newDeleteLoadBalancerResponse' smart constructor.</span><span>
+</span><span id="line-125"></span><span id="local-6989586621679202336"><span id="local-6989586621679202337"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLoadBalancerResponse"><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse"><span class="hs-identifier hs-var">DeleteLoadBalancerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLoadBalancerResponse%27"><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse%27"><span class="hs-identifier hs-var">DeleteLoadBalancerResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteLoadBalancerResponse%27"><span class="annot"><span class="annottext">DeleteLoadBalancerResponse -&gt; Int
+</span><a href="Amazonka.ELB.DeleteLoadBalancer.html#%24sel%3AhttpStatus%3ADeleteLoadBalancerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202331"><span id="local-6989586621679202333"><span class="annot"><span class="annottext">DeleteLoadBalancerResponse -&gt; DeleteLoadBalancerResponse -&gt; Bool
+(DeleteLoadBalancerResponse -&gt; DeleteLoadBalancerResponse -&gt; Bool)
+-&gt; (DeleteLoadBalancerResponse
+    -&gt; DeleteLoadBalancerResponse -&gt; Bool)
+-&gt; Eq DeleteLoadBalancerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteLoadBalancerResponse -&gt; DeleteLoadBalancerResponse -&gt; Bool
+$c/= :: DeleteLoadBalancerResponse -&gt; DeleteLoadBalancerResponse -&gt; Bool
+== :: DeleteLoadBalancerResponse -&gt; DeleteLoadBalancerResponse -&gt; Bool
+$c== :: DeleteLoadBalancerResponse -&gt; DeleteLoadBalancerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202323"><span id="local-6989586621679202325"><span id="local-6989586621679202327"><span id="local-6989586621679202329"><span class="annot"><span class="annottext">ReadPrec [DeleteLoadBalancerResponse]
+ReadPrec DeleteLoadBalancerResponse
+Int -&gt; ReadS DeleteLoadBalancerResponse
+ReadS [DeleteLoadBalancerResponse]
+(Int -&gt; ReadS DeleteLoadBalancerResponse)
+-&gt; ReadS [DeleteLoadBalancerResponse]
+-&gt; ReadPrec DeleteLoadBalancerResponse
+-&gt; ReadPrec [DeleteLoadBalancerResponse]
+-&gt; Read DeleteLoadBalancerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteLoadBalancerResponse]
+$creadListPrec :: ReadPrec [DeleteLoadBalancerResponse]
+readPrec :: ReadPrec DeleteLoadBalancerResponse
+$creadPrec :: ReadPrec DeleteLoadBalancerResponse
+readList :: ReadS [DeleteLoadBalancerResponse]
+$creadList :: ReadS [DeleteLoadBalancerResponse]
+readsPrec :: Int -&gt; ReadS DeleteLoadBalancerResponse
+$creadsPrec :: Int -&gt; ReadS DeleteLoadBalancerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202317"><span id="local-6989586621679202319"><span id="local-6989586621679202321"><span class="annot"><span class="annottext">Int -&gt; DeleteLoadBalancerResponse -&gt; ShowS
+[DeleteLoadBalancerResponse] -&gt; ShowS
+DeleteLoadBalancerResponse -&gt; String
+(Int -&gt; DeleteLoadBalancerResponse -&gt; ShowS)
+-&gt; (DeleteLoadBalancerResponse -&gt; String)
+-&gt; ([DeleteLoadBalancerResponse] -&gt; ShowS)
+-&gt; Show DeleteLoadBalancerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteLoadBalancerResponse] -&gt; ShowS
+$cshowList :: [DeleteLoadBalancerResponse] -&gt; ShowS
+show :: DeleteLoadBalancerResponse -&gt; String
+$cshow :: DeleteLoadBalancerResponse -&gt; String
+showsPrec :: Int -&gt; DeleteLoadBalancerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteLoadBalancerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteLoadBalancerResponse -&gt; Rep DeleteLoadBalancerResponse x)
+-&gt; (forall x.
+    Rep DeleteLoadBalancerResponse x -&gt; DeleteLoadBalancerResponse)
+-&gt; Generic DeleteLoadBalancerResponse
+forall x.
+Rep DeleteLoadBalancerResponse x -&gt; DeleteLoadBalancerResponse
+forall x.
+DeleteLoadBalancerResponse -&gt; Rep DeleteLoadBalancerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteLoadBalancerResponse x -&gt; DeleteLoadBalancerResponse
+$cfrom :: forall x.
+DeleteLoadBalancerResponse -&gt; Rep DeleteLoadBalancerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Create a value of 'DeleteLoadBalancerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'httpStatus', 'deleteLoadBalancerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#newDeleteLoadBalancerResponse"><span class="hs-identifier hs-type">newDeleteLoadBalancerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse</span></a></span><span>
+</span><span id="line-144"></span><span id="newDeleteLoadBalancerResponse"><span class="annot"><span class="annottext">newDeleteLoadBalancerResponse :: Int -&gt; DeleteLoadBalancerResponse
+</span><a href="Amazonka.ELB.DeleteLoadBalancer.html#newDeleteLoadBalancerResponse"><span class="hs-identifier hs-var hs-var">newDeleteLoadBalancerResponse</span></a></span></span><span> </span><span id="local-6989586621679202314"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202314"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">DeleteLoadBalancerResponse' :: Int -&gt; DeleteLoadBalancerResponse
+</span><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLoadBalancerResponse' :: Int
+</span><a href="Amazonka.ELB.DeleteLoadBalancer.html#%24sel%3AhttpStatus%3ADeleteLoadBalancerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202314"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#deleteLoadBalancerResponse_httpStatus"><span class="hs-identifier hs-type">deleteLoadBalancerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-152"></span><span id="deleteLoadBalancerResponse_httpStatus"><span class="annot"><span class="annottext">deleteLoadBalancerResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteLoadBalancerResponse -&gt; f DeleteLoadBalancerResponse
+</span><a href="Amazonka.ELB.DeleteLoadBalancer.html#deleteLoadBalancerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteLoadBalancerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteLoadBalancerResponse -&gt; Int)
+-&gt; (DeleteLoadBalancerResponse
+    -&gt; Int -&gt; DeleteLoadBalancerResponse)
+-&gt; Lens
+     DeleteLoadBalancerResponse DeleteLoadBalancerResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202313"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteLoadBalancerResponse' :: DeleteLoadBalancerResponse -&gt; Int
+</span><a href="#local-6989586621679202313"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202313"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202312"><span class="annot"><span class="annottext">s :: DeleteLoadBalancerResponse
+</span><a href="#local-6989586621679202312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202311"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLoadBalancerResponse
+</span><a href="#local-6989586621679202312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLoadBalancerResponse' :: Int
+</span><a href="Amazonka.ELB.DeleteLoadBalancer.html#%24sel%3AhttpStatus%3ADeleteLoadBalancerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse</span></a></span></span><span>
+</span><span id="line-155"></span></pre></body></html>

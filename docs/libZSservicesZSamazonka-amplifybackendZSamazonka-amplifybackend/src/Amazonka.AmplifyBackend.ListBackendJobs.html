@@ -1,0 +1,870 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AmplifyBackend.ListBackendJobs</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the jobs for the backend of an Amplify app.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AmplifyBackend.ListBackendJobs</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier">ListBackendJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#newListBackendJobs"><span class="hs-identifier">newListBackendJobs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_status"><span class="hs-identifier">listBackendJobs_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_jobId"><span class="hs-identifier">listBackendJobs_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_operation"><span class="hs-identifier">listBackendJobs_operation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_nextToken"><span class="hs-identifier">listBackendJobs_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_maxResults"><span class="hs-identifier">listBackendJobs_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_appId"><span class="hs-identifier">listBackendJobs_appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_backendEnvironmentName"><span class="hs-identifier">listBackendJobs_backendEnvironmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse"><span class="hs-identifier">ListBackendJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#newListBackendJobsResponse"><span class="hs-identifier">newListBackendJobsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobsResponse_nextToken"><span class="hs-identifier">listBackendJobsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobsResponse_jobs"><span class="hs-identifier">listBackendJobsResponse_jobs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobsResponse_httpStatus"><span class="hs-identifier">listBackendJobsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.html"><span class="hs-identifier">Amazonka.AmplifyBackend.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The request body for ListBackendJobs.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newListBackendJobs' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679235502"><span id="local-6989586621679235503"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBackendJobs"><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-var">ListBackendJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBackendJobs%27"><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-var">ListBackendJobs'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Filters the list of response objects to include only those with the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- specified status.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Astatus%3AListBackendJobs%27"><span class="annot"><span class="annottext">ListBackendJobs -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3Astatus%3AListBackendJobs%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ID for the job.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AjobId%3AListBackendJobs%27"><span class="annot"><span class="annottext">ListBackendJobs -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AjobId%3AListBackendJobs%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Filters the list of response objects to include only those with the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- specified operation name.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Aoperation%3AListBackendJobs%27"><span class="annot"><span class="annottext">ListBackendJobs -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3Aoperation%3AListBackendJobs%27"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AnextToken%3AListBackendJobs%27"><span class="annot"><span class="annottext">ListBackendJobs -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AnextToken%3AListBackendJobs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The maximum number of results that you want in the response.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AmaxResults%3AListBackendJobs%27"><span class="annot"><span class="annottext">ListBackendJobs -&gt; Maybe Natural
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AmaxResults%3AListBackendJobs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AappId%3AListBackendJobs%27"><span class="annot"><span class="annottext">ListBackendJobs -&gt; Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AappId%3AListBackendJobs%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AbackendEnvironmentName%3AListBackendJobs%27"><span class="annot"><span class="annottext">ListBackendJobs -&gt; Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AbackendEnvironmentName%3AListBackendJobs%27"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235490"><span id="local-6989586621679235492"><span class="annot"><span class="annottext">ListBackendJobs -&gt; ListBackendJobs -&gt; Bool
+(ListBackendJobs -&gt; ListBackendJobs -&gt; Bool)
+-&gt; (ListBackendJobs -&gt; ListBackendJobs -&gt; Bool)
+-&gt; Eq ListBackendJobs
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListBackendJobs -&gt; ListBackendJobs -&gt; Bool
+$c/= :: ListBackendJobs -&gt; ListBackendJobs -&gt; Bool
+== :: ListBackendJobs -&gt; ListBackendJobs -&gt; Bool
+$c== :: ListBackendJobs -&gt; ListBackendJobs -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235481"><span id="local-6989586621679235483"><span id="local-6989586621679235485"><span id="local-6989586621679235487"><span class="annot"><span class="annottext">ReadPrec [ListBackendJobs]
+ReadPrec ListBackendJobs
+Int -&gt; ReadS ListBackendJobs
+ReadS [ListBackendJobs]
+(Int -&gt; ReadS ListBackendJobs)
+-&gt; ReadS [ListBackendJobs]
+-&gt; ReadPrec ListBackendJobs
+-&gt; ReadPrec [ListBackendJobs]
+-&gt; Read ListBackendJobs
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListBackendJobs]
+$creadListPrec :: ReadPrec [ListBackendJobs]
+readPrec :: ReadPrec ListBackendJobs
+$creadPrec :: ReadPrec ListBackendJobs
+readList :: ReadS [ListBackendJobs]
+$creadList :: ReadS [ListBackendJobs]
+readsPrec :: Int -&gt; ReadS ListBackendJobs
+$creadsPrec :: Int -&gt; ReadS ListBackendJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235474"><span id="local-6989586621679235476"><span id="local-6989586621679235478"><span class="annot"><span class="annottext">Int -&gt; ListBackendJobs -&gt; ShowS
+[ListBackendJobs] -&gt; ShowS
+ListBackendJobs -&gt; String
+(Int -&gt; ListBackendJobs -&gt; ShowS)
+-&gt; (ListBackendJobs -&gt; String)
+-&gt; ([ListBackendJobs] -&gt; ShowS)
+-&gt; Show ListBackendJobs
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListBackendJobs] -&gt; ShowS
+$cshowList :: [ListBackendJobs] -&gt; ShowS
+show :: ListBackendJobs -&gt; String
+$cshow :: ListBackendJobs -&gt; String
+showsPrec :: Int -&gt; ListBackendJobs -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListBackendJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListBackendJobs -&gt; Rep ListBackendJobs x)
+-&gt; (forall x. Rep ListBackendJobs x -&gt; ListBackendJobs)
+-&gt; Generic ListBackendJobs
+forall x. Rep ListBackendJobs x -&gt; ListBackendJobs
+forall x. ListBackendJobs -&gt; Rep ListBackendJobs x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListBackendJobs x -&gt; ListBackendJobs
+$cfrom :: forall x. ListBackendJobs -&gt; Rep ListBackendJobs x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Create a value of 'ListBackendJobs' with all optional fields omitted.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'status', 'listBackendJobs_status' - Filters the list of response objects to include only those with the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- specified status.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'jobId', 'listBackendJobs_jobId' - The ID for the job.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'operation', 'listBackendJobs_operation' - Filters the list of response objects to include only those with the</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- specified operation name.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'nextToken', 'listBackendJobs_nextToken' - The token for the next set of results.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'maxResults', 'listBackendJobs_maxResults' - The maximum number of results that you want in the response.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'appId', 'listBackendJobs_appId' - The app ID.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'backendEnvironmentName', 'listBackendJobs_backendEnvironmentName' - The name of the backend environment.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#newListBackendJobs"><span class="hs-identifier hs-type">newListBackendJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'appId'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'backendEnvironmentName'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span>
+</span><span id="line-110"></span><span id="newListBackendJobs"><span class="annot"><span class="annottext">newListBackendJobs :: Text -&gt; Text -&gt; ListBackendJobs
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#newListBackendJobs"><span class="hs-identifier hs-var hs-var">newListBackendJobs</span></a></span></span><span> </span><span id="local-6989586621679235469"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235469"><span class="hs-identifier hs-var">pAppId_</span></a></span></span><span> </span><span id="local-6989586621679235468"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235468"><span class="hs-identifier hs-var">pBackendEnvironmentName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="annottext">ListBackendJobs' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; Text
+-&gt; ListBackendJobs
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ListBackendJobs' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3Astatus%3AListBackendJobs%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:ListBackendJobs' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AjobId%3AListBackendJobs%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:operation:ListBackendJobs' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3Aoperation%3AListBackendJobs%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListBackendJobs' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AnextToken%3AListBackendJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListBackendJobs' :: Maybe Natural
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AmaxResults%3AListBackendJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:appId:ListBackendJobs' :: Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AappId%3AListBackendJobs%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235469"><span class="hs-identifier hs-var">pAppId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:ListBackendJobs' :: Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AbackendEnvironmentName%3AListBackendJobs%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235468"><span class="hs-identifier hs-var">pBackendEnvironmentName_</span></a></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Filters the list of response objects to include only those with the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- specified status.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_status"><span class="hs-identifier hs-type">listBackendJobs_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="listBackendJobs_status"><span class="annot"><span class="annottext">listBackendJobs_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBackendJobs -&gt; f ListBackendJobs
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_status"><span class="hs-identifier hs-var hs-var">listBackendJobs_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackendJobs -&gt; Maybe Text)
+-&gt; (ListBackendJobs -&gt; Maybe Text -&gt; ListBackendJobs)
+-&gt; Lens ListBackendJobs ListBackendJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235466"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:ListBackendJobs' :: ListBackendJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679235466"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235466"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235465"><span class="annot"><span class="annottext">s :: ListBackendJobs
+</span><a href="#local-6989586621679235465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235464"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackendJobs
+</span><a href="#local-6989586621679235465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListBackendJobs' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3Astatus%3AListBackendJobs%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The ID for the job.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_jobId"><span class="hs-identifier hs-type">listBackendJobs_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="listBackendJobs_jobId"><span class="annot"><span class="annottext">listBackendJobs_jobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBackendJobs -&gt; f ListBackendJobs
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_jobId"><span class="hs-identifier hs-var hs-var">listBackendJobs_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackendJobs -&gt; Maybe Text)
+-&gt; (ListBackendJobs -&gt; Maybe Text -&gt; ListBackendJobs)
+-&gt; Lens ListBackendJobs ListBackendJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235463"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:ListBackendJobs' :: ListBackendJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679235463"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235463"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235462"><span class="annot"><span class="annottext">s :: ListBackendJobs
+</span><a href="#local-6989586621679235462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235461"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackendJobs
+</span><a href="#local-6989586621679235462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:ListBackendJobs' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AjobId%3AListBackendJobs%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | Filters the list of response objects to include only those with the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- specified operation name.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_operation"><span class="hs-identifier hs-type">listBackendJobs_operation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="listBackendJobs_operation"><span class="annot"><span class="annottext">listBackendJobs_operation :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBackendJobs -&gt; f ListBackendJobs
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_operation"><span class="hs-identifier hs-var hs-var">listBackendJobs_operation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackendJobs -&gt; Maybe Text)
+-&gt; (ListBackendJobs -&gt; Maybe Text -&gt; ListBackendJobs)
+-&gt; Lens ListBackendJobs ListBackendJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235460"><span class="annot"><span class="annottext">Maybe Text
+operation :: Maybe Text
+$sel:operation:ListBackendJobs' :: ListBackendJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679235460"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235460"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235459"><span class="annot"><span class="annottext">s :: ListBackendJobs
+</span><a href="#local-6989586621679235459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235458"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackendJobs
+</span><a href="#local-6989586621679235459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:ListBackendJobs' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3Aoperation%3AListBackendJobs%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The token for the next set of results.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_nextToken"><span class="hs-identifier hs-type">listBackendJobs_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="listBackendJobs_nextToken"><span class="annot"><span class="annottext">listBackendJobs_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBackendJobs -&gt; f ListBackendJobs
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_nextToken"><span class="hs-identifier hs-var hs-var">listBackendJobs_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackendJobs -&gt; Maybe Text)
+-&gt; (ListBackendJobs -&gt; Maybe Text -&gt; ListBackendJobs)
+-&gt; Lens ListBackendJobs ListBackendJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235457"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListBackendJobs' :: ListBackendJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679235457"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235457"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235456"><span class="annot"><span class="annottext">s :: ListBackendJobs
+</span><a href="#local-6989586621679235456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235455"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackendJobs
+</span><a href="#local-6989586621679235456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBackendJobs' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AnextToken%3AListBackendJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The maximum number of results that you want in the response.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_maxResults"><span class="hs-identifier hs-type">listBackendJobs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="listBackendJobs_maxResults"><span class="annot"><span class="annottext">listBackendJobs_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListBackendJobs -&gt; f ListBackendJobs
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_maxResults"><span class="hs-identifier hs-var hs-var">listBackendJobs_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackendJobs -&gt; Maybe Natural)
+-&gt; (ListBackendJobs -&gt; Maybe Natural -&gt; ListBackendJobs)
+-&gt; Lens
+     ListBackendJobs ListBackendJobs (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235454"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListBackendJobs' :: ListBackendJobs -&gt; Maybe Natural
+</span><a href="#local-6989586621679235454"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679235454"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235453"><span class="annot"><span class="annottext">s :: ListBackendJobs
+</span><a href="#local-6989586621679235453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235452"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679235452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackendJobs
+</span><a href="#local-6989586621679235453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListBackendJobs' :: Maybe Natural
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AmaxResults%3AListBackendJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679235452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_appId"><span class="hs-identifier hs-type">listBackendJobs_appId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-145"></span><span id="listBackendJobs_appId"><span class="annot"><span class="annottext">listBackendJobs_appId :: (Text -&gt; f Text) -&gt; ListBackendJobs -&gt; f ListBackendJobs
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_appId"><span class="hs-identifier hs-var hs-var">listBackendJobs_appId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackendJobs -&gt; Text)
+-&gt; (ListBackendJobs -&gt; Text -&gt; ListBackendJobs)
+-&gt; Lens ListBackendJobs ListBackendJobs Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235451"><span class="annot"><span class="annottext">Text
+appId :: Text
+$sel:appId:ListBackendJobs' :: ListBackendJobs -&gt; Text
+</span><a href="#local-6989586621679235451"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235451"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235450"><span class="annot"><span class="annottext">s :: ListBackendJobs
+</span><a href="#local-6989586621679235450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235449"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackendJobs
+</span><a href="#local-6989586621679235450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:ListBackendJobs' :: Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AappId%3AListBackendJobs%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_backendEnvironmentName"><span class="hs-identifier hs-type">listBackendJobs_backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-149"></span><span id="listBackendJobs_backendEnvironmentName"><span class="annot"><span class="annottext">listBackendJobs_backendEnvironmentName :: (Text -&gt; f Text) -&gt; ListBackendJobs -&gt; f ListBackendJobs
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_backendEnvironmentName"><span class="hs-identifier hs-var hs-var">listBackendJobs_backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackendJobs -&gt; Text)
+-&gt; (ListBackendJobs -&gt; Text -&gt; ListBackendJobs)
+-&gt; Lens ListBackendJobs ListBackendJobs Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235448"><span class="annot"><span class="annottext">Text
+backendEnvironmentName :: Text
+$sel:backendEnvironmentName:ListBackendJobs' :: ListBackendJobs -&gt; Text
+</span><a href="#local-6989586621679235448"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235448"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235447"><span class="annot"><span class="annottext">s :: ListBackendJobs
+</span><a href="#local-6989586621679235447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235446"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackendJobs
+</span><a href="#local-6989586621679235447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:ListBackendJobs' :: Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AbackendEnvironmentName%3AListBackendJobs%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679235442"><span class="annot"><span class="annottext">page :: ListBackendJobs
+-&gt; AWSResponse ListBackendJobs -&gt; Maybe ListBackendJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679235440"><span class="annot"><span class="annottext">ListBackendJobs
+</span><a href="#local-6989586621679235440"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679235439"><span class="annot"><span class="annottext">AWSResponse ListBackendJobs
+</span><a href="#local-6989586621679235439"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-154"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBackendJobs
+ListBackendJobsResponse
+</span><a href="#local-6989586621679235439"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">ListBackendJobsResponse
+-&gt; Getting (First Text) ListBackendJobsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListBackendJobsResponse
+-&gt; Const (First Text) ListBackendJobsResponse
+Lens' ListBackendJobsResponse (Maybe Text)
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobsResponse_nextToken"><span class="hs-identifier hs-var">listBackendJobsResponse_nextToken</span></a></span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListBackendJobsResponse
+ -&gt; Const (First Text) ListBackendJobsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListBackendJobsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-157"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListBackendJobs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [BackendJobRespObj] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-160"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBackendJobs
+ListBackendJobsResponse
+</span><a href="#local-6989586621679235439"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">ListBackendJobsResponse
+-&gt; Getting
+     (First [BackendJobRespObj])
+     ListBackendJobsResponse
+     [BackendJobRespObj]
+-&gt; Maybe [BackendJobRespObj]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [BackendJobRespObj]
+ -&gt; Const (First [BackendJobRespObj]) (Maybe [BackendJobRespObj]))
+-&gt; ListBackendJobsResponse
+-&gt; Const (First [BackendJobRespObj]) ListBackendJobsResponse
+Lens' ListBackendJobsResponse (Maybe [BackendJobRespObj])
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobsResponse_jobs"><span class="hs-identifier hs-var">listBackendJobsResponse_jobs</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [BackendJobRespObj]
+  -&gt; Const (First [BackendJobRespObj]) (Maybe [BackendJobRespObj]))
+ -&gt; ListBackendJobsResponse
+ -&gt; Const (First [BackendJobRespObj]) ListBackendJobsResponse)
+-&gt; (([BackendJobRespObj]
+     -&gt; Const (First [BackendJobRespObj]) [BackendJobRespObj])
+    -&gt; Maybe [BackendJobRespObj]
+    -&gt; Const (First [BackendJobRespObj]) (Maybe [BackendJobRespObj]))
+-&gt; Getting
+     (First [BackendJobRespObj])
+     ListBackendJobsResponse
+     [BackendJobRespObj]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BackendJobRespObj]
+ -&gt; Const (First [BackendJobRespObj]) [BackendJobRespObj])
+-&gt; Maybe [BackendJobRespObj]
+-&gt; Const (First [BackendJobRespObj]) (Maybe [BackendJobRespObj])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-162"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListBackendJobs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">ListBackendJobs -&gt; Maybe ListBackendJobs
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListBackendJobs -&gt; Maybe ListBackendJobs)
+-&gt; ListBackendJobs -&gt; Maybe ListBackendJobs
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">ListBackendJobs
+</span><a href="#local-6989586621679235440"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">ListBackendJobs
+-&gt; (ListBackendJobs -&gt; ListBackendJobs) -&gt; ListBackendJobs
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListBackendJobs -&gt; Identity ListBackendJobs
+Lens ListBackendJobs ListBackendJobs (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobs_nextToken"><span class="hs-identifier hs-var">listBackendJobs_nextToken</span></a></span><span>
+</span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListBackendJobs -&gt; Identity ListBackendJobs)
+-&gt; Maybe Text -&gt; ListBackendJobs -&gt; ListBackendJobs
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBackendJobs
+ListBackendJobsResponse
+</span><a href="#local-6989586621679235439"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">ListBackendJobsResponse
+-&gt; Getting (First Text) ListBackendJobsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListBackendJobsResponse
+-&gt; Const (First Text) ListBackendJobsResponse
+Lens' ListBackendJobsResponse (Maybe Text)
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobsResponse_nextToken"><span class="hs-identifier hs-var">listBackendJobsResponse_nextToken</span></a></span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListBackendJobsResponse
+ -&gt; Const (First Text) ListBackendJobsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListBackendJobsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-174"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse"><span class="hs-identifier hs-type">ListBackendJobsResponse</span></a></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679235429"><span class="annot"><span class="annottext">request :: ListBackendJobs -&gt; Request ListBackendJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListBackendJobs -&gt; Request ListBackendJobs
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AmplifyBackend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679235425"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListBackendJobs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListBackendJobs)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListBackendJobs))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListBackendJobs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListBackendJobs)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235422"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235422"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679235421"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679235421"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679235420"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235420"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [BackendJobRespObj] -&gt; Int -&gt; ListBackendJobsResponse
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse%27"><span class="hs-identifier hs-var">ListBackendJobsResponse'</span></a></span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [BackendJobRespObj] -&gt; Int -&gt; ListBackendJobsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [BackendJobRespObj] -&gt; Int -&gt; ListBackendJobsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [BackendJobRespObj] -&gt; Int -&gt; ListBackendJobsResponse)
+-&gt; Either String (Maybe [BackendJobRespObj])
+-&gt; Either String (Int -&gt; ListBackendJobsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BackendJobRespObj]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BackendJobRespObj]))
+-&gt; Maybe [BackendJobRespObj]
+-&gt; Either String (Maybe [BackendJobRespObj])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BackendJobRespObj]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListBackendJobsResponse)
+-&gt; Either String Int -&gt; Either String ListBackendJobsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235422"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235411"><span id="local-6989586621679235413"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span></span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679235404"><span class="annot"><span class="annottext">toHeaders :: ListBackendJobs -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListBackendJobs -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-194"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-195"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-196"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-197"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235394"><span id="local-6989586621679235396"><span id="local-6989586621679235398"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679235392"><span class="annot"><span class="annottext">toJSON :: ListBackendJobs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235384"><span id="local-6989586621679235385"><span id="local-6989586621679235386"><span id="local-6989586621679235387"><span id="local-6989586621679235388"><span id="local-6989586621679235389"><span id="local-6989586621679235390"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+backendEnvironmentName :: Text
+appId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+operation :: Maybe Text
+jobId :: Maybe Text
+status :: Maybe Text
+$sel:backendEnvironmentName:ListBackendJobs' :: ListBackendJobs -&gt; Text
+$sel:appId:ListBackendJobs' :: ListBackendJobs -&gt; Text
+$sel:maxResults:ListBackendJobs' :: ListBackendJobs -&gt; Maybe Natural
+$sel:nextToken:ListBackendJobs' :: ListBackendJobs -&gt; Maybe Text
+$sel:operation:ListBackendJobs' :: ListBackendJobs -&gt; Maybe Text
+$sel:jobId:ListBackendJobs' :: ListBackendJobs -&gt; Maybe Text
+$sel:status:ListBackendJobs' :: ListBackendJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679235384"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-205"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235390"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235389"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235388"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235387"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679235386"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-210"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679235378"><span class="annot"><span class="annottext">toPath :: ListBackendJobs -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs%27"><span class="hs-identifier hs-type">ListBackendJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235370"><span id="local-6989586621679235371"><span id="local-6989586621679235372"><span id="local-6989586621679235373"><span id="local-6989586621679235374"><span id="local-6989586621679235375"><span id="local-6989586621679235376"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+backendEnvironmentName :: Text
+appId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+operation :: Maybe Text
+jobId :: Maybe Text
+status :: Maybe Text
+$sel:backendEnvironmentName:ListBackendJobs' :: ListBackendJobs -&gt; Text
+$sel:appId:ListBackendJobs' :: ListBackendJobs -&gt; Text
+$sel:maxResults:ListBackendJobs' :: ListBackendJobs -&gt; Maybe Natural
+$sel:nextToken:ListBackendJobs' :: ListBackendJobs -&gt; Maybe Text
+$sel:operation:ListBackendJobs' :: ListBackendJobs -&gt; Maybe Text
+$sel:jobId:ListBackendJobs' :: ListBackendJobs -&gt; Maybe Text
+$sel:status:ListBackendJobs' :: ListBackendJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679235370"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/backend/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235371"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/job/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235370"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobs"><span class="hs-identifier hs-type">ListBackendJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679235366"><span class="annot"><span class="annottext">toQuery :: ListBackendJobs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListBackendJobs -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | /See:/ 'newListBackendJobsResponse' smart constructor.</span><span>
+</span><span id="line-226"></span><span id="local-6989586621679235363"><span id="local-6989586621679235364"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBackendJobsResponse"><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse"><span class="hs-identifier hs-var">ListBackendJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBackendJobsResponse%27"><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse%27"><span class="hs-identifier hs-var">ListBackendJobsResponse'</span></a></span></span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results.</span><span>
+</span><span id="line-228"></span><span>    </span><span id="%24sel%3AnextToken%3AListBackendJobsResponse%27"><span class="annot"><span class="annottext">ListBackendJobsResponse -&gt; Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AnextToken%3AListBackendJobsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- | An array of jobs and their properties.</span><span>
+</span><span id="line-230"></span><span>    </span><span id="%24sel%3Ajobs%3AListBackendJobsResponse%27"><span class="annot"><span class="annottext">ListBackendJobsResponse -&gt; Maybe [BackendJobRespObj]
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3Ajobs%3AListBackendJobsResponse%27"><span class="hs-identifier hs-var hs-var">jobs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-232"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListBackendJobsResponse%27"><span class="annot"><span class="annottext">ListBackendJobsResponse -&gt; Int
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AhttpStatus%3AListBackendJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235356"><span id="local-6989586621679235358"><span class="annot"><span class="annottext">ListBackendJobsResponse -&gt; ListBackendJobsResponse -&gt; Bool
+(ListBackendJobsResponse -&gt; ListBackendJobsResponse -&gt; Bool)
+-&gt; (ListBackendJobsResponse -&gt; ListBackendJobsResponse -&gt; Bool)
+-&gt; Eq ListBackendJobsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListBackendJobsResponse -&gt; ListBackendJobsResponse -&gt; Bool
+$c/= :: ListBackendJobsResponse -&gt; ListBackendJobsResponse -&gt; Bool
+== :: ListBackendJobsResponse -&gt; ListBackendJobsResponse -&gt; Bool
+$c== :: ListBackendJobsResponse -&gt; ListBackendJobsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235348"><span id="local-6989586621679235350"><span id="local-6989586621679235352"><span id="local-6989586621679235354"><span class="annot"><span class="annottext">ReadPrec [ListBackendJobsResponse]
+ReadPrec ListBackendJobsResponse
+Int -&gt; ReadS ListBackendJobsResponse
+ReadS [ListBackendJobsResponse]
+(Int -&gt; ReadS ListBackendJobsResponse)
+-&gt; ReadS [ListBackendJobsResponse]
+-&gt; ReadPrec ListBackendJobsResponse
+-&gt; ReadPrec [ListBackendJobsResponse]
+-&gt; Read ListBackendJobsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListBackendJobsResponse]
+$creadListPrec :: ReadPrec [ListBackendJobsResponse]
+readPrec :: ReadPrec ListBackendJobsResponse
+$creadPrec :: ReadPrec ListBackendJobsResponse
+readList :: ReadS [ListBackendJobsResponse]
+$creadList :: ReadS [ListBackendJobsResponse]
+readsPrec :: Int -&gt; ReadS ListBackendJobsResponse
+$creadsPrec :: Int -&gt; ReadS ListBackendJobsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235342"><span id="local-6989586621679235344"><span id="local-6989586621679235346"><span class="annot"><span class="annottext">Int -&gt; ListBackendJobsResponse -&gt; ShowS
+[ListBackendJobsResponse] -&gt; ShowS
+ListBackendJobsResponse -&gt; String
+(Int -&gt; ListBackendJobsResponse -&gt; ShowS)
+-&gt; (ListBackendJobsResponse -&gt; String)
+-&gt; ([ListBackendJobsResponse] -&gt; ShowS)
+-&gt; Show ListBackendJobsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListBackendJobsResponse] -&gt; ShowS
+$cshowList :: [ListBackendJobsResponse] -&gt; ShowS
+show :: ListBackendJobsResponse -&gt; String
+$cshow :: ListBackendJobsResponse -&gt; String
+showsPrec :: Int -&gt; ListBackendJobsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListBackendJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListBackendJobsResponse -&gt; Rep ListBackendJobsResponse x)
+-&gt; (forall x.
+    Rep ListBackendJobsResponse x -&gt; ListBackendJobsResponse)
+-&gt; Generic ListBackendJobsResponse
+forall x. Rep ListBackendJobsResponse x -&gt; ListBackendJobsResponse
+forall x. ListBackendJobsResponse -&gt; Rep ListBackendJobsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListBackendJobsResponse x -&gt; ListBackendJobsResponse
+$cfrom :: forall x. ListBackendJobsResponse -&gt; Rep ListBackendJobsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- Create a value of 'ListBackendJobsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'nextToken', 'listBackendJobsResponse_nextToken' - The token for the next set of results.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- 'jobs', 'listBackendJobsResponse_jobs' - An array of jobs and their properties.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'httpStatus', 'listBackendJobsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#newListBackendJobsResponse"><span class="hs-identifier hs-type">newListBackendJobsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-251"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-252"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse"><span class="hs-identifier hs-type">ListBackendJobsResponse</span></a></span><span>
+</span><span id="line-253"></span><span id="newListBackendJobsResponse"><span class="annot"><span class="annottext">newListBackendJobsResponse :: Int -&gt; ListBackendJobsResponse
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#newListBackendJobsResponse"><span class="hs-identifier hs-var hs-var">newListBackendJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679235339"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235339"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>  </span><span class="annot"><span class="annottext">ListBackendJobsResponse' :: Maybe Text
+-&gt; Maybe [BackendJobRespObj] -&gt; Int -&gt; ListBackendJobsResponse
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse%27"><span class="hs-identifier hs-type">ListBackendJobsResponse'</span></a></span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListBackendJobsResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AnextToken%3AListBackendJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobs:ListBackendJobsResponse' :: Maybe [BackendJobRespObj]
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3Ajobs%3AListBackendJobsResponse%27"><span class="hs-identifier hs-var">jobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BackendJobRespObj]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListBackendJobsResponse' :: Int
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AhttpStatus%3AListBackendJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235339"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The token for the next set of results.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobsResponse_nextToken"><span class="hs-identifier hs-type">listBackendJobsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse"><span class="hs-identifier hs-type">ListBackendJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="listBackendJobsResponse_nextToken"><span class="annot"><span class="annottext">listBackendJobsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBackendJobsResponse -&gt; f ListBackendJobsResponse
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listBackendJobsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackendJobsResponse -&gt; Maybe Text)
+-&gt; (ListBackendJobsResponse
+    -&gt; Maybe Text -&gt; ListBackendJobsResponse)
+-&gt; Lens' ListBackendJobsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse%27"><span class="hs-identifier hs-type">ListBackendJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235338"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListBackendJobsResponse' :: ListBackendJobsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679235338"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235338"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235337"><span class="annot"><span class="annottext">s :: ListBackendJobsResponse
+</span><a href="#local-6989586621679235337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse%27"><span class="hs-identifier hs-type">ListBackendJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235336"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackendJobsResponse
+</span><a href="#local-6989586621679235337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBackendJobsResponse' :: Maybe Text
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AnextToken%3AListBackendJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse"><span class="hs-identifier hs-type">ListBackendJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | An array of jobs and their properties.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobsResponse_jobs"><span class="hs-identifier hs-type">listBackendJobsResponse_jobs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse"><span class="hs-identifier hs-type">ListBackendJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="listBackendJobsResponse_jobs"><span class="annot"><span class="annottext">listBackendJobsResponse_jobs :: (Maybe [BackendJobRespObj] -&gt; f (Maybe [BackendJobRespObj]))
+-&gt; ListBackendJobsResponse -&gt; f ListBackendJobsResponse
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobsResponse_jobs"><span class="hs-identifier hs-var hs-var">listBackendJobsResponse_jobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackendJobsResponse -&gt; Maybe [BackendJobRespObj])
+-&gt; (ListBackendJobsResponse
+    -&gt; Maybe [BackendJobRespObj] -&gt; ListBackendJobsResponse)
+-&gt; Lens' ListBackendJobsResponse (Maybe [BackendJobRespObj])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse%27"><span class="hs-identifier hs-type">ListBackendJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235335"><span class="annot"><span class="annottext">Maybe [BackendJobRespObj]
+jobs :: Maybe [BackendJobRespObj]
+$sel:jobs:ListBackendJobsResponse' :: ListBackendJobsResponse -&gt; Maybe [BackendJobRespObj]
+</span><a href="#local-6989586621679235335"><span class="hs-identifier hs-var hs-var">jobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BackendJobRespObj]
+</span><a href="#local-6989586621679235335"><span class="hs-identifier hs-var">jobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235334"><span class="annot"><span class="annottext">s :: ListBackendJobsResponse
+</span><a href="#local-6989586621679235334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse%27"><span class="hs-identifier hs-type">ListBackendJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235333"><span class="annot"><span class="annottext">Maybe [BackendJobRespObj]
+</span><a href="#local-6989586621679235333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackendJobsResponse
+</span><a href="#local-6989586621679235334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobs:ListBackendJobsResponse' :: Maybe [BackendJobRespObj]
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3Ajobs%3AListBackendJobsResponse%27"><span class="hs-identifier hs-var">jobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BackendJobRespObj]
+</span><a href="#local-6989586621679235333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse"><span class="hs-identifier hs-type">ListBackendJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BackendJobRespObj] -&gt; f (Maybe [BackendJobRespObj]))
+ -&gt; ListBackendJobsResponse -&gt; f ListBackendJobsResponse)
+-&gt; ((Maybe [BackendJobRespObj] -&gt; f (Maybe [BackendJobRespObj]))
+    -&gt; Maybe [BackendJobRespObj] -&gt; f (Maybe [BackendJobRespObj]))
+-&gt; (Maybe [BackendJobRespObj] -&gt; f (Maybe [BackendJobRespObj]))
+-&gt; ListBackendJobsResponse
+-&gt; f ListBackendJobsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BackendJobRespObj]
+  [BackendJobRespObj]
+  [BackendJobRespObj]
+  [BackendJobRespObj]
+-&gt; Iso
+     (Maybe [BackendJobRespObj])
+     (Maybe [BackendJobRespObj])
+     (Maybe [BackendJobRespObj])
+     (Maybe [BackendJobRespObj])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BackendJobRespObj]
+  [BackendJobRespObj]
+  [BackendJobRespObj]
+  [BackendJobRespObj]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobsResponse_httpStatus"><span class="hs-identifier hs-type">listBackendJobsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse"><span class="hs-identifier hs-type">ListBackendJobsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-271"></span><span id="listBackendJobsResponse_httpStatus"><span class="annot"><span class="annottext">listBackendJobsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListBackendJobsResponse -&gt; f ListBackendJobsResponse
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#listBackendJobsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listBackendJobsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackendJobsResponse -&gt; Int)
+-&gt; (ListBackendJobsResponse -&gt; Int -&gt; ListBackendJobsResponse)
+-&gt; Lens ListBackendJobsResponse ListBackendJobsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse%27"><span class="hs-identifier hs-type">ListBackendJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235330"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListBackendJobsResponse' :: ListBackendJobsResponse -&gt; Int
+</span><a href="#local-6989586621679235330"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235330"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235329"><span class="annot"><span class="annottext">s :: ListBackendJobsResponse
+</span><a href="#local-6989586621679235329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse%27"><span class="hs-identifier hs-type">ListBackendJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235328"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackendJobsResponse
+</span><a href="#local-6989586621679235329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBackendJobsResponse' :: Int
+</span><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#%24sel%3AhttpStatus%3AListBackendJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse"><span class="hs-identifier hs-type">ListBackendJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235326"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.ListBackendJobs.html#ListBackendJobsResponse"><span class="hs-identifier hs-type">ListBackendJobsResponse</span></a></span></span><span>
+</span><span id="line-274"></span></pre></body></html>

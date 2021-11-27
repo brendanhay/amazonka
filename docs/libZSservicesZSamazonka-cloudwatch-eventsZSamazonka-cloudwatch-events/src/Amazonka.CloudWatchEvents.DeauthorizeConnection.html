@@ -1,0 +1,713 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatchEvents.DeauthorizeConnection</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Removes all authorization parameters from the connection. This lets you</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- remove the secret from the connection so you can reuse it without having</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- to create a new connection.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatchEvents.DeauthorizeConnection</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier">DeauthorizeConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#newDeauthorizeConnection"><span class="hs-identifier">newDeauthorizeConnection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnection_name"><span class="hs-identifier">deauthorizeConnection_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#newDeauthorizeConnectionResponse"><span class="hs-identifier">newDeauthorizeConnectionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_creationTime"><span class="hs-identifier">deauthorizeConnectionResponse_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastModifiedTime"><span class="hs-identifier">deauthorizeConnectionResponse_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastAuthorizedTime"><span class="hs-identifier">deauthorizeConnectionResponse_lastAuthorizedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionArn"><span class="hs-identifier">deauthorizeConnectionResponse_connectionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionState"><span class="hs-identifier">deauthorizeConnectionResponse_connectionState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_httpStatus"><span class="hs-identifier">deauthorizeConnectionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDeauthorizeConnection' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679317749"><span id="local-6989586621679317750"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeauthorizeConnection"><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-var">DeauthorizeConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeauthorizeConnection%27"><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection%27"><span class="hs-identifier hs-var">DeauthorizeConnection'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the connection to remove authorization from.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aname%3ADeauthorizeConnection%27"><span class="annot"><span class="annottext">DeauthorizeConnection -&gt; Text
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3Aname%3ADeauthorizeConnection%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317743"><span id="local-6989586621679317745"><span class="annot"><span class="annottext">DeauthorizeConnection -&gt; DeauthorizeConnection -&gt; Bool
+(DeauthorizeConnection -&gt; DeauthorizeConnection -&gt; Bool)
+-&gt; (DeauthorizeConnection -&gt; DeauthorizeConnection -&gt; Bool)
+-&gt; Eq DeauthorizeConnection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeauthorizeConnection -&gt; DeauthorizeConnection -&gt; Bool
+$c/= :: DeauthorizeConnection -&gt; DeauthorizeConnection -&gt; Bool
+== :: DeauthorizeConnection -&gt; DeauthorizeConnection -&gt; Bool
+$c== :: DeauthorizeConnection -&gt; DeauthorizeConnection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317734"><span id="local-6989586621679317736"><span id="local-6989586621679317738"><span id="local-6989586621679317740"><span class="annot"><span class="annottext">ReadPrec [DeauthorizeConnection]
+ReadPrec DeauthorizeConnection
+Int -&gt; ReadS DeauthorizeConnection
+ReadS [DeauthorizeConnection]
+(Int -&gt; ReadS DeauthorizeConnection)
+-&gt; ReadS [DeauthorizeConnection]
+-&gt; ReadPrec DeauthorizeConnection
+-&gt; ReadPrec [DeauthorizeConnection]
+-&gt; Read DeauthorizeConnection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeauthorizeConnection]
+$creadListPrec :: ReadPrec [DeauthorizeConnection]
+readPrec :: ReadPrec DeauthorizeConnection
+$creadPrec :: ReadPrec DeauthorizeConnection
+readList :: ReadS [DeauthorizeConnection]
+$creadList :: ReadS [DeauthorizeConnection]
+readsPrec :: Int -&gt; ReadS DeauthorizeConnection
+$creadsPrec :: Int -&gt; ReadS DeauthorizeConnection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317727"><span id="local-6989586621679317729"><span id="local-6989586621679317731"><span class="annot"><span class="annottext">Int -&gt; DeauthorizeConnection -&gt; ShowS
+[DeauthorizeConnection] -&gt; ShowS
+DeauthorizeConnection -&gt; String
+(Int -&gt; DeauthorizeConnection -&gt; ShowS)
+-&gt; (DeauthorizeConnection -&gt; String)
+-&gt; ([DeauthorizeConnection] -&gt; ShowS)
+-&gt; Show DeauthorizeConnection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeauthorizeConnection] -&gt; ShowS
+$cshowList :: [DeauthorizeConnection] -&gt; ShowS
+show :: DeauthorizeConnection -&gt; String
+$cshow :: DeauthorizeConnection -&gt; String
+showsPrec :: Int -&gt; DeauthorizeConnection -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeauthorizeConnection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeauthorizeConnection -&gt; Rep DeauthorizeConnection x)
+-&gt; (forall x. Rep DeauthorizeConnection x -&gt; DeauthorizeConnection)
+-&gt; Generic DeauthorizeConnection
+forall x. Rep DeauthorizeConnection x -&gt; DeauthorizeConnection
+forall x. DeauthorizeConnection -&gt; Rep DeauthorizeConnection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeauthorizeConnection x -&gt; DeauthorizeConnection
+$cfrom :: forall x. DeauthorizeConnection -&gt; Rep DeauthorizeConnection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'DeauthorizeConnection' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'name', 'deauthorizeConnection_name' - The name of the connection to remove authorization from.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#newDeauthorizeConnection"><span class="hs-identifier hs-type">newDeauthorizeConnection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span>
+</span><span id="line-75"></span><span id="newDeauthorizeConnection"><span class="annot"><span class="annottext">newDeauthorizeConnection :: Text -&gt; DeauthorizeConnection
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#newDeauthorizeConnection"><span class="hs-identifier hs-var hs-var">newDeauthorizeConnection</span></a></span></span><span> </span><span id="local-6989586621679317722"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317722"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DeauthorizeConnection' :: Text -&gt; DeauthorizeConnection
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection%27"><span class="hs-identifier hs-type">DeauthorizeConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeauthorizeConnection' :: Text
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3Aname%3ADeauthorizeConnection%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317722"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The name of the connection to remove authorization from.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnection_name"><span class="hs-identifier hs-type">deauthorizeConnection_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="deauthorizeConnection_name"><span class="annot"><span class="annottext">deauthorizeConnection_name :: (Text -&gt; f Text)
+-&gt; DeauthorizeConnection -&gt; f DeauthorizeConnection
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnection_name"><span class="hs-identifier hs-var hs-var">deauthorizeConnection_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeauthorizeConnection -&gt; Text)
+-&gt; (DeauthorizeConnection -&gt; Text -&gt; DeauthorizeConnection)
+-&gt; Lens DeauthorizeConnection DeauthorizeConnection Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection%27"><span class="hs-identifier hs-type">DeauthorizeConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317719"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DeauthorizeConnection' :: DeauthorizeConnection -&gt; Text
+</span><a href="#local-6989586621679317719"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317719"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317718"><span class="annot"><span class="annottext">s :: DeauthorizeConnection
+</span><a href="#local-6989586621679317718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection%27"><span class="hs-identifier hs-type">DeauthorizeConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317717"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnection
+</span><a href="#local-6989586621679317718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeauthorizeConnection' :: Text
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3Aname%3ADeauthorizeConnection%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679317713"><span class="annot"><span class="annottext">request :: DeauthorizeConnection -&gt; Request DeauthorizeConnection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeauthorizeConnection -&gt; Request DeauthorizeConnection
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatchEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679317709"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeauthorizeConnection
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeauthorizeConnection)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeauthorizeConnection))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeauthorizeConnection
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeauthorizeConnection)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317706"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317706"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317705"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679317705"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317704"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317704"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ConnectionState
+-&gt; Int
+-&gt; DeauthorizeConnectionResponse
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">DeauthorizeConnectionResponse'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe ConnectionState
+ -&gt; Int
+ -&gt; DeauthorizeConnectionResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ConnectionState
+      -&gt; Int
+      -&gt; DeauthorizeConnectionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ConnectionState
+   -&gt; Int
+   -&gt; DeauthorizeConnectionResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ConnectionState
+      -&gt; Int
+      -&gt; DeauthorizeConnectionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ConnectionState
+   -&gt; Int
+   -&gt; DeauthorizeConnectionResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ConnectionState -&gt; Int -&gt; DeauthorizeConnectionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastAuthorizedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ConnectionState -&gt; Int -&gt; DeauthorizeConnectionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ConnectionState -&gt; Int -&gt; DeauthorizeConnectionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ConnectionState -&gt; Int -&gt; DeauthorizeConnectionResponse)
+-&gt; Either String (Maybe ConnectionState)
+-&gt; Either String (Int -&gt; DeauthorizeConnectionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConnectionState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectionState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeauthorizeConnectionResponse)
+-&gt; Either String Int -&gt; Either String DeauthorizeConnectionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317706"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317696"><span id="local-6989586621679317698"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317693"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679317689"><span class="annot"><span class="annottext">toHeaders :: DeauthorizeConnection -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeauthorizeConnection -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSEvents.DeauthorizeConnection&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317679"><span id="local-6989586621679317681"><span id="local-6989586621679317683"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679317677"><span class="annot"><span class="annottext">toJSON :: DeauthorizeConnection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection%27"><span class="hs-identifier hs-type">DeauthorizeConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317675"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DeauthorizeConnection' :: DeauthorizeConnection -&gt; Text
+</span><a href="#local-6989586621679317675"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317675"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679317669"><span class="annot"><span class="annottext">toPath :: DeauthorizeConnection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeauthorizeConnection -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679317665"><span class="annot"><span class="annottext">toQuery :: DeauthorizeConnection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeauthorizeConnection -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newDeauthorizeConnectionResponse' smart constructor.</span><span>
+</span><span id="line-132"></span><span id="local-6989586621679317662"><span id="local-6989586621679317663"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeauthorizeConnectionResponse"><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-var">DeauthorizeConnectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeauthorizeConnectionResponse%27"><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">DeauthorizeConnectionResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A time stamp for the time that the connection was created.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AcreationTime%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AcreationTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | A time stamp for the time that the connection was last updated.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AlastModifiedTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | A time stamp for the time that the connection was last authorized.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AlastAuthorizedTime%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AlastAuthorizedTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var hs-var">lastAuthorizedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The ARN of the connection that authorization was removed from.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AconnectionArn%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionArn%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var hs-var">connectionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The state of the connection.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AconnectionState%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Maybe ConnectionState
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionState%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Int
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AhttpStatus%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317652"><span id="local-6989586621679317654"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
+-&gt; DeauthorizeConnectionResponse -&gt; Bool
+(DeauthorizeConnectionResponse
+ -&gt; DeauthorizeConnectionResponse -&gt; Bool)
+-&gt; (DeauthorizeConnectionResponse
+    -&gt; DeauthorizeConnectionResponse -&gt; Bool)
+-&gt; Eq DeauthorizeConnectionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeauthorizeConnectionResponse
+-&gt; DeauthorizeConnectionResponse -&gt; Bool
+$c/= :: DeauthorizeConnectionResponse
+-&gt; DeauthorizeConnectionResponse -&gt; Bool
+== :: DeauthorizeConnectionResponse
+-&gt; DeauthorizeConnectionResponse -&gt; Bool
+$c== :: DeauthorizeConnectionResponse
+-&gt; DeauthorizeConnectionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317644"><span id="local-6989586621679317646"><span id="local-6989586621679317648"><span id="local-6989586621679317650"><span class="annot"><span class="annottext">ReadPrec [DeauthorizeConnectionResponse]
+ReadPrec DeauthorizeConnectionResponse
+Int -&gt; ReadS DeauthorizeConnectionResponse
+ReadS [DeauthorizeConnectionResponse]
+(Int -&gt; ReadS DeauthorizeConnectionResponse)
+-&gt; ReadS [DeauthorizeConnectionResponse]
+-&gt; ReadPrec DeauthorizeConnectionResponse
+-&gt; ReadPrec [DeauthorizeConnectionResponse]
+-&gt; Read DeauthorizeConnectionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeauthorizeConnectionResponse]
+$creadListPrec :: ReadPrec [DeauthorizeConnectionResponse]
+readPrec :: ReadPrec DeauthorizeConnectionResponse
+$creadPrec :: ReadPrec DeauthorizeConnectionResponse
+readList :: ReadS [DeauthorizeConnectionResponse]
+$creadList :: ReadS [DeauthorizeConnectionResponse]
+readsPrec :: Int -&gt; ReadS DeauthorizeConnectionResponse
+$creadsPrec :: Int -&gt; ReadS DeauthorizeConnectionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317638"><span id="local-6989586621679317640"><span id="local-6989586621679317642"><span class="annot"><span class="annottext">Int -&gt; DeauthorizeConnectionResponse -&gt; ShowS
+[DeauthorizeConnectionResponse] -&gt; ShowS
+DeauthorizeConnectionResponse -&gt; String
+(Int -&gt; DeauthorizeConnectionResponse -&gt; ShowS)
+-&gt; (DeauthorizeConnectionResponse -&gt; String)
+-&gt; ([DeauthorizeConnectionResponse] -&gt; ShowS)
+-&gt; Show DeauthorizeConnectionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeauthorizeConnectionResponse] -&gt; ShowS
+$cshowList :: [DeauthorizeConnectionResponse] -&gt; ShowS
+show :: DeauthorizeConnectionResponse -&gt; String
+$cshow :: DeauthorizeConnectionResponse -&gt; String
+showsPrec :: Int -&gt; DeauthorizeConnectionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeauthorizeConnectionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeauthorizeConnectionResponse
+ -&gt; Rep DeauthorizeConnectionResponse x)
+-&gt; (forall x.
+    Rep DeauthorizeConnectionResponse x
+    -&gt; DeauthorizeConnectionResponse)
+-&gt; Generic DeauthorizeConnectionResponse
+forall x.
+Rep DeauthorizeConnectionResponse x
+-&gt; DeauthorizeConnectionResponse
+forall x.
+DeauthorizeConnectionResponse
+-&gt; Rep DeauthorizeConnectionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeauthorizeConnectionResponse x
+-&gt; DeauthorizeConnectionResponse
+$cfrom :: forall x.
+DeauthorizeConnectionResponse
+-&gt; Rep DeauthorizeConnectionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'DeauthorizeConnectionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'creationTime', 'deauthorizeConnectionResponse_creationTime' - A time stamp for the time that the connection was created.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'lastModifiedTime', 'deauthorizeConnectionResponse_lastModifiedTime' - A time stamp for the time that the connection was last updated.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'lastAuthorizedTime', 'deauthorizeConnectionResponse_lastAuthorizedTime' - A time stamp for the time that the connection was last authorized.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'connectionArn', 'deauthorizeConnectionResponse_connectionArn' - The ARN of the connection that authorization was removed from.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'connectionState', 'deauthorizeConnectionResponse_connectionState' - The state of the connection.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'httpStatus', 'deauthorizeConnectionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#newDeauthorizeConnectionResponse"><span class="hs-identifier hs-type">newDeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span>
+</span><span id="line-171"></span><span id="newDeauthorizeConnectionResponse"><span class="annot"><span class="annottext">newDeauthorizeConnectionResponse :: Int -&gt; DeauthorizeConnectionResponse
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#newDeauthorizeConnectionResponse"><span class="hs-identifier hs-var hs-var">newDeauthorizeConnectionResponse</span></a></span></span><span> </span><span id="local-6989586621679317635"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317635"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse' :: Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ConnectionState
+-&gt; Int
+-&gt; DeauthorizeConnectionResponse
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:DeauthorizeConnectionResponse' :: Maybe POSIX
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AcreationTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DeauthorizeConnectionResponse' :: Maybe POSIX
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AlastModifiedTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastAuthorizedTime:DeauthorizeConnectionResponse' :: Maybe POSIX
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AlastAuthorizedTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">lastAuthorizedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionArn:DeauthorizeConnectionResponse' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionArn%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">connectionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionState:DeauthorizeConnectionResponse' :: Maybe ConnectionState
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionState%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeauthorizeConnectionResponse' :: Int
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AhttpStatus%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317635"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | A time stamp for the time that the connection was created.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_creationTime"><span class="hs-identifier hs-type">deauthorizeConnectionResponse_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="deauthorizeConnectionResponse_creationTime"><span class="annot"><span class="annottext">deauthorizeConnectionResponse_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DeauthorizeConnectionResponse -&gt; f DeauthorizeConnectionResponse
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_creationTime"><span class="hs-identifier hs-var hs-var">deauthorizeConnectionResponse_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeauthorizeConnectionResponse -&gt; Maybe POSIX)
+-&gt; (DeauthorizeConnectionResponse
+    -&gt; Maybe POSIX -&gt; DeauthorizeConnectionResponse)
+-&gt; Lens
+     DeauthorizeConnectionResponse
+     DeauthorizeConnectionResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317634"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:DeauthorizeConnectionResponse' :: DeauthorizeConnectionResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679317634"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317634"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317633"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317632"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DeauthorizeConnectionResponse' :: Maybe POSIX
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AcreationTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DeauthorizeConnectionResponse
+ -&gt; f DeauthorizeConnectionResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DeauthorizeConnectionResponse
+-&gt; f DeauthorizeConnectionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | A time stamp for the time that the connection was last updated.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastModifiedTime"><span class="hs-identifier hs-type">deauthorizeConnectionResponse_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="deauthorizeConnectionResponse_lastModifiedTime"><span class="annot"><span class="annottext">deauthorizeConnectionResponse_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DeauthorizeConnectionResponse -&gt; f DeauthorizeConnectionResponse
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastModifiedTime"><span class="hs-identifier hs-var hs-var">deauthorizeConnectionResponse_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeauthorizeConnectionResponse -&gt; Maybe POSIX)
+-&gt; (DeauthorizeConnectionResponse
+    -&gt; Maybe POSIX -&gt; DeauthorizeConnectionResponse)
+-&gt; Lens
+     DeauthorizeConnectionResponse
+     DeauthorizeConnectionResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317628"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTime :: Maybe POSIX
+$sel:lastModifiedTime:DeauthorizeConnectionResponse' :: DeauthorizeConnectionResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679317628"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317628"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317627"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317626"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DeauthorizeConnectionResponse' :: Maybe POSIX
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AlastModifiedTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DeauthorizeConnectionResponse
+ -&gt; f DeauthorizeConnectionResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DeauthorizeConnectionResponse
+-&gt; f DeauthorizeConnectionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | A time stamp for the time that the connection was last authorized.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastAuthorizedTime"><span class="hs-identifier hs-type">deauthorizeConnectionResponse_lastAuthorizedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="deauthorizeConnectionResponse_lastAuthorizedTime"><span class="annot"><span class="annottext">deauthorizeConnectionResponse_lastAuthorizedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DeauthorizeConnectionResponse -&gt; f DeauthorizeConnectionResponse
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastAuthorizedTime"><span class="hs-identifier hs-var hs-var">deauthorizeConnectionResponse_lastAuthorizedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeauthorizeConnectionResponse -&gt; Maybe POSIX)
+-&gt; (DeauthorizeConnectionResponse
+    -&gt; Maybe POSIX -&gt; DeauthorizeConnectionResponse)
+-&gt; Lens
+     DeauthorizeConnectionResponse
+     DeauthorizeConnectionResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317625"><span class="annot"><span class="annottext">Maybe POSIX
+lastAuthorizedTime :: Maybe POSIX
+$sel:lastAuthorizedTime:DeauthorizeConnectionResponse' :: DeauthorizeConnectionResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679317625"><span class="hs-identifier hs-var hs-var">lastAuthorizedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317625"><span class="hs-identifier hs-var">lastAuthorizedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317624"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317623"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAuthorizedTime:DeauthorizeConnectionResponse' :: Maybe POSIX
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AlastAuthorizedTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">lastAuthorizedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DeauthorizeConnectionResponse
+ -&gt; f DeauthorizeConnectionResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DeauthorizeConnectionResponse
+-&gt; f DeauthorizeConnectionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The ARN of the connection that authorization was removed from.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionArn"><span class="hs-identifier hs-type">deauthorizeConnectionResponse_connectionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="deauthorizeConnectionResponse_connectionArn"><span class="annot"><span class="annottext">deauthorizeConnectionResponse_connectionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeauthorizeConnectionResponse -&gt; f DeauthorizeConnectionResponse
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionArn"><span class="hs-identifier hs-var hs-var">deauthorizeConnectionResponse_connectionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeauthorizeConnectionResponse -&gt; Maybe Text)
+-&gt; (DeauthorizeConnectionResponse
+    -&gt; Maybe Text -&gt; DeauthorizeConnectionResponse)
+-&gt; Lens
+     DeauthorizeConnectionResponse
+     DeauthorizeConnectionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317622"><span class="annot"><span class="annottext">Maybe Text
+connectionArn :: Maybe Text
+$sel:connectionArn:DeauthorizeConnectionResponse' :: DeauthorizeConnectionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679317622"><span class="hs-identifier hs-var hs-var">connectionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317622"><span class="hs-identifier hs-var">connectionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317621"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317620"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionArn:DeauthorizeConnectionResponse' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionArn%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">connectionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The state of the connection.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionState"><span class="hs-identifier hs-type">deauthorizeConnectionResponse_connectionState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="deauthorizeConnectionResponse_connectionState"><span class="annot"><span class="annottext">deauthorizeConnectionResponse_connectionState :: (Maybe ConnectionState -&gt; f (Maybe ConnectionState))
+-&gt; DeauthorizeConnectionResponse -&gt; f DeauthorizeConnectionResponse
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionState"><span class="hs-identifier hs-var hs-var">deauthorizeConnectionResponse_connectionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeauthorizeConnectionResponse -&gt; Maybe ConnectionState)
+-&gt; (DeauthorizeConnectionResponse
+    -&gt; Maybe ConnectionState -&gt; DeauthorizeConnectionResponse)
+-&gt; Lens
+     DeauthorizeConnectionResponse
+     DeauthorizeConnectionResponse
+     (Maybe ConnectionState)
+     (Maybe ConnectionState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317619"><span class="annot"><span class="annottext">Maybe ConnectionState
+connectionState :: Maybe ConnectionState
+$sel:connectionState:DeauthorizeConnectionResponse' :: DeauthorizeConnectionResponse -&gt; Maybe ConnectionState
+</span><a href="#local-6989586621679317619"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><a href="#local-6989586621679317619"><span class="hs-identifier hs-var">connectionState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317618"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317617"><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><a href="#local-6989586621679317617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionState:DeauthorizeConnectionResponse' :: Maybe ConnectionState
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionState%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><a href="#local-6989586621679317617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_httpStatus"><span class="hs-identifier hs-type">deauthorizeConnectionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span id="deauthorizeConnectionResponse_httpStatus"><span class="annot"><span class="annottext">deauthorizeConnectionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeauthorizeConnectionResponse -&gt; f DeauthorizeConnectionResponse
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deauthorizeConnectionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeauthorizeConnectionResponse -&gt; Int)
+-&gt; (DeauthorizeConnectionResponse
+    -&gt; Int -&gt; DeauthorizeConnectionResponse)
+-&gt; Lens
+     DeauthorizeConnectionResponse DeauthorizeConnectionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317616"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeauthorizeConnectionResponse' :: DeauthorizeConnectionResponse -&gt; Int
+</span><a href="#local-6989586621679317616"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317616"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317615"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317614"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeauthorizeConnectionResponse' :: Int
+</span><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AhttpStatus%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317612"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span></span><span>
+</span><span id="line-207"></span></pre></body></html>

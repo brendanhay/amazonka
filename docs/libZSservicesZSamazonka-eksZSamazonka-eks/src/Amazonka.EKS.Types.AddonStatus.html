@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EKS.Types.AddonStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EKS.Types.AddonStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus"><span class="hs-identifier">AddonStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_ACTIVE"><span class="hs-identifier">AddonStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_CREATE_FAILED"><span class="hs-identifier">AddonStatus_CREATE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_CREATING"><span class="hs-identifier">AddonStatus_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_DEGRADED"><span class="hs-identifier">AddonStatus_DEGRADED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_DELETE_FAILED"><span class="hs-identifier">AddonStatus_DELETE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_DELETING"><span class="hs-identifier">AddonStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_UPDATING"><span class="hs-identifier">AddonStatus_UPDATING</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679263239"><span id="local-6989586621679263240"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AddonStatus"><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus"><span class="hs-identifier hs-var">AddonStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddonStatus%27"><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus%27"><span class="hs-identifier hs-var">AddonStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAddonStatus"><span class="annot"><span class="annottext">AddonStatus -&gt; Text
+</span><a href="Amazonka.EKS.Types.AddonStatus.html#fromAddonStatus"><span class="hs-identifier hs-var hs-var">fromAddonStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263231"><span id="local-6989586621679263233"><span id="local-6989586621679263235"><span class="annot"><span class="annottext">Int -&gt; AddonStatus -&gt; ShowS
+[AddonStatus] -&gt; ShowS
+AddonStatus -&gt; String
+(Int -&gt; AddonStatus -&gt; ShowS)
+-&gt; (AddonStatus -&gt; String)
+-&gt; ([AddonStatus] -&gt; ShowS)
+-&gt; Show AddonStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddonStatus] -&gt; ShowS
+$cshowList :: [AddonStatus] -&gt; ShowS
+show :: AddonStatus -&gt; String
+$cshow :: AddonStatus -&gt; String
+showsPrec :: Int -&gt; AddonStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddonStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679263222"><span id="local-6989586621679263224"><span id="local-6989586621679263226"><span id="local-6989586621679263228"><span class="annot"><span class="annottext">ReadPrec [AddonStatus]
+ReadPrec AddonStatus
+Int -&gt; ReadS AddonStatus
+ReadS [AddonStatus]
+(Int -&gt; ReadS AddonStatus)
+-&gt; ReadS [AddonStatus]
+-&gt; ReadPrec AddonStatus
+-&gt; ReadPrec [AddonStatus]
+-&gt; Read AddonStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddonStatus]
+$creadListPrec :: ReadPrec [AddonStatus]
+readPrec :: ReadPrec AddonStatus
+$creadPrec :: ReadPrec AddonStatus
+readList :: ReadS [AddonStatus]
+$creadList :: ReadS [AddonStatus]
+readsPrec :: Int -&gt; ReadS AddonStatus
+$creadsPrec :: Int -&gt; ReadS AddonStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679263217"><span id="local-6989586621679263219"><span class="annot"><span class="annottext">AddonStatus -&gt; AddonStatus -&gt; Bool
+(AddonStatus -&gt; AddonStatus -&gt; Bool)
+-&gt; (AddonStatus -&gt; AddonStatus -&gt; Bool) -&gt; Eq AddonStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddonStatus -&gt; AddonStatus -&gt; Bool
+$c/= :: AddonStatus -&gt; AddonStatus -&gt; Bool
+== :: AddonStatus -&gt; AddonStatus -&gt; Bool
+$c== :: AddonStatus -&gt; AddonStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679263201"><span id="local-6989586621679263203"><span id="local-6989586621679263205"><span id="local-6989586621679263207"><span id="local-6989586621679263209"><span id="local-6989586621679263211"><span id="local-6989586621679263213"><span class="annot"><span class="annottext">Eq AddonStatus
+Eq AddonStatus
+-&gt; (AddonStatus -&gt; AddonStatus -&gt; Ordering)
+-&gt; (AddonStatus -&gt; AddonStatus -&gt; Bool)
+-&gt; (AddonStatus -&gt; AddonStatus -&gt; Bool)
+-&gt; (AddonStatus -&gt; AddonStatus -&gt; Bool)
+-&gt; (AddonStatus -&gt; AddonStatus -&gt; Bool)
+-&gt; (AddonStatus -&gt; AddonStatus -&gt; AddonStatus)
+-&gt; (AddonStatus -&gt; AddonStatus -&gt; AddonStatus)
+-&gt; Ord AddonStatus
+AddonStatus -&gt; AddonStatus -&gt; Bool
+AddonStatus -&gt; AddonStatus -&gt; Ordering
+AddonStatus -&gt; AddonStatus -&gt; AddonStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AddonStatus -&gt; AddonStatus -&gt; AddonStatus
+$cmin :: AddonStatus -&gt; AddonStatus -&gt; AddonStatus
+max :: AddonStatus -&gt; AddonStatus -&gt; AddonStatus
+$cmax :: AddonStatus -&gt; AddonStatus -&gt; AddonStatus
+&gt;= :: AddonStatus -&gt; AddonStatus -&gt; Bool
+$c&gt;= :: AddonStatus -&gt; AddonStatus -&gt; Bool
+&gt; :: AddonStatus -&gt; AddonStatus -&gt; Bool
+$c&gt; :: AddonStatus -&gt; AddonStatus -&gt; Bool
+&lt;= :: AddonStatus -&gt; AddonStatus -&gt; Bool
+$c&lt;= :: AddonStatus -&gt; AddonStatus -&gt; Bool
+&lt; :: AddonStatus -&gt; AddonStatus -&gt; Bool
+$c&lt; :: AddonStatus -&gt; AddonStatus -&gt; Bool
+compare :: AddonStatus -&gt; AddonStatus -&gt; Ordering
+$ccompare :: AddonStatus -&gt; AddonStatus -&gt; Ordering
+$cp1Ord :: Eq AddonStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AddonStatus -&gt; Rep AddonStatus x)
+-&gt; (forall x. Rep AddonStatus x -&gt; AddonStatus)
+-&gt; Generic AddonStatus
+forall x. Rep AddonStatus x -&gt; AddonStatus
+forall x. AddonStatus -&gt; Rep AddonStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddonStatus x -&gt; AddonStatus
+$cfrom :: forall x. AddonStatus -&gt; Rep AddonStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263193"><span id="local-6989586621679263195"><span class="annot"><span class="annottext">Int -&gt; AddonStatus -&gt; Int
+AddonStatus -&gt; Int
+(Int -&gt; AddonStatus -&gt; Int)
+-&gt; (AddonStatus -&gt; Int) -&gt; Hashable AddonStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AddonStatus -&gt; Int
+$chash :: AddonStatus -&gt; Int
+hashWithSalt :: Int -&gt; AddonStatus -&gt; Int
+$chashWithSalt :: Int -&gt; AddonStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679263190"><span class="annot"><span class="annottext">AddonStatus -&gt; ()
+(AddonStatus -&gt; ()) -&gt; NFData AddonStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AddonStatus -&gt; ()
+$crnf :: AddonStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679263187"><span class="annot"><span class="annottext">Text -&gt; Either String AddonStatus
+(Text -&gt; Either String AddonStatus) -&gt; FromText AddonStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AddonStatus
+$cfromText :: Text -&gt; Either String AddonStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679263184"><span class="annot"><span class="annottext">AddonStatus -&gt; Text
+(AddonStatus -&gt; Text) -&gt; ToText AddonStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AddonStatus -&gt; Text
+$ctoText :: AddonStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679263181"><span class="annot"><span class="annottext">AddonStatus -&gt; ByteString
+(AddonStatus -&gt; ByteString) -&gt; ToByteString AddonStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AddonStatus -&gt; ByteString
+$ctoBS :: AddonStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679263178"><span class="annot"><span class="annottext">AddonStatus -&gt; ByteStringBuilder
+(AddonStatus -&gt; ByteStringBuilder) -&gt; ToLog AddonStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AddonStatus -&gt; ByteStringBuilder
+$cbuild :: AddonStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679263175"><span class="annot"><span class="annottext">HeaderName -&gt; AddonStatus -&gt; [Header]
+(HeaderName -&gt; AddonStatus -&gt; [Header]) -&gt; ToHeader AddonStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AddonStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AddonStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679263172"><span class="annot"><span class="annottext">AddonStatus -&gt; QueryString
+(AddonStatus -&gt; QueryString) -&gt; ToQuery AddonStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AddonStatus -&gt; QueryString
+$ctoQuery :: AddonStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679263167"><span id="local-6989586621679263169"><span class="annot"><span class="annottext">Value -&gt; Parser [AddonStatus]
+Value -&gt; Parser AddonStatus
+(Value -&gt; Parser AddonStatus)
+-&gt; (Value -&gt; Parser [AddonStatus]) -&gt; FromJSON AddonStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AddonStatus]
+$cparseJSONList :: Value -&gt; Parser [AddonStatus]
+parseJSON :: Value -&gt; Parser AddonStatus
+$cparseJSON :: Value -&gt; Parser AddonStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679263162"><span id="local-6989586621679263164"><span class="annot"><span class="annottext">FromJSONKeyFunction [AddonStatus]
+FromJSONKeyFunction AddonStatus
+FromJSONKeyFunction AddonStatus
+-&gt; FromJSONKeyFunction [AddonStatus] -&gt; FromJSONKey AddonStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AddonStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [AddonStatus]
+fromJSONKey :: FromJSONKeyFunction AddonStatus
+$cfromJSONKey :: FromJSONKeyFunction AddonStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679263153"><span id="local-6989586621679263155"><span id="local-6989586621679263157"><span id="local-6989586621679263159"><span class="annot"><span class="annottext">[AddonStatus] -&gt; Encoding
+[AddonStatus] -&gt; Value
+AddonStatus -&gt; Encoding
+AddonStatus -&gt; Value
+(AddonStatus -&gt; Value)
+-&gt; (AddonStatus -&gt; Encoding)
+-&gt; ([AddonStatus] -&gt; Value)
+-&gt; ([AddonStatus] -&gt; Encoding)
+-&gt; ToJSON AddonStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AddonStatus] -&gt; Encoding
+$ctoEncodingList :: [AddonStatus] -&gt; Encoding
+toJSONList :: [AddonStatus] -&gt; Value
+$ctoJSONList :: [AddonStatus] -&gt; Value
+toEncoding :: AddonStatus -&gt; Encoding
+$ctoEncoding :: AddonStatus -&gt; Encoding
+toJSON :: AddonStatus -&gt; Value
+$ctoJSON :: AddonStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679263148"><span id="local-6989586621679263150"><span class="annot"><span class="annottext">ToJSONKeyFunction [AddonStatus]
+ToJSONKeyFunction AddonStatus
+ToJSONKeyFunction AddonStatus
+-&gt; ToJSONKeyFunction [AddonStatus] -&gt; ToJSONKey AddonStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AddonStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [AddonStatus]
+toJSONKey :: ToJSONKeyFunction AddonStatus
+$ctoJSONKey :: ToJSONKeyFunction AddonStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679263145"><span class="annot"><span class="annottext">[Node] -&gt; Either String AddonStatus
+([Node] -&gt; Either String AddonStatus) -&gt; FromXML AddonStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AddonStatus
+$cparseXML :: [Node] -&gt; Either String AddonStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679263142"><span class="annot"><span class="annottext">AddonStatus -&gt; XML
+(AddonStatus -&gt; XML) -&gt; ToXML AddonStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AddonStatus -&gt; XML
+$ctoXML :: AddonStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_ACTIVE"><span class="hs-identifier hs-type">AddonStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus"><span class="hs-identifier hs-type">AddonStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAddonStatus_ACTIVE"><span id="%24mAddonStatus_ACTIVE"><span id="AddonStatus_ACTIVE"><span class="annot"><span class="annottext">$bAddonStatus_ACTIVE :: AddonStatus
+$mAddonStatus_ACTIVE :: forall r. AddonStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.AddonStatus.html#%24bAddonStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">AddonStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus%27"><span class="hs-identifier hs-type">AddonStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_CREATE_FAILED"><span class="hs-identifier hs-type">AddonStatus_CREATE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus"><span class="hs-identifier hs-type">AddonStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAddonStatus_CREATE_FAILED"><span id="%24mAddonStatus_CREATE_FAILED"><span id="AddonStatus_CREATE_FAILED"><span class="annot"><span class="annottext">$bAddonStatus_CREATE_FAILED :: AddonStatus
+$mAddonStatus_CREATE_FAILED :: forall r. AddonStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.AddonStatus.html#%24bAddonStatus_CREATE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">AddonStatus_CREATE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus%27"><span class="hs-identifier hs-type">AddonStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_FAILED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_CREATING"><span class="hs-identifier hs-type">AddonStatus_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus"><span class="hs-identifier hs-type">AddonStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAddonStatus_CREATING"><span id="%24mAddonStatus_CREATING"><span id="AddonStatus_CREATING"><span class="annot"><span class="annottext">$bAddonStatus_CREATING :: AddonStatus
+$mAddonStatus_CREATING :: forall r. AddonStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.AddonStatus.html#%24bAddonStatus_CREATING"><span class="hs-identifier hs-var hs-var hs-var">AddonStatus_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus%27"><span class="hs-identifier hs-type">AddonStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_DEGRADED"><span class="hs-identifier hs-type">AddonStatus_DEGRADED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus"><span class="hs-identifier hs-type">AddonStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAddonStatus_DEGRADED"><span id="%24mAddonStatus_DEGRADED"><span id="AddonStatus_DEGRADED"><span class="annot"><span class="annottext">$bAddonStatus_DEGRADED :: AddonStatus
+$mAddonStatus_DEGRADED :: forall r. AddonStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.AddonStatus.html#%24bAddonStatus_DEGRADED"><span class="hs-identifier hs-var hs-var hs-var">AddonStatus_DEGRADED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus%27"><span class="hs-identifier hs-type">AddonStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEGRADED&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_DELETE_FAILED"><span class="hs-identifier hs-type">AddonStatus_DELETE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus"><span class="hs-identifier hs-type">AddonStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAddonStatus_DELETE_FAILED"><span id="%24mAddonStatus_DELETE_FAILED"><span id="AddonStatus_DELETE_FAILED"><span class="annot"><span class="annottext">$bAddonStatus_DELETE_FAILED :: AddonStatus
+$mAddonStatus_DELETE_FAILED :: forall r. AddonStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.AddonStatus.html#%24bAddonStatus_DELETE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">AddonStatus_DELETE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus%27"><span class="hs-identifier hs-type">AddonStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_FAILED&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_DELETING"><span class="hs-identifier hs-type">AddonStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus"><span class="hs-identifier hs-type">AddonStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAddonStatus_DELETING"><span id="%24mAddonStatus_DELETING"><span id="AddonStatus_DELETING"><span class="annot"><span class="annottext">$bAddonStatus_DELETING :: AddonStatus
+$mAddonStatus_DELETING :: forall r. AddonStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.AddonStatus.html#%24bAddonStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">AddonStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus%27"><span class="hs-identifier hs-type">AddonStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_UPDATING"><span class="hs-identifier hs-type">AddonStatus_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus"><span class="hs-identifier hs-type">AddonStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAddonStatus_UPDATING"><span id="%24mAddonStatus_UPDATING"><span id="AddonStatus_UPDATING"><span class="annot"><span class="annottext">$bAddonStatus_UPDATING :: AddonStatus
+$mAddonStatus_UPDATING :: forall r. AddonStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.AddonStatus.html#%24bAddonStatus_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">AddonStatus_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus%27"><span class="hs-identifier hs-type">AddonStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_ACTIVE"><span class="hs-pragma hs-type">AddonStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_CREATE_FAILED"><span class="hs-pragma hs-type">AddonStatus_CREATE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_CREATING"><span class="hs-pragma hs-type">AddonStatus_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_DEGRADED"><span class="hs-pragma hs-type">AddonStatus_DEGRADED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_DELETE_FAILED"><span class="hs-pragma hs-type">AddonStatus_DELETE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_DELETING"><span class="hs-pragma hs-type">AddonStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus_UPDATING"><span class="hs-pragma hs-type">AddonStatus_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.AddonStatus.html#AddonStatus%27"><span class="hs-pragma hs-type">AddonStatus'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

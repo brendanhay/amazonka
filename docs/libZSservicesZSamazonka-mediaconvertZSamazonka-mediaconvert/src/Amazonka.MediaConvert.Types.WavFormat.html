@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.WavFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.WavFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WavFormat.html#WavFormat"><span class="hs-identifier">WavFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WavFormat.html#WavFormat_RF64"><span class="hs-identifier">WavFormat_RF64</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WavFormat.html#WavFormat_RIFF"><span class="hs-identifier">WavFormat_RIFF</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The service defaults to using RIFF for WAV outputs. If your output audio</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- is likely to exceed 4 GB in file size, or if you otherwise need the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- extended support of the RF64 format, set your output WAV file format to</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- RF64.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621680016439"><span id="local-6989586621680016440"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WavFormat"><span class="annot"><a href="Amazonka.MediaConvert.Types.WavFormat.html#WavFormat"><span class="hs-identifier hs-var">WavFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WavFormat%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.WavFormat.html#WavFormat%27"><span class="hs-identifier hs-var">WavFormat'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWavFormat"><span class="annot"><span class="annottext">WavFormat -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.WavFormat.html#fromWavFormat"><span class="hs-identifier hs-var hs-var">fromWavFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680016431"><span id="local-6989586621680016433"><span id="local-6989586621680016435"><span class="annot"><span class="annottext">Int -&gt; WavFormat -&gt; ShowS
+[WavFormat] -&gt; ShowS
+WavFormat -&gt; String
+(Int -&gt; WavFormat -&gt; ShowS)
+-&gt; (WavFormat -&gt; String)
+-&gt; ([WavFormat] -&gt; ShowS)
+-&gt; Show WavFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WavFormat] -&gt; ShowS
+$cshowList :: [WavFormat] -&gt; ShowS
+show :: WavFormat -&gt; String
+$cshow :: WavFormat -&gt; String
+showsPrec :: Int -&gt; WavFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; WavFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680016422"><span id="local-6989586621680016424"><span id="local-6989586621680016426"><span id="local-6989586621680016428"><span class="annot"><span class="annottext">ReadPrec [WavFormat]
+ReadPrec WavFormat
+Int -&gt; ReadS WavFormat
+ReadS [WavFormat]
+(Int -&gt; ReadS WavFormat)
+-&gt; ReadS [WavFormat]
+-&gt; ReadPrec WavFormat
+-&gt; ReadPrec [WavFormat]
+-&gt; Read WavFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WavFormat]
+$creadListPrec :: ReadPrec [WavFormat]
+readPrec :: ReadPrec WavFormat
+$creadPrec :: ReadPrec WavFormat
+readList :: ReadS [WavFormat]
+$creadList :: ReadS [WavFormat]
+readsPrec :: Int -&gt; ReadS WavFormat
+$creadsPrec :: Int -&gt; ReadS WavFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680016417"><span id="local-6989586621680016419"><span class="annot"><span class="annottext">WavFormat -&gt; WavFormat -&gt; Bool
+(WavFormat -&gt; WavFormat -&gt; Bool)
+-&gt; (WavFormat -&gt; WavFormat -&gt; Bool) -&gt; Eq WavFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WavFormat -&gt; WavFormat -&gt; Bool
+$c/= :: WavFormat -&gt; WavFormat -&gt; Bool
+== :: WavFormat -&gt; WavFormat -&gt; Bool
+$c== :: WavFormat -&gt; WavFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680016401"><span id="local-6989586621680016403"><span id="local-6989586621680016405"><span id="local-6989586621680016407"><span id="local-6989586621680016409"><span id="local-6989586621680016411"><span id="local-6989586621680016413"><span class="annot"><span class="annottext">Eq WavFormat
+Eq WavFormat
+-&gt; (WavFormat -&gt; WavFormat -&gt; Ordering)
+-&gt; (WavFormat -&gt; WavFormat -&gt; Bool)
+-&gt; (WavFormat -&gt; WavFormat -&gt; Bool)
+-&gt; (WavFormat -&gt; WavFormat -&gt; Bool)
+-&gt; (WavFormat -&gt; WavFormat -&gt; Bool)
+-&gt; (WavFormat -&gt; WavFormat -&gt; WavFormat)
+-&gt; (WavFormat -&gt; WavFormat -&gt; WavFormat)
+-&gt; Ord WavFormat
+WavFormat -&gt; WavFormat -&gt; Bool
+WavFormat -&gt; WavFormat -&gt; Ordering
+WavFormat -&gt; WavFormat -&gt; WavFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: WavFormat -&gt; WavFormat -&gt; WavFormat
+$cmin :: WavFormat -&gt; WavFormat -&gt; WavFormat
+max :: WavFormat -&gt; WavFormat -&gt; WavFormat
+$cmax :: WavFormat -&gt; WavFormat -&gt; WavFormat
+&gt;= :: WavFormat -&gt; WavFormat -&gt; Bool
+$c&gt;= :: WavFormat -&gt; WavFormat -&gt; Bool
+&gt; :: WavFormat -&gt; WavFormat -&gt; Bool
+$c&gt; :: WavFormat -&gt; WavFormat -&gt; Bool
+&lt;= :: WavFormat -&gt; WavFormat -&gt; Bool
+$c&lt;= :: WavFormat -&gt; WavFormat -&gt; Bool
+&lt; :: WavFormat -&gt; WavFormat -&gt; Bool
+$c&lt; :: WavFormat -&gt; WavFormat -&gt; Bool
+compare :: WavFormat -&gt; WavFormat -&gt; Ordering
+$ccompare :: WavFormat -&gt; WavFormat -&gt; Ordering
+$cp1Ord :: Eq WavFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. WavFormat -&gt; Rep WavFormat x)
+-&gt; (forall x. Rep WavFormat x -&gt; WavFormat) -&gt; Generic WavFormat
+forall x. Rep WavFormat x -&gt; WavFormat
+forall x. WavFormat -&gt; Rep WavFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WavFormat x -&gt; WavFormat
+$cfrom :: forall x. WavFormat -&gt; Rep WavFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680016393"><span id="local-6989586621680016395"><span class="annot"><span class="annottext">Int -&gt; WavFormat -&gt; Int
+WavFormat -&gt; Int
+(Int -&gt; WavFormat -&gt; Int)
+-&gt; (WavFormat -&gt; Int) -&gt; Hashable WavFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: WavFormat -&gt; Int
+$chash :: WavFormat -&gt; Int
+hashWithSalt :: Int -&gt; WavFormat -&gt; Int
+$chashWithSalt :: Int -&gt; WavFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680016390"><span class="annot"><span class="annottext">WavFormat -&gt; ()
+(WavFormat -&gt; ()) -&gt; NFData WavFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: WavFormat -&gt; ()
+$crnf :: WavFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680016387"><span class="annot"><span class="annottext">Text -&gt; Either String WavFormat
+(Text -&gt; Either String WavFormat) -&gt; FromText WavFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String WavFormat
+$cfromText :: Text -&gt; Either String WavFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680016384"><span class="annot"><span class="annottext">WavFormat -&gt; Text
+(WavFormat -&gt; Text) -&gt; ToText WavFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: WavFormat -&gt; Text
+$ctoText :: WavFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680016381"><span class="annot"><span class="annottext">WavFormat -&gt; ByteString
+(WavFormat -&gt; ByteString) -&gt; ToByteString WavFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: WavFormat -&gt; ByteString
+$ctoBS :: WavFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680016378"><span class="annot"><span class="annottext">WavFormat -&gt; ByteStringBuilder
+(WavFormat -&gt; ByteStringBuilder) -&gt; ToLog WavFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: WavFormat -&gt; ByteStringBuilder
+$cbuild :: WavFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680016375"><span class="annot"><span class="annottext">HeaderName -&gt; WavFormat -&gt; [Header]
+(HeaderName -&gt; WavFormat -&gt; [Header]) -&gt; ToHeader WavFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; WavFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; WavFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680016372"><span class="annot"><span class="annottext">WavFormat -&gt; QueryString
+(WavFormat -&gt; QueryString) -&gt; ToQuery WavFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: WavFormat -&gt; QueryString
+$ctoQuery :: WavFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680016367"><span id="local-6989586621680016369"><span class="annot"><span class="annottext">Value -&gt; Parser [WavFormat]
+Value -&gt; Parser WavFormat
+(Value -&gt; Parser WavFormat)
+-&gt; (Value -&gt; Parser [WavFormat]) -&gt; FromJSON WavFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [WavFormat]
+$cparseJSONList :: Value -&gt; Parser [WavFormat]
+parseJSON :: Value -&gt; Parser WavFormat
+$cparseJSON :: Value -&gt; Parser WavFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680016362"><span id="local-6989586621680016364"><span class="annot"><span class="annottext">FromJSONKeyFunction [WavFormat]
+FromJSONKeyFunction WavFormat
+FromJSONKeyFunction WavFormat
+-&gt; FromJSONKeyFunction [WavFormat] -&gt; FromJSONKey WavFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [WavFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [WavFormat]
+fromJSONKey :: FromJSONKeyFunction WavFormat
+$cfromJSONKey :: FromJSONKeyFunction WavFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680016353"><span id="local-6989586621680016355"><span id="local-6989586621680016357"><span id="local-6989586621680016359"><span class="annot"><span class="annottext">[WavFormat] -&gt; Encoding
+[WavFormat] -&gt; Value
+WavFormat -&gt; Encoding
+WavFormat -&gt; Value
+(WavFormat -&gt; Value)
+-&gt; (WavFormat -&gt; Encoding)
+-&gt; ([WavFormat] -&gt; Value)
+-&gt; ([WavFormat] -&gt; Encoding)
+-&gt; ToJSON WavFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [WavFormat] -&gt; Encoding
+$ctoEncodingList :: [WavFormat] -&gt; Encoding
+toJSONList :: [WavFormat] -&gt; Value
+$ctoJSONList :: [WavFormat] -&gt; Value
+toEncoding :: WavFormat -&gt; Encoding
+$ctoEncoding :: WavFormat -&gt; Encoding
+toJSON :: WavFormat -&gt; Value
+$ctoJSON :: WavFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680016348"><span id="local-6989586621680016350"><span class="annot"><span class="annottext">ToJSONKeyFunction [WavFormat]
+ToJSONKeyFunction WavFormat
+ToJSONKeyFunction WavFormat
+-&gt; ToJSONKeyFunction [WavFormat] -&gt; ToJSONKey WavFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [WavFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [WavFormat]
+toJSONKey :: ToJSONKeyFunction WavFormat
+$ctoJSONKey :: ToJSONKeyFunction WavFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680016345"><span class="annot"><span class="annottext">[Node] -&gt; Either String WavFormat
+([Node] -&gt; Either String WavFormat) -&gt; FromXML WavFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String WavFormat
+$cparseXML :: [Node] -&gt; Either String WavFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680016342"><span class="annot"><span class="annottext">WavFormat -&gt; XML
+(WavFormat -&gt; XML) -&gt; ToXML WavFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: WavFormat -&gt; XML
+$ctoXML :: WavFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WavFormat.html#WavFormat_RF64"><span class="hs-identifier hs-type">WavFormat_RF64</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WavFormat.html#WavFormat"><span class="hs-identifier hs-type">WavFormat</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWavFormat_RF64"><span id="%24mWavFormat_RF64"><span id="WavFormat_RF64"><span class="annot"><span class="annottext">$bWavFormat_RF64 :: WavFormat
+$mWavFormat_RF64 :: forall r. WavFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.WavFormat.html#%24bWavFormat_RF64"><span class="hs-identifier hs-var hs-var hs-var">WavFormat_RF64</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WavFormat.html#WavFormat%27"><span class="hs-identifier hs-type">WavFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RF64&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WavFormat.html#WavFormat_RIFF"><span class="hs-identifier hs-type">WavFormat_RIFF</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WavFormat.html#WavFormat"><span class="hs-identifier hs-type">WavFormat</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWavFormat_RIFF"><span id="%24mWavFormat_RIFF"><span id="WavFormat_RIFF"><span class="annot"><span class="annottext">$bWavFormat_RIFF :: WavFormat
+$mWavFormat_RIFF :: forall r. WavFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.WavFormat.html#%24bWavFormat_RIFF"><span class="hs-identifier hs-var hs-var hs-var">WavFormat_RIFF</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WavFormat.html#WavFormat%27"><span class="hs-identifier hs-type">WavFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RIFF&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WavFormat.html#WavFormat_RF64"><span class="hs-pragma hs-type">WavFormat_RF64</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WavFormat.html#WavFormat_RIFF"><span class="hs-pragma hs-type">WavFormat_RIFF</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.WavFormat.html#WavFormat%27"><span class="hs-pragma hs-type">WavFormat'</span></a></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-75"></span></pre></body></html>

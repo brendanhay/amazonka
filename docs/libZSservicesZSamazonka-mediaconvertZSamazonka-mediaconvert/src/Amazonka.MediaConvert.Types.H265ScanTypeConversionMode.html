@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.H265ScanTypeConversionMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.H265ScanTypeConversionMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#H265ScanTypeConversionMode"><span class="hs-identifier">H265ScanTypeConversionMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#H265ScanTypeConversionMode_INTERLACED"><span class="hs-identifier">H265ScanTypeConversionMode_INTERLACED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#H265ScanTypeConversionMode_INTERLACED_OPTIMIZE"><span class="hs-identifier">H265ScanTypeConversionMode_INTERLACED_OPTIMIZE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Use this setting for interlaced outputs, when your output frame rate is</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- half of your input frame rate. In this situation, choose Optimized</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- interlacing (INTERLACED_OPTIMIZE) to create a better quality interlaced</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- output. In this case, each progressive frame from the input corresponds</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- to an interlaced field in the output. Keep the default value, Basic</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- interlacing (INTERLACED), for all other output frame rates. With basic</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- interlacing, MediaConvert performs any frame rate conversion first and</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- then interlaces the frames. When you choose Optimized interlacing and</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- you set your output frame rate to a value that isn\'t suitable for</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- optimized interlacing, MediaConvert automatically falls back to basic</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- interlacing. Required settings: To use optimized interlacing, you must</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- set Telecine (telecine) to None (NONE) or Soft (SOFT). You can\'t use</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- optimized interlacing for hard telecine outputs. You must also set</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Interlace mode (interlaceMode) to a value other than Progressive</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- (PROGRESSIVE).</span><span>
+</span><span id="line-47"></span><span id="local-6989586621679973788"><span id="local-6989586621679973789"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265ScanTypeConversionMode"><span class="annot"><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#H265ScanTypeConversionMode"><span class="hs-identifier hs-var">H265ScanTypeConversionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265ScanTypeConversionMode%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#H265ScanTypeConversionMode%27"><span class="hs-identifier hs-var">H265ScanTypeConversionMode'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265ScanTypeConversionMode"><span class="annot"><span class="annottext">H265ScanTypeConversionMode -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#fromH265ScanTypeConversionMode"><span class="hs-identifier hs-var hs-var">fromH265ScanTypeConversionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679973780"><span id="local-6989586621679973782"><span id="local-6989586621679973784"><span class="annot"><span class="annottext">Int -&gt; H265ScanTypeConversionMode -&gt; ShowS
+[H265ScanTypeConversionMode] -&gt; ShowS
+H265ScanTypeConversionMode -&gt; String
+(Int -&gt; H265ScanTypeConversionMode -&gt; ShowS)
+-&gt; (H265ScanTypeConversionMode -&gt; String)
+-&gt; ([H265ScanTypeConversionMode] -&gt; ShowS)
+-&gt; Show H265ScanTypeConversionMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H265ScanTypeConversionMode] -&gt; ShowS
+$cshowList :: [H265ScanTypeConversionMode] -&gt; ShowS
+show :: H265ScanTypeConversionMode -&gt; String
+$cshow :: H265ScanTypeConversionMode -&gt; String
+showsPrec :: Int -&gt; H265ScanTypeConversionMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; H265ScanTypeConversionMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679973771"><span id="local-6989586621679973773"><span id="local-6989586621679973775"><span id="local-6989586621679973777"><span class="annot"><span class="annottext">ReadPrec [H265ScanTypeConversionMode]
+ReadPrec H265ScanTypeConversionMode
+Int -&gt; ReadS H265ScanTypeConversionMode
+ReadS [H265ScanTypeConversionMode]
+(Int -&gt; ReadS H265ScanTypeConversionMode)
+-&gt; ReadS [H265ScanTypeConversionMode]
+-&gt; ReadPrec H265ScanTypeConversionMode
+-&gt; ReadPrec [H265ScanTypeConversionMode]
+-&gt; Read H265ScanTypeConversionMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H265ScanTypeConversionMode]
+$creadListPrec :: ReadPrec [H265ScanTypeConversionMode]
+readPrec :: ReadPrec H265ScanTypeConversionMode
+$creadPrec :: ReadPrec H265ScanTypeConversionMode
+readList :: ReadS [H265ScanTypeConversionMode]
+$creadList :: ReadS [H265ScanTypeConversionMode]
+readsPrec :: Int -&gt; ReadS H265ScanTypeConversionMode
+$creadsPrec :: Int -&gt; ReadS H265ScanTypeConversionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679973766"><span id="local-6989586621679973768"><span class="annot"><span class="annottext">H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode -&gt; Bool
+(H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode -&gt; Bool)
+-&gt; (H265ScanTypeConversionMode
+    -&gt; H265ScanTypeConversionMode -&gt; Bool)
+-&gt; Eq H265ScanTypeConversionMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode -&gt; Bool
+$c/= :: H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode -&gt; Bool
+== :: H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode -&gt; Bool
+$c== :: H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679973750"><span id="local-6989586621679973752"><span id="local-6989586621679973754"><span id="local-6989586621679973756"><span id="local-6989586621679973758"><span id="local-6989586621679973760"><span id="local-6989586621679973762"><span class="annot"><span class="annottext">Eq H265ScanTypeConversionMode
+Eq H265ScanTypeConversionMode
+-&gt; (H265ScanTypeConversionMode
+    -&gt; H265ScanTypeConversionMode -&gt; Ordering)
+-&gt; (H265ScanTypeConversionMode
+    -&gt; H265ScanTypeConversionMode -&gt; Bool)
+-&gt; (H265ScanTypeConversionMode
+    -&gt; H265ScanTypeConversionMode -&gt; Bool)
+-&gt; (H265ScanTypeConversionMode
+    -&gt; H265ScanTypeConversionMode -&gt; Bool)
+-&gt; (H265ScanTypeConversionMode
+    -&gt; H265ScanTypeConversionMode -&gt; Bool)
+-&gt; (H265ScanTypeConversionMode
+    -&gt; H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode)
+-&gt; (H265ScanTypeConversionMode
+    -&gt; H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode)
+-&gt; Ord H265ScanTypeConversionMode
+H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode -&gt; Bool
+H265ScanTypeConversionMode
+-&gt; H265ScanTypeConversionMode -&gt; Ordering
+H265ScanTypeConversionMode
+-&gt; H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: H265ScanTypeConversionMode
+-&gt; H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode
+$cmin :: H265ScanTypeConversionMode
+-&gt; H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode
+max :: H265ScanTypeConversionMode
+-&gt; H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode
+$cmax :: H265ScanTypeConversionMode
+-&gt; H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode
+&gt;= :: H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode -&gt; Bool
+$c&gt;= :: H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode -&gt; Bool
+&gt; :: H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode -&gt; Bool
+$c&gt; :: H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode -&gt; Bool
+&lt;= :: H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode -&gt; Bool
+$c&lt;= :: H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode -&gt; Bool
+&lt; :: H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode -&gt; Bool
+$c&lt; :: H265ScanTypeConversionMode -&gt; H265ScanTypeConversionMode -&gt; Bool
+compare :: H265ScanTypeConversionMode
+-&gt; H265ScanTypeConversionMode -&gt; Ordering
+$ccompare :: H265ScanTypeConversionMode
+-&gt; H265ScanTypeConversionMode -&gt; Ordering
+$cp1Ord :: Eq H265ScanTypeConversionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ H265ScanTypeConversionMode -&gt; Rep H265ScanTypeConversionMode x)
+-&gt; (forall x.
+    Rep H265ScanTypeConversionMode x -&gt; H265ScanTypeConversionMode)
+-&gt; Generic H265ScanTypeConversionMode
+forall x.
+Rep H265ScanTypeConversionMode x -&gt; H265ScanTypeConversionMode
+forall x.
+H265ScanTypeConversionMode -&gt; Rep H265ScanTypeConversionMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep H265ScanTypeConversionMode x -&gt; H265ScanTypeConversionMode
+$cfrom :: forall x.
+H265ScanTypeConversionMode -&gt; Rep H265ScanTypeConversionMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679973742"><span id="local-6989586621679973744"><span class="annot"><span class="annottext">Int -&gt; H265ScanTypeConversionMode -&gt; Int
+H265ScanTypeConversionMode -&gt; Int
+(Int -&gt; H265ScanTypeConversionMode -&gt; Int)
+-&gt; (H265ScanTypeConversionMode -&gt; Int)
+-&gt; Hashable H265ScanTypeConversionMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: H265ScanTypeConversionMode -&gt; Int
+$chash :: H265ScanTypeConversionMode -&gt; Int
+hashWithSalt :: Int -&gt; H265ScanTypeConversionMode -&gt; Int
+$chashWithSalt :: Int -&gt; H265ScanTypeConversionMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679973739"><span class="annot"><span class="annottext">H265ScanTypeConversionMode -&gt; ()
+(H265ScanTypeConversionMode -&gt; ())
+-&gt; NFData H265ScanTypeConversionMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: H265ScanTypeConversionMode -&gt; ()
+$crnf :: H265ScanTypeConversionMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679973736"><span class="annot"><span class="annottext">Text -&gt; Either String H265ScanTypeConversionMode
+(Text -&gt; Either String H265ScanTypeConversionMode)
+-&gt; FromText H265ScanTypeConversionMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String H265ScanTypeConversionMode
+$cfromText :: Text -&gt; Either String H265ScanTypeConversionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679973733"><span class="annot"><span class="annottext">H265ScanTypeConversionMode -&gt; Text
+(H265ScanTypeConversionMode -&gt; Text)
+-&gt; ToText H265ScanTypeConversionMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: H265ScanTypeConversionMode -&gt; Text
+$ctoText :: H265ScanTypeConversionMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679973730"><span class="annot"><span class="annottext">H265ScanTypeConversionMode -&gt; ByteString
+(H265ScanTypeConversionMode -&gt; ByteString)
+-&gt; ToByteString H265ScanTypeConversionMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: H265ScanTypeConversionMode -&gt; ByteString
+$ctoBS :: H265ScanTypeConversionMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679973727"><span class="annot"><span class="annottext">H265ScanTypeConversionMode -&gt; ByteStringBuilder
+(H265ScanTypeConversionMode -&gt; ByteStringBuilder)
+-&gt; ToLog H265ScanTypeConversionMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: H265ScanTypeConversionMode -&gt; ByteStringBuilder
+$cbuild :: H265ScanTypeConversionMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679973724"><span class="annot"><span class="annottext">HeaderName -&gt; H265ScanTypeConversionMode -&gt; [Header]
+(HeaderName -&gt; H265ScanTypeConversionMode -&gt; [Header])
+-&gt; ToHeader H265ScanTypeConversionMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; H265ScanTypeConversionMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; H265ScanTypeConversionMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679973721"><span class="annot"><span class="annottext">H265ScanTypeConversionMode -&gt; QueryString
+(H265ScanTypeConversionMode -&gt; QueryString)
+-&gt; ToQuery H265ScanTypeConversionMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: H265ScanTypeConversionMode -&gt; QueryString
+$ctoQuery :: H265ScanTypeConversionMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679973716"><span id="local-6989586621679973718"><span class="annot"><span class="annottext">Value -&gt; Parser [H265ScanTypeConversionMode]
+Value -&gt; Parser H265ScanTypeConversionMode
+(Value -&gt; Parser H265ScanTypeConversionMode)
+-&gt; (Value -&gt; Parser [H265ScanTypeConversionMode])
+-&gt; FromJSON H265ScanTypeConversionMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [H265ScanTypeConversionMode]
+$cparseJSONList :: Value -&gt; Parser [H265ScanTypeConversionMode]
+parseJSON :: Value -&gt; Parser H265ScanTypeConversionMode
+$cparseJSON :: Value -&gt; Parser H265ScanTypeConversionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679973711"><span id="local-6989586621679973713"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265ScanTypeConversionMode]
+FromJSONKeyFunction H265ScanTypeConversionMode
+FromJSONKeyFunction H265ScanTypeConversionMode
+-&gt; FromJSONKeyFunction [H265ScanTypeConversionMode]
+-&gt; FromJSONKey H265ScanTypeConversionMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [H265ScanTypeConversionMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [H265ScanTypeConversionMode]
+fromJSONKey :: FromJSONKeyFunction H265ScanTypeConversionMode
+$cfromJSONKey :: FromJSONKeyFunction H265ScanTypeConversionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679973702"><span id="local-6989586621679973704"><span id="local-6989586621679973706"><span id="local-6989586621679973708"><span class="annot"><span class="annottext">[H265ScanTypeConversionMode] -&gt; Encoding
+[H265ScanTypeConversionMode] -&gt; Value
+H265ScanTypeConversionMode -&gt; Encoding
+H265ScanTypeConversionMode -&gt; Value
+(H265ScanTypeConversionMode -&gt; Value)
+-&gt; (H265ScanTypeConversionMode -&gt; Encoding)
+-&gt; ([H265ScanTypeConversionMode] -&gt; Value)
+-&gt; ([H265ScanTypeConversionMode] -&gt; Encoding)
+-&gt; ToJSON H265ScanTypeConversionMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [H265ScanTypeConversionMode] -&gt; Encoding
+$ctoEncodingList :: [H265ScanTypeConversionMode] -&gt; Encoding
+toJSONList :: [H265ScanTypeConversionMode] -&gt; Value
+$ctoJSONList :: [H265ScanTypeConversionMode] -&gt; Value
+toEncoding :: H265ScanTypeConversionMode -&gt; Encoding
+$ctoEncoding :: H265ScanTypeConversionMode -&gt; Encoding
+toJSON :: H265ScanTypeConversionMode -&gt; Value
+$ctoJSON :: H265ScanTypeConversionMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679973697"><span id="local-6989586621679973699"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265ScanTypeConversionMode]
+ToJSONKeyFunction H265ScanTypeConversionMode
+ToJSONKeyFunction H265ScanTypeConversionMode
+-&gt; ToJSONKeyFunction [H265ScanTypeConversionMode]
+-&gt; ToJSONKey H265ScanTypeConversionMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [H265ScanTypeConversionMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [H265ScanTypeConversionMode]
+toJSONKey :: ToJSONKeyFunction H265ScanTypeConversionMode
+$ctoJSONKey :: ToJSONKeyFunction H265ScanTypeConversionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679973694"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265ScanTypeConversionMode
+([Node] -&gt; Either String H265ScanTypeConversionMode)
+-&gt; FromXML H265ScanTypeConversionMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String H265ScanTypeConversionMode
+$cparseXML :: [Node] -&gt; Either String H265ScanTypeConversionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679973691"><span class="annot"><span class="annottext">H265ScanTypeConversionMode -&gt; XML
+(H265ScanTypeConversionMode -&gt; XML)
+-&gt; ToXML H265ScanTypeConversionMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: H265ScanTypeConversionMode -&gt; XML
+$ctoXML :: H265ScanTypeConversionMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#H265ScanTypeConversionMode_INTERLACED"><span class="hs-identifier hs-type">H265ScanTypeConversionMode_INTERLACED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#H265ScanTypeConversionMode"><span class="hs-identifier hs-type">H265ScanTypeConversionMode</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265ScanTypeConversionMode_INTERLACED"><span id="%24mH265ScanTypeConversionMode_INTERLACED"><span id="H265ScanTypeConversionMode_INTERLACED"><span class="annot"><span class="annottext">$bH265ScanTypeConversionMode_INTERLACED :: H265ScanTypeConversionMode
+$mH265ScanTypeConversionMode_INTERLACED :: forall r.
+H265ScanTypeConversionMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#%24bH265ScanTypeConversionMode_INTERLACED"><span class="hs-identifier hs-var hs-var hs-var">H265ScanTypeConversionMode_INTERLACED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#H265ScanTypeConversionMode%27"><span class="hs-identifier hs-type">H265ScanTypeConversionMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERLACED&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#H265ScanTypeConversionMode_INTERLACED_OPTIMIZE"><span class="hs-identifier hs-type">H265ScanTypeConversionMode_INTERLACED_OPTIMIZE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#H265ScanTypeConversionMode"><span class="hs-identifier hs-type">H265ScanTypeConversionMode</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265ScanTypeConversionMode_INTERLACED_OPTIMIZE"><span id="%24mH265ScanTypeConversionMode_INTERLACED_OPTIMIZE"><span id="H265ScanTypeConversionMode_INTERLACED_OPTIMIZE"><span class="annot"><span class="annottext">$bH265ScanTypeConversionMode_INTERLACED_OPTIMIZE :: H265ScanTypeConversionMode
+$mH265ScanTypeConversionMode_INTERLACED_OPTIMIZE :: forall r.
+H265ScanTypeConversionMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#%24bH265ScanTypeConversionMode_INTERLACED_OPTIMIZE"><span class="hs-identifier hs-var hs-var hs-var">H265ScanTypeConversionMode_INTERLACED_OPTIMIZE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#H265ScanTypeConversionMode%27"><span class="hs-identifier hs-type">H265ScanTypeConversionMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERLACED_OPTIMIZE&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#H265ScanTypeConversionMode_INTERLACED"><span class="hs-pragma hs-type">H265ScanTypeConversionMode_INTERLACED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#H265ScanTypeConversionMode_INTERLACED_OPTIMIZE"><span class="hs-pragma hs-type">H265ScanTypeConversionMode_INTERLACED_OPTIMIZE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H265ScanTypeConversionMode.html#H265ScanTypeConversionMode%27"><span class="hs-pragma hs-type">H265ScanTypeConversionMode'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

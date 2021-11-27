@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GuardDuty.Types.Evidence</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GuardDuty.Types.Evidence</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.ThreatIntelligenceDetail.html"><span class="hs-identifier">Amazonka.GuardDuty.Types.ThreatIntelligenceDetail</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about the reason that the finding was generated.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEvidence' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679301693"><span id="local-6989586621679301694"></span></span><span class="hs-keyword">data</span><span> </span><span id="Evidence"><span class="annot"><a href="Amazonka.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-var">Evidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Evidence%27"><span class="annot"><a href="Amazonka.GuardDuty.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-var">Evidence'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of threat intelligence details related to the evidence.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AthreatIntelligenceDetails%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe [ThreatIntelligenceDetail]
+</span><a href="Amazonka.GuardDuty.Types.Evidence.html#%24sel%3AthreatIntelligenceDetails%3AEvidence%27"><span class="hs-identifier hs-var hs-var">threatIntelligenceDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-type">ThreatIntelligenceDetail</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301687"><span id="local-6989586621679301689"><span class="annot"><span class="annottext">Evidence -&gt; Evidence -&gt; Bool
+(Evidence -&gt; Evidence -&gt; Bool)
+-&gt; (Evidence -&gt; Evidence -&gt; Bool) -&gt; Eq Evidence
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Evidence -&gt; Evidence -&gt; Bool
+$c/= :: Evidence -&gt; Evidence -&gt; Bool
+== :: Evidence -&gt; Evidence -&gt; Bool
+$c== :: Evidence -&gt; Evidence -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301678"><span id="local-6989586621679301680"><span id="local-6989586621679301682"><span id="local-6989586621679301684"><span class="annot"><span class="annottext">ReadPrec [Evidence]
+ReadPrec Evidence
+Int -&gt; ReadS Evidence
+ReadS [Evidence]
+(Int -&gt; ReadS Evidence)
+-&gt; ReadS [Evidence]
+-&gt; ReadPrec Evidence
+-&gt; ReadPrec [Evidence]
+-&gt; Read Evidence
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Evidence]
+$creadListPrec :: ReadPrec [Evidence]
+readPrec :: ReadPrec Evidence
+$creadPrec :: ReadPrec Evidence
+readList :: ReadS [Evidence]
+$creadList :: ReadS [Evidence]
+readsPrec :: Int -&gt; ReadS Evidence
+$creadsPrec :: Int -&gt; ReadS Evidence
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301671"><span id="local-6989586621679301673"><span id="local-6989586621679301675"><span class="annot"><span class="annottext">Int -&gt; Evidence -&gt; ShowS
+[Evidence] -&gt; ShowS
+Evidence -&gt; String
+(Int -&gt; Evidence -&gt; ShowS)
+-&gt; (Evidence -&gt; String) -&gt; ([Evidence] -&gt; ShowS) -&gt; Show Evidence
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Evidence] -&gt; ShowS
+$cshowList :: [Evidence] -&gt; ShowS
+show :: Evidence -&gt; String
+$cshow :: Evidence -&gt; String
+showsPrec :: Int -&gt; Evidence -&gt; ShowS
+$cshowsPrec :: Int -&gt; Evidence -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Evidence -&gt; Rep Evidence x)
+-&gt; (forall x. Rep Evidence x -&gt; Evidence) -&gt; Generic Evidence
+forall x. Rep Evidence x -&gt; Evidence
+forall x. Evidence -&gt; Rep Evidence x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Evidence x -&gt; Evidence
+$cfrom :: forall x. Evidence -&gt; Rep Evidence x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'Evidence' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'threatIntelligenceDetails', 'evidence_threatIntelligenceDetails' - A list of threat intelligence details related to the evidence.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.Evidence.html#newEvidence"><span class="hs-identifier hs-type">newEvidence</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span>
+</span><span id="line-47"></span><span id="newEvidence"><span class="annot"><span class="annottext">newEvidence :: Evidence
+</span><a href="Amazonka.GuardDuty.Types.Evidence.html#newEvidence"><span class="hs-identifier hs-var hs-var">newEvidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="annottext">Evidence' :: Maybe [ThreatIntelligenceDetail] -&gt; Evidence
+</span><a href="Amazonka.GuardDuty.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:threatIntelligenceDetails:Evidence' :: Maybe [ThreatIntelligenceDetail]
+</span><a href="Amazonka.GuardDuty.Types.Evidence.html#%24sel%3AthreatIntelligenceDetails%3AEvidence%27"><span class="hs-identifier hs-var">threatIntelligenceDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ThreatIntelligenceDetail]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | A list of threat intelligence details related to the evidence.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Amazonka.GuardDuty.Types.Evidence.html#evidence_threatIntelligenceDetails"><span class="hs-identifier hs-type">evidence_threatIntelligenceDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-type">ThreatIntelligenceDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span id="evidence_threatIntelligenceDetails"><span class="annot"><span class="annottext">evidence_threatIntelligenceDetails :: (Maybe [ThreatIntelligenceDetail]
+ -&gt; f (Maybe [ThreatIntelligenceDetail]))
+-&gt; Evidence -&gt; f Evidence
+</span><a href="Amazonka.GuardDuty.Types.Evidence.html#evidence_threatIntelligenceDetails"><span class="hs-identifier hs-var hs-var">evidence_threatIntelligenceDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Evidence -&gt; Maybe [ThreatIntelligenceDetail])
+-&gt; (Evidence -&gt; Maybe [ThreatIntelligenceDetail] -&gt; Evidence)
+-&gt; Lens
+     Evidence
+     Evidence
+     (Maybe [ThreatIntelligenceDetail])
+     (Maybe [ThreatIntelligenceDetail])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301662"><span class="annot"><span class="annottext">Maybe [ThreatIntelligenceDetail]
+threatIntelligenceDetails :: Maybe [ThreatIntelligenceDetail]
+$sel:threatIntelligenceDetails:Evidence' :: Evidence -&gt; Maybe [ThreatIntelligenceDetail]
+</span><a href="#local-6989586621679301662"><span class="hs-identifier hs-var hs-var">threatIntelligenceDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ThreatIntelligenceDetail]
+</span><a href="#local-6989586621679301662"><span class="hs-identifier hs-var">threatIntelligenceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301661"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679301661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301660"><span class="annot"><span class="annottext">Maybe [ThreatIntelligenceDetail]
+</span><a href="#local-6989586621679301660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679301661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threatIntelligenceDetails:Evidence' :: Maybe [ThreatIntelligenceDetail]
+</span><a href="Amazonka.GuardDuty.Types.Evidence.html#%24sel%3AthreatIntelligenceDetails%3AEvidence%27"><span class="hs-identifier hs-var">threatIntelligenceDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ThreatIntelligenceDetail]
+</span><a href="#local-6989586621679301660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ThreatIntelligenceDetail]
+  -&gt; f (Maybe [ThreatIntelligenceDetail]))
+ -&gt; Evidence -&gt; f Evidence)
+-&gt; ((Maybe [ThreatIntelligenceDetail]
+     -&gt; f (Maybe [ThreatIntelligenceDetail]))
+    -&gt; Maybe [ThreatIntelligenceDetail]
+    -&gt; f (Maybe [ThreatIntelligenceDetail]))
+-&gt; (Maybe [ThreatIntelligenceDetail]
+    -&gt; f (Maybe [ThreatIntelligenceDetail]))
+-&gt; Evidence
+-&gt; f Evidence
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ThreatIntelligenceDetail]
+  [ThreatIntelligenceDetail]
+  [ThreatIntelligenceDetail]
+  [ThreatIntelligenceDetail]
+-&gt; Iso
+     (Maybe [ThreatIntelligenceDetail])
+     (Maybe [ThreatIntelligenceDetail])
+     (Maybe [ThreatIntelligenceDetail])
+     (Maybe [ThreatIntelligenceDetail])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ThreatIntelligenceDetail]
+  [ThreatIntelligenceDetail]
+  [ThreatIntelligenceDetail]
+  [ThreatIntelligenceDetail]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301654"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679301652"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Evidence
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Evidence) -&gt; Value -&gt; Parser Evidence
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Evidence&quot;</span></span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679301649"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301649"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ThreatIntelligenceDetail] -&gt; Evidence
+</span><a href="Amazonka.GuardDuty.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-var">Evidence'</span></a></span><span>
+</span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ThreatIntelligenceDetail] -&gt; Evidence)
+-&gt; Parser (Maybe [ThreatIntelligenceDetail]) -&gt; Parser Evidence
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301649"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ThreatIntelligenceDetail]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;threatIntelligenceDetails&quot;</span></span><span>
+</span><span id="line-64"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ThreatIntelligenceDetail]))
+-&gt; Maybe [ThreatIntelligenceDetail]
+-&gt; Parser (Maybe [ThreatIntelligenceDetail])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ThreatIntelligenceDetail]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-65"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301642"><span id="local-6989586621679301644"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301639"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span></span><span>
+</span><span id="line-71"></span></pre></body></html>

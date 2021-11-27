@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.LexModels.GetIntents</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns intent information as follows:</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- -   If you specify the @nameContains@ field, returns the @$LATEST@</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--     version of all intents that contain the specified string.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- -   If you don\'t specify the @nameContains@ field, returns information</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--     about the @$LATEST@ version of all intents.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- The operation requires permission for the @lex:GetIntents@ action.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LexModels.GetIntents</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier">GetIntents</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#newGetIntents"><span class="hs-identifier">newGetIntents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#getIntents_nameContains"><span class="hs-identifier">getIntents_nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#getIntents_nextToken"><span class="hs-identifier">getIntents_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#getIntents_maxResults"><span class="hs-identifier">getIntents_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier">GetIntentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#newGetIntentsResponse"><span class="hs-identifier">newGetIntentsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#getIntentsResponse_intents"><span class="hs-identifier">getIntentsResponse_intents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#getIntentsResponse_nextToken"><span class="hs-identifier">getIntentsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#getIntentsResponse_httpStatus"><span class="hs-identifier">getIntentsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LexModels.Types.html"><span class="hs-identifier">Amazonka.LexModels.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newGetIntents' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679321879"><span id="local-6989586621679321880"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIntents"><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-var">GetIntents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIntents%27"><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-var">GetIntents'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Substring to match in intent names. An intent will be returned if any</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- part of its name matches the substring. For example, \&quot;xyz\&quot; matches</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- both \&quot;xyzabc\&quot; and \&quot;abcxyz.\&quot;</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AnameContains%3AGetIntents%27"><span class="annot"><span class="annottext">GetIntents -&gt; Maybe Text
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3AnameContains%3AGetIntents%27"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | A pagination token that fetches the next page of intents. If the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- response to this API call is truncated, Amazon Lex returns a pagination</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- token in the response. To fetch the next page of intents, specify the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- pagination token in the next request.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AnextToken%3AGetIntents%27"><span class="annot"><span class="annottext">GetIntents -&gt; Maybe Text
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3AnextToken%3AGetIntents%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The maximum number of intents to return in the response. The default is</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- 10.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetIntents%27"><span class="annot"><span class="annottext">GetIntents -&gt; Maybe Natural
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3AmaxResults%3AGetIntents%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321871"><span id="local-6989586621679321873"><span class="annot"><span class="annottext">GetIntents -&gt; GetIntents -&gt; Bool
+(GetIntents -&gt; GetIntents -&gt; Bool)
+-&gt; (GetIntents -&gt; GetIntents -&gt; Bool) -&gt; Eq GetIntents
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetIntents -&gt; GetIntents -&gt; Bool
+$c/= :: GetIntents -&gt; GetIntents -&gt; Bool
+== :: GetIntents -&gt; GetIntents -&gt; Bool
+$c== :: GetIntents -&gt; GetIntents -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321862"><span id="local-6989586621679321864"><span id="local-6989586621679321866"><span id="local-6989586621679321868"><span class="annot"><span class="annottext">ReadPrec [GetIntents]
+ReadPrec GetIntents
+Int -&gt; ReadS GetIntents
+ReadS [GetIntents]
+(Int -&gt; ReadS GetIntents)
+-&gt; ReadS [GetIntents]
+-&gt; ReadPrec GetIntents
+-&gt; ReadPrec [GetIntents]
+-&gt; Read GetIntents
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetIntents]
+$creadListPrec :: ReadPrec [GetIntents]
+readPrec :: ReadPrec GetIntents
+$creadPrec :: ReadPrec GetIntents
+readList :: ReadS [GetIntents]
+$creadList :: ReadS [GetIntents]
+readsPrec :: Int -&gt; ReadS GetIntents
+$creadsPrec :: Int -&gt; ReadS GetIntents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321855"><span id="local-6989586621679321857"><span id="local-6989586621679321859"><span class="annot"><span class="annottext">Int -&gt; GetIntents -&gt; ShowS
+[GetIntents] -&gt; ShowS
+GetIntents -&gt; String
+(Int -&gt; GetIntents -&gt; ShowS)
+-&gt; (GetIntents -&gt; String)
+-&gt; ([GetIntents] -&gt; ShowS)
+-&gt; Show GetIntents
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetIntents] -&gt; ShowS
+$cshowList :: [GetIntents] -&gt; ShowS
+show :: GetIntents -&gt; String
+$cshow :: GetIntents -&gt; String
+showsPrec :: Int -&gt; GetIntents -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetIntents -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetIntents -&gt; Rep GetIntents x)
+-&gt; (forall x. Rep GetIntents x -&gt; GetIntents) -&gt; Generic GetIntents
+forall x. Rep GetIntents x -&gt; GetIntents
+forall x. GetIntents -&gt; Rep GetIntents x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetIntents x -&gt; GetIntents
+$cfrom :: forall x. GetIntents -&gt; Rep GetIntents x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'GetIntents' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'nameContains', 'getIntents_nameContains' - Substring to match in intent names. An intent will be returned if any</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- part of its name matches the substring. For example, \&quot;xyz\&quot; matches</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- both \&quot;xyzabc\&quot; and \&quot;abcxyz.\&quot;</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'nextToken', 'getIntents_nextToken' - A pagination token that fetches the next page of intents. If the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- response to this API call is truncated, Amazon Lex returns a pagination</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- token in the response. To fetch the next page of intents, specify the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- pagination token in the next request.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'maxResults', 'getIntents_maxResults' - The maximum number of intents to return in the response. The default is</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 10.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#newGetIntents"><span class="hs-identifier hs-type">newGetIntents</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span>
+</span><span id="line-100"></span><span id="newGetIntents"><span class="annot"><span class="annottext">newGetIntents :: GetIntents
+</span><a href="Amazonka.LexModels.GetIntents.html#newGetIntents"><span class="hs-identifier hs-var hs-var">newGetIntents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">GetIntents' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; GetIntents
+</span><a href="Amazonka.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nameContains:GetIntents' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3AnameContains%3AGetIntents%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetIntents' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3AnextToken%3AGetIntents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetIntents' :: Maybe Natural
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3AmaxResults%3AGetIntents%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Substring to match in intent names. An intent will be returned if any</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- part of its name matches the substring. For example, \&quot;xyz\&quot; matches</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- both \&quot;xyzabc\&quot; and \&quot;abcxyz.\&quot;</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#getIntents_nameContains"><span class="hs-identifier hs-type">getIntents_nameContains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="getIntents_nameContains"><span class="annot"><span class="annottext">getIntents_nameContains :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetIntents -&gt; f GetIntents
+</span><a href="Amazonka.LexModels.GetIntents.html#getIntents_nameContains"><span class="hs-identifier hs-var hs-var">getIntents_nameContains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIntents -&gt; Maybe Text)
+-&gt; (GetIntents -&gt; Maybe Text -&gt; GetIntents)
+-&gt; Lens GetIntents GetIntents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321849"><span class="annot"><span class="annottext">Maybe Text
+nameContains :: Maybe Text
+$sel:nameContains:GetIntents' :: GetIntents -&gt; Maybe Text
+</span><a href="#local-6989586621679321849"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321849"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321848"><span class="annot"><span class="annottext">s :: GetIntents
+</span><a href="#local-6989586621679321848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321847"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntents
+</span><a href="#local-6989586621679321848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:GetIntents' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3AnameContains%3AGetIntents%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | A pagination token that fetches the next page of intents. If the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- response to this API call is truncated, Amazon Lex returns a pagination</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- token in the response. To fetch the next page of intents, specify the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- pagination token in the next request.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#getIntents_nextToken"><span class="hs-identifier hs-type">getIntents_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="getIntents_nextToken"><span class="annot"><span class="annottext">getIntents_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetIntents -&gt; f GetIntents
+</span><a href="Amazonka.LexModels.GetIntents.html#getIntents_nextToken"><span class="hs-identifier hs-var hs-var">getIntents_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIntents -&gt; Maybe Text)
+-&gt; (GetIntents -&gt; Maybe Text -&gt; GetIntents)
+-&gt; Lens GetIntents GetIntents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321846"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetIntents' :: GetIntents -&gt; Maybe Text
+</span><a href="#local-6989586621679321846"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321846"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321845"><span class="annot"><span class="annottext">s :: GetIntents
+</span><a href="#local-6989586621679321845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321844"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntents
+</span><a href="#local-6989586621679321845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetIntents' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3AnextToken%3AGetIntents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The maximum number of intents to return in the response. The default is</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 10.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#getIntents_maxResults"><span class="hs-identifier hs-type">getIntents_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="getIntents_maxResults"><span class="annot"><span class="annottext">getIntents_maxResults :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; GetIntents -&gt; f GetIntents
+</span><a href="Amazonka.LexModels.GetIntents.html#getIntents_maxResults"><span class="hs-identifier hs-var hs-var">getIntents_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIntents -&gt; Maybe Natural)
+-&gt; (GetIntents -&gt; Maybe Natural -&gt; GetIntents)
+-&gt; Lens GetIntents GetIntents (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321843"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetIntents' :: GetIntents -&gt; Maybe Natural
+</span><a href="#local-6989586621679321843"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679321843"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321842"><span class="annot"><span class="annottext">s :: GetIntents
+</span><a href="#local-6989586621679321842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321841"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679321841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntents
+</span><a href="#local-6989586621679321842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetIntents' :: Maybe Natural
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3AmaxResults%3AGetIntents%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679321841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679321837"><span class="annot"><span class="annottext">page :: GetIntents -&gt; AWSResponse GetIntents -&gt; Maybe GetIntents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679321835"><span class="annot"><span class="annottext">GetIntents
+</span><a href="#local-6989586621679321835"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679321834"><span class="annot"><span class="annottext">AWSResponse GetIntents
+</span><a href="#local-6989586621679321834"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-128"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetIntents
+GetIntentsResponse
+</span><a href="#local-6989586621679321834"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">GetIntentsResponse
+-&gt; Getting (First Text) GetIntentsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetIntentsResponse -&gt; Const (First Text) GetIntentsResponse
+Lens' GetIntentsResponse (Maybe Text)
+</span><a href="Amazonka.LexModels.GetIntents.html#getIntentsResponse_nextToken"><span class="hs-identifier hs-var">getIntentsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetIntentsResponse -&gt; Const (First Text) GetIntentsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetIntentsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-130"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetIntents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [IntentMetadata] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-133"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetIntents
+GetIntentsResponse
+</span><a href="#local-6989586621679321834"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">GetIntentsResponse
+-&gt; Getting
+     (First [IntentMetadata]) GetIntentsResponse [IntentMetadata]
+-&gt; Maybe [IntentMetadata]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [IntentMetadata]
+ -&gt; Const (First [IntentMetadata]) (Maybe [IntentMetadata]))
+-&gt; GetIntentsResponse
+-&gt; Const (First [IntentMetadata]) GetIntentsResponse
+Lens' GetIntentsResponse (Maybe [IntentMetadata])
+</span><a href="Amazonka.LexModels.GetIntents.html#getIntentsResponse_intents"><span class="hs-identifier hs-var">getIntentsResponse_intents</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [IntentMetadata]
+  -&gt; Const (First [IntentMetadata]) (Maybe [IntentMetadata]))
+ -&gt; GetIntentsResponse
+ -&gt; Const (First [IntentMetadata]) GetIntentsResponse)
+-&gt; (([IntentMetadata]
+     -&gt; Const (First [IntentMetadata]) [IntentMetadata])
+    -&gt; Maybe [IntentMetadata]
+    -&gt; Const (First [IntentMetadata]) (Maybe [IntentMetadata]))
+-&gt; Getting
+     (First [IntentMetadata]) GetIntentsResponse [IntentMetadata]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([IntentMetadata]
+ -&gt; Const (First [IntentMetadata]) [IntentMetadata])
+-&gt; Maybe [IntentMetadata]
+-&gt; Const (First [IntentMetadata]) (Maybe [IntentMetadata])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-135"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetIntents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">GetIntents -&gt; Maybe GetIntents
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(GetIntents -&gt; Maybe GetIntents) -&gt; GetIntents -&gt; Maybe GetIntents
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">GetIntents
+</span><a href="#local-6989586621679321835"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">GetIntents -&gt; (GetIntents -&gt; GetIntents) -&gt; GetIntents
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; GetIntents -&gt; Identity GetIntents
+Lens GetIntents GetIntents (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.LexModels.GetIntents.html#getIntents_nextToken"><span class="hs-identifier hs-var">getIntents_nextToken</span></a></span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; GetIntents -&gt; Identity GetIntents)
+-&gt; Maybe Text -&gt; GetIntents -&gt; GetIntents
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetIntents
+GetIntentsResponse
+</span><a href="#local-6989586621679321834"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">GetIntentsResponse
+-&gt; Getting (First Text) GetIntentsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetIntentsResponse -&gt; Const (First Text) GetIntentsResponse
+Lens' GetIntentsResponse (Maybe Text)
+</span><a href="Amazonka.LexModels.GetIntents.html#getIntentsResponse_nextToken"><span class="hs-identifier hs-var">getIntentsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetIntentsResponse -&gt; Const (First Text) GetIntentsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetIntentsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679321824"><span class="annot"><span class="annottext">request :: GetIntents -&gt; Request GetIntents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetIntents -&gt; Request GetIntents
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.LexModels.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679321820"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetIntents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetIntents)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetIntents))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetIntents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetIntents)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679321817"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321817"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679321816"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679321816"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679321815"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321815"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe [IntentMetadata] -&gt; Maybe Text -&gt; Int -&gt; GetIntentsResponse
+</span><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-var">GetIntentsResponse'</span></a></span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [IntentMetadata] -&gt; Maybe Text -&gt; Int -&gt; GetIntentsResponse)
+-&gt; Either String (Maybe [IntentMetadata])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetIntentsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [IntentMetadata]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;intents&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [IntentMetadata]))
+-&gt; Maybe [IntentMetadata] -&gt; Either String (Maybe [IntentMetadata])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [IntentMetadata]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetIntentsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetIntentsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetIntentsResponse)
+-&gt; Either String Int -&gt; Either String GetIntentsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321817"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321806"><span id="local-6989586621679321808"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321803"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679321799"><span class="annot"><span class="annottext">toHeaders :: GetIntents -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetIntents -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-167"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679321793"><span class="annot"><span class="annottext">toPath :: GetIntents -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetIntents -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/intents/&quot;</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679321789"><span class="annot"><span class="annottext">toQuery :: GetIntents -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321785"><span id="local-6989586621679321786"><span id="local-6989586621679321787"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+nameContains :: Maybe Text
+$sel:maxResults:GetIntents' :: GetIntents -&gt; Maybe Natural
+$sel:nextToken:GetIntents' :: GetIntents -&gt; Maybe Text
+$sel:nameContains:GetIntents' :: GetIntents -&gt; Maybe Text
+</span><a href="#local-6989586621679321785"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nameContains&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321787"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321786"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679321785"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newGetIntentsResponse' smart constructor.</span><span>
+</span><span id="line-183"></span><span id="local-6989586621679321782"><span id="local-6989586621679321783"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIntentsResponse"><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-var">GetIntentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIntentsResponse%27"><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-var">GetIntentsResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of @Intent@ objects. For more information, see PutBot.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3Aintents%3AGetIntentsResponse%27"><span class="annot"><span class="annottext">GetIntentsResponse -&gt; Maybe [IntentMetadata]
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3Aintents%3AGetIntentsResponse%27"><span class="hs-identifier hs-var hs-var">intents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | If the response is truncated, the response includes a pagination token</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- that you can specify in your next request to fetch the next page of</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- intents.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3AnextToken%3AGetIntentsResponse%27"><span class="annot"><span class="annottext">GetIntentsResponse -&gt; Maybe Text
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3AnextToken%3AGetIntentsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetIntentsResponse%27"><span class="annot"><span class="annottext">GetIntentsResponse -&gt; Int
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3AhttpStatus%3AGetIntentsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321775"><span id="local-6989586621679321777"><span class="annot"><span class="annottext">GetIntentsResponse -&gt; GetIntentsResponse -&gt; Bool
+(GetIntentsResponse -&gt; GetIntentsResponse -&gt; Bool)
+-&gt; (GetIntentsResponse -&gt; GetIntentsResponse -&gt; Bool)
+-&gt; Eq GetIntentsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetIntentsResponse -&gt; GetIntentsResponse -&gt; Bool
+$c/= :: GetIntentsResponse -&gt; GetIntentsResponse -&gt; Bool
+== :: GetIntentsResponse -&gt; GetIntentsResponse -&gt; Bool
+$c== :: GetIntentsResponse -&gt; GetIntentsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321767"><span id="local-6989586621679321769"><span id="local-6989586621679321771"><span id="local-6989586621679321773"><span class="annot"><span class="annottext">ReadPrec [GetIntentsResponse]
+ReadPrec GetIntentsResponse
+Int -&gt; ReadS GetIntentsResponse
+ReadS [GetIntentsResponse]
+(Int -&gt; ReadS GetIntentsResponse)
+-&gt; ReadS [GetIntentsResponse]
+-&gt; ReadPrec GetIntentsResponse
+-&gt; ReadPrec [GetIntentsResponse]
+-&gt; Read GetIntentsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetIntentsResponse]
+$creadListPrec :: ReadPrec [GetIntentsResponse]
+readPrec :: ReadPrec GetIntentsResponse
+$creadPrec :: ReadPrec GetIntentsResponse
+readList :: ReadS [GetIntentsResponse]
+$creadList :: ReadS [GetIntentsResponse]
+readsPrec :: Int -&gt; ReadS GetIntentsResponse
+$creadsPrec :: Int -&gt; ReadS GetIntentsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321761"><span id="local-6989586621679321763"><span id="local-6989586621679321765"><span class="annot"><span class="annottext">Int -&gt; GetIntentsResponse -&gt; ShowS
+[GetIntentsResponse] -&gt; ShowS
+GetIntentsResponse -&gt; String
+(Int -&gt; GetIntentsResponse -&gt; ShowS)
+-&gt; (GetIntentsResponse -&gt; String)
+-&gt; ([GetIntentsResponse] -&gt; ShowS)
+-&gt; Show GetIntentsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetIntentsResponse] -&gt; ShowS
+$cshowList :: [GetIntentsResponse] -&gt; ShowS
+show :: GetIntentsResponse -&gt; String
+$cshow :: GetIntentsResponse -&gt; String
+showsPrec :: Int -&gt; GetIntentsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetIntentsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetIntentsResponse -&gt; Rep GetIntentsResponse x)
+-&gt; (forall x. Rep GetIntentsResponse x -&gt; GetIntentsResponse)
+-&gt; Generic GetIntentsResponse
+forall x. Rep GetIntentsResponse x -&gt; GetIntentsResponse
+forall x. GetIntentsResponse -&gt; Rep GetIntentsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetIntentsResponse x -&gt; GetIntentsResponse
+$cfrom :: forall x. GetIntentsResponse -&gt; Rep GetIntentsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- Create a value of 'GetIntentsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'intents', 'getIntentsResponse_intents' - An array of @Intent@ objects. For more information, see PutBot.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'nextToken', 'getIntentsResponse_nextToken' - If the response is truncated, the response includes a pagination token</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- that you can specify in your next request to fetch the next page of</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- intents.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'httpStatus', 'getIntentsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#newGetIntentsResponse"><span class="hs-identifier hs-type">newGetIntentsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newGetIntentsResponse"><span class="annot"><span class="annottext">newGetIntentsResponse :: Int -&gt; GetIntentsResponse
+</span><a href="Amazonka.LexModels.GetIntents.html#newGetIntentsResponse"><span class="hs-identifier hs-var hs-var">newGetIntentsResponse</span></a></span></span><span> </span><span id="local-6989586621679321758"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">GetIntentsResponse' :: Maybe [IntentMetadata] -&gt; Maybe Text -&gt; Int -&gt; GetIntentsResponse
+</span><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:intents:GetIntentsResponse' :: Maybe [IntentMetadata]
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3Aintents%3AGetIntentsResponse%27"><span class="hs-identifier hs-var">intents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IntentMetadata]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetIntentsResponse' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3AnextToken%3AGetIntentsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetIntentsResponse' :: Int
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3AhttpStatus%3AGetIntentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | An array of @Intent@ objects. For more information, see PutBot.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#getIntentsResponse_intents"><span class="hs-identifier hs-type">getIntentsResponse_intents</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="getIntentsResponse_intents"><span class="annot"><span class="annottext">getIntentsResponse_intents :: (Maybe [IntentMetadata] -&gt; f (Maybe [IntentMetadata]))
+-&gt; GetIntentsResponse -&gt; f GetIntentsResponse
+</span><a href="Amazonka.LexModels.GetIntents.html#getIntentsResponse_intents"><span class="hs-identifier hs-var hs-var">getIntentsResponse_intents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIntentsResponse -&gt; Maybe [IntentMetadata])
+-&gt; (GetIntentsResponse
+    -&gt; Maybe [IntentMetadata] -&gt; GetIntentsResponse)
+-&gt; Lens' GetIntentsResponse (Maybe [IntentMetadata])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321757"><span class="annot"><span class="annottext">Maybe [IntentMetadata]
+intents :: Maybe [IntentMetadata]
+$sel:intents:GetIntentsResponse' :: GetIntentsResponse -&gt; Maybe [IntentMetadata]
+</span><a href="#local-6989586621679321757"><span class="hs-identifier hs-var hs-var">intents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IntentMetadata]
+</span><a href="#local-6989586621679321757"><span class="hs-identifier hs-var">intents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321756"><span class="annot"><span class="annottext">s :: GetIntentsResponse
+</span><a href="#local-6989586621679321756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321755"><span class="annot"><span class="annottext">Maybe [IntentMetadata]
+</span><a href="#local-6989586621679321755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntentsResponse
+</span><a href="#local-6989586621679321756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intents:GetIntentsResponse' :: Maybe [IntentMetadata]
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3Aintents%3AGetIntentsResponse%27"><span class="hs-identifier hs-var">intents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IntentMetadata]
+</span><a href="#local-6989586621679321755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IntentMetadata] -&gt; f (Maybe [IntentMetadata]))
+ -&gt; GetIntentsResponse -&gt; f GetIntentsResponse)
+-&gt; ((Maybe [IntentMetadata] -&gt; f (Maybe [IntentMetadata]))
+    -&gt; Maybe [IntentMetadata] -&gt; f (Maybe [IntentMetadata]))
+-&gt; (Maybe [IntentMetadata] -&gt; f (Maybe [IntentMetadata]))
+-&gt; GetIntentsResponse
+-&gt; f GetIntentsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [IntentMetadata] [IntentMetadata] [IntentMetadata] [IntentMetadata]
+-&gt; Iso
+     (Maybe [IntentMetadata])
+     (Maybe [IntentMetadata])
+     (Maybe [IntentMetadata])
+     (Maybe [IntentMetadata])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [IntentMetadata] [IntentMetadata] [IntentMetadata] [IntentMetadata]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | If the response is truncated, the response includes a pagination token</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- that you can specify in your next request to fetch the next page of</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- intents.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#getIntentsResponse_nextToken"><span class="hs-identifier hs-type">getIntentsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="getIntentsResponse_nextToken"><span class="annot"><span class="annottext">getIntentsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetIntentsResponse -&gt; f GetIntentsResponse
+</span><a href="Amazonka.LexModels.GetIntents.html#getIntentsResponse_nextToken"><span class="hs-identifier hs-var hs-var">getIntentsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIntentsResponse -&gt; Maybe Text)
+-&gt; (GetIntentsResponse -&gt; Maybe Text -&gt; GetIntentsResponse)
+-&gt; Lens' GetIntentsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321752"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetIntentsResponse' :: GetIntentsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679321752"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321752"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321751"><span class="annot"><span class="annottext">s :: GetIntentsResponse
+</span><a href="#local-6989586621679321751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321750"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntentsResponse
+</span><a href="#local-6989586621679321751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetIntentsResponse' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3AnextToken%3AGetIntentsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#getIntentsResponse_httpStatus"><span class="hs-identifier hs-type">getIntentsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-233"></span><span id="getIntentsResponse_httpStatus"><span class="annot"><span class="annottext">getIntentsResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetIntentsResponse -&gt; f GetIntentsResponse
+</span><a href="Amazonka.LexModels.GetIntents.html#getIntentsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getIntentsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetIntentsResponse -&gt; Int)
+-&gt; (GetIntentsResponse -&gt; Int -&gt; GetIntentsResponse)
+-&gt; Lens GetIntentsResponse GetIntentsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321749"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetIntentsResponse' :: GetIntentsResponse -&gt; Int
+</span><a href="#local-6989586621679321749"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321749"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321748"><span class="annot"><span class="annottext">s :: GetIntentsResponse
+</span><a href="#local-6989586621679321748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321747"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntentsResponse
+</span><a href="#local-6989586621679321748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetIntentsResponse' :: Int
+</span><a href="Amazonka.LexModels.GetIntents.html#%24sel%3AhttpStatus%3AGetIntentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321745"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span></span><span>
+</span><span id="line-236"></span></pre></body></html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Braket.Types.QuantumTaskStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Braket.Types.QuantumTaskStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus"><span class="hs-identifier">QuantumTaskStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_CANCELLED"><span class="hs-identifier">QuantumTaskStatus_CANCELLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_CANCELLING"><span class="hs-identifier">QuantumTaskStatus_CANCELLING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_COMPLETED"><span class="hs-identifier">QuantumTaskStatus_COMPLETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_CREATED"><span class="hs-identifier">QuantumTaskStatus_CREATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_FAILED"><span class="hs-identifier">QuantumTaskStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_QUEUED"><span class="hs-identifier">QuantumTaskStatus_QUEUED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_RUNNING"><span class="hs-identifier">QuantumTaskStatus_RUNNING</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679161124"><span id="local-6989586621679161125"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QuantumTaskStatus"><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus"><span class="hs-identifier hs-var">QuantumTaskStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QuantumTaskStatus%27"><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus%27"><span class="hs-identifier hs-var">QuantumTaskStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromQuantumTaskStatus"><span class="annot"><span class="annottext">QuantumTaskStatus -&gt; Text
+</span><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#fromQuantumTaskStatus"><span class="hs-identifier hs-var hs-var">fromQuantumTaskStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679161116"><span id="local-6989586621679161118"><span id="local-6989586621679161120"><span class="annot"><span class="annottext">Int -&gt; QuantumTaskStatus -&gt; ShowS
+[QuantumTaskStatus] -&gt; ShowS
+QuantumTaskStatus -&gt; String
+(Int -&gt; QuantumTaskStatus -&gt; ShowS)
+-&gt; (QuantumTaskStatus -&gt; String)
+-&gt; ([QuantumTaskStatus] -&gt; ShowS)
+-&gt; Show QuantumTaskStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [QuantumTaskStatus] -&gt; ShowS
+$cshowList :: [QuantumTaskStatus] -&gt; ShowS
+show :: QuantumTaskStatus -&gt; String
+$cshow :: QuantumTaskStatus -&gt; String
+showsPrec :: Int -&gt; QuantumTaskStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; QuantumTaskStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679161107"><span id="local-6989586621679161109"><span id="local-6989586621679161111"><span id="local-6989586621679161113"><span class="annot"><span class="annottext">ReadPrec [QuantumTaskStatus]
+ReadPrec QuantumTaskStatus
+Int -&gt; ReadS QuantumTaskStatus
+ReadS [QuantumTaskStatus]
+(Int -&gt; ReadS QuantumTaskStatus)
+-&gt; ReadS [QuantumTaskStatus]
+-&gt; ReadPrec QuantumTaskStatus
+-&gt; ReadPrec [QuantumTaskStatus]
+-&gt; Read QuantumTaskStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [QuantumTaskStatus]
+$creadListPrec :: ReadPrec [QuantumTaskStatus]
+readPrec :: ReadPrec QuantumTaskStatus
+$creadPrec :: ReadPrec QuantumTaskStatus
+readList :: ReadS [QuantumTaskStatus]
+$creadList :: ReadS [QuantumTaskStatus]
+readsPrec :: Int -&gt; ReadS QuantumTaskStatus
+$creadsPrec :: Int -&gt; ReadS QuantumTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679161102"><span id="local-6989586621679161104"><span class="annot"><span class="annottext">QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool
+(QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool)
+-&gt; (QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool)
+-&gt; Eq QuantumTaskStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool
+$c/= :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool
+== :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool
+$c== :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679161086"><span id="local-6989586621679161088"><span id="local-6989586621679161090"><span id="local-6989586621679161092"><span id="local-6989586621679161094"><span id="local-6989586621679161096"><span id="local-6989586621679161098"><span class="annot"><span class="annottext">Eq QuantumTaskStatus
+Eq QuantumTaskStatus
+-&gt; (QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Ordering)
+-&gt; (QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool)
+-&gt; (QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool)
+-&gt; (QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool)
+-&gt; (QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool)
+-&gt; (QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; QuantumTaskStatus)
+-&gt; (QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; QuantumTaskStatus)
+-&gt; Ord QuantumTaskStatus
+QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool
+QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Ordering
+QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; QuantumTaskStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; QuantumTaskStatus
+$cmin :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; QuantumTaskStatus
+max :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; QuantumTaskStatus
+$cmax :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; QuantumTaskStatus
+&gt;= :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool
+$c&gt;= :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool
+&gt; :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool
+$c&gt; :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool
+&lt;= :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool
+$c&lt;= :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool
+&lt; :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool
+$c&lt; :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Bool
+compare :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Ordering
+$ccompare :: QuantumTaskStatus -&gt; QuantumTaskStatus -&gt; Ordering
+$cp1Ord :: Eq QuantumTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. QuantumTaskStatus -&gt; Rep QuantumTaskStatus x)
+-&gt; (forall x. Rep QuantumTaskStatus x -&gt; QuantumTaskStatus)
+-&gt; Generic QuantumTaskStatus
+forall x. Rep QuantumTaskStatus x -&gt; QuantumTaskStatus
+forall x. QuantumTaskStatus -&gt; Rep QuantumTaskStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep QuantumTaskStatus x -&gt; QuantumTaskStatus
+$cfrom :: forall x. QuantumTaskStatus -&gt; Rep QuantumTaskStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679161078"><span id="local-6989586621679161080"><span class="annot"><span class="annottext">Int -&gt; QuantumTaskStatus -&gt; Int
+QuantumTaskStatus -&gt; Int
+(Int -&gt; QuantumTaskStatus -&gt; Int)
+-&gt; (QuantumTaskStatus -&gt; Int) -&gt; Hashable QuantumTaskStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: QuantumTaskStatus -&gt; Int
+$chash :: QuantumTaskStatus -&gt; Int
+hashWithSalt :: Int -&gt; QuantumTaskStatus -&gt; Int
+$chashWithSalt :: Int -&gt; QuantumTaskStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679161075"><span class="annot"><span class="annottext">QuantumTaskStatus -&gt; ()
+(QuantumTaskStatus -&gt; ()) -&gt; NFData QuantumTaskStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: QuantumTaskStatus -&gt; ()
+$crnf :: QuantumTaskStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679161072"><span class="annot"><span class="annottext">Text -&gt; Either String QuantumTaskStatus
+(Text -&gt; Either String QuantumTaskStatus)
+-&gt; FromText QuantumTaskStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String QuantumTaskStatus
+$cfromText :: Text -&gt; Either String QuantumTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679161069"><span class="annot"><span class="annottext">QuantumTaskStatus -&gt; Text
+(QuantumTaskStatus -&gt; Text) -&gt; ToText QuantumTaskStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: QuantumTaskStatus -&gt; Text
+$ctoText :: QuantumTaskStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679161066"><span class="annot"><span class="annottext">QuantumTaskStatus -&gt; ByteString
+(QuantumTaskStatus -&gt; ByteString) -&gt; ToByteString QuantumTaskStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: QuantumTaskStatus -&gt; ByteString
+$ctoBS :: QuantumTaskStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679161063"><span class="annot"><span class="annottext">QuantumTaskStatus -&gt; ByteStringBuilder
+(QuantumTaskStatus -&gt; ByteStringBuilder) -&gt; ToLog QuantumTaskStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: QuantumTaskStatus -&gt; ByteStringBuilder
+$cbuild :: QuantumTaskStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679161060"><span class="annot"><span class="annottext">HeaderName -&gt; QuantumTaskStatus -&gt; [Header]
+(HeaderName -&gt; QuantumTaskStatus -&gt; [Header])
+-&gt; ToHeader QuantumTaskStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; QuantumTaskStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; QuantumTaskStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679161057"><span class="annot"><span class="annottext">QuantumTaskStatus -&gt; QueryString
+(QuantumTaskStatus -&gt; QueryString) -&gt; ToQuery QuantumTaskStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: QuantumTaskStatus -&gt; QueryString
+$ctoQuery :: QuantumTaskStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679161052"><span id="local-6989586621679161054"><span class="annot"><span class="annottext">Value -&gt; Parser [QuantumTaskStatus]
+Value -&gt; Parser QuantumTaskStatus
+(Value -&gt; Parser QuantumTaskStatus)
+-&gt; (Value -&gt; Parser [QuantumTaskStatus])
+-&gt; FromJSON QuantumTaskStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [QuantumTaskStatus]
+$cparseJSONList :: Value -&gt; Parser [QuantumTaskStatus]
+parseJSON :: Value -&gt; Parser QuantumTaskStatus
+$cparseJSON :: Value -&gt; Parser QuantumTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679161047"><span id="local-6989586621679161049"><span class="annot"><span class="annottext">FromJSONKeyFunction [QuantumTaskStatus]
+FromJSONKeyFunction QuantumTaskStatus
+FromJSONKeyFunction QuantumTaskStatus
+-&gt; FromJSONKeyFunction [QuantumTaskStatus]
+-&gt; FromJSONKey QuantumTaskStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [QuantumTaskStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [QuantumTaskStatus]
+fromJSONKey :: FromJSONKeyFunction QuantumTaskStatus
+$cfromJSONKey :: FromJSONKeyFunction QuantumTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679161038"><span id="local-6989586621679161040"><span id="local-6989586621679161042"><span id="local-6989586621679161044"><span class="annot"><span class="annottext">[QuantumTaskStatus] -&gt; Encoding
+[QuantumTaskStatus] -&gt; Value
+QuantumTaskStatus -&gt; Encoding
+QuantumTaskStatus -&gt; Value
+(QuantumTaskStatus -&gt; Value)
+-&gt; (QuantumTaskStatus -&gt; Encoding)
+-&gt; ([QuantumTaskStatus] -&gt; Value)
+-&gt; ([QuantumTaskStatus] -&gt; Encoding)
+-&gt; ToJSON QuantumTaskStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [QuantumTaskStatus] -&gt; Encoding
+$ctoEncodingList :: [QuantumTaskStatus] -&gt; Encoding
+toJSONList :: [QuantumTaskStatus] -&gt; Value
+$ctoJSONList :: [QuantumTaskStatus] -&gt; Value
+toEncoding :: QuantumTaskStatus -&gt; Encoding
+$ctoEncoding :: QuantumTaskStatus -&gt; Encoding
+toJSON :: QuantumTaskStatus -&gt; Value
+$ctoJSON :: QuantumTaskStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679161033"><span id="local-6989586621679161035"><span class="annot"><span class="annottext">ToJSONKeyFunction [QuantumTaskStatus]
+ToJSONKeyFunction QuantumTaskStatus
+ToJSONKeyFunction QuantumTaskStatus
+-&gt; ToJSONKeyFunction [QuantumTaskStatus]
+-&gt; ToJSONKey QuantumTaskStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [QuantumTaskStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [QuantumTaskStatus]
+toJSONKey :: ToJSONKeyFunction QuantumTaskStatus
+$ctoJSONKey :: ToJSONKeyFunction QuantumTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679161030"><span class="annot"><span class="annottext">[Node] -&gt; Either String QuantumTaskStatus
+([Node] -&gt; Either String QuantumTaskStatus)
+-&gt; FromXML QuantumTaskStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String QuantumTaskStatus
+$cparseXML :: [Node] -&gt; Either String QuantumTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679161027"><span class="annot"><span class="annottext">QuantumTaskStatus -&gt; XML
+(QuantumTaskStatus -&gt; XML) -&gt; ToXML QuantumTaskStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: QuantumTaskStatus -&gt; XML
+$ctoXML :: QuantumTaskStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_CANCELLED"><span class="hs-identifier hs-type">QuantumTaskStatus_CANCELLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus"><span class="hs-identifier hs-type">QuantumTaskStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bQuantumTaskStatus_CANCELLED"><span id="%24mQuantumTaskStatus_CANCELLED"><span id="QuantumTaskStatus_CANCELLED"><span class="annot"><span class="annottext">$bQuantumTaskStatus_CANCELLED :: QuantumTaskStatus
+$mQuantumTaskStatus_CANCELLED :: forall r. QuantumTaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#%24bQuantumTaskStatus_CANCELLED"><span class="hs-identifier hs-var hs-var hs-var">QuantumTaskStatus_CANCELLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus%27"><span class="hs-identifier hs-type">QuantumTaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CANCELLED&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_CANCELLING"><span class="hs-identifier hs-type">QuantumTaskStatus_CANCELLING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus"><span class="hs-identifier hs-type">QuantumTaskStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bQuantumTaskStatus_CANCELLING"><span id="%24mQuantumTaskStatus_CANCELLING"><span id="QuantumTaskStatus_CANCELLING"><span class="annot"><span class="annottext">$bQuantumTaskStatus_CANCELLING :: QuantumTaskStatus
+$mQuantumTaskStatus_CANCELLING :: forall r. QuantumTaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#%24bQuantumTaskStatus_CANCELLING"><span class="hs-identifier hs-var hs-var hs-var">QuantumTaskStatus_CANCELLING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus%27"><span class="hs-identifier hs-type">QuantumTaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CANCELLING&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_COMPLETED"><span class="hs-identifier hs-type">QuantumTaskStatus_COMPLETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus"><span class="hs-identifier hs-type">QuantumTaskStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bQuantumTaskStatus_COMPLETED"><span id="%24mQuantumTaskStatus_COMPLETED"><span id="QuantumTaskStatus_COMPLETED"><span class="annot"><span class="annottext">$bQuantumTaskStatus_COMPLETED :: QuantumTaskStatus
+$mQuantumTaskStatus_COMPLETED :: forall r. QuantumTaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#%24bQuantumTaskStatus_COMPLETED"><span class="hs-identifier hs-var hs-var hs-var">QuantumTaskStatus_COMPLETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus%27"><span class="hs-identifier hs-type">QuantumTaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_CREATED"><span class="hs-identifier hs-type">QuantumTaskStatus_CREATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus"><span class="hs-identifier hs-type">QuantumTaskStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bQuantumTaskStatus_CREATED"><span id="%24mQuantumTaskStatus_CREATED"><span id="QuantumTaskStatus_CREATED"><span class="annot"><span class="annottext">$bQuantumTaskStatus_CREATED :: QuantumTaskStatus
+$mQuantumTaskStatus_CREATED :: forall r. QuantumTaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#%24bQuantumTaskStatus_CREATED"><span class="hs-identifier hs-var hs-var hs-var">QuantumTaskStatus_CREATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus%27"><span class="hs-identifier hs-type">QuantumTaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATED&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_FAILED"><span class="hs-identifier hs-type">QuantumTaskStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus"><span class="hs-identifier hs-type">QuantumTaskStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bQuantumTaskStatus_FAILED"><span id="%24mQuantumTaskStatus_FAILED"><span id="QuantumTaskStatus_FAILED"><span class="annot"><span class="annottext">$bQuantumTaskStatus_FAILED :: QuantumTaskStatus
+$mQuantumTaskStatus_FAILED :: forall r. QuantumTaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#%24bQuantumTaskStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">QuantumTaskStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus%27"><span class="hs-identifier hs-type">QuantumTaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_QUEUED"><span class="hs-identifier hs-type">QuantumTaskStatus_QUEUED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus"><span class="hs-identifier hs-type">QuantumTaskStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bQuantumTaskStatus_QUEUED"><span id="%24mQuantumTaskStatus_QUEUED"><span id="QuantumTaskStatus_QUEUED"><span class="annot"><span class="annottext">$bQuantumTaskStatus_QUEUED :: QuantumTaskStatus
+$mQuantumTaskStatus_QUEUED :: forall r. QuantumTaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#%24bQuantumTaskStatus_QUEUED"><span class="hs-identifier hs-var hs-var hs-var">QuantumTaskStatus_QUEUED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus%27"><span class="hs-identifier hs-type">QuantumTaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QUEUED&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_RUNNING"><span class="hs-identifier hs-type">QuantumTaskStatus_RUNNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus"><span class="hs-identifier hs-type">QuantumTaskStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bQuantumTaskStatus_RUNNING"><span id="%24mQuantumTaskStatus_RUNNING"><span id="QuantumTaskStatus_RUNNING"><span class="annot"><span class="annottext">$bQuantumTaskStatus_RUNNING :: QuantumTaskStatus
+$mQuantumTaskStatus_RUNNING :: forall r. QuantumTaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#%24bQuantumTaskStatus_RUNNING"><span class="hs-identifier hs-var hs-var hs-var">QuantumTaskStatus_RUNNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus%27"><span class="hs-identifier hs-type">QuantumTaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RUNNING&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_CANCELLED"><span class="hs-pragma hs-type">QuantumTaskStatus_CANCELLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_CANCELLING"><span class="hs-pragma hs-type">QuantumTaskStatus_CANCELLING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_COMPLETED"><span class="hs-pragma hs-type">QuantumTaskStatus_COMPLETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_CREATED"><span class="hs-pragma hs-type">QuantumTaskStatus_CREATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_FAILED"><span class="hs-pragma hs-type">QuantumTaskStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_QUEUED"><span class="hs-pragma hs-type">QuantumTaskStatus_QUEUED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus_RUNNING"><span class="hs-pragma hs-type">QuantumTaskStatus_RUNNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus%27"><span class="hs-pragma hs-type">QuantumTaskStatus'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.SSOAdmin.Types.AccessControlAttributeValue
+module Amazonka.SSOAdmin.Types.AccessControlAttributeValue
 
 -- | The value used for mapping a specified attribute to an identity
 --   source.
@@ -35,17 +35,17 @@ newAccessControlAttributeValue :: NonEmpty Text -> AccessControlAttributeValue
 -- | The identity source to use when mapping a specified attribute to
 --   Amazon Web Services SSO.
 accessControlAttributeValue_source :: Lens' AccessControlAttributeValue (NonEmpty Text)
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.Types.AccessControlAttributeValue.AccessControlAttributeValue
 
 
-module Network.AWS.SSOAdmin.Types.AccessControlAttribute
+module Amazonka.SSOAdmin.Types.AccessControlAttribute
 
 -- | These are Amazon Web Services SSO identity store attributes that you
 --   can configure for use in attributes-based access control (ABAC). You
@@ -97,17 +97,17 @@ accessControlAttribute_key :: Lens' AccessControlAttribute Text
 -- | The value used for mapping a specified attribute to an identity
 --   source.
 accessControlAttribute_value :: Lens' AccessControlAttribute AccessControlAttributeValue
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.Types.AccessControlAttribute.AccessControlAttribute
 
 
-module Network.AWS.SSOAdmin.Types.AttachedManagedPolicy
+module Amazonka.SSOAdmin.Types.AttachedManagedPolicy
 
 -- | A structure that stores the details of the IAM managed policy.
 --   
@@ -150,16 +150,16 @@ attachedManagedPolicy_arn :: Lens' AttachedManagedPolicy (Maybe Text)
 
 -- | The name of the IAM managed policy.
 attachedManagedPolicy_name :: Lens' AttachedManagedPolicy (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.AttachedManagedPolicy.AttachedManagedPolicy
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.AttachedManagedPolicy.AttachedManagedPolicy
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.AttachedManagedPolicy.AttachedManagedPolicy
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.AttachedManagedPolicy.AttachedManagedPolicy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.AttachedManagedPolicy.AttachedManagedPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.AttachedManagedPolicy.AttachedManagedPolicy
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.AttachedManagedPolicy.AttachedManagedPolicy
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.AttachedManagedPolicy.AttachedManagedPolicy
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.AttachedManagedPolicy.AttachedManagedPolicy
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.AttachedManagedPolicy.AttachedManagedPolicy
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.AttachedManagedPolicy.AttachedManagedPolicy
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.AttachedManagedPolicy.AttachedManagedPolicy
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.AttachedManagedPolicy.AttachedManagedPolicy
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.AttachedManagedPolicy.AttachedManagedPolicy
 
 
-module Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration
+module Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration
 
 -- | Specifies the attributes to add to your attribute-based access control
 --   (ABAC) configuration.
@@ -192,45 +192,45 @@ newInstanceAccessControlAttributeConfiguration :: InstanceAccessControlAttribute
 -- | Lists the attributes that are configured for ABAC in the specified
 --   Amazon Web Services SSO instance.
 instanceAccessControlAttributeConfiguration_accessControlAttributes :: Lens' InstanceAccessControlAttributeConfiguration [AccessControlAttribute]
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration.InstanceAccessControlAttributeConfiguration
 
 
-module Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus
+module Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus
 newtype InstanceAccessControlAttributeConfigurationStatus
 InstanceAccessControlAttributeConfigurationStatus' :: Text -> InstanceAccessControlAttributeConfigurationStatus
 [fromInstanceAccessControlAttributeConfigurationStatus] :: InstanceAccessControlAttributeConfigurationStatus -> Text
 pattern InstanceAccessControlAttributeConfigurationStatus_CREATION_FAILED :: InstanceAccessControlAttributeConfigurationStatus
 pattern InstanceAccessControlAttributeConfigurationStatus_CREATION_IN_PROGRESS :: InstanceAccessControlAttributeConfigurationStatus
 pattern InstanceAccessControlAttributeConfigurationStatus_ENABLED :: InstanceAccessControlAttributeConfigurationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance GHC.Classes.Ord Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance Amazonka.Data.Text.ToText Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance Amazonka.Data.Text.FromText Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance GHC.Classes.Ord Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus.InstanceAccessControlAttributeConfigurationStatus
 
 
-module Network.AWS.SSOAdmin.Types.InstanceMetadata
+module Amazonka.SSOAdmin.Types.InstanceMetadata
 
 -- | Provides information about the SSO instance.
 --   
@@ -278,16 +278,16 @@ instanceMetadata_identityStoreId :: Lens' InstanceMetadata (Maybe Text)
 --   Names (ARNs) and Amazon Web Services Service Namespaces</a> in the
 --   <i>Amazon Web Services General Reference</i>.
 instanceMetadata_instanceArn :: Lens' InstanceMetadata (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.InstanceMetadata.InstanceMetadata
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.InstanceMetadata.InstanceMetadata
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.InstanceMetadata.InstanceMetadata
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.InstanceMetadata.InstanceMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.InstanceMetadata.InstanceMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.InstanceMetadata.InstanceMetadata
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.InstanceMetadata.InstanceMetadata
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.InstanceMetadata.InstanceMetadata
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.InstanceMetadata.InstanceMetadata
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.InstanceMetadata.InstanceMetadata
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.InstanceMetadata.InstanceMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.InstanceMetadata.InstanceMetadata
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.InstanceMetadata.InstanceMetadata
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.InstanceMetadata.InstanceMetadata
 
 
-module Network.AWS.SSOAdmin.Types.PermissionSet
+module Amazonka.SSOAdmin.Types.PermissionSet
 
 -- | An entity that contains IAM policies.
 --   
@@ -373,43 +373,43 @@ permissionSet_name :: Lens' PermissionSet (Maybe Text)
 
 -- | The description of the PermissionSet.
 permissionSet_description :: Lens' PermissionSet (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.PermissionSet.PermissionSet
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.PermissionSet.PermissionSet
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.PermissionSet.PermissionSet
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.PermissionSet.PermissionSet
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.PermissionSet.PermissionSet
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.PermissionSet.PermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.PermissionSet.PermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.PermissionSet.PermissionSet
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.PermissionSet.PermissionSet
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.PermissionSet.PermissionSet
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.PermissionSet.PermissionSet
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.PermissionSet.PermissionSet
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.PermissionSet.PermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.PermissionSet.PermissionSet
 
 
-module Network.AWS.SSOAdmin.Types.PrincipalType
+module Amazonka.SSOAdmin.Types.PrincipalType
 newtype PrincipalType
 PrincipalType' :: Text -> PrincipalType
 [fromPrincipalType] :: PrincipalType -> Text
 pattern PrincipalType_GROUP :: PrincipalType
 pattern PrincipalType_USER :: PrincipalType
-instance Network.AWS.Data.XML.ToXML Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance Network.AWS.Data.XML.FromXML Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance Network.AWS.Data.Log.ToLog Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance Network.AWS.Data.Text.ToText Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance Network.AWS.Data.Text.FromText Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance GHC.Classes.Ord Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.PrincipalType.PrincipalType
+instance Amazonka.Data.XML.ToXML Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance Amazonka.Data.XML.FromXML Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance Amazonka.Data.Headers.ToHeader Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance Amazonka.Data.Log.ToLog Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance Amazonka.Data.Text.ToText Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance Amazonka.Data.Text.FromText Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance GHC.Classes.Ord Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.PrincipalType.PrincipalType
 
 
-module Network.AWS.SSOAdmin.Types.AccountAssignment
+module Amazonka.SSOAdmin.Types.AccountAssignment
 
 -- | The assignment that indicates a principal's limited access to a
 --   specified Amazon Web Services account with a specified permission set.
@@ -487,98 +487,98 @@ accountAssignment_accountId :: Lens' AccountAssignment (Maybe Text)
 --   <a>Amazon Resource Names (ARNs) and Amazon Web Services Service
 --   Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
 accountAssignment_permissionSetArn :: Lens' AccountAssignment (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.AccountAssignment.AccountAssignment
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.AccountAssignment.AccountAssignment
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.AccountAssignment.AccountAssignment
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.AccountAssignment.AccountAssignment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.AccountAssignment.AccountAssignment
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.AccountAssignment.AccountAssignment
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.AccountAssignment.AccountAssignment
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.AccountAssignment.AccountAssignment
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.AccountAssignment.AccountAssignment
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.AccountAssignment.AccountAssignment
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.AccountAssignment.AccountAssignment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.AccountAssignment.AccountAssignment
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.AccountAssignment.AccountAssignment
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.AccountAssignment.AccountAssignment
 
 
-module Network.AWS.SSOAdmin.Types.ProvisionTargetType
+module Amazonka.SSOAdmin.Types.ProvisionTargetType
 newtype ProvisionTargetType
 ProvisionTargetType' :: Text -> ProvisionTargetType
 [fromProvisionTargetType] :: ProvisionTargetType -> Text
 pattern ProvisionTargetType_ALL_PROVISIONED_ACCOUNTS :: ProvisionTargetType
 pattern ProvisionTargetType_AWS_ACCOUNT :: ProvisionTargetType
-instance Network.AWS.Data.XML.ToXML Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance Network.AWS.Data.XML.FromXML Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance Network.AWS.Data.Log.ToLog Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance Network.AWS.Data.Text.ToText Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance Network.AWS.Data.Text.FromText Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance GHC.Classes.Ord Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance Amazonka.Data.XML.ToXML Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance Amazonka.Data.XML.FromXML Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance Amazonka.Data.Headers.ToHeader Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance Amazonka.Data.Log.ToLog Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance Amazonka.Data.Text.ToText Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance Amazonka.Data.Text.FromText Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance GHC.Classes.Ord Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.ProvisionTargetType.ProvisionTargetType
 
 
-module Network.AWS.SSOAdmin.Types.ProvisioningStatus
+module Amazonka.SSOAdmin.Types.ProvisioningStatus
 newtype ProvisioningStatus
 ProvisioningStatus' :: Text -> ProvisioningStatus
 [fromProvisioningStatus] :: ProvisioningStatus -> Text
 pattern ProvisioningStatus_LATEST_PERMISSION_SET_NOT_PROVISIONED :: ProvisioningStatus
 pattern ProvisioningStatus_LATEST_PERMISSION_SET_PROVISIONED :: ProvisioningStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance GHC.Classes.Ord Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance Amazonka.Data.XML.ToXML Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance Amazonka.Data.XML.FromXML Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance Amazonka.Data.Log.ToLog Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance Amazonka.Data.Text.ToText Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance Amazonka.Data.Text.FromText Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance GHC.Classes.Ord Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.ProvisioningStatus.ProvisioningStatus
 
 
-module Network.AWS.SSOAdmin.Types.StatusValues
+module Amazonka.SSOAdmin.Types.StatusValues
 newtype StatusValues
 StatusValues' :: Text -> StatusValues
 [fromStatusValues] :: StatusValues -> Text
 pattern StatusValues_FAILED :: StatusValues
 pattern StatusValues_IN_PROGRESS :: StatusValues
 pattern StatusValues_SUCCEEDED :: StatusValues
-instance Network.AWS.Data.XML.ToXML Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance Network.AWS.Data.XML.FromXML Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance Network.AWS.Data.Log.ToLog Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance Network.AWS.Data.Text.ToText Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance Network.AWS.Data.Text.FromText Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance GHC.Classes.Ord Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.StatusValues.StatusValues
+instance Amazonka.Data.XML.ToXML Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance Amazonka.Data.XML.FromXML Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance Amazonka.Data.Headers.ToHeader Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance Amazonka.Data.Log.ToLog Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance Amazonka.Data.Text.ToText Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance Amazonka.Data.Text.FromText Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance GHC.Classes.Ord Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.StatusValues.StatusValues
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.StatusValues.StatusValues
 
 
-module Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata
+module Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata
 
 -- | Provides information about the permission set provisioning status.
 --   
@@ -629,16 +629,16 @@ permissionSetProvisioningStatusMetadata_status :: Lens' PermissionSetProvisionin
 
 -- | The date that the permission set was created.
 permissionSetProvisioningStatusMetadata_createdDate :: Lens' PermissionSetProvisioningStatusMetadata (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata.PermissionSetProvisioningStatusMetadata
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata.PermissionSetProvisioningStatusMetadata
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata.PermissionSetProvisioningStatusMetadata
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata.PermissionSetProvisioningStatusMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata.PermissionSetProvisioningStatusMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata.PermissionSetProvisioningStatusMetadata
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata.PermissionSetProvisioningStatusMetadata
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata.PermissionSetProvisioningStatusMetadata
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata.PermissionSetProvisioningStatusMetadata
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata.PermissionSetProvisioningStatusMetadata
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata.PermissionSetProvisioningStatusMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata.PermissionSetProvisioningStatusMetadata
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata.PermissionSetProvisioningStatusMetadata
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata.PermissionSetProvisioningStatusMetadata
 
 
-module Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatus
+module Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus
 
 -- | A structure that is used to provide the status of the provisioning
 --   operation for a specified permission set.
@@ -733,16 +733,16 @@ permissionSetProvisioningStatus_createdDate :: Lens' PermissionSetProvisioningSt
 --   Web Services Service Namespaces</a> in the <i>Amazon Web Services
 --   General Reference</i>.
 permissionSetProvisioningStatus_permissionSetArn :: Lens' PermissionSetProvisioningStatus (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatus.PermissionSetProvisioningStatus
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatus.PermissionSetProvisioningStatus
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatus.PermissionSetProvisioningStatus
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatus.PermissionSetProvisioningStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatus.PermissionSetProvisioningStatus
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatus.PermissionSetProvisioningStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatus.PermissionSetProvisioningStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus.PermissionSetProvisioningStatus
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus.PermissionSetProvisioningStatus
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus.PermissionSetProvisioningStatus
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus.PermissionSetProvisioningStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus.PermissionSetProvisioningStatus
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus.PermissionSetProvisioningStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus.PermissionSetProvisioningStatus
 
 
-module Network.AWS.SSOAdmin.Types.OperationStatusFilter
+module Amazonka.SSOAdmin.Types.OperationStatusFilter
 
 -- | Filters he operation status list based on the passed attribute value.
 --   
@@ -769,16 +769,16 @@ newOperationStatusFilter :: OperationStatusFilter
 
 -- | Filters the list operations result based on the status attribute.
 operationStatusFilter_status :: Lens' OperationStatusFilter (Maybe StatusValues)
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.OperationStatusFilter.OperationStatusFilter
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.OperationStatusFilter.OperationStatusFilter
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.OperationStatusFilter.OperationStatusFilter
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.OperationStatusFilter.OperationStatusFilter
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.OperationStatusFilter.OperationStatusFilter
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.OperationStatusFilter.OperationStatusFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.Types.OperationStatusFilter.OperationStatusFilter
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.OperationStatusFilter.OperationStatusFilter
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.OperationStatusFilter.OperationStatusFilter
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.OperationStatusFilter.OperationStatusFilter
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.OperationStatusFilter.OperationStatusFilter
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.OperationStatusFilter.OperationStatusFilter
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.OperationStatusFilter.OperationStatusFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.Types.OperationStatusFilter.OperationStatusFilter
 
 
-module Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata
+module Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata
 
 -- | Provides information about the AccountAssignment creation request.
 --   
@@ -829,16 +829,16 @@ accountAssignmentOperationStatusMetadata_status :: Lens' AccountAssignmentOperat
 
 -- | The date that the permission set was created.
 accountAssignmentOperationStatusMetadata_createdDate :: Lens' AccountAssignmentOperationStatusMetadata (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata.AccountAssignmentOperationStatusMetadata
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata.AccountAssignmentOperationStatusMetadata
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata.AccountAssignmentOperationStatusMetadata
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata.AccountAssignmentOperationStatusMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata.AccountAssignmentOperationStatusMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata.AccountAssignmentOperationStatusMetadata
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata.AccountAssignmentOperationStatusMetadata
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata.AccountAssignmentOperationStatusMetadata
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata.AccountAssignmentOperationStatusMetadata
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata.AccountAssignmentOperationStatusMetadata
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata.AccountAssignmentOperationStatusMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata.AccountAssignmentOperationStatusMetadata
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata.AccountAssignmentOperationStatusMetadata
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata.AccountAssignmentOperationStatusMetadata
 
 
-module Network.AWS.SSOAdmin.Types.Tag
+module Amazonka.SSOAdmin.Types.Tag
 
 -- | A set of key-value pairs that are used to manage the resource. Tags
 --   can only be applied to permission sets and cannot be applied to
@@ -873,43 +873,43 @@ tag_value :: Lens' Tag (Maybe Text)
 
 -- | The key for the tag.
 tag_key :: Lens' Tag (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.Types.Tag.Tag
 
 
-module Network.AWS.SSOAdmin.Types.TargetType
+module Amazonka.SSOAdmin.Types.TargetType
 newtype TargetType
 TargetType' :: Text -> TargetType
 [fromTargetType] :: TargetType -> Text
 pattern TargetType_AWS_ACCOUNT :: TargetType
-instance Network.AWS.Data.XML.ToXML Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance Network.AWS.Data.XML.FromXML Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance Network.AWS.Data.Log.ToLog Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance Network.AWS.Data.Text.ToText Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance Network.AWS.Data.Text.FromText Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance GHC.Classes.Ord Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.TargetType.TargetType
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.TargetType.TargetType
+instance Amazonka.Data.XML.ToXML Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance Amazonka.Data.XML.FromXML Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance Amazonka.Data.Headers.ToHeader Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance Amazonka.Data.Log.ToLog Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance Amazonka.Data.Text.ToText Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance Amazonka.Data.Text.FromText Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance GHC.Classes.Ord Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.TargetType.TargetType
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.TargetType.TargetType
 
 
-module Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatus
+module Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus
 
 -- | The status of the creation or deletion operation of an assignment that
 --   a principal needs to access an account.
@@ -1044,16 +1044,16 @@ accountAssignmentOperationStatus_createdDate :: Lens' AccountAssignmentOperation
 --   <a>Amazon Resource Names (ARNs) and Amazon Web Services Service
 --   Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
 accountAssignmentOperationStatus_permissionSetArn :: Lens' AccountAssignmentOperationStatus (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatus.AccountAssignmentOperationStatus
-instance GHC.Show.Show Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatus.AccountAssignmentOperationStatus
-instance GHC.Read.Read Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatus.AccountAssignmentOperationStatus
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatus.AccountAssignmentOperationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatus.AccountAssignmentOperationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatus.AccountAssignmentOperationStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatus.AccountAssignmentOperationStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.AccountAssignmentOperationStatus
+instance GHC.Show.Show Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.AccountAssignmentOperationStatus
+instance GHC.Read.Read Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.AccountAssignmentOperationStatus
+instance GHC.Classes.Eq Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.AccountAssignmentOperationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.AccountAssignmentOperationStatus
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.AccountAssignmentOperationStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.AccountAssignmentOperationStatus
 
 
-module Network.AWS.SSOAdmin.Types
+module Amazonka.SSOAdmin.Types
 
 -- | API version <tt>2020-07-20</tt> of the Amazon Single Sign-On Admin SDK
 --   configuration.
@@ -1871,7 +1871,7 @@ tag_key :: Lens' Tag (Maybe Text)
 
 
 -- | Associates a set of tags with a specified resource.
-module Network.AWS.SSOAdmin.TagResource
+module Amazonka.SSOAdmin.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -1945,22 +1945,22 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.SSOAdmin.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.SSOAdmin.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.SSOAdmin.TagResource.TagResource
+instance GHC.Show.Show Amazonka.SSOAdmin.TagResource.TagResource
+instance GHC.Read.Read Amazonka.SSOAdmin.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.SSOAdmin.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.SSOAdmin.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.TagResource.TagResource
 
 
 -- | Attaches an IAM inline policy to a permission set.
@@ -1969,7 +1969,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.TagResource.TagReso
 --   assignments, you will need to call <tt> ProvisionPermissionSet </tt>
 --   after this action to apply the corresponding IAM policy updates to all
 --   assigned accounts.
-module Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet
+module Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet
 
 -- | <i>See:</i> <a>newPutInlinePolicyToPermissionSet</a> smart
 --   constructor.
@@ -2049,26 +2049,26 @@ newPutInlinePolicyToPermissionSetResponse :: Int -> PutInlinePolicyToPermissionS
 
 -- | The response's http status code.
 putInlinePolicyToPermissionSetResponse_httpStatus :: Lens' PutInlinePolicyToPermissionSetResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
-instance GHC.Show.Show Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSetResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSetResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSetResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
+instance GHC.Show.Show Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
+instance GHC.Classes.Eq Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSetResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSetResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSetResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet.PutInlinePolicyToPermissionSet
 
 
 -- | The process by which a specified permission set is provisioned to the
 --   specified target.
-module Network.AWS.SSOAdmin.ProvisionPermissionSet
+module Amazonka.SSOAdmin.ProvisionPermissionSet
 
 -- | <i>See:</i> <a>newProvisionPermissionSet</a> smart constructor.
 data ProvisionPermissionSet
@@ -2171,28 +2171,28 @@ provisionPermissionSetResponse_permissionSetProvisioningStatus :: Lens' Provisio
 
 -- | The response's http status code.
 provisionPermissionSetResponse_httpStatus :: Lens' ProvisionPermissionSetResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
-instance GHC.Show.Show Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
-instance GHC.Read.Read Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSetResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSetResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSetResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
+instance GHC.Show.Show Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
+instance GHC.Read.Read Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSetResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSetResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSetResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.ProvisionPermissionSet.ProvisionPermissionSet
 
 
 -- | Lists the tags that are attached to a specified resource.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSOAdmin.ListTagsForResource
+module Amazonka.SSOAdmin.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -2296,30 +2296,30 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResource
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResource
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists all the permission sets that are provisioned to a specified
 --   Amazon Web Services account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount
+module Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount
 
 -- | <i>See:</i> <a>newListPermissionSetsProvisionedToAccount</a> smart
 --   constructor.
@@ -2452,29 +2452,29 @@ listPermissionSetsProvisionedToAccountResponse_nextToken :: Lens' ListPermission
 
 -- | The response's http status code.
 listPermissionSetsProvisionedToAccountResponse_httpStatus :: Lens' ListPermissionSetsProvisionedToAccountResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccountResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccountResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccountResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccountResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccountResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
+instance GHC.Show.Show Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
+instance GHC.Read.Read Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccountResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccountResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccountResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccountResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccountResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount.ListPermissionSetsProvisionedToAccount
 
 
 -- | Lists the PermissionSets in an SSO instance.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSOAdmin.ListPermissionSets
+module Amazonka.SSOAdmin.ListPermissionSets
 
 -- | <i>See:</i> <a>newListPermissionSets</a> smart constructor.
 data ListPermissionSets
@@ -2578,30 +2578,30 @@ listPermissionSetsResponse_nextToken :: Lens' ListPermissionSetsResponse (Maybe 
 
 -- | The response's http status code.
 listPermissionSetsResponse_httpStatus :: Lens' ListPermissionSetsResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSets
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSets
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSets
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSets
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSetsResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSetsResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSetsResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSets
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSetsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSets
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSets
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSets
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSets
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.ListPermissionSets.ListPermissionSets
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSets
+instance GHC.Show.Show Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSets
+instance GHC.Read.Read Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSets
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSets
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSetsResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSetsResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSetsResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSets
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSetsResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSets
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSets
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSets
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSets
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSets
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.ListPermissionSets.ListPermissionSets
 
 
 -- | Lists the status of the permission set provisioning requests for a
 --   specified SSO instance.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus
+module Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus
 
 -- | <i>See:</i> <a>newListPermissionSetProvisioningStatus</a> smart
 --   constructor.
@@ -2718,30 +2718,30 @@ listPermissionSetProvisioningStatusResponse_nextToken :: Lens' ListPermissionSet
 
 -- | The response's http status code.
 listPermissionSetProvisioningStatusResponse_httpStatus :: Lens' ListPermissionSetProvisioningStatusResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatusResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatusResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatusResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatusResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
+instance GHC.Show.Show Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
+instance GHC.Read.Read Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatusResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatusResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatusResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatusResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus.ListPermissionSetProvisioningStatus
 
 
 -- | Lists the IAM managed policy that is attached to a specified
 --   permission set.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet
+module Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet
 
 -- | <i>See:</i> <a>newListManagedPoliciesInPermissionSet</a> smart
 --   constructor.
@@ -2858,29 +2858,29 @@ listManagedPoliciesInPermissionSetResponse_attachedManagedPolicies :: Lens' List
 
 -- | The response's http status code.
 listManagedPoliciesInPermissionSetResponse_httpStatus :: Lens' ListManagedPoliciesInPermissionSetResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSetResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSetResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSetResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSetResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
+instance GHC.Show.Show Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
+instance GHC.Read.Read Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSetResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSetResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSetResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSetResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet.ListManagedPoliciesInPermissionSet
 
 
 -- | Lists the SSO instances that the caller has access to.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSOAdmin.ListInstances
+module Amazonka.SSOAdmin.ListInstances
 
 -- | <i>See:</i> <a>newListInstances</a> smart constructor.
 data ListInstances
@@ -2963,30 +2963,30 @@ listInstancesResponse_instances :: Lens' ListInstancesResponse (Maybe [InstanceM
 
 -- | The response's http status code.
 listInstancesResponse_httpStatus :: Lens' ListInstancesResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListInstances.ListInstances
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListInstances.ListInstances
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListInstances.ListInstances
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListInstances.ListInstances
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListInstances.ListInstancesResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListInstances.ListInstancesResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListInstances.ListInstancesResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListInstances.ListInstancesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.ListInstances.ListInstances
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListInstances.ListInstancesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSOAdmin.ListInstances.ListInstances
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.ListInstances.ListInstances
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListInstances.ListInstances
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.ListInstances.ListInstances
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.ListInstances.ListInstances
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.ListInstances.ListInstances
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.ListInstances.ListInstances
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListInstances.ListInstances
+instance GHC.Show.Show Amazonka.SSOAdmin.ListInstances.ListInstances
+instance GHC.Read.Read Amazonka.SSOAdmin.ListInstances.ListInstances
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListInstances.ListInstances
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListInstances.ListInstancesResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.ListInstances.ListInstancesResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.ListInstances.ListInstancesResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListInstances.ListInstancesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.ListInstances.ListInstances
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListInstances.ListInstancesResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSOAdmin.ListInstances.ListInstances
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.ListInstances.ListInstances
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListInstances.ListInstances
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.ListInstances.ListInstances
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.ListInstances.ListInstances
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.ListInstances.ListInstances
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.ListInstances.ListInstances
 
 
 -- | Lists all the Amazon Web Services accounts where the specified
 --   permission set is provisioned.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet
+module Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet
 
 -- | <i>See:</i> <a>newListAccountsForProvisionedPermissionSet</a> smart
 --   constructor.
@@ -3122,30 +3122,30 @@ listAccountsForProvisionedPermissionSetResponse_nextToken :: Lens' ListAccountsF
 
 -- | The response's http status code.
 listAccountsForProvisionedPermissionSetResponse_httpStatus :: Lens' ListAccountsForProvisionedPermissionSetResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSetResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSetResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSetResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSetResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
+instance GHC.Show.Show Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
+instance GHC.Read.Read Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSetResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSetResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSetResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSetResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet.ListAccountsForProvisionedPermissionSet
 
 
 -- | Lists the assignee of the specified Amazon Web Services account with
 --   the specified permission set.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSOAdmin.ListAccountAssignments
+module Amazonka.SSOAdmin.ListAccountAssignments
 
 -- | <i>See:</i> <a>newListAccountAssignments</a> smart constructor.
 data ListAccountAssignments
@@ -3275,30 +3275,30 @@ listAccountAssignmentsResponse_nextToken :: Lens' ListAccountAssignmentsResponse
 
 -- | The response's http status code.
 listAccountAssignmentsResponse_httpStatus :: Lens' ListAccountAssignmentsResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignments
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignments
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignments
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignments
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignmentsResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignmentsResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignmentsResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignmentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignments
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignmentsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignments
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignments
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignments
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignments
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignments
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignments
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.ListAccountAssignments.ListAccountAssignments
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignments
+instance GHC.Show.Show Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignments
+instance GHC.Read.Read Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignments
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignments
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignmentsResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignmentsResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignmentsResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignmentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignments
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignmentsResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignments
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignments
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignments
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignments
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignments
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignments
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.ListAccountAssignments.ListAccountAssignments
 
 
 -- | Lists the status of the Amazon Web Services account assignment
 --   deletion requests for a specified SSO instance.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus
+module Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus
 
 -- | <i>See:</i> <a>newListAccountAssignmentDeletionStatus</a> smart
 --   constructor.
@@ -3415,30 +3415,30 @@ listAccountAssignmentDeletionStatusResponse_nextToken :: Lens' ListAccountAssign
 
 -- | The response's http status code.
 listAccountAssignmentDeletionStatusResponse_httpStatus :: Lens' ListAccountAssignmentDeletionStatusResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatusResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatusResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatusResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatusResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
+instance GHC.Show.Show Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
+instance GHC.Read.Read Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatusResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatusResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatusResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatusResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus.ListAccountAssignmentDeletionStatus
 
 
 -- | Lists the status of the Amazon Web Services account assignment
 --   creation requests for a specified SSO instance.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus
+module Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus
 
 -- | <i>See:</i> <a>newListAccountAssignmentCreationStatus</a> smart
 --   constructor.
@@ -3555,27 +3555,27 @@ listAccountAssignmentCreationStatusResponse_nextToken :: Lens' ListAccountAssign
 
 -- | The response's http status code.
 listAccountAssignmentCreationStatusResponse_httpStatus :: Lens' ListAccountAssignmentCreationStatusResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatusResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatusResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatusResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatusResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
+instance GHC.Show.Show Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
+instance GHC.Read.Read Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatusResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatusResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatusResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatusResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus.ListAccountAssignmentCreationStatus
 
 
 -- | Obtains the inline policy assigned to the permission set.
-module Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet
+module Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet
 
 -- | <i>See:</i> <a>newGetInlinePolicyForPermissionSet</a> smart
 --   constructor.
@@ -3655,26 +3655,26 @@ getInlinePolicyForPermissionSetResponse_inlinePolicy :: Lens' GetInlinePolicyFor
 
 -- | The response's http status code.
 getInlinePolicyForPermissionSetResponse_httpStatus :: Lens' GetInlinePolicyForPermissionSetResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
-instance GHC.Show.Show Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
-instance GHC.Read.Read Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSetResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSetResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
+instance GHC.Show.Show Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
+instance GHC.Read.Read Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
+instance GHC.Classes.Eq Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSetResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSetResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet.GetInlinePolicyForPermissionSet
 
 
 -- | Detaches the attached IAM managed policy ARN from the specified
 --   permission set.
-module Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet
+module Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet
 
 -- | <i>See:</i> <a>newDetachManagedPolicyFromPermissionSet</a> smart
 --   constructor.
@@ -3754,27 +3754,27 @@ newDetachManagedPolicyFromPermissionSetResponse :: Int -> DetachManagedPolicyFro
 
 -- | The response's http status code.
 detachManagedPolicyFromPermissionSetResponse_httpStatus :: Lens' DetachManagedPolicyFromPermissionSetResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
-instance GHC.Show.Show Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
-instance GHC.Read.Read Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSetResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSetResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSetResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
+instance GHC.Show.Show Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
+instance GHC.Read.Read Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSetResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSetResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSetResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet.DetachManagedPolicyFromPermissionSet
 
 
 -- | Describes the status for the given permission set provisioning
 --   request.
-module Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus
+module Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus
 
 -- | <i>See:</i> <a>newDescribePermissionSetProvisioningStatus</a> smart
 --   constructor.
@@ -3861,26 +3861,26 @@ describePermissionSetProvisioningStatusResponse_permissionSetProvisioningStatus 
 
 -- | The response's http status code.
 describePermissionSetProvisioningStatusResponse_httpStatus :: Lens' DescribePermissionSetProvisioningStatusResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
-instance GHC.Show.Show Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
-instance GHC.Read.Read Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatusResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatusResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatusResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatusResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
+instance GHC.Show.Show Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
+instance GHC.Read.Read Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatusResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatusResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatusResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatusResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus.DescribePermissionSetProvisioningStatus
 
 
 -- | Gets the details of the permission set.
-module Network.AWS.SSOAdmin.DescribePermissionSet
+module Amazonka.SSOAdmin.DescribePermissionSet
 
 -- | <i>See:</i> <a>newDescribePermissionSet</a> smart constructor.
 data DescribePermissionSet
@@ -3958,22 +3958,22 @@ describePermissionSetResponse_permissionSet :: Lens' DescribePermissionSetRespon
 
 -- | The response's http status code.
 describePermissionSetResponse_httpStatus :: Lens' DescribePermissionSetResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSet
-instance GHC.Show.Show Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSet
-instance GHC.Read.Read Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSet
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSet
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSetResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSetResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSetResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.DescribePermissionSet.DescribePermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSet
+instance GHC.Show.Show Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSet
+instance GHC.Read.Read Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSet
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSetResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSetResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSetResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.DescribePermissionSet.DescribePermissionSet
 
 
 -- | Returns the list of Amazon Web Services SSO identity store attributes
@@ -3982,7 +3982,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.DescribePermissionS
 --   not return attributes configured and sent by an external identity
 --   provider. For more information about ABAC, see <a>Attribute-Based
 --   Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.
-module Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration
+module Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration
 
 -- | <i>See:</i>
 --   <a>newDescribeInstanceAccessControlAttributeConfiguration</a> smart
@@ -4081,26 +4081,26 @@ describeInstanceAccessControlAttributeConfigurationResponse_statusReason :: Lens
 
 -- | The response's http status code.
 describeInstanceAccessControlAttributeConfigurationResponse_httpStatus :: Lens' DescribeInstanceAccessControlAttributeConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
-instance GHC.Show.Show Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
-instance GHC.Read.Read Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfigurationResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfigurationResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
+instance GHC.Show.Show Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
+instance GHC.Read.Read Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfigurationResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfigurationResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfigurationResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration.DescribeInstanceAccessControlAttributeConfiguration
 
 
 -- | Describes the status of the assignment deletion request.
-module Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus
+module Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus
 
 -- | <i>See:</i> <a>newDescribeAccountAssignmentDeletionStatus</a> smart
 --   constructor.
@@ -4184,26 +4184,26 @@ describeAccountAssignmentDeletionStatusResponse_accountAssignmentDeletionStatus 
 
 -- | The response's http status code.
 describeAccountAssignmentDeletionStatusResponse_httpStatus :: Lens' DescribeAccountAssignmentDeletionStatusResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
-instance GHC.Show.Show Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
-instance GHC.Read.Read Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatusResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatusResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatusResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatusResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
+instance GHC.Show.Show Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
+instance GHC.Read.Read Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatusResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatusResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatusResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatusResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus.DescribeAccountAssignmentDeletionStatus
 
 
 -- | Describes the status of the assignment creation request.
-module Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus
+module Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus
 
 -- | <i>See:</i> <a>newDescribeAccountAssignmentCreationStatus</a> smart
 --   constructor.
@@ -4287,26 +4287,26 @@ describeAccountAssignmentCreationStatusResponse_accountAssignmentCreationStatus 
 
 -- | The response's http status code.
 describeAccountAssignmentCreationStatusResponse_httpStatus :: Lens' DescribeAccountAssignmentCreationStatusResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
-instance GHC.Show.Show Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
-instance GHC.Read.Read Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatusResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatusResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatusResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatusResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
+instance GHC.Show.Show Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
+instance GHC.Read.Read Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatusResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatusResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatusResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatusResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus.DescribeAccountAssignmentCreationStatus
 
 
 -- | Deletes the specified permission set.
-module Network.AWS.SSOAdmin.DeletePermissionSet
+module Amazonka.SSOAdmin.DeletePermissionSet
 
 -- | <i>See:</i> <a>newDeletePermissionSet</a> smart constructor.
 data DeletePermissionSet
@@ -4374,22 +4374,22 @@ newDeletePermissionSetResponse :: Int -> DeletePermissionSetResponse
 
 -- | The response's http status code.
 deletePermissionSetResponse_httpStatus :: Lens' DeletePermissionSetResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSet
-instance GHC.Show.Show Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSet
-instance GHC.Read.Read Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSet
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSet
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSetResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSetResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSetResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.DeletePermissionSet.DeletePermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSet
+instance GHC.Show.Show Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSet
+instance GHC.Read.Read Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSet
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSetResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSetResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSetResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.DeletePermissionSet.DeletePermissionSet
 
 
 -- | Disables the attributes-based access control (ABAC) feature for the
@@ -4399,7 +4399,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.DeletePermissionSet
 --   attributes you have previously configured will not be passed. For more
 --   information about ABAC, see <a>Attribute-Based Access Control</a> in
 --   the <i>Amazon Web Services SSO User Guide</i>.
-module Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration
+module Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration
 
 -- | <i>See:</i>
 --   <a>newDeleteInstanceAccessControlAttributeConfiguration</a> smart
@@ -4459,26 +4459,26 @@ newDeleteInstanceAccessControlAttributeConfigurationResponse :: Int -> DeleteIns
 
 -- | The response's http status code.
 deleteInstanceAccessControlAttributeConfigurationResponse_httpStatus :: Lens' DeleteInstanceAccessControlAttributeConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
-instance GHC.Show.Show Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
-instance GHC.Read.Read Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfigurationResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfigurationResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
+instance GHC.Show.Show Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
+instance GHC.Read.Read Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfigurationResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfigurationResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfigurationResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration.DeleteInstanceAccessControlAttributeConfiguration
 
 
 -- | Deletes the inline policy from a specified permission set.
-module Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet
+module Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet
 
 -- | <i>See:</i> <a>newDeleteInlinePolicyFromPermissionSet</a> smart
 --   constructor.
@@ -4548,27 +4548,27 @@ newDeleteInlinePolicyFromPermissionSetResponse :: Int -> DeleteInlinePolicyFromP
 
 -- | The response's http status code.
 deleteInlinePolicyFromPermissionSetResponse_httpStatus :: Lens' DeleteInlinePolicyFromPermissionSetResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
-instance GHC.Show.Show Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
-instance GHC.Read.Read Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSetResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSetResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSetResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
+instance GHC.Show.Show Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
+instance GHC.Read.Read Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSetResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSetResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSetResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet.DeleteInlinePolicyFromPermissionSet
 
 
 -- | Deletes a principal's access from a specified Amazon Web Services
 --   account using a specified permission set.
-module Network.AWS.SSOAdmin.DeleteAccountAssignment
+module Amazonka.SSOAdmin.DeleteAccountAssignment
 
 -- | <i>See:</i> <a>newDeleteAccountAssignment</a> smart constructor.
 data DeleteAccountAssignment
@@ -4703,29 +4703,29 @@ deleteAccountAssignmentResponse_accountAssignmentDeletionStatus :: Lens' DeleteA
 
 -- | The response's http status code.
 deleteAccountAssignmentResponse_httpStatus :: Lens' DeleteAccountAssignmentResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
-instance GHC.Show.Show Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
-instance GHC.Read.Read Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignmentResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignmentResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignmentResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
+instance GHC.Show.Show Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
+instance GHC.Read.Read Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
+instance GHC.Generics.Generic Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignmentResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignmentResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignmentResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.DeleteAccountAssignment.DeleteAccountAssignment
 
 
 -- | Creates a permission set within a specified SSO instance.
 --   
 --   To grant users and groups access to Amazon Web Services account
 --   resources, use <tt> CreateAccountAssignment </tt>.
-module Network.AWS.SSOAdmin.CreatePermissionSet
+module Amazonka.SSOAdmin.CreatePermissionSet
 
 -- | <i>See:</i> <a>newCreatePermissionSet</a> smart constructor.
 data CreatePermissionSet
@@ -4845,22 +4845,22 @@ createPermissionSetResponse_permissionSet :: Lens' CreatePermissionSetResponse (
 
 -- | The response's http status code.
 createPermissionSetResponse_httpStatus :: Lens' CreatePermissionSetResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSet
-instance GHC.Show.Show Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSet
-instance GHC.Read.Read Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSet
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSet
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSetResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSetResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSetResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.CreatePermissionSet.CreatePermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSet
+instance GHC.Show.Show Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSet
+instance GHC.Read.Read Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSet
+instance GHC.Classes.Eq Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSetResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSetResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSetResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.CreatePermissionSet.CreatePermissionSet
 
 
 -- | Enables the attributes-based access control (ABAC) feature for the
@@ -4868,7 +4868,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.CreatePermissionSet
 --   attributes to add to your ABAC configuration during the enabling
 --   process. For more information about ABAC, see <a>Attribute-Based
 --   Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.
-module Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration
+module Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration
 
 -- | <i>See:</i>
 --   <a>newCreateInstanceAccessControlAttributeConfiguration</a> smart
@@ -4960,22 +4960,22 @@ newCreateInstanceAccessControlAttributeConfigurationResponse :: Int -> CreateIns
 
 -- | The response's http status code.
 createInstanceAccessControlAttributeConfigurationResponse_httpStatus :: Lens' CreateInstanceAccessControlAttributeConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
-instance GHC.Show.Show Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
-instance GHC.Read.Read Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfigurationResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfigurationResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
+instance GHC.Generics.Generic Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
+instance GHC.Show.Show Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
+instance GHC.Read.Read Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
+instance GHC.Classes.Eq Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
+instance GHC.Generics.Generic Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfigurationResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfigurationResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfigurationResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration.CreateInstanceAccessControlAttributeConfiguration
 
 
 -- | Assigns access to a principal for a specified Amazon Web Services
@@ -4991,7 +4991,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.CreateInstanceAcces
 --   the corresponding IAM policies attached to roles in your accounts will
 --   not be updated automatically. In this case, you must call <tt>
 --   ProvisionPermissionSet </tt> to make these updates.
-module Network.AWS.SSOAdmin.CreateAccountAssignment
+module Amazonka.SSOAdmin.CreateAccountAssignment
 
 -- | <i>See:</i> <a>newCreateAccountAssignment</a> smart constructor.
 data CreateAccountAssignment
@@ -5128,22 +5128,22 @@ createAccountAssignmentResponse_accountAssignmentCreationStatus :: Lens' CreateA
 
 -- | The response's http status code.
 createAccountAssignmentResponse_httpStatus :: Lens' CreateAccountAssignmentResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
-instance GHC.Show.Show Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
-instance GHC.Read.Read Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignmentResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignmentResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignmentResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
+instance GHC.Generics.Generic Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
+instance GHC.Show.Show Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
+instance GHC.Read.Read Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
+instance GHC.Classes.Eq Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
+instance GHC.Generics.Generic Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignmentResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignmentResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignmentResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.CreateAccountAssignment.CreateAccountAssignment
 
 
 -- | Attaches an IAM managed policy ARN to a permission set.
@@ -5152,7 +5152,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.CreateAccountAssign
 --   assignments, you will need to call <tt> ProvisionPermissionSet </tt>
 --   after this operation. Calling <tt>ProvisionPermissionSet</tt> applies
 --   the corresponding IAM policy updates to all assigned accounts.
-module Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet
+module Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet
 
 -- | <i>See:</i> <a>newAttachManagedPolicyToPermissionSet</a> smart
 --   constructor.
@@ -5234,26 +5234,26 @@ newAttachManagedPolicyToPermissionSetResponse :: Int -> AttachManagedPolicyToPer
 
 -- | The response's http status code.
 attachManagedPolicyToPermissionSetResponse_httpStatus :: Lens' AttachManagedPolicyToPermissionSetResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
-instance GHC.Show.Show Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
-instance GHC.Read.Read Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSetResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSetResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSetResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
+instance GHC.Show.Show Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
+instance GHC.Read.Read Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
+instance GHC.Classes.Eq Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSetResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSetResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSetResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet.AttachManagedPolicyToPermissionSet
 
 
 -- | Disassociates a set of tags from a specified resource.
-module Network.AWS.SSOAdmin.UntagResource
+module Amazonka.SSOAdmin.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -5329,22 +5329,22 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.SSOAdmin.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.SSOAdmin.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.SSOAdmin.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.SSOAdmin.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.SSOAdmin.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.SSOAdmin.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.SSOAdmin.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.UntagResource.UntagResource
 
 
 -- | Updates the Amazon Web Services SSO identity store attributes that you
@@ -5357,7 +5357,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.UntagResource.Untag
 --   the value from the Amazon Web Services SSO identity store. For more
 --   information about ABAC, see <a>Attribute-Based Access Control</a> in
 --   the <i>Amazon Web Services SSO User Guide</i>.
-module Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration
+module Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration
 
 -- | <i>See:</i>
 --   <a>newUpdateInstanceAccessControlAttributeConfiguration</a> smart
@@ -5428,26 +5428,26 @@ newUpdateInstanceAccessControlAttributeConfigurationResponse :: Int -> UpdateIns
 
 -- | The response's http status code.
 updateInstanceAccessControlAttributeConfigurationResponse_httpStatus :: Lens' UpdateInstanceAccessControlAttributeConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
-instance GHC.Show.Show Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
-instance GHC.Read.Read Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfigurationResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfigurationResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
+instance GHC.Generics.Generic Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
+instance GHC.Show.Show Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
+instance GHC.Read.Read Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
+instance GHC.Classes.Eq Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
+instance GHC.Generics.Generic Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfigurationResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfigurationResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfigurationResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration.UpdateInstanceAccessControlAttributeConfiguration
 
 
 -- | Updates an existing permission set.
-module Network.AWS.SSOAdmin.UpdatePermissionSet
+module Amazonka.SSOAdmin.UpdatePermissionSet
 
 -- | <i>See:</i> <a>newUpdatePermissionSet</a> smart constructor.
 data UpdatePermissionSet
@@ -5549,25 +5549,25 @@ newUpdatePermissionSetResponse :: Int -> UpdatePermissionSetResponse
 
 -- | The response's http status code.
 updatePermissionSetResponse_httpStatus :: Lens' UpdatePermissionSetResponse Int
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
-instance GHC.Show.Show Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
-instance GHC.Read.Read Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
-instance GHC.Generics.Generic Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSetResponse
-instance GHC.Show.Show Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSetResponse
-instance GHC.Read.Read Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSetResponse
-instance GHC.Classes.Eq Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
-instance Control.DeepSeq.NFData Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
+instance GHC.Show.Show Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
+instance GHC.Read.Read Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
+instance GHC.Classes.Eq Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
+instance GHC.Generics.Generic Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSetResponse
+instance GHC.Show.Show Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSetResponse
+instance GHC.Read.Read Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSetResponse
+instance GHC.Classes.Eq Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
+instance Control.DeepSeq.NFData Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSOAdmin.UpdatePermissionSet.UpdatePermissionSet
 
 
-module Network.AWS.SSOAdmin.Lens
+module Amazonka.SSOAdmin.Lens
 
 -- | The ARN of the SSO instance under which the operation will be
 --   executed. For more information about ARNs, see <a>Amazon Resource
@@ -6360,7 +6360,7 @@ tag_value :: Lens' Tag (Maybe Text)
 tag_key :: Lens' Tag (Maybe Text)
 
 
-module Network.AWS.SSOAdmin.Waiters
+module Amazonka.SSOAdmin.Waiters
 
 
 -- | Derived from API version <tt>2020-07-20</tt> of the AWS service
@@ -6378,7 +6378,7 @@ module Network.AWS.SSOAdmin.Waiters
 --   groups, known as principals. For more information about how to work
 --   with principals and principal IDs in Amazon Web Services SSO, see the
 --   <a>Amazon Web Services SSO Identity Store API Reference</a>.
-module Network.AWS.SSOAdmin
+module Amazonka.SSOAdmin
 
 -- | API version <tt>2020-07-20</tt> of the Amazon Single Sign-On Admin SDK
 --   configuration.

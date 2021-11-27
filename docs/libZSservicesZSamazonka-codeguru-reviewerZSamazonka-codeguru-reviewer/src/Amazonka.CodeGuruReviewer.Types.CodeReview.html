@@ -1,0 +1,1064 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeGuruReviewer.Types.CodeReview</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeGuruReviewer.Types.CodeReview</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.AnalysisType.html"><span class="hs-identifier">Amazonka.CodeGuruReviewer.Types.AnalysisType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.JobState.html"><span class="hs-identifier">Amazonka.CodeGuruReviewer.Types.JobState</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.Metrics.html"><span class="hs-identifier">Amazonka.CodeGuruReviewer.Types.Metrics</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.ProviderType.html"><span class="hs-identifier">Amazonka.CodeGuruReviewer.Types.ProviderType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.SourceCodeType.html"><span class="hs-identifier">Amazonka.CodeGuruReviewer.Types.SourceCodeType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.Type.html"><span class="hs-identifier">Amazonka.CodeGuruReviewer.Types.Type</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Information about a code review. A code review belongs to the associated</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- repository that contains the reviewed code.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newCodeReview' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679201955"><span id="local-6989586621679201956"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeReview"><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-var">CodeReview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeReview%27"><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-var">CodeReview'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html RepositoryAssociation&gt;</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- that contains the reviewed source code. You can retrieve associated</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- repository ARNs by calling</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations&gt;</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- .</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AassociationArn%3ACodeReview%27"><span class="annot"><span class="annottext">CodeReview -&gt; Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AassociationArn%3ACodeReview%27"><span class="hs-identifier hs-var hs-var">associationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The valid code review states are:</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @Completed@: The code review is complete.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   @Pending@: The code review started and has not completed or failed.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @Failed@: The code review failed.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   @Deleting@: The code review is being deleted.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Astate%3ACodeReview%27"><span class="annot"><span class="annottext">CodeReview -&gt; Maybe JobState
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3Astate%3ACodeReview%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The statistics from the code review.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Ametrics%3ACodeReview%27"><span class="annot"><span class="annottext">CodeReview -&gt; Maybe Metrics
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3Ametrics%3ACodeReview%27"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The pull request ID for the code review.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3ApullRequestId%3ACodeReview%27"><span class="annot"><span class="annottext">CodeReview -&gt; Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3ApullRequestId%3ACodeReview%27"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The type of repository that contains the reviewed code (for example,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- GitHub or Bitbucket).</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AproviderType%3ACodeReview%27"><span class="annot"><span class="annottext">CodeReview -&gt; Maybe ProviderType
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AproviderType%3ACodeReview%27"><span class="hs-identifier hs-var hs-var">providerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.ProviderType.html#ProviderType"><span class="hs-identifier hs-type">ProviderType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The owner of the repository. For an Amazon Web Services CodeCommit</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- repository, this is the Amazon Web Services account ID of the account</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- that owns the repository. For a GitHub, GitHub Enterprise Server, or</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Bitbucket repository, this is the username for the account that owns the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- repository. For an S3 repository, it can be the username or Amazon Web</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- Services account ID.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Aowner%3ACodeReview%27"><span class="annot"><span class="annottext">CodeReview -&gt; Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3Aowner%3ACodeReview%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The name of the code review.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Aname%3ACodeReview%27"><span class="annot"><span class="annottext">CodeReview -&gt; Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3Aname%3ACodeReview%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview&gt;</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- object.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AcodeReviewArn%3ACodeReview%27"><span class="annot"><span class="annottext">CodeReview -&gt; Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AcodeReviewArn%3ACodeReview%27"><span class="hs-identifier hs-var hs-var">codeReviewArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The name of the repository.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3ArepositoryName%3ACodeReview%27"><span class="annot"><span class="annottext">CodeReview -&gt; Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3ArepositoryName%3ACodeReview%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The type of code review.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Atype%27%3ACodeReview%27"><span class="annot"><span class="annottext">CodeReview -&gt; Maybe Type
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3Atype%27%3ACodeReview%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The type of the source code for the code review.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AsourceCodeType%3ACodeReview%27"><span class="annot"><span class="annottext">CodeReview -&gt; Maybe SourceCodeType
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AsourceCodeType%3ACodeReview%27"><span class="hs-identifier hs-var hs-var">sourceCodeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.SourceCodeType.html#SourceCodeType"><span class="hs-identifier hs-type">SourceCodeType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The reason for the state of the code review.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AstateReason%3ACodeReview%27"><span class="annot"><span class="annottext">CodeReview -&gt; Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AstateReason%3ACodeReview%27"><span class="hs-identifier hs-var hs-var">stateReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the code review was</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AcreatedTimeStamp%3ACodeReview%27"><span class="annot"><span class="annottext">CodeReview -&gt; Maybe POSIX
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AcreatedTimeStamp%3ACodeReview%27"><span class="hs-identifier hs-var hs-var">createdTimeStamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | They types of analysis performed during a repository analysis or a pull</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- request review. You can specify either @Security@, @CodeQuality@, or</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AanalysisTypes%3ACodeReview%27"><span class="annot"><span class="annottext">CodeReview -&gt; Maybe [AnalysisType]
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AanalysisTypes%3ACodeReview%27"><span class="hs-identifier hs-var hs-var">analysisTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.AnalysisType.html#AnalysisType"><span class="hs-identifier hs-type">AnalysisType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the code review was last</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AlastUpdatedTimeStamp%3ACodeReview%27"><span class="annot"><span class="annottext">CodeReview -&gt; Maybe POSIX
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AlastUpdatedTimeStamp%3ACodeReview%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTimeStamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201935"><span id="local-6989586621679201937"><span class="annot"><span class="annottext">CodeReview -&gt; CodeReview -&gt; Bool
+(CodeReview -&gt; CodeReview -&gt; Bool)
+-&gt; (CodeReview -&gt; CodeReview -&gt; Bool) -&gt; Eq CodeReview
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CodeReview -&gt; CodeReview -&gt; Bool
+$c/= :: CodeReview -&gt; CodeReview -&gt; Bool
+== :: CodeReview -&gt; CodeReview -&gt; Bool
+$c== :: CodeReview -&gt; CodeReview -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201926"><span id="local-6989586621679201928"><span id="local-6989586621679201930"><span id="local-6989586621679201932"><span class="annot"><span class="annottext">ReadPrec [CodeReview]
+ReadPrec CodeReview
+Int -&gt; ReadS CodeReview
+ReadS [CodeReview]
+(Int -&gt; ReadS CodeReview)
+-&gt; ReadS [CodeReview]
+-&gt; ReadPrec CodeReview
+-&gt; ReadPrec [CodeReview]
+-&gt; Read CodeReview
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CodeReview]
+$creadListPrec :: ReadPrec [CodeReview]
+readPrec :: ReadPrec CodeReview
+$creadPrec :: ReadPrec CodeReview
+readList :: ReadS [CodeReview]
+$creadList :: ReadS [CodeReview]
+readsPrec :: Int -&gt; ReadS CodeReview
+$creadsPrec :: Int -&gt; ReadS CodeReview
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201919"><span id="local-6989586621679201921"><span id="local-6989586621679201923"><span class="annot"><span class="annottext">Int -&gt; CodeReview -&gt; ShowS
+[CodeReview] -&gt; ShowS
+CodeReview -&gt; String
+(Int -&gt; CodeReview -&gt; ShowS)
+-&gt; (CodeReview -&gt; String)
+-&gt; ([CodeReview] -&gt; ShowS)
+-&gt; Show CodeReview
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CodeReview] -&gt; ShowS
+$cshowList :: [CodeReview] -&gt; ShowS
+show :: CodeReview -&gt; String
+$cshow :: CodeReview -&gt; String
+showsPrec :: Int -&gt; CodeReview -&gt; ShowS
+$cshowsPrec :: Int -&gt; CodeReview -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CodeReview -&gt; Rep CodeReview x)
+-&gt; (forall x. Rep CodeReview x -&gt; CodeReview) -&gt; Generic CodeReview
+forall x. Rep CodeReview x -&gt; CodeReview
+forall x. CodeReview -&gt; Rep CodeReview x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CodeReview x -&gt; CodeReview
+$cfrom :: forall x. CodeReview -&gt; Rep CodeReview x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Create a value of 'CodeReview' with all optional fields omitted.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'associationArn', 'codeReview_associationArn' - The Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html RepositoryAssociation&gt;</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- that contains the reviewed source code. You can retrieve associated</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- repository ARNs by calling</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations&gt;</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- .</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'state', 'codeReview_state' - The valid code review states are:</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -   @Completed@: The code review is complete.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- -   @Pending@: The code review started and has not completed or failed.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -   @Failed@: The code review failed.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   @Deleting@: The code review is being deleted.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'metrics', 'codeReview_metrics' - The statistics from the code review.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'pullRequestId', 'codeReview_pullRequestId' - The pull request ID for the code review.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'providerType', 'codeReview_providerType' - The type of repository that contains the reviewed code (for example,</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- GitHub or Bitbucket).</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'owner', 'codeReview_owner' - The owner of the repository. For an Amazon Web Services CodeCommit</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- repository, this is the Amazon Web Services account ID of the account</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- that owns the repository. For a GitHub, GitHub Enterprise Server, or</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Bitbucket repository, this is the username for the account that owns the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- repository. For an S3 repository, it can be the username or Amazon Web</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Services account ID.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'name', 'codeReview_name' - The name of the code review.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'codeReviewArn', 'codeReview_codeReviewArn' - The Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview&gt;</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- object.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'repositoryName', 'codeReview_repositoryName' - The name of the repository.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'type'', 'codeReview_type' - The type of code review.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'sourceCodeType', 'codeReview_sourceCodeType' - The type of the source code for the code review.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'stateReason', 'codeReview_stateReason' - The reason for the state of the code review.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'createdTimeStamp', 'codeReview_createdTimeStamp' - The time, in milliseconds since the epoch, when the code review was</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'analysisTypes', 'codeReview_analysisTypes' - They types of analysis performed during a repository analysis or a pull</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- request review. You can specify either @Security@, @CodeQuality@, or</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'lastUpdatedTimeStamp', 'codeReview_lastUpdatedTimeStamp' - The time, in milliseconds since the epoch, when the code review was last</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#newCodeReview"><span class="hs-identifier hs-type">newCodeReview</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span>
+</span><span id="line-159"></span><span id="newCodeReview"><span class="annot"><span class="annottext">newCodeReview :: CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#newCodeReview"><span class="hs-identifier hs-var hs-var">newCodeReview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">CodeReview' :: Maybe Text
+-&gt; Maybe JobState
+-&gt; Maybe Metrics
+-&gt; Maybe Text
+-&gt; Maybe ProviderType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Type
+-&gt; Maybe SourceCodeType
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe [AnalysisType]
+-&gt; Maybe POSIX
+-&gt; CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:associationArn:CodeReview' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AassociationArn%3ACodeReview%27"><span class="hs-identifier hs-var">associationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:CodeReview' :: Maybe JobState
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3Astate%3ACodeReview%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:metrics:CodeReview' :: Maybe Metrics
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3Ametrics%3ACodeReview%27"><span class="hs-identifier hs-var">metrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Metrics
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:pullRequestId:CodeReview' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3ApullRequestId%3ACodeReview%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:providerType:CodeReview' :: Maybe ProviderType
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AproviderType%3ACodeReview%27"><span class="hs-identifier hs-var">providerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProviderType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:owner:CodeReview' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3Aowner%3ACodeReview%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CodeReview' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3Aname%3ACodeReview%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:codeReviewArn:CodeReview' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AcodeReviewArn%3ACodeReview%27"><span class="hs-identifier hs-var">codeReviewArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:CodeReview' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3ArepositoryName%3ACodeReview%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':CodeReview' :: Maybe Type
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3Atype%27%3ACodeReview%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Type
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceCodeType:CodeReview' :: Maybe SourceCodeType
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AsourceCodeType%3ACodeReview%27"><span class="hs-identifier hs-var">sourceCodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceCodeType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateReason:CodeReview' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AstateReason%3ACodeReview%27"><span class="hs-identifier hs-var">stateReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTimeStamp:CodeReview' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AcreatedTimeStamp%3ACodeReview%27"><span class="hs-identifier hs-var">createdTimeStamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:analysisTypes:CodeReview' :: Maybe [AnalysisType]
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AanalysisTypes%3ACodeReview%27"><span class="hs-identifier hs-var">analysisTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AnalysisType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTimeStamp:CodeReview' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AlastUpdatedTimeStamp%3ACodeReview%27"><span class="hs-identifier hs-var">lastUpdatedTimeStamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html RepositoryAssociation&gt;</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- that contains the reviewed source code. You can retrieve associated</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- repository ARNs by calling</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations&gt;</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- .</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_associationArn"><span class="hs-identifier hs-type">codeReview_associationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="codeReview_associationArn"><span class="annot"><span class="annottext">codeReview_associationArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CodeReview -&gt; f CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_associationArn"><span class="hs-identifier hs-var hs-var">codeReview_associationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeReview -&gt; Maybe Text)
+-&gt; (CodeReview -&gt; Maybe Text -&gt; CodeReview)
+-&gt; Lens CodeReview CodeReview (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201910"><span class="annot"><span class="annottext">Maybe Text
+associationArn :: Maybe Text
+$sel:associationArn:CodeReview' :: CodeReview -&gt; Maybe Text
+</span><a href="#local-6989586621679201910"><span class="hs-identifier hs-var hs-var">associationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201910"><span class="hs-identifier hs-var">associationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201909"><span class="annot"><span class="annottext">s :: CodeReview
+</span><a href="#local-6989586621679201909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201908"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeReview
+</span><a href="#local-6989586621679201909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationArn:CodeReview' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AassociationArn%3ACodeReview%27"><span class="hs-identifier hs-var">associationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The valid code review states are:</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- -   @Completed@: The code review is complete.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- -   @Pending@: The code review started and has not completed or failed.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- -   @Failed@: The code review failed.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- -   @Deleting@: The code review is being deleted.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_state"><span class="hs-identifier hs-type">codeReview_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="codeReview_state"><span class="annot"><span class="annottext">codeReview_state :: (Maybe JobState -&gt; f (Maybe JobState))
+-&gt; CodeReview -&gt; f CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_state"><span class="hs-identifier hs-var hs-var">codeReview_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeReview -&gt; Maybe JobState)
+-&gt; (CodeReview -&gt; Maybe JobState -&gt; CodeReview)
+-&gt; Lens CodeReview CodeReview (Maybe JobState) (Maybe JobState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201906"><span class="annot"><span class="annottext">Maybe JobState
+state :: Maybe JobState
+$sel:state:CodeReview' :: CodeReview -&gt; Maybe JobState
+</span><a href="#local-6989586621679201906"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobState
+</span><a href="#local-6989586621679201906"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201905"><span class="annot"><span class="annottext">s :: CodeReview
+</span><a href="#local-6989586621679201905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201904"><span class="annot"><span class="annottext">Maybe JobState
+</span><a href="#local-6989586621679201904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeReview
+</span><a href="#local-6989586621679201905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:CodeReview' :: Maybe JobState
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3Astate%3ACodeReview%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobState
+</span><a href="#local-6989586621679201904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The statistics from the code review.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_metrics"><span class="hs-identifier hs-type">codeReview_metrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="codeReview_metrics"><span class="annot"><span class="annottext">codeReview_metrics :: (Maybe Metrics -&gt; f (Maybe Metrics)) -&gt; CodeReview -&gt; f CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_metrics"><span class="hs-identifier hs-var hs-var">codeReview_metrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeReview -&gt; Maybe Metrics)
+-&gt; (CodeReview -&gt; Maybe Metrics -&gt; CodeReview)
+-&gt; Lens CodeReview CodeReview (Maybe Metrics) (Maybe Metrics)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201902"><span class="annot"><span class="annottext">Maybe Metrics
+metrics :: Maybe Metrics
+$sel:metrics:CodeReview' :: CodeReview -&gt; Maybe Metrics
+</span><a href="#local-6989586621679201902"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Metrics
+</span><a href="#local-6989586621679201902"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201901"><span class="annot"><span class="annottext">s :: CodeReview
+</span><a href="#local-6989586621679201901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201900"><span class="annot"><span class="annottext">Maybe Metrics
+</span><a href="#local-6989586621679201900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeReview
+</span><a href="#local-6989586621679201901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metrics:CodeReview' :: Maybe Metrics
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3Ametrics%3ACodeReview%27"><span class="hs-identifier hs-var">metrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Metrics
+</span><a href="#local-6989586621679201900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The pull request ID for the code review.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_pullRequestId"><span class="hs-identifier hs-type">codeReview_pullRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="codeReview_pullRequestId"><span class="annot"><span class="annottext">codeReview_pullRequestId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CodeReview -&gt; f CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_pullRequestId"><span class="hs-identifier hs-var hs-var">codeReview_pullRequestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeReview -&gt; Maybe Text)
+-&gt; (CodeReview -&gt; Maybe Text -&gt; CodeReview)
+-&gt; Lens CodeReview CodeReview (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201898"><span class="annot"><span class="annottext">Maybe Text
+pullRequestId :: Maybe Text
+$sel:pullRequestId:CodeReview' :: CodeReview -&gt; Maybe Text
+</span><a href="#local-6989586621679201898"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201898"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201897"><span class="annot"><span class="annottext">s :: CodeReview
+</span><a href="#local-6989586621679201897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201896"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeReview
+</span><a href="#local-6989586621679201897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestId:CodeReview' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3ApullRequestId%3ACodeReview%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The type of repository that contains the reviewed code (for example,</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- GitHub or Bitbucket).</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_providerType"><span class="hs-identifier hs-type">codeReview_providerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.ProviderType.html#ProviderType"><span class="hs-identifier hs-type">ProviderType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="codeReview_providerType"><span class="annot"><span class="annottext">codeReview_providerType :: (Maybe ProviderType -&gt; f (Maybe ProviderType))
+-&gt; CodeReview -&gt; f CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_providerType"><span class="hs-identifier hs-var hs-var">codeReview_providerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeReview -&gt; Maybe ProviderType)
+-&gt; (CodeReview -&gt; Maybe ProviderType -&gt; CodeReview)
+-&gt; Lens
+     CodeReview CodeReview (Maybe ProviderType) (Maybe ProviderType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201894"><span class="annot"><span class="annottext">Maybe ProviderType
+providerType :: Maybe ProviderType
+$sel:providerType:CodeReview' :: CodeReview -&gt; Maybe ProviderType
+</span><a href="#local-6989586621679201894"><span class="hs-identifier hs-var hs-var">providerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProviderType
+</span><a href="#local-6989586621679201894"><span class="hs-identifier hs-var">providerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201893"><span class="annot"><span class="annottext">s :: CodeReview
+</span><a href="#local-6989586621679201893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201892"><span class="annot"><span class="annottext">Maybe ProviderType
+</span><a href="#local-6989586621679201892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeReview
+</span><a href="#local-6989586621679201893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerType:CodeReview' :: Maybe ProviderType
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AproviderType%3ACodeReview%27"><span class="hs-identifier hs-var">providerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProviderType
+</span><a href="#local-6989586621679201892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The owner of the repository. For an Amazon Web Services CodeCommit</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- repository, this is the Amazon Web Services account ID of the account</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- that owns the repository. For a GitHub, GitHub Enterprise Server, or</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- Bitbucket repository, this is the username for the account that owns the</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- repository. For an S3 repository, it can be the username or Amazon Web</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- Services account ID.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_owner"><span class="hs-identifier hs-type">codeReview_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="codeReview_owner"><span class="annot"><span class="annottext">codeReview_owner :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CodeReview -&gt; f CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_owner"><span class="hs-identifier hs-var hs-var">codeReview_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeReview -&gt; Maybe Text)
+-&gt; (CodeReview -&gt; Maybe Text -&gt; CodeReview)
+-&gt; Lens CodeReview CodeReview (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201890"><span class="annot"><span class="annottext">Maybe Text
+owner :: Maybe Text
+$sel:owner:CodeReview' :: CodeReview -&gt; Maybe Text
+</span><a href="#local-6989586621679201890"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201890"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201889"><span class="annot"><span class="annottext">s :: CodeReview
+</span><a href="#local-6989586621679201889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201888"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeReview
+</span><a href="#local-6989586621679201889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:CodeReview' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3Aowner%3ACodeReview%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The name of the code review.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_name"><span class="hs-identifier hs-type">codeReview_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="codeReview_name"><span class="annot"><span class="annottext">codeReview_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CodeReview -&gt; f CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_name"><span class="hs-identifier hs-var hs-var">codeReview_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeReview -&gt; Maybe Text)
+-&gt; (CodeReview -&gt; Maybe Text -&gt; CodeReview)
+-&gt; Lens CodeReview CodeReview (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201886"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:CodeReview' :: CodeReview -&gt; Maybe Text
+</span><a href="#local-6989586621679201886"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201886"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201885"><span class="annot"><span class="annottext">s :: CodeReview
+</span><a href="#local-6989586621679201885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201884"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeReview
+</span><a href="#local-6989586621679201885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CodeReview' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3Aname%3ACodeReview%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview&gt;</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- object.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_codeReviewArn"><span class="hs-identifier hs-type">codeReview_codeReviewArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="codeReview_codeReviewArn"><span class="annot"><span class="annottext">codeReview_codeReviewArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CodeReview -&gt; f CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_codeReviewArn"><span class="hs-identifier hs-var hs-var">codeReview_codeReviewArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeReview -&gt; Maybe Text)
+-&gt; (CodeReview -&gt; Maybe Text -&gt; CodeReview)
+-&gt; Lens CodeReview CodeReview (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201882"><span class="annot"><span class="annottext">Maybe Text
+codeReviewArn :: Maybe Text
+$sel:codeReviewArn:CodeReview' :: CodeReview -&gt; Maybe Text
+</span><a href="#local-6989586621679201882"><span class="hs-identifier hs-var hs-var">codeReviewArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201882"><span class="hs-identifier hs-var">codeReviewArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201881"><span class="annot"><span class="annottext">s :: CodeReview
+</span><a href="#local-6989586621679201881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201880"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeReview
+</span><a href="#local-6989586621679201881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeReviewArn:CodeReview' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AcodeReviewArn%3ACodeReview%27"><span class="hs-identifier hs-var">codeReviewArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The name of the repository.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_repositoryName"><span class="hs-identifier hs-type">codeReview_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="codeReview_repositoryName"><span class="annot"><span class="annottext">codeReview_repositoryName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CodeReview -&gt; f CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_repositoryName"><span class="hs-identifier hs-var hs-var">codeReview_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeReview -&gt; Maybe Text)
+-&gt; (CodeReview -&gt; Maybe Text -&gt; CodeReview)
+-&gt; Lens CodeReview CodeReview (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201878"><span class="annot"><span class="annottext">Maybe Text
+repositoryName :: Maybe Text
+$sel:repositoryName:CodeReview' :: CodeReview -&gt; Maybe Text
+</span><a href="#local-6989586621679201878"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201878"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201877"><span class="annot"><span class="annottext">s :: CodeReview
+</span><a href="#local-6989586621679201877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201876"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeReview
+</span><a href="#local-6989586621679201877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:CodeReview' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3ArepositoryName%3ACodeReview%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The type of code review.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_type"><span class="hs-identifier hs-type">codeReview_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="codeReview_type"><span class="annot"><span class="annottext">codeReview_type :: (Maybe Type -&gt; f (Maybe Type)) -&gt; CodeReview -&gt; f CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_type"><span class="hs-identifier hs-var hs-var">codeReview_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeReview -&gt; Maybe Type)
+-&gt; (CodeReview -&gt; Maybe Type -&gt; CodeReview)
+-&gt; Lens CodeReview CodeReview (Maybe Type) (Maybe Type)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201874"><span class="annot"><span class="annottext">Maybe Type
+type' :: Maybe Type
+$sel:type':CodeReview' :: CodeReview -&gt; Maybe Type
+</span><a href="#local-6989586621679201874"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Type
+</span><a href="#local-6989586621679201874"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201873"><span class="annot"><span class="annottext">s :: CodeReview
+</span><a href="#local-6989586621679201873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201872"><span class="annot"><span class="annottext">Maybe Type
+</span><a href="#local-6989586621679201872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeReview
+</span><a href="#local-6989586621679201873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CodeReview' :: Maybe Type
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3Atype%27%3ACodeReview%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Type
+</span><a href="#local-6989586621679201872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | The type of the source code for the code review.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_sourceCodeType"><span class="hs-identifier hs-type">codeReview_sourceCodeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.SourceCodeType.html#SourceCodeType"><span class="hs-identifier hs-type">SourceCodeType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="codeReview_sourceCodeType"><span class="annot"><span class="annottext">codeReview_sourceCodeType :: (Maybe SourceCodeType -&gt; f (Maybe SourceCodeType))
+-&gt; CodeReview -&gt; f CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_sourceCodeType"><span class="hs-identifier hs-var hs-var">codeReview_sourceCodeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeReview -&gt; Maybe SourceCodeType)
+-&gt; (CodeReview -&gt; Maybe SourceCodeType -&gt; CodeReview)
+-&gt; Lens
+     CodeReview CodeReview (Maybe SourceCodeType) (Maybe SourceCodeType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201870"><span class="annot"><span class="annottext">Maybe SourceCodeType
+sourceCodeType :: Maybe SourceCodeType
+$sel:sourceCodeType:CodeReview' :: CodeReview -&gt; Maybe SourceCodeType
+</span><a href="#local-6989586621679201870"><span class="hs-identifier hs-var hs-var">sourceCodeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceCodeType
+</span><a href="#local-6989586621679201870"><span class="hs-identifier hs-var">sourceCodeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201869"><span class="annot"><span class="annottext">s :: CodeReview
+</span><a href="#local-6989586621679201869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201868"><span class="annot"><span class="annottext">Maybe SourceCodeType
+</span><a href="#local-6989586621679201868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeReview
+</span><a href="#local-6989586621679201869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCodeType:CodeReview' :: Maybe SourceCodeType
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AsourceCodeType%3ACodeReview%27"><span class="hs-identifier hs-var">sourceCodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceCodeType
+</span><a href="#local-6989586621679201868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The reason for the state of the code review.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_stateReason"><span class="hs-identifier hs-type">codeReview_stateReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="codeReview_stateReason"><span class="annot"><span class="annottext">codeReview_stateReason :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CodeReview -&gt; f CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_stateReason"><span class="hs-identifier hs-var hs-var">codeReview_stateReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeReview -&gt; Maybe Text)
+-&gt; (CodeReview -&gt; Maybe Text -&gt; CodeReview)
+-&gt; Lens CodeReview CodeReview (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201866"><span class="annot"><span class="annottext">Maybe Text
+stateReason :: Maybe Text
+$sel:stateReason:CodeReview' :: CodeReview -&gt; Maybe Text
+</span><a href="#local-6989586621679201866"><span class="hs-identifier hs-var hs-var">stateReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201866"><span class="hs-identifier hs-var">stateReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201865"><span class="annot"><span class="annottext">s :: CodeReview
+</span><a href="#local-6989586621679201865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201864"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeReview
+</span><a href="#local-6989586621679201865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateReason:CodeReview' :: Maybe Text
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AstateReason%3ACodeReview%27"><span class="hs-identifier hs-var">stateReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the code review was</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_createdTimeStamp"><span class="hs-identifier hs-type">codeReview_createdTimeStamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="codeReview_createdTimeStamp"><span class="annot"><span class="annottext">codeReview_createdTimeStamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; CodeReview -&gt; f CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_createdTimeStamp"><span class="hs-identifier hs-var hs-var">codeReview_createdTimeStamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeReview -&gt; Maybe POSIX)
+-&gt; (CodeReview -&gt; Maybe POSIX -&gt; CodeReview)
+-&gt; Lens CodeReview CodeReview (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201862"><span class="annot"><span class="annottext">Maybe POSIX
+createdTimeStamp :: Maybe POSIX
+$sel:createdTimeStamp:CodeReview' :: CodeReview -&gt; Maybe POSIX
+</span><a href="#local-6989586621679201862"><span class="hs-identifier hs-var hs-var">createdTimeStamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201862"><span class="hs-identifier hs-var">createdTimeStamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201861"><span class="annot"><span class="annottext">s :: CodeReview
+</span><a href="#local-6989586621679201861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201860"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeReview
+</span><a href="#local-6989586621679201861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTimeStamp:CodeReview' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AcreatedTimeStamp%3ACodeReview%27"><span class="hs-identifier hs-var">createdTimeStamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; CodeReview -&gt; f CodeReview)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CodeReview
+-&gt; f CodeReview
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | They types of analysis performed during a repository analysis or a pull</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- request review. You can specify either @Security@, @CodeQuality@, or</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_analysisTypes"><span class="hs-identifier hs-type">codeReview_analysisTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.AnalysisType.html#AnalysisType"><span class="hs-identifier hs-type">AnalysisType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="codeReview_analysisTypes"><span class="annot"><span class="annottext">codeReview_analysisTypes :: (Maybe [AnalysisType] -&gt; f (Maybe [AnalysisType]))
+-&gt; CodeReview -&gt; f CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_analysisTypes"><span class="hs-identifier hs-var hs-var">codeReview_analysisTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeReview -&gt; Maybe [AnalysisType])
+-&gt; (CodeReview -&gt; Maybe [AnalysisType] -&gt; CodeReview)
+-&gt; Lens
+     CodeReview CodeReview (Maybe [AnalysisType]) (Maybe [AnalysisType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201855"><span class="annot"><span class="annottext">Maybe [AnalysisType]
+analysisTypes :: Maybe [AnalysisType]
+$sel:analysisTypes:CodeReview' :: CodeReview -&gt; Maybe [AnalysisType]
+</span><a href="#local-6989586621679201855"><span class="hs-identifier hs-var hs-var">analysisTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AnalysisType]
+</span><a href="#local-6989586621679201855"><span class="hs-identifier hs-var">analysisTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201854"><span class="annot"><span class="annottext">s :: CodeReview
+</span><a href="#local-6989586621679201854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201853"><span class="annot"><span class="annottext">Maybe [AnalysisType]
+</span><a href="#local-6989586621679201853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeReview
+</span><a href="#local-6989586621679201854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analysisTypes:CodeReview' :: Maybe [AnalysisType]
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AanalysisTypes%3ACodeReview%27"><span class="hs-identifier hs-var">analysisTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AnalysisType]
+</span><a href="#local-6989586621679201853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AnalysisType] -&gt; f (Maybe [AnalysisType]))
+ -&gt; CodeReview -&gt; f CodeReview)
+-&gt; ((Maybe [AnalysisType] -&gt; f (Maybe [AnalysisType]))
+    -&gt; Maybe [AnalysisType] -&gt; f (Maybe [AnalysisType]))
+-&gt; (Maybe [AnalysisType] -&gt; f (Maybe [AnalysisType]))
+-&gt; CodeReview
+-&gt; f CodeReview
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [AnalysisType] [AnalysisType] [AnalysisType] [AnalysisType]
+-&gt; Iso
+     (Maybe [AnalysisType])
+     (Maybe [AnalysisType])
+     (Maybe [AnalysisType])
+     (Maybe [AnalysisType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [AnalysisType] [AnalysisType] [AnalysisType] [AnalysisType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the code review was last</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_lastUpdatedTimeStamp"><span class="hs-identifier hs-type">codeReview_lastUpdatedTimeStamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="codeReview_lastUpdatedTimeStamp"><span class="annot"><span class="annottext">codeReview_lastUpdatedTimeStamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; CodeReview -&gt; f CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#codeReview_lastUpdatedTimeStamp"><span class="hs-identifier hs-var hs-var">codeReview_lastUpdatedTimeStamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeReview -&gt; Maybe POSIX)
+-&gt; (CodeReview -&gt; Maybe POSIX -&gt; CodeReview)
+-&gt; Lens CodeReview CodeReview (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201850"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedTimeStamp :: Maybe POSIX
+$sel:lastUpdatedTimeStamp:CodeReview' :: CodeReview -&gt; Maybe POSIX
+</span><a href="#local-6989586621679201850"><span class="hs-identifier hs-var hs-var">lastUpdatedTimeStamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201850"><span class="hs-identifier hs-var">lastUpdatedTimeStamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201849"><span class="annot"><span class="annottext">s :: CodeReview
+</span><a href="#local-6989586621679201849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-type">CodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201848"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeReview
+</span><a href="#local-6989586621679201849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTimeStamp:CodeReview' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#%24sel%3AlastUpdatedTimeStamp%3ACodeReview%27"><span class="hs-identifier hs-var">lastUpdatedTimeStamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; CodeReview -&gt; f CodeReview)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CodeReview
+-&gt; f CodeReview
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201845"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679201843"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CodeReview
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CodeReview) -&gt; Value -&gt; Parser CodeReview
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CodeReview&quot;</span></span><span>
+</span><span id="line-267"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201840"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-268"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe JobState
+-&gt; Maybe Metrics
+-&gt; Maybe Text
+-&gt; Maybe ProviderType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Type
+-&gt; Maybe SourceCodeType
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe [AnalysisType]
+-&gt; Maybe POSIX
+-&gt; CodeReview
+</span><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview%27"><span class="hs-identifier hs-var">CodeReview'</span></a></span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe JobState
+ -&gt; Maybe Metrics
+ -&gt; Maybe Text
+ -&gt; Maybe ProviderType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Type
+ -&gt; Maybe SourceCodeType
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe [AnalysisType]
+ -&gt; Maybe POSIX
+ -&gt; CodeReview)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe JobState
+      -&gt; Maybe Metrics
+      -&gt; Maybe Text
+      -&gt; Maybe ProviderType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Type
+      -&gt; Maybe SourceCodeType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [AnalysisType]
+      -&gt; Maybe POSIX
+      -&gt; CodeReview)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssociationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe JobState
+   -&gt; Maybe Metrics
+   -&gt; Maybe Text
+   -&gt; Maybe ProviderType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Type
+   -&gt; Maybe SourceCodeType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [AnalysisType]
+   -&gt; Maybe POSIX
+   -&gt; CodeReview)
+-&gt; Parser (Maybe JobState)
+-&gt; Parser
+     (Maybe Metrics
+      -&gt; Maybe Text
+      -&gt; Maybe ProviderType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Type
+      -&gt; Maybe SourceCodeType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [AnalysisType]
+      -&gt; Maybe POSIX
+      -&gt; CodeReview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Metrics
+   -&gt; Maybe Text
+   -&gt; Maybe ProviderType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Type
+   -&gt; Maybe SourceCodeType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [AnalysisType]
+   -&gt; Maybe POSIX
+   -&gt; CodeReview)
+-&gt; Parser (Maybe Metrics)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ProviderType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Type
+      -&gt; Maybe SourceCodeType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [AnalysisType]
+      -&gt; Maybe POSIX
+      -&gt; CodeReview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Metrics)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Metrics&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ProviderType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Type
+   -&gt; Maybe SourceCodeType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [AnalysisType]
+   -&gt; Maybe POSIX
+   -&gt; CodeReview)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ProviderType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Type
+      -&gt; Maybe SourceCodeType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [AnalysisType]
+      -&gt; Maybe POSIX
+      -&gt; CodeReview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PullRequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ProviderType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Type
+   -&gt; Maybe SourceCodeType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [AnalysisType]
+   -&gt; Maybe POSIX
+   -&gt; CodeReview)
+-&gt; Parser (Maybe ProviderType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Type
+      -&gt; Maybe SourceCodeType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [AnalysisType]
+      -&gt; Maybe POSIX
+      -&gt; CodeReview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProviderType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProviderType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Type
+   -&gt; Maybe SourceCodeType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [AnalysisType]
+   -&gt; Maybe POSIX
+   -&gt; CodeReview)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Type
+      -&gt; Maybe SourceCodeType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [AnalysisType]
+      -&gt; Maybe POSIX
+      -&gt; CodeReview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Owner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Type
+   -&gt; Maybe SourceCodeType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [AnalysisType]
+   -&gt; Maybe POSIX
+   -&gt; CodeReview)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Type
+      -&gt; Maybe SourceCodeType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [AnalysisType]
+      -&gt; Maybe POSIX
+      -&gt; CodeReview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Type
+   -&gt; Maybe SourceCodeType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [AnalysisType]
+   -&gt; Maybe POSIX
+   -&gt; CodeReview)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Type
+      -&gt; Maybe SourceCodeType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [AnalysisType]
+      -&gt; Maybe POSIX
+      -&gt; CodeReview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CodeReviewArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Type
+   -&gt; Maybe SourceCodeType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [AnalysisType]
+   -&gt; Maybe POSIX
+   -&gt; CodeReview)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Type
+      -&gt; Maybe SourceCodeType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [AnalysisType]
+      -&gt; Maybe POSIX
+      -&gt; CodeReview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RepositoryName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Type
+   -&gt; Maybe SourceCodeType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [AnalysisType]
+   -&gt; Maybe POSIX
+   -&gt; CodeReview)
+-&gt; Parser (Maybe Type)
+-&gt; Parser
+     (Maybe SourceCodeType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [AnalysisType]
+      -&gt; Maybe POSIX
+      -&gt; CodeReview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Type)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SourceCodeType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [AnalysisType]
+   -&gt; Maybe POSIX
+   -&gt; CodeReview)
+-&gt; Parser (Maybe SourceCodeType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [AnalysisType]
+      -&gt; Maybe POSIX
+      -&gt; CodeReview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceCodeType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceCodeType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [AnalysisType]
+   -&gt; Maybe POSIX
+   -&gt; CodeReview)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe [AnalysisType] -&gt; Maybe POSIX -&gt; CodeReview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StateReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX -&gt; Maybe [AnalysisType] -&gt; Maybe POSIX -&gt; CodeReview)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe [AnalysisType] -&gt; Maybe POSIX -&gt; CodeReview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTimeStamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [AnalysisType] -&gt; Maybe POSIX -&gt; CodeReview)
+-&gt; Parser (Maybe [AnalysisType])
+-&gt; Parser (Maybe POSIX -&gt; CodeReview)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AnalysisType]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnalysisTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AnalysisType]))
+-&gt; Maybe [AnalysisType] -&gt; Parser (Maybe [AnalysisType])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AnalysisType]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; CodeReview)
+-&gt; Parser (Maybe POSIX) -&gt; Parser CodeReview
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedTimeStamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201833"><span id="local-6989586621679201835"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span></span></span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span></span><span>
+</span><span id="line-289"></span></pre></body></html>

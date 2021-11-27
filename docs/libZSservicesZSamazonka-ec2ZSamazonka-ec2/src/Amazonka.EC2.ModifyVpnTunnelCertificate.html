@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.ModifyVpnTunnelCertificate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modifies the VPN tunnel endpoint certificate.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.ModifyVpnTunnelCertificate</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier">ModifyVpnTunnelCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#newModifyVpnTunnelCertificate"><span class="hs-identifier">newModifyVpnTunnelCertificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#modifyVpnTunnelCertificate_dryRun"><span class="hs-identifier">modifyVpnTunnelCertificate_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#modifyVpnTunnelCertificate_vpnConnectionId"><span class="hs-identifier">modifyVpnTunnelCertificate_vpnConnectionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress"><span class="hs-identifier">modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse"><span class="hs-identifier">ModifyVpnTunnelCertificateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#newModifyVpnTunnelCertificateResponse"><span class="hs-identifier">newModifyVpnTunnelCertificateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#modifyVpnTunnelCertificateResponse_vpnConnection"><span class="hs-identifier">modifyVpnTunnelCertificateResponse_vpnConnection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#modifyVpnTunnelCertificateResponse_httpStatus"><span class="hs-identifier">modifyVpnTunnelCertificateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newModifyVpnTunnelCertificate' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621681212912"><span id="local-6989586621681212913"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpnTunnelCertificate"><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier hs-var">ModifyVpnTunnelCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpnTunnelCertificate%27"><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-var">ModifyVpnTunnelCertificate'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyVpnTunnelCertificate%27"><span class="annot"><span class="annottext">ModifyVpnTunnelCertificate -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#%24sel%3AdryRun%3AModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services Site-to-Site VPN connection.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AvpnConnectionId%3AModifyVpnTunnelCertificate%27"><span class="annot"><span class="annottext">ModifyVpnTunnelCertificate -&gt; Text
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#%24sel%3AvpnConnectionId%3AModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-var hs-var">vpnConnectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The external IP address of the VPN tunnel.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AvpnTunnelOutsideIpAddress%3AModifyVpnTunnelCertificate%27"><span class="annot"><span class="annottext">ModifyVpnTunnelCertificate -&gt; Text
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#%24sel%3AvpnTunnelOutsideIpAddress%3AModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-var hs-var">vpnTunnelOutsideIpAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681212904"><span id="local-6989586621681212906"><span class="annot"><span class="annottext">ModifyVpnTunnelCertificate -&gt; ModifyVpnTunnelCertificate -&gt; Bool
+(ModifyVpnTunnelCertificate -&gt; ModifyVpnTunnelCertificate -&gt; Bool)
+-&gt; (ModifyVpnTunnelCertificate
+    -&gt; ModifyVpnTunnelCertificate -&gt; Bool)
+-&gt; Eq ModifyVpnTunnelCertificate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyVpnTunnelCertificate -&gt; ModifyVpnTunnelCertificate -&gt; Bool
+$c/= :: ModifyVpnTunnelCertificate -&gt; ModifyVpnTunnelCertificate -&gt; Bool
+== :: ModifyVpnTunnelCertificate -&gt; ModifyVpnTunnelCertificate -&gt; Bool
+$c== :: ModifyVpnTunnelCertificate -&gt; ModifyVpnTunnelCertificate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681212895"><span id="local-6989586621681212897"><span id="local-6989586621681212899"><span id="local-6989586621681212901"><span class="annot"><span class="annottext">ReadPrec [ModifyVpnTunnelCertificate]
+ReadPrec ModifyVpnTunnelCertificate
+Int -&gt; ReadS ModifyVpnTunnelCertificate
+ReadS [ModifyVpnTunnelCertificate]
+(Int -&gt; ReadS ModifyVpnTunnelCertificate)
+-&gt; ReadS [ModifyVpnTunnelCertificate]
+-&gt; ReadPrec ModifyVpnTunnelCertificate
+-&gt; ReadPrec [ModifyVpnTunnelCertificate]
+-&gt; Read ModifyVpnTunnelCertificate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyVpnTunnelCertificate]
+$creadListPrec :: ReadPrec [ModifyVpnTunnelCertificate]
+readPrec :: ReadPrec ModifyVpnTunnelCertificate
+$creadPrec :: ReadPrec ModifyVpnTunnelCertificate
+readList :: ReadS [ModifyVpnTunnelCertificate]
+$creadList :: ReadS [ModifyVpnTunnelCertificate]
+readsPrec :: Int -&gt; ReadS ModifyVpnTunnelCertificate
+$creadsPrec :: Int -&gt; ReadS ModifyVpnTunnelCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681212888"><span id="local-6989586621681212890"><span id="local-6989586621681212892"><span class="annot"><span class="annottext">Int -&gt; ModifyVpnTunnelCertificate -&gt; ShowS
+[ModifyVpnTunnelCertificate] -&gt; ShowS
+ModifyVpnTunnelCertificate -&gt; String
+(Int -&gt; ModifyVpnTunnelCertificate -&gt; ShowS)
+-&gt; (ModifyVpnTunnelCertificate -&gt; String)
+-&gt; ([ModifyVpnTunnelCertificate] -&gt; ShowS)
+-&gt; Show ModifyVpnTunnelCertificate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyVpnTunnelCertificate] -&gt; ShowS
+$cshowList :: [ModifyVpnTunnelCertificate] -&gt; ShowS
+show :: ModifyVpnTunnelCertificate -&gt; String
+$cshow :: ModifyVpnTunnelCertificate -&gt; String
+showsPrec :: Int -&gt; ModifyVpnTunnelCertificate -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyVpnTunnelCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyVpnTunnelCertificate -&gt; Rep ModifyVpnTunnelCertificate x)
+-&gt; (forall x.
+    Rep ModifyVpnTunnelCertificate x -&gt; ModifyVpnTunnelCertificate)
+-&gt; Generic ModifyVpnTunnelCertificate
+forall x.
+Rep ModifyVpnTunnelCertificate x -&gt; ModifyVpnTunnelCertificate
+forall x.
+ModifyVpnTunnelCertificate -&gt; Rep ModifyVpnTunnelCertificate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModifyVpnTunnelCertificate x -&gt; ModifyVpnTunnelCertificate
+$cfrom :: forall x.
+ModifyVpnTunnelCertificate -&gt; Rep ModifyVpnTunnelCertificate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'ModifyVpnTunnelCertificate' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'dryRun', 'modifyVpnTunnelCertificate_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'vpnConnectionId', 'modifyVpnTunnelCertificate_vpnConnectionId' - The ID of the Amazon Web Services Site-to-Site VPN connection.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'vpnTunnelOutsideIpAddress', 'modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress' - The external IP address of the VPN tunnel.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#newModifyVpnTunnelCertificate"><span class="hs-identifier hs-type">newModifyVpnTunnelCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'vpnConnectionId'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'vpnTunnelOutsideIpAddress'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate</span></a></span><span>
+</span><span id="line-87"></span><span id="newModifyVpnTunnelCertificate"><span class="annot"><span class="annottext">newModifyVpnTunnelCertificate :: Text -&gt; Text -&gt; ModifyVpnTunnelCertificate
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#newModifyVpnTunnelCertificate"><span class="hs-identifier hs-var hs-var">newModifyVpnTunnelCertificate</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621681212883"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681212883"><span class="hs-identifier hs-var">pVpnConnectionId_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621681212882"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681212882"><span class="hs-identifier hs-var">pVpnTunnelOutsideIpAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">ModifyVpnTunnelCertificate' :: Maybe Bool -&gt; Text -&gt; Text -&gt; ModifyVpnTunnelCertificate
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate'</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVpnTunnelCertificate' :: Maybe Bool
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#%24sel%3AdryRun%3AModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:vpnConnectionId:ModifyVpnTunnelCertificate' :: Text
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#%24sel%3AvpnConnectionId%3AModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-var">vpnConnectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681212883"><span class="hs-identifier hs-var">pVpnConnectionId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:vpnTunnelOutsideIpAddress:ModifyVpnTunnelCertificate' :: Text
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#%24sel%3AvpnTunnelOutsideIpAddress%3AModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-var">vpnTunnelOutsideIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681212882"><span class="hs-identifier hs-var">pVpnTunnelOutsideIpAddress_</span></a></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#modifyVpnTunnelCertificate_dryRun"><span class="hs-identifier hs-type">modifyVpnTunnelCertificate_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="modifyVpnTunnelCertificate_dryRun"><span class="annot"><span class="annottext">modifyVpnTunnelCertificate_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ModifyVpnTunnelCertificate -&gt; f ModifyVpnTunnelCertificate
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#modifyVpnTunnelCertificate_dryRun"><span class="hs-identifier hs-var hs-var">modifyVpnTunnelCertificate_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpnTunnelCertificate -&gt; Maybe Bool)
+-&gt; (ModifyVpnTunnelCertificate
+    -&gt; Maybe Bool -&gt; ModifyVpnTunnelCertificate)
+-&gt; Lens
+     ModifyVpnTunnelCertificate
+     ModifyVpnTunnelCertificate
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681212879"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ModifyVpnTunnelCertificate' :: ModifyVpnTunnelCertificate -&gt; Maybe Bool
+</span><a href="#local-6989586621681212879"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681212879"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681212878"><span class="annot"><span class="annottext">s :: ModifyVpnTunnelCertificate
+</span><a href="#local-6989586621681212878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681212877"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681212877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnTunnelCertificate
+</span><a href="#local-6989586621681212878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVpnTunnelCertificate' :: Maybe Bool
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#%24sel%3AdryRun%3AModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681212877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the Amazon Web Services Site-to-Site VPN connection.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#modifyVpnTunnelCertificate_vpnConnectionId"><span class="hs-identifier hs-type">modifyVpnTunnelCertificate_vpnConnectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="modifyVpnTunnelCertificate_vpnConnectionId"><span class="annot"><span class="annottext">modifyVpnTunnelCertificate_vpnConnectionId :: (Text -&gt; f Text)
+-&gt; ModifyVpnTunnelCertificate -&gt; f ModifyVpnTunnelCertificate
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#modifyVpnTunnelCertificate_vpnConnectionId"><span class="hs-identifier hs-var hs-var">modifyVpnTunnelCertificate_vpnConnectionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpnTunnelCertificate -&gt; Text)
+-&gt; (ModifyVpnTunnelCertificate
+    -&gt; Text -&gt; ModifyVpnTunnelCertificate)
+-&gt; Lens
+     ModifyVpnTunnelCertificate ModifyVpnTunnelCertificate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681212876"><span class="annot"><span class="annottext">Text
+vpnConnectionId :: Text
+$sel:vpnConnectionId:ModifyVpnTunnelCertificate' :: ModifyVpnTunnelCertificate -&gt; Text
+</span><a href="#local-6989586621681212876"><span class="hs-identifier hs-var hs-var">vpnConnectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681212876"><span class="hs-identifier hs-var">vpnConnectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681212875"><span class="annot"><span class="annottext">s :: ModifyVpnTunnelCertificate
+</span><a href="#local-6989586621681212875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681212874"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681212874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnTunnelCertificate
+</span><a href="#local-6989586621681212875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpnConnectionId:ModifyVpnTunnelCertificate' :: Text
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#%24sel%3AvpnConnectionId%3AModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-var">vpnConnectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681212874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The external IP address of the VPN tunnel.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress"><span class="hs-identifier hs-type">modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress"><span class="annot"><span class="annottext">modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress :: (Text -&gt; f Text)
+-&gt; ModifyVpnTunnelCertificate -&gt; f ModifyVpnTunnelCertificate
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress"><span class="hs-identifier hs-var hs-var">modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpnTunnelCertificate -&gt; Text)
+-&gt; (ModifyVpnTunnelCertificate
+    -&gt; Text -&gt; ModifyVpnTunnelCertificate)
+-&gt; Lens
+     ModifyVpnTunnelCertificate ModifyVpnTunnelCertificate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681212873"><span class="annot"><span class="annottext">Text
+vpnTunnelOutsideIpAddress :: Text
+$sel:vpnTunnelOutsideIpAddress:ModifyVpnTunnelCertificate' :: ModifyVpnTunnelCertificate -&gt; Text
+</span><a href="#local-6989586621681212873"><span class="hs-identifier hs-var hs-var">vpnTunnelOutsideIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681212873"><span class="hs-identifier hs-var">vpnTunnelOutsideIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681212872"><span class="annot"><span class="annottext">s :: ModifyVpnTunnelCertificate
+</span><a href="#local-6989586621681212872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681212871"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681212871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnTunnelCertificate
+</span><a href="#local-6989586621681212872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpnTunnelOutsideIpAddress:ModifyVpnTunnelCertificate' :: Text
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#%24sel%3AvpnTunnelOutsideIpAddress%3AModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-var">vpnTunnelOutsideIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681212871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificateResponse</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621681212867"><span class="annot"><span class="annottext">request :: ModifyVpnTunnelCertificate -&gt; Request ModifyVpnTunnelCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ModifyVpnTunnelCertificate -&gt; Request ModifyVpnTunnelCertificate
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621681212863"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ModifyVpnTunnelCertificate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ModifyVpnTunnelCertificate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse ModifyVpnTunnelCertificate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ModifyVpnTunnelCertificate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ModifyVpnTunnelCertificate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681212860"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681212860"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681212859"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681212859"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681212858"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681212858"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe VpnConnection -&gt; Int -&gt; ModifyVpnTunnelCertificateResponse
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse%27"><span class="hs-identifier hs-var">ModifyVpnTunnelCertificateResponse'</span></a></span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VpnConnection -&gt; Int -&gt; ModifyVpnTunnelCertificateResponse)
+-&gt; Either String (Maybe VpnConnection)
+-&gt; Either String (Int -&gt; ModifyVpnTunnelCertificateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681212858"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpnConnection)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpnConnection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ModifyVpnTunnelCertificateResponse)
+-&gt; Either String Int
+-&gt; Either String ModifyVpnTunnelCertificateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681212860"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681212850"><span id="local-6989586621681212852"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate</span></a></span></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681212847"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate</span></a></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621681212843"><span class="annot"><span class="annottext">toHeaders :: ModifyVpnTunnelCertificate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyVpnTunnelCertificate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621681212838"><span class="annot"><span class="annottext">toPath :: ModifyVpnTunnelCertificate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyVpnTunnelCertificate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621681212834"><span class="annot"><span class="annottext">toQuery :: ModifyVpnTunnelCertificate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificate%27"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681212830"><span id="local-6989586621681212831"><span id="local-6989586621681212832"><span class="annot"><span class="annottext">Maybe Bool
+Text
+vpnTunnelOutsideIpAddress :: Text
+vpnConnectionId :: Text
+dryRun :: Maybe Bool
+$sel:vpnTunnelOutsideIpAddress:ModifyVpnTunnelCertificate' :: ModifyVpnTunnelCertificate -&gt; Text
+$sel:vpnConnectionId:ModifyVpnTunnelCertificate' :: ModifyVpnTunnelCertificate -&gt; Text
+$sel:dryRun:ModifyVpnTunnelCertificate' :: ModifyVpnTunnelCertificate -&gt; Maybe Bool
+</span><a href="#local-6989586621681212830"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ModifyVpnTunnelCertificate&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681212832"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VpnConnectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681212831"><span class="hs-identifier hs-var">vpnConnectionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VpnTunnelOutsideIpAddress&quot;</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681212830"><span class="hs-identifier hs-var">vpnTunnelOutsideIpAddress</span></a></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newModifyVpnTunnelCertificateResponse' smart constructor.</span><span>
+</span><span id="line-150"></span><span id="local-6989586621681212827"><span id="local-6989586621681212828"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpnTunnelCertificateResponse"><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse"><span class="hs-identifier hs-var">ModifyVpnTunnelCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpnTunnelCertificateResponse%27"><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse%27"><span class="hs-identifier hs-var">ModifyVpnTunnelCertificateResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AvpnConnection%3AModifyVpnTunnelCertificateResponse%27"><span class="annot"><span class="annottext">ModifyVpnTunnelCertificateResponse -&gt; Maybe VpnConnection
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#%24sel%3AvpnConnection%3AModifyVpnTunnelCertificateResponse%27"><span class="hs-identifier hs-var hs-var">vpnConnection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpnConnection.html#VpnConnection"><span class="hs-identifier hs-type">VpnConnection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyVpnTunnelCertificateResponse%27"><span class="annot"><span class="annottext">ModifyVpnTunnelCertificateResponse -&gt; Int
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#%24sel%3AhttpStatus%3AModifyVpnTunnelCertificateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681212821"><span id="local-6989586621681212823"><span class="annot"><span class="annottext">ModifyVpnTunnelCertificateResponse
+-&gt; ModifyVpnTunnelCertificateResponse -&gt; Bool
+(ModifyVpnTunnelCertificateResponse
+ -&gt; ModifyVpnTunnelCertificateResponse -&gt; Bool)
+-&gt; (ModifyVpnTunnelCertificateResponse
+    -&gt; ModifyVpnTunnelCertificateResponse -&gt; Bool)
+-&gt; Eq ModifyVpnTunnelCertificateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyVpnTunnelCertificateResponse
+-&gt; ModifyVpnTunnelCertificateResponse -&gt; Bool
+$c/= :: ModifyVpnTunnelCertificateResponse
+-&gt; ModifyVpnTunnelCertificateResponse -&gt; Bool
+== :: ModifyVpnTunnelCertificateResponse
+-&gt; ModifyVpnTunnelCertificateResponse -&gt; Bool
+$c== :: ModifyVpnTunnelCertificateResponse
+-&gt; ModifyVpnTunnelCertificateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681212813"><span id="local-6989586621681212815"><span id="local-6989586621681212817"><span id="local-6989586621681212819"><span class="annot"><span class="annottext">ReadPrec [ModifyVpnTunnelCertificateResponse]
+ReadPrec ModifyVpnTunnelCertificateResponse
+Int -&gt; ReadS ModifyVpnTunnelCertificateResponse
+ReadS [ModifyVpnTunnelCertificateResponse]
+(Int -&gt; ReadS ModifyVpnTunnelCertificateResponse)
+-&gt; ReadS [ModifyVpnTunnelCertificateResponse]
+-&gt; ReadPrec ModifyVpnTunnelCertificateResponse
+-&gt; ReadPrec [ModifyVpnTunnelCertificateResponse]
+-&gt; Read ModifyVpnTunnelCertificateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyVpnTunnelCertificateResponse]
+$creadListPrec :: ReadPrec [ModifyVpnTunnelCertificateResponse]
+readPrec :: ReadPrec ModifyVpnTunnelCertificateResponse
+$creadPrec :: ReadPrec ModifyVpnTunnelCertificateResponse
+readList :: ReadS [ModifyVpnTunnelCertificateResponse]
+$creadList :: ReadS [ModifyVpnTunnelCertificateResponse]
+readsPrec :: Int -&gt; ReadS ModifyVpnTunnelCertificateResponse
+$creadsPrec :: Int -&gt; ReadS ModifyVpnTunnelCertificateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681212807"><span id="local-6989586621681212809"><span id="local-6989586621681212811"><span class="annot"><span class="annottext">Int -&gt; ModifyVpnTunnelCertificateResponse -&gt; ShowS
+[ModifyVpnTunnelCertificateResponse] -&gt; ShowS
+ModifyVpnTunnelCertificateResponse -&gt; String
+(Int -&gt; ModifyVpnTunnelCertificateResponse -&gt; ShowS)
+-&gt; (ModifyVpnTunnelCertificateResponse -&gt; String)
+-&gt; ([ModifyVpnTunnelCertificateResponse] -&gt; ShowS)
+-&gt; Show ModifyVpnTunnelCertificateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyVpnTunnelCertificateResponse] -&gt; ShowS
+$cshowList :: [ModifyVpnTunnelCertificateResponse] -&gt; ShowS
+show :: ModifyVpnTunnelCertificateResponse -&gt; String
+$cshow :: ModifyVpnTunnelCertificateResponse -&gt; String
+showsPrec :: Int -&gt; ModifyVpnTunnelCertificateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyVpnTunnelCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyVpnTunnelCertificateResponse
+ -&gt; Rep ModifyVpnTunnelCertificateResponse x)
+-&gt; (forall x.
+    Rep ModifyVpnTunnelCertificateResponse x
+    -&gt; ModifyVpnTunnelCertificateResponse)
+-&gt; Generic ModifyVpnTunnelCertificateResponse
+forall x.
+Rep ModifyVpnTunnelCertificateResponse x
+-&gt; ModifyVpnTunnelCertificateResponse
+forall x.
+ModifyVpnTunnelCertificateResponse
+-&gt; Rep ModifyVpnTunnelCertificateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModifyVpnTunnelCertificateResponse x
+-&gt; ModifyVpnTunnelCertificateResponse
+$cfrom :: forall x.
+ModifyVpnTunnelCertificateResponse
+-&gt; Rep ModifyVpnTunnelCertificateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'ModifyVpnTunnelCertificateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'vpnConnection', 'modifyVpnTunnelCertificateResponse_vpnConnection' - Undocumented member.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'httpStatus', 'modifyVpnTunnelCertificateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#newModifyVpnTunnelCertificateResponse"><span class="hs-identifier hs-type">newModifyVpnTunnelCertificateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificateResponse</span></a></span><span>
+</span><span id="line-172"></span><span id="newModifyVpnTunnelCertificateResponse"><span class="annot"><span class="annottext">newModifyVpnTunnelCertificateResponse :: Int -&gt; ModifyVpnTunnelCertificateResponse
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#newModifyVpnTunnelCertificateResponse"><span class="hs-identifier hs-var hs-var">newModifyVpnTunnelCertificateResponse</span></a></span></span><span> </span><span id="local-6989586621681212804"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681212804"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">ModifyVpnTunnelCertificateResponse' :: Maybe VpnConnection -&gt; Int -&gt; ModifyVpnTunnelCertificateResponse
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse%27"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificateResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpnConnection:ModifyVpnTunnelCertificateResponse' :: Maybe VpnConnection
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#%24sel%3AvpnConnection%3AModifyVpnTunnelCertificateResponse%27"><span class="hs-identifier hs-var">vpnConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Maybe VpnConnection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyVpnTunnelCertificateResponse' :: Int
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#%24sel%3AhttpStatus%3AModifyVpnTunnelCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681212804"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#modifyVpnTunnelCertificateResponse_vpnConnection"><span class="hs-identifier hs-type">modifyVpnTunnelCertificateResponse_vpnConnection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpnConnection.html#VpnConnection"><span class="hs-identifier hs-type">VpnConnection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="modifyVpnTunnelCertificateResponse_vpnConnection"><span class="annot"><span class="annottext">modifyVpnTunnelCertificateResponse_vpnConnection :: (Maybe VpnConnection -&gt; f (Maybe VpnConnection))
+-&gt; ModifyVpnTunnelCertificateResponse
+-&gt; f ModifyVpnTunnelCertificateResponse
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#modifyVpnTunnelCertificateResponse_vpnConnection"><span class="hs-identifier hs-var hs-var">modifyVpnTunnelCertificateResponse_vpnConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpnTunnelCertificateResponse -&gt; Maybe VpnConnection)
+-&gt; (ModifyVpnTunnelCertificateResponse
+    -&gt; Maybe VpnConnection -&gt; ModifyVpnTunnelCertificateResponse)
+-&gt; Lens
+     ModifyVpnTunnelCertificateResponse
+     ModifyVpnTunnelCertificateResponse
+     (Maybe VpnConnection)
+     (Maybe VpnConnection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse%27"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681212803"><span class="annot"><span class="annottext">Maybe VpnConnection
+vpnConnection :: Maybe VpnConnection
+$sel:vpnConnection:ModifyVpnTunnelCertificateResponse' :: ModifyVpnTunnelCertificateResponse -&gt; Maybe VpnConnection
+</span><a href="#local-6989586621681212803"><span class="hs-identifier hs-var hs-var">vpnConnection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpnConnection
+</span><a href="#local-6989586621681212803"><span class="hs-identifier hs-var">vpnConnection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681212802"><span class="annot"><span class="annottext">s :: ModifyVpnTunnelCertificateResponse
+</span><a href="#local-6989586621681212802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse%27"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681212801"><span class="annot"><span class="annottext">Maybe VpnConnection
+</span><a href="#local-6989586621681212801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnTunnelCertificateResponse
+</span><a href="#local-6989586621681212802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpnConnection:ModifyVpnTunnelCertificateResponse' :: Maybe VpnConnection
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#%24sel%3AvpnConnection%3AModifyVpnTunnelCertificateResponse%27"><span class="hs-identifier hs-var">vpnConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpnConnection
+</span><a href="#local-6989586621681212801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#modifyVpnTunnelCertificateResponse_httpStatus"><span class="hs-identifier hs-type">modifyVpnTunnelCertificateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span id="modifyVpnTunnelCertificateResponse_httpStatus"><span class="annot"><span class="annottext">modifyVpnTunnelCertificateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ModifyVpnTunnelCertificateResponse
+-&gt; f ModifyVpnTunnelCertificateResponse
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#modifyVpnTunnelCertificateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">modifyVpnTunnelCertificateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpnTunnelCertificateResponse -&gt; Int)
+-&gt; (ModifyVpnTunnelCertificateResponse
+    -&gt; Int -&gt; ModifyVpnTunnelCertificateResponse)
+-&gt; Lens
+     ModifyVpnTunnelCertificateResponse
+     ModifyVpnTunnelCertificateResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse%27"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681212800"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ModifyVpnTunnelCertificateResponse' :: ModifyVpnTunnelCertificateResponse -&gt; Int
+</span><a href="#local-6989586621681212800"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681212800"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681212799"><span class="annot"><span class="annottext">s :: ModifyVpnTunnelCertificateResponse
+</span><a href="#local-6989586621681212799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse%27"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681212798"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681212798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnTunnelCertificateResponse
+</span><a href="#local-6989586621681212799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyVpnTunnelCertificateResponse' :: Int
+</span><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#%24sel%3AhttpStatus%3AModifyVpnTunnelCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681212798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621681212796"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.ModifyVpnTunnelCertificate.html#ModifyVpnTunnelCertificateResponse"><span class="hs-identifier hs-type">ModifyVpnTunnelCertificateResponse</span></a></span></span><span>
+</span><span id="line-190"></span></pre></body></html>
